@@ -1,0 +1,178 @@
+---
+const { chapter, base = '/' } = Astro.props;
+
+function paragraphs(text) {
+  return String(text || '').split(/\n{2,}|\r?\n/).map((line) => line.trim()).filter(Boolean);
+}
+
+function uniqueNodes(nodes = []) {
+  const seen = new Set();
+  return nodes.filter((node) => {
+    const key = `${node.title}\n${node.text}`;
+    if (!node.text || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+const units = (chapter.units || []).map((unit) => ({ ...unit, sourceNodes: uniqueNodes(unit.sourceNodes) }));
+const o = chapter.orientation || {};
+const c = chapter.compression || {};
+---
+<section class={`politicsStudy subject-${chapter.subject}`}>
+  <aside class="politicsRail" aria-label="本章路径">
+    <a class="politicsBack" href={`${base}politics/`}>← 政治</a>
+    <span>{chapter.subjectMeta.label}</span>
+    <strong>{chapter.subjectMeta.shape}</strong>
+    <nav>
+      <a href="#orientation">先定位</a>
+      {units.map((unit, index) => <a href={`#unit-${index + 1}`}>{index + 1}. {unit.title}</a>)}
+      <a href="#chapter-close">整章收口</a>
+    </nav>
+  </aside>
+
+  <div class="politicsMain">
+    <section class="politicsOrientation" id="orientation">
+      <p class="politicsMicro">先定位 · 不背</p>
+      {o.context && <p class="politicsContext">{o.context}</p>}
+      <h2>{o.question || chapter.title}</h2>
+      {o.answer && <p class="politicsLead">{o.answer}</p>}
+      {o.chain?.length > 0 && (
+        <div class="politicsChain">
+          {o.chain.map((item, index) => <div><span>{index + 1}</span><p>{item}</p></div>)}
+        </div>
+      )}
+      {o.attention && <aside class="politicsAttention">这一章先抓：{o.attention}</aside>}
+    </section>
+
+    {units.map((unit, index) => {
+      const t = unit.teaching || {};
+      return (
+        <section class="politicsUnit" id={`unit-${index + 1}`} data-politics-unit>
+          <header class="politicsUnitHead">
+            <p class="politicsMicro">{index + 1} / {units.length} · 现在学这个</p>
+            <h2>{unit.title}</h2>
+            {t.bridge && <p class="politicsBridge">{t.bridge}</p>}
+            {t.question && <div class="politicsQuestion"><span>这一段真正要解决</span><strong>{t.question}</strong></div>}
+            {t.answer && <p class="politicsAnswer">{t.answer}</p>}
+          </header>
+
+          {(t.beats?.length > 0 || t.conditions?.length > 0 || t.failureCauses?.length > 0 || t.gains?.length > 0 || t.process || t.turningPoint || t.program || t.hierarchy) && (
+            <details class="politicsGuide">
+              <summary>先看这段怎么串</summary>
+              <div class="politicsGuideBody">
+                {t.beats?.map((beat) => <article><b>{beat.label || beat.title || '关系'}</b>{beat.problem && <p>{beat.problem}</p>}{beat.relation && <small>{beat.relation}</small>}</article>)}
+                {t.conditions?.length > 0 && <article><b>为什么会出现</b><ul>{t.conditions.map((item) => <li>{item}</li>)}</ul></article>}
+                {t.program && <article><b>提出了什么</b><p>{t.program}</p></article>}
+                {t.process && <article><b>怎么发展</b><p>{t.process}</p></article>}
+                {t.turningPoint && <article><b>转折</b><p>{t.turningPoint}</p></article>}
+                {t.failureCauses?.length > 0 && <article><b>为什么失败</b><ul>{t.failureCauses.map((item) => <li>{item}</li>)}</ul></article>}
+                {t.gains?.length > 0 && <article><b>改变了什么</b><ul>{t.gains.map((item) => <li>{item}</li>)}</ul></article>}
+                {t.hierarchy && <article><b>这句话在体系里的身份</b>{Object.entries(t.hierarchy).map(([key, value]) => <p><span>{key}</span> {String(value)}</p>)}</article>}
+              </div>
+            </details>
+          )}
+
+          <section class="politicsSource" id={`source-${unit.unitId}`}>
+            <header><div><p class="politicsMicro">乘风 · 主线</p><h3>直接学正文</h3></div><span>{unit.sourceNodes.length ? `${unit.sourceNodes.length} 段` : '暂未解析'}</span></header>
+            {unit.sourceNodes.length > 0 ? (
+              <div class="politicsSourceFlow">
+                {unit.sourceNodes.map((node) => <article>{node.title && node.title !== node.id && <h4>{node.title}</h4>}{paragraphs(node.text).map((p) => <p>{p}</p>)}</article>)}
+              </div>
+            ) : (
+              <div class="politicsBlocked"><strong>这段乘风正文当前没有可靠解析出来。</strong><p>不拿旧资料或 AI 重写内容顶上；先保留已确认的导学。</p></div>
+            )}
+          </section>
+
+          <details class="politicsClosure">
+            <summary>学完了 · 20 秒闭合</summary>
+            <div>
+              <p>{t.closure || t.question || '闭卷说出刚才这段最核心的关系。'}</p>
+              {t.boundaries?.length > 0 && <ul>{t.boundaries.map((item) => <li>{item}</li>)}</ul>}
+            </div>
+          </details>
+
+          <section class="politicsQuiz" data-politics-quiz>
+            <header><div><p class="politicsMicro">肖1000 · 验证</p><h3>学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
+            {unit.questions.length > 0 ? (
+              <div class="politicsQuizDeck">
+                {unit.questions.map((q, qIndex) => <article class={`politicsQ ${qIndex === 0 ? 'active' : ''}`} data-politics-question data-answer={q.answer} data-index={qIndex}>
+                  <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
+                  <h4>{q.stem}</h4>
+                  <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
+                  <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
+                  <div class="politicsResult" data-politics-result hidden></div>
+                  <div class="politicsRepair" data-politics-repair hidden>
+                    <p class="politicsMicro">只修最小缺口</p>
+                    {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0,3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
+                    <a href={`#source-${unit.unitId}`}>回乘风刚才的位置 ↑</a>
+                  </div>
+                  {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
+                  <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
+                </article>)}
+              </div>
+            ) : unit.questionRefCount > 0 ? (
+              <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；正文学习不受影响。</p></div>
+            ) : null}
+          </section>
+
+          {t.next && <p class="politicsNextBridge">接下来：{t.next}</p>}
+        </section>
+      );
+    })}
+
+    <section class="politicsChapterClose" id="chapter-close">
+      <p class="politicsMicro">整章收口</p>
+      <h2>把这一章重新压回一条主线</h2>
+      {c.chain?.length > 0 && <div class="politicsFinalChain">{c.chain.map((item) => <span>{item}</span>)}</div>}
+      {c.boundaries?.length > 0 && <ul>{c.boundaries.map((item) => <li>{item}</li>)}</ul>}
+      {c.prompt && <p class="politicsReviewPrompt">{c.prompt}</p>}
+    </section>
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
+    const cards = [...quiz.querySelectorAll('[data-politics-question]')];
+    const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
+    cards.forEach((card, index) => {
+      const selected = new Set();
+      const answer = String(card.dataset.answer || '').split('').sort().join('');
+      const result = card.querySelector('[data-politics-result]');
+      const repair = card.querySelector('[data-politics-repair]');
+      const submit = card.querySelector('[data-politics-submit]');
+      const next = card.querySelector('[data-politics-next]');
+      const uncertain = card.querySelector('[data-politics-uncertain]');
+      card.querySelectorAll('[data-politics-option]').forEach((button) => button.addEventListener('click', () => {
+        const label = button.dataset.politicsOption;
+        if (selected.has(label)) selected.delete(label); else selected.add(label);
+        button.classList.toggle('selected', selected.has(label));
+      }));
+      uncertain?.addEventListener('click', () => uncertain.classList.toggle('active'));
+      submit?.addEventListener('click', () => {
+        const choice = [...selected].sort().join('');
+        if (!choice) return;
+        const correct = choice === answer;
+        result.hidden = false;
+        result.className = `politicsResult ${correct ? 'correct' : 'wrong'}`;
+        result.textContent = correct ? '✓ 对，继续。' : `你的答案 ${choice} · 正确答案 ${answer}`;
+        repair.hidden = correct;
+        next.hidden = false;
+        card.querySelectorAll('[data-politics-option]').forEach((button) => {
+          button.disabled = true;
+          if (answer.includes(button.dataset.politicsOption)) button.classList.add('answer');
+        });
+        submit.disabled = true;
+      });
+      next?.addEventListener('click', () => {
+        if (index < cards.length - 1) { show(index + 1); cards[index + 1].scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        else { next.textContent = '这一组完成 ✓'; next.disabled = true; }
+      });
+    });
+  });
+</script>
+
+<style>
+  .politicsStudy{display:grid;grid-template-columns:210px minmax(0,880px);gap:34px;align-items:start;justify-content:center}.politicsRail{position:sticky;top:82px;display:flex;flex-direction:column;gap:7px;padding:16px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.politicsRail>span{color:var(--study-green);font-size:10px;font-weight:850}.politicsRail>strong{font-size:14px}.politicsRail nav{display:grid;gap:3px;margin-top:8px}.politicsRail a{padding:7px 9px;border-radius:8px;color:var(--study-muted);font-size:12px;text-decoration:none}.politicsRail a:hover{background:var(--study-green-soft);color:var(--study-green)}.politicsBack{padding-left:0!important}.politicsMain{min-width:0}.politicsMicro{margin:0 0 7px;color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsOrientation,.politicsChapterClose{padding:28px;border:1px solid var(--study-line);border-radius:18px;background:#fff;box-shadow:var(--study-shadow)}.politicsContext,.politicsBridge{color:var(--study-muted);line-height:1.7}.politicsOrientation h2,.politicsChapterClose h2{margin:5px 0 10px;font-size:26px;line-height:1.35}.politicsLead{font-size:16px;line-height:1.8}.politicsChain{display:grid;gap:7px;margin-top:19px}.politicsChain>div{display:grid;grid-template-columns:27px 1fr;gap:9px}.politicsChain span{display:grid;width:26px;height:26px;place-items:center;border-radius:50%;background:var(--study-green-soft);color:var(--study-green);font-size:11px;font-weight:850}.politicsChain p{margin:2px 0;color:var(--study-muted);line-height:1.6}.politicsAttention{margin-top:18px;padding:12px 14px;border-radius:10px;background:#fff8e8;color:#6b4e16;font-size:13px;line-height:1.65}.politicsUnit{padding:40px 0 8px;border-bottom:1px solid var(--study-line);scroll-margin-top:82px}.politicsUnitHead h2{margin:0 0 10px;font-size:27px}.politicsQuestion{margin-top:16px;padding:14px 16px;border-left:4px solid var(--study-green);border-radius:0 10px 10px 0;background:#f5f8f6}.politicsQuestion span{display:block;margin-bottom:5px;color:var(--study-faint);font-size:10px}.politicsQuestion strong{line-height:1.6}.politicsAnswer{padding:0 3px;color:#33463e;line-height:1.75}.politicsGuide,.politicsClosure,.politicsExplain{margin-top:16px;border:1px solid var(--study-line);border-radius:12px;background:#fff}.politicsGuide summary,.politicsClosure summary,.politicsExplain summary{cursor:pointer;padding:11px 14px;font-size:13px;font-weight:760}.politicsGuideBody{display:grid;gap:8px;padding:0 12px 12px}.politicsGuideBody article{padding:12px;border-radius:10px;background:#f7f8f7}.politicsGuideBody p,.politicsGuideBody li{margin:5px 0;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsGuideBody small{color:var(--study-faint);line-height:1.5}.politicsGuideBody article p span{color:var(--study-green);font-size:10px;font-weight:800}.politicsSource,.politicsQuiz{margin-top:24px}.politicsSource>header,.politicsQuiz>header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.politicsSource h3,.politicsQuiz h3{margin:0;font-size:19px}.politicsSource>header>span,.politicsQuiz>header>span{color:var(--study-faint);font-size:10px}.politicsSourceFlow{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}.politicsSourceFlow article{padding:18px 20px;border-bottom:1px solid #edf0ee}.politicsSourceFlow article:last-child{border-bottom:0}.politicsSourceFlow h4{margin:0 0 9px}.politicsSourceFlow p{margin:8px 0;color:#26342e;font-size:14px;line-height:1.82;white-space:pre-wrap}.politicsBlocked{padding:16px;border:1px dashed var(--study-line-strong);border-radius:12px;background:#fafbfa}.politicsBlocked p{margin:5px 0 0;color:var(--study-faint);font-size:12px}.politicsClosure>div{padding:0 14px 12px}.politicsClosure p,.politicsClosure li{color:var(--study-muted);font-size:13px;line-height:1.65}.politicsQ{display:none;padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.politicsQ.active{display:block}.politicsQMeta{display:flex;justify-content:space-between;color:var(--study-faint);font-size:10px}.politicsQ h4{font-size:16px;line-height:1.65}.politicsOptions{display:grid;gap:8px}.politicsOptions button{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:11px 12px;border:1px solid var(--study-line);border-radius:10px;background:#fff;text-align:left;cursor:pointer}.politicsOptions button:hover:not(:disabled),.politicsOptions button.selected{border-color:#9cc4b5;background:#f3f8f6}.politicsOptions button.answer{border-color:#8db9aa;background:#edf7f2}.politicsOptions b{color:var(--study-green)}.politicsActions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.politicsActions button,.politicsNextQ{padding:8px 12px;border:1px solid var(--study-line);border-radius:9px;background:#fff;cursor:pointer}.politicsActions .primary{background:var(--study-green);color:#fff;border-color:var(--study-green)}.politicsActions [data-politics-uncertain].active{background:#fff8e8;border-color:#e7d59d}.politicsResult{margin-top:12px;padding:10px 12px;border-radius:9px;font-weight:760}.politicsResult.correct{background:#edf7f2;color:#176b4f}.politicsResult.wrong{background:#fff0ef;color:#8d4944}.politicsRepair{margin-top:10px;padding:13px;border-radius:10px;background:#fff8e8}.politicsRepair li,.politicsRepair p{font-size:12px;line-height:1.6}.politicsRepair a{color:#6b4e16;font-size:12px;font-weight:760}.politicsExplain>p{padding:0 14px 12px;color:var(--study-muted);font-size:12px;line-height:1.65}.politicsNextQ{margin-top:10px}.politicsNextBridge{margin:18px 0 0;padding:12px 14px;border-radius:10px;background:#f5f8f6;color:#36584b;font-size:13px}.politicsChapterClose{margin-top:34px}.politicsFinalChain{display:grid;gap:7px}.politicsFinalChain span{padding:10px 12px;border-radius:9px;background:#f6f8f7;color:#40544c;font-size:13px}.politicsChapterClose li,.politicsReviewPrompt{color:var(--study-muted);line-height:1.65}.politicsReviewPrompt{margin-top:16px;padding-top:14px;border-top:1px solid var(--study-line)}
+  @media(max-width:850px){.politicsStudy{grid-template-columns:1fr}.politicsRail{position:static}.politicsRail nav{grid-template-columns:repeat(2,minmax(0,1fr))}.politicsOrientation,.politicsChapterClose{padding:22px}.politicsUnitHead h2{font-size:23px}}
+</style>
