@@ -48,6 +48,7 @@ English Current is intentionally split by responsibility:
 - `content/english/manifest.json` — concise Current owner/readiness map;
 - `content/english/provenance.json` — source, repair, migration, and identity evidence;
 - `content/english/LEARNING_CONTRACT.md` — learner-facing strategy and interaction semantics;
+- `content/english/continuation.json` — durable shared-work cursor for the active English learning/runtime lane;
 - `content/english/source/` — canonical exam/source assets;
 - `content/english/external/` — private external-reading inventory and future materialized assets.
 
@@ -60,6 +61,8 @@ Current canonical exam assets include:
 Astro Reading remains source-gated to Current assets only. English content and interaction upgrades should optimize the user's real path toward English I 80–85+ and objective 60/60, not maximize displayed metadata or governance complexity.
 
 External reading is private learner material. It may include TPO, IELTS, and later periodicals or other unseen texts. Its main value is fresh input and diagnostic transfer, especially when exam-question memory makes reused true-exam material less informative.
+
+Fresh Chats continuing English learning/runtime work should read `content/english/continuation.json` first, then `LEARNING_CONTRACT.md` and only the smallest Current module/source owners needed by the active stage.
 
 ### LexicalOS
 
