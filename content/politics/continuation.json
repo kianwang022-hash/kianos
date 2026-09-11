@@ -20,27 +20,32 @@
     "KianOS shared-lane Continue capability added to Politics: last opened chapter stays private in browser state and Politics home resumes it without writing personal progress into shared Current",
     "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat",
     "Marxism K03 frozen pilot authoritative 15-question ownership revalidated",
-    "Marxism K03 15/15 question-to-node evidence completed as 16 node edges across N01-N04, with X1000-MARX-M-048 as the only multi-node question"
+    "Marxism K03 15/15 question-to-node evidence completed as 16 node edges across N01-N04, with X1000-MARX-M-048 as the only multi-node question",
+    "Politics Xiao1000 source truth losslessly materialized as 1172 records across 56 deterministic shards with canonical digest parity",
+    "Politics source-node truth losslessly materialized as 19528 records across 302 deterministic scoped shards with canonical digest parity",
+    "Politics Current runtime cut over to deterministic scoped question/node readers; the 5.97 MB Xiao bank and 21.4 MB node registry are no longer normal runtime dependencies",
+    "Scoped-source acceptance proved Marxism ch02/K03 still resolves all 15 K03 questions and Chengfeng C02 source nodes while both source monoliths are physically unavailable",
+    "K03 Knowledge closure audit proved the four canonical nodes, critical source relations, 15/15 question projection, adaptive Repair boundary and candidate-only Memory boundary"
   ],
   "current_stage": "MODULE_ACCEPTANCE_BEFORE_LEARNER_TEST",
   "current_subject": "MARX_C02_K03_PILOT",
   "acceptance_target": "Apply repository-root LEARNING_ACCEPTANCE.md literally. Politics K03 reaches Module ready for learner test only when S/K/L/P/R/E pass on current main@HEAD. U remains pending until real learner use; build success, content volume, page existence, routing counts or simulated QA may not substitute for a gate.",
   "acceptance_gates": {
     "S": {
-      "status": "PARTIAL",
-      "reason": "K03 owner scope, stable question IDs and source-priority boundary are reliable, but Current consumers still depend on oversized monolithic Politics source files instead of deterministic scoped access."
+      "status": "PASS",
+      "reason": "K03 pilot has one authoritative frozen owner, stable source/question identities, explicit Current-vs-legacy semantics, lossless deterministic scoped source access, and a behavioral acceptance that loads the real K03 path with both large source monoliths unavailable. Residual OCR-review markers remain explicit; none blocks the critical K03 teaching facts."
     },
     "K": {
-      "status": "PARTIAL",
-      "reason": "K03 has a coherent four-node learning model and question evidence, but canonical teaching semantics are still distributed across chapter projection, source registry and repair sidecars and require one content-closure audit."
+      "status": "PASS",
+      "reason": "K03 has exactly four canonical learning nodes with source-backed teaching descendants covering identity/struggle and their relation, developmental roles, universality/specificity, and imbalance/method. The 15-question evidence projects onto these same owners; Repair remains adaptive rather than a second textbook, and Memory remains candidate-only. The remaining needs-review rows are non-blocking containers/method labels or a table whose high-value semantics are independently supported by verified K03/Suyi evidence."
     },
     "L": {
       "status": "PARTIAL",
-      "reason": "The intended first-learning path is Chengfeng-centered continuous learning → short closure → Xiao1000 validation → smallest repair, but review/transfer and exit behavior must be rechecked against the acceptance standard rather than assumed from existing contracts."
+      "reason": "The intended first-learning path is Chengfeng-centered continuous learning → short closure → Xiao1000 validation → smallest repair, but the actual K03 learner-facing unit boundary and timing of its 15 validation questions still need causal-path acceptance."
     },
     "P": {
       "status": "PARTIAL",
-      "reason": "A learner-facing chapter projection exists, but K03 must be accepted as a natural low-friction first-learning journey rather than merely as content rendered inside the larger chapter."
+      "reason": "A learner-facing chapter projection exists, but K03 is embedded in the larger S01 projection; it must be verified that the learner sees and acts on K03 at the natural point rather than only after an oversized section."
     },
     "R": {
       "status": "PARTIAL",
@@ -57,19 +62,21 @@
   },
   "source_architecture_target": {
     "reference_pattern": "Follow the mature Xizong Question Truth pattern: immutable stable IDs, deterministic scoped shards, manifest/provenance separation, and no global repository search or full-bank scan for exact-ID consumption.",
-    "politics_adaptation": "Do not mechanically copy Xizong's year/25-question shard key if Politics has a better native partition. Preserve all source facts losslessly, add deterministic locator/manifest semantics, and make Natural Unit/runtime consumers read only the necessary question/source shards.",
-    "current_debt": [
-      "content/politics/source/xiao_2027_questions.jsonl is about 5.97 MB and is currently consumed as one global bank",
-      "content/politics/source/source_node_registry.v2.jsonl is about 21.4 MB and is currently consumed as one global registry",
-      "question truth, semantic routing, explanations/provenance and private learner evidence must remain distinct ownership layers"
+    "politics_adaptation": "Politics now uses deterministic subject/kind/25-number shards for Xiao source records and source/subject/chapter-or-page shards for source nodes. The large monoliths remain migration/recovery inputs during parity protection but are not Current learner-runtime APIs.",
+    "migration_status": "CURRENT_RUNTIME_CUTOVER_COMPLETE_K03_BEHAVIORALLY_PROVEN",
+    "resolved_debt": [
+      "1172/1172 Xiao source records preserved, including material records, across 56 shards with canonical digest parity",
+      "19528/19528 source-node records preserved across 302 shards with canonical digest parity",
+      "Current Politics runtime resolves exact questions and source owners from scoped shards rather than scanning 5.97 MB / 21.4 MB monoliths",
+      "question truth, semantic routing, explanations/provenance and private learner evidence remain distinct ownership layers"
     ],
-    "migration_rule": "Any split must be lossless and auditable: old Current truth → deterministic shards/locator/manifest → exact count/ID/content reconciliation → runtime/audit cutover → monolith removed from Current runtime ownership only after parity is proven."
+    "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision and is not required for K03 learner acceptance once normal runtime dependency is zero."
   },
-  "next": "First, design and execute the Politics source-consumption migration by reusing the Xizong deterministic-shard principles for Xiao1000 and the Chengfeng source registry without changing learning semantics. Second, re-audit K03 gate-by-gate under S/K/L/P/R/E and fix only defects that block the real learner journey. Stop engineering when S-E pass and declare only 'Module ready for learner test'; then move to real learner validation U.",
+  "next": "Audit K03 Learning and Projection together: verify the real first-learning unit boundary, where the K03 Chengfeng source appears, when the 15 Xiao1000 questions enter, whether the 20-second closure occurs at the natural point, and whether the learner can continue the larger chapter without cardization or premature testing. Fix only a demonstrated learner-flow defect. Then proceed to Runtime/Evidence acceptance.",
   "validation_focus": [
-    "Can K03 be loaded and audited from its exact source/question scope without scanning multi-megabyte global banks?",
-    "Is K03 canonical content complete enough for first learning without becoming a second AI textbook?",
     "Does first learning remain continuous and Chengfeng-centered rather than cardized or pre-tested?",
+    "Are K03's four relations learned as one natural conceptual unit rather than hidden inside an oversized S01 checkpoint?",
+    "Do K03 Xiao1000 questions enter immediately after sufficient K03 learning rather than after unrelated later Chengfeng content?",
     "At each moment, does the learner see only the next useful layer rather than backend structure?",
     "Can clean stable work pass with zero manufactured debt?",
     "Can Wrong/Uncertain evidence route to the smallest useful K03 node repair and return naturally?",
