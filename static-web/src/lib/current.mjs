@@ -120,22 +120,35 @@ function buildEnglishSnapshot() {
     const manifest = JSON.parse(manifestText);
     const bank = JSON.parse(bankText);
     const corpus = JSON.parse(corpusText);
-    const owners = Object.fromEntries(
-      (Array.isArray(manifest.materialized_sources) ? manifest.materialized_sources : [])
-        .filter((row) => row?.name)
-        .map((row) => [row.name, row])
-    );
+    const sourceIdentity = manifest.source_identity || {};
+    const ownerPaths = manifest.owners || {};
+    const owners = {
+      question_bank: {
+        owner_path: ownerPaths.question_bank || '',
+        sha256: sourceIdentity.question_bank_sha256 || ''
+      },
+      reading_corpus: {
+        owner_path: ownerPaths.reading_corpus || '',
+        sha256: sourceIdentity.reading_corpus_sha256 || ''
+      }
+    };
 
     const actualHashes = {
       question_bank: sha256(bankText),
       reading_corpus: sha256(corpusText)
     };
     const expectedHashes = {
-      question_bank: owners.question_bank?.sha256 || '',
-      reading_corpus: owners.reading_corpus?.sha256 || ''
+      question_bank: owners.question_bank.sha256,
+      reading_corpus: owners.reading_corpus.sha256
     };
     const issues = [];
 
+    if (manifest.status !== 'CURRENT_READY') issues.push('MANIFEST_NOT_CURRENT_READY');
+    if (manifest.readiness?.pass !== true) issues.push('MANIFEST_READINESS_NOT_PASSING');
+    if (manifest.runtime_contract?.astro_reads_current_only !== true) issues.push('MANIFEST_ASTRO_CURRENT_ONLY_NOT_CONFIRMED');
+    if (manifest.runtime_contract?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
+    if (ownerPaths.question_bank !== CURRENT.englishQuestionBank) issues.push('MANIFEST_QUESTION_BANK_OWNER_MISMATCH');
+    if (ownerPaths.reading_corpus !== CURRENT.englishReadingCorpus) issues.push('MANIFEST_READING_CORPUS_OWNER_MISMATCH');
     if (!expectedHashes.question_bank) issues.push('MANIFEST_QUESTION_BANK_HASH_MISSING');
     if (!expectedHashes.reading_corpus) issues.push('MANIFEST_READING_CORPUS_HASH_MISSING');
     if (expectedHashes.question_bank && actualHashes.question_bank !== expectedHashes.question_bank) {
@@ -144,8 +157,6 @@ function buildEnglishSnapshot() {
     if (expectedHashes.reading_corpus && actualHashes.reading_corpus !== expectedHashes.reading_corpus) {
       issues.push('READING_CORPUS_HASH_MISMATCH');
     }
-    if (manifest.current_promotion_allowed !== true) issues.push('MANIFEST_PROMOTION_NOT_ALLOWED');
-    if (manifest.gates?.pass !== true) issues.push('MANIFEST_GATE_NOT_PASSING');
 
     return {
       status: issues.length ? 'invalid' : 'ready',
@@ -283,8 +294,8 @@ export function loadReading() {
       manifest: CURRENT.englishManifest
     },
     sourceHashes: {
-      passageOwner: owners.reading_corpus?.sha256 || sha256(stableJson(passage || paragraphs)),
-      questionOwner: owners.question_bank?.sha256 || sha256(stableJson(questions)),
+      passageOwner: owners.reading_corpus.sha256 || sha256(stableJson(passage || paragraphs)),
+      questionOwner: owners.question_bank.sha256 || sha256(stableJson(questions)),
       renderedObject: sha256(stableJson({ set, passage, questions }))
     },
     manifestStatus: manifest.status || ''
