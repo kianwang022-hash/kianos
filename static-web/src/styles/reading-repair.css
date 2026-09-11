@@ -64,6 +64,11 @@
 .portedReadingSessionActions button{min-height:30px;padding:5px 9px;border:1px solid #cbd9d4;border-radius:7px;background:#fff;color:#456b60;font-size:9px;font-weight:800}
 .portedReadingSessionActions [data-reading-session-review],.portedReadingSessionActions [data-reading-session-finish]{border-color:#8fb8a9;background:#edf6f2;color:#2f6254}
 
+.portedReadingSessionHandoff[hidden]{display:none!important}
+.portedReadingSessionHandoff{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:7px;padding-top:7px;border-top:1px dashed #d8e2de}
+.portedReadingSessionHandoff button{min-height:28px;padding:4px 8px;border:1px solid #c3d7cf;border-radius:7px;background:#f6faf8;color:#3f675b;font-size:9px;font-weight:800}
+.portedReadingSessionHandoff small{color:#7e8c87;font-size:8px}
+
 @media(max-width:760px){
   .portedReadingCoachContrast{grid-template-columns:1fr}
   .portedReadingPassageReview{margin:10px 8px}
