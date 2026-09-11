@@ -4,13 +4,13 @@
   "authority": "CHAT_APPROVED",
   "lane": "xizong_learning_runtime",
   "role": "CURRENT_WORK_CURSOR_ONLY",
-  "rule": "This file records where shared Xizong learning/runtime work should continue. It is not medical Core, not learner state, and not a substitute for study-policy.json. A fresh Chat should read this cursor together with the referenced Current owners before proposing new Xizong work.",
+  "rule": "This file records where shared Xizong learning/runtime work should continue. It is not medical Core, not learner state, and not a substitute for study-policy.json or acceptance-status.json. Engineering State must never be interpreted as the learner's personal study stage.",
   "current_system": {
     "canonical_id": "A1",
     "system_id": "circulation",
-    "reason": "A1 circulation is the newly re-audited second System-level official-question scope used to validate that the A2 System Exit pattern generalizes without medical inference in Astro."
+    "reason": "Repository-level LEARNING_ACCEPTANCE re-audit found that A1's deterministic 376-question Source scope is ready, but its first-learning module cannot honestly advance to System Exit because Current A1 Learning/Projection/Runtime gates are blocked upstream."
   },
-  "current_stage": "A1_CIRCULATION_SCOPE_REAUDIT_COMPLETE_RUNTIME_GENERALIZED",
+  "current_stage": "LEARNING_ACCEPTANCE_REAUDIT_A1_K_NEXT",
   "completed_shared_work": [
     "Global 270+ study strategy frozen in study-policy.json: first pass, second pass, late review, mastery ladder, question reuse, Memory admission, compression, and lossless scheduling.",
     "A2 respiratory 12/12 Block first-pass learning support and 62/62 Logic Group goal/closure cues completed.",
@@ -24,28 +24,26 @@
     "A2 System Exit runtime is wired in Astro: explicit closed-book System Recall mode, learner-selected full-paper holdout gate, one-question-at-a-time official-question sweep, X-question multi-select support, correct-and-clear fast pass, correct-but-uncertain marking, automatic Wrong marking, W/U-only repair expansion, reviewed-relation-only precise back-link display, detailed W/U Chat export, and a post-sweep short System Recall entry.",
     "Full-paper holdout is private browser-global learner state rather than shared Current. System sweeps exclude the years stored in that browser state; the learner-specific year values are not persisted in shared governance.",
     "KianOS shared baseline Continue is now explicit at the Xizong lane level: the Xizong home resumes the most recently opened Current System or Block from private browser state, while Block/System Exit Study Packet and Chat return-plan remain the existing Return/Handoff path rather than being duplicated at lane home.",
-    "Current Xizong/whole-site runtime changes have passed the repository Astro build/CI after the shared-baseline integration.",
     "A1 circulation System membership was re-audited and restored as exactly 376 Current official Question Truth IDs. Recovery is deterministic: 342 unambiguous exact lecture-scope owners plus the only collision-group subset compatible with the later frozen 376-owner range (19 physiological-hemostasis + 15 cardiac-pump questions); later HLK Block owner counts independently exclude the competing blood-characteristic and renal-tubule groups. The restored inventory SHA256 is ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
-    "System Exit presentation is generalized across Current Systems: System title and question-range copy no longer hard-code respiratory, while the existing shared browser-global holdout state continues to filter questions by official exam year."
+    "System Exit presentation was generalized across Current Systems without persisting learner-specific holdout years in shared Current.",
+    "Root LEARNING_ACCEPTANCE.md was re-read on current main and Xizong acceptance-status.json was created. Build green, page existence, Current labels and question counts are now explicitly forbidden as substitutes for S/K/L/P/R/E/U gate evidence.",
+    "The acceptance baseline records A1 as S PASS, K PENDING, L/P/R FAIL, E PENDING, U USER_PENDING; A2 as S PASS, L PASS, K/P/R/E PENDING, U USER_PENDING. This replaces the previous premature REAL_A1_SYSTEM_EXIT_VALIDATION cursor."
   ],
   "current_owners_to_read": [
+    "LEARNING_ACCEPTANCE.md",
+    "content/xizong/knowledge/learner/acceptance-status.json",
+    "content/xizong/knowledge/manifest.json",
     "content/xizong/knowledge/learner/study-policy.json",
-    "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
-    "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
     "content/xizong/knowledge/systems/a1-circulation/system.json",
-    "content/xizong/knowledge/systems/a2-respiratory/system.json",
-    "content/xizong/questions/manifest.json",
-    "content/xizong/question-relations/README.md",
-    "static-web/src/lib/xizongQuestions.mjs",
-    "static-web/src/components/XizongSystemExitRuntime.astro",
-    "static-web/src/pages/xizong/[system]/index.astro"
+    "content/xizong/knowledge/systems/a1-circulation/blocks/",
+    "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
+    "static-web/src/lib/xizong.mjs"
   ],
   "next_action": {
-    "stage": "REAL_A1_SYSTEM_EXIT_VALIDATION",
-    "instruction": "Use the Current A1 circulation exit path as a learner: closed-book System Recall -> browser-global full-paper holdout -> enter the remaining circulation System sweep -> verify fast-pass and Wrong/Uncertain handling -> export a real W/U packet to Chat -> finish with a short System Recall. Do not add another learning feature merely because A1 scope now exists.",
-    "question_scope": "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
-    "success_condition": "A1 expands to exactly 376 Current Question Truth IDs, the browser-global holdout removes its stored full-paper years before consumption, no respiratory-specific presentation leaks into A1, and Wrong/Uncertain evidence reaches Chat without guessed Question-to-KP mapping.",
-    "validation_note": "A1 membership has been deterministically re-audited against historical source-coverage/taxonomy evidence and later HLK owner-range evidence. This branch runs a full Astro build before the transition is fast-forwarded to main; real learner use remains the stronger interaction-level evidence."
+    "stage": "A1_K_CONTENT_CLOSURE_REAUDIT",
+    "instruction": "Audit the 12 canonical A1 circulation Block owners / 312 stable KPs against the K gate in LEARNING_ACCEPTANCE.md before touching UI. Check whether the medical Core actually teaches the stable mechanisms, relations, boundaries and execution rules needed for first learning; check duplicate semantic ownership, missing core, unnecessary encyclopedic expansion, cross-owner boundaries and Lecture-vs-KianOS separation. Record concrete evidence in acceptance-status.json. If K passes, proceed to A1 Learning-path reconstruction from the canonical Core; if K fails, repair only the smallest stable content gaps first.",
+    "success_condition": "A1 K has a repository-persisted PASS or FAIL decision supported by concrete Current owner evidence. No status promotion may rely on file count, build success, prior chat reputation, question inventory completion or page existence.",
+    "validation_note": "The learner has not started circulation. Do not request System Recall, official-question sweep or any later-stage learner action while this shared engineering acceptance work is upstream of real study."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more learning-stage taxonomies merely for completeness.",
@@ -58,12 +56,15 @@
     "Do not persist learner-specific full-paper holdout year values in shared Current; holdout is private browser-global learner state and every System sweep must respect the stored years.",
     "Do not recover urinary System question scope merely for completeness; use the same deterministic evidence standard that was required for A1/A2 and do not infer membership from titles or model intuition.",
     "Do not optimize for more UI controls, cards, metadata, or governance files without observed learning benefit.",
-    "Do not use legacy repository content as normal Current authority. The bounded respiratory historical recovery exception is closed."
+    "Do not use legacy repository content as normal Current authority.",
+    "Do not promote a LEARNING_ACCEPTANCE gate merely because CI/build is green, a page renders, a question bank is complete, or a file is labeled CURRENT.",
+    "Do not infer learner progress from this continuation file or from acceptance-status.json."
   ],
   "after_validation": [
-    "If A1/A2 System Exit remains good in real use and the urinary historical evidence can meet the same deterministic standard, re-audit A3 urinary next rather than re-reviewing its questions from scratch.",
-    "Only deepen Question-to-Block/KP relations for Wrong/Uncertain or otherwise high-value questions unless second-round strategy provides new evidence.",
-    "Preserve the frozen first-pass -> second-pass -> late-review stage responsibilities and System-level true-question strategy from study-policy.json."
+    "If A1 K passes, audit/reconstruct the A1 L gate next: direct 12-Block learner route, lossless Logic Group index, first-pass focus/stop/closure semantics, Recall timing and cross-Block timing support. Do not let UI invent these semantics.",
+    "Only after A1 K + L pass should Projection/Runtime be made executable and tested through clean, failure/uncertainty, Chat-return and evidence paths.",
+    "Separately re-confirm A2 K, then run A2 P/R/E Module E2E on current main. U remains pending until the learner actually uses the tested path.",
+    "Only deepen Question-to-Block/KP relations for Wrong/Uncertain or otherwise high-value questions unless second-round strategy provides new evidence."
   ],
   "continuation_policy": {
     "update_when": "Update this file only at meaningful shared-work stage transitions or when the next shared Xizong action changes materially.",
@@ -76,6 +77,6 @@
       "timers",
       "private browser history"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, study-policy.json, and only the Current owners needed by next_action. Continue from next_action instead of reconstructing the roadmap from legacy chats."
+    "fresh_chat_rule": "Read main@HEAD LEARNING_ACCEPTANCE.md, CURRENT.md, acceptance-status.json, this continuation file, study-policy.json, and only the Current owners needed by next_action. Continue the shared engineering acceptance stage from next_action. Determine the learner's next study action only from current conversation evidence and/or private learner state, never from this cursor."
   }
 }
