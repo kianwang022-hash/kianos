@@ -18,26 +18,70 @@
     "Politics subject/chapter index generalized across all five subjects",
     "Generic chapter runtime added: orientation → Chengfeng source → short closure → Xiao1000 → minimal repair → chapter compression",
     "KianOS shared-lane Continue capability added to Politics: last opened chapter stays private in browser state and Politics home resumes it without writing personal progress into shared Current",
-    "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat"
+    "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat",
+    "Marxism K03 frozen pilot authoritative 15-question ownership revalidated",
+    "Marxism K03 15/15 question-to-node evidence completed as 16 node edges across N01-N04, with X1000-MARX-M-048 as the only multi-node question"
   ],
-  "current_stage": "REAL_LEARNER_VALIDATION",
-  "current_subject": "ALL_POLITICS",
-  "next": "Use the Politics Astro runtime on representative real chapters and observe actual learner friction. Validate at least one chapter from Marxism, History, Xi/New Thought and Ethics/Law before adding new review/memory/dashboard functionality. Include a real daily Politics Handoff after Wrong/Uncertain evidence to verify that Continue and Return/Handoff are useful and sufficiently compact.",
+  "current_stage": "MODULE_ACCEPTANCE_BEFORE_LEARNER_TEST",
+  "current_subject": "MARX_C02_K03_PILOT",
+  "acceptance_target": "Apply repository-root LEARNING_ACCEPTANCE.md literally. Politics K03 reaches Module ready for learner test only when S/K/L/P/R/E pass on current main@HEAD. U remains pending until real learner use; build success, content volume, page existence, routing counts or simulated QA may not substitute for a gate.",
+  "acceptance_gates": {
+    "S": {
+      "status": "PARTIAL",
+      "reason": "K03 owner scope, stable question IDs and source-priority boundary are reliable, but Current consumers still depend on oversized monolithic Politics source files instead of deterministic scoped access."
+    },
+    "K": {
+      "status": "PARTIAL",
+      "reason": "K03 has a coherent four-node learning model and question evidence, but canonical teaching semantics are still distributed across chapter projection, source registry and repair sidecars and require one content-closure audit."
+    },
+    "L": {
+      "status": "PARTIAL",
+      "reason": "The intended first-learning path is Chengfeng-centered continuous learning → short closure → Xiao1000 validation → smallest repair, but review/transfer and exit behavior must be rechecked against the acceptance standard rather than assumed from existing contracts."
+    },
+    "P": {
+      "status": "PARTIAL",
+      "reason": "A learner-facing chapter projection exists, but K03 must be accepted as a natural low-friction first-learning journey rather than merely as content rendered inside the larger chapter."
+    },
+    "R": {
+      "status": "PARTIAL",
+      "reason": "First learning, question submission and Wrong/Uncertain repair paths exist, but K03 question-node evidence is not yet fully consumed by an executable evidence-driven Unit Return/exit path."
+    },
+    "E": {
+      "status": "PARTIAL",
+      "reason": "The 15/15 question-node map is ready, but learner evidence and node closure semantics still need a complete consumer that distinguishes clean pass, uncertainty and repair without manufacturing review debt."
+    },
+    "U": {
+      "status": "PENDING",
+      "reason": "May only be advanced by real learner use of the accepted path."
+    }
+  },
+  "source_architecture_target": {
+    "reference_pattern": "Follow the mature Xizong Question Truth pattern: immutable stable IDs, deterministic scoped shards, manifest/provenance separation, and no global repository search or full-bank scan for exact-ID consumption.",
+    "politics_adaptation": "Do not mechanically copy Xizong's year/25-question shard key if Politics has a better native partition. Preserve all source facts losslessly, add deterministic locator/manifest semantics, and make Natural Unit/runtime consumers read only the necessary question/source shards.",
+    "current_debt": [
+      "content/politics/source/xiao_2027_questions.jsonl is about 5.97 MB and is currently consumed as one global bank",
+      "content/politics/source/source_node_registry.v2.jsonl is about 21.4 MB and is currently consumed as one global registry",
+      "question truth, semantic routing, explanations/provenance and private learner evidence must remain distinct ownership layers"
+    ],
+    "migration_rule": "Any split must be lossless and auditable: old Current truth → deterministic shards/locator/manifest → exact count/ID/content reconciliation → runtime/audit cutover → monolith removed from Current runtime ownership only after parity is proven."
+  },
+  "next": "First, design and execute the Politics source-consumption migration by reusing the Xizong deterministic-shard principles for Xiao1000 and the Chengfeng source registry without changing learning semantics. Second, re-audit K03 gate-by-gate under S/K/L/P/R/E and fix only defects that block the real learner journey. Stop engineering when S-E pass and declare only 'Module ready for learner test'; then move to real learner validation U.",
   "validation_focus": [
-    "Is the pre-reading orientation useful but short enough?",
-    "Does Chengfeng remain visually and cognitively primary?",
-    "Does the short closure help without becoming a second recall workflow?",
-    "Can stable correct Xiao1000 answers pass almost instantly?",
-    "Does wrong/uncertain repair return to the smallest useful source rather than opening a giant explanation?",
-    "Do the five subjects feel cognitively different despite sharing the same top-level loop?",
-    "Does Politics Continue return to the right chapter without turning private progress into shared Current?",
-    "Does the daily Wrong/Uncertain Handoff contain enough evidence for Chat without becoming an indiscriminate question history?"
+    "Can K03 be loaded and audited from its exact source/question scope without scanning multi-megabyte global banks?",
+    "Is K03 canonical content complete enough for first learning without becoming a second AI textbook?",
+    "Does first learning remain continuous and Chengfeng-centered rather than cardized or pre-tested?",
+    "At each moment, does the learner see only the next useful layer rather than backend structure?",
+    "Can clean stable work pass with zero manufactured debt?",
+    "Can Wrong/Uncertain evidence route to the smallest useful K03 node repair and return naturally?",
+    "Does node-level evidence support meaningful Unit Return/exit without mistaking repair for mastery?",
+    "Are shared Current engineering state and private learner state kept strictly separate?"
   ],
   "working_preferences": [
     "Content quality has priority over UI polish.",
     "Advance a meaningful batch before reporting; do not stop after every chapter unless a real semantic decision is needed.",
     "Keep learner-facing explanation plain and concise; hide engineering detail unless requested.",
-    "Backend content may be rich, but learner interaction must stay low-friction and high-quality."
+    "Backend content may be rich, but learner interaction must stay low-friction and high-quality.",
+    "For small scoped tasks, retrieve and modify only the minimum authoritative evidence required; do not expand into repository-wide archaeology without a blocking reason."
   ],
   "do_not_reopen": [
     "Do not make Suyi a second course or require the learner to read it separately by default.",
@@ -46,7 +90,8 @@
     "Do not force different Politics subjects into one internal teaching template.",
     "Do not turn first-round learning into indiscriminate fixed-formulation memorization.",
     "Do not let Astro component convenience reshape canonical content semantics.",
-    "Do not add dashboards, scheduler taxonomies or memory machinery before real learner validation shows a need.",
-    "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them."
+    "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
+    "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
+    "Do not call Politics learner-ready because CI/build is green, content exists, question coverage is complete or a page renders."
   ]
 }
