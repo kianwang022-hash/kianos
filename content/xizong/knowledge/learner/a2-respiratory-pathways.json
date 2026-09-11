@@ -7,7 +7,7 @@
   "system_owner": "content/xizong/knowledge/systems/a2-respiratory/system.json",
   "learning_support": "content/xizong/knowledge/learner/a2-respiratory-learning.json",
   "role": "MECHANISM_PROJECTION_AND_CROSS_BLOCK_REACTIVATION_ONLY",
-  "rule": "Only relationships that change learner attention, timing or reactivation belong here. This file does not own medical Core. Source cues are intentionally light; target cues explicitly reactivate previously seen relations. Connection cues do not enter ordinary Memory unless reserve_recall is true.",
+  "rule": "Only relationships that change learner attention, timing or reactivation belong here. This file does not own medical Core. Source cues are intentionally light; target cues explicitly reactivate previously seen relations. Connection hooks do not enter ordinary Memory. reserve_learning only means a relation is worth seeing early as light preparation; it is not ordinary Recall or Memory.",
   "system_failure_views": {
     "FM1": {
       "focus_nodes": [2, 4],
@@ -56,73 +56,73 @@
       "id": "a2-r01-obstruction-to-r03",
       "source": {"block_id": "respiratory-r01", "logic_group_id": "respiratory-r01-lg04", "cue": "先记住阻塞性的方向语言；疾病细节现在不展开。"},
       "target": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg03", "cue": "你在 R1 已经建立过阻塞性肺功能坐标；现在把它正式用于 COPD。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r01-obstruction-to-r04",
       "source": {"block_id": "respiratory-r01", "logic_group_id": "respiratory-r01-lg04", "cue": "可变阻塞以后会在哮喘重新出现，现在只保留方向。"},
       "target": {"block_id": "respiratory-r04", "logic_group_id": "respiratory-r04-lg03", "cue": "R1 的阻塞坐标现在要加上‘可变、可逆’这一层，正式进入哮喘证据。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r02-vaq-to-r09-pe",
       "source": {"block_id": "respiratory-r02", "logic_group_id": "respiratory-r02-lg02", "cue": "高 VA/Q / 死腔样以后会在肺血管阻断真正用起来。"},
       "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg04", "cue": "你在 R2 见过‘有气没血’的高 VA/Q；现在 PE 就是在真实疾病里调用这套语言。"},
-      "reserve_recall": true
+      "reserve_learning": true
     },
     {
       "id": "a2-r03-copd-to-r09-cor-pulmonale",
       "source": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg04", "cue": "慢性低氧 → 肺血管阻力长期升高 → 肺心病。现在先认识这条出口，R9 正式展开。"},
       "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg01", "cue": "你在 COPD 已经见过慢性低氧通向肺心病；现在正式展开 PVR→PAP→右室重构。"},
-      "reserve_recall": true
+      "reserve_learning": true
     },
     {
       "id": "a2-r03-copd-to-r12-respiratory-failure",
       "source": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg04", "cue": "严重 COPD 最终可进入通气失败/Ⅱ型呼衰；现在不展开呼衰管理。"},
       "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg04", "cue": "你在 COPD 已经见过 CO₂ 潴留的出口；现在正式用血气边界理解Ⅱ型呼衰。"},
-      "reserve_recall": true
+      "reserve_learning": true
     },
     {
       "id": "a2-r04-severe-asthma-to-r12",
       "source": {"block_id": "respiratory-r04", "logic_group_id": "respiratory-r04-lg05", "cue": "危重哮喘可从可变阻塞走到通气泵失败；通用呼衰支持留到 R12。"},
       "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg04", "cue": "你在危重哮喘见过通气失败；现在把它放回Ⅰ/Ⅱ型呼衰和支持策略。"},
-      "reserve_recall": true
+      "reserve_learning": true
     },
     {
       "id": "a2-r05-pneumonia-to-r12-ards",
       "source": {"block_id": "respiratory-r05", "logic_group_id": "respiratory-r05-lg04", "cue": "重症肺炎可进入共同终末通路 ARDS；现在只知道这个并发去向。"},
       "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg01", "cue": "你在重症肺炎见过 ARDS 这个出口；现在正式展开屏障损伤→肺泡充填/塌陷→分流低氧。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r06-cavity-to-r07-tb",
       "source": {"block_id": "respiratory-r06", "logic_group_id": "respiratory-r06-lg04", "cue": "空腔鉴别里先保留结核这一支，不在 R6 展开结核全套。"},
       "target": {"block_id": "respiratory-r07", "logic_group_id": "respiratory-r07-lg03", "cue": "你在 R6 的空腔鉴别见过结核；现在正式学习空洞、播散和结核类型。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r06-cavity-to-r11-tumor",
       "source": {"block_id": "respiratory-r06", "logic_group_id": "respiratory-r06-lg04", "cue": "空腔鉴别里先保留肿瘤这一支，肺癌正式内容留到 R11。"},
       "target": {"block_id": "respiratory-r11", "logic_group_id": "respiratory-r11-lg02", "cue": "你在 R6 的空腔鉴别见过肿瘤；现在把它放回肺癌的位置、侵犯和影像证据。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r08-ild-to-r09-pulmonary-hypertension",
       "source": {"block_id": "respiratory-r08", "logic_group_id": "respiratory-r08-lg01", "cue": "慢性低氧/结构病可继续走向肺高压和右心负荷；R9 正式展开。"},
       "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg01", "cue": "你在 ILD 已经见过慢性低氧这个上游；现在正式接到 PVR↑ 和右室重构。"},
-      "reserve_recall": true
+      "reserve_learning": true
     },
     {
       "id": "a2-r10-pleural-effusion-to-r07-tb",
       "source": {"block_id": "respiratory-r10", "logic_group_id": "respiratory-r10-lg03", "cue": "结核性胸水这里只学胸膜证据；结核本体仍由 R7 负责。"},
       "target": {"block_id": "respiratory-r07", "logic_group_id": "respiratory-r07-lg05", "cue": "胸水场景曾调用结核证据；回到 R7 时把感染、活动和传染性证据重新分层。"},
-      "reserve_recall": false
+      "reserve_learning": false
     },
     {
       "id": "a2-r10-pleural-effusion-to-r11-malignancy",
       "source": {"block_id": "respiratory-r10", "logic_group_id": "respiratory-r10-lg03", "cue": "恶性胸水这里只学胸膜鉴别证据；肺癌本体留到 R11。"},
       "target": {"block_id": "respiratory-r11", "logic_group_id": "respiratory-r11-lg04", "cue": "你在胸水鉴别见过恶性证据；现在正式进入肺癌的发现、取材、分期和组织证据。"},
-      "reserve_recall": false
+      "reserve_learning": false
     }
   ]
 }
