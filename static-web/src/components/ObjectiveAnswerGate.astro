@@ -1,0 +1,92 @@
+---
+const { task, answerRoute } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<span data-objective-answer-gate data-task={task} data-answer-route={answerRoute} data-base={base} hidden></span>
+
+<script>
+  document.querySelectorAll('[data-objective-answer-gate]').forEach((gate) => {
+    if (!(gate instanceof HTMLElement)) return;
+    const task = gate.getAttribute('data-task') || '';
+    const route = gate.getAttribute('data-answer-route') || '';
+    const basePath = gate.getAttribute('data-base') || '/';
+    const root = document.querySelector(`[data-objective-root][data-objective-task="${task}"]`);
+    if (!(root instanceof HTMLElement)) return;
+
+    const objectId = root.getAttribute('data-objective-object') || '';
+    const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const answerUrl = `${basePath}${route}/${encodeURIComponent(objectId)}.json`;
+    const submit = root.querySelector('[data-objective-submit]');
+    const questions = [...root.querySelectorAll('[data-objective-question]')];
+    let ready = root.getAttribute('data-objective-answers-ready') === 'true';
+    let loading = null;
+
+    const normalizeAnswer = (value) => Array.isArray(value)
+      ? value.map(String)
+      : value === null || value === undefined || value === '' ? [] : [String(value)];
+
+    const applyAnswers = (payload) => {
+      if (!payload || payload.objectId !== objectId || payload.task !== task || typeof payload.answers !== 'object') return false;
+      questions.forEach((question) => {
+        const id = question.getAttribute('data-objective-question') || '';
+        if (!id || !Object.prototype.hasOwnProperty.call(payload.answers, id)) return;
+        question.setAttribute('data-answer', JSON.stringify(payload.answers[id] ?? ''));
+      });
+      ready = questions.every((question) => {
+        try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')).length > 0; }
+        catch { return false; }
+      });
+      if (!ready) return false;
+      root.setAttribute('data-objective-answers-ready', 'true');
+      root.dispatchEvent(new CustomEvent('kianos:objective-answers-ready', { bubbles: true }));
+      return true;
+    };
+
+    const loadAnswers = async () => {
+      if (ready) return true;
+      if (loading) return loading;
+      const originalText = submit?.textContent || 'Submit';
+      if (submit instanceof HTMLButtonElement) {
+        submit.disabled = true;
+        submit.textContent = 'Submitting…';
+      }
+      loading = fetch(answerUrl, { headers: { Accept: 'application/json' } })
+        .then((response) => {
+          if (!response.ok) throw new Error(`answer ${response.status}`);
+          return response.json();
+        })
+        .then(applyAnswers)
+        .catch(() => false)
+        .finally(() => {
+          loading = null;
+          if (submit instanceof HTMLButtonElement) {
+            submit.disabled = false;
+            submit.textContent = originalText;
+          }
+        });
+      return loading;
+    };
+
+    document.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const button = target?.closest('[data-objective-submit]');
+      if (!button || !root.contains(button) || ready) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const ok = await loadAnswers();
+      if (ok) button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      else if (submit instanceof HTMLButtonElement) {
+        submit.disabled = false;
+        submit.textContent = '重试提交';
+        submit.title = '答案加载失败，本次作答尚未提交。';
+      }
+    }, true);
+
+    if (storageKey) {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || 'null') || {};
+        if (saved.submitted) void loadAnswers();
+      } catch {}
+    }
+  });
+</script>
