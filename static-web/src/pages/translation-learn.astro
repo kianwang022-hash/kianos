@@ -1,0 +1,38 @@
+---
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import { marked } from 'marked';
+import Base from '../layouts/Base.astro';
+
+const sourcePath = 'content/english/modules/translation.md';
+const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
+const markdown = fs.readFileSync(sourceUrl, 'utf8');
+const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
+const html = await marked.parse(markdown, { gfm: true, breaks: false });
+const base = import.meta.env.BASE_URL;
+---
+<Base
+  title="Translation First Learning"
+  kicker="English · Translation First Learning"
+  description="先连续建立 Translation Global Map 与四个 Core Learning Blocks，再让真实 task 暴露需要局部修复的 Skill。"
+  sourcePath={sourcePath}
+  sourceHash={sourceHash}
+  objectId="english:translation-first-learning"
+  active="home"
+>
+  <section class="translationLearnShell">
+    <aside class="translationLearnNav">
+      <span>First Learning</span>
+      <strong>Global Map → 4 Core Blocks</strong>
+      <p>第一次学习不要把 Skill Map 当成待办清单。先把主干连续学完，然后马上回真实 Translation task。</p>
+      <a href={`${base}translation/`}>进入 Translation Runtime →</a>
+    </aside>
+    <article class="translationLearnContent markdownBody" set:html={html}></article>
+  </section>
+</Base>
+
+<style>
+  .translationLearnShell{max-width:84rem;margin:0 auto;display:grid;grid-template-columns:16rem minmax(0,1fr);gap:16px;align-items:start}.translationLearnNav{position:sticky;top:76px;display:grid;gap:7px;padding:16px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnNav>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationLearnNav>strong{font-size:13px}.translationLearnNav>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.translationLearnNav>a{margin-top:4px;padding-top:10px;border-top:1px solid var(--study-line);color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.translationLearnContent{min-width:0;padding:30px 36px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
+  .markdownBody :global(h1){margin:3.2rem 0 1rem;padding-top:.4rem;font-size:28px;line-height:1.28;letter-spacing:-.02em}.markdownBody :global(h1:first-of-type){margin-top:0}.markdownBody :global(h2){margin:2.35rem 0 .75rem;font-size:20px;line-height:1.35}.markdownBody :global(h3){margin:1.55rem 0 .55rem;font-size:15px}.markdownBody :global(p),.markdownBody :global(li){font-size:13.5px;line-height:1.86;color:#26352f}.markdownBody :global(p){margin:.65rem 0}.markdownBody :global(ul),.markdownBody :global(ol){padding-left:1.4rem}.markdownBody :global(blockquote){margin:1rem 0;padding:10px 14px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0;color:#1e3129}.markdownBody :global(blockquote p){margin:.25rem 0;color:inherit}.markdownBody :global(strong){color:#16251f}.markdownBody :global(pre){overflow:auto;margin:1rem 0;padding:14px 16px;border:1px solid var(--study-line);border-radius:11px;background:#f7f9f7;font-size:12px;line-height:1.6}.markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.5rem 0}
+  @media(max-width:900px){.translationLearnShell{grid-template-columns:1fr}.translationLearnNav{position:static}.translationLearnContent{padding:22px 18px}}@media(max-width:560px){.translationLearnContent{padding:18px 14px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}}
+</style>
