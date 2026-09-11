@@ -8,13 +8,15 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - Chat owns semantic/content judgments and approves shared learning content.
 - GitHub `main@HEAD` is the single editable and readable shared Current repository state.
 - `content/` owns shared learning assets.
-- `static-web/` owns the Astro learner-facing UI/function runtime.
-- Learner state (progress, attempts, wrong/uncertain, timing, notes, scheduler/history) stays local-only and must not be written into shared Current content.
+- `static-web/` owns the Astro learner-facing display and interaction runtime.
+- Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
 - `EXECUTION_AUTONOMY != SEMANTIC_AUTHORITY`.
 
 ## Normal chain
 
-`Source Truth → Chat-approved Current content → Astro projection → learner state`
+`Source Truth → Chat semantic/learning judgment → GitHub Current content → Astro display/interaction → learner`
+
+Private browser or device state may support the final interaction step, but it is not a semantic owner and is not part of the shared Current chain.
 
 Astro may transform representation and provide interaction. It must not invent, merge, silently repair, or override domain semantics.
 
@@ -46,13 +48,13 @@ A user-approved migration may temporarily read both:
 - this repository at current `main@HEAD`; and
 - the explicitly designated legacy snapshot/source.
 
-Migration is a bounded exception, not a new normal authority. Knowledge assets may be transferred without semantic re-review when the migration scope says to preserve them. On a path/content conflict, existing/newer Current wins unless the user explicitly directs otherwise. Legacy runtime, learner state, governance, caches, releases, generated infrastructure, and fallback mechanisms are excluded unless explicitly approved.
+Migration is a bounded exception, not a new normal authority. Knowledge assets may be transferred without semantic re-review when the migration scope says to preserve them. On a path/content conflict, existing/newer Current wins unless the user explicitly directs otherwise. Legacy runtime, private learner state, governance, caches, releases, generated infrastructure, and fallback mechanisms are excluded unless explicitly approved.
 
 When migration closes, the dual-read exception closes with it.
 
 ## GitHub writes
 
-GitHub is read-only by default. Before any mutation, present the concrete intended scope and obtain explicit user authorization. Authorization is bounded to the approved scope. Destructive cleanup, production deployment, and real learner-state mutation require separate explicit authorization.
+GitHub is read-only by default. Before any mutation, present the concrete intended scope and obtain explicit user authorization. Authorization is bounded to the approved scope. Destructive cleanup, production deployment, and real private learner-state mutation require separate explicit authorization.
 
 ## Content rules
 
@@ -65,15 +67,17 @@ GitHub is read-only by default. Before any mutation, present the concrete intend
 - Exam content must preserve supplied/original passage, questions, options, and official answers as factual authority.
 - LexicalOS uses L0-first governance for simple words while preserving true polysemy, familiar-new senses, high-value phrases/constructions/contrasts/confusables.
 - Different English modules have different learning objects; do not reduce every error to vocabulary.
+- Shared Current may define interaction semantics and learning contracts, but never store one learner's private answers, progress, notes, or history as shared content.
 
 ## Runtime boundary
 
-Astro reads Current assets only. It may parse, validate, sort, project, and render them, but it must not:
+Astro reads Current assets only. It may parse, validate, sort, project, render, and execute interaction flows defined by Current learning semantics, but it must not:
 
 - read Git history, tags, branches, or legacy;
 - silently substitute a historical/deleted asset;
 - maintain a second semantic truth;
-- invent or repair missing domain content.
+- invent or repair missing domain content;
+- promote private learner state into shared Current content.
 
 Missing or invalid Current dependencies must fail closed.
 
