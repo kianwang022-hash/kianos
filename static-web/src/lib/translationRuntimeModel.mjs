@@ -3,6 +3,14 @@ export const TRANSLATION_RETURN_SCHEMA = 'KIANOS_TRANSLATION_RETURN_V1';
 export const TRANSLATION_TRANSFER_STORAGE_KEY = 'kianos-translation-transfer-v1';
 
 const VALID_DECISIONS = new Set(['PASS', 'REPAIR_NEEDED']);
+const VALID_STAGES = new Set(['attempt', 'decision', 'diagnosis', 'reconstruct', 'passed', 'repaired', 'transfer_pending']);
+const VALID_FAILURE_LAYERS = new Set([
+  'Lexical',
+  'English Representation',
+  'Relation / Information Preservation',
+  'Chinese Reconstruction',
+  'Execution / Self-check'
+]);
 const VALID_TRANSFER_RELATIONS = new Set(['support', 'contradict', 'irrelevant']);
 
 function nowIso(now) {
@@ -85,6 +93,14 @@ export function normalizeTranslationState(prompts = [], saved = null) {
     state.chatReturn = null;
     state.affectedSegments = [];
     state.pendingTransferCandidate = null;
+  } else if (!VALID_STAGES.has(state.stage)) {
+    state.stage = 'decision';
+    state.decision = '';
+    state.chatReturn = null;
+    state.affectedSegments = [];
+    state.pendingTransferCandidate = null;
+    state.referenceRevealed = false;
+    state.completeReferenceOpen = false;
   }
   return state;
 }
@@ -157,14 +173,18 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
   const raw = clean(text);
   if (!raw.includes(TRANSLATION_RETURN_SCHEMA)) throw new Error('RETURN_PACKET_SCHEMA_MISSING');
   const payload = parsePacketJson(raw);
-  if (payload?.schema && payload.schema !== TRANSLATION_RETURN_SCHEMA) throw new Error('RETURN_PACKET_SCHEMA_INVALID');
+  if (payload?.schema !== TRANSLATION_RETURN_SCHEMA) throw new Error('RETURN_PACKET_SCHEMA_INVALID');
   const task = clean(payload?.task);
   if (expectedTaskId && task !== clean(expectedTaskId)) throw new Error(`RETURN_PACKET_TASK_MISMATCH:${task || 'missing'}`);
   if (!VALID_DECISIONS.has(payload?.decision)) throw new Error('RETURN_PACKET_DECISION_INVALID');
   if (payload.decision === 'REPAIR_NEEDED') {
     const failure = payload?.primary_failure;
-    if (!failure || !clean(failure.layer) || !clean(failure.minimal_repair)) {
+    if (!failure || !VALID_FAILURE_LAYERS.has(clean(failure.layer)) || !clean(failure.minimal_repair)) {
       throw new Error('RETURN_PACKET_PRIMARY_FAILURE_INCOMPLETE');
+    }
+    const candidate = payload?.transfer_target;
+    if (candidate?.admit === true && (!clean(candidate.target_id) || !clean(candidate.label) || !clean(candidate.underlying_demand))) {
+      throw new Error('RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE');
     }
   }
   const updates = Array.isArray(payload?.transfer_updates) ? payload.transfer_updates : [];
@@ -172,41 +192,57 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
     if (!clean(update?.target_id) || !VALID_TRANSFER_RELATIONS.has(update?.relation)) {
       throw new Error('RETURN_PACKET_TRANSFER_UPDATE_INVALID');
     }
+    if (update?.close === true && update.relation !== 'support') {
+      throw new Error('RETURN_PACKET_TRANSFER_CLOSE_INVALID');
+    }
   }
   return payload;
 }
 
 export function applyTransferUpdates(ledger, updates = [], context = {}) {
   const next = normalizeTransferLedger(ledger);
+  const task = clean(context.task);
   for (const update of updates) {
     const target = next.targets.find((item) => item.id === clean(update?.target_id));
     if (!target) continue;
     const relation = update.relation;
     if (!VALID_TRANSFER_RELATIONS.has(relation)) continue;
-    target.evidence.push({
-      task: clean(context.task),
+    if (!task || task === clean(target.sourceTask) || task === clean(target.lastSourceTask)) continue;
+
+    const evidence = {
+      task,
       relation,
       note: clean(update.note),
+      close: relation === 'support' && update.close === true,
       at: nowIso(context.now)
-    });
+    };
+    const priorIndex = target.evidence.findIndex((item) => clean(item?.task) === task);
+    if (priorIndex >= 0) target.evidence[priorIndex] = evidence;
+    else target.evidence.push(evidence);
+
     if (relation === 'support' && update.close === true) {
       target.status = 'closed';
       target.closedAt = nowIso(context.now);
-    }
-    if (relation === 'contradict') {
+      target.closedByTask = task;
+    } else if (relation === 'contradict' || clean(target.closedByTask) === task) {
       target.status = 'pending';
       delete target.closedAt;
+      delete target.closedByTask;
     }
   }
   return next;
 }
 
 function normalizedAffectedSegments(payload, prompts) {
-  const valid = new Set(translationPromptIds(prompts));
+  const ids = translationPromptIds(prompts);
+  const valid = new Set(ids);
   const supplied = Array.isArray(payload?.primary_failure?.affected_segments)
-    ? payload.primary_failure.affected_segments.map(clean).filter((id) => valid.has(id))
+    ? payload.primary_failure.affected_segments.map(clean).filter(Boolean)
     : [];
-  return supplied.length ? [...new Set(supplied)] : [...valid];
+  if (!supplied.length) return ids;
+  const invalid = supplied.filter((id) => !valid.has(id));
+  if (invalid.length) throw new Error(`RETURN_PACKET_AFFECTED_SEGMENT_INVALID:${invalid.join('|')}`);
+  return [...new Set(supplied)];
 }
 
 export function applyTranslationReturn(state, payload, prompts = [], ledger = null, context = {}) {
@@ -252,6 +288,8 @@ export function admitTransferTarget(ledger, candidate, context = {}) {
     existing.skill = clean(candidate.skill || existing.skill);
     existing.underlyingDemand = demand;
     existing.lastSourceTask = clean(context.task || existing.lastSourceTask);
+    delete existing.closedAt;
+    delete existing.closedByTask;
     return next;
   }
   next.targets.push({
@@ -278,8 +316,10 @@ export function saveReconstruction(state, ledger = null, context = {}) {
   next.reconstructions.push({ answers, createdAt: nowIso(context.now) });
   next.reconstructDrafts = { ...next.reconstructDrafts };
   for (const id of next.affectedSegments) next.reconstructDrafts[id] = '';
+  const candidateId = clean(next.pendingTransferCandidate?.target_id);
   let nextLedger = admitTransferTarget(ledger, next.pendingTransferCandidate, context);
-  next.stage = next.pendingTransferCandidate?.admit === true ? 'transfer_pending' : 'repaired';
+  const admitted = Boolean(candidateId && pendingTransferTargets(nextLedger).some((target) => target.id === candidateId));
+  next.stage = admitted ? 'transfer_pending' : 'repaired';
   next.referenceRevealed = false;
   next.completeReferenceOpen = false;
   return { ok: true, missing: [], state: next, ledger: nextLedger };
