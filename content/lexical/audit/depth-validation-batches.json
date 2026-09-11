@@ -100,6 +100,40 @@
           "reason": "current mental model merely repeats observe/notice and does not help compress watch, notice, comply with, commemorate, and remark uses"
         }
       ]
+    },
+    {
+      "batch_id": "depth-04",
+      "runtime_page": "static-web/src/pages/lexical-validation-04.astro",
+      "ordinals": [2352, 2991, 3257, 3954, 3969, 3993, 4666, 4675],
+      "words": ["hold", "mean", "note", "reach", "reason", "record", "stand", "state"],
+      "purpose": "abstract academic meaning and proposition-pattern scan",
+      "findings": [
+        "mean is a DIRECT_PASS academic-use owner: mean to do, mean that, be mean to, and the noun mean are already explicit; its deep secondary wrapper duplicates an active adjective sense and must remain suppressed from hidden +1.",
+        "note is a DIRECT_PASS owner for academic reading because note that ... is already a fixed learner pattern, while note down and noun note patterns remain available without requiring a new semantic object.",
+        "reason is a DIRECT_PASS owner: reason with sb and reason sb into/out of sth are already fixed patterns and the noun/verb split is explicit.",
+        "state is a DIRECT_PASS owner: state that + clause and state one's opinion are fixed patterns; the secondary-sense wrapper duplicates an active sense and is correctly suppressed.",
+        "stand is already deep enough for current Study: stand for sth, can't stand, and take a stand on sth are explicit. Its secondary-sense wrapper duplicates the active stance sense.",
+        "record already contains high-value familiar-new senses for past performance/history and for registering a reading/result/profit/loss, plus explicit good/poor record and criminal record constructions. This is a richness/scanability validation target rather than a missing-content case.",
+        "hold contains the high-value active sense 'hold an opinion/belief/view' but lacks an active proposition skeleton hold that + clause, so a familiar reader may know hold yet fail to retrieve the academic stance use quickly.",
+        "reach contains reach an agreement only as a usage example even though it is a high-value academic collocation; reach for/within reach/out of reach are already fixed."
+      ],
+      "classification": {
+        "DIRECT_PASS": ["mean", "note", "reason", "stand", "state"],
+        "PROJECTION_ONLY": ["record"],
+        "SEMANTIC_REPAIR_OR_REVIEW": ["hold", "reach"]
+      },
+      "semantic_repair_queue": [
+        {
+          "word_id": "word:hold",
+          "target": "hold that + clause",
+          "reason": "high-value academic stance/proposition pattern should be actively retrievable rather than inferred from the generic opinion sense"
+        },
+        {
+          "word_id": "word:reach",
+          "target": "reach an agreement",
+          "reason": "high-value academic collocation is currently only a usage example"
+        }
+      ]
     }
   ]
 }
