@@ -97,7 +97,7 @@ jobs:
       - name: Full Astro build
         working-directory: static-web
         run: |
-          npm ci
+          npm install --no-package-lock --no-audit --no-fund
           npm run build
 
       - name: Commit validated final tree
