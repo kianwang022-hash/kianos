@@ -17,6 +17,7 @@ on:
       - 'content/english/modules/reading-b.md'
       - 'content/english/source/question_bank.v1.json'
       - 'content/english/source/reading_corpus.v1.json'
+      - 'content/english/source/reading_b_layout.v1.json'
       - 'content/english/source/global_source_truth.v1.json'
       - 'static-web/package.json'
       - 'static-web/package-lock.json'
@@ -41,7 +42,7 @@ on:
       - 'static-web/src/pages/reading-b/**'
       - 'static-web/src/pages/reading-b-answer/**'
       - 'static-web/scripts/*objective*.mjs'
-      - 'static-web/scripts/audit-reading-b-source.mjs'
+      - 'static-web/scripts/*reading-b*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   pull_request:
     paths:
@@ -58,6 +59,7 @@ on:
       - 'content/english/modules/reading-b.md'
       - 'content/english/source/question_bank.v1.json'
       - 'content/english/source/reading_corpus.v1.json'
+      - 'content/english/source/reading_b_layout.v1.json'
       - 'content/english/source/global_source_truth.v1.json'
       - 'static-web/package.json'
       - 'static-web/package-lock.json'
@@ -82,7 +84,7 @@ on:
       - 'static-web/src/pages/reading-b/**'
       - 'static-web/src/pages/reading-b-answer/**'
       - 'static-web/scripts/*objective*.mjs'
-      - 'static-web/scripts/audit-reading-b-source.mjs'
+      - 'static-web/scripts/*reading-b*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   workflow_dispatch:
 
@@ -96,7 +98,7 @@ concurrency:
 jobs:
   journey:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -120,15 +122,16 @@ jobs:
         working-directory: static-web
         run: npm run build
       - name: Install isolated browser acceptance tools
-        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
         working-directory: static-web
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium webkit
-      - name: Simulate learner journeys with synthetic evidence
-        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
+      - name: Simulate shared Objective learning closure
         working-directory: static-web
         run: node scripts/test-objective-journey.mjs
+      - name: Exercise all real Reading B forms
+        working-directory: static-web
+        run: node scripts/test-reading-b-forms.mjs
       - name: Save audit evidence
         if: always()
         uses: actions/upload-artifact@v4
