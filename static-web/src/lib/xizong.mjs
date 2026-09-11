@@ -130,7 +130,7 @@ function blockOpeningOrientation(markdown) {
   const explicit = sectionByTitle(markdown, (title) => /^(?:0[｜|])?.*这个 Block 到底解决什么/.test(title));
   if (explicit) return explicit;
 
-  const source = String(markdown);
+  const source = String(markdown).replace(/^---\s*\n[\s\S]*?\n---\s*\n+/, '');
   const firstKpIndex = source.search(/^(?:#{2,4})\s+KP\d+[｜|]\s*.+$/m);
   const end = firstKpIndex >= 0 ? firstKpIndex : source.length;
   const opening = source
@@ -354,9 +354,13 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
   if (kpRecords.length !== blockMeta.kpCount) {
     throw new Error(`CURRENT_XIZONG_BLOCK_KP_COUNT_MISMATCH:${blockMeta.blockId}:${kpRecords.length}/${blockMeta.kpCount}`);
   }
-  kpRecords.forEach((record, index) => {
-    if (record.ordinal !== index + 1) throw new Error(`CURRENT_XIZONG_KP_ORDER_INVALID:${blockMeta.blockId}:${record.displayId}`);
-  });
+  const kpOrdinalSet = new Set(kpRecords.map((record) => record.ordinal));
+  if (kpOrdinalSet.size !== blockMeta.kpCount) {
+    throw new Error(`CURRENT_XIZONG_KP_IDENTITY_SET_MISMATCH:${blockMeta.blockId}:duplicate-or-count`);
+  }
+  for (let ordinal = 1; ordinal <= blockMeta.kpCount; ordinal += 1) {
+    if (!kpOrdinalSet.has(ordinal)) throw new Error(`CURRENT_XIZONG_KP_IDENTITY_SET_MISMATCH:${blockMeta.blockId}:missing-${ordinal}`);
+  }
 
   let logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords);
   const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
