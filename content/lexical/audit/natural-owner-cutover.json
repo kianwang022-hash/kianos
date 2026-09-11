@@ -1,0 +1,28 @@
+{
+  "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
+  "status": "BLOCKED",
+  "semantic_delta": 0,
+  "source": {
+    "canonical_manifest": "content/lexical/canonical/manifest.json",
+    "canonical_manifest_sha256": "2a5f53d75e1d0b524e097d70b9810b881db7eb9df53796717201cd76ff022bd9",
+    "word_count_expected": 7946,
+    "word_count_read": 7946
+  },
+  "materialized": {
+    "word_owner_count": 7946,
+    "relation_owner_count": 369,
+    "word_reconstruction_failures": 0,
+    "lookup_word_ids": 7946
+  },
+  "invariants": {
+    "unique_word_ids": true,
+    "unique_ordinals": true,
+    "exact_word_reconstruction": true,
+    "semantic_delta_zero": true,
+    "lookup_closure": true
+  },
+  "blockers": [
+    "FACT_ID_NOT_IN_REGISTRY:word:participant:secondary_senses:usage:c867cdd821e95d99de5a"
+  ],
+  "warnings": []
+}
