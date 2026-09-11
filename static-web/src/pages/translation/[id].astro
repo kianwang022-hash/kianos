@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
+import TranslationEvidenceGuard from '../../components/TranslationEvidenceGuard.astro';
 import {
   listTranslationSets,
   loadTranslationById,
@@ -28,4 +29,5 @@ const reference = loadTranslationReferencesById(translationId);
   active="home"
 >
   <TranslationWorkspace translation={translation} reference={reference} />
+  <TranslationEvidenceGuard />
 </Base>
