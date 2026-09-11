@@ -75,6 +75,7 @@ const nextHref = translation.navigation?.nextId
         <code>{translation.sourcePaths?.questions}</code>
         <code>question-bank:{translation.sourceHashes?.questionOwner?.slice(0, 12)}</code>
         <code>task:{translation.sourceHashes?.renderedObject?.slice(0, 12)}</code>
+        <code>reference:{translation.referenceCoverage?.available || 0}/{translation.referenceCoverage?.total || prompts.length}</code>
       </details>
     </article>
 
@@ -87,7 +88,7 @@ const nextHref = translation.navigation?.nextId
         </header>
         <textarea data-first-draft rows="15" placeholder="在这里写你的第一版完整译文……"></textarea>
         <div class="translationActions">
-          <button type="button" class="primary" data-freeze-first>锁定第一版并进入对照</button>
+          <button type="button" class="primary" data-freeze-first>锁定第一版 → Diagnosis</button>
           <small data-first-status>第一版一旦锁定，后续 revision 不会覆盖它。</small>
         </div>
       </section>
@@ -99,14 +100,10 @@ const nextHref = translation.navigation?.nextId
 
       <section class="translationStage translationCompare" data-stage="compare" hidden>
         <header>
-          <span>02 · Delayed Comparison</span>
-          <h2>现在才看参考译文</h2>
-          <p>先找 first meaningful failure，再压缩成最多两个优先修复点；不做机械评分。</p>
+          <span>02 · Diagnosis / Minimal Repair</span>
+          <h2>先找 first meaningful failure</h2>
+          <p>默认先不看参考译文。自己判断，或把整套交给 Chat；最多压缩成两个优先修复点，再由你自己重译。</p>
         </header>
-        <section class="translationReference" data-reference-panel>
-          <div class="translationReferenceHead"><strong>Reference · delayed reveal</strong><small>参考表达不是唯一正确表达</small></div>
-          <div data-reference-list></div>
-        </section>
         <div class="translationLensGrid">
           <label>
             <span>Priority 1 · Meaning / load-bearing</span>
@@ -119,22 +116,30 @@ const nextHref = translation.navigation?.nextId
         </div>
         <div class="translationActions split">
           <button type="button" data-copy-chat>复制整套给 Chat 复盘</button>
-          <button type="button" class="primary" data-start-reconstruct>收起参考译文 → Reconstruction</button>
-          <small data-copy-status>Chat 只在需要深挖时介入；整套 task/set 一次复盘。</small>
+          <button type="button" class="primary" data-start-reconstruct>直接 Reconstruction（推荐）</button>
+          <button type="button" data-reveal-reference>需要时再看 Reference</button>
+          <small data-copy-status>默认路径：diagnosis / minimal cue → 你自己 reconstruct；只有确实需要时才提前 reveal reference。</small>
         </div>
+        <section class="translationReference" data-reference-panel hidden>
+          <div class="translationReferenceHead">
+            <strong>Reference · explicit reveal</strong>
+            <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available · 参考表达不是唯一正确表达</small>
+          </div>
+          <div data-reference-list></div>
+        </section>
       </section>
 
       <section class="translationStage translationReconstruct" data-stage="reconstruct" hidden>
         <header>
           <span>03 · Reconstruction</span>
           <h2>不看参考译文，重新完整表达</h2>
-          <p>原文和第一版仍可见；参考译文暂时收起。目标是重建能力，不是抄改答案。</p>
+          <p>原文和第一版仍可见；reference 被收起。目标是重建能力，不是抄改答案。</p>
         </header>
         <div class="translationFocusSummary" data-focus-summary></div>
         <textarea data-reconstruct-draft rows="15" placeholder="重新完成整套译文……"></textarea>
         <div class="translationActions">
           <button type="button" class="primary" data-save-reconstruction>保存 Reconstruction</button>
-          <button type="button" data-back-compare>返回对照</button>
+          <button type="button" data-back-compare>返回 Diagnosis</button>
           <small data-reconstruct-status></small>
         </div>
       </section>
@@ -143,18 +148,21 @@ const nextHref = translation.navigation?.nextId
         <header>
           <span>04 · Reconstructed</span>
           <h2>这一轮已完成</h2>
-          <p>这里不自动判“掌握”。后续 fresh / unseen Translation 再提供更强 transfer evidence。</p>
+          <p>现在如有必要再做 full-reference / deeper comparison。这里不自动判“掌握”；后续 fresh / unseen Translation 才提供更强 transfer evidence。</p>
         </header>
         <section class="translationLatest">
           <strong>Latest reconstruction</strong>
           <pre data-latest-reconstruction></pre>
         </section>
         <section class="translationReference" data-complete-reference hidden>
-          <div class="translationReferenceHead"><strong>Reference · reopened</strong><small>只用于再次核对，不覆盖你的版本</small></div>
+          <div class="translationReferenceHead">
+            <strong>Reference · post-reconstruction</strong>
+            <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available · 不覆盖你的版本</small>
+          </div>
           <div data-complete-reference-list></div>
         </section>
         <div class="translationActions split">
-          <button type="button" data-toggle-complete-reference>重新打开参考译文</button>
+          <button type="button" data-toggle-complete-reference>打开参考译文</button>
           <button type="button" data-copy-chat-complete>复制整套给 Chat</button>
           <button type="button" class="primary" data-another-reconstruction>再 Reconstruction 一次</button>
           {nextHref && <a class="buttonLink" href={nextHref}>下一套 →</a>}
@@ -199,6 +207,7 @@ const nextHref = translation.navigation?.nextId
       naturalFocus: '',
       reconstructDraft: '',
       reconstructions: [],
+      referenceRevealed: false,
       completeReferenceOpen: false,
       history: Array.isArray(history) ? history : []
     });
@@ -217,7 +226,7 @@ const nextHref = translation.navigation?.nextId
     if (!state.firstAttempt) state.stage = 'attempt';
     if (state.firstAttempt && !['compare', 'reconstruct', 'complete'].includes(state.stage)) state.stage = 'compare';
 
-    let reference = { references: [] };
+    let reference = { references: [], availableCount: 0, totalCount: 0, missingCount: 0 };
     try { reference = JSON.parse(root.querySelector('[data-translation-reference]')?.textContent || '{}'); } catch {}
     const references = Array.isArray(reference?.references) ? reference.references : [];
 
@@ -231,6 +240,7 @@ const nextHref = translation.navigation?.nextId
     const firstTime = root.querySelector('[data-first-time]');
     const focusSummary = root.querySelector('[data-focus-summary]');
     const latest = root.querySelector('[data-latest-reconstruction]');
+    const referencePanel = root.querySelector('[data-reference-panel]');
     const completeReference = root.querySelector('[data-complete-reference]');
 
     const save = () => writeJson(storageKey, state);
@@ -253,19 +263,23 @@ const nextHref = translation.navigation?.nextId
     const fillReference = (container) => {
       if (!container) return;
       container.replaceChildren();
-      const usable = references.filter((item) => String(item?.text || '').trim());
-      if (!usable.length) {
+      if (!references.length) {
         const p = document.createElement('p');
-        p.textContent = 'Current reference projection unavailable.';
+        p.textContent = 'Current source has no reference rows.';
         container.appendChild(p);
         return;
       }
-      usable.forEach((item) => {
+      references.forEach((item) => {
         const block = document.createElement('section');
         const label = document.createElement('small');
-        label.textContent = usable.length > 1 ? `Segment ${item.ordinal || ''}` : 'Formal reference';
+        label.textContent = references.length > 1 ? `Segment ${item.ordinal || ''}` : 'Reference';
         const text = document.createElement('p');
-        text.textContent = String(item.text || '');
+        if (item?.available && String(item?.text || '').trim()) {
+          text.textContent = String(item.text || '');
+        } else {
+          block.classList.add('referenceGap');
+          text.textContent = `Current source 暂无已核验参考译文（${item?.status || 'missing_reference'}）；runtime 不会自行补造。`;
+        }
         block.append(label, text);
         container.appendChild(block);
       });
@@ -282,7 +296,7 @@ const nextHref = translation.navigation?.nextId
       ].filter(([, value]) => String(value || '').trim());
       if (!rows.length) {
         const p = document.createElement('p');
-        p.textContent = '没有记录优先修复点；直接重新完整表达。';
+        p.textContent = '没有记录优先修复点；可以直接重新完整表达。';
         focusSummary.appendChild(p);
         return;
       }
@@ -334,7 +348,7 @@ const nextHref = translation.navigation?.nextId
       });
       if (stageLabel) stageLabel.textContent = ({
         attempt: 'Clean Attempt',
-        compare: 'Delayed Comparison',
+        compare: 'Diagnosis / Repair',
         reconstruct: 'Reconstruction',
         complete: 'Reconstructed'
       })[state.stage] || 'Translation';
@@ -345,11 +359,14 @@ const nextHref = translation.navigation?.nextId
       if (frozen instanceof HTMLElement) frozen.hidden = !state.firstAttempt;
       if (firstCopy) firstCopy.textContent = state.firstAttempt || '';
       if (firstTime) firstTime.textContent = state.firstSubmittedAt ? `locked ${formatTime(state.firstSubmittedAt)}` : '';
+      if (referencePanel instanceof HTMLElement) referencePanel.hidden = !state.referenceRevealed;
+      const revealButton = root.querySelector('[data-reveal-reference]');
+      if (revealButton) revealButton.textContent = state.referenceRevealed ? '收起 Reference' : '需要时再看 Reference';
       const last = state.reconstructions[state.reconstructions.length - 1];
       if (latest) latest.textContent = last?.text || '';
       if (completeReference instanceof HTMLElement) completeReference.hidden = !state.completeReferenceOpen;
       const toggle = root.querySelector('[data-toggle-complete-reference]');
-      if (toggle) toggle.textContent = state.completeReferenceOpen ? '收起参考译文' : '重新打开参考译文';
+      if (toggle) toggle.textContent = state.completeReferenceOpen ? '收起参考译文' : '打开参考译文';
       renderFocus();
       renderHistory();
       save();
@@ -360,10 +377,12 @@ const nextHref = translation.navigation?.nextId
       return String(source?.textContent || '').replace(/\n\s*\n\s*\n+/g, '\n\n').trim();
     };
     const referenceText = () => references
-      .filter((item) => String(item?.text || '').trim())
-      .map((item) => references.length > 1 ? `[Segment ${item.ordinal}] ${item.text}` : String(item.text))
+      .map((item) => item?.available && String(item?.text || '').trim()
+        ? `[Segment ${item.ordinal}] ${item.text}`
+        : `[Segment ${item.ordinal}] [reference unavailable: ${item?.status || 'missing_reference'}]`)
       .join('\n\n');
 
+    const referenceAllowedInHandoff = () => state.referenceRevealed || state.completeReferenceOpen;
     const buildHandoff = () => {
       const latestRevision = state.reconstructions[state.reconstructions.length - 1]?.text || '';
       return [
@@ -378,15 +397,15 @@ const nextHref = translation.navigation?.nextId
         'FIRST TRANSLATION (preserved)',
         state.firstAttempt || '—',
         '',
-        'REFERENCE (delayed reveal)',
-        referenceText() || '—',
+        'REFERENCE STATE',
+        referenceAllowedInHandoff() ? referenceText() || '—' : 'intentionally not revealed',
         '',
         'CURRENT PRIORITY NOTES',
         `1. Meaning / load-bearing: ${state.meaningFocus || '—'}`,
         `2. Naturalness / structure: ${state.naturalFocus || '—'}`,
         latestRevision ? `\nLATEST RECONSTRUCTION\n${latestRevision}` : '',
         '',
-        '请按 Translation Runtime v1 复盘整个 task/set，不逐句开独立线程，也不要机械评分。先判断 first meaningful failure，并合并其造成的 cascade。默认最多给两个 priority lenses：一个 meaning/load-bearing，一个 naturalness/structure；minor micro-edit 只有在不挤占主修复时才加。解释后让我自己 reconstruct，参考译文只作为对照，不当作唯一正确表达。'
+        '请按 Translation Runtime v1 复盘整个 task/set，不逐句开独立线程，也不要机械评分。先判断 first meaningful failure，并合并其造成的 cascade。默认最多给两个 priority lenses：一个 meaning/load-bearing，一个 naturalness/structure；minor micro-edit 只有在不挤占主修复时才加。优先给 minimal repair / cue，让我自己 reconstruct；不要主动要求先看完整参考译文。'
       ].filter((line) => line !== '').join('\n');
     };
 
@@ -426,7 +445,7 @@ const nextHref = translation.navigation?.nextId
       const value = String(state.draft || '').trim();
       const status = root.querySelector('[data-first-status]');
       if (!value) {
-        if (status) status.textContent = '先完成第一版，再进入对照。';
+        if (status) status.textContent = '先完成第一版，再进入 Diagnosis。';
         firstDraft?.focus();
         return;
       }
@@ -435,18 +454,25 @@ const nextHref = translation.navigation?.nextId
         state.firstSubmittedAt = new Date().toISOString();
       }
       state.stage = 'compare';
+      state.referenceRevealed = false;
       state.draft = '';
       render();
     });
 
+    root.querySelector('[data-reveal-reference]')?.addEventListener('click', () => {
+      state.referenceRevealed = !state.referenceRevealed;
+      render();
+    });
     root.querySelector('[data-start-reconstruct]')?.addEventListener('click', () => {
       state.stage = 'reconstruct';
+      state.referenceRevealed = false;
       state.completeReferenceOpen = false;
       render();
       reconstructDraft?.focus();
     });
     root.querySelector('[data-back-compare]')?.addEventListener('click', () => {
       state.stage = 'compare';
+      state.referenceRevealed = false;
       render();
     });
     root.querySelector('[data-save-reconstruction]')?.addEventListener('click', () => {
@@ -460,11 +486,13 @@ const nextHref = translation.navigation?.nextId
       state.reconstructions.push({ text: value, createdAt: new Date().toISOString() });
       state.reconstructDraft = '';
       state.stage = 'complete';
+      state.referenceRevealed = false;
       state.completeReferenceOpen = false;
       render();
     });
     root.querySelector('[data-another-reconstruction]')?.addEventListener('click', () => {
       state.stage = 'reconstruct';
+      state.referenceRevealed = false;
       state.completeReferenceOpen = false;
       render();
       reconstructDraft?.focus();
@@ -507,6 +535,6 @@ const nextHref = translation.navigation?.nextId
   .translationRuntime{max-width:88rem;margin:0 auto;display:grid;gap:12px}.translationHeader{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 18px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationHeader>div{display:grid;gap:2px}.translationHeader>div>span,.translationSource header>span,.translationStage header>span,.translationFrozen header>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHeader h1{margin:0;font-size:19px}.translationHeader small{color:var(--study-muted);font-size:10px}.translationBack,.translationHeader nav a{color:inherit;text-decoration:none;font-size:11px;font-weight:800}.translationHeader nav{display:flex;gap:8px}.translationHeader nav a,.translationHeader nav span{padding:7px 9px;border:1px solid var(--study-line);border-radius:8px;font-size:10px}.translationHeader nav span{color:var(--study-faint)}
   .translationColumns{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr);gap:12px;align-items:start}.translationSource,.translationWork{min-width:0}.translationSource{position:sticky;top:12px;padding:22px 24px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationSource header h2{margin:4px 0 0;font-size:20px}.translationInstruction,.translationSubtitle{margin:12px 0 0;padding:10px 12px;border-radius:9px;background:var(--study-green-soft);color:var(--study-muted);font-size:12px;line-height:1.65}.translationSourceBody{margin-top:18px;font-size:15px;line-height:1.9}.translationSourceBody>p{margin:0 0 14px}.translationSegment{padding:12px 0;border-top:1px solid var(--study-line)}.translationSegment small{display:block;margin-bottom:5px;color:var(--study-faint);font-size:9px;font-weight:800}.translationSegment em{display:block;margin-bottom:7px;color:var(--study-muted);font-size:11px;font-style:normal}.translationSegment p{margin:0}.translationMissing{color:#9c4d31}.translationPromptNotes{margin-top:14px;padding-top:10px;border-top:1px solid var(--study-line)}.translationPromptNotes p{margin:4px 0;color:var(--study-muted);font-size:11px;line-height:1.55}.translationProvenance{margin-top:20px;padding-top:12px;border-top:1px solid var(--study-line);color:var(--study-faint);font-size:9px}.translationProvenance code{display:block;margin-top:4px;overflow-wrap:anywhere}
   .translationWork{display:grid;gap:10px}.translationStage,.translationFrozen,.translationHistory{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationStage header h2{margin:4px 0 5px;font-size:21px}.translationStage header p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.65}.translationStage textarea{width:100%;box-sizing:border-box;resize:vertical;padding:12px 13px;border:1px solid #cad6cf;border-radius:10px;background:#fbfdfc;font:inherit;font-size:13px;line-height:1.75;outline:none}.translationStage textarea:focus{border-color:var(--study-green);box-shadow:0 0 0 3px var(--study-green-soft)}.translationActions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}.translationActions button,.buttonLink,.translationHistoryActions button{padding:8px 11px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:10px;font-weight:800;cursor:pointer;text-decoration:none}.translationActions button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}.translationActions small{flex-basis:100%;color:var(--study-faint);font-size:9px;line-height:1.45}.translationActions.split{justify-content:flex-start}
-  .translationFrozen{padding:14px 18px;background:#fbfdfc}.translationFrozen header{display:flex;justify-content:space-between;gap:10px}.translationFrozen header small{color:var(--study-faint);font-size:9px}.translationFrozen pre,.translationLatest pre,.translationHistory pre{margin:8px 0 0;white-space:pre-wrap;font:inherit;font-size:12px;line-height:1.65}.translationReference{margin:12px 0;padding:14px;border:1px solid #d7dfdb;border-radius:11px;background:#f8faf9}.translationReferenceHead{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.translationReferenceHead strong{font-size:11px}.translationReferenceHead small{color:var(--study-faint);font-size:9px}.translationReference [data-reference-list],.translationReference [data-complete-reference-list]{display:grid;gap:8px}.translationReference section{padding-top:8px;border-top:1px solid var(--study-line)}.translationReference section:first-child{padding-top:0;border-top:0}.translationReference section small{color:var(--study-green);font-size:9px;font-weight:800}.translationReference section p{margin:4px 0 0;font-size:12px;line-height:1.7}.translationLensGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.translationLensGrid label{display:grid;gap:5px}.translationLensGrid label>span{font-size:10px;font-weight:800}.translationFocusSummary{display:grid;gap:4px;margin-bottom:10px;padding:10px 12px;border-radius:9px;background:var(--study-green-soft)}.translationFocusSummary p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.55}.translationLatest{padding:12px;border-radius:10px;background:var(--study-green-soft)}.translationLatest strong{font-size:10px}.translationHistory summary{cursor:pointer;font-size:11px;font-weight:800}.translationHistory summary span{margin-left:4px;color:var(--study-green)}.translationHistory [data-history-list]{display:grid;gap:8px;margin-top:10px}.translationHistory [data-history-list]>p{color:var(--study-faint);font-size:10px}.translationHistory details{padding:8px 10px;border:1px solid var(--study-line);border-radius:8px}.translationHistory details summary{font-size:9px}.translationHistory details strong{display:block;margin-top:8px;font-size:9px}.translationHistoryActions{display:flex;gap:7px;margin-top:10px}.translationHistory>small{display:block;margin-top:8px;color:var(--study-faint);font-size:9px}
+  .translationFrozen{padding:14px 18px;background:#fbfdfc}.translationFrozen header{display:flex;justify-content:space-between;gap:10px}.translationFrozen header small{color:var(--study-faint);font-size:9px}.translationFrozen pre,.translationLatest pre,.translationHistory pre{margin:8px 0 0;white-space:pre-wrap;font:inherit;font-size:12px;line-height:1.65}.translationReference{margin:12px 0;padding:14px;border:1px solid #d7dfdb;border-radius:11px;background:#f8faf9}.translationReferenceHead{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.translationReferenceHead strong{font-size:11px}.translationReferenceHead small{color:var(--study-faint);font-size:9px}.translationReference [data-reference-list],.translationReference [data-complete-reference-list]{display:grid;gap:8px}.translationReference section{padding-top:8px;border-top:1px solid var(--study-line)}.translationReference section:first-child{padding-top:0;border-top:0}.translationReference section small{color:var(--study-green);font-size:9px;font-weight:800}.translationReference section p{margin:4px 0 0;font-size:12px;line-height:1.7}.translationReference section.referenceGap p{color:#8b623e}.translationLensGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.translationLensGrid label{display:grid;gap:5px}.translationLensGrid label>span{font-size:10px;font-weight:800}.translationFocusSummary{display:grid;gap:4px;margin-bottom:10px;padding:10px 12px;border-radius:9px;background:var(--study-green-soft)}.translationFocusSummary p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.55}.translationLatest{padding:12px;border-radius:10px;background:var(--study-green-soft)}.translationLatest strong{font-size:10px}.translationHistory summary{cursor:pointer;font-size:11px;font-weight:800}.translationHistory summary span{margin-left:4px;color:var(--study-green)}.translationHistory [data-history-list]{display:grid;gap:8px;margin-top:10px}.translationHistory [data-history-list]>p{color:var(--study-faint);font-size:10px}.translationHistory details{padding:8px 10px;border:1px solid var(--study-line);border-radius:8px}.translationHistory details summary{font-size:9px}.translationHistory details strong{display:block;margin-top:8px;font-size:9px}.translationHistoryActions{display:flex;gap:7px;margin-top:10px}.translationHistory>small{display:block;margin-top:8px;color:var(--study-faint);font-size:9px}
   @media(max-width:920px){.translationHeader{grid-template-columns:1fr}.translationHeader nav{justify-content:flex-start}.translationColumns{grid-template-columns:1fr}.translationSource{position:static}.translationLensGrid{grid-template-columns:1fr}}
 </style>
