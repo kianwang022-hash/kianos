@@ -67,7 +67,24 @@ Lexical natural-owner auditing and L0-first semantic review are active Current w
 
 ### Politics
 
-Politics durable Current owners under `content/politics/` are present and remain the authority. Generated historical projections and legacy runtime/recovery files are not Current owners.
+Politics Current is now split by responsibility:
+
+- `content/politics/manifest.json` / `provenance.json` — durable source ownership and provenance;
+- `content/politics/source/` — Chengfeng continuous-source structure, Suyi-linked source nodes/region references, Xiao1000 questions, and relation assets;
+- `content/politics/LEARNING_CONTRACT.md` — the active Politics learning and interaction semantics;
+- `content/politics/learning/` — Chat-approved teaching projections that add orientation, bridges, compression, and repair guidance without creating a second textbook.
+
+Active first-round Politics chain:
+
+`Chat Orientation → Chengfeng Natural Unit continuous learning → Xiao1000 verification → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
+
+Chengfeng is the only continuous first-round mainline. Suyi is a background framework reference for Chat: useful mind-map structure is absorbed into the learning projection and does not need a separate learner-facing course or standalone Markdown representation. Xiao1000 remains validation and transfer evidence and must not determine the learning order.
+
+The first Current teaching-projection pilot is:
+
+- `content/politics/learning/marxism/ch01.json`
+
+It is bound to the canonical Chengfeng MARX Chapter 1 regions/Natural Units and preserves the existing Suyi reference bindings already present in Current region/source-node assets.
 
 ### Astro runtime
 
@@ -79,7 +96,7 @@ The legacy repository knowledge-asset transport is closed. Migration evidence re
 
 The migration dual-read exception is closed for normal work. Future reads from `kianos-legacy` require an explicit recovery, rollback, historical comparison, or newly authorized migration/recovery task.
 
-Active Xizong v6 upgrades, Lexical semantic review/natural-owner audit, English learning/content upgrades, Astro projection expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
+Active Xizong v6 upgrades, Lexical semantic review/natural-owner audit, English learning/content upgrades, Politics teaching-projection upgrades, Astro projection expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
 
 ## Known inherited source-asset gap
 
