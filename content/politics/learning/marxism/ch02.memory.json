@@ -1,0 +1,66 @@
+{
+  "schema": "kianos.politics.memory_projection.v1",
+  "status": "CURRENT_PILOT",
+  "chapter_id": "POL27-LEARN-MARX-C02",
+  "policy": "SOURCE_GROUNDED_SELECTIVE",
+  "principle": "Understanding may synthesize; durable Memory may not expand beyond grounded candidates.",
+  "preferred_memory_reference": {
+    "role": "DESIGNATED_MEMORY_HANDBOOK",
+    "label": "腿姐背诵手册",
+    "binding_status": "PENDING_SOURCE_BINDING",
+    "rule": "When the designated handbook is available, use it as a preferred admission/cross-check source for fixed memory points; never infer handbook coverage from memory or substitute another source without marking it."
+  },
+  "admission_gate": {
+    "default": "NOT_ADMITTED",
+    "requires_source_grounding": true,
+    "admit_when_any": [
+      "DESIGNATED_MEMORY_SOURCE_CONFIRMS",
+      "WRONG_OR_UNCERTAIN_EVIDENCE_SHOWS_EXACT_RETENTION_NEED"
+    ],
+    "do_not_admit_for": [
+      "explanation richness alone",
+      "one correct understanding answer",
+      "AI-generated extension without source support"
+    ]
+  },
+  "units": {
+    "POL27-CF-MARX-C02-K03": {
+      "runtime_region": "POL27-REGION-PILOT-MARX-REG-01",
+      "title": "对立统一规律",
+      "candidates": [
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M01",
+          "form": "boundary",
+          "statement": "同一性强调相互依存、相互贯通，是有条件的、相对的；斗争性强调相互排斥、相互分离，是无条件的、绝对的。",
+          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission": "CANDIDATE_ONLY"
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M02",
+          "form": "boundary",
+          "statement": "同一性和斗争性在矛盾统一体中同时存在，不能理解为时而同一、时而斗争。",
+          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission": "CANDIDATE_ONLY"
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M03",
+          "form": "direction",
+          "statement": "共性寓于个性之中，并通过个性表现；不能倒置为个性寓于共性之中。",
+          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission": "CANDIDATE_ONLY"
+        },
+        {
+          "id": "POL27-MEM-MARX-C02-K03-M04",
+          "form": "trap_boundary",
+          "statement": "矛盾双方可以在一定条件下转化，但不把矛盾双方描述为调和。",
+          "source_refs": ["POL27-CF-MARX-C02-K03"],
+          "handbook_alignment": "PENDING_SOURCE_BINDING",
+          "admission": "CANDIDATE_ONLY"
+        }
+      ]
+    }
+  }
+}
