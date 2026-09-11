@@ -4,7 +4,7 @@ import VocabularyWordRuntime from '../components/VocabularyWordRuntime.astro';
 import VocabularyChallengeRuntime from '../components/VocabularyChallengeRuntime.astro';
 import { loadLexicalWordByOrdinal } from '../lib/lexical.mjs';
 
-const validationOrdinals = [209, 1931, 1259, 1264, 1282, 314, 1670];
+const validationOrdinals = [1917, 1931, 1259, 1264, 1282, 314, 1670];
 const batch = validationOrdinals.map((ordinal) => loadLexicalWordByOrdinal(ordinal));
 const batchHash = batch.map((item) => item.sourceHash.slice(0, 8)).join('-');
 ---
