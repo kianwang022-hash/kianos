@@ -118,9 +118,20 @@ const syntheticPayload = JSON.stringify(syntheticIds).replace(/</g, '\\u003c');
       const runtime = shell.querySelector('[data-writing-runtime]');
       const body = runtime?.querySelector('.writingPromptBody');
       const meta = runtime?.querySelector('.writingPromptMeta');
+      const headerMeta = runtime?.querySelector('.writingRuntimeHeader small');
       if (!(body instanceof HTMLElement)) return;
-      body.replaceChildren();
 
+      if (headerMeta instanceof HTMLElement) {
+        const stage = headerMeta.querySelector('[data-stage-label]');
+        if (stage) {
+          headerMeta.replaceChildren(
+            document.createTextNode(`${task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · true exam · `),
+            stage
+          );
+        }
+      }
+
+      body.replaceChildren();
       const context = task.learnerTask.context || {};
       for (const key of ['title', 'subtitle', 'task_background', 'directions', 'instruction', 'directive']) {
         const rows = textualValues(context[key], key);
