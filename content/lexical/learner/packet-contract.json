@@ -1,0 +1,97 @@
+{
+  "schema": "kianos.lexical.learner_packet_contract.v1",
+  "status": "CURRENT",
+  "role": "SHARED_PACKET_SHAPE_ONLY",
+  "rule": "This file defines portable packet shapes for private learner evidence and Chat-generated next-day Challenges. It stores no personal learner state and is not lexical semantic authority.",
+  "return_packet": {
+    "schema": "kianos.lexical.return_packet.v1",
+    "required_top_level": [
+      "schema",
+      "study_day",
+      "exported_at",
+      "events"
+    ],
+    "event_required": [
+      "word_id",
+      "ordinal",
+      "target_kind",
+      "source",
+      "outcome",
+      "observed_at"
+    ],
+    "event_fields": {
+      "word_id": "Stable Current Word identity.",
+      "ordinal": "Stable Current Word ordinal.",
+      "word": "Optional display spelling; never semantic authority.",
+      "target_kind": "core | sense | collocation | construction | phrase | relation | word_feel | productive_need",
+      "target_id": "Stable Current subobject identity when one exists, such as sense_id, collocation_id, fact_id, or relation_id.",
+      "target_locator": "Owner-local deterministic locator only when no stable subobject id exists.",
+      "source": "depth_plus | challenge | reconstruction | reading | cloze | translation | writing | blind_probe",
+      "outcome": "ADDED | CORRECT | WRONG | SLOW | AGAIN | QUESTION_ISSUE | SEMANTIC_ISSUE",
+      "challenge_id": "Optional Challenge identity when the event came from a generated Challenge.",
+      "selected_key": "Optional selected spatial answer key.",
+      "correct_key": "Optional correct spatial answer key; include only after the learner has answered.",
+      "question_trace": "Optional minimal prompt/options trace when needed to diagnose a wrong judgment or defective generated question.",
+      "note": "Optional learner/Chat note for QUESTION_ISSUE or SEMANTIC_ISSUE; not required for ordinary events.",
+      "observed_at": "ISO-8601 event time."
+    },
+    "rules": [
+      "Do not duplicate whole lexical definitions when stable Current owner identities are sufficient.",
+      "Every explicit +, WRONG, AGAIN, repeated failure, QUESTION_ISSUE, or SEMANTIC_ISSUE must be consumed by next-day Chat compilation.",
+      "A defective generated question is not learner failure.",
+      "Return Packet is private learner evidence and must not be committed as shared Current content."
+    ]
+  },
+  "challenge_packet": {
+    "schema": "kianos.lexical.challenge_packet.v1",
+    "required_top_level": [
+      "schema",
+      "study_day",
+      "generated_at",
+      "challenges"
+    ],
+    "challenge_required": [
+      "challenge_id",
+      "word_id",
+      "ordinal",
+      "target_kind",
+      "question_type",
+      "stem",
+      "options",
+      "correct_key"
+    ],
+    "challenge_fields": {
+      "challenge_id": "Unique packet-local Challenge identity.",
+      "word_id": "Stable Current Word identity.",
+      "ordinal": "Stable Current Word ordinal.",
+      "word": "Optional display spelling.",
+      "target_kind": "core | sense | collocation | construction | phrase | relation | word_feel | productive_need",
+      "target_id": "Stable Current subobject identity when available.",
+      "target_locator": "Owner-local locator only when no stable subobject id exists.",
+      "source_evidence": "Why this target is being challenged: prior +, wrong, slow/fuzzy, repeated failure, module failure, or blind probe.",
+      "question_type": "spatial_choice for v1; later versions may add other low-friction forms.",
+      "stem": "Generated challenge prompt/context. Must not leak protected unseen true-exam/TPO source material.",
+      "options": "Array of 2-4 objects with key in left | up | right | down and learner-visible text.",
+      "correct_key": "One spatial key present in options.",
+      "repair": "Optional smallest-sufficient repair shown only after failure.",
+      "reconstruction": "Optional one same-session reconstruction item after failure; same spatial-choice shape without recursive repair chains."
+    },
+    "rules": [
+      "Challenge content may be freely generated from valid Current lexical semantics and relations.",
+      "Do not require one pre-authored question per lexical object.",
+      "Do not use unattempted true-exam, TPO, or other held-out unseen source sentences as ordinary generated Challenge material.",
+      "Two-choice items should normally use left/right; three- and four-choice items use consistent spatial arrow positions.",
+      "Arrow choice submits immediately; ordinary selection does not require a second Enter confirmation.",
+      "Wrong/Again targets must remain represented in the next Return Packet even when same-session reconstruction succeeds.",
+      "Challenge Packet is private learner material generated for a study day and must not become lexical semantic authority."
+    ]
+  },
+  "chat_compile_order": [
+    "previous-day WRONG / AGAIN / repeated failure",
+    "previous-day explicit +",
+    "previous-day SLOW / fuzzy evidence",
+    "older unresolved high-value repair targets when still useful",
+    "small residual blind-probe layer only after repair obligations"
+  ],
+  "no_review_debt_rule": "If repair load is high, reduce blind probes and new Depth volume before creating an automatic overdue backlog. Missed calendar days recompile from unresolved evidence rather than manufacturing due-card debt."
+}
