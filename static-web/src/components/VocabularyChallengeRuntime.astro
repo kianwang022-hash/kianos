@@ -1,0 +1,382 @@
+<section class="portedVocabRuntime portedVocabChallengeRuntime" data-vocab-challenge-runtime data-challenge-active="false">
+  <header class="portedVocabPreviewBar">
+    <div><span>Lexical Challenge</span><b>Next-day Repair</b><small data-challenge-status>Import a Challenge Packet</small></div>
+  </header>
+
+  <section class="portedVocabStudySheet">
+    <section data-challenge-import-panel>
+      <h3>Import Challenge Packet</h3>
+      <p>把 Chat 根据上一份 Return Packet 生成的 <code>kianos.lexical.challenge_packet.v1</code> 粘贴进来。题目只存在本地。</p>
+      <textarea data-challenge-packet-input rows="8" placeholder="Paste Challenge Packet JSON"></textarea>
+      <div class="portedVocabPreviewActions">
+        <button type="button" class="portedPrimaryAction" data-challenge-import>Import & Start</button>
+        <button type="button" data-challenge-resume hidden>Continue saved packet</button>
+      </div>
+      <small data-challenge-import-status></small>
+    </section>
+
+    <section data-challenge-question-panel hidden>
+      <header class="portedVocabWordHeader">
+        <div>
+          <span data-challenge-progress>Challenge</span>
+          <h2 data-challenge-word>—</h2>
+        </div>
+        <aside><b data-challenge-source>Repair</b><small>← ↑ ↓ → 直接作答</small></aside>
+      </header>
+
+      <div class="lexicalChallengeStage">
+        <p class="lexicalChallengeStem" data-challenge-stem></p>
+        <div class="lexicalChallengeOptions" data-challenge-options>
+          <button type="button" data-challenge-choice="up" data-pos="up" hidden></button>
+          <button type="button" data-challenge-choice="left" data-pos="left" hidden></button>
+          <button type="button" data-challenge-choice="right" data-pos="right" hidden></button>
+          <button type="button" data-challenge-choice="down" data-pos="down" hidden></button>
+        </div>
+        <div class="lexicalChallengeFeedback" data-challenge-feedback hidden></div>
+        <div class="portedVocabPreviewActions">
+          <button type="button" data-challenge-question-issue>Q · 题目有问题</button>
+          <button type="button" class="portedPrimaryAction" data-challenge-continue hidden>Space · Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <section data-challenge-complete-panel hidden>
+      <h3>Challenge complete</h3>
+      <p data-challenge-complete-summary></p>
+      <div class="portedVocabPreviewActions">
+        <button type="button" class="portedPrimaryAction" data-challenge-copy-return>Copy Return Packet</button>
+        <button type="button" data-challenge-clear>Clear Challenge Packet</button>
+      </div>
+    </section>
+  </section>
+</section>
+
+<style>
+  .lexicalChallengeStage { padding: 1rem 0; }
+  .lexicalChallengeStem { font-size: 1.35rem; line-height: 1.6; max-width: 52rem; margin: 1.5rem auto; text-align: center; }
+  .lexicalChallengeOptions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(8rem, 1.2fr) minmax(0, 1fr); grid-template-areas: ". up ." "left . right" ". down ."; gap: .7rem; max-width: 48rem; margin: 1.5rem auto; align-items: stretch; }
+  .lexicalChallengeOptions [data-pos="up"] { grid-area: up; }
+  .lexicalChallengeOptions [data-pos="left"] { grid-area: left; }
+  .lexicalChallengeOptions [data-pos="right"] { grid-area: right; }
+  .lexicalChallengeOptions [data-pos="down"] { grid-area: down; }
+  .lexicalChallengeOptions button { min-height: 4.2rem; padding: .8rem 1rem; border: 1px solid currentColor; border-radius: .7rem; background: transparent; font: inherit; cursor: pointer; }
+  .lexicalChallengeFeedback { max-width: 48rem; margin: 1rem auto; padding: .9rem 1rem; border: 1px solid currentColor; border-radius: .7rem; line-height: 1.55; white-space: pre-wrap; }
+  [data-challenge-packet-input] { width: 100%; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+
+<script>
+  const challengeRoot = document.querySelector('[data-vocab-challenge-runtime]');
+  if (challengeRoot) {
+    const packetKey = 'kianos-lexical-challenge-packet-v1';
+    const progressKey = 'kianos-lexical-challenge-progress-v1';
+    const eventsKey = 'kianos-lexical-challenge-events-v1';
+    const importPanel = challengeRoot.querySelector('[data-challenge-import-panel]');
+    const questionPanel = challengeRoot.querySelector('[data-challenge-question-panel]');
+    const completePanel = challengeRoot.querySelector('[data-challenge-complete-panel]');
+    const packetInput = challengeRoot.querySelector('[data-challenge-packet-input]');
+    const importStatus = challengeRoot.querySelector('[data-challenge-import-status]');
+    const status = challengeRoot.querySelector('[data-challenge-status]');
+    const resumeButton = challengeRoot.querySelector('[data-challenge-resume]');
+    const continueButton = challengeRoot.querySelector('[data-challenge-continue]');
+    const feedback = challengeRoot.querySelector('[data-challenge-feedback]');
+    const choiceButtons = [...challengeRoot.querySelectorAll('[data-challenge-choice]')];
+
+    let packet = null;
+    let progress = { packetSignature: '', index: 0, mode: 'main', answered: false, pendingReconstruction: false };
+    let events = [];
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+    };
+    const saveJson = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch {} };
+    const packetSignature = (value) => `${value?.study_day || ''}|${value?.generated_at || ''}|${value?.challenges?.length || 0}`;
+
+    const validateQuestion = (question) => {
+      if (!question || typeof question.stem !== 'string' || !question.stem.trim()) return false;
+      if (!Array.isArray(question.options) || question.options.length < 2 || question.options.length > 4) return false;
+      const keys = question.options.map((option) => option?.key);
+      if (keys.some((key) => !['left', 'up', 'right', 'down'].includes(key))) return false;
+      if (new Set(keys).size !== keys.length) return false;
+      return keys.includes(question.correct_key);
+    };
+
+    const validatePacket = (value) => {
+      if (value?.schema !== 'kianos.lexical.challenge_packet.v1') return 'schema 必须是 kianos.lexical.challenge_packet.v1';
+      if (!Array.isArray(value.challenges) || !value.challenges.length) return 'challenges 不能为空';
+      for (const item of value.challenges) {
+        if (!item?.challenge_id || !item?.word_id || !Number.isInteger(Number(item?.ordinal)) || !item?.target_kind) return 'Challenge identity 不完整';
+        if (item.question_type !== 'spatial_choice' || !validateQuestion(item)) return `Challenge ${item.challenge_id || ''} 不是有效 spatial_choice`;
+        if (item.reconstruction && !validateQuestion(item.reconstruction)) return `Challenge ${item.challenge_id || ''} reconstruction 无效`;
+      }
+      return '';
+    };
+
+    const setActive = (active) => challengeRoot.setAttribute('data-challenge-active', String(Boolean(active)));
+    const saveProgress = () => saveJson(progressKey, progress);
+    const saveEvents = () => saveJson(eventsKey, events);
+
+    const currentChallenge = () => packet?.challenges?.[progress.index] || null;
+    const currentQuestion = () => {
+      const item = currentChallenge();
+      if (!item) return null;
+      return progress.mode === 'reconstruction' ? item.reconstruction : item;
+    };
+
+    const eventBase = (item) => ({
+      word_id: item.word_id,
+      ordinal: Number(item.ordinal),
+      word: item.word || null,
+      target_kind: item.target_kind,
+      target_id: item.target_id || null,
+      target_locator: item.target_locator || null,
+      challenge_id: item.challenge_id,
+      observed_at: new Date().toISOString()
+    });
+
+    const pushEvent = (item, source, outcome, extra = {}) => {
+      events.push({ ...eventBase(item), source, outcome, ...extra });
+      saveEvents();
+    };
+
+    const renderOptions = (question) => {
+      const byKey = new Map((question?.options || []).map((option) => [option.key, option]));
+      choiceButtons.forEach((button) => {
+        const key = button.getAttribute('data-challenge-choice');
+        const option = byKey.get(key);
+        button.hidden = !option;
+        button.disabled = Boolean(progress.answered);
+        button.textContent = option ? option.text : '';
+        button.classList.remove('selected', 'correct', 'wrong');
+      });
+    };
+
+    const renderQuestion = () => {
+      const item = currentChallenge();
+      const question = currentQuestion();
+      if (!item || !question) { finish(); return; }
+      importPanel.hidden = true;
+      completePanel.hidden = true;
+      questionPanel.hidden = false;
+      setActive(true);
+      challengeRoot.querySelector('[data-challenge-progress]').textContent = `${progress.index + 1} / ${packet.challenges.length}${progress.mode === 'reconstruction' ? ' · Reconstruct' : ''}`;
+      challengeRoot.querySelector('[data-challenge-word]').textContent = item.word || item.word_id;
+      challengeRoot.querySelector('[data-challenge-source]').textContent = item.source_evidence || 'Repair';
+      challengeRoot.querySelector('[data-challenge-stem]').textContent = question.stem;
+      feedback.hidden = true;
+      feedback.textContent = '';
+      continueButton.hidden = true;
+      renderOptions(question);
+      status.textContent = `${progress.index + 1} / ${packet.challenges.length}`;
+    };
+
+    const advance = () => {
+      progress.index += 1;
+      progress.mode = 'main';
+      progress.answered = false;
+      progress.pendingReconstruction = false;
+      saveProgress();
+      if (progress.index >= packet.challenges.length) finish();
+      else renderQuestion();
+    };
+
+    const showRepair = (item) => {
+      const repair = typeof item.repair === 'string' ? item.repair : (item.repair?.brief || item.repair?.text || '');
+      feedback.hidden = false;
+      feedback.textContent = repair || '这题已记为错误；下一步只修当前 lexical target。';
+      progress.pendingReconstruction = Boolean(item.reconstruction);
+      continueButton.hidden = false;
+      continueButton.textContent = item.reconstruction ? 'Space · Reconstruct' : 'Space · Next';
+      saveProgress();
+    };
+
+    const answer = (key) => {
+      if (progress.answered) return;
+      const item = currentChallenge();
+      const question = currentQuestion();
+      if (!item || !question) return;
+      const chosen = question.options.find((option) => option.key === key);
+      if (!chosen) return;
+      progress.answered = true;
+      saveProgress();
+      const correct = key === question.correct_key;
+      const source = progress.mode === 'reconstruction' ? 'reconstruction' : 'challenge';
+      pushEvent(item, source, correct ? 'CORRECT' : 'WRONG', {
+        selected_key: key,
+        correct_key: question.correct_key,
+        question_trace: {
+          stem: question.stem,
+          options: question.options.map((option) => ({ key: option.key, text: option.text }))
+        }
+      });
+      choiceButtons.forEach((button) => {
+        const buttonKey = button.getAttribute('data-challenge-choice');
+        button.disabled = true;
+        if (buttonKey === question.correct_key) button.classList.add('correct');
+        if (buttonKey === key) button.classList.add(correct ? 'selected' : 'wrong');
+      });
+      if (correct) {
+        feedback.hidden = false;
+        feedback.textContent = '✓';
+        if (progress.mode === 'reconstruction') {
+          continueButton.hidden = false;
+          continueButton.textContent = 'Space · Next';
+        } else {
+          window.setTimeout(advance, 260);
+        }
+      } else if (progress.mode === 'reconstruction') {
+        feedback.hidden = false;
+        feedback.textContent = '重建仍未稳定；保留 WRONG，明天继续换方式修。';
+        continueButton.hidden = false;
+        continueButton.textContent = 'Space · Next';
+      } else {
+        showRepair(item);
+      }
+    };
+
+    const continueFlow = () => {
+      if (!progress.answered) return;
+      if (progress.mode === 'main' && progress.pendingReconstruction) {
+        progress.mode = 'reconstruction';
+        progress.answered = false;
+        progress.pendingReconstruction = false;
+        saveProgress();
+        renderQuestion();
+        return;
+      }
+      advance();
+    };
+
+    const collectDepthEvents = () => {
+      const result = [];
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i) || '';
+        if (!key.startsWith('kianos-vocabulary-astro-v2:')) continue;
+        const state = readJson(key, null);
+        if (!state?.meta || !state?.repairTargets) continue;
+        Object.values(state.repairTargets).forEach((target) => {
+          result.push({
+            word_id: state.meta.word_id,
+            ordinal: Number(state.meta.ordinal),
+            word: state.meta.word || null,
+            target_kind: target.target_kind,
+            target_id: target.target_id || null,
+            target_locator: target.target_locator || null,
+            source: 'depth_plus',
+            outcome: 'ADDED',
+            observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+          });
+        });
+      }
+      return result;
+    };
+
+    const buildReturnPacket = () => ({
+      schema: 'kianos.lexical.return_packet.v1',
+      study_day: packet?.study_day || new Date().toLocaleDateString('en-CA'),
+      exported_at: new Date().toISOString(),
+      events: [...collectDepthEvents(), ...events]
+    });
+
+    const finish = () => {
+      setActive(false);
+      importPanel.hidden = true;
+      questionPanel.hidden = true;
+      completePanel.hidden = false;
+      const wrong = events.filter((event) => event.source === 'challenge' && event.outcome === 'WRONG').length;
+      const correct = events.filter((event) => event.source === 'challenge' && event.outcome === 'CORRECT').length;
+      challengeRoot.querySelector('[data-challenge-complete-summary]').textContent = `${correct} correct · ${wrong} wrong · Return Packet 会保留精确 target 给下一天。`;
+      status.textContent = 'Complete';
+    };
+
+    const startPacket = (value, reset = true) => {
+      const error = validatePacket(value);
+      if (error) { importStatus.textContent = error; return; }
+      packet = value;
+      saveJson(packetKey, packet);
+      const signature = packetSignature(packet);
+      if (reset || progress.packetSignature !== signature) {
+        progress = { packetSignature: signature, index: 0, mode: 'main', answered: false, pendingReconstruction: false };
+        events = [];
+        saveProgress();
+        saveEvents();
+      }
+      renderQuestion();
+    };
+
+    challengeRoot.querySelector('[data-challenge-import]')?.addEventListener('click', () => {
+      let value = null;
+      try { value = JSON.parse(packetInput.value || ''); } catch { importStatus.textContent = 'JSON 无法解析'; return; }
+      startPacket(value, true);
+    });
+
+    resumeButton?.addEventListener('click', () => {
+      const saved = readJson(packetKey, null);
+      if (!saved) return;
+      startPacket(saved, false);
+    });
+
+    choiceButtons.forEach((button) => button.addEventListener('click', () => answer(button.getAttribute('data-challenge-choice') || '')));
+    continueButton?.addEventListener('click', continueFlow);
+
+    challengeRoot.querySelector('[data-challenge-question-issue]')?.addEventListener('click', () => {
+      const item = currentChallenge();
+      if (!item) return;
+      pushEvent(item, progress.mode === 'reconstruction' ? 'reconstruction' : 'challenge', 'QUESTION_ISSUE', {
+        question_trace: currentQuestion() ? {
+          stem: currentQuestion().stem,
+          options: currentQuestion().options.map((option) => ({ key: option.key, text: option.text }))
+        } : null
+      });
+      advance();
+    });
+
+    challengeRoot.querySelector('[data-challenge-copy-return]')?.addEventListener('click', async (event) => {
+      const button = event.currentTarget;
+      const text = JSON.stringify(buildReturnPacket(), null, 2);
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'Copied';
+      } catch {
+        window.prompt('Copy Return Packet', text);
+      }
+      window.setTimeout(() => { button.textContent = 'Copy Return Packet'; }, 1200);
+    });
+
+    challengeRoot.querySelector('[data-challenge-clear]')?.addEventListener('click', () => {
+      try { localStorage.removeItem(packetKey); localStorage.removeItem(progressKey); localStorage.removeItem(eventsKey); } catch {}
+      packet = null;
+      progress = { packetSignature: '', index: 0, mode: 'main', answered: false, pendingReconstruction: false };
+      events = [];
+      setActive(false);
+      questionPanel.hidden = true;
+      completePanel.hidden = true;
+      importPanel.hidden = false;
+      resumeButton.hidden = true;
+      status.textContent = 'Import a Challenge Packet';
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (challengeRoot.getAttribute('data-challenge-active') !== 'true') return;
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
+      const arrowMap = { ArrowLeft: 'left', ArrowUp: 'up', ArrowRight: 'right', ArrowDown: 'down' };
+      if (arrowMap[event.key] && !progress.answered) { event.preventDefault(); answer(arrowMap[event.key]); return; }
+      if ((event.code === 'Space' || event.key === 'Enter') && progress.answered) { event.preventDefault(); continueFlow(); return; }
+      if (event.key.toLowerCase() === 'q') {
+        event.preventDefault();
+        challengeRoot.querySelector('[data-challenge-question-issue]')?.click();
+      }
+    });
+
+    const savedPacket = readJson(packetKey, null);
+    const savedProgress = readJson(progressKey, null);
+    const savedEvents = readJson(eventsKey, []);
+    if (savedPacket && !validatePacket(savedPacket)) {
+      packet = savedPacket;
+      progress = savedProgress?.packetSignature === packetSignature(savedPacket) ? savedProgress : { packetSignature: packetSignature(savedPacket), index: 0, mode: 'main', answered: false, pendingReconstruction: false };
+      events = Array.isArray(savedEvents) ? savedEvents : [];
+      resumeButton.hidden = false;
+      importStatus.textContent = `已有 ${savedPacket.challenges.length} 道本地 Challenge，可继续。`;
+    }
+  }
+</script>
