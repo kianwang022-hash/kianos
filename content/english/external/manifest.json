@@ -1,0 +1,49 @@
+{
+  "schema": "kianos.english.external_manifest.v1",
+  "status": "CURRENT_INVENTORY_ONLY",
+  "owner_path": "content/english/external/",
+  "purpose": "Fresh unseen English input and transfer testing when true-exam memory residue reduces diagnostic value.",
+  "materialization_policy": {
+    "current_step": "INVENTORY_ONLY",
+    "content_bytes_materialized": false,
+    "materialize_only_when_selected_for_real_study_or_runtime_support": true,
+    "preserve_source_locator": true,
+    "preserve_clean_attempt_before_answer_exposure": true
+  },
+  "pools": [
+    {
+      "id": "tpo-56-65",
+      "kind": "TPO_READING",
+      "range": "56-65",
+      "status": "CANDIDATE_NOT_MATERIALIZED",
+      "default_role": "UNSEEN_OR_FRESH_PRACTICE",
+      "notes": "Use as high-quality unseen academic reading and transfer material; do not force full compression when normal read-and-answer performance is stable."
+    },
+    {
+      "id": "ielts-17-19",
+      "kind": "IELTS_READING",
+      "range": "17-19",
+      "status": "CANDIDATE_NOT_MATERIALIZED",
+      "default_role": "UNSEEN_OR_FRESH_PRACTICE",
+      "notes": "Use selectively for fresh reading exposure when it serves comprehension, discourse, or transfer goals."
+    },
+    {
+      "id": "periodicals",
+      "kind": "PERIODICAL_READING",
+      "range": "OPEN_ENDED",
+      "status": "FUTURE_INCREMENTAL",
+      "default_role": "FRESH_INPUT",
+      "notes": "Add high-quality periodical articles incrementally when they provide useful fresh language/discourse exposure. Prefer learner value over corpus size."
+    }
+  ],
+  "unseen_policy": {
+    "principle": "Unseen material is limited diagnostic capital.",
+    "default_states": [
+      "UNSEEN_HOLDOUT",
+      "PRACTICE_POOL",
+      "EXPOSED"
+    ],
+    "rule": "Do not reveal passage-specific answers, analysis, or decisive evidence before the first clean attempt when an item is held as unseen."
+  },
+  "selection_rule": "Prefer the next text that best tests the learner's current reading bottleneck while remaining genuinely fresh; do not consume unseen material merely to complete a fixed quota."
+}
