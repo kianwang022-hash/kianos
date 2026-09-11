@@ -143,9 +143,7 @@ Current content projection is complete across all Current Politics subjects:
 - Xi/New Thought: C00–C17 plus a whole-subject map, using hierarchy/role/goal/principle/path and confusable-formulation boundaries;
 - Ethics/Law: C00–C06 plus a whole-subject map, using concept-boundary/normative-judgment/situational-application structure.
 
-Politics Astro now has a Current learner entry, all-subject chapter index, and a generic chapter runtime that projects the shared loop while preserving each subject's own teaching shape. The active Politics stage is real learner validation, not further taxonomy or dashboard expansion.
-
-Politics already has Current, navigation, Xiao1000 verification, and minimal repair. Continue/session resume and a compact learner Return/Handoff path are not yet as explicit as in Xizong/English/LexicalOS and should be treated as shared-baseline gaps rather than ignored.
+Politics Astro now has a Current learner entry, all-subject chapter index, a generic chapter runtime, private last-chapter Continue, and a compact daily Wrong/Uncertain Return/Handoff. Stable correct Xiao1000 answers remain fast-pass and do not enter the handoff by default. The active Politics stage remains real learner validation, not further taxonomy or dashboard expansion.
 
 Fresh Chats continuing Politics work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for validation or repair.
 
