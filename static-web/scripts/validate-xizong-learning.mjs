@@ -76,17 +76,46 @@ for (const meta of system.blocks) {
   assert(block.blockLearnMarkdown.trim(), `${block.blockId}:opening-orientation`);
   assert(block.kpRecords.length === meta.kpCount, `${block.blockId}:kp-count`);
   assert(block.firstPassFocus && block.stopLine && block.recallSpine, `${block.blockId}:block-learning-support`);
+
+  const ordinalSet = new Set(block.kpRecords.map((kp) => kp.ordinal));
+  assert(ordinalSet.size === meta.kpCount, `${block.blockId}:stable-kp-identity-count`);
+  for (let ordinal = 1; ordinal <= meta.kpCount; ordinal += 1) {
+    assert(ordinalSet.has(ordinal), `${block.blockId}:stable-kp-identity-missing-${ordinal}`);
+  }
+
   const flattened = block.logicGroups.flatMap((group) => {
     assert(group.goal && group.closure, `${group.groupId}:goal-closure`);
     return group.kpIds;
   });
   assert(flattened.length === block.kpRecords.length, `${block.blockId}:logic-length`);
-  assert(flattened.every((kpId, index) => kpId === block.kpRecords[index].kpId), `${block.blockId}:logic-identity-order`);
+  assert(flattened.every((kpId, index) => kpId === block.kpRecords[index].kpId), `${block.blockId}:logic-follows-canonical-reading-order`);
   totalKp += block.kpRecords.length;
   totalGroups += block.logicGroups.length;
 }
 assert(totalKp === 312, `total-kp:${totalKp}`);
 assert(totalGroups === 87, `logic-groups:${totalGroups}`);
+
+// Stable KP identity is not learner order. B5 intentionally teaches remodeling KP07-12 before measurement KP04-06.
+const b5 = blocks.find((block) => block.blockId === 'circulation-b05');
+assert(b5, 'b5-missing');
+const b5OpeningOrder = b5.kpRecords.slice(0, 12).map((kp) => kp.ordinal);
+assert(
+  JSON.stringify(b5OpeningOrder) === JSON.stringify([1, 2, 3, 7, 8, 9, 10, 11, 12, 4, 5, 6]),
+  `b5-canonical-reading-order:${b5OpeningOrder.join(',')}`
+);
+assert(
+  b5.logicGroups.map((group) => group.groupId).slice(0, 3).join(',') === 'circulation-b05-lg01,circulation-b05-lg03,circulation-b05-lg02',
+  `b5-logic-group-order:${b5.logicGroups.map((group) => group.groupId).slice(0, 3).join(',')}`
+);
+
+// Generic opening projection must remove YAML metadata before learner-facing orientation.
+for (const blockId of ['circulation-b10', 'circulation-b11', 'circulation-b12']) {
+  const block = blocks.find((row) => row.blockId === blockId);
+  assert(block, `${blockId}:missing`);
+  assert(!block.blockLearnMarkdown.startsWith('---'), `${blockId}:frontmatter-delimiter-leaked`);
+  assert(!block.blockLearnMarkdown.includes('schema_version:'), `${blockId}:frontmatter-schema-leaked`);
+  assert(!block.blockLearnMarkdown.includes('type: block_guide'), `${blockId}:frontmatter-type-leaked`);
+}
 
 // ---------- Clean / weak / repair / persistence journeys ----------
 const b1 = blocks[0];
@@ -152,6 +181,9 @@ const systemUi = read('static-web/src/components/XizongSystemV6.astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 
 has(xizongLib, 'function blockOpeningOrientation(markdown)', 'generic-opening-fallback-missing');
+has(xizongLib, "replace(/^---\\s*\\n[\\s\\S]*?\\n---\\s*\\n+/, '')", 'generic-opening-does-not-strip-frontmatter');
+has(xizongLib, 'const kpOrdinalSet = new Set(kpRecords.map((record) => record.ordinal));', 'stable-kp-identity-set-check-missing');
+lacks(xizongLib, /record\.ordinal\s*!==\s*index\s*\+\s*1/, 'loader-still-forces-numeric-kp-order');
 has(xizongLib, 'const intro = blockOpeningOrientation(markdown);', 'loader-bypasses-generic-opening');
 
 lacks(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared-runtime-seeds-private-holdout');
@@ -196,6 +228,6 @@ console.log([
   `LogicGroups=${totalGroups}`,
   `Questions=${sweep.questionCount}`,
   `HoldoutTestYear=${testYear} excluded=${heldCount}`,
-  'Journeys=clean,weak,chat-return,holdout,W/U,persistence,idempotency,error',
+  'Journeys=canonical-order,clean,weak,chat-return,holdout,W/U,persistence,idempotency,error',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
