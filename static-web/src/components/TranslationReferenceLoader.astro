@@ -1,0 +1,223 @@
+---
+const { referenceUrl = '' } = Astro.props;
+---
+<span data-translation-reference-loader data-reference-url={referenceUrl} hidden></span>
+
+<script>
+  const marker = document.querySelector('[data-translation-reference-loader]');
+  const root = document.querySelector('[data-translation-runtime]');
+
+  if (marker instanceof HTMLElement && root instanceof HTMLElement) {
+    const referenceUrl = marker.getAttribute('data-reference-url') || '';
+    const objectId = root.getAttribute('data-object-id') || 'translation';
+    const paperId = root.getAttribute('data-paper-id') || 'English I';
+    const title = root.getAttribute('data-title') || objectId;
+    const returnSchema = 'KIANOS_TRANSLATION_RETURN_V1';
+    const transferStorageKey = 'kianos-translation-transfer-v1';
+    const attemptStorageKey = `kianos-translation-attempt-v2:${objectId}`;
+    let payload = null;
+    let loading = null;
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+
+    const promptRows = () => {
+      try { return JSON.parse(root.querySelector('[data-translation-prompts]')?.textContent || '[]'); }
+      catch { return []; }
+    };
+
+    const fillReference = (container) => {
+      if (!container || !payload) return;
+      container.replaceChildren();
+      for (const item of Array.isArray(payload.references) ? payload.references : []) {
+        const block = document.createElement('section');
+        const label = document.createElement('small');
+        label.textContent = `Segment ${item.ordinal || ''}`;
+        const text = document.createElement('p');
+        if (item?.available && String(item?.text || '').trim()) text.textContent = String(item.text);
+        else {
+          block.classList.add('referenceGap');
+          text.textContent = `Current source 暂无已核验参考译文（${item?.status || 'missing_reference'}）；runtime 不会自行补造。`;
+        }
+        block.append(label, text);
+        container.appendChild(block);
+      }
+    };
+
+    const fillAllReferencePanels = () => {
+      root.querySelectorAll('[data-reference-list], [data-complete-reference-list]').forEach(fillReference);
+    };
+
+    const setReferenceStatus = (message) => {
+      const status = root.querySelector('[data-copy-status]');
+      if (status) status.textContent = message;
+    };
+
+    const loadReference = async () => {
+      if (payload) return payload;
+      if (loading) return loading;
+      if (!referenceUrl) throw new Error('REFERENCE_URL_MISSING');
+      loading = (async () => {
+        const response = await fetch(referenceUrl, { credentials: 'same-origin' });
+        if (!response.ok) throw new Error(`REFERENCE_HTTP_${response.status}`);
+        const next = await response.json();
+        if (String(next?.objectId || '') !== objectId || next?.task !== 'translation') {
+          throw new Error('REFERENCE_IDENTITY_MISMATCH');
+        }
+        payload = next;
+        fillAllReferencePanels();
+        return payload;
+      })();
+      try { return await loading; }
+      finally { loading = null; }
+    };
+
+    const referenceText = () => (Array.isArray(payload?.references) ? payload.references : []).map((item) =>
+      item?.available && String(item?.text || '').trim()
+        ? `[${item.id} | Segment ${item.ordinal}] ${item.text}`
+        : `[${item.id} | Segment ${item.ordinal}] [reference unavailable: ${item?.status || 'missing_reference'}]`
+    ).join('\n\n');
+
+    const sourceSegmentsText = () => promptRows().map((prompt) =>
+      `[${prompt.id} | Segment ${prompt.ordinal}]\n${prompt.sourceText || ''}`
+    ).join('\n\n');
+
+    const firstAttemptsText = () => {
+      const state = readJson(attemptStorageKey, {});
+      return promptRows().map((prompt) =>
+        `[${prompt.id} | Segment ${prompt.ordinal}]\n${state?.firstAttempts?.[prompt.id] || '—'}`
+      ).join('\n\n');
+    };
+
+    const pendingText = () => {
+      const ledger = readJson(transferStorageKey, { targets: [] });
+      const pending = Array.isArray(ledger?.targets)
+        ? ledger.targets.filter((target) => target?.status !== 'closed')
+        : [];
+      if (!pending.length) return 'none';
+      return pending.map((target) =>
+        `- ${target.id} | ${target.label}\n  demand: ${target.underlyingDemand}\n  prior evidence: ${(target.evidence || []).filter((e) => e.relation !== 'irrelevant').length}`
+      ).join('\n');
+    };
+
+    const buildHandoffWithReference = () => [
+      'KIANOS_TRANSLATION_HANDOFF_V2',
+      `task: ${objectId}`,
+      `paper: ${paperId}`,
+      `title: ${title}`,
+      '',
+      'SOURCE SEGMENTS',
+      sourceSegmentsText(),
+      '',
+      'FIRST TRANSLATION · IMMUTABLE',
+      firstAttemptsText(),
+      '',
+      'PENDING TRANSFER TARGETS',
+      pendingText(),
+      '',
+      'REFERENCE STATE',
+      referenceText(),
+      '',
+      'REVIEW CONTRACT',
+      '先看完整 task/set，再定位最早一个足以解释结果的 first meaningful failure；可由它解释的 cascade 不另建债务。稳定且可信则 PASS。若需修复，只给 smallest sufficient repair，并让我自己 reconstruct。',
+      '若这套对已有 Pending target 提供了真正相关的新证据，才给 transfer_updates；irrelevant 不得算支持或反驳；close=true 只能来自语义上足够的 fresh independent evidence，不能因为同题改对或凑次数。',
+      '',
+      'RETURN EXACTLY WITH THIS MARKER + JSON',
+      returnSchema,
+      JSON.stringify({
+        schema: returnSchema,
+        task: objectId,
+        decision: 'PASS | REPAIR_NEEDED',
+        primary_failure: {
+          layer: 'Lexical | English Representation | Relation / Information Preservation | Chinese Reconstruction | Execution / Self-check',
+          skill: 'optional stable skill address',
+          affected_segments: ['exact segment id'],
+          minimal_repair: 'smallest cue / explanation needed to re-execute',
+          reconstruction_prompt: 'what I should now do myself'
+        },
+        transfer_target: {
+          admit: false,
+          target_id: 'stable reusable target id if admitted',
+          label: 'short learner-facing label',
+          layer: 'failure layer',
+          skill: 'optional skill address',
+          underlying_demand: 'what later fresh material must actually test'
+        },
+        transfer_updates: [
+          { target_id: 'existing pending target id', relation: 'support | contradict | irrelevant', note: 'why', close: false }
+        ]
+      }, null, 2)
+    ].join('\n');
+
+    const copyText = async (text) => {
+      try { await navigator.clipboard.writeText(text); return true; }
+      catch {
+        try {
+          const area = document.createElement('textarea');
+          area.value = text;
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          const ok = document.execCommand('copy');
+          area.remove();
+          return ok;
+        } catch { return false; }
+      }
+    };
+
+    root.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target.closest('button') : null;
+      if (!(target instanceof HTMLButtonElement)) return;
+
+      const diagnosisPanel = root.querySelector('[data-reference-panel]');
+      const isRevealButton = target.matches('[data-reveal-reference]');
+      const isCompleteButton = target.matches('[data-toggle-complete-reference]');
+      const isCopyButton = target.matches('[data-copy-chat]');
+
+      if (isCopyButton && payload && diagnosisPanel instanceof HTMLElement && !diagnosisPanel.hidden) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const ok = await copyText(buildHandoffWithReference());
+        setReferenceStatus(ok ? '已复制整套 Handoff（含你已主动揭示的 Reference）。' : '复制失败，请手动复制。');
+        return;
+      }
+
+      if (!isRevealButton && !isCompleteButton) return;
+      const panel = isRevealButton
+        ? diagnosisPanel
+        : target.closest('[data-stage]')?.querySelector('[data-complete-reference]');
+      const isOpening = panel instanceof HTMLElement && panel.hidden;
+      if (!isOpening || payload) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      target.disabled = true;
+      const oldText = target.textContent;
+      target.textContent = '加载 Reference…';
+      try {
+        await loadReference();
+        target.disabled = false;
+        target.textContent = oldText;
+        target.click();
+      } catch (error) {
+        target.disabled = false;
+        target.textContent = oldText;
+        setReferenceStatus(`Reference 加载失败：${error instanceof Error ? error.message : String(error)}；不会伪造答案。`);
+      }
+    }, true);
+
+    const restoredOpen = (
+      root.querySelector('[data-reference-panel]') instanceof HTMLElement
+      && !root.querySelector('[data-reference-panel]').hidden
+    ) || [...root.querySelectorAll('[data-complete-reference]')].some((panel) => panel instanceof HTMLElement && !panel.hidden);
+
+    if (restoredOpen) {
+      loadReference().catch((error) => {
+        setReferenceStatus(`Reference 恢复失败：${error instanceof Error ? error.message : String(error)}；不会伪造答案。`);
+      });
+    }
+  }
+</script>
