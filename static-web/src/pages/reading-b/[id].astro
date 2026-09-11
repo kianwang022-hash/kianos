@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import ReadingBWorkspace from '../../components/ReadingBWorkspace.astro';
+import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
+import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
+import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
+import { listReadingBSets, loadReadingBById } from '../../lib/englishObjective.mjs';
+
+export function getStaticPaths() {
+  return listReadingBSets().map((item) => ({
+    params: { id: item.id },
+    props: { objectId: item.id }
+  }));
+}
+
+const item = loadReadingBById(Astro.props.objectId);
+---
+<Base
+  title={item.title}
+  kicker="English · Reading B"
+  description="Discourse Skeleton → Required Role → Candidate Role → Global Reconciliation"
+  sourcePath={item.sourcePaths.questions}
+  sourceHash={item.sourceHashes.renderedObject}
+  objectId={item.objectId}
+  active="reading_b"
+>
+  <ReadingBWorkspace item={item} />
+  <ObjectiveAnswerGate task="reading_b" answerRoute="reading-b-answer" />
+  <ObjectiveHandoff />
+  <ObjectiveNavigator task="reading_b" route="reading-b" item={item} />
+</Base>
