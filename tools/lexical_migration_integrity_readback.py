@@ -74,7 +74,6 @@ def owner_surfaces(
             sense_status[sid] = status or "unknown"
 
     surfaces: list[dict[str, Any]] = []
-
     core = rec.get("core_concept") or {}
     add_surface(surfaces, "core_meaning_cn", core.get("core_meaning_cn"))
     add_surface(surfaces, "core_meaning_en", core.get("core_meaning_en"))
@@ -101,30 +100,9 @@ def owner_surfaces(
 
     for sense in rec.get("senses") or []:
         sid = sense.get("sense_id")
-        add_surface(
-            surfaces,
-            "active_sense_definition_cn",
-            sense.get("definition_cn"),
-            object_id=sid,
-        )
-        add_surface(
-            surfaces,
-            "active_sense_definition_en",
-            sense.get("definition_en"),
-            object_id=sid,
-        )
-        add_surface(
-            surfaces,
-            "active_sense_label_en",
-            sense.get("sense_label_en"),
-            object_id=sid,
-        )
-        add_surface(
-            surfaces,
-            "governing_pattern",
-            sense.get("governing_pattern"),
-            object_id=sid,
-        )
+        for field in ("definition_cn", "definition_en", "sense_label_en", "governing_pattern"):
+            kind = "active_sense_" + field if field != "governing_pattern" else field
+            add_surface(surfaces, kind, sense.get(field), object_id=sid)
         for coll in sense.get("collocations") or []:
             cid = coll.get("collocation_id")
             ev = coll.get("exam_value")
@@ -160,13 +138,7 @@ def owner_surfaces(
                     "source_sense_status": sstatus or "missing",
                 }
             )
-        for field in (
-            "pattern",
-            "boundary",
-            "meaning_cn",
-            "definition_cn",
-            "definition_en",
-        ):
+        for field in ("pattern", "boundary", "meaning_cn", "definition_cn", "definition_en"):
             add_surface(
                 surfaces,
                 f"construction_{field}",
@@ -248,10 +220,9 @@ def match_probe(
     probe: dict[str, Any], surfaces: list[dict[str, Any]]
 ) -> list[dict[str, Any]]:
     terms = [normalize(t) for t in probe.get("all_terms") or [] if normalize(t)]
-    matches: list[dict[str, Any]] = []
     if not terms:
-        return matches
-
+        return []
+    matches: list[dict[str, Any]] = []
     for surface in surfaces:
         norm = surface["normalized"]
         if norm and all(term in norm for term in terms):
@@ -261,11 +232,16 @@ def match_probe(
     return matches
 
 
-def mechanical_label(probe_results: list[dict[str, Any]]) -> str:
-    if not probe_results:
+def mechanical_label(probe_rows: list[dict[str, Any]]) -> str:
+    flat = [m for p in probe_rows for m in p["matches"]]
+    if not flat:
         return "NO_LITERAL_OR_NORMALIZED_MATCH"
 
-    visible = [r for r in probe_results if r.get("learner_visible")]
+    matched_probe_count = sum(bool(p["matches"]) for p in probe_rows)
+    if matched_probe_count < len(probe_rows):
+        return "PARTIAL_FAMILY_MATCH"
+
+    visible = [r for r in flat if r.get("learner_visible")]
     if not visible:
         return "MATCH_REFERENCE_ONLY"
 
@@ -280,12 +256,182 @@ def mechanical_label(probe_results: list[dict[str, Any]]) -> str:
     return "MATCH_ONLY_AS_USAGE_EXAMPLE"
 
 
+def health_flags(health: dict[str, Any]) -> list[str]:
+    flags: list[str] = []
+    if health["active_sense_count"] == 0:
+        flags.append("NO_ACTIVE_SENSE")
+    if health["stale_core_sense_refs"]:
+        flags.append(f"STALE_CORE:{len(health['stale_core_sense_refs'])}")
+    if health["dangling_construction_anchors"]:
+        flags.append(
+            f"DEAD_CONSTRUCTION_ANCHOR:{len(health['dangling_construction_anchors'])}"
+        )
+    return flags
+
+
+def review_priority(label: str, flags: list[str]) -> str:
+    if flags:
+        return "P0_OWNER_HEALTH"
+    if label in {"NO_LITERAL_OR_NORMALIZED_MATCH", "MATCH_REFERENCE_ONLY"}:
+        return "P1_MISSING_OR_HIDDEN"
+    if label == "PARTIAL_FAMILY_MATCH":
+        return "P1_PARTIAL_FAMILY"
+    if label == "MATCH_ONLY_AS_USAGE_EXAMPLE":
+        return "P2_PROMOTION_CANDIDATE"
+    return "P3_PRESENT_CANDIDATE"
+
+
+def compact_candidates(probe_rows: list[dict[str, Any]], limit: int = 3) -> list[dict[str, Any]]:
+    seen: set[tuple[str, str, str]] = set()
+    rows: list[dict[str, Any]] = []
+    for probe in probe_rows:
+        for match in probe["matches"]:
+            key = (
+                match.get("kind") or "",
+                match.get("object_id") or "",
+                match.get("text") or "",
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append(
+                {
+                    "kind": match.get("kind"),
+                    "object_id": match.get("object_id"),
+                    "text": match.get("text"),
+                    "exam_value": match.get("exam_value"),
+                    "source_sense_id": match.get("source_sense_id"),
+                    "source_sense_status": match.get("source_sense_status"),
+                }
+            )
+            if len(rows) >= limit:
+                return rows
+    return rows
+
+
+def md_escape(value: Any) -> str:
+    return str(value if value is not None else "").replace("|", "\\|").replace("\n", " ")
+
+
+def candidate_cell(candidates: list[dict[str, Any]]) -> str:
+    if not candidates:
+        return "—"
+    parts = []
+    for c in candidates:
+        oid = c.get("object_id") or "no-id"
+        text = c.get("text") or ""
+        kind = c.get("kind") or "surface"
+        suffix = f" [{c['exam_value']}]" if c.get("exam_value") else ""
+        parts.append(f"`{kind}:{oid}` {text}{suffix}")
+    return "<br>".join(md_escape(p) for p in parts)
+
+
+def render_summary(report: dict[str, Any]) -> str:
+    targets = report["targets"]
+    word_health = report["word_health"]
+    health_warning_count = sum(bool(h["health_flags"]) for h in word_health)
+    priority_counts: dict[str, int] = {}
+    for row in targets:
+        priority_counts[row["review_priority"]] = (
+            priority_counts.get(row["review_priority"], 0) + 1
+        )
+
+    lines = [
+        f"# Lexical Migration Integrity — {report.get('audit_id') or 'readback'}",
+        "",
+        f"- Targets: **{report['target_count']}** across **{report['word_count']}** words",
+        f"- Owner health warnings: **{health_warning_count}**",
+        "- Semantic mutation: **0** · Learner-state mutation: **0** · Mechanical semantic judgment: **0**",
+        "- These labels are retrieval/readback evidence only; **Chat still owns semantic acceptance and repair decisions**.",
+        "",
+        "## Mechanical labels",
+        "",
+    ]
+    for key, count in sorted(report["mechanical_label_counts"].items()):
+        lines.append(f"- `{key}`: **{count}**")
+    lines.extend(["", "## Review priorities", ""])
+    for key, count in sorted(priority_counts.items()):
+        lines.append(f"- `{key}`: **{count}**")
+
+    warnings = [h for h in word_health if h["health_flags"]]
+    if warnings:
+        lines.extend(
+            [
+                "",
+                "## Owner-health warnings",
+                "",
+                "| Ordinal | Word | Flags |",
+                "|---:|---|---|",
+            ]
+        )
+        for h in warnings:
+            lines.append(
+                f"| {h['ordinal']} | `{md_escape(h['word_id'])}` | "
+                f"{md_escape(', '.join(h['health_flags']))} |"
+            )
+
+    lines.extend(
+        [
+            "",
+            "## Target queue",
+            "",
+            "| Priority | ID | Owner | Approved target | Mechanical readback | Probes | Candidate surfaces | Health |",
+            "|---|---|---|---|---|---:|---|---|",
+        ]
+    )
+    priority_order = {
+        "P0_OWNER_HEALTH": 0,
+        "P1_MISSING_OR_HIDDEN": 1,
+        "P1_PARTIAL_FAMILY": 2,
+        "P2_PROMOTION_CANDIDATE": 3,
+        "P3_PRESENT_CANDIDATE": 4,
+    }
+    for row in sorted(
+        targets,
+        key=lambda r: (
+            priority_order.get(r["review_priority"], 9),
+            r["ordinal"],
+            r["target_id"],
+        ),
+    ):
+        probe_count = len(row["probe_results"])
+        matched = sum(bool(p["matches"]) for p in row["probe_results"])
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{md_escape(row['review_priority'])}`",
+                    f"`{md_escape(row['target_id'])}`",
+                    f"{row['ordinal']} `{md_escape(row['word_id'])}`",
+                    md_escape(row["approved_target"]),
+                    f"`{md_escape(row['mechanical_label'])}`",
+                    f"{matched}/{probe_count}",
+                    candidate_cell(row["candidate_surfaces"]),
+                    md_escape(", ".join(row["health_flags"]) or "—"),
+                ]
+            )
+            + " |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "### Interpretation",
+            "",
+            "Start with P0/P1. P2 usually means the approved material exists only as a weak usage-example surface and is a PROMOTE/RECLASSIFY candidate. P3 means a structurally visible candidate exists; it is **not** automatic semantic acceptance.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Read-only Natural Owner migration-integrity readback."
     )
     ap.add_argument("authority_json", type=Path)
     ap.add_argument("--output", type=Path)
+    ap.add_argument("--summary", type=Path)
     args = ap.parse_args()
 
     authority = load_json(args.authority_json)
@@ -314,7 +460,9 @@ def main() -> int:
     outside = []
     for wid in distinct_words:
         ordinal = owners[wid]["ordinal"]
-        if start is not None and ordinal < start or end is not None and ordinal > end:
+        if (start is not None and ordinal < start) or (
+            end is not None and ordinal > end
+        ):
             outside.append((wid, ordinal))
     if outside:
         raise RuntimeError(f"target owner outside declared range: {outside}")
@@ -329,9 +477,8 @@ def main() -> int:
         surfaces, _statuses, stale_core, dangling = owner_surfaces(owner)
         active_senses = (owner.get("record") or {}).get("senses") or []
 
-        word_health.setdefault(
-            wid,
-            {
+        if wid not in word_health:
+            health = {
                 "word_id": wid,
                 "ordinal": owner["ordinal"],
                 "path": owner["_path"],
@@ -339,8 +486,9 @@ def main() -> int:
                 "relation_ref_count": len(owner.get("relation_refs") or []),
                 "stale_core_sense_refs": stale_core,
                 "dangling_construction_anchors": dangling,
-            },
-        )
+            }
+            health["health_flags"] = health_flags(health)
+            word_health[wid] = health
 
         probe_rows = []
         for probe in target.get("probes") or []:
@@ -353,17 +501,9 @@ def main() -> int:
                 }
             )
 
-        flat = [m for p in probe_rows for m in p["matches"]]
-        if not flat:
-            label = "NO_LITERAL_OR_NORMALIZED_MATCH"
-        else:
-            matched_probe_count = sum(bool(p["matches"]) for p in probe_rows)
-            if matched_probe_count < len(probe_rows):
-                label = "PARTIAL_FAMILY_MATCH"
-            else:
-                label = mechanical_label(flat)
-
+        label = mechanical_label(probe_rows)
         counts[label] = counts.get(label, 0) + 1
+        flags = list(word_health[wid]["health_flags"])
         all_results.append(
             {
                 "target_id": target["target_id"],
@@ -371,6 +511,9 @@ def main() -> int:
                 "ordinal": owner["ordinal"],
                 "approved_target": target["approved_target"],
                 "mechanical_label": label,
+                "review_priority": review_priority(label, flags),
+                "health_flags": flags,
+                "candidate_surfaces": compact_candidates(probe_rows),
                 "probe_results": probe_rows,
                 "owner_health": word_health[wid],
             }
@@ -399,27 +542,25 @@ def main() -> int:
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(text, encoding="utf-8")
-    else:
+    elif not args.summary:
         sys.stdout.write(text)
+
+    summary = render_summary(report)
+    if args.summary:
+        args.summary.parent.mkdir(parents=True, exist_ok=True)
+        args.summary.write_text(summary + "\n", encoding="utf-8")
 
     print(
         f"READBACK_PASS targets={len(all_results)} words={len(word_health)} "
         + " ".join(f"{k}={v}" for k, v in sorted(counts.items())),
         file=sys.stderr,
     )
-    bad_health = [
-        h
-        for h in word_health.values()
-        if h["active_sense_count"] == 0
-        or h["stale_core_sense_refs"]
-        or h["dangling_construction_anchors"]
-    ]
+    bad_health = [h for h in word_health.values() if h["health_flags"]]
     print(f"OWNER_HEALTH_WARNINGS={len(bad_health)}", file=sys.stderr)
     for h in bad_health:
         print(
-            f"WARN {h['ordinal']} {h['word_id']} active={h['active_sense_count']} "
-            f"stale_core={len(h['stale_core_sense_refs'])} "
-            f"dangling_cons={len(h['dangling_construction_anchors'])}",
+            f"WARN {h['ordinal']} {h['word_id']} "
+            f"{','.join(h['health_flags'])}",
             file=sys.stderr,
         )
     return 0
