@@ -23,6 +23,7 @@
       "owners": [
         "content/xizong/knowledge/systems/a1-circulation/system.json",
         "content/xizong/knowledge/systems/a1-circulation/blocks/",
+        "content/xizong/knowledge/learner/a1-circulation-learning.json",
         "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
         "content/xizong/knowledge/learner/study-policy.json"
       ],
@@ -50,40 +51,46 @@
             "B8 localizes cardiomyopathy/pericardial disease by pump weak, pump stiff, dynamic obstruction, or external shell restriction before naming diseases.",
             "B9 first separates arterial downstream ischemia from venous upstream congestion, then acute/chronic and deep/superficial/communicating levels before tests and treatment.",
             "B10 prioritizes effective pulse/hemodynamic stability before rhythm naming, then uses rate -> QRS width -> regularity -> atrioventricular relation -> mechanism -> treatment target; it preserves the B3 boundary that electrical activity is not perfusion evidence.",
-            "B11 teaches heart failure from pump/filling failure -> forward hypoperfusion + backward congestion -> compensatory neurohumoral activation -> chronic remodeling/ decompensation before EF labels or drug lists.",
+            "B11 teaches heart failure from pump/filling failure -> forward hypoperfusion + backward congestion -> compensatory neurohumoral activation -> chronic remodeling/decompensation before EF labels or drug lists.",
             "B12 separates shock from cardiac arrest by effective pulse, then localizes shock to volume, pump, resistance/distribution, or obstructed pathway and treats perfusion restoration plus the first Failure Layer as the execution rule.",
             "Across all 12 Blocks, first-learning structure is causal/capability-based, cross-owner deferrals are explicit, and reverse search found no unresolved Source Gap/TODO/pending-content marker that would leave the stable Core undefined. No additional medical expansion was justified by this K audit."
           ],
           "closure": "The canonical content is complete enough to design first learning around and still makes sense without the webpage. Further medical expansion requires new source or learner evidence."
         },
         "L": {
-          "status": "FAIL",
+          "status": "PASS",
+          "audited_at_stage": "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
           "evidence": [
-            "A1 system.json still encodes block_route as grouped nested block lists rather than the direct learner route consumed by Current Astro.",
-            "A1 has no Current logic_index and no a1-circulation-learning.json first-pass learning-support owner.",
-            "static-web/src/lib/xizong.mjs requires direct route + lossless logic_index and requires learning support to match every projected Block/Logic Group."
+            "A1 system.json now owns a direct 12-Block learner route whose KP counts sum to the canonical 312 without changing Block/KP identity or order.",
+            "The structural logic_index contains 87 natural contiguous Logic Groups. Mechanical flatten validation covers each Block ordinal exactly once and covers all 312 KPs with no gap, overlap, split, merge or renumbering.",
+            "a1-circulation-learning.json covers the same 12 Blocks and 87 Logic Group IDs; every Block has first_pass_focus, stop_line and recall_spine, and every Logic Group has a goal and closure criterion.",
+            "The learning support is attention/retrieval/closure semantics only: it does not restate KP medical Core, invent Question-to-KP relations, or create a second Lecture.",
+            "The route preserves the accepted causal order: normal mechanics/regulation/electrical/hemostasis foundations -> chronic vascular substrate/coronary events -> structural and peripheral failures -> rhythm/heart-failure/shock endpoints.",
+            "learning-cues and pathways remain optional because the Current loaders return null when absent; no symmetry-only A1 owner was created."
           ],
-          "blocker": "Knowledge is now accepted, but the canonical first-learning path is not yet expressed. Learning semantics must be derived from the accepted Core, never from UI needs or question mappings."
+          "closure": "A1 has an explicit first-learning contract derived from the accepted canonical Core. The next work is Projection/Runtime compatibility and E2E, not more learning taxonomy."
         },
         "P": {
           "status": "FAIL",
           "evidence": [
-            "listProjectableXizongSystems() filters out systems without a direct block route and logic_index; A1 cannot currently enter the accepted learner-facing System/Block projection."
+            "A1 is now structurally projectable at System level, but loadXizongBlock still requires an A2-specific intro heading matching '这个 Block 到底解决什么'. A1 canonical Blocks use valid but different opening structures, so the current projection rejects accepted content instead of adapting presentation to content structure.",
+            "The System page currently seeds private browser-global holdout years to [2025, 2026] from shared code. This violates LEARNING_ACCEPTANCE shared-rule-versus-private-strategy separation.",
+            "A1 route intentionally does not invent missing Outline counts, but XizongSystemV6 currently renders 'Outline 0'; the projection should omit unavailable metadata rather than display a false learner-facing zero."
           ],
-          "blocker": "Projection remains downstream of unresolved A1 Learning semantics."
+          "blocker": "Fix only the observed projection mismatches: generic canonical opening fallback, remove private holdout auto-seeding, and suppress unavailable Outline metadata. Do not edit medical Core to satisfy one page convention."
         },
         "R": {
           "status": "FAIL",
           "evidence": [
-            "loadXizongSystem('circulation') fails closed as non-projectable while logic_index is absent.",
-            "A1 System question scope completion does not make the first-learning Runtime executable."
+            "With L materialized, the remaining hard runtime blocker is CURRENT_XIZONG_BLOCK_LEARN_MISSING for A1 because the loader treats one A2 heading phrase as a runtime contract.",
+            "The holdout seeding script is executable shared runtime behavior that mutates private learner state before learner choice."
           ],
-          "blocker": "No honest A1 learner E2E can start until L is accepted and projected."
+          "blocker": "After the minimal P/R patches, run Module E2E across clean first pass, weak Recall/Memory, Block closure, Chat handoff/return, System Recall, private holdout, official-question fast pass, W/U and post-question Recall."
         },
         "E": {
           "status": "PENDING",
           "evidence": [
-            "The 376-question System scope preserves safe W/U boundaries, but Block-level learner evidence cannot be accepted while the A1 first-learning Runtime is unreachable."
+            "The 376-question System scope preserves safe W/U boundaries and the Block Runtime has evidence primitives, but evidence cannot pass until the executable A1 learner path is tested end-to-end and private holdout mutation is removed."
           ]
         },
         "U": {
@@ -94,17 +101,20 @@
         }
       },
       "p0_blockers": [
-        "Construct and accept A1 L from the accepted canonical Core: direct 12-Block learner route, lossless contiguous Logic Group index, first-pass focus/stop/recall/closure semantics, and only the timing support actually required by the learning contract.",
-        "Only after L passes, make A1 projectable and run clean/failure/return Module E2E for P/R/E."
+        "Remove the A2-specific Block-intro runtime assumption without changing canonical A1 medical Core.",
+        "Remove shared [2025, 2026] holdout auto-seeding; exact holdout years must remain learner-selected private state.",
+        "Suppress unavailable Outline metadata instead of showing Outline 0.",
+        "Run strict A1 P/R/E Module E2E after these subtraction/compatibility patches."
       ],
       "do_not_expand": [
         "Do not add more A1 medical Core after K PASS without new evidence.",
+        "Do not add more A1 first-learning taxonomy after L PASS without learner/runtime evidence.",
         "Do not touch the restored 376-question scope without new source evidence.",
         "Do not infer Question-to-KP relations.",
-        "Do not add System Exit features while first learning is blocked.",
-        "Do not use an Astro build to promote L/P/R/E."
+        "Do not add learning-cues/pathways merely for A2 symmetry.",
+        "Do not use an Astro build to promote P/R/E."
       ],
-      "allowed_conclusion": "Knowledge-ready; module Partial."
+      "allowed_conclusion": "Learning-design ready; module Partial pending P/R/E and real-user U."
     },
     "A2_respiratory": {
       "owners": [
@@ -181,7 +191,6 @@
   },
   "next_smallest_meaningful_work": {
     "priority": [
-      "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
       "A1_P_R_E_MODULE_E2E",
       "A2_K_CONTENT_CLOSURE_RECONFIRM",
       "A2_P_R_E_MODULE_E2E"
