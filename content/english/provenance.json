@@ -100,16 +100,18 @@
     "git_blob_sha1": "a6d8d75838210e04661284daddf76a716e0f5d7a",
     "schema_version": "english_learning_corpus_projection_v2",
     "role": "HISTORICAL_PRODUCT_COVERAGE_REFERENCE_ONLY",
-    "coverage": {
-      "paper_count": 27,
-      "section_count": 152,
-      "set_count": 235,
-      "question_or_prompt_count": 1364,
+    "formal_local_coverage": {
+      "papers": 27,
+      "sections": 152,
+      "sets": 235,
+      "questions_or_prompts": 1364,
+      "training_ready_sets": 232,
       "years": "2000-2026"
     },
     "pre_repair_question_bank_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
     "reading_corpus_sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a",
-    "global_source_truth_sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b"
+    "global_source_truth_sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b",
+    "historical_decision": "FORMAL_LOCAL_MUST_NOT_BE_DOWNGRADED_TO_LEGACY_26_SET_RELEASE"
   },
   "legacy_read_plane_reference": {
     "path": "04_HQ/Read_Plane/Current/english/manifest.json",
@@ -125,7 +127,14 @@
     "post_repair_catalog_evidence": "04_HQ/Reports/Repository_Truth_Closure/P0_E3_ENGLISH_CATALOG_READBACK_v1.json",
     "post_repair_catalog_status": "ready",
     "legacy_execution_issue": 100,
-    "migration_transport_closed": true
+    "migration_transport_closed": true,
+    "historical_controls": {
+      "semantic_mutation": false,
+      "learner_state_mutation": false,
+      "local_mutation": false,
+      "runtime_repoint": false,
+      "site_deploy": false
+    }
   },
   "global_source_truth_binding": {
     "status": "SOURCE_READY",
