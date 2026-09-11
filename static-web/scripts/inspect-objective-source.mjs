@@ -42,10 +42,68 @@ const inventory = [...sectionMap.entries()]
     };
   });
 
-console.log(JSON.stringify({
+function shape(value) {
+  if (Array.isArray(value)) return `array:${value.length}`;
+  if (value && typeof value === 'object') return `object:${Object.keys(value).sort().join(',')}`;
+  return typeof value;
+}
+
+function compactValue(value) {
+  if (typeof value === 'string') return value.length > 180 ? `${value.slice(0, 180)}…` : value;
+  if (Array.isArray(value)) return value.slice(0, 3).map(compactValue);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).slice(0, 12).map(([key, child]) => [key, compactValue(child)]));
+  }
+  return value;
+}
+
+function variantsFor(section) {
+  const rows = sectionMap.get(section) || [];
+  const signatures = new Map();
+  for (const set of rows) {
+    const qs = bySet.get(String(set.id || '')) || [];
+    const q = qs[0] || {};
+    const signature = JSON.stringify({
+      setKeys: Object.keys(set).sort(),
+      contextKeys: set.context && typeof set.context === 'object' ? Object.keys(set.context).sort() : [],
+      questionKeys: Object.keys(q).sort(),
+      options: shape(q.options),
+      questionCount: qs.length
+    });
+    if (!signatures.has(signature)) {
+      signatures.set(signature, {
+        representativeId: set.id,
+        paperId: set.paper_id || null,
+        questionCount: qs.length,
+        setKeys: Object.keys(set).sort(),
+        contextKeys: set.context && typeof set.context === 'object' ? Object.keys(set.context).sort() : [],
+        contextPreview: compactValue(set.context || {}),
+        questionKeys: Object.keys(q).sort(),
+        firstQuestionPreview: compactValue({
+          id: q.id || q.question_id || null,
+          ordinal: q.ordinal,
+          prompt: q.prompt,
+          options: q.options,
+          answer: q.answer
+        }),
+        count: 0
+      });
+    }
+    signatures.get(signature).count += 1;
+  }
+  return [...signatures.values()];
+}
+
+const report = {
   setCount: sets.length,
   questionCount: questions.length,
-  sections: inventory
-}, null, 2));
+  sections: inventory,
+  clozeVariants: variantsFor('cloze'),
+  readingBVariants: variantsFor('reading_part_b')
+};
+
+console.log(JSON.stringify(report, null, 2));
 
 if (!sets.length || !questions.length) process.exitCode = 1;
+if (!(sectionMap.get('cloze') || []).length) throw new Error('CURRENT_CLOZE_SETS_MISSING');
+if (!(sectionMap.get('reading_part_b') || []).length) throw new Error('CURRENT_READING_B_SETS_MISSING');
