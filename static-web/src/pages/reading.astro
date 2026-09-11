@@ -1,11 +1,48 @@
 ---
 import Base from '../layouts/Base.astro';
+import '../styles/reading.css';
+import ReadingWorkspace from '../components/ReadingWorkspace.astro';
+import ReadingSecondPass from '../components/ReadingSecondPass.astro';
+import { inspectReadingSources, loadReading } from '../lib/current.mjs';
+
+const sourceState = inspectReadingSources();
+const reading = sourceState.status === 'ready' ? loadReading() : null;
+const pendingDescription = sourceState.status === 'invalid'
+  ? 'English Current 已落仓，但来源完整性检查未通过；Runtime 保持 fail-closed。'
+  : '完整 English Exam Source 落仓并通过 hash gate 后自动启用。';
 ---
-<Base title="Reading" kicker="English · Current migration" description="完整 English Exam Source 迁移完成后启用。" active="reading">
-  <section class="migrationPending">
-    <span>Fail-closed</span>
-    <h2>Reading source 正在迁移</h2>
-    <p>新仓库不会回退读取 legacy。当前缺少完整 `question_bank.v1.json` 与 `reading_corpus.v1.json`，所以 Reading Runtime 暂不伪造内容。</p>
-    <code>kianos-legacy → copy-preserving transfer → content/english/ → Astro</code>
-  </section>
+<Base
+  title={reading?.title || 'Reading'}
+  kicker={reading ? 'English · Current' : 'English · Current migration'}
+  description={reading ? '' : pendingDescription}
+  sourcePath={reading?.sourcePaths.passage}
+  sourceHash={reading?.sourceHashes.renderedObject}
+  objectId={reading?.objectId}
+  active="reading"
+>
+  {reading ? (
+    <>
+      <ReadingWorkspace reading={reading} />
+      <ReadingSecondPass reading={reading} />
+    </>
+  ) : (
+    <section class="migrationPending">
+      <span>Fail-closed · {sourceState.status}</span>
+      <h2>{sourceState.status === 'invalid' ? 'Reading source 未通过完整性 gate' : 'Reading source 正在迁移'}</h2>
+      <p>新仓库只读取 `content/english/` Current，不回退 legacy，也不使用历史 Read Plane 补洞。</p>
+      {sourceState.missing.length > 0 && (
+        <div class="migrationPendingList">
+          <strong>Missing Current</strong>
+          {sourceState.missing.map((item) => <code>{item}</code>)}
+        </div>
+      )}
+      {sourceState.issues.length > 0 && (
+        <div class="migrationPendingList">
+          <strong>Integrity issues</strong>
+          {sourceState.issues.map((item) => <code>{item}</code>)}
+        </div>
+      )}
+      <code>Current source → hash gate → loadReading() → Reading Workspace</code>
+    </section>
+  )}
 </Base>

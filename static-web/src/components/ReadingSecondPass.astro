@@ -1,0 +1,115 @@
+---
+const { reading } = Astro.props;
+const questions = reading.questions || [];
+const questionId = (question, index) => String(question.id || question.question_id || `q${question.ordinal || index + 1}`);
+const questionMeta = questions.map((question, index) => ({
+  id: questionId(question, index),
+  ordinal: question.ordinal || index + 1,
+  prompt: question.prompt || ''
+}));
+---
+<section class="portedSecondPass" data-reading-second-pass data-reading-object={reading.objectId}>
+  <header>
+    <div>
+      <span>Reading · Problem Record</span>
+      <h3>二刷 / 错题归因</h3>
+      <p>低摩擦复盘：只记录题目状态和四个简单归因，不把所有错误都归成词汇。</p>
+    </div>
+    <button type="button" data-second-pass-start>开始二刷</button>
+  </header>
+  <div class="portedSecondPassControls">
+    <button type="button" data-second-pass-hide-history aria-pressed="false">隐藏上一轮记录</button>
+    <small>二刷会清空本轮答案，但保留 History。</small>
+  </div>
+  <div data-second-pass-list><p>Submit 后这里显示 wrong / unanswered / uncertain。</p></div>
+  <script type="application/json" data-second-pass-payload set:html={JSON.stringify(questionMeta)}></script>
+</section>
+
+<script>
+  const secondPass = document.querySelector('[data-reading-second-pass]');
+  if (secondPass) {
+    const objectId = secondPass.getAttribute('data-reading-object') || 'reading';
+    const attemptKey = `kianos-reading-attempt-v1:${objectId}`;
+    const tagKey = `kianos-reading-problem-tags-v1:${objectId}`;
+    let questions = [];
+    try { questions = JSON.parse(secondPass.querySelector('[data-second-pass-payload]')?.textContent || '[]'); } catch {}
+    let tags = {};
+    try { tags = JSON.parse(localStorage.getItem(tagKey) || 'null') || {}; } catch {}
+    const readAttempt = () => {
+      try { return JSON.parse(localStorage.getItem(attemptKey) || 'null') || {}; } catch { return {}; }
+    };
+    const saveTags = () => { try { localStorage.setItem(tagKey, JSON.stringify(tags)); } catch {} };
+    const labels = ['没记住', '没想明白', '选项没辨清', '看错'];
+    const host = secondPass.querySelector('[data-second-pass-list]');
+
+    const render = () => {
+      if (!host) return;
+      const attempt = readAttempt();
+      const ids = questions.filter((question) =>
+        ['wrong', 'unanswered'].includes(attempt.results?.[question.id]) ||
+        (attempt.uncertain || []).includes(question.id)
+      );
+      host.replaceChildren();
+      if (!attempt.submitted) {
+        const p = document.createElement('p');
+        p.textContent = 'Submit 后这里显示 wrong / unanswered / uncertain。';
+        host.appendChild(p);
+        return;
+      }
+      if (!ids.length) {
+        const p = document.createElement('p');
+        p.textContent = '本次没有需要进入 Problem Record 的题。';
+        host.appendChild(p);
+        return;
+      }
+      ids.forEach((question) => {
+        const row = document.createElement('article');
+        const state = attempt.results?.[question.id] || ((attempt.uncertain || []).includes(question.id) ? 'uncertain' : '');
+        const head = document.createElement('div');
+        const strong = document.createElement('strong');
+        strong.textContent = `Q${question.ordinal} · ${state}`;
+        const prompt = document.createElement('p');
+        prompt.textContent = question.prompt;
+        head.append(strong, prompt);
+
+        const controls = document.createElement('div');
+        labels.forEach((label) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = label;
+          button.classList.toggle('active', tags[question.id] === label);
+          button.addEventListener('click', () => {
+            tags = { ...tags, [question.id]: tags[question.id] === label ? '' : label };
+            saveTags();
+            render();
+          });
+          controls.appendChild(button);
+        });
+        row.append(head, controls);
+        host.appendChild(row);
+      });
+    };
+
+    secondPass.querySelector('[data-second-pass-start]')?.addEventListener('click', () => {
+      const retry = document.querySelector('[data-reading-retry]');
+      const reset = document.querySelector('[data-reading-reset]');
+      (retry || reset)?.click();
+      document.querySelector('[data-local-port="reading"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(render, 30);
+    });
+
+    const hide = secondPass.querySelector('[data-second-pass-hide-history]');
+    hide?.addEventListener('click', () => {
+      const active = hide.getAttribute('aria-pressed') !== 'true';
+      hide.setAttribute('aria-pressed', String(active));
+      hide.textContent = active ? '显示上一轮记录' : '隐藏上一轮记录';
+      document.querySelector('[data-local-port="reading"]')?.classList.toggle('second-pass-history-hidden', active);
+    });
+
+    document.querySelector('[data-reading-submit]')?.addEventListener('click', () => window.setTimeout(render, 60));
+    document.querySelector('[data-reading-retry]')?.addEventListener('click', () => window.setTimeout(render, 30));
+    const result = document.querySelector('[data-reading-result]');
+    if (result) new MutationObserver(render).observe(result, { attributes: true, attributeFilter: ['hidden'] });
+    render();
+  }
+</script>
