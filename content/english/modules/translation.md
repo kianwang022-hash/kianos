@@ -3,6 +3,7 @@
 > **定位**：Translation 的 Current learner-facing 能力资产。  
 > **第一次学习**：先建立整张能力地图，再连续学习 4 个 Core Learning Blocks；不要把第一次学习切成几十个孤立 Skill。  
 > **后续训练**：用 Skill Map 给失败建立稳定地址，按需展开局部 Skill Content；真实题目可以同时提供多个 Skill 的 evidence，但一次 repair 只追最早一个足以解释结果的 failure。  
+> **Chat 展开原则**：静态资产负责把高频、稳定、真正影响能力的主干讲清楚；复杂边界、多个机制同时作用、罕见结构、真实句子的歧义与个性化 micro-drill，优先在真实遇到时交给 Chat 展开。`可以问 Chat` 不是把正文做薄的借口，也不是预先把所有长尾写进教材的理由。  
 > **Runtime**：放在学习资产之后。它规定怎样 Attempt / Review / Repair / Transfer，不与 Translation skill 本身混为一类。  
 > **原则**：能力形成先于材料目录；高信息密度先于漂亮 taxonomy；真正学会以独立生成和后续 fresh transfer 为证据。
 
@@ -339,6 +340,18 @@ Translation 不建立第二套词汇库。
 
 如果这四件事稳定，Representation 基本已经搭起来；中文表达才值得继续。
 
+### 什么时候值得直接找 Chat 展开
+
+正文已经足以支撑普通做题。遇到下面这些情况，不需要提前把几十种结构学完：
+
+- 两个 attachment candidate 都看起来成立；
+- `this / that / it` 可能指名词，也可能指整个 proposition；
+- negation、comparison、modality 几层 scope 叠在一起；
+- 每个词都认识，但你仍然无法说清主命题；
+- 你和参考分析对一句话的结构有真实分歧。
+
+这时把**原句 + 必要上下文 + 你的粗糙理解**交给 Chat，沿当前 Skill Node 下钻，比预学一整章低频句法更划算。
+
 ---
 
 # B2｜Preservation & Fidelity：转换之后还是不是原来那件事
@@ -353,7 +366,7 @@ Preservation 解决：
 
 > **我写出来的中文有没有仍然保留那张意义结构？**
 
-它不是另一门语法课，而是一条横贯 Translation 的 invariant：
+它不是另一门语法课，而是一条贯穿 Translation 的**意义守恒线**：
 
 ```text
 允许改变形式
@@ -370,6 +383,12 @@ Preservation 解决：
 - 条件和限制是什么；
 - 指代对象是谁；
 - 原文有哪些信息单元。
+
+一个重要边界：
+
+> **如果你其实没理解对原文，问题属于 B1 Representation；只有“理解已经对了，但中文输出把意义改坏了”才是 B2 Preservation。**
+
+这样 B2 不会重新复制一套 Scope / Reference / Attachment 课程。
 
 ## B2.1 Information Units｜先知道什么不能漏
 
@@ -450,7 +469,7 @@ almost / largely / partly
 
 尤其检查：
 
-- agent / experiencer / affected object；
+- 谁发出动作，谁承受动作；
 - 主体和对象；
 - 指代链；
 - 修饰对象；
@@ -492,11 +511,11 @@ DISTORTION｜信息还在，但变成另一件事
 - 可能 → 必然；
 - 对比对象挂错。
 
-## B2.6 Meaning Checksum｜中文写完后的意义校验
+## B2.6 Meaning Checksum｜中文写完后的五问校验
 
 不要逐词回译。
 
-只做一个高价值 checksum：
+只做一个高价值五问：
 
 ```text
 1. 核心命题还在吗？
@@ -527,6 +546,15 @@ Preservation 的核心不是让中文更保守，而是让你敢于重构：
 
 > **形式变化** vs **命题变化**。
 
+### 什么时候值得直接找 Chat 展开
+
+- 你理解原文没问题，但不确定某个中文重排是否已经改变原意；
+- 两个中文版本都看起来对，想判断哪个更忠实或更自然；
+- 为了显化指代 / 逻辑需要“加几个字”，但不确定是不是已经变成自由增义；
+- 一句里有多个 omission / distortion，想判断是不是同一个上游 failure 的下游结果。
+
+这类问题最适合拿**原文 + first translation + 你的修改版**直接比较，不需要预背一套“增译减译规则大全”。
+
 ---
 
 # B3｜Chinese Reconstruction：意义锁住后，重新说成正常中文
@@ -554,6 +582,10 @@ CENTER｜中文以什么为表达中心
 ORDER｜信息按什么顺序展开
 PACKAGING｜用什么句法 / 词类 / 分句方式承载
 ```
+
+中文重构不是固定技巧表。真正的 authority 是当前这句话的意义结构：
+
+> **哪种中文组织能让读者最省力地恢复同一件事，就优先哪种。**
 
 ## B3.1 Information Order｜中文不欠英文一个原顺序
 
@@ -596,7 +628,7 @@ PACKAGING｜用什么句法 / 词类 / 分句方式承载
 
 不是“长句一定拆”，而是：
 
-> **中文工作记忆开始被前置修饰压垮时，就要卸载。**
+> **当前置修饰已经让中文读者必须憋到很后面才知道中心是什么，就该考虑卸载。**
 
 ## B3.3 Split / Merge｜按命题组织，不按英文句号组织
 
@@ -747,6 +779,30 @@ reduction
 
 > **意义锁住以后，允许主动释放英文形式。**
 
+### Active Reconstruction
+
+先只恢复意义，不看参考译文：
+
+> The decision to delay the release was influenced by concerns raised by several independent reviewers.
+
+不要急着逐词对应。先问：
+
+1. 中文真正的中心动作是什么？
+2. `the decision to delay the release` 一定要保留成一个大名词短语吗？
+3. `was influenced by` 是否一定要出现“被……影响”？
+4. `raised by several independent reviewers` 修饰什么？
+
+只要能在不改变角色和因果关系的前提下，自己生成一版正常中文，这个 Block 就开始进入能力了。
+
+### 什么时候值得直接找 Chat 展开
+
+- 英文完全看懂，但怎么改都还有明显“翻译腔”；
+- nominalization + passive + long modifier 几层叠在一起，不知道从哪里释放；
+- 两种拆句 / 调序方案都合理，想比较信息重点和自然度；
+- 你为了“自然”改了很多形式，但不确定有没有越过 B2 的 fidelity 边界。
+
+这时 Chat 应该围绕**同一意义结构给你比较几个 reconstruction 路径**，而不是塞给你一篇唯一标准译文。
+
 ---
 
 # B4｜Exam Execution：把能力稳定地交付出来
@@ -760,6 +816,18 @@ Translation 的最终目标不是分析得最完整，而是：
 因此考试执行必须有 stop rule。
 
 不能因为一句有无限可分析的细节，就无限停留。
+
+正常执行可以压成：
+
+```text
+调用最小必要上下文
+→ 搭稳意义骨架
+→ 直接生成可信中文
+→ 只扫高风险失真点
+→ 够好就离开
+```
+
+这不是死板五步法，而是时间压力下的优先级。
 
 ## B4.1 Local Context Use｜只调用够用的上下文
 
@@ -861,6 +929,17 @@ OMISSION
 
 > **知道什么时候已经够好。**
 
+### Execution Check
+
+判断下面几种卡顿值不值得继续停：
+
+- 不确定 `may` 在这里是“可能”还是“能够”，而两者会改变命题 → **继续解决**；
+- “造成 / 带来”两个中文词都忠实自然 → **选一个，继续走**；
+- `this` 指向不清，选错会改变主语对象 → **继续解决**；
+- 当前译文已经准确清楚，只觉得“还能写得更漂亮” → **离开这句**。
+
+如果你能稳定做这种取舍，Execution 才真正开始成熟。
+
 ## B4.6 Execution failure 什么时候值得进入未来训练
 
 一次时间紧导致措辞普通，不值得建长期问题。
@@ -874,6 +953,15 @@ OMISSION
 - 一遇长修饰就明显停止输出。
 
 这些才是可重复的 execution pattern。
+
+### 什么时候值得直接找 Chat 展开
+
+- 你平时会做，但一计时就明显掉层；
+- 你不知道某种 ambiguity 是否值得花时间解决；
+- 总在同一类高风险点上检查失效；
+- 一句话经常卡太久，却说不清自己究竟卡在理解还是中文表达。
+
+这时 Chat 应该结合**真实 Attempt + timing + first translation**定位 execution bottleneck，而不是再给你加一章“翻译技巧”。
 
 ---
 
@@ -1615,7 +1703,7 @@ repeated independent transfer across unseen contexts
 
 就自动创建长期债务。
 
-Lexical sense / phrase / construction / collocation / contrast / confusable 继续回 LexicalOS canonical owner。
+Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner。
 
 ## H8｜Runtime interaction boundary
 
