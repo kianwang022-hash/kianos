@@ -1,0 +1,29 @@
+{
+  "schema": "kianos.continuation.v1",
+  "lane": "lexical_natural_owner_migration",
+  "owner": "content/lexical/canonical/",
+  "current_stage": "FULL_CORPUS_NATURAL_OWNER_AUDIT",
+  "status": "ACTIVE",
+  "next_cursor": "tools/lexical_natural_owner_v1.py audit",
+  "remaining": 1,
+  "next_owner": null,
+  "terminal": false,
+  "blocker": null,
+  "waiting_for": null,
+  "cursor_kind": "mechanical_command",
+  "cursor_resolver": "tools/lexical_natural_owner_v1.py",
+  "pilot_result": {
+    "word:ant": "DIRECT_WORD_LOCAL_MAPPING",
+    "word:anticipate": "WORD_LOCAL_CONSTRUCTION_WITH_EXISTING_COLLOCATION_IDENTITY_JOIN",
+    "word:answer": "WORD_LOCAL_SEMANTICS_PLUS_CROSS_WORD_RELATION_EXTRACTION_REQUIRED"
+  },
+  "migration_contract": "content/lexical/canonical/natural-owner-schema.v1.json",
+  "migration_tool": "tools/lexical_natural_owner_v1.py",
+  "migration_test": "tools/test_lexical_natural_owner_v1.py",
+  "migration_mode": "STRUCTURE_ONLY_SEMANTIC_DELTA_ZERO",
+  "learner_state": false,
+  "release": "rb8c-lexical-5933be555a3c",
+  "history_policy": "Historical progress evidence may be retained for audit, but MUST NOT participate in continuation resolution or migration semantics.",
+  "restart_authorization": "OWNER_EXPLICIT_2026-09-11_START_LEXICAL_NATURAL_OWNER_MIGRATION",
+  "semantic_repair_policy": "Any content defect discovered during migration is recorded separately and is not changed during structural movement."
+}

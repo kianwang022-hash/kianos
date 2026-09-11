@@ -1,0 +1,62 @@
+{
+  "$id": "kianos.xizong.question_relation.v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "block_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "logic_group_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "primary_kp_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "provenance": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "question_id": {
+      "pattern": "^xizong-official-(\\d{4})-n(\\d{3})$",
+      "type": "string"
+    },
+    "review": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "review_status": {
+      "const": "REVIEWED"
+    },
+    "reviewed_bridge_target_refs": {
+      "items": {
+        "minProperties": 1,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "supporting_kp_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "system_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "question_id",
+    "supporting_kp_ids",
+    "review_status",
+    "provenance",
+    "review"
+  ],
+  "title": "KianOS reviewed Xizong Question to Knowledge relation",
+  "type": "object"
+}

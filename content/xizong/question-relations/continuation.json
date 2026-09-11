@@ -1,0 +1,29 @@
+{
+  "schema": "kianos.continuation.v1",
+  "lane": "xizong_question_pipeline",
+  "owner": "content/xizong/question-relations/",
+  "current_stage": "QUESTION_RELATIONS",
+  "status": "WAITING",
+  "next_cursor": "xizong-official-2005-n044",
+  "remaining": 2798,
+  "next_owner": null,
+  "terminal": false,
+  "blocker": null,
+  "waiting_for": "ON_DEMAND_SECOND_ROUND_OR_EXPLICIT_USER_RESUME",
+  "cursor_kind": "xizong_question_id",
+  "cursor_resolver": "xizong_question_mapping_review_v1",
+  "learner_state": false,
+  "previous_stage": {
+    "stage": "QUESTION_EXPLANATIONS",
+    "owner": "content/xizong/explanations/",
+    "status": "COMPLETE",
+    "next_cursor": null,
+    "remaining": 0,
+    "next_owner": "content/xizong/question-relations/continuation.json",
+    "terminal": false,
+    "historical_progress_evidence": true
+  },
+  "history_policy": "Historical progress evidence may be retained for audit, but MUST NOT participate in continuation resolution.",
+  "product_priority": "NON_BLOCKING_CONTENT_BACKLOG",
+  "resume_policy": "Resume only after explicit user request or when second-round learning exposes a high-value mapping gap. Existing reviewed relations remain publishable; missing relation remains a legal fail-closed state."
+}

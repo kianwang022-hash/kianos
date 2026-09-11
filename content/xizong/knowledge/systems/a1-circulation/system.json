@@ -1,0 +1,372 @@
+{
+  "schema": "kianos.xizong.knowledge.system.v1",
+  "status": "FREEZE_CANDIDATE",
+  "semantic_authority": "CHAT_APPROVED",
+  "baseline": "learning/xizong/current.md",
+  "identity": {
+    "system_id": "circulation",
+    "canonical_id": "A1",
+    "title": "循环系统",
+    "block_count": 12,
+    "canonical_kp_count": 312
+  },
+  "mission": "让血持续流动，把压力和流量送到组织完成交换，再把血回收到心脏；同时维持冠脉供血，并用电活动、神经体液和局部调节保持灌注稳定。",
+  "mental_model": {
+    "mother_model": "血从静脉容量池回到心脏，心泵借压力差和瓣膜把它向前射出；动脉与小动脉把压力和流量分配到器官，微循环完成交换，静脉再把血收回来。节律决定泵什么时候工作，神经—体液—肾容量系统决定它怎样适应变化，冠脉则保证泵本身有足够供血。",
+    "spine": [
+      "容量池 / 静脉回流",
+      "心泵 + 瓣膜",
+      "动脉压力 / 阻力",
+      "微循环交换",
+      "静脉回收",
+      "再回心"
+    ],
+    "parallel_controls": [
+      "节律 / 电活动",
+      "神经—体液—局部调节",
+      "冠脉自供血 / 氧供—耗氧"
+    ]
+  },
+  "core_variables": [
+    {
+      "id": "P",
+      "label": "压力",
+      "role": "推动血流并反映上游/下游负荷；必须结合位置解释。"
+    },
+    {
+      "id": "Q",
+      "label": "流量",
+      "role": "决定单位时间有效输送；局部流量与全身心排量不可互相替代。"
+    },
+    {
+      "id": "R",
+      "label": "阻力",
+      "role": "决定压力差下的流量分配，并构成心脏后负荷的重要来源。"
+    },
+    {
+      "id": "V",
+      "label": "容量",
+      "role": "决定静脉容量池、回心、前负荷与长期循环工作点。"
+    }
+  ],
+  "core_relations": [
+    "CO = HR × SV",
+    "MAP ≈ CO × TPR",
+    "Q ≈ ΔP / R"
+  ],
+  "mechanical_coordinates": [
+    "preload",
+    "afterload",
+    "contractility",
+    "compliance"
+  ],
+  "failure_modes": [
+    {
+      "id": "pump_weak",
+      "label": "泵弱",
+      "chain": "收缩性下降 → 排空失败 → 前向流量下降 + 上游压力升高"
+    },
+    {
+      "id": "pump_stiff",
+      "label": "泵硬",
+      "chain": "顺应性/主动舒张异常 → 充盈困难 → 充盈压升高 + 储备下降"
+    },
+    {
+      "id": "outflow_obstruction",
+      "label": "出口受阻",
+      "chain": "正向通路受阻 → 上游压力负荷升高 + 下游流量下降"
+    },
+    {
+      "id": "valve_failure",
+      "label": "瓣膜故障",
+      "chain": "狭窄或反流 → 压力/容量负荷重新分配 → 心腔重构 + 淤血/低输出"
+    },
+    {
+      "id": "conduit_narrowing_or_block",
+      "label": "管路狭窄 / 阻断",
+      "chain": "阻力升高或通路中断 → 下游灌注下降；急慢性由侧支与组织可救性决定"
+    },
+    {
+      "id": "rhythm_or_timing_failure",
+      "label": "节律 / 时序失败",
+      "chain": "起搏、传导、同步或时序异常 → 充盈/射血受损 → 有效流量下降"
+    },
+    {
+      "id": "volume_or_distribution_failure",
+      "label": "容量 / 分布异常",
+      "chain": "有效容量、静脉回流或血流分布异常 → 前负荷/阻力失配 → 组织灌注不足"
+    }
+  ],
+  "judgment_axes": [
+    "上游淤积 ↔ 下游低灌注",
+    "压力负荷 ↔ 容量负荷",
+    "氧供下降 ↔ 氧耗增加",
+    "收缩障碍 ↔ 舒张障碍",
+    "急性 ↔ 慢性",
+    "代偿 ↔ 失代偿",
+    "稳定 ↔ 不稳定"
+  ],
+  "block_route": [
+    {
+      "group": "正常运行底座",
+      "blocks": [
+        "circulation-b01",
+        "circulation-b02",
+        "circulation-b03",
+        "circulation-b04"
+      ],
+      "why": "先建立机械、调节、电活动和止血四套正常底座，后续疾病才有可调用的变量、证据与故障语言。"
+    },
+    {
+      "group": "慢性底物",
+      "blocks": [
+        "circulation-b05",
+        "circulation-b06"
+      ],
+      "why": "长期压力和内皮损伤先形成结构性血管底物，再进入冠脉固定狭窄、斑块事件、缺血与坏死。"
+    },
+    {
+      "group": "器质性与血流故障",
+      "blocks": [
+        "circulation-b07",
+        "circulation-b08",
+        "circulation-b09"
+      ],
+      "why": "把瓣膜、心肌/心包和外周血管放回统一的门、泵、外壳与管路故障坐标。"
+    },
+    {
+      "group": "共同功能崩溃",
+      "blocks": [
+        "circulation-b10",
+        "circulation-b11",
+        "circulation-b12"
+      ],
+      "why": "节律异常、心衰和休克/骤停是多种上游疾病最终汇合的功能性终点，必须在已有机械与器质性模型上判断。"
+    }
+  ],
+  "dependency_dag": [
+    "B1 → B2 / B3 / B7 / B8",
+    "B2 + B4 → B5",
+    "B5 + B3 + B4 → B6",
+    "B1 + B4 → B7",
+    "B1 + B3 → B8",
+    "B5 + B4 → B9",
+    "B3 + B6 + B7 + B8 → B10",
+    "B2 + B6 + B7 + B8 + B10 → B11",
+    "B4 + B9 + B10 + B11 → B12"
+  ],
+  "cross_block_bridges": [
+    {
+      "id": "mechanics_to_structure_to_hf",
+      "title": "正常机械 → 结构故障 → 心衰",
+      "route": "B1 → B7/B8 → B11",
+      "chain": "正常压力—容积与充盈/射血关系 → 瓣膜或心肌结构故障 → 压力/容量/充盈/泵异常 → 前向低灌注 + 后向淤血 → 心衰"
+    },
+    {
+      "id": "compensation_to_chronic_disease_to_shock",
+      "title": "代偿 → 慢性反噬 → 灌注崩溃",
+      "route": "B2 → B5/B11 → B12",
+      "chain": "神经体液与容量调节急性保压保灌注 → 长期持续激活增加后负荷、潴留与重构 → 慢性高压/心衰 → 严重时进入全身低灌注"
+    },
+    {
+      "id": "hemostasis_to_thrombotic_event",
+      "title": "止血 → 病理血栓 → 缺血事件",
+      "route": "B4 → B5 → B6/B9 → B12",
+      "chain": "局部止血机制在错误地点启动 → 斑块/血栓 → 冠脉或外周通路阻断 → 局部缺血/梗死；足够严重时进入全身循环崩溃"
+    },
+    {
+      "id": "electrical_to_mechanical_to_perfusion",
+      "title": "电活动 → 节律 → 机械输出 → 灌注",
+      "route": "B3 → B10 → B11/B12",
+      "chain": "动作电位与传导 → ECG节律 → 机械充盈/射血 → 有效脉搏与灌注；有电活动不等于有有效循环"
+    }
+  ],
+  "cross_system_interfaces": [
+    {
+      "topic": "肺栓塞",
+      "circulation_role": "B9保留DVT→PE危险接口，B12保留阻塞性休克接口",
+      "primary_owner": "respiratory"
+    },
+    {
+      "topic": "DIC",
+      "circulation_role": "B4拥有凝血/抗凝/纤溶机制，B12只作休克阶段应用",
+      "primary_owner": "hematology"
+    },
+    {
+      "topic": "感染性休克源控制",
+      "circulation_role": "B12保留循环Failure Layer与灌注恢复目标",
+      "primary_owner": "infection / source-specific system"
+    },
+    {
+      "topic": "肺高压 / 肺心病",
+      "circulation_role": "B8/B11只保留右室后负荷与心衰接口",
+      "primary_owner": "respiratory"
+    }
+  ],
+  "evidence_ladder": [
+    {
+      "order": 1,
+      "layer": "病史 / 症状",
+      "question": "患者发生了什么、何时发生、由什么触发，是否符合供需、淤血、低灌注或节律事件模式？"
+    },
+    {
+      "order": 2,
+      "layer": "体征",
+      "question": "压力、流量、心腔负荷、淤血与灌注不足在床旁留下了什么机械证据？"
+    },
+    {
+      "order": 3,
+      "layer": "ECG",
+      "question": "电活动、缺血/损伤层级和节律提供了什么证据？ECG不能替代机械输出或灌注证据。"
+    },
+    {
+      "order": 4,
+      "layer": "生物标志物",
+      "question": "是否存在心肌坏死、牵张或组织低灌注等生物学证据？"
+    },
+    {
+      "order": 5,
+      "layer": "超声",
+      "question": "结构、瓣膜、心腔大小、室壁运动、收缩/充盈与压力接口怎样？"
+    },
+    {
+      "order": 6,
+      "layer": "血管 / 冠脉影像",
+      "question": "管路是否固定狭窄、急性阻断、斑块事件或其他结构性病变？"
+    },
+    {
+      "order": 7,
+      "layer": "血流动力学",
+      "question": "特定位置的压力、充盈与输出怎样；是否需要用CVP/PAWP/CI等校准Failure Layer？"
+    },
+    {
+      "order": 8,
+      "layer": "病理",
+      "question": "组织层面到底发生了什么结构改变、坏死、炎症、修复或重构？"
+    }
+  ],
+  "evidence_principle": "证据分层互相校准，不是越往下越高级，也不能用某一层证据替代它没有证明的层级。",
+  "treatment_action_map": [
+    {
+      "action": "恢复通路 / 再灌注 / 解除机械阻塞",
+      "targets": "冠脉、外周动脉或阻塞性循环故障"
+    },
+    {
+      "action": "改变血小板 / 凝血 / 纤溶过程",
+      "targets": "病理血栓形成、扩大或已形成纤维蛋白血栓"
+    },
+    {
+      "action": "恢复有效容量 / 静脉回流",
+      "targets": "低容量或前负荷不足"
+    },
+    {
+      "action": "调整前负荷 / 后负荷",
+      "targets": "负荷失配、淤血、压力或容量负担"
+    },
+    {
+      "action": "改善泵功能或减轻泵负担",
+      "targets": "收缩性失败或严重低输出"
+    },
+    {
+      "action": "纠正节律 / 时序",
+      "targets": "控率、转复、起搏、电治疗或器械"
+    },
+    {
+      "action": "打断慢性神经体液 / 重构恶性循环",
+      "targets": "长期高压、HFrEF等慢性失代偿底物"
+    },
+    {
+      "action": "源控制",
+      "targets": "感染或其他持续驱动循环崩溃的上游病因"
+    }
+  ],
+  "system_recall": {
+    "neutral_front": "面对一个从未见过的循环病例，不先搜索病名：哪里先坏了，哪个变量先变，血流后果是什么，怎样确认并首先改变哪一层？",
+    "free_reconstruction": [
+      "闭卷恢复一圈血：静脉容量池 → 静脉回流 → 心室充盈 → 压力差/瓣膜 → 射血 → 动脉压力与血流分配 → 微循环交换 → 静脉回收 → 再回心。",
+      "把节律/电活动、神经—体液—肾容量、冠脉氧供需三条并行控制挂回主循环。",
+      "只用P/Q/R/V与preload/afterload/contractility/compliance解释故障，不先靠病名。",
+      "调用七种Failure Mode与七条判断轴。",
+      "用四条跨Block大桥解释同一机制如何从正常生理变成疾病与最终崩溃。"
+    ],
+    "reverse_case_algorithm": [
+      "第一故障部件：泵 / 阀 / 管路 / 容量 / 节律 / 交换？",
+      "第一变量：P / Q / R / V 哪个先变？",
+      "血流后果：上游淤血、下游低灌注，还是两者都有？",
+      "关键性质：压力/容量、收缩/舒张、供氧/耗氧、急/慢、代偿/失代偿、稳定/不稳定？",
+      "当前最危险变量是什么：局部缺血、低输出、充盈失败、恶性节律、全身低灌注还是无有效脉搏？",
+      "哪一层证据最能确认？治疗首先要改变哪一个Failure Layer？"
+    ],
+    "pass_criterion": "面对陌生病例，能够从第一故障正向推出变量、淤血/低灌注、代偿/重构、证据和治疗靶点；也能从表现反向定位Failure Layer并调用对应Block。"
+  },
+  "system_exit": {
+    "compression_maps": [
+      {
+        "name": "机械面",
+        "content": "心动周期 → PV → preload / afterload / contractility / compliance → SV / CO"
+      },
+      {
+        "name": "调节面",
+        "content": "P/Q/R/V → 神经 → 体液 → 肾容量 → 急性代偿 / 慢性反噬"
+      },
+      {
+        "name": "电活动面",
+        "content": "AP → 传导 → ECG → Ca²⁺ → 机械射血"
+      },
+      {
+        "name": "血管事件面",
+        "content": "止血 → 血栓 + 内皮/斑块 → ACS / 外周阻断 → 梗死"
+      },
+      {
+        "name": "结构—心衰面",
+        "content": "瓣膜 + 心肌/心包 → 压力/容量/充盈/泵异常 → 心衰"
+      },
+      {
+        "name": "崩溃面",
+        "content": "外周血流 → 休克四Failure Layer → 有无有效脉搏 → 骤停"
+      }
+    ],
+    "final_gate": "给一个陌生循环病例，能够正向从第一故障推到变量、淤血/低灌注、代偿、重构、表现和治疗靶点；也能够反向从病例表现定位Failure Layer，并准确调用相应Block，而不在12个章节里随机搜索疾病名称。"
+  },
+  "ownership_boundaries": {
+    "system_owns": [
+      "系统母模型",
+      "核心变量",
+      "Failure Modes",
+      "判断轴",
+      "Block学习路线与跨Block桥",
+      "跨系统接口",
+      "证据层",
+      "治疗动作层",
+      "System Recall / Exit"
+    ],
+    "system_does_not_own": [
+      "完整疾病细节",
+      "完整药物剂量与精确数字",
+      "Block内部KP答案",
+      "个人mastery / attempts / wrong / uncertain / annotations / scheduler"
+    ]
+  },
+  "source_refs": [
+    {
+      "role": "prior_system_substrate",
+      "path": "content/xizong/knowledge/system-guides/西综循环系统_System_Guide_v2_完整导学_认知依赖与学习顺序.md"
+    },
+    {
+      "role": "current_shared_semantic_substrate",
+      "path": "content/xizong/knowledge/learner/shared-fields.json"
+    },
+    {
+      "role": "block_medical_source_truth",
+      "path": "content/xizong/knowledge/systems/a1-circulation/blocks/"
+    }
+  ],
+  "migration": {
+    "natural_owner_rule": "Natural Owner + Reference, Not Copy",
+    "semantic_delta": "CHAT_APPROVED_SYSTEM_V6_ADDITION_ONLY",
+    "kp_identity_change": false,
+    "learner_state_included": false,
+    "runtime_or_ui_authority": false,
+    "promotion_note": "Keep FREEZE_CANDIDATE until all 12 Block natural owners are materialized and exact readback confirms 12 Blocks / 312 canonical KPs with no unintended medical-Core delta."
+  }
+}

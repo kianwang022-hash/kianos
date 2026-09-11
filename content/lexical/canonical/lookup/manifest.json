@@ -1,0 +1,20 @@
+{
+  "schema": "kianos.lexical.lookup_manifest.v1",
+  "semantic_mutation": 963,
+  "spelling": {
+    "bucket_count": 223,
+    "bucket_rule": "first two ASCII alphanumeric normalized characters; short/special deterministic fallback",
+    "collision_rule": "return every exact candidate; never choose semantically",
+    "inventory_sha256": "20e17e72d0d1bfdac7fb7e02c51567bfefc25df905205d126840015caf1e8062",
+    "max_bucket_bytes": 73959,
+    "normalization": "Unicode NFKC, casefold, trim; lookup-only"
+  },
+  "stable_word_id": {
+    "bucket_count": 256,
+    "bucket_rule": "first two lowercase hex characters of sha256(word_id UTF-8)",
+    "contains_per_word_auxiliary_shard_refs": true,
+    "inventory_sha256": "ada593986a8a0de7d5eee897046a854a26fb90f300f0bc08b92f0264dbf31053",
+    "max_bucket_bytes": 21510
+  },
+  "status": "REBUILDABLE_NON_SEMANTIC_PROJECTION"
+}

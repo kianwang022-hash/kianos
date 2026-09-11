@@ -1,0 +1,99 @@
+{
+  "anchored_record_count": 19499,
+  "exact_source_projection": {
+    "byte_count": 12083945,
+    "path": "content/lexical/canonical/sense_registry.v3.jsonl",
+    "sha256": "69bd33b3321ecf2b89789180414956949a4f7c969ab6731a591a1f860ad90945",
+    "status": "NON_AUTHORITATIVE_REBUILDABLE_COMPATIBILITY_PROJECTION"
+  },
+  "learner_state_mutation": 0,
+  "logical_store": "senses",
+  "record_count": 19499,
+  "record_id_field": "stable_sense_id",
+  "routing": {
+    "candidate_widths": [
+      8,
+      12,
+      16,
+      24,
+      32
+    ],
+    "hard_max_bytes": 131072,
+    "measurements": [
+      {
+        "max_bytes": 25461,
+        "max_range_key": "o4353-4360",
+        "median_bytes": 13817,
+        "over_hard_cap": 0,
+        "over_target": 0,
+        "p95_bytes": 20847,
+        "shard_count": 994,
+        "width": 8
+      },
+      {
+        "max_bytes": 35320,
+        "max_range_key": "o3613-3624",
+        "median_bytes": 21140,
+        "over_hard_cap": 0,
+        "over_target": 0,
+        "p95_bytes": 29862,
+        "shard_count": 663,
+        "width": 12
+      },
+      {
+        "max_bytes": 48182,
+        "max_range_key": "o1505-1520",
+        "median_bytes": 28338,
+        "over_hard_cap": 0,
+        "over_target": 0,
+        "p95_bytes": 39698,
+        "shard_count": 497,
+        "width": 16
+      },
+      {
+        "max_bytes": 65774,
+        "max_range_key": "o3601-3624",
+        "median_bytes": 43242,
+        "over_hard_cap": 0,
+        "over_target": 0,
+        "p95_bytes": 58731,
+        "shard_count": 332,
+        "width": 24
+      },
+      {
+        "max_bytes": 84703,
+        "max_range_key": "o1921-1952",
+        "median_bytes": 58205,
+        "over_hard_cap": 0,
+        "over_target": 0,
+        "p95_bytes": 78218,
+        "shard_count": 249,
+        "width": 32
+      }
+    ],
+    "path_rule": "shards/o{range_start:04d}-{range_end:04d}.json",
+    "selected_width": 32,
+    "target_bytes": 98304,
+    "type": "frozen_ordinal_fixed_range"
+  },
+  "schema": "kianos.lexical.bounded_store_manifest.v1",
+  "semantic_mutation": 963,
+  "shards": {
+    "count": 249,
+    "inventory_sha256": "2d83608559db9202db1bbda4cf6e990f2890c829d15b4b538723adc7b125236a",
+    "max_bytes": 84703,
+    "over_hard_cap": 0,
+    "over_target": 0
+  },
+  "status": "CURRENT_CANONICAL_BOUNDED",
+  "unanchored_hash_buckets": {
+    "bucket_count": 0,
+    "enabled": false,
+    "inventory_sha256": null,
+    "max_bytes": 0,
+    "record_count": 0,
+    "rule": "h + first two lowercase hex characters of sha256(exam_mapping_id UTF-8)",
+    "semantic_links_inferred": 0
+  },
+  "unanchored_record_count": 0
+}
