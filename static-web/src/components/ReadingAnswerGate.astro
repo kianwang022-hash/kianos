@@ -1,0 +1,68 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+<span data-reading-answer-gate data-reading-base={base} hidden></span>
+
+<script>
+  const root = document.querySelector('[data-local-port="reading"]');
+  const gate = document.querySelector('[data-reading-answer-gate]');
+
+  if (root && gate) {
+    const readingKey = root.getAttribute('data-reading-object') || 'reading';
+    const basePath = gate.getAttribute('data-reading-base') || '/';
+    const answerUrl = `${basePath}reading-answer/${encodeURIComponent(readingKey)}.json`;
+    const submit = root.querySelector('[data-reading-submit]');
+    let ready = root.getAttribute('data-reading-answers-ready') === 'true';
+    let loading = false;
+
+    const loadAnswers = async () => {
+      if (ready) return true;
+      if (loading) return false;
+      loading = true;
+      const originalText = submit?.textContent || 'Submit';
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Submitting…';
+      }
+
+      try {
+        const response = await fetch(answerUrl, { headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error(`answer ${response.status}`);
+        const payload = await response.json();
+        if (!payload || payload.objectId !== readingKey || typeof payload.answers !== 'object') {
+          throw new Error('answer payload mismatch');
+        }
+
+        root.querySelectorAll('[data-question]').forEach((question) => {
+          const id = question.getAttribute('data-question') || '';
+          if (!id || !(id in payload.answers)) return;
+          question.setAttribute('data-answer', JSON.stringify(payload.answers[id] ?? ''));
+        });
+
+        ready = true;
+        root.setAttribute('data-reading-answers-ready', 'true');
+        return true;
+      } catch {
+        return false;
+      } finally {
+        loading = false;
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = originalText;
+        }
+      }
+    };
+
+    document.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const button = target?.closest('[data-reading-submit]');
+      if (!button || !root.contains(button) || ready) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const ok = await loadAnswers();
+      if (ok) button.click();
+      else button.textContent = '重试提交';
+    }, true);
+  }
+</script>
