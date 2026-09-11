@@ -105,7 +105,7 @@ Current content projection status:
 - Marxism: Chapters 1–8 complete, using relation/reasoning/mechanism chains;
 - History: Chapters 1–10 plus a whole-subject map complete, using chronology/stage/turning-point/cause/evaluation;
 - Mao/Zhongte: C00–C08 plus a whole-subject map complete, using historical-problem → theory-response → positioning/boundary structure;
-- Xi/New Thought: next content lane and must be audited for its own teaching shape before bulk projection.
+- Xi/New Thought: whole-subject map plus C00–C03 complete; continue from C04 using hierarchy/role/goal/principle/path and confusable-formulation boundaries.
 
 Fresh Chats continuing Politics content/runtime work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for the next batch.
 
