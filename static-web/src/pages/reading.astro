@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import '../styles/reading.css';
 import ReadingWorkspace from '../components/ReadingWorkspace.astro';
-import ReadingSecondPass from '../components/ReadingSecondPass.astro';
 import { inspectReadingSources, loadReading } from '../lib/current.mjs';
 
 const sourceState = inspectReadingSources();
@@ -21,10 +20,7 @@ const pendingDescription = sourceState.status === 'invalid'
   active="reading"
 >
   {reading ? (
-    <>
-      <ReadingWorkspace reading={reading} />
-      <ReadingSecondPass reading={reading} />
-    </>
+    <ReadingWorkspace reading={reading} />
   ) : (
     <section class="migrationPending">
       <span>Fail-closed · {sourceState.status}</span>
