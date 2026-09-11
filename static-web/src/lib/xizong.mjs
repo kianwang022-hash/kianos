@@ -130,7 +130,7 @@ function metadataValue(body, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const patterns = [
     new RegExp(`^>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`, 'm'),
-    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\s*(.+)$`, 'm')
+    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm')
   ];
   for (const pattern of patterns) {
     const match = body.match(pattern);
