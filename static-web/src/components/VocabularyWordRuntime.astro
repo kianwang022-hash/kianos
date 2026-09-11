@@ -3,19 +3,36 @@ const { answer } = Astro.props;
 const card = answer.record || {};
 const core = card.core_concept || {};
 const senses = Array.isArray(card.senses) ? card.senses : [];
-const secondarySenses = (Array.isArray(card.secondary_senses) ? card.secondary_senses : []).filter((item) =>
-  ['verified', 'semantic_auditor_verified'].includes(String(item?.verification_status || '')) &&
-  ['publishable', 'codex_reviewed', 'published'].includes(String(item?.publication_status || ''))
+const activeSenseIds = new Set(senses.map((sense) => String(sense?.sense_id || '')).filter(Boolean));
+const secondarySenseRows = (Array.isArray(card.secondary_senses) ? card.secondary_senses : [])
+  .map((branch, index) => ({ branch, index }))
+  .filter(({ branch }) =>
+    ['verified', 'semantic_auditor_verified'].includes(String(branch?.verification_status || '')) &&
+    ['publishable', 'codex_reviewed', 'published'].includes(String(branch?.publication_status || '')) &&
+    (!branch?.source_sense_id || !activeSenseIds.has(String(branch.source_sense_id)))
+  );
+const secondarySenses = secondarySenseRows.map(({ branch }) => branch);
+const fixedCollocationIds = new Set(
+  senses.flatMap((sense) => (sense.collocations || []))
+    .filter((item) => item.exam_value === 'fixed_pattern' && item.collocation_id)
+    .map((item) => String(item.collocation_id))
 );
-const constructions = (Array.isArray(card.constructions) ? card.constructions : []).filter((item) =>
-  !item?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(item.verification_status))
-);
+const constructionRows = (Array.isArray(card.constructions) ? card.constructions : [])
+  .map((construction, index) => ({ construction, index }))
+  .filter(({ construction }) =>
+    (!construction?.verification_status || ['verified', 'semantic_auditor_verified'].includes(String(construction.verification_status))) &&
+    !fixedCollocationIds.has(String(construction?.presentation_merge?.surviving_object_id || ''))
+  );
+const constructions = constructionRows.map(({ construction }) => construction);
 const semanticNeighbors = Array.isArray(card.semantic_neighbors) ? card.semantic_neighbors : [];
 const confusables = Array.isArray(card.confusables) ? card.confusables : [];
 const relationRows = [
   ...semanticNeighbors.map((relation, index) => ({ relation, locator: `record.semantic_neighbors[${index}]` })),
   ...confusables.map((relation, index) => ({ relation, locator: `record.confusables[${index}]` }))
 ];
+const fixedCollocationsWithIndex = (sense) => (sense.collocations || [])
+  .map((item, index) => ({ item, index }))
+  .filter(({ item }) => item.exam_value === 'fixed_pattern');
 
 const posCode = (value = '') => {
   const pos = String(value).toLowerCase();
@@ -25,10 +42,11 @@ const posCode = (value = '') => {
   if (pos.startsWith('adv')) return 'ADV';
   if (pos.startsWith('prep')) return 'PREP';
   if (pos.startsWith('interj')) return 'INTJ';
+  if (pos.startsWith('numeral')) return 'NUM';
   return String(value || 'S').toUpperCase();
 };
 
-const posOrder = ['V', 'A', 'N', 'ADV', 'PREP', 'INTJ'];
+const posOrder = ['V', 'A', 'N', 'ADV', 'PREP', 'INTJ', 'NUM'];
 const countPos = (rows) => rows.reduce((acc, item) => {
   const code = posCode(item.pos);
   acc[code] = (acc[code] || 0) + 1;
@@ -65,8 +83,7 @@ for (const construction of constructions) {
   if (pattern) patternPrompts.push(pattern);
 }
 for (const sense of senses) {
-  for (const collocation of (sense.collocations || [])) {
-    if (collocation.exam_value !== 'fixed_pattern') continue;
+  for (const { item: collocation } of fixedCollocationsWithIndex(sense)) {
     const pattern = skeletonize(collocation.phrase || '');
     if (pattern) patternPrompts.push(pattern);
   }
@@ -133,12 +150,12 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
                 <div>
                   <p>{sense.definition_cn || '—'}</p>
                   <strong>{sense.definition_en || '—'}</strong>
-                  {(sense.collocations || []).filter((item) => item.exam_value === 'fixed_pattern').length > 0 && (
+                  {fixedCollocationsWithIndex(sense).length > 0 && (
                     <ul>
-                      {(sense.collocations || []).filter((item) => item.exam_value === 'fixed_pattern').map((item, collocationIndex) => (
+                      {fixedCollocationsWithIndex(sense).map(({ item, index: collocationIndex }) => (
                         <li data-vocab-target-row>
                           <b>{item.phrase}</b><span>{item.meaning_cn}</span>
-                          <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[fixed:${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>
+                          <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>
                         </li>
                       ))}
                     </ul>
@@ -147,7 +164,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
               </section>
             ))}
 
-            {secondarySenses.map((branch, index) => (
+            {secondarySenseRows.map(({ branch, index }) => (
               <section data-vocab-target-row>
                 <header>
                   <span>{posCode(branch.pos)}+</span>
@@ -164,10 +181,10 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 5);
         </main>
 
         <aside class="portedVocabEvidenceColumn">
-          {constructions.length > 0 && <section>
+          {constructionRows.length > 0 && <section>
             <header><span>Constructions</span><small>Current verified</small></header>
             <div class="portedVocabEvidenceList">
-              {constructions.map((item, index) => (
+              {constructionRows.map(({ construction: item, index }) => (
                 <article data-vocab-target-row>
                   <b>{item.pattern || item.boundary || item.label_en}</b>
                   <p>{item.meaning_cn || item.definition_cn || '—'}</p>
