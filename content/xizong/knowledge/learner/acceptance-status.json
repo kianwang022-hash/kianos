@@ -9,7 +9,8 @@
   "audit_base": {
     "branch": "main",
     "commit": "7452f2d2df1f4964322368c8bbd61326b4a9aeaf",
-    "rule": "Gate status records only what is supported on this audited main@HEAD. Build success, file count, page existence and question inventory size are evidence only and never substitute for a learning gate."
+    "acceptance_branch": "chat/xizong-learning-acceptance-20260912",
+    "rule": "Gate status records only concrete Current evidence. Build success, file count, page existence, CURRENT labels and question inventory size are evidence only and never substitute for learning acceptance."
   },
   "gate_legend": {
     "PASS": "Current evidence is sufficient for this gate.",
@@ -29,46 +30,60 @@
         "S": {
           "status": "PASS",
           "evidence": [
-            "content/xizong/knowledge/manifest.json is CURRENT and resolves System medical Core to systems/**/system.json + canonical Block Markdown without legacy fallback.",
-            "A1 has one Chat-approved System owner, 12 canonical Block files, stable System identity, and a deterministic CURRENT 376-question System scope with fail-closed count/hash validation.",
-            "The 376-question scope explicitly does not invent Question-to-Block/KP relations and keeps learner evidence out of shared Current."
+            "content/xizong/knowledge/manifest.json resolves one Chat-approved System owner and canonical Block medical Core without legacy runtime fallback.",
+            "A1 has stable System/Block/KP identity and a deterministic CURRENT 376-question System scope with fail-closed count/hash validation.",
+            "The question scope explicitly refuses inferred Question-to-Block/KP relations and keeps learner evidence out of shared Current."
           ]
         },
         "K": {
-          "status": "PENDING",
+          "status": "PASS",
+          "audited_at_stage": "A1_K_CONTENT_CLOSURE_REAUDIT",
           "evidence": [
-            "A1 has a substantial canonical System model and 12 canonical medical-Core Blocks, but system.json remains FREEZE_CANDIDATE and this LEARNING_ACCEPTANCE re-audit has not yet completed a Current content-closure pass over the 12 Blocks / 312 KPs."
+            "The A1 System owner defines one circulation mother model using P/Q/R/V, preload/afterload/contractility/compliance, seven Failure Modes, shared judgment axes, a dependency DAG, cross-Block bridges, evidence layers and treatment-action targets; System semantics are not a teacher chapter list.",
+            "B1 teaches the normal mechanical loop as pressure difference -> valves -> chamber volume -> SV/CO -> arterial pressure/organ flow -> venous return -> microcirculation -> coronary self-supply, and explicitly leaves complete coronary disease to B6.",
+            "B2 organizes regulation by sensed variable and time scale: sensing -> fast neural execution -> humoral/renal volume control -> local correction -> acute rescue versus chronic harm.",
+            "B3 keeps four levels distinct (single-cell action potential -> propagation -> body-surface ECG -> Ca2+-mediated mechanical output) and defers clinical rhythm interpretation to B10.",
+            "B4 teaches hemostasis as seal -> fibrin reinforcement -> anticoagulant localization -> fibrinolytic removal, then connects pathological activation to thrombosis/embolism/infarction rather than starting from factor-number memorization.",
+            "B5 teaches two long-term injury axes: chronic pressure abnormality -> resistance-vessel/organ remodeling and chronic endothelial injury -> plaque biology; thresholds and drugs attach after the disease model.",
+            "B6 integrates B1-B5 into two upstream coronary paths (fixed stenosis versus plaque event) and follows ischemia -> necrosis -> evidence -> complications -> reperfusion/secondary prevention.",
+            "B7 reduces four valve diseases to one door-failure model: timing -> stenosis/regurgitation -> abnormal flow -> pressure/volume load -> chamber remodeling -> congestion/low output; rheumatic disease and IE explain why the door fails.",
+            "B8 localizes cardiomyopathy/pericardial disease by pump weak, pump stiff, dynamic obstruction, or external shell restriction before naming diseases.",
+            "B9 first separates arterial downstream ischemia from venous upstream congestion, then acute/chronic and deep/superficial/communicating levels before tests and treatment.",
+            "B10 prioritizes effective pulse/hemodynamic stability before rhythm naming, then uses rate -> QRS width -> regularity -> atrioventricular relation -> mechanism -> treatment target; it preserves the B3 boundary that electrical activity is not perfusion evidence.",
+            "B11 teaches heart failure from pump/filling failure -> forward hypoperfusion + backward congestion -> compensatory neurohumoral activation -> chronic remodeling/ decompensation before EF labels or drug lists.",
+            "B12 separates shock from cardiac arrest by effective pulse, then localizes shock to volume, pump, resistance/distribution, or obstructed pathway and treats perfusion restoration plus the first Failure Layer as the execution rule.",
+            "Across all 12 Blocks, first-learning structure is causal/capability-based, cross-owner deferrals are explicit, and reverse search found no unresolved Source Gap/TODO/pending-content marker that would leave the stable Core undefined. No additional medical expansion was justified by this K audit."
           ],
-          "blocker": "Do not promote K from asset presence or historical reputation; re-audit the canonical medical Core for first-learning completeness, semantic ownership, duplication and boundaries."
+          "closure": "The canonical content is complete enough to design first learning around and still makes sense without the webpage. Further medical expansion requires new source or learner evidence."
         },
         "L": {
           "status": "FAIL",
           "evidence": [
-            "A1 system.json still uses grouped block_route entries rather than the direct learner route consumed by Current Astro.",
-            "A1 has no Current logic_index and no a1-circulation-learning.json first-pass learning-support owner parallel to the accepted A2 pattern.",
-            "static-web/src/lib/xizong.mjs requires a direct block_route and logic_index for projection and requires learning support to match every projected Block/Logic Group."
+            "A1 system.json still encodes block_route as grouped nested block lists rather than the direct learner route consumed by Current Astro.",
+            "A1 has no Current logic_index and no a1-circulation-learning.json first-pass learning-support owner.",
+            "static-web/src/lib/xizong.mjs requires direct route + lossless logic_index and requires learning support to match every projected Block/Logic Group."
           ],
-          "blocker": "The first-learning path is not canonically expressed. Do not manufacture Logic Groups from UI needs or question mappings."
+          "blocker": "Knowledge is now accepted, but the canonical first-learning path is not yet expressed. Learning semantics must be derived from the accepted Core, never from UI needs or question mappings."
         },
         "P": {
           "status": "FAIL",
           "evidence": [
-            "listProjectableXizongSystems() filters out systems without a direct block route and logic_index; therefore A1 cannot currently enter the accepted learner-facing System/Block projection."
+            "listProjectableXizongSystems() filters out systems without a direct block route and logic_index; A1 cannot currently enter the accepted learner-facing System/Block projection."
           ],
-          "blocker": "Projection is downstream of unresolved A1 Learning semantics."
+          "blocker": "Projection remains downstream of unresolved A1 Learning semantics."
         },
         "R": {
           "status": "FAIL",
           "evidence": [
-            "loadXizongSystem('circulation') fails closed with CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE while logic_index is absent.",
-            "A1 System question scope being complete does not make the first-learning Runtime executable."
+            "loadXizongSystem('circulation') fails closed as non-projectable while logic_index is absent.",
+            "A1 System question scope completion does not make the first-learning Runtime executable."
           ],
-          "blocker": "No honest A1 learner E2E can start until K/L owners are accepted and projected."
+          "blocker": "No honest A1 learner E2E can start until L is accepted and projected."
         },
         "E": {
           "status": "PENDING",
           "evidence": [
-            "The 376-question System scope has explicit boundaries and preserves Wrong/Uncertain repair safety, but Block-level learner evidence cannot be accepted while the A1 first-learning Runtime is unreachable."
+            "The 376-question System scope preserves safe W/U boundaries, but Block-level learner evidence cannot be accepted while the A1 first-learning Runtime is unreachable."
           ]
         },
         "U": {
@@ -79,17 +94,17 @@
         }
       },
       "p0_blockers": [
-        "Complete A1 K content-closure re-audit on Current canonical owners.",
-        "Create/approve A1 learner-route semantics only after K is clear: direct Block route, lossless Logic Group index, first-pass focus/closure support and any required timing/pathway support.",
-        "Only then make A1 projectable and run clean/failure/return Module E2E."
+        "Construct and accept A1 L from the accepted canonical Core: direct 12-Block learner route, lossless contiguous Logic Group index, first-pass focus/stop/recall/closure semantics, and only the timing support actually required by the learning contract.",
+        "Only after L passes, make A1 projectable and run clean/failure/return Module E2E for P/R/E."
       ],
       "do_not_expand": [
+        "Do not add more A1 medical Core after K PASS without new evidence.",
         "Do not touch the restored 376-question scope without new source evidence.",
         "Do not infer Question-to-KP relations.",
         "Do not add System Exit features while first learning is blocked.",
-        "Do not use an Astro build to promote K/L/P/R/E."
+        "Do not use an Astro build to promote L/P/R/E."
       ],
-      "allowed_conclusion": "Source-ready; module Partial."
+      "allowed_conclusion": "Knowledge-ready; module Partial."
     },
     "A2_respiratory": {
       "owners": [
@@ -112,9 +127,8 @@
         "K": {
           "status": "PENDING",
           "evidence": [
-            "A2 has a CURRENT System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance pass still needs to record an explicit content-closure audit rather than inheriting readiness from CURRENT labels or prior UI work."
-          ],
-          "blocker": "Reconfirm that the canonical assets teach the stable mechanisms/relations/boundaries needed for first learning without duplicate semantic ownership or unnecessary encyclopedic expansion."
+            "A2 has a CURRENT System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance pass still requires an explicit content-closure confirmation rather than inheriting readiness from labels or prior UI work."
+          ]
         },
         "L": {
           "status": "PASS",
@@ -127,7 +141,7 @@
         "P": {
           "status": "PENDING",
           "evidence": [
-            "XizongBlockV6 visibly implements progressive disclosure, Lecture-first KP learning, non-answer-first Recall, Logic Group closure, Block Recall and optional Outline; System Exit separates closed-book Recall, private holdout and official-question sweep.",
+            "XizongBlockV6 implements progressive disclosure, Lecture-first KP learning, non-answer-first Recall, Logic Group closure, Block Recall and optional Outline; System Exit separates closed-book Recall, private holdout and official-question sweep.",
             "A repository-level projection audit still needs to exercise the complete current A2 journey rather than promoting P from component existence alone."
           ]
         },
@@ -135,14 +149,14 @@
           "status": "PENDING",
           "evidence": [
             "Current Runtime contains executable Block learning, Recall, completion gating, Memory, Chat packet/import, System Recall, private holdout, official-question fast-pass and W/U branches.",
-            "Per LEARNING_ACCEPTANCE.md, code existence is insufficient; a current-main Module E2E must exercise stable, failure/uncertainty, Chat-return and later-verification paths before R is promoted."
+            "Code existence is insufficient; a current-main Module E2E must exercise stable, failure/uncertainty, Chat-return and later-verification paths before R is promoted."
           ]
         },
         "E": {
           "status": "PENDING",
           "evidence": [
             "Block Runtime stores KP Recall evidence, admits weak items into Memory, preserves evidence history, separates Reserve/Hook from ordinary Memory, and System Exit keeps W/U as repair evidence with precise relations only when reviewed.",
-            "The acceptance pass still needs to verify evidence survives the real E2E transitions and that clean work creates no manufactured debt."
+            "The acceptance pass still needs to verify evidence survives real E2E transitions and that clean work creates no manufactured debt."
           ]
         },
         "U": {
@@ -167,7 +181,6 @@
   },
   "next_smallest_meaningful_work": {
     "priority": [
-      "A1_K_CONTENT_CLOSURE_REAUDIT",
       "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
       "A1_P_R_E_MODULE_E2E",
       "A2_K_CONTENT_CLOSURE_RECONFIRM",
