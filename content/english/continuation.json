@@ -31,7 +31,10 @@
     "Cloze, Reading A, and Reading B pages now share ObjectiveTransferClaims for Chat-return import and private claim state. Cloze/Reading B ObjectiveHandoff and Reading A ReadingPassageHandoff include ACTIVE TRANSFER CLAIMS plus the return protocol.",
     "Reading A no longer loads the legacy ReadingReviewSignals, ReadingTransferEvidence, or ReadingSessionTransferEvidence components, so Current stops creating/updating per-question WATCH transfer state. Old local WATCH data is not automatically migrated.",
     "Objective Evidence / Transfer v1 passed both Current CI gates on commit 2df83d0fa52e031efe971d7fa3ac1275356beaf6: Static Web Objective QA passed validate:objective plus Astro build; English Objective Runtime passed source inventory plus Astro build.",
-    "Translation has a canonical module contract and frozen Translation Runtime v1; Writing currently inherits the shared Learning Contract until its own module contract is frozen.",
+    "Translation has one canonical learner asset at content/english/modules/translation.md organized as Global Map -> four dense Core Learning Blocks -> Skill Map -> selective Skill Content -> Material Routing -> learner-facing learning loop -> frozen Translation Runtime v1. First learning happens through the dense Core Blocks, not by clicking through a taxonomy.",
+    "Translation now freezes an adaptive Chat expansion boundary: shared static content must remain clear, plain-language, and information-dense enough to support independent real-task entry; complex ambiguities, interacting mechanisms, rare structures, alternative faithful reconstructions, and personalized micro-drills are expanded in Chat when real evidence makes them valuable rather than being preloaded as encyclopedia content.",
+    "Translation Runtime v1 remains whole-task/set review with finer internal evidence, first-meaningful-failure routing, cascade collapse, learner reconstruction before full reference when possible, selective memory admission, and fresh/unseen transfer for closure.",
+    "Writing currently inherits the shared Learning Contract until its own module contract is frozen.",
     "KianOS SYSTEM_CONTRACT.md shared learner-surface baseline remains authoritative: Current / Continue / Navigate / Repair / Verify-Transfer / Handoff / Deferred / Validation with non-isomorphic cognition per lane."
   ],
   "current_owners_to_read": [
@@ -49,7 +52,7 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/translation.md"
       ],
-      "inheritance": "Translation inherits shared English principles and its own frozen Translation Runtime. Objective Runtime and Objective Evidence Runtime do not redefine Translation cognition or review state."
+      "inheritance": "Translation inherits shared English principles and its own dense learner-asset architecture plus frozen Translation Runtime v1. Static Translation assets teach the stable high-value model clearly enough for independent task entry; Chat provides adaptive depth for real ambiguity, mechanism interaction, alternative reconstruction, and learner-specific repair. Objective Runtime and Objective Evidence Runtime do not redefine Translation cognition or review state."
     },
     "writing": {
       "read": [
@@ -92,6 +95,8 @@
     "Do not require manual error taxonomy, notes, or claim creation for every question.",
     "Do not make stable-correct objective items enter full review by default.",
     "Do not force one failure taxonomy or one review-card shape across all English modules.",
+    "Do not reduce Translation first-learning content to a thin taxonomy merely because Chat is available; the static asset must independently teach the stable high-value model.",
+    "Do not pre-expand Translation into an encyclopedia of rare boundaries merely for completeness; use real learner evidence to trigger adaptive Chat depth or selective Skill Content expansion.",
     "Do not create more module/governance files merely for completeness; create a specific owner only for a genuine shared cognitive/runtime object."
   ],
   "continuation_policy": {
@@ -105,6 +110,6 @@
       "personal transfer claims",
       "session position"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md and objective-evidence-runtime.md. Continue from next_action rather than reconstructing the roadmap from prior chats."
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md and objective-evidence-runtime.md. Translation work must additionally read translation.md. Continue from next_action rather than reconstructing the roadmap from prior chats."
   }
 }
