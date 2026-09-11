@@ -1,10 +1,20 @@
 <span data-objective-handoff-root hidden></span>
 
 <script>
+  const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const normalizeAnswer = (value) => Array.isArray(value)
     ? value.map(String)
     : value === null || value === undefined || value === '' ? [] : [String(value)];
 
+  const readJson = (key, fallback) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+    catch { return fallback; }
+  };
+  const activeClaimsFor = (task) => {
+    const store = readJson(TRANSFER_STORE_KEY, { claims: [] });
+    return (Array.isArray(store.claims) ? store.claims : [])
+      .filter((claim) => claim?.task === task && claim?.status === 'TRANSFER_PENDING');
+  };
   const formatDuration = (seconds) => {
     if (!Number.isFinite(seconds)) return '—';
     const minutes = Math.floor(seconds / 60);
@@ -21,10 +31,7 @@
     if (!task || !objectId || !storageKey || !(resultSummary instanceof HTMLElement)) return;
 
     let handoff = null;
-    const readAttempt = () => {
-      try { return JSON.parse(localStorage.getItem(storageKey) || 'null') || {}; }
-      catch { return {}; }
-    };
+    const readAttempt = () => readJson(storageKey, {});
     const questions = () => [...root.querySelectorAll('[data-objective-question]')];
     const idOf = (question) => question.getAttribute('data-objective-question') || '';
     const ordinalOf = (question) => Number(question.getAttribute('data-objective-index') || 0) + 1;
@@ -38,6 +45,14 @@
         ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
       );
     };
+    const packetMode = (attempt) => {
+      const problems = problemIds(attempt).length > 0;
+      const pending = activeClaimsFor(task).length > 0;
+      if (problems && pending) return 'REVIEW_AND_TRANSFER_CHECK';
+      if (problems) return 'REVIEW';
+      if (pending) return 'TRANSFER_CHECK';
+      return 'PASS';
+    };
 
     const ensureHandoff = () => {
       if (handoff) return handoff;
@@ -46,11 +61,9 @@
       handoff.hidden = true;
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = task === 'cloze' ? '复制整篇完形给 Chat' : '复制整组 Part B 给 Chat';
       button.setAttribute('data-objective-copy-chat', '');
       const status = document.createElement('small');
       status.setAttribute('data-objective-copy-status', '');
-      status.textContent = '按整篇 / 整组复盘；局部题位只作为内部证据。';
       handoff.append(button, status);
       resultSummary.appendChild(handoff);
       return handoff;
@@ -60,6 +73,8 @@
       const rows = questions();
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
+      const pendingClaims = activeClaimsFor(task);
+      const mode = packetMode(attempt);
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
       const duration = attempt.startedAt && attempt.submittedAt
         ? Math.max(0, Math.round((new Date(attempt.submittedAt).getTime() - new Date(attempt.startedAt).getTime()) / 1000))
@@ -80,6 +95,7 @@
 
       const lines = [
         packetName,
+        `Mode: ${mode}`,
         `Object: ${objectId}`,
         `Source: ${source}`,
         `Title: ${title}`,
@@ -110,46 +126,91 @@
         lines.push(`${label} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
       });
 
-      lines.push('', 'EXPANDED PROBLEM ITEMS');
-      rows.filter((row) => problems.has(idOf(row))).forEach((row) => {
-        const id = idOf(row);
-        const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
-        const prompt = row.querySelector('[data-objective-prompt]')?.textContent?.trim() || '';
-        const options = [...row.querySelectorAll('[data-objective-option]')]
-          .map((node) => node.textContent?.trim() || '')
-          .filter(Boolean);
-        lines.push('', `${label} (${id})`, `Prompt: ${prompt || '—'}`, ...options);
-      });
+      if (problems.size) {
+        lines.push('', 'EXPANDED PROBLEM ITEMS');
+        rows.filter((row) => problems.has(idOf(row))).forEach((row) => {
+          const id = idOf(row);
+          const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
+          const prompt = row.querySelector('[data-objective-prompt]')?.textContent?.trim() || '';
+          const options = [...row.querySelectorAll('[data-objective-option]')]
+            .map((node) => node.textContent?.trim() || '')
+            .filter(Boolean);
+          lines.push('', `${label} (${id})`, `Prompt: ${prompt || '—'}`, ...options);
+        });
+      }
+
+      lines.push('', 'ACTIVE TRANSFER CLAIMS');
+      if (!pendingClaims.length) {
+        lines.push('none');
+      } else {
+        pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
+      }
 
       lines.push('', 'REVIEW INSTRUCTION');
       if (task === 'cloze') {
-        lines.push('Treat this as one complete Cloze passage. Diagnose the passage globally first; merge blanks that share one lexical, sentence, or discourse root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze. Do not create one permanent card per wrong blank. Later unseen transfer is stronger mastery evidence than correcting this known passage.');
+        lines.push('Treat this as one complete Cloze passage. Diagnose globally first; merge blanks that share one lexical, sentence, discourse, or task-procedure root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze. Do not create one permanent card per wrong blank.');
       } else {
-        lines.push('Treat this as one complete Reading B set. Reconstruct the discourse skeleton before splitting positions. Compare the learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Attach dependent wrong placements to the primary structural error. Route lexical objects to LexicalOS and representation/discourse failures to Reading. Do not create one permanent weakness per wrong position. Later unseen transfer is stronger mastery evidence than rebuilding this known set.');
+        lines.push('Treat this as one complete Reading B set. Reconstruct the discourse skeleton before splitting positions. Compare the learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Attach dependent wrong placements to the primary structural error. Route lexical objects to LexicalOS and representation/discourse failures to Reading. Do not create one permanent weakness per wrong position.');
       }
+      lines.push('Existing ACTIVE TRANSFER CLAIMS are not automatically relevant. Update one only if this fresh material genuinely tests the same behavior. Known-item correction is repair evidence; later fresh transfer is stronger mastery evidence.');
+      lines.push(
+        '',
+        'RETURN PROTOCOL',
+        'After the review, append one machine-readable block so the learner can paste the whole Chat reply back into KianOS. Always keep repair threads at the smallest sufficient shared/local/coupled/structure scope. Create newClaims only for reusable task-specific procedure claims; do not duplicate Lexical or Reading objects. claimUpdates may reference only ACTIVE TRANSFER CLAIMS above. CLOSED requires relevant fresh evidence; if this set did not test a claim, leave it unchanged.',
+        'KIANOS_OBJECTIVE_RETURN_V1',
+        '```json',
+        JSON.stringify({
+          schema: 'kianos.english.objective_review_return.v1',
+          task,
+          objectId,
+          threads: [],
+          newClaims: [],
+          claimUpdates: []
+        }, null, 2),
+        '```'
+      );
       return lines.join('\n');
     };
 
     const sync = () => {
       const node = ensureHandoff();
       const attempt = readAttempt();
-      node.hidden = !(attempt.submitted && problemIds(attempt).length > 0);
+      const mode = packetMode(attempt);
+      node.hidden = !attempt.submitted || mode === 'PASS';
+      const button = node.querySelector('[data-objective-copy-chat]');
+      const status = node.querySelector('[data-objective-copy-status]');
+      if (button) {
+        button.textContent = mode === 'TRANSFER_CHECK'
+          ? (task === 'cloze' ? '用这篇验证迁移' : '用这组验证迁移')
+          : (task === 'cloze' ? '复制整篇完形给 Chat' : '复制整组 Part B 给 Chat');
+      }
+      if (status) {
+        status.textContent = mode === 'TRANSFER_CHECK'
+          ? `当前有 ${activeClaimsFor(task).length} 个 pending claim；只有相关时才需要验证。`
+          : '按整篇 / 整组复盘；局部题位只作为内部证据。';
+      }
     };
 
     ensureHandoff()?.querySelector('[data-objective-copy-chat]')?.addEventListener('click', async () => {
       const attempt = readAttempt();
-      if (!attempt.submitted || !problemIds(attempt).length) return;
+      if (!attempt.submitted || packetMode(attempt) === 'PASS') return;
       const status = handoff?.querySelector('[data-objective-copy-status]');
       try {
         await navigator.clipboard.writeText(buildPacket(attempt));
-        if (status) status.textContent = '已复制整组复盘包，直接贴到 Chat。';
+        if (status) status.textContent = packetMode(attempt) === 'TRANSFER_CHECK'
+          ? '已复制迁移验证包；让 Chat 只判断真正相关的 pending claim。'
+          : '已复制整组复盘包，直接贴到 Chat。';
       } catch {
         if (status) status.textContent = '复制失败，请稍后再试。';
       }
     });
 
     root.addEventListener('kianos:objective-submitted', sync);
+    root.addEventListener('kianos:objective-transfer-updated', sync);
     root.addEventListener('click', () => window.setTimeout(sync, 0));
+    window.addEventListener('storage', (event) => {
+      if (event.key === TRANSFER_STORE_KEY) sync();
+    });
     sync();
   });
 </script>
