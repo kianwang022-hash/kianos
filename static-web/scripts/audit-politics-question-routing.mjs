@@ -8,7 +8,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const POLITICS = path.join(repoRoot, 'content/politics');
 const regions = fs.readFileSync(path.join(POLITICS, 'source/politics_unified_regions.v1.jsonl'), 'utf8')
   .split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
-const links = fs.readFileSync(path.join(POLITICS, 'source/question_knowledge_links.jsonl'), 'utf8')
+const legacyLinks = fs.readFileSync(path.join(POLITICS, 'source/question_knowledge_links.jsonl'), 'utf8')
   .split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
 
 const SUBJECT = Object.freeze({
@@ -46,7 +46,7 @@ function chineseNumber(raw) {
   return text.length === 1 && text in digit ? digit[text] : null;
 }
 
-function linkChapter(row) {
+function legacyClaimedChapter(row) {
   const chapter = String(row?.chapter || '').trim();
   if (!chapter) return null;
   if (/导论|绪论/.test(chapter)) return 0;
@@ -54,72 +54,85 @@ function linkChapter(row) {
   return match ? chineseNumber(match[1]) : null;
 }
 
-const owners = new Map();
+// Current unified-region ownership is the semantic authority.
+const currentOwners = new Map();
 for (const row of regions.filter((row) => row?.status === 'canonical')) {
   for (const questionId of row.xiao_question_refs || []) {
-    if (!owners.has(questionId)) owners.set(questionId, []);
-    owners.get(questionId).push({
+    if (!currentOwners.has(questionId)) currentOwners.set(questionId, []);
+    currentOwners.get(questionId).push({
       natural_unit_id: row.natural_unit_id,
+      region_id: row.unified_region_id,
       title: row.title,
       chapter: regionChapter(row)
     });
   }
 }
 
-const comparable = [];
-const mismatches = [];
-const unlinked = [];
-const unknownChapter = [];
+// Legacy question_knowledge_links is inspected only as historical provenance.
+// A disagreement is evidence that the legacy row is stale/wrong; it is NOT a reason
+// to mutate Current ownership or Question Repair semantics.
+const disagreements = [];
+const legacyRowsWithoutCurrentOwner = [];
+const legacyRowsWithoutChapter = [];
+let comparableLegacyRows = 0;
 
-for (const link of links) {
-  const canonicalId = canonicalQuestionId(link.question_id);
+for (const legacy of legacyLinks) {
+  const canonicalId = canonicalQuestionId(legacy.question_id);
   if (!canonicalId) continue;
-  const expectedChapter = linkChapter(link);
-  const currentOwners = owners.get(canonicalId) || [];
-  if (!currentOwners.length) {
-    unlinked.push({
+  const claimedChapter = legacyClaimedChapter(legacy);
+  const owners = currentOwners.get(canonicalId) || [];
+
+  if (!owners.length) {
+    legacyRowsWithoutCurrentOwner.push({
       question_id: canonicalId,
-      source_question_id: link.question_id,
-      subject: link.subject,
-      expected_chapter: expectedChapter,
-      knowledge_title: link.knowledge_title || '',
-      mapping_confidence: link.mapping_confidence || '',
-      mapping_method: link.mapping_method || '',
-      xiao_mapping_status: link.xiao_mapping_status || ''
+      source_question_id: legacy.question_id,
+      legacy_claimed_chapter: claimedChapter,
+      legacy_knowledge_title: legacy.knowledge_title || '',
+      legacy_mapping_confidence: legacy.mapping_confidence || '',
+      legacy_mapping_method: legacy.mapping_method || '',
+      legacy_xiao_mapping_status: legacy.xiao_mapping_status || ''
     });
     continue;
   }
-  if (expectedChapter == null) {
-    unknownChapter.push({ question_id: canonicalId, chapter: link.chapter || '', owners: currentOwners });
+
+  if (claimedChapter == null) {
+    legacyRowsWithoutChapter.push({
+      question_id: canonicalId,
+      legacy_chapter_text: legacy.chapter || '',
+      current_owners: owners
+    });
     continue;
   }
-  comparable.push(canonicalId);
-  if (!currentOwners.some((owner) => owner.chapter === expectedChapter)) {
-    mismatches.push({
+
+  comparableLegacyRows += 1;
+  if (!owners.some((owner) => owner.chapter === claimedChapter)) {
+    disagreements.push({
+      classification: 'LEGACY_PROVENANCE_DISAGREES_WITH_CURRENT',
       question_id: canonicalId,
-      source_question_id: link.question_id,
-      subject: link.subject,
-      expected_chapter: expectedChapter,
-      link_chapter: link.chapter || '',
-      knowledge_title: link.knowledge_title || '',
-      mapping_confidence: link.mapping_confidence || '',
-      mapping_method: link.mapping_method || '',
-      xiao_mapping_status: link.xiao_mapping_status || '',
-      current_owners: currentOwners
+      source_question_id: legacy.question_id,
+      legacy_claimed_chapter: claimedChapter,
+      legacy_chapter_text: legacy.chapter || '',
+      legacy_knowledge_title: legacy.knowledge_title || '',
+      legacy_mapping_confidence: legacy.mapping_confidence || '',
+      legacy_mapping_method: legacy.mapping_method || '',
+      legacy_xiao_mapping_status: legacy.xiao_mapping_status || '',
+      current_owners: owners
     });
   }
 }
 
 const report = {
-  linkedCanonicalQuestionIds: owners.size,
-  linkRows: links.length,
-  comparableLinkRows: comparable.length,
-  chapterMismatchCount: mismatches.length,
-  unlinkedTrainingQuestionCount: unlinked.length,
-  unknownChapterCount: unknownChapter.length,
-  chapterMismatches: mismatches,
-  unlinkedTrainingQuestions: unlinked,
-  unknownChapterRows: unknownChapter
+  semanticAuthority: 'politics_unified_regions',
+  legacyRole: 'PROVENANCE_ONLY_NO_SEMANTIC_AUTHORITY',
+  linkedCurrentQuestionIds: currentOwners.size,
+  legacyLinkRows: legacyLinks.length,
+  comparableLegacyRows,
+  legacyDisagreementCount: disagreements.length,
+  legacyRowsWithoutCurrentOwnerCount: legacyRowsWithoutCurrentOwner.length,
+  legacyRowsWithoutChapterCount: legacyRowsWithoutChapter.length,
+  legacyDisagreements: disagreements,
+  legacyRowsWithoutCurrentOwner,
+  legacyRowsWithoutChapter
 };
 
 console.log('POLITICS_QUESTION_ROUTING_AUDIT');
