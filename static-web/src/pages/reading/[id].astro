@@ -12,6 +12,7 @@ import ReadingRepairCoach from '../../components/ReadingRepairCoach.astro';
 import ReadingReviewSignals from '../../components/ReadingReviewSignals.astro';
 import ReadingTransferEvidence from '../../components/ReadingTransferEvidence.astro';
 import ReadingSessionTransferEvidence from '../../components/ReadingSessionTransferEvidence.astro';
+import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro';
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
 import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
 
@@ -42,5 +43,6 @@ const reading = loadReadingById(readingId);
   <ReadingReviewSignals />
   <ReadingTransferEvidence />
   <ReadingSessionTransferEvidence />
+  <ReadingPassageHandoff />
   <ReadingSessionHandoff />
 </Base>
