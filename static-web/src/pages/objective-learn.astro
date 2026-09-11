@@ -34,7 +34,22 @@ const base = import.meta.env.BASE_URL;
       </div>
     </nav>
 
-    <article id="top" class="objectiveLearnContent markdownBody" set:html={html}></article>
+    <div class="objectiveLearnMain">
+      <aside class="objectiveFastTrack">
+        <div>
+          <span>Fast Track · Calibration Gate</span>
+          <strong>已经会的框架，不必顺序重学。</strong>
+        </div>
+        <p>如果你能稳定说清当前 task 的 demand、decisive evidence / constraint，以及真实竞争项为什么分出胜负，就直接跳到 Starter Skill Content 或真实题。Core Blocks 是第一次建立模型的资产，不是每个人都必须完整走一遍的教程。</p>
+        <div class="objectiveFastTrackRules">
+          <b>知道 → 快速扫过</b>
+          <b>能解释 → 跳过教学</b>
+          <b>真实题卡住 → 回对应 Skill</b>
+        </div>
+      </aside>
+
+      <article id="top" class="objectiveLearnContent markdownBody" set:html={html}></article>
+    </div>
   </section>
 </Base>
 
@@ -46,6 +61,10 @@ const base = import.meta.env.BASE_URL;
   .objectiveLearnNav strong{font-size:12px}.objectiveLearnNav span{color:var(--study-muted);font-size:9px;line-height:1.45}
   .objectiveLearnPractice{display:flex;gap:6px;flex-wrap:wrap;padding:10px 11px 2px;border-top:1px solid var(--study-line);margin-top:4px}
   .objectiveLearnPractice>span{width:100%;color:var(--study-faint);font-size:9px}.objectiveLearnPractice a{font-size:10px;font-weight:800;color:var(--study-green);text-decoration:none}
+  .objectiveLearnMain{min-width:0;display:grid;gap:10px}
+  .objectiveFastTrack{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-green-soft)}
+  .objectiveFastTrack>div:first-child{display:grid;gap:3px}.objectiveFastTrack span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveFastTrack strong{font-size:16px}.objectiveFastTrack p{margin:0;color:#33463e;font-size:12px;line-height:1.75}
+  .objectiveFastTrackRules{display:flex;gap:7px;flex-wrap:wrap}.objectiveFastTrackRules b{padding:5px 8px;border:1px solid var(--study-line);border-radius:999px;background:#fff;font-size:9px;color:#2d4138}
   .objectiveLearnContent{min-width:0;padding:30px 36px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
   .markdownBody :global(h1){margin:3.2rem 0 1rem;padding-top:.4rem;font-size:28px;line-height:1.28;letter-spacing:-.02em}.markdownBody :global(h1:first-of-type){margin-top:0}
   .markdownBody :global(h2){margin:2.35rem 0 .75rem;font-size:20px;line-height:1.35}.markdownBody :global(h3){margin:1.55rem 0 .55rem;font-size:15px}
@@ -56,5 +75,5 @@ const base = import.meta.env.BASE_URL;
   .markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.5rem 0}
   .markdownBody :global(a[id]){display:block;position:relative;top:-88px;visibility:hidden}
   @media(max-width:900px){.objectiveLearnShell{grid-template-columns:1fr}.objectiveLearnNav{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.objectiveLearnPractice{grid-column:1/-1}.objectiveLearnContent{padding:22px 18px}}
-  @media(max-width:560px){.objectiveLearnNav{grid-template-columns:1fr}.objectiveLearnContent{padding:18px 14px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}}
+  @media(max-width:560px){.objectiveLearnNav{grid-template-columns:1fr}.objectiveLearnContent{padding:18px 14px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}.objectiveFastTrackRules{display:grid}.objectiveFastTrackRules b{width:max-content}}
 </style>
