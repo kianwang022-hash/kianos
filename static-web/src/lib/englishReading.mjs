@@ -236,6 +236,12 @@ function passageForSet(data, setId) {
     .find((row) => row?.passage_id === setId);
 }
 
+function attemptQuestion(question) {
+  if (!question || typeof question !== 'object') return question;
+  const { answer, ...clean } = question;
+  return clean;
+}
+
 export function listReadingSets() {
   const data = snapshot();
   if (data.status !== 'ready') return [];
@@ -258,8 +264,9 @@ export function loadReadingById(readingId) {
   if (index < 0) throw new Error(`CURRENT_READING_SET_NOT_FOUND:${readingId}`);
   const set = data.sets[index];
 
-  const questions = questionsForSet(data, set.id);
-  if (!questions.length) throw new Error(`CURRENT_READING_QUESTIONS_NOT_FOUND:${set.id}`);
+  const sourceQuestions = questionsForSet(data, set.id);
+  if (!sourceQuestions.length) throw new Error(`CURRENT_READING_QUESTIONS_NOT_FOUND:${set.id}`);
+  const questions = sourceQuestions.map(attemptQuestion);
 
   const passage = passageForSet(data, set.id);
 
@@ -306,9 +313,29 @@ export function loadReadingById(readingId) {
     sourceHashes: {
       passageOwner: data.sourceHashes.passageOwner,
       questionOwner: data.sourceHashes.questionOwner,
-      renderedObject: sha256(stableJson({ set, passage, questions }))
+      renderedObject: sha256(stableJson({ set, passage, questions: sourceQuestions }))
     },
     manifestStatus: data.manifest.status || ''
+  };
+}
+
+export function loadReadingAnswersById(readingId) {
+  const data = snapshot();
+  if (data.status !== 'ready') throw new Error(`CURRENT_READING_SOURCE_NOT_READY:${data.status}`);
+  const set = data.sets.find((row) => row.id === readingId);
+  if (!set) throw new Error(`CURRENT_READING_SET_NOT_FOUND:${readingId}`);
+  const answers = {};
+
+  questionsForSet(data, set.id).forEach((question) => {
+    const id = String(question?.id || question?.question_id || '');
+    if (!id) return;
+    answers[id] = question?.answer ?? '';
+  });
+
+  return {
+    schema: 'kianos.english.reading_answers.v1',
+    objectId: set.id,
+    answers
   };
 }
 
