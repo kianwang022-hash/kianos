@@ -1,0 +1,277 @@
+<span data-reading-repair-coach-root hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot && readingRoot.getAttribute('data-repair-coach-ready') !== 'true') {
+    readingRoot.setAttribute('data-repair-coach-ready', 'true');
+
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const attemptStorageKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const coachStorageKey = `kianos-reading-repair-coach-v1:${readingKey}`;
+    const passage = readingRoot.querySelector('[data-reading-passage]');
+    const annotate = readingRoot.querySelector('.portedReadingAnnotate');
+    const questions = [...readingRoot.querySelectorAll('[data-question]')];
+
+    let pendingSelection = '';
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+
+    const mainState = () => readJson(attemptStorageKey, {});
+    const coachState = () => {
+      const stored = readJson(coachStorageKey, {});
+      return { spans: stored.spans || {} };
+    };
+    const writeCoachState = (value) => {
+      try { localStorage.setItem(coachStorageKey, JSON.stringify(value)); } catch {}
+    };
+
+    const questionId = (question) => question?.getAttribute('data-question') || '';
+    const questionOrdinal = (question) => Number(question?.getAttribute('data-index') || 0) + 1;
+    const expected = (question) => {
+      try {
+        const value = JSON.parse(question?.getAttribute('data-answer') || '""');
+        return Array.isArray(value) ? value.map(String) : value ? [String(value)] : [];
+      } catch { return []; }
+    };
+    const isProblem = (question, state) => {
+      const id = questionId(question);
+      return Boolean(state.submitted && (
+        ['wrong', 'unanswered'].includes(state.results?.[id]) ||
+        (state.uncertain || []).includes(id)
+      ));
+    };
+    const currentQuestion = () => questions.find((question) => question.classList.contains('is-current')) || questions[0] || null;
+    const optionText = (question, label) => {
+      if (!label) return '';
+      const option = question?.querySelector(`[data-option="${CSS.escape(String(label))}"]`);
+      return option?.querySelector('span')?.textContent?.trim() || '';
+    };
+    const answerPath = (state, id) => (state.trajectory?.[id] || []).map((step) => String(step.answer || '')).filter(Boolean);
+
+    const make = (tag, className, text) => {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+
+    const renderContrast = (guide, question, state, id, selected, correct) => {
+      const path = answerPath(state, id);
+      const selectedIsCorrect = correct.includes(selected);
+      const alternative = selectedIsCorrect
+        ? [...path].reverse().find((answer) => answer && !correct.includes(answer)) || ''
+        : selected;
+
+      if (!alternative) {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '你最终答对了，而且轨迹里没有留下明确的对手项。若只是轻微犹豫，不必硬造一个错因。'));
+        return;
+      }
+
+      const correctLabel = correct[0] || '';
+      const grid = make('div', 'portedReadingCoachContrast');
+      const left = make('article', 'portedReadingCoachChoice');
+      const right = make('article', 'portedReadingCoachChoice correct');
+
+      left.appendChild(make('span', '', selectedIsCorrect ? `当时的对手 · ${alternative}` : `你选的 · ${alternative}`));
+      left.appendChild(make('p', '', optionText(question, alternative) || '—'));
+      right.appendChild(make('span', '', `正确项 · ${correctLabel || '—'}`));
+      right.appendChild(make('p', '', optionText(question, correctLabel) || '—'));
+      grid.append(left, right);
+      guide.appendChild(grid);
+      guide.appendChild(make('p', 'portedReadingCoachQuiet', '只比较这两个：到底是哪一个词、范围、逻辑关系或偷换让它们分出胜负？'));
+    };
+
+    const renderExecution = (guide, state, id, correct) => {
+      const path = answerPath(state, id);
+      const finalAnswer = state.answers?.[id] || '';
+      const shownPath = path.length ? path : (finalAnswer ? [finalAnswer] : []);
+      const card = make('div', 'portedReadingCoachPath');
+      card.appendChild(make('span', '', '答题轨迹'));
+      card.appendChild(make('strong', '', shownPath.length ? shownPath.join(' → ') : '没有记录到选项轨迹'));
+      guide.appendChild(card);
+
+      if (path.length > 1 && path.slice(0, -1).some((answer) => correct.includes(answer)) && !correct.includes(finalAnswer)) {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '你确实出现了“从对改错”。重点不是背答案，而是回想：最后一次改动是被什么错误信号触发的？'));
+      } else if (path.length > 1) {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '有改答案，但轨迹并不支持把它简单归成“从对改错”。先找最后一次改动依据，再判断是不是执行问题。'));
+      } else {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '这次没有明显改答案轨迹。别硬记成“改错”，更可能需要回到理解、定位或选项判断。'));
+      }
+    };
+
+    const renderSavedSpan = (guide, span, cause) => {
+      if (!span?.text) return;
+      const card = make('div', 'portedReadingCoachSpan');
+      card.appendChild(make('span', '', cause === '没定位准' ? '你重新定位的证据' : '你标出的卡句'));
+      card.appendChild(make('blockquote', '', span.text));
+      const clear = make('button', '', '清除这段');
+      clear.type = 'button';
+      clear.setAttribute('data-reading-coach-clear-span', '');
+      card.appendChild(clear);
+      guide.appendChild(card);
+    };
+
+    const renderGuide = (question, state) => {
+      const repair = question.querySelector('[data-reading-repair]');
+      if (!repair) return;
+      let guide = repair.querySelector('[data-reading-coach]');
+      if (!guide) {
+        guide = make('section', 'portedReadingCoach');
+        guide.setAttribute('data-reading-coach', '');
+        const actions = repair.querySelector('.portedReadingRepairActions');
+        actions ? repair.insertBefore(guide, actions) : repair.appendChild(guide);
+      }
+
+      guide.replaceChildren();
+      const id = questionId(question);
+      const cause = state.causes?.[id] || '';
+      guide.hidden = !cause || !isProblem(question, state);
+      if (guide.hidden) return;
+
+      const selected = state.answers?.[id] || '';
+      const correct = expected(question);
+      const saved = coachState().spans?.[id];
+
+      if (cause === '没读懂') {
+        guide.appendChild(make('p', 'portedReadingCoachInstruction', '回左侧只选真正卡住你的最小句子。先自己还原主干和逻辑；仍然讲不清，再把这一处交给 Chat。'));
+        renderSavedSpan(guide, saved, cause);
+      } else if (cause === '没定位准') {
+        guide.appendChild(make('p', 'portedReadingCoachInstruction', '先不继续看解析。重新找一段“没有它就不能确定答案”的最小证据，选中后记为本题证据。'));
+        renderSavedSpan(guide, saved, cause);
+      } else if (cause === '选项没辨清') {
+        guide.appendChild(make('p', 'portedReadingCoachInstruction', '不要重新分析四个选项。只处理你真正纠结的对手项和正确项。'));
+        renderContrast(guide, question, state, id, selected, correct);
+      } else if (cause === '看错/改错') {
+        guide.appendChild(make('p', 'portedReadingCoachInstruction', '先看真实答题轨迹，再决定这是不是执行问题。'));
+        renderExecution(guide, state, id, correct);
+      }
+    };
+
+    let saveSpanButton = null;
+    if (annotate) {
+      saveSpanButton = make('button', '', '记为本题片段');
+      saveSpanButton.type = 'button';
+      saveSpanButton.hidden = true;
+      saveSpanButton.disabled = true;
+      saveSpanButton.setAttribute('data-reading-save-review-span', '');
+      const clearHighlight = annotate.querySelector('[data-reading-clear-highlight]');
+      clearHighlight?.insertAdjacentElement('afterend', saveSpanButton);
+    }
+
+    const updateSaveSpanButton = () => {
+      if (!saveSpanButton) return;
+      const state = mainState();
+      const question = currentQuestion();
+      const id = questionId(question);
+      const cause = state.causes?.[id] || '';
+      const useful = Boolean(question && isProblem(question, state) && ['没读懂', '没定位准'].includes(cause));
+      saveSpanButton.hidden = !useful;
+      saveSpanButton.disabled = !pendingSelection;
+      saveSpanButton.textContent = cause === '没定位准' ? '记为本题证据' : '记为本题卡句';
+    };
+
+    const renderAll = () => {
+      const state = mainState();
+      questions.forEach((question) => renderGuide(question, state));
+      updateSaveSpanButton();
+    };
+
+    const captureSelection = () => {
+      const selection = window.getSelection?.();
+      if (!selection || selection.isCollapsed || !selection.rangeCount || !passage) {
+        pendingSelection = '';
+        updateSaveSpanButton();
+        return;
+      }
+      const range = selection.getRangeAt(0);
+      if (!passage.contains(range.commonAncestorContainer)) return;
+      pendingSelection = selection.toString().replace(/\s+/g, ' ').trim().slice(0, 800);
+      updateSaveSpanButton();
+    };
+
+    passage?.addEventListener('mouseup', captureSelection);
+    passage?.addEventListener('keyup', captureSelection);
+
+    saveSpanButton?.addEventListener('click', () => {
+      if (!pendingSelection) return;
+      const state = mainState();
+      const question = currentQuestion();
+      const id = questionId(question);
+      const cause = state.causes?.[id] || '';
+      if (!question || !['没读懂', '没定位准'].includes(cause)) return;
+      const stored = coachState();
+      stored.spans[id] = {
+        text: pendingSelection,
+        kind: cause === '没定位准' ? 'evidence' : 'sentence',
+        capturedAt: new Date().toISOString()
+      };
+      writeCoachState(stored);
+      pendingSelection = '';
+      window.getSelection?.().removeAllRanges();
+      renderAll();
+    });
+
+    readingRoot.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const clear = target?.closest('[data-reading-coach-clear-span]');
+      if (clear) {
+        const question = clear.closest('[data-question]');
+        const id = questionId(question);
+        const stored = coachState();
+        delete stored.spans[id];
+        writeCoachState(stored);
+        renderAll();
+        return;
+      }
+      window.setTimeout(renderAll, 0);
+    });
+
+    readingRoot.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const copyButton = target?.closest('[data-reading-copy-chat]');
+      if (!copyButton) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      const question = copyButton.closest('[data-question]');
+      if (!question) return;
+      const state = mainState();
+      const id = questionId(question);
+      const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
+      const options = [...question.querySelectorAll('[data-option]')]
+        .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`)
+        .join('\n');
+      const path = answerPath(state, id);
+      const span = coachState().spans?.[id]?.text || '';
+      const packet = [
+        'Reading A review',
+        `Object: ${readingKey}`,
+        `Question: Q${questionOrdinal(question)} (${id})`,
+        `Prompt: ${prompt}`,
+        options,
+        `My answer: ${state.answers?.[id] || '未答'}`,
+        `Formal answer: ${expected(question).join(', ') || '—'}`,
+        `Uncertain: ${(state.uncertain || []).includes(id) ? 'yes' : 'no'}`,
+        `Quick cause: ${state.causes?.[id] || '未标'}`,
+        `Answer path: ${path.length ? path.join(' → ') : '—'}`,
+        span ? `My selected passage span: ${span}` : ''
+      ].filter(Boolean).join('\n');
+      const status = question.querySelector('[data-reading-copy-status]');
+
+      try {
+        await navigator.clipboard.writeText(packet);
+        if (status) status.textContent = '已复制这一题的最小修复包，直接贴到 Chat。';
+      } catch {
+        if (status) status.textContent = '复制失败，可手动复制这一题。';
+      }
+    }, true);
+
+    document.addEventListener('keydown', () => window.setTimeout(renderAll, 0));
+    renderAll();
+  }
+</script>
