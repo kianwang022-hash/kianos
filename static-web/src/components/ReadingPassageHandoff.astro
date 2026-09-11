@@ -1,6 +1,8 @@
 <span data-reading-passage-handoff-root hidden></span>
 
 <script>
+  const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
+  const TASK = 'reading_a';
   const readingRoot = document.querySelector('[data-local-port="reading"]');
 
   if (readingRoot) {
@@ -13,7 +15,11 @@
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
       catch { return fallback; }
     };
-
+    const activeClaims = () => {
+      const store = readJson(TRANSFER_STORE_KEY, { claims: [] });
+      return (Array.isArray(store.claims) ? store.claims : [])
+        .filter((claim) => claim?.task === TASK && claim?.status === 'TRANSFER_PENDING');
+    };
     const readAttempt = () => readJson(storageKey, {});
 
     const expected = (question) => {
@@ -53,6 +59,14 @@
         ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
       );
     };
+    const packetMode = (attempt) => {
+      const problems = problemIds(attempt).length > 0;
+      const pending = activeClaims().length > 0;
+      if (problems && pending) return 'REVIEW_AND_TRANSFER_CHECK';
+      if (problems) return 'REVIEW';
+      if (pending) return 'TRANSFER_CHECK';
+      return 'PASS';
+    };
 
     const ensureHandoff = () => {
       if (handoff || !resultSummary) return handoff;
@@ -62,12 +76,10 @@
 
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = '复制整篇给 Chat';
       button.setAttribute('data-reading-passage-copy-chat', '');
 
       const status = document.createElement('small');
       status.setAttribute('data-reading-passage-copy-status', '');
-      status.textContent = '按整篇复盘；单题只作为内部证据。';
 
       handoff.append(button, status);
       resultSummary.appendChild(handoff);
@@ -84,12 +96,6 @@
       });
     };
 
-    const isRelevant = (attempt) => Boolean(
-      attempt?.submitted &&
-      attempt?.reviewUnlocked !== false &&
-      problemIds(attempt).length > 0
-    );
-
     const buildPacket = (attempt) => {
       const questions = [...readingRoot.querySelectorAll('[data-question]')];
       const passage = readingRoot.querySelector('[data-reading-passage]');
@@ -101,6 +107,8 @@
         .join('\n\n');
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
+      const pendingClaims = activeClaims();
+      const mode = packetMode(attempt);
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
       const wrongOrdinals = questions
         .filter((question) => ['wrong', 'unanswered'].includes(attempt.results?.[qid(question)]))
@@ -111,6 +119,7 @@
 
       const lines = [
         'Reading A review packet v1',
+        `Mode: ${mode}`,
         `Object: ${readingKey}`,
         `Source: ${passageMeta || '—'}`,
         `Title: ${passageTitle}`,
@@ -131,25 +140,45 @@
           .map((step) => step?.answer)
           .filter(Boolean)
           .join(' → ') || '—';
-        const cause = attempt.causes?.[id] || '—';
+        const note = attempt.causes?.[id] || '—';
         lines.push(
-          `Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · note ${cause}`
+          `Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · optional local note ${note}`
         );
       });
 
-      lines.push('', 'EXPANDED DIAGNOSTIC QUESTIONS');
-      questions.filter((question) => problems.has(qid(question))).forEach((question) => {
-        const id = qid(question);
-        const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
-        const options = [...question.querySelectorAll('[data-option]')]
-          .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`);
-        lines.push('', `Q${ordinal(question)} (${id})`, `Prompt: ${prompt}`, ...options);
-      });
+      if (problems.size) {
+        lines.push('', 'EXPANDED DIAGNOSTIC QUESTIONS');
+        questions.filter((question) => problems.has(qid(question))).forEach((question) => {
+          const id = qid(question);
+          const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
+          const options = [...question.querySelectorAll('[data-option]')]
+            .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`);
+          lines.push('', `Q${ordinal(question)} (${id})`, `Prompt: ${prompt}`, ...options);
+        });
+      }
+
+      lines.push('', 'ACTIVE TRANSFER CLAIMS');
+      if (!pendingClaims.length) lines.push('none');
+      else pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
       lines.push(
         '',
         'REVIEW INSTRUCTION',
-        'Treat this as one complete passage attempt. Diagnose the passage globally first, then merge questions that share one root cause or dependency. Use question-level evidence only to choose the smallest sufficient repair. Route lexical failures to LexicalOS, reading/comprehension failures to Reading, and option-adjudication failures to Reading A. Do not create one permanent weakness or one review card per wrong question. Known-item correction is repair evidence; later unseen transfer is stronger mastery evidence.'
+        'Treat this as one complete passage attempt. Diagnose the passage globally first, then merge questions that share one root cause or dependency. Use question-level evidence only to choose the smallest sufficient repair. Route lexical failures to LexicalOS, reading/comprehension failures to Reading, and option-adjudication failures to Reading A. Do not create one permanent weakness or one review card per wrong question. Existing ACTIVE TRANSFER CLAIMS are not automatically relevant: update one only if this fresh passage genuinely tests the same behavior. Known-item correction is repair evidence; later unseen transfer is stronger mastery evidence.',
+        '',
+        'RETURN PROTOCOL',
+        'After the review, append one machine-readable block so the learner can paste the whole Chat reply back into KianOS. threads must reflect whole-passage diagnosis and may group several questions. Create newClaims only for reusable Reading-A-specific decision procedures; do not duplicate Lexical or Reading ability objects. claimUpdates may reference only ACTIVE TRANSFER CLAIMS above. CLOSED requires relevant fresh evidence; otherwise leave the claim unchanged.',
+        'KIANOS_OBJECTIVE_RETURN_V1',
+        '```json',
+        JSON.stringify({
+          schema: 'kianos.english.objective_review_return.v1',
+          task: TASK,
+          objectId: readingKey,
+          threads: [],
+          newClaims: [],
+          claimUpdates: []
+        }, null, 2),
+        '```'
       );
 
       return lines.join('\n');
@@ -159,22 +188,38 @@
       demoteLegacyQuestionBridge();
       const node = ensureHandoff();
       if (!node) return;
-      node.hidden = !isRelevant(readAttempt());
+      const attempt = readAttempt();
+      const mode = packetMode(attempt);
+      node.hidden = !attempt?.submitted || attempt?.reviewUnlocked === false || mode === 'PASS';
+      const button = node.querySelector('[data-reading-passage-copy-chat]');
+      const status = node.querySelector('[data-reading-passage-copy-status]');
+      if (button) button.textContent = mode === 'TRANSFER_CHECK' ? '用这篇验证迁移' : '复制整篇给 Chat';
+      if (status) {
+        status.textContent = mode === 'TRANSFER_CHECK'
+          ? `当前有 ${activeClaims().length} 个 pending claim；只有相关时才需要验证。`
+          : '按整篇复盘；单题只作为内部证据。';
+      }
     };
 
     ensureHandoff()?.querySelector('[data-reading-passage-copy-chat]')?.addEventListener('click', async () => {
       const attempt = readAttempt();
-      if (!isRelevant(attempt)) return;
+      if (!attempt?.submitted || attempt?.reviewUnlocked === false || packetMode(attempt) === 'PASS') return;
       const status = handoff?.querySelector('[data-reading-passage-copy-status]');
       try {
         await navigator.clipboard.writeText(buildPacket(attempt));
-        if (status) status.textContent = '已复制整篇复盘包，直接贴到 Chat。';
+        if (status) status.textContent = packetMode(attempt) === 'TRANSFER_CHECK'
+          ? '已复制迁移验证包；让 Chat 只判断真正相关的 pending claim。'
+          : '已复制整篇复盘包，直接贴到 Chat。';
       } catch {
         if (status) status.textContent = '复制失败，请稍后再试。';
       }
     });
 
+    readingRoot.addEventListener('kianos:objective-transfer-updated', sync);
     readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
+    window.addEventListener('storage', (event) => {
+      if (event.key === TRANSFER_STORE_KEY) sync();
+    });
     sync();
   }
 </script>
