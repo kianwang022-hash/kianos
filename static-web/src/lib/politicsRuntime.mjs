@@ -167,10 +167,23 @@ function sourceRegistry() {
   return sourceRegistryCache;
 }
 
+function sourceOwnerSortKey(id) {
+  const match = String(id).match(/-C(\d+)-K(\d+)$/i);
+  if (!match) return null;
+  return [Number(match[1]), Number(match[2])];
+}
+
 function sourceOwnerRefs(refs) {
   const unique = [...new Set((refs || []).map(String).filter(Boolean))];
   const kRoots = unique.filter((id) => /-K\d+$/i.test(id));
-  if (kRoots.length) return kRoots;
+  if (kRoots.length) {
+    return kRoots.sort((a, b) => {
+      const ak = sourceOwnerSortKey(a);
+      const bk = sourceOwnerSortKey(b);
+      if (!ak || !bk) return a.localeCompare(b, 'en', { numeric: true });
+      return ak[0] - bk[0] || ak[1] - bk[1];
+    });
+  }
   return unique.filter((id) => !unique.some((other) => other !== id && id.startsWith(`${other}-`)));
 }
 
@@ -341,28 +354,52 @@ function unitTeaching(unit) {
 
 function hydrateUnits(raw) {
   const regions = regionIndex().byUnit;
-  return unitList(raw).map((unit) => {
-    const unitId = String(unit?.natural_unit_id || unit?.unit_id || '');
-    const region = regions.get(unitId) || null;
-    const rawSourceRefs = [...new Set(region?.chengfeng_refs || [])];
+  const drafts = unitList(raw).map((unit) => {
+    const primaryUnitId = String(unit?.natural_unit_id || unit?.unit_id || '');
+    const representedNaturalUnitIds = [primaryUnitId, ...asList(unit?.embedded_natural_unit_ids)]
+      .filter(Boolean)
+      .filter((id, index, all) => all.indexOf(id) === index);
+    const regionRows = representedNaturalUnitIds.map((id) => regions.get(id)).filter(Boolean);
+    const rawSourceRefs = [...new Set(regionRows.flatMap((row) => row?.chengfeng_refs || []))];
     const ownerRefs = sourceOwnerRefs(rawSourceRefs);
     const sourceNodes = ownerRefs.map(sourceGroupView).filter((row) => row.resolved);
-    const questionIds = [...new Set(region?.xiao_question_refs || [])];
-    const questions = questionIds.map(questionView).filter((row) => row.resolved);
-
+    const linkedQuestionIds = [...new Set(regionRows.flatMap((row) => row?.xiao_question_refs || []))];
     return {
-      unitId,
-      regionId: String(region?.unified_region_id || unit?.region_id || ''),
-      title: String(unit?.title || region?.title || unitId),
-      teaching: unitTeaching(unit),
+      unit,
+      unitId: primaryUnitId,
+      representedNaturalUnitIds,
+      regionRows,
+      rawSourceRefs,
+      ownerRefs,
       sourceNodes,
-      sourceRefCount: rawSourceRefs.length,
-      sourceOwnerCount: ownerRefs.length,
-      unresolvedSourceRefs: ownerRefs.filter((id) => !sourceGroupView(id).resolved),
+      linkedQuestionIds
+    };
+  });
+
+  const lastQuestionOwner = new Map();
+  drafts.forEach((draft, index) => {
+    for (const questionId of draft.linkedQuestionIds) lastQuestionOwner.set(questionId, index);
+  });
+
+  return drafts.map((draft, index) => {
+    const ownedQuestionIds = draft.linkedQuestionIds.filter((id) => lastQuestionOwner.get(id) === index);
+    const questions = ownedQuestionIds.map(questionView).filter((row) => row.resolved);
+    return {
+      unitId: draft.unitId,
+      representedNaturalUnitIds: draft.representedNaturalUnitIds,
+      regionId: String(draft.regionRows[0]?.unified_region_id || draft.unit?.region_id || ''),
+      regionIds: draft.regionRows.map((row) => String(row?.unified_region_id || '')).filter(Boolean),
+      title: String(draft.unit?.title || draft.regionRows[0]?.title || draft.unitId),
+      teaching: unitTeaching(draft.unit),
+      sourceNodes: draft.sourceNodes,
+      sourceRefCount: draft.rawSourceRefs.length,
+      sourceOwnerCount: draft.ownerRefs.length,
+      unresolvedSourceRefs: draft.ownerRefs.filter((id) => !sourceGroupView(id).resolved),
       questions,
-      questionRefCount: questionIds.length,
-      unresolvedQuestionIds: questionIds.filter((id) => !questionView(id).resolved),
-      raw: unit
+      questionRefCount: ownedQuestionIds.length,
+      linkedQuestionRefCount: draft.linkedQuestionIds.length,
+      unresolvedQuestionIds: ownedQuestionIds.filter((id) => !questionView(id).resolved),
+      raw: draft.unit
     };
   });
 }
