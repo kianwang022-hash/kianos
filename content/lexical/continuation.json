@@ -5,7 +5,7 @@
   "lane": "lexical_learning_runtime",
   "role": "CURRENT_WORK_CURSOR_ONLY",
   "rule": "This file records where shared LexicalOS learning/runtime work should continue. It is not lexical semantic truth, not private learner state, and not a substitute for LEARNING_CONTRACT.md, schema.json, or Natural Owners. A fresh Chat should read this cursor plus the referenced Current owners before proposing or continuing LexicalOS learning/runtime work.",
-  "current_stage": "CHALLENGE_SCHEDULING_AND_RETURN_LOOP_DESIGN",
+  "current_stage": "RETURN_PACKET_AND_DEPTH_RUNTIME_DESIGN",
   "completed_shared_work": [
     "LexicalOS Natural Owner cutover completed: 7,946 Word owners and 369 Relation owners are Current semantic authority.",
     "The learner goal is frozen as fast, correct contextual lexical access rather than dictionary completion or one-card-per-sense review.",
@@ -20,7 +20,10 @@
     "Evidence strength is ordered from isolated recall toward later unseen-context success; real transfer evidence outranks repeated artificial card success.",
     "Memory admission is selective: 7,946 Main Words and their active meanings must not become permanent review debt. Stable simple knowledge fades dormant and reactivates only on counterevidence.",
     "Daily Return Packet is frozen as a mandatory input to the next learning day. Meaningful +, wrong, slow/fuzzy, repeated failure, bad-question, or semantic-error evidence must change the next packet/repair plan rather than being archived passively.",
-    "Fresh Return Packet evidence outranks stale mechanical scheduling. Repeated failure should change the repair method, not merely repeat near-identical questions."
+    "Daily Challenge scheduling is evidence-compiled rather than due-card based: previous-day wrong/Again first, then explicit +, then slow/fuzzy, then older unresolved targets, with blind probes only as a small residual layer.",
+    "A new + normally receives its first real Challenge on the next learning day rather than an immediate same-card retest. Wrong/Again gets smallest repair plus at most one same-session reconstruction and must return the next learning day.",
+    "A clean next-day result can leave immediate obligation; later fresh Challenge or real-context success may move the target dormant. Missed calendar days must not manufacture an overdue pile.",
+    "Return Packet minimum evidence is owner-referential: word identity plus the precise sense/collocation/relation or other stable owner-local target, evidence source, observable outcome, and question trace only when needed for diagnosis."
   ],
   "current_owners_to_read": [
     "content/lexical/LEARNING_CONTRACT.md",
@@ -31,9 +34,11 @@
     "static-web/src/lib/lexical.mjs"
   ],
   "next_action": {
-    "stage": "FREEZE_CHALLENGE_SCHEDULING_AND_PACKET_SEMANTICS",
-    "instruction": "Continue from the approved Depth Scan -> selective + Repair -> dynamic Challenge -> Return Packet loop. Define how repair targets are selected into a daily Challenge, how quickly new +/wrong evidence returns, how repeated success fades, how blind probes are budgeted, and what minimum fields a Return Packet must contain so Chat can compile the next day without creating Anki-like review debt.",
+    "stage": "DESIGN_RETURN_PACKET_AND_CURRENT_DEPTH_PROJECTION",
+    "instruction": "Translate the frozen learning contract into the smallest practical runtime shape. First define a compact private Return Packet payload that points to stable Natural Owner identities without duplicating semantics. In parallel, inspect the Current Word owner fields and Astro vocabulary prototype to determine which Recall Map and Reveal features can be projected safely now and which require future semantic-review metadata rather than UI inference. Then replace the old whole-word 1-4 rating model with selective per-expansion + repair capture before building the full dynamic Challenge generator.",
     "constraints": [
+      "Do not invent +1 familiar-new branches in Astro from weak heuristics merely to satisfy the Recall Map design.",
+      "Do not create a second lexical semantic store for learner interaction.",
       "Do not require one pre-authored question per lexical sense or construction.",
       "Do not make every active lexical object pass mandatory First Contact / First Retrieval / Transfer gates.",
       "Do not let a fixed spaced-repetition interval outrank fresh learner evidence.",
@@ -41,7 +46,7 @@
       "Do not expand learner-facing taxonomy merely because backend repair objects are fine-grained.",
       "Keep the main learner interaction keyboard-fast and preserve + as the explicit selective-repair action."
     ],
-    "success_condition": "The learner can study deep familiar vocabulary with low interaction cost, only high-value weak lexical objects become active repair targets, daily Challenge stays bounded, and each Return Packet reliably changes the next day's content without creating an ever-growing review queue."
+    "success_condition": "The Current runtime can show a high-value Depth Card without fabricating semantics, capture a + against the exact lexical subobject, export a compact Return Packet for Chat, and retire the old whole-word 1-4 rating as the primary learning judgment."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not revert to one-word one-rating UNKNOWN/FUZZY/KNOW/PASS as the main learner model.",
