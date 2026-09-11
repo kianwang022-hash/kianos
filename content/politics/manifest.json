@@ -6,6 +6,7 @@
   "provenance": "content/politics/provenance.json",
   "learning_contract": "content/politics/LEARNING_CONTRACT.md",
   "learning_manifest": "content/politics/learning/manifest.json",
+  "continuation": "content/politics/continuation.json",
   "product_model": "SOURCE_TRUTH_TO_CHAT_JUDGMENT_TO_GITHUB_CURRENT_TO_ASTRO_INTERACTION",
   "source_roles": {
     "chengfeng": {
@@ -28,48 +29,26 @@
     }
   },
   "sources": {
-    "questions": {
-      "path": "content/politics/source/xiao_2027_questions.jsonl",
-      "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
-      "training_ready_records": 1148,
-      "reference_only_material_records": 24
-    },
-    "question_knowledge_links": {
-      "path": "content/politics/source/question_knowledge_links.jsonl",
-      "sha256": "b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a",
-      "records": 1148
-    },
-    "question_assets": {
-      "path": "content/politics/source/xiao_2027_question_assets.json",
-      "sha256": "8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1",
-      "records": 1148
-    },
-    "explanation_provenance": {
-      "path": "content/politics/source/xiao_2027_explanation_provenance.v1.json",
-      "sha256": "f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899",
-      "records": 1148
-    },
-    "regions": {
-      "path": "content/politics/source/politics_unified_regions.v1.jsonl",
-      "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054",
-      "records": 160,
-      "role": "CANONICAL_CONTINUOUS_NATURAL_UNIT_REGISTRY"
-    },
-    "source_nodes": {
-      "path": "content/politics/source/source_node_registry.v2.jsonl",
-      "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
-      "records": 19528,
-      "role": "CANONICAL_SOURCE_NODE_REGISTRY"
-    }
+    "questions": {"path": "content/politics/source/xiao_2027_questions.jsonl", "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d", "training_ready_records": 1148, "reference_only_material_records": 24},
+    "question_knowledge_links": {"path": "content/politics/source/question_knowledge_links.jsonl", "sha256": "b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a", "records": 1148},
+    "question_assets": {"path": "content/politics/source/xiao_2027_question_assets.json", "sha256": "8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1", "records": 1148},
+    "explanation_provenance": {"path": "content/politics/source/xiao_2027_explanation_provenance.v1.json", "sha256": "f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899", "records": 1148},
+    "regions": {"path": "content/politics/source/politics_unified_regions.v1.jsonl", "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054", "records": 160, "role": "CANONICAL_CONTINUOUS_NATURAL_UNIT_REGISTRY"},
+    "source_nodes": {"path": "content/politics/source/source_node_registry.v2.jsonl", "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38", "records": 19528, "role": "CANONICAL_SOURCE_NODE_REGISTRY"}
   },
   "learning": {
     "owner_root": "content/politics/learning/",
     "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
+    "marxism_status": "CHAPTER_PROJECTION_COMPLETE_8_OF_8",
     "current_assets": [
       "content/politics/learning/marxism/ch01.json",
       "content/politics/learning/marxism/ch02.json",
       "content/politics/learning/marxism/ch03.json",
-      "content/politics/learning/marxism/ch04.json"
+      "content/politics/learning/marxism/ch04.json",
+      "content/politics/learning/marxism/ch05.json",
+      "content/politics/learning/marxism/ch06.json",
+      "content/politics/learning/marxism/ch07.json",
+      "content/politics/learning/marxism/ch08.json"
     ],
     "rules": [
       "Chengfeng Natural Unit identity and order remain canonical.",
@@ -77,7 +56,7 @@
       "Xiao1000 never determines first-round learning order.",
       "Learning assets add orientation, bridges, compression, and repair guidance without duplicating the Chengfeng source.",
       "Astro should render Current learning semantics rather than hard-code political knowledge.",
-      "Only the top-level learning loop is shared across Politics subjects; the internal teaching shape should follow each subject's cognition rather than reuse a Marxism template."
+      "Only the top-level learning loop is shared across Politics subjects; each subject keeps its own teaching shape."
     ]
   },
   "readiness": {
@@ -85,7 +64,8 @@
     "question_inventory_verified": true,
     "continuous_natural_unit_registry_verified": true,
     "learning_contract_current": true,
-    "learning_projection_current": true,
+    "marxism_projection_complete": true,
+    "next_content_lane": "HISTORY",
     "astro_politics_projection": false
   }
 }
