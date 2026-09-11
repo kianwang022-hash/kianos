@@ -10,7 +10,7 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_V1_PASSAGE_REVIEW_ALIGNED__CLOZE_PARTB_NEXT",
+  "current_stage": "OBJECTIVE_EVIDENCE_TRANSFER_V1_IMPLEMENTED__QA_PENDING",
   "completed_shared_work": [
     "English Current consolidation completed: concise manifest, provenance separation, canonical exam/source assets, and Current-only Astro gating.",
     "Global English LEARNING_CONTRACT.md is the common cross-module learning authority: ability formation before material/UI organization; Clean Attempt; first meaningful failure; smallest sufficient repair; reconstruction/re-execution; selective memory admission; later fresh transfer as stronger mastery evidence.",
@@ -19,27 +19,27 @@
     "Frozen objective review-unit rule: training evidence may be question/blank/placement-level, but learner-Chat review is passage/set-level. Evidence granularity may be smaller than Review granularity.",
     "Objective passage/set Review Packet v1 is defined: complete unit identity + attempt summary + compact outcome map for every item + expanded content only for wrong/unanswered/uncertain items + whole-unit diagnosis before repair threads.",
     "Objective state logic is frozen: ATTEMPT -> PASS or REPAIR_NEEDED -> ROOT_CAUSE (Lexical / Reading / task-specific) -> REPAIR -> TRANSFER_PENDING -> later unseen transfer -> CLOSED.",
-    "Wrong items do not automatically become long-term memory; same-item correction is weaker than later unseen transfer.",
-    "Cloze cognitive object is Slot Constraint -> Best Fit; it does not own a duplicate vocabulary system.",
-    "Reading A cognitive object remains understand -> locate decisive evidence -> adjudicate options -> execute.",
-    "Reading B / Part B cognitive object is Discourse Reconstruction and supports local, coupled, and structure-level repair with cascading errors merged under the primary cause.",
-    "Reading A module contract is aligned to the frozen passage-level Chat review rule. Question-level objects are internal evidence/repair slices only.",
-    "Reading A Astro now has a passage-level Chat handoff. The normal packet includes the passage once, an all-question compact outcome map, and expanded wrong/unanswered/uncertain question content. Legacy per-question copy-to-Chat controls are demoted/hidden in the normal flow.",
-    "Reading A continuous-session handoff remains a higher-level cross-passage review surface rather than replacing the minimum one-passage review unit.",
-    "Reading now inherits the KianOS shared learner-surface baseline explicitly: /reading/ is a Current lane home with private last-passage Continue plus Current passage navigation, while clean Attempt/Review/Transfer/Handoff remain owned by the existing passage runtime at /reading/<id>/.",
-    "Translation has a canonical module contract at content/english/modules/translation.md and inherits the shared Learning Contract.",
-    "Translation learner asset is reorganized around learner ability formation rather than a long sequential guide: Global Map -> four dense Core Learning Blocks (English Representation / Preservation & Fidelity / Chinese Reconstruction / Exam Execution) -> stable Skill Map -> selective high-value Skill Content -> separate Runtime. Skill Map is an address/diagnostic layer, not a substitute for dense first-learning content.",
-    "Translation initial Skill Content now includes high-value starter leaves for Negation Scope, Attachment, Reference, and Modifier Unloading/Nominalization, each with mechanism, boundaries, executable judgment actions, synthetic examples, and active generation/judgment rather than definition-only taxonomy.",
-    "Translation Runtime v1 is frozen in translation.md: learner-facing review is one complete Translation task/set while sentence/clause/relation/span remain internal evidence units; cascading downstream errors collapse under the earliest sufficient cause; repair requires learner reconstruction before full-reference comparison when possible; known-sentence correction remains repair evidence; closure requires later fresh/unseen transfer.",
-    "Writing currently inherits the shared Learning Contract directly; Writing A/B are output modes inside Writing, not separate base abilities. A Writing-specific module contract should be created only when its own cognitive/runtime baseline is actually frozen.",
-    "Module-specific cognition remains non-isomorphic: do not force one error taxonomy, review card, or UI shape across Reading, Translation, Writing, Cloze, and Part B.",
-    "KianOS SYSTEM_CONTRACT.md now applies the shared Current/Continue/Navigate/Repair/Verify/Handoff/Deferred/Validation baseline to independently entered English sub-lane runtimes as they are materialized; a module contract on paper is not enough to call that learner runtime Ready.",
-    "Canonical English exam source remains materialized and verified: 27 papers, 235 sets, 1364 questions/prompts; Reading corpus has 110 passages and 540 questions."
+    "Cloze cognitive object is Slot Constraint -> Best Fit; Reading A is comprehension -> decisive evidence -> option adjudication; Reading B is Discourse Reconstruction with local/coupled/structure repair and cascade merging.",
+    "Cloze and Reading B Current learner runtimes are materialized from canonical question_bank.v1.json with answer-gated clean attempts, set navigation, whole-passage/set Chat handoff, Current-only section resolution, and build/validation gates.",
+    "Reading B canonical candidate inventory is resolved from set.context.shared_option_pool; Current QA confirmed cloze=27 sets/530 questions and reading_part_b=22 sets/110 positions before build.",
+    "Reading A Current learner runtime has passage-level Chat handoff; legacy per-question copy-to-Chat is demoted in normal flow while question objects remain internal evidence/repair slices.",
+    "Objective Evidence / Transfer Runtime v1 is established at content/english/modules/objective-evidence-runtime.md. A question is an evidence event; the durable tracked object is a repair thread / transfer claim rather than the historical question.",
+    "Objective review return protocol uses KIANOS_OBJECTIVE_RETURN_V1 with schema kianos.english.objective_review_return.v1. Chat returns whole-unit repair threads, optional task-specific newClaims, and claimUpdates for active claims.",
+    "Task-specific transfer claims are private/device-local under kianos-english-objective-transfer-claims-v1. Lexical/Reading root causes are routed to their ability owners and are not duplicated into the objective claim store.",
+    "Transfer closure is deliberately Chat-mediated rather than using N-pass counters. Later handoff packets carry active claims; Chat decides whether fresh material actually tests the same behavior before CLOSED / TRANSFER_PENDING / REOPENED.",
+    "Clean objective attempts remain low-friction: when there is no pending claim, no Chat handoff is required; when pending claims exist, a quiet optional transfer-check handoff may appear.",
+    "Cloze, Reading A, and Reading B pages now share ObjectiveTransferClaims for Chat-return import and private claim state. Cloze/Reading B ObjectiveHandoff and Reading A ReadingPassageHandoff include ACTIVE TRANSFER CLAIMS plus the return protocol.",
+    "Reading A no longer loads the legacy ReadingReviewSignals, ReadingTransferEvidence, or ReadingSessionTransferEvidence components, so Current stops creating/updating per-question WATCH transfer state. Old local WATCH data is not automatically migrated.",
+    "Translation has a canonical module contract and frozen Translation Runtime v1; Writing currently inherits the shared Learning Contract until its own module contract is frozen.",
+    "KianOS SYSTEM_CONTRACT.md shared learner-surface baseline remains authoritative: Current / Continue / Navigate / Repair / Verify-Transfer / Handoff / Deferred / Validation with non-isomorphic cognition per lane."
   ],
   "current_owners_to_read": [
     "content/english/LEARNING_CONTRACT.md",
     "content/english/modules/objective-runtime.md",
+    "content/english/modules/objective-evidence-runtime.md",
+    "content/english/modules/cloze.md",
     "content/english/modules/reading-a.md",
+    "content/english/modules/reading-b.md",
     "content/english/manifest.json"
   ],
   "module_entry_rules": {
@@ -48,57 +48,50 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/translation.md"
       ],
-      "inheritance": "Translation inherits all shared English learning/evidence/mastery/memory/UI principles, then applies its own dense learner-asset architecture: Global Map -> Core Learning Blocks -> Skill Map -> selective Skill Content, followed by its frozen Translation Runtime v1. English Representation, Preservation & Fidelity, Chinese Reconstruction, and Exam Execution are learner ability blocks; the Skill Map provides stable addresses and Chat diagnosis but must not replace information-dense first-learning assets. Objective Runtime does not redefine Translation cognition, review unit, or runtime state semantics. When Translation becomes learner-facing, it also inherits the KianOS shared learner-surface baseline from SYSTEM_CONTRACT.md without copying Reading UI."
+      "inheritance": "Translation inherits shared English principles and its own frozen Translation Runtime. Objective Runtime and Objective Evidence Runtime do not redefine Translation cognition or review state."
     },
     "writing": {
       "read": [
         "content/english/LEARNING_CONTRACT.md"
       ],
-      "inheritance": "Writing inherits all shared English learning/evidence/mastery/memory/UI principles. Writing A and Writing B are modes within one Writing ability line. Do not copy Reading/Cloze review mechanics into Writing merely for UI consistency. When a Writing learner runtime is materialized, it must also implement the KianOS shared learner-surface baseline in a Writing-appropriate form.",
-      "current_owner_status": "No Writing-specific module contract is frozen yet; the next Writing chat should derive and freeze it from the shared contract plus real Writing cognition."
+      "inheritance": "Writing inherits all shared English learning/evidence/mastery/memory/UI principles. Writing A and Writing B are modes within one Writing ability line. Do not copy objective-task review mechanics into Writing merely for UI consistency.",
+      "current_owner_status": "No Writing-specific module contract is frozen yet."
     },
     "objective_tasks": {
       "read": [
         "content/english/LEARNING_CONTRACT.md",
-        "content/english/modules/objective-runtime.md"
+        "content/english/modules/objective-runtime.md",
+        "content/english/modules/objective-evidence-runtime.md"
       ],
-      "inheritance": "Objective-task module contracts and Astro trainers may extend task-specific cognition/UI but must preserve the frozen passage/set-level learner review unit, Review Packet v1, root-cause routing, transfer-based closure semantics, and the KianOS shared learner-surface baseline when each trainer becomes independently learner-facing."
+      "inheritance": "Cloze / Reading A / Reading B preserve passage/set-level learner review. Question-level evidence may support diagnosis, but durable objective transfer state is claim-level. Chat adjudicates semantic transfer; the browser stores private state and must not manufacture mastery from arbitrary counters."
     }
   },
   "next_action": {
-    "stage": "CLOZE_AND_READING_B_TRAINER_IMPLEMENTATION",
-    "instruction": "Continue objective-task implementation without reopening Objective Runtime v1. Build Cloze and Reading B from the frozen cognitive objects and passage/set Review Packet rules. Reuse shared infrastructure only where it preserves the task-specific learning action; do not clone Reading A UI mechanically. Each independently entered trainer must also inherit the KianOS shared learner-surface baseline (Current, Continue, Navigate, Repair, Verify/Transfer, Return/Handoff, Deferred, Validation) in a task-appropriate way.",
-    "cloze": [
-      "Attempt unit is one complete Cloze passage/set.",
-      "Core action is Slot Demand -> active constraints -> competing candidates -> decisive constraint -> Best Fit.",
-      "Review packet keeps all blanks in a compact outcome map and expands only wrong/unanswered/uncertain blanks with minimum local context plus candidates while retaining whole-passage context.",
-      "Route sense/phrase/construction/collocation/confusable failures to LexicalOS; route representation/discourse failures to Reading; keep only true best-fit procedure failures in Cloze.",
-      "Do not create a permanent Cloze mistake bank or twenty independent review cards."
-    ],
-    "reading_b": [
-      "Attempt unit is one complete Part B material/set.",
-      "Core action is discourse skeleton -> required role -> candidate role -> backward/forward/cohesion fit -> global reconciliation.",
-      "Review packet preserves the complete learner placement/matching map plus formal map and enough material/candidate inventory for reconstruction.",
-      "Diagnosis must support local, coupled, and structure-level repair, with cascading dependent errors attached to the primary structural error.",
-      "Do not reduce Part B to keyword matching or clone Reading A's question-by-question review UI."
+    "stage": "OBJECTIVE_EVIDENCE_TRANSFER_QA_AND_LEARNER_VALIDATION",
+    "instruction": "Do not add more objective theory before validation. Extend objective QA so Current pages are required to load ObjectiveTransferClaims and Reading A is required not to load legacy per-question WATCH transfer components. Run validate:objective and Astro build. If green, update this cursor to learner validation: exercise one problem passage/set through copy-to-Chat -> KIANOS_OBJECTIVE_RETURN_V1 import -> pending claim persistence, then one later clean/fresh set through optional TRANSFER_CHECK. Only after real learner evidence should UX or closure semantics change.",
+    "validation_targets": [
+      "Cloze / Reading A / Reading B all expose claim-level return import after submitted evidence when relevant.",
+      "Problem packets include whole-unit evidence plus active claims and RETURN PROTOCOL.",
+      "Clean attempts with no active claims remain PASS without compulsory handoff.",
+      "Clean attempts with active claims expose optional TRANSFER_CHECK.",
+      "Reading A Current page does not import ReadingReviewSignals / ReadingTransferEvidence / ReadingSessionTransferEvidence.",
+      "Legacy kianos-reading-watch-signals-v1 data is not read or migrated by Current claim-level runtime.",
+      "Astro build passes and canonical question/source validation remains green."
     ]
   },
   "do_not_reopen_without_new_evidence": [
     "Do not reopen English Objective Runtime v1 merely because a UI implementation is inconvenient or a source uses a different taxonomy.",
-    "Do not reopen Translation Runtime v1 merely to harmonize UI or taxonomy with objective tasks; reopen only when new learner evidence materially contradicts the frozen Translation model.",
-    "Do not reduce Translation first-learning content to a thin taxonomy or a set of definition-only Skill leaves; Core Learning Blocks must remain information-dense enough to teach the ability before Skill Map routing is used for diagnosis and targeted repair.",
-    "Do not turn Cloze / Reading A / Reading B into three independent knowledge systems.",
     "Do not make the learner review objective questions one-by-one in Chat; passage/set is the minimum user-facing review unit.",
-    "Do not restore per-question copy-to-Chat as the normal Reading A bridge.",
-    "Do not make the learner review Translation sentence-by-sentence as separate Chat flows; one complete Translation task/set is the learner-facing review unit while smaller slices remain internal evidence.",
-    "Do not force one failure taxonomy or one review-card shape across all English modules.",
-    "Do not show formal answers, evidence, explanations, teacher methods, model translations, or model essays before a clean attempt.",
-    "Do not require annotation, quick-cause labels, or note-taking for every question.",
+    "Do not restore per-question WATCH signals as the durable Reading A transfer object.",
+    "Do not automatically migrate legacy question-level WATCH state into claim-level transfer state.",
+    "Do not close a transfer claim merely because N later questions/passages were correct; relevance and evidence quality matter.",
+    "Do not duplicate Lexical or Reading ability objects inside the objective task claim store.",
+    "Do not create a task claim for every wrong question or every one-off hesitation.",
+    "Do not show formal answers or diagnostic assets before a clean attempt.",
+    "Do not require manual error taxonomy, notes, or claim creation for every question.",
     "Do not make stable-correct objective items enter full review by default.",
-    "Do not turn teacher-method material into the default learning path; it remains a repair reservoir.",
-    "Do not duplicate lexical knowledge inside Reading/Cloze/Part B/Translation/Writing when LexicalOS is the canonical owner.",
-    "Do not treat accuracy on remembered material as equivalent to unseen mastery.",
-    "Do not create more module/governance files merely for completeness; create a specific owner only when a genuine cognitive/runtime object has been defined and frozen."
+    "Do not force one failure taxonomy or one review-card shape across all English modules.",
+    "Do not create more module/governance files merely for completeness; create a specific owner only for a genuine shared cognitive/runtime object."
   ],
   "continuation_policy": {
     "update_when": "Update at meaningful English shared-work stage transitions or when the next active module/action changes materially.",
@@ -108,8 +101,9 @@
       "timing/history",
       "quick-cause choices",
       "private notes/highlights",
+      "personal transfer claims",
       "session position"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md. Reading A implementation work must also read reading-a.md. Translation must additionally read translation.md. Writing currently inherits LEARNING_CONTRACT.md until its own module contract is frozen. Continue from next_action rather than reconstructing the roadmap from prior chats."
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md and objective-evidence-runtime.md. Continue from next_action rather than reconstructing the roadmap from prior chats."
   }
 }
