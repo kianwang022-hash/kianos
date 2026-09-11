@@ -115,7 +115,7 @@ function validateSourceProjection() {
 }
 
 function validateContractAndUi() {
-  const contract = read('../../content/english/modules/translation.md');
+  const contract = read('../../content/english/modules/translation/learning.md');
   const workspace = read('../src/components/TranslationWorkspace.astro');
   const home = read('../src/pages/translation.astro');
   const taskPage = read('../src/pages/translation/[id].astro');
@@ -144,7 +144,7 @@ function validateContractAndUi() {
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
   requireText('task page', taskPage, 'loadTranslationReferencesById');
-  requireText('learn page', learnPage, 'content/english/modules/translation.md');
+  requireText('learn page', learnPage, 'content/english/modules/translation/learning.md');
 
   forbidText('workspace', workspace, 'data-translation-score');
   forbidText('workspace', workspace, 'lexical_choice');
