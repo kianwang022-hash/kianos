@@ -351,9 +351,9 @@ This Objective Runtime does **not** govern Translation/Writing cognition. They i
 - lexical failures route to LexicalOS rather than duplicate local word systems;
 - module-specific cognitive objects and non-isomorphic UI.
 
-Translation then applies its own canonical module contract at `content/english/modules/translation.md`.
+Translation applies its own canonical learning/runtime asset at `content/english/modules/translation/learning.md`.
 
-Writing currently inherits the common Learning Contract directly until a Writing-specific module contract is frozen. Its future module contract may extend common rules for Writing A/B, but must not redefine the shared English learning philosophy merely to create a separate system.
+Writing applies its own canonical learning/runtime asset at `content/english/modules/writing/learning.md`. Writing A / Writing B remain output modes inside the Writing capability rather than separate base abilities.
 
 ---
 
