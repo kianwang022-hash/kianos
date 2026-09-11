@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import ClozeWorkspace from '../../components/ClozeWorkspace.astro';
+import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
+import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
+import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
+import { listClozeSets, loadClozeById } from '../../lib/englishObjective.mjs';
+
+export function getStaticPaths() {
+  return listClozeSets().map((item) => ({
+    params: { id: item.id },
+    props: { objectId: item.id }
+  }));
+}
+
+const item = loadClozeById(Astro.props.objectId);
+---
+<Base
+  title={item.title}
+  kicker="English · Cloze"
+  description="Slot Demand → Constraints → Candidate Contrast → Best Fit"
+  sourcePath={item.sourcePaths.questions}
+  sourceHash={item.sourceHashes.renderedObject}
+  objectId={item.objectId}
+  active="cloze"
+>
+  <ClozeWorkspace item={item} />
+  <ObjectiveAnswerGate task="cloze" answerRoute="cloze-answer" />
+  <ObjectiveHandoff />
+  <ObjectiveNavigator task="cloze" route="cloze" item={item} />
+</Base>
