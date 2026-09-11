@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import ClozeWorkspace from '../../components/ClozeWorkspace.astro';
 import ObjectiveAnswerGate from '../../components/ObjectiveAnswerGate.astro';
 import ObjectiveHandoff from '../../components/ObjectiveHandoff.astro';
+import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.astro';
 import ObjectiveNavigator from '../../components/ObjectiveNavigator.astro';
 import { listClozeSets, loadClozeById } from '../../lib/englishObjective.mjs';
 
@@ -27,5 +28,6 @@ const item = loadClozeById(Astro.props.objectId);
   <ClozeWorkspace item={item} />
   <ObjectiveAnswerGate task="cloze" answerRoute="cloze-answer" />
   <ObjectiveHandoff />
+  <ObjectiveTransferClaims task="cloze" />
   <ObjectiveNavigator task="cloze" route="cloze" item={item} />
 </Base>
