@@ -2,7 +2,7 @@
 const { block } = Astro.props;
 const kps = block?.kpRecords || [];
 const reserveItems = (block?.pathways?.outgoing || [])
-  .filter((row) => row?.reserve_recall === true)
+  .filter((row) => row?.reserveLearning === true)
   .map((row) => ({
     id: row.id,
     cue: row?.source?.cue || '',
