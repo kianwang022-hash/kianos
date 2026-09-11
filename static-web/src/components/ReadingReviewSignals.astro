@@ -1,0 +1,121 @@
+<span data-reading-review-signals-root hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot) {
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const basePath = readingRoot.getAttribute('data-reading-base') || '/';
+    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const coachKey = `kianos-reading-repair-coach-v1:${readingKey}`;
+    const watchKey = 'kianos-reading-watch-signals-v1';
+    const reviewUrl = `${basePath}reading-review/${encodeURIComponent(readingKey)}.json`;
+    let reviewPayload = null;
+    let reviewPromise = null;
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    };
+    const expected = (question) => {
+      try {
+        const value = JSON.parse(question?.getAttribute('data-answer') || '""');
+        return Array.isArray(value) ? value.map(String) : value ? [String(value)] : [];
+      } catch { return []; }
+    };
+    const answerPath = (attempt, id) => (attempt.trajectory?.[id] || [])
+      .map((step) => String(step?.answer || ''))
+      .filter(Boolean);
+    const rivalLabel = (attempt, id, correct) => {
+      const selected = String(attempt.answers?.[id] || '');
+      const path = answerPath(attempt, id);
+      if (!correct.includes(selected)) return selected;
+      return [...path].reverse().find((answer) => answer && !correct.includes(answer)) || '';
+    };
+
+    const ensureReview = async () => {
+      if (reviewPayload) return reviewPayload;
+      if (reviewPromise) return reviewPromise;
+      reviewPromise = fetch(reviewUrl, { headers: { Accept: 'application/json' } })
+        .then((response) => response.ok ? response.json() : null)
+        .then((payload) => {
+          if (payload?.objectId === readingKey && typeof payload.questions === 'object') reviewPayload = payload;
+          return reviewPayload;
+        })
+        .catch(() => null)
+        .finally(() => { reviewPromise = null; });
+      return reviewPromise;
+    };
+
+    const classify = async (question, id, attempt, cause) => {
+      const review = await ensureReview();
+      const item = review?.questions?.[id] || null;
+      const correct = expected(question);
+      const path = answerPath(attempt, id);
+
+      if (cause === '选项没辨清') {
+        const rival = rivalLabel(attempt, id, correct);
+        const codes = rival ? (item?.optionDiagnosis?.[rival] || []).filter((code) => code !== 'SUPPORTED').slice(0, 2) : [];
+        return { family: 'JUDGE', subtypeCodes: codes, questionTask: item?.questionTask || '' };
+      }
+      if (cause === '没定位准') {
+        return { family: 'LOCATE', subtypeCodes: [], questionTask: item?.questionTask || '' };
+      }
+      if (cause === '没读懂') {
+        return { family: 'UNDERSTAND', subtypeCodes: [], questionTask: item?.questionTask || '' };
+      }
+      if (cause === '看错/改错') {
+        const finalAnswer = String(attempt.answers?.[id] || '');
+        const fromCorrectToWrong = path.length > 1
+          && path.slice(0, -1).some((answer) => correct.includes(answer))
+          && !correct.includes(finalAnswer);
+        return {
+          family: 'EXECUTE',
+          subtypeCodes: fromCorrectToWrong ? ['ANSWER_SWITCH'] : [],
+          questionTask: item?.questionTask || ''
+        };
+      }
+      return { family: 'UNCERTAIN', subtypeCodes: [], questionTask: item?.questionTask || '' };
+    };
+
+    const recordSignal = async (question) => {
+      const id = question?.getAttribute('data-question') || '';
+      if (!id) return;
+      const attempt = readJson(attemptKey, {});
+      const coach = readJson(coachKey, {});
+      const reviewed = (coach.reviewed || coach.closed || {})?.[id];
+      const cause = attempt.causes?.[id] || reviewed?.cause || '';
+      if (!attempt.submitted || attempt.reviewUnlocked === false || !reviewed || !cause) return;
+
+      const classification = await classify(question, id, attempt, cause);
+      const store = readJson(watchKey, { version: 1, signals: [] });
+      const signals = Array.isArray(store.signals) ? store.signals : [];
+      const signal = {
+        signalId: `${readingKey}:${id}`,
+        passageId: readingKey,
+        questionId: id,
+        family: classification.family,
+        subtypeCodes: classification.subtypeCodes,
+        questionTask: classification.questionTask,
+        quickCause: cause,
+        status: 'WATCH',
+        sourceSubmittedAt: attempt.submittedAt || '',
+        reviewedAt: reviewed.at || new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      const next = [...signals.filter((item) => item?.signalId !== signal.signalId), signal].slice(-200);
+      writeJson(watchKey, { version: 1, signals: next });
+    };
+
+    readingRoot.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const button = target?.closest('[data-reading-coach-mark-reviewed]');
+      if (!button) return;
+      const question = button.closest('[data-question]');
+      window.setTimeout(() => { void recordSignal(question); }, 0);
+    });
+  }
+</script>
