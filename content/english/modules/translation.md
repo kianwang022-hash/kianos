@@ -894,3 +894,256 @@ Framework Learn 完成后，不要求记住所有术语。
 ```
 
 当这件事越来越自动时，框架本身就应该逐渐退到后台。
+
+---
+
+# 12｜Translation Runtime v1 — FROZEN
+
+**Status:** FROZEN  
+**Frozen on:** 2026-09-12  
+**Parent authority:** `content/english/LEARNING_CONTRACT.md`  
+**Relationship to Objective Runtime:** shares the English-wide evidence / repair / transfer philosophy, but Translation keeps its own cognitive object, evidence units, repair actions, and learner-facing interaction.
+
+本节把前面的能力模型冻结成可运行的 Translation baseline。它不重写 0–11 节，只明确真实训练时如何组成一次 Attempt、怎样复盘、怎样避免重复记忆债务，以及什么证据才允许关闭一个 weakness。
+
+## 12.1 Review Unit｜整组复盘，内部细粒度诊断
+
+> **Translation 的 learner-facing 最小 Review Unit 是一个完整 Translation task / set。**
+
+同一任务中的多个待译句 / 片段先作为一个完整 Attempt 交给 Chat 复盘，而不是让学习者逐句进入独立 Chat 流程。
+
+但内部 evidence 可以更细：
+
+- sentence / translated segment；
+- clause；
+- proposition；
+- attachment / reference / scope relation；
+- information unit；
+- Chinese reconstruction span。
+
+因此冻结：
+
+> **Evidence granularity may be smaller than Review granularity.**
+
+Chat 先看完整 task / set，再定位真正需要处理的最小 slice。多个局部问题如果来自同一个上游失败，应合并诊断，不制造多个独立复习对象。
+
+## 12.2 Runtime state machine
+
+Translation 的正常状态机冻结为：
+
+```text
+ATTEMPT
+↓
+PASS
+or
+REPAIR_NEEDED
+↓
+FIRST_FAILURE_LAYER
+├─ Lexical
+├─ English Representation
+├─ Relation / Information Preservation
+├─ Chinese Reconstruction
+└─ Execution / Self-check
+↓
+SMALLEST_REPAIR
+↓
+RECONSTRUCT
+↓
+TRANSFER_PENDING
+↓
+later fresh / unseen Translation evidence
+↓
+CLOSED
+```
+
+解释：
+
+- **ATTEMPT**：先完成 clean first translation，并永久保留；
+- **PASS**：当前任务没有足以影响得分可靠性的 meaningful failure，可以快速通过；
+- **REPAIR_NEEDED**：存在值得处理的真实失败；
+- **FIRST_FAILURE_LAYER**：找最早一个足以解释结果的失败层；
+- **SMALLEST_REPAIR**：只修到能够重新执行；
+- **RECONSTRUCT**：学习者自己重新翻译受影响部分 / 句子，不能只看懂解释；
+- **TRANSFER_PENDING**：已完成局部修复，但还没有足够的新材料迁移证据；
+- **CLOSED**：后续 fresh / unseen Translation 中出现足够独立的成功证据，弱点才真正关闭。
+
+`RECONSTRUCT` 是 Translation 的必要 productive execution，但**同一句重译正确只证明 repair 生效，不证明 mastery**。
+
+## 12.3 Cascade / dependency collapse｜级联错误只记主因
+
+Translation 很容易出现：
+
+```text
+英文主命题理解错
+→ relation 跟着错
+→ 信息发生漏 / 反 / 错
+→ 中文最终也很怪
+```
+
+这些不是四个独立 weakness。
+
+冻结规则：
+
+> **把最早一个足以解释下游结果的失败记为 primary cause；可由它解释的 downstream effects 不独立制造复习债务。**
+
+只有在修复上游失败后，下游问题仍独立存在，才把它升级成另一个 repair object。
+
+因此：
+
+- representation failure 可以解释后续 preservation / reconstruction distortion 时，先只修 representation；
+- relation failure 导致信息失真时，不再重复建立一个独立“信息错误卡”；
+- 一个 task 中多个句子暴露同一可重复机制时，可合并成一个 transfer target，而不是按句计数。
+
+## 12.4 Reference reveal｜参考译文延迟揭示
+
+完整参考译文不能污染 Clean Attempt，这一原则继续保持。
+
+进一步冻结：
+
+```text
+first translation
+→ diagnosis
+→ minimal repair / cue
+→ learner reconstructs
+→ then full reference / deeper comparison when useful
+```
+
+如果一个最小提示已经足以让学习者重新执行，就不要在 `RECONSTRUCT` 之前直接展示完整参考中文。
+
+原因：一旦完整标准译文先出现，后面的“重译”很容易退化成短时记忆复述。
+
+完整参考译文可以在重构后用于：
+
+- 检查遗漏 / 失真；
+- 对照一种可行的中文组织；
+- 发现自己没有意识到的边界问题。
+
+但它始终是 reference，不是唯一 surface-form authority。
+
+## 12.5 PASS semantics｜不是和参考答案长得像
+
+Translation 的 PASS 不按字符串相似度或“像不像标准译文”判断。
+
+只要满足：
+
+```text
+meaning faithful
++
+relations preserved
++
+information intact
++
+Chinese acceptable / natural enough
+```
+
+就可以 PASS。
+
+因此以下情况不自动触发 Repair：
+
+- 与参考译文措辞不同但语义等价；
+- 两种中文组织都自然且忠实；
+- 单次无得分价值的措辞偏好；
+- 纯风格差异而非意义 / 关系 / 信息 / 可读性问题。
+
+目标是考试中的稳定表达，不是把所有输出收敛成一个标准句。
+
+## 12.6 Evidence hierarchy｜已知句、微型迁移、新材料
+
+Translation 的 evidence strength 冻结为：
+
+```text
+看懂解释
+<
+同一句在 repair 后自己重译正确
+<
+同一句隔一段时间独立恢复
+<
+targeted fresh micro-probe 上处理同一 underlying demand
+<
+later clean success on fresh / unseen Translation material
+<
+repeated independent transfer across unseen contexts
+```
+
+当需要立即确认 repair 是否已经能够迁移时，Chat 可以生成一个**不消耗 holdout 真题的新合成 micro-probe**。
+
+例如修过部分否定后，可用一条新的短句检查 scope 判断；修过 attachment 后，可用新的局部结构检查归属。
+
+这种 micro-probe 比重复原句更有价值，但仍不替代后续自然 unseen Translation evidence。
+
+## 12.7 Memory admission｜只留下可复用的失败对象
+
+一个翻译问题只有在值得未来成本时才进入长期观察 / Review。
+
+优先保留：
+
+- 可复用的 representation demand；
+- recurring attachment / reference / scope / relation failure；
+- 稳定的 reconstruction problem；
+- 高成本 execution / self-check failure；
+- 后续 transfer 仍弱或矛盾的对象。
+
+不要因为：
+
+- 一句曾经翻错；
+- 一个中文词没有选到最漂亮；
+- 看过参考译文后能改对；
+
+就自动创建长期债务。
+
+Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner，Translation 不建立第二词汇库。
+
+## 12.8 Runtime interaction boundary
+
+Translation UI / Chat interaction至少必须保住三样东西：
+
+```text
+original / necessary local context
++
+first translation (immutable evidence)
++
+current reconstruction
+```
+
+正常复盘顺序是：
+
+```text
+完整 task / set
+→ Chat 找 primary failure
+→ 只展开最小 evidence slice
+→ learner reconstructs
+→ 必要时 reference comparison
+→ TRANSFER_PENDING
+```
+
+不要因为实现方便而：
+
+- 把 Translation 变成逐句独立 Chat review；
+- 强制每句选择 quick-cause 标签；
+- 把所有局部错误做成 permanent cards；
+- 用完整参考译文替代 learner reconstruction；
+- 复制 Objective Runtime 的题目型 UI 或 taxonomy。
+
+## 12.9 Frozen exit rule
+
+Translation Runtime v1 的核心出口只有一句：
+
+> **Repair 解决当前失败；fresh transfer 才关闭能力问题。**
+
+因此完整闭环是：
+
+```text
+完整 Translation Attempt
+→ preserve first translation
+→ whole-task review
+→ smallest internal failure slice
+→ collapse cascading effects
+→ smallest repair
+→ independent reconstruction
+→ optional targeted fresh micro-probe
+→ TRANSFER_PENDING
+→ later unseen Translation success
+→ CLOSED
+```
+
+除非新的真实 learner evidence materially contradicts 这套模型，否则不要因为 UI 便利、老师分类、资料目录或 Objective Runtime 的形式不同而重新打开 Translation Runtime v1。
