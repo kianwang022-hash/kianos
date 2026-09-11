@@ -24,24 +24,65 @@ try {
 
 try {
   const asset = read('../../content/english/modules/objective-learning.md');
-  requireText('objective-learning asset', asset, 'Objective Global Map');
-  requireText('objective-learning asset', asset, '<a id="cloze"></a>');
-  requireText('objective-learning asset', asset, '<a id="reading-a"></a>');
-  requireText('objective-learning asset', asset, '<a id="reading-b"></a>');
-  requireText('objective-learning asset', asset, 'Core Block 1');
-  requireText('objective-learning asset', asset, 'Skill Map');
-  requireText('objective-learning asset', asset, 'Starter Skill Content');
+  const required = [
+    'Objective Global Map',
+    '<a id="reading-a"></a>',
+    '<a id="cloze"></a>',
+    '<a id="reading-b"></a>',
+    '<a id="ra-core-1"></a>',
+    '<a id="ra-core-2"></a>',
+    '<a id="ra-core-3"></a>',
+    '<a id="ra-core-4"></a>',
+    '<a id="ra-skill-map"></a>',
+    '<a id="ra-skill-boundary"></a>',
+    '<a id="ra-skill-cause"></a>',
+    '<a id="ra-skill-attribution"></a>',
+    '<a id="ra-skill-local-global"></a>',
+    '<a id="ra-skill-true-irrelevant"></a>',
+    '<a id="cl-core-1"></a>',
+    '<a id="cl-core-2"></a>',
+    '<a id="cl-core-3"></a>',
+    '<a id="cl-core-4"></a>',
+    '<a id="cl-skill-map"></a>',
+    '<a id="cl-skill-best-fit"></a>',
+    '<a id="cl-skill-collocation"></a>',
+    '<a id="cl-skill-relation"></a>',
+    '<a id="rb-core-1"></a>',
+    '<a id="rb-core-2"></a>',
+    '<a id="rb-core-3"></a>',
+    '<a id="rb-core-4"></a>',
+    '<a id="rb-skill-map"></a>',
+    '<a id="rb-skill-local-global"></a>',
+    '<a id="rb-skill-coupled"></a>',
+    '<a id="rb-skill-reference"></a>',
+    '<a id="runtime-bridge"></a>',
+    '静态内容策略',
+    'Deep Skill Content',
+    'Fast Track 改变阅读路径，不改变静态资产完整度'
+  ];
+  required.forEach((needle) => requireText('objective-learning asset', asset, needle));
 } catch (error) {
   issues.push(`objective-learning asset: ${error instanceof Error ? error.message : String(error)}`);
 }
 
 try {
   const page = read('../src/pages/objective-learn.astro');
-  requireText('objective-learn page', page, 'content/english/modules/objective-learning.md');
-  requireText('objective-learn page', page, "from 'marked'");
-  requireText('objective-learn page', page, 'href="#cloze"');
-  requireText('objective-learn page', page, 'href="#reading-a"');
-  requireText('objective-learn page', page, 'href="#reading-b"');
+  const required = [
+    'content/english/modules/objective-learning.md',
+    "from 'marked'",
+    'href="#reading-a"',
+    'href="#ra-core-2"',
+    'href="#ra-skill-boundary"',
+    'href="#cloze"',
+    'href="#cl-core-2"',
+    'href="#cl-skill-collocation"',
+    'href="#reading-b"',
+    'href="#rb-core-4"',
+    'href="#rb-skill-coupled"',
+    'href="#runtime-bridge"',
+    'Skippable · Complete Static Asset'
+  ];
+  required.forEach((needle) => requireText('objective-learn page', page, needle));
 } catch (error) {
   issues.push(`objective-learn page: ${error instanceof Error ? error.message : String(error)}`);
 }
@@ -63,7 +104,9 @@ const summary = {
     status: issues.length ? 'invalid' : 'ready',
     issueCount: issues.length,
     canonicalOwner: 'content/english/modules/objective-learning.md',
-    learnerPage: 'static-web/src/pages/objective-learn.astro'
+    learnerPage: 'static-web/src/pages/objective-learn.astro',
+    staticAssetMode: 'complete_skippable',
+    taskCoverage: ['reading_a', 'cloze', 'reading_b']
   }
 };
 
