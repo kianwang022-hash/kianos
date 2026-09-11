@@ -9,7 +9,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const SOURCE = Object.freeze({
   manifest: 'content/english/manifest.json',
   questionBank: 'content/english/source/question_bank.v1.json',
-  contract: 'content/english/modules/translation.md'
+  contract: 'content/english/modules/translation/learning.md'
 });
 
 function absolute(relativePath) {
@@ -285,6 +285,7 @@ function snapshot() {
     if (manifest?.status !== 'CURRENT_READY') issues.push('MANIFEST_NOT_CURRENT_READY');
     if (manifest?.runtime_contract?.legacy_fallback !== false) issues.push('MANIFEST_LEGACY_FALLBACK_NOT_DISABLED');
     if (manifest?.owners?.question_bank !== SOURCE.questionBank) issues.push('MANIFEST_QUESTION_BANK_OWNER_MISMATCH');
+    if (manifest?.owners?.translation_contract !== SOURCE.contract) issues.push('MANIFEST_TRANSLATION_OWNER_MISMATCH');
     if (!expectedHash) issues.push('MANIFEST_QUESTION_BANK_HASH_MISSING');
     if (expectedHash && expectedHash !== actualHash) issues.push('QUESTION_BANK_HASH_MISMATCH');
     if (issues.length) {
