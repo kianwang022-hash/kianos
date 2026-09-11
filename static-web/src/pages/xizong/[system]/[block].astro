@@ -4,7 +4,8 @@ import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
-import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizong.mjs';
+import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 
 export function getStaticPaths() {
@@ -16,8 +17,12 @@ export function getStaticPaths() {
 
 const { systemId, blockSlug } = Astro.props;
 const block = loadXizongBlock(systemId, blockSlug);
+const system = loadXizongSystem(systemId);
+const pathways = loadXizongPathways(system);
+const blockPathways = pathwaysForBlock(pathways, block.blockId);
 const projection = {
   ...block,
+  pathways: blockPathways,
   blockLearnHtml: marked.parse(projectBlockLearn(block.blockLearnMarkdown), { gfm: true }),
   visualGateHtml: block.visualGateMarkdown ? marked.parse(projectVisualGate(block.visualGateMarkdown), { gfm: true }) : '',
   kpRecords: block.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
