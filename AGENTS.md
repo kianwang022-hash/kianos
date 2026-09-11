@@ -9,6 +9,7 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - GitHub `main@HEAD` is the single editable and readable shared Current repository state.
 - Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
 - `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-surface capabilities for both domain lanes and independently entered learner sub-lanes.
+- `LEARNING_ACCEPTANCE.md` defines the repository-wide S/K/L/P/R/E/U module acceptance gates and the final Global/Home acceptance layer. Read it before declaring a lane/sub-lane closed, Ready, or learner-ready.
 - `content/` owns shared learning assets.
 - `static-web/` owns the Astro learner-facing display and interaction runtime.
 - Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
@@ -39,7 +40,7 @@ The capability contract is shared, but domain cognition, error taxonomy, evidenc
 
 Examples of independently entered sub-lanes include English Reading, Cloze, Reading B, Translation, Writing, or any later task/module that receives its own learner runtime. A domain-level home satisfying a capability does not automatically make every sub-lane Ready.
 
-When a lane or independently entered sub-lane is added or materially rebuilt, audit these capabilities. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+When a lane or independently entered sub-lane is added or materially rebuilt, audit these capabilities and the acceptance gates in `LEARNING_ACCEPTANCE.md`. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
 
 Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject or task imitate another merely for frontend consistency.
 
