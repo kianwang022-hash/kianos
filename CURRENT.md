@@ -86,28 +86,32 @@ L0-first semantic review continues as Current content work. Semantic repairs upd
 
 ### Politics
 
-Politics Current is split into source, learning semantics, and teaching projection:
+Politics Current is split into source, learning semantics, teaching projection, and learner interaction:
 
 - `content/politics/manifest.json` / `provenance.json` — Current source ownership and provenance;
 - `content/politics/source/` — Chengfeng continuous-source structure, Suyi-linked source references, Xiao1000 questions, and relation assets;
-- `content/politics/LEARNING_CONTRACT.md` — the active Politics learning and interaction semantics;
+- `content/politics/LEARNING_CONTRACT.md` — the active Politics learning semantics;
+- `content/politics/INTERACTION_CONTRACT.md` — the shared low-friction learner loop and subject-specific interaction shapes;
 - `content/politics/learning/` — Chat-approved teaching projections that add orientation, bridges, compression, and repair guidance without creating a second textbook;
 - `content/politics/continuation.json` — the durable shared-work cursor for the Politics content→interaction mainline.
 
 Active first-round Politics chain:
 
-`Chat Orientation → Chengfeng Natural Unit continuous learning → Xiao1000 verification → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
+`Chat Orientation → Chengfeng Natural Unit continuous learning → short closure → Xiao1000 verification → wrong/uncertain smallest sufficient repair → continue`
 
 Chengfeng is the only continuous first-round mainline. Suyi is a background framework reference for Chat: useful mind-map structure is absorbed into the learning projection and does not need a separate learner-facing course or standalone Markdown representation. Xiao1000 remains validation and transfer evidence and must not determine the learning order.
 
-Current content projection status:
+Current content projection is complete across all Current Politics subjects:
 
-- Marxism: Chapters 1–8 complete, using relation/reasoning/mechanism chains;
-- History: Chapters 1–10 plus a whole-subject map complete, using chronology/stage/turning-point/cause/evaluation;
-- Mao/Zhongte: C00–C08 plus a whole-subject map complete, using historical-problem → theory-response → positioning/boundary structure;
-- Xi/New Thought: whole-subject map plus C00–C03 complete; continue from C04 using hierarchy/role/goal/principle/path and confusable-formulation boundaries.
+- Marxism: Chapters 1–8, using relation/reasoning/mechanism chains;
+- History: Chapters 1–10 plus a whole-subject map, using chronology/stage/turning-point/cause/evaluation;
+- Mao/Zhongte: C00–C08 plus a whole-subject map, using historical-problem → theory-response → positioning/boundary structure;
+- Xi/New Thought: C00–C17 plus a whole-subject map, using hierarchy/role/goal/principle/path and confusable-formulation boundaries;
+- Ethics/Law: C00–C06 plus a whole-subject map, using concept-boundary/normative-judgment/situational-application structure.
 
-Fresh Chats continuing Politics content/runtime work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for the next batch.
+Politics Astro now has a Current learner entry, all-subject chapter index, and a generic chapter runtime that projects the shared loop while preserving each subject's own teaching shape. The active Politics stage is real learner validation, not further taxonomy or dashboard expansion.
+
+Fresh Chats continuing Politics work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for validation or repair.
 
 ### Astro runtime
 
@@ -119,7 +123,7 @@ The legacy repository knowledge-asset transport is closed. Migration evidence re
 
 The migration dual-read exception is closed for normal work. Future reads from `kianos-legacy` require an explicit recovery, rollback, historical comparison, or newly authorized migration/recovery task.
 
-Active Xizong v6 upgrades, Lexical semantic review, English learning/content upgrades, Politics teaching-projection upgrades, Astro expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
+Active Xizong v6 upgrades, Lexical semantic review, English learning/content upgrades, Politics learner validation, Astro expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
 
 ## Known inherited source-asset gap
 
