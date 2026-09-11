@@ -1,10 +1,11 @@
 {
   "schema": "kianos.lexical.word_owner_manifest.v1",
-  "status": "MATERIALIZED_NOT_CURRENT",
-  "semantic_authority": false,
+  "status": "CURRENT_NATURAL_OWNER",
+  "semantic_authority": true,
   "word_count": 7946,
   "path_rule": "content/lexical/words/by-ordinal/o{ordinal:04d}.json",
   "audit": "content/lexical/audit/natural-owner-cutover.json",
-  "semantic_delta": 0,
-  "source": "content/lexical/canonical/words/"
+  "cutover_semantic_delta": 0,
+  "normal_edit_rule": "EDIT_WORD_OWNER_IN_PLACE",
+  "reference_source": "content/lexical/canonical/words/"
 }

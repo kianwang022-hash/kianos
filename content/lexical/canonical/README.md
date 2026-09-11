@@ -1,10 +1,20 @@
-# Lexical Canonical Owner
+# Lexical Canonical Reference Plane
 
-`manifest.json` is the compact owner entry.
+Natural Owner cutover is complete. `content/lexical/manifest.json` is the Current lexical owner entry.
 
-## Current physical representation during migration
+## Current semantic owners
 
-Until Natural Owner cutover is proven and accepted, Current lexical records still live in the existing seven bounded stores:
+Normal Current resolution is:
+
+`content/lexical/manifest.json / lookup -> Word natural owner -> referenced Relation only when needed`
+
+- **Word** owners live under `content/lexical/words/by-ordinal/` and are the only editable owners of word-local semantics: L0/Core, learner senses, word-local constructions/collocations/phraseology, word family, exam paraphrases and word-local reference senses.
+- **Relation** owners live under `content/lexical/relations/by-id/` and independently own genuine cross-word semantic relationships such as semantic contrasts and confusables.
+- Astro reads Current Natural Owners and may hydrate referenced Relations for display/interaction. Astro is not a semantic owner.
+
+## Role of this `canonical/` tree after cutover
+
+The former seven bounded stores are retained for identity, provenance, audit evidence and deterministic routing/reference only:
 
 - `words/`
 - `senses/`
@@ -14,33 +24,34 @@ Until Natural Owner cutover is proven and accepted, Current lexical records stil
 - `relations/`
 - `packs/`
 
-Start exact spelling reads in `lookup/spelling/`. Each candidate supplies the immutable `word_id`, frozen ordinal, primary word shard and the stable-ID lookup bucket that contains optional per-word auxiliary shard references.
+They are **not normal semantic edit targets after cutover** and must not compete with Natural Owners as Current truth.
 
-The seven root JSONL files are non-authoritative, byte-rebuildable compatibility projections. They are not an alternate semantic owner and Fresh Chat must not bulk-read them for one word or a bounded review batch.
+`lookup/` remains a deterministic non-semantic routing projection. Exact spelling lookup may route a spelling to an immutable `word_id` and ordinal, but it never chooses or changes meaning.
 
-## Frozen target: Natural Owner + Reference, Not Copy
+The seven root JSONL compatibility files remain non-authoritative, rebuildable projections.
 
-The migration target is defined by `natural-owner-schema.v1.json`.
+## Cutover proof
 
-- **Word** is the natural owner of word-local semantics: L0/Core, learner senses, word-local constructions/collocations/phraseology, word family and exam paraphrases.
-- **Relation** is the independent owner of genuine two-word or multi-word semantic relationships. Participating Words keep stable relation references rather than copied editable relation bodies.
-- Exam mappings remain evidence/reference objects, packs remain membership/routing metadata, and lookup/index/release files remain deterministic non-authoritative projections.
-- A truly shared phrase/object gets its own owner only when no single Word is the natural owner and independent learner value is explicit.
+The accepted full-corpus audit is `content/lexical/audit/natural-owner-cutover.json`.
 
-Normal post-cutover maintenance must resolve as:
+The cutover preserved:
 
-`manifest/lookup -> Word -> referenced Relation/shared object only when needed`
+- all 7,946 Word identities and frozen ordinals;
+- stable sense/fact/collocation/relation identities and provenance references;
+- exact reconstruction of every pre-cutover Current Word record when Relation views are hydrated;
+- full spelling-lookup closure;
+- `semantic_delta = 0`.
 
-An ordinary word edit must not require reconstructing meaning from unrelated stores, Runtime fallbacks, compatibility projections or history.
+Semantic defects discovered before or during migration are repaired only after cutover against the Current Natural Owner at `main@HEAD`.
 
-## Migration safety
+## Normal maintenance
 
-Structural migration is strictly `semantic_delta = 0`.
+For ordinary lexical content work:
 
-Existing accepted semantic values, stable word IDs, sense/fact/collocation/relation IDs, frozen ordinals and source/provenance links are preserved during movement. Embedded/store duplicates may be collapsed only when stable identity and payload equivalence are proven. Any mismatch or ambiguous ownership blocks that object for Chat review.
+1. resolve the current Word owner;
+2. edit that Word in place for word-local semantic changes;
+3. edit a Relation owner only for a genuine cross-word relation;
+4. let Astro read those Current owners directly, with only non-semantic parsing/hydration;
+5. do not manually synchronize old bounded stores as parallel semantic truth.
 
-A content defect discovered during migration is not silently fixed as part of the move. It is handled later as a separate Chat-approved semantic repair.
-
-The existing seven-store representation remains Current until full-corpus equivalence, reference closure, dependency proof and cutover acceptance succeed. No parallel natural-owner copy becomes semantic Current merely because it has been generated.
-
-The live migration/review position is stored only in `continuation.json`; learner mastery, attempts, due state and scheduling remain Local-only.
+Private answers, progress, wrong/uncertain state, comments, timing and scheduler/history may support interaction but are outside shared Current content and are not semantic owners.

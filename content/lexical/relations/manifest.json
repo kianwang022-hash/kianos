@@ -1,13 +1,14 @@
 {
   "schema": "kianos.lexical.relation_owner_manifest.v1",
-  "status": "MATERIALIZED_NOT_CURRENT",
-  "semantic_authority": false,
+  "status": "CURRENT_NATURAL_OWNER",
+  "semantic_authority": true,
   "relation_count": 369,
   "path_rule": "content/lexical/relations/by-id/{sha256(relation_id)[0:2]}/{sha256(relation_id)}.json",
   "audit": "content/lexical/audit/natural-owner-cutover.json",
-  "semantic_delta": 0,
-  "source": [
+  "cutover_semantic_delta": 0,
+  "normal_edit_rule": "EDIT_RELATION_OWNER_IN_PLACE_FOR_GENUINE_CROSS_WORD_RELATIONS",
+  "reference_sources": [
     "content/lexical/canonical/relations/",
-    "cross-word views extracted losslessly from Current Word bundles"
+    "pre-cutover cross-word views extracted losslessly from Current Word bundles"
   ]
 }

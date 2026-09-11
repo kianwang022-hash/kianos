@@ -1,0 +1,75 @@
+name: Lexical Natural Owner Authority Cutover
+
+on:
+  push:
+    branches:
+      - lexical-natural-owner-authority-cutover-20260912
+    paths:
+      - 'content/lexical/**'
+      - 'static-web/src/lib/lexical.mjs'
+      - 'static-web/src/pages/answer.astro'
+      - 'static-web/src/lib/current.mjs'
+      - 'CURRENT.md'
+      - '.github/workflows/lexical-natural-owner-authority-cutover.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-cutover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify zero-delta Natural Owner audit
+        run: python tools/lexical_natural_owner.py audit
+
+      - name: Verify Current authority manifests
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          lexical = json.loads((root/'content/lexical/manifest.json').read_text())
+          words = json.loads((root/'content/lexical/words/manifest.json').read_text())
+          relations = json.loads((root/'content/lexical/relations/manifest.json').read_text())
+          canonical = json.loads((root/'content/lexical/canonical/manifest.json').read_text())
+          continuation = json.loads((root/'content/lexical/canonical/continuation.json').read_text())
+          audit = json.loads((root/'content/lexical/audit/natural-owner-cutover.json').read_text())
+          answer_pointer = json.loads((root/'content/lexical/words/answer.json').read_text())
+
+          assert lexical['status'] == 'CURRENT_NATURAL_OWNER'
+          assert lexical['semantic_authority'] is True
+          assert words['status'] == 'CURRENT_NATURAL_OWNER' and words['semantic_authority'] is True
+          assert relations['status'] == 'CURRENT_NATURAL_OWNER' and relations['semantic_authority'] is True
+          assert canonical['status'] == 'REFERENCE_ONLY_POST_NATURAL_OWNER_CUTOVER'
+          assert canonical['semantic_authority'] is False
+          assert continuation['status'] == 'COMPLETE' and continuation['terminal'] is True and continuation['remaining'] == 0
+          assert audit['status'] == 'PASS' and audit['semantic_delta'] == 0
+          assert answer_pointer['semantic_authority'] is False
+          assert answer_pointer['owner_path'] == 'content/lexical/words/by-ordinal/o0209.json'
+          PY
+
+      - name: Verify Astro Natural Owner hydration
+        working-directory: static-web
+        run: |
+          node --input-type=module - <<'NODE'
+          import { inspectLexicalSources, loadAnswer } from './src/lib/lexical.mjs';
+          const inspection = inspectLexicalSources();
+          const answer = loadAnswer();
+          if (inspection.status !== 'ready' || inspection.semanticAuthority !== true) throw new Error('LEXICAL_SOURCE_NOT_READY');
+          if (answer.objectId !== 'word:answer' || answer.ordinal !== 209) throw new Error('ANSWER_IDENTITY_MISMATCH');
+          if (!answer.sourcePath.endsWith('/o0209.json')) throw new Error('ANSWER_NOT_FROM_NATURAL_OWNER');
+          if (!Array.isArray(answer.record.semantic_neighbors) || answer.record.semantic_neighbors.length !== 2) throw new Error('ANSWER_RELATION_HYDRATION_MISMATCH');
+          NODE
+
+      - name: Install Astro dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Build Astro
+        working-directory: static-web
+        run: npm run build
