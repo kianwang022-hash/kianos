@@ -6,6 +6,7 @@ import XizongConnectionCues from '../../../components/XizongConnectionCues.astro
 import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
+import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
@@ -35,6 +36,7 @@ const projection = {
 };
 ---
 <Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
+  <XizongLastLocation system={system} block={block} />
   <XizongBlockV6 block={projection} />
   <XizongConnectionCues block={projection} />
   <XizongPrecisionVisualCues block={projection} />
