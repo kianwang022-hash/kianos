@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import { inspectTranslationSources, listTranslationSets } from '../lib/englishTranslation.mjs';
+
+const base = import.meta.env.BASE_URL;
+const state = inspectTranslationSources();
+const sets = listTranslationSets();
+const first = sets[0] || null;
+const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
+---
+<Base
+  title="Translation"
+  kicker="English · Productive Lane"
+  description="Whole-task productive runtime: clean translation, delayed comparison, focused repair, reconstruction, then later fresh transfer."
+  active="home"
+>
+  <section class="translationHome" data-translation-home data-base={base}>
+    <section class="translationHero">
+      <div>
+        <span>Translation · Current</span>
+        <h2>Produce → Compare → Repair → Reconstruct</h2>
+        <p>Translation 是独立 Productive lane。整套 task/set 是 learner-facing review unit；第一版永久保留，参考译文延迟揭示，不做自动评分。</p>
+      </div>
+      <aside>
+        <strong>{state.status === 'ready' ? `${sets.length} sets` : state.status}</strong>
+        <span>{state.sectionResolutionMode || 'Current source gate'}</span>
+        <span>private attempt state stays on-device</span>
+      </aside>
+    </section>
+
+    <a class="translationLearn" href={`${base}translation-learn/`}>
+      <div><span>First Learning</span><strong>先建立 Translation 的稳定高价值模型</strong></div>
+      <p>第一次系统学习走 Global Map → dense Core Blocks；Skill Map 是之后真实错误出现时的诊断地址，不是预习清单。</p>
+      <b>学习框架 →</b>
+    </a>
+
+    {state.status !== 'ready' ? (
+      <section class="translationGate">
+        <strong>Translation Current source not ready</strong>
+        <p>{[...(state.issues || []), ...(state.missing || [])].join(' · ') || 'Unknown Current source issue.'}</p>
+        {!!state.availableSections?.length && <code>{state.availableSections.map((row) => `${row.section}:${row.setCount}`).join(' · ')}</code>}
+      </section>
+    ) : (
+      <section class="translationHomeGrid">
+        <a class="translationContinue" data-translation-continue href={first ? `${base}translation/${encodeURIComponent(first.id)}/` : `${base}translation/`}>
+          <span>Continue</span>
+          <strong data-translation-continue-title>{first?.title || '开始 Translation'}</strong>
+          <p data-translation-continue-meta>{first ? `第 1 / ${sets.length} 套` : 'Current Translation 暂不可用'}</p>
+        </a>
+
+        <section class="translationBrowse">
+          <header>
+            <div><span>Navigate</span><strong>Current Translation sets</strong></div>
+            <input type="search" data-translation-search placeholder="搜索年份 / set id / 标题" />
+          </header>
+          <div data-translation-results></div>
+        </section>
+      </section>
+    )}
+
+    <section class="translationContractNote">
+      <strong>Runtime boundary</strong>
+      <p>浏览器只负责 clean production、延迟 reveal、本机历史与 reconstruction。需要诊断时再把整套 handoff 给 Chat；Chat 默认最多返回两个 priority lenses，并合并 cascade。</p>
+    </section>
+
+    <script type="application/json" data-translation-catalog set:html={payload}></script>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-translation-home]');
+  if (root instanceof HTMLElement) {
+    const base = root.getAttribute('data-base') || '/';
+    let sets = [];
+    try { sets = JSON.parse(root.querySelector('[data-translation-catalog]')?.textContent || '[]'); } catch {}
+    const hrefFor = (id) => `${base}translation/${encodeURIComponent(id)}/`;
+
+    let last = null;
+    try { last = JSON.parse(localStorage.getItem('kianos-translation-last-location-v1') || 'null'); } catch {}
+    const continueLink = root.querySelector('[data-translation-continue]');
+    if (last?.id && continueLink instanceof HTMLAnchorElement && sets.some((item) => item.id === last.id)) {
+      continueLink.href = last.href || hrefFor(last.id);
+      const title = root.querySelector('[data-translation-continue-title]');
+      const meta = root.querySelector('[data-translation-continue-meta]');
+      if (title) title.textContent = last.title || last.id;
+      if (meta) meta.textContent = `${last.paperId || 'Translation'} · 第 ${last.position || '?'} / ${last.total || sets.length} 套 · 最近打开`;
+    }
+
+    const results = root.querySelector('[data-translation-results]');
+    const render = (query = '') => {
+      if (!results) return;
+      const q = String(query || '').trim().toLowerCase();
+      const visible = sets.filter((item) => {
+        if (!q) return true;
+        return [item.id, item.title, item.paperId, item.year].some((value) => String(value || '').toLowerCase().includes(q));
+      }).slice(0, q ? 50 : 20);
+      results.replaceChildren();
+      visible.forEach((item) => {
+        const link = document.createElement('a');
+        link.href = hrefFor(item.id);
+        const copy = document.createElement('div');
+        const title = document.createElement('strong'); title.textContent = item.title || item.id;
+        const meta = document.createElement('span'); meta.textContent = `${item.paperId || 'English I'} · ${item.id}`;
+        copy.append(title, meta);
+        const pos = document.createElement('small'); pos.textContent = `${item.position} / ${item.total}`;
+        link.append(copy, pos);
+        results.appendChild(link);
+      });
+      if (!visible.length) {
+        const empty = document.createElement('p'); empty.textContent = '没有匹配的 Current Translation set。'; results.appendChild(empty);
+      }
+    };
+    root.querySelector('[data-translation-search]')?.addEventListener('input', (event) => render(event.currentTarget.value || ''));
+    render();
+  }
+</script>
+
+<style>
+  .translationHome{max-width:76rem;margin:0 auto;display:grid;gap:12px}.translationHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationHero>div>span,.translationBrowse header span,.translationContinue>span,.translationLearn span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHero h2{margin:5px 0 8px;font-size:27px}.translationHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.translationHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.translationHero aside strong{color:var(--study-green)}.translationHero aside span{color:var(--study-faint);font-size:10px}
+  .translationLearn{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.translationLearn>div{display:grid;gap:3px}.translationLearn strong{font-size:14px}.translationLearn p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.translationLearn b{color:var(--study-green);font-size:11px;white-space:nowrap}
+  .translationHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.translationContinue,.translationBrowse,.translationContractNote,.translationGate{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.translationContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.translationContinue strong{font-size:22px;line-height:1.35}.translationContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.translationBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.translationBrowse header>div{display:grid;gap:3px}.translationBrowse header input{width:min(300px,50%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.translationBrowse [data-translation-results]{display:grid;gap:5px}.translationBrowse [data-translation-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.translationBrowse [data-translation-results]>a:hover{background:var(--study-green-soft)}.translationBrowse [data-translation-results] div{display:grid;gap:2px;min-width:0}.translationBrowse [data-translation-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.translationBrowse [data-translation-results] span,.translationBrowse [data-translation-results] small{color:var(--study-faint);font-size:9px}.translationBrowse [data-translation-results]>p,.translationContractNote p,.translationGate p{margin:5px 0 0;color:var(--study-muted);font-size:11px;line-height:1.6}.translationContractNote strong,.translationGate strong{font-size:11px}.translationGate{border-color:#e2c4ad;background:#fff9f3}.translationGate code{display:block;margin-top:8px;color:var(--study-faint);font-size:9px;overflow-wrap:anywhere}
+  @media(max-width:820px){.translationHero,.translationHomeGrid,.translationLearn{grid-template-columns:1fr}.translationHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.translationBrowse header{align-items:stretch;flex-direction:column}.translationBrowse header input{width:100%;box-sizing:border-box}}
+</style>
