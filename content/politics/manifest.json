@@ -41,6 +41,13 @@
       "Only the top-level learning loop is shared across Politics subjects; each subject keeps its own teaching shape."
     ]
   },
+  "astro": {
+    "entry": "static-web/src/pages/politics/index.astro",
+    "generic_chapter_route": "static-web/src/pages/politics/[subject]/[chapter].astro",
+    "chapter_runtime": "static-web/src/components/PoliticsChapterRuntime.astro",
+    "current_loader": "static-web/src/lib/politicsCurrent.mjs",
+    "shared_loop": "ORIENTATION_TO_CHENGFENG_TO_SHORT_CLOSURE_TO_XIAO1000_TO_MINIMAL_REPAIR"
+  },
   "readiness": {
     "source_materialized": true,
     "question_inventory_verified": true,
@@ -48,7 +55,7 @@
     "learning_contract_current": true,
     "all_subject_content_projection_complete": true,
     "interaction_contract_current": true,
-    "next_lane": "POLITICS_ASTRO_MINIMAL_PILOT",
-    "astro_politics_projection": false
+    "astro_politics_projection": true,
+    "next_lane": "REAL_LEARNER_VALIDATION"
   }
 }
