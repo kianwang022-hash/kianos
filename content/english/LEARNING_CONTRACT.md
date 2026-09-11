@@ -118,13 +118,15 @@ Teacher material is a **repair reservoir**, not the default learning path.
 
 ## External reading
 
-External reading exists mainly to provide fresh unseen input and transfer testing.
+External reading exists mainly to provide **fresh unseen input** and transfer testing, because true-exam memory residue can make reused material less diagnostic.
 
-- True-exam memory residue can make reused material less diagnostic; fresh TPO, IELTS, periodicals, and other suitable texts may therefore be added over time.
+- TPO, IELTS, high-quality periodicals, and other suitable texts may be added incrementally.
+- Freshness and diagnostic value matter more than completing a fixed corpus.
 - External reading depth is adaptive. A normal successful passage may be `read → answer → done`.
 - Use sentence reconstruction, paragraph mapping, closed-book compression, or full reconstruction only when the actual failure requires them.
 - Treat genuinely unseen material as limited diagnostic capital. Do not expose holdout content before its first clean attempt.
-- External materials are for private learner use unless explicitly reclassified later.
+- Once exposed, material can move into ordinary practice/review use; unseen status is not permanent.
+- External materials are private learner assets by default. Public-distribution concerns are not part of the normal study workflow.
 
 ## Interaction quality bar
 
