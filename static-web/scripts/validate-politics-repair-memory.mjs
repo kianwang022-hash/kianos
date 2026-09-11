@@ -39,6 +39,19 @@ function sourceNodeIds() {
   return ids;
 }
 
+function deferredFirstReady(chapter, questionId) {
+  for (const checkpoint of chapter?.firstReadyProjection?.embedded_checkpoints || []) {
+    const row = (checkpoint?.deferred_questions || []).find((entry) => String(entry?.question_id || '') === String(questionId));
+    if (!row) continue;
+    return {
+      ...row,
+      embedded_natural_unit_id: String(checkpoint?.embedded_natural_unit_id || ''),
+      runtime_natural_unit_id: String(checkpoint?.runtime_natural_unit_id || '')
+    };
+  }
+  return null;
+}
+
 const sourceIds = sourceNodeIds();
 const memoryFiles = jsonFiles('.memory.json');
 const repairFiles = jsonFiles('.repair.json');
@@ -96,21 +109,33 @@ for (const file of repairFiles) {
   const questions = new Map(chapter.units.flatMap((unit) => unit.questions.map((q) => [q.id, { q, unit }])));
 
   for (const [questionId, repair] of Object.entries(data?.repairs || {})) {
-    const resolved = questions.get(questionId);
-    if (!resolved) {
-      fail(`${rel}:${questionId} is not a resolved Current chapter question`);
-      continue;
-    }
     if (!repair?.owner_natural_unit_id) fail(`${rel}:${questionId} missing owner_natural_unit_id`);
-    if (!resolved.unit.representedNaturalUnitIds.includes(repair.owner_natural_unit_id)) {
-      fail(`${rel}:${questionId} owner ${repair.owner_natural_unit_id} is outside rendered Current Unit ownership`);
-    }
-    if (!resolved.q.repair?.current_unit_hits?.length) fail(`${rel}:${questionId} has no current_unit_hits after enrichment`);
     if (!repair?.tested_node) fail(`${rel}:${questionId} missing tested_node`);
     if (!repair?.lecture_return) fail(`${rel}:${questionId} missing lecture_return`);
     if (!Object.prototype.hasOwnProperty.call(repair, 'precision_candidate')) {
       fail(`${rel}:${questionId} must make an explicit precision admission decision`);
     }
+
+    const resolved = questions.get(questionId);
+    if (!resolved) {
+      const deferred = deferredFirstReady(chapter, questionId);
+      if (!deferred) {
+        fail(`${rel}:${questionId} is neither a rendered Current question nor an explicitly deferred first-ready question`);
+        continue;
+      }
+      if (deferred.embedded_natural_unit_id !== repair.owner_natural_unit_id) {
+        fail(`${rel}:${questionId} deferred owner ${deferred.embedded_natural_unit_id} disagrees with repair owner ${repair.owner_natural_unit_id}`);
+      }
+      if (!deferred.first_ready_natural_unit_id) {
+        fail(`${rel}:${questionId} deferred repair is missing first_ready_natural_unit_id`);
+      }
+      continue;
+    }
+
+    if (!resolved.unit.representedNaturalUnitIds.includes(repair.owner_natural_unit_id)) {
+      fail(`${rel}:${questionId} owner ${repair.owner_natural_unit_id} is outside rendered Current Unit ownership`);
+    }
+    if (!resolved.q.repair?.current_unit_hits?.length) fail(`${rel}:${questionId} has no current_unit_hits after enrichment`);
   }
 }
 
