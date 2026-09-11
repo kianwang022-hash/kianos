@@ -1,0 +1,28 @@
+---
+import Base from '../../../layouts/Base.astro';
+import WritingExamWorkspace from '../../../components/WritingExamWorkspace.astro';
+import { listWritingExamRuntimeTasks, loadWritingExamRuntimeTask } from '../../../lib/englishWritingExamRuntime.mjs';
+import { listWritingSyntheticTasks } from '../../../lib/englishWritingSynthetic.mjs';
+
+export function getStaticPaths() {
+  return listWritingExamRuntimeTasks().map((task) => ({
+    params: { id: task.id },
+    props: { writingExamId: task.id }
+  }));
+}
+
+const { writingExamId } = Astro.props;
+const task = loadWritingExamRuntimeTask(writingExamId);
+const syntheticIds = listWritingSyntheticTasks().map((item) => item.id);
+---
+<Base
+  title={task.title}
+  kicker="English · Writing · Clean True-Exam Attempt"
+  description="Post-synthetic whole-essay runtime using the learner-safe Current Writing source projection."
+  sourcePath={task.sourcePath}
+  sourceHash={task.sourceHash}
+  objectId={task.id}
+  active="home"
+>
+  <WritingExamWorkspace task={task} syntheticIds={syntheticIds} />
+</Base>
