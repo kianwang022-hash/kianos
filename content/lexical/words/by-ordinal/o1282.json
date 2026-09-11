@@ -12,17 +12,103 @@
       "core_clusters": [],
       "core_meaning_cn": "精致；微妙；脆弱",
       "core_meaning_en": "fine, subtle, fragile, or requiring careful handling",
-      "mental_model_cn": "精致；微妙；脆弱",
-      "mental_model_en": ""
+      "mental_model_cn": "细而敏感：可以是精细，也可以因为脆弱或局势微妙而需要轻柔、谨慎处理",
+      "mental_model_en": "fine or sensitive enough to require careful handling"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:confusables:delicate:de76d12cd5263840"
+      "deep:deep:confusables:delicate:de76d12cd5263840",
+      "secondary:deep:secondary_senses:delicate:81f94d06a4a25ddd8273",
+      "secondary:deep:secondary_senses:delicate:c22be79e80c20b558eca"
     ],
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "boundary": "用于人、身体、物品等：容易受伤、损坏或破碎，需要轻柔对待",
+        "codex_reviewed": true,
+        "definition_cn": "脆弱的；易碎的；娇弱的",
+        "definition_en": "easily damaged, broken, or hurt; fragile",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:current-reference:delicate:fragile",
+            "evidence_status": "semantic_auditor_verified",
+            "source_labels": [
+              "merged reference senses"
+            ],
+            "source_locator": "reference_senses:sense:delicate:6ead081b7497547f|sense:delicate:6bfa6fdceaa55907",
+            "source_path": "content/lexical/words/by-ordinal/o1282.json",
+            "source_type": "current_owner_reference"
+          }
+        ],
+        "fact_id": "deep:secondary_senses:delicate:81f94d06a4a25ddd8273",
+        "family_sources": [
+          "sense:delicate:6bfa6fdceaa55907"
+        ],
+        "label_en": "fragile or easily hurt",
+        "level": "L2",
+        "meaning_cn": "脆弱；易受损",
+        "module": "secondary_senses",
+        "pattern": null,
+        "pos": "adjective",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:delicate:6ead081b7497547f",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "reading",
+          "cloze"
+        ],
+        "verification_status": "semantic_auditor_verified",
+        "writing_safe": true
+      },
+      {
+        "boundary": "用于问题、局势、谈判、关系等：微妙敏感，处理不当容易出问题",
+        "codex_reviewed": true,
+        "definition_cn": "微妙的；敏感的；需要谨慎处理的",
+        "definition_en": "subtle or sensitive and requiring careful handling",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:current-reference:delicate:subtle",
+            "evidence_status": "semantic_auditor_verified",
+            "source_labels": [
+              "merged reference sense"
+            ],
+            "source_locator": "reference_senses:sense:delicate:f01790ebf8855a06",
+            "source_path": "content/lexical/words/by-ordinal/o1282.json",
+            "source_type": "current_owner_reference"
+          }
+        ],
+        "fact_id": "deep:secondary_senses:delicate:c22be79e80c20b558eca",
+        "family_sources": [],
+        "label_en": "subtle and requiring careful handling",
+        "level": "L2",
+        "meaning_cn": "微妙敏感；需谨慎处理",
+        "module": "secondary_senses",
+        "pattern": null,
+        "pos": "adjective",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:delicate:f01790ebf8855a06",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "semantic_auditor_verified",
+        "writing_safe": true
+      }
+    ],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -51,17 +137,17 @@
       }
     ],
     "verification_summary": {
-      "candidate_fact_count": 1,
+      "candidate_fact_count": 3,
       "deep_modules": {
         "confusables": "completed",
         "constructions": "no_valid_content",
-        "secondary_senses": "no_valid_content",
+        "secondary_senses": "completed",
         "semantic_contrast": "no_valid_content",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 1,
+      "published_fact_count": 3,
       "rejected_fact_count": 0,
       "runtime_model_calls": false
     },
@@ -254,7 +340,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1281-1288.json",
     "source_content_hash": "9de88feb2b2bed1d5d2c157c455bfaed7122e8a1b8b9df3239f56d8da086c43f",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
