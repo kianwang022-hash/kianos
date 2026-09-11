@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
+import {
+  listTranslationSets,
+  loadTranslationById,
+  loadTranslationReferencesById
+} from '../../lib/englishTranslation.mjs';
+
+export function getStaticPaths() {
+  return listTranslationSets().map((item) => ({
+    params: { id: item.id },
+    props: { translationId: item.id }
+  }));
+}
+
+const { translationId } = Astro.props;
+const translation = loadTranslationById(translationId);
+const reference = loadTranslationReferencesById(translationId);
+---
+<Base
+  title={translation.title}
+  kicker="English · Translation Current"
+  description="Clean production first; delayed reference comparison; focused repair; learner reconstruction."
+  sourcePath={translation.sourcePaths.questions}
+  sourceHash={translation.sourceHashes.renderedObject}
+  objectId={translation.objectId}
+  active="home"
+>
+  <TranslationWorkspace translation={translation} reference={reference} />
+</Base>
