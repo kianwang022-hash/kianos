@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 import '../styles/reading.css';
 import '../styles/reading-interaction.css';
+import '../styles/reading-repair.css';
 import '../styles/reading-navigation.css';
 import ReadingWorkspace from '../components/ReadingWorkspace.astro';
 import ReadingPassageNavigator from '../components/ReadingPassageNavigator.astro';
+import ReadingRepairCoach from '../components/ReadingRepairCoach.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { loadDefaultReading } from '../lib/englishReading.mjs';
 
@@ -27,6 +29,7 @@ const pendingDescription = sourceState.status === 'invalid'
     <>
       <ReadingWorkspace reading={reading} />
       <ReadingPassageNavigator reading={reading} />
+      <ReadingRepairCoach />
     </>
   ) : (
     <section class="migrationPending">
