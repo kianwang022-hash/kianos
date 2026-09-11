@@ -70,14 +70,14 @@ const lanes = [
     label: '政治',
     href: `${base}politics/`,
     current: politics.status === 'ready' ? 'Ready' : 'Partial',
-    note: 'Current 内容、章节导航、肖1000验证与最小修复已接通；Continue/session resume 与 compact Return/Handoff 仍是 shared-baseline gap。',
+    note: 'Current 内容、章节导航、肖1000验证、最小修复、最近章节 Continue 与 Wrong/Uncertain Daily Handoff 已接通；下一步是代表章节真实使用验证。',
     capabilities: [
       ['Current', politics.status === 'ready' ? 'Ready' : 'Partial'],
-      ['Continue', 'Partial'],
+      ['Continue', 'Ready'],
       ['Navigate', 'Ready'],
       ['Repair / Review', 'Ready'],
       ['Verify', 'Ready'],
-      ['Return / Handoff', 'Partial'],
+      ['Return / Handoff', 'Ready'],
       ['Deferred', 'Shared'],
       ['Validation', 'Learner-use pending']
     ]
