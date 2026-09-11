@@ -1,0 +1,136 @@
+<span data-reading-transfer-evidence-root hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot) {
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const basePath = readingRoot.getAttribute('data-reading-base') || '/';
+    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const watchKey = 'kianos-reading-watch-signals-v1';
+    const reviewUrl = `${basePath}reading-review/${encodeURIComponent(readingKey)}.json`;
+    const questions = [...readingRoot.querySelectorAll('[data-question]')];
+    let running = false;
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    };
+    const questionId = (question) => question?.getAttribute('data-question') || '';
+    const expected = (question) => {
+      try {
+        const value = JSON.parse(question?.getAttribute('data-answer') || '""');
+        return Array.isArray(value) ? value.map(String) : value ? [String(value)] : [];
+      } catch { return []; }
+    };
+    const sameAnswer = (actual, correct) => {
+      const left = (Array.isArray(actual) ? actual : actual ? [actual] : []).map(String).sort();
+      const right = (Array.isArray(correct) ? correct : correct ? [correct] : []).map(String).sort();
+      return left.length === right.length && left.every((value, index) => value === right[index]);
+    };
+    const stableCorrect = (question, attempt) => {
+      const id = questionId(question);
+      if (!id || attempt.results?.[id] !== 'correct') return false;
+      if ((attempt.uncertain || []).includes(id)) return false;
+      const path = (attempt.trajectory?.[id] || []).map((step) => String(step?.answer || '')).filter(Boolean);
+      if (path.length !== 1) return false;
+      return sameAnswer(attempt.answers?.[id], expected(question));
+    };
+    const diagnosesOnWrongOptions = (question, review) => {
+      const correct = new Set(expected(question));
+      const codes = new Set();
+      Object.entries(review?.optionDiagnosis || {}).forEach(([label, diagnoses]) => {
+        if (correct.has(String(label))) return;
+        (Array.isArray(diagnoses) ? diagnoses : []).forEach((code) => {
+          if (code && code !== 'SUPPORTED') codes.add(String(code));
+        });
+      });
+      return codes;
+    };
+
+    const recordTransfer = async () => {
+      if (running) return;
+      running = true;
+      try {
+        const attempt = readJson(attemptKey, {});
+        if (!attempt.submitted || attempt.reviewUnlocked === false || !attempt.submittedAt) return;
+
+        const watchStore = readJson(watchKey, { version: 1, signals: [] });
+        const signals = Array.isArray(watchStore.signals) ? watchStore.signals : [];
+        const eligible = signals.filter((signal) =>
+          signal?.status === 'WATCH'
+          && signal?.family === 'JUDGE'
+          && signal?.passageId
+          && signal.passageId !== readingKey
+          && Array.isArray(signal.subtypeCodes)
+          && signal.subtypeCodes.length > 0
+          && signal.reviewedAt
+          && new Date(attempt.submittedAt).getTime() > new Date(signal.reviewedAt).getTime()
+        );
+        if (!eligible.length) return;
+
+        const response = await fetch(reviewUrl, { headers: { Accept: 'application/json' } });
+        if (!response.ok) return;
+        const payload = await response.json();
+        if (!payload || payload.objectId !== readingKey || typeof payload.questions !== 'object') return;
+
+        let changed = false;
+        const nextSignals = signals.map((signal) => {
+          if (!eligible.some((item) => item.signalId === signal.signalId)) return signal;
+          const priorCodes = new Set(signal.subtypeCodes || []);
+          const priorTask = String(signal.questionTask || '');
+          const evidence = Array.isArray(signal.transferEvidence) ? [...signal.transferEvidence] : [];
+          const seenKeys = new Set(evidence.map((item) => `${item?.passageId}:${item?.questionId}`));
+
+          questions.forEach((question) => {
+            if (!stableCorrect(question, attempt)) return;
+            const id = questionId(question);
+            const review = payload.questions?.[id];
+            if (!review) return;
+            if (priorTask && review.questionTask && priorTask !== review.questionTask) return;
+
+            const candidateCodes = diagnosesOnWrongOptions(question, review);
+            const matched = [...priorCodes].filter((code) => candidateCodes.has(code));
+            if (!matched.length) return;
+            const key = `${readingKey}:${id}`;
+            if (seenKeys.has(key)) return;
+
+            evidence.push({
+              passageId: readingKey,
+              questionId: id,
+              matchedSubtypeCodes: matched,
+              attemptSubmittedAt: attempt.submittedAt,
+              evidenceKind: 'STABLE_CORRECT_DISTINCT_PASSAGE',
+              recordedAt: new Date().toISOString()
+            });
+            seenKeys.add(key);
+            changed = true;
+          });
+
+          if (!changed && evidence.length === (signal.transferEvidence || []).length) return signal;
+          return {
+            ...signal,
+            transferEvidence: evidence.slice(-8),
+            transferSuccessCount: evidence.length,
+            updatedAt: new Date().toISOString()
+          };
+        });
+
+        if (changed) writeJson(watchKey, { version: 1, signals: nextSignals.slice(-200) });
+      } catch {
+        // Transfer matching is optional evidence. Fail quietly rather than interrupt practice.
+      } finally {
+        running = false;
+      }
+    };
+
+    const attempt = readJson(attemptKey, {});
+    if (attempt.submitted && attempt.reviewUnlocked !== false) void recordTransfer();
+    readingRoot.querySelector('[data-reading-submit]')?.addEventListener('click', () => {
+      window.setTimeout(() => { void recordTransfer(); }, 30);
+    });
+  }
+</script>
