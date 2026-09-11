@@ -8,6 +8,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 
 const LEXICAL_MANIFEST = 'content/lexical/manifest.json';
 const ANSWER_ORDINAL = 209;
+let lexicalSnapshotCache = null;
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -36,6 +37,8 @@ function clone(value) {
 }
 
 function lexicalManifestSnapshot() {
+  if (lexicalSnapshotCache) return lexicalSnapshotCache;
+
   const manifest = readJson(LEXICAL_MANIFEST);
   if (manifest?.status !== 'CURRENT_NATURAL_OWNER' || manifest?.semantic_authority !== true) {
     throw new Error('CURRENT_LEXICAL_MANIFEST_NOT_AUTHORITATIVE');
@@ -56,7 +59,8 @@ function lexicalManifestSnapshot() {
     throw new Error('CURRENT_LEXICAL_RELATION_MANIFEST_NOT_AUTHORITATIVE');
   }
 
-  return { manifest, wordManifest, relationManifest };
+  lexicalSnapshotCache = { manifest, wordManifest, relationManifest };
+  return lexicalSnapshotCache;
 }
 
 function wordOwnerPath(wordManifest, ordinal) {
@@ -122,12 +126,48 @@ export function inspectLexicalSources() {
   };
 }
 
+export function listLexicalOrdinals() {
+  const { wordManifest } = lexicalManifestSnapshot();
+  const count = Number(wordManifest.word_count || 0);
+  if (!Number.isInteger(count) || count < 1) throw new Error('CURRENT_LEXICAL_WORD_COUNT_INVALID');
+  return Array.from({ length: count }, (_, index) => index + 1);
+}
+
+export function listLexicalWordSummaries() {
+  const { wordManifest } = lexicalManifestSnapshot();
+  return listLexicalOrdinals().map((ordinal) => {
+    const sourcePath = wordOwnerPath(wordManifest, ordinal);
+    const owner = readJson(sourcePath);
+    if (owner?.schema !== 'kianos.lexical.word_owner.v1' || owner?.ordinal !== ordinal || !owner?.record) {
+      throw new Error(`CURRENT_LEXICAL_WORD_OWNER_SUMMARY_INVALID:${ordinal}`);
+    }
+    const record = owner.record;
+    const senses = Array.isArray(record.senses) ? record.senses : [];
+    const constructions = Array.isArray(record.constructions) ? record.constructions : [];
+    const fixedPatternCount = senses.reduce((count, sense) => count + (sense.collocations || []).filter((item) => item.exam_value === 'fixed_pattern').length, 0);
+    const relationCount = Array.isArray(owner.relation_refs) ? owner.relation_refs.length : 0;
+    return {
+      objectId: owner.word_id,
+      ordinal,
+      word: record.word || owner.word || '',
+      coreCn: record.core_concept?.core_meaning_cn || '',
+      coreEn: record.core_concept?.core_meaning_en || '',
+      senseCount: senses.length,
+      promptCount: constructions.length + fixedPatternCount,
+      relationCount
+    };
+  });
+}
+
 export function loadLexicalWordByOrdinal(ordinal) {
   if (!Number.isInteger(ordinal) || ordinal < 1) {
     throw new Error(`CURRENT_LEXICAL_ORDINAL_INVALID:${ordinal}`);
   }
 
   const { wordManifest } = lexicalManifestSnapshot();
+  const maxOrdinal = Number(wordManifest.word_count || 0);
+  if (ordinal > maxOrdinal) throw new Error(`CURRENT_LEXICAL_ORDINAL_OUT_OF_RANGE:${ordinal}`);
+
   const sourcePath = wordOwnerPath(wordManifest, ordinal);
   const owner = readJson(sourcePath);
   if (owner?.schema !== 'kianos.lexical.word_owner.v1') {
