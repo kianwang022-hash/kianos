@@ -1,0 +1,178 @@
+{
+  "schema": "kianos.xizong.learning_acceptance.v1",
+  "status": "CURRENT",
+  "authority": "LEARNING_ACCEPTANCE_REAUDIT",
+  "standard": {
+    "path": "LEARNING_ACCEPTANCE.md",
+    "sha": "3287aae048f94d10e74ca3488556179265edab63"
+  },
+  "audit_base": {
+    "branch": "main",
+    "commit": "7452f2d2df1f4964322368c8bbd61326b4a9aeaf",
+    "rule": "Gate status records only what is supported on this audited main@HEAD. Build success, file count, page existence and question inventory size are evidence only and never substitute for a learning gate."
+  },
+  "gate_legend": {
+    "PASS": "Current evidence is sufficient for this gate.",
+    "PENDING": "The necessary owner/runtime may exist, but this acceptance audit has not yet established the gate.",
+    "FAIL": "A concrete learner-path blocker is present on the audited Current.",
+    "USER_PENDING": "Only real learner use can close this gate."
+  },
+  "modules": {
+    "A1_circulation": {
+      "owners": [
+        "content/xizong/knowledge/systems/a1-circulation/system.json",
+        "content/xizong/knowledge/systems/a1-circulation/blocks/",
+        "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
+        "content/xizong/knowledge/learner/study-policy.json"
+      ],
+      "gates": {
+        "S": {
+          "status": "PASS",
+          "evidence": [
+            "content/xizong/knowledge/manifest.json is CURRENT and resolves System medical Core to systems/**/system.json + canonical Block Markdown without legacy fallback.",
+            "A1 has one Chat-approved System owner, 12 canonical Block files, stable System identity, and a deterministic CURRENT 376-question System scope with fail-closed count/hash validation.",
+            "The 376-question scope explicitly does not invent Question-to-Block/KP relations and keeps learner evidence out of shared Current."
+          ]
+        },
+        "K": {
+          "status": "PENDING",
+          "evidence": [
+            "A1 has a substantial canonical System model and 12 canonical medical-Core Blocks, but system.json remains FREEZE_CANDIDATE and this LEARNING_ACCEPTANCE re-audit has not yet completed a Current content-closure pass over the 12 Blocks / 312 KPs."
+          ],
+          "blocker": "Do not promote K from asset presence or historical reputation; re-audit the canonical medical Core for first-learning completeness, semantic ownership, duplication and boundaries."
+        },
+        "L": {
+          "status": "FAIL",
+          "evidence": [
+            "A1 system.json still uses grouped block_route entries rather than the direct learner route consumed by Current Astro.",
+            "A1 has no Current logic_index and no a1-circulation-learning.json first-pass learning-support owner parallel to the accepted A2 pattern.",
+            "static-web/src/lib/xizong.mjs requires a direct block_route and logic_index for projection and requires learning support to match every projected Block/Logic Group."
+          ],
+          "blocker": "The first-learning path is not canonically expressed. Do not manufacture Logic Groups from UI needs or question mappings."
+        },
+        "P": {
+          "status": "FAIL",
+          "evidence": [
+            "listProjectableXizongSystems() filters out systems without a direct block route and logic_index; therefore A1 cannot currently enter the accepted learner-facing System/Block projection."
+          ],
+          "blocker": "Projection is downstream of unresolved A1 Learning semantics."
+        },
+        "R": {
+          "status": "FAIL",
+          "evidence": [
+            "loadXizongSystem('circulation') fails closed with CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE while logic_index is absent.",
+            "A1 System question scope being complete does not make the first-learning Runtime executable."
+          ],
+          "blocker": "No honest A1 learner E2E can start until K/L owners are accepted and projected."
+        },
+        "E": {
+          "status": "PENDING",
+          "evidence": [
+            "The 376-question System scope has explicit boundaries and preserves Wrong/Uncertain repair safety, but Block-level learner evidence cannot be accepted while the A1 first-learning Runtime is unreachable."
+          ]
+        },
+        "U": {
+          "status": "USER_PENDING",
+          "evidence": [
+            "The learner has explicitly stated that circulation study has not started. Engineering state must not be converted into personal progress."
+          ]
+        }
+      },
+      "p0_blockers": [
+        "Complete A1 K content-closure re-audit on Current canonical owners.",
+        "Create/approve A1 learner-route semantics only after K is clear: direct Block route, lossless Logic Group index, first-pass focus/closure support and any required timing/pathway support.",
+        "Only then make A1 projectable and run clean/failure/return Module E2E."
+      ],
+      "do_not_expand": [
+        "Do not touch the restored 376-question scope without new source evidence.",
+        "Do not infer Question-to-KP relations.",
+        "Do not add System Exit features while first learning is blocked.",
+        "Do not use an Astro build to promote K/L/P/R/E."
+      ],
+      "allowed_conclusion": "Source-ready; module Partial."
+    },
+    "A2_respiratory": {
+      "owners": [
+        "content/xizong/knowledge/systems/a2-respiratory/system.json",
+        "content/xizong/knowledge/systems/a2-respiratory/blocks/",
+        "content/xizong/knowledge/learner/a2-respiratory-learning.json",
+        "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+        "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
+        "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+        "content/xizong/knowledge/learner/study-policy.json"
+      ],
+      "gates": {
+        "S": {
+          "status": "PASS",
+          "evidence": [
+            "Current owner manifest forbids legacy runtime fallback and resolves one canonical System owner plus canonical Block medical Core.",
+            "A2 System owner is CURRENT and its 359-question System scope is deterministic, Current-bound and fail-closed by count/hash/Question Truth identity."
+          ]
+        },
+        "K": {
+          "status": "PENDING",
+          "evidence": [
+            "A2 has a CURRENT System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance pass still needs to record an explicit content-closure audit rather than inheriting readiness from CURRENT labels or prior UI work."
+          ],
+          "blocker": "Reconfirm that the canonical assets teach the stable mechanisms/relations/boundaries needed for first learning without duplicate semantic ownership or unnecessary encyclopedic expansion."
+        },
+        "L": {
+          "status": "PASS",
+          "evidence": [
+            "study-policy.json defines Lecture-first first pass, Logic Group closure, KP Recall, Block Recall, System Recall before questions, full System sweep, W/U repair and post-question System Recall.",
+            "a2-respiratory-learning.json provides first-pass focus, stop line, recall spine, and goal/closure support for the complete direct 12-Block / 62-Logic-Group route.",
+            "A2 learning semantics preserve Reserve/Hook/Precision timing and keep Question-to-KP mapping explicit-only."
+          ]
+        },
+        "P": {
+          "status": "PENDING",
+          "evidence": [
+            "XizongBlockV6 visibly implements progressive disclosure, Lecture-first KP learning, non-answer-first Recall, Logic Group closure, Block Recall and optional Outline; System Exit separates closed-book Recall, private holdout and official-question sweep.",
+            "A repository-level projection audit still needs to exercise the complete current A2 journey rather than promoting P from component existence alone."
+          ]
+        },
+        "R": {
+          "status": "PENDING",
+          "evidence": [
+            "Current Runtime contains executable Block learning, Recall, completion gating, Memory, Chat packet/import, System Recall, private holdout, official-question fast-pass and W/U branches.",
+            "Per LEARNING_ACCEPTANCE.md, code existence is insufficient; a current-main Module E2E must exercise stable, failure/uncertainty, Chat-return and later-verification paths before R is promoted."
+          ]
+        },
+        "E": {
+          "status": "PENDING",
+          "evidence": [
+            "Block Runtime stores KP Recall evidence, admits weak items into Memory, preserves evidence history, separates Reserve/Hook from ordinary Memory, and System Exit keeps W/U as repair evidence with precise relations only when reviewed.",
+            "The acceptance pass still needs to verify evidence survives the real E2E transitions and that clean work creates no manufactured debt."
+          ]
+        },
+        "U": {
+          "status": "USER_PENDING",
+          "evidence": [
+            "Real learner use has not yet validated the complete respiratory journey under this acceptance standard."
+          ]
+        }
+      },
+      "p0_blockers": [
+        "Complete A2 K content-closure confirmation on Current owners.",
+        "Run Module E2E acceptance on current main for clean first-pass path, W/U repair + Chat return, System Exit, and evidence/holdout behavior.",
+        "Keep U pending until actual learner study provides friction evidence."
+      ],
+      "do_not_expand": [
+        "Do not add more learning-stage taxonomy or controls before an acceptance failure demands them.",
+        "Do not turn the webpage into a second Lecture.",
+        "Do not call A2 learner-validated before real learner use."
+      ],
+      "allowed_conclusion": "Learning-path accepted; module still Partial pending K/P/R/E acceptance and U real use."
+    }
+  },
+  "next_smallest_meaningful_work": {
+    "priority": [
+      "A1_K_CONTENT_CLOSURE_REAUDIT",
+      "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
+      "A1_P_R_E_MODULE_E2E",
+      "A2_K_CONTENT_CLOSURE_RECONFIRM",
+      "A2_P_R_E_MODULE_E2E"
+    ],
+    "rule": "Advance a gate only from concrete Current evidence. If a stage discovers no real gap, stop expanding and move to the next gate. U always waits for real learner use."
+  }
+}
