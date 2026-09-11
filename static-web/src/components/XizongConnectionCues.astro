@@ -3,51 +3,54 @@ const { block } = Astro.props;
 const groups = block?.logicGroups || [];
 const outgoing = block?.pathways?.outgoing || [];
 const incoming = block?.pathways?.incoming || [];
-const cueByGroup = Object.fromEntries(groups.map((group) => {
-  const cues = [];
-  incoming
-    .filter((row) => row?.target?.logic_group_id === group.groupId)
-    .forEach((row) => cues.push({ kind: 'return', label: '你之前见过', text: row.target.cue }));
-  outgoing
-    .filter((row) => row?.source?.logic_group_id === group.groupId)
-    .forEach((row) => cues.push({
-      kind: row.reserveLearning ? 'reserve' : 'later',
-      label: row.reserveLearning ? '先留个印象' : '后面会接',
-      text: row.source.cue
-    }));
-  return [group.groupId, cues];
-}));
+
+const incomingByGroup = Object.fromEntries(groups.map((group) => [group.groupId, incoming
+  .filter((row) => row?.target?.logic_group_id === group.groupId)
+  .map((row) => ({ kind: 'return', label: '你之前见过', text: row.target.cue }))]));
+
+const outgoingByGroup = Object.fromEntries(groups.map((group) => [group.groupId, outgoing
+  .filter((row) => row?.source?.logic_group_id === group.groupId)
+  .map((row) => ({
+    kind: row.reserveLearning ? 'reserve' : 'later',
+    label: row.reserveLearning ? '先留个印象' : '后面会接',
+    text: row.source.cue
+  }))]));
 ---
-<div data-xizong-connection-cues data-study-object={block.objectId} hidden>
-  <div data-connection-list></div>
-  <script type="application/json" data-connection-payload set:html={JSON.stringify({
-    groups: groups.map((group) => group.groupId),
-    cues: cueByGroup
-  })}></script>
-</div>
+<div data-xizong-connection-incoming hidden></div>
+<div data-xizong-connection-outgoing hidden></div>
+<script type="application/json" data-connection-payload set:html={JSON.stringify({
+  groups: groups.map((group) => group.groupId),
+  incoming: incomingByGroup,
+  outgoing: outgoingByGroup
+})}></script>
 
 <script>
-  const cueRoot = document.querySelector('[data-xizong-connection-cues]');
   const studyRoot = document.querySelector('[data-xizong-v6-block]');
-  if (cueRoot && studyRoot) {
-    let payload = { groups: [], cues: {} };
-    try { payload = JSON.parse(cueRoot.querySelector('[data-connection-payload]')?.textContent || '{}'); } catch {}
-    const logicStage = studyRoot.querySelector('[data-study-stage="logic_group"]');
-    const anchor = logicStage?.querySelector('.xv6LogicTarget') || logicStage?.querySelector('[data-logic-kps]');
-    if (logicStage && anchor) anchor.insertAdjacentElement('afterend', cueRoot);
+  const incomingRoot = document.querySelector('[data-xizong-connection-incoming]');
+  const outgoingRoot = document.querySelector('[data-xizong-connection-outgoing]');
+  const payloadNode = document.querySelector('[data-connection-payload]');
+  if (studyRoot && incomingRoot && outgoingRoot && payloadNode) {
+    let payload = { groups: [], incoming: {}, outgoing: {} };
+    try { payload = JSON.parse(payloadNode.textContent || '{}'); } catch {}
 
-    const list = cueRoot.querySelector('[data-connection-list]');
+    const logicStage = studyRoot.querySelector('[data-study-stage="logic_group"]');
+    const logicAnchor = logicStage?.querySelector('.xv6LogicTarget');
+    if (logicAnchor) logicAnchor.insertAdjacentElement('afterend', incomingRoot);
+
+    const closeStage = studyRoot.querySelector('[data-study-stage="group_close"]');
+    const closeAnchor = closeStage?.querySelector('.xv6GroupClosure');
+    if (closeAnchor) closeAnchor.insertAdjacentElement('afterend', outgoingRoot);
+
     const currentIndex = () => {
       const text = studyRoot.querySelector('[data-logic-counter]')?.textContent || '';
-      const match = text.match(/LG(\d+)/i);
+      const match = text.match(/(\d+)\s*\//);
       return Math.max(0, Number(match?.[1] || 1) - 1);
     };
-    const render = () => {
-      const groupId = payload.groups?.[currentIndex()] || '';
-      const cues = Array.isArray(payload.cues?.[groupId]) ? payload.cues[groupId] : [];
-      cueRoot.hidden = cues.length === 0;
-      list?.replaceChildren();
-      cues.forEach((cue) => {
+
+    const renderRows = (root, rows) => {
+      root.replaceChildren();
+      root.hidden = !rows.length;
+      rows.forEach((cue) => {
         const row = document.createElement('div');
         row.className = `xv6ConnectionCue ${cue.kind || 'later'}`;
         const label = document.createElement('span');
@@ -55,8 +58,14 @@ const cueByGroup = Object.fromEntries(groups.map((group) => {
         const text = document.createElement('p');
         text.textContent = cue.text || '';
         row.append(label, text);
-        list?.appendChild(row);
+        root.appendChild(row);
       });
+    };
+
+    const render = () => {
+      const groupId = payload.groups?.[currentIndex()] || '';
+      renderRows(incomingRoot, Array.isArray(payload.incoming?.[groupId]) ? payload.incoming[groupId] : []);
+      renderRows(outgoingRoot, Array.isArray(payload.outgoing?.[groupId]) ? payload.outgoing[groupId] : []);
     };
 
     const counter = studyRoot.querySelector('[data-logic-counter]');
@@ -66,5 +75,5 @@ const cueByGroup = Object.fromEntries(groups.map((group) => {
 </script>
 
 <style>
-  [data-xizong-connection-cues]{margin:.75rem 0}.xv6ConnectionCue{display:grid;grid-template-columns:92px minmax(0,1fr);gap:.55rem;padding:.45rem 0;border-top:1px solid var(--line,#d9dde5)}.xv6ConnectionCue:first-child{border-top:0}.xv6ConnectionCue span{font-size:.72rem;font-weight:800;opacity:.66}.xv6ConnectionCue p{margin:0;font-size:.86rem;line-height:1.55}.xv6ConnectionCue.return span{color:var(--study-green,#286c57)}.xv6ConnectionCue.reserve{padding:.5rem .6rem;border:0;border-radius:9px;background:var(--soft,#f5f6f8)}
+  [data-xizong-connection-incoming],[data-xizong-connection-outgoing]{margin:.65rem 0}.xv6ConnectionCue{display:grid;grid-template-columns:92px minmax(0,1fr);gap:.55rem;padding:.42rem 0;border-top:1px solid var(--line,#d9dde5)}.xv6ConnectionCue:first-child{border-top:0}.xv6ConnectionCue span{font-size:.72rem;font-weight:800;opacity:.66}.xv6ConnectionCue p{margin:0;font-size:.86rem;line-height:1.55}.xv6ConnectionCue.return span{color:var(--study-green,#286c57)}.xv6ConnectionCue.reserve{padding:.5rem .6rem;border:0;border-radius:9px;background:var(--soft,#f5f6f8)}
 </style>
