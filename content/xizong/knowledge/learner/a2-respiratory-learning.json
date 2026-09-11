@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.xizong.system_learning_support.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "study_policy": "content/xizong/knowledge/learner/study-policy.json",
+  "system_owner": "content/xizong/knowledge/systems/a2-respiratory/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/a2-respiratory/blocks/",
+  "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
+  "rule": "This file may tell the learner what to solve now, when a Logic Group is closed, and how to compress a Block for Recall. It must not restate or override canonical medical Core. Learner-facing UI should present these cues naturally and hide backend policy/routing language.",
+  "blocks": {
+    "respiratory-r01": {
+      "first_pass_focus": "先把正常通气变成一套可测量、可推导的机械语言；后面所有阻塞性/限制性疾病都要调用这里。",
+      "stop_line": "疾病只用来校准方向，不在这里提前展开 COPD、哮喘或间质病的诊断治疗。",
+      "recall_spine": "测量语言 → 通气动力 → 弹性/气道阻力 → 阻塞 vs 限制",
+      "logic_groups": {
+        "respiratory-r01-lg01": {"goal": "建立肺容积、通气量、死腔和肺功能指标的共同测量语言。", "closure": "看到一个指标时，能先判断它在量容积、流量还是有效肺泡通气，而不是把不同层级混在一起。"},
+        "respiratory-r01-lg02": {"goal": "完整跑通一次吸气—呼气：呼吸肌、胸膜压、肺泡压和气流怎样连续变化。", "closure": "改变某个压力或肌肉动作时，能沿压力差预测气流方向和肺容积变化。"},
+        "respiratory-r01-lg03": {"goal": "把顺应性、弹性回缩、气道阻力和呼吸功放到同一套负荷模型里。", "closure": "能解释‘肺太硬’和‘气道太窄’为什么都是费力，但造成的功能方向不同。"},
+        "respiratory-r01-lg04": {"goal": "把前面变量压成阻塞性 vs 限制性的方向坐标。", "closure": "看到典型肺功能方向时，能先定位是气流受限还是肺扩张/容量受限。"}
+      }
+    },
+    "respiratory-r02": {
+      "first_pass_focus": "从肺泡气体跨膜开始，一路追到 VA/Q、Hb 运输和呼吸控制，建立‘氧为什么低、CO₂ 为什么高/低’的共同语言。",
+      "stop_line": "疾病只作为机制例子；此处不提前展开各病种完整诊断治疗。",
+      "recall_spine": "跨膜 → VA/Q → O₂/CO₂运输 → Hb装卸氧 → 呼吸控制",
+      "logic_groups": {
+        "respiratory-r02-lg01": {"goal": "理解气体怎样跨过呼吸膜，以及膜厚度、面积和分压梯度怎样影响弥散。", "closure": "能从呼吸膜改变预测弥散方向，并知道‘通气正常’不等于‘跨膜正常’。"},
+        "respiratory-r02-lg02": {"goal": "用 VA/Q 把通气问题和换气问题分开，并理解高 VA/Q 与低 VA/Q 的两端。", "closure": "面对低氧时，能先问是肺泡没气、没血，还是气血比例失配。"},
+        "respiratory-r02-lg03": {"goal": "把血中气体的分压、饱和度、Hb 和含量分层。", "closure": "不再把 PaO₂/SaO₂ 与 Hb/CaO₂ 当成同一件事，能说清组织供氧还缺哪一层。"},
+        "respiratory-r02-lg04": {"goal": "理解 Hb 装氧/卸氧及氧解离曲线，并用它区分不同低氧问题。", "closure": "给出曲线移动或低氧场景时，能判断 Hb 亲和力、装卸氧和携氧量会怎样变化。"},
+        "respiratory-r02-lg05": {"goal": "理解呼吸中枢和化学感受器怎样调节通气，尤其是 CO₂、O₂ 与慢性适应。", "closure": "能从控制器层解释为什么某些患者通气不足、PaCO₂ 升高，以及为什么慢性状态和急性状态不能套同一规则。"}
+      }
+    },
+    "respiratory-r03": {
+      "first_pass_focus": "把慢支和肺气肿放回同一条 COPD 机制链：结构损伤怎样变成持续气流受限、过度充气和换气失败。",
+      "stop_line": "慢性肺高压/肺心病只保留接口，R9 正式展开；呼吸衰竭与机械通气留到 R12。",
+      "recall_spine": "气道损伤 + 肺泡弹性破坏 → 持续气流受限 → 过度充气/换气失败 → 分期治疗",
+      "logic_groups": {
+        "respiratory-r03-lg01": {"goal": "先把慢性气道炎症、小气道改变和肺气肿结构破坏拼成 COPD 的病理底物。", "closure": "能解释为什么‘气道窄’和‘弹性回缩下降’会共同制造呼气受限。"},
+        "respiratory-r03-lg02": {"goal": "建立 COPD 的身份、典型临床入口和基本病程语言。", "closure": "看到长期咳痰/气促等信息时，能把 COPD 放进正确临床坐标，而不是只靠一个症状认病。"},
+        "respiratory-r03-lg03": {"goal": "把小气道阻塞转换成肺功能、气体潴留和血气的可测量结果。", "closure": "看到 FEV1/FVC、残气/过度充气和血气方向时，能反推主要功能失败。"},
+        "respiratory-r03-lg04": {"goal": "把 COPD 的并发去向和诊断证据放回同一坐标，不让肺心病/呼衰把当前 Block 带跑。", "closure": "能完成 COPD 诊断定位并识别主要并发方向，同时知道哪些要到 R9/R12 再正式展开。"},
+        "respiratory-r03-lg05": {"goal": "区分稳定期长期管理和 AECOPD 急性处理，并把治疗动作对应到当前问题。", "closure": "给出稳定或急性加重场景时，能先选对治疗层级和目标，而不是背一串药。"},
+        "respiratory-r03-lg06": {"goal": "把 COPD 整块压回主链，并把后续肺心病/呼衰接口交出去。", "closure": "不看 KP 列表也能从结构损伤一路讲到功能异常、诊断和治疗，并明确后续去 R9/R12 接什么。"}
+      }
+    },
+    "respiratory-r04": {
+      "first_pass_focus": "把哮喘理解为炎症/高反应底物上的可变气流阻塞，并把‘发作—证据—缓解—长期控制’串起来。",
+      "stop_line": "危重发作需要识别和处理，但通用呼衰/机械通气生理留到 R12。",
+      "recall_spine": "慢性炎症 → 高反应 → 可变阻塞 → 可逆/变异证据 → 缓解+控制 → 危重通气",
+      "logic_groups": {
+        "respiratory-r04-lg01": {"goal": "建立气道慢性炎症与高反应性的底物，解释为什么气道容易突然收缩。", "closure": "能说明哮喘不是单纯‘支气管痉挛’，而是高反应气道在炎症底物上发生可变阻塞。"},
+        "respiratory-r04-lg02": {"goal": "把一次发作从诱因/机制推到喘鸣、呼吸困难等临床表现。", "closure": "能沿气道阻塞机制解释典型发作表现和严重时的通气风险。"},
+        "respiratory-r04-lg03": {"goal": "掌握证明‘可变、可逆气流受限’的客观证据。", "closure": "面对肺功能或变异性证据时，能判断它是否真正支持哮喘，而不是只凭症状。"},
+        "respiratory-r04-lg04": {"goal": "区分缓解药和控制药，并把药物放回‘解除当前阻塞’与‘压低长期炎症风险’两个目标。", "closure": "给出药物或情境时，能先判断它是在救当前发作还是改变长期控制。"},
+        "respiratory-r04-lg05": {"goal": "把急性严重度判断和长期控制层级分开。", "closure": "能先识别危险发作，再在稳定状态下判断长期控制是否达标以及下一步策略。"},
+        "respiratory-r04-lg06": {"goal": "建立哮喘与 COPD、心源性喘息等常见混淆的鉴别树。", "closure": "面对‘喘’这个非特异症状时，能说出决定方向的少数关键证据。"}
+      }
+    },
+    "respiratory-r05": {
+      "first_pass_focus": "先定位感染发生的空间和获得环境，再用病原线索、严重度与证据决定病原模型和处理方向。",
+      "stop_line": "不把每个病原体扩成微生物百科；ARDS 等共同终末功能失败留到 R12。",
+      "recall_spine": "获得环境 → 病变空间 → 病原线索/证据 → 严重度 → 并发去向",
+      "logic_groups": {
+        "respiratory-r05-lg01": {"goal": "先回答在哪里得、病变在哪、病原证据强不强、病人重不重。", "closure": "拿到肺炎病例时，能先建立环境—空间—证据—严重度四个坐标，而不是马上猜病原。"},
+        "respiratory-r05-lg02": {"goal": "用大叶、小叶和间质等病理空间理解不同影像/体征为什么不同。", "closure": "能把肺炎的结构分布和典型病理/影像表现对应起来。"},
+        "respiratory-r05-lg03": {"goal": "把常考病原压成少数可识别模型，而不是孤立背菌名。", "closure": "给出获得环境、宿主和临床/影像线索时，能优先匹配最可能的病原模型。"},
+        "respiratory-r05-lg04": {"goal": "把体征、部位、空洞和病例信息整合成诊断/处理算法。", "closure": "面对完整病例时，能从空间和严重度出发，判断下一步检查和治疗方向。"}
+      }
+    },
+    "respiratory-r06": {
+      "first_pass_focus": "把支扩和肺脓肿都放回‘结构异常—分泌物/感染—引流失败’这条链，重点学定位、危险点和处理。",
+      "stop_line": "TB 空洞与肿瘤空洞只作鉴别接口，正式内容分别在 R7/R11。",
+      "recall_spine": "结构层级 → 支扩三股力/痰液循环 → 肺脓肿三入口 → 抗感染+引流+危险处理",
+      "logic_groups": {
+        "respiratory-r06-lg01": {"goal": "把支气管扩张的结构破坏、病因、位置、临床和 HRCT 拼成一个模型。", "closure": "看到反复咳脓痰/咯血和典型影像时，能从结构异常解释症状并完成定位。"},
+        "respiratory-r06-lg02": {"goal": "围绕排痰、感染和咯血风险学习支扩处理与鉴别。", "closure": "能区分稳定清痰、感染加重和危险咯血三种处理重点。"},
+        "respiratory-r06-lg03": {"goal": "用来源/入口区分肺脓肿三类，并把抗感染与引流放回共同治疗逻辑。", "closure": "给出病史和影像时，能判断主要来源，并知道治疗为什么不能只靠抗生素或只靠引流。"},
+        "respiratory-r06-lg04": {"goal": "把‘肺内空腔’做成一个综合鉴别入口。", "closure": "看到空腔时，能先按感染、结核、肿瘤等方向分流，并知道哪些正式交给 R7/R11。"}
+      }
+    },
+    "respiratory-r07": {
+      "first_pass_focus": "从结核菌—细胞免疫—肉芽肿/干酪坏死出发，理解原发/继发/HIV宿主状态怎样决定临床类型、传播和治疗。",
+      "stop_line": "HIV/免疫学只保留影响结核表现所需部分，不在这里展开完整免疫系统。",
+      "recall_spine": "感染免疫 → 肉芽肿/干酪 → 原发/继发/HIV → 六型/播散 → 活动/传染 → 化疗",
+      "logic_groups": {
+        "respiratory-r07-lg01": {"goal": "建立结核传播、细胞免疫和肉芽肿/干酪坏死的病理底座。", "closure": "能解释结核为什么既可能被局限，也可能坏死、空洞并继续传播。"},
+        "respiratory-r07-lg02": {"goal": "用宿主免疫状态区分原发、继发和 HIV 背景下的结核。", "closure": "给出宿主状态和病变分布时，能判断哪种结核模式更合理。"},
+        "respiratory-r07-lg03": {"goal": "把六型、空洞、播散和肺外结核放进同一疾病谱。", "closure": "能从病变范围与播散方式定位主要类型，而不是孤立背六个名称。"},
+        "respiratory-r07-lg04": {"goal": "建立结核典型症状体征，但保持它们只是诊断证据的一层。", "closure": "看到消耗症状和呼吸症状时，能用它们提高怀疑而不把症状当确诊。"},
+        "respiratory-r07-lg05": {"goal": "把影像、PPD、痰菌证据、活动性和传染性分层。", "closure": "能回答‘有没有感染、有没有活动、有没有传染性’分别需要什么证据。"},
+        "respiratory-r07-lg06": {"goal": "掌握抗结核化疗原则、核心药物和初治/耐药处理框架。", "closure": "面对治疗场景时，能先守住联合、规律、足量、全程等原则，再处理具体方案差异。"},
+        "respiratory-r07-lg07": {"goal": "把宿主、类型、证据、传染性和治疗压成完整病例路径。", "closure": "能从一个结核病例走完‘怀疑→证据→类型/活动→传染→治疗’。"}
+      }
+    },
+    "respiratory-r08": {
+      "first_pass_focus": "先建立限制性通气、弥散下降和低氧的共同语言，再分流到 IPF、结节病、肺泡蛋白沉着等病种。",
+      "stop_line": "慢性肺高压/右心改变留到 R9；呼衰与通气支持留到 R12。",
+      "recall_spine": "限制/弥散低氧 → 临床入口 → HRCT/BALF/组织 → 疾病分流",
+      "logic_groups": {
+        "respiratory-r08-lg01": {"goal": "建立间质病共同的限制—弥散—低氧功能语言。", "closure": "看到限制性肺功能、DLCO 下降和低氧时，能先想到间质/肺实质层问题。"},
+        "respiratory-r08-lg02": {"goal": "掌握 IPF 的关键证据、影像和治疗方向。", "closure": "能用 HRCT 等证据把 IPF 放到正确诊断路径，并知道治疗目标不是简单‘抗感染’。"},
+        "respiratory-r08-lg03": {"goal": "把结节病的证据和分期与 TB 鉴别放在一起。", "closure": "面对双肺门/纵隔淋巴结等线索时，能在结节病与结核之间抓住关键分流证据。"},
+        "respiratory-r08-lg04": {"goal": "识别肺泡蛋白沉着、过敏性肺炎和嗜酸性肺炎三个特殊模型。", "closure": "给出宿主、暴露、影像/BALF 等线索时，能把这三类从一般间质病中分出来。"},
+        "respiratory-r08-lg05": {"goal": "把硅尘暴露、结节、分期和并发症串起来。", "closure": "看到职业暴露和典型影像时，能从暴露史推到硅肺并识别重要并发方向。"}
+      }
+    },
+    "respiratory-r09": {
+      "first_pass_focus": "把慢性 PVR 升高造成的右室适应，与急性 PE 造成的右室负荷骤增放在同一肺血管模型里比较。",
+      "stop_line": "COPD/ILD 等上游病因只调用，不重新教学；通用呼衰支持留到 R12。",
+      "recall_spine": "PVR慢升→肥厚；急阻塞→扩张/休克；证据→抗凝/溶栓",
+      "logic_groups": {
+        "respiratory-r09-lg01": {"goal": "建立 PVR→PAP→右室负荷→形态/体征的慢性肺高压主链。", "closure": "能从 PVR 长期升高推到右室重构和 P2 等线索。"},
+        "respiratory-r09-lg02": {"goal": "把慢性肺心病的代偿、失代偿、检查和治疗放回右室后负荷模型。", "closure": "能判断当前是慢性代偿还是右心失代偿，并知道处理为何首先要处理上游肺病/缺氧。"},
+        "respiratory-r09-lg03": {"goal": "单独掌握 IPAH 的检查与治疗入口。", "closure": "能把 IPAH 从继发性肺高压中分出来，并知道确诊与特异治疗的大方向。"},
+        "respiratory-r09-lg04": {"goal": "从 DVT 到 PE，跑通急性肺血管阻塞、右室负荷、识别与确诊。", "closure": "面对突发气促/低氧/右心负荷和 DVT 风险时，能沿血流动力学迅速定位 PE。"},
+        "respiratory-r09-lg05": {"goal": "把抗凝、溶栓和危险分层对应到不同 PE 风险状态，并和慢性肺高压比较。", "closure": "能先判断是否血流动力学不稳定，再决定抗凝/溶栓层级，并说清急性右室扩张与慢性肥厚的区别。"}
+      }
+    },
+    "respiratory-r10": {
+      "first_pass_focus": "把胸腔里的液体/气体/血液和胸壁失稳都放回‘压力—肺扩张—纵隔—循环’坐标，再决定引流和急救。",
+      "stop_line": "结核/恶性胸水只保留胸膜鉴别所需证据，正式病种内容分别回 R7/R11。",
+      "recall_spine": "内容物 → 压力/纵隔 → 胸壁稳定 → 血流动力学 → 急救动作",
+      "logic_groups": {
+        "respiratory-r10-lg01": {"goal": "建立血胸/胸水形成和渗出-漏出液的判别语言。", "closure": "拿到胸水化验时，能先完成性质判断并识别血性胸腔内容物的危险方向。"},
+        "respiratory-r10-lg02": {"goal": "把胸水的床旁体征、纵隔方向、影像、穿刺和并发症串起来。", "closure": "能从‘有多少液体、纵隔往哪、下一步怎么取证’形成完整检查路径。"},
+        "respiratory-r10-lg03": {"goal": "区分结核/恶性胸水和急慢性脓胸的关键证据与处理方向。", "closure": "面对胸水病因时，能抓住少数高价值化验/细胞学线索，并知道何时需要引流或病因治疗。"},
+        "respiratory-r10-lg04": {"goal": "识别气胸三分类，尤其张力性气胸，并掌握胸腔引流的关键动作。", "closure": "看到危及循环的气胸时能先救命再完善检查，并能说出引流的基本位置和时机。"},
+        "respiratory-r10-lg05": {"goal": "把肋骨骨折、连枷胸、创伤性窒息和开胸指征放回胸壁稳定/循环危险模型。", "closure": "面对胸部创伤时，能先判断是否存在呼吸力学或血流动力学威胁，再决定急救与手术层级。"}
+      }
+    },
+    "respiratory-r11": {
+      "first_pass_focus": "用位置、组织学、扩展和分期组织肺癌；纵隔病变先按空间定位。",
+      "stop_line": "肿瘤总论只调用必要语言；R11-SG01 类癌综合征来源冲突保持 Source Gap，不猜单一答案。",
+      "recall_spine": "位置 → 组织 → 扩展 → 证据 → TNM/可切除性 → 治疗；纵隔先分区",
+      "logic_groups": {
+        "respiratory-r11-lg01": {"goal": "建立肺癌最小语言：位置、组织学、隐性/早期边界和病理类型。", "closure": "面对肺部肿瘤时，能先用位置和组织学把后续症状、分期和治疗放到正确坐标。"},
+        "respiratory-r11-lg02": {"goal": "把局部阻塞、侵犯、Pancoast 和远处转移统一成‘肿瘤往哪里扩展’。", "closure": "看到症状时，能反推是支气管阻塞、局部侵犯还是转移造成，而不是孤立背表现。"},
+        "respiratory-r11-lg03": {"goal": "识别副癌/异位激素线索，同时明确当前类癌 Source Gap 的证据边界。", "closure": "能把副癌表现和直接肿瘤压迫/转移区分；遇到类癌冲突不自行补造唯一答案。"},
+        "respiratory-r11-lg04": {"goal": "把筛查、影像、取材、PET 和基因检测按‘发现—定性—分期—分子分层’排序。", "closure": "面对疑似肺癌时，能说明每种检查解决的是发现、组织确诊、分期还是靶点问题。"},
+        "respiratory-r11-lg05": {"goal": "把 SCLC/NSCLC、靶点、TNM 和可切除性整合到治疗选择。", "closure": "能从组织学和分期先判断是否可能手术，再进入靶向/放化疗等治疗层级。"},
+        "respiratory-r11-lg06": {"goal": "建立纵隔分区到常见病变的空间定位法。", "closure": "看到纵隔占位时，先回答‘在哪个区’，再缩小病变范围。"}
+      }
+    },
+    "respiratory-r12": {
+      "first_pass_focus": "把前面所有呼吸疾病汇总到两个终末问题：氧合失败和通气失败，并学会支持生命同时避免治疗伤害。",
+      "stop_line": "上游病因只调用其故障层，不在终末 Block 重新教学；重点是失败类型、证据和支持策略。",
+      "recall_spine": "氧合失败 vs 通气失败 → 证据 → 支持 → 防治疗伤害",
+      "logic_groups": {
+        "respiratory-r12-lg01": {"goal": "从 ARDS 屏障损伤跑到肺泡充填/塌陷、分流低氧和右心负荷。", "closure": "能解释为什么 ARDS 以难纠正低氧为核心，并从肺损伤推到肺血管/右心后果。"},
+        "respiratory-r12-lg02": {"goal": "用 P/F、心源性鉴别和影像把 ARDS 从‘低氧很多病’中定位出来。", "closure": "给出血气、影像和心脏证据时，能完成 ARDS 严重度与心源性肺水肿的关键分流。"},
+        "respiratory-r12-lg03": {"goal": "把氧疗、PEEP、小潮气量、俯卧和液体管理统一成‘改善氧合同时保护肺和循环’。", "closure": "能说清每个支持动作在改善什么，以及为什么 PEEP/通气本身也会带来损伤或循环代价。"},
+        "respiratory-r12-lg04": {"goal": "建立Ⅰ/Ⅱ型呼衰的血气边界，并把氧浓度和通气驱动放回不同病理背景。", "closure": "看到 PaO₂/PaCO₂ 时能先判Ⅰ型还是Ⅱ型，再决定氧疗/通气支持方向，避免机械套规则。"},
+        "respiratory-r12-lg05": {"goal": "整合慢性Ⅱ型酸碱代偿、机械通气伤害与终末病例算法。", "closure": "能把慢性高碳酸血症的代偿、机械通气风险和综合处理压成一套终末呼吸衰竭模型。"}
+      }
+    }
+  }
+}
