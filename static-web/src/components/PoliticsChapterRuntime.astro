@@ -30,7 +30,13 @@ const guideLabel = chapter.subject === 'history'
         ? '先分清边界和情境'
         : '先看这段关系怎么推';
 ---
-<section class={`politicsStudy subject-${chapter.subject}`}>
+<section
+  class={`politicsStudy subject-${chapter.subject}`}
+  data-politics-runtime
+  data-subject={chapter.subject}
+  data-chapter={chapter.code || chapter.chapter || ''}
+  data-title={chapter.title}
+>
   <aside class="politicsRail" aria-label="本章路径">
     <a class="politicsBack" href={`${base}politics/`}>← 政治</a>
     <span>{chapter.subjectMeta.label}</span>
@@ -110,7 +116,14 @@ const guideLabel = chapter.subject === 'history'
             <header><div><p class="politicsMicro">肖1000 · 验证</p><h3>学完再做</h3></div><span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span></header>
             {unit.questions.length > 0 ? (
               <div class="politicsQuizDeck">
-                {unit.questions.map((q, qIndex) => <article class={`politicsQ ${qIndex === 0 ? 'active' : ''}`} data-politics-question data-answer={q.answer} data-index={qIndex}>
+                {unit.questions.map((q, qIndex) => <article
+                  class={`politicsQ ${qIndex === 0 ? 'active' : ''}`}
+                  data-politics-question
+                  data-question-id={q.id}
+                  data-unit-id={unit.unitId}
+                  data-answer={q.answer}
+                  data-index={qIndex}
+                >
                   <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
                   <h4>{q.stem}</h4>
                   <div class="politicsOptions">{q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}</div>
@@ -147,6 +160,47 @@ const guideLabel = chapter.subject === 'history'
 </section>
 
 <script is:inline>
+  const politicsRuntime = document.querySelector('[data-politics-runtime]');
+  const politicsLastKey = 'kianos-politics-last-location-v1';
+  const politicsEvidenceKey = 'kianos-politics-evidence-v1';
+  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+  const readJson = (key, fallback) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+  };
+  const saveJson = (key, value) => {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  };
+
+  if (politicsRuntime) {
+    saveJson(politicsLastKey, {
+      subject: politicsRuntime.getAttribute('data-subject') || '',
+      chapter: politicsRuntime.getAttribute('data-chapter') || '',
+      title: politicsRuntime.getAttribute('data-title') || '',
+      href: window.location.pathname,
+      observed_at: new Date().toISOString()
+    });
+  }
+
+  const recordPoliticsEvidence = (card, outcome, selected, correctAnswer) => {
+    if (!politicsRuntime || !card) return;
+    const events = readJson(politicsEvidenceKey, []);
+    const next = Array.isArray(events) ? events : [];
+    next.push({
+      subject: politicsRuntime.getAttribute('data-subject') || '',
+      chapter: politicsRuntime.getAttribute('data-chapter') || '',
+      chapter_title: politicsRuntime.getAttribute('data-title') || '',
+      unit_id: card.getAttribute('data-unit-id') || '',
+      question_id: card.getAttribute('data-question-id') || '',
+      source: 'xiao1000',
+      outcome,
+      selected,
+      correct_answer: correctAnswer,
+      study_day: localStudyDay(),
+      observed_at: new Date().toISOString()
+    });
+    saveJson(politicsEvidenceKey, next.slice(-500));
+  };
+
   document.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
     const cards = [...quiz.querySelectorAll('[data-politics-question]')];
     const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
@@ -177,6 +231,7 @@ const guideLabel = chapter.subject === 'history'
           : `你的答案 ${choice} · 正确答案 ${answer}`;
         repair.hidden = !needsRepair;
         next.hidden = false;
+        if (needsRepair) recordPoliticsEvidence(card, correct ? 'UNCERTAIN' : 'WRONG', choice, answer);
         card.querySelectorAll('[data-politics-option]').forEach((button) => {
           button.disabled = true;
           if (answer.includes(button.dataset.politicsOption)) button.classList.add('answer');
