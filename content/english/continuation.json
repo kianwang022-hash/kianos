@@ -10,18 +10,22 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_RUNTIME_V1_FROZEN__OUTPUT_MODULES_NEXT",
+  "current_stage": "OBJECTIVE_V1_PASSAGE_REVIEW_ALIGNED__CLOZE_PARTB_NEXT",
   "completed_shared_work": [
     "English Current consolidation completed: concise manifest, provenance separation, canonical exam/source assets, and Current-only Astro gating.",
     "Global English LEARNING_CONTRACT.md is the common cross-module learning authority: ability formation before material/UI organization; Clean Attempt; first meaningful failure; smallest sufficient repair; reconstruction/re-execution; selective memory admission; later fresh transfer as stronger mastery evidence.",
     "English capability architecture is frozen as four ability lines (Lexical / Reading / Translation / Writing) plus task-specific trainers rather than one equal system per exam section.",
     "Objective Runtime v1 is frozen for Cloze / Reading A / Reading B at content/english/modules/objective-runtime.md.",
     "Frozen objective review-unit rule: training evidence may be question/blank/placement-level, but learner-Chat review is passage/set-level. Evidence granularity may be smaller than Review granularity.",
+    "Objective passage/set Review Packet v1 is defined: complete unit identity + attempt summary + compact outcome map for every item + expanded content only for wrong/unanswered/uncertain items + whole-unit diagnosis before repair threads.",
     "Objective state logic is frozen: ATTEMPT -> PASS or REPAIR_NEEDED -> ROOT_CAUSE (Lexical / Reading / task-specific) -> REPAIR -> TRANSFER_PENDING -> later unseen transfer -> CLOSED.",
     "Wrong items do not automatically become long-term memory; same-item correction is weaker than later unseen transfer.",
     "Cloze cognitive object is Slot Constraint -> Best Fit; it does not own a duplicate vocabulary system.",
     "Reading A cognitive object remains understand -> locate decisive evidence -> adjudicate options -> execute.",
     "Reading B / Part B cognitive object is Discourse Reconstruction and supports local, coupled, and structure-level repair with cascading errors merged under the primary cause.",
+    "Reading A module contract is aligned to the frozen passage-level Chat review rule. Question-level objects are internal evidence/repair slices only.",
+    "Reading A Astro now has a passage-level Chat handoff. The normal packet includes the passage once, an all-question compact outcome map, and expanded wrong/unanswered/uncertain question content. Legacy per-question copy-to-Chat controls are demoted/hidden in the normal flow.",
+    "Reading A continuous-session handoff remains a higher-level cross-passage review surface rather than replacing the minimum one-passage review unit.",
     "Translation already has a canonical module contract at content/english/modules/translation.md and inherits the shared Learning Contract.",
     "Writing currently inherits the shared Learning Contract directly; Writing A/B are output modes inside Writing, not separate base abilities. A Writing-specific module contract should be created only when its own cognitive/runtime baseline is actually frozen.",
     "Module-specific cognition remains non-isomorphic: do not force one error taxonomy, review card, or UI shape across Reading, Translation, Writing, Cloze, and Part B.",
@@ -30,6 +34,7 @@
   "current_owners_to_read": [
     "content/english/LEARNING_CONTRACT.md",
     "content/english/modules/objective-runtime.md",
+    "content/english/modules/reading-a.md",
     "content/english/manifest.json"
   ],
   "module_entry_rules": {
@@ -52,29 +57,32 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/objective-runtime.md"
       ],
-      "inheritance": "Objective-task module contracts may extend task-specific cognition/UI but must preserve the frozen passage/set-level learner review unit and transfer-based closure semantics."
+      "inheritance": "Objective-task module contracts and Astro trainers may extend task-specific cognition/UI but must preserve the frozen passage/set-level learner review unit, Review Packet v1, root-cause routing, and transfer-based closure semantics."
     }
   },
   "next_action": {
-    "stage": "TRANSLATION_OR_WRITING_MODULE_RUNTIME",
-    "instruction": "Continue Translation or Writing in a separate Chat without reopening the frozen Objective Runtime. Start from LEARNING_CONTRACT.md. For Translation, also read and extend the existing translation.md only where new evidence requires it. For Writing, define the capability and its A/B output modes first; create a module-specific contract only after the cognition/training/review model is ready to freeze.",
-    "translation_focus": [
-      "Preserve the learner's first translation as evidence.",
-      "Separate English representation failure from relation/information preservation failure and Chinese reconstruction failure.",
-      "Use later new-sentence/task transfer as stronger evidence than polishing one remembered translation.",
-      "Route lexical senses/phrases/constructions back to LexicalOS rather than building a local vocabulary store."
+    "stage": "CLOZE_AND_READING_B_TRAINER_IMPLEMENTATION",
+    "instruction": "Continue objective-task implementation without reopening Objective Runtime v1. Build Cloze and Reading B from the frozen cognitive objects and passage/set Review Packet rules. Reuse shared infrastructure only where it preserves the task-specific learning action; do not clone Reading A UI mechanically.",
+    "cloze": [
+      "Attempt unit is one complete Cloze passage/set.",
+      "Core action is Slot Demand -> active constraints -> competing candidates -> decisive constraint -> Best Fit.",
+      "Review packet keeps all blanks in a compact outcome map and expands only wrong/unanswered/uncertain blanks with minimum local context plus candidates while retaining whole-passage context.",
+      "Route sense/phrase/construction/collocation/confusable failures to LexicalOS; route representation/discourse failures to Reading; keep only true best-fit procedure failures in Cloze.",
+      "Do not create a permanent Cloze mistake bank or twenty independent review cards."
     ],
-    "writing_focus": [
-      "Preserve first meaningful planning/content/structure/draft evidence; a polished final essay is insufficient diagnostic evidence.",
-      "Writing A emphasizes task compliance and pragmatic realization; Writing B emphasizes content expansion, structure, English generation, error control, and timed execution.",
-      "Repair the earliest/highest-value failed generation layer, then require re-generation rather than default model-essay replacement.",
-      "Use later fresh-task generation as stronger mastery evidence than editing one known essay."
+    "reading_b": [
+      "Attempt unit is one complete Part B material/set.",
+      "Core action is discourse skeleton -> required role -> candidate role -> backward/forward/cohesion fit -> global reconciliation.",
+      "Review packet preserves the complete learner placement/matching map plus formal map and enough material/candidate inventory for reconstruction.",
+      "Diagnosis must support local, coupled, and structure-level repair, with cascading dependent errors attached to the primary structural error.",
+      "Do not reduce Part B to keyword matching or clone Reading A's question-by-question review UI."
     ]
   },
   "do_not_reopen_without_new_evidence": [
     "Do not reopen English Objective Runtime v1 merely because a UI implementation is inconvenient or a source uses a different taxonomy.",
     "Do not turn Cloze / Reading A / Reading B into three independent knowledge systems.",
     "Do not make the learner review objective questions one-by-one in Chat; passage/set is the minimum user-facing review unit.",
+    "Do not restore per-question copy-to-Chat as the normal Reading A bridge.",
     "Do not force one failure taxonomy or one review-card shape across all English modules.",
     "Do not show formal answers, evidence, explanations, teacher methods, model translations, or model essays before a clean attempt.",
     "Do not require annotation, quick-cause labels, or note-taking for every question.",
@@ -94,6 +102,6 @@
       "private notes/highlights",
       "session position"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Translation must additionally read translation.md. Objective work must additionally read objective-runtime.md. Writing currently inherits LEARNING_CONTRACT.md until its own module contract is frozen. Continue from next_action rather than reconstructing the roadmap from prior chats."
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md. Reading A implementation work must also read reading-a.md. Translation must additionally read translation.md. Writing currently inherits LEARNING_CONTRACT.md until its own module contract is frozen. Continue from next_action rather than reconstructing the roadmap from prior chats."
   }
 }
