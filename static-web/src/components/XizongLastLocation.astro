@@ -1,0 +1,32 @@
+---
+const { system, block = null } = Astro.props;
+---
+<span
+  data-xizong-last-location
+  data-system-id={system.systemId}
+  data-system-title={system.title}
+  data-system-canonical={system.canonicalId}
+  data-block-slug={block?.slug || ''}
+  data-block-label={block?.label || ''}
+  data-block-title={block?.title || ''}
+  hidden
+></span>
+
+<script>
+  const node = document.querySelector('[data-xizong-last-location]');
+  if (node instanceof HTMLElement) {
+    const value = {
+      systemId: node.getAttribute('data-system-id') || '',
+      systemTitle: node.getAttribute('data-system-title') || '',
+      systemCanonical: node.getAttribute('data-system-canonical') || '',
+      blockSlug: node.getAttribute('data-block-slug') || '',
+      blockLabel: node.getAttribute('data-block-label') || '',
+      blockTitle: node.getAttribute('data-block-title') || '',
+      href: window.location.pathname,
+      observed_at: new Date().toISOString()
+    };
+    if (value.systemId) {
+      try { localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value)); } catch {}
+    }
+  }
+</script>
