@@ -69,6 +69,8 @@
 .portedReadingSessionHandoff button{min-height:28px;padding:4px 8px;border:1px solid #c3d7cf;border-radius:7px;background:#f6faf8;color:#3f675b;font-size:9px;font-weight:800}
 .portedReadingSessionHandoff small{color:#7e8c87;font-size:8px}
 
+.portedReadingSession:has([data-reading-submit]:not([hidden])) .portedReadingHistory{display:none!important}
+.reading-review-deferred [data-reading-result-meta],.reading-review-deferred [data-reading-timer]{visibility:hidden!important}
 .portedReadingSource{display:none!important}
 body:has(.surface-reading) .sourceDock{display:none!important}
 
