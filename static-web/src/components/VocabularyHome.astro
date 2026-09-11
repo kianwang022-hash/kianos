@@ -174,14 +174,14 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   }
 </script>
 
-<style>
+<style is:global>
   .lexicalHome { max-width: 72rem; margin: 0 auto; display: grid; gap: 1rem; }
   .lexicalHomeHeader { display: flex; justify-content: space-between; gap: 1.2rem; align-items: end; padding: 1.2rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
   .lexicalHomeHeader span { font-size: .78rem; opacity: .62; }
   .lexicalHomeHeader h2 { margin: .2rem 0 .45rem; font-size: clamp(1.7rem, 3vw, 2.45rem); }
   .lexicalHomeHeader p { margin: 0; max-width: 42rem; line-height: 1.6; opacity: .76; }
   .lexicalHomeHeader nav { display: flex; gap: .45rem; flex-wrap: wrap; }
-  .lexicalHomeHeader button { border: 1px solid var(--line, #d7d7d7); background: transparent; padding: .55rem .82rem; border-radius: 999px; cursor: pointer; }
+  .lexicalHomeHeader button { border: 1px solid var(--line, #d7d7d7); background: transparent; padding: .55rem .82rem; border-radius: 999px; cursor: pointer; color: inherit; }
   .lexicalHomeHeader button.active { border-color: currentColor; font-weight: 700; }
   .lexicalHomePanel { display: grid; gap: 1rem; }
   .lexicalContinueCard { display: grid; gap: .38rem; padding: 1.35rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; text-decoration: none; color: inherit; background: var(--panel, #fff); }
