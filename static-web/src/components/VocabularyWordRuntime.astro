@@ -103,15 +103,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
               <section data-vocab-target-row>
                 <header>
                   <span>{posCode(sense.pos)}</span>
-                  <button
-                    type="button"
-                    data-vocab-repair
-                    data-target-kind="sense"
-                    data-target-id={sense.sense_id || ''}
-                    data-target-locator={`record.senses[${index}]`}
-                    data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`}
-                    aria-pressed="false"
-                  >+</button>
+                  <button type="button" data-vocab-repair data-target-kind="sense" data-target-id={sense.sense_id || ''} data-target-locator={`record.senses[${index}]`} data-target-label={`${sense.definition_cn || sense.definition_en || card.word}`} aria-pressed="false">+</button>
                 </header>
                 <div>
                   <p>{sense.definition_cn || '—'}</p>
@@ -121,15 +113,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
                       {sense.collocations.map((item, collocationIndex) => (
                         <li data-vocab-target-row>
                           <b>{item.phrase}</b><span>{item.meaning_cn}</span>
-                          <button
-                            type="button"
-                            data-vocab-repair
-                            data-target-kind="collocation"
-                            data-target-id={item.collocation_id || ''}
-                            data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`}
-                            data-target-label={`${item.phrase || card.word}`}
-                            aria-pressed="false"
-                          >+</button>
+                          <button type="button" data-vocab-repair data-target-kind="collocation" data-target-id={item.collocation_id || ''} data-target-locator={`record.senses[${index}].collocations[${collocationIndex}]`} data-target-label={`${item.phrase || card.word}`} aria-pressed="false">+</button>
                         </li>
                       ))}
                     </ul>
@@ -148,15 +132,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
                 <article data-vocab-target-row>
                   <b>{item.pattern || item.label_en}</b>
                   <p>{item.meaning_cn || item.definition_cn || '—'}</p>
-                  <button
-                    type="button"
-                    data-vocab-repair
-                    data-target-kind="construction"
-                    data-target-id={item.fact_id || item.construction_id || ''}
-                    data-target-locator={`record.constructions[${index}]`}
-                    data-target-label={`${item.pattern || item.label_en || card.word}`}
-                    aria-pressed="false"
-                  >+</button>
+                  <button type="button" data-vocab-repair data-target-kind="construction" data-target-id={item.fact_id || item.construction_id || ''} data-target-locator={`record.constructions[${index}]`} data-target-label={`${item.pattern || item.label_en || card.word}`} aria-pressed="false">+</button>
                 </article>
               ))}
             </div>
@@ -172,15 +148,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
                   {Object.values(relation.difference_axes || {}).map((value) => <p>{String(value)}</p>)}
                   {(relation.boundaries || []).map((boundary) => <p>{boundary}</p>)}
                   {relation.learning_note && <p>{relation.learning_note}</p>}
-                  <button
-                    type="button"
-                    data-vocab-repair
-                    data-target-kind="relation"
-                    data-target-id={relation.relation_id || ''}
-                    data-target-locator={`record.semantic_neighbors[${index}]`}
-                    data-target-label={`${relation.target_expression || relation.target_word || relation.relation_type || card.word}`}
-                    aria-pressed="false"
-                  >+</button>
+                  <button type="button" data-vocab-repair data-target-kind="relation" data-target-id={relation.relation_id || ''} data-target-locator={`record.semantic_neighbors[${index}]`} data-target-label={`${relation.target_expression || relation.target_word || relation.relation_type || card.word}`} aria-pressed="false">+</button>
                 </article>
               ))}
             </div>
@@ -216,13 +184,9 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
     const stateLabel = root.querySelector('[data-vocab-state-label]');
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
+    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     let selectedIndex = -1;
-    let state = {
-      revealed: false,
-      repairTargets: {},
-      lastSeenAt: '',
-      meta: { word_id: objectId, ordinal, word, source_hash: sourceHash }
-    };
+    let state = { revealed: false, repairTargets: {}, lastSeenAt: '', meta: { word_id: objectId, ordinal, word, source_hash: sourceHash } };
 
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
     if (!state.repairTargets || typeof state.repairTargets !== 'object') state.repairTargets = {};
@@ -258,14 +222,10 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
       });
       const count = Object.keys(state.repairTargets).length;
       if (stateLabel) stateLabel.textContent = state.revealed ? `${count ? `${count} Repair` : 'Scanned'} · 1 / 1` : 'Ready · 1 / 1';
-      if (repairSummary) repairSummary.textContent = count ? `${count} 个具体分支已加入 Repair；将进入 Return Packet。` : '当前没有加入 Repair 的分支。';
+      if (repairSummary) repairSummary.textContent = count ? `${count} 个具体分支处于 Repair 状态；当天新增项会进入 Return Packet。` : '当前没有加入 Repair 的分支。';
     };
 
-    const openCard = () => {
-      state.revealed = true;
-      save();
-      render();
-    };
+    const openCard = () => { state.revealed = true; save(); render(); };
     reveal?.addEventListener('click', openCard);
 
     const speak = (lang = 'en-US') => {
@@ -293,6 +253,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
           label: target.label,
           source: 'depth_plus',
           outcome: 'ADDED',
+          study_day: localStudyDay(),
           observed_at: new Date().toISOString()
         };
       } else {
@@ -317,24 +278,29 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
 
     const activeRepairButton = () => selectedIndex >= 0 ? repairButtons[selectedIndex] : null;
 
-    const depthEvents = () => Object.values(state.repairTargets).map((target) => ({
-      word_id: objectId,
-      ordinal,
-      word,
-      target_kind: target.target_kind,
-      target_id: target.target_id || null,
-      target_locator: target.target_locator || null,
-      source: 'depth_plus',
-      outcome: 'ADDED',
-      observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
-    }));
+    const depthEvents = (studyDay) => Object.values(state.repairTargets)
+      .filter((target) => (target.study_day || studyDay) === studyDay)
+      .map((target) => ({
+        word_id: objectId,
+        ordinal,
+        word,
+        target_kind: target.target_kind,
+        target_id: target.target_id || null,
+        target_locator: target.target_locator || null,
+        source: 'depth_plus',
+        outcome: 'ADDED',
+        observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+      }));
 
-    const buildReturnPacket = () => ({
-      schema: 'kianos.lexical.return_packet.v1',
-      study_day: new Date().toLocaleDateString('en-CA'),
-      exported_at: new Date().toISOString(),
-      events: depthEvents()
-    });
+    const buildReturnPacket = () => {
+      const studyDay = localStudyDay();
+      return {
+        schema: 'kianos.lexical.return_packet.v1',
+        study_day: studyDay,
+        exported_at: new Date().toISOString(),
+        events: depthEvents(studyDay)
+      };
+    };
 
     root.querySelector('[data-vocab-copy-packet]')?.addEventListener('click', async (event) => {
       const button = event.currentTarget;
