@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "validate:reading": "node scripts/validate-reading-runtime.mjs"
+    "validate:reading": "node scripts/validate-reading-runtime.mjs",
+    "validate:politics": "node scripts/validate-politics-runtime.mjs",
+    "qa:politics": "npm run validate:politics && npm run build"
   },
   "dependencies": {
     "astro": "^5.0.0",
