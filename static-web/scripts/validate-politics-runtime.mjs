@@ -91,3 +91,5 @@ if (!process.exitCode) {
     questionRows: diagnostics.questionRows
   }));
 }
+
+await import('./validate-politics-repair-memory.mjs');
