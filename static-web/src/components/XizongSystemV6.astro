@@ -1,0 +1,95 @@
+---
+const { system } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const variableLabel = (item) => typeof item === 'string' ? item : String(item?.label || item?.id || '');
+const recall = system?.systemRecall;
+const recallPrompt = typeof recall === 'string'
+  ? recall
+  : String(recall?.neutral_front || recall?.prompt || recall?.question || '面对陌生病例，先按系统母模型定位 Failure Layer，再进入具体 Block。');
+const recallSteps = Array.isArray(recall?.reverse_case_algorithm)
+  ? recall.reverse_case_algorithm
+  : Array.isArray(recall?.algorithm) ? recall.algorithm : [];
+---
+<section class="xv6System" data-xizong-system={system.systemId}>
+  <header class="xv6SystemHero">
+    <div>
+      <span>{system.canonicalId} · System Learn</span>
+      <h2>{system.title}</h2>
+      <p>{system.mission}</p>
+    </div>
+    <aside>
+      <strong>{system.blocks.length} Blocks</strong>
+      <span>{system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} canonical KP</span>
+      <small>Current owner · system.json</small>
+    </aside>
+  </header>
+
+  <section class="xv6Panel">
+    <header><span>Mother Model</span><h3>先把整个系统压成一条运输链</h3></header>
+    {system.mentalModel.motherModel && <p class="xv6Mother">{system.mentalModel.motherModel}</p>}
+    <ol class="xv6Spine">
+      {system.mentalModel.spine.map((item, index) => <li><b>{String(index + 1).padStart(2, '0')}</b><span>{item}</span></li>)}
+    </ol>
+    {system.mentalModel.parallelControls.length > 0 && (
+      <div class="xv6Parallel">
+        {system.mentalModel.parallelControls.map((item) => <span>{item}</span>)}
+      </div>
+    )}
+  </section>
+
+  <section class="xv6Panel">
+    <header><span>Failure Modes</span><h3>先定位哪里坏，再搜索病名</h3></header>
+    <div class="xv6FailureGrid">
+      {system.failureModes.map((mode, index) => <article>
+        <b>FM{index + 1}</b>
+        <h4>{mode.label}</h4>
+        {mode.chain && <p>{mode.chain}</p>}
+      </article>)}
+    </div>
+  </section>
+
+  <section class="xv6TwoCol">
+    <article class="xv6Panel">
+      <header><span>Judgment Axes</span><h3>病例时固定问这些轴</h3></header>
+      <div class="xv6Chips">{system.judgmentAxes.map((item) => <span>{item}</span>)}</div>
+    </article>
+    <article class="xv6Panel">
+      <header><span>Core Variables</span><h3>系统最小变量语言</h3></header>
+      <div class="xv6Chips">{system.coreVariables.map((item) => <span>{variableLabel(item)}</span>)}</div>
+      {system.coreRelations.length > 0 && <div class="xv6Relations">{system.coreRelations.map((item) => <code>{item}</code>)}</div>}
+    </article>
+  </section>
+
+  <section class="xv6Panel">
+    <header><span>Block Route</span><h3>按依赖顺序进入 12 个局部模型</h3></header>
+    <div class="xv6BlockGrid">
+      {system.blocks.map((block) => <a href={`${base}xizong/${system.systemId}/${block.slug}/`}>
+        <span>{block.label}</span>
+        <strong>{block.title}</strong>
+        <small>{block.kpCount} KP · Outline {block.outlineCount}</small>
+      </a>)}
+    </div>
+  </section>
+
+  <section class="xv6Panel xv6Recall">
+    <header><span>System Recall</span><h3>学完后从陌生病例反向恢复系统</h3></header>
+    <blockquote>{recallPrompt}</blockquote>
+    {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
+    {system.dependencyDag.length > 0 && (
+      <details>
+        <summary>查看 Block 依赖图</summary>
+        <div class="xv6Relations">{system.dependencyDag.map((item) => <code>{item}</code>)}</div>
+      </details>
+    )}
+  </section>
+
+  <details class="portedSourceFoot">
+    <summary>Current System owner</summary>
+    <code>{system.sourcePath}</code>
+    <code>sha256:{String(system.sourceHash).slice(0, 16)}</code>
+  </details>
+</section>
+
+<style>
+  .xv6System{display:grid;gap:1.1rem}.xv6SystemHero,.xv6Panel{border:1px solid var(--line,#d9dde5);border-radius:20px;background:var(--panel,#fff);padding:1.2rem}.xv6SystemHero{display:flex;gap:1.5rem;justify-content:space-between;align-items:flex-start}.xv6SystemHero span,.xv6Panel header span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.62}.xv6SystemHero h2,.xv6Panel h3{margin:.25rem 0 .5rem}.xv6SystemHero p,.xv6Mother,.xv6FailureGrid p{line-height:1.75}.xv6SystemHero aside{display:grid;gap:.2rem;min-width:150px;text-align:right}.xv6Spine{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.55rem;list-style:none;padding:0;margin:1rem 0 0}.xv6Spine li{display:flex;gap:.55rem;align-items:center;padding:.75rem;border-radius:14px;background:var(--soft,#f5f6f8)}.xv6Spine b{font-size:.7rem;opacity:.5}.xv6Parallel,.xv6Chips,.xv6Relations{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.8rem}.xv6Parallel span,.xv6Chips span,.xv6Relations code{padding:.42rem .62rem;border-radius:999px;background:var(--soft,#f5f6f8);font-size:.82rem}.xv6FailureGrid,.xv6BlockGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.7rem;margin-top:.9rem}.xv6FailureGrid article,.xv6BlockGrid a{padding:.9rem;border:1px solid var(--line,#d9dde5);border-radius:15px;text-decoration:none;color:inherit}.xv6FailureGrid h4{margin:.25rem 0}.xv6FailureGrid p{font-size:.88rem;margin:.35rem 0 0;opacity:.78}.xv6BlockGrid a{display:grid;gap:.3rem}.xv6BlockGrid a:hover{transform:translateY(-1px);border-color:currentColor}.xv6BlockGrid span{font-size:.75rem;opacity:.6}.xv6BlockGrid small{opacity:.62}.xv6TwoCol{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}.xv6Recall blockquote{margin:1rem 0;padding:1rem 1.1rem;border-left:3px solid currentColor;background:var(--soft,#f5f6f8);line-height:1.75}.xv6Recall details{margin-top:1rem}@media(max-width:760px){.xv6SystemHero{display:grid}.xv6SystemHero aside{text-align:left}.xv6TwoCol{grid-template-columns:1fr}}
+</style>
