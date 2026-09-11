@@ -7,12 +7,15 @@ import {
 } from '../src/lib/englishTranslation.mjs';
 
 const issues = [];
-const missingReferenceIds = [];
+const referenceGaps = [];
 const summary = {
   status: 'unknown',
   sets: 0,
   prompts: 0,
-  references: 0,
+  referencesAvailable: 0,
+  referenceGaps: 0,
+  completeReferenceSets: 0,
+  partialReferenceSets: 0,
   withSource: 0,
   issueCount: 0
 };
@@ -28,24 +31,6 @@ function present(value) {
 function sourcePresent(task) {
   return (task.material || []).some((item) => present(item?.text))
     || (task.prompts || []).some((item) => present(item?.sourceText));
-}
-
-function typeSummary(value) {
-  if (Array.isArray(value)) return `array(${value.length})`;
-  if (value && typeof value === 'object') return `object<${Object.keys(value).sort().join(',')}>`;
-  return typeof value;
-}
-
-function compactDiagnostic(value, depth = 0) {
-  if (value === null || value === undefined) return value;
-  if (typeof value === 'string') return value.slice(0, 500);
-  if (typeof value === 'number' || typeof value === 'boolean') return value;
-  if (depth >= 3) return typeSummary(value);
-  if (Array.isArray(value)) return value.slice(0, 8).map((item) => compactDiagnostic(item, depth + 1));
-  if (typeof value === 'object') {
-    return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, compactDiagnostic(child, depth + 1)]));
-  }
-  return String(value);
 }
 
 function validateSourceProjection() {
@@ -68,40 +53,64 @@ function validateSourceProjection() {
   for (const catalogItem of sets) {
     try {
       const task = loadTranslationById(catalogItem.id);
-      const references = loadTranslationReferencesById(catalogItem.id);
+      const reference = loadTranslationReferencesById(catalogItem.id);
       const prompts = task.prompts || [];
-      const answerRows = references.references || [];
+      const rows = reference.references || [];
       summary.prompts += prompts.length;
-      summary.references += answerRows.length;
+      summary.referencesAvailable += rows.filter((row) => row.available && present(row.text)).length;
       if (sourcePresent(task)) summary.withSource += 1;
       else issues.push(`${task.objectId}: no learner-facing source text projection`);
       if (!prompts.length) issues.push(`${task.objectId}: no stable prompt/task rows`);
-      if (references.objectId !== task.objectId || references.task !== 'translation') {
+      if (reference.objectId !== task.objectId || reference.task !== 'translation') {
         issues.push(`${task.objectId}: reference payload identity mismatch`);
       }
-      if (answerRows.length !== prompts.length) {
-        issues.push(`${task.objectId}: reference/prompt count mismatch ${answerRows.length}/${prompts.length}`);
+      if (rows.length !== prompts.length) {
+        issues.push(`${task.objectId}: reference/prompt row count mismatch ${rows.length}/${prompts.length}`);
       }
+      if (reference.availableCount + reference.missingCount !== reference.totalCount) {
+        issues.push(`${task.objectId}: reference coverage arithmetic invalid`);
+      }
+      if (reference.missingCount > 0) summary.partialReferenceSets += 1;
+      else summary.completeReferenceSets += 1;
+
       const promptIds = new Set(prompts.map((item) => String(item?.id || '')));
       for (const prompt of prompts) {
         if (!present(prompt?.id)) issues.push(`${task.objectId}: prompt without stable id`);
         if (Object.prototype.hasOwnProperty.call(prompt, 'answer')
           || Object.prototype.hasOwnProperty.call(prompt, 'formal_answer')
-          || Object.prototype.hasOwnProperty.call(prompt, 'correct_answer')) {
-          issues.push(`${task.objectId}:${prompt.id}: formal reference leaked into clean attempt projection`);
+          || Object.prototype.hasOwnProperty.call(prompt, 'correct_answer')
+          || Object.prototype.hasOwnProperty.call(prompt, 'analysis')) {
+          issues.push(`${task.objectId}:${prompt.id}: answer/analysis leaked into clean attempt projection`);
         }
       }
-      for (const row of answerRows) {
-        if (!promptIds.has(String(row?.id || ''))) issues.push(`${task.objectId}:${row?.id || '?'}: reference id does not match prompt id`);
-        if (!present(row?.text)) {
-          const id = String(row?.id || '?');
-          missingReferenceIds.push(id);
-          issues.push(`${task.objectId}:${id}: formal reference missing`);
+      for (const row of rows) {
+        if (!promptIds.has(String(row?.id || ''))) {
+          issues.push(`${task.objectId}:${row?.id || '?'}: reference id does not match prompt id`);
+        }
+        if (row.available && !present(row.text)) {
+          issues.push(`${task.objectId}:${row?.id || '?'}: reference marked available without text`);
+        }
+        if (!row.available) {
+          referenceGaps.push({ setId: task.objectId, id: row?.id || '?', status: row?.status || '' });
+          if (row.status !== 'pending_review') {
+            issues.push(`${task.objectId}:${row?.id || '?'}: missing reference is not explicitly pending_review (${row.status || 'unknown'})`);
+          }
         }
       }
     } catch (error) {
       issues.push(`${catalogItem.id}: ${error instanceof Error ? error.message : String(error)}`);
     }
+  }
+
+  summary.referenceGaps = referenceGaps.length;
+  if (state.completeReferenceSetCount !== summary.completeReferenceSets) {
+    issues.push(`inspect/runtime complete-reference count mismatch ${state.completeReferenceSetCount}/${summary.completeReferenceSets}`);
+  }
+  if (state.partialReferenceSetCount !== summary.partialReferenceSets) {
+    issues.push(`inspect/runtime partial-reference count mismatch ${state.partialReferenceSetCount}/${summary.partialReferenceSets}`);
+  }
+  if ((state.referenceGaps || []).length !== summary.referenceGaps) {
+    issues.push(`inspect/runtime reference-gap count mismatch ${(state.referenceGaps || []).length}/${summary.referenceGaps}`);
   }
 }
 
@@ -126,9 +135,12 @@ function validateContractAndUi() {
   requireText('workspace', workspace, 'KIANOS_TRANSLATION_HANDOFF_V1');
   requireText('workspace', workspace, 'data-frozen-first');
   requireText('workspace', workspace, 'data-reference-panel');
+  requireText('workspace', workspace, 'data-reveal-reference');
+  requireText('workspace', workspace, 'intentionally not revealed');
   requireText('workspace', workspace, 'data-start-reconstruct');
   requireText('workspace', workspace, 'data-save-reconstruction');
   requireText('workspace', workspace, 'whole task/set');
+  requireText('workspace', workspace, 'runtime 不会自行补造');
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
   requireText('task page', taskPage, 'loadTranslationReferencesById');
@@ -140,39 +152,18 @@ function validateContractAndUi() {
   forbidText('workspace', workspace, 'kianos-english-objective-transfer-claims-v1');
 }
 
-function printReferenceGapDiagnostics() {
-  if (!missingReferenceIds.length) return;
-  try {
-    const bank = JSON.parse(read('../../content/english/source/question_bank.v1.json'));
-    const rows = Array.isArray(bank?.questions_or_prompts) ? bank.questions_or_prompts : [];
-    const wanted = new Set(missingReferenceIds);
-    const diagnostics = rows
-      .filter((row) => wanted.has(String(row?.id || row?.question_id || '')))
-      .map((row) => ({
-        id: row?.id || row?.question_id || '',
-        answer: compactDiagnostic(row?.answer),
-        analysis: compactDiagnostic(row?.analysis),
-        formal_answer: compactDiagnostic(row?.formal_answer),
-        correct_answer: compactDiagnostic(row?.correct_answer),
-        reference_translation: compactDiagnostic(row?.reference_translation),
-        target_text: compactDiagnostic(row?.target_text)
-      }));
-    console.error('\nTranslation missing-reference nested diagnostics:');
-    console.error(JSON.stringify(diagnostics, null, 2));
-  } catch (error) {
-    console.error(`\nTranslation diagnostics failed: ${error instanceof Error ? error.message : String(error)}`);
-  }
-}
-
 validateSourceProjection();
 validateContractAndUi();
 summary.issueCount = issues.length;
 console.log(JSON.stringify(summary, null, 2));
+if (referenceGaps.length) {
+  console.log('\nKnown Current reference gaps (runtime remains usable; no answer is fabricated):');
+  referenceGaps.forEach((gap) => console.log(`- ${gap.setId}:${gap.id}:${gap.status}`));
+}
 
 if (issues.length) {
   console.error('\nTranslation runtime issues:');
   issues.slice(0, 160).forEach((issue) => console.error(`- ${issue}`));
   if (issues.length > 160) console.error(`- … ${issues.length - 160} more`);
-  printReferenceGapDiagnostics();
   process.exitCode = 1;
 }
