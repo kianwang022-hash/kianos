@@ -58,13 +58,6 @@
       reviewPassages: session.reviewIds.length
     });
 
-    const problemCount = (attempt) => {
-      const uncertain = new Set(attempt.uncertain || []);
-      return Object.keys(attempt.results || {}).filter((id) =>
-        ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
-      ).length;
-    };
-
     const resetStaleSubmittedAttempt = () => {
       const session = readSession();
       const attempt = readAttempt();
@@ -121,7 +114,7 @@
       if (!button) {
         button = document.createElement('button');
         button.type = 'button';
-        button.textContent = '结束并复盘';
+        button.textContent = '结束连续练';
         button.setAttribute('data-reading-continuous-stop', '');
         continuousToggle?.insertAdjacentElement('afterend', button);
         button.addEventListener('click', endContinuousSession);
@@ -142,11 +135,16 @@
       const canReview = Boolean(state.submitted && state.reviewUnlocked !== false);
       readingRoot.classList.toggle('reading-review-deferred', active);
 
-      // After submission, keep the header quiet. Retake/review actions belong below the result.
+      // Keep attempt and review phases visually separate.
       if (reset) reset.hidden = Boolean(state.submitted);
-      if (continuousToggle) continuousToggle.hidden = Boolean(state.submitted || session.reviewing);
+      if (continuousToggle) {
+        continuousToggle.hidden = Boolean(
+          state.submitted || session.reviewing || (session.active && session.items.length > 0)
+        );
+      }
       if (history) history.hidden = !canReview;
-      if (retry) retry.hidden = !(canReview && problemCount(state) > 0);
+      // No default immediate second pass. Local repair first; later transfer carries more evidence.
+      if (retry) retry.hidden = true;
 
       const summary = document.querySelector('[data-reading-passage-review]');
       if (summary && active) summary.hidden = true;
@@ -154,6 +152,7 @@
       const stop = ensureStopButton();
       if (stop) {
         stop.hidden = !(session.active && session.items.length > 0 && !state.submitted);
+        stop.textContent = session.reviewIds.length ? '结束并复盘' : '结束连续练';
       }
     };
 
