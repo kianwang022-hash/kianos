@@ -1,206 +1,47 @@
 {
-  "schema": "kianos.english.content.owner_manifest.v1",
-  "status": "CURRENT_SOURCE_MATERIALIZED",
+  "schema": "kianos.english.content.owner_manifest.v2",
+  "status": "CURRENT_READY",
   "owner_path": "content/english/",
-  "current_promotion_allowed": true,
-  "semantic_authority": "POST_REPAIR_STUDY_SOURCE_WITH_FORMAL_LOCAL_PRODUCT_COVERAGE_REFERENCE",
-  "formal_local_projection": {
-    "repository": "kianwang022-hash/kianos-site-v238-recovery",
-    "ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
-    "path": "app/product/english-learning-corpus.generated.json",
-    "git_blob_sha1": "a6d8d75838210e04661284daddf76a716e0f5d7a",
-    "schema_version": "english_learning_corpus_projection_v2",
-    "role": "PRODUCT_COVERAGE_REFERENCE_WITH_STALE_PRE_REPAIR_QUESTION_BANK_BINDING",
-    "coverage": {
-      "paper_count": 27,
-      "section_count": 152,
-      "set_count": 235,
-      "question_or_prompt_count": 1364,
-      "years": "2000-2026"
-    },
-    "pre_repair_question_bank_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
+  "semantic_authority": "CURRENT_MAIN_HEAD_ONLY",
+  "owners": {
+    "learning_contract": "content/english/LEARNING_CONTRACT.md",
+    "provenance": "content/english/provenance.json",
+    "question_bank": "content/english/source/question_bank.v1.json",
+    "reading_corpus": "content/english/source/reading_corpus.v1.json",
+    "global_source_truth": "content/english/source/global_source_truth.v1.json",
+    "external_manifest": "content/english/external/manifest.json"
+  },
+  "source_identity": {
+    "question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
     "reading_corpus_sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a",
     "global_source_truth_sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b"
   },
-  "authority_resolution": {
-    "type": "FORMAL_LOCAL_BINDING_PREDATES_APPROVED_STUDY_REPAIR",
-    "resolved": true,
-    "question_bank_before_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
-    "question_bank_current_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
-    "approved_changes": [
-      "english1-2024-cloze-main-q11.answer=A",
-      "english1-2024-cloze-main-q11.qa_state.issues remove answer_unresolved",
-      "english1-2025-cloze-main-q1.answer=B",
-      "english1-2025-cloze-main-q1.qa_state.issues remove answer_unresolved"
-    ],
-    "apply_evidence": "04_HQ/Reports/Repository_Truth_Closure/P0_E3_STUDY_APPLY_REPORT_v1.json",
-    "post_repair_catalog_evidence": "04_HQ/Reports/Repository_Truth_Closure/P0_E3_ENGLISH_CATALOG_READBACK_v1.json",
-    "post_repair_catalog_status": "ready",
-    "post_repair_coverage": {
-      "paper_count": 27,
-      "section_count": 152,
-      "set_count": 235,
-      "question_or_prompt_count": 1364,
-      "year_min": 2000,
-      "year_max": 2026
-    },
-    "frozen_study_head": "602652309a7d3ab2be40933e08a335798dce96dc",
-    "decision": "USE_POST_REPAIR_C82B_QUESTION_BANK; DO_NOT_RESTORE_PRE_REPAIR_7B72"
+  "coverage": {
+    "paper_count": 27,
+    "section_count": 152,
+    "set_count": 235,
+    "question_or_prompt_count": 1364,
+    "year_min": 2000,
+    "year_max": 2026,
+    "reading_passage_count": 110,
+    "reading_question_count": 540
   },
-  "legacy_github_read_plane": {
-    "path": "04_HQ/Read_Plane/Current/english/manifest.json",
-    "role": "BOUNDED_GENERATED_RELEASE_NOT_FULL_SOURCE_CORPUS",
-    "release_id": "p0-e4-english-c82b8daa9396",
-    "question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
-    "available_verified_sets": 26,
-    "questions_or_prompts_in_verified_sets": 166
-  },
-  "required_recovery": {
-    "mode": "EXACT_POINTER_ONLY_NO_REPOSITORY_SCAN",
-    "contract": "content/english/RECOVERY_CONTRACT.md",
-    "provenance": "content/english/provenance.json",
-    "execution_issue": 100,
-    "materialize": [
-      {
-        "source": "Study/英语资料库/EnglishOS/database/question_bank.v1.json",
-        "expected_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986"
-      },
-      {
-        "source": "Study/英语资料库/EnglishOS/database/reading_corpus.v1.json",
-        "expected_sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a"
-      },
-      {
-        "source": "Study/英语资料库/EnglishOS/database/global_source_truth.v1.json",
-        "expected_sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b"
-      }
-    ],
-    "stop_on": [
-      "SOURCE_HASH_MISMATCH",
-      "MISSING_REFERENCED_SOURCE",
-      "STABLE_ID_DRIFT",
-      "UNRESOLVED_NEWER_VERSION_CONFLICT"
-    ]
-  },
-  "gates": {
-    "semantic_authority_resolved": true,
+  "readiness": {
     "source_bytes_materialized": true,
     "source_hashes_verified": true,
-    "stable_id_inventory_verified": true,
-    "full_27_235_1364_coverage_verified_after_materialization": true,
+    "stable_identity_inventory_verified": true,
+    "full_exam_coverage_verified": true,
+    "reading_evidence_verified": true,
+    "learning_contract_present": true,
+    "external_inventory_present": true,
     "pass": true
   },
-  "protections": {
-    "semantic_mutation": false,
-    "learner_state_mutation": false,
-    "local_mutation": false,
-    "runtime_repoint": false,
-    "site_deploy": false
+  "runtime_contract": {
+    "astro_reads_current_only": true,
+    "legacy_fallback": false,
+    "runtime_may_transform_representation": true,
+    "runtime_may_invent_or_repair_semantics": false,
+    "private_interaction_state_is_shared_current": false
   },
-  "materialized_sources": [
-    {
-      "name": "question_bank",
-      "source_path": "Study/英语资料库/EnglishOS/database/question_bank.v1.json",
-      "owner_path": "content/english/source/question_bank.v1.json",
-      "sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
-      "role": "DURABLE_CURRENT_QUESTION_BANK",
-      "byte_identity": "EXACT_MATCH"
-    },
-    {
-      "name": "reading_corpus",
-      "source_path": "Study/英语资料库/EnglishOS/database/reading_corpus.v1.json",
-      "owner_path": "content/english/source/reading_corpus.v1.json",
-      "sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a",
-      "role": "DURABLE_CURRENT_READING_CORPUS",
-      "byte_identity": "EXACT_MATCH"
-    },
-    {
-      "name": "global_source_truth",
-      "source_path": "Study/英语资料库/EnglishOS/database/global_source_truth.v1.json",
-      "owner_path": "content/english/source/global_source_truth.v1.json",
-      "sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b",
-      "role": "DURABLE_SOURCE_TRUTH_OVERLAY_WITH_PRESERVED_PRE_REPAIR_BINDING",
-      "byte_identity": "EXACT_MATCH"
-    }
-  ],
-  "identity_proof": {
-    "study_head": "602652309a7d3ab2be40933e08a335798dce96dc",
-    "question_bank": {
-      "papers": {
-        "count": 27,
-        "unique_ids": 27,
-        "missing_ids": 0,
-        "ordered_id_inventory_rule": "UTF-8 lexicographic ascending ID with trailing newline",
-        "ordered_id_inventory_sha256": "093a518a8b1653cbef7c760cd2b93df26489ca18821560baa56e70da351dc42a"
-      },
-      "sections": {
-        "count": 152,
-        "unique_ids": 152,
-        "missing_ids": 0,
-        "ordered_id_inventory_rule": "UTF-8 lexicographic ascending ID with trailing newline",
-        "ordered_id_inventory_sha256": "1c6d64d05a9768a8ea5553791fb53d7f39c5ddd88e019feb99aeae0831b60f3e"
-      },
-      "sets": {
-        "count": 235,
-        "unique_ids": 235,
-        "missing_ids": 0,
-        "ordered_id_inventory_rule": "UTF-8 lexicographic ascending ID with trailing newline",
-        "ordered_id_inventory_sha256": "00fba9f8a7ec795b4d293c49a71009163b97da5c681ea9bbd5a102d3bc0c0d9a"
-      },
-      "questions_or_prompts": {
-        "count": 1364,
-        "unique_ids": 1364,
-        "missing_ids": 0,
-        "ordered_id_inventory_rule": "UTF-8 lexicographic ascending ID with trailing newline",
-        "ordered_id_inventory_sha256": "57378a413bda47aff31ff7e0e9464ef4dfce7e0b8fe76b521bb58e1ee9df6ed4"
-      }
-    },
-    "coverage": {
-      "papers": 27,
-      "sections": 152,
-      "sets": 235,
-      "questions_or_prompts": 1364,
-      "year_min": 2000,
-      "year_max": 2026,
-      "year_count": 27
-    },
-    "approved_e3_repair": {
-      "before_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
-      "after_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
-      "changed_field_paths": [
-        "questions_or_prompts[id=english1-2024-cloze-main-q11].answer",
-        "questions_or_prompts[id=english1-2024-cloze-main-q11].qa_state.issues[-answer_unresolved]",
-        "questions_or_prompts[id=english1-2025-cloze-main-q1].answer",
-        "questions_or_prompts[id=english1-2025-cloze-main-q1].qa_state.issues[-answer_unresolved]"
-      ],
-      "approved_answers_verified": {
-        "english1-2024-cloze-main-q11": "A",
-        "english1-2025-cloze-main-q1": "B"
-      },
-      "answer_unresolved_removed": true,
-      "unrelated_english_semantic_diff": 0
-    },
-    "reading_corpus": {
-      "passage_count": 110,
-      "paragraph_count": 726,
-      "sentence_count": 2312,
-      "question_count": 540,
-      "option_count": 2160,
-      "formal_answer_count": 540,
-      "verified_formal_answer_count": 540,
-      "verified_evidence_question_count": 540,
-      "verified_question_task_count": 540,
-      "verified_option_diagnosis_question_count": 540,
-      "stable_id_count": 5848,
-      "duplicate_id_count": 0
-    },
-    "global_source_truth": {
-      "status": "SOURCE_READY",
-      "years": 27,
-      "units": 235,
-      "questions_mapped": 1364,
-      "embedded_question_bank_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
-      "current_question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
-      "treatment": "PRESERVED_AS_PRE_REPAIR_BINDING; NOT_USED_AS_CURRENT_QUESTION_AUTHORITY"
-    }
-  }
+  "provenance_rule": "Migration, recovery, repair, historical projection, and hash-audit evidence belongs in provenance.json or Git history and is not part of the normal Current runtime manifest."
 }
