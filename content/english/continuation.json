@@ -10,7 +10,7 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_EVIDENCE_TRANSFER_V1_IMPLEMENTED__QA_PENDING",
+  "current_stage": "OBJECTIVE_EVIDENCE_TRANSFER_V1_CURRENT_READY__LEARNER_VALIDATION_NEXT",
   "completed_shared_work": [
     "English Current consolidation completed: concise manifest, provenance separation, canonical exam/source assets, and Current-only Astro gating.",
     "Global English LEARNING_CONTRACT.md is the common cross-module learning authority: ability formation before material/UI organization; Clean Attempt; first meaningful failure; smallest sufficient repair; reconstruction/re-execution; selective memory admission; later fresh transfer as stronger mastery evidence.",
@@ -30,6 +30,7 @@
     "Clean objective attempts remain low-friction: when there is no pending claim, no Chat handoff is required; when pending claims exist, a quiet optional transfer-check handoff may appear.",
     "Cloze, Reading A, and Reading B pages now share ObjectiveTransferClaims for Chat-return import and private claim state. Cloze/Reading B ObjectiveHandoff and Reading A ReadingPassageHandoff include ACTIVE TRANSFER CLAIMS plus the return protocol.",
     "Reading A no longer loads the legacy ReadingReviewSignals, ReadingTransferEvidence, or ReadingSessionTransferEvidence components, so Current stops creating/updating per-question WATCH transfer state. Old local WATCH data is not automatically migrated.",
+    "Objective Evidence / Transfer v1 passed both Current CI gates on commit 2df83d0fa52e031efe971d7fa3ac1275356beaf6: Static Web Objective QA passed validate:objective plus Astro build; English Objective Runtime passed source inventory plus Astro build.",
     "Translation has a canonical module contract and frozen Translation Runtime v1; Writing currently inherits the shared Learning Contract until its own module contract is frozen.",
     "KianOS SYSTEM_CONTRACT.md shared learner-surface baseline remains authoritative: Current / Continue / Navigate / Repair / Verify-Transfer / Handoff / Deferred / Validation with non-isomorphic cognition per lane."
   ],
@@ -67,16 +68,16 @@
     }
   },
   "next_action": {
-    "stage": "OBJECTIVE_EVIDENCE_TRANSFER_QA_AND_LEARNER_VALIDATION",
-    "instruction": "Do not add more objective theory before validation. Extend objective QA so Current pages are required to load ObjectiveTransferClaims and Reading A is required not to load legacy per-question WATCH transfer components. Run validate:objective and Astro build. If green, update this cursor to learner validation: exercise one problem passage/set through copy-to-Chat -> KIANOS_OBJECTIVE_RETURN_V1 import -> pending claim persistence, then one later clean/fresh set through optional TRANSFER_CHECK. Only after real learner evidence should UX or closure semantics change.",
-    "validation_targets": [
-      "Cloze / Reading A / Reading B all expose claim-level return import after submitted evidence when relevant.",
-      "Problem packets include whole-unit evidence plus active claims and RETURN PROTOCOL.",
-      "Clean attempts with no active claims remain PASS without compulsory handoff.",
-      "Clean attempts with active claims expose optional TRANSFER_CHECK.",
-      "Reading A Current page does not import ReadingReviewSignals / ReadingTransferEvidence / ReadingSessionTransferEvidence.",
-      "Legacy kianos-reading-watch-signals-v1 data is not read or migrated by Current claim-level runtime.",
-      "Astro build passes and canonical question/source validation remains green."
+    "stage": "OBJECTIVE_EVIDENCE_TRANSFER_REAL_LEARNER_VALIDATION",
+    "instruction": "Stop adding objective infrastructure until real use produces evidence. During the learner's next genuine Cloze / Reading A / Reading B attempt that contains wrong, unanswered, or uncertain evidence, use the page's whole-passage/set Chat handoff, diagnose the whole unit in Chat, return KIANOS_OBJECTIVE_RETURN_V1, and import it on the same page. Verify that only justified task-specific newClaims persist. On a later genuinely fresh attempt, use the optional TRANSFER_CHECK only when an active claim may actually be tested; close or reopen claims only from relevant transfer evidence. Record learner-friction or semantic failures before changing v1.",
+    "learner_validation_sequence": [
+      "Problem passage/set -> whole-unit Chat packet.",
+      "Chat diagnosis -> minimal repair threads with primary/dependent causes merged.",
+      "Lexical/Reading roots route outward; only justified task-specific procedures enter newClaims.",
+      "Paste the Chat response back into ObjectiveTransferClaims and verify private pending-claim persistence.",
+      "Later fresh passage/set -> optional TRANSFER_CHECK when relevant.",
+      "Chat updates only claims genuinely tested by that fresh material; CLOSED / TRANSFER_PENDING / REOPENED remain evidence-based.",
+      "Use actual learner friction or wrong semantic behavior as the only reason to revise the runtime."
     ]
   },
   "do_not_reopen_without_new_evidence": [
