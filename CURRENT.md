@@ -100,7 +100,12 @@ Active first-round Politics chain:
 
 Chengfeng is the only continuous first-round mainline. Suyi is a background framework reference for Chat: useful mind-map structure is absorbed into the learning projection and does not need a separate learner-facing course or standalone Markdown representation. Xiao1000 remains validation and transfer evidence and must not determine the learning order.
 
-Marxism teaching projection is complete across Chapters 1–8 under `content/politics/learning/marxism/`. The next content lane is History, which must use its own chronology/stage/turning-point/cause/evaluation teaching shape rather than reuse the Marxism internal template.
+Current content projection status:
+
+- Marxism: Chapters 1–8 complete, using relation/reasoning/mechanism chains;
+- History: Chapters 1–10 plus a whole-subject map complete, using chronology/stage/turning-point/cause/evaluation;
+- Mao/Zhongte: C00–C08 plus a whole-subject map complete, using historical-problem → theory-response → positioning/boundary structure;
+- Xi/New Thought: next content lane and must be audited for its own teaching shape before bulk projection.
 
 Fresh Chats continuing Politics content/runtime work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for the next batch.
 
