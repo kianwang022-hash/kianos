@@ -1,0 +1,73 @@
+name: One-shot English Reading source transfer
+
+on:
+  push:
+    branches:
+      - transfer/english-reading-20260911
+
+permissions:
+  contents: write
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout clean main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Transfer and verify exact Current bytes
+        shell: bash
+        env:
+          MANIFEST_URL: "https://raw.githubusercontent.com/kianwang022-hash/kianos-legacy/40e0fdefb9150fc011b37b303f3f24720ef61186/content/english/manifest.json?token=B7SCF43AH3Q5RJUQN4O6QDDKUPTXZAA"
+          QUESTION_BANK_URL: "https://raw.githubusercontent.com/kianwang022-hash/kianos-legacy/40e0fdefb9150fc011b37b303f3f24720ef61186/content/english/source/question_bank.v1.json?token=B7SCF4YWONEDERIGD5GU753KUPTXFAA"
+          READING_CORPUS_URL: "https://raw.githubusercontent.com/kianwang022-hash/kianos-legacy/40e0fdefb9150fc011b37b303f3f24720ef61186/content/english/source/reading_corpus.v1.json?token=B7SCF43TWZX6WLWAX5TCJJTKUPTXFAA"
+        run: |
+          set -euo pipefail
+          mkdir -p content/english/source
+
+          curl --fail --location --retry 3 --silent --show-error "$MANIFEST_URL" -o content/english/manifest.json
+          curl --fail --location --retry 3 --silent --show-error "$QUESTION_BANK_URL" -o content/english/source/question_bank.v1.json
+          curl --fail --location --retry 3 --silent --show-error "$READING_CORPUS_URL" -o content/english/source/reading_corpus.v1.json
+
+          printf '%s  %s\n' \
+            'c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986' \
+            'content/english/source/question_bank.v1.json' \
+            | shasum -a 256 -c -
+          printf '%s  %s\n' \
+            '97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a' \
+            'content/english/source/reading_corpus.v1.json' \
+            | shasum -a 256 -c -
+
+          test "$(git hash-object content/english/manifest.json)" = 'c4ba991e28bd9b0f50f7444ea6bfced774a47d19'
+          test "$(git hash-object content/english/source/question_bank.v1.json)" = 'c10b936beb1864715b59f2ef2028d9cc67cce31e'
+          test "$(git hash-object content/english/source/reading_corpus.v1.json)" = 'e7347eec936a57914eafa4369f61d9f8e2dfb89d'
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = [
+              Path('content/english/manifest.json'),
+              Path('content/english/source/question_bank.v1.json'),
+              Path('content/english/source/reading_corpus.v1.json'),
+          ]
+          for path in paths:
+              with path.open('r', encoding='utf-8') as f:
+                  json.load(f)
+          print('JSON_PARSE_OK')
+          PY
+
+      - name: Commit exact source transfer to staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'KianOS Transfer Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add content/english/manifest.json \
+                  content/english/source/question_bank.v1.json \
+                  content/english/source/reading_corpus.v1.json
+          git diff --cached --exit-code && { echo 'No transfer changes'; exit 1; } || true
+          git commit -m 'content: admit English Reading A current sources'
+          git push origin HEAD:refs/heads/transfer/english-source-staging-20260911
