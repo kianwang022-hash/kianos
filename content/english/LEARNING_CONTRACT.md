@@ -4,7 +4,28 @@
 
 - English I target: **80–85+**.
 - Objective-section training target: **60/60**.
-- The system is optimized for score reliability under real exam conditions, not for maximizing explanation volume, taxonomy coverage, or course completion.
+- The system is optimized for score reliability under real exam conditions, not for maximizing explanation volume, taxonomy coverage, course completion, or source-material consumption.
+
+## Governing principle
+
+> **Ask how the ability is formed first; reorganize materials second.**
+
+The English system must not inherit its structure from the shape of the available materials.
+
+Having a vocabulary book does not imply “finish the vocabulary book” is a learning path. Having exam papers does not imply “keep doing papers” is a learning path. Having a translation course or writing book does not imply the teacher’s chapter order is the learner’s cognitive order.
+
+Materials are inputs and repair reservoirs. **Ability formation is the organizing authority.**
+
+For every major English capability, design in this order:
+
+1. define the capability;
+2. define the effective learning process;
+3. define what counts as evidence that it has been learned;
+4. define which failures deserve future review / memory admission;
+5. reorganize existing knowledge and materials around that process;
+6. design the UI last.
+
+Do not design a page first and then invent a learning rationale for it.
 
 ## Product principle
 
@@ -12,39 +33,207 @@
 
 Shared Current stores durable source truth and learning semantics. Astro turns those semantics into low-friction learner actions. Chat owns semantic and learning judgments and may update both content and interaction design from real learner feedback.
 
-Private answers, progress, wrong/uncertain marks, comments, timing, and session history are interaction implementation details. They are not shared semantic owners and must not be written into shared Current content.
+Private answers, progress, wrong/uncertain marks, comments, timing, first drafts, answer trajectories, revisions, and session history are interaction evidence. They are not shared semantic owners and must not be written into shared Current content by default.
 
-## Default learning loop
+## English capability architecture
 
-`Clean Attempt → Judge → locate first meaningful failure only if needed → smallest sufficient repair → reconstruct → transfer`
+The system is not primarily a collection of exam question-type pages.
 
-Rules:
+It has **four major capability lines** plus **task-specific trainers**.
 
-- Stable correct performance passes quickly.
-- Wrong, uncertain, fragile, or meaningful execution anomalies may expand.
-- Expansion stops at the first meaningful failure that is sufficient to explain the performance.
-- Repair is local by default. Do not turn one local error into a full lesson unless evidence requires it.
-- Correct once does not prove mastery; later unseen transfer is stronger evidence.
-- The learner should not maintain a complex diagnostic taxonomy. Chat performs semantic diagnosis from observable evidence.
+### 1｜Lexical
+
+Core question:
+
+> **Can the needed language unit be accessed rapidly and correctly in context?**
+
+Lexical has its own complete learning loop, but it also supplies language access to Reading, Translation, Writing, Cloze, Part B, and other tasks.
+
+LexicalOS is the canonical owner for lexical knowledge.
+
+Reading / Translation / Writing must not create duplicate local word systems when the underlying failure is a lexical sense, phrase, construction, contrast, or confusable that belongs in LexicalOS.
+
+### 2｜Reading
+
+Core question:
+
+> **Can input be turned into an accurate representation that supports a correct judgment?**
+
+For Reading A, the operational path is:
+
+`understand → locate decisive evidence → adjudicate options → execute`
+
+Reading evidence is primarily about the relationship between text understanding, evidence location, option discrimination, and exam execution.
+
+### 3｜Translation
+
+Core question:
+
+> **Can an understood English representation be reconstructed into Chinese without losing meaning or relations, while remaining natural enough to read?**
+
+Translation is not simply “Reading plus Chinese.” It has a distinct output-reconstruction layer and therefore needs its own evidence, repair actions, and UI.
+
+The first translation must be preserved because the final polished version alone cannot reveal where the original process broke.
+
+### 4｜Writing
+
+Core question:
+
+> **Can the learner actively generate acceptable English from task constraints under exam conditions?**
+
+Writing is not reverse Translation. It starts from task requirements and active generation rather than an existing English input.
+
+Useful evidence may include:
+
+`prompt → first content response → first structure → first language realization → revision trajectory`
+
+A polished final essay alone is insufficient diagnostic evidence.
+
+## Task-specific trainers
+
+Some exam tasks deserve their own training surfaces because they impose a special decision problem, even though they draw on the four major capability lines.
+
+### Cloze
+
+Primary cognitive object:
+
+> **best-fit decision under local slot constraints**
+
+Operational path:
+
+`slot demand → lexical / syntactic / discourse constraints → candidate best fit`
+
+It is not merely “small Reading” and not merely a vocabulary quiz.
+
+### Part B
+
+Primary cognitive object:
+
+> **recovering discourse structure and cohesion relationships**
+
+Operational path:
+
+`discourse structure → missing / required role → cohesion constraints → candidate fit`
+
+It is not Reading A with a different question format.
+
+Other task-specific trainers may exist later if an exam task has a genuinely distinct cognitive object. Do not create one only because the exam has a separate section heading.
+
+## Shared learning philosophy
+
+All capability lines and task trainers follow the same high-level loop:
+
+`Clean Attempt → expose real ability → locate first meaningful failure → smallest sufficient repair → re-execute → later new-material validation`
+
+This shared philosophy does **not** imply shared error categories, shared review cards, or shared page structure.
+
+The evidence must follow the cognitive object of the module.
+
+### Reading evidence may include
+
+- what was understood;
+- where decisive evidence was located;
+- which options competed;
+- answer trajectory / uncertainty;
+- execution anomalies.
+
+### Translation evidence may include
+
+- the learner’s first translation;
+- whether the English representation was established;
+- whether logical / modification / reference relations were preserved;
+- whether information was omitted, added, or distorted;
+- whether Chinese reconstruction was faithful but unnatural, or both wrong and unnatural;
+- the retranslation after repair.
+
+### Writing evidence may include
+
+- the prompt;
+- first content response;
+- first structure;
+- first-draft language;
+- revision trajectory;
+- time / execution evidence when useful.
+
+Do not force these into one generic “wrong reason” taxonomy.
+
+## First meaningful failure
+
+Repair should begin at the earliest layer that is sufficient to explain the observed performance.
+
+Examples:
+
+- Reading: if the sentence itself was misunderstood, do not start with option analysis.
+- Translation: if the English proposition was wrong, do not start by polishing Chinese.
+- Writing: if there was no usable content, do not start by replacing individual sentence expressions.
+
+Expansion stops when the first meaningful failure is repaired well enough for the learner to perform the next action.
+
+Do not turn one local failure into a full course unless repeated evidence justifies it.
+
+## Evidence and mastery
+
+`correct once ≠ mastery`
+
+Evidence strength should generally rise with lower memory residue and more independent transfer.
+
+A useful cross-module ordering is:
+
+`known-item correction < later clean success < later success on a fresh task with the same underlying demand`
+
+Module-specific examples:
+
+- Lexical: isolated recall is weaker than successful access inside later unseen context.
+- Reading: re-answering a remembered passage is weaker than correct reasoning on fresh material.
+- Translation: producing a corrected version after seeing the repair is weaker than independently handling the same relation in a new sentence.
+- Writing: fixing one sentence after feedback is weaker than generating the same structure correctly in a later new task.
+
+Do not permanently label a weakness from one event.
+
+## Memory admission / future review
+
+Not every observed problem deserves future review.
+
+Admit a failure into future review only when at least one of the following is true:
+
+- it reveals a reusable language unit or construction;
+- it exposes a recurring representation / reasoning failure;
+- it causes repeated score loss across distinct material;
+- it is high-cost and likely to recur;
+- later transfer evidence remains weak or contradictory.
+
+Do not create future work merely because the learner once hesitated.
+
+### Lexical admission
+
+Durable lexical knowledge belongs in LexicalOS.
+
+### Reading admission
+
+Prefer a small WATCH-style future observation target over a permanent “weakness label.”
+
+### Translation admission
+
+Future review should target reusable demands such as recurring scope, attachment, reference, or reconstruction failures—not the memorized Chinese wording of one old sentence.
+
+### Writing admission
+
+Future review may target reusable generation problems such as content scarcity, unstable structure, slow lexical retrieval, recurring grammar errors, or time-collapse patterns.
 
 ## Progressive disclosure
 
-Backend content may be rich; the learner surface should be precise.
+Backend content may be rich; the learner surface should remain precise.
 
-- Before submission: preserve a clean exam-like attempt. No answer, evidence, explanation, teacher note, or prior-attempt leakage.
-- Stable correct: show the minimum needed to move on.
-- Judge failure: focus on the decisive option contrast.
-- Locate failure: return to the passage and re-identify minimal decisive evidence.
-- Sentence/proposition failure: expose only the necessary sentence or span for reconstruction.
-- Lexical failure: route to the canonical LexicalOS object when appropriate.
-- Discourse failure: expose the minimum paragraph/structure context required.
-- Execution failure: show only the evidence needed to change the exam behavior.
+Before a clean attempt, do not leak answers, evidence, canonical analysis, teacher methods, model translations, or model essays.
 
-Interaction is preferred over passive explanation whenever the learner can reconstruct the answer or representation directly.
+After the attempt:
+
+- stable correct / strong work should pass quickly;
+- wrong, uncertain, fragile, or diagnostically valuable work may expand;
+- expose only the information required for the next useful cognitive action;
+- prefer reconstruction and re-execution over passive explanation.
 
 ## Module-specific cognitive objects
-
-Do not force one taxonomy or one review card across modules.
 
 ### Reading A
 
@@ -56,86 +245,111 @@ Default review object:
 
 `question + minimal decisive evidence + chosen/correct contrast`
 
-Question type is not assumed to be the root cause.
-
-### Cloze
-
-Primary path:
-
-`slot demand → lexical/syntactic/discourse constraints → candidate best fit`
-
-Default review object:
-
-`local context + decisive constraints + high-value candidate contrast`
-
-Do not explain the full passage when a phrase, sense, or local constraint is sufficient.
-
-### Part B
-
-Primary path:
-
-`discourse structure → missing/required role → cohesion constraints → candidate fit`
-
-Default review object:
-
-`before/after context + discourse role + decisive fit constraint`
-
-Structure may be more important than sentence-level detail.
+Question type may describe an item, but it is not assumed to explain the failure.
 
 ### Translation
 
 Primary path:
 
-`English representation → proposition recovery → Chinese realization`
+`local context → English representation → relation preservation → Chinese reconstruction → self-check`
 
-Preserve the learner's first translation. Diagnose whether the first failure is English understanding or Chinese realization before repairing.
+Preserve the learner’s first translation.
+
+A useful diagnostic sequence is:
+
+`English representation established?`
+→ `relations preserved?`
+→ `information omitted / added / distorted?`
+→ `Chinese reconstruction natural and faithful?`
+
+Do not inherit Reading A’s review UI or error categories.
 
 ### Writing
 
 Primary path:
 
-`task → content → structure → language → error control → time`
+`task constraints → content generation → structure → English realization → error control → timed execution`
 
-Preserve the learner's first draft. Do not replace it by default with a model essay. Repair the highest-value scoring layer first.
+Preserve the first meaningful planning and drafting evidence.
+
+Do not default to replacing the learner’s work with a model essay.
+
+Repair the highest-value failed layer, then require re-generation.
+
+### Cloze
+
+Primary path:
+
+`slot demand → lexical / syntactic / discourse constraints → candidate best fit`
+
+Default review object:
+
+`local context + decisive constraints + high-value candidate contrast`
+
+### Part B
+
+Primary path:
+
+`discourse structure → missing / required role → cohesion constraints → candidate fit`
+
+Default review object:
+
+`before/after context + discourse role + decisive fit constraint`
 
 ## Vocabulary / LexicalOS
 
-LexicalOS is the canonical owner for lexical knowledge.
+LexicalOS is both a major capability line and the shared lexical supply layer for other modules.
 
 - Simple words remain L0-first.
 - Preserve true polysemy, familiar-new senses, high-value phrases/constructions, contrasts, and confusables.
-- Reading/Cloze/Translation lexical failures should route back to the canonical lexical object rather than create duplicate module-specific word explanations.
+- Reading / Cloze / Part B / Translation / Writing lexical failures should route back to the canonical lexical object rather than create duplicate module-specific explanations.
 - The practical target is fast, correct access in real context, not dictionary-style sense accumulation.
+- A word does not enter long-term active review simply because it exists in the source inventory. Future review must earn its cost through evidence.
 
 ## Teacher and method material
 
-Teacher material is a **repair reservoir**, not the default learning path.
+Teacher material is a **repair reservoir**, not the default curriculum.
 
-- Start from real attempts where possible.
+- Start from real learner performance where possible.
 - Call teacher methods only when observed evidence shows a stable need.
 - Validated personal methods should stay few, compact, and behaviorally useful.
-- Do not let method labels replace direct evidence from the text or task.
+- Reorganize teacher material around ability formation rather than preserving the teacher’s chapter order by default.
+- Do not let technique labels replace direct evidence from the text or task.
 
-## External reading
+## External / fresh material
 
-External reading exists mainly to provide **fresh unseen input** and transfer testing, because true-exam memory residue can make reused material less diagnostic.
+Fresh material exists mainly to provide low-memory-residue input and transfer testing.
 
-- TPO, IELTS, high-quality periodicals, and other suitable texts may be added incrementally.
+- TPO, IELTS, high-quality periodicals, synthetic training items, and other suitable texts may be added incrementally.
 - Freshness and diagnostic value matter more than completing a fixed corpus.
-- External reading depth is adaptive. A normal successful passage may be `read → answer → done`.
-- Use sentence reconstruction, paragraph mapping, closed-book compression, or full reconstruction only when the actual failure requires them.
 - Treat genuinely unseen material as limited diagnostic capital. Do not expose holdout content before its first clean attempt.
-- Once exposed, material can move into ordinary practice/review use; unseen status is not permanent.
-- External materials are private learner assets by default. Public-distribution concerns are not part of the normal study workflow.
+- Once exposed, material can move into ordinary practice/review use.
+- Use synthetic or already-exposed items when the goal is to teach a framework and there is no reason to consume a valuable unseen item.
+
+## UI non-isomorphism rule
+
+The four major capability lines must **not** become four copies of the same interface with different labels.
+
+A shared visual shell is acceptable. The learning interaction must follow the capability.
+
+Examples:
+
+- Reading may center passage + question + evidence relocation.
+- Translation should center original text + preserved first translation + layer-specific reconstruction.
+- Writing should preserve planning / first draft / revision trajectory.
+- Lexical should optimize fast retrieval, sense discrimination, construction access, and later contextual validation.
+
+Do not share a component merely because it is technically convenient if doing so weakens the learning action.
 
 ## Interaction quality bar
 
-Any new button, label, panel, field, or persistent structure must answer at least one of these questions:
+Any new button, label, panel, field, persistent state, or review step must answer at least one of these questions:
 
 1. Does it improve score reliability?
 2. Does it reduce friction in a high-value learning action?
 3. Does it preserve evidence needed for better diagnosis?
 4. Does it enable a more precise repair or transfer test?
+5. Does it help distinguish where the ability formation process actually failed?
 
 If not, remove or avoid it.
 
