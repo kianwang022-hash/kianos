@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import ObjectiveHome from '../components/ObjectiveHome.astro';
+import { inspectObjectiveTask, listClozeSets } from '../lib/englishObjective.mjs';
+
+const sourceState = inspectObjectiveTask('cloze');
+const sets = sourceState.status === 'ready' ? listClozeSets() : [];
+const pendingDescription = sourceState.status === 'invalid'
+  ? 'Cloze Current section 无法被唯一、安全识别；Runtime 保持 fail-closed。'
+  : 'English Current 依赖缺失；补齐当前依赖并通过 gate 后自动启用。';
+---
+<Base
+  title="Cloze"
+  kicker={sourceState.status === 'ready' ? 'English · Objective' : 'English · Current gate'}
+  description={sourceState.status === 'ready' ? 'Slot Constraint → Best Fit. 一篇完形是最小训练与复盘单位。' : pendingDescription}
+  sourcePath="content/english/modules/cloze.md"
+  objectId="english:cloze-home"
+  active="cloze"
+>
+  {sourceState.status === 'ready' ? (
+    <ObjectiveHome
+      sets={sets}
+      route="cloze"
+      label="Cloze"
+      description="整篇完成后统一提交。错空只作为内部 evidence；Chat 先看整篇，再合并共同根因。"
+      unitLabel="passages"
+      lastLocationKey="kianos-cloze-last-location-v1"
+    />
+  ) : (
+    <section class="migrationPending">
+      <span>Fail-closed · {sourceState.status}</span>
+      <h2>Cloze Current 暂未安全解锁</h2>
+      <p>不猜 section，不回退 legacy。只有 Current section / stable ID 证据能安全识别时才投影训练页面。</p>
+      {sourceState.issues.length > 0 && <div class="migrationPendingList"><strong>Issues</strong>{sourceState.issues.map((item) => <code>{item}</code>)}</div>}
+      {sourceState.availableSections.length > 0 && <div class="migrationPendingList"><strong>Available Current sections</strong>{sourceState.availableSections.map((item) => <code>{item.section} · {item.setCount} sets</code>)}</div>}
+    </section>
+  )}
+</Base>
