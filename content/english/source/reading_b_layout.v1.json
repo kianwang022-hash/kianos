@@ -1,0 +1,68 @@
+{
+  "schema": "kianos.english.reading_b_layout.v1",
+  "status": "CURRENT_VERIFIED",
+  "purpose": "Preserve learner-visible Part B ordering scaffolds that were present on the original exam pages but were lost or corrupted in normalized OCR. These fields contain only givens visible before the attempt; they must never be derived at runtime from formal answers.",
+  "objects": {
+    "english1-2010-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "42", "43", "44", "E", "45"],
+      "fixed_givens": ["E"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2010-english-one/section2-part-b/"
+    },
+    "english1-2011-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["G", "41", "42", "E", "43", "44", "45"],
+      "fixed_givens": ["G", "E"],
+      "verification": "Current raw_text explicit Order line"
+    },
+    "english1-2014-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "A", "42", "E", "43", "44", "45"],
+      "fixed_givens": ["A", "E"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/paper/2014-english-one/"
+    },
+    "english1-2017-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["D", "41", "42", "43", "44", "B", "45"],
+      "fixed_givens": ["D", "B"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2017-english-one/section2-part-b/"
+    },
+    "english1-2018-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "C", "42", "43", "F", "44", "45"],
+      "fixed_givens": ["C", "F"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2018-english-one/section2-part-b/"
+    },
+    "english1-2019-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "42", "F", "43", "44", "C", "45"],
+      "fixed_givens": ["F", "C"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2019-english-one/section2-part-b/"
+    },
+    "english1-2023-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "A", "42", "E", "43", "H", "44", "45"],
+      "fixed_givens": ["A", "E", "H"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2023-english-one/section2-part-b/"
+    },
+    "english1-2025-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["41", "42", "C", "43", "H", "44", "A", "45"],
+      "fixed_givens": ["C", "H", "A"],
+      "verification": "original-layout transcription",
+      "verification_url": "https://english-exam.lazynote.cn/kaoyan/sections/2025-english-one/section2-part-b/"
+    },
+    "english1-2026-reading-b-main": {
+      "question_group_type": "PARAGRAPH_ORDERING",
+      "ordering_skeleton": ["F", "41", "42", "H", "43", "C", "44", "45"],
+      "fixed_givens": ["F", "H", "C"],
+      "verification": "Current context.ordering_skeleton"
+    }
+  }
+}
