@@ -16,18 +16,22 @@
     "Cross-subject interaction contract frozen",
     "Politics Astro entry added to primary KianOS navigation/home",
     "Politics subject/chapter index generalized across all five subjects",
-    "Generic chapter runtime added: orientation → Chengfeng source → short closure → Xiao1000 → minimal repair → chapter compression"
+    "Generic chapter runtime added: orientation → Chengfeng source → short closure → Xiao1000 → minimal repair → chapter compression",
+    "KianOS shared-lane Continue capability added to Politics: last opened chapter stays private in browser state and Politics home resumes it without writing personal progress into shared Current",
+    "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat"
   ],
   "current_stage": "REAL_LEARNER_VALIDATION",
   "current_subject": "ALL_POLITICS",
-  "next": "Use the Politics Astro runtime on representative real chapters and observe actual learner friction. Validate at least one chapter from Marxism, History, Xi/New Thought and Ethics/Law before adding new review/memory/dashboard functionality. Fix content projection or interaction only when real use exposes a problem.",
+  "next": "Use the Politics Astro runtime on representative real chapters and observe actual learner friction. Validate at least one chapter from Marxism, History, Xi/New Thought and Ethics/Law before adding new review/memory/dashboard functionality. Include a real daily Politics Handoff after Wrong/Uncertain evidence to verify that Continue and Return/Handoff are useful and sufficiently compact.",
   "validation_focus": [
     "Is the pre-reading orientation useful but short enough?",
     "Does Chengfeng remain visually and cognitively primary?",
     "Does the short closure help without becoming a second recall workflow?",
     "Can stable correct Xiao1000 answers pass almost instantly?",
     "Does wrong/uncertain repair return to the smallest useful source rather than opening a giant explanation?",
-    "Do the five subjects feel cognitively different despite sharing the same top-level loop?"
+    "Do the five subjects feel cognitively different despite sharing the same top-level loop?",
+    "Does Politics Continue return to the right chapter without turning private progress into shared Current?",
+    "Does the daily Wrong/Uncertain Handoff contain enough evidence for Chat without becoming an indiscriminate question history?"
   ],
   "working_preferences": [
     "Content quality has priority over UI polish.",
@@ -42,6 +46,7 @@
     "Do not force different Politics subjects into one internal teaching template.",
     "Do not turn first-round learning into indiscriminate fixed-formulation memorization.",
     "Do not let Astro component convenience reshape canonical content semantics.",
-    "Do not add dashboards, scheduler taxonomies or memory machinery before real learner validation shows a need."
+    "Do not add dashboards, scheduler taxonomies or memory machinery before real learner validation shows a need.",
+    "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them."
   ]
 }
