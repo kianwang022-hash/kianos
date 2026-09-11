@@ -217,10 +217,16 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
     let selectedIndex = -1;
-    let state = { revealed: false, repairTargets: {}, lastSeenAt: '' };
+    let state = {
+      revealed: false,
+      repairTargets: {},
+      lastSeenAt: '',
+      meta: { word_id: objectId, ordinal, word, source_hash: sourceHash }
+    };
 
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
     if (!state.repairTargets || typeof state.repairTargets !== 'object') state.repairTargets = {};
+    state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
 
     const targetFromButton = (button) => {
       const kind = button.getAttribute('data-target-kind') || 'lexical';
@@ -233,6 +239,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
 
     const save = () => {
       state.lastSeenAt = new Date().toISOString();
+      state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
       try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
     };
 
@@ -310,15 +317,23 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
 
     const activeRepairButton = () => selectedIndex >= 0 ? repairButtons[selectedIndex] : null;
 
+    const depthEvents = () => Object.values(state.repairTargets).map((target) => ({
+      word_id: objectId,
+      ordinal,
+      word,
+      target_kind: target.target_kind,
+      target_id: target.target_id || null,
+      target_locator: target.target_locator || null,
+      source: 'depth_plus',
+      outcome: 'ADDED',
+      observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+    }));
+
     const buildReturnPacket = () => ({
       schema: 'kianos.lexical.return_packet.v1',
       study_day: new Date().toLocaleDateString('en-CA'),
       exported_at: new Date().toISOString(),
-      word_id: objectId,
-      ordinal,
-      word,
-      source_hash: sourceHash,
-      events: Object.values(state.repairTargets)
+      events: depthEvents()
     });
 
     root.querySelector('[data-vocab-copy-packet]')?.addEventListener('click', async (event) => {
@@ -334,6 +349,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
     });
 
     document.addEventListener('keydown', (event) => {
+      if (document.querySelector('[data-vocab-challenge-runtime][data-challenge-active="true"]')) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       if (event.key.toLowerCase() === 's') { event.preventDefault(); speak('en-US'); return; }
@@ -352,6 +368,7 @@ const recallPatterns = [...new Set(patternPrompts)].slice(0, 4);
       }
     });
 
+    save();
     render();
   }
 </script>
