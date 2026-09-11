@@ -2,6 +2,11 @@
 const { item } = Astro.props;
 const storageKey = `kianos-reading-b-attempt-v1:${item.objectId}`;
 const sourceLabel = [item.year, item.code, item.section].filter(Boolean).join(' · ');
+const instruction = String(item.context?.instruction || '').trim();
+const subtitle = String(item.context?.subtitle || '').trim();
+const taskForm = String(item.context?.taskForm || 'generic_matching');
+const candidateUsePolicy = String(item.context?.candidateUsePolicy || 'source_unspecified');
+const itemLabel = String(item.context?.itemLabel || 'Item');
 
 function optionEntries(options) {
   if (Array.isArray(options)) return options.map((value, index) => ({ label: String.fromCharCode(65 + index), text: typeof value === 'string' ? value : String(value?.text || value?.content || value?.value || '') }));
@@ -9,15 +14,33 @@ function optionEntries(options) {
   return Object.entries(options).map(([label, value]) => ({ label, text: typeof value === 'string' ? value : String(value?.text || value?.content || value?.value || '') }));
 }
 ---
-<section class="readingBRuntime" data-objective-root data-objective-task="reading_b" data-objective-object={item.objectId} data-objective-storage-key={storageKey} data-objective-answers-ready="false">
+<section
+  class="readingBRuntime"
+  data-objective-root
+  data-objective-task="reading_b"
+  data-objective-object={item.objectId}
+  data-objective-storage-key={storageKey}
+  data-objective-answers-ready="false"
+  data-reading-b-task-form={taskForm}
+  data-reading-b-candidate-policy={candidateUsePolicy}
+  data-reading-b-item-label={itemLabel}
+>
   <header class="readingBHeader">
     <div>
       <span>Reading B · Discourse Reconstruction</span>
       <h2 data-objective-title>{item.title}</h2>
       <small data-objective-source-label>{sourceLabel || item.objectId}</small>
     </div>
-    <aside><strong>{item.questions.length} positions</strong><span>先恢复结构，再做全局裁决</span></aside>
+    <aside><strong>{item.questions.length} {itemLabel.toLowerCase()}s</strong><span>先恢复结构，再做全局裁决</span></aside>
   </header>
+
+  {(instruction || subtitle) && (
+    <section class="readingBDirections" data-objective-instruction>
+      <span>DIRECTIONS · {taskForm.replaceAll('_', ' ')}</span>
+      {subtitle && <strong>{subtitle}</strong>}
+      {instruction && <p>{instruction}</p>}
+    </section>
+  )}
 
   <section class="readingBLayout">
     <article class="readingBMaterial" data-objective-material>
@@ -28,15 +51,19 @@ function optionEntries(options) {
     <aside class="readingBMap">
       {item.candidates.length > 0 && (
         <section class="readingBCandidates">
-          <header><span>CANDIDATES</span><strong>候选池</strong></header>
+          <header><span>CANDIDATES</span><strong>候选池 · 全局看</strong></header>
           <div>
-            {item.candidates.map((candidate) => <p data-objective-candidate><b>{candidate.label}</b><span>{candidate.text}</span></p>)}
+            {item.candidates.map((candidate) => (
+              <p data-objective-candidate data-reading-b-candidate={candidate.label}>
+                <b>{candidate.label}</b><span>{candidate.text}</span><small data-reading-b-candidate-use></small>
+              </p>
+            ))}
           </div>
         </section>
       )}
 
       <section class="readingBPositions">
-        <header><span>PLACEMENT MAP</span><strong>所有位置同时可见</strong></header>
+        <header><span>COMPLETE MAP</span><strong>所有目标同时可见</strong></header>
         <div class="readingBPositionList">
           {item.questions.map((question, index) => {
             const id = String(question.id || question.question_id || `q${index + 1}`);
@@ -45,11 +72,11 @@ function optionEntries(options) {
             return (
               <section class="readingBPosition" data-objective-question={id} data-objective-index={index}>
                 <div class="readingBPositionHead">
-                  <strong>Position {index + 1}</strong>
+                  <strong>{itemLabel} {index + 1}</strong>
                   <button type="button" data-reading-b-uncertain>Uncertain</button>
                 </div>
-                <p data-objective-prompt>{question.prompt || `Position ${index + 1}`}</p>
-                <select data-reading-b-select aria-label={`Position ${index + 1}`}>
+                <p data-objective-prompt>{question.prompt || `${itemLabel} ${index + 1}`}</p>
+                <select data-reading-b-select aria-label={`${itemLabel} ${index + 1}`}>
                   <option value="">— choose —</option>
                   {options.map((option) => <option data-objective-option value={option.label}>{option.label}. {option.text}</option>)}
                 </select>
@@ -60,8 +87,9 @@ function optionEntries(options) {
         </div>
       </section>
 
+      <div class="readingBConstraint" data-reading-b-constraint-status></div>
       <div class="readingBSubmitRow">
-        <span data-reading-b-answer-count>0 / {item.questions.length} placed</span>
+        <span data-reading-b-answer-count>0 / {item.questions.length} answered</span>
         <button type="button" data-objective-submit>提交整组</button>
       </div>
       <div class="readingBResult" data-objective-result-summary hidden>
@@ -76,6 +104,8 @@ function optionEntries(options) {
   document.querySelectorAll('[data-objective-root][data-objective-task="reading_b"]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const candidatePolicy = root.getAttribute('data-reading-b-candidate-policy') || 'source_unspecified';
+    const itemLabel = root.getAttribute('data-reading-b-item-label') || 'Item';
     const rows = [...root.querySelectorAll('[data-objective-question]')];
     const submit = root.querySelector('[data-objective-submit]');
     const normalizeAnswer = (value) => Array.isArray(value)
@@ -107,20 +137,43 @@ function optionEntries(options) {
       catch { return []; }
     };
 
+    const answerUses = () => {
+      const uses = new Map();
+      Object.entries(state.answers || {}).forEach(([id, answer]) => {
+        const value = String(answer || '');
+        if (!value) return;
+        if (!uses.has(value)) uses.set(value, []);
+        uses.get(value).push(id);
+      });
+      return uses;
+    };
+    const duplicateCandidates = () => candidatePolicy === 'single_use'
+      ? [...answerUses().entries()].filter(([, ids]) => ids.length > 1).map(([value]) => value)
+      : [];
+
     const render = () => {
+      const uses = answerUses();
+      const duplicates = duplicateCandidates();
       rows.forEach((row) => {
         const id = idOf(row);
+        const current = String(state.answers?.[id] || '');
         const select = row.querySelector('[data-reading-b-select]');
         if (select instanceof HTMLSelectElement) {
-          select.value = state.answers?.[id] || '';
+          select.value = current;
           select.disabled = Boolean(state.submitted);
+          [...select.options].forEach((option) => {
+            if (!option.value) return;
+            const usedElsewhere = (uses.get(option.value) || []).some((usedId) => usedId !== id);
+            option.disabled = !state.submitted && candidatePolicy === 'single_use' && usedElsewhere && option.value !== current;
+          });
         }
         const uncertain = row.querySelector('[data-reading-b-uncertain]');
         if (uncertain instanceof HTMLButtonElement) {
           uncertain.classList.toggle('active', (state.uncertain || []).includes(id));
           uncertain.disabled = Boolean(state.submitted);
         }
-        row.classList.remove('result-correct', 'result-wrong');
+        row.classList.remove('result-correct', 'result-wrong', 'constraint-wrong');
+        if (candidatePolicy === 'single_use' && current && duplicates.includes(current)) row.classList.add('constraint-wrong');
         if (state.submitted) row.classList.add(state.results?.[id] === 'correct' ? 'result-correct' : 'result-wrong');
         const formalLine = row.querySelector('[data-objective-formal]');
         if (formalLine instanceof HTMLElement) {
@@ -129,10 +182,36 @@ function optionEntries(options) {
           if (strong) strong.textContent = formalOf(row).join(', ') || '—';
         }
       });
+
+      root.querySelectorAll('[data-reading-b-candidate]').forEach((candidate) => {
+        const value = candidate.getAttribute('data-reading-b-candidate') || '';
+        const ids = uses.get(value) || [];
+        candidate.classList.toggle('used', ids.length > 0);
+        candidate.classList.toggle('duplicate', candidatePolicy === 'single_use' && ids.length > 1);
+        const status = candidate.querySelector('[data-reading-b-candidate-use]');
+        if (status) status.textContent = ids.length
+          ? `${ids.length > 1 ? '重复 · ' : ''}${ids.map((id) => `${itemLabel} ${rows.findIndex((row) => idOf(row) === id) + 1}`).join(' / ')}`
+          : '';
+      });
+
       const count = Object.values(state.answers || {}).filter(Boolean).length;
       const countNode = root.querySelector('[data-reading-b-answer-count]');
-      if (countNode) countNode.textContent = `${count} / ${rows.length} placed`;
-      if (submit instanceof HTMLButtonElement) submit.hidden = Boolean(state.submitted);
+      if (countNode) countNode.textContent = `${count} / ${rows.length} answered`;
+      const constraint = root.querySelector('[data-reading-b-constraint-status]');
+      if (constraint) {
+        constraint.classList.toggle('warning', duplicates.length > 0);
+        constraint.textContent = candidatePolicy === 'single_use'
+          ? duplicates.length
+            ? `原题要求候选单次使用：${duplicates.join(', ')} 被重复选择，先修正完整 map。`
+            : '候选按原题单次使用；选中后会在其他目标中暂时锁定。'
+          : candidatePolicy === 'repeat_allowed'
+            ? '原题允许候选重复使用；系统不会自动锁定。'
+            : '候选重复规则未从 Current directions 中可靠解析；系统不额外发明限制，以原题说明为准。';
+      }
+      if (submit instanceof HTMLButtonElement) {
+        submit.hidden = Boolean(state.submitted);
+        submit.disabled = !state.submitted && duplicates.length > 0;
+      }
       const result = root.querySelector('[data-objective-result-summary]');
       if (result instanceof HTMLElement) {
         result.hidden = !state.submitted;
@@ -143,7 +222,7 @@ function optionEntries(options) {
           if (scoreNode) scoreNode.textContent = `${score} / ${rows.length}`;
           if (note) note.textContent = score === rows.length && !(state.uncertain || []).length
             ? 'Clean pass · 不强制复盘。'
-            : '整组进入 review；先看 discourse skeleton 和完整 placement map。';
+            : '整组进入 review；先看 discourse skeleton 和完整 map，再决定 local / coupled / structure repair。';
         }
       }
     };
@@ -154,6 +233,13 @@ function optionEntries(options) {
       select?.addEventListener('change', (event) => {
         if (state.submitted) return;
         const answer = String(event.currentTarget.value || '');
+        if (candidatePolicy === 'single_use' && answer) {
+          const usedElsewhere = Object.entries(state.answers || {}).some(([otherId, value]) => otherId !== id && String(value || '') === answer);
+          if (usedElsewhere) {
+            render();
+            return;
+          }
+        }
         answer ? state.answers[id] = answer : delete state.answers[id];
         state.trajectory[id] ||= [];
         const last = state.trajectory[id][state.trajectory[id].length - 1]?.answer;
@@ -172,7 +258,7 @@ function optionEntries(options) {
     });
 
     submit?.addEventListener('click', () => {
-      if (state.submitted || root.getAttribute('data-objective-answers-ready') !== 'true') return;
+      if (state.submitted || duplicateCandidates().length || root.getAttribute('data-objective-answers-ready') !== 'true') return;
       const results = {};
       rows.forEach((row) => {
         const id = idOf(row);
@@ -194,5 +280,5 @@ function optionEntries(options) {
 </script>
 
 <style>
-  .readingBRuntime{max-width:78rem;margin:0 auto;display:grid;gap:12px}.readingBHeader{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.readingBHeader>div{display:grid;gap:4px}.readingBHeader>div>span,.readingBMaterial header span,.readingBCandidates header span,.readingBPositions>header span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}.readingBHeader h2{margin:0;font-size:22px}.readingBHeader small{color:var(--study-faint)}.readingBHeader aside{display:grid;text-align:right}.readingBHeader aside span{font-size:10px;color:var(--study-muted)}.readingBLayout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);gap:12px;align-items:start}.readingBMaterial,.readingBMap{border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.readingBMaterial{padding:24px 26px;position:sticky;top:76px}.readingBMaterial header,.readingBCandidates header,.readingBPositions>header{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}.readingBMaterial header strong,.readingBCandidates header strong,.readingBPositions>header strong{font-size:11px;color:var(--study-muted)}.readingBMaterial p{margin:0 0 1em;font-size:14px;line-height:1.85}.readingBFallback{color:var(--study-muted)}.readingBMap{padding:18px;display:grid;gap:16px}.readingBCandidates{padding-bottom:14px;border-bottom:1px solid var(--study-line)}.readingBCandidates>div{display:grid;gap:5px;max-height:250px;overflow:auto}.readingBCandidates p{display:grid;grid-template-columns:28px 1fr;gap:8px;margin:0;padding:7px 8px;border-radius:8px;background:var(--study-green-soft);font-size:11px;line-height:1.5}.readingBCandidates b{color:var(--study-green)}.readingBPositionList{display:grid;gap:8px}.readingBPosition{padding:10px;border:1px solid var(--study-line);border-radius:10px;display:grid;gap:7px}.readingBPosition.result-correct{border-color:var(--study-green)}.readingBPosition.result-wrong{border-style:dashed}.readingBPositionHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.readingBPositionHead strong{font-size:11px}.readingBPositionHead button{padding:5px 7px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-muted);font:inherit;font-size:9px}.readingBPositionHead button.active{border-color:var(--study-green);background:var(--study-green-soft);color:var(--study-green)}.readingBPosition>p[data-objective-prompt]{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.readingBPosition select{width:100%;padding:8px 9px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:11px}.readingBFormal{margin:0;color:var(--study-muted);font-size:9px}.readingBSubmitRow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--study-line)}.readingBSubmitRow span{color:var(--study-muted);font-size:10px}.readingBSubmitRow button{padding:9px 14px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font:inherit;font-weight:850}.readingBResult{padding:12px;border-radius:10px;background:var(--study-green-soft);display:grid;gap:3px}.readingBResult strong{font-size:18px}.readingBResult span{font-size:10px;color:var(--study-muted)}@media(max-width:960px){.readingBLayout{grid-template-columns:1fr}.readingBMaterial{position:static}}@media(max-width:560px){.readingBHeader{display:grid}.readingBHeader aside{text-align:left}.readingBMaterial{padding:18px}.readingBMap{padding:14px}}
+  .readingBRuntime{max-width:78rem;margin:0 auto;display:grid;gap:12px}.readingBHeader{display:flex;justify-content:space-between;gap:20px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.readingBHeader>div{display:grid;gap:4px}.readingBHeader>div>span,.readingBMaterial header span,.readingBCandidates header span,.readingBPositions>header span,.readingBDirections>span{font-size:9px;font-weight:850;letter-spacing:.08em;color:var(--study-green)}.readingBHeader h2{margin:0;font-size:22px}.readingBHeader small{color:var(--study-faint)}.readingBHeader aside{display:grid;text-align:right}.readingBHeader aside span{font-size:10px;color:var(--study-muted)}.readingBDirections{display:grid;gap:6px;padding:14px 18px;border:1px solid var(--study-line);border-radius:12px;background:var(--study-green-soft)}.readingBDirections strong{font-size:12px}.readingBDirections p{margin:0;font-size:12px;line-height:1.65;color:#33463e}.readingBLayout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);gap:12px;align-items:start}.readingBMaterial,.readingBMap{border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.readingBMaterial{padding:24px 26px;position:sticky;top:76px}.readingBMaterial header,.readingBCandidates header,.readingBPositions>header{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}.readingBMaterial header strong,.readingBCandidates header strong,.readingBPositions>header strong{font-size:11px;color:var(--study-muted)}.readingBMaterial p{margin:0 0 1em;font-size:14px;line-height:1.85}.readingBFallback{color:var(--study-muted)}.readingBMap{padding:18px;display:grid;gap:16px}.readingBCandidates{padding-bottom:14px;border-bottom:1px solid var(--study-line)}.readingBCandidates>div{display:grid;gap:5px;max-height:300px;overflow:auto}.readingBCandidates p{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:8px;margin:0;padding:7px 8px;border-radius:8px;background:var(--study-green-soft);font-size:11px;line-height:1.5}.readingBCandidates p.used{outline:1px solid var(--study-line);background:#fff}.readingBCandidates p.duplicate{outline:2px dashed currentColor}.readingBCandidates b{color:var(--study-green)}.readingBCandidates small{color:var(--study-faint);font-size:8px;white-space:nowrap}.readingBPositionList{display:grid;gap:8px}.readingBPosition{padding:10px;border:1px solid var(--study-line);border-radius:10px;display:grid;gap:7px}.readingBPosition.result-correct{border-color:var(--study-green)}.readingBPosition.result-wrong,.readingBPosition.constraint-wrong{border-style:dashed}.readingBPositionHead{display:flex;justify-content:space-between;gap:8px;align-items:center}.readingBPositionHead strong{font-size:11px}.readingBPositionHead button{padding:5px 7px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-muted);font:inherit;font-size:9px}.readingBPositionHead button.active{border-color:var(--study-green);background:var(--study-green-soft);color:var(--study-green)}.readingBPosition>p[data-objective-prompt]{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.readingBPosition select{width:100%;padding:8px 9px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:11px}.readingBFormal{margin:0;color:var(--study-muted);font-size:9px}.readingBConstraint{padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;color:var(--study-muted);font-size:9px;line-height:1.5}.readingBConstraint.warning{font-weight:800}.readingBSubmitRow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--study-line)}.readingBSubmitRow span{color:var(--study-muted);font-size:10px}.readingBSubmitRow button{padding:9px 14px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font:inherit;font-weight:850}.readingBSubmitRow button:disabled{opacity:.45;cursor:not-allowed}.readingBResult{padding:12px;border-radius:10px;background:var(--study-green-soft);display:grid;gap:3px}.readingBResult strong{font-size:18px}.readingBResult span{font-size:10px;color:var(--study-muted)}@media(max-width:960px){.readingBLayout{grid-template-columns:1fr}.readingBMaterial{position:static}}@media(max-width:560px){.readingBHeader{display:grid}.readingBHeader aside{text-align:left}.readingBMaterial{padding:18px}.readingBMap{padding:14px}.readingBCandidates p{grid-template-columns:24px 1fr}.readingBCandidates small{grid-column:2}}
 </style>
