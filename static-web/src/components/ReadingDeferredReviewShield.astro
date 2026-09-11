@@ -1,0 +1,32 @@
+<span data-reading-deferred-review-shield hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot) {
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const parent = readingRoot.parentElement;
+
+    const deferred = () => {
+      try {
+        const state = JSON.parse(localStorage.getItem(attemptKey) || 'null') || {};
+        return Boolean(state.submitted && state.reviewUnlocked === false);
+      } catch {
+        return false;
+      }
+    };
+
+    const sync = () => {
+      const active = deferred();
+      readingRoot.classList.toggle('reading-review-deferred', active);
+      const summary = document.querySelector('[data-reading-passage-review]');
+      if (summary && active) summary.hidden = true;
+    };
+
+    readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
+    document.addEventListener('keydown', () => window.setTimeout(sync, 0));
+    if (parent) new MutationObserver(sync).observe(parent, { childList: true, subtree: true });
+    sync();
+  }
+</script>
