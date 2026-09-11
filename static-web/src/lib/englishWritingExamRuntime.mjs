@@ -78,9 +78,11 @@ export function loadWritingExamRuntimeTask(id) {
   if (index < 0) throw new Error(`WRITING_EXAM_RUNTIME_TASK_NOT_IN_READY_CATALOG:${id}`);
   return {
     ...task,
+    catalogPosition: index + 1,
+    catalogTotal: catalog.length,
     navigation: {
-      previousId: index > 0 ? catalog[index - 1].id : null,
-      nextId: index < catalog.length - 1 ? catalog[index + 1].id : null,
+      previousId: null,
+      nextId: null,
       position: index + 1,
       total: catalog.length
     }
