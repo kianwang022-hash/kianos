@@ -1,0 +1,48 @@
+---
+import Base from '../../layouts/Base.astro';
+import { politicsPilotSummary } from '../../lib/politics.mjs';
+
+const base = import.meta.env.BASE_URL;
+const pilot = politicsPilotSummary();
+---
+<Base
+  title="政治"
+  kicker="内容主线 · 低摩擦学习"
+  description="先把一条真实学习路径跑顺，再扩到整科。"
+  active="politics"
+>
+  <section class="politicsEntry">
+    <div class="entryCopy">
+      <span class="entryEyebrow">当前可体验</span>
+      <h2>马原第一章</h2>
+      <p>先定位这章在解决什么，再直接进入乘风；学完做一句闭合和对应肖1000。答对就走，错了才回到最小知识边界。</p>
+      <a class="entryCta" href={`${base}politics/marxism/ch01/`}>开始学习 →</a>
+    </div>
+    <aside class="entryAside">
+      <strong>{pilot.status === 'ready' ? '路径已接通' : '试运行'}</strong>
+      <span>定位 → 乘风 → 闭合 → 肖1000 → 回源</span>
+      {pilot.issues?.length > 0 && <small>部分原始内容解析仍保持谨慎阻断，不会用旧资料补位。</small>}
+    </aside>
+  </section>
+
+  <section class="subjectShape">
+    <p>后续扩展时，各科不会长得一样：</p>
+    <div class="shapeGrid">
+      <span><b>马原</b> 关系与推演</span>
+      <span><b>史纲</b> 阶段与转折</span>
+      <span><b>毛中特</b> 问题与理论回应</span>
+      <span><b>新思想</b> 层级与身份</span>
+      <span><b>思修法基</b> 边界与情境判断</span>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .politicsEntry{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.7fr);gap:24px;padding:30px;border:1px solid var(--line,#dfe3e8);border-radius:22px;background:var(--panel,#fff)}
+  .entryEyebrow{display:inline-block;margin-bottom:8px;font-size:.78rem;font-weight:700;letter-spacing:.08em;color:#64748b}
+  .entryCopy h2{font-size:2rem;margin:.1rem 0 .7rem}.entryCopy p{max-width:760px;line-height:1.8;color:#475569}
+  .entryCta{display:inline-flex;margin-top:14px;padding:11px 16px;border-radius:12px;background:#111827;color:white;text-decoration:none;font-weight:700}
+  .entryAside{display:flex;flex-direction:column;gap:9px;align-self:stretch;justify-content:center;padding:20px;border-radius:16px;background:#f6f7f9;color:#475569}.entryAside strong{color:#111827}.entryAside small{line-height:1.55;color:#64748b}
+  .subjectShape{margin-top:28px;padding:0 4px}.subjectShape>p{color:#64748b}.shapeGrid{display:flex;flex-wrap:wrap;gap:10px}.shapeGrid span{padding:9px 12px;border:1px solid #e2e8f0;border-radius:999px;background:#fff;color:#475569}.shapeGrid b{color:#111827;margin-right:4px}
+  @media(max-width:760px){.politicsEntry{grid-template-columns:1fr;padding:22px}.entryCopy h2{font-size:1.6rem}}
+</style>
