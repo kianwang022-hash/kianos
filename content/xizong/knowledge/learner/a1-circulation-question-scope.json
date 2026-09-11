@@ -1,0 +1,153 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_HISTORICAL_RECOVERY",
+  "system": {
+    "canonical_id": "A1",
+    "system_id": "circulation",
+    "title": "循环系统"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "After System Recall, expand this exact identifier scope and run the circulation official-question sweep. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence.",
+  "question_count": 376,
+  "question_id_inventory_sha256": "ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "5-7,44,51-58,107-108,119-120,137,141",
+      "2006": "6-9,43,51-58,118-120,130,141",
+      "2007": "5-7,43,51-56,77-78,86,119-120,130,139,141,159,175",
+      "2008": "5-7,54,59-62,93-95,123-124,139-140,152-153,169",
+      "2009": "5-7,59-61,96-98,121-122,135-136,139-140,169",
+      "2010": "5-7,57,63-65,91-92,96-98,123-124,137,141-142,153,170",
+      "2011": "6-7,50,57,59,62,91-92,96-98,139-140,163,169",
+      "2012": "7-9,59-62,93-95,102-103,139-140,152,166,169",
+      "2013": "5,7-9,58-62,93-95,139-140,152,169",
+      "2014": "5-7,48,50,58-62,93-95,123-124,139-140,153,169",
+      "2015": "5-7,50,57,59-62,91-95,123-124,139,153,163,169",
+      "2016": "6-7,49,57,60-62,93-95,123-124,139-140,152-153,169",
+      "2017": "4-5,42,47-49,68-69,76-78,116-117,124-125,128-129,136,139,155",
+      "2018": "4,42,47-49,76-78,116-117,128-129,137-138,155",
+      "2019": "3-4,37,42,47,49,68-70,76-78,118-119,128-129,137,155",
+      "2020": "5-6,34-35,42,47-49,70-72,76-77,116-117,128-129,137,155",
+      "2021": "4-6,45-48,76-78,137,155",
+      "2022": "5-6,42,47-49,68-69,76-78,116-117,125,128-129,155",
+      "2023": "5-6,45-48,76-78,116-117,124,137,152,155",
+      "2024": "4-6,34,41,46-49,76-78,136-137,155",
+      "2025": "4-7,41,46-49,76-78,125,137,152,155",
+      "2026": "6-8,41-42,46-48,57,68-69,76-78,136,155"
+    }
+  },
+  "year_counts": {
+    "2005": 18,
+    "2006": 18,
+    "2007": 20,
+    "2008": 18,
+    "2009": 16,
+    "2010": 19,
+    "2011": 15,
+    "2012": 17,
+    "2013": 16,
+    "2014": 19,
+    "2015": 20,
+    "2016": 17,
+    "2017": 20,
+    "2018": 15,
+    "2019": 18,
+    "2020": 19,
+    "2021": 12,
+    "2022": 17,
+    "2023": 15,
+    "2024": 15,
+    "2025": 16,
+    "2026": 16
+  },
+  "recovery": {
+    "historical_expected_count": 376,
+    "historical_hlk_total": 978,
+    "historical_hlk_counts": {
+      "circulation": 376,
+      "respiratory": 359,
+      "urinary": 243
+    },
+    "historical_status": "READY_PREVIEW_NOT_APPLIED",
+    "review_status": "CHAT_REAUDIT_RECONFIRMED_2026-09-12",
+    "deterministic_reaudit": {
+      "unambiguous_exact_lecture_scope_ids": 342,
+      "circulation_related_collision_question_count": 103,
+      "collision_group_counts": {
+        "physiology|第三章 血液|2.血液特性": 23,
+        "physiology|第三章 血液|3.生理性止血": 19,
+        "physiology|第八章 泌尿|3.小管重吸收和分泌、尿浓缩稀释、调节": 46,
+        "physiology|第四章 血液循环|1.心脏泵血": 15
+      },
+      "later_frozen_owner_count": 376,
+      "required_collision_deficit": 34,
+      "unique_whole_group_subset_for_deficit": [
+        "physiology|第三章 血液|3.生理性止血",
+        "physiology|第四章 血液循环|1.心脏泵血"
+      ],
+      "restored_collision_id_count": 34,
+      "excluded_collision_groups": [
+        "physiology|第三章 血液|2.血液特性",
+        "physiology|第八章 泌尿|3.小管重吸收和分泌、尿浓缩稀释、调节"
+      ],
+      "later_block_owner_crosscheck": {
+        "circulation_b04_final_owner_count": 19,
+        "meaning": "Matches the 19-question 生理性止血 group despite B04 also carrying 血液特性 and a null-scope page-range coverage; therefore those other B04 coverages did not add circulation-owned questions.",
+        "circulation_b02_final_owner_count": 26,
+        "meaning_2": "The 46-question renal-tubule collision group cannot be circulation-owned because the later frozen B02 owner range is only 26."
+      },
+      "final_unique_count": 376
+    },
+    "source_assets": {
+      "taxonomy": {
+        "name": "XIZONG_FINAL_PRACTICE_TAXONOMY_WITH_CHAPTER_v1.candidate.json",
+        "sha256": "838f1aadfba7ee0f8484e433de4b448f9595fa503c957846d94363228c3bead0"
+      },
+      "system_source_coverage": {
+        "name": "XIZONG_SYSTEM_SOURCE_COVERAGE_v1.candidate.json",
+        "sha256": "bab25c74abefa4f3b262cb50334f963cb2e8ea9d1467e169d903c4a70cc4c4dc"
+      },
+      "historical_scope": {
+        "name": "XIZONG_SYSTEM_OFFICIAL_SCOPE_v2.candidate.json",
+        "sha256": "6970c6faa1ff2427199bc7c02789a43873a8ddfefec405584db361736f0453fa"
+      },
+      "later_hlk_system_question_index": {
+        "name": "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl",
+        "row_count": 978,
+        "byte_count": 486228,
+        "sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d"
+      },
+      "later_hlk_range_config": {
+        "name": "HLK_SYSTEM_RANGE_CONFIG_v1.json",
+        "circulation_owner_count": 376
+      },
+      "historical_canonical_questions": {
+        "name": "canonical_questions.v2.candidate.json",
+        "sha256": "5d557c0011651f51ce2f45e4f137a3fa870b6a30f5269e3744380fd34814c584",
+        "question_count": 3750,
+        "question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82"
+      }
+    },
+    "current_question_truth_identity_check": {
+      "current_question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    }
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 376 unique IDs.",
+    "Require expanded inventory SHA256 = ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
+    "Require every expanded ID to resolve through Current Question Truth; fail closed on any missing ID."
+  ],
+  "boundaries": [
+    "System-level first-pass question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "The explicit Chat-reviewed Question-to-Knowledge relation owner remains separate and is never inferred from this scope.",
+    "Wrong/Uncertain repair may use an existing reviewed precise relation when available; otherwise leave the precise mapping unresolved for Chat review.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, or review state belongs in this shared Current file."
+  ]
+}
