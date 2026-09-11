@@ -2,13 +2,12 @@
 """Read-only LexicalOS Current asset integrity audit.
 
 This audit does not mutate semantics and does not decide learner truth. It separates:
-1) exact internal lifecycle / identity inconsistencies;
-2) high-signal heuristic Knowledge-quality risk pools that require Chat review.
+1) exact owner/identity integrity failures;
+2) provenance/lifecycle signals that may be intentional;
+3) high-signal heuristic Knowledge-quality review pools.
 
-Run from repository root:
-    python tools/lexical_asset_integrity_audit.py \
-      --output /tmp/lexical-asset-integrity.json \
-      --summary /tmp/lexical-asset-integrity.md
+Important: `source_sense_id` on a construction/secondary fact can legitimately point to a
+retired sense as provenance. That is *not* an exact defect by itself.
 """
 
 from __future__ import annotations
@@ -26,8 +25,8 @@ OWNERS = ROOT / "content" / "lexical" / "words" / "by-ordinal"
 EN_STOP = {
     "a", "an", "the", "to", "of", "or", "and", "in", "on", "for", "with", "by",
     "as", "at", "from", "into", "is", "are", "be", "being", "been", "that", "this",
-    "something", "someone", "somebody", "something", "one", "ones", "especially",
-    "used", "use", "thing", "things", "person", "people", "particular", "way",
+    "something", "someone", "somebody", "one", "ones", "especially", "used", "use",
+    "thing", "things", "person", "people", "particular", "way", "someone's", "someone’s",
 }
 
 
@@ -41,36 +40,27 @@ def cn_compact(value: Any) -> str:
     return re.sub(r"[^\u4e00-\u9fffA-Za-z0-9]+", "", norm_text(value))
 
 
+def cn_segments(value: Any) -> list[str]:
+    if not isinstance(value, str):
+        return []
+    parts = re.split(r"[；;，,、。/（）()：:]+", value)
+    out: list[str] = []
+    for part in parts:
+        token = re.sub(r"[^\u4e00-\u9fff]+", "", part)
+        token = token.strip()
+        if len(token) >= 2:
+            out.append(token)
+    return out
+
+
 def en_tokens(value: Any) -> set[str]:
     text = norm_text(value)
     toks = re.findall(r"[a-z][a-z'-]+", text)
     return {t for t in toks if t not in EN_STOP and len(t) > 2}
 
 
-def deprecated_core_overlap(reference: dict[str, Any], core_text_cn: str, core_text_en: str) -> dict[str, Any] | None:
-    """Heuristic only: deprecated reference meaning still appears in Current core wording."""
-    dcn = cn_compact(reference.get("definition_cn"))
-    cen = en_tokens(reference.get("definition_en"))
-    ccn = cn_compact(core_text_cn)
-    cenen = en_tokens(core_text_en)
-
-    cn_hit = bool(dcn and len(dcn) >= 2 and (dcn in ccn or (len(dcn) >= 4 and dcn[:2] in ccn)))
-    en_overlap = len(cen & cenen)
-    en_ratio = en_overlap / max(1, len(cen))
-    en_hit = len(cen) >= 2 and en_overlap >= 2 and en_ratio >= 0.5
-    if not (cn_hit or en_hit):
-        return None
-    return {
-        "definition_cn": reference.get("definition_cn"),
-        "definition_en": reference.get("definition_en"),
-        "cn_hit": cn_hit,
-        "en_overlap": en_overlap,
-        "en_ratio": round(en_ratio, 3),
-    }
-
-
-def collect_source_sense_refs(record: dict[str, Any]) -> list[tuple[str, str | None, str | None]]:
-    out: list[tuple[str, str | None, str | None]] = []
+def collect_source_sense_refs(record: dict[str, Any]) -> list[tuple[str, str, str | None]]:
+    out: list[tuple[str, str, str | None]] = []
     for field in ("constructions", "secondary_senses", "word_family", "confusables"):
         items = record.get(field) or []
         if not isinstance(items, list):
@@ -79,10 +69,51 @@ def collect_source_sense_refs(record: dict[str, Any]) -> list[tuple[str, str | N
             if not isinstance(item, dict):
                 continue
             sid = item.get("source_sense_id")
-            if sid:
+            if isinstance(sid, str) and sid:
                 label = item.get("pattern") or item.get("boundary") or item.get("label_en") or item.get("fact_id")
                 out.append((field, sid, label))
     return out
+
+
+def deprecated_core_gap_candidate(
+    reference: dict[str, Any],
+    core_text_cn: str,
+    core_text_en: str,
+    active_text_cn: str,
+    active_text_en: str,
+) -> dict[str, Any] | None:
+    """High-signal heuristic: retired, unmerged meaning still named by Current Core but absent from Active wording."""
+    if reference.get("status") != "deprecated":
+        return None
+    if reference.get("merged_into_sense_id"):
+        return None
+
+    core_cn = cn_compact(core_text_cn)
+    active_cn = cn_compact(active_text_cn)
+    named_segments = []
+    for segment in cn_segments(reference.get("definition_cn")):
+        if segment in core_cn and segment not in active_cn:
+            named_segments.append(segment)
+
+    ref_en = en_tokens(reference.get("definition_en"))
+    core_en = en_tokens(core_text_en)
+    active_en = en_tokens(active_text_en)
+    en_overlap = ref_en & core_en
+    en_missing = en_overlap - active_en
+    en_ratio = len(en_overlap) / max(1, len(ref_en))
+    en_hit = len(ref_en) >= 2 and len(en_overlap) >= 2 and en_ratio >= 0.6 and len(en_missing) >= 1
+
+    if not named_segments and not en_hit:
+        return None
+    return {
+        "sense_id": reference.get("stable_sense_id"),
+        "definition_cn": reference.get("definition_cn"),
+        "definition_en": reference.get("definition_en"),
+        "named_core_segments_cn": named_segments,
+        "english_core_overlap": sorted(en_overlap),
+        "english_terms_missing_from_active": sorted(en_missing),
+        "english_overlap_ratio": round(en_ratio, 3),
+    }
 
 
 def audit_owner(path: Path) -> dict[str, Any]:
@@ -97,7 +128,6 @@ def audit_owner(path: Path) -> dict[str, Any]:
     identity_senses = [x for x in ((data.get("identity_refs") or {}).get("senses") or []) if isinstance(x, dict)]
     identity_status = {x.get("sense_id"): x.get("status") for x in identity_senses if x.get("sense_id")}
     reference_senses = [x for x in (data.get("reference_senses") or []) if isinstance(x, dict)]
-    deprecated_refs = [x for x in reference_senses if x.get("status") == "deprecated"]
 
     collocations: list[dict[str, Any]] = []
     for sense in senses:
@@ -113,6 +143,7 @@ def audit_owner(path: Path) -> dict[str, Any]:
     secondary = [x for x in (record.get("secondary_senses") or []) if isinstance(x, dict)]
 
     exact: list[dict[str, Any]] = []
+    signals: list[dict[str, Any]] = []
     heuristics: list[dict[str, Any]] = []
 
     expected_name = f"o{int(ordinal):04d}.json" if isinstance(ordinal, int) else None
@@ -120,9 +151,13 @@ def audit_owner(path: Path) -> dict[str, Any]:
         exact.append({"code": "ORDINAL_PATH_MISMATCH", "expected": expected_name, "actual": path.name})
     if word_id and not word_id.startswith("word:"):
         exact.append({"code": "WORD_ID_SHAPE_INVALID", "word_id": word_id})
+    if record.get("word_id") != word_id:
+        exact.append({"code": "OWNER_RECORD_WORD_ID_MISMATCH", "owner": word_id, "record": record.get("word_id")})
 
     for sid in sorted(active_ids):
-        if sid in identity_status and identity_status[sid] != "active":
+        if sid not in identity_status:
+            exact.append({"code": "ACTIVE_SENSE_MISSING_IDENTITY", "sense_id": sid})
+        elif identity_status[sid] != "active":
             exact.append({"code": "ACTIVE_SENSE_IDENTITY_NOT_ACTIVE", "sense_id": sid, "identity_status": identity_status[sid]})
 
     core = record.get("core_concept") or {}
@@ -141,15 +176,15 @@ def audit_owner(path: Path) -> dict[str, Any]:
     for field, sid, label in collect_source_sense_refs(record):
         status = identity_status.get(sid)
         if status == "deprecated":
-            exact.append({
-                "code": "CURRENT_LEARNING_OBJECT_REFERENCES_DEPRECATED_SENSE",
+            signals.append({
+                "code": "LEARNING_OBJECT_PROVENANCE_USES_DEPRECATED_SOURCE",
                 "field": field,
                 "sense_id": sid,
                 "label": label,
             })
         elif status is None and sid not in active_ids:
             exact.append({
-                "code": "CURRENT_LEARNING_OBJECT_REFERENCES_UNKNOWN_SENSE",
+                "code": "LEARNING_OBJECT_REFERENCES_UNKNOWN_SOURCE_SENSE",
                 "field": field,
                 "sense_id": sid,
                 "label": label,
@@ -171,14 +206,12 @@ def audit_owner(path: Path) -> dict[str, Any]:
         + [c.get("label_en") for c in clusters]
         if x
     )
-    for ref in deprecated_refs:
-        overlap = deprecated_core_overlap(ref, core_cn, core_en)
-        if overlap:
-            heuristics.append({
-                "code": "DEPRECATED_REFERENCE_OVERLAPS_CURRENT_CORE",
-                "sense_id": ref.get("stable_sense_id"),
-                **overlap,
-            })
+    active_cn = " | ".join(str(s.get("definition_cn") or "") for s in senses)
+    active_en = " | ".join(str(s.get("definition_en") or "") for s in senses)
+    for ref in reference_senses:
+        candidate = deprecated_core_gap_candidate(ref, core_cn, core_en, active_cn, active_en)
+        if candidate:
+            heuristics.append({"code": "UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE", **candidate})
 
     mm_cn = norm_text(core.get("mental_model_cn"))
     cm_cn = norm_text(core.get("core_meaning_cn"))
@@ -208,12 +241,10 @@ def audit_owner(path: Path) -> dict[str, Any]:
     if record.get("needs_delta_review") is True:
         heuristics.append({"code": "NEEDS_DELTA_REVIEW_TRUE"})
 
-    risk_score = 0
-    for item in exact:
-        risk_score += 6 if item["code"] == "CURRENT_LEARNING_OBJECT_REFERENCES_DEPRECATED_SENSE" else 4
+    risk_score = 8 * len(exact)
     for item in heuristics:
         risk_score += {
-            "DEPRECATED_REFERENCE_OVERLAPS_CURRENT_CORE": 4,
+            "UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE": 5,
             "WEAK_MENTAL_MODEL_CN": 1,
             "WEAK_MENTAL_MODEL_EN": 1,
             "RICH_WORD_WITHOUT_EXPLICIT_STRUCTURE_LAYER": 2,
@@ -231,9 +262,10 @@ def audit_owner(path: Path) -> dict[str, Any]:
         "secondary_sense_count": len(secondary),
         "fixed_pattern_count": fixed_pattern_count,
         "usage_example_count": usage_example_count,
-        "deprecated_reference_count": len(deprecated_refs),
+        "reference_sense_count": len(reference_senses),
         "semantic_delta": (data.get("provenance") or {}).get("semantic_delta"),
         "exact_findings": exact,
+        "provenance_signals": signals,
         "heuristic_findings": heuristics,
         "risk_score": risk_score,
     }
@@ -244,19 +276,20 @@ def render_summary(report: dict[str, Any]) -> str:
     lines = [
         "# Lexical Current Asset Integrity Audit",
         "",
-        "> Read-only diagnostics. Exact findings are structural/lifecycle inconsistencies. Heuristic findings are review pools, not automatic semantic failures.",
+        "> Read-only diagnostics. Exact findings are owner/identity inconsistencies. Provenance signals can be intentional. Heuristic findings are review pools, not automatic semantic failures.",
         "",
         f"- Current owners scanned: **{s['owners_scanned']}**",
         f"- Owners with exact findings: **{s['owners_with_exact_findings']}**",
         f"- Exact finding count: **{s['exact_finding_count']}**",
-        f"- Owners with heuristic findings: **{s['owners_with_heuristic_findings']}**",
+        f"- Deprecated-source provenance signals: **{s['deprecated_source_provenance_signal_count']}** across **{s['owners_with_deprecated_source_provenance']}** owners",
         f"- `needs_delta_review=true`: **{s['needs_delta_review_true']}**",
+        f"- High-signal unmerged deprecated/Core candidates: **{s['unmerged_deprecated_meaning_named_in_core']}**",
         f"- Rich words (>=4 active senses): **{s['rich_word_count']}**",
         f"- Rich words with weak CN mental model: **{s['rich_weak_mental_model_cn']}**",
         f"- Rich words with weak EN mental model: **{s['rich_weak_mental_model_en']}**",
         f"- Rich words with no explicit construction/fixed-pattern layer: **{s['rich_without_structure_layer']}**",
         "",
-        "## Exact defect classes",
+        "## Exact integrity classes",
         "",
     ]
     for code, count in s["exact_by_code"].items():
@@ -264,12 +297,20 @@ def render_summary(report: dict[str, Any]) -> str:
     if not s["exact_by_code"]:
         lines.append("- none")
 
-    lines += ["", "## Heuristic review pools", ""]
+    lines += ["", "## Heuristic Knowledge-review pools", ""]
     for code, count in s["heuristic_by_code"].items():
         lines.append(f"- `{code}`: **{count}**")
 
+    lines += ["", "## By card version", ""]
+    for version, row in s["by_card_version"].items():
+        lines.append(
+            f"- `{version}`: owners {row['owners']}; needs_delta {row['needs_delta_review_true']}; "
+            f"weak_cn {row['weak_mental_model_cn']}; weak_en {row['weak_mental_model_en']}; "
+            f"core-gap candidates {row['unmerged_deprecated_meaning_named_in_core']}; rich/no-structure {row['rich_without_structure_layer']}"
+        )
+
     lines += ["", "## Highest-risk owners", ""]
-    for item in report["highest_risk"][:40]:
+    for item in report["highest_risk"][:50]:
         exact_codes = ", ".join(sorted({x["code"] for x in item["exact_findings"]})) or "-"
         heuristic_codes = ", ".join(sorted({x["code"] for x in item["heuristic_findings"]})) or "-"
         lines.append(
@@ -281,9 +322,9 @@ def render_summary(report: dict[str, Any]) -> str:
         "## Interpretation boundary",
         "",
         "- Do **not** equate this report with Knowledge acceptance.",
-        "- Exact lifecycle/identity findings are repair candidates after Chat review.",
-        "- Heuristic pools exist to estimate scale and prioritize semantic sampling; they must not be bulk-mutated mechanically.",
-        "- Historical approval/readback reconciliation is a separate question from Current asset quality.",
+        "- A retired source sense can legitimately remain as provenance for a current construction/secondary branch.",
+        "- Heuristic pools estimate scale and prioritize Chat semantic sampling; they must not be bulk-mutated mechanically.",
+        "- Historical approval/readback reconciliation remains separate from Current asset quality.",
         "",
     ]
     return "\n".join(lines)
@@ -301,49 +342,74 @@ def main() -> int:
 
     owners = [audit_owner(p) for p in paths]
     exact_counter: collections.Counter[str] = collections.Counter()
+    signal_counter: collections.Counter[str] = collections.Counter()
     heuristic_counter: collections.Counter[str] = collections.Counter()
     card_versions: collections.Counter[str] = collections.Counter()
     semantic_delta: collections.Counter[str] = collections.Counter()
+    by_version: dict[str, dict[str, int]] = collections.defaultdict(lambda: collections.defaultdict(int))
 
     for owner in owners:
-        card_versions[str(owner.get("card_version"))] += 1
+        version = str(owner.get("card_version"))
+        card_versions[version] += 1
         semantic_delta[str(owner.get("semantic_delta"))] += 1
         exact_counter.update(x["code"] for x in owner["exact_findings"])
+        signal_counter.update(x["code"] for x in owner["provenance_signals"])
         heuristic_counter.update(x["code"] for x in owner["heuristic_findings"])
+        row = by_version[version]
+        row["owners"] += 1
+        codes = {x["code"] for x in owner["heuristic_findings"]}
+        if "NEEDS_DELTA_REVIEW_TRUE" in codes:
+            row["needs_delta_review_true"] += 1
+        if "WEAK_MENTAL_MODEL_CN" in codes:
+            row["weak_mental_model_cn"] += 1
+        if "WEAK_MENTAL_MODEL_EN" in codes:
+            row["weak_mental_model_en"] += 1
+        if "UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE" in codes:
+            row["unmerged_deprecated_meaning_named_in_core"] += 1
+        if "RICH_WORD_WITHOUT_EXPLICIT_STRUCTURE_LAYER" in codes:
+            row["rich_without_structure_layer"] += 1
 
     rich = [o for o in owners if o["sense_count"] >= 4]
     summary = {
         "owners_scanned": len(owners),
         "owners_with_exact_findings": sum(bool(o["exact_findings"]) for o in owners),
         "exact_finding_count": sum(len(o["exact_findings"]) for o in owners),
-        "owners_with_heuristic_findings": sum(bool(o["heuristic_findings"]) for o in owners),
         "exact_by_code": dict(sorted(exact_counter.items())),
+        "deprecated_source_provenance_signal_count": signal_counter.get("LEARNING_OBJECT_PROVENANCE_USES_DEPRECATED_SOURCE", 0),
+        "owners_with_deprecated_source_provenance": sum(bool(o["provenance_signals"]) for o in owners),
         "heuristic_by_code": dict(sorted(heuristic_counter.items())),
         "needs_delta_review_true": heuristic_counter.get("NEEDS_DELTA_REVIEW_TRUE", 0),
+        "unmerged_deprecated_meaning_named_in_core": heuristic_counter.get("UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE", 0),
         "rich_word_count": len(rich),
         "rich_weak_mental_model_cn": sum(any(x["code"] == "WEAK_MENTAL_MODEL_CN" for x in o["heuristic_findings"]) for o in rich),
         "rich_weak_mental_model_en": sum(any(x["code"] == "WEAK_MENTAL_MODEL_EN" for x in o["heuristic_findings"]) for o in rich),
         "rich_without_structure_layer": sum(any(x["code"] == "RICH_WORD_WITHOUT_EXPLICIT_STRUCTURE_LAYER" for x in o["heuristic_findings"]) for o in rich),
         "card_versions": dict(sorted(card_versions.items())),
+        "by_card_version": {k: dict(v) for k, v in sorted(by_version.items())},
         "semantic_delta_distribution": dict(sorted(semantic_delta.items())),
     }
 
     report = {
-        "schema": "kianos.lexical.asset_integrity_audit.v1",
+        "schema": "kianos.lexical.asset_integrity_audit.v2",
         "authority": "READ_ONLY_DIAGNOSTIC_NOT_SEMANTIC_AUTHORITY",
         "summary": summary,
         "highest_risk": sorted(
             [o for o in owners if o["risk_score"] > 0],
             key=lambda x: (-x["risk_score"], x.get("ordinal") or 0),
-        )[:250],
+        )[:300],
         "exact_findings": [
+            {"ordinal": o["ordinal"], "word_id": o["word_id"], "word": o["word"], "findings": o["exact_findings"]}
+            for o in owners if o["exact_findings"]
+        ],
+        "core_gap_candidates": [
             {
                 "ordinal": o["ordinal"],
                 "word_id": o["word_id"],
                 "word": o["word"],
-                "findings": o["exact_findings"],
+                "findings": [x for x in o["heuristic_findings"] if x["code"] == "UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE"],
             }
-            for o in owners if o["exact_findings"]
+            for o in owners
+            if any(x["code"] == "UNMERGED_DEPRECATED_MEANING_NAMED_IN_CORE" for x in o["heuristic_findings"])
         ],
     }
 
