@@ -104,44 +104,67 @@ function referenceText(value) {
   if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
   if (Array.isArray(value)) return value.map(referenceText).filter(Boolean).join('\n');
   if (!value || typeof value !== 'object') return '';
-  return firstText(value.text, value.content, value.translation, value.answer, value.value);
+  return firstText(
+    value.text,
+    value.content,
+    value.reference_translation,
+    value.translation,
+    value.chinese_translation,
+    value.answer,
+    value.value
+  );
 }
 
-function referenceOf(row) {
+function referenceResolution(row) {
   const context = row?.context || {};
   const candidates = [
-    row?.answer,
-    row?.formal_answer,
-    row?.correct_answer,
-    row?.reference_translation,
-    row?.translation,
-    row?.chinese_translation,
-    row?.model_answer,
-    row?.reference_answer,
-    row?.target_text,
-    context?.answer,
-    context?.formal_answer,
-    context?.reference_translation,
-    context?.translation,
-    context?.chinese_translation,
-    context?.model_answer,
-    context?.target_text
+    ['formal_answer', row?.formal_answer],
+    ['correct_answer', row?.correct_answer],
+    ['reference_translation', row?.reference_translation],
+    ['translation', row?.translation],
+    ['chinese_translation', row?.chinese_translation],
+    ['model_answer', row?.model_answer],
+    ['reference_answer', row?.reference_answer],
+    ['target_text', row?.target_text],
+    ['answer', row?.answer],
+    ['analysis.reference_translation', row?.analysis?.reference_translation],
+    ['context.formal_answer', context?.formal_answer],
+    ['context.reference_translation', context?.reference_translation],
+    ['context.translation', context?.translation],
+    ['context.chinese_translation', context?.chinese_translation],
+    ['context.model_answer', context?.model_answer],
+    ['context.target_text', context?.target_text],
+    ['context.answer', context?.answer]
   ];
-  for (const candidate of candidates) {
+  for (const [source, candidate] of candidates) {
     const text = referenceText(candidate);
-    if (text) return text;
+    if (text) {
+      const verification = source === 'analysis.reference_translation'
+        ? row?.analysis?.reference_translation_verification || null
+        : null;
+      return {
+        text,
+        available: true,
+        status: verification?.status || row?.analysis?.analysis_status || 'available',
+        source,
+        official: verification?.official ?? null,
+        semanticRule: verification?.semantic_rule || ''
+      };
+    }
   }
-  return '';
+  return {
+    text: '',
+    available: false,
+    status: row?.analysis?.analysis_status || row?.qa_state || row?.seal_state || 'missing_reference',
+    source: '',
+    official: null,
+    semanticRule: ''
+  };
 }
 
 function instructionOf(row) {
   const context = row?.context || {};
-  return firstText(
-    row?.instruction,
-    row?.directive,
-    context?.instruction,
-    context?.directive
-  );
+  return firstText(row?.instruction, row?.directive, context?.instruction, context?.directive);
 }
 
 function sourceTextOf(row) {
@@ -320,15 +343,48 @@ function titleForSet(set, paper) {
   return [paper?.year ? String(paper.year) : '', 'Translation'].filter(Boolean).join(' · ') || String(set?.id || 'Translation');
 }
 
+function referenceCoverageForSet(data, set) {
+  const rows = promptsForSet(data, set);
+  const resolved = rows.map(referenceResolution);
+  const available = resolved.filter((row) => row.available).length;
+  return {
+    available,
+    total: rows.length,
+    missing: rows.length - available,
+    complete: rows.length > 0 && available === rows.length
+  };
+}
+
+function allReferenceGaps(data) {
+  return data.sets.flatMap((set) => promptsForSet(data, set).flatMap((row, index) => {
+    const resolved = referenceResolution(row);
+    if (resolved.available) return [];
+    return [{
+      setId: String(set.id),
+      id: String(row?.id || row?.question_id || `${set.id}:segment-${index + 1}`),
+      ordinal: Number(row?.ordinal || index + 1),
+      status: resolved.status
+    }];
+  }));
+}
+
 export function inspectTranslationSources() {
   const data = snapshot();
+  const gaps = data.status === 'ready' ? allReferenceGaps(data) : [];
+  const completeSetCount = data.status === 'ready'
+    ? data.sets.filter((set) => referenceCoverageForSet(data, set).complete).length
+    : 0;
   return {
     status: data.status,
     issues: [...(data.issues || [])],
     missing: [...(data.missing || [])],
     sections: [...(data.sections || [])],
     availableSections: (data.inventory || []).map((row) => ({ section: row.section, setCount: row.setCount })),
-    sectionResolutionMode: data.sectionResolutionMode || ''
+    sectionResolutionMode: data.sectionResolutionMode || '',
+    setCount: data.status === 'ready' ? data.sets.length : 0,
+    completeReferenceSetCount: completeSetCount,
+    partialReferenceSetCount: data.status === 'ready' ? data.sets.length - completeSetCount : 0,
+    referenceGaps: gaps
   };
 }
 
@@ -337,6 +393,7 @@ export function listTranslationSets() {
   if (data.status !== 'ready') return [];
   return data.sets.map((set, index) => {
     const paper = paperForSet(data, set);
+    const referenceCoverage = referenceCoverageForSet(data, set);
     return {
       id: String(set.id),
       title: titleForSet(set, paper),
@@ -344,7 +401,8 @@ export function listTranslationSets() {
       year: paper?.year || null,
       section: String(set.section || ''),
       position: index + 1,
-      total: data.sets.length
+      total: data.sets.length,
+      referenceCoverage
     };
   });
 }
@@ -373,6 +431,7 @@ export function loadTranslationById(objectId) {
     section: String(set.section || ''),
     material,
     prompts,
+    referenceCoverage: referenceCoverageForSet(data, set),
     context: {
       instruction: firstText(set?.instruction, context?.instruction),
       subtitle: firstText(context?.subtitle)
@@ -403,15 +462,22 @@ export function loadTranslationReferencesById(objectId) {
   const set = data.sets.find((row) => String(row.id) === String(objectId));
   if (!set) throw new Error(`CURRENT_TRANSLATION_SET_NOT_FOUND:${objectId}`);
   const rows = promptsForSet(data, set);
+  const references = rows.map((row, index) => {
+    const resolved = referenceResolution(row);
+    return {
+      id: String(row?.id || row?.question_id || `${set.id}:segment-${index + 1}`),
+      ordinal: Number(row?.ordinal || index + 1),
+      ...resolved
+    };
+  });
   return {
     schema: 'kianos.english.translation_reference.v1',
     task: 'translation',
     objectId: String(set.id),
-    references: rows.map((row, index) => ({
-      id: String(row?.id || row?.question_id || `${set.id}:segment-${index + 1}`),
-      ordinal: Number(row?.ordinal || index + 1),
-      text: referenceOf(row)
-    }))
+    availableCount: references.filter((row) => row.available).length,
+    totalCount: references.length,
+    missingCount: references.filter((row) => !row.available).length,
+    references
   };
 }
 
