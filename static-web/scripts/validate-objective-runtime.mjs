@@ -72,6 +72,7 @@ function validateTask({ task, list, load, loadAnswers }) {
     sets: sets.length,
     questions: 0,
     withMaterial: 0,
+    orderingWithSkeleton: 0,
     issueCount: 0
   };
 
@@ -90,8 +91,16 @@ function validateTask({ task, list, load, loadAnswers }) {
       const answerPayload = loadAnswers(catalogItem.id);
       const questions = item.questions || [];
       stats.questions += questions.length;
-      if (item.material?.length) stats.withMaterial += 1;
-      else issues.push(`${task}:${item.objectId}: no passage/material projection`);
+
+      const ordering = task === 'reading_b' && item.context?.taskForm === 'ordering';
+      if (item.material?.length) {
+        stats.withMaterial += 1;
+      } else if (ordering && Array.isArray(item.context?.orderingSkeleton) && item.context.orderingSkeleton.length) {
+        stats.orderingWithSkeleton += 1;
+      } else {
+        issues.push(`${task}:${item.objectId}: no usable passage/material or ordering-skeleton projection`);
+      }
+
       if (!questions.length) issues.push(`${task}:${item.objectId}: no questions`);
       if (!state.sections.includes(item.section)) issues.push(`${task}:${item.objectId}: section ${item.section} outside resolved task sections`);
       if (answerPayload.objectId !== item.objectId || answerPayload.task !== task) issues.push(`${task}:${item.objectId}: answer payload identity mismatch`);
@@ -103,6 +112,7 @@ function validateTask({ task, list, load, loadAnswers }) {
         if (!['single_use', 'repeat_allowed', 'source_unspecified'].includes(item.context?.candidateUsePolicy)) {
           issues.push(`${task}:${item.objectId}: invalid candidate-use policy ${item.context?.candidateUsePolicy}`);
         }
+        if (ordering && item.material?.length) issues.push(`${task}:${item.objectId}: ordering should use candidate paragraphs + source skeleton, not duplicate generic material`);
       }
 
       const answerIds = new Set(Object.keys(answerPayload.answers || {}));
