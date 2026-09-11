@@ -1,0 +1,48 @@
+{
+  "schema": "kianos.lexical.owner_contract.v1",
+  "status": "CUTOVER_CONTRACT",
+  "semantic_delta_policy": "STRUCTURE_ONLY_ZERO",
+  "owners": {
+    "word": {
+      "path_rule": "content/lexical/words/by-ordinal/o{ordinal:04d}.json",
+      "owns": [
+        "core_concept",
+        "learner_senses",
+        "word_local_constructions",
+        "word_local_collocations",
+        "phraseology",
+        "word_family",
+        "exam_paraphrases",
+        "reference_senses"
+      ],
+      "cross_word_relationships": "relation_refs_only"
+    },
+    "relation": {
+      "path_rule": "content/lexical/relations/by-id/{sha256(relation_id)[0:2]}/{sha256(relation_id)}.json",
+      "owns": [
+        "genuine_cross_word_semantic_relationships",
+        "confusable_relationships",
+        "semantic_contrasts"
+      ]
+    }
+  },
+  "reference_only_after_cutover": {
+    "content/lexical/canonical/senses/": "identity/provenance registry",
+    "content/lexical/canonical/facts/": "migration/provenance evidence",
+    "content/lexical/canonical/collocations/": "identity/provenance registry",
+    "content/lexical/canonical/exam-mappings/": "exam evidence/reference",
+    "content/lexical/canonical/packs/": "membership/routing metadata",
+    "content/lexical/canonical/lookup/": "deterministic non-semantic lookup projection",
+    "content/lexical/canonical/relations/": "pre-cutover relation provenance"
+  },
+  "invariants": [
+    "main@HEAD is the only shared Current authority after accepted cutover",
+    "a Word is the only editable owner of its word-local semantics",
+    "a genuine cross-word Relation has one independent owner and Words keep stable references",
+    "stable word_id, ordinal, sense_id, fact_id, collocation_id and relation_id identities are preserved",
+    "structural cutover does not repair or reinterpret lexical semantics",
+    "every materialized Word must reconstruct its pre-cutover Current word bundle exactly when referenced relation views are hydrated",
+    "Astro may hydrate and render Current owners but must not become a second semantic owner",
+    "private interaction state is outside shared Current content"
+  ]
+}
