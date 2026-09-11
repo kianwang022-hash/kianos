@@ -7,18 +7,21 @@
   "current_owner_root": "content/english/",
   "source_materialization": {
     "question_bank": {
+      "original_source_path": "Study/英语资料库/EnglishOS/database/question_bank.v1.json",
       "owner_path": "content/english/source/question_bank.v1.json",
       "sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
       "role": "DURABLE_CURRENT_QUESTION_BANK",
       "byte_identity": "EXACT_MATCH"
     },
     "reading_corpus": {
+      "original_source_path": "Study/英语资料库/EnglishOS/database/reading_corpus.v1.json",
       "owner_path": "content/english/source/reading_corpus.v1.json",
       "sha256": "97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a",
       "role": "DURABLE_CURRENT_READING_CORPUS",
       "byte_identity": "EXACT_MATCH"
     },
     "global_source_truth": {
+      "original_source_path": "Study/英语资料库/EnglishOS/database/global_source_truth.v1.json",
       "owner_path": "content/english/source/global_source_truth.v1.json",
       "sha256": "add197c7dcd72bec45aafe11247f27f55bd034ce0279679e59443b05b5e21e3b",
       "role": "DURABLE_SOURCE_TRUTH_OVERLAY_WITH_PRESERVED_PRE_REPAIR_BINDING",
@@ -48,19 +51,40 @@
     }
   },
   "stable_identity_proof": {
-    "papers_ordered_id_inventory_sha256": "093a518a8b1653cbef7c760cd2b93df26489ca18821560baa56e70da351dc42a",
-    "sections_ordered_id_inventory_sha256": "1c6d64d05a9768a8ea5553791fb53d7f39c5ddd88e019feb99aeae0831b60f3e",
-    "sets_ordered_id_inventory_sha256": "00fba9f8a7ec795b4d293c49a71009163b97da5c681ea9bbd5a102d3bc0c0d9a",
-    "questions_ordered_id_inventory_sha256": "57378a413bda47aff31ff7e0e9464ef4dfce7e0b8fe76b521bb58e1ee9df6ed4"
+    "ordered_id_inventory_rule": "UTF-8 lexicographic ascending ID with trailing newline",
+    "papers": {
+      "count": 27,
+      "unique_ids": 27,
+      "missing_ids": 0,
+      "sha256": "093a518a8b1653cbef7c760cd2b93df26489ca18821560baa56e70da351dc42a"
+    },
+    "sections": {
+      "count": 152,
+      "unique_ids": 152,
+      "missing_ids": 0,
+      "sha256": "1c6d64d05a9768a8ea5553791fb53d7f39c5ddd88e019feb99aeae0831b60f3e"
+    },
+    "sets": {
+      "count": 235,
+      "unique_ids": 235,
+      "missing_ids": 0,
+      "sha256": "00fba9f8a7ec795b4d293c49a71009163b97da5c681ea9bbd5a102d3bc0c0d9a"
+    },
+    "questions_or_prompts": {
+      "count": 1364,
+      "unique_ids": 1364,
+      "missing_ids": 0,
+      "sha256": "57378a413bda47aff31ff7e0e9464ef4dfce7e0b8fe76b521bb58e1ee9df6ed4"
+    }
   },
   "approved_question_bank_repair": {
     "before_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
     "after_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
     "changed_fields": [
-      "english1-2024-cloze-main-q11.answer=A",
-      "english1-2024-cloze-main-q11.qa_state.issues remove answer_unresolved",
-      "english1-2025-cloze-main-q1.answer=B",
-      "english1-2025-cloze-main-q1.qa_state.issues remove answer_unresolved"
+      "questions_or_prompts[id=english1-2024-cloze-main-q11].answer",
+      "questions_or_prompts[id=english1-2024-cloze-main-q11].qa_state.issues[-answer_unresolved]",
+      "questions_or_prompts[id=english1-2025-cloze-main-q1].answer",
+      "questions_or_prompts[id=english1-2025-cloze-main-q1].qa_state.issues[-answer_unresolved]"
     ],
     "verified_answers": {
       "english1-2024-cloze-main-q11": "A",
@@ -104,6 +128,10 @@
     "migration_transport_closed": true
   },
   "global_source_truth_binding": {
+    "status": "SOURCE_READY",
+    "years": 27,
+    "units": 235,
+    "questions_mapped": 1364,
     "embedded_question_bank_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
     "current_question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
     "treatment": "PRESERVED_AS_PRE_REPAIR_BINDING; NOT_USED_AS_CURRENT_QUESTION_AUTHORITY"
@@ -111,6 +139,8 @@
   "recovery_policy": {
     "normal_read_authority": "main@HEAD only",
     "history_and_legacy_role": "RECOVERY_REFERENCE_ONLY",
+    "historical_recovery_contract": "content/english/RECOVERY_CONTRACT.md",
+    "legacy_execution_issue": 100,
     "stop_on": [
       "SOURCE_HASH_MISMATCH",
       "MISSING_REFERENCED_SOURCE",
