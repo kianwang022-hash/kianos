@@ -1,0 +1,45 @@
+name: LexicalOS Migration Integrity Readback
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/lexical/audit/migration-integrity/**'
+      - 'content/lexical/words/by-ordinal/**'
+      - 'content/lexical/relations/by-id/**'
+      - 'tools/lexical_migration_integrity_readback.py'
+      - '.github/workflows/lexical-migration-integrity.yml'
+  pull_request:
+    paths:
+      - 'content/lexical/audit/migration-integrity/**'
+      - 'content/lexical/words/by-ordinal/**'
+      - 'content/lexical/relations/by-id/**'
+      - 'tools/lexical_migration_integrity_readback.py'
+      - '.github/workflows/lexical-migration-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r12-expansion-readback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate R12 expansion authority and exact Current readback
+        shell: bash
+        run: |
+          python tools/lexical_migration_integrity_readback.py \
+            content/lexical/audit/migration-integrity/r12-expansion-authority.json \
+            --output /tmp/r12-expansion-readback.json
+
+      - name: Upload readback evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-r12-expansion-readback
+          path: /tmp/r12-expansion-readback.json
+          if-no-files-found: error
+          retention-days: 14
