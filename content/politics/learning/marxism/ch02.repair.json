@@ -10,16 +10,117 @@
     "LEGACY_QUESTION_KNOWLEDGE_LINKS_PROVENANCE_ONLY"
   ],
   "semantic_authority_rule": "Legacy question_knowledge_links may explain historical provenance but may not override Current Unit ownership or reclassify a question semantically.",
+  "k03_question_node_evidence": {
+    "schema": "kianos.politics.k03_question_node_evidence.v1",
+    "natural_unit_id": "POL27-CF-MARX-C02-K03",
+    "runtime_region": "POL27-REGION-PILOT-MARX-REG-01",
+    "status": "CURRENT_COMPLETE",
+    "evidence_basis": [
+      {
+        "type": "AUTHORITATIVE_OWNER",
+        "artifact": "content/politics/source/politics_unified_regions.v1.jsonl",
+        "rule": "The frozen K03 owner row defines the exact 15-question scope."
+      },
+      {
+        "type": "QUESTION_TO_CHENGFENG_CROSSWALK",
+        "artifact_label": "乘风一千题对应表（马原+思修）",
+        "rule": "Only Chengfeng 【考点3】 locators are admitted as current K03 node evidence; other option locators remain cross-unit context."
+      },
+      {
+        "type": "CURRENT_RICH_REPAIR_CROSSCHECK",
+        "question_ids": [
+          "X1000-MARX-S-028",
+          "X1000-MARX-M-029",
+          "X1000-MARX-M-026"
+        ],
+        "rule": "Existing rich repairs must agree with the compact 15/15 node projection."
+      }
+    ],
+    "node_projection": [
+      {
+        "node_id": "POL27-CF-MARX-C02-K03-N01",
+        "label": "矛盾的同一性、斗争性及其关系",
+        "chengfeng_crosswalk_bucket": "【考点3】→1",
+        "question_ids": [
+          "X1000-MARX-S-029",
+          "X1000-MARX-S-039",
+          "X1000-MARX-M-026",
+          "X1000-MARX-M-027",
+          "X1000-MARX-M-035",
+          "X1000-MARX-M-046",
+          "X1000-MARX-M-047",
+          "X1000-MARX-M-048",
+          "X1000-MARX-M-074"
+        ]
+      },
+      {
+        "node_id": "POL27-CF-MARX-C02-K03-N02",
+        "label": "同一性和斗争性在事物发展中的作用",
+        "chengfeng_crosswalk_bucket": "【考点3】→2",
+        "question_ids": [
+          "X1000-MARX-S-028",
+          "X1000-MARX-M-028"
+        ]
+      },
+      {
+        "node_id": "POL27-CF-MARX-C02-K03-N03",
+        "label": "矛盾的普遍性与特殊性（共性与个性）",
+        "chengfeng_crosswalk_bucket": "【考点3】→3",
+        "question_ids": [
+          "X1000-MARX-M-029",
+          "X1000-MARX-M-030",
+          "X1000-MARX-M-045"
+        ]
+      },
+      {
+        "node_id": "POL27-CF-MARX-C02-K03-N04",
+        "label": "矛盾的不平衡性与矛盾分析方法",
+        "chengfeng_crosswalk_bucket": "【考点3】→4",
+        "question_ids": [
+          "X1000-MARX-M-048",
+          "X1000-MARX-M-049"
+        ]
+      }
+    ],
+    "question_edges": [
+      {"question_id":"X1000-MARX-S-028","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N02","chengfeng_crosswalk_locator":"P22【考点3】→2"}]},
+      {"question_id":"X1000-MARX-S-029","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（1）"}]},
+      {"question_id":"X1000-MARX-S-039","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1"}]},
+      {"question_id":"X1000-MARX-M-026","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（1）","option_letters":"C"}]},
+      {"question_id":"X1000-MARX-M-027","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（3）"}]},
+      {"question_id":"X1000-MARX-M-028","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N02","chengfeng_crosswalk_locator":"P22【考点3】→2"}]},
+      {"question_id":"X1000-MARX-M-029","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N03","chengfeng_crosswalk_locator":"P22【考点3】→3→（3）","option_letters":"AC"}]},
+      {"question_id":"X1000-MARX-M-030","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N03","chengfeng_crosswalk_locator":"P22【考点3】→3→（3）"}]},
+      {"question_id":"X1000-MARX-M-035","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（4）","option_letters":"A"}]},
+      {"question_id":"X1000-MARX-M-045","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N03","chengfeng_crosswalk_locator":"P23【考点3】→3→（4）","option_letters":"C"}]},
+      {"question_id":"X1000-MARX-M-046","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（1）","option_letters":"A"}]},
+      {"question_id":"X1000-MARX-M-047","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（1）","option_letters":"A"}]},
+      {"question_id":"X1000-MARX-M-048","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N04","chengfeng_crosswalk_locator":"P23【考点3】→4→（3）","option_letters":"C"},{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（4）","option_letters":"D"}]},
+      {"question_id":"X1000-MARX-M-049","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N04","chengfeng_crosswalk_locator":"P23【考点3】→4→（3）","option_letters":"A"}]},
+      {"question_id":"X1000-MARX-M-074","current_unit_hits":[{"node_id":"POL27-CF-MARX-C02-K03-N01","chengfeng_crosswalk_locator":"P21【考点3】→1→（1）","option_letters":"B"}]}
+    ],
+    "coverage": {
+      "owner_question_count": 15,
+      "mapped_question_count": 15,
+      "node_count": 4,
+      "node_edge_count": 16,
+      "multi_node_questions": ["X1000-MARX-M-048"]
+    },
+    "unit_return_gate": {
+      "coverage_state": "QUESTION_NODE_MAPPING_READY",
+      "learner_state": "PENDING_ATTEMPT_EVIDENCE",
+      "emit_mastery_states": false,
+      "future_mastery_states": ["STABLE", "REPAIR", "UNCERTAIN"],
+      "rule": "Question routing proves coverage, not learner mastery. Do not emit node mastery before real K03 learning/recall/question-attempt evidence exists.",
+      "first_learning_behavior": "Enter the Natural Unit learning guide normally; do not pre-test the learner merely because the mapping is complete."
+    }
+  },
   "repairs": {
     "X1000-MARX-S-028": {
       "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
       "tested_node": "K03.N02 同一性在事物发展中的作用",
       "reasoning": "题眼是供给和需求互为存在、实现和发展的条件，而不只是二者存在差异；优先识别相互依存及同一性在发展中的作用。",
-      "traps": [
-        "把斗争性说成有条件、相对，方向正好颠倒。",
-        "共性/个性是真命题，但材料没有在做一般与个别的转换。",
-        "主要方面决定性质属于另一关系节点，不是本材料的决定性关系。"
-      ],
+      "traps": ["把斗争性说成有条件、相对，方向正好颠倒。", "共性/个性是真命题，但材料没有在做一般与个别的转换。", "主要方面决定性质属于另一关系节点，不是本材料的决定性关系。"],
       "lecture_return": "同一性 → 相互依存 → 一方的发展以另一方的发展为条件",
       "transfer": "看到相互需要、缺一不可、一方发展以另一方为条件、相互吸取有利因素时，优先检查同一性及其在发展中的作用。",
       "precision_candidate": null
@@ -28,16 +129,8 @@
       "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
       "tested_node": "K03.N03 共性与个性的关系",
       "reasoning": "试点是个别/特殊经验，推广是在条件成熟后把其中可复制的一般性关系扩展到更大范围；当前 Unit 只修一般与个别的方向关系。",
-      "current_unit_hits": [
-        "个性在一定条件下可转化为共性",
-        "个别中存在一般，共性通过个性表现"
-      ],
-      "cross_unit_hits": [
-        {
-          "note": "实践检验认识/理论的正确性",
-          "source_basis": "XIAO1000_ORIGINAL_OPTION_AND_EXPLANATION"
-        }
-      ],
+      "current_unit_hits": ["个性在一定条件下可转化为共性", "个别中存在一般，共性通过个性表现"],
+      "cross_unit_hits": [{"note":"实践检验认识/理论的正确性","source_basis":"XIAO1000_ORIGINAL_OPTION_AND_EXPLANATION"}],
       "lecture_return": "共性寓于个性之中，并通过个性表现；不要把方向倒置。",
       "transfer": "材料出现试点、典型、经验总结、推广时，先区分个别经验与其中可推广的一般性。",
       "precision_candidate": null
@@ -46,20 +139,8 @@
       "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
       "tested_node": "K03 条件下的对立面转化与一分为二",
       "reasoning": "当前 Unit 只抓材料中的两面性与对立面在条件变化下的转化，不把同题其他辩证法或价值论节点塞回本 Unit。",
-      "current_unit_hits": [
-        "一分为二地看对象",
-        "对立面在一定条件下可以相互转化"
-      ],
-      "cross_unit_hits": [
-        {
-          "note": "条件可以改变",
-          "source_basis": "OTHER_DIALECTICS_NODE"
-        },
-        {
-          "note": "价值是否满足需要不能由主观愿望任意决定",
-          "source_basis": "VALUE_THEORY_DISTRACTOR"
-        }
-      ],
+      "current_unit_hits": ["一分为二地看对象", "对立面在一定条件下可以相互转化"],
+      "cross_unit_hits": [{"note":"条件可以改变","source_basis":"OTHER_DIALECTICS_NODE"},{"note":"价值是否满足需要不能由主观愿望任意决定","source_basis":"VALUE_THEORY_DISTRACTOR"}],
       "lecture_return": "矛盾双方的关系与转化必须放在具体条件中判断。",
       "transfer": "同一道题可以命中多个知识点，但 Repair 只突出当前 Unit 的决定性缺口，其余保留为 cross-unit hit。",
       "precision_candidate": null
