@@ -1,0 +1,211 @@
+---
+const { block } = Astro.props;
+const kps = block?.kpRecords || [];
+---
+<section class="xv6PersonalDock" data-xizong-study-dock data-study-object={block.objectId}>
+  <header>
+    <div><span>Study Dock</span><strong data-dock-position>{kps[0]?.displayId || 'KP'}</strong></div>
+    <small data-dock-group>{kps[0]?.groupLabel || 'Logic Group'}</small>
+  </header>
+
+  <div class="xv6DockLecture">
+    <button type="button" data-lecture-read aria-pressed="false">讲义一轮 · 未确认</button>
+    <small>Block Complete 前必须确认完整熟读一轮讲义。</small>
+  </div>
+
+  <div class="xv6DockLocator">
+    <span>讲义定位</span>
+    <code data-source-locator>{kps[0]?.sourceLocator || 'Current 暂无精确定位'}</code>
+  </div>
+
+  <div class="xv6DockQuestion" data-question-row>
+    <span>配套题 · 本地记录</span>
+    <div>
+      <button type="button" data-question-status="pass" title="Pass · P">P</button>
+      <button type="button" data-question-status="uncertain" title="Uncertain · U">U</button>
+      <button type="button" data-question-status="wrong" title="Wrong · W">W</button>
+    </div>
+    <small>首轮默认回讲义做；这里记结果，不替代讲义题。</small>
+  </div>
+
+  <label class="xv6DockComment">
+    <span>Comment · C</span>
+    <textarea rows="3" data-kp-comment placeholder="题旁补充 / 易错点 / 你的理解，只存在本浏览器"></textarea>
+  </label>
+
+  <div class="xv6DockTools">
+    <button type="button" data-open-memory>Memory · M</button>
+    <button type="button" data-open-review>Review · R</button>
+  </div>
+
+  <div class="xv6DockKeys" aria-label="Keyboard shortcuts">
+    <span><kbd>←</kbd><kbd>→</kbd> KP</span>
+    <span><kbd>↑</kbd><kbd>↓</kbd> 页内</span>
+    <span><kbd>Enter</kbd> 主动作</span>
+    <span><kbd>P/U/W</kbd> 题目</span>
+    <span><kbd>C</kbd> 评论</span>
+    <span><kbd>L</kbd> 讲义</span>
+  </div>
+
+  <script type="application/json" data-dock-payload set:html={JSON.stringify(kps.map((kp) => ({
+    kpId: kp.kpId,
+    displayId: kp.displayId,
+    title: kp.title,
+    groupId: kp.groupId,
+    groupLabel: kp.groupLabel,
+    sourceLocator: kp.sourceLocator || ''
+  })))}></script>
+</section>
+
+<script>
+  const dock = document.querySelector('[data-xizong-study-dock]');
+  const root = document.querySelector('[data-xizong-v6-block]');
+  if (dock && root) {
+    const objectId = dock.getAttribute('data-study-object') || root.getAttribute('data-study-object') || 'xizong:unknown';
+    const personalKey = `kianos-xizong-personal-v1:${objectId}`;
+    const studyKey = `kianos-xizong-astro-v2:${objectId}`;
+    let kpRows = [];
+    try { kpRows = JSON.parse(dock.querySelector('[data-dock-payload]')?.textContent || '[]'); } catch {}
+    let personal = { lectureRead: false, kp: {} };
+    try { personal = { ...personal, ...(JSON.parse(localStorage.getItem(personalKey) || 'null') || {}) }; } catch {}
+
+    const chain = root.querySelector('.portedStudyChain');
+    const chainList = chain?.querySelector('ol');
+    if (chain && dock.parentElement !== chain) chain.insertBefore(dock, chainList || chain.firstChild);
+
+    const learnCards = [...root.querySelectorAll('[data-kp-learn-card]')];
+    const recallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
+    const lectureButton = dock.querySelector('[data-lecture-read]');
+    const locator = dock.querySelector('[data-source-locator]');
+    const position = dock.querySelector('[data-dock-position]');
+    const group = dock.querySelector('[data-dock-group]');
+    const comment = dock.querySelector('[data-kp-comment]');
+    const statusButtons = [...dock.querySelectorAll('[data-question-status]')];
+    let activeKpId = '';
+
+    const readStudy = () => {
+      try { return JSON.parse(localStorage.getItem(studyKey) || 'null') || {}; } catch { return {}; }
+    };
+    const savePersonal = () => { try { localStorage.setItem(personalKey, JSON.stringify(personal)); } catch {} };
+    const currentStage = () => [...root.querySelectorAll('[data-study-stage]')].find((node) => !node.hidden)?.getAttribute('data-study-stage') || '';
+    const currentIndex = () => {
+      const learn = learnCards.findIndex((card) => !card.hidden);
+      if (learn >= 0 && currentStage() === 'kp_learn') return learn;
+      const recall = recallCards.findIndex((card) => !card.hidden);
+      if (recall >= 0 && currentStage() === 'kp_recall') return recall;
+      const stored = Number(readStudy().kpIndex || 0);
+      return Math.max(0, Math.min(kpRows.length - 1, stored));
+    };
+    const currentRow = () => kpRows[currentIndex()] || kpRows[0] || null;
+    const currentLocal = () => {
+      const row = currentRow();
+      if (!row) return null;
+      personal.kp ||= {};
+      personal.kp[row.kpId] ||= { questionStatus: '', comment: '' };
+      return personal.kp[row.kpId];
+    };
+
+    const applyCompletionGate = () => {
+      const button = root.querySelector('[data-block-complete]');
+      if (!button) return;
+      const study = readStudy();
+      const learned = Object.values(study.learned || {}).filter(Boolean).length;
+      const recalled = Object.keys(study.ratings || {}).length;
+      const coreReady = kpRows.length > 0 && learned >= kpRows.length && recalled >= kpRows.length && Boolean(study.blockRecallDone);
+      button.disabled = !personal.lectureRead || !coreReady || Boolean(study.completed);
+      button.title = personal.lectureRead ? '' : '先确认本 Block 讲义已完整熟读一轮';
+    };
+
+    const renderDock = () => {
+      const row = currentRow();
+      const local = currentLocal();
+      if (row) {
+        if (position) position.textContent = `${row.displayId} · ${row.title}`;
+        if (group) group.textContent = row.groupLabel || 'Logic Group';
+        if (locator) locator.textContent = row.sourceLocator || 'Current 暂无精确定位';
+        if (comment && document.activeElement !== comment && activeKpId !== row.kpId) comment.value = local?.comment || '';
+        activeKpId = row.kpId;
+        statusButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-question-status') === local?.questionStatus));
+      }
+      if (lectureButton) {
+        lectureButton.setAttribute('aria-pressed', String(Boolean(personal.lectureRead)));
+        lectureButton.textContent = personal.lectureRead ? '讲义一轮 · 已确认' : '讲义一轮 · 未确认';
+        lectureButton.classList.toggle('active', Boolean(personal.lectureRead));
+      }
+      applyCompletionGate();
+    };
+
+    lectureButton?.addEventListener('click', () => {
+      personal.lectureRead = !personal.lectureRead;
+      savePersonal(); renderDock();
+    });
+    statusButtons.forEach((button) => button.addEventListener('click', () => {
+      const local = currentLocal();
+      if (!local) return;
+      const value = button.getAttribute('data-question-status') || '';
+      local.questionStatus = local.questionStatus === value ? '' : value;
+      savePersonal(); renderDock();
+    }));
+    comment?.addEventListener('input', () => {
+      const local = currentLocal();
+      if (!local) return;
+      local.comment = String(comment.value || '').slice(0, 1200);
+      savePersonal();
+    });
+
+    const openExtension = (name) => {
+      const extension = document.querySelector('[data-study-extension]');
+      if (!extension) return;
+      extension.querySelector(`[data-extension-tab="${name}"]`)?.click();
+      extension.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    dock.querySelector('[data-open-memory]')?.addEventListener('click', () => openExtension('memory'));
+    dock.querySelector('[data-open-review]')?.addEventListener('click', () => openExtension('review'));
+
+    let queued = false;
+    const scheduleRender = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; renderDock(); });
+    };
+    new MutationObserver(scheduleRender).observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden', 'disabled', 'class'] });
+
+    document.addEventListener('keydown', (event) => {
+      const target = event.target;
+      const editing = target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]');
+      if (editing) {
+        if (event.key === 'Escape') { event.preventDefault(); target.blur(); }
+        return;
+      }
+      const stage = currentStage();
+      if (event.key === 'ArrowUp' && ['kp_learn', 'kp_recall'].includes(stage)) { event.preventDefault(); window.scrollBy({ top: -Math.max(280, window.innerHeight * .68), behavior: 'smooth' }); return; }
+      if (event.key === 'ArrowDown' && ['kp_learn', 'kp_recall'].includes(stage)) { event.preventDefault(); window.scrollBy({ top: Math.max(280, window.innerHeight * .68), behavior: 'smooth' }); return; }
+      if (event.key === 'Enter') {
+        if (stage === 'block_learn') root.querySelector('[data-stage-next="logic_group"]')?.click();
+        else if (stage === 'logic_group') root.querySelector('[data-enter-group]')?.click();
+        else if (stage === 'kp_learn') learnCards[currentIndex()]?.querySelector('[data-kp-learned]')?.click();
+        else if (stage === 'group_close') root.querySelector('[data-group-close-next]')?.click();
+        else if (stage === 'kp_recall') recallCards[currentIndex()]?.querySelector('[data-kp-reveal]:not([hidden])')?.click();
+        return;
+      }
+      const key = event.key.toLowerCase();
+      if (key === 'c') { event.preventDefault(); comment?.focus(); comment?.select(); return; }
+      if (key === 'q') { event.preventDefault(); dock.querySelector('[data-question-row]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); dock.querySelector('[data-question-row]')?.classList.add('flash'); window.setTimeout(() => dock.querySelector('[data-question-row]')?.classList.remove('flash'), 600); return; }
+      if (key === 'l') { event.preventDefault(); lectureButton?.click(); return; }
+      if (key === 'm') { event.preventDefault(); openExtension('memory'); return; }
+      if (key === 'r') { event.preventDefault(); openExtension('review'); return; }
+      if (stage === 'kp_learn' && ['p', 'u', 'w'].includes(key)) {
+        event.preventDefault();
+        const map = { p: 'pass', u: 'uncertain', w: 'wrong' };
+        dock.querySelector(`[data-question-status="${map[key]}"]`)?.click();
+      }
+    });
+
+    renderDock();
+  }
+</script>
+
+<style>
+  .xv6PersonalDock{display:grid;gap:8px;padding:10px 11px;border-bottom:1px solid var(--study-line);background:#fff}.xv6PersonalDock>header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:0 0 7px!important;border:0!important}.xv6PersonalDock>header div{min-width:0}.xv6PersonalDock>header span,.xv6DockLocator>span,.xv6DockQuestion>span,.xv6DockComment>span{display:block;color:var(--study-green);font-size:8px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}.xv6PersonalDock>header strong{display:block;overflow:hidden;margin-top:2px;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.xv6PersonalDock>header small{align-self:end;color:var(--study-muted);font-size:8px}.xv6DockLecture{display:grid;gap:3px}.xv6DockLecture button,.xv6DockTools button,.xv6DockQuestion button{min-height:28px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-green);font-size:9px;font-weight:800}.xv6DockLecture button.active,.xv6DockQuestion button.active{border-color:var(--study-green);background:var(--study-green-soft)}.xv6DockLecture small,.xv6DockQuestion small{color:var(--study-faint);font-size:8px;line-height:1.35}.xv6DockLocator{display:grid;gap:3px;padding:7px;border-radius:8px;background:var(--study-surface-muted)}.xv6DockLocator code{overflow:hidden;color:var(--study-muted);font-size:8px;line-height:1.45;text-overflow:ellipsis;white-space:normal}.xv6DockQuestion{display:grid;gap:4px;padding:7px;border:1px solid var(--study-line);border-radius:8px}.xv6DockQuestion>div{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.xv6DockQuestion.flash{box-shadow:0 0 0 2px rgba(33,113,86,.16)}.xv6DockComment{display:grid;gap:4px}.xv6DockComment textarea{width:100%;resize:vertical;min-height:54px;padding:7px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;line-height:1.45}.xv6DockTools{display:grid;grid-template-columns:1fr 1fr;gap:4px}.xv6DockKeys{display:grid;grid-template-columns:1fr 1fr;gap:3px 6px;color:var(--study-faint);font-size:8px}.xv6DockKeys span{white-space:nowrap}.xv6DockKeys kbd{display:inline-block;min-width:18px;margin-right:2px;padding:1px 4px;border:1px solid #d7ddd9;border-bottom-width:2px;border-radius:4px;background:#fff;color:#4d5b55;font:700 8px/1.4 system-ui;text-align:center}
+  @media(min-width:1100px){.xv6Block .portedStudyLayout{grid-template-columns:220px minmax(0,1fr) 280px}.xv6Block .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 280px}.xv6Block .portedStudyLayout.chain-collapsed{grid-template-columns:220px minmax(0,1fr) 0}.xv6Block .portedKpCards{padding:10px 12px}.xv6Block .portedKpCard>header,.xv6Block .portedKpRecallCard>header{padding:12px 16px 10px}.xv6Block .portedKpCard h3,.xv6Block .portedKpRecallCard h3{font-size:21px}.xv6Block .portedKpCanonical,.xv6Block .portedRecallAnswer{padding:14px 18px}.xv6Block .portedKpCanonical p,.xv6Block .portedKpCanonical li,.xv6Block .portedRecallAnswer p,.xv6Block .portedRecallAnswer li{font-size:14px;line-height:1.62}.xv6Block .portedKpWorkspaceHeader{padding:9px 14px}.xv6Block .portedStudyOutline nav button,.xv6Block .portedStudyKpRail button{min-height:42px;padding:6px 9px}.xv6Block .portedStudyChain ol{padding:5px 0}.xv6Block .portedStudyChain li button{padding:6px 11px}}
+</style>
