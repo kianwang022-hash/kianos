@@ -15,7 +15,7 @@ function check(condition, message) {
 }
 
 check(guard.includes("stage === 'attempt' || stage === 'decision'"), 'fresh Attempt / PASS-decision must hide Pending target detail');
-check(guard.includes('data.reopenReview'), 'PASS view must create an explicit reopen-review action');
+check(guard.includes('dataset.reopenReview'), 'PASS view must create an explicit reopen-review action');
 check(guard.includes("root.querySelector('[data-route-review]')"), 'reopen-review must route through canonical Review action');
 check(taskPage.includes('TranslationEvidenceGuard'), 'task page must attach TranslationEvidenceGuard');
 
