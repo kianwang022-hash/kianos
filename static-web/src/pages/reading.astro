@@ -9,11 +9,11 @@ const sourceState = inspectReadingSources();
 const reading = sourceState.status === 'ready' ? loadReading() : null;
 const pendingDescription = sourceState.status === 'invalid'
   ? 'English Current 已落仓，但来源完整性检查未通过；Runtime 保持 fail-closed。'
-  : '完整 English Exam Source 落仓并通过 hash gate 后自动启用。';
+  : 'English Current 依赖缺失；补齐当前依赖并通过 hash gate 后自动启用。';
 ---
 <Base
   title={reading?.title || 'Reading'}
-  kicker={reading ? 'English · Current' : 'English · Current migration'}
+  kicker={reading ? 'English · Current' : 'English · Current gate'}
   description={reading ? '' : pendingDescription}
   sourcePath={reading?.sourcePaths.passage}
   sourceHash={reading?.sourceHashes.renderedObject}
@@ -28,8 +28,8 @@ const pendingDescription = sourceState.status === 'invalid'
   ) : (
     <section class="migrationPending">
       <span>Fail-closed · {sourceState.status}</span>
-      <h2>{sourceState.status === 'invalid' ? 'Reading source 未通过完整性 gate' : 'Reading source 正在迁移'}</h2>
-      <p>新仓库只读取 `content/english/` Current，不回退 legacy，也不使用历史 Read Plane 补洞。</p>
+      <h2>{sourceState.status === 'invalid' ? 'Reading source 未通过完整性检查' : 'Reading Current 依赖缺失'}</h2>
+      <p>新仓库只读取 `content/english/` Current，不回退 legacy，也不使用历史版本补洞。</p>
       {sourceState.missing.length > 0 && (
         <div class="migrationPendingList">
           <strong>Missing Current</strong>
