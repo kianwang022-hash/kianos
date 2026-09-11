@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import { inspectReadingSources } from '../lib/current.mjs';
+import { inspectLexicalSources } from '../lib/lexical.mjs';
+import { listProjectableXizongSystems } from '../lib/xizong.mjs';
+import { politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
+
+const base = import.meta.env.BASE_URL;
+const xizongSystems = listProjectableXizongSystems();
+const reading = inspectReadingSources();
+const lexical = inspectLexicalSources();
+const politics = politicsCurrentHealth();
+
+const lanes = [
+  {
+    key: 'xizong',
+    label: '西医综合',
+    href: `${base}xizong/`,
+    current: xizongSystems.length ? 'Ready' : 'Partial',
+    note: `${xizongSystems.length} 个 Current System 可进入 Runtime；A2 仍处于真实 learner validation。`,
+    capabilities: [
+      ['Current', xizongSystems.length ? 'Ready' : 'Partial'],
+      ['Continue', 'Ready'],
+      ['Navigate', 'Ready'],
+      ['Repair / Review', 'Ready'],
+      ['Verify', 'Ready'],
+      ['Return / Handoff', 'Ready'],
+      ['Deferred', 'Shared'],
+      ['Validation', 'Learner-use pending']
+    ]
+  },
+  {
+    key: 'english',
+    label: '英语',
+    href: `${base}reading/`,
+    current: reading.status === 'ready' ? 'Ready' : 'Partial',
+    note: reading.status === 'ready'
+      ? 'Reading 已接通 Current、Review、Transfer 与 Session Handoff；Translation/Writing runtime 仍按各自认知继续落地。'
+      : `Reading Current gate: ${reading.status}`,
+    capabilities: [
+      ['Current', reading.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Continue', 'Reading ready'],
+      ['Navigate', 'Reading ready'],
+      ['Repair / Review', 'Reading ready'],
+      ['Verify / Transfer', 'Reading ready'],
+      ['Return / Handoff', 'Reading ready'],
+      ['Deferred', 'Shared'],
+      ['Validation', 'Module-by-module']
+    ]
+  },
+  {
+    key: 'lexical',
+    label: 'LexicalOS',
+    href: `${base}vocabulary/`,
+    current: lexical.status === 'ready' ? 'Ready' : 'Partial',
+    note: `${lexical.wordCount || 0} Current Words · ${lexical.relationCount || 0} Relations；完整 Depth / Repair / Challenge / Return 主线已接通。`,
+    capabilities: [
+      ['Current', lexical.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Continue', 'Ready'],
+      ['Navigate / Search', 'Ready'],
+      ['Repair / Review', 'Ready'],
+      ['Challenge', 'Ready'],
+      ['Return / Handoff', 'Ready'],
+      ['Deferred', 'Shared'],
+      ['Validation', 'Build ready · learner-use pending']
+    ]
+  },
+  {
+    key: 'politics',
+    label: '政治',
+    href: `${base}politics/`,
+    current: politics.status === 'ready' ? 'Ready' : 'Partial',
+    note: 'Current 内容、章节导航、肖1000验证与最小修复已接通；Continue/session resume 与 compact Return/Handoff 仍是 shared-baseline gap。',
+    capabilities: [
+      ['Current', politics.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Continue', 'Partial'],
+      ['Navigate', 'Ready'],
+      ['Repair / Review', 'Ready'],
+      ['Verify', 'Ready'],
+      ['Return / Handoff', 'Partial'],
+      ['Deferred', 'Shared'],
+      ['Validation', 'Learner-use pending']
+    ]
+  }
+];
+---
+<Base
+  title="Current"
+  kicker="KianOS · System Current"
+  description="一个 KianOS，总 Current；各学科是子 Current。共享基础能力，但不强行共享认知模板。"
+  active="home"
+>
+  <section class="currentIntro">
+    <div>
+      <span>System contract</span>
+      <h2>Current → Continue → Repair → Verify → Handoff</h2>
+      <p>每个第一等 learner lane 都继承同一套平台能力：Current、Continue、Navigate、Repair、Verify、Return/Handoff、Deferred、Validation。具体学习方式由学科自己的认知模型决定。</p>
+    </div>
+    <aside>
+      <strong>main@HEAD</strong>
+      <span>Global Current authority</span>
+      <span>Deferred → Issue #5</span>
+    </aside>
+  </section>
+
+  <section class="currentGrid">
+    {lanes.map((lane) => (
+      <article class="currentLane">
+        <header>
+          <div><span>{lane.current}</span><h2>{lane.label}</h2></div>
+          <a href={lane.href}>进入 →</a>
+        </header>
+        <p>{lane.note}</p>
+        <dl>
+          {lane.capabilities.map(([name, value]) => (
+            <div class={String(value).toLowerCase().includes('partial') ? 'partial' : ''}>
+              <dt>{name}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </article>
+    ))}
+  </section>
+</Base>
+
+<style>
+  .currentIntro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding:26px 28px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
+  .currentIntro>div>span{color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.currentIntro h2{margin:5px 0 8px;font-size:28px}.currentIntro p{max-width:78ch;margin:0;color:var(--study-muted);font-size:14px;line-height:1.7}.currentIntro aside{display:grid;gap:3px;min-width:190px;padding-left:22px;border-left:1px solid var(--study-line)}.currentIntro aside strong{color:var(--study-green)}.currentIntro aside span{color:var(--study-faint);font-size:11px}
+  .currentGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.currentLane{padding:22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.currentLane header{display:flex;justify-content:space-between;gap:14px;align-items:start}.currentLane header span{color:var(--study-green);font-size:10px;font-weight:800}.currentLane h2{margin:4px 0 0;font-size:25px}.currentLane header a{color:inherit;text-decoration:none;font-size:12px;font-weight:800}.currentLane>p{min-height:66px;color:var(--study-muted);font-size:13px;line-height:1.65}.currentLane dl{display:grid;gap:5px;margin:14px 0 0}.currentLane dl>div{display:flex;justify-content:space-between;gap:16px;padding:7px 9px;border-radius:8px;background:var(--study-green-soft)}.currentLane dl>div.partial{background:#fff4e7}.currentLane dt{font-size:11px;font-weight:750}.currentLane dd{margin:0;color:var(--study-muted);font-size:11px;text-align:right}
+  @media(max-width:860px){.currentIntro{grid-template-columns:1fr}.currentIntro aside{padding:14px 0 0;border-left:0;border-top:1px solid var(--study-line)}.currentGrid{grid-template-columns:1fr}}
+</style>
