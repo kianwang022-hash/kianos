@@ -57,6 +57,8 @@ Current canonical exam assets include:
 
 Astro Reading remains source-gated to Current assets only. English content and interaction upgrades should optimize the user's real path toward English I 80–85+ and objective 60/60, not maximize displayed metadata or governance complexity.
 
+External reading is private learner material. It may include TPO, IELTS, and later periodicals or other unseen texts. Its main value is fresh input and diagnostic transfer, especially when exam-question memory makes reused true-exam material less informative.
+
 ### LexicalOS
 
 The canonical natural-owner corpus is present under `content/lexical/canonical/`, while `content/lexical/words/answer.json` remains the representative runtime word owner currently projected by Astro.
