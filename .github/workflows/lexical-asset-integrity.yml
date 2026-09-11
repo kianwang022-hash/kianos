@@ -1,0 +1,47 @@
+name: LexicalOS Current Asset Integrity Audit
+
+on:
+  pull_request:
+    paths:
+      - 'content/lexical/words/by-ordinal/**'
+      - 'content/lexical/relations/by-id/**'
+      - 'tools/lexical_asset_integrity_audit.py'
+      - '.github/workflows/lexical-asset-integrity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  current-asset-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Scan Current Natural Owners
+        shell: bash
+        run: |
+          python tools/lexical_asset_integrity_audit.py \
+            --output /tmp/lexical-asset-integrity.json \
+            --summary /tmp/lexical-asset-integrity.md
+
+      - name: Publish diagnostic summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/lexical-asset-integrity.md ]; then
+            cat /tmp/lexical-asset-integrity.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Lexical asset integrity summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-current-asset-integrity
+          path: |
+            /tmp/lexical-asset-integrity.json
+            /tmp/lexical-asset-integrity.md
+          if-no-files-found: error
+          retention-days: 14
