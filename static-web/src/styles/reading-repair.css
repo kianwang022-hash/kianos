@@ -3,21 +3,31 @@
 .portedReadingCoachInstruction{margin:0;color:#314841;font-size:11px;line-height:1.55}
 .portedReadingCoachQuiet{margin:0;color:#73817c;font-size:9px;line-height:1.5}
 
+.portedReadingCoachTask{display:flex;align-items:center;gap:6px;width:max-content;max-width:100%;padding:4px 7px;border:1px solid #dbe5e1;border-radius:999px;background:#fff}
+.portedReadingCoachTask span{color:#7a8983;font-size:8px;font-weight:800}
+.portedReadingCoachTask strong{color:#356558;font-size:9px}
+
 .portedReadingCoachContrast{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .portedReadingCoachChoice{padding:8px 9px;border:1px solid #e1e6e4;border-radius:8px;background:#fff}
 .portedReadingCoachChoice.correct{border-color:#b7d8ca;background:#f1faf6}
 .portedReadingCoachChoice span{display:block;margin-bottom:4px;color:#78847f;font-size:8px;font-weight:850;letter-spacing:.04em}
 .portedReadingCoachChoice p{margin:0;color:#2d4039;font:13px/1.42 Georgia,'Times New Roman',serif}
 
+.portedReadingCoachDiagnosis{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 9px;border-left:3px solid #c59a48;border-radius:6px;background:#fff9ec}
+.portedReadingCoachDiagnosis span{color:#876d3f;font-size:8px;font-weight:850;letter-spacing:.04em}
+.portedReadingCoachDiagnosis strong{color:#674c1f;font-size:10px}
+
 .portedReadingCoachPath{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 9px;border:1px solid #e1e6e4;border-radius:8px;background:#fff}
 .portedReadingCoachPath span{color:#78847f;font-size:8px;font-weight:850;letter-spacing:.04em}
 .portedReadingCoachPath strong{color:#315d51;font-size:11px}
 
-.portedReadingCoachSpan{display:grid;gap:6px;padding:9px 10px;border-left:3px solid #6f9f8f;border-radius:6px;background:#fff}
-.portedReadingCoachSpan>span{color:#55766c;font-size:8px;font-weight:850;letter-spacing:.05em}
-.portedReadingCoachSpan blockquote{margin:0;color:#263d35;font:13px/1.55 Georgia,'Times New Roman',serif}
+.portedReadingCoachSpan,.portedReadingCoachCanonicalEvidence{display:grid;gap:6px;padding:9px 10px;border-left:3px solid #6f9f8f;border-radius:6px;background:#fff}
+.portedReadingCoachCanonicalEvidence{border-left-color:#397f70;background:#f3faf7}
+.portedReadingCoachSpan>span,.portedReadingCoachCanonicalEvidence>span{color:#55766c;font-size:8px;font-weight:850;letter-spacing:.05em}
+.portedReadingCoachSpan blockquote,.portedReadingCoachCanonicalEvidence blockquote{margin:0;color:#263d35;font:13px/1.55 Georgia,'Times New Roman',serif}
 .portedReadingCoachSpan button{justify-self:start;min-height:25px;padding:3px 7px;border:1px solid #dbe3df;border-radius:6px;background:#fff;color:#75837e;font-size:8px}
 
+.portedReadingCoachReveal{justify-self:start;min-height:29px;padding:5px 9px;border:1px solid #aac9bd;border-radius:7px;background:#eef6f2;color:#315f52;font-size:9px;font-weight:850}
 .portedReadingAnnotate [data-reading-save-review-span]{border-color:#9ebfb3;background:#eef6f2;color:#315f52;font-weight:850}
 
 @media(max-width:760px){
