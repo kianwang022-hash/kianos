@@ -8,7 +8,7 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - Chat owns semantic/content judgments and approves shared learning content.
 - GitHub `main@HEAD` is the single editable and readable shared Current repository state.
 - Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
-- `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-lane capabilities.
+- `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-surface capabilities for both domain lanes and independently entered learner sub-lanes.
 - `content/` owns shared learning assets.
 - `static-web/` owns the Astro learner-facing display and interaction runtime.
 - Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
@@ -22,9 +22,9 @@ Private browser or device state may support the final interaction step, but it i
 
 Astro may transform representation and provide interaction. It must not invent, merge, silently repair, or override domain semantics.
 
-## Shared learner-lane baseline
+## Shared learner-surface baseline
 
-Every first-class learner lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md`:
+Every first-class learner lane and every independently entered learner sub-lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md`:
 
 1. Current;
 2. Continue;
@@ -37,9 +37,11 @@ Every first-class learner lane inherits the KianOS-wide capability baseline in `
 
 The capability contract is shared, but domain cognition, error taxonomy, evidence unit, scheduler, and UI shape are not required to be identical.
 
-When a lane is added or materially rebuilt, audit these capabilities. If a genuinely necessary capability is absent, do not call the lane fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+Examples of independently entered sub-lanes include English Reading, Cloze, Reading B, Translation, Writing, or any later task/module that receives its own learner runtime. A domain-level home satisfying a capability does not automatically make every sub-lane Ready.
 
-Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject imitate another merely for frontend consistency.
+When a lane or independently entered sub-lane is added or materially rebuilt, audit these capabilities. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+
+Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject or task imitate another merely for frontend consistency.
 
 ## Current read boundary
 
@@ -84,7 +86,7 @@ KianOS has one repository-wide lightweight parking lot for intentionally postpon
 - `DEFERRED.md` defines the rule;
 - GitHub Issue #5, **KianOS Deferred Queue**, stores the live checklist.
 
-This applies to every current or future KianOS lane, including Xizong, English, Politics, LexicalOS, Astro/runtime, and later modules.
+This applies to every current or future KianOS lane and sub-lane, including Xizong, English, Politics, LexicalOS, Astro/runtime, Reading, Cloze, Translation, Writing, and later modules.
 
 When the learner explicitly postpones a concrete item with real future value (`later`, `not now`, `after the mainline`, `keep for future`, or equivalent), record it briefly in Issue #5 so it cannot be lost. Group or prefix by lane when useful. Do not create separate backlog systems per lane unless the learner later asks for one.
 
