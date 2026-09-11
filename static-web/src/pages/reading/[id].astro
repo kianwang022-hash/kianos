@@ -14,6 +14,7 @@ import ReadingTransferEvidence from '../../components/ReadingTransferEvidence.as
 import ReadingSessionTransferEvidence from '../../components/ReadingSessionTransferEvidence.astro';
 import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro';
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
+import ReadingLastLocation from '../../components/ReadingLastLocation.astro';
 import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
 
 export function getStaticPaths() {
@@ -35,6 +36,7 @@ const reading = loadReadingById(readingId);
   objectId={reading.objectId}
   active="reading"
 >
+  <ReadingLastLocation reading={reading} />
   <ReadingWorkspace reading={reading} />
   <ReadingAnswerGate />
   <ReadingPassageNavigator reading={reading} />
