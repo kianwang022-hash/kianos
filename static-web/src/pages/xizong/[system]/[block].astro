@@ -1,0 +1,25 @@
+---
+import { marked } from 'marked';
+import Base from '../../../layouts/Base.astro';
+import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
+import { listProjectableXizongSystems, loadXizongBlock } from '../../../lib/xizong.mjs';
+
+export function getStaticPaths() {
+  return listProjectableXizongSystems().flatMap((system) => system.blocks.map((block) => ({
+    params: { system: system.systemId, block: block.slug },
+    props: { systemId: system.systemId, blockSlug: block.slug }
+  })));
+}
+
+const { systemId, blockSlug } = Astro.props;
+const block = loadXizongBlock(systemId, blockSlug);
+const projection = {
+  ...block,
+  blockLearnHtml: marked.parse(block.blockLearnMarkdown, { gfm: true }),
+  visualGateHtml: block.visualGateMarkdown ? marked.parse(block.visualGateMarkdown, { gfm: true }) : '',
+  kpRecords: block.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(kp.detailMarkdown, { gfm: true }) }))
+};
+---
+<Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
+  <XizongBlockV6 block={projection} />
+</Base>
