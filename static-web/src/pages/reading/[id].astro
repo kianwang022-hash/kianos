@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import '../../styles/reading.css';
+import ReadingWorkspace from '../../components/ReadingWorkspace.astro';
+import ReadingPassageNavigator from '../../components/ReadingPassageNavigator.astro';
+import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
+
+export function getStaticPaths() {
+  return listReadingSets().map((item) => ({
+    params: { id: item.id },
+    props: { readingId: item.id }
+  }));
+}
+
+const { readingId } = Astro.props;
+const reading = loadReadingById(readingId);
+---
+<Base
+  title={reading.title}
+  kicker="English · Current"
+  description=""
+  sourcePath={reading.sourcePaths.passage}
+  sourceHash={reading.sourceHashes.renderedObject}
+  objectId={reading.objectId}
+  active="reading"
+>
+  <ReadingWorkspace reading={reading} />
+  <ReadingPassageNavigator reading={reading} />
+</Base>
