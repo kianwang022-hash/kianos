@@ -74,7 +74,12 @@ function chapterFiles(subject, manifestRow = null) {
 
 function chapterCode(filePath) { return path.basename(filePath, '.json').toLowerCase(); }
 function chapterTitle(raw, fallback) { return String(raw?.teaching_title || raw?.title || fallback); }
-function unitList(raw) { return Array.isArray(raw?.unit_projections) ? raw.unit_projections : (Array.isArray(raw?.units) ? raw.units : []); }
+function unitList(raw) {
+  if (Array.isArray(raw?.unit_projections)) return raw.unit_projections;
+  if (Array.isArray(raw?.units)) return raw.units;
+  if (raw?.unit && typeof raw.unit === 'object') return [raw.unit];
+  return [];
+}
 
 function orientationView(raw) {
   const o = raw?.chapter_orientation || {};
@@ -206,13 +211,14 @@ function mergeSourceSpans(rows, title) {
 function sourceGroupView(ownerId) {
   const rows = descendantsFor(ownerId);
   const exact = sourceRegistry().byId.get(ownerId)?.row;
-  const title = nodeTitle(exact, ownerId);
-  const text = mergeSourceSpans(rows, title) || nodeText(exact);
+  const rawTitle = nodeTitle(exact, ownerId);
+  const text = mergeSourceSpans(rows, rawTitle) || nodeText(exact);
+  const sameAsTitle = Boolean(text && compactSpace(text) === compactSpace(rawTitle));
   return {
     id: ownerId,
-    title,
+    title: sameAsTitle ? '' : rawTitle,
     text,
-    resolved: Boolean(text && compactSpace(text) !== compactSpace(title)),
+    resolved: Boolean(text),
     descendantCount: Math.max(0, rows.length - 1)
   };
 }
