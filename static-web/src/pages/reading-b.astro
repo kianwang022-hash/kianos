@@ -5,6 +5,7 @@ import { inspectObjectiveTask, listReadingBSets } from '../lib/englishObjective.
 
 const sourceState = inspectObjectiveTask('reading_b');
 const sets = sourceState.status === 'ready' ? listReadingBSets() : [];
+const base = import.meta.env.BASE_URL;
 const pendingDescription = sourceState.status === 'invalid'
   ? 'Reading B Current section 无法被唯一、安全识别；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 gate 后自动启用。';
@@ -25,6 +26,8 @@ const pendingDescription = sourceState.status === 'invalid'
       description="整组材料、候选池和 placement map 同时保留。复盘先恢复篇章结构，再判断 local / coupled / structure-level repair。"
       unitLabel="sets"
       lastLocationKey="kianos-reading-b-last-location-v1"
+      learningHref={`${base}objective-learn/#reading-b`}
+      learningSummary="第一次系统学 Part B 时，先建立 Discourse Skeleton → Position Demand → Candidate Role → Global Reconciliation。"
     />
   ) : (
     <section class="migrationPending">
