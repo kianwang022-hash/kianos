@@ -5,28 +5,143 @@
 
   if (readingRoot) {
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const basePath = readingRoot.getAttribute('data-reading-base') || '/';
     const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const continuousKey = 'kianos-reading-continuous-session-v1';
     const parent = readingRoot.parentElement;
+    const history = readingRoot.querySelector('[data-reading-history]');
+    const headerActions = readingRoot.querySelector('.portedReadingHeaderActions');
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    };
+    const readAttempt = () => readJson(attemptKey, {});
+    const readSession = () => {
+      const value = readJson(continuousKey, {});
+      return {
+        version: 1,
+        active: Boolean(value.active),
+        reviewing: Boolean(value.reviewing),
+        startedAt: value.startedAt || '',
+        items: Array.isArray(value.items) ? value.items : [],
+        reviewIds: Array.isArray(value.reviewIds) ? value.reviewIds : [],
+        reviewIndex: Number.isFinite(Number(value.reviewIndex)) ? Number(value.reviewIndex) : 0,
+        lastSummary: value.lastSummary || null
+      };
+    };
+    const writeSession = (value) => writeJson(continuousKey, value);
+    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}`;
+    const setReviewUnlockedFor = (id, unlocked) => {
+      if (!id) return;
+      const key = `kianos-reading-attempt-v1:${id}`;
+      const attempt = readJson(key, null);
+      if (!attempt || !attempt.submitted) return;
+      writeJson(key, { ...attempt, reviewUnlocked: Boolean(unlocked) });
+    };
+    const aggregate = (session) => ({
+      passages: session.items.length,
+      score: session.items.reduce((sum, item) => sum + Number(item?.score || 0), 0),
+      total: session.items.reduce((sum, item) => sum + Number(item?.total || 0), 0),
+      durationSec: session.items.reduce((sum, item) => sum + Number(item?.durationSec || 0), 0),
+      reviewPassages: session.reviewIds.length
+    });
+
+    const resetStaleSubmittedAttempt = () => {
+      const session = readSession();
+      const attempt = readAttempt();
+      const alreadyInSession = session.items.some((item) => item?.id === readingKey);
+      if (!session.active || session.reviewing || !attempt.submitted || alreadyInSession) return false;
+
+      writeJson(attemptKey, {
+        ...attempt,
+        version: 3,
+        currentIndex: 0,
+        startedAt: new Date().toISOString(),
+        answers: {},
+        uncertain: [],
+        submitted: false,
+        submittedAt: '',
+        results: {},
+        trajectory: {},
+        causes: {},
+        reviewUnlocked: true,
+        history: attempt.history || []
+      });
+      window.location.reload();
+      return true;
+    };
+
+    const endContinuousSession = () => {
+      const session = readSession();
+      if (!session.active || !session.items.length) return;
+      const summary = aggregate(session);
+
+      if (session.reviewIds.length) {
+        const firstId = session.reviewIds[0];
+        writeSession({ ...session, active: false, reviewing: true, reviewIndex: 0, lastSummary: null });
+        setReviewUnlockedFor(firstId, true);
+        window.location.href = `${hrefForReading(firstId)}?reviewSession=1`;
+        return;
+      }
+
+      const lastId = session.items[session.items.length - 1]?.id || readingKey;
+      writeSession({
+        ...session,
+        active: false,
+        reviewing: false,
+        reviewIndex: 0,
+        lastSummary: { ...summary, lastId, endedAt: new Date().toISOString() }
+      });
+      setReviewUnlockedFor(lastId, true);
+      window.location.href = `${hrefForReading(lastId)}?sessionSummary=1`;
+    };
+
+    const ensureStopButton = () => {
+      if (!headerActions) return null;
+      let button = headerActions.querySelector('[data-reading-continuous-stop]');
+      if (!button) {
+        button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = '结束并复盘';
+        button.setAttribute('data-reading-continuous-stop', '');
+        const continuous = headerActions.querySelector('[data-reading-continuous]');
+        continuous?.insertAdjacentElement('afterend', button);
+        button.addEventListener('click', endContinuousSession);
+      }
+      return button;
+    };
 
     const deferred = () => {
-      try {
-        const state = JSON.parse(localStorage.getItem(attemptKey) || 'null') || {};
-        return Boolean(state.submitted && state.reviewUnlocked === false);
-      } catch {
-        return false;
-      }
+      const state = readAttempt();
+      return Boolean(state.submitted && state.reviewUnlocked === false);
     };
 
     const sync = () => {
+      const state = readAttempt();
+      const session = readSession();
       const active = deferred();
       readingRoot.classList.toggle('reading-review-deferred', active);
+
+      if (history) history.hidden = !(state.submitted && state.reviewUnlocked !== false);
+
       const summary = document.querySelector('[data-reading-passage-review]');
       if (summary && active) summary.hidden = true;
+
+      const stop = ensureStopButton();
+      if (stop) {
+        stop.hidden = !(session.active && session.items.length > 0 && !state.submitted);
+      }
     };
 
-    readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
-    document.addEventListener('keydown', () => window.setTimeout(sync, 0));
-    if (parent) new MutationObserver(sync).observe(parent, { childList: true, subtree: true });
-    sync();
+    if (!resetStaleSubmittedAttempt()) {
+      readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
+      document.addEventListener('keydown', () => window.setTimeout(sync, 0));
+      if (parent) new MutationObserver(sync).observe(parent, { childList: true, subtree: true });
+      sync();
+    }
   }
 </script>
