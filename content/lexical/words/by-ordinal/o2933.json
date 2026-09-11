@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2933,
+  "word_id": "word:majesty",
+  "word": "majesty",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "385864c1f098aaf6905a4ce246446757c3182cd1db3988a4d4017fc5d3510554",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "威严，庄严",
+      "core_meaning_en": "impressive dignity or grandeur",
+      "mental_model_cn": "威严，庄严",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9924d68fe5b21111b07c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:majesty:9c63a68fce3d5f06:collocation:0"
+            ],
+            "meaning_cn": "山脉的雄伟",
+            "phrase": "the majesty of the mountains"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "雄伟，庄严",
+        "definition_en": "impressiveness in scale or proportion",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:majesty:9c63a68fce3d5f06",
+        "sense_label_en": "impressiveness in scale or proportion",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f3e8275a14a8e2b47155",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:majesty:dae751be06c7553c:collocation:0"
+            ],
+            "meaning_cn": "陛下（对国王的尊称）",
+            "phrase": "His Majesty"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "王权，威严",
+        "definition_en": "royal power or dignity",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:majesty:dae751be06c7553c",
+        "sense_label_en": "royal power or dignity",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "majesty",
+    "word_family": [],
+    "word_id": "word:majesty"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:majesty:9c63a68fce3d5f06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8164,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:majesty:dae751be06c7553c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8165,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9924d68fe5b21111b07c",
+      "collocation:f3e8275a14a8e2b47155"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9924d68fe5b21111b07c",
+        "source_row": 13040,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:f3e8275a14a8e2b47155",
+        "source_row": 20660,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:bb38a603d5ce2ec40b7b",
+        "source_row": 5464,
+        "source_path": "content/lexical/canonical/packs/shards/o2913-2944.json"
+      },
+      {
+        "id": "membership:1b6ba0e55b1bf9240e3b",
+        "source_row": 16193,
+        "source_path": "content/lexical/canonical/packs/shards/o2913-2944.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "majesty",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:majesty",
+      "ordinal": 2933,
+      "word_shard": "content/lexical/canonical/words/shards/o2929-2936.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/fc.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2929-2936.json",
+    "source_content_hash": "385864c1f098aaf6905a4ce246446757c3182cd1db3988a4d4017fc5d3510554",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

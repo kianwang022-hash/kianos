@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2955,
+  "word_id": "word:marathon",
+  "word": "marathon",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6f3b26bc9ceed678c70485a7880d110f6e4aed32fe1bb9549e1ae90974d9c922",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "长距离赛跑或持久活动",
+      "core_meaning_en": "long-distance race or long-lasting event",
+      "mental_model_cn": "长距离赛跑或持久活动",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d2ddb437d1e36df94b6d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:marathon:7cf2a784c8be5307:collocation:0"
+            ],
+            "meaning_cn": "跑马拉松",
+            "phrase": "run a marathon"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "马拉松赛跑",
+        "definition_en": "a long-distance running race of about 42 kilometers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:marathon:7cf2a784c8be5307",
+        "sense_label_en": "a long-distance running race of about 42 kilometers",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d54a314d187504c9a016",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:marathon:0920dfa6e0395831:collocation:0"
+            ],
+            "meaning_cn": "马拉松式的会议",
+            "phrase": "a marathon session"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "持久而艰巨的任务",
+        "definition_en": "any long and difficult task or event",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:marathon:0920dfa6e0395831",
+        "sense_label_en": "any long and difficult task or event",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "marathon",
+    "word_family": [],
+    "word_id": "word:marathon"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:marathon:0920dfa6e0395831",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8229,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marathon:7cf2a784c8be5307",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8230,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:d2ddb437d1e36df94b6d",
+      "collocation:d54a314d187504c9a016"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:d2ddb437d1e36df94b6d",
+        "source_row": 17819,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:d54a314d187504c9a016",
+        "source_row": 18034,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:9a912d39b7735fbe8b1e",
+        "source_row": 5506,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      },
+      {
+        "id": "membership:9b1e365e989dc946d41d",
+        "source_row": 16216,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "marathon",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:marathon",
+      "ordinal": 2955,
+      "word_shard": "content/lexical/canonical/words/shards/o2953-2960.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f9.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2953-2960.json",
+    "source_content_hash": "6f3b26bc9ceed678c70485a7880d110f6e4aed32fe1bb9549e1ae90974d9c922",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

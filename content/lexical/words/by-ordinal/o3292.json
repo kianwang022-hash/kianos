@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3292,
+  "word_id": "word:obesity",
+  "word": "obesity",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "0484eabe02bed4e2273f713c3157c87a7962a5808542747ba8e35eda2020da47",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "肥胖",
+      "core_meaning_en": "the condition of being very overweight",
+      "mental_model_cn": "肥胖",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d4f58f86adfc6e79119b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:obesity:dd18d2c3481d5503:collocation:0"
+            ],
+            "meaning_cn": "儿童肥胖",
+            "phrase": "childhood obesity"
+          },
+          {
+            "collocation_id": "collocation:4a2ad7a320d026f3a325",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:obesity:dd18d2c3481d5503:collocation:1"
+            ],
+            "meaning_cn": "肥胖率",
+            "phrase": "obesity rate"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "肥胖",
+        "definition_en": "the condition of being extremely fat in a way that is unhealthy",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:obesity:dd18d2c3481d5503",
+        "sense_label_en": "the condition of being extremely fat in a way that is unhealthy",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "obesity",
+    "word_family": [],
+    "word_id": "word:obesity"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:obesity:dd18d2c3481d5503",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9136,
+        "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4a2ad7a320d026f3a325",
+      "collocation:d4f58f86adfc6e79119b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4a2ad7a320d026f3a325",
+        "source_row": 6239,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:d4f58f86adfc6e79119b",
+        "source_row": 18002,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a2491fb3662806d9b1ca",
+        "source_row": 6092,
+        "source_path": "content/lexical/canonical/packs/shards/o3265-3296.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "obesity",
+      "source": "content/lexical/canonical/lookup/spelling/ob.json",
+      "word_id": "word:obesity",
+      "ordinal": 3292,
+      "word_shard": "content/lexical/canonical/words/shards/o3289-3296.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/02.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3289-3296.json",
+    "source_content_hash": "0484eabe02bed4e2273f713c3157c87a7962a5808542747ba8e35eda2020da47",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

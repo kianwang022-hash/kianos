@@ -1,0 +1,118 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2390,
+  "word_id": "word:housework",
+  "word": "housework",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ee002e206344e00e7a1d51e78dff613f29cb87af69a14d19decc2d92b26a7c6d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "家务活",
+      "core_meaning_en": "work done in the home, such as cleaning and cooking",
+      "mental_model_cn": "家务活",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:92b1c7d762da60576c09",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:housework:87188297b17d5dbd:collocation:0"
+            ],
+            "meaning_cn": "做家务",
+            "phrase": "do housework"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "家务，家事",
+        "definition_en": "the work of cleaning and running a house",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:housework:87188297b17d5dbd",
+        "sense_label_en": "the work of cleaning and running a house",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "housework",
+    "word_family": [],
+    "word_id": "word:housework"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:housework:87188297b17d5dbd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6664,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:92b1c7d762da60576c09"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:92b1c7d762da60576c09",
+        "source_row": 12450,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5d2d5f3afa6fe9bef36b",
+        "source_row": 4450,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "housework",
+      "source": "content/lexical/canonical/lookup/spelling/ho.json",
+      "word_id": "word:housework",
+      "ordinal": 2390,
+      "word_shard": "content/lexical/canonical/words/shards/o2385-2392.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2385-2392.json",
+    "source_content_hash": "ee002e206344e00e7a1d51e78dff613f29cb87af69a14d19decc2d92b26a7c6d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

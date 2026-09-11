@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 733,
+  "word_id": "word:cent",
+  "word": "cent",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "795e290387825ac88610e87deb9bea0311607de4c8a341258f8c1b9466dfe3d4",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "分（货币单位）",
+      "core_meaning_en": "a monetary unit equal to one hundredth of a basic unit",
+      "mental_model_cn": "分（货币单位）",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:cent:5970c38b672c38e5"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bf2f81d17f1fcc613ec3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cent:e2a967534e2851df:collocation:0"
+            ],
+            "meaning_cn": "50美分",
+            "phrase": "50 cents"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "分（货币单位）",
+        "definition_en": "a fractional monetary unit of several countries",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cent:e2a967534e2851df",
+        "sense_label_en": "a fractional monetary unit of several countries",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "cent",
+    "word_family": [],
+    "word_id": "word:cent"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:cent:5970c38b672c38e5",
+      "owner_path": "content/lexical/relations/by-id/34/3476466336d6252dec0156cb7a1e731896e4868813c1558dba62424ddf602b8d.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cent:e2a967534e2851df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2077,
+        "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:bf2f81d17f1fcc613ec3"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:cent:5970c38b672c38e5",
+        "source_row": 206,
+        "source_path": "content/lexical/canonical/facts/shards/o0705-0736.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:bf2f81d17f1fcc613ec3",
+        "source_row": 16178,
+        "source_path": "content/lexical/canonical/collocations/shards/o0705-0736.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:cd790492b3090556327f",
+        "source_row": 1335,
+        "source_path": "content/lexical/canonical/packs/shards/o0705-0736.json"
+      },
+      {
+        "id": "membership:16a7a984b0391e2cf995",
+        "source_row": 1336,
+        "source_path": "content/lexical/canonical/packs/shards/o0705-0736.json"
+      },
+      {
+        "id": "membership:f7504d3c945fc525a087",
+        "source_row": 10666,
+        "source_path": "content/lexical/canonical/packs/shards/o0705-0736.json"
+      },
+      {
+        "id": "membership:9d848d89544fd88d326c",
+        "source_row": 14250,
+        "source_path": "content/lexical/canonical/packs/shards/o0705-0736.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cent",
+      "source": "content/lexical/canonical/lookup/spelling/ce.json",
+      "word_id": "word:cent",
+      "ordinal": 733,
+      "word_shard": "content/lexical/canonical/words/shards/o0729-0736.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/bd.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0729-0736.json",
+    "source_content_hash": "795e290387825ac88610e87deb9bea0311607de4c8a341258f8c1b9466dfe3d4",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

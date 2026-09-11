@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3862,
+  "word_id": "word:pub",
+  "word": "pub",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "a25f5b613170cd0a75201373ca64dbd8101efeb586af479642debc8d6177920e",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "酒馆，酒吧",
+      "core_meaning_en": "a tavern or bar",
+      "mental_model_cn": "酒馆，酒吧",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b19063f9015a691fbd35",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pub:250e684e01a45d2e:collocation:0"
+            ],
+            "meaning_cn": "去酒馆",
+            "phrase": "go to the pub"
+          },
+          {
+            "collocation_id": "collocation:3e80d78f0221ce9e7745",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pub:250e684e01a45d2e:collocation:1"
+            ],
+            "meaning_cn": "酒馆午餐",
+            "phrase": "pub lunch"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "酒馆，客栈",
+        "definition_en": "a building with a bar and public rooms, often serving light meals",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pub:250e684e01a45d2e",
+        "sense_label_en": "a building with a bar and public rooms, often serving light meals",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "pub",
+    "word_family": [],
+    "word_id": "word:pub"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:pub:250e684e01a45d2e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10736,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3e80d78f0221ce9e7745",
+      "collocation:b19063f9015a691fbd35"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3e80d78f0221ce9e7745",
+        "source_row": 5295,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:b19063f9015a691fbd35",
+        "source_row": 15040,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:bd6671d3def05f9ca28b",
+        "source_row": 7146,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      },
+      {
+        "id": "membership:a24ae9fcb203fdc96ce4",
+        "source_row": 7147,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "pub",
+      "source": "content/lexical/canonical/lookup/spelling/pu.json",
+      "word_id": "word:pub",
+      "ordinal": 3862,
+      "word_shard": "content/lexical/canonical/words/shards/o3857-3864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/cd.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3857-3864.json",
+    "source_content_hash": "a25f5b613170cd0a75201373ca64dbd8101efeb586af479642debc8d6177920e",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

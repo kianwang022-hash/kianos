@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3755,
+  "word_id": "word:preside",
+  "word": "preside",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8515b3ea5affcc823eb8",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "主持；负责…",
+        "pattern": "preside over sth"
+      }
+    ],
+    "content_hash": "5754eb46dbe9b03b8473c1502663503e1f14fd4daaa99e0dbfc150cafb3ce0fe",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "主持，负责",
+      "core_meaning_en": "to be in charge of a meeting or ceremony",
+      "mental_model_cn": "主持，负责",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:8515b3ea5affcc823eb8"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c270c428307b0073f1e1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:preside:b71ea8fb024c5339:collocation:1"
+            ],
+            "meaning_cn": "主持（会议等）",
+            "phrase": "preside at + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主持，负责",
+        "definition_en": "to be in charge of a meeting, ceremony, or organization",
+        "governing_pattern": "vi. + over",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:preside:b71ea8fb024c5339",
+        "sense_label_en": "to be in charge of a meeting, ceremony, or organization",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "preside",
+    "word_family": [],
+    "word_id": "word:preside"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:preside:b71ea8fb024c5339",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10453,
+        "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:c270c428307b0073f1e1"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:c270c428307b0073f1e1",
+        "source_row": 16444,
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:cbd54578869cbabd59b1",
+        "source_row": 17217,
+        "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:37f0b42489a144c64007",
+        "source_row": 6927,
+        "source_path": "content/lexical/canonical/packs/shards/o3745-3776.json"
+      },
+      {
+        "id": "membership:42380e7a1abdd61ece5b",
+        "source_row": 6928,
+        "source_path": "content/lexical/canonical/packs/shards/o3745-3776.json"
+      },
+      {
+        "id": "membership:38c719f732cda32dd548",
+        "source_row": 16936,
+        "source_path": "content/lexical/canonical/packs/shards/o3745-3776.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "preside",
+      "source": "content/lexical/canonical/lookup/spelling/pr.json",
+      "word_id": "word:preside",
+      "ordinal": 3755,
+      "word_shard": "content/lexical/canonical/words/shards/o3753-3760.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d3.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3753-3760.json",
+    "source_content_hash": "5754eb46dbe9b03b8473c1502663503e1f14fd4daaa99e0dbfc150cafb3ce0fe",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

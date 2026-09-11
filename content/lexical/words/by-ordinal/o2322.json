@@ -1,0 +1,142 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2322,
+  "word_id": "word:heroin",
+  "word": "heroin",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "49166748e1084cff9a07a95be3c11963ce812c24c38596b610d2974e30c51de4",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "海洛因",
+      "core_meaning_en": "a highly addictive narcotic drug",
+      "mental_model_cn": "海洛因",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "confusable:horizontal:b3862c46b471caf91f96"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4b1d63b7934609a6c111",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:heroin:788a073c75bd5bbc:collocation:0"
+            ],
+            "meaning_cn": "海洛因成瘾",
+            "phrase": "heroin addiction"
+          },
+          {
+            "collocation_id": "collocation:82465686707977906cfc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:heroin:788a073c75bd5bbc:collocation:1"
+            ],
+            "meaning_cn": "注射海洛因",
+            "phrase": "inject heroin"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "海洛因",
+        "definition_en": "a powerful, illegal, addictive drug derived from morphine",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:heroin:788a073c75bd5bbc",
+        "sense_label_en": "a powerful, illegal, addictive drug derived from morphine",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "heroin",
+    "word_family": [],
+    "word_id": "word:heroin"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:b3862c46b471caf91f96",
+      "owner_path": "content/lexical/relations/by-id/98/98313df095e8d41f62b320fe8e674ba51d23ca01d42d906831a7f5c6408d2a94.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:heroin:788a073c75bd5bbc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6484,
+        "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4b1d63b7934609a6c111",
+      "collocation:82465686707977906cfc"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4b1d63b7934609a6c111",
+        "source_row": 6323,
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:82465686707977906cfc",
+        "source_row": 11035,
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:54124fe3a22134908483",
+        "source_row": 4334,
+        "source_path": "content/lexical/canonical/packs/shards/o2305-2336.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "heroin",
+      "source": "content/lexical/canonical/lookup/spelling/he.json",
+      "word_id": "word:heroin",
+      "ordinal": 2322,
+      "word_shard": "content/lexical/canonical/words/shards/o2321-2328.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b6.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2321-2328.json",
+    "source_content_hash": "49166748e1084cff9a07a95be3c11963ce812c24c38596b610d2974e30c51de4",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 83,
+  "word_id": "word:adore",
+  "word": "adore",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6ffab10739d7d92239e5d6e320baf6af62196a19f0b0fc2d46f40901630589b7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "深爱、崇拜",
+      "core_meaning_en": "to love and admire deeply",
+      "mental_model_cn": "深爱、崇拜",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d7c0e851681a8ab7634b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:adore:ee828a3435355528:collocation:0"
+            ],
+            "meaning_cn": "崇拜/爱慕某人或某物",
+            "phrase": "adore + sb/sth"
+          },
+          {
+            "collocation_id": "collocation:a4f2cb5d14a6cf83ffe7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:adore:ee828a3435355528:collocation:1"
+            ],
+            "meaning_cn": "喜爱做某事",
+            "phrase": "adore doing sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "热爱，爱慕，崇拜",
+        "definition_en": "to love and admire someone or something very much",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:adore:ee828a3435355528",
+        "sense_label_en": "to love and admire someone or something very much",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "adore",
+    "word_family": [],
+    "word_id": "word:adore"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:adore:ee828a3435355528",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 228,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a4f2cb5d14a6cf83ffe7",
+      "collocation:d7c0e851681a8ab7634b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a4f2cb5d14a6cf83ffe7",
+        "source_row": 13999,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      },
+      {
+        "id": "collocation:d7c0e851681a8ab7634b",
+        "source_row": 18246,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:b479c45f771fca3f0986",
+        "source_row": 175,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:742cb1f95727597b14a4",
+        "source_row": 176,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:2186eed309af4f51777a",
+        "source_row": 13832,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "adore",
+      "source": "content/lexical/canonical/lookup/spelling/ad.json",
+      "word_id": "word:adore",
+      "ordinal": 83,
+      "word_shard": "content/lexical/canonical/words/shards/o0081-0088.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/5b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0081-0088.json",
+    "source_content_hash": "6ffab10739d7d92239e5d6e320baf6af62196a19f0b0fc2d46f40901630589b7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

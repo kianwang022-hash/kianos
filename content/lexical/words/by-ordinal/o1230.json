@@ -1,0 +1,269 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1230,
+  "word_id": "word:deadly",
+  "word": "deadly",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f2ca7724a2950887e7b8f6d0d957cb4614741baaf980aff22bf5a6d8b0eec1db",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "致命的；致死的；极度的；非常的",
+          "label_en": "causing or able to cause death; extreme or very great",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:deadly:a2f13b1a1d6d5241",
+            "sense:deadly:297c05a329735990"
+          ]
+        },
+        {
+          "label_cn": "非常；极其",
+          "label_en": "to a great degree; extremely",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:deadly:67fbba0eeba15069"
+          ]
+        }
+      ],
+      "core_meaning_cn": "致命的或极端的",
+      "core_meaning_en": "causing death or extreme intensity",
+      "mental_model_cn": "致命的或极端的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:word_family:deadly:8b61ae295ab8c10e",
+      "relation:deep:word_family:deadly:8b61ae295ab8c10e"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:23541198ce131441468a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deadly:a2f13b1a1d6d5241:collocation:0"
+            ],
+            "meaning_cn": "致命武器",
+            "phrase": "deadly weapon"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "致命的；致死的",
+        "definition_en": "causing or able to cause death",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:deadly:a2f13b1a1d6d5241",
+        "sense_label_en": "causing or able to cause death",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8c513bdb6faed99e185e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deadly:297c05a329735990:collocation:0"
+            ],
+            "meaning_cn": "极其严肃",
+            "phrase": "deadly serious"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "极度的；非常的",
+        "definition_en": "extreme or very great",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:deadly:297c05a329735990",
+        "sense_label_en": "extreme or very great",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:05f0b713b58f3204ff5f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deadly:67fbba0eeba15069:collocation:0"
+            ],
+            "meaning_cn": "极其乏味",
+            "phrase": "deadly dull"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "非常；极其",
+        "definition_en": "to a great degree; extremely",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:deadly:67fbba0eeba15069",
+        "sense_label_en": "to a great degree; extremely",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "completed"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "deadly",
+    "word_family": [
+      {
+        "boundary": "deadly = dead + ly",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "R",
+        "evidence": [
+          {
+            "evidence_id": "evidence:family:deadly:dead",
+            "evidence_status": "source_checked",
+            "source_locator": "deadly|dead",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:word_family:deadly:8b61ae295ab8c10e",
+        "family_sources": [
+          "curated core-card derivative",
+          "local morphology candidate"
+        ],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "word_family",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:deadly:a2f13b1a1d6d5241",
+        "target_sense_id": "sense:dead:14163e81dbec57ab",
+        "target_word": "dead",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    ],
+    "word_id": "word:deadly"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:deadly:297c05a329735990",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3463,
+        "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      },
+      {
+        "sense_id": "sense:deadly:67fbba0eeba15069",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3464,
+        "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      },
+      {
+        "sense_id": "sense:deadly:a2f13b1a1d6d5241",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3465,
+        "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:05f0b713b58f3204ff5f",
+      "collocation:23541198ce131441468a",
+      "collocation:8c513bdb6faed99e185e"
+    ],
+    "facts": [
+      {
+        "id": "deep:word_family:deadly:8b61ae295ab8c10e",
+        "source_row": 346,
+        "source_path": "content/lexical/canonical/facts/shards/o1217-1248.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:05f0b713b58f3204ff5f",
+        "source_row": 474,
+        "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      },
+      {
+        "id": "collocation:23541198ce131441468a",
+        "source_row": 2950,
+        "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      },
+      {
+        "id": "collocation:8c513bdb6faed99e185e",
+        "source_row": 11903,
+        "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0a24bf4a23efe2c382c3",
+        "source_row": 2310,
+        "source_path": "content/lexical/canonical/packs/shards/o1217-1248.json"
+      },
+      {
+        "id": "membership:9eaee3418629569e200c",
+        "source_row": 2311,
+        "source_path": "content/lexical/canonical/packs/shards/o1217-1248.json"
+      },
+      {
+        "id": "membership:4653434def40a31abc85",
+        "source_row": 10989,
+        "source_path": "content/lexical/canonical/packs/shards/o1217-1248.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "deadly",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:deadly",
+      "ordinal": 1230,
+      "word_shard": "content/lexical/canonical/words/shards/o1225-1232.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/64.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1225-1232.json",
+    "source_content_hash": "f2ca7724a2950887e7b8f6d0d957cb4614741baaf980aff22bf5a6d8b0eec1db",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

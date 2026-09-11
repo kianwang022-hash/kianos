@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2211,
+  "word_id": "word:grocer",
+  "word": "grocer",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6aa04524dc98a04590c298e579c4d8dc5887d610f50c25f287f1f40904dede01",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "食品商；杂货商",
+      "core_meaning_en": "a retail merchant who sells foodstuffs",
+      "mental_model_cn": "食品商；杂货商",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:97bdcd4a2ebc532aae3c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:grocer:c0b6cc6b1fec5b1b:collocation:0"
+            ],
+            "meaning_cn": "本地杂货商",
+            "phrase": "local grocer"
+          },
+          {
+            "collocation_id": "collocation:6d02a24306e24f660b6e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:grocer:c0b6cc6b1fec5b1b:collocation:1"
+            ],
+            "meaning_cn": "杂货店",
+            "phrase": "the grocer's shop"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "食品商；杂货商",
+        "definition_en": "a retail merchant who sells foodstuffs and some household supplies",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:grocer:c0b6cc6b1fec5b1b",
+        "sense_label_en": "a retail merchant who sells foodstuffs and some household supplies",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "grocer",
+    "word_family": [],
+    "word_id": "word:grocer"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:grocer:c0b6cc6b1fec5b1b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6170,
+        "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6d02a24306e24f660b6e",
+      "collocation:97bdcd4a2ebc532aae3c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6d02a24306e24f660b6e",
+        "source_row": 9183,
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:97bdcd4a2ebc532aae3c",
+        "source_row": 12919,
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0da9f7c68dcdd931bf61",
+        "source_row": 4154,
+        "source_path": "content/lexical/canonical/packs/shards/o2209-2240.json"
+      },
+      {
+        "id": "membership:8fb78578a030b099c844",
+        "source_row": 11615,
+        "source_path": "content/lexical/canonical/packs/shards/o2209-2240.json"
+      },
+      {
+        "id": "membership:0ab42ef475b7117de933",
+        "source_row": 15536,
+        "source_path": "content/lexical/canonical/packs/shards/o2209-2240.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "grocer",
+      "source": "content/lexical/canonical/lookup/spelling/gr.json",
+      "word_id": "word:grocer",
+      "ordinal": 2211,
+      "word_shard": "content/lexical/canonical/words/shards/o2209-2216.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2209-2216.json",
+    "source_content_hash": "6aa04524dc98a04590c298e579c4d8dc5887d610f50c25f287f1f40904dede01",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

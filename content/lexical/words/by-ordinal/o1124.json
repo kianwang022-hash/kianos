@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1124,
+  "word_id": "word:county",
+  "word": "county",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f84ac907e0f344650c5acdbdb35d7059efb74e82dc2859be44b02a0dc2f1bc72",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "县或郡",
+      "core_meaning_en": "a territorial division for local government",
+      "mental_model_cn": "县或郡",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:852ce08a6f839849088f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:county:992093c6e7eb51c6:collocation:0"
+            ],
+            "meaning_cn": "郡议会；县议会",
+            "phrase": "county council"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "县；郡",
+        "definition_en": "a region or administrative district in a country",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:county:992093c6e7eb51c6",
+        "sense_label_en": "a region or administrative district in a country",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "county",
+    "word_family": [],
+    "word_id": "word:county"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:county:992093c6e7eb51c6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3144,
+        "source_path": "content/lexical/canonical/senses/shards/o1121-1152.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:852ce08a6f839849088f"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:852ce08a6f839849088f",
+        "source_row": 11292,
+        "source_path": "content/lexical/canonical/collocations/shards/o1121-1152.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:951061c71e2b951380f4",
+        "source_row": 2118,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:8db83b28465a3e2dbabe",
+        "source_row": 2119,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:b3d2c2c7f5f11f479fb2",
+        "source_row": 10918,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:1bfe82d0df2da1df47ae",
+        "source_row": 14583,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "county",
+      "source": "content/lexical/canonical/lookup/spelling/co.json",
+      "word_id": "word:county",
+      "ordinal": 1124,
+      "word_shard": "content/lexical/canonical/words/shards/o1121-1128.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1121-1128.json",
+    "source_content_hash": "f84ac907e0f344650c5acdbdb35d7059efb74e82dc2859be44b02a0dc2f1bc72",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

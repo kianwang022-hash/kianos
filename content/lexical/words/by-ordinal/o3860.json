@@ -1,0 +1,118 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3860,
+  "word_id": "word:psychiatry",
+  "word": "psychiatry",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "dadf3d3669e6cec709e657c898cce32a1e77e5abd08e207e5a10d1d3bd004a21",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "精神病学",
+      "core_meaning_en": "the branch of medicine dealing with mental disorders",
+      "mental_model_cn": "精神病学",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:582966128a17192e4bc5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:psychiatry:b6a44888239f5991:collocation:0"
+            ],
+            "meaning_cn": "儿童精神病学",
+            "phrase": "child psychiatry"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "精神病学，精神病治疗",
+        "definition_en": "the branch of medicine dealing with the diagnosis and treatment of mental disorders",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:psychiatry:b6a44888239f5991",
+        "sense_label_en": "the branch of medicine dealing with the diagnosis and treatment of menta",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "psychiatry",
+    "word_family": [],
+    "word_id": "word:psychiatry"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:psychiatry:b6a44888239f5991",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10733,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:582966128a17192e4bc5"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:582966128a17192e4bc5",
+        "source_row": 7440,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:59f40a89ae6c6b482bdd",
+        "source_row": 7143,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "psychiatry",
+      "source": "content/lexical/canonical/lookup/spelling/ps.json",
+      "word_id": "word:psychiatry",
+      "ordinal": 3860,
+      "word_shard": "content/lexical/canonical/words/shards/o3857-3864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/41.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3857-3864.json",
+    "source_content_hash": "dadf3d3669e6cec709e657c898cce32a1e77e5abd08e207e5a10d1d3bd004a21",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

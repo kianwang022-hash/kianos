@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3012,
+  "word_id": "word:melon",
+  "word": "melon",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "aa619beea2b284ddd67ffad2c3da243e1ae148a22cc829c72541bada99026eb1",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "甜瓜",
+      "core_meaning_en": "a sweet juicy fruit with a hard rind",
+      "mental_model_cn": "甜瓜",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e26d3e55ceae7cf08d2d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:melon:9ff24fd2de9850ed:collocation:0"
+            ],
+            "meaning_cn": "一片瓜",
+            "phrase": "a slice of melon"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "瓜类水果",
+        "definition_en": "any of numerous fruits of the gourd family having a hard rind and sweet juicy flesh",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:melon:9ff24fd2de9850ed",
+        "sense_label_en": "any of numerous fruits of the gourd family having a hard rind and sweet ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "melon",
+    "word_family": [],
+    "word_id": "word:melon"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:melon:9ff24fd2de9850ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8401,
+        "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e26d3e55ceae7cf08d2d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e26d3e55ceae7cf08d2d",
+        "source_row": 19155,
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:073717bd7acf1c29bfad",
+        "source_row": 5609,
+        "source_path": "content/lexical/canonical/packs/shards/o3009-3040.json"
+      },
+      {
+        "id": "membership:d96db8d6719d9dd51e83",
+        "source_row": 12116,
+        "source_path": "content/lexical/canonical/packs/shards/o3009-3040.json"
+      },
+      {
+        "id": "membership:4fec38a83d39cb80fdd2",
+        "source_row": 16269,
+        "source_path": "content/lexical/canonical/packs/shards/o3009-3040.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "melon",
+      "source": "content/lexical/canonical/lookup/spelling/me.json",
+      "word_id": "word:melon",
+      "ordinal": 3012,
+      "word_shard": "content/lexical/canonical/words/shards/o3009-3016.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/63.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3009-3016.json",
+    "source_content_hash": "aa619beea2b284ddd67ffad2c3da243e1ae148a22cc829c72541bada99026eb1",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

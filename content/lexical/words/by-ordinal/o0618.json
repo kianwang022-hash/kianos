@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 618,
+  "word_id": "word:bullet",
+  "word": "bullet",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "866ce70c5b674fd105f45cb587a482723218c6ec7f7ceb302f5513ed46639210",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "子弹",
+      "core_meaning_en": "a projectile fired from a gun",
+      "mental_model_cn": "子弹",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7878cd91f1bcfae366b7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bullet:e51bb7c598dc5514:collocation:0"
+            ],
+            "meaning_cn": "弹孔",
+            "phrase": "bullet hole"
+          },
+          {
+            "collocation_id": "collocation:2f814a2580b55ceb92bc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bullet:e51bb7c598dc5514:collocation:1"
+            ],
+            "meaning_cn": "枪伤",
+            "phrase": "a bullet wound"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "子弹",
+        "definition_en": "a small metal object that is shot from a gun",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bullet:e51bb7c598dc5514",
+        "sense_label_en": "a small metal object that is shot from a gun",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "bullet",
+    "word_family": [],
+    "word_id": "word:bullet"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:bullet:e51bb7c598dc5514",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1734,
+        "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2f814a2580b55ceb92bc",
+      "collocation:7878cd91f1bcfae366b7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2f814a2580b55ceb92bc",
+        "source_row": 4022,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:7878cd91f1bcfae366b7",
+        "source_row": 10189,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5d287a0ca7b5e38e8e95",
+        "source_row": 1154,
+        "source_path": "content/lexical/canonical/packs/shards/o0609-0640.json"
+      },
+      {
+        "id": "membership:91f7559b03c6806beecb",
+        "source_row": 10591,
+        "source_path": "content/lexical/canonical/packs/shards/o0609-0640.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "bullet",
+      "source": "content/lexical/canonical/lookup/spelling/bu.json",
+      "word_id": "word:bullet",
+      "ordinal": 618,
+      "word_shard": "content/lexical/canonical/words/shards/o0617-0624.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0617-0624.json",
+    "source_content_hash": "866ce70c5b674fd105f45cb587a482723218c6ec7f7ceb302f5513ed46639210",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1626,
+  "word_id": "word:emotion",
+  "word": "emotion",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "22f1c111e770c20a77026434e2c224e37b08d0ce3530b9628ddba21f59572489",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "情绪；情感",
+      "core_meaning_en": "a strong feeling such as love, anger, etc.",
+      "mental_model_cn": "情绪；情感",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e4e9e1a9d652a8e5c922",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:emotion:184ed85f48f5570d:collocation:0"
+            ],
+            "meaning_cn": "强烈的情感",
+            "phrase": "strong emotions"
+          },
+          {
+            "collocation_id": "collocation:4a953bc7d316657195fa",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:emotion:184ed85f48f5570d:collocation:1"
+            ],
+            "meaning_cn": "表露情感",
+            "phrase": "show emotion"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "情绪；情感",
+        "definition_en": "a strong feeling such as love, anger, fear, etc.",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:emotion:184ed85f48f5570d",
+        "sense_label_en": "a strong feeling such as love, anger, fear, etc.",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "emotion",
+    "word_family": [],
+    "word_id": "word:emotion"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:emotion:184ed85f48f5570d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4522,
+        "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4a953bc7d316657195fa",
+      "collocation:e4e9e1a9d652a8e5c922"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4a953bc7d316657195fa",
+        "source_row": 6277,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:e4e9e1a9d652a8e5c922",
+        "source_row": 19385,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3b21bc7caf134ab23ce3",
+        "source_row": 3048,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      },
+      {
+        "id": "membership:c5d6e8ec2723e176f77e",
+        "source_row": 3049,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      },
+      {
+        "id": "membership:2c89047bfd8b624ed33d",
+        "source_row": 11227,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      },
+      {
+        "id": "membership:b542f51be529ade98809",
+        "source_row": 15027,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "emotion",
+      "source": "content/lexical/canonical/lookup/spelling/em.json",
+      "word_id": "word:emotion",
+      "ordinal": 1626,
+      "word_shard": "content/lexical/canonical/words/shards/o1625-1632.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ab.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1625-1632.json",
+    "source_content_hash": "22f1c111e770c20a77026434e2c224e37b08d0ce3530b9628ddba21f59572489",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

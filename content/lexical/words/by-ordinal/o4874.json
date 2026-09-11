@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4874,
+  "word_id": "word:syndrome",
+  "word": "syndrome",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "82a99bf2daaaec4126bd97c16c9396709302916ab53e842b8a1527a638fb9496",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "一组同时出现的症状或特征",
+      "core_meaning_en": "a set of symptoms or characteristics occurring together",
+      "mental_model_cn": "一组同时出现的症状或特征",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b25e7fec7b8a660957ab",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:syndrome:41cc3d4b9a8e59d9:collocation:0"
+            ],
+            "meaning_cn": "唐氏综合征",
+            "phrase": "Down syndrome"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "综合征，并发症状",
+        "definition_en": "a pattern of symptoms indicative of some disease",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:syndrome:41cc3d4b9a8e59d9",
+        "sense_label_en": "a pattern of symptoms indicative of some disease",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8622b396665388faab7e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:syndrome:6ca27eef54e55cf5:collocation:0"
+            ],
+            "meaning_cn": "现代生活的一种并发现象",
+            "phrase": "a syndrome of modern life"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "同时存在的事物，并发事物",
+        "definition_en": "a complex of concurrent things",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:syndrome:6ca27eef54e55cf5",
+        "sense_label_en": "a complex of concurrent things",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "syndrome",
+    "word_family": [],
+    "word_id": "word:syndrome"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:syndrome:41cc3d4b9a8e59d9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13853,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      },
+      {
+        "sense_id": "sense:syndrome:6ca27eef54e55cf5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13854,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8622b396665388faab7e",
+      "collocation:b25e7fec7b8a660957ab"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8622b396665388faab7e",
+        "source_row": 11390,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      },
+      {
+        "id": "collocation:b25e7fec7b8a660957ab",
+        "source_row": 15117,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a943e17b910c767a3915",
+        "source_row": 9056,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "syndrome",
+      "source": "content/lexical/canonical/lookup/spelling/sy.json",
+      "word_id": "word:syndrome",
+      "ordinal": 4874,
+      "word_shard": "content/lexical/canonical/words/shards/o4873-4880.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4873-4880.json",
+    "source_content_hash": "82a99bf2daaaec4126bd97c16c9396709302916ab53e842b8a1527a638fb9496",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

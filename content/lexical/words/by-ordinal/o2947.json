@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2947,
+  "word_id": "word:mankind",
+  "word": "mankind",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "7753b3422f8c0010d7f4748afa9d76e56d8791c670ec949850764a9f4d3dd5dc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "人类；所有人集体",
+      "core_meaning_en": "the human race; all people collectively",
+      "mental_model_cn": "人类；所有人集体",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ca8e90b7670101839682",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mankind:8912256f09d15941:collocation:0"
+            ],
+            "meaning_cn": "人类历史",
+            "phrase": "the history of mankind"
+          },
+          {
+            "collocation_id": "collocation:77c64d6850aa31918798",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mankind:8912256f09d15941:collocation:1"
+            ],
+            "meaning_cn": "为了人类的利益",
+            "phrase": "for the benefit of mankind"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "作为一个群体的所有人类",
+        "definition_en": "all human beings considered as a group",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:mankind:8912256f09d15941",
+        "sense_label_en": "all human beings considered as a group",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "mankind",
+    "word_family": [],
+    "word_id": "word:mankind"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:mankind:8912256f09d15941",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8205,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:77c64d6850aa31918798",
+      "collocation:ca8e90b7670101839682"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:77c64d6850aa31918798",
+        "source_row": 10119,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:ca8e90b7670101839682",
+        "source_row": 17105,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:417d04b69891e93c7149",
+        "source_row": 5492,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      },
+      {
+        "id": "membership:f2c9f351382b065c840c",
+        "source_row": 12077,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      },
+      {
+        "id": "membership:3f928e892ce8312ee657",
+        "source_row": 16208,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "mankind",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:mankind",
+      "ordinal": 2947,
+      "word_shard": "content/lexical/canonical/words/shards/o2945-2952.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2945-2952.json",
+    "source_content_hash": "7753b3422f8c0010d7f4748afa9d76e56d8791c670ec949850764a9f4d3dd5dc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

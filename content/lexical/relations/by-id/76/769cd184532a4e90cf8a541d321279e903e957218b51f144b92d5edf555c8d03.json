@@ -1,0 +1,96 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:5d51a999c293b9d84bd6",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:present",
+      "source_ordinal": 3752,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "adjective/present noun ↔ present verb"
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:081",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:081",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:5d51a999c293b9d84bd6",
+        "learning_note": "adjective/present noun ↔ present verb",
+        "members": [
+          {
+            "word_id": "word:present"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "adjective/present noun ↔ present verb",
+        "relation_scope": "lexeme",
+        "relation_type": "heteronym_pronunciation",
+        "sense_ids": [],
+        "shared_meaning": "adjective/present noun ↔ present verb",
+        "source_evidence_objects": [
+          {
+            "branches": [
+              {
+                "pos": [
+                  "noun",
+                  "adjective"
+                ],
+                "pronunciation": "first-syllable stress /ˈprez.ənt/",
+                "sense_ids": [
+                  "sense:present:fe9a1f90fbd25afc",
+                  "sense:present:2285833589825c41",
+                  "sense:present:7c210a11937e5226",
+                  "sense:present:abe43e74c93b5058"
+                ]
+              },
+              {
+                "pos": [
+                  "verb"
+                ],
+                "pronunciation": "second-syllable stress /prɪˈzent/",
+                "sense_ids": [
+                  "sense:present:fd9aa1c9d2865256"
+                ]
+              }
+            ],
+            "canonical_members": [
+              {
+                "word_id": "word:present"
+              }
+            ],
+            "direction": "R+P",
+            "relation_type": "heteronym_pronunciation",
+            "word_id": "word:present"
+          }
+        ],
+        "source_expression": "present",
+        "source_sense_id": null,
+        "target_expression": "adjective/present noun ↔ present verb",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2611,
+  "word_id": "word:interrupt",
+  "word": "interrupt",
+  "record": {
+    "card_version": "v4",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5d055449e55ef4b35e6c2fc5be6e26f749ab262634e5dedc24e3461c872f219d",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "打断（某人说话），插嘴；中断，暂停；打断，插嘴",
+          "label_en": "to stop someone from speaking by saying something; to stop something for a short time; to stop speaking or doing something for a short time",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:interrupt:cc5596327725503e"
+          ]
+        },
+        {
+          "label_cn": "中断信号",
+          "label_en": "a signal that stops a program temporarily",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:interrupt:282dc21a19c95d70"
+          ]
+        }
+      ],
+      "core_meaning_cn": "打断，中断",
+      "core_meaning_en": "to stop something temporarily or to break the continuity of something",
+      "mental_model_cn": "打断，中断",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e0bfd2adffbfe1ef0083",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:interrupt:cc5596327725503e:collocation:0"
+            ],
+            "meaning_cn": "打断某人",
+            "phrase": "interrupt sb"
+          },
+          {
+            "collocation_id": "collocation:027f4d4bc873a2b996fd",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:interrupt:cc5596327725503e:collocation:1"
+            ],
+            "meaning_cn": "打断演讲者",
+            "phrase": "interrupt the speaker"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "打断（某人说话），插嘴",
+        "definition_en": "to stop someone from speaking by saying something",
+        "governing_pattern": "vt. + sb/sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:interrupt:cc5596327725503e",
+        "sense_label_en": "to stop someone from speaking by saying something",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b4bcd6a27dfa3b7dafeb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:interrupt:282dc21a19c95d70:collocation:0"
+            ],
+            "meaning_cn": "硬件中断",
+            "phrase": "hardware interrupt"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "中断信号",
+        "definition_en": "a signal that stops a program temporarily",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:interrupt:282dc21a19c95d70",
+        "sense_label_en": "a signal that stops a program temporarily",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "interrupt",
+    "word_family": [],
+    "word_id": "word:interrupt"
+  },
+  "relation_refs": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:interrupt:968b13d6f085510b",
+      "status": "merged",
+      "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
+      "pos": "verb",
+      "definition_cn": "中断，暂停",
+      "definition_en": "to stop something for a short time",
+      "semantic_key": "c98ecd0137c7faa0a4599b1d048382cd9a403c0fcdd938fc868376443efdbc78",
+      "semantic_key_history": [
+        "e4bf1de47765a410b29c0c599e4c919038130fe9df727ae59487d990b109a446"
+      ],
+      "legacy_aliases": [
+        "interrupt:l1:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "interrupt:l1:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-09T00:00:00Z",
+      "source_row": 7200,
+      "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:interrupt:98c8d956c5d1519a",
+      "status": "merged",
+      "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
+      "pos": "verb",
+      "definition_cn": "打断，插嘴",
+      "definition_en": "to stop speaking or doing something for a short time",
+      "semantic_key": "ef5c62acedfc59f42278a5d7d4e9174c44ffd5c59d83c4bb60bf2d9f5d6d7499",
+      "semantic_key_history": [
+        "acca199cbe3c5970b8836275bb36f7e399d62621e783f72b1acf87bd15aaa158"
+      ],
+      "legacy_aliases": [
+        "interrupt:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "interrupt:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-09T00:00:00Z",
+      "source_row": 7201,
+      "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json",
+      "reference_only": true
+    }
+  ],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:interrupt:282dc21a19c95d70",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7199,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interrupt:968b13d6f085510b",
+        "status": "merged",
+        "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
+        "source_row": 7200,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interrupt:98c8d956c5d1519a",
+        "status": "merged",
+        "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
+        "source_row": 7201,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interrupt:cc5596327725503e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7202,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:027f4d4bc873a2b996fd",
+      "collocation:b4bcd6a27dfa3b7dafeb",
+      "collocation:e0bfd2adffbfe1ef0083"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:027f4d4bc873a2b996fd",
+        "source_row": 209,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:2392dc5229a688abec49",
+        "source_row": 2975,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:2cedd3de8cb23610ad07",
+        "source_row": 3814,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:8c57caf5f523d50f125c",
+        "source_row": 11908,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:b4bcd6a27dfa3b7dafeb",
+        "source_row": 15317,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:e0bfd2adffbfe1ef0083",
+        "source_row": 19005,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:ebaef2602a6ae500d328",
+        "source_row": 4904,
+        "source_path": "content/lexical/canonical/packs/shards/o2593-2624.json"
+      },
+      {
+        "id": "membership:0d551ce6e31bcbde829c",
+        "source_row": 11856,
+        "source_path": "content/lexical/canonical/packs/shards/o2593-2624.json"
+      },
+      {
+        "id": "membership:6cfba02e74195929716e",
+        "source_row": 15915,
+        "source_path": "content/lexical/canonical/packs/shards/o2593-2624.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "interrupt",
+      "source": "content/lexical/canonical/lookup/spelling/in.json",
+      "word_id": "word:interrupt",
+      "ordinal": 2611,
+      "word_shard": "content/lexical/canonical/words/shards/o2609-2616.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/bc.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2609-2616.json",
+    "source_content_hash": "5d055449e55ef4b35e6c2fc5be6e26f749ab262634e5dedc24e3461c872f219d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

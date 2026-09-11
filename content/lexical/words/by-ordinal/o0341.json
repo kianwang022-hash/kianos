@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 341,
+  "word_id": "word:aunt",
+  "word": "aunt",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "cbf8836df6565dfd76a6a5a8e60434e11b2fcab57d88cdf1fa87a980094bc0f8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "父母的姐妹或叔叔的妻子",
+      "core_meaning_en": "the sister of one's parent or the wife of one's uncle",
+      "mental_model_cn": "父母的姐妹或叔叔的妻子",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e7e01ef4fc0697102e7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:aunt:3f17d5ffcd1d5178:collocation:0"
+            ],
+            "meaning_cn": "称呼某位阿姨/姑姑等",
+            "phrase": "aunt + name"
+          },
+          {
+            "collocation_id": "collocation:e15c6bcdb7215590d232",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aunt:3f17d5ffcd1d5178:collocation:1"
+            ],
+            "meaning_cn": "我的阿姨",
+            "phrase": "my aunt"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "姑妈；姨妈；伯母；舅妈；阿姨",
+        "definition_en": "the sister of your father or mother, or the wife of your uncle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:aunt:3f17d5ffcd1d5178",
+        "sense_label_en": "the sister of your father or mother, or the wife of your uncle",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "aunt",
+    "word_family": [],
+    "word_id": "word:aunt"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:aunt:3f17d5ffcd1d5178",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 867,
+        "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1e7e01ef4fc0697102e7",
+      "collocation:e15c6bcdb7215590d232"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1e7e01ef4fc0697102e7",
+        "source_row": 2529,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:e15c6bcdb7215590d232",
+        "source_row": 19058,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:49b5cb2b212ea1e61e3f",
+        "source_row": 678,
+        "source_path": "content/lexical/canonical/packs/shards/o0321-0352.json"
+      },
+      {
+        "id": "membership:060d21ee1a65d6f592a5",
+        "source_row": 679,
+        "source_path": "content/lexical/canonical/packs/shards/o0321-0352.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "aunt",
+      "source": "content/lexical/canonical/lookup/spelling/au.json",
+      "word_id": "word:aunt",
+      "ordinal": 341,
+      "word_shard": "content/lexical/canonical/words/shards/o0337-0344.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/32.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0337-0344.json",
+    "source_content_hash": "cbf8836df6565dfd76a6a5a8e60434e11b2fcab57d88cdf1fa87a980094bc0f8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

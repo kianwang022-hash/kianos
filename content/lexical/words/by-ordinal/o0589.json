@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 589,
+  "word_id": "word:briefcase",
+  "word": "briefcase",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f4d0e12249438dc11107e5e2530937d465d9537e72f5a8e882d979c4194d0280",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "公文包",
+      "core_meaning_en": "a flat rectangular case for carrying documents",
+      "mental_model_cn": "公文包",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:02b325ee820f4b3549ed",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:briefcase:20879f1d824b584d:collocation:0"
+            ],
+            "meaning_cn": "提着公事包",
+            "phrase": "carry a briefcase"
+          },
+          {
+            "collocation_id": "collocation:1cb447e18bdc6e1a3dbe",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:briefcase:20879f1d824b584d:collocation:1"
+            ],
+            "meaning_cn": "皮制公事包",
+            "phrase": "a leather briefcase"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "公事包",
+        "definition_en": "a flat rectangular case with a handle, used for carrying papers or books",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:briefcase:20879f1d824b584d",
+        "sense_label_en": "a flat rectangular case with a handle, used for carrying papers or books",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "briefcase",
+    "word_family": [],
+    "word_id": "word:briefcase"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:briefcase:20879f1d824b584d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1632,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:02b325ee820f4b3549ed",
+      "collocation:1cb447e18bdc6e1a3dbe"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:02b325ee820f4b3549ed",
+        "source_row": 229,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:1cb447e18bdc6e1a3dbe",
+        "source_row": 2374,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:ad5c3a470f01d52e66d9",
+        "source_row": 1106,
+        "source_path": "content/lexical/canonical/packs/shards/o0577-0608.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "briefcase",
+      "source": "content/lexical/canonical/lookup/spelling/br.json",
+      "word_id": "word:briefcase",
+      "ordinal": 589,
+      "word_shard": "content/lexical/canonical/words/shards/o0585-0592.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0585-0592.json",
+    "source_content_hash": "f4d0e12249438dc11107e5e2530937d465d9537e72f5a8e882d979c4194d0280",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

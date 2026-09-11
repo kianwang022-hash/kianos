@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2989,
+  "word_id": "word:meadow",
+  "word": "meadow",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1cb6d7f8259ecb72a4b44094258db9cea6b77c168f430a10f49a2a1a523d1fd5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "草地，牧场",
+      "core_meaning_en": "a field of grass or alfalfa grown for hay",
+      "mental_model_cn": "草地，牧场",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9ee18d01e90b12369694",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:meadow:765d7a1d481252de:collocation:0"
+            ],
+            "meaning_cn": "一片野花草地",
+            "phrase": "a meadow of wildflowers"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "草地；草甸；牧草地",
+        "definition_en": "a field or area of land covered mainly with grass, often with wild flowers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:meadow:765d7a1d481252de",
+        "sense_label_en": "a field where grass or alfalfa is grown to be made into hay",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "meadow",
+    "word_family": [],
+    "word_id": "word:meadow"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:meadow:765d7a1d481252de",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8337,
+        "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9ee18d01e90b12369694"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9ee18d01e90b12369694",
+        "source_row": 13521,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f89b9eaf8711b452c933",
+        "source_row": 5568,
+        "source_path": "content/lexical/canonical/packs/shards/o2977-3008.json"
+      },
+      {
+        "id": "membership:8433740b808a98546485",
+        "source_row": 12104,
+        "source_path": "content/lexical/canonical/packs/shards/o2977-3008.json"
+      },
+      {
+        "id": "membership:3aba7eeb9349cce337a3",
+        "source_row": 16249,
+        "source_path": "content/lexical/canonical/packs/shards/o2977-3008.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "meadow",
+      "source": "content/lexical/canonical/lookup/spelling/me.json",
+      "word_id": "word:meadow",
+      "ordinal": 2989,
+      "word_shard": "content/lexical/canonical/words/shards/o2985-2992.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/24.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2985-2992.json",
+    "source_content_hash": "1cb6d7f8259ecb72a4b44094258db9cea6b77c168f430a10f49a2a1a523d1fd5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

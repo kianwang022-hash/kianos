@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 73,
+  "word_id": "word:adjacent",
+  "word": "adjacent",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "38486e1acefc3586b5f92a78b6d1dd81cbcab0cbe7eeb4b3ba3cc094d9035305",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "邻近的，相邻的",
+      "core_meaning_en": "near or next to something",
+      "mental_model_cn": "邻近的，相邻的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e58aab01a4f8b41f35d0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:adjacent:152c22e63d8554f8:collocation:0"
+            ],
+            "meaning_cn": "与…毗连，紧邻…",
+            "phrase": "adjacent to + sth"
+          },
+          {
+            "collocation_id": "collocation:a19f2901ea12500eb640",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:adjacent:152c22e63d8554f8:collocation:1"
+            ],
+            "meaning_cn": "相邻的房间",
+            "phrase": "adjacent rooms"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "毗连的，邻近的，紧挨着的",
+        "definition_en": "next to or near something, with no other thing in between",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:adjacent:152c22e63d8554f8",
+        "sense_label_en": "next to or near something, with no other thing in between",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "adjacent",
+    "word_family": [],
+    "word_id": "word:adjacent"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:adjacent:152c22e63d8554f8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 200,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a19f2901ea12500eb640",
+      "collocation:e58aab01a4f8b41f35d0"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a19f2901ea12500eb640",
+        "source_row": 13726,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      },
+      {
+        "id": "collocation:e58aab01a4f8b41f35d0",
+        "source_row": 19443,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3eeeb9f0f9d3b059c106",
+        "source_row": 153,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:71f6d134c2f12d3cd4bf",
+        "source_row": 154,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:39973926bbaf8e31a287",
+        "source_row": 155,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:86a8f28f1aa0d218aba9",
+        "source_row": 13824,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "adjacent",
+      "source": "content/lexical/canonical/lookup/spelling/ad.json",
+      "word_id": "word:adjacent",
+      "ordinal": 73,
+      "word_shard": "content/lexical/canonical/words/shards/o0073-0080.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0073-0080.json",
+    "source_content_hash": "38486e1acefc3586b5f92a78b6d1dd81cbcab0cbe7eeb4b3ba3cc094d9035305",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

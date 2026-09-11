@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4688,
+  "word_id": "word:steak",
+  "word": "steak",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "8bdc0d9dbaef24e6013e6d10553f3db5c4bec0802effab166a49425deddb56cf",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "肉片；肉排",
+      "core_meaning_en": "a slice of meat or fish",
+      "mental_model_cn": "肉片；肉排",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6ef30e496088e9a3c14c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:steak:e607f7cf5acd5948:collocation:0"
+            ],
+            "meaning_cn": "牛排",
+            "phrase": "beef steak"
+          },
+          {
+            "collocation_id": "collocation:8e85bc4f463fc66d9626",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:steak:e607f7cf5acd5948:collocation:1"
+            ],
+            "meaning_cn": "烤牛排",
+            "phrase": "grilled steak"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "肉排；牛排；鱼排",
+        "definition_en": "a thick slice of meat, especially beef, or a slice of a large fish",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:steak:e607f7cf5acd5948",
+        "sense_label_en": "a thick slice of meat, especially beef, or a slice of a large fish",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "steak",
+    "word_family": [],
+    "word_id": "word:steak"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:steak:e607f7cf5acd5948",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13310,
+        "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6ef30e496088e9a3c14c",
+      "collocation:8e85bc4f463fc66d9626"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6ef30e496088e9a3c14c",
+        "source_row": 9367,
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:8e85bc4f463fc66d9626",
+        "source_row": 12090,
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5c20fe76b32563c3484e",
+        "source_row": 8693,
+        "source_path": "content/lexical/canonical/packs/shards/o4673-4704.json"
+      },
+      {
+        "id": "membership:52068a4775cfdbe93406",
+        "source_row": 17841,
+        "source_path": "content/lexical/canonical/packs/shards/o4673-4704.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "steak",
+      "source": "content/lexical/canonical/lookup/spelling/st.json",
+      "word_id": "word:steak",
+      "ordinal": 4688,
+      "word_shard": "content/lexical/canonical/words/shards/o4681-4688.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4681-4688.json",
+    "source_content_hash": "8bdc0d9dbaef24e6013e6d10553f3db5c4bec0802effab166a49425deddb56cf",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

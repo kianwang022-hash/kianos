@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 122,
+  "word_id": "word:agony",
+  "word": "agony",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "7920943ef21328bafc78c6e4dab07ff9e36b2b1d888a97b3731ed81708b87c11",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "极度痛苦",
+      "core_meaning_en": "extreme physical or mental pain",
+      "mental_model_cn": "极度痛苦",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bdeb932752e987f45348",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:agony:80879e16d5475008:collocation:0"
+            ],
+            "meaning_cn": "在痛苦中",
+            "phrase": "in agony"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "极大的痛苦",
+        "definition_en": "extreme physical or mental suffering",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:agony:80879e16d5475008",
+        "sense_label_en": "extreme physical or mental suffering",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "agony",
+    "word_family": [],
+    "word_id": "word:agony"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:agony:80879e16d5475008",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 330,
+        "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:bdeb932752e987f45348"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:bdeb932752e987f45348",
+        "source_row": 16075,
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f8c93bed72d0aeede04b",
+        "source_row": 250,
+        "source_path": "content/lexical/canonical/packs/shards/o0097-0128.json"
+      },
+      {
+        "id": "membership:636c0815c6e51e12cc14",
+        "source_row": 10290,
+        "source_path": "content/lexical/canonical/packs/shards/o0097-0128.json"
+      },
+      {
+        "id": "membership:e8b090e934ab6256a34e",
+        "source_row": 13857,
+        "source_path": "content/lexical/canonical/packs/shards/o0097-0128.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "agony",
+      "source": "content/lexical/canonical/lookup/spelling/ag.json",
+      "word_id": "word:agony",
+      "ordinal": 122,
+      "word_shard": "content/lexical/canonical/words/shards/o0121-0128.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0121-0128.json",
+    "source_content_hash": "7920943ef21328bafc78c6e4dab07ff9e36b2b1d888a97b3731ed81708b87c11",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4795,
+  "word_id": "word:suicide",
+  "word": "suicide",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e1209e76038bdf7628dd3b0dd38e6d8c0ac9c9c1e4c42093ae17e8cc8c0b90b2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "自杀",
+      "core_meaning_en": "the act of killing oneself",
+      "mental_model_cn": "自杀",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:638f35440e3e22877c30",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:suicide:5723fbc7abaf500c:collocation:0"
+            ],
+            "meaning_cn": "自杀",
+            "phrase": "commit suicide"
+          },
+          {
+            "collocation_id": "collocation:32f0f95ce6fe3a0180e9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:suicide:5723fbc7abaf500c:collocation:1"
+            ],
+            "meaning_cn": "自杀未遂",
+            "phrase": "a suicide attempt"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "自杀行为",
+        "definition_en": "the act of killing yourself intentionally",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:suicide:5723fbc7abaf500c",
+        "sense_label_en": "the act of killing yourself intentionally",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "自杀者",
+        "definition_en": "a person who kills himself intentionally",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:suicide:bde17b5c2353579b",
+        "sense_label_en": "a person who kills himself intentionally",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "suicide",
+    "word_family": [],
+    "word_id": "word:suicide"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:suicide:5723fbc7abaf500c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13637,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      },
+      {
+        "sense_id": "sense:suicide:bde17b5c2353579b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13638,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:32f0f95ce6fe3a0180e9",
+      "collocation:638f35440e3e22877c30"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:32f0f95ce6fe3a0180e9",
+        "source_row": 4302,
+        "source_path": "content/lexical/canonical/collocations/shards/o4769-4800.json"
+      },
+      {
+        "id": "collocation:638f35440e3e22877c30",
+        "source_row": 8389,
+        "source_path": "content/lexical/canonical/collocations/shards/o4769-4800.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d936ab1fc8ee274724b9",
+        "source_row": 8910,
+        "source_path": "content/lexical/canonical/packs/shards/o4769-4800.json"
+      },
+      {
+        "id": "membership:f160e63cbf19fe101243",
+        "source_row": 17947,
+        "source_path": "content/lexical/canonical/packs/shards/o4769-4800.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "suicide",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:suicide",
+      "ordinal": 4795,
+      "word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
+    "source_content_hash": "e1209e76038bdf7628dd3b0dd38e6d8c0ac9c9c1e4c42093ae17e8cc8c0b90b2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

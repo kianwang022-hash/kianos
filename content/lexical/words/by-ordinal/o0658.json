@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 658,
+  "word_id": "word:calorie",
+  "word": "calorie",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "56a830eba8b2d6632b15931fc13dac502f19cb8c4ac8b8c56036458189cbd468",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "卡路里",
+      "core_meaning_en": "a unit of energy in food",
+      "mental_model_cn": "卡路里",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8d5185033d8b51da6c33",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:calorie:0b7a33b7f8045cdf:collocation:0"
+            ],
+            "meaning_cn": "热量摄入",
+            "phrase": "calorie intake"
+          },
+          {
+            "collocation_id": "collocation:f93c829b66b4f3ff3769",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:calorie:0b7a33b7f8045cdf:collocation:1"
+            ],
+            "meaning_cn": "消耗卡路里",
+            "phrase": "burn calories"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "卡路里；大卡",
+        "definition_en": "a unit of energy, often used to measure the energy content of food",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:calorie:0b7a33b7f8045cdf",
+        "sense_label_en": "a unit of energy, often used to measure the energy content of food",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "calorie",
+    "word_family": [],
+    "word_id": "word:calorie"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:calorie:0b7a33b7f8045cdf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1862,
+        "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8d5185033d8b51da6c33",
+      "collocation:f93c829b66b4f3ff3769"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8d5185033d8b51da6c33",
+        "source_row": 11985,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:f93c829b66b4f3ff3769",
+        "source_row": 21112,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:88d936d40902160cd15e",
+        "source_row": 1214,
+        "source_path": "content/lexical/canonical/packs/shards/o0641-0672.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "calorie",
+      "source": "content/lexical/canonical/lookup/spelling/ca.json",
+      "word_id": "word:calorie",
+      "ordinal": 658,
+      "word_shard": "content/lexical/canonical/words/shards/o0657-0664.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/db.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0657-0664.json",
+    "source_content_hash": "56a830eba8b2d6632b15931fc13dac502f19cb8c4ac8b8c56036458189cbd468",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

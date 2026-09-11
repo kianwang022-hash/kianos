@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 825,
+  "word_id": "word:clarity",
+  "word": "clarity",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bd6489a3ef9546d572a7ef1ffc71e9a2ec63fd27a29b714484a5198a953f9cfd",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "清晰的性质",
+      "core_meaning_en": "the quality of being clear",
+      "mental_model_cn": "清晰的性质",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8af668216ca310aaf1a0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:clarity:75032ced959d5b04:collocation:0"
+            ],
+            "meaning_cn": "表达的清晰",
+            "phrase": "clarity of expression"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "清晰易懂的性质",
+        "definition_en": "the quality of being clear and easy to understand",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:clarity:75032ced959d5b04",
+        "sense_label_en": "the quality of being clear and easy to understand",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3455d5a99ce207129689",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:clarity:dec6f62ddcb451f0:collocation:0"
+            ],
+            "meaning_cn": "水的清澈度",
+            "phrase": "water clarity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "透明或纯净的性质",
+        "definition_en": "the quality of being transparent or pure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:clarity:dec6f62ddcb451f0",
+        "sense_label_en": "the quality of being transparent or pure",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "clarity",
+    "word_family": [],
+    "word_id": "word:clarity"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:clarity:75032ced959d5b04",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2345,
+        "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"
+      },
+      {
+        "sense_id": "sense:clarity:dec6f62ddcb451f0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2346,
+        "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3455d5a99ce207129689",
+      "collocation:8af668216ca310aaf1a0"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3455d5a99ce207129689",
+        "source_row": 4432,
+        "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
+      },
+      {
+        "id": "collocation:8af668216ca310aaf1a0",
+        "source_row": 11789,
+        "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8081ef8259a74f89ebd6",
+        "source_row": 1502,
+        "source_path": "content/lexical/canonical/packs/shards/o0801-0832.json"
+      },
+      {
+        "id": "membership:7e47ed8f438aa3238f6c",
+        "source_row": 1503,
+        "source_path": "content/lexical/canonical/packs/shards/o0801-0832.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "clarity",
+      "source": "content/lexical/canonical/lookup/spelling/cl.json",
+      "word_id": "word:clarity",
+      "ordinal": 825,
+      "word_shard": "content/lexical/canonical/words/shards/o0825-0832.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0825-0832.json",
+    "source_content_hash": "bd6489a3ef9546d572a7ef1ffc71e9a2ec63fd27a29b714484a5198a953f9cfd",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

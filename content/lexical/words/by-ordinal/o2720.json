@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2720,
+  "word_id": "word:kneel",
+  "word": "kneel",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1ddeb5acc840841d6d9355949db4b7f460c58de3364741af9dc495d95a9cca50",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "跪下",
+      "core_meaning_en": "rest one's weight on one's knees",
+      "mental_model_cn": "跪下",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0dc6e58162252b963c4e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:kneel:a0419475797355c4:collocation:0"
+            ],
+            "meaning_cn": "跪下",
+            "phrase": "kneel down"
+          },
+          {
+            "collocation_id": "collocation:8548b11567d6ef3fbf8e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:kneel:a0419475797355c4:collocation:1"
+            ],
+            "meaning_cn": "跪在...面前",
+            "phrase": "kneel before + sb/sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "跪下，跪着",
+        "definition_en": "rest one's weight on one's knees",
+        "governing_pattern": "vi. + down / vi. + before",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:kneel:a0419475797355c4",
+        "sense_label_en": "rest one's weight on one's knees",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "kneel",
+    "word_family": [],
+    "word_id": "word:kneel"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:kneel:a0419475797355c4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7516,
+        "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0dc6e58162252b963c4e",
+      "collocation:8548b11567d6ef3fbf8e"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0dc6e58162252b963c4e",
+        "source_row": 1149,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:8548b11567d6ef3fbf8e",
+        "source_row": 11307,
+        "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c5b49844131654b9d14b",
+        "source_row": 5094,
+        "source_path": "content/lexical/canonical/packs/shards/o2689-2720.json"
+      },
+      {
+        "id": "membership:08841f4d6377b0dbda54",
+        "source_row": 11923,
+        "source_path": "content/lexical/canonical/packs/shards/o2689-2720.json"
+      },
+      {
+        "id": "membership:acb4e63b6f47daeb22da",
+        "source_row": 16014,
+        "source_path": "content/lexical/canonical/packs/shards/o2689-2720.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "kneel",
+      "source": "content/lexical/canonical/lookup/spelling/kn.json",
+      "word_id": "word:kneel",
+      "ordinal": 2720,
+      "word_shard": "content/lexical/canonical/words/shards/o2713-2720.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c6.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2713-2720.json",
+    "source_content_hash": "1ddeb5acc840841d6d9355949db4b7f460c58de3364741af9dc495d95a9cca50",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

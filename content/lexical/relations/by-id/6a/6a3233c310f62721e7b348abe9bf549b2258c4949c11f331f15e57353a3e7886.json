@@ -1,0 +1,158 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:consider:649eab6d69025103",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "consider 可表审慎判断；believe 更直接表示相信为真",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "The judgment senses are high-frequency competitors; the boundary prevents mixing deliberation with truth commitment.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "judge or regard; look upon; judge",
+      "shared_synset": "00691086-v",
+      "source_definition": "to think about something carefully, especially before making a decision",
+      "source_sense_id": "sense:consider:1a670b3a0d215073",
+      "target_definition": "to accept that something is true or that someone is telling the truth",
+      "target_sense_id": "sense:believe:38c85518cb335906",
+      "target_word": "believe"
+    },
+    "dimensions": {
+      "certainty": "believe通常更高",
+      "collocation": "consider likely/believe claim",
+      "core_meaning": "认为/相信",
+      "exam_trap": "思考与确信",
+      "register": "均通用",
+      "semantic_prosody": "中性",
+      "strength": "believe承诺更强",
+      "syntax": "consider obj/believe that",
+      "writing_safety": "按确定性选"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00691086-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00691086-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:consider:649eab6d69025103",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "shared_sense_not_anchored",
+      "missing_boundary",
+      "incomplete_contrast_dimensions",
+      "unresolved_source_sense_anchor",
+      "unresolved_target_sense_anchor"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 12,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "to think about something carefully, especially before making a decision",
+      "source_sense_id": "sense:consider:1a670b3a0d215073",
+      "target_definition": "to accept that something is true or that someone is telling the truth",
+      "target_sense_id": "sense:believe:38c85518cb335906"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:consider:1a670b3a0d215073",
+    "target_sense_id": "sense:believe:38c85518cb335906",
+    "target_word": "believe",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "consider",
+    "word_id": "word:consider",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:consider",
+      "source_ordinal": 1023,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "consider 可表审慎判断；believe 更直接表示相信为真",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "believe通常更高",
+          "collocation": "consider likely/believe claim",
+          "core_meaning": "认为/相信",
+          "exam_trap": "思考与确信",
+          "register": "均通用",
+          "semantic_prosody": "中性",
+          "strength": "believe承诺更强",
+          "syntax": "consider obj/believe that",
+          "writing_safety": "按确定性选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00691086-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00691086-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:consider:649eab6d69025103",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "judge or regard; look upon; judge",
+        "source_sense_id": "sense:consider:1a670b3a0d215073",
+        "target_sense_id": "sense:believe:38c85518cb335906",
+        "target_word": "believe",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

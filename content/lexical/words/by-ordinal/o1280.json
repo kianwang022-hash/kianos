@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1280,
+  "word_id": "word:delete",
+  "word": "delete",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9d968c1bf90ad8c0fb5e29c51ba81097eb30937e5b98e921daec6256363c40c6",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "删除",
+      "core_meaning_en": "remove or erase something",
+      "mental_model_cn": "删除",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:00055c3fa83220455380",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:delete:fcd6d57841775663:collocation:0"
+            ],
+            "meaning_cn": "删除某物",
+            "phrase": "delete + sth"
+          },
+          {
+            "collocation_id": "collocation:e8c0e37262a4e444bc50",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:delete:fcd6d57841775663:collocation:1"
+            ],
+            "meaning_cn": "删除文件",
+            "phrase": "delete a file"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "删除",
+        "definition_en": "to remove or erase something, especially written or stored data",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:delete:fcd6d57841775663",
+        "sense_label_en": "to remove or erase something, especially written or stored data",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "delete",
+    "word_family": [],
+    "word_id": "word:delete"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:delete:fcd6d57841775663",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3592,
+        "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:00055c3fa83220455380",
+      "collocation:e8c0e37262a4e444bc50"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:00055c3fa83220455380",
+        "source_row": 3,
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+      },
+      {
+        "id": "collocation:e8c0e37262a4e444bc50",
+        "source_row": 19719,
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0c5b3e609f449a2aeb68",
+        "source_row": 2405,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      },
+      {
+        "id": "membership:122d2718a62cfbc295a2",
+        "source_row": 2406,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      },
+      {
+        "id": "membership:8b63f4a936048e3e4846",
+        "source_row": 11020,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "delete",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:delete",
+      "ordinal": 1280,
+      "word_shard": "content/lexical/canonical/words/shards/o1273-1280.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/57.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1273-1280.json",
+    "source_content_hash": "9d968c1bf90ad8c0fb5e29c51ba81097eb30937e5b98e921daec6256363c40c6",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

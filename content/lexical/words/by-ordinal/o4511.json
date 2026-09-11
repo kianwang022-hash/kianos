@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4511,
+  "word_id": "word:smog",
+  "word": "smog",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bc0a323e184b388e38da65c82f1fdc44df07b8bea49b1c87e3c0118f1a8bddc6",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "烟雾",
+      "core_meaning_en": "air pollution caused by smoke and fog",
+      "mental_model_cn": "烟雾",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7664e0f17a2a3e4d81ba",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:smog:dfda4bd89cd8525f:collocation:0"
+            ],
+            "meaning_cn": "浓雾霾",
+            "phrase": "heavy smog"
+          },
+          {
+            "collocation_id": "collocation:4a28d6d1c4c0438f09ab",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:smog:dfda4bd89cd8525f:collocation:1"
+            ],
+            "meaning_cn": "城市被烟雾笼罩。",
+            "phrase": "The city was covered in smog."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "烟雾（烟和雾混合的空气污染）",
+        "definition_en": "a type of air pollution that is a mixture of smoke and fog",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:smog:dfda4bd89cd8525f",
+        "sense_label_en": "a type of air pollution that is a mixture of smoke and fog",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "smog",
+    "word_family": [],
+    "word_id": "word:smog"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:smog:dfda4bd89cd8525f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12764,
+        "source_path": "content/lexical/canonical/senses/shards/o4481-4512.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4a28d6d1c4c0438f09ab",
+      "collocation:7664e0f17a2a3e4d81ba"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4a28d6d1c4c0438f09ab",
+        "source_row": 6237,
+        "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
+      },
+      {
+        "id": "collocation:7664e0f17a2a3e4d81ba",
+        "source_row": 9991,
+        "source_path": "content/lexical/canonical/collocations/shards/o4481-4512.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a59a950e3edf756f35a8",
+        "source_row": 8375,
+        "source_path": "content/lexical/canonical/packs/shards/o4481-4512.json"
+      },
+      {
+        "id": "membership:7ba038ff0b88eabba2a1",
+        "source_row": 13122,
+        "source_path": "content/lexical/canonical/packs/shards/o4481-4512.json"
+      },
+      {
+        "id": "membership:e1b141a03e240c86a24c",
+        "source_row": 17678,
+        "source_path": "content/lexical/canonical/packs/shards/o4481-4512.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "smog",
+      "source": "content/lexical/canonical/lookup/spelling/sm.json",
+      "word_id": "word:smog",
+      "ordinal": 4511,
+      "word_shard": "content/lexical/canonical/words/shards/o4505-4512.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e1.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4505-4512.json",
+    "source_content_hash": "bc0a323e184b388e38da65c82f1fdc44df07b8bea49b1c87e3c0118f1a8bddc6",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

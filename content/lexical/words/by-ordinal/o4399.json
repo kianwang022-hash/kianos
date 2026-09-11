@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4399,
+  "word_id": "word:shirt",
+  "word": "shirt",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "49f5393abb60324edb6416d99beb0764e524bad9d68045fbf131cf7b9cfe02d2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "衬衫",
+      "core_meaning_en": "a garment for the upper body",
+      "mental_model_cn": "衬衫",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:81756c9938537b9d5412",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shirt:33a6305a37a652b9:collocation:0"
+            ],
+            "meaning_cn": "穿衬衫",
+            "phrase": "wear a shirt"
+          },
+          {
+            "collocation_id": "collocation:4ac19db012b6246eb16e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:shirt:33a6305a37a652b9:collocation:1"
+            ],
+            "meaning_cn": "只穿衬衫（未穿外套）",
+            "phrase": "in one's shirt sleeves"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "衬衫",
+        "definition_en": "a garment worn on the upper half of the body",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shirt:33a6305a37a652b9",
+        "sense_label_en": "a garment worn on the upper half of the body",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "shirt",
+    "word_family": [],
+    "word_id": "word:shirt"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:shirt:33a6305a37a652b9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12395,
+        "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4ac19db012b6246eb16e",
+      "collocation:81756c9938537b9d5412"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4ac19db012b6246eb16e",
+        "source_row": 6294,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      },
+      {
+        "id": "collocation:81756c9938537b9d5412",
+        "source_row": 10964,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d786d88ba93c92e2f103",
+        "source_row": 8174,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      },
+      {
+        "id": "membership:20837e166c534621d284",
+        "source_row": 8175,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "shirt",
+      "source": "content/lexical/canonical/lookup/spelling/sh.json",
+      "word_id": "word:shirt",
+      "ordinal": 4399,
+      "word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/2b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
+    "source_content_hash": "49f5393abb60324edb6416d99beb0764e524bad9d68045fbf131cf7b9cfe02d2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

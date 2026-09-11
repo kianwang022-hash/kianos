@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3655,
+  "word_id": "word:poet",
+  "word": "poet",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "113d9f04dc2c4aa12b1c09a84465445988631bf0f72f19dcad47804440c07368",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "写诗的人",
+      "core_meaning_en": "a writer of poems",
+      "mental_model_cn": "写诗的人",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:14c1726b3e1626e268bd",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:poet:df5487acaa3d554b:collocation:0"
+            ],
+            "meaning_cn": "著名诗人",
+            "phrase": "a famous poet"
+          },
+          {
+            "collocation_id": "collocation:cad3d52f550f10b0e8c5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:poet:df5487acaa3d554b:collocation:1"
+            ],
+            "meaning_cn": "桂冠诗人",
+            "phrase": "poet laureate"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "诗人",
+        "definition_en": "a person who writes poems",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:poet:df5487acaa3d554b",
+        "sense_label_en": "a person who writes poems",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "poet",
+    "word_family": [],
+    "word_id": "word:poet"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:poet:df5487acaa3d554b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10182,
+        "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:14c1726b3e1626e268bd",
+      "collocation:cad3d52f550f10b0e8c5"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:14c1726b3e1626e268bd",
+        "source_row": 1718,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
+        "id": "collocation:cad3d52f550f10b0e8c5",
+        "source_row": 17134,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2c09ecdfce91e2340374",
+        "source_row": 6741,
+        "source_path": "content/lexical/canonical/packs/shards/o3649-3680.json"
+      },
+      {
+        "id": "membership:1f160eda9b7c11143c8d",
+        "source_row": 6742,
+        "source_path": "content/lexical/canonical/packs/shards/o3649-3680.json"
+      },
+      {
+        "id": "membership:12fa22f33ef1e52fae0d",
+        "source_row": 12517,
+        "source_path": "content/lexical/canonical/packs/shards/o3649-3680.json"
+      },
+      {
+        "id": "membership:c217ab5de40ec3545960",
+        "source_row": 16837,
+        "source_path": "content/lexical/canonical/packs/shards/o3649-3680.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "poet",
+      "source": "content/lexical/canonical/lookup/spelling/po.json",
+      "word_id": "word:poet",
+      "ordinal": 3655,
+      "word_shard": "content/lexical/canonical/words/shards/o3649-3656.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ca.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3649-3656.json",
+    "source_content_hash": "113d9f04dc2c4aa12b1c09a84465445988631bf0f72f19dcad47804440c07368",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

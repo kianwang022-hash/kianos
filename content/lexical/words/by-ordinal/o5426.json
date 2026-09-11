@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5426,
+  "word_id": "word:wife",
+  "word": "wife",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "63a5e1f05cc13618997452f6433ef07a335c5d8369adb89139d6036793c1c8f1",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "妻子",
+      "core_meaning_en": "a married woman; a man's partner in marriage",
+      "mental_model_cn": "妻子",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a7970c8c8d78f1eaa2a2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:wife:0ac03eaa40035fff:collocation:0"
+            ],
+            "meaning_cn": "夫妻",
+            "phrase": "husband and wife"
+          },
+          {
+            "collocation_id": "collocation:2c74b82c637a82efdb35",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:wife:0ac03eaa40035fff:collocation:1"
+            ],
+            "meaning_cn": "前妻",
+            "phrase": "ex-wife"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "妻子，太太",
+        "definition_en": "a married woman considered in relation to her spouse",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:wife:0ac03eaa40035fff",
+        "sense_label_en": "a married woman considered in relation to her spouse",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "wife",
+    "word_family": [],
+    "word_id": "word:wife"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:wife:0ac03eaa40035fff",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15416,
+        "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2c74b82c637a82efdb35",
+      "collocation:a7970c8c8d78f1eaa2a2"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2c74b82c637a82efdb35",
+        "source_row": 3766,
+        "source_path": "content/lexical/canonical/collocations/shards/o5409-5440.json"
+      },
+      {
+        "id": "collocation:a7970c8c8d78f1eaa2a2",
+        "source_row": 14224,
+        "source_path": "content/lexical/canonical/collocations/shards/o5409-5440.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:96b938eddf09192416d4",
+        "source_row": 10067,
+        "source_path": "content/lexical/canonical/packs/shards/o5409-5440.json"
+      },
+      {
+        "id": "membership:c99a35ddc9c9095363ab",
+        "source_row": 10068,
+        "source_path": "content/lexical/canonical/packs/shards/o5409-5440.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "wife",
+      "source": "content/lexical/canonical/lookup/spelling/wi.json",
+      "word_id": "word:wife",
+      "ordinal": 5426,
+      "word_shard": "content/lexical/canonical/words/shards/o5425-5432.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e2.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5425-5432.json",
+    "source_content_hash": "63a5e1f05cc13618997452f6433ef07a335c5d8369adb89139d6036793c1c8f1",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

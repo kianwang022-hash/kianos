@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2122,
+  "word_id": "word:gentleman",
+  "word": "gentleman",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9ee99988273859cb12426d53e9ec91bcae5c61908f941d4e3ec2d63a22432f38",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "有教养、有风度的男子",
+      "core_meaning_en": "a man of refinement and good manners",
+      "mental_model_cn": "有教养、有风度的男子",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dd36318b580a440d82c3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:gentleman:e36c58ecd46d55ff:collocation:0"
+            ],
+            "meaning_cn": "一位完美的绅士",
+            "phrase": "a perfect gentleman"
+          },
+          {
+            "collocation_id": "collocation:8a114b28d8af9c809612",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:gentleman:e36c58ecd46d55ff:collocation:1"
+            ],
+            "meaning_cn": "君子协定",
+            "phrase": "gentleman's agreement"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "绅士；有教养的男人",
+        "definition_en": "a man who is polite, well-educated, and has high standards of behavior",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:gentleman:e36c58ecd46d55ff",
+        "sense_label_en": "a man who is polite, well-educated, and has high standards of behavior",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "gentleman",
+    "word_family": [],
+    "word_id": "word:gentleman"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:gentleman:e36c58ecd46d55ff",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5915,
+        "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8a114b28d8af9c809612",
+      "collocation:dd36318b580a440d82c3"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8a114b28d8af9c809612",
+        "source_row": 11713,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:dd36318b580a440d82c3",
+        "source_row": 18726,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6da7c979dbb73549925c",
+        "source_row": 4003,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      },
+      {
+        "id": "membership:4ba586609e2442c348ff",
+        "source_row": 4004,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      },
+      {
+        "id": "membership:6d00bd3b6765b8b4c730",
+        "source_row": 11545,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      },
+      {
+        "id": "membership:3fd140625d8fc3676e01",
+        "source_row": 15445,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "gentleman",
+      "source": "content/lexical/canonical/lookup/spelling/ge.json",
+      "word_id": "word:gentleman",
+      "ordinal": 2122,
+      "word_shard": "content/lexical/canonical/words/shards/o2121-2128.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2121-2128.json",
+    "source_content_hash": "9ee99988273859cb12426d53e9ec91bcae5c61908f941d4e3ec2d63a22432f38",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

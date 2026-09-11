@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 653,
+  "word_id": "word:calcium",
+  "word": "calcium",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e39e90b8af2e70d212a95cbf3434ae2cfcd619362cc8557a704000e05ca385b4",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "一种化学元素，钙",
+      "core_meaning_en": "a chemical element, a soft silver-white metal",
+      "mental_model_cn": "一种化学元素，钙",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3019771edf1e3d99a489",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:calcium:7ee7e287969e5189:collocation:0"
+            ],
+            "meaning_cn": "缺钙",
+            "phrase": "calcium deficiency"
+          },
+          {
+            "collocation_id": "collocation:33f2aae38ded5eae65f5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:calcium:7ee7e287969e5189:collocation:1"
+            ],
+            "meaning_cn": "钙补充剂",
+            "phrase": "calcium supplement"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "钙（化学元素，符号Ca）",
+        "definition_en": "a chemical element that is a soft silver-white metal, found in bones and teeth",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:calcium:7ee7e287969e5189",
+        "sense_label_en": "a chemical element that is a soft silver-white metal, found in bones and",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "calcium",
+    "word_family": [],
+    "word_id": "word:calcium"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:calcium:7ee7e287969e5189",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1843,
+        "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3019771edf1e3d99a489",
+      "collocation:33f2aae38ded5eae65f5"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3019771edf1e3d99a489",
+        "source_row": 4066,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:33f2aae38ded5eae65f5",
+        "source_row": 4387,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8931c439b96cfa0efb93",
+        "source_row": 1206,
+        "source_path": "content/lexical/canonical/packs/shards/o0641-0672.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "calcium",
+      "source": "content/lexical/canonical/lookup/spelling/ca.json",
+      "word_id": "word:calcium",
+      "ordinal": 653,
+      "word_shard": "content/lexical/canonical/words/shards/o0649-0656.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/db.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0649-0656.json",
+    "source_content_hash": "e39e90b8af2e70d212a95cbf3434ae2cfcd619362cc8557a704000e05ca385b4",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

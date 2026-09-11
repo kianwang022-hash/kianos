@@ -1,0 +1,140 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1907,
+  "word_id": "word:fertiliser",
+  "word": "fertiliser",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ec09fac17cde2d5688f0ad07ac25bb28354b2a67bdc94fa5ff7a59445b5cfefc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "肥料",
+      "core_meaning_en": "a substance added to soil to make plants grow better",
+      "mental_model_cn": "肥料",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8beb6dd2b3111c1c7c44",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:fertiliser:4d4fdc72de3c5c82:collocation:0"
+            ],
+            "meaning_cn": "化肥",
+            "phrase": "chemical fertiliser"
+          },
+          {
+            "collocation_id": "collocation:e6d0fe1d9c5c02d3916a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:fertiliser:4d4fdc72de3c5c82:collocation:1"
+            ],
+            "meaning_cn": "有机肥料",
+            "phrase": "organic fertiliser"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "肥料",
+        "definition_en": "a substance added to soil to make it more fertile",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fertiliser:4d4fdc72de3c5c82",
+        "sense_label_en": "a substance added to soil to make it more fertile",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "fertiliser",
+    "word_family": [],
+    "word_id": "word:fertiliser"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:955d35897cf4f82105ba",
+      "owner_path": "content/lexical/relations/by-id/53/5391bdd7f8a6b82a121c9e5c1de8118a657a6159c70d89e4c16ca17062fd9534.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:fertiliser:4d4fdc72de3c5c82",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5243,
+        "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8beb6dd2b3111c1c7c44",
+      "collocation:e6d0fe1d9c5c02d3916a"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8beb6dd2b3111c1c7c44",
+        "source_row": 11865,
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:e6d0fe1d9c5c02d3916a",
+        "source_row": 19561,
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d1331c6039930a0145fb",
+        "source_row": 3613,
+        "source_path": "content/lexical/canonical/packs/shards/o1889-1920.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "fertiliser",
+      "source": "content/lexical/canonical/lookup/spelling/fe.json",
+      "word_id": "word:fertiliser",
+      "ordinal": 1907,
+      "word_shard": "content/lexical/canonical/words/shards/o1905-1912.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/47.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1905-1912.json",
+    "source_content_hash": "ec09fac17cde2d5688f0ad07ac25bb28354b2a67bdc94fa5ff7a59445b5cfefc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

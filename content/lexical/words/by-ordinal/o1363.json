@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1363,
+  "word_id": "word:diary",
+  "word": "diary",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ed6d50331e036968ec55f1e0e537de8136e5f58d7724c7732f6b896b0d5dafee",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "日记本",
+      "core_meaning_en": "a book with a daily record of personal experiences",
+      "mental_model_cn": "日记本",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:720428094945ff272d5e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:diary:f3e3df1f85c65df3:collocation:0"
+            ],
+            "meaning_cn": "写日记",
+            "phrase": "keep a diary"
+          },
+          {
+            "collocation_id": "collocation:455ee29ef98cb34d4209",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:diary:f3e3df1f85c65df3:collocation:1"
+            ],
+            "meaning_cn": "日记条目",
+            "phrase": "diary entry"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "日记，日记簿",
+        "definition_en": "a book in which you write about your daily experiences and feelings",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:diary:f3e3df1f85c65df3",
+        "sense_label_en": "a book in which you write about your daily experiences and feelings",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "diary",
+    "word_family": [],
+    "word_id": "word:diary"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:diary:f3e3df1f85c65df3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3789,
+        "source_path": "content/lexical/canonical/senses/shards/o1345-1376.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:455ee29ef98cb34d4209",
+      "collocation:720428094945ff272d5e"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:455ee29ef98cb34d4209",
+        "source_row": 5862,
+        "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      },
+      {
+        "id": "collocation:720428094945ff272d5e",
+        "source_row": 9636,
+        "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:7fe309ae5c2d58bd7d6c",
+        "source_row": 2559,
+        "source_path": "content/lexical/canonical/packs/shards/o1345-1376.json"
+      },
+      {
+        "id": "membership:2d2095daa0a341b66ef3",
+        "source_row": 11074,
+        "source_path": "content/lexical/canonical/packs/shards/o1345-1376.json"
+      },
+      {
+        "id": "membership:1f1f215326bd036c0b32",
+        "source_row": 14804,
+        "source_path": "content/lexical/canonical/packs/shards/o1345-1376.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "diary",
+      "source": "content/lexical/canonical/lookup/spelling/di.json",
+      "word_id": "word:diary",
+      "ordinal": 1363,
+      "word_shard": "content/lexical/canonical/words/shards/o1361-1368.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/41.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1361-1368.json",
+    "source_content_hash": "ed6d50331e036968ec55f1e0e537de8136e5f58d7724c7732f6b896b0d5dafee",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

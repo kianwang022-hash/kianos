@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 319,
+  "word_id": "word:athlete",
+  "word": "athlete",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "0567cee6a1d5a816e97614343fbd22206707db267726f8de4437c93e5f1f73e7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "运动员",
+      "core_meaning_en": "a person trained for sports",
+      "mental_model_cn": "运动员",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:369dd7cdb3beeaf56a69",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:athlete:a8dcd4c069615f1a:collocation:0"
+            ],
+            "meaning_cn": "职业运动员",
+            "phrase": "professional athlete"
+          },
+          {
+            "collocation_id": "collocation:86002638c807021ea5ed",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:athlete:a8dcd4c069615f1a:collocation:1"
+            ],
+            "meaning_cn": "脚癣，运动员脚",
+            "phrase": "athlete's foot"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "运动员，运动选手",
+        "definition_en": "a person who is trained or skilled in sports",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:athlete:a8dcd4c069615f1a",
+        "sense_label_en": "a person who is trained or skilled in sports",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "athlete",
+    "word_family": [],
+    "word_id": "word:athlete"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:athlete:a8dcd4c069615f1a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 812,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:369dd7cdb3beeaf56a69",
+      "collocation:86002638c807021ea5ed"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:369dd7cdb3beeaf56a69",
+        "source_row": 4633,
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      },
+      {
+        "id": "collocation:86002638c807021ea5ed",
+        "source_row": 11375,
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a9cea6c38db8384faeab",
+        "source_row": 634,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:a1123edcfc7a4645dd62",
+        "source_row": 635,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:7b270ac8ed5b1154423e",
+        "source_row": 10404,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:19639360476fffe4bcef",
+        "source_row": 13986,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "athlete",
+      "source": "content/lexical/canonical/lookup/spelling/at.json",
+      "word_id": "word:athlete",
+      "ordinal": 319,
+      "word_shard": "content/lexical/canonical/words/shards/o0313-0320.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0313-0320.json",
+    "source_content_hash": "0567cee6a1d5a816e97614343fbd22206707db267726f8de4437c93e5f1f73e7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

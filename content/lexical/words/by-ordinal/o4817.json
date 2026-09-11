@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4817,
+  "word_id": "word:supermarket",
+  "word": "supermarket",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "836ad825acb1d9275c2c19a74dc073446a54b2409c03c9640b909db10557af3b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "大型自助零售商店",
+      "core_meaning_en": "a large self-service store selling groceries and household goods",
+      "mental_model_cn": "大型自助零售商店",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e1eedb03a316cc103c81",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supermarket:e46da51780ec5533:collocation:0"
+            ],
+            "meaning_cn": "去超市",
+            "phrase": "go to the supermarket"
+          },
+          {
+            "collocation_id": "collocation:f4455cf2477c5cbad2f6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supermarket:e46da51780ec5533:collocation:1"
+            ],
+            "meaning_cn": "连锁超市",
+            "phrase": "supermarket chain"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "超级市场；自助售货商店",
+        "definition_en": "a large self-service grocery store selling groceries and dairy products and household goods",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:supermarket:e46da51780ec5533",
+        "sense_label_en": "a large self-service grocery store selling groceries and dairy products ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "supermarket",
+    "word_family": [],
+    "word_id": "word:supermarket"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:supermarket:e46da51780ec5533",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13691,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e1eedb03a316cc103c81",
+      "collocation:f4455cf2477c5cbad2f6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e1eedb03a316cc103c81",
+        "source_row": 19111,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      },
+      {
+        "id": "collocation:f4455cf2477c5cbad2f6",
+        "source_row": 20685,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:679345be3b4e34c55611",
+        "source_row": 8947,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "supermarket",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:supermarket",
+      "ordinal": 4817,
+      "word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/fe.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+    "source_content_hash": "836ad825acb1d9275c2c19a74dc073446a54b2409c03c9640b909db10557af3b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

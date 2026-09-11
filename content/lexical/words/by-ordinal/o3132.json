@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3132,
+  "word_id": "word:motel",
+  "word": "motel",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e3497f23dc80a337bfc331cc60463d690df00e2685a80d6b6dc7bc230e04b17c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "汽车旅馆",
+      "core_meaning_en": "a hotel for motorists, typically with parking",
+      "mental_model_cn": "汽车旅馆",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:57aecb71ddd88227483c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:motel:7d0cc7a5bed552f2:collocation:0"
+            ],
+            "meaning_cn": "住在汽车旅馆",
+            "phrase": "stay at a motel"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "汽车旅馆",
+        "definition_en": "a motor hotel",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:motel:7d0cc7a5bed552f2",
+        "sense_label_en": "a motor hotel",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "motel",
+    "word_family": [],
+    "word_id": "word:motel"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:motel:7d0cc7a5bed552f2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8715,
+        "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:57aecb71ddd88227483c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:57aecb71ddd88227483c",
+        "source_row": 7400,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:05bb4b7a7fe0bc013270",
+        "source_row": 5817,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:b95e6bf934f0ecad75cf",
+        "source_row": 12188,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:c9de02fbad359bb29dce",
+        "source_row": 16384,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "motel",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:motel",
+      "ordinal": 3132,
+      "word_shard": "content/lexical/canonical/words/shards/o3129-3136.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3129-3136.json",
+    "source_content_hash": "e3497f23dc80a337bfc331cc60463d690df00e2685a80d6b6dc7bc230e04b17c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

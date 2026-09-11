@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:aaec18abfb7104603596",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:patent",
+      "source_ordinal": 3502,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "patent = patent/right or obvious; patient = person receiving care or tolerant/enduring."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:027",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:027",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:aaec18abfb7104603596",
+        "learning_note": "patent = patent/right or obvious; patient = person receiving care or tolerant/enduring.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "patent",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:patent"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "patent = patent/right or obvious; patient = person receiving care or tolerant/enduring.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_sound_confusable",
+        "sense_ids": [],
+        "shared_meaning": "patent = patent/right or obvious; patient = person receiving care or tolerant/enduring.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "patent",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:patent"
+              }
+            ],
+            "learner_note": "patent = patent/right or obvious; patient = person receiving care or tolerant/enduring.",
+            "relation_targets": [
+              "patient"
+            ],
+            "relation_type": "form_sound_confusable"
+          }
+        ],
+        "source_expression": "patent",
+        "source_sense_id": null,
+        "target_expression": "patient",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "patient",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

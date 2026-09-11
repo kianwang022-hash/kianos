@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 400,
+  "word_id": "word:banquet",
+  "word": "banquet",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "598baacca3c6dcb971fdeb39c1b16e8a6e07399eb7eee402e7411306be99d2b6",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "宴会",
+      "core_meaning_en": "a formal meal for many people",
+      "mental_model_cn": "宴会",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:eddaff01c6875787096d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:banquet:4f71a51adce65418:collocation:0"
+            ],
+            "meaning_cn": "举行宴会",
+            "phrase": "hold a banquet"
+          },
+          {
+            "collocation_id": "collocation:af7fa1064b59d38803c3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:banquet:4f71a51adce65418:collocation:1"
+            ],
+            "meaning_cn": "国宴",
+            "phrase": "state banquet"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "宴会；盛宴",
+        "definition_en": "a ceremonial dinner party for many people",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:banquet:4f71a51adce65418",
+        "sense_label_en": "a ceremonial dinner party for many people",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "banquet",
+    "word_family": [],
+    "word_id": "word:banquet"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:banquet:4f71a51adce65418",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1034,
+        "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:af7fa1064b59d38803c3",
+      "collocation:eddaff01c6875787096d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:af7fa1064b59d38803c3",
+        "source_row": 14877,
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+      },
+      {
+        "id": "collocation:eddaff01c6875787096d",
+        "source_row": 20157,
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:97c7087a478d86d321dd",
+        "source_row": 779,
+        "source_path": "content/lexical/canonical/packs/shards/o0385-0416.json"
+      },
+      {
+        "id": "membership:2e309e2652d50d8e136f",
+        "source_row": 14039,
+        "source_path": "content/lexical/canonical/packs/shards/o0385-0416.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "banquet",
+      "source": "content/lexical/canonical/lookup/spelling/ba.json",
+      "word_id": "word:banquet",
+      "ordinal": 400,
+      "word_shard": "content/lexical/canonical/words/shards/o0393-0400.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ae.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0393-0400.json",
+    "source_content_hash": "598baacca3c6dcb971fdeb39c1b16e8a6e07399eb7eee402e7411306be99d2b6",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

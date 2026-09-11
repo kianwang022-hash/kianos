@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:damage:dc74076e0130c58e",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "damage侧重价值功能受损；harm侧重造成不良影响或伤害",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "the act of damaging something or someone",
+      "shared_synset": "00403900-n",
+      "source_definition": "the occurrence of a change for the worse; harm that reduces value or usefulness",
+      "source_sense_id": "sense:damage:6142c2adb46a55cc",
+      "target_definition": "physical injury or damage",
+      "target_sense_id": "sense:harm:54277a9e4dc150e5",
+      "target_word": "harm"
+    },
+    "dimensions": {
+      "certainty": "高",
+      "collocation": "cause damage/harm",
+      "core_meaning": "损害与伤害",
+      "exam_trap": "近义辨析",
+      "register": "通用",
+      "semantic_prosody": "负面",
+      "strength": "强",
+      "syntax": "名词对比",
+      "writing_safety": "安全"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00403900-n",
+        "evidence_status": "source_checked",
+        "source_locator": "00403900-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:damage:dc74076e0130c58e",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 8.75,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "publishable",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 8,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "the occurrence of a change for the worse; harm that reduces value or usefulness",
+      "source_sense_id": "sense:damage:6142c2adb46a55cc",
+      "target_definition": "physical injury or damage",
+      "target_sense_id": "sense:harm:54277a9e4dc150e5"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:damage:6142c2adb46a55cc",
+    "target_sense_id": "sense:harm:54277a9e4dc150e5",
+    "target_word": "harm",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 0.9,
+    "verification_decision": "accept",
+    "verification_status": "verified",
+    "why": "",
+    "word": "damage",
+    "word_id": "word:damage",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:damage",
+      "source_ordinal": 1209,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "damage侧重价值功能受损；harm侧重造成不良影响或伤害",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "cause damage/harm",
+          "core_meaning": "损害与伤害",
+          "exam_trap": "近义辨析",
+          "register": "通用",
+          "semantic_prosody": "负面",
+          "strength": "强",
+          "syntax": "名词对比",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00403900-n",
+            "evidence_status": "source_checked",
+            "source_locator": "00403900-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:damage:dc74076e0130c58e",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "the act of damaging something or someone",
+        "source_sense_id": "sense:damage:6142c2adb46a55cc",
+        "target_sense_id": "sense:harm:54277a9e4dc150e5",
+        "target_word": "harm",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

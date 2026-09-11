@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 132,
+  "word_id": "word:airport",
+  "word": "airport",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b600ce13641807c236de47a993778792260695117de90a3176ba9c0978390afc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "机场",
+      "core_meaning_en": "a place where aircraft take off and land",
+      "mental_model_cn": "机场",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:14e9467642c96c2171d4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:airport:118821a0d6f35c08:collocation:0"
+            ],
+            "meaning_cn": "在机场",
+            "phrase": "at the airport"
+          },
+          {
+            "collocation_id": "collocation:271618004f83bbb95081",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:airport:118821a0d6f35c08:collocation:1"
+            ],
+            "meaning_cn": "航站楼",
+            "phrase": "airport terminal"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "机场",
+        "definition_en": "a place where aircraft land and take off, with buildings for passengers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:airport:118821a0d6f35c08",
+        "sense_label_en": "a place where aircraft land and take off, with buildings for passengers",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "airport",
+    "word_family": [],
+    "word_id": "word:airport"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:airport:118821a0d6f35c08",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 358,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:14e9467642c96c2171d4",
+      "collocation:271618004f83bbb95081"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:14e9467642c96c2171d4",
+        "source_row": 1732,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:271618004f83bbb95081",
+        "source_row": 3301,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:939957ddc2a12640e8e6",
+        "source_row": 270,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "airport",
+      "source": "content/lexical/canonical/lookup/spelling/ai.json",
+      "word_id": "word:airport",
+      "ordinal": 132,
+      "word_shard": "content/lexical/canonical/words/shards/o0129-0136.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0129-0136.json",
+    "source_content_hash": "b600ce13641807c236de47a993778792260695117de90a3176ba9c0978390afc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 90,
+  "word_id": "word:adverb",
+  "word": "adverb",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "146f06fa378870229d388d55f8f198848dd6bab7af49dea3b675b6c7c1b3ad21",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "副词",
+      "core_meaning_en": "word modifying a verb, adjective, or other adverb",
+      "mental_model_cn": "副词",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3342eea1c8947729197d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:adverb:0539155c820558d7:collocation:0"
+            ],
+            "meaning_cn": "频率副词",
+            "phrase": "adverb of frequency"
+          },
+          {
+            "collocation_id": "collocation:2d954052acd380226b3c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:adverb:0539155c820558d7:collocation:1"
+            ],
+            "meaning_cn": "关系副词",
+            "phrase": "relative adverb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "副词",
+        "definition_en": "a word that modifies a verb, adjective, or other adverb",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:adverb:0539155c820558d7",
+        "sense_label_en": "a word that modifies a verb, adjective, or other adverb",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "adverb",
+    "word_family": [],
+    "word_id": "word:adverb"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:adverb:0539155c820558d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 252,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2d954052acd380226b3c",
+      "collocation:3342eea1c8947729197d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2d954052acd380226b3c",
+        "source_row": 3866,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      },
+      {
+        "id": "collocation:3342eea1c8947729197d",
+        "source_row": 4328,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6cc3763d6068b83bfe5c",
+        "source_row": 188,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      },
+      {
+        "id": "membership:b3d03701c358cbe74d59",
+        "source_row": 10270,
+        "source_path": "content/lexical/canonical/packs/shards/o0065-0096.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "adverb",
+      "source": "content/lexical/canonical/lookup/spelling/ad.json",
+      "word_id": "word:adverb",
+      "ordinal": 90,
+      "word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/53.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
+    "source_content_hash": "146f06fa378870229d388d55f8f198848dd6bab7af49dea3b675b6c7c1b3ad21",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

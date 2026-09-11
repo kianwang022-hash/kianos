@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2551,
+  "word_id": "word:inn",
+  "word": "inn",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "43c817fc6060b72c1dee64009612084a497d49e5e60690f8a927ff644f0a2402",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "提供住宿的小旅馆或客栈",
+      "core_meaning_en": "a small hotel or pub providing lodging",
+      "mental_model_cn": "提供住宿的小旅馆或客栈",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:224f0fa05730c71a25eb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:inn:43d6da6e4ee458ea:collocation:0"
+            ],
+            "meaning_cn": "乡村客栈",
+            "phrase": "country inn"
+          },
+          {
+            "collocation_id": "collocation:3ee2cf62b1a3483a2069",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:inn:43d6da6e4ee458ea:collocation:1"
+            ],
+            "meaning_cn": "住在客栈",
+            "phrase": "stay at an inn"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "小旅馆；客栈",
+        "definition_en": "a small hotel or public house, especially in the countryside",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:inn:43d6da6e4ee458ea",
+        "sense_label_en": "a small hotel or public house, especially in the countryside",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "inn",
+    "word_family": [],
+    "word_id": "word:inn"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:inn:43d6da6e4ee458ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7053,
+        "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:224f0fa05730c71a25eb",
+      "collocation:3ee2cf62b1a3483a2069"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:224f0fa05730c71a25eb",
+        "source_row": 2863,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:3ee2cf62b1a3483a2069",
+        "source_row": 5326,
+        "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:13239e87b4c402bde43b",
+        "source_row": 4776,
+        "source_path": "content/lexical/canonical/packs/shards/o2529-2560.json"
+      },
+      {
+        "id": "membership:b922c16d640bfb5dca56",
+        "source_row": 11810,
+        "source_path": "content/lexical/canonical/packs/shards/o2529-2560.json"
+      },
+      {
+        "id": "membership:6b9de255de2ccb990f38",
+        "source_row": 15847,
+        "source_path": "content/lexical/canonical/packs/shards/o2529-2560.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "inn",
+      "source": "content/lexical/canonical/lookup/spelling/in.json",
+      "word_id": "word:inn",
+      "ordinal": 2551,
+      "word_shard": "content/lexical/canonical/words/shards/o2545-2552.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f1.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2545-2552.json",
+    "source_content_hash": "43c817fc6060b72c1dee64009612084a497d49e5e60690f8a927ff644f0a2402",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

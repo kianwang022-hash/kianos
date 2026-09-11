@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2599,
+  "word_id": "word:interesting",
+  "word": "interesting",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e993b1552015a351a4dd363c3957608fc0a9dba8a7376ebfa59a73d4bc3f54f8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "有趣的",
+      "core_meaning_en": "arousing or holding the attention",
+      "mental_model_cn": "有趣的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cd8ff5df167bfc6b3b56",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:interesting:72c6e34a0d7a5a20:collocation:0"
+            ],
+            "meaning_cn": "一本有趣的书",
+            "phrase": "an interesting book"
+          },
+          {
+            "collocation_id": "collocation:6ef9c752d26a043d0e42",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:interesting:72c6e34a0d7a5a20:collocation:1"
+            ],
+            "meaning_cn": "对某人来说有趣",
+            "phrase": "interesting to + sb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "有趣的",
+        "definition_en": "arousing or holding the attention",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:interesting:72c6e34a0d7a5a20",
+        "sense_label_en": "arousing or holding the attention",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "interesting",
+    "word_family": [],
+    "word_id": "word:interesting"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:interesting:72c6e34a0d7a5a20",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7171,
+        "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6ef9c752d26a043d0e42",
+      "collocation:cd8ff5df167bfc6b3b56"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6ef9c752d26a043d0e42",
+        "source_row": 9372,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:cd8ff5df167bfc6b3b56",
+        "source_row": 17385,
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1daa31455f69b502aa75",
+        "source_row": 4880,
+        "source_path": "content/lexical/canonical/packs/shards/o2593-2624.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "interesting",
+      "source": "content/lexical/canonical/lookup/spelling/in.json",
+      "word_id": "word:interesting",
+      "ordinal": 2599,
+      "word_shard": "content/lexical/canonical/words/shards/o2593-2600.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2593-2600.json",
+    "source_content_hash": "e993b1552015a351a4dd363c3957608fc0a9dba8a7376ebfa59a73d4bc3f54f8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

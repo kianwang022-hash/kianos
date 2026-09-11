@@ -1,0 +1,158 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5335,
+  "word_id": "word:waist",
+  "word": "waist",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f07b2faca9c839dc57e7da2a069a69fd42d04f722699d8f90d1760f30148787b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "腰部",
+      "core_meaning_en": "the narrowing part of the body between ribs and hips",
+      "mental_model_cn": "腰部",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:waist:731b05bf9cc34867"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0876bc5530507b289b37",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:waist:d8d46869ddb051f1:collocation:0"
+            ],
+            "meaning_cn": "腰围",
+            "phrase": "waist measurement"
+          },
+          {
+            "collocation_id": "collocation:62d2077613f465fbab7d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:waist:d8d46869ddb051f1:collocation:1"
+            ],
+            "meaning_cn": "细腰",
+            "phrase": "slim waist"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "腰部，腰",
+        "definition_en": "the part of the body between the ribs and the hips",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:waist:d8d46869ddb051f1",
+        "sense_label_en": "the part of the body between the ribs and the hips",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "waist",
+    "word_family": [],
+    "word_id": "word:waist"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:waist:731b05bf9cc34867",
+      "owner_path": "content/lexical/relations/by-id/0e/0e196ec3d5a708dbfc19d03e2002d695c2b1e9268c9bf0d1cda5d6fe36d76f7b.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:waist:d8d46869ddb051f1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15157,
+        "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0876bc5530507b289b37",
+      "collocation:62d2077613f465fbab7d"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:waist:731b05bf9cc34867",
+        "source_row": 1256,
+        "source_path": "content/lexical/canonical/facts/shards/o5313-5344.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:0876bc5530507b289b37",
+        "source_row": 707,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:62d2077613f465fbab7d",
+        "source_row": 8322,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2ec470076faa6a87daf1",
+        "source_row": 9911,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      },
+      {
+        "id": "membership:03b8a0bdb1cafa549c83",
+        "source_row": 13673,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      },
+      {
+        "id": "membership:ca8de519d1453d43086d",
+        "source_row": 18474,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "waist",
+      "source": "content/lexical/canonical/lookup/spelling/wa.json",
+      "word_id": "word:waist",
+      "ordinal": 5335,
+      "word_shard": "content/lexical/canonical/words/shards/o5329-5336.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/31.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5329-5336.json",
+    "source_content_hash": "f07b2faca9c839dc57e7da2a069a69fd42d04f722699d8f90d1760f30148787b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

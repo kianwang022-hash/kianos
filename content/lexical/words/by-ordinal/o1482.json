@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1482,
+  "word_id": "word:doorway",
+  "word": "doorway",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:810035a6d1a2b7b250e7",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "通往/进入…的途径",
+        "pattern": "a doorway to sth"
+      }
+    ],
+    "content_hash": "7a9577f5e183f67459b33bcc108d2ce5fe9da492c06de65277429e995116b8b8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "门口",
+      "core_meaning_en": "the entrance space in a wall that a door closes",
+      "mental_model_cn": "门口",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:810035a6d1a2b7b250e7"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:475dbc039335e10bce84",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:doorway:9f2a564507d358df:collocation:0"
+            ],
+            "meaning_cn": "站在门口",
+            "phrase": "stand in the doorway"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "门口；出入口",
+        "definition_en": "the space in a wall where a door is, through which you enter or leave a room or building",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:doorway:9f2a564507d358df",
+        "sense_label_en": "the space in a wall where a door is, through which you enter or leave a ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "doorway",
+    "word_family": [],
+    "word_id": "word:doorway"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:doorway:9f2a564507d358df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4105,
+        "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:475dbc039335e10bce84"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:128e3867e5c445e0450d",
+        "source_row": 1529,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:475dbc039335e10bce84",
+        "source_row": 6014,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:477be1abeae4dd5d9d65",
+        "source_row": 2790,
+        "source_path": "content/lexical/canonical/packs/shards/o1473-1504.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "doorway",
+      "source": "content/lexical/canonical/lookup/spelling/do.json",
+      "word_id": "word:doorway",
+      "ordinal": 1482,
+      "word_shard": "content/lexical/canonical/words/shards/o1481-1488.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f6.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1481-1488.json",
+    "source_content_hash": "7a9577f5e183f67459b33bcc108d2ce5fe9da492c06de65277429e995116b8b8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

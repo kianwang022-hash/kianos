@@ -1,0 +1,92 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:7f4fc3c4c46b36319b9a",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:treat",
+      "source_ordinal": 5116,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "regard/view/treat A as B can encode categorization or evaluation; consider often allows consider A (to be) B and does not generally require as. treat also has the broader 'behave toward' sense. Keep construction-bound."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:109",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:109",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "regard/view/treat A as B can encode categorization or evaluation; consider often allows consider A (to be) B and does not generally require as. treat also has the broader 'behave toward' sense. Keep construction-bound.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "treat",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:treat:83e27aff478058f7"
+            ],
+            "word_id": "word:treat"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:7f4fc3c4c46b36319b9a",
+        "relation_note": "regard/view/treat A as B can encode categorization or evaluation; consider often allows consider A (to be) B and does not generally require as. treat also has the broader 'behave toward' sense. Keep construction-bound.",
+        "relation_scope": "lexeme",
+        "relation_type": "evaluation_construction_cluster",
+        "sense_ids": [
+          "sense:treat:83e27aff478058f7"
+        ],
+        "shared_meaning": "regard/view/treat A as B can encode categorization or evaluation; consider often allows consider A (to be) B and does not generally require as. treat also has the broader 'behave toward' sense. Keep construction-bound.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "treat",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:treat:83e27aff478058f7"
+                ],
+                "word_id": "word:treat"
+              }
+            ],
+            "learner_note": "regard/view/treat A as B can encode categorization or evaluation; consider often allows consider A (to be) B and does not generally require as. treat also has the broader 'behave toward' sense. Keep construction-bound.",
+            "relation_targets": [
+              "consider",
+              "regard",
+              "view"
+            ],
+            "relation_type": "evaluation_construction_cluster"
+          }
+        ],
+        "source_expression": "treat",
+        "source_sense_id": "sense:treat:83e27aff478058f7",
+        "target_expression": "consider/regard/view ↔ treat",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

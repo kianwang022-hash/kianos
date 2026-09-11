@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4808,
+  "word_id": "word:sunrise",
+  "word": "sunrise",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:14e9db682cbc44b5c7af",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "朝阳产业；新兴且预期快速发展的行业",
+        "pattern": "sunrise industry/sector"
+      }
+    ],
+    "content_hash": "271b3dd8b2f8fd9912fca99bb65c17544fc35079cd8386358f8ae64e388e4a2a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "日出",
+      "core_meaning_en": "the time or event of the sun rising",
+      "mental_model_cn": "日出",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:14e9db682cbc44b5c7af"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:63935fbf205c10a7f9ac",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sunrise:21d13a737c835996:collocation:0"
+            ],
+            "meaning_cn": "在日出时",
+            "phrase": "at sunrise"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "日出，黎明",
+        "definition_en": "the daily appearance of the sun above the horizon",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sunrise:21d13a737c835996",
+        "sense_label_en": "the daily appearance of the sun above the horizon",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "sunrise",
+    "word_family": [],
+    "word_id": "word:sunrise"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:sunrise:21d13a737c835996",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13670,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:63935fbf205c10a7f9ac"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:63935fbf205c10a7f9ac",
+        "source_row": 8390,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1b26397c88306db51261",
+        "source_row": 8935,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      },
+      {
+        "id": "membership:37de1bf14917b4298da4",
+        "source_row": 13318,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      },
+      {
+        "id": "membership:dc42daeedec4fd21620d",
+        "source_row": 17958,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "sunrise",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:sunrise",
+      "ordinal": 4808,
+      "word_shard": "content/lexical/canonical/words/shards/o4801-4808.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/47.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4801-4808.json",
+    "source_content_hash": "271b3dd8b2f8fd9912fca99bb65c17544fc35079cd8386358f8ae64e388e4a2a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2444,
+  "word_id": "word:illness",
+  "word": "illness",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "98f59906b6393140ba655e231d072e876f294d762c313f76f8532b663d3e66c7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "疾病",
+      "core_meaning_en": "a disease or period of sickness",
+      "mental_model_cn": "疾病",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d3040749f36b70298c1d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:illness:69e72d41b2665d07:collocation:0"
+            ],
+            "meaning_cn": "重病",
+            "phrase": "serious illness"
+          },
+          {
+            "collocation_id": "collocation:74f3ce964da95928a4cc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:illness:69e72d41b2665d07:collocation:1"
+            ],
+            "meaning_cn": "患病",
+            "phrase": "suffer from an illness"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "疾病；患病",
+        "definition_en": "a disease or period of sickness affecting the body or mind",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:illness:69e72d41b2665d07",
+        "sense_label_en": "a disease or period of sickness affecting the body or mind",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "illness",
+    "word_family": [],
+    "word_id": "word:illness"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:illness:69e72d41b2665d07",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6800,
+        "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:74f3ce964da95928a4cc",
+      "collocation:d3040749f36b70298c1d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:74f3ce964da95928a4cc",
+        "source_row": 9863,
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:d3040749f36b70298c1d",
+        "source_row": 17832,
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:247bd89b07a85a40eddb",
+        "source_row": 4553,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      },
+      {
+        "id": "membership:37b40d0266ced4515293",
+        "source_row": 4554,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      },
+      {
+        "id": "membership:277b48c0a88c03bc5152",
+        "source_row": 11742,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "illness",
+      "source": "content/lexical/canonical/lookup/spelling/il.json",
+      "word_id": "word:illness",
+      "ordinal": 2444,
+      "word_shard": "content/lexical/canonical/words/shards/o2441-2448.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2441-2448.json",
+    "source_content_hash": "98f59906b6393140ba655e231d072e876f294d762c313f76f8532b663d3e66c7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

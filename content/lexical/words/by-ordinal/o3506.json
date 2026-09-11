@@ -1,0 +1,202 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3506,
+  "word_id": "word:patient",
+  "word": "patient",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fb4faa594a19dfc6b8b79c707d8181021dbe088dd55cc5888a05b46cd36a8092",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "病人",
+          "label_en": "a person receiving medical treatment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:patient:8ee3fe9ad4ee5d4a"
+          ]
+        },
+        {
+          "label_cn": "有耐心的，忍耐的",
+          "label_en": "able to endure waiting or hardship calmly",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:patient:93e9be009d975066"
+          ]
+        }
+      ],
+      "core_meaning_cn": "病人；有耐心的",
+      "core_meaning_en": "a person receiving medical care; able to endure",
+      "mental_model_cn": "病人；有耐心的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:patient:94eb94b0eb5db9bf"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3c1bebb50e1fe2c1c819",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:patient:8ee3fe9ad4ee5d4a:collocation:0"
+            ],
+            "meaning_cn": "住院病人",
+            "phrase": "hospital patient"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "病人",
+        "definition_en": "a person receiving medical treatment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:patient:8ee3fe9ad4ee5d4a",
+        "sense_label_en": "a person receiving medical treatment",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a7007fce17755612c624",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:patient:93e9be009d975066:collocation:0"
+            ],
+            "meaning_cn": "对某人有耐心",
+            "phrase": "be patient with sb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "有耐心的，忍耐的",
+        "definition_en": "able to endure waiting or hardship calmly",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:patient:93e9be009d975066",
+        "sense_label_en": "able to endure waiting or hardship calmly",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "patient",
+    "word_family": [],
+    "word_id": "word:patient"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:patient:94eb94b0eb5db9bf",
+      "owner_path": "content/lexical/relations/by-id/ad/adf2b0847db0765ced919b9046ec3195b3b0c5cfc299bc8123a2cc7a9c79b887.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:patient:8ee3fe9ad4ee5d4a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9736,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      },
+      {
+        "sense_id": "sense:patient:93e9be009d975066",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9737,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3c1bebb50e1fe2c1c819",
+      "collocation:a7007fce17755612c624"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:patient:94eb94b0eb5db9bf",
+        "source_row": 832,
+        "source_path": "content/lexical/canonical/facts/shards/o3489-3520.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:3c1bebb50e1fe2c1c819",
+        "source_row": 5099,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:a7007fce17755612c624",
+        "source_row": 14175,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a3ac445d1aff5712bea9",
+        "source_row": 6478,
+        "source_path": "content/lexical/canonical/packs/shards/o3489-3520.json"
+      },
+      {
+        "id": "membership:ca795aae6f16a1569ceb",
+        "source_row": 6479,
+        "source_path": "content/lexical/canonical/packs/shards/o3489-3520.json"
+      },
+      {
+        "id": "membership:340c1cb2ed9c273d228a",
+        "source_row": 12419,
+        "source_path": "content/lexical/canonical/packs/shards/o3489-3520.json"
+      },
+      {
+        "id": "membership:c94cdcb0dcaa51f288b3",
+        "source_row": 16693,
+        "source_path": "content/lexical/canonical/packs/shards/o3489-3520.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "patient",
+      "source": "content/lexical/canonical/lookup/spelling/pa.json",
+      "word_id": "word:patient",
+      "ordinal": 3506,
+      "word_shard": "content/lexical/canonical/words/shards/o3505-3512.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/0a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3505-3512.json",
+    "source_content_hash": "fb4faa594a19dfc6b8b79c707d8181021dbe088dd55cc5888a05b46cd36a8092",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

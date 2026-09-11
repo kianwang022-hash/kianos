@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3166,
+  "word_id": "word:my",
+  "word": "my",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5d85cccc2f952b244b533fff1391eed96d41b5f1890416d2fe6a6b9fd03b060c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "我的",
+      "core_meaning_en": "belonging to me",
+      "mental_model_cn": "我的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:61fd2ea1e8a427f7a777",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:my:950eb0724f755a66:collocation:0"
+            ],
+            "meaning_cn": "我的...",
+            "phrase": "my + noun"
+          },
+          {
+            "collocation_id": "collocation:be6bdb83d3da66f47982",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:my:950eb0724f755a66:collocation:1"
+            ],
+            "meaning_cn": "我的书",
+            "phrase": "my book"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "我的",
+        "definition_en": "belonging to or associated with the speaker",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:my:950eb0724f755a66",
+        "sense_label_en": "belonging to or associated with the speaker",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "my",
+    "word_family": [],
+    "word_id": "word:my"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:my:950eb0724f755a66",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8816,
+        "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:61fd2ea1e8a427f7a777",
+      "collocation:be6bdb83d3da66f47982"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:61fd2ea1e8a427f7a777",
+        "source_row": 8261,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:be6bdb83d3da66f47982",
+        "source_row": 16114,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:239a36c584663462b575",
+        "source_row": 5878,
+        "source_path": "content/lexical/canonical/packs/shards/o3137-3168.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "my",
+      "source": "content/lexical/canonical/lookup/spelling/my.json",
+      "word_id": "word:my",
+      "ordinal": 3166,
+      "word_shard": "content/lexical/canonical/words/shards/o3161-3168.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3161-3168.json",
+    "source_content_hash": "5d85cccc2f952b244b533fff1391eed96d41b5f1890416d2fe6a6b9fd03b060c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

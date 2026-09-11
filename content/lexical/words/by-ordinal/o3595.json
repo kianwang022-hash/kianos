@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3595,
+  "word_id": "word:pie",
+  "word": "pie",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9a09af4cb06a62c605d3288a5d09d266c6f13d7a39f81f0774177320a44449c2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "带酥皮的烤制食品",
+      "core_meaning_en": "a baked dish with a pastry crust and filling",
+      "mental_model_cn": "带酥皮的烤制食品",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f8dfe7e708c85b63dd84",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pie:66f24f797d645638:collocation:0"
+            ],
+            "meaning_cn": "苹果派",
+            "phrase": "apple pie"
+          },
+          {
+            "collocation_id": "collocation:e51b51af937bf549d9dd",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pie:66f24f797d645638:collocation:1"
+            ],
+            "meaning_cn": "一块馅饼",
+            "phrase": "a slice of pie"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "馅饼",
+        "definition_en": "a baked dish of meat, fruit, etc., with pastry on the bottom and sides",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pie:66f24f797d645638",
+        "sense_label_en": "a baked dish of meat, fruit, etc., with pastry on the bottom and sides",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "pie",
+    "word_family": [],
+    "word_id": "word:pie"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:pie:66f24f797d645638",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9971,
+        "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e51b51af937bf549d9dd",
+      "collocation:f8dfe7e708c85b63dd84"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e51b51af937bf549d9dd",
+        "source_row": 19401,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:f8dfe7e708c85b63dd84",
+        "source_row": 21087,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:54cd2a262f100bd5c3ce",
+        "source_row": 6640,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      },
+      {
+        "id": "membership:f01e0f44c8f52e3a3804",
+        "source_row": 12477,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "pie",
+      "source": "content/lexical/canonical/lookup/spelling/pi.json",
+      "word_id": "word:pie",
+      "ordinal": 3595,
+      "word_shard": "content/lexical/canonical/words/shards/o3593-3600.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/34.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3593-3600.json",
+    "source_content_hash": "9a09af4cb06a62c605d3288a5d09d266c6f13d7a39f81f0774177320a44449c2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3576,
+  "word_id": "word:petroleum",
+  "word": "petroleum",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "cf4c3c9f79a05d8b8890ced73bf9cca3c84ca6ede10410f06ca2711ad00f59b9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "石油",
+      "core_meaning_en": "a dark oil consisting mainly of hydrocarbons",
+      "mental_model_cn": "石油",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ff50fd153b2ebddb79b8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:petroleum:26005382910c5346:collocation:0"
+            ],
+            "meaning_cn": "原油",
+            "phrase": "crude petroleum"
+          },
+          {
+            "collocation_id": "collocation:89e0b5d194e056b1d96a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:petroleum:26005382910c5346:collocation:1"
+            ],
+            "meaning_cn": "石油工业",
+            "phrase": "petroleum industry"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "石油",
+        "definition_en": "a dark oil consisting mainly of hydrocarbons",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:petroleum:26005382910c5346",
+        "sense_label_en": "a dark oil consisting mainly of hydrocarbons",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "petroleum",
+    "word_family": [],
+    "word_id": "word:petroleum"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:petroleum:26005382910c5346",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9920,
+        "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:89e0b5d194e056b1d96a",
+      "collocation:ff50fd153b2ebddb79b8"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:89e0b5d194e056b1d96a",
+        "source_row": 11698,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:ff50fd153b2ebddb79b8",
+        "source_row": 21581,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:ba80300f05f8452cf842",
+        "source_row": 6606,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:9b38019e41dcf1900c4a",
+        "source_row": 12464,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:5ec238516152c21eb304",
+        "source_row": 16767,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "petroleum",
+      "source": "content/lexical/canonical/lookup/spelling/pe.json",
+      "word_id": "word:petroleum",
+      "ordinal": 3576,
+      "word_shard": "content/lexical/canonical/words/shards/o3569-3576.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/fc.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3569-3576.json",
+    "source_content_hash": "cf4c3c9f79a05d8b8890ced73bf9cca3c84ca6ede10410f06ca2711ad00f59b9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

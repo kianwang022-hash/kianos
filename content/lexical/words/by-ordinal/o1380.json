@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1380,
+  "word_id": "word:dilemma",
+  "word": "dilemma",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "25b1b8dc6e0e6e94307f7ae9f9f5c4238269ea674b111373f418ce9393d3bc50",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "进退两难的困境",
+      "core_meaning_en": "a situation requiring a choice between equally unfavorable options",
+      "mental_model_cn": "进退两难的困境",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a324384f14a54ee5c7fd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dilemma:d3a92deed1585c7f:collocation:0"
+            ],
+            "meaning_cn": "处于进退两难的境地",
+            "phrase": "be in a dilemma"
+          },
+          {
+            "collocation_id": "collocation:2d38d2b3542f9a7615c6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dilemma:d3a92deed1585c7f:collocation:1"
+            ],
+            "meaning_cn": "面临困境",
+            "phrase": "face a dilemma"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "困境，进退两难的窘境",
+        "definition_en": "state of uncertainty or perplexity especially as requiring a choice between equally unfavorable options",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dilemma:d3a92deed1585c7f",
+        "sense_label_en": "state of uncertainty or perplexity especially as requiring a choice betw",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "dilemma",
+    "word_family": [],
+    "word_id": "word:dilemma"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:dilemma:d3a92deed1585c7f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3838,
+        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2d38d2b3542f9a7615c6",
+      "collocation:a324384f14a54ee5c7fd"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2d38d2b3542f9a7615c6",
+        "source_row": 3842,
+        "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      },
+      {
+        "id": "collocation:a324384f14a54ee5c7fd",
+        "source_row": 13855,
+        "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f40763cf444b79fbe27d",
+        "source_row": 2588,
+        "source_path": "content/lexical/canonical/packs/shards/o1377-1408.json"
+      },
+      {
+        "id": "membership:0d29793f9f0dfa301bce",
+        "source_row": 14815,
+        "source_path": "content/lexical/canonical/packs/shards/o1377-1408.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "dilemma",
+      "source": "content/lexical/canonical/lookup/spelling/di.json",
+      "word_id": "word:dilemma",
+      "ordinal": 1380,
+      "word_shard": "content/lexical/canonical/words/shards/o1377-1384.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1377-1384.json",
+    "source_content_hash": "25b1b8dc6e0e6e94307f7ae9f9f5c4238269ea674b111373f418ce9393d3bc50",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

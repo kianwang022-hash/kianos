@@ -1,0 +1,230 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5372,
+  "word_id": "word:weather",
+  "word": "weather",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "77f6ecbcf6037239fb3861d49a9baad675f907f795919fc5c94f6276303c54ee",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "天气；气象",
+          "label_en": "the state of the atmosphere at a place and time",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:weather:11b99496726c5b40"
+          ]
+        },
+        {
+          "label_cn": "经受住；平安度过；风化；受侵蚀",
+          "label_en": "to come through safely; survive; to become worn or changed by exposure to weather",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:weather:553e81810c9b5abe",
+            "sense:weather:e03ec2523cd55831"
+          ]
+        }
+      ],
+      "core_meaning_cn": "天气；经受风雨；风化",
+      "core_meaning_en": "atmospheric conditions; to withstand or be affected by weather",
+      "mental_model_cn": "天气；经受风雨；风化",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:weather:987dc9d7bf8a2d35"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a13e2a3d0d9ccd4778f6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:weather:11b99496726c5b40:collocation:0"
+            ],
+            "meaning_cn": "天气预报",
+            "phrase": "weather forecast"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "天气；气象",
+        "definition_en": "the state of the atmosphere at a place and time",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:weather:11b99496726c5b40",
+        "sense_label_en": "the state of the atmosphere at a place and time",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a6e14c3af448963b77e3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:weather:553e81810c9b5abe:collocation:0"
+            ],
+            "meaning_cn": "经受住风暴；渡过难关",
+            "phrase": "weather the storm"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "经受住；平安度过",
+        "definition_en": "to come through safely; survive",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:weather:553e81810c9b5abe",
+        "sense_label_en": "to come through safely; survive",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:606c0f4184ab11cdb8e2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:weather:e03ec2523cd55831:collocation:0"
+            ],
+            "meaning_cn": "岩石随时间风化",
+            "phrase": "rocks weathering over time"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "风化；受侵蚀",
+        "definition_en": "to become worn or changed by exposure to weather",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:weather:e03ec2523cd55831",
+        "sense_label_en": "to become worn or changed by exposure to weather",
+        "sort_order": 2,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "weather",
+    "word_family": [],
+    "word_id": "word:weather"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:weather:987dc9d7bf8a2d35",
+      "owner_path": "content/lexical/relations/by-id/3c/3cc089528cd245eb858488ad730a7ddceabbce9c01348b3c0d1620dfe30ca464.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:weather:11b99496726c5b40",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15272,
+        "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
+      },
+      {
+        "sense_id": "sense:weather:553e81810c9b5abe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15273,
+        "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
+      },
+      {
+        "sense_id": "sense:weather:e03ec2523cd55831",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15274,
+        "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:606c0f4184ab11cdb8e2",
+      "collocation:a13e2a3d0d9ccd4778f6",
+      "collocation:a6e14c3af448963b77e3"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:weather:987dc9d7bf8a2d35",
+        "source_row": 1264,
+        "source_path": "content/lexical/canonical/facts/shards/o5345-5376.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:606c0f4184ab11cdb8e2",
+        "source_row": 8104,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      },
+      {
+        "id": "collocation:a13e2a3d0d9ccd4778f6",
+        "source_row": 13705,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      },
+      {
+        "id": "collocation:a6e14c3af448963b77e3",
+        "source_row": 14159,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:97cfdd9aebf825db11fe",
+        "source_row": 9975,
+        "source_path": "content/lexical/canonical/packs/shards/o5345-5376.json"
+      },
+      {
+        "id": "membership:cec0cce6d6819f844676",
+        "source_row": 9976,
+        "source_path": "content/lexical/canonical/packs/shards/o5345-5376.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "weather",
+      "source": "content/lexical/canonical/lookup/spelling/we.json",
+      "word_id": "word:weather",
+      "ordinal": 5372,
+      "word_shard": "content/lexical/canonical/words/shards/o5369-5376.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/7d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5369-5376.json",
+    "source_content_hash": "77f6ecbcf6037239fb3861d49a9baad675f907f795919fc5c94f6276303c54ee",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

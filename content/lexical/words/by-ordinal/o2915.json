@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2915,
+  "word_id": "word:machinery",
+  "word": "machinery",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9b2b96790f697f81a8cad1f4e8b72f6776ae28ea70dca60d18a4538fb38304d1",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "机器；机构",
+      "core_meaning_en": "machines collectively; a system that works like a machine",
+      "mental_model_cn": "机器；机构",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:159f48c4ec6222991bb6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:machinery:d23a731d3fb75ebc:collocation:0"
+            ],
+            "meaning_cn": "重型机械",
+            "phrase": "heavy machinery"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "机器；机械",
+        "definition_en": "machines or machine systems collectively",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:machinery:d23a731d3fb75ebc",
+        "sense_label_en": "machines or machine systems collectively",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:86bc6bd120e8dd866df6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:machinery:a3993f11622d5400:collocation:0"
+            ],
+            "meaning_cn": "政府机构",
+            "phrase": "the machinery of government"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "机构；体制",
+        "definition_en": "a system of means and activities whereby a social institution functions",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:machinery:a3993f11622d5400",
+        "sense_label_en": "a system of means and activities whereby a social institution functions",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "machinery",
+    "word_family": [],
+    "word_id": "word:machinery"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:machinery:a3993f11622d5400",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8116,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:machinery:d23a731d3fb75ebc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8117,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:159f48c4ec6222991bb6",
+      "collocation:86bc6bd120e8dd866df6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:159f48c4ec6222991bb6",
+        "source_row": 1785,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:86bc6bd120e8dd866df6",
+        "source_row": 11438,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3eb2e544364aaab5a906",
+        "source_row": 5434,
+        "source_path": "content/lexical/canonical/packs/shards/o2913-2944.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "machinery",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:machinery",
+      "ordinal": 2915,
+      "word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/03.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
+    "source_content_hash": "9b2b96790f697f81a8cad1f4e8b72f6776ae28ea70dca60d18a4538fb38304d1",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

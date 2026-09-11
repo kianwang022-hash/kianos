@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 210,
+  "word_id": "word:ant",
+  "word": "ant",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e0ba3ec2dbc38632422b5c698fdb84c7e968c3abf2d8aab05249c73b9f358bbe",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "蚂蚁",
+      "core_meaning_en": "small social insect",
+      "mental_model_cn": "蚂蚁",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5be7d0a04682dda1fb86",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:ant:ea516c27ca9a5b59:collocation:0"
+            ],
+            "meaning_cn": "蚁群",
+            "phrase": "ant colony"
+          },
+          {
+            "collocation_id": "collocation:c4e146815958c3bd6ba6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:ant:ea516c27ca9a5b59:collocation:1"
+            ],
+            "meaning_cn": "工蚁",
+            "phrase": "worker ant"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "蚂蚁",
+        "definition_en": "a small insect that lives in highly organized colonies",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ant:ea516c27ca9a5b59",
+        "sense_label_en": "a small insect that lives in highly organized colonies",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "ant",
+    "word_family": [],
+    "word_id": "word:ant"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:ant:ea516c27ca9a5b59",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 533,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:5be7d0a04682dda1fb86",
+      "collocation:c4e146815958c3bd6ba6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:5be7d0a04682dda1fb86",
+        "source_row": 7738,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      },
+      {
+        "id": "collocation:c4e146815958c3bd6ba6",
+        "source_row": 16671,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:60d34df7c03e2d432db1",
+        "source_row": 422,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      },
+      {
+        "id": "membership:4d364b8b1fbb09c9dc61",
+        "source_row": 10334,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "ant",
+      "source": "content/lexical/canonical/lookup/spelling/an.json",
+      "word_id": "word:ant",
+      "ordinal": 210,
+      "word_shard": "content/lexical/canonical/words/shards/o0209-0216.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/65.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0209-0216.json",
+    "source_content_hash": "e0ba3ec2dbc38632422b5c698fdb84c7e968c3abf2d8aab05249c73b9f358bbe",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

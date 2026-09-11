@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5053,
+  "word_id": "word:tomato",
+  "word": "tomato",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b283b2f17ed81a15b7b18eb037a480326deb01aa52c9ef2340bd0e7dd11aeb1f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "番茄，西红柿",
+      "core_meaning_en": "a red or yellow fruit used as a vegetable",
+      "mental_model_cn": "番茄，西红柿",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:32bff62c42381aecb8db",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tomato:5d8468ba39cb532a:collocation:0"
+            ],
+            "meaning_cn": "番茄汤",
+            "phrase": "tomato soup"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "番茄，西红柿",
+        "definition_en": "a soft fruit eaten as a vegetable, typically red",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tomato:5d8468ba39cb532a",
+        "sense_label_en": "a soft fruit eaten as a vegetable, typically red",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "tomato",
+    "word_family": [],
+    "word_id": "word:tomato"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:tomato:5d8468ba39cb532a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14373,
+        "source_path": "content/lexical/canonical/senses/shards/o5025-5056.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:32bff62c42381aecb8db"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:32bff62c42381aecb8db",
+        "source_row": 4285,
+        "source_path": "content/lexical/canonical/collocations/shards/o5025-5056.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0d193c0b5be734972b0c",
+        "source_row": 9386,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      },
+      {
+        "id": "membership:e67a5aab3050e302105e",
+        "source_row": 13466,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      },
+      {
+        "id": "membership:b6d13397ae99b7704ae8",
+        "source_row": 18169,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "tomato",
+      "source": "content/lexical/canonical/lookup/spelling/to.json",
+      "word_id": "word:tomato",
+      "ordinal": 5053,
+      "word_shard": "content/lexical/canonical/words/shards/o5049-5056.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5049-5056.json",
+    "source_content_hash": "b283b2f17ed81a15b7b18eb037a480326deb01aa52c9ef2340bd0e7dd11aeb1f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

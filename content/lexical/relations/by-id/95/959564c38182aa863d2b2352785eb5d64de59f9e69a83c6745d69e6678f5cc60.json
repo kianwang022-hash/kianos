@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:03bf3845dd48f11c60b0",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:whisky",
+      "source_ordinal": 5410,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "whisky/whiskey spelling follows regional/product convention rather than a universal correctness rule: whisky is strongly associated with Scotland/Canada/Japan; whiskey with Ireland/United States, with brand exceptions."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:146",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:146",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "whisky/whiskey spelling follows regional/product convention rather than a universal correctness rule: whisky is strongly associated with Scotland/Canada/Japan; whiskey with Ireland/United States, with brand exceptions.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "whisky",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:whisky"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:03bf3845dd48f11c60b0",
+        "relation_note": "whisky/whiskey spelling follows regional/product convention rather than a universal correctness rule: whisky is strongly associated with Scotland/Canada/Japan; whiskey with Ireland/United States, with brand exceptions.",
+        "relation_scope": "lexeme",
+        "relation_type": "regional_convention_variant",
+        "sense_ids": [],
+        "shared_meaning": "whisky/whiskey spelling follows regional/product convention rather than a universal correctness rule: whisky is strongly associated with Scotland/Canada/Japan; whiskey with Ireland/United States, with brand exceptions.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "whisky",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:whisky"
+              }
+            ],
+            "learner_note": "whisky/whiskey spelling follows regional/product convention rather than a universal correctness rule: whisky is strongly associated with Scotland/Canada/Japan; whiskey with Ireland/United States, with brand exceptions.",
+            "relation_targets": [
+              "whiskey"
+            ],
+            "relation_type": "regional_convention_variant"
+          }
+        ],
+        "source_expression": "whisky",
+        "source_sense_id": null,
+        "target_expression": "whiskey",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "whiskey",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

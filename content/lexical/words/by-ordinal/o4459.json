@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4459,
+  "word_id": "word:sir",
+  "word": "sir",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "29af24ef1c1f207c7afaf24196b7023b868d4da2ed65c29c34a437fff957666b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "先生；阁下",
+      "core_meaning_en": "a polite term of address for a man",
+      "mental_model_cn": "先生；阁下",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0123bb8322797890257e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sir:4f23d18923d65b25:collocation:0"
+            ],
+            "meaning_cn": "尊敬的先生（书信开头）",
+            "phrase": "Dear Sir"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "先生；阁下",
+        "definition_en": "a polite term of address for a man",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sir:4f23d18923d65b25",
+        "sense_label_en": "a polite term of address for a man",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:066cb572481401bba461",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sir:31241ff2e9fd539e:collocation:0"
+            ],
+            "meaning_cn": "爵士（加在姓名前）",
+            "phrase": "Sir + name"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "爵士（用于姓名前）",
+        "definition_en": "a title used before the name of a knight or baronet",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sir:31241ff2e9fd539e",
+        "sense_label_en": "a title used before the name of a knight or baronet",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "sir",
+    "word_family": [],
+    "word_id": "word:sir"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:sir:31241ff2e9fd539e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12590,
+        "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
+      },
+      {
+        "sense_id": "sense:sir:4f23d18923d65b25",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12591,
+        "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0123bb8322797890257e",
+      "collocation:066cb572481401bba461"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0123bb8322797890257e",
+        "source_row": 96,
+        "source_path": "content/lexical/canonical/collocations/shards/o4449-4480.json"
+      },
+      {
+        "id": "collocation:066cb572481401bba461",
+        "source_row": 529,
+        "source_path": "content/lexical/canonical/collocations/shards/o4449-4480.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:4600bad6d32f0cc05d2c",
+        "source_row": 8282,
+        "source_path": "content/lexical/canonical/packs/shards/o4449-4480.json"
+      },
+      {
+        "id": "membership:6927ec83da1be124724c",
+        "source_row": 8283,
+        "source_path": "content/lexical/canonical/packs/shards/o4449-4480.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "sir",
+      "source": "content/lexical/canonical/lookup/spelling/si.json",
+      "word_id": "word:sir",
+      "ordinal": 4459,
+      "word_shard": "content/lexical/canonical/words/shards/o4457-4464.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4457-4464.json",
+    "source_content_hash": "29af24ef1c1f207c7afaf24196b7023b868d4da2ed65c29c34a437fff957666b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

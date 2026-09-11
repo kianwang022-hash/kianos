@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 316,
+  "word_id": "word:astronaut",
+  "word": "astronaut",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "01e34e17c5cffd7caf1d3d3a0892dc339c60b31605c3ea58f1810c556da02605",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "宇航员",
+      "core_meaning_en": "a person trained to travel in space",
+      "mental_model_cn": "宇航员",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2cb100f3154bbaa1e271",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:astronaut:071701a495f25544:collocation:0"
+            ],
+            "meaning_cn": "一组宇航员",
+            "phrase": "a crew of astronauts"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "宇航员",
+        "definition_en": "a person trained to travel in a spacecraft",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:astronaut:071701a495f25544",
+        "sense_label_en": "a person trained to travel in a spacecraft",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "astronaut",
+    "word_family": [],
+    "word_id": "word:astronaut"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:astronaut:071701a495f25544",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 807,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2cb100f3154bbaa1e271"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2cb100f3154bbaa1e271",
+        "source_row": 3786,
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1c96765380f41d4e425e",
+        "source_row": 629,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:4769cd4215314de8d19e",
+        "source_row": 630,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:972d1dc6a78ac540a950",
+        "source_row": 10403,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:9cff1e1f9a4ee80c3875",
+        "source_row": 13984,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "astronaut",
+      "source": "content/lexical/canonical/lookup/spelling/as.json",
+      "word_id": "word:astronaut",
+      "ordinal": 316,
+      "word_shard": "content/lexical/canonical/words/shards/o0313-0320.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0313-0320.json",
+    "source_content_hash": "01e34e17c5cffd7caf1d3d3a0892dc339c60b31605c3ea58f1810c556da02605",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

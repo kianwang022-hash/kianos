@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:a0d061989fac5202abb0",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:presume",
+      "source_ordinal": 3761,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "assume and presume both take something as true without full proof. presume tends to suggest probability/reasonable grounds or greater confidence and is often more formal; assume is broader and may be arbitrary. Strong overlap; not categorical."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:102",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:102",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "assume and presume both take something as true without full proof. presume tends to suggest probability/reasonable grounds or greater confidence and is often more formal; assume is broader and may be arbitrary. Strong overlap; not categorical.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "presume",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:presume:bb0c959185c457f3"
+            ],
+            "word_id": "word:presume"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:a0d061989fac5202abb0",
+        "relation_note": "assume and presume both take something as true without full proof. presume tends to suggest probability/reasonable grounds or greater confidence and is often more formal; assume is broader and may be arbitrary. Strong overlap; not categorical.",
+        "relation_scope": "lexeme",
+        "relation_type": "probabilistic_semantic_contrast",
+        "sense_ids": [
+          "sense:presume:bb0c959185c457f3"
+        ],
+        "shared_meaning": "assume and presume both take something as true without full proof. presume tends to suggest probability/reasonable grounds or greater confidence and is often more formal; assume is broader and may be arbitrary. Strong overlap; not categorical.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "presume",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:presume:bb0c959185c457f3"
+                ],
+                "word_id": "word:presume"
+              }
+            ],
+            "learner_note": "assume and presume both take something as true without full proof. presume tends to suggest probability/reasonable grounds or greater confidence and is often more formal; assume is broader and may be arbitrary. Strong overlap; not categorical.",
+            "relation_targets": [
+              "assume"
+            ],
+            "relation_type": "probabilistic_semantic_contrast"
+          }
+        ],
+        "source_expression": "presume",
+        "source_sense_id": "sense:presume:bb0c959185c457f3",
+        "target_expression": "assume",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "assume",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

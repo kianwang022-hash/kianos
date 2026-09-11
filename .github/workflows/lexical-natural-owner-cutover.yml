@@ -1,0 +1,54 @@
+name: Lexical Natural Owner Cutover
+
+on:
+  push:
+    branches:
+      - lexical-natural-owner-cutover-20260912
+    paths:
+      - tools/lexical_natural_owner.py
+      - content/lexical/schema.json
+      - .github/workflows/lexical-natural-owner-cutover.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Materialize Natural Owners and run zero-delta audit
+        id: materialize
+        shell: bash
+        run: |
+          set +e
+          python tools/lexical_natural_owner.py materialize
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit generated candidate or blocker report
+        shell: bash
+        run: |
+          git config user.name "KianOS Lexical Cutover"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A content/lexical
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "chore(lexical): materialize natural owner candidate [skip natural-owner]"
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
+
+      - name: Enforce audit result
+        shell: bash
+        run: |
+          code='${{ steps.materialize.outputs.exit_code }}'
+          if [ "$code" != "0" ]; then
+            echo "Natural Owner audit is blocked; inspect content/lexical/audit/natural-owner-cutover.json"
+            exit "$code"
+          fi

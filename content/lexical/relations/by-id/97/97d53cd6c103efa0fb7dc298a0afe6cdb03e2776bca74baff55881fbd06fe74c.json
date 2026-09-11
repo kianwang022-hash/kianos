@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:think:ee702506c9caa8eb",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "suppose 通常比 think 更试探、更依赖假设",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "High-frequency cloze competitor; candidate source shares the relevant judgment synset.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "expect, believe, or suppose",
+      "shared_synset": "00633399-v",
+      "source_definition": "to have an opinion or belief about something",
+      "source_sense_id": "sense:think:5f219d551ca75ebb",
+      "target_definition": "to believe something is true based on evidence or logic",
+      "target_sense_id": "sense:suppose:08f0eab612235c91",
+      "target_word": "suppose"
+    },
+    "dimensions": {
+      "certainty": "suppose较低",
+      "collocation": "I think/suppose",
+      "core_meaning": "认为/假定",
+      "exam_trap": "确定性变化",
+      "register": "均通用",
+      "semantic_prosody": "中性",
+      "strength": "suppose较弱",
+      "syntax": "均可接从句",
+      "writing_safety": "正式写作慎用"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00633399-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00633399-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:think:ee702506c9caa8eb",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 10,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "to have an opinion or belief about something",
+      "source_sense_id": "sense:think:5f219d551ca75ebb",
+      "target_definition": "to believe something is true based on evidence or logic",
+      "target_sense_id": "sense:suppose:08f0eab612235c91"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:think:5f219d551ca75ebb",
+    "target_sense_id": "sense:suppose:45d1373fdfae5328",
+    "target_word": "suppose",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "think",
+    "word_id": "word:think",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:think",
+      "source_ordinal": 4986,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "suppose 通常比 think 更试探、更依赖假设",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "suppose较低",
+          "collocation": "I think/suppose",
+          "core_meaning": "认为/假定",
+          "exam_trap": "确定性变化",
+          "register": "均通用",
+          "semantic_prosody": "中性",
+          "strength": "suppose较弱",
+          "syntax": "均可接从句",
+          "writing_safety": "正式写作慎用"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00633399-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00633399-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:think:ee702506c9caa8eb",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "expect, believe, or suppose",
+        "source_sense_id": "sense:think:5f219d551ca75ebb",
+        "target_sense_id": "sense:suppose:08f0eab612235c91",
+        "target_word": "suppose",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

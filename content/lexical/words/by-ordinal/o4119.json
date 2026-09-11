@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4119,
+  "word_id": "word:respective",
+  "word": "respective",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f0df630a9fb2deb40b86c3597bbc485612043ca2168825f4dd2b3accd708215f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "各自的，分别的",
+      "core_meaning_en": "considered individually",
+      "mental_model_cn": "各自的，分别的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:respective:4167e9bd244f3a85"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7cc4dc4f3b6ef8c8506d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:respective:91d3167e8997546b:collocation:0"
+            ],
+            "meaning_cn": "他们各自的角色",
+            "phrase": "their respective roles"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "分别属于或涉及所提到的每个人或事物的",
+        "definition_en": "belonging or relating separately to each of the people or things mentioned",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:respective:91d3167e8997546b",
+        "sense_label_en": "belonging or relating separately to each of the people or things mention",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "respective",
+    "word_family": [],
+    "word_id": "word:respective"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:respective:4167e9bd244f3a85",
+      "owner_path": "content/lexical/relations/by-id/88/88ea81f5cd0a866f8ff26b98f5464edaa77941c48a11bef0e053dfc12ffc956d.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:respective:91d3167e8997546b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11504,
+        "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7cc4dc4f3b6ef8c8506d"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:respective:4167e9bd244f3a85",
+        "source_row": 1042,
+        "source_path": "content/lexical/canonical/facts/shards/o4097-4128.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:7cc4dc4f3b6ef8c8506d",
+        "source_row": 10547,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:09a03400d22d2c18374e",
+        "source_row": 7653,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      },
+      {
+        "id": "membership:96dac7e4f88851067eba",
+        "source_row": 12852,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      },
+      {
+        "id": "membership:ebe3d9d99324cff3b615",
+        "source_row": 17309,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "respective",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:respective",
+      "ordinal": 4119,
+      "word_shard": "content/lexical/canonical/words/shards/o4113-4120.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/50.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4113-4120.json",
+    "source_content_hash": "f0df630a9fb2deb40b86c3597bbc485612043ca2168825f4dd2b3accd708215f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2397,
+  "word_id": "word:huge",
+  "word": "huge",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9d1df763567c9af8b5e30d8202cb21b19e64a6018f5cb8b1cfb8cbccf6d5f09b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "巨大的",
+      "core_meaning_en": "very large in size or amount",
+      "mental_model_cn": "巨大的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:semantic_contrast:huge:e1dc7c300cf6dafb",
+      "relation:deep:semantic_contrast:huge:e1dc7c300cf6dafb"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4ec925b80133a8858cce",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:huge:7b51914b65e65ce9:collocation:0"
+            ],
+            "meaning_cn": "巨大的数量",
+            "phrase": "huge amount"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "巨大的；极大的",
+        "definition_en": "unusually great in size, amount, or degree",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:huge:7b51914b65e65ce9",
+        "sense_label_en": "unusually great in size, amount, or degree",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "completed",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "huge",
+    "word_family": [],
+    "word_id": "word:huge"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:huge:e1dc7c300cf6dafb",
+      "owner_path": "content/lexical/relations/by-id/95/95e80bfba6212326366bbddd6eda92554ac75d975f455ab017e2c62d7a061579.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:huge:7b51914b65e65ce9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6686,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4ec925b80133a8858cce"
+    ],
+    "facts": [
+      {
+        "id": "deep:semantic_contrast:huge:e1dc7c300cf6dafb",
+        "source_row": 628,
+        "source_path": "content/lexical/canonical/facts/shards/o2369-2400.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:4ec925b80133a8858cce",
+        "source_row": 6646,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6e1cf9ed42bc5ce84d51",
+        "source_row": 4463,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      },
+      {
+        "id": "membership:863d42b1bebe504416c2",
+        "source_row": 4464,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      },
+      {
+        "id": "membership:760bc96deac3c11ca384",
+        "source_row": 11721,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "huge",
+      "source": "content/lexical/canonical/lookup/spelling/hu.json",
+      "word_id": "word:huge",
+      "ordinal": 2397,
+      "word_shard": "content/lexical/canonical/words/shards/o2393-2400.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/7d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2393-2400.json",
+    "source_content_hash": "9d1df763567c9af8b5e30d8202cb21b19e64a6018f5cb8b1cfb8cbccf6d5f09b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

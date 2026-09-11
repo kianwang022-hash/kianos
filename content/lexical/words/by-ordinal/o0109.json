@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 109,
+  "word_id": "word:afternoon",
+  "word": "afternoon",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e6554d31f7f6c3a4ecd165d1204d9f293c34ae80c0f566216feb78ad1e941d7d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "下午",
+      "core_meaning_en": "the part of the day between noon and evening",
+      "mental_model_cn": "下午",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fd06c2be0e5a04e553a6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:afternoon:f6a2d86fcbe258c5:collocation:0"
+            ],
+            "meaning_cn": "在下午",
+            "phrase": "in the afternoon"
+          },
+          {
+            "collocation_id": "collocation:f3b2be5b2a383224fca6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:afternoon:f6a2d86fcbe258c5:collocation:1"
+            ],
+            "meaning_cn": "今天下午",
+            "phrase": "this afternoon"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "下午，午后",
+        "definition_en": "the time from noon until evening",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:afternoon:f6a2d86fcbe258c5",
+        "sense_label_en": "the time from noon until evening",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "afternoon",
+    "word_family": [],
+    "word_id": "word:afternoon"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:afternoon:f6a2d86fcbe258c5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 296,
+        "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:f3b2be5b2a383224fca6",
+      "collocation:fd06c2be0e5a04e553a6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:f3b2be5b2a383224fca6",
+        "source_row": 20639,
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+      },
+      {
+        "id": "collocation:fd06c2be0e5a04e553a6",
+        "source_row": 21403,
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:9ff4424e8c5e7848e99d",
+        "source_row": 223,
+        "source_path": "content/lexical/canonical/packs/shards/o0097-0128.json"
+      },
+      {
+        "id": "membership:e32207fceb7b42de636d",
+        "source_row": 224,
+        "source_path": "content/lexical/canonical/packs/shards/o0097-0128.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "afternoon",
+      "source": "content/lexical/canonical/lookup/spelling/af.json",
+      "word_id": "word:afternoon",
+      "ordinal": 109,
+      "word_shard": "content/lexical/canonical/words/shards/o0105-0112.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0105-0112.json",
+    "source_content_hash": "e6554d31f7f6c3a4ecd165d1204d9f293c34ae80c0f566216feb78ad1e941d7d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

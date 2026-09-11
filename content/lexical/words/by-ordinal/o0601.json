@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 601,
+  "word_id": "word:brow",
+  "word": "brow",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "4c953d21646786d9a0bb59667099726a759721fa5423f6a5add074ec705a11bd",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "眉毛，额",
+      "core_meaning_en": "the forehead or eyebrow",
+      "mental_model_cn": "眉毛，额",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f5d40c245de09bb5bea8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:brow:da7820c6a182599a:collocation:0"
+            ],
+            "meaning_cn": "皱眉",
+            "phrase": "knit one's brows"
+          },
+          {
+            "collocation_id": "collocation:e0053259960aefde05a0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:brow:da7820c6a182599a:collocation:1"
+            ],
+            "meaning_cn": "额头上的汗水",
+            "phrase": "sweat on one's brow"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "眉毛，额",
+        "definition_en": "the part of the face above the eyes",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:brow:da7820c6a182599a",
+        "sense_label_en": "the part of the face above the eyes",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "brow",
+    "word_family": [],
+    "word_id": "word:brow"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:brow:da7820c6a182599a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1665,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e0053259960aefde05a0",
+      "collocation:f5d40c245de09bb5bea8"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e0053259960aefde05a0",
+        "source_row": 18949,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:f5d40c245de09bb5bea8",
+        "source_row": 20816,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a4e8b9e12914006b0b9b",
+        "source_row": 1125,
+        "source_path": "content/lexical/canonical/packs/shards/o0577-0608.json"
+      },
+      {
+        "id": "membership:74ad0c454502cb8efc21",
+        "source_row": 10581,
+        "source_path": "content/lexical/canonical/packs/shards/o0577-0608.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "brow",
+      "source": "content/lexical/canonical/lookup/spelling/br.json",
+      "word_id": "word:brow",
+      "ordinal": 601,
+      "word_shard": "content/lexical/canonical/words/shards/o0601-0608.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0601-0608.json",
+    "source_content_hash": "4c953d21646786d9a0bb59667099726a759721fa5423f6a5add074ec705a11bd",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

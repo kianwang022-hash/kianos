@@ -1,0 +1,153 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1532,
+  "word_id": "word:duration",
+  "word": "duration",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "d2d682761871b5b2988b34afa7b9c082f4ec8d9d0380be8a9f91a8309a8fcc90",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "持续时间",
+      "core_meaning_en": "the length of time something lasts",
+      "mental_model_cn": "持续时间",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ce137af1ef63b0964cdb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:duration:1ef694b1b7c7519b:collocation:0"
+            ],
+            "meaning_cn": "在整个期间",
+            "phrase": "for the duration"
+          },
+          {
+            "collocation_id": "collocation:bfc4b12e33e1f7b46d45",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:duration:1ef694b1b7c7519b:collocation:1"
+            ],
+            "meaning_cn": "某事的持续时间",
+            "phrase": "duration of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "持续时间",
+        "definition_en": "the period of time during which something continues",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:duration:1ef694b1b7c7519b",
+        "sense_label_en": "the period of time during which something continues",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "duration",
+    "word_family": [],
+    "word_id": "word:duration"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:duration:1ef694b1b7c7519b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4290,
+        "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:bfc4b12e33e1f7b46d45",
+      "collocation:ce137af1ef63b0964cdb"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:bfc4b12e33e1f7b46d45",
+        "source_row": 16222,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:ce137af1ef63b0964cdb",
+        "source_row": 17418,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a23cd515eaa4c93b86e1",
+        "source_row": 2872,
+        "source_path": "content/lexical/canonical/packs/shards/o1505-1536.json"
+      },
+      {
+        "id": "membership:f2237c2b23d8d0400e56",
+        "source_row": 2873,
+        "source_path": "content/lexical/canonical/packs/shards/o1505-1536.json"
+      },
+      {
+        "id": "membership:a4aa076c76fbbe24155b",
+        "source_row": 2874,
+        "source_path": "content/lexical/canonical/packs/shards/o1505-1536.json"
+      },
+      {
+        "id": "membership:a90677f7ea652a88f484",
+        "source_row": 11172,
+        "source_path": "content/lexical/canonical/packs/shards/o1505-1536.json"
+      },
+      {
+        "id": "membership:2497a5ec94aed27be845",
+        "source_row": 14951,
+        "source_path": "content/lexical/canonical/packs/shards/o1505-1536.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "duration",
+      "source": "content/lexical/canonical/lookup/spelling/du.json",
+      "word_id": "word:duration",
+      "ordinal": 1532,
+      "word_shard": "content/lexical/canonical/words/shards/o1529-1536.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/30.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1529-1536.json",
+    "source_content_hash": "d2d682761871b5b2988b34afa7b9c082f4ec8d9d0380be8a9f91a8309a8fcc90",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

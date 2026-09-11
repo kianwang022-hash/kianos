@@ -1,0 +1,159 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4896,
+  "word_id": "word:tanker",
+  "word": "tanker",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2a3f56b53416b1b1cdb492291b4caca8f2a1b2127e5cb5957973b322611d6098",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "运输液体的大容器车辆或船只",
+      "core_meaning_en": "a ship, truck, or other vehicle for carrying liquids in bulk",
+      "mental_model_cn": "运输液体的大容器车辆或船只",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:88efc28003a9e6c2d050",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tanker:2166cbe316d2503e:collocation:0"
+            ],
+            "meaning_cn": "油轮",
+            "phrase": "oil tanker"
+          },
+          {
+            "collocation_id": "collocation:1a4960d971de4937e215",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tanker:2166cbe316d2503e:collocation:1"
+            ],
+            "meaning_cn": "油罐车",
+            "phrase": "tanker truck"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "油轮；油罐车",
+        "definition_en": "a ship or vehicle designed to carry liquids, especially oil",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tanker:2166cbe316d2503e",
+        "sense_label_en": "a ship or vehicle designed to carry liquids, especially oil",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "坦克手",
+        "definition_en": "a soldier who drives a tank",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tanker:c68209acf7db5640",
+        "sense_label_en": "a soldier who drives a tank",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "tanker",
+    "word_family": [],
+    "word_id": "word:tanker"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:tanker:2166cbe316d2503e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13928,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      },
+      {
+        "sense_id": "sense:tanker:c68209acf7db5640",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13929,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1a4960d971de4937e215",
+      "collocation:88efc28003a9e6c2d050"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1a4960d971de4937e215",
+        "source_row": 2161,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      },
+      {
+        "id": "collocation:88efc28003a9e6c2d050",
+        "source_row": 11616,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:038576426847981af06f",
+        "source_row": 9099,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      },
+      {
+        "id": "membership:c6069b4b92a820852ab4",
+        "source_row": 18039,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "tanker",
+      "source": "content/lexical/canonical/lookup/spelling/ta.json",
+      "word_id": "word:tanker",
+      "ordinal": 4896,
+      "word_shard": "content/lexical/canonical/words/shards/o4889-4896.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/7c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4889-4896.json",
+    "source_content_hash": "2a3f56b53416b1b1cdb492291b4caca8f2a1b2127e5cb5957973b322611d6098",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:b3862c46b471caf91f96",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:heroin",
+      "source_ordinal": 2322,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "heroin = opioid drug; heroine = female hero/main admirable woman."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:021",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:021",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:b3862c46b471caf91f96",
+        "learning_note": "heroin = opioid drug; heroine = female hero/main admirable woman.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "heroin",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:heroin"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_note": "heroin = opioid drug; heroine = female hero/main admirable woman.",
+        "relation_scope": "lexeme",
+        "relation_type": "spelling_sound_confusable",
+        "sense_ids": [],
+        "shared_meaning": "heroin = opioid drug; heroine = female hero/main admirable woman.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "heroin",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:heroin"
+              }
+            ],
+            "learner_note": "heroin = opioid drug; heroine = female hero/main admirable woman.",
+            "relation_targets": [
+              "heroine"
+            ],
+            "relation_type": "spelling_sound_confusable"
+          }
+        ],
+        "source_expression": "heroin",
+        "source_sense_id": null,
+        "target_expression": "heroine",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "heroine",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

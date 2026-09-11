@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 147,
+  "word_id": "word:allegiance",
+  "word": "allegiance",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "c8a5fece4af045caf792b74bf218a9aa35f914399ea2cf597e31a99c25fa4f64",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "忠诚，效忠",
+      "core_meaning_en": "loyalty or commitment to a sovereign, country, or cause",
+      "mental_model_cn": "忠诚，效忠",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8b5bf672ff56faa81ea5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:allegiance:b827eaab16195361:collocation:0"
+            ],
+            "meaning_cn": "宣誓效忠于",
+            "phrase": "pledge allegiance to"
+          },
+          {
+            "collocation_id": "collocation:da98ed28aefcff3f74dd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:allegiance:b827eaab16195361:collocation:1"
+            ],
+            "meaning_cn": "宣誓效忠",
+            "phrase": "swear allegiance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "对国家的忠诚；对君主的效忠",
+        "definition_en": "the loyalty that citizens owe to their country (or subjects to their sovereign)",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:allegiance:b827eaab16195361",
+        "sense_label_en": "the loyalty that citizens owe to their country (or subjects to their sov",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "allegiance",
+    "word_family": [],
+    "word_id": "word:allegiance"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:allegiance:b827eaab16195361",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 393,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8b5bf672ff56faa81ea5",
+      "collocation:da98ed28aefcff3f74dd"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8b5bf672ff56faa81ea5",
+        "source_row": 11815,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:da98ed28aefcff3f74dd",
+        "source_row": 18494,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1c6b7407065101c6712a",
+        "source_row": 298,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:40b9d802af6c49075913",
+        "source_row": 299,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:29ea8f30d8720dad80f4",
+        "source_row": 13872,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "allegiance",
+      "source": "content/lexical/canonical/lookup/spelling/al.json",
+      "word_id": "word:allegiance",
+      "ordinal": 147,
+      "word_shard": "content/lexical/canonical/words/shards/o0145-0152.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b2.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0145-0152.json",
+    "source_content_hash": "c8a5fece4af045caf792b74bf218a9aa35f914399ea2cf597e31a99c25fa4f64",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

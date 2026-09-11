@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 494,
+  "word_id": "word:birthday",
+  "word": "birthday",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "a88c1261d51b9ece18640bb2c581d081e0e22fdd4ab6ecc0c13d261181da7e7c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "出生纪念日",
+      "core_meaning_en": "anniversary of birth",
+      "mental_model_cn": "出生纪念日",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f3c9f758334e7406e8e1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:birthday:0fac8b60359c59c1:collocation:0"
+            ],
+            "meaning_cn": "生日快乐",
+            "phrase": "happy birthday"
+          },
+          {
+            "collocation_id": "collocation:cc67a01225d27942bfdf",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:birthday:0fac8b60359c59c1:collocation:1"
+            ],
+            "meaning_cn": "生日聚会",
+            "phrase": "birthday party"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "生日",
+        "definition_en": "the anniversary of the day on which a person was born",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:birthday:0fac8b60359c59c1",
+        "sense_label_en": "the anniversary of the day on which a person was born",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "birthday",
+    "word_family": [],
+    "word_id": "word:birthday"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:birthday:0fac8b60359c59c1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1306,
+        "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:cc67a01225d27942bfdf",
+      "collocation:f3c9f758334e7406e8e1"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:cc67a01225d27942bfdf",
+        "source_row": 17277,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:f3c9f758334e7406e8e1",
+        "source_row": 20648,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c252eb5502669d618682",
+        "source_row": 934,
+        "source_path": "content/lexical/canonical/packs/shards/o0481-0512.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "birthday",
+      "source": "content/lexical/canonical/lookup/spelling/bi.json",
+      "word_id": "word:birthday",
+      "ordinal": 494,
+      "word_shard": "content/lexical/canonical/words/shards/o0489-0496.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0489-0496.json",
+    "source_content_hash": "a88c1261d51b9ece18640bb2c581d081e0e22fdd4ab6ecc0c13d261181da7e7c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

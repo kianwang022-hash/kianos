@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4820,
+  "word_id": "word:supervise",
+  "word": "supervise",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "973d3b86d4873e8476d9e1aeb976e515e87bb1d92725e19bff9598dc7d87e71f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "监督，管理",
+      "core_meaning_en": "to watch over and direct",
+      "mental_model_cn": "监督，管理",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cca02f96bcc122cf61a7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:supervise:2a7b1cc193d1514b:collocation:0"
+            ],
+            "meaning_cn": "监督某人/某事",
+            "phrase": "supervise + sb/sth"
+          },
+          {
+            "collocation_id": "collocation:53b51006da5d652170b4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supervise:2a7b1cc193d1514b:collocation:1"
+            ],
+            "meaning_cn": "监督工作",
+            "phrase": "supervise the work"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "监督，管理，指导",
+        "definition_en": "to watch and direct someone or something to ensure proper performance",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:supervise:2a7b1cc193d1514b",
+        "sense_label_en": "to watch and direct someone or something to ensure proper performance",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "supervise",
+    "word_family": [],
+    "word_id": "word:supervise"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:supervise:2a7b1cc193d1514b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13695,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:53b51006da5d652170b4",
+      "collocation:cca02f96bcc122cf61a7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:53b51006da5d652170b4",
+        "source_row": 7057,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      },
+      {
+        "id": "collocation:cca02f96bcc122cf61a7",
+        "source_row": 17305,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:dc329420100df084934d",
+        "source_row": 8951,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      },
+      {
+        "id": "membership:520d359abc7ff7353b14",
+        "source_row": 8952,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      },
+      {
+        "id": "membership:c011522d16a446d629fe",
+        "source_row": 17968,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "supervise",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:supervise",
+      "ordinal": 4820,
+      "word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/af.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+    "source_content_hash": "973d3b86d4873e8476d9e1aeb976e515e87bb1d92725e19bff9598dc7d87e71f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

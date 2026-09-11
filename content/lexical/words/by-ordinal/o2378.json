@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2378,
+  "word_id": "word:hospital",
+  "word": "hospital",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "92fa1dad6b92edc82a3c6052b179965d55a5101db7a69e59ad5fac7e6be51942",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "医院",
+      "core_meaning_en": "a place where sick or injured people are treated",
+      "mental_model_cn": "医院",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:460687beff4d5f79d2e2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hospital:6facd47e067c5626:collocation:0"
+            ],
+            "meaning_cn": "住院",
+            "phrase": "in hospital"
+          },
+          {
+            "collocation_id": "collocation:bec56e088ca75baa299b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hospital:6facd47e067c5626:collocation:1"
+            ],
+            "meaning_cn": "去医院",
+            "phrase": "go to hospital"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "医院",
+        "definition_en": "a medical institution where patients receive treatment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:hospital:6facd47e067c5626",
+        "sense_label_en": "a medical institution where patients receive treatment",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "hospital",
+    "word_family": [],
+    "word_id": "word:hospital"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:hospital:6facd47e067c5626",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6637,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:460687beff4d5f79d2e2",
+      "collocation:bec56e088ca75baa299b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:460687beff4d5f79d2e2",
+        "source_row": 5909,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:bec56e088ca75baa299b",
+        "source_row": 16143,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:91f73268fe297a0d81c3",
+        "source_row": 4429,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      },
+      {
+        "id": "membership:d259f1c89ceda730357e",
+        "source_row": 4430,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "hospital",
+      "source": "content/lexical/canonical/lookup/spelling/ho.json",
+      "word_id": "word:hospital",
+      "ordinal": 2378,
+      "word_shard": "content/lexical/canonical/words/shards/o2377-2384.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/57.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2377-2384.json",
+    "source_content_hash": "92fa1dad6b92edc82a3c6052b179965d55a5101db7a69e59ad5fac7e6be51942",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

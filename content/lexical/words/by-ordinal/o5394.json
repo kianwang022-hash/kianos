@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5394,
+  "word_id": "word:whatever",
+  "word": "whatever",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "0256e7bb885b38dd89f6e8f155d5325d28f061b02542053d5682ac23889f495c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "无论什么",
+      "core_meaning_en": "any or all things of a specified kind",
+      "mental_model_cn": "无论什么",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:df8ba831b695ead1daca",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:whatever:3689fbe73143518e:collocation:0"
+            ],
+            "meaning_cn": "无论你喜欢什么",
+            "phrase": "whatever you like"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "无论什么；任何事物",
+        "definition_en": "any or all things that; no matter what",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:whatever:3689fbe73143518e",
+        "sense_label_en": "any or all things that; no matter what",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "whatever",
+    "word_family": [],
+    "word_id": "word:whatever"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:whatever:3689fbe73143518e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15341,
+        "source_path": "content/lexical/canonical/senses/shards/o5377-5408.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:df8ba831b695ead1daca"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:df8ba831b695ead1daca",
+        "source_row": 18923,
+        "source_path": "content/lexical/canonical/collocations/shards/o5377-5408.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f89f5ada3238dcb3cd0a",
+        "source_row": 10014,
+        "source_path": "content/lexical/canonical/packs/shards/o5377-5408.json"
+      },
+      {
+        "id": "membership:6f1d6b860c7884b8846d",
+        "source_row": 10015,
+        "source_path": "content/lexical/canonical/packs/shards/o5377-5408.json"
+      },
+      {
+        "id": "membership:409a9e9ecdd5b7137761",
+        "source_row": 13703,
+        "source_path": "content/lexical/canonical/packs/shards/o5377-5408.json"
+      },
+      {
+        "id": "membership:74147a6fb7e1bbf06d29",
+        "source_row": 18521,
+        "source_path": "content/lexical/canonical/packs/shards/o5377-5408.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "whatever",
+      "source": "content/lexical/canonical/lookup/spelling/wh.json",
+      "word_id": "word:whatever",
+      "ordinal": 5394,
+      "word_shard": "content/lexical/canonical/words/shards/o5393-5400.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/dd.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5393-5400.json",
+    "source_content_hash": "0256e7bb885b38dd89f6e8f155d5325d28f061b02542053d5682ac23889f495c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

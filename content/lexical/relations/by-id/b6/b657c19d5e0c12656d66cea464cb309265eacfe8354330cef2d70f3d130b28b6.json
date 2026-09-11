@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:54f52da57fca95a67ae1",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:tackle",
+      "source_ordinal": 4881,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "tackle in the problem/task sense ≈ deal with, with a tendency toward active/determined handling."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:064",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:064",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "tackle in the problem/task sense ≈ deal with, with a tendency toward active/determined handling.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "tackle",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:tackle:81a57943cc8352ac"
+            ],
+            "word_id": "word:tackle"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:54f52da57fca95a67ae1",
+        "relation_note": "tackle in the problem/task sense ≈ deal with, with a tendency toward active/determined handling.",
+        "relation_scope": "lexeme",
+        "relation_type": "near_paraphrase",
+        "sense_ids": [
+          "sense:tackle:81a57943cc8352ac"
+        ],
+        "shared_meaning": "tackle in the problem/task sense ≈ deal with, with a tendency toward active/determined handling.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "tackle",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:tackle:81a57943cc8352ac"
+                ],
+                "word_id": "word:tackle"
+              }
+            ],
+            "learner_note": "tackle in the problem/task sense ≈ deal with, with a tendency toward active/determined handling.",
+            "relation_targets": [
+              "deal with"
+            ],
+            "relation_type": "near_paraphrase"
+          }
+        ],
+        "source_expression": "tackle",
+        "source_sense_id": "sense:tackle:81a57943cc8352ac",
+        "target_expression": "deal with",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "deal with",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

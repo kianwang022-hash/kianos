@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1,
+  "word_id": "word:a",
+  "word": "a",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bb18718a9d464173ca107d1d1066e17ea0aa7e8f7a22a230513d08253ea68936",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "不定冠词",
+      "core_meaning_en": "indefinite article",
+      "mental_model_cn": "不定冠词",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c640d6fe1fb6642ca384",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:a:c33114436c8951d1:collocation:0"
+            ],
+            "meaning_cn": "一本书",
+            "phrase": "a book"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用于单数名词前，表示未提及的一个",
+        "definition_en": "used before a singular noun to refer to one person or thing that has not been mentioned before",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "article",
+        "sense_id": "sense:a:c33114436c8951d1",
+        "sense_label_en": "used before a singular noun to refer to one person or thing that has not",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "a",
+    "word_family": [],
+    "word_id": "word:a"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:a:c33114436c8951d1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1,
+        "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:c640d6fe1fb6642ca384"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:c640d6fe1fb6642ca384",
+        "source_row": 16773,
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:26b6c3994316953267e3",
+        "source_row": 1,
+        "source_path": "content/lexical/canonical/packs/shards/o0001-0032.json"
+      },
+      {
+        "id": "membership:91af1fb44548171b23f0",
+        "source_row": 2,
+        "source_path": "content/lexical/canonical/packs/shards/o0001-0032.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "a",
+      "source": "content/lexical/canonical/lookup/spelling/a_.json",
+      "word_id": "word:a",
+      "ordinal": 1,
+      "word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/88.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
+    "source_content_hash": "bb18718a9d464173ca107d1d1066e17ea0aa7e8f7a22a230513d08253ea68936",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

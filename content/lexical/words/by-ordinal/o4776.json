@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4776,
+  "word_id": "word:subtract",
+  "word": "subtract",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6db80a9a07533f66e020b42e5ea553fa0a7f4414d93d0707dd52d70a28a2dd9f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "减去",
+      "core_meaning_en": "take away a number or amount",
+      "mental_model_cn": "减去",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0891323b788630cc8db5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:subtract:a07a73356afe538b:collocation:0"
+            ],
+            "meaning_cn": "从…中减去…",
+            "phrase": "subtract + sth + from + sth"
+          },
+          {
+            "collocation_id": "collocation:79dd6953961f0af2a296",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:subtract:a07a73356afe538b:collocation:1"
+            ],
+            "meaning_cn": "10减5",
+            "phrase": "subtract 5 from 10"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "减去；扣除",
+        "definition_en": "to take a number or amount away from another",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:subtract:a07a73356afe538b",
+        "sense_label_en": "to take a number or amount away from another",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "subtract",
+    "word_family": [],
+    "word_id": "word:subtract"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:subtract:a07a73356afe538b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13596,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0891323b788630cc8db5",
+      "collocation:79dd6953961f0af2a296"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0891323b788630cc8db5",
+        "source_row": 718,
+        "source_path": "content/lexical/canonical/collocations/shards/o4769-4800.json"
+      },
+      {
+        "id": "collocation:79dd6953961f0af2a296",
+        "source_row": 10313,
+        "source_path": "content/lexical/canonical/collocations/shards/o4769-4800.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:cbd92db4fae94bbb86f0",
+        "source_row": 8872,
+        "source_path": "content/lexical/canonical/packs/shards/o4769-4800.json"
+      },
+      {
+        "id": "membership:2d8fd36fc0686150f03c",
+        "source_row": 13299,
+        "source_path": "content/lexical/canonical/packs/shards/o4769-4800.json"
+      },
+      {
+        "id": "membership:fde76ed96e46ca1ecc7e",
+        "source_row": 17932,
+        "source_path": "content/lexical/canonical/packs/shards/o4769-4800.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "subtract",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:subtract",
+      "ordinal": 4776,
+      "word_shard": "content/lexical/canonical/words/shards/o4769-4776.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/09.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4769-4776.json",
+    "source_content_hash": "6db80a9a07533f66e020b42e5ea553fa0a7f4414d93d0707dd52d70a28a2dd9f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

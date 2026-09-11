@@ -1,0 +1,93 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:3f891f488166fecd5b96",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:social",
+      "source_ordinal": 4533,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "social is broad: society-related or relating to interaction/social activities; sociable specifically describes liking/enjoying company and meeting people. A person can be called social in the sociable sense, so the distinction is not absolute."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:135",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:135",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "social is broad: society-related or relating to interaction/social activities; sociable specifically describes liking/enjoying company and meeting people. A person can be called social in the sociable sense, so the distinction is not absolute.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "social",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:social:1a4d80289cea52e2",
+              "sense:social:46c293d913405fdb"
+            ],
+            "word_id": "word:social"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:3f891f488166fecd5b96",
+        "relation_note": "social is broad: society-related or relating to interaction/social activities; sociable specifically describes liking/enjoying company and meeting people. A person can be called social in the sociable sense, so the distinction is not absolute.",
+        "relation_scope": "lexeme",
+        "relation_type": "probabilistic_semantic_contrast",
+        "sense_ids": [
+          "sense:social:1a4d80289cea52e2",
+          "sense:social:46c293d913405fdb"
+        ],
+        "shared_meaning": "social is broad: society-related or relating to interaction/social activities; sociable specifically describes liking/enjoying company and meeting people. A person can be called social in the sociable sense, so the distinction is not absolute.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "social",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:social:1a4d80289cea52e2",
+                  "sense:social:46c293d913405fdb"
+                ],
+                "word_id": "word:social"
+              }
+            ],
+            "learner_note": "social is broad: society-related or relating to interaction/social activities; sociable specifically describes liking/enjoying company and meeting people. A person can be called social in the sociable sense, so the distinction is not absolute.",
+            "relation_targets": [
+              "sociable"
+            ],
+            "relation_type": "probabilistic_semantic_contrast"
+          }
+        ],
+        "source_expression": "social",
+        "source_sense_id": null,
+        "target_expression": "sociable",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "sociable",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

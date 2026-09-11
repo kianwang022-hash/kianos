@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4611,
+  "word_id": "word:spelling",
+  "word": "spelling",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "514f270ec1ab8ddcd4eafe4b9ff26cba5c43ea092ca40b80221d41cc311dedb9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "用字母构成单词的行为或方式",
+      "core_meaning_en": "the act or way of forming words with letters",
+      "mental_model_cn": "用字母构成单词的行为或方式",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:70d66166f2a3842d5c8b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spelling:c59c152a3c6c537b:collocation:0"
+            ],
+            "meaning_cn": "拼写比赛",
+            "phrase": "spelling bee"
+          },
+          {
+            "collocation_id": "collocation:1d36675814ac6d8297f8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spelling:c59c152a3c6c537b:collocation:1"
+            ],
+            "meaning_cn": "拼写错误",
+            "phrase": "spelling mistake"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "拼写；拼法",
+        "definition_en": "forming words with letters according to accepted usage",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:spelling:c59c152a3c6c537b",
+        "sense_label_en": "forming words with letters according to accepted usage",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "spelling",
+    "word_family": [],
+    "word_id": "word:spelling"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:spelling:c59c152a3c6c537b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13041,
+        "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1d36675814ac6d8297f8",
+      "collocation:70d66166f2a3842d5c8b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1d36675814ac6d8297f8",
+        "source_row": 2416,
+        "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
+      },
+      {
+        "id": "collocation:70d66166f2a3842d5c8b",
+        "source_row": 9522,
+        "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:89b6cfeac6cbe2b5f965",
+        "source_row": 8554,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      },
+      {
+        "id": "membership:973ffe4e257ba4f34b4c",
+        "source_row": 13187,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      },
+      {
+        "id": "membership:38b613ff07e964567c16",
+        "source_row": 17773,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "spelling",
+      "source": "content/lexical/canonical/lookup/spelling/sp.json",
+      "word_id": "word:spelling",
+      "ordinal": 4611,
+      "word_shard": "content/lexical/canonical/words/shards/o4609-4616.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/68.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4609-4616.json",
+    "source_content_hash": "514f270ec1ab8ddcd4eafe4b9ff26cba5c43ea092ca40b80221d41cc311dedb9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

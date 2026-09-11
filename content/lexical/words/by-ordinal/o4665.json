@@ -1,0 +1,156 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4665,
+  "word_id": "word:stance",
+  "word": "stance",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b8dd0829a0f477851e47545cd0d9a348d4f134b4f14ac2c1dc5ef8b4fc664539",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "姿态，立场",
+      "core_meaning_en": "standing posture or attitude",
+      "mental_model_cn": "姿态，立场",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "sense:sense:stance:9eb9ca96fe015cd6"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d249539d4c948fe30bcc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:stance:a15c3efc5eda5ee0:collocation:0"
+            ],
+            "meaning_cn": "对某事采取立场",
+            "phrase": "take a stance on + sth"
+          },
+          {
+            "collocation_id": "collocation:44420223889e4df44829",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:stance:a15c3efc5eda5ee0:collocation:1"
+            ],
+            "meaning_cn": "坚定的立场",
+            "phrase": "a firm stance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "立场；观点；态度",
+        "definition_en": "an opinion or publicly expressed position on an issue",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:stance:a15c3efc5eda5ee0",
+        "sense_label_en": "a particular way of standing, or an attitude towards something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "站姿；姿势",
+        "definition_en": "a particular way of standing",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:stance:9eb9ca96fe015cd6",
+        "sense_label_en": "a particular way of standing, or an attitude towards something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "stance",
+    "word_family": [],
+    "word_id": "word:stance"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:stance:9eb9ca96fe015cd6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13239,
+        "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
+      },
+      {
+        "sense_id": "sense:stance:a15c3efc5eda5ee0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13240,
+        "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:44420223889e4df44829",
+      "collocation:d249539d4c948fe30bcc"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:44420223889e4df44829",
+        "source_row": 5784,
+        "source_path": "content/lexical/canonical/collocations/shards/o4641-4672.json"
+      },
+      {
+        "id": "collocation:d249539d4c948fe30bcc",
+        "source_row": 17762,
+        "source_path": "content/lexical/canonical/collocations/shards/o4641-4672.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0b43f749a635e08fa088",
+        "source_row": 8651,
+        "source_path": "content/lexical/canonical/packs/shards/o4641-4672.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "stance",
+      "source": "content/lexical/canonical/lookup/spelling/st.json",
+      "word_id": "word:stance",
+      "ordinal": 4665,
+      "word_shard": "content/lexical/canonical/words/shards/o4665-4672.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f9.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4665-4672.json",
+    "source_content_hash": "b8dd0829a0f477851e47545cd0d9a348d4f134b4f14ac2c1dc5ef8b4fc664539",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1471,
+  "word_id": "word:doll",
+  "word": "doll",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5d6afac6a1036fab197c987791dc5556531242e06462c26b961cda39791ef45d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "玩偶，洋娃娃",
+      "core_meaning_en": "a toy figure of a person",
+      "mental_model_cn": "玩偶，洋娃娃",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c94bcabd7e4c7ff3f456",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:doll:09b44fe66b7d5522:collocation:0"
+            ],
+            "meaning_cn": "布娃娃",
+            "phrase": "rag doll"
+          },
+          {
+            "collocation_id": "collocation:dc4f66a01cf551538fcf",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:doll:09b44fe66b7d5522:collocation:1"
+            ],
+            "meaning_cn": "玩具屋",
+            "phrase": "doll's house"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "小人模型，用作玩具",
+        "definition_en": "a small replica of a person; used as a toy",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:doll:09b44fe66b7d5522",
+        "sense_label_en": "a small replica of a person; used as a toy",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "漂亮但无头脑的女人",
+        "definition_en": "an attractive but unintelligent woman",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:doll:6c70ca4a55c95159",
+        "sense_label_en": "an attractive but unintelligent woman",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "doll",
+    "word_family": [],
+    "word_id": "word:doll"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:doll:09b44fe66b7d5522",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4078,
+        "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:doll:6c70ca4a55c95159",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4079,
+        "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:c94bcabd7e4c7ff3f456",
+      "collocation:dc4f66a01cf551538fcf"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:c94bcabd7e4c7ff3f456",
+        "source_row": 17007,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:dc4f66a01cf551538fcf",
+        "source_row": 18643,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d995dc208178a25b3e67",
+        "source_row": 2766,
+        "source_path": "content/lexical/canonical/packs/shards/o1441-1472.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "doll",
+      "source": "content/lexical/canonical/lookup/spelling/do.json",
+      "word_id": "word:doll",
+      "ordinal": 1471,
+      "word_shard": "content/lexical/canonical/words/shards/o1465-1472.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/52.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1465-1472.json",
+    "source_content_hash": "5d6afac6a1036fab197c987791dc5556531242e06462c26b961cda39791ef45d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

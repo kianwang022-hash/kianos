@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:film:7d8bf5d908d29a88",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "在电影义接近；film较正式并另有胶片薄膜义，movie更口语",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "a form of entertainment that enacts a story by sound and a sequence of images giving the illusion of continuous movement",
+      "shared_synset": "06626039-n",
+      "source_definition": "a medium that disseminates moving pictures",
+      "source_sense_id": "sense:film:5d3259f7e6d753ce",
+      "target_definition": "a form of entertainment that tells a story through moving images and sound",
+      "target_sense_id": "sense:movie:369e3213ecc458f3",
+      "target_word": "movie"
+    },
+    "dimensions": {
+      "certainty": "高",
+      "collocation": "film industry",
+      "core_meaning": "电影",
+      "exam_trap": "film与movie混淆",
+      "register": "中性",
+      "semantic_prosody": "中性",
+      "strength": "强",
+      "syntax": "film作名词",
+      "writing_safety": "安全"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:06626039-n",
+        "evidence_status": "source_checked",
+        "source_locator": "06626039-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:film:7d8bf5d908d29a88",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 9.0,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "publishable",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 9,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "a medium that disseminates moving pictures",
+      "source_sense_id": "sense:film:5d3259f7e6d753ce",
+      "target_definition": "a form of entertainment that tells a story through moving images and sound",
+      "target_sense_id": "sense:movie:369e3213ecc458f3"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:film:5d3259f7e6d753ce",
+    "target_sense_id": "sense:movie:369e3213ecc458f3",
+    "target_word": "movie",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 0.95,
+    "verification_decision": "accept",
+    "verification_status": "verified",
+    "why": "",
+    "word": "film",
+    "word_id": "word:film",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:film",
+      "source_ordinal": 1923,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "在电影义接近；film较正式并另有胶片薄膜义，movie更口语",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "film industry",
+          "core_meaning": "电影",
+          "exam_trap": "film与movie混淆",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "film作名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:06626039-n",
+            "evidence_status": "source_checked",
+            "source_locator": "06626039-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:film:7d8bf5d908d29a88",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "a form of entertainment that enacts a story by sound and a sequence of images giving the illusion of continuous movement",
+        "source_sense_id": "sense:film:5d3259f7e6d753ce",
+        "target_sense_id": "sense:movie:369e3213ecc458f3",
+        "target_word": "movie",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

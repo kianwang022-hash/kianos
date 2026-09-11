@@ -1,0 +1,94 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:8cbff553a91dcdddd804",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:reduce",
+      "source_ordinal": 4004,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "decline/decrease commonly describe a downward change and can be intransitive/nouns; reduce strongly supports causative 'make less' but can also be intransitive. Bind to decrease senses and avoid an absolute transitivity rule."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:112",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:112",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "decline/decrease commonly describe a downward change and can be intransitive/nouns; reduce strongly supports causative 'make less' but can also be intransitive. Bind to decrease senses and avoid an absolute transitivity rule.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "reduce",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:reduce:cc93163a50c654e7",
+              "sense:reduce:d741e9538e66575e"
+            ],
+            "word_id": "word:reduce"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:8cbff553a91dcdddd804",
+        "relation_note": "decline/decrease commonly describe a downward change and can be intransitive/nouns; reduce strongly supports causative 'make less' but can also be intransitive. Bind to decrease senses and avoid an absolute transitivity rule.",
+        "relation_scope": "lexeme",
+        "relation_type": "change_causativity_contrast",
+        "sense_ids": [
+          "sense:reduce:cc93163a50c654e7",
+          "sense:reduce:d741e9538e66575e"
+        ],
+        "shared_meaning": "decline/decrease commonly describe a downward change and can be intransitive/nouns; reduce strongly supports causative 'make less' but can also be intransitive. Bind to decrease senses and avoid an absolute transitivity rule.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "reduce",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:reduce:cc93163a50c654e7",
+                  "sense:reduce:d741e9538e66575e"
+                ],
+                "word_id": "word:reduce"
+              }
+            ],
+            "learner_note": "decline/decrease commonly describe a downward change and can be intransitive/nouns; reduce strongly supports causative 'make less' but can also be intransitive. Bind to decrease senses and avoid an absolute transitivity rule.",
+            "relation_targets": [
+              "decline",
+              "decrease"
+            ],
+            "relation_type": "change_causativity_contrast"
+          }
+        ],
+        "source_expression": "reduce",
+        "source_sense_id": null,
+        "target_expression": "decline/decrease ↔ reduce",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

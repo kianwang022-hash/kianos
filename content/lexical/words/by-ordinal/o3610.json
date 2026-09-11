@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3610,
+  "word_id": "word:pint",
+  "word": "pint",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "913941ce2b275020bf06db7724cb7d1d25d1eb4e316556189419411873607e2d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "容量单位",
+      "core_meaning_en": "a unit of volume",
+      "mental_model_cn": "容量单位",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a9c22d33fd2c82e570ba",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pint:130230960b3f522c:collocation:0"
+            ],
+            "meaning_cn": "一品脱啤酒",
+            "phrase": "a pint of beer"
+          },
+          {
+            "collocation_id": "collocation:fc557684d46795535317",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pint:130230960b3f522c:collocation:1"
+            ],
+            "meaning_cn": "品脱杯",
+            "phrase": "pint glass"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "品脱（液量或干量单位）",
+        "definition_en": "a unit of liquid or dry capacity equal to half a quart",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pint:130230960b3f522c",
+        "sense_label_en": "a unit of liquid or dry capacity equal to half a quart",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "pint",
+    "word_family": [],
+    "word_id": "word:pint"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:pint:130230960b3f522c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10023,
+        "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a9c22d33fd2c82e570ba",
+      "collocation:fc557684d46795535317"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a9c22d33fd2c82e570ba",
+        "source_row": 14387,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:fc557684d46795535317",
+        "source_row": 21349,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2ae53517e674556bf224",
+        "source_row": 6664,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      },
+      {
+        "id": "membership:355800a502722efef8fc",
+        "source_row": 12490,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      },
+      {
+        "id": "membership:a4024c91f24de3beafb7",
+        "source_row": 16798,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "pint",
+      "source": "content/lexical/canonical/lookup/spelling/pi.json",
+      "word_id": "word:pint",
+      "ordinal": 3610,
+      "word_shard": "content/lexical/canonical/words/shards/o3609-3616.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3609-3616.json",
+    "source_content_hash": "913941ce2b275020bf06db7724cb7d1d25d1eb4e316556189419411873607e2d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

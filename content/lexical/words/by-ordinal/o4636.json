@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4636,
+  "word_id": "word:spouse",
+  "word": "spouse",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "81a6163c6dc9d205ce034ec07828efbbdc29dbbffdafdf481162e07932b2262d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "配偶",
+      "core_meaning_en": "a person's partner in marriage",
+      "mental_model_cn": "配偶",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cc52645a775f2e126818",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spouse:307f1a6bc59c583a:collocation:0"
+            ],
+            "meaning_cn": "配偶和子女",
+            "phrase": "spouse and children"
+          },
+          {
+            "collocation_id": "collocation:a1a4afbf531b3b669d45",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spouse:307f1a6bc59c583a:collocation:1"
+            ],
+            "meaning_cn": "受扶养的配偶",
+            "phrase": "dependent spouse"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "配偶；丈夫或妻子",
+        "definition_en": "a husband or wife",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:spouse:307f1a6bc59c583a",
+        "sense_label_en": "a husband or wife",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "spouse",
+    "word_family": [],
+    "word_id": "word:spouse"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:spouse:307f1a6bc59c583a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13129,
+        "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a1a4afbf531b3b669d45",
+      "collocation:cc52645a775f2e126818"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a1a4afbf531b3b669d45",
+        "source_row": 13729,
+        "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
+      },
+      {
+        "id": "collocation:cc52645a775f2e126818",
+        "source_row": 17268,
+        "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:dbd6f6826a4934e1cb46",
+        "source_row": 8594,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      },
+      {
+        "id": "membership:c1ab0994e2c0f39254c0",
+        "source_row": 8595,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      },
+      {
+        "id": "membership:4b9ad5b690989fb7931f",
+        "source_row": 17797,
+        "source_path": "content/lexical/canonical/packs/shards/o4609-4640.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "spouse",
+      "source": "content/lexical/canonical/lookup/spelling/sp.json",
+      "word_id": "word:spouse",
+      "ordinal": 4636,
+      "word_shard": "content/lexical/canonical/words/shards/o4633-4640.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4633-4640.json",
+    "source_content_hash": "81a6163c6dc9d205ce034ec07828efbbdc29dbbffdafdf481162e07932b2262d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

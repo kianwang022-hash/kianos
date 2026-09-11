@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1542,
+  "word_id": "word:dynasty",
+  "word": "dynasty",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "4a3ec94a4a83cbc5bb2938b2db812417b7e0a5169bad1354c9e6dfd72a3979a8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "同一家族统治的时期",
+      "core_meaning_en": "a sequence of rulers from the same family",
+      "mental_model_cn": "同一家族统治的时期",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e3ec960aec60a9a5eb0b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dynasty:3df617a5fe795947:collocation:0"
+            ],
+            "meaning_cn": "明朝",
+            "phrase": "the Ming dynasty"
+          },
+          {
+            "collocation_id": "collocation:2314b8283668d273479d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dynasty:3df617a5fe795947:collocation:1"
+            ],
+            "meaning_cn": "统治王朝",
+            "phrase": "a ruling dynasty"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "朝代；王朝",
+        "definition_en": "a series of rulers or leaders who are all from the same family",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dynasty:3df617a5fe795947",
+        "sense_label_en": "a series of rulers or leaders who are all from the same family",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "dynasty",
+    "word_family": [],
+    "word_id": "word:dynasty"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:dynasty:3df617a5fe795947",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4314,
+        "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2314b8283668d273479d",
+      "collocation:e3ec960aec60a9a5eb0b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2314b8283668d273479d",
+        "source_row": 2929,
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+      },
+      {
+        "id": "collocation:e3ec960aec60a9a5eb0b",
+        "source_row": 19296,
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:60e3f465803c132dffd5",
+        "source_row": 2892,
+        "source_path": "content/lexical/canonical/packs/shards/o1537-1568.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "dynasty",
+      "source": "content/lexical/canonical/lookup/spelling/dy.json",
+      "word_id": "word:dynasty",
+      "ordinal": 1542,
+      "word_shard": "content/lexical/canonical/words/shards/o1537-1544.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1537-1544.json",
+    "source_content_hash": "4a3ec94a4a83cbc5bb2938b2db812417b7e0a5169bad1354c9e6dfd72a3979a8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

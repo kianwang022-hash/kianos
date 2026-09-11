@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 55,
+  "word_id": "word:acre",
+  "word": "acre",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ba6ecf6cf8943d4e43cd1c292a0d56a42300007acc4bbf90cc9be344dfab3da9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "英亩",
+      "core_meaning_en": "a unit of area equal to 4840 square yards",
+      "mental_model_cn": "英亩",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:02fbce1f6e204b3930c8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acre:8051feecdded577d:collocation:0"
+            ],
+            "meaning_cn": "一英亩土地",
+            "phrase": "an acre of land"
+          },
+          {
+            "collocation_id": "collocation:801419e6745d68f52bbc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acre:8051feecdded577d:collocation:1"
+            ],
+            "meaning_cn": "大面积的……",
+            "phrase": "acres of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "英亩",
+        "definition_en": "a unit of area used in English-speaking countries, equal to 4840 square yards",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:acre:8051feecdded577d",
+        "sense_label_en": "a unit of area used in English-speaking countries, equal to 4840 square ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "acre",
+    "word_family": [],
+    "word_id": "word:acre"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:acre:8051feecdded577d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 147,
+        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:02fbce1f6e204b3930c8",
+      "collocation:801419e6745d68f52bbc"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:02fbce1f6e204b3930c8",
+        "source_row": 248,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
+        "id": "collocation:801419e6745d68f52bbc",
+        "source_row": 10844,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:b65423002499a732d4ce",
+        "source_row": 115,
+        "source_path": "content/lexical/canonical/packs/shards/o0033-0064.json"
+      },
+      {
+        "id": "membership:a1341ef58645378d1bfb",
+        "source_row": 10242,
+        "source_path": "content/lexical/canonical/packs/shards/o0033-0064.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "acre",
+      "source": "content/lexical/canonical/lookup/spelling/ac.json",
+      "word_id": "word:acre",
+      "ordinal": 55,
+      "word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/77.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
+    "source_content_hash": "ba6ecf6cf8943d4e43cd1c292a0d56a42300007acc4bbf90cc9be344dfab3da9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

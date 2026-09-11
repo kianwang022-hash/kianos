@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:6365310b0c8adfdd6004",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:quite",
+      "source_ordinal": 3910,
+      "field": "confusables",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "quiet = making little/no noise or calm; quite = fairly/completely depending context."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:037",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:037",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:6365310b0c8adfdd6004",
+        "learning_note": "quiet = making little/no noise or calm; quite = fairly/completely depending context.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "quite",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:quite"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "quiet = making little/no noise or calm; quite = fairly/completely depending context.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_sound_confusable",
+        "sense_ids": [],
+        "shared_meaning": "quiet = making little/no noise or calm; quite = fairly/completely depending context.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "quite",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:quite"
+              }
+            ],
+            "learner_note": "quiet = making little/no noise or calm; quite = fairly/completely depending context.",
+            "relation_targets": [
+              "quiet"
+            ],
+            "relation_type": "form_sound_confusable"
+          }
+        ],
+        "source_expression": "quite",
+        "source_sense_id": null,
+        "target_expression": "quiet",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "quiet",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

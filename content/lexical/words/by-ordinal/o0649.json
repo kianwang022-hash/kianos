@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 649,
+  "word_id": "word:cafe",
+  "word": "cafe",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e08b0bb6cea2d03faf1f9a148f96491f771d745350c073aa871759742bfdfe88",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "小餐馆，咖啡馆",
+      "core_meaning_en": "a small informal restaurant serving drinks and snacks",
+      "mental_model_cn": "小餐馆，咖啡馆",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7e83f248b32b98488cc8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cafe:c9b98edcfa4b5925:collocation:0"
+            ],
+            "meaning_cn": "路边咖啡馆",
+            "phrase": "a sidewalk cafe"
+          },
+          {
+            "collocation_id": "collocation:9e3f88e9b1f428f39252",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cafe:c9b98edcfa4b5925:collocation:1"
+            ],
+            "meaning_cn": "网吧",
+            "phrase": "an internet cafe"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "咖啡馆；小餐馆",
+        "definition_en": "a small restaurant where drinks and snacks are sold",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cafe:c9b98edcfa4b5925",
+        "sense_label_en": "a small restaurant where drinks and snacks are sold",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "cafe",
+    "word_family": [],
+    "word_id": "word:cafe"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cafe:c9b98edcfa4b5925",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1833,
+        "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7e83f248b32b98488cc8",
+      "collocation:9e3f88e9b1f428f39252"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:7e83f248b32b98488cc8",
+        "source_row": 10701,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:9e3f88e9b1f428f39252",
+        "source_row": 13467,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1bb97efbba7decba6687",
+        "source_row": 1201,
+        "source_path": "content/lexical/canonical/packs/shards/o0641-0672.json"
+      },
+      {
+        "id": "membership:13ef828e8bf8042d7f90",
+        "source_row": 10609,
+        "source_path": "content/lexical/canonical/packs/shards/o0641-0672.json"
+      },
+      {
+        "id": "membership:a5370e17baf7c8036ca9",
+        "source_row": 14181,
+        "source_path": "content/lexical/canonical/packs/shards/o0641-0672.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cafe",
+      "source": "content/lexical/canonical/lookup/spelling/ca.json",
+      "word_id": "word:cafe",
+      "ordinal": 649,
+      "word_shard": "content/lexical/canonical/words/shards/o0649-0656.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/29.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0649-0656.json",
+    "source_content_hash": "e08b0bb6cea2d03faf1f9a148f96491f771d745350c073aa871759742bfdfe88",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

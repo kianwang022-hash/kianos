@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 160,
+  "word_id": "word:alphabet",
+  "word": "alphabet",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "7a97d9ab6aced5e6a3b281b2f6592eacf2125187edeb1eb976639ad4587de993",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "字母表",
+      "core_meaning_en": "a set of letters used for writing a language",
+      "mental_model_cn": "字母表",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e7ff94b90a65dbaf7288",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:alphabet:98efa57d04f9589f:collocation:0"
+            ],
+            "meaning_cn": "英语字母表",
+            "phrase": "the English alphabet"
+          },
+          {
+            "collocation_id": "collocation:aa385300b5037742888c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:alphabet:98efa57d04f9589f:collocation:1"
+            ],
+            "meaning_cn": "学习字母表",
+            "phrase": "learn the alphabet"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "字母表；字母系统",
+        "definition_en": "a character set that includes letters and is used to write a language",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:alphabet:98efa57d04f9589f",
+        "sense_label_en": "a character set that includes letters and is used to write a language",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "alphabet",
+    "word_family": [],
+    "word_id": "word:alphabet"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:alphabet:98efa57d04f9589f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 424,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:aa385300b5037742888c",
+      "collocation:e7ff94b90a65dbaf7288"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:aa385300b5037742888c",
+        "source_row": 14423,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:e7ff94b90a65dbaf7288",
+        "source_row": 19664,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d50c9b67483f97618ff7",
+        "source_row": 323,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:436df4c2f62c2418b1aa",
+        "source_row": 10308,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:dfc225d85c79721b7f03",
+        "source_row": 13880,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "alphabet",
+      "source": "content/lexical/canonical/lookup/spelling/al.json",
+      "word_id": "word:alphabet",
+      "ordinal": 160,
+      "word_shard": "content/lexical/canonical/words/shards/o0153-0160.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0153-0160.json",
+    "source_content_hash": "7a97d9ab6aced5e6a3b281b2f6592eacf2125187edeb1eb976639ad4587de993",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

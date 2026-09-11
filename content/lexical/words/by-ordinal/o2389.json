@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2389,
+  "word_id": "word:housewife",
+  "word": "housewife",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1e9bfebe2b0a08017092697292b018a9c7e3613387e15c6101ee4ff98b57854b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "操持家务的已婚妇女",
+      "core_meaning_en": "a married woman who manages her household",
+      "mental_model_cn": "操持家务的已婚妇女",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:25d5d9d06ace9e3ea282",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:housewife:f95a9377533e5333:collocation:0"
+            ],
+            "meaning_cn": "一位家庭主妇兼母亲",
+            "phrase": "a housewife and mother"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主妇，家庭妇女",
+        "definition_en": "a wife who manages a household while her husband earns the family income",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:housewife:f95a9377533e5333",
+        "sense_label_en": "a wife who manages a household while her husband earns the family income",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "housewife",
+    "word_family": [],
+    "word_id": "word:housewife"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:housewife:f95a9377533e5333",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6663,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:25d5d9d06ace9e3ea282"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:25d5d9d06ace9e3ea282",
+        "source_row": 3173,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:54b58676c0a79905de19",
+        "source_row": 4449,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      },
+      {
+        "id": "membership:b30d1f02b2b7eba62be5",
+        "source_row": 11719,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      },
+      {
+        "id": "membership:9a3f3cbb4608cb9fd7c1",
+        "source_row": 15689,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "housewife",
+      "source": "content/lexical/canonical/lookup/spelling/ho.json",
+      "word_id": "word:housewife",
+      "ordinal": 2389,
+      "word_shard": "content/lexical/canonical/words/shards/o2385-2392.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ad.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2385-2392.json",
+    "source_content_hash": "1e9bfebe2b0a08017092697292b018a9c7e3613387e15c6101ee4ff98b57854b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

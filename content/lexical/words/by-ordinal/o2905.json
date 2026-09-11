@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2905,
+  "word_id": "word:luggage",
+  "word": "luggage",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e8ed9b9becdd7e810c01f51a68d22ef47928a824b17db23046b84b9a37b948b8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "旅行时携带的箱包",
+      "core_meaning_en": "bags and cases for carrying belongings when traveling",
+      "mental_model_cn": "旅行时携带的箱包",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8cc846d628ad24f97bd4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:luggage:7a7136bb326a5be7:collocation:0"
+            ],
+            "meaning_cn": "手提行李",
+            "phrase": "hand luggage"
+          },
+          {
+            "collocation_id": "collocation:42dd740a828ce13ecff1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:luggage:7a7136bb326a5be7:collocation:1"
+            ],
+            "meaning_cn": "托运行李",
+            "phrase": "check in one's luggage"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "行李",
+        "definition_en": "the bags, suitcases, etc. that you carry when traveling",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:luggage:7a7136bb326a5be7",
+        "sense_label_en": "the bags, suitcases, etc. that you carry when traveling",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "luggage",
+    "word_family": [],
+    "word_id": "word:luggage"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:luggage:7a7136bb326a5be7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8092,
+        "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:42dd740a828ce13ecff1",
+      "collocation:8cc846d628ad24f97bd4"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:42dd740a828ce13ecff1",
+        "source_row": 5660,
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+      },
+      {
+        "id": "collocation:8cc846d628ad24f97bd4",
+        "source_row": 11946,
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8c962007fe59213979c3",
+        "source_row": 5417,
+        "source_path": "content/lexical/canonical/packs/shards/o2881-2912.json"
+      },
+      {
+        "id": "membership:534df23943b5a968f0d3",
+        "source_row": 12053,
+        "source_path": "content/lexical/canonical/packs/shards/o2881-2912.json"
+      },
+      {
+        "id": "membership:ec9b3c6b4d7440c7af97",
+        "source_row": 16170,
+        "source_path": "content/lexical/canonical/packs/shards/o2881-2912.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "luggage",
+      "source": "content/lexical/canonical/lookup/spelling/lu.json",
+      "word_id": "word:luggage",
+      "ordinal": 2905,
+      "word_shard": "content/lexical/canonical/words/shards/o2905-2912.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ba.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2905-2912.json",
+    "source_content_hash": "e8ed9b9becdd7e810c01f51a68d22ef47928a824b17db23046b84b9a37b948b8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

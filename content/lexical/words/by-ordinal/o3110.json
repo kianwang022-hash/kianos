@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3110,
+  "word_id": "word:monetary",
+  "word": "monetary",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fe28c910f2c32f634344aca74c2ecedcb41c9b72333c8cf1fc879523e0d07566",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "与金钱或货币有关",
+      "core_meaning_en": "relating to money or currency",
+      "mental_model_cn": "与金钱或货币有关",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f0620a8c4d6b5e4007ba",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:monetary:ca458767287c528c:collocation:0"
+            ],
+            "meaning_cn": "货币政策",
+            "phrase": "monetary policy"
+          },
+          {
+            "collocation_id": "collocation:cce1a7985126926bcc2a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:monetary:ca458767287c528c:collocation:1"
+            ],
+            "meaning_cn": "货币价值",
+            "phrase": "monetary value"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "关于金钱或国家货币的",
+        "definition_en": "of or relating to money or the currency of a country",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:monetary:ca458767287c528c",
+        "sense_label_en": "of or relating to money or the currency of a country",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "monetary",
+    "word_family": [],
+    "word_id": "word:monetary"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:monetary:ca458767287c528c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8659,
+        "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:cce1a7985126926bcc2a",
+      "collocation:f0620a8c4d6b5e4007ba"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:cce1a7985126926bcc2a",
+        "source_row": 17333,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:f0620a8c4d6b5e4007ba",
+        "source_row": 20367,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3dc4c3769f9f4ece268f",
+        "source_row": 5777,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:dcc131c3919c801299ed",
+        "source_row": 16365,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "monetary",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:monetary",
+      "ordinal": 3110,
+      "word_shard": "content/lexical/canonical/words/shards/o3105-3112.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f7.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3105-3112.json",
+    "source_content_hash": "fe28c910f2c32f634344aca74c2ecedcb41c9b72333c8cf1fc879523e0d07566",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

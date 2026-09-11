@@ -1,0 +1,149 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1936,
+  "word_id": "word:fireman",
+  "word": "fireman",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "83a7febaf625720728b605ec24594652abde1f346867f4d32617ce9103da2c6a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "消防队员",
+      "core_meaning_en": "a person who fights fires",
+      "mental_model_cn": "消防队员",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb7de1eb7f3b8d398eb5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:fireman:150fb04ea2435020:collocation:0"
+            ],
+            "meaning_cn": "勇敢的消防队员",
+            "phrase": "a brave fireman"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "消防队员",
+        "definition_en": "a member of a fire department who extinguishes fires",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fireman:150fb04ea2435020",
+        "sense_label_en": "a member of a fire department who extinguishes fires",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "司炉",
+        "definition_en": "a person who tends a furnace or boiler (stoker)",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fireman:1576b50685185f25",
+        "sense_label_en": "a person who tends a furnace or boiler (stoker)",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "fireman",
+    "word_family": [],
+    "word_id": "word:fireman"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:fireman:150fb04ea2435020",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5342,
+        "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:fireman:1576b50685185f25",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5343,
+        "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:cb7de1eb7f3b8d398eb5"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:cb7de1eb7f3b8d398eb5",
+        "source_row": 17189,
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:532f51ab7870b2e61f6e",
+        "source_row": 3670,
+        "source_path": "content/lexical/canonical/packs/shards/o1921-1952.json"
+      },
+      {
+        "id": "membership:749c91ed3d85055d9ab9",
+        "source_row": 11427,
+        "source_path": "content/lexical/canonical/packs/shards/o1921-1952.json"
+      },
+      {
+        "id": "membership:86fe2518a0991593a611",
+        "source_row": 15279,
+        "source_path": "content/lexical/canonical/packs/shards/o1921-1952.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "fireman",
+      "source": "content/lexical/canonical/lookup/spelling/fi.json",
+      "word_id": "word:fireman",
+      "ordinal": 1936,
+      "word_shard": "content/lexical/canonical/words/shards/o1929-1936.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/a3.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1929-1936.json",
+    "source_content_hash": "83a7febaf625720728b605ec24594652abde1f346867f4d32617ce9103da2c6a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 354,
+  "word_id": "word:avenue",
+  "word": "avenue",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1dfa9d4e1bae131c96e016f355afc46c13ce45d807f83698ede53faeb1a2fd92",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "大街或途径",
+      "core_meaning_en": "a wide street or a way of approaching something",
+      "mental_model_cn": "大街或途径",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5eb404d1d07a4e0dfa7d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:avenue:66060f734e0f515f:collocation:0"
+            ],
+            "meaning_cn": "第五大道",
+            "phrase": "Fifth Avenue"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "大街；林荫道",
+        "definition_en": "a wide street or thoroughfare",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:avenue:66060f734e0f515f",
+        "sense_label_en": "a wide street or thoroughfare",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:38f7c257b98c6d8aafcb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:avenue:8707c1c702ce524a:collocation:0"
+            ],
+            "meaning_cn": "逃跑的途径",
+            "phrase": "avenue of escape"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "途径；手段",
+        "definition_en": "a line of approach or means of access",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:avenue:8707c1c702ce524a",
+        "sense_label_en": "a line of approach or means of access",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "avenue",
+    "word_family": [],
+    "word_id": "word:avenue"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:avenue:66060f734e0f515f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 897,
+        "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
+      },
+      {
+        "sense_id": "sense:avenue:8707c1c702ce524a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 898,
+        "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:38f7c257b98c6d8aafcb",
+      "collocation:5eb404d1d07a4e0dfa7d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:38f7c257b98c6d8aafcb",
+        "source_row": 4823,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:5eb404d1d07a4e0dfa7d",
+        "source_row": 7970,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:0e11abd339df1fb13666",
+        "source_row": 705,
+        "source_path": "content/lexical/canonical/packs/shards/o0353-0384.json"
+      },
+      {
+        "id": "membership:0a3ff260288f4d8841eb",
+        "source_row": 10429,
+        "source_path": "content/lexical/canonical/packs/shards/o0353-0384.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "avenue",
+      "source": "content/lexical/canonical/lookup/spelling/av.json",
+      "word_id": "word:avenue",
+      "ordinal": 354,
+      "word_shard": "content/lexical/canonical/words/shards/o0353-0360.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/16.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0353-0360.json",
+    "source_content_hash": "1dfa9d4e1bae131c96e016f355afc46c13ce45d807f83698ede53faeb1a2fd92",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 169,
+  "word_id": "word:aluminum",
+  "word": "aluminum",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bd5ab4f3a85e1252ffc9847388707d91036291867ba57bd5ea8937f063d2a68a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "铝",
+      "core_meaning_en": "a light silvery metal",
+      "mental_model_cn": "铝",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4929ee4f67711611181d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aluminum:6ec01c12022a52f3:collocation:0"
+            ],
+            "meaning_cn": "铝箔",
+            "phrase": "aluminum foil"
+          },
+          {
+            "collocation_id": "collocation:ec02232815ceb30fde84",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aluminum:6ec01c12022a52f3:collocation:1"
+            ],
+            "meaning_cn": "铝合金",
+            "phrase": "aluminum alloy"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "铝",
+        "definition_en": "a silvery ductile metallic element",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:aluminum:6ec01c12022a52f3",
+        "sense_label_en": "a silvery ductile metallic element",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "aluminum",
+    "word_family": [],
+    "word_id": "word:aluminum"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:f9b2d3df4709e2afb2f5",
+      "owner_path": "content/lexical/relations/by-id/e8/e8cf736d682fffdb6c6d06f745217976365e9c595aec49855b3ebc6c97558068.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:aluminum:6ec01c12022a52f3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 441,
+        "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4929ee4f67711611181d",
+      "collocation:ec02232815ceb30fde84"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4929ee4f67711611181d",
+        "source_row": 6156,
+        "source_path": "content/lexical/canonical/collocations/shards/o0161-0192.json"
+      },
+      {
+        "id": "collocation:ec02232815ceb30fde84",
+        "source_row": 19999,
+        "source_path": "content/lexical/canonical/collocations/shards/o0161-0192.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:b261b4eb6ae8f1727a98",
+        "source_row": 344,
+        "source_path": "content/lexical/canonical/packs/shards/o0161-0192.json"
+      },
+      {
+        "id": "membership:ce383630084d10d6b358",
+        "source_row": 10314,
+        "source_path": "content/lexical/canonical/packs/shards/o0161-0192.json"
+      },
+      {
+        "id": "membership:ebe2272b957c065d2618",
+        "source_row": 13885,
+        "source_path": "content/lexical/canonical/packs/shards/o0161-0192.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "aluminum",
+      "source": "content/lexical/canonical/lookup/spelling/al.json",
+      "word_id": "word:aluminum",
+      "ordinal": 169,
+      "word_shard": "content/lexical/canonical/words/shards/o0169-0176.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/40.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0169-0176.json",
+    "source_content_hash": "bd5ab4f3a85e1252ffc9847388707d91036291867ba57bd5ea8937f063d2a68a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

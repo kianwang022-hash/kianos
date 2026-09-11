@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3145,
+  "word_id": "word:movie",
+  "word": "movie",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "529eacb5cf1b7a835b06728054f0cd8da83e11281475422cd6deb01b52c01f88",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "电影",
+      "core_meaning_en": "a motion picture",
+      "mental_model_cn": "电影",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3dee7f90e674d2145db8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:movie:369e3213ecc458f3:collocation:0"
+            ],
+            "meaning_cn": "看电影",
+            "phrase": "watch a movie"
+          },
+          {
+            "collocation_id": "collocation:eabe2a9c016d9ddc77bb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:movie:369e3213ecc458f3:collocation:1"
+            ],
+            "meaning_cn": "电影明星",
+            "phrase": "movie star"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "电影",
+        "definition_en": "a form of entertainment that tells a story through moving images and sound",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:movie:369e3213ecc458f3",
+        "sense_label_en": "a form of entertainment that tells a story through moving images and sou",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "movie",
+    "word_family": [],
+    "word_id": "word:movie"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:movie:369e3213ecc458f3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8760,
+        "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3dee7f90e674d2145db8",
+      "collocation:eabe2a9c016d9ddc77bb"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3dee7f90e674d2145db8",
+        "source_row": 5240,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:eabe2a9c016d9ddc77bb",
+        "source_row": 19885,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:259e60361ee9cd5da57b",
+        "source_row": 5842,
+        "source_path": "content/lexical/canonical/packs/shards/o3137-3168.json"
+      },
+      {
+        "id": "membership:5185c6bd580192e71388",
+        "source_row": 5843,
+        "source_path": "content/lexical/canonical/packs/shards/o3137-3168.json"
+      },
+      {
+        "id": "membership:3264b32726dde14e5997",
+        "source_row": 12198,
+        "source_path": "content/lexical/canonical/packs/shards/o3137-3168.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "movie",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:movie",
+      "ordinal": 3145,
+      "word_shard": "content/lexical/canonical/words/shards/o3145-3152.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3145-3152.json",
+    "source_content_hash": "529eacb5cf1b7a835b06728054f0cd8da83e11281475422cd6deb01b52c01f88",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:accuse:0b0520c2bf256dec",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "charge 常指正式或法律指控；accuse 更通用",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "OEWN supports the shared accusation sense; the corrected target anchor selects charge as a verb, not the price noun.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "blame for, make a claim of wrongdoing or misbehavior against",
+      "shared_synset": "00845147-v",
+      "source_definition": "to make an accusation",
+      "source_sense_id": "sense:accuse:db6807e6402b54bd",
+      "target_definition": "the price asked for a service or goods",
+      "target_sense_id": "sense:charge:8b066b3730b95108",
+      "target_word": "charge"
+    },
+    "dimensions": {
+      "certainty": "均非定罪",
+      "collocation": "charge with/accuse of",
+      "core_meaning": "指控",
+      "exam_trap": "介词不同",
+      "register": "charge偏法律",
+      "semantic_prosody": "负面",
+      "strength": "charge更正式",
+      "syntax": "accuse/charge sb with",
+      "writing_safety": "按构式选"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00845147-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00845147-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:accuse:0b0520c2bf256dec",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 11.75,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "core_basic_mislabel",
+      "missing_boundary",
+      "incomplete_contrast_dimensions",
+      "unresolved_target_sense_anchor"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 5,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "to make an accusation",
+      "source_sense_id": "sense:accuse:db6807e6402b54bd",
+      "target_definition": "the price asked for a service or goods",
+      "target_sense_id": "sense:charge:8b066b3730b95108"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:accuse:b58783ce580f5cca",
+    "target_sense_id": "sense:charge:8b066b3730b95108",
+    "target_word": "charge",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "B",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "accuse",
+    "word_id": "word:accuse",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:accuse",
+      "source_ordinal": 45,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "charge 常指正式或法律指控；accuse 更通用",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均非定罪",
+          "collocation": "charge with/accuse of",
+          "core_meaning": "指控",
+          "exam_trap": "介词不同",
+          "register": "charge偏法律",
+          "semantic_prosody": "负面",
+          "strength": "charge更正式",
+          "syntax": "accuse/charge sb with",
+          "writing_safety": "按构式选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00845147-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00845147-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:accuse:0b0520c2bf256dec",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "blame for, make a claim of wrongdoing or misbehavior against",
+        "source_sense_id": "sense:accuse:db6807e6402b54bd",
+        "target_sense_id": "sense:charge:8b066b3730b95108",
+        "target_word": "charge",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

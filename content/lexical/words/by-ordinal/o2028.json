@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2028,
+  "word_id": "word:four",
+  "word": "four",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e9b992eaeb07aa880fe533dcd032a730251b7168dd75d7de5df53f273c598557",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "四",
+      "core_meaning_en": "the number 4",
+      "mental_model_cn": "四",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:db1b353dc1b7b75c240b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:four:8fa4fbfcf3e25ad1:collocation:0"
+            ],
+            "meaning_cn": "四季",
+            "phrase": "four seasons"
+          },
+          {
+            "collocation_id": "collocation:5f8fe10b96dc51747b4e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:four:8fa4fbfcf3e25ad1:collocation:1"
+            ],
+            "meaning_cn": "四点钟",
+            "phrase": "four o'clock"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "四",
+        "definition_en": "the cardinal number that is the sum of three and one",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "numeral",
+        "sense_id": "sense:four:8fa4fbfcf3e25ad1",
+        "sense_label_en": "the cardinal number that is the sum of three and one",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "four",
+    "word_family": [],
+    "word_id": "word:four"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:four:8fa4fbfcf3e25ad1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5641,
+        "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:5f8fe10b96dc51747b4e",
+      "collocation:db1b353dc1b7b75c240b"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:5f8fe10b96dc51747b4e",
+        "source_row": 8036,
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:db1b353dc1b7b75c240b",
+        "source_row": 18544,
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:b51b8d4a6a58102fcc56",
+        "source_row": 3835,
+        "source_path": "content/lexical/canonical/packs/shards/o2017-2048.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "four",
+      "source": "content/lexical/canonical/lookup/spelling/fo.json",
+      "word_id": "word:four",
+      "ordinal": 2028,
+      "word_shard": "content/lexical/canonical/words/shards/o2025-2032.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/10.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2025-2032.json",
+    "source_content_hash": "e9b992eaeb07aa880fe533dcd032a730251b7168dd75d7de5df53f273c598557",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

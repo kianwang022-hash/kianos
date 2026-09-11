@@ -1,0 +1,157 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:infer:24f22801e68b9cda",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "deduce 更强调演绎推理；infer 泛指由证据推断",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Direct shared reasoning synset and stable sense anchors make this a high-value reading and cloze contrast.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "reason by deduction; establish by deduction",
+      "shared_synset": "00638236-v",
+      "source_definition": "to conclude from evidence or premises",
+      "source_sense_id": "sense:infer:6a34684707705726",
+      "target_definition": "to conclude by reasoning",
+      "target_sense_id": "sense:deduce:ee7a2e049f3a54e7",
+      "target_word": "deduce"
+    },
+    "dimensions": {
+      "certainty": "均非直接观察",
+      "collocation": "infer meaning/deduce result",
+      "core_meaning": "推断",
+      "exam_trap": "推理方式",
+      "register": "deduce略正式",
+      "semantic_prosody": "中性",
+      "strength": "deduce更演绎",
+      "syntax": "infer/deduce from",
+      "writing_safety": "按证据链选"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00638236-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00638236-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:infer:24f22801e68b9cda",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "near_synonym",
+      "missing_boundary",
+      "incomplete_contrast_dimensions",
+      "unresolved_source_sense_anchor"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 4,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "to conclude from evidence or premises",
+      "source_sense_id": "sense:infer:6a34684707705726",
+      "target_definition": "to conclude by reasoning",
+      "target_sense_id": "sense:deduce:ee7a2e049f3a54e7"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:infer:6a34684707705726",
+    "target_sense_id": "sense:deduce:ee7a2e049f3a54e7",
+    "target_word": "deduce",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "infer",
+    "word_id": "word:infer",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:infer",
+      "source_ordinal": 2522,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "deduce 更强调演绎推理；infer 泛指由证据推断",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均非直接观察",
+          "collocation": "infer meaning/deduce result",
+          "core_meaning": "推断",
+          "exam_trap": "推理方式",
+          "register": "deduce略正式",
+          "semantic_prosody": "中性",
+          "strength": "deduce更演绎",
+          "syntax": "infer/deduce from",
+          "writing_safety": "按证据链选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00638236-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00638236-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:infer:24f22801e68b9cda",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "reason by deduction; establish by deduction",
+        "source_sense_id": "sense:infer:6a34684707705726",
+        "target_sense_id": "sense:deduce:ee7a2e049f3a54e7",
+        "target_word": "deduce",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

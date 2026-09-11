@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4605,
+  "word_id": "word:spectator",
+  "word": "spectator",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "236657952ed40b825542cf3f1a06663aa53c1ee7c313af1ade6eda35a473fe6c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "观众，旁观者",
+      "core_meaning_en": "a person who watches an event or activity",
+      "mental_model_cn": "观众，旁观者",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:240b4a4fe7152d81b8b1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:spectator:48fd842eb2255110:collocation:0"
+            ],
+            "meaning_cn": "观赏性运动",
+            "phrase": "spectator sport"
+          },
+          {
+            "collocation_id": "collocation:e480c3eb6d047507b8c0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:spectator:48fd842eb2255110:collocation:1"
+            ],
+            "meaning_cn": "仅仅是一个旁观者",
+            "phrase": "a mere spectator"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "观众（尤指体育比赛的）",
+        "definition_en": "a person who watches an event, especially a sports event",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:spectator:48fd842eb2255110",
+        "sense_label_en": "a person who watches an event, especially a sports event",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "spectator",
+    "word_family": [],
+    "word_id": "word:spectator"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:spectator:48fd842eb2255110",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13024,
+        "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:240b4a4fe7152d81b8b1",
+      "collocation:e480c3eb6d047507b8c0"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:240b4a4fe7152d81b8b1",
+        "source_row": 3019,
+        "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:e480c3eb6d047507b8c0",
+        "source_row": 19349,
+        "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f5e61fdf0b4ec3dab14b",
+        "source_row": 8541,
+        "source_path": "content/lexical/canonical/packs/shards/o4577-4608.json"
+      },
+      {
+        "id": "membership:02142c2cb01f67f0e4db",
+        "source_row": 8542,
+        "source_path": "content/lexical/canonical/packs/shards/o4577-4608.json"
+      },
+      {
+        "id": "membership:5e236ffaf0777e82d6e7",
+        "source_row": 17767,
+        "source_path": "content/lexical/canonical/packs/shards/o4577-4608.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "spectator",
+      "source": "content/lexical/canonical/lookup/spelling/sp.json",
+      "word_id": "word:spectator",
+      "ordinal": 4605,
+      "word_shard": "content/lexical/canonical/words/shards/o4601-4608.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4601-4608.json",
+    "source_content_hash": "236657952ed40b825542cf3f1a06663aa53c1ee7c313af1ade6eda35a473fe6c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

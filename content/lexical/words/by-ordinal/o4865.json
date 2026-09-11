@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4865,
+  "word_id": "word:sword",
+  "word": "sword",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "a18c3e22a26cdb4c1973d732ee352aa44b3ed753a88817b53639a4fae357d9bd",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "剑",
+      "core_meaning_en": "a weapon with a long metal blade and hilt",
+      "mental_model_cn": "剑",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9db6cecd17844dfc428a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sword:e8558237c03c52b7:collocation:0"
+            ],
+            "meaning_cn": "拔剑",
+            "phrase": "draw one's sword"
+          },
+          {
+            "collocation_id": "collocation:b0a24d9c44b3d7cc8c08",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sword:e8558237c03c52b7:collocation:1"
+            ],
+            "meaning_cn": "达摩克利斯之剑",
+            "phrase": "the sword of Damocles"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "剑；刀",
+        "definition_en": "a weapon with a long metal blade and a hilt",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sword:e8558237c03c52b7",
+        "sense_label_en": "a weapon with a long metal blade and a hilt",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "sword",
+    "word_family": [],
+    "word_id": "word:sword"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:sword:e8558237c03c52b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13837,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9db6cecd17844dfc428a",
+      "collocation:b0a24d9c44b3d7cc8c08"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9db6cecd17844dfc428a",
+        "source_row": 13432,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      },
+      {
+        "id": "collocation:b0a24d9c44b3d7cc8c08",
+        "source_row": 14957,
+        "source_path": "content/lexical/canonical/collocations/shards/o4865-4896.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3165be925d44a087f1c1",
+        "source_row": 9040,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      },
+      {
+        "id": "membership:68961b746e9e96ace0bb",
+        "source_row": 13360,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      },
+      {
+        "id": "membership:5afc8016e569e17c4248",
+        "source_row": 18011,
+        "source_path": "content/lexical/canonical/packs/shards/o4865-4896.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "sword",
+      "source": "content/lexical/canonical/lookup/spelling/sw.json",
+      "word_id": "word:sword",
+      "ordinal": 4865,
+      "word_shard": "content/lexical/canonical/words/shards/o4865-4872.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4865-4872.json",
+    "source_content_hash": "a18c3e22a26cdb4c1973d732ee352aa44b3ed753a88817b53639a4fae357d9bd",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

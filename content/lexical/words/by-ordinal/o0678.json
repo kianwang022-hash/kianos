@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 678,
+  "word_id": "word:cape",
+  "word": "cape",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "3a2efd969e640cf4e7953a8f64775d55f85b1126e4e44a0f6474bbe253676e5a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "海角；披肩",
+      "core_meaning_en": "a piece of land extending into the sea; a short cloak",
+      "mental_model_cn": "海角；披肩",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:859f3163b4e1884b1b79",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cape:94c4d6342d185f98:collocation:0"
+            ],
+            "meaning_cn": "好望角",
+            "phrase": "Cape of Good Hope"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "海角；岬",
+        "definition_en": "a piece of land projecting into the sea",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cape:94c4d6342d185f98",
+        "sense_label_en": "a piece of land projecting into the sea",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e8175f8d6ce33f6b87a7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cape:2f7a6f03bf5c5589:collocation:0"
+            ],
+            "meaning_cn": "穿披肩",
+            "phrase": "wear a cape"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "披肩；斗篷",
+        "definition_en": "a short sleeveless cloak",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cape:2f7a6f03bf5c5589",
+        "sense_label_en": "a short sleeveless cloak",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "cape",
+    "word_family": [],
+    "word_id": "word:cape"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cape:2f7a6f03bf5c5589",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1918,
+        "source_path": "content/lexical/canonical/senses/shards/o0673-0704.json"
+      },
+      {
+        "sense_id": "sense:cape:94c4d6342d185f98",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1919,
+        "source_path": "content/lexical/canonical/senses/shards/o0673-0704.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:859f3163b4e1884b1b79",
+      "collocation:e8175f8d6ce33f6b87a7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:859f3163b4e1884b1b79",
+        "source_row": 11345,
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+      },
+      {
+        "id": "collocation:e8175f8d6ce33f6b87a7",
+        "source_row": 19667,
+        "source_path": "content/lexical/canonical/collocations/shards/o0673-0704.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:aa4dc7c8e2fb180b9487",
+        "source_row": 1248,
+        "source_path": "content/lexical/canonical/packs/shards/o0673-0704.json"
+      },
+      {
+        "id": "membership:66c1ab0212930262bf8d",
+        "source_row": 14208,
+        "source_path": "content/lexical/canonical/packs/shards/o0673-0704.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cape",
+      "source": "content/lexical/canonical/lookup/spelling/ca.json",
+      "word_id": "word:cape",
+      "ordinal": 678,
+      "word_shard": "content/lexical/canonical/words/shards/o0673-0680.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/74.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0673-0680.json",
+    "source_content_hash": "3a2efd969e640cf4e7953a8f64775d55f85b1126e4e44a0f6474bbe253676e5a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4025,
+  "word_id": "word:regarding",
+  "word": "regarding",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "644890a6fd402fe7834d04a3232580999f46482a5bd4d7231b61619068d12dbf",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "关于",
+      "core_meaning_en": "concerning, about",
+      "mental_model_cn": "关于",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d2a3fc23ebe3dc9c9821",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:regarding:59f67dd197de5be9:collocation:0"
+            ],
+            "meaning_cn": "关于某事",
+            "phrase": "regarding + sth"
+          },
+          {
+            "collocation_id": "collocation:9cc48c859d267256645d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:regarding:59f67dd197de5be9:collocation:1"
+            ],
+            "meaning_cn": "关于项目的问题",
+            "phrase": "questions regarding the project"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "关于",
+        "definition_en": "concerning or about something",
+        "governing_pattern": "prep. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:regarding:59f67dd197de5be9",
+        "sense_label_en": "concerning or about something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "regarding",
+    "word_family": [],
+    "word_id": "word:regarding"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:regarding:59f67dd197de5be9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11243,
+        "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9cc48c859d267256645d",
+      "collocation:d2a3fc23ebe3dc9c9821"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9cc48c859d267256645d",
+        "source_row": 13348,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      },
+      {
+        "id": "collocation:d2a3fc23ebe3dc9c9821",
+        "source_row": 17802,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:53bb738d5e3fd4b49d54",
+        "source_row": 7453,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      },
+      {
+        "id": "membership:ef7f2cd3bf133c98a6f5",
+        "source_row": 12776,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      },
+      {
+        "id": "membership:80023883222951f8f3eb",
+        "source_row": 17209,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "regarding",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:regarding",
+      "ordinal": 4025,
+      "word_shard": "content/lexical/canonical/words/shards/o4025-4032.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/21.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4025-4032.json",
+    "source_content_hash": "644890a6fd402fe7834d04a3232580999f46482a5bd4d7231b61619068d12dbf",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

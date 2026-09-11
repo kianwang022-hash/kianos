@@ -1,0 +1,147 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2961,
+  "word_id": "word:marital",
+  "word": "marital",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "177703281e224d9e3d8445a7dbe9fee66a7e10f761f3fea142b51bfebb2978d5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "与婚姻有关",
+      "core_meaning_en": "relating to marriage",
+      "mental_model_cn": "与婚姻有关",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "confusable:horizontal:61ef905a656bab4aec8e"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ec7c5d32587d00991adb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:marital:c206843787715358:collocation:0"
+            ],
+            "meaning_cn": "婚姻状况",
+            "phrase": "marital status"
+          },
+          {
+            "collocation_id": "collocation:516cc90028c7e43aba0f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:marital:c206843787715358:collocation:1"
+            ],
+            "meaning_cn": "婚姻问题",
+            "phrase": "marital problems"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "婚姻的；夫妻间的",
+        "definition_en": "relating to marriage or the relationship between husband and wife",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:marital:c206843787715358",
+        "sense_label_en": "relating to marriage or the relationship between husband and wife",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "marital",
+    "word_family": [],
+    "word_id": "word:marital"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:61ef905a656bab4aec8e",
+      "owner_path": "content/lexical/relations/by-id/36/36458ba7238f184678fbc12a69ec775aed6981db1155df406411f83a13524d00.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:marital:c206843787715358",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8249,
+        "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:516cc90028c7e43aba0f",
+      "collocation:ec7c5d32587d00991adb"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:516cc90028c7e43aba0f",
+        "source_row": 6872,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:ec7c5d32587d00991adb",
+        "source_row": 20041,
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:01b87acadf4dfb21eb4a",
+        "source_row": 5517,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      },
+      {
+        "id": "membership:f464580f3cd34501ec77",
+        "source_row": 5518,
+        "source_path": "content/lexical/canonical/packs/shards/o2945-2976.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "marital",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:marital",
+      "ordinal": 2961,
+      "word_shard": "content/lexical/canonical/words/shards/o2961-2968.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/33.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2961-2968.json",
+    "source_content_hash": "177703281e224d9e3d8445a7dbe9fee66a7e10f761f3fea142b51bfebb2978d5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

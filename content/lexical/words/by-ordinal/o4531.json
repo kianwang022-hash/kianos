@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4531,
+  "word_id": "word:soccer",
+  "word": "soccer",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5f101d9ae8a294d8d6f5ba92ec61835cc5054b493936434ede68b8fd4676ca09",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "英式足球",
+      "core_meaning_en": "a game played by two teams of 11 players who kick a ball into the opponent's goal",
+      "mental_model_cn": "英式足球",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fbb6d3d8618189982a98",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:soccer:0f340b1074035170:collocation:0"
+            ],
+            "meaning_cn": "踢足球",
+            "phrase": "play soccer"
+          },
+          {
+            "collocation_id": "collocation:d5ad37642b8d4c00553b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:soccer:0f340b1074035170:collocation:1"
+            ],
+            "meaning_cn": "足球场",
+            "phrase": "soccer field"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "英式足球",
+        "definition_en": "a game played by two teams of 11 players who try to kick or head a ball into the opponent's goal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:soccer:0f340b1074035170",
+        "sense_label_en": "a game played by two teams of 11 players who try to kick or head a ball ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "soccer",
+    "word_family": [],
+    "word_id": "word:soccer"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:soccer:0f340b1074035170",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12826,
+        "source_path": "content/lexical/canonical/senses/shards/o4513-4544.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:d5ad37642b8d4c00553b",
+      "collocation:fbb6d3d8618189982a98"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:d5ad37642b8d4c00553b",
+        "source_row": 18076,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      },
+      {
+        "id": "collocation:fbb6d3d8618189982a98",
+        "source_row": 21296,
+        "source_path": "content/lexical/canonical/collocations/shards/o4513-4544.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:45f9528b4faa1bfb07df",
+        "source_row": 8407,
+        "source_path": "content/lexical/canonical/packs/shards/o4513-4544.json"
+      },
+      {
+        "id": "membership:f62ca31d5eda022ee0b3",
+        "source_row": 13133,
+        "source_path": "content/lexical/canonical/packs/shards/o4513-4544.json"
+      },
+      {
+        "id": "membership:f97267c4d854e99cf41a",
+        "source_row": 17701,
+        "source_path": "content/lexical/canonical/packs/shards/o4513-4544.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "soccer",
+      "source": "content/lexical/canonical/lookup/spelling/so.json",
+      "word_id": "word:soccer",
+      "ordinal": 4531,
+      "word_shard": "content/lexical/canonical/words/shards/o4529-4536.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e7.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4529-4536.json",
+    "source_content_hash": "5f101d9ae8a294d8d6f5ba92ec61835cc5054b493936434ede68b8fd4676ca09",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

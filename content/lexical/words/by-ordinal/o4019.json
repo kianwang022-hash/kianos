@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4019,
+  "word_id": "word:refugee",
+  "word": "refugee",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e89b9116311f5ce462b4a70e6d5f8d44e8b7800e46ddf3bce847a95776b2acf5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "难民",
+      "core_meaning_en": "person who flees to safety",
+      "mental_model_cn": "难民",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2ca56267f9c1012ded7a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:refugee:56f8a37d4ced5808:collocation:0"
+            ],
+            "meaning_cn": "难民营",
+            "phrase": "a refugee camp"
+          },
+          {
+            "collocation_id": "collocation:0d3d90925dbb844b0f25",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:refugee:56f8a37d4ced5808:collocation:1"
+            ],
+            "meaning_cn": "政治难民",
+            "phrase": "political refugee"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "难民，流亡者",
+        "definition_en": "a person who has been forced to leave their country to escape war, persecution, or natural disaster",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:refugee:56f8a37d4ced5808",
+        "sense_label_en": "a person who has been forced to leave their country to escape war, perse",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "refugee",
+    "word_family": [],
+    "word_id": "word:refugee"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:refugee:56f8a37d4ced5808",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11228,
+        "source_path": "content/lexical/canonical/senses/shards/o4001-4032.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0d3d90925dbb844b0f25",
+      "collocation:2ca56267f9c1012ded7a"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0d3d90925dbb844b0f25",
+        "source_row": 1099,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      },
+      {
+        "id": "collocation:2ca56267f9c1012ded7a",
+        "source_row": 3781,
+        "source_path": "content/lexical/canonical/collocations/shards/o4001-4032.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a69d16ab5677e9500eb4",
+        "source_row": 7442,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      },
+      {
+        "id": "membership:505cc7e4b26c042dd31e",
+        "source_row": 7443,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      },
+      {
+        "id": "membership:aad21ada31f5b227518b",
+        "source_row": 17204,
+        "source_path": "content/lexical/canonical/packs/shards/o4001-4032.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "refugee",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:refugee",
+      "ordinal": 4019,
+      "word_shard": "content/lexical/canonical/words/shards/o4017-4024.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4017-4024.json",
+    "source_content_hash": "e89b9116311f5ce462b4a70e6d5f8d44e8b7800e46ddf3bce847a95776b2acf5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4235,
+  "word_id": "word:sailor",
+  "word": "sailor",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b0e6ad88b92f892ffe7ec36f41f090f95943db95becb704f3cf4649e60a5e664",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "在船上工作的人",
+      "core_meaning_en": "a person who works on a ship",
+      "mental_model_cn": "在船上工作的人",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7ba0b9bf085270c2fafb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sailor:be9e2bed5a3b56d3:collocation:0"
+            ],
+            "meaning_cn": "商船水手",
+            "phrase": "a merchant sailor"
+          },
+          {
+            "collocation_id": "collocation:161134fb0aa23f364624",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sailor:be9e2bed5a3b56d3:collocation:1"
+            ],
+            "meaning_cn": "不晕船的人",
+            "phrase": "a good sailor"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "水手；船员；海员",
+        "definition_en": "a member of a ship's crew, especially one below the rank of officer",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sailor:be9e2bed5a3b56d3",
+        "sense_label_en": "a member of a ship's crew, especially one below the rank of officer",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "sailor",
+    "word_family": [],
+    "word_id": "word:sailor"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:sailor:be9e2bed5a3b56d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11887,
+        "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:161134fb0aa23f364624",
+      "collocation:7ba0b9bf085270c2fafb"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:161134fb0aa23f364624",
+        "source_row": 1826,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:7ba0b9bf085270c2fafb",
+        "source_row": 10448,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c05aace5316a06c5059c",
+        "source_row": 7874,
+        "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      },
+      {
+        "id": "membership:4b47822b8416f388becb",
+        "source_row": 12940,
+        "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      },
+      {
+        "id": "membership:338f46bdaeda5465bae6",
+        "source_row": 17424,
+        "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "sailor",
+      "source": "content/lexical/canonical/lookup/spelling/sa.json",
+      "word_id": "word:sailor",
+      "ordinal": 4235,
+      "word_shard": "content/lexical/canonical/words/shards/o4233-4240.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/88.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4233-4240.json",
+    "source_content_hash": "b0e6ad88b92f892ffe7ec36f41f090f95943db95becb704f3cf4649e60a5e664",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

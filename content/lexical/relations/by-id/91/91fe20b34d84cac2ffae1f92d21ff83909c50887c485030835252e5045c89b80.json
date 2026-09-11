@@ -1,0 +1,87 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:a79b15260df251ab9574",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:address",
+      "source_ordinal": 70,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "address ≈ deal with"
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:055",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:055",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "address ≈ deal with",
+        "members": [
+          {
+            "word_id": "word:address"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:a79b15260df251ab9574",
+        "relation_note": "address ≈ deal with",
+        "relation_scope": "lexeme",
+        "relation_type": "near_paraphrase",
+        "sense_ids": [],
+        "shared_meaning": "address ≈ deal with",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "word_id": "word:address"
+              }
+            ],
+            "difference": {
+              "address": "often emphasizes directing attention/action toward an issue",
+              "deal_with": "broader handling/coping/management expression",
+              "syntax": "address + object; deal with + object"
+            },
+            "direction": "R+P",
+            "relation_type": "near_paraphrase",
+            "shared_core": "take action regarding a problem, issue, concern, or situation",
+            "source": {
+              "sense_id": "sense:address:3a3a81ef4c935758",
+              "word_id": "word:address"
+            },
+            "target": {
+              "construction_or_collocation_id": "collocation:1aa0391e3771a4e6141e",
+              "sense_id": "sense:deal:9dad879330265856",
+              "word_id": "word:deal"
+            },
+            "unsafe_swap": "Not a headword-global synonym relation."
+          }
+        ],
+        "source_expression": "address",
+        "source_sense_id": null,
+        "target_expression": "address ≈ deal with",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

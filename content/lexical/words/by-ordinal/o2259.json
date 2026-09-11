@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2259,
+  "word_id": "word:harassment",
+  "word": "harassment",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "83e3faad017efff1c59aacefc656127645153cbe57f9d4302b77ec20153f7048",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "骚扰；烦扰",
+      "core_meaning_en": "the act of annoying or tormenting persistently",
+      "mental_model_cn": "骚扰；烦扰",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:74e1e60cbf7ae2108b6c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:harassment:5b39c6e47cf3575e:collocation:0"
+            ],
+            "meaning_cn": "性骚扰",
+            "phrase": "sexual harassment"
+          },
+          {
+            "collocation_id": "collocation:82191c206e51d3a6f91d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:harassment:5b39c6e47cf3575e:collocation:1"
+            ],
+            "meaning_cn": "来自某人的骚扰",
+            "phrase": "harassment from + sb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "骚扰；烦扰",
+        "definition_en": "the act of annoying or tormenting someone repeatedly",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:harassment:5b39c6e47cf3575e",
+        "sense_label_en": "the act of annoying or tormenting someone repeatedly",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "harassment",
+    "word_family": [],
+    "word_id": "word:harassment"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:harassment:5b39c6e47cf3575e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6308,
+        "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:74e1e60cbf7ae2108b6c",
+      "collocation:82191c206e51d3a6f91d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:74e1e60cbf7ae2108b6c",
+        "source_row": 9857,
+        "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:82191c206e51d3a6f91d",
+        "source_row": 11019,
+        "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:dd1a54b5abed89d39a3d",
+        "source_row": 4236,
+        "source_path": "content/lexical/canonical/packs/shards/o2241-2272.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "harassment",
+      "source": "content/lexical/canonical/lookup/spelling/ha.json",
+      "word_id": "word:harassment",
+      "ordinal": 2259,
+      "word_shard": "content/lexical/canonical/words/shards/o2257-2264.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/5c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2257-2264.json",
+    "source_content_hash": "83e3faad017efff1c59aacefc656127645153cbe57f9d4302b77ec20153f7048",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

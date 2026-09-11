@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1263,
+  "word_id": "word:deer",
+  "word": "deer",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fe8f8ab55dbf84889b7b53241e00c57984691473b0438bf659c1b731b8a2893e",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "有角的蹄类动物",
+      "core_meaning_en": "a hoofed animal with antlers",
+      "mental_model_cn": "有角的蹄类动物",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0abb7bef0f3a13393c21",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deer:b93f50c8c4445fb9:collocation:0"
+            ],
+            "meaning_cn": "一群鹿",
+            "phrase": "a herd of deer"
+          },
+          {
+            "collocation_id": "collocation:448069169963c5435bf9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deer:b93f50c8c4445fb9:collocation:1"
+            ],
+            "meaning_cn": "猎鹿",
+            "phrase": "deer hunting"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "鹿",
+        "definition_en": "a ruminant mammal with solid deciduous antlers in males",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:deer:b93f50c8c4445fb9",
+        "sense_label_en": "a ruminant mammal with solid deciduous antlers in males",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "deer",
+    "word_family": [],
+    "word_id": "word:deer"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:deer:b93f50c8c4445fb9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3548,
+        "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0abb7bef0f3a13393c21",
+      "collocation:448069169963c5435bf9"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0abb7bef0f3a13393c21",
+        "source_row": 891,
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+      },
+      {
+        "id": "collocation:448069169963c5435bf9",
+        "source_row": 5801,
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:07f072ece6b32e257e05",
+        "source_row": 2370,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      },
+      {
+        "id": "membership:f22a281fe7c5f239d05a",
+        "source_row": 11009,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      },
+      {
+        "id": "membership:07a3f630740e9f407b7e",
+        "source_row": 14703,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "deer",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:deer",
+      "ordinal": 1263,
+      "word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/70.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
+    "source_content_hash": "fe8f8ab55dbf84889b7b53241e00c57984691473b0438bf659c1b731b8a2893e",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

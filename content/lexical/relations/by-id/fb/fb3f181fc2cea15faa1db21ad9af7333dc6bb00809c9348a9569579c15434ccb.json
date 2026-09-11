@@ -1,0 +1,91 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:f119ad8455877b5f3dd6",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:joint",
+      "source_ordinal": 2672,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:058",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:058",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "joint",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:joint:56517cfe9f475e2d"
+            ],
+            "word_id": "word:joint"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:f119ad8455877b5f3dd6",
+        "relation_note": "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common.",
+        "relation_scope": "lexeme",
+        "relation_type": "near_paraphrase",
+        "sense_ids": [
+          "sense:joint:56517cfe9f475e2d"
+        ],
+        "shared_meaning": "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "joint",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:joint:56517cfe9f475e2d"
+                ],
+                "word_id": "word:joint"
+              }
+            ],
+            "learner_note": "joint in the shared/involving-two-or-more sense can paraphrase shared/common in suitable contexts, but not the other meanings of common.",
+            "relation_targets": [
+              "common",
+              "shared"
+            ],
+            "relation_type": "near_paraphrase"
+          }
+        ],
+        "source_expression": "joint",
+        "source_sense_id": "sense:joint:56517cfe9f475e2d",
+        "target_expression": "common/shared ↔ joint",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

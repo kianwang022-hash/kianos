@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4101,
+  "word_id": "word:resemble",
+  "word": "resemble",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2ea81762e5a3469d147e6c4f76d7536e8af32128d69a72a139c6313cf5450b6b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "相似，类似",
+      "core_meaning_en": "be similar or bear a likeness to",
+      "mental_model_cn": "相似，类似",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f6369d7b05b80506be16",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:resemble:10b4c4e072b653e9:collocation:0"
+            ],
+            "meaning_cn": "与某人/某物相似",
+            "phrase": "resemble sb/sth"
+          },
+          {
+            "collocation_id": "collocation:e31eeb8f634c07bdd657",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:resemble:10b4c4e072b653e9:collocation:1"
+            ],
+            "meaning_cn": "与……非常相似",
+            "phrase": "closely resemble + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "与……相似，像",
+        "definition_en": "appear like; be similar or bear a likeness to",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:resemble:10b4c4e072b653e9",
+        "sense_label_en": "appear like; be similar or bear a likeness to",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "resemble",
+    "word_family": [],
+    "word_id": "word:resemble"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:resemble:10b4c4e072b653e9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11449,
+        "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e31eeb8f634c07bdd657",
+      "collocation:f6369d7b05b80506be16"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e31eeb8f634c07bdd657",
+        "source_row": 19220,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:f6369d7b05b80506be16",
+        "source_row": 20862,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a90f67dabe38ffb48bc7",
+        "source_row": 7610,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      },
+      {
+        "id": "membership:7a1b78adb6f5ee478170",
+        "source_row": 12838,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      },
+      {
+        "id": "membership:e5930badd2ad2f3f639d",
+        "source_row": 17289,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "resemble",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:resemble",
+      "ordinal": 4101,
+      "word_shard": "content/lexical/canonical/words/shards/o4097-4104.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/82.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4097-4104.json",
+    "source_content_hash": "2ea81762e5a3469d147e6c4f76d7536e8af32128d69a72a139c6313cf5450b6b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

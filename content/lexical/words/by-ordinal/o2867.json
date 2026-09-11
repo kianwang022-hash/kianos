@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2867,
+  "word_id": "word:locality",
+  "word": "locality",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "058b1c2461c34a394a6d9c27f2844d5b8cb5c969827d8200ac4b5d93e766bc9e",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "地方，位置，场所，地区",
+      "core_meaning_en": "a surrounding or nearby region",
+      "mental_model_cn": "地方，位置，场所，地区",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cd48f4f314715fff4142",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:locality:ec4e541ca6305d8a:collocation:0"
+            ],
+            "meaning_cn": "在当地",
+            "phrase": "in the locality"
+          },
+          {
+            "collocation_id": "collocation:67d82edf130b42d40d28",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:locality:ec4e541ca6305d8a:collocation:1"
+            ],
+            "meaning_cn": "犯罪现场",
+            "phrase": "the locality of the crime"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "地方，位置，场所，地区",
+        "definition_en": "a surrounding or nearby region",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:locality:ec4e541ca6305d8a",
+        "sense_label_en": "a surrounding or nearby region",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "locality",
+    "word_family": [],
+    "word_id": "word:locality"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:locality:ec4e541ca6305d8a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7979,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:67d82edf130b42d40d28",
+      "collocation:cd48f4f314715fff4142"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:67d82edf130b42d40d28",
+        "source_row": 8764,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:cd48f4f314715fff4142",
+        "source_row": 17363,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2fea17a9cb9575e8540f",
+        "source_row": 5348,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:a86b3b7d3065e7d7235a",
+        "source_row": 16142,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "locality",
+      "source": "content/lexical/canonical/lookup/spelling/lo.json",
+      "word_id": "word:locality",
+      "ordinal": 2867,
+      "word_shard": "content/lexical/canonical/words/shards/o2865-2872.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/13.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2865-2872.json",
+    "source_content_hash": "058b1c2461c34a394a6d9c27f2844d5b8cb5c969827d8200ac4b5d93e766bc9e",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3265,
+  "word_id": "word:noun",
+  "word": "noun",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "28e9a8058cb3034dd225e89bcf1a6c612c6e538b304ed321fe815bab66507027",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "用来命名人、地点、事物、性质或动作的词",
+      "core_meaning_en": "a word used to name a person, place, thing, quality, or action",
+      "mental_model_cn": "用来命名人、地点、事物、性质或动作的词",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5fdd2ae6815cb08d2c8f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:noun:7edf25423a225fd8:collocation:0"
+            ],
+            "meaning_cn": "专有名词",
+            "phrase": "proper noun"
+          },
+          {
+            "collocation_id": "collocation:7b83fbc466bfe37adaee",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:noun:7edf25423a225fd8:collocation:1"
+            ],
+            "meaning_cn": "抽象名词",
+            "phrase": "abstract noun"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "名词，指代人、地点、事物、性质或动作的词",
+        "definition_en": "a content word that can be used to refer to a person, place, thing, quality, or action",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:noun:7edf25423a225fd8",
+        "sense_label_en": "a content word that can be used to refer to a person, place, thing, qual",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "noun",
+    "word_family": [],
+    "word_id": "word:noun"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:noun:7edf25423a225fd8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9072,
+        "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:5fdd2ae6815cb08d2c8f",
+      "collocation:7b83fbc466bfe37adaee"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:5fdd2ae6815cb08d2c8f",
+        "source_row": 8057,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:7b83fbc466bfe37adaee",
+        "source_row": 10439,
+        "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:bd29aab03da531098a6b",
+        "source_row": 6046,
+        "source_path": "content/lexical/canonical/packs/shards/o3265-3296.json"
+      },
+      {
+        "id": "membership:8a8997a4de6164ce05a1",
+        "source_row": 6047,
+        "source_path": "content/lexical/canonical/packs/shards/o3265-3296.json"
+      },
+      {
+        "id": "membership:dc3764857047ebcc859e",
+        "source_row": 12267,
+        "source_path": "content/lexical/canonical/packs/shards/o3265-3296.json"
+      },
+      {
+        "id": "membership:74d7220dfadc9169ca51",
+        "source_row": 16494,
+        "source_path": "content/lexical/canonical/packs/shards/o3265-3296.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "noun",
+      "source": "content/lexical/canonical/lookup/spelling/no.json",
+      "word_id": "word:noun",
+      "ordinal": 3265,
+      "word_shard": "content/lexical/canonical/words/shards/o3265-3272.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/8b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3265-3272.json",
+    "source_content_hash": "28e9a8058cb3034dd225e89bcf1a6c612c6e538b304ed321fe815bab66507027",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

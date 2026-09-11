@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2653,
+  "word_id": "word:it",
+  "word": "it",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e40e1411cfaa784a602a",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "形式主语/预指 it：真正内容由后置不定式或从句给出",
+        "pattern": "It + be/seem + adjective/noun + to do / that-clause"
+      }
+    ],
+    "content_hash": "6bd7b9fabe11c9dd856fd4c98f71defcf1be7e32c99902120b5f9adb7dba18e2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "它",
+      "core_meaning_en": "third-person singular neuter pronoun",
+      "mental_model_cn": "它",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:e40e1411cfaa784a602a"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0e9bcde7f005c4b7bec8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:it:fb55b5f7c79459a2:collocation:0"
+            ],
+            "meaning_cn": "它是",
+            "phrase": "it is"
+          },
+          {
+            "collocation_id": "collocation:4012d1aff91e6b13d810",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:it:fb55b5f7c79459a2:collocation:1"
+            ],
+            "meaning_cn": "放轻松",
+            "phrase": "take it easy"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "它",
+        "definition_en": "used to refer to a thing or animal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:it:fb55b5f7c79459a2",
+        "sense_label_en": "used to refer to a thing or animal",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "it",
+    "word_family": [],
+    "word_id": "word:it"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:it:fb55b5f7c79459a2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7313,
+        "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0e9bcde7f005c4b7bec8",
+      "collocation:4012d1aff91e6b13d810"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0e9bcde7f005c4b7bec8",
+        "source_row": 1216,
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:4012d1aff91e6b13d810",
+        "source_row": 5423,
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:fe327737213de1e0dac6",
+        "source_row": 4983,
+        "source_path": "content/lexical/canonical/packs/shards/o2625-2656.json"
+      },
+      {
+        "id": "membership:83673f14b82a3d01062d",
+        "source_row": 4984,
+        "source_path": "content/lexical/canonical/packs/shards/o2625-2656.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "it",
+      "source": "content/lexical/canonical/lookup/spelling/it.json",
+      "word_id": "word:it",
+      "ordinal": 2653,
+      "word_shard": "content/lexical/canonical/words/shards/o2649-2656.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/aa.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2649-2656.json",
+    "source_content_hash": "6bd7b9fabe11c9dd856fd4c98f71defcf1be7e32c99902120b5f9adb7dba18e2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

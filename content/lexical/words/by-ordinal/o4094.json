@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4094,
+  "word_id": "word:reputation",
+  "word": "reputation",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "d5a0a4156dd08e7c6dfd57872b271f243c5d01b0a6caf4f7c1966a66655bd5f9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "公众对某人或某事的总体评价",
+      "core_meaning_en": "the general opinion that people have about someone or something",
+      "mental_model_cn": "公众对某人或某事的总体评价",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bdff80156792a39bb716",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:reputation:d73fa26647775eb8:collocation:0"
+            ],
+            "meaning_cn": "因……而闻名",
+            "phrase": "have a reputation for + sth"
+          },
+          {
+            "collocation_id": "collocation:8599506ef50e62c47347",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:reputation:d73fa26647775eb8:collocation:1"
+            ],
+            "meaning_cn": "损害某人的名声",
+            "phrase": "damage one's reputation"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "公众对某人或某事的总体评价；名声",
+        "definition_en": "the general estimation that the public has for a person or thing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:reputation:d73fa26647775eb8",
+        "sense_label_en": "the general estimation that the public has for a person or thing",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "reputation",
+    "word_family": [],
+    "word_id": "word:reputation"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:reputation:d73fa26647775eb8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11436,
+        "source_path": "content/lexical/canonical/senses/shards/o4065-4096.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8599506ef50e62c47347",
+      "collocation:bdff80156792a39bb716"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8599506ef50e62c47347",
+        "source_row": 11343,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      },
+      {
+        "id": "collocation:bdff80156792a39bb716",
+        "source_row": 16086,
+        "source_path": "content/lexical/canonical/collocations/shards/o4065-4096.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1ca7364ea6f914a821ef",
+        "source_row": 7594,
+        "source_path": "content/lexical/canonical/packs/shards/o4065-4096.json"
+      },
+      {
+        "id": "membership:04e254ccd21a8f292746",
+        "source_row": 7595,
+        "source_path": "content/lexical/canonical/packs/shards/o4065-4096.json"
+      },
+      {
+        "id": "membership:1307fff4e40ee156e9aa",
+        "source_row": 12832,
+        "source_path": "content/lexical/canonical/packs/shards/o4065-4096.json"
+      },
+      {
+        "id": "membership:b1865de5ef5573219f62",
+        "source_row": 17281,
+        "source_path": "content/lexical/canonical/packs/shards/o4065-4096.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "reputation",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:reputation",
+      "ordinal": 4094,
+      "word_shard": "content/lexical/canonical/words/shards/o4089-4096.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/45.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4089-4096.json",
+    "source_content_hash": "d5a0a4156dd08e7c6dfd57872b271f243c5d01b0a6caf4f7c1966a66655bd5f9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:campaign:8858cb47683d52df",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "campaign 是有组织持续行动；effort 更泛",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "The organized-action and exertion senses support a useful generalization boundary for academic reading.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "a series of actions advancing a principle or tending toward a particular end",
+      "shared_synset": "00799906-n",
+      "source_definition": "a series of actions advancing a principle or tending toward a particular end",
+      "source_sense_id": "sense:campaign:180ff00d80a05a3d",
+      "target_definition": "the use of physical or mental energy to do something; hard work",
+      "target_sense_id": "sense:effort:5567cc49d30558c6",
+      "target_word": "effort"
+    },
+    "dimensions": {
+      "certainty": "均表实际行动",
+      "collocation": "launch campaign/make effort",
+      "core_meaning": "行动/努力",
+      "exam_trap": "组织性扩大",
+      "register": "campaign较正式",
+      "semantic_prosody": "中性",
+      "strength": "campaign更系统",
+      "syntax": "均为可数名词",
+      "writing_safety": "不可机械互换"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00799906-n",
+        "evidence_status": "source_checked",
+        "source_locator": "00799906-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:campaign:8858cb47683d52df",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "loose_association",
+      "missing_boundary",
+      "incomplete_contrast_dimensions",
+      "unresolved_target_sense_anchor"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 8,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "a series of actions advancing a principle or tending toward a particular end",
+      "source_sense_id": "sense:campaign:180ff00d80a05a3d",
+      "target_definition": "the use of physical or mental energy to do something; hard work",
+      "target_sense_id": "sense:effort:5567cc49d30558c6"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:campaign:180ff00d80a05a3d",
+    "target_sense_id": "sense:effort:5567cc49d30558c6",
+    "target_word": "effort",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "campaign",
+    "word_id": "word:campaign",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:campaign",
+      "source_ordinal": 662,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "campaign 是有组织持续行动；effort 更泛",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表实际行动",
+          "collocation": "launch campaign/make effort",
+          "core_meaning": "行动/努力",
+          "exam_trap": "组织性扩大",
+          "register": "campaign较正式",
+          "semantic_prosody": "中性",
+          "strength": "campaign更系统",
+          "syntax": "均为可数名词",
+          "writing_safety": "不可机械互换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00799906-n",
+            "evidence_status": "source_checked",
+            "source_locator": "00799906-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:campaign:8858cb47683d52df",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "a series of actions advancing a principle or tending toward a particular end",
+        "source_sense_id": "sense:campaign:180ff00d80a05a3d",
+        "target_sense_id": "sense:effort:5567cc49d30558c6",
+        "target_word": "effort",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

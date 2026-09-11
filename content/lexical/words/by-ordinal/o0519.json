@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 519,
+  "word_id": "word:blouse",
+  "word": "blouse",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5d59c5c845606501df081edac88d6269e0f94d44591eb37fec7ece6a7b709bf0",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "女式宽松上衣",
+      "core_meaning_en": "a woman's loose upper garment",
+      "mental_model_cn": "女式宽松上衣",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:77e547281335f22dfbf3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:blouse:3745072e47fd5318:collocation:0"
+            ],
+            "meaning_cn": "丝绸衬衫",
+            "phrase": "silk blouse"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "女式衬衫；宽松上衣",
+        "definition_en": "a top worn by women",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:blouse:3745072e47fd5318",
+        "sense_label_en": "a top worn by women",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "blouse",
+    "word_family": [],
+    "word_id": "word:blouse"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:blouse:3745072e47fd5318",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1384,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:77e547281335f22dfbf3"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:77e547281335f22dfbf3",
+        "source_row": 10137,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5c673bcfe0f80bea4de7",
+        "source_row": 976,
+        "source_path": "content/lexical/canonical/packs/shards/o0513-0544.json"
+      },
+      {
+        "id": "membership:b95542dc68d4d59a2a40",
+        "source_row": 14102,
+        "source_path": "content/lexical/canonical/packs/shards/o0513-0544.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "blouse",
+      "source": "content/lexical/canonical/lookup/spelling/bl.json",
+      "word_id": "word:blouse",
+      "ordinal": 519,
+      "word_shard": "content/lexical/canonical/words/shards/o0513-0520.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0513-0520.json",
+    "source_content_hash": "5d59c5c845606501df081edac88d6269e0f94d44591eb37fec7ece6a7b709bf0",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

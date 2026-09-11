@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3105,
+  "word_id": "word:molecule",
+  "word": "molecule",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9fc1324c564d80459647c47458984b83856bac2dad5d5383ca86a5ca4f898166",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "保持物质化学性质的最小单位",
+      "core_meaning_en": "the smallest unit of a substance that retains its chemical properties",
+      "mental_model_cn": "保持物质化学性质的最小单位",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:37bc363f09afa2f47bd0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:molecule:abcebb1b60fa58da:collocation:0"
+            ],
+            "meaning_cn": "水分子",
+            "phrase": "water molecule"
+          },
+          {
+            "collocation_id": "collocation:149f7a6ede79d3fddaad",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:molecule:abcebb1b60fa58da:collocation:1"
+            ],
+            "meaning_cn": "某物的分子",
+            "phrase": "molecule of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "元素或化合物的最简单结构单位；分子",
+        "definition_en": "the simplest structural unit of an element or compound",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:molecule:abcebb1b60fa58da",
+        "sense_label_en": "the simplest structural unit of an element or compound",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "molecule",
+    "word_family": [],
+    "word_id": "word:molecule"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:molecule:abcebb1b60fa58da",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8649,
+        "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:149f7a6ede79d3fddaad",
+      "collocation:37bc363f09afa2f47bd0"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:149f7a6ede79d3fddaad",
+        "source_row": 1711,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:37bc363f09afa2f47bd0",
+        "source_row": 4716,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f4ce95003ff2c3fe6133",
+        "source_row": 5771,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:d8affdd1ea2723936d68",
+        "source_row": 12177,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:c4f6a8cc41dc406cdb9e",
+        "source_row": 16361,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "molecule",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:molecule",
+      "ordinal": 3105,
+      "word_shard": "content/lexical/canonical/words/shards/o3105-3112.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/57.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3105-3112.json",
+    "source_content_hash": "9fc1324c564d80459647c47458984b83856bac2dad5d5383ca86a5ca4f898166",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

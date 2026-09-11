@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2434,
+  "word_id": "word:idiot",
+  "word": "idiot",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6686e11f605b16c7c056ef25ef1d7a54549241cf4ac8ed25f60cea0578d99724",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "智力极低的人",
+      "core_meaning_en": "a person of very low intelligence",
+      "mental_model_cn": "智力极低的人",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:12db5e5c30d869f74588",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:idiot:d1736a72539c5448:collocation:0"
+            ],
+            "meaning_cn": "十足的傻瓜",
+            "phrase": "a complete idiot"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "白痴，傻瓜",
+        "definition_en": "a person who is considered extremely stupid or foolish",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:idiot:d1736a72539c5448",
+        "sense_label_en": "a person who is considered extremely stupid or foolish",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "idiot",
+    "word_family": [],
+    "word_id": "word:idiot"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:idiot:d1736a72539c5448",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6779,
+        "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:12db5e5c30d869f74588"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:12db5e5c30d869f74588",
+        "source_row": 1554,
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c475fc81ea2b303ed699",
+        "source_row": 4531,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      },
+      {
+        "id": "membership:fe65608dec3507f648c7",
+        "source_row": 15726,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "idiot",
+      "source": "content/lexical/canonical/lookup/spelling/id.json",
+      "word_id": "word:idiot",
+      "ordinal": 2434,
+      "word_shard": "content/lexical/canonical/words/shards/o2433-2440.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2433-2440.json",
+    "source_content_hash": "6686e11f605b16c7c056ef25ef1d7a54549241cf4ac8ed25f60cea0578d99724",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

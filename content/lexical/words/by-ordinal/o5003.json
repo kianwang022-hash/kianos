@@ -1,0 +1,118 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5003,
+  "word_id": "word:three",
+  "word": "three",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "200c44b71da465a61dc2b86f40fd4bb936690ead2518e5a671faf90dc07384b7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "数字三",
+      "core_meaning_en": "the number 3",
+      "mental_model_cn": "数字三",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6fc22bbe0f8375303740",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:three:9475bf200a725a09:collocation:0"
+            ],
+            "meaning_cn": "三本书",
+            "phrase": "three books"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "三；三个",
+        "definition_en": "the cardinal number equal to 2+1",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "numeral",
+        "sense_id": "sense:three:9475bf200a725a09",
+        "sense_label_en": "the cardinal number equal to 2+1",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "three",
+    "word_family": [],
+    "word_id": "word:three"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:three:9475bf200a725a09",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14218,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6fc22bbe0f8375303740"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6fc22bbe0f8375303740",
+        "source_row": 9445,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:cd3c17ee52d05c65ff8d",
+        "source_row": 9302,
+        "source_path": "content/lexical/canonical/packs/shards/o4993-5024.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "three",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:three",
+      "ordinal": 5003,
+      "word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
+    "source_content_hash": "200c44b71da465a61dc2b86f40fd4bb936690ead2518e5a671faf90dc07384b7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

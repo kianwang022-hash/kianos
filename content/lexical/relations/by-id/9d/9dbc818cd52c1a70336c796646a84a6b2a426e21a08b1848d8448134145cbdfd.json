@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:significance:1ec7b1a8d20e8473",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "significance可指意义或重要性；implication强调暗含之意",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "a meaning that is not expressly stated but can be inferred",
+      "shared_synset": "05929385-n",
+      "source_definition": "the meaning or message that is conveyed or implied",
+      "source_sense_id": "sense:significance:8a2fb0bc35ea559f",
+      "target_definition": "something that is suggested or implied but not stated directly",
+      "target_sense_id": "sense:implication:47962ed00d765282",
+      "target_word": "implication"
+    },
+    "dimensions": {
+      "certainty": "implication未明说",
+      "collocation": "significance of/implication for",
+      "core_meaning": "意义/含意",
+      "exam_trap": "重要性与含意",
+      "register": "均偏正式",
+      "semantic_prosody": "中性",
+      "strength": "implication推断更强",
+      "syntax": "名词结构不同",
+      "writing_safety": "不可机械互换"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:05929385-n",
+        "evidence_status": "source_checked",
+        "source_locator": "05929385-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:significance:1ec7b1a8d20e8473",
+    "generation_checked": false,
+    "high_risk_flags": [],
+    "independent_verification_checked": false,
+    "learning_value_score": 11.75,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": -1,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "the meaning or message that is conveyed or implied",
+      "source_sense_id": "sense:significance:8a2fb0bc35ea559f",
+      "target_definition": "something that is suggested or implied but not stated directly",
+      "target_sense_id": "sense:implication:47962ed00d765282"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:significance:8a2fb0bc35ea559f",
+    "target_sense_id": "sense:implication:47962ed00d765282",
+    "target_word": "implication",
+    "task_tags": [
+      "cloze",
+      "translation"
+    ],
+    "tier": "B",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "The inferred-meaning overlap is genuine, while the importance sense and implication-for consequence require an explicit boundary.",
+    "word": "significance",
+    "word_id": "word:significance",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:significance",
+      "source_ordinal": 4435,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "significance可指意义或重要性；implication强调暗含之意",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "implication未明说",
+          "collocation": "significance of/implication for",
+          "core_meaning": "意义/含意",
+          "exam_trap": "重要性与含意",
+          "register": "均偏正式",
+          "semantic_prosody": "中性",
+          "strength": "implication推断更强",
+          "syntax": "名词结构不同",
+          "writing_safety": "不可机械互换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:05929385-n",
+            "evidence_status": "source_checked",
+            "source_locator": "05929385-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:significance:1ec7b1a8d20e8473",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "a meaning that is not expressly stated but can be inferred",
+        "source_sense_id": "sense:significance:8a2fb0bc35ea559f",
+        "target_sense_id": "sense:implication:47962ed00d765282",
+        "target_word": "implication",
+        "task_tags": [
+          "cloze",
+          "translation"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

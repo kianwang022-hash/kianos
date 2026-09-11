@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3245,
+  "word_id": "word:nor",
+  "word": "nor",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e92af88456262214439d",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "既不A也不B",
+        "pattern": "neither A nor B"
+      }
+    ],
+    "content_hash": "e4404739be400bf15ad4066715b626cb8f45464c388aeec243d7c5ccd20e87ee",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "也不",
+      "core_meaning_en": "and not",
+      "mental_model_cn": "也不",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:e92af88456262214439d"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7cf393fde16082152ec6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:nor:c95876bcd7da5172:collocation:1"
+            ],
+            "meaning_cn": "不……也不……",
+            "phrase": "not ... nor ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "也不（用于否定句后连接并列成分）",
+        "definition_en": "used before the second or last of a set of negative possibilities",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "conjunction",
+        "sense_id": "sense:nor:c95876bcd7da5172",
+        "sense_label_en": "used before the second or last of a set of negative possibilities",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "nor",
+    "word_family": [],
+    "word_id": "word:nor"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:nor:c95876bcd7da5172",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9023,
+        "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7cf393fde16082152ec6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:7cf393fde16082152ec6",
+        "source_row": 10557,
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:fcd44aa121782fb8f72c",
+        "source_row": 21383,
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:273b79f4c9c701ea57ce",
+        "source_row": 6008,
+        "source_path": "content/lexical/canonical/packs/shards/o3233-3264.json"
+      },
+      {
+        "id": "membership:af71db398fd9797f3772",
+        "source_row": 6009,
+        "source_path": "content/lexical/canonical/packs/shards/o3233-3264.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "nor",
+      "source": "content/lexical/canonical/lookup/spelling/no.json",
+      "word_id": "word:nor",
+      "ordinal": 3245,
+      "word_shard": "content/lexical/canonical/words/shards/o3241-3248.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/6b.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3241-3248.json",
+    "source_content_hash": "e4404739be400bf15ad4066715b626cb8f45464c388aeec243d7c5ccd20e87ee",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:c53b2b8403adc7017140",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:curb",
+      "source_ordinal": 1187,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:059",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:059",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "curb",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:curb:ea55665586265bd0"
+            ],
+            "word_id": "word:curb"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:c53b2b8403adc7017140",
+        "relation_note": "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only.",
+        "relation_scope": "lexeme",
+        "relation_type": "near_paraphrase",
+        "sense_ids": [
+          "sense:curb:ea55665586265bd0"
+        ],
+        "shared_meaning": "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "curb",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:curb:ea55665586265bd0"
+                ],
+                "word_id": "word:curb"
+              }
+            ],
+            "learner_note": "curb as a verb = restrain/control/limit, especially something undesirable; sense-bound only.",
+            "relation_targets": [
+              "restrain",
+              "limit"
+            ],
+            "relation_type": "near_paraphrase"
+          }
+        ],
+        "source_expression": "curb",
+        "source_sense_id": "sense:curb:ea55665586265bd0",
+        "target_expression": "curb ≈ restrain/limit",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1725,
+  "word_id": "word:evade",
+  "word": "evade",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "cbed163911ddd8a8ed8ab75f152b8a7cf6203b2b1ce1b145292acfaba386941a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "逃避",
+      "core_meaning_en": "to avoid or escape by cleverness or deceit",
+      "mental_model_cn": "逃避",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d4fa0457335250401907",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:evade:8a86df5690e05e3a:collocation:0"
+            ],
+            "meaning_cn": "逃避某事",
+            "phrase": "evade + sth"
+          },
+          {
+            "collocation_id": "collocation:fe889a86a41af1c24fe1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:evade:8a86df5690e05e3a:collocation:1"
+            ],
+            "meaning_cn": "逃税",
+            "phrase": "evade taxes"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "逃避，规避，逃脱",
+        "definition_en": "to avoid or escape from someone or something by cleverness or deceit",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:evade:8a86df5690e05e3a",
+        "sense_label_en": "to avoid or escape from someone or something by cleverness or deceit",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "evade",
+    "word_family": [],
+    "word_id": "word:evade"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:evade:8a86df5690e05e3a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4749,
+        "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:d4fa0457335250401907",
+      "collocation:fe889a86a41af1c24fe1"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:d4fa0457335250401907",
+        "source_row": 18006,
+        "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+      },
+      {
+        "id": "collocation:fe889a86a41af1c24fe1",
+        "source_row": 21522,
+        "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:4bb1a20a3a0a0d6a8742",
+        "source_row": 3245,
+        "source_path": "content/lexical/canonical/packs/shards/o1697-1728.json"
+      },
+      {
+        "id": "membership:29117bc05104a1ee5168",
+        "source_row": 3246,
+        "source_path": "content/lexical/canonical/packs/shards/o1697-1728.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "evade",
+      "source": "content/lexical/canonical/lookup/spelling/ev.json",
+      "word_id": "word:evade",
+      "ordinal": 1725,
+      "word_shard": "content/lexical/canonical/words/shards/o1721-1728.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1721-1728.json",
+    "source_content_hash": "cbed163911ddd8a8ed8ab75f152b8a7cf6203b2b1ce1b145292acfaba386941a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}
