@@ -62,6 +62,44 @@
           "reason": "high-value academic-reading proposition pattern should be actively retrievable rather than visible only as an example"
         }
       ]
+    },
+    {
+      "batch_id": "depth-03",
+      "runtime_page": "static-web/src/pages/lexical-validation-03.astro",
+      "ordinals": [432, 555, 822, 1495, 2185, 3301, 5489],
+      "words": ["bear", "bound", "claim", "draft", "grant", "observe", "yield"],
+      "purpose": "familiar-new-sense and hidden-exam-use risk scan",
+      "findings": [
+        "bound is already a strong DIRECT_PASS owner: be bound to do, bound for, beyond the bounds of, and be bounded by are fixed learner patterns.",
+        "grant is already a strong DIRECT_PASS owner: grant that and take sth for granted are explicit learner constructions; its secondary-sense wrapper duplicates an active sense and is correctly suppressed from hidden +1 projection.",
+        "yield is already a strong DIRECT_PASS owner: produce, give way, noun yield, and yield to are all represented without needing semantic expansion.",
+        "claim is semantically mature, including active claim lives = cause death, so the secondary-sense wrapper must not create a fake hidden +1; claim that remains only a usage example and is a candidate for active proposition-pattern promotion.",
+        "bear is semantically rich and already owns bear in mind and bear on/upon, but its current mental_model_cn is only a compressed translation label and does not provide useful word-feel compression.",
+        "observe already exposes watch/notice/obey/celebrate/comment as active senses, including observe on + sth; its problem is not missing senses but weak word-feel compression.",
+        "draft is genuinely rich but also demonstrates a possible Recall Map overload risk: draft/sketch, bank draft, air current, draft beer, draft as write, and military draft all remain active. No deletion is justified without learner-use evidence, but this is a validation target for whether semantic richness exceeds scan value."
+      ],
+      "classification": {
+        "DIRECT_PASS": ["bound", "grant", "yield"],
+        "PROJECTION_ONLY": ["draft"],
+        "SEMANTIC_REPAIR_OR_REVIEW": ["bear", "claim", "observe"]
+      },
+      "semantic_repair_queue": [
+        {
+          "word_id": "word:claim",
+          "target": "claim that + clause",
+          "reason": "high-value academic proposition pattern is currently only a usage example"
+        },
+        {
+          "word_id": "word:bear",
+          "target": "word feel / mental model",
+          "reason": "current mental model merely repeats translations and does not compress the relation among carrying, enduring, supporting, producing, and related uses"
+        },
+        {
+          "word_id": "word:observe",
+          "target": "word feel / mental model",
+          "reason": "current mental model merely repeats observe/notice and does not help compress watch, notice, comply with, commemorate, and remark uses"
+        }
+      ]
     }
   ]
 }
