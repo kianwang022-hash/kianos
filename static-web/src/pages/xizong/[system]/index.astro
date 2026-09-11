@@ -1,8 +1,10 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import XizongSystemV6 from '../../../components/XizongSystemV6.astro';
+import XizongSystemExitRuntime from '../../../components/XizongSystemExitRuntime.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongPathways } from '../../../lib/xizongPathways.mjs';
+import { loadXizongSystemQuestionSweep } from '../../../lib/xizongQuestions.mjs';
 
 export function getStaticPaths() {
   return listProjectableXizongSystems().map((system) => ({ params: { system: system.systemId }, props: { systemId: system.systemId } }));
@@ -11,7 +13,9 @@ export function getStaticPaths() {
 const { systemId } = Astro.props;
 const system = loadXizongSystem(systemId);
 const pathways = loadXizongPathways(system);
+const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
 <Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
   <XizongSystemV6 system={system} pathways={pathways} />
+  {questionSweep && <XizongSystemExitRuntime system={system} sweep={questionSweep} />}
 </Base>
