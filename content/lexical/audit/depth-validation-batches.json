@@ -1,0 +1,67 @@
+{
+  "schema": "kianos.lexical.depth_validation_batches.v1",
+  "status": "CURRENT_AUDIT",
+  "role": "VALIDATION_EVIDENCE_ONLY",
+  "rule": "This file records representative Depth Study validation findings. It is not a lexical semantic owner and must not be used as runtime semantic fallback.",
+  "batches": [
+    {
+      "batch_id": "depth-01",
+      "runtime_page": "static-web/src/pages/lexical-validation.astro",
+      "ordinals": [1917, 1931, 1259, 1264, 1282, 314, 1670],
+      "words": ["fifteen", "fine", "deduct", "default", "delicate", "assure", "ensure"],
+      "purpose": ["simple L0 baseline", "familiar-new sense", "construction", "high-value phrase", "hidden sense", "confusable/semantic contrast"],
+      "findings": [
+        "Study previously failed to project verified secondary_senses; fine = 处以罚款 was valid Current content but invisible.",
+        "Study previously failed to project hydrated confusables because it read semantic_neighbors only.",
+        "deduct lacked an active learner construction for deduct A from B.",
+        "default lacked an active learner branch for by default despite the Core referencing preset/fallback meaning.",
+        "delicate compressed fragile and subtle/careful-handling meanings into reference-only material, making the learner-facing card underdeep.",
+        "assure -> ensure contrast existed only from one side; ensure now points to the same Relation owner with a reverse word view."
+      ],
+      "repairs": [
+        "VocabularyWordRuntime projects verified independent secondary_senses and both semantic_neighbors/confusables.",
+        "deduct A from B added as a verified learner construction.",
+        "by default added as a verified learner construction.",
+        "delicate fragile and subtle/careful-handling branches restored as verified secondary_senses.",
+        "assure/ensure Relation owner made bidirectional and ensure relation_ref added."
+      ]
+    },
+    {
+      "batch_id": "depth-02",
+      "runtime_page": "static-web/src/pages/lexical-validation-02.astro",
+      "ordinals": [40, 70, 761, 1655, 1920, 2652, 2931, 3752, 4763, 4941],
+      "words": ["account", "address", "charge", "engage", "figure", "issue", "maintain", "present", "subject", "term"],
+      "purpose": "high-frequency familiar-word depth scan",
+      "findings": [
+        "Many Current owners are already semantically deep; old display/projection was the larger problem. Do not manufacture semantic delta merely to make every audited word change.",
+        "Some secondary_senses duplicate an already-active source sense (for example engage/figure/issue). These must not create a fake +1 hidden branch.",
+        "Some deep construction records are presentation-merged into an already-active fixed-pattern collocation. Study must not display both copies.",
+        "subject to ... is high-value learner structure but currently appears only through usage-example collocations rather than an explicit learner construction.",
+        "come to terms with ... is high-value learner structure but currently appears only as a usage-example collocation under term.",
+        "maintain that ... is a high-value proposition pattern but currently appears only as a usage-example collocation."
+      ],
+      "runtime_repairs": [
+        "Depth Study now excludes verified secondary_senses whose source_sense_id is already active in the same Word owner.",
+        "Depth Study now suppresses construction rows explicitly presentation-merged into a fixed-pattern collocation.",
+        "Stable target locators preserve original collocation/construction indexes after projection filtering."
+      ],
+      "semantic_repair_queue": [
+        {
+          "word_id": "word:subject",
+          "target": "subject to sth / be subject to sth",
+          "reason": "high-value constraint/risk pattern should be actively retrievable rather than visible only as an example"
+        },
+        {
+          "word_id": "word:term",
+          "target": "come to terms with sth",
+          "reason": "high-value idiomatic phrase should be actively retrievable rather than visible only as an example"
+        },
+        {
+          "word_id": "word:maintain",
+          "target": "maintain that + clause",
+          "reason": "high-value academic-reading proposition pattern should be actively retrievable rather than visible only as an example"
+        }
+      ]
+    }
+  ]
+}
