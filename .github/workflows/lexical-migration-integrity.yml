@@ -29,17 +29,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate R12 expansion authority and exact Current readback
+      - name: Validate R12 expansion authority and bulk Current readback
         shell: bash
         run: |
           python tools/lexical_migration_integrity_readback.py \
             content/lexical/audit/migration-integrity/r12-expansion-authority.json \
-            --output /tmp/r12-expansion-readback.json
+            --output /tmp/r12-expansion-readback.json \
+            --summary /tmp/r12-expansion-summary.md
+
+      - name: Publish compact review summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/r12-expansion-summary.md ]; then
+            cat /tmp/r12-expansion-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Lexical migration readback summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Upload readback evidence
         uses: actions/upload-artifact@v4
         with:
           name: lexical-r12-expansion-readback
-          path: /tmp/r12-expansion-readback.json
+          path: |
+            /tmp/r12-expansion-readback.json
+            /tmp/r12-expansion-summary.md
           if-no-files-found: error
           retention-days: 14
