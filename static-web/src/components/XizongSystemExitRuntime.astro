@@ -37,7 +37,7 @@ const payload = JSON.stringify({
       <div class="xseStepNo">1</div>
       <div class="xseCardBody">
         <span class="xseEyebrow">System Recall</span>
-        <h3>把呼吸系统从脑子里叫出来</h3>
+        <h3>闭卷恢复 {system.title}</h3>
         <p>{recallPrompt}</p>
         <div class="xseStatusRow">
           <strong data-recall-status>还没完成本次 System Recall</strong>
@@ -51,7 +51,7 @@ const payload = JSON.stringify({
       <div class="xseCardBody">
         <span class="xseEyebrow">整卷保留</span>
         <h3>先锁住以后要当陌生整卷的年份</h3>
-        <p>这一步只做一次。网站不会替你猜哪套要保留；未锁定前，不启动 System sweep，避免把整卷陌生题提前拆掉。</p>
+        <p>完整卷保留是浏览器全局的个人学习状态；当前已保存的年份会自动从所有 System sweep 排除，需要时可在这里修改。</p>
         <div class="xseHoldoutCurrent" data-holdout-current>尚未锁定整卷保留题</div>
         <div class="xseHoldoutEditor" data-holdout-editor>
           <label for={`xse-holdout-${system.systemId}`}>保留年份</label>
@@ -67,7 +67,7 @@ const payload = JSON.stringify({
       <div class="xseStepNo">3</div>
       <div class="xseCardBody">
         <span class="xseEyebrow">Official Questions</span>
-        <h3><span data-sweep-count>{sweep.questionCount}</span> 道呼吸真题范围已恢复</h3>
+        <h3><span data-sweep-count>{sweep.questionCount}</span> 道系统真题范围已恢复</h3>
         <p data-sweep-summary>锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。</p>
         <div class="xseSweepStats" data-sweep-stats>
           <span>稳 <b data-stat-stable>0</b></span>
