@@ -11,6 +11,13 @@ function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
 }
 
+function normalizeConnection(row) {
+  return {
+    ...row,
+    reserveLearning: row?.reserve_learning === true || row?.reserve_recall === true
+  };
+}
+
 export function loadXizongPathways(system) {
   const canonicalId = String(system?.canonicalId || '').toLowerCase();
   const systemId = String(system?.systemId || '');
@@ -33,7 +40,8 @@ export function loadXizongPathways(system) {
   }
 
   const blockIds = new Set((system.blocks || []).map((block) => block.blockId));
-  for (const connection of raw.connections || []) {
+  const connections = (Array.isArray(raw.connections) ? raw.connections : []).map(normalizeConnection);
+  for (const connection of connections) {
     if (!connection?.id) throw new Error(`CURRENT_XIZONG_PATHWAY_CONNECTION_ID_MISSING:${systemId}`);
     if (!blockIds.has(connection?.source?.block_id) || !blockIds.has(connection?.target?.block_id)) {
       throw new Error(`CURRENT_XIZONG_PATHWAY_BLOCK_UNKNOWN:${connection.id}`);
@@ -43,7 +51,7 @@ export function loadXizongPathways(system) {
   return {
     sourcePath,
     systemFailureViews: raw.system_failure_views || {},
-    connections: Array.isArray(raw.connections) ? raw.connections : []
+    connections
   };
 }
 
