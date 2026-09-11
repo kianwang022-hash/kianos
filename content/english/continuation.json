@@ -10,7 +10,7 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_EVIDENCE_TRANSFER_V1_CURRENT_READY__LEARNER_VALIDATION_NEXT",
+  "current_stage": "OBJECTIVE_FIRST_LEARNING_V1_AND_RUNTIME_CURRENT_READY__REAL_LEARNER_VALIDATION_NEXT",
   "completed_shared_work": [
     "English Current consolidation completed: concise manifest, provenance separation, canonical exam/source assets, and Current-only Astro gating.",
     "Global English LEARNING_CONTRACT.md is the common cross-module learning authority: ability formation before material/UI organization; Clean Attempt; first meaningful failure; smallest sufficient repair; reconstruction/re-execution; selective memory admission; later fresh transfer as stronger mastery evidence.",
@@ -32,13 +32,21 @@
     "Reading A no longer loads the legacy ReadingReviewSignals, ReadingTransferEvidence, or ReadingSessionTransferEvidence components, so Current stops creating/updating per-question WATCH transfer state. Old local WATCH data is not automatically migrated.",
     "Objective Evidence / Transfer v1 passed both Current CI gates on commit 2df83d0fa52e031efe971d7fa3ac1275356beaf6: Static Web Objective QA passed validate:objective plus Astro build; English Objective Runtime passed source inventory plus Astro build.",
     "Translation has one canonical learner asset at content/english/modules/translation.md organized as Global Map -> four dense Core Learning Blocks -> Skill Map -> selective Skill Content -> Material Routing -> learner-facing learning loop -> frozen Translation Runtime v1. First learning happens through the dense Core Blocks, not by clicking through a taxonomy.",
-    "Translation now freezes an adaptive Chat expansion boundary: shared static content must remain clear, plain-language, and information-dense enough to support independent real-task entry; complex ambiguities, interacting mechanisms, rare structures, alternative faithful reconstructions, and personalized micro-drills are expanded in Chat when real evidence makes them valuable rather than being preloaded as encyclopedia content.",
+    "Translation freezes an adaptive Chat expansion boundary: shared static content must remain clear, plain-language, and information-dense enough to support independent real-task entry; complex ambiguities, interacting mechanisms, rare structures, alternative faithful reconstructions, and personalized micro-drills are expanded in Chat when real evidence makes them valuable rather than being preloaded as encyclopedia content.",
+    "Objective tasks now have a canonical first-learning asset at content/english/modules/objective-learning.md, modeled on the successful Translation asset philosophy without copying Translation cognition. It teaches an Objective Global Map first, then task-specific dense Core Learning Blocks, then Skill Maps as diagnostic addresses, then only a few high-value starter Skill Contents before Runtime.",
+    "Objective first-learning asset defines Cloze as Slot Demand -> Constraint Stack -> Candidate Competition -> Passage Execution; Reading A as Question Demand -> Decisive Evidence/Boundary -> Option Proposition -> Adjudication/Execution; Reading B as Discourse Skeleton -> Position Demand -> Candidate Role/Cohesion -> Global Reconciliation.",
+    "Objective Skill Maps are explicitly not first-learning task lists or teacher question-type curricula. They exist for later evidence aggregation, Chat diagnosis, and selective repair. Static content owns stable high-value mental models; Chat owns real ambiguity, interacting mechanisms, rare boundaries, learner-specific micro-drills, and transfer adjudication.",
+    "A shared learner page at /objective-learn/ renders the canonical objective-learning.md directly through marked rather than duplicating learning semantics in Astro. It provides in-page Global Map / Cloze / Reading A / Reading B navigation plus direct return links to practice.",
+    "Cloze, Reading A, and Reading B homes now expose a lightweight optional First Learning entry to the relevant anchor while preserving Continue Practice as the normal low-friction path. First Learning is not a compulsory gate before practice.",
+    "Objective first-learning owner/readiness is registered in content/english/manifest.json and validate:objective now includes a dedicated first-learning validation for owner registration, asset structure, learner page, and all three home links.",
+    "Objective first-learning v1 passed Static Web Objective QA on commit 14de0bb557e41a49d996e2e277099a19b0c44712: objective runtime validation, objective-learning validation, and Astro build all passed. The independent English Objective Runtime workflow also passed source inventory and Astro build on the same commit.",
     "Translation Runtime v1 remains whole-task/set review with finer internal evidence, first-meaningful-failure routing, cascade collapse, learner reconstruction before full reference when possible, selective memory admission, and fresh/unseen transfer for closure.",
     "Writing currently inherits the shared Learning Contract until its own module contract is frozen.",
     "KianOS SYSTEM_CONTRACT.md shared learner-surface baseline remains authoritative: Current / Continue / Navigate / Repair / Verify-Transfer / Handoff / Deferred / Validation with non-isomorphic cognition per lane."
   ],
   "current_owners_to_read": [
     "content/english/LEARNING_CONTRACT.md",
+    "content/english/modules/objective-learning.md",
     "content/english/modules/objective-runtime.md",
     "content/english/modules/objective-evidence-runtime.md",
     "content/english/modules/cloze.md",
@@ -52,7 +60,7 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/translation.md"
       ],
-      "inheritance": "Translation inherits shared English principles and its own dense learner-asset architecture plus frozen Translation Runtime v1. Static Translation assets teach the stable high-value model clearly enough for independent task entry; Chat provides adaptive depth for real ambiguity, mechanism interaction, alternative reconstruction, and learner-specific repair. Objective Runtime and Objective Evidence Runtime do not redefine Translation cognition or review state."
+      "inheritance": "Translation inherits shared English principles and its own dense learner-asset architecture plus frozen Translation Runtime v1. Static Translation assets teach the stable high-value model clearly enough for independent task entry; Chat provides adaptive depth for real ambiguity, mechanism interaction, alternative reconstruction, and learner-specific repair. Objective assets do not redefine Translation cognition or review state."
     },
     "writing": {
       "read": [
@@ -64,23 +72,25 @@
     "objective_tasks": {
       "read": [
         "content/english/LEARNING_CONTRACT.md",
+        "content/english/modules/objective-learning.md",
         "content/english/modules/objective-runtime.md",
         "content/english/modules/objective-evidence-runtime.md"
       ],
-      "inheritance": "Cloze / Reading A / Reading B preserve passage/set-level learner review. Question-level evidence may support diagnosis, but durable objective transfer state is claim-level. Chat adjudicates semantic transfer; the browser stores private state and must not manufacture mastery from arbitrary counters."
+      "inheritance": "First learning uses Objective Global Map -> task-specific Core Learning Blocks -> Skill Map -> selective Skill Content. Practice then uses the frozen passage/set-level Objective Runtime. Question-level evidence may support diagnosis, but durable objective transfer state is claim-level. Skill Maps are diagnostic addresses, not compulsory curricula. Chat adjudicates semantic transfer and adaptive long-tail depth; the browser stores private state and must not manufacture mastery from arbitrary counters."
     }
   },
   "next_action": {
-    "stage": "OBJECTIVE_EVIDENCE_TRANSFER_REAL_LEARNER_VALIDATION",
-    "instruction": "Stop adding objective infrastructure until real use produces evidence. During the learner's next genuine Cloze / Reading A / Reading B attempt that contains wrong, unanswered, or uncertain evidence, use the page's whole-passage/set Chat handoff, diagnose the whole unit in Chat, return KIANOS_OBJECTIVE_RETURN_V1, and import it on the same page. Verify that only justified task-specific newClaims persist. On a later genuinely fresh attempt, use the optional TRANSFER_CHECK only when an active claim may actually be tested; close or reopen claims only from relevant transfer evidence. Record learner-friction or semantic failures before changing v1.",
+    "stage": "OBJECTIVE_FIRST_LEARNING_AND_RUNTIME_REAL_LEARNER_VALIDATION",
+    "instruction": "Stop adding objective infrastructure or expanding the Skill Maps merely for completeness. Real validation should now test both layers. Choose one genuine task lane, read its Global Model + four Core Learning Blocks from /objective-learn/, then immediately enter a real clean passage/set. Observe whether the framework changes the learner's actual decision process without creating management overhead. If the attempt contains wrong/unanswered/uncertain evidence, continue through the existing whole-unit Chat review and KIANOS_OBJECTIVE_RETURN_V1 path. Only actual learner friction, missing high-value mental models, or wrong semantic behavior should trigger asset/UI/runtime revision.",
     "learner_validation_sequence": [
-      "Problem passage/set -> whole-unit Chat packet.",
-      "Chat diagnosis -> minimal repair threads with primary/dependent causes merged.",
-      "Lexical/Reading roots route outward; only justified task-specific procedures enter newClaims.",
-      "Paste the Chat response back into ObjectiveTransferClaims and verify private pending-claim persistence.",
-      "Later fresh passage/set -> optional TRANSFER_CHECK when relevant.",
-      "Chat updates only claims genuinely tested by that fresh material; CLOSED / TRANSFER_PENDING / REOPENED remain evidence-based.",
-      "Use actual learner friction or wrong semantic behavior as the only reason to revise the runtime."
+      "Enter one task through First Learning and read only its Global Model + four Core Blocks; do not pre-study the whole Skill Map as a checklist.",
+      "Immediately do one genuine clean passage/set from Current and notice whether the intended cognitive actions are actually callable under task conditions.",
+      "If stable clean: PASS and continue; do not manufacture review debt merely to test the system.",
+      "If wrong/unanswered/uncertain: use the whole-unit Chat packet and diagnose primary vs dependent causes before local repair.",
+      "Use Skill Map only after evidence exists, to give the exposed mechanism a stable address; expand starter/Chat content only when it changes the next action.",
+      "Route Lexical/Reading roots outward; persist only justified task-specific transfer claims.",
+      "On later fresh material, use optional TRANSFER_CHECK only when an active claim is genuinely tested.",
+      "Record concrete learner friction separately: too abstract, too verbose, missing example, unclear decision action, UI interruption, or an unnecessary management step. Revise only from those observations."
     ]
   },
   "do_not_reopen_without_new_evidence": [
@@ -95,6 +105,10 @@
     "Do not require manual error taxonomy, notes, or claim creation for every question.",
     "Do not make stable-correct objective items enter full review by default.",
     "Do not force one failure taxonomy or one review-card shape across all English modules.",
+    "Do not turn Objective Skill Maps into a compulsory first-learning taxonomy or teacher question-type course. First learning must remain Global Map + dense Core Blocks; the Skill Map becomes useful after real evidence exists.",
+    "Do not make First Learning a gate that blocks direct practice or Continue. It is a capability-building entry, not a compliance step.",
+    "Do not reduce Objective first-learning content to a thin taxonomy merely because Chat is available; the static asset must independently teach the stable high-value model.",
+    "Do not pre-expand Objective first-learning into an encyclopedia of distractor types, discourse labels, or rare boundaries merely for completeness; use real learner evidence to trigger adaptive Chat depth or selective Skill Content expansion.",
     "Do not reduce Translation first-learning content to a thin taxonomy merely because Chat is available; the static asset must independently teach the stable high-value model.",
     "Do not pre-expand Translation into an encyclopedia of rare boundaries merely for completeness; use real learner evidence to trigger adaptive Chat depth or selective Skill Content expansion.",
     "Do not create more module/governance files merely for completeness; create a specific owner only for a genuine shared cognitive/runtime object."
@@ -110,6 +124,6 @@
       "personal transfer claims",
       "session position"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-runtime.md and objective-evidence-runtime.md. Translation work must additionally read translation.md. Continue from next_action rather than reconstructing the roadmap from prior chats."
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current module owners needed for the active task. Objective work must additionally read objective-learning.md, objective-runtime.md, and objective-evidence-runtime.md. Translation work must additionally read translation.md. Continue from next_action rather than reconstructing the roadmap from prior chats."
   }
 }
