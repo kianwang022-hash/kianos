@@ -1,0 +1,36 @@
+---
+const { task, route, item } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const lastLocationKey = task === 'cloze'
+  ? 'kianos-cloze-last-location-v1'
+  : 'kianos-reading-b-last-location-v1';
+---
+<nav class="objectiveNavigator" data-objective-navigator data-last-key={lastLocationKey} data-current={JSON.stringify({
+  id: item.objectId,
+  title: item.title,
+  paperId: item.paperId,
+  year: item.year,
+  position: item.navigation?.position,
+  total: item.navigation?.total,
+  href: `${base}${route}/${encodeURIComponent(item.objectId)}/`
+})}>
+  <a class:list={{ disabled: !item.navigation?.previousId }} href={item.navigation?.previousId ? `${base}${route}/${encodeURIComponent(item.navigation.previousId)}/` : undefined} aria-disabled={!item.navigation?.previousId}>← 上一组</a>
+  <span>{item.navigation?.position || 1} / {item.navigation?.total || 1}</span>
+  <a class:list={{ disabled: !item.navigation?.nextId }} href={item.navigation?.nextId ? `${base}${route}/${encodeURIComponent(item.navigation.nextId)}/` : undefined} aria-disabled={!item.navigation?.nextId}>下一组 →</a>
+</nav>
+
+<script>
+  document.querySelectorAll('[data-objective-navigator]').forEach((node) => {
+    if (!(node instanceof HTMLElement)) return;
+    const key = node.getAttribute('data-last-key') || '';
+    if (!key) return;
+    try {
+      const payload = JSON.parse(node.getAttribute('data-current') || '{}');
+      if (payload?.id) localStorage.setItem(key, JSON.stringify(payload));
+    } catch {}
+  });
+</script>
+
+<style>
+  .objectiveNavigator{max-width:72rem;margin:12px auto 0;display:flex;align-items:center;justify-content:center;gap:14px}.objectiveNavigator a,.objectiveNavigator span{padding:8px 11px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font-size:11px;text-decoration:none}.objectiveNavigator span{color:var(--study-muted)}.objectiveNavigator a.disabled{pointer-events:none;opacity:.35}
+</style>
