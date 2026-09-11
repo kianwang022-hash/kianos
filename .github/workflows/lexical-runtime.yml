@@ -44,13 +44,27 @@ jobs:
           print(f'validated {len(roots)} lexical JSON files')
           PY
 
-      - name: Verify representative Natural Owner hydration
+      - name: Verify Current catalog and representative hydration
         working-directory: static-web
         run: |
           node --input-type=module - <<'NODE'
-          import { inspectLexicalSources, loadLexicalWordByOrdinal } from './src/lib/lexical.mjs';
+          import {
+            inspectLexicalSources,
+            listLexicalOrdinals,
+            listLexicalWordSummaries,
+            loadLexicalWordByOrdinal
+          } from './src/lib/lexical.mjs';
+
           const inspection = inspectLexicalSources();
           if (inspection.status !== 'ready' || inspection.semanticAuthority !== true) throw new Error('LEXICAL_SOURCE_NOT_READY');
+
+          const ordinalsAll = listLexicalOrdinals();
+          const summaries = listLexicalWordSummaries();
+          if (ordinalsAll.length !== inspection.wordCount || summaries.length !== inspection.wordCount) throw new Error('LEXICAL_CATALOG_COUNT_MISMATCH');
+          if (inspection.wordCount !== 7946) throw new Error('LEXICAL_CURRENT_WORD_COUNT_UNEXPECTED');
+          if (ordinalsAll[0] !== 1 || ordinalsAll.at(-1) !== inspection.wordCount) throw new Error('LEXICAL_ORDINAL_RANGE_INVALID');
+          if (summaries.some((row, index) => row.ordinal !== index + 1 || !row.objectId || !row.word)) throw new Error('LEXICAL_CATALOG_SUMMARY_INVALID');
+
           const ordinals = [1917, 1931, 1259, 1264, 1282, 314, 1670];
           const words = ordinals.map(loadLexicalWordByOrdinal);
           if (words.length !== ordinals.length) throw new Error('LEXICAL_VALIDATION_BATCH_INCOMPLETE');
