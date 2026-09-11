@@ -3,6 +3,8 @@
   "status": "CURRENT_NATURAL_OWNER",
   "semantic_authority": true,
   "owner_contract": "content/lexical/schema.json",
+  "learning_contract": "content/lexical/LEARNING_CONTRACT.md",
+  "continuation": "content/lexical/continuation.json",
   "word_manifest": "content/lexical/words/manifest.json",
   "relation_manifest": "content/lexical/relations/manifest.json",
   "lookup": {
@@ -31,6 +33,8 @@
   "runtime_contract": {
     "astro_reads_current_natural_owners": true,
     "legacy_or_reference_semantic_fallback": false,
-    "ui_semantic_authority": false
+    "ui_semantic_authority": false,
+    "learning_semantics_from_learning_contract": true,
+    "private_interaction_state_is_shared_current": false
   }
 }
