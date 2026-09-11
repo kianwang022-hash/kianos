@@ -8,7 +8,6 @@ import ReadingWorkspace from '../../components/ReadingWorkspace.astro';
 import ReadingAnswerGate from '../../components/ReadingAnswerGate.astro';
 import ReadingPassageNavigator from '../../components/ReadingPassageNavigator.astro';
 import ReadingDeferredReviewShield from '../../components/ReadingDeferredReviewShield.astro';
-import ReadingRepairCoach from '../../components/ReadingRepairCoach.astro';
 import ObjectiveTransferClaims from '../../components/ObjectiveTransferClaims.astro';
 import ReadingPassageHandoff from '../../components/ReadingPassageHandoff.astro';
 import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
@@ -39,7 +38,6 @@ const reading = loadReadingById(readingId);
   <ReadingAnswerGate />
   <ReadingPassageNavigator reading={reading} />
   <ReadingDeferredReviewShield />
-  <ReadingRepairCoach />
   <ReadingPassageHandoff />
   <ObjectiveTransferClaims task="reading_a" />
   <ReadingSessionHandoff />
