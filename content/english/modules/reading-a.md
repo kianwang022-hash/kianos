@@ -21,9 +21,10 @@ Default learner surface:
 - passage on the left;
 - one current question on the right;
 - A–D answer controls;
-- `Uncertain` as the only optional learner mark;
+- `Uncertain` as the only optional learner mark during the clean attempt;
 - quiet timer / progress;
-- fast keyboard navigation.
+- fast keyboard navigation;
+- optional low-friction passage marking when useful.
 
 Before submission, do **not** expose:
 
@@ -34,7 +35,7 @@ Before submission, do **not** expose:
 - prior-attempt answer or analysis;
 - repair hints.
 
-Do not make annotation, tagging, or note-taking mandatory. Native text selection may remain available, but a custom annotation workflow must justify its friction.
+Do not make annotation, tagging, or note-taking mandatory. Native text selection may remain available; custom marking should stay lightweight and optional.
 
 ## Private attempt evidence
 
@@ -47,9 +48,19 @@ Useful evidence is intentionally small:
 - attempt start / submit time;
 - answer changes when available;
 - current question / navigation state;
-- final correctness.
+- final correctness;
+- optional learner quick-cause note after submission.
 
-Do not require the learner to classify the error with a diagnostic taxonomy.
+The learner may record a **coarse, low-friction personal cause** because this is useful memory of the moment. It is not the system's semantic diagnosis and must never be mandatory.
+
+Preferred quick causes:
+
+- 没读懂;
+- 没定位准;
+- 选项没辨清;
+- 看错 / 改错.
+
+Chat remains responsible for deeper diagnosis when needed.
 
 ## Submit behavior
 
@@ -143,6 +154,7 @@ Minimum packet:
 - learner final answer;
 - formal answer;
 - uncertain state;
+- learner quick-cause note if present;
 - answer trajectory if captured;
 - only the necessary passage context when selected by the learner or runtime.
 
@@ -150,15 +162,15 @@ Chat may then decide the first meaningful failure and the smallest repair. Perso
 
 ## Retry / second pass
 
-There is no default standalone “二刷 taxonomy” workflow.
+There is no mandatory standalone “二刷” workflow.
 
 A retry exists to verify a repair, not to make the learner re-do a page because the system has a second-pass feature.
 
 Preferred sequence:
 
-`problem item → local repair → reconstruct / retry that item → close → later unseen transfer`
+`problem item → quick cause if useful → local repair → reconstruct / retry → close → later unseen transfer`
 
-Do not force four generic learner-owned tags such as “没记住 / 没想明白 / 选项没辨清 / 看错”. They add friction and are too coarse to replace semantic diagnosis.
+Quick cause logging is optional and should take one click. It supplements, rather than replaces, semantic diagnosis.
 
 ## Content assets
 
