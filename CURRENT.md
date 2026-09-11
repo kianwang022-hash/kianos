@@ -69,6 +69,8 @@ Fresh Chats continuing English learning/runtime work should read `content/englis
 LexicalOS Natural Owner cutover is complete.
 
 - `content/lexical/manifest.json` — Current lexical authority entry;
+- `content/lexical/LEARNING_CONTRACT.md` — learner-facing Depth Scan / selective Repair / dynamic Challenge / Return Packet semantics;
+- `content/lexical/continuation.json` — durable shared-work cursor for the active LexicalOS learning/runtime lane;
 - `content/lexical/words/by-ordinal/` — 7,946 Current Word natural owners for all word-local semantics;
 - `content/lexical/relations/by-id/` — Current owners for genuine cross-word semantic relationships;
 - `content/lexical/schema.json` — ownership contract;
@@ -78,11 +80,19 @@ The old bounded stores under `content/lexical/canonical/` are now identity/prove
 
 `content/lexical/words/answer.json` is only a non-authoritative compatibility pointer to `content/lexical/words/by-ordinal/o0209.json`; Astro reads the Natural Owner directly.
 
-Normal lexical work is now:
+Normal lexical semantic work is now:
 
 `manifest / lookup → Word Natural Owner → referenced Relation only when needed → Astro display/interaction`
 
+Normal lexical learning/runtime work is now:
+
+`Recall Map → Depth Reveal → selective + Repair → dynamic Challenge → Return Packet → next learning day → later real transfer`
+
 L0-first semantic review continues as Current content work. Semantic repairs update the Natural Owner in place; migration does not need to be replayed and old bounded stores do not need manual semantic synchronization.
+
+The vocabulary learner surface must not turn 7,946 words or their active senses into one-card-per-object review debt. Rich familiar words may remain deep on the main Reveal, while only specific weak senses, constructions, phrases, relations, or productive needs become repair targets. Challenge questions may be generated dynamically from Current semantics; held-out true-exam/TPO/unseen material remains protected until its first real attempt.
+
+Fresh Chats continuing LexicalOS learning/runtime work should read `content/lexical/continuation.json` first, then `LEARNING_CONTRACT.md` and only the smallest Current Natural Owner/runtime files needed by the active stage.
 
 ### Politics
 
