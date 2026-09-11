@@ -23,44 +23,41 @@ const payload = {
   kpVisuals: byAnchor(visuals, 'kp_id')
 };
 ---
-<div data-xizong-precision-visual-cues data-study-object={block.objectId} hidden>
-  <div data-group-cue-host></div>
-  <script type="application/json" data-learning-cue-payload set:html={JSON.stringify(payload)}></script>
-</div>
+<div data-xizong-group-visuals hidden></div>
+<div data-xizong-group-precision hidden></div>
+<script type="application/json" data-learning-cue-payload set:html={JSON.stringify(payload)}></script>
 
 <script>
-  const cueRoot = document.querySelector('[data-xizong-precision-visual-cues]');
   const studyRoot = document.querySelector('[data-xizong-v6-block]');
-  if (cueRoot && studyRoot) {
+  const visualRoot = document.querySelector('[data-xizong-group-visuals]');
+  const precisionRoot = document.querySelector('[data-xizong-group-precision]');
+  const payloadNode = document.querySelector('[data-learning-cue-payload]');
+  if (studyRoot && visualRoot && precisionRoot && payloadNode) {
     let payload = { groups: [], kps: [], groupPrecision: {}, kpPrecision: {}, groupVisuals: {}, kpVisuals: {} };
-    try { payload = JSON.parse(cueRoot.querySelector('[data-learning-cue-payload]')?.textContent || '{}'); } catch {}
+    try { payload = JSON.parse(payloadNode.textContent || '{}'); } catch {}
 
-    const renderRows = (precisionRows = [], visualRows = []) => {
-      const fragment = document.createDocumentFragment();
-      precisionRows.forEach((row) => {
-        const el = document.createElement('div');
-        el.className = 'xv6LearningCue precision';
-        const label = document.createElement('span');
-        label.textContent = 'Precision · 最终要精确';
-        const text = document.createElement('p');
-        text.textContent = row?.cue || '';
-        el.append(label, text);
-        fragment.appendChild(el);
-      });
-      visualRows.forEach((row) => {
-        const el = document.createElement('div');
-        el.className = 'xv6LearningCue visual';
-        const label = document.createElement('span');
-        label.textContent = `看原图 · ${row?.source_locator || 'Lecture'}`;
-        const text = document.createElement('p');
-        text.textContent = row?.task || '';
-        el.append(label, text);
-        fragment.appendChild(el);
-      });
-      return fragment;
+    const makePrecision = (row) => {
+      const el = document.createElement('div');
+      el.className = 'xv6LearningCue precision';
+      const label = document.createElement('span');
+      label.textContent = '以后要精确';
+      const text = document.createElement('p');
+      text.textContent = row?.cue || '';
+      el.append(label, text);
+      return el;
+    };
+    const makeVisual = (row) => {
+      const el = document.createElement('div');
+      el.className = 'xv6LearningCue visual';
+      const label = document.createElement('span');
+      label.textContent = `看原图 · ${row?.source_locator || 'Lecture'}`;
+      const text = document.createElement('p');
+      text.textContent = row?.task || '';
+      el.append(label, text);
+      return el;
     };
 
-    // KP cues are attached once to their existing learner cards. They never enter Recall cards.
+    // KP-level cues stay beside the current KP because they directly help this learning action.
     const learnCards = [...studyRoot.querySelectorAll('[data-kp-learn-card]')];
     learnCards.forEach((card, index) => {
       const kpId = payload.kps?.[index] || '';
@@ -69,47 +66,44 @@ const payload = {
       if (!precisionRows.length && !visualRows.length) return;
       const stack = document.createElement('div');
       stack.className = 'xv6LearningCueStack kp';
-      stack.appendChild(renderRows(precisionRows, visualRows));
-      const header = card.querySelector(':scope > header');
-      if (header) header.insertAdjacentElement('afterend', stack);
-      else card.prepend(stack);
+      visualRows.forEach((row) => stack.appendChild(makeVisual(row)));
+      precisionRows.forEach((row) => stack.appendChild(makePrecision(row)));
+      const lecture = card.querySelector('.xv6LectureFirst');
+      if (lecture) lecture.insertAdjacentElement('afterend', stack);
+      else card.querySelector(':scope > header')?.insertAdjacentElement('afterend', stack);
     });
 
-    // Logic-group cues follow the one active group entrance and remain nonblocking.
+    // Group visual helps understanding now, so it appears at the section entrance.
     const logicStage = studyRoot.querySelector('[data-study-stage="logic_group"]');
-    const groupHost = cueRoot.querySelector('[data-group-cue-host]');
-    const anchor = logicStage?.querySelector('.xv6LogicTarget') || logicStage?.querySelector('[data-logic-kps]');
-    if (logicStage && groupHost && anchor) {
-      cueRoot.hidden = false;
-      cueRoot.classList.add('xv6LearningCueStack', 'group');
-      anchor.insertAdjacentElement('afterend', cueRoot);
-    }
+    logicStage?.querySelector('.xv6LogicTarget')?.insertAdjacentElement('afterend', visualRoot);
 
-    const currentGroupIndex = () => {
+    // Group precision is a later exactness reminder, so it appears only after the section is learned.
+    const closeStage = studyRoot.querySelector('[data-study-stage="group_close"]');
+    closeStage?.querySelector('.xv6GroupClosure')?.insertAdjacentElement('afterend', precisionRoot);
+
+    const currentIndex = () => {
       const text = studyRoot.querySelector('[data-logic-counter]')?.textContent || '';
-      const match = text.match(/LG(\d+)/i);
+      const match = text.match(/(\d+)\s*\//);
       return Math.max(0, Number(match?.[1] || 1) - 1);
     };
-    const renderGroup = () => {
-      if (!groupHost) return;
-      const groupId = payload.groups?.[currentGroupIndex()] || '';
-      const precisionRows = payload.groupPrecision?.[groupId] || [];
-      const visualRows = payload.groupVisuals?.[groupId] || [];
-      groupHost.replaceChildren();
-      if (!precisionRows.length && !visualRows.length) {
-        cueRoot.hidden = true;
-        return;
-      }
-      cueRoot.hidden = false;
-      groupHost.appendChild(renderRows(precisionRows, visualRows));
+    const render = () => {
+      const groupId = payload.groups?.[currentIndex()] || '';
+      const visuals = payload.groupVisuals?.[groupId] || [];
+      const precisions = payload.groupPrecision?.[groupId] || [];
+      visualRoot.replaceChildren();
+      precisionRoot.replaceChildren();
+      visualRoot.hidden = !visuals.length;
+      precisionRoot.hidden = !precisions.length;
+      visuals.forEach((row) => visualRoot.appendChild(makeVisual(row)));
+      precisions.forEach((row) => precisionRoot.appendChild(makePrecision(row)));
     };
 
     const counter = studyRoot.querySelector('[data-logic-counter]');
-    if (counter) new MutationObserver(renderGroup).observe(counter, { childList: true, subtree: true, characterData: true });
-    renderGroup();
+    if (counter) new MutationObserver(render).observe(counter, { childList: true, subtree: true, characterData: true });
+    render();
   }
 </script>
 
 <style>
-  .xv6LearningCueStack{display:grid;gap:6px}.xv6LearningCueStack.group{margin:.65rem 0}.xv6LearningCueStack.kp{margin:.1rem 0 .8rem}.xv6LearningCue{display:grid;grid-template-columns:148px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem;border-top:1px solid var(--line,#d9dde5)}.xv6LearningCue:first-child{border-top:0}.xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}.xv6LearningCue.precision span{color:var(--study-green,#286c57)}.xv6LearningCue.visual{padding:.5rem .6rem;border:0;border-radius:9px;background:var(--soft,#f5f6f8)}.xv6LearningCue.visual span{white-space:nowrap}@media(max-width:720px){.xv6LearningCue{grid-template-columns:1fr;gap:.15rem}}
+  [data-xizong-group-visuals],[data-xizong-group-precision]{margin:.65rem 0}.xv6LearningCueStack{display:grid;gap:6px}.xv6LearningCueStack.kp{margin:.1rem 0 .8rem}.xv6LearningCue{display:grid;grid-template-columns:118px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem}.xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}.xv6LearningCue.precision{border-top:1px solid var(--line,#d9dde5)}.xv6LearningCue.precision span{color:var(--study-green,#286c57)}.xv6LearningCue.visual{padding:.5rem .6rem;border-radius:9px;background:var(--soft,#f5f6f8)}.xv6LearningCue.visual span{white-space:nowrap}@media(max-width:720px){.xv6LearningCue{grid-template-columns:1fr;gap:.15rem}}
 </style>
