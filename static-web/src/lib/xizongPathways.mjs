@@ -14,7 +14,7 @@ function absolute(relativePath) {
 function normalizeConnection(row) {
   return {
     ...row,
-    reserveLearning: row?.reserve_learning === true || row?.reserve_recall === true
+    reserveLearning: row?.reserve_learning === true
   };
 }
 
