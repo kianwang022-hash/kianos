@@ -9,6 +9,7 @@ import {
   TRANSLATION_RETURN_SCHEMA,
   blankTranslationState,
   blankTransferLedger,
+  normalizeTranslationState,
   pendingTransferTargets,
   freezeWholeAttempt,
   passCleanAttempt,
@@ -44,6 +45,17 @@ function present(value) {
 function check(condition, message) {
   summary.journeyChecks += 1;
   if (!condition) issues.push(`journey: ${message}`);
+}
+
+function expectThrows(fn, expected, message) {
+  let seen = '';
+  try { fn(); }
+  catch (error) { seen = error instanceof Error ? error.message : String(error); }
+  check(seen.includes(expected), `${message} (got ${seen || 'no error'})`);
+}
+
+function packet(payload) {
+  return `${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({ schema: TRANSLATION_RETURN_SCHEMA, ...payload })}`;
 }
 
 function sourcePresent(task) {
@@ -141,6 +153,9 @@ function validateContractAndUi() {
   const scanner = read('../src/lib/englishTranslation.mjs');
   const model = read('../src/lib/translationRuntimeModel.mjs');
   const workspace = read('../src/components/TranslationWorkspace.astro');
+  const evidenceGuard = read('../src/components/TranslationEvidenceGuard.astro');
+  const referenceLoader = read('../src/components/TranslationReferenceLoader.astro');
+  const referenceEndpoint = read('../src/pages/translation-reference/[id].json.js');
   const home = read('../src/pages/translation.astro');
   const taskPage = read('../src/pages/translation/[id].astro');
   const learnPage = read('../src/pages/translation-learn.astro');
@@ -170,6 +185,9 @@ function validateContractAndUi() {
   requireText('model', model, 'parseTranslationReturn');
   requireText('model', model, 'pendingTransferTargets');
   requireText('model', model, 'applyTransferUpdates');
+  requireText('model', model, 'RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE');
+  requireText('model', model, "task === clean(target.sourceTask)");
+  requireText('model', model, 'priorIndex');
 
   requireText('workspace', workspace, 'data-attempt-id');
   requireText('workspace', workspace, 'data-pass-clean');
@@ -185,9 +203,21 @@ function validateContractAndUi() {
   forbidText('workspace', workspace, 'Priority 2 · Naturalness / structure');
   forbidText('workspace', workspace, 'data-first-draft');
 
+  requireText('evidence guard', evidenceGuard, "stage === 'attempt' || stage === 'decision'");
+  requireText('evidence guard', evidenceGuard, '发现问题 → 回 Review');
+
+  requireText('reference loader', referenceLoader, 'fetch(referenceUrl');
+  requireText('reference loader', referenceLoader, 'REFERENCE_IDENTITY_MISMATCH');
+  requireText('reference loader', referenceLoader, 'buildHandoffWithReference');
+  requireText('reference endpoint', referenceEndpoint, 'loadTranslationReferencesById');
+  requireText('reference endpoint', referenceEndpoint, 'application/json; charset=utf-8');
+  requireText('task page', taskPage, 'TranslationReferenceLoader');
+  requireText('task page', taskPage, 'references: []');
+  requireText('task page', taskPage, 'translation-reference/');
+  forbidText('task page', taskPage, 'loadTranslationReferencesById');
+
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
-  requireText('task page', taskPage, 'loadTranslationReferencesById');
   requireText('learn page', learnPage, "['B1', 'B1 · Representation']");
   requireText('learn page', learnPage, 'Skill Map + Deep Skills');
   requireText('learn page', learnPage, '系统 / Chat 参考');
@@ -212,6 +242,9 @@ function validateLearnerJourneys() {
   check(passed.stage === 'passed' && passed.decision === 'PASS', 'stable work must have executable PASS path');
   check(passed.pendingTransferCandidate == null, 'clean PASS must not manufacture a transfer target');
 
+  const corrupted = normalizeTranslationState(prompts, { ...frozen.state, version: 2, stage: 'broken-stage' });
+  check(corrupted.stage === 'decision', 'complete saved attempt with invalid stage must fail safe to decision');
+
   state = blankTranslationState(prompts);
   state.drafts.s1 = '第一次一';
   state.drafts.s2 = '第一次二';
@@ -219,8 +252,7 @@ function validateLearnerJourneys() {
   state = routeAttemptToReview(frozen.state);
   check(state.stage === 'diagnosis', 'Need Review must enter whole-set diagnosis');
 
-  const repairPacket = `${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({
-    schema: TRANSLATION_RETURN_SCHEMA,
+  const repairPacket = packet({
     task: 'task-a',
     decision: 'REPAIR_NEEDED',
     primary_failure: {
@@ -239,7 +271,7 @@ function validateLearnerJourneys() {
       underlying_demand: '在新句中正确处理否定 / modality 对命题强度的限制。'
     },
     transfer_updates: []
-  })}`;
+  });
   const parsedRepair = parseTranslationReturn(repairPacket, 'task-a');
   let ledger = blankTransferLedger();
   let applied = applyTranslationReturn(state, parsedRepair, prompts, ledger, { task: 'task-a', now: '2026-09-12T01:01:00.000Z' });
@@ -252,24 +284,101 @@ function validateLearnerJourneys() {
   check(repaired.ok === true && repaired.state.stage === 'transfer_pending', 'reusable repaired failure must become TRANSFER_PENDING');
   check(pendingTransferTargets(repaired.ledger).length === 1, 'admitted reusable target must exist in private transfer ledger');
 
-  const irrelevantPacket = `${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({
-    schema: TRANSLATION_RETURN_SCHEMA,
+  expectThrows(
+    () => parseTranslationReturn(packet({
+      task: 'task-a',
+      decision: 'REPAIR_NEEDED',
+      primary_failure: { layer: 'English Representation', affected_segments: ['s2'], minimal_repair: 'repair' },
+      transfer_target: { admit: true, target_id: 'broken', label: 'Broken' }
+    }), 'task-a'),
+    'RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE',
+    'admitted transfer target must contain the durable demand before UI can claim TRANSFER_PENDING'
+  );
+
+  expectThrows(
+    () => parseTranslationReturn(`${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({ task: 'task-a', decision: 'PASS' })}`, 'task-a'),
+    'RETURN_PACKET_SCHEMA_INVALID',
+    'Return schema marker in prose must not substitute for exact JSON schema identity'
+  );
+
+  expectThrows(
+    () => parseTranslationReturn(packet({ task: 'wrong-task', decision: 'PASS' }), 'task-a'),
+    'RETURN_PACKET_TASK_MISMATCH',
+    'Return from another Translation set must not import into this task'
+  );
+
+  const invalidSegment = parseTranslationReturn(packet({
+    task: 'task-a',
+    decision: 'REPAIR_NEEDED',
+    primary_failure: {
+      layer: 'English Representation',
+      affected_segments: ['not-a-segment'],
+      minimal_repair: 'repair'
+    },
+    transfer_target: { admit: false },
+    transfer_updates: []
+  }), 'task-a');
+  expectThrows(
+    () => applyTranslationReturn(state, invalidSegment, prompts, repaired.ledger, { task: 'task-a' }),
+    'RETURN_PACKET_AFFECTED_SEGMENT_INVALID',
+    'invalid segment address must be rejected rather than silently widening repair to the whole set'
+  );
+
+  expectThrows(
+    () => parseTranslationReturn(packet({
+      task: 'task-b',
+      decision: 'PASS',
+      transfer_updates: [{ target_id: 'translation:r4:scope-strength', relation: 'irrelevant', note: 'not tested', close: true }]
+    }), 'task-b'),
+    'RETURN_PACKET_TRANSFER_CLOSE_INVALID',
+    'irrelevant or contradictory material must not carry a close flag'
+  );
+
+  const freshState = freezeWholeAttempt(Object.assign(blankTranslationState(prompts), { drafts: { s1: '新译文一', s2: '新译文二' } }), prompts).state;
+
+  const sameTaskSupport = parseTranslationReturn(packet({
+    task: 'task-a',
+    decision: 'PASS',
+    transfer_updates: [{
+      target_id: 'translation:r4:scope-strength',
+      relation: 'support',
+      note: 'same task must not count as fresh evidence',
+      close: true
+    }]
+  }), 'task-a');
+  applied = applyTranslationReturn(routeAttemptToReview(freshState), sameTaskSupport, prompts, repaired.ledger, { task: 'task-a', now: '2026-09-12T02:00:00.000Z' });
+  check(pendingTransferTargets(applied.ledger).length === 1, 'source task must never close its own transfer target');
+  check((applied.ledger.targets[0]?.evidence || []).length === 0, 'source task must not even enter fresh transfer evidence');
+
+  const irrelevantPacket = parseTranslationReturn(packet({
     task: 'task-b',
     decision: 'PASS',
     transfer_updates: [{
       target_id: 'translation:r4:scope-strength',
       relation: 'irrelevant',
       note: '本题没有真正测试该 scope demand。',
-      close: true
+      close: false
     }]
-  })}`;
-  const parsedIrrelevant = parseTranslationReturn(irrelevantPacket, 'task-b');
-  const freshState = freezeWholeAttempt(Object.assign(blankTranslationState(prompts), { drafts: { s1: '新译文一', s2: '新译文二' } }), prompts).state;
-  applied = applyTranslationReturn(routeAttemptToReview(freshState), parsedIrrelevant, prompts, repaired.ledger, { task: 'task-b', now: '2026-09-13T00:00:00.000Z' });
+  }), 'task-b');
+  applied = applyTranslationReturn(routeAttemptToReview(freshState), irrelevantPacket, prompts, applied.ledger, { task: 'task-b', now: '2026-09-13T00:00:00.000Z' });
   check(pendingTransferTargets(applied.ledger).length === 1, 'irrelevant later material must not close a pending target');
 
-  const supportPacket = `${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({
-    schema: TRANSLATION_RETURN_SCHEMA,
+  const supportB = parseTranslationReturn(packet({
+    task: 'task-b',
+    decision: 'PASS',
+    transfer_updates: [{
+      target_id: 'translation:r4:scope-strength',
+      relation: 'support',
+      note: 'same later task imported again should replace its old evidence, not stack counts',
+      close: false
+    }]
+  }), 'task-b');
+  applied = applyTranslationReturn(routeAttemptToReview(freshState), supportB, prompts, applied.ledger, { task: 'task-b', now: '2026-09-13T00:05:00.000Z' });
+  const afterFirstSupportCount = applied.ledger.targets[0]?.evidence?.length || 0;
+  applied = applyTranslationReturn(routeAttemptToReview(freshState), supportB, prompts, applied.ledger, { task: 'task-b', now: '2026-09-13T00:06:00.000Z' });
+  check((applied.ledger.targets[0]?.evidence?.length || 0) === afterFirstSupportCount, 're-importing the same later task must be idempotent evidence');
+
+  const supportPacket = parseTranslationReturn(packet({
     task: 'task-c',
     decision: 'PASS',
     transfer_updates: [{
@@ -278,9 +387,8 @@ function validateLearnerJourneys() {
       note: '新句独立正确处理相同 scope demand。',
       close: true
     }]
-  })}`;
-  const parsedSupport = parseTranslationReturn(supportPacket, 'task-c');
-  applied = applyTranslationReturn(routeAttemptToReview(freshState), parsedSupport, prompts, applied.ledger, { task: 'task-c', now: '2026-09-14T00:00:00.000Z' });
+  }), 'task-c');
+  applied = applyTranslationReturn(routeAttemptToReview(freshState), supportPacket, prompts, applied.ledger, { task: 'task-c', now: '2026-09-14T00:00:00.000Z' });
   check(pendingTransferTargets(applied.ledger).length === 0, 'meaningful fresh support with semantic close must reach CLOSED');
   check(applied.ledger.targets[0]?.status === 'closed', 'closed transfer target must remain explicit evidence, not disappear');
 }
