@@ -5,6 +5,7 @@ import { inspectObjectiveTask, listClozeSets } from '../lib/englishObjective.mjs
 
 const sourceState = inspectObjectiveTask('cloze');
 const sets = sourceState.status === 'ready' ? listClozeSets() : [];
+const base = import.meta.env.BASE_URL;
 const pendingDescription = sourceState.status === 'invalid'
   ? 'Cloze Current section 无法被唯一、安全识别；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 gate 后自动启用。';
@@ -25,6 +26,8 @@ const pendingDescription = sourceState.status === 'invalid'
       description="整篇完成后统一提交。错空只作为内部 evidence；Chat 先看整篇，再合并共同根因。"
       unitLabel="passages"
       lastLocationKey="kianos-cloze-last-location-v1"
+      learningHref={`${base}objective-learn/#cloze`}
+      learningSummary="第一次系统学完形时，先建立 Slot Demand → Constraint Stack → Candidate Competition → Passage Execution。"
     />
   ) : (
     <section class="migrationPending">
