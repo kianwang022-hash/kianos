@@ -1,0 +1,30 @@
+---
+const { reading } = Astro.props;
+---
+<span
+  data-reading-last-location
+  data-reading-id={reading.objectId}
+  data-reading-title={reading.title}
+  data-reading-paper={reading.paperId || ''}
+  data-reading-position={reading.navigation?.position || ''}
+  data-reading-total={reading.navigation?.total || ''}
+  hidden
+></span>
+
+<script>
+  const node = document.querySelector('[data-reading-last-location]');
+  if (node instanceof HTMLElement) {
+    const value = {
+      id: node.getAttribute('data-reading-id') || '',
+      title: node.getAttribute('data-reading-title') || '',
+      paperId: node.getAttribute('data-reading-paper') || '',
+      position: Number(node.getAttribute('data-reading-position') || 0),
+      total: Number(node.getAttribute('data-reading-total') || 0),
+      href: window.location.pathname,
+      observed_at: new Date().toISOString()
+    };
+    if (value.id) {
+      try { localStorage.setItem('kianos-reading-last-location-v1', JSON.stringify(value)); } catch {}
+    }
+  }
+</script>
