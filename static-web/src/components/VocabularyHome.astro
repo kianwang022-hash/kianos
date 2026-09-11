@@ -29,6 +29,11 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <header><strong>最近学习</strong><span>只显示你实际打开过的词</span></header>
       <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
     </section>
+
+    <section class="lexicalHandoff">
+      <div><span>Daily handoff</span><strong>Return Packet</strong><p data-lexical-return-summary>今天还没有需要带回 Chat 的词汇证据。</p></div>
+      <button type="button" data-lexical-copy-return>Copy Today's Return Packet</button>
+    </section>
   </section>
 
   <section class="lexicalHomePanel" data-lexical-panel="search" hidden>
@@ -56,13 +61,22 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   if (root instanceof HTMLElement) {
     const base = root.getAttribute('data-base') || '/';
     const prefix = 'kianos-vocabulary-astro-v2:';
+    const challengeEventsKey = 'kianos-lexical-challenge-events-v1';
     let rows = [];
     try { rows = JSON.parse(root.querySelector('[data-lexical-catalog]')?.textContent || '[]'); } catch {}
 
     const byObjectId = new Map(rows.map((row) => [row.objectId, row]));
     const hrefFor = (ordinal) => `${base}vocabulary/${ordinal}/`;
-    const stateFor = (row) => {
-      try { return JSON.parse(localStorage.getItem(`${prefix}${row.objectId}`) || 'null') || {}; } catch { return {}; }
+    const readJson = (key, fallback = {}) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+    };
+    const stateFor = (row) => readJson(`${prefix}${row.objectId}`, {});
+    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+    const eventStudyDay = (event) => {
+      const observedAt = event?.observed_at;
+      if (!observedAt) return '';
+      const date = new Date(observedAt);
+      return Number.isNaN(date.getTime()) ? '' : date.toLocaleDateString('en-CA');
     };
 
     const tabs = [...root.querySelectorAll('[data-lexical-tab]')];
@@ -106,6 +120,57 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
         entries.push({ row, state, seen: Date.parse(state.lastSeenAt || '') || 0 });
       }
       return entries.sort((a, b) => b.seen - a.seen);
+    };
+
+    const collectDepthEvents = (studyDay) => {
+      const result = [];
+      for (let index = 0; index < localStorage.length; index += 1) {
+        const key = localStorage.key(index) || '';
+        if (!key.startsWith(prefix)) continue;
+        const state = readJson(key, null);
+        if (!state?.meta || !state?.repairTargets) continue;
+        Object.values(state.repairTargets).forEach((target) => {
+          if ((target.study_day || studyDay) !== studyDay) return;
+          result.push({
+            word_id: state.meta.word_id,
+            ordinal: Number(state.meta.ordinal),
+            word: state.meta.word || null,
+            target_kind: target.target_kind,
+            target_id: target.target_id || null,
+            target_locator: target.target_locator || null,
+            source: 'depth_plus',
+            outcome: 'ADDED',
+            observed_at: target.observed_at || state.lastSeenAt || new Date().toISOString()
+          });
+        });
+      }
+      return result;
+    };
+
+    const collectChallengeEvents = (studyDay) => {
+      const events = readJson(challengeEventsKey, []);
+      return Array.isArray(events) ? events.filter((event) => eventStudyDay(event) === studyDay) : [];
+    };
+
+    const buildReturnPacket = () => {
+      const studyDay = localStudyDay();
+      return {
+        schema: 'kianos.lexical.return_packet.v1',
+        study_day: studyDay,
+        exported_at: new Date().toISOString(),
+        events: [...collectDepthEvents(studyDay), ...collectChallengeEvents(studyDay)]
+      };
+    };
+
+    const renderReturnSummary = () => {
+      const summary = root.querySelector('[data-lexical-return-summary]');
+      if (!summary) return;
+      const packet = buildReturnPacket();
+      const depthCount = packet.events.filter((event) => event.source === 'depth_plus').length;
+      const challengeCount = packet.events.length - depthCount;
+      summary.textContent = packet.events.length
+        ? `今天 ${packet.events.length} 条 evidence · ${depthCount} Depth + · ${challengeCount} Challenge/重建。`
+        : '今天还没有需要带回 Chat 的词汇证据。';
     };
 
     const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
@@ -170,7 +235,20 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       repairRows.forEach(({ row, state }) => reviewHost.appendChild(makeWordRow(row, state)));
     };
 
+    root.querySelector('[data-lexical-copy-return]')?.addEventListener('click', async (event) => {
+      const button = event.currentTarget;
+      const text = JSON.stringify(buildReturnPacket(), null, 2);
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'Copied';
+      } catch {
+        window.prompt('Copy Return Packet', text);
+      }
+      window.setTimeout(() => { button.textContent = "Copy Today's Return Packet"; }, 1200);
+    });
+
     renderRecent();
+    renderReturnSummary();
   }
 </script>
 
@@ -189,9 +267,14 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   .lexicalContinueCard strong { font-size: clamp(1.8rem, 4vw, 3rem); }
   .lexicalContinueCard p { margin: 0; line-height: 1.55; }
   .lexicalContinueCard small { opacity: .58; }
-  .lexicalRecent { padding: 1.1rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
+  .lexicalRecent, .lexicalHandoff { padding: 1.1rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
   .lexicalRecent > header { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
   .lexicalRecent > header span { opacity: .58; font-size: .84rem; }
+  .lexicalHandoff { display: flex; justify-content: space-between; gap: 1rem; align-items: center; }
+  .lexicalHandoff > div { display: grid; gap: .18rem; }
+  .lexicalHandoff span { font-size: .76rem; text-transform: uppercase; letter-spacing: .07em; opacity: .58; }
+  .lexicalHandoff p { margin: 0; opacity: .72; }
+  .lexicalHandoff button { border: 1px solid currentColor; border-radius: .7rem; background: transparent; color: inherit; font: inherit; padding: .65rem .85rem; cursor: pointer; white-space: nowrap; }
   [data-lexical-recent-list], [data-lexical-review-list], .lexicalSearchResults { display: grid; gap: .5rem; }
   .lexicalSearchBox { display: grid; gap: .45rem; padding: 1rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
   .lexicalSearchBox span { font-size: .8rem; opacity: .62; }
@@ -205,5 +288,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
   @media (max-width: 720px) {
     .lexicalHomeHeader { align-items: stretch; flex-direction: column; }
     .lexicalWordRow { align-items: start; }
+    .lexicalHandoff { align-items: stretch; flex-direction: column; }
+    .lexicalHandoff button { white-space: normal; }
   }
 </style>
