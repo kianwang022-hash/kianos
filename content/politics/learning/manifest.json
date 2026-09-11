@@ -1,0 +1,46 @@
+{
+  "schema": "kianos.politics.learning.manifest.v1",
+  "status": "CURRENT_ACTIVE",
+  "owner_path": "content/politics/learning/",
+  "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
+  "contract": "content/politics/LEARNING_CONTRACT.md",
+  "source_roles": {
+    "chengfeng": {
+      "role": "CONTINUOUS_FIRST_ROUND_MAINLINE",
+      "canonical_structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl"
+    },
+    "suyi": {
+      "role": "CHAT_FRAMEWORK_REFERENCE",
+      "learner_required": false,
+      "projection_policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_ORIENTATION_BRIDGE_COMPRESSION_WITHOUT_CREATING_A_SECOND_MAINLINE",
+      "binding_mode": "suyi_refs on canonical politics regions/source nodes"
+    },
+    "xiao1000": {
+      "role": "VALIDATION_AND_TRANSFER_EVIDENCE",
+      "question_owner": "content/politics/source/xiao_2027_questions.jsonl",
+      "relation_owner": "content/politics/source/question_knowledge_links.jsonl"
+    }
+  },
+  "asset_types": {
+    "chapter_orientation": "Locates a chapter and exposes its core problem and reasoning chain.",
+    "nu_teaching_bridge": "Connects the owning Chengfeng Natural Unit to prior/next knowledge without changing unit identity.",
+    "compression": "Reconstructs learned content into a small durable relation chain.",
+    "repair_guidance": "Routes wrong/uncertain evidence to the smallest sufficient owning source repair."
+  },
+  "rules": [
+    "Do not duplicate Chengfeng into an AI textbook.",
+    "Do not let Xiao1000 determine first-round unit order.",
+    "Do not expose Suyi as a second learner mainline by default.",
+    "Preserve canonical Natural Unit identities and source bindings.",
+    "Prefer content changes over hard-coded Astro political semantics.",
+    "Keep learner interaction low-friction and progressively disclosed."
+  ],
+  "subjects": {
+    "marxism": {
+      "path": "content/politics/learning/marxism/",
+      "current_assets": [
+        "content/politics/learning/marxism/ch01.json"
+      ]
+    }
+  }
+}
