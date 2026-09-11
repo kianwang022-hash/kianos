@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { buildRevision, inspectReadingSources, loadAnswer } from '../lib/current.mjs';
+import { buildRevision, inspectReadingSources } from '../lib/current.mjs';
+import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 
@@ -8,7 +9,7 @@ const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
 const xizongBlocks = xizongSystems.reduce((sum, system) => sum + system.blocks.length, 0);
 const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => blockSum + block.kpCount, 0), 0);
-const answer = loadAnswer();
+const lexicalState = inspectLexicalSources();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
 const politicsSubjects = listPoliticsSubjectsCurrent();
@@ -38,10 +39,10 @@ const politicsChapters = politicsSubjects.reduce((sum, subject) => sum + subject
       <p>{politicsSubjects.length} 科 · {politicsChapters} 个 Current 学习章节；定位 → 乘风 → 小闭合 → 肖1000 → 错题最小回源。</p>
       <footer><span>content-first</span><b>进入 →</b></footer>
     </a>
-    <a class="homeLane" href={`${base}answer/`}>
-      <div><span>LexicalOS · Ready</span><h2>{answer.record.word}</h2></div>
-      <p>L0-first Study Card + Queue / Dictionary / History 入口；当前代表页只读取明确绑定的 Current 词条对象。</p>
-      <footer><span>current-bound</span><b>进入 →</b></footer>
+    <a class="homeLane" href={`${base}vocabulary/`}>
+      <div><span>LexicalOS · Ready</span><h2>Vocabulary</h2></div>
+      <p>{lexicalState.wordCount} 个 Current Word · {lexicalState.relationCount} 个 Relation Owner；Continue / Search / Repair Review → Depth Scan → Challenge。</p>
+      <footer><span>Natural Owners</span><b>进入 →</b></footer>
     </a>
     <a class="homeLane" href={`${base}reading/`}>
       <div><span>English · {readingReady ? 'Ready' : 'Blocked'}</span><h2>Reading</h2></div>
