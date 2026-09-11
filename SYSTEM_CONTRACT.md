@@ -1,6 +1,6 @@
 # KianOS System Contract
 
-KianOS is one learning system with multiple domain lanes. The lanes may have different cognition, content models, and UI, but they inherit the same minimum platform capabilities.
+KianOS is one learning system with multiple domain lanes and learner-facing sub-lanes. They may have different cognition, content models, and UI, but every first-class learning surface inherits the same minimum platform capabilities.
 
 ## Global Current
 
@@ -9,26 +9,27 @@ KianOS is one learning system with multiple domain lanes. The lanes may have dif
 - It describes the whole KianOS, not one subject.
 - Domain manifests and continuations are child Current objects under the root Current.
 - A lane manifest may define local ownership/readiness, but it must not become a parallel top-level Current authority.
+- A first-class sub-lane such as Reading, Translation, Writing, Cloze, or a future subject runtime remains beneath its domain lane and inherits the same platform baseline when it becomes learner-facing.
 - `main@HEAD` remains the only normal shared Current state.
 - Runtime readiness must be derived from real Current assets and validation rather than maintained as a second semantic truth.
 
 The hierarchy is:
 
-`KianOS Current → lane Current owner/manifest → natural content owners → learner runtime`
+`KianOS Current → domain lane Current → first-class sub-lane/runtime → natural content owners → learner interaction`
 
-## Shared lane baseline
+## Shared learner-surface baseline
 
-Every first-class learner lane should provide the following capabilities. The learner-facing names and cognitive implementation may differ by subject.
+Every first-class learner lane or independently entered learner sub-lane should provide the following capabilities. The learner-facing names and cognitive implementation may differ by subject or task.
 
 ### 1. Current
 
-The lane has an explicit Current owner/readiness entry and fail-closed source boundary.
+The surface has an explicit Current owner/readiness entry and fail-closed source boundary.
 
 The learner should be able to tell that the runtime is using Current content rather than legacy, stale, or guessed material.
 
 ### 2. Continue
 
-The lane supports continuation without requiring the learner to reconstruct where work stopped.
+The surface supports continuation without requiring the learner to reconstruct where work stopped.
 
 Two kinds of continuation remain separate:
 
@@ -41,25 +42,25 @@ Do not put personal progress into shared Current merely to implement Continue.
 
 The learner can reach the relevant current learning object with low friction.
 
-This may be a System/Block map, chapter index, passage navigator, vocabulary search, or another domain-appropriate navigation surface. Do not force every lane to expose a literal search box.
+This may be a System/Block map, chapter index, passage navigator, vocabulary search, task inventory, or another domain-appropriate navigation surface. Do not force every surface to expose a literal search box.
 
 ### 4. Repair / Review
 
-The lane can surface only the evidence that actually needs repair or review.
+The surface can expose only the evidence that actually needs repair or review.
 
 Stable correct material should pass quickly. Do not turn the existence of content into automatic review debt.
 
 ### 5. Verify / Challenge / Transfer
 
-The lane has an appropriate way to test whether the target capability actually works.
+The surface has an appropriate way to test whether the target capability actually works.
 
-Examples include official questions, generated lexical Challenge, closure questions, translation re-generation, writing transfer, or later unseen material. Verification must follow the lane's own cognitive contract rather than a shared card template.
+Examples include official questions, generated lexical Challenge, closure questions, translation re-generation, writing transfer, or later unseen material. Verification must follow the surface's own cognitive contract rather than a shared card template.
 
 ### 6. Return / Handoff
 
 Meaningful learner evidence can return to Chat in a compact form that is sufficient to change the next action.
 
-The packet/hand-off format may differ by lane. At minimum it should preserve enough identity and evidence to distinguish:
+The packet/hand-off format may differ by lane or sub-lane. At minimum it should preserve enough identity and evidence to distinguish:
 
 - what object was being learned or tested;
 - what failed, was uncertain, or was explicitly marked for repair;
@@ -69,13 +70,13 @@ Private learner evidence remains private and is not committed into shared Curren
 
 ### 7. Deferred
 
-All lanes use the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
+All lanes and sub-lanes use the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
 
-Do not create separate lane backlogs for ordinary postponed work unless the learner explicitly asks for one.
+Do not create separate backlog systems for ordinary postponed work unless the learner explicitly asks for one.
 
 ### 8. Validation
 
-The lane and runtime must fail closed on missing/invalid Current dependencies and should have an appropriate validation path.
+The surface must fail closed on missing/invalid Current dependencies and should have an appropriate validation path.
 
 Validation may include source identity/hash checks, schema checks, deterministic hydration checks, runtime build checks, and real learner validation. A build passing is not the same thing as learning quality being proven.
 
@@ -88,17 +89,20 @@ Examples:
 - LexicalOS: Depth Scan → selective Repair → generated Challenge → Return Packet.
 - Xizong: System/Block/KP learning → official-question verification → Wrong/Uncertain repair → Study Packet / Chat return plan.
 - English Reading: clean passage attempt → passage-level review → root-cause repair → later transfer → session handoff.
+- English Translation: complete task attempt → representation/relation diagnosis → smallest repair → learner reconstruction → later fresh transfer.
 - Politics: orientation → Chengfeng continuous learning → short closure → Xiao1000 verification → minimal repair → learner handoff.
 
-These lanes should share platform capabilities without being forced into one error taxonomy, one scheduler, one review card, or one UI layout.
+These surfaces should share platform capabilities without being forced into one error taxonomy, one scheduler, one review card, or one UI layout.
 
 ## Basic-capability audit rule
 
-When a first-class lane is added or materially rebuilt, check the eight baseline capabilities above.
+When a first-class lane or learner-facing sub-lane is added or materially rebuilt, check the eight baseline capabilities above.
 
-If a capability is intentionally absent because the lane does not need it, state why. If it is genuinely missing, mark the lane Partial and either:
+If a capability is intentionally absent because that surface genuinely does not need it, state why. If it is genuinely missing, mark the surface Partial and either:
 
 - make it the active next task; or
 - park it in the global Deferred Queue when the learner explicitly postpones it.
 
-Do not call a lane fully learner-ready merely because its content exists or its page builds.
+A module contract existing on paper is not the same as a learner runtime being ready. Translation, Writing, Cloze, Reading B, or any future sub-lane becomes fully learner-ready only when its own cognition plus the shared platform baseline are both implemented and validated.
+
+Do not call a lane or sub-lane fully learner-ready merely because its content exists or its page builds.
