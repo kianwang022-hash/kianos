@@ -13,6 +13,20 @@ const SOURCE = Object.freeze({
   readingCorpus: 'content/english/source/reading_corpus.v1.json'
 });
 
+const QUESTION_TASKS = new Set([
+  'DETAIL', 'INFERENCE', 'MAIN_IDEA', 'TITLE', 'ATTITUDE', 'WORD_PHRASE',
+  'REFERENCE', 'PURPOSE_FUNCTION', 'STRUCTURE_RELATION', 'OTHER'
+]);
+
+const OPTION_DIAGNOSES = new Set([
+  'SUPPORTED', 'CONTRADICTED', 'UNSUPPORTED', 'TRUE_BUT_IRRELEVANT', 'PARTLY_TRUE',
+  'ENTITY_SHIFT', 'OBJECT_SHIFT', 'POLARITY_SHIFT', 'MODALITY_SHIFT', 'DEGREE_SHIFT',
+  'QUANTITY_SHIFT', 'SCOPE_SHIFT', 'TIME_SHIFT', 'CAUSE_SHIFT', 'CAUSE_REVERSAL',
+  'CORRELATION_TO_CAUSATION', 'COMPARISON_SHIFT', 'ATTRIBUTION_SHIFT', 'LOCAL_TO_GLOBAL',
+  'GLOBAL_TO_LOCAL', 'EXAMPLE_AS_CLAIM', 'CLAIM_AS_EXAMPLE', 'OVER_INFERENCE',
+  'UNDER_INFERENCE', 'OTHER'
+]);
+
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
 }
@@ -43,6 +57,135 @@ function compactParagraphText(paragraph) {
     .join(' ');
 }
 
+function isVerifiedStatus(value) {
+  const status = String(value || '').trim().toLowerCase();
+  return Boolean(status && status.includes('verified') && !status.includes('unverified') && !status.includes('pending') && !status.includes('rejected'));
+}
+
+function findEnumTokens(value, allowed, output = new Set()) {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toUpperCase().replace(/[\s-]+/g, '_');
+    if (allowed.has(normalized)) output.add(normalized);
+    return output;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => findEnumTokens(item, allowed, output));
+    return output;
+  }
+  if (value && typeof value === 'object') {
+    Object.values(value).forEach((item) => findEnumTokens(item, allowed, output));
+  }
+  return output;
+}
+
+function semanticQuestionIndex(corpus) {
+  const index = new Map();
+  const visit = (value) => {
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+
+    const hasSemanticFields = Object.prototype.hasOwnProperty.call(value, 'question_task')
+      || Object.prototype.hasOwnProperty.call(value, 'canonical_evidence_sets')
+      || Object.prototype.hasOwnProperty.call(value, 'option_diagnosis')
+      || Object.prototype.hasOwnProperty.call(value, 'analysis_verification_status');
+    const id = String(value.question_id || '');
+
+    if (id && hasSemanticFields) {
+      if (index.has(id) && index.get(id) !== value) {
+        throw new Error(`CURRENT_READING_SEMANTIC_DUPLICATE:${id}`);
+      }
+      index.set(id, value);
+    }
+
+    Object.values(value).forEach(visit);
+  };
+  visit(corpus);
+  return index;
+}
+
+function sentenceIndex(passage) {
+  const index = new Map();
+  (Array.isArray(passage?.paragraphs) ? passage.paragraphs : []).forEach((paragraph) => {
+    (Array.isArray(paragraph?.sentences) ? paragraph.sentences : []).forEach((sentence) => {
+      if (!sentence || typeof sentence !== 'object') return;
+      const id = String(sentence.sentence_id || sentence.id || '');
+      const text = String(sentence.text || '').trim();
+      if (id && text) index.set(id, text);
+    });
+  });
+  return index;
+}
+
+function optionDiagnosisForLabel(optionDiagnosis, label) {
+  if (!optionDiagnosis || typeof optionDiagnosis !== 'object' || !label) return [];
+  const upper = String(label).toUpperCase();
+  const direct = optionDiagnosis[upper] ?? optionDiagnosis[upper.toLowerCase()];
+  if (direct !== undefined) return [...findEnumTokens(direct, OPTION_DIAGNOSES)];
+
+  for (const [key, value] of Object.entries(optionDiagnosis)) {
+    const normalizedKey = String(key).toUpperCase();
+    if (normalizedKey === upper || normalizedKey.endsWith(`-${upper}`) || normalizedKey.endsWith(`:${upper}`)) {
+      return [...findEnumTokens(value, OPTION_DIAGNOSES)];
+    }
+    if (value && typeof value === 'object') {
+      const optionIdentity = String(value.option_id || value.option || value.label || '').toUpperCase();
+      if (optionIdentity === upper || optionIdentity.endsWith(`-${upper}`) || optionIdentity.endsWith(`:${upper}`)) {
+        return [...findEnumTokens(value, OPTION_DIAGNOSES)];
+      }
+    }
+  }
+  return [];
+}
+
+function projectReviewQuestion(semanticQuestion, passage, labels) {
+  if (!semanticQuestion) return null;
+  const semanticVerified = isVerifiedStatus(semanticQuestion.analysis_verification_status)
+    || isVerifiedStatus(semanticQuestion.verification_status);
+  const sentences = sentenceIndex(passage);
+  const evidenceSets = Array.isArray(semanticQuestion.canonical_evidence_sets)
+    ? semanticQuestion.canonical_evidence_sets
+    : [];
+
+  const minimalEvidence = evidenceSets
+    .filter((set) => String(set?.sufficiency || '').toUpperCase() === 'MINIMAL')
+    .filter((set) => isVerifiedStatus(set?.verification_status) || semanticVerified)
+    .map((set) => {
+      const sentenceIds = Array.isArray(set?.sentence_ids) ? set.sentence_ids.map(String).filter(Boolean) : [];
+      const resolved = sentenceIds.map((id) => sentences.get(id)).filter(Boolean);
+      if (!sentenceIds.length || resolved.length !== sentenceIds.length) return null;
+      return {
+        evidenceSetId: String(set.evidence_set_id || ''),
+        sentenceIds,
+        text: resolved.join(' '),
+        spanNote: typeof set.optional_span_note === 'string' ? set.optional_span_note : '',
+        verificationStatus: String(set.verification_status || semanticQuestion.analysis_verification_status || '')
+      };
+    })
+    .filter(Boolean);
+
+  const taskTokens = semanticVerified
+    ? [...findEnumTokens(semanticQuestion.question_task, QUESTION_TASKS)]
+    : [];
+  const optionDiagnosis = {};
+  if (semanticVerified && semanticQuestion.option_diagnosis && typeof semanticQuestion.option_diagnosis === 'object') {
+    labels.forEach((label) => {
+      const diagnoses = optionDiagnosisForLabel(semanticQuestion.option_diagnosis, label);
+      if (diagnoses.length) optionDiagnosis[label] = diagnoses;
+    });
+  }
+
+  if (!minimalEvidence.length && !taskTokens.length && !Object.keys(optionDiagnosis).length) return null;
+  return {
+    questionTask: taskTokens[0] || '',
+    minimalEvidence,
+    optionDiagnosis,
+    analysisVerificationStatus: String(semanticQuestion.analysis_verification_status || semanticQuestion.verification_status || '')
+  };
+}
+
 let cache;
 
 function snapshot() {
@@ -69,6 +212,7 @@ function snapshot() {
     bank,
     corpus,
     sets,
+    semanticQuestions: semanticQuestionIndex(corpus),
     sourceHashes: {
       passageOwner: manifest.source_identity?.reading_corpus_sha256 || sha256(corpusText),
       questionOwner: manifest.source_identity?.question_bank_sha256 || sha256(bankText)
@@ -79,6 +223,17 @@ function snapshot() {
 
 function setTitle(set) {
   return set?.context?.title || set?.title || set?.id || 'Reading';
+}
+
+function questionsForSet(data, setId) {
+  return (Array.isArray(data.bank.questions_or_prompts) ? data.bank.questions_or_prompts : [])
+    .filter((row) => row?.set_id === setId)
+    .sort((a, b) => Number(a?.ordinal || 0) - Number(b?.ordinal || 0));
+}
+
+function passageForSet(data, setId) {
+  return (Array.isArray(data.corpus.passages) ? data.corpus.passages : [])
+    .find((row) => row?.passage_id === setId);
 }
 
 export function listReadingSets() {
@@ -103,13 +258,10 @@ export function loadReadingById(readingId) {
   if (index < 0) throw new Error(`CURRENT_READING_SET_NOT_FOUND:${readingId}`);
   const set = data.sets[index];
 
-  const questions = (Array.isArray(data.bank.questions_or_prompts) ? data.bank.questions_or_prompts : [])
-    .filter((row) => row?.set_id === set.id)
-    .sort((a, b) => Number(a?.ordinal || 0) - Number(b?.ordinal || 0));
+  const questions = questionsForSet(data, set.id);
   if (!questions.length) throw new Error(`CURRENT_READING_QUESTIONS_NOT_FOUND:${set.id}`);
 
-  const passage = (Array.isArray(data.corpus.passages) ? data.corpus.passages : [])
-    .find((row) => row?.passage_id === set.id);
+  const passage = passageForSet(data, set.id);
 
   let paragraphs = (Array.isArray(passage?.paragraphs) ? passage.paragraphs : [])
     .map((paragraph, paragraphIndex) => ({
@@ -157,6 +309,32 @@ export function loadReadingById(readingId) {
       renderedObject: sha256(stableJson({ set, passage, questions }))
     },
     manifestStatus: data.manifest.status || ''
+  };
+}
+
+export function loadReadingReviewById(readingId) {
+  const data = snapshot();
+  if (data.status !== 'ready') throw new Error(`CURRENT_READING_SOURCE_NOT_READY:${data.status}`);
+  const set = data.sets.find((row) => row.id === readingId);
+  if (!set) throw new Error(`CURRENT_READING_SET_NOT_FOUND:${readingId}`);
+  const passage = passageForSet(data, set.id);
+  const questions = questionsForSet(data, set.id);
+  const projected = {};
+
+  questions.forEach((question) => {
+    const id = String(question?.id || question?.question_id || '');
+    if (!id) return;
+    const labels = question?.options && typeof question.options === 'object'
+      ? Object.keys(question.options).map(String)
+      : ['A', 'B', 'C', 'D'];
+    const review = projectReviewQuestion(data.semanticQuestions.get(id), passage, labels);
+    if (review) projected[id] = review;
+  });
+
+  return {
+    schema: 'kianos.english.reading_review_projection.v1',
+    objectId: set.id,
+    questions: projected
   };
 }
 
