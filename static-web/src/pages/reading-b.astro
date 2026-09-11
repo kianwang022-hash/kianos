@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import ObjectiveHome from '../components/ObjectiveHome.astro';
+import { inspectObjectiveTask, listReadingBSets } from '../lib/englishObjective.mjs';
+
+const sourceState = inspectObjectiveTask('reading_b');
+const sets = sourceState.status === 'ready' ? listReadingBSets() : [];
+const pendingDescription = sourceState.status === 'invalid'
+  ? 'Reading B Current section 无法被唯一、安全识别；Runtime 保持 fail-closed。'
+  : 'English Current 依赖缺失；补齐当前依赖并通过 gate 后自动启用。';
+---
+<Base
+  title="Reading B"
+  kicker={sourceState.status === 'ready' ? 'English · Objective' : 'English · Current gate'}
+  description={sourceState.status === 'ready' ? 'Discourse Skeleton → Required Role → Candidate Fit → Global Reconciliation.' : pendingDescription}
+  sourcePath="content/english/modules/reading-b.md"
+  objectId="english:reading-b-home"
+  active="reading_b"
+>
+  {sourceState.status === 'ready' ? (
+    <ObjectiveHome
+      sets={sets}
+      route="reading-b"
+      label="Reading B"
+      description="整组材料、候选池和 placement map 同时保留。复盘先恢复篇章结构，再判断 local / coupled / structure-level repair。"
+      unitLabel="sets"
+      lastLocationKey="kianos-reading-b-last-location-v1"
+    />
+  ) : (
+    <section class="migrationPending">
+      <span>Fail-closed · {sourceState.status}</span>
+      <h2>Reading B Current 暂未安全解锁</h2>
+      <p>不猜 section，不回退 legacy。只有 Current section / stable ID 证据能安全识别时才投影训练页面。</p>
+      {sourceState.issues.length > 0 && <div class="migrationPendingList"><strong>Issues</strong>{sourceState.issues.map((item) => <code>{item}</code>)}</div>}
+      {sourceState.availableSections.length > 0 && <div class="migrationPendingList"><strong>Available Current sections</strong>{sourceState.availableSections.map((item) => <code>{item.section} · {item.setCount} sets</code>)}</div>}
+    </section>
+  )}
+</Base>
