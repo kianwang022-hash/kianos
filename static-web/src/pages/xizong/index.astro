@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { listProjectableXizongSystems } from '../../lib/xizong.mjs';
+
+const base = import.meta.env.BASE_URL;
+const systems = listProjectableXizongSystems();
+---
+<Base title="西医综合" kicker="Xizong · Current" description="System owner 决定系统学习结构；Block Markdown 保持医学 Core；Astro 只做 learner-facing projection。" active="xizong">
+  <section class="homeCurrentStrip">
+    <div><p class="pageKicker">Current owner projection</p><h2>System → Block → Logic Group → KP</h2><p>只有已经具备 Chat-approved system owner + exact Logic Group index 的系统才在这里进入 v6 Runtime；缺失依赖直接 fail closed。</p></div>
+    <aside><strong>{systems.length} systems ready</strong><span>learner state · browser local</span><span>no legacy fallback</span></aside>
+  </section>
+
+  <section class="homeGrid">
+    {systems.map((system) => <a class="homeLane" href={`${base}xizong/${system.systemId}/`}>
+      <div><span>{system.canonicalId} · v6 Ready</span><h2>{system.title}</h2></div>
+      <p>{system.blocks.length} Blocks · {system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} KP · System Learn → Logic-first Block Runtime。</p>
+      <footer><span>Current system owner</span><b>进入 →</b></footer>
+    </a>)}
+    <a class="homeLane" href={`${base}b1/`}>
+      <div><span>A1 · Representative runtime</span><h2>循环 B1</h2></div>
+      <p>保留现有 B1 learner runtime，直到循环完整 Logic Group projection 单独升级；不由 A2 改动覆盖。</p>
+      <footer><span>stable existing route</span><b>进入 →</b></footer>
+    </a>
+  </section>
+</Base>
