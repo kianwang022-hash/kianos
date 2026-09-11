@@ -5,7 +5,6 @@ import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../
 
 export function getStaticPaths() {
   return listPoliticsChapterPathsCurrent()
-    .filter((row) => !(row.subject === 'marxism' && row.chapter === 'ch01'))
     .map((row) => ({ params: { subject: row.subject, chapter: row.chapter }, props: row }));
 }
 
