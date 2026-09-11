@@ -10,57 +10,48 @@
     "system_id": "respiratory",
     "reason": "A2 is the current generalization/validation system for the shared Xizong learning runtime."
   },
-  "current_stage": "REAL_LEARNING_VALIDATION",
+  "current_stage": "SYSTEM_RECALL_AND_OFFICIAL_QUESTION_SWEEP",
   "completed_shared_work": [
     "Global 270+ study strategy frozen in study-policy.json: first pass, second pass, late review, mastery ladder, question reuse, Memory admission, compression, and lossless scheduling.",
-    "A2 respiratory 12/12 Block first-pass learning support completed.",
-    "A2 respiratory 62/62 Logic Group goal and closure cues completed.",
-    "Block first-pass focus, stop-line behavior, and Block Recall spine completed for A2.",
-    "System failure-mode mechanism projection is runnable in Astro without front-end medical inference.",
-    "Selective cross-Block Reserve Learning and Connection Hook reactivation are implemented; target owners reactivate prior sightings.",
-    "Memory, Reserve Learning, Precision, and Connection Hook identities are separated. Reserve and Hook do not enter ordinary Memory.",
-    "A2 selective Precision awareness index completed: 32 high-value cues; index absence never downgrades canonical content.",
-    "A2 Visual timing index completed: 17 source-locator + micro-task bindings across R1-R12; no copied medical answer or image-rating ceremony.",
-    "Astro projects learning focus, Logic Group goal/closure, cross-Block cues, selective Precision awareness, Visual triggers, KP Recall, Block Recall, and weak-Memory review while keeping canonical Block/KP content authoritative."
+    "A2 respiratory 12/12 Block first-pass learning support and 62/62 Logic Group goal/closure cues completed.",
+    "System failure-mode mechanism projection, cross-Block Reserve/Hook reactivation, selective Precision awareness, and Visual timing are runnable without front-end medical inference.",
+    "Memory, Reserve Learning, Precision, and Connection Hook identities are separated; Reserve and Hook do not enter ordinary Memory.",
+    "R3 end-to-end learner-flow audit completed and the first subtraction patch landed: KP Learn no longer defaults to duplicate long-form Core reading, outgoing future cues and group Precision moved to closure, old duplicate Visual Gate is suppressed when point-of-use Visual exists, Learn progress is less KP-checklist-like, and the persistent Study Dock was reduced.",
+    "Memory/Review tail was simplified: ordinary weak Memory is distinct from Chat-directed special review; a detailed Study Packet exports Recall ratings, repeated instability, comments, Memory, Block state, Current identity and prior Chat-plan evidence; Chat return-plan import is preserved.",
+    "Historical Heart/Lung/Kidney first-pass routing was audited instead of recreated. Respiratory System membership is deterministically restored as 359 immutable official Question Truth IDs in a2-respiratory-question-scope.json.",
+    "Historical/current Question Truth identity was mechanically checked by the 3750-ID inventory SHA256: 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82 matches exactly."
   ],
   "current_owners_to_read": [
     "content/xizong/knowledge/learner/study-policy.json",
     "content/xizong/knowledge/learner/a2-respiratory-learning.json",
     "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
     "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+    "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
     "content/xizong/knowledge/systems/a2-respiratory/system.json",
+    "content/xizong/questions/manifest.json",
+    "content/xizong/question-relations/README.md",
     "content/xizong/knowledge/manifest.json"
   ],
   "next_action": {
-    "stage": "END_TO_END_BLOCK_VALIDATION",
-    "instruction": "Run one complete A2 Block through the real learner flow before adding another learning taxonomy or major feature. Observe actual friction in Block Learn -> Logic Group -> KP Learn -> Lecture use -> paired Lecture questions where applicable -> Logic Group closure -> KP Recall -> Block Recall -> Memory/Review.",
-    "default_pilot": "respiratory-r03",
-    "default_pilot_reason": "COPD exercises mechanism, Lecture/KianOS boundary, Reserve/Hook reactivation, selective Precision, Visual timing, Recall, and Memory without requiring the heaviest procedural/TNM material.",
-    "learner_override": "If the learner is actually studying another A2 Block, use that real Block instead of forcing the default pilot.",
-    "observe": [
-      "REPETITION: KianOS and Lecture make the learner read the same knowledge twice.",
-      "INTERRUPTION: Reserve, Hook, Precision, Visual, controls, or handoff break the current mechanism chain.",
-      "OVERLOAD: the screen shows more than is useful for the current cognitive action.",
-      "UNDER_SUPPORT: a missing cue/visual/boundary materially slows understanding or causes content-loss anxiety.",
-      "RECALL_QUALITY: prompts support active recovery without leaking the answer and Block Recall genuinely compresses instead of rereading."
-    ],
-    "success_condition": "Use observed learner friction to remove, move, or minimally patch existing support. Do not generalize new functionality across 159 Blocks until the real Block validation shows it is useful."
+    "stage": "SYSTEM_RECALL_TO_RESPIRATORY_QUESTION_SWEEP",
+    "instruction": "Finish the A2 first-pass exit path in Astro: make System Recall a true closed-book recovery step, then let the learner enter the restored 359-question respiratory official-question sweep. Correct-and-clear questions should fast-pass; Wrong/Uncertain should remain as repair evidence. Use an existing reviewed precise Question-to-Knowledge relation when one exists; otherwise do not infer a Block/KP mapping in Astro.",
+    "question_scope": "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+    "success_condition": "A learner who has completed the 12 respiratory Blocks can recover the respiratory mother model, enter the exact restored respiratory official-question set, move quickly through stable correct answers, retain Wrong/Uncertain evidence, and return repair evidence to Chat without any guessed Question-to-KP mapping."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more learning-stage taxonomies merely for completeness.",
     "Do not turn KianOS into a second Lecture or require duplicate long-form reading.",
     "Do not equate MI-D with Precision or turn Precision into a separate first-pass drill queue.",
-    "Do not put Connection Hooks into ordinary Memory.",
-    "Do not turn Reserve Learning into a second course or require full Recall before the formal owner.",
-    "Do not build a giant all-relations knowledge graph; only structure relations that change learner attention, timing, or reactivation.",
-    "Do not infer Question-to-Knowledge mappings from title similarity, page proximity, Block membership, or model intuition.",
+    "Do not put Connection Hooks into ordinary Memory or turn Reserve Learning into a second course.",
+    "Do not rebuild the historical respiratory 359-question System scope by model inference; its Current identifier scope is now restored.",
+    "Do not infer Question-to-Block/KP mappings from title similarity, page proximity, System membership, source section, or model intuition.",
+    "Do not treat System-level question membership as the same authority as the explicit Chat-reviewed Question-to-Knowledge relation owner.",
     "Do not optimize for more UI controls, cards, metadata, or governance files without observed learning benefit.",
-    "Do not treat selective Precision/Visual indexes as exhaustive coverage; canonical Block/KP content remains lossless authority.",
-    "Do not use legacy repository content as normal Current authority."
+    "Do not use legacy repository content as normal Current authority except as explicitly audited recovery evidence."
   ],
   "after_validation": [
-    "Patch the validated Block based on learner friction, preferring deletion/simplification over new feature creation.",
-    "If the learning language survives real use, generalize by cognitive family rather than forcing every subject into one identical template.",
+    "Use real respiratory question-sweep friction to decide whether the same System-level scope/runtime pattern should be recovered for circulation and urinary next.",
+    "Only deepen Question-to-Block/KP relations for Wrong/Uncertain or otherwise high-value questions unless second-round strategy provides new evidence.",
     "Preserve the frozen first-pass -> second-pass -> late-review stage responsibilities and System-level true-question strategy from study-policy.json."
   ],
   "continuation_policy": {
