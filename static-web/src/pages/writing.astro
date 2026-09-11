@@ -10,7 +10,7 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
 <Base
   title="Writing"
   kicker="English · Productive Lane"
-  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then later fresh transfer."
+  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then gated clean true-exam attempts."
   active="home"
 >
   <section class="writingHome" data-writing-home data-base={base}>
@@ -53,14 +53,15 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       </section>
     )}
 
-    <section class="writingTrueExamShield">
-      <div><span>Protected true exam</span><strong>现在不展示真题目录</strong></div>
-      <p>Cold-start mechanics 和第一次完整输出先用 synthetic material。真题不是为了证明页面能跑而消耗；等 Synthetic Small + Big 满足退出条件后，再进入后续 exam-fit / fresh evidence 阶段。</p>
+    <section class="writingTrueExamShield" data-true-exam-shield>
+      <div><span>Protected true exam</span><strong data-true-exam-title>现在不展示真题目录</strong></div>
+      <p data-true-exam-copy>Cold-start mechanics 和第一次完整输出先用 synthetic material。这里看的是两篇 whole-essay Runtime 的真实完成状态，不看 First Learning 页的 convenience checkbox。</p>
+      <a class="writingExamEntry" data-true-exam-entry href={`${base}writing/exam/`} hidden>进入 Clean True-Exam Catalog →</a>
     </section>
 
     <section class="writingRuntimeBoundary">
       <strong>R / E boundary</strong>
-      <p>当前 runtime 能完整执行 first evidence → Chat PASS/repair → learner re-generation → repair check。只有可复用、高价值问题才允许进入 TRANSFER_PENDING；later fresh/unseen Writing 如何支持、关闭或重新打开 target 属于下一阶段 Evidence gate。</p>
+      <p>Runtime 负责 clean attempt → Chat PASS/repair → learner re-generation → repair check；达到 synthetic exit 后，同一套 Runtime 承接 learner-safe true-exam prompt。later fresh/unseen Writing 如何支持、关闭或重新打开 pending target 仍属于 Evidence gate。</p>
     </section>
 
     <script type="application/json" data-writing-catalog set:html={payload}></script>
@@ -95,8 +96,17 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(state) ? 'true' : 'false';
     });
 
-    const shield = root.querySelector('.writingTrueExamShield');
-    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = completed === tasks.length && tasks.length > 0 ? 'true' : 'false';
+    const gatePassed = completed === tasks.length && tasks.length >= 2;
+    const shield = root.querySelector('[data-true-exam-shield]');
+    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = gatePassed ? 'true' : 'false';
+    const entry = root.querySelector('[data-true-exam-entry]');
+    if (entry instanceof HTMLElement) entry.hidden = !gatePassed;
+    const title = root.querySelector('[data-true-exam-title]');
+    const copy = root.querySelector('[data-true-exam-copy]');
+    if (gatePassed) {
+      if (title) title.textContent = 'Full Synthetic Gate 已满足 · 真题入口可用';
+      if (copy) copy.textContent = '这只表示本机两篇完整 synthetic output 已完成，可以开始 clean true-exam attempt；它不代表任何具体年份已经学习、也不会替你选择个人 holdout。';
+    }
   }
 </script>
 
@@ -104,6 +114,6 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
   .writingHome{max-width:78rem;margin:0 auto;display:grid;gap:12px}.writingHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.writingHomeHero>div>span,.writingLearnLink span,.writingTaskCard>span,.writingTrueExamShield span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingHomeHero h2{margin:5px 0 8px;font-size:27px}.writingHomeHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.writingHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.writingHomeHero aside strong{color:var(--study-green)}.writingHomeHero aside span{font-size:10px;color:var(--study-faint)}
   .writingLearnLink{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.writingLearnLink>div{display:grid;gap:3px}.writingLearnLink strong{font-size:14px}.writingLearnLink p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.writingLearnLink b{font-size:11px;color:var(--study-green)}
   .writingTaskGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.writingTaskCard{display:grid;gap:7px;padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit;text-decoration:none;box-shadow:var(--study-shadow)}.writingTaskCard[data-complete="true"]{border-color:#b8d7c8;background:#fbfdfc}.writingTaskCard strong{font-size:18px}.writingTaskCard p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.6}.writingTaskCard>div{display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--study-line)}.writingTaskCard small{font-size:9px;color:var(--study-faint)}.writingTaskCard b{font-size:9px;color:var(--study-green)}
-  .writingTrueExamShield,.writingRuntimeBoundary,.writingHomeGate{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.writingTrueExamShield{background:#fffdf8}.writingTrueExamShield[data-synthetic-complete="true"]{background:#fbfdfc;border-color:#cfe2d8}.writingTrueExamShield>div{display:grid;gap:3px}.writingTrueExamShield strong,.writingRuntimeBoundary strong,.writingHomeGate strong{font-size:12px}.writingTrueExamShield p,.writingRuntimeBoundary p,.writingHomeGate p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}
+  .writingTrueExamShield,.writingRuntimeBoundary,.writingHomeGate{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.writingTrueExamShield{background:#fffdf8}.writingTrueExamShield[data-synthetic-complete="true"]{background:#fbfdfc;border-color:#cfe2d8}.writingTrueExamShield>div{display:grid;gap:3px}.writingTrueExamShield strong,.writingRuntimeBoundary strong,.writingHomeGate strong{font-size:12px}.writingTrueExamShield p,.writingRuntimeBoundary p,.writingHomeGate p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}.writingExamEntry{display:inline-flex;margin-top:11px;padding:9px 12px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font-size:10px;font-weight:850;text-decoration:none}
   @media(max-width:820px){.writingHomeHero,.writingLearnLink,.writingTaskGrid{grid-template-columns:1fr}.writingHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}}
 </style>
