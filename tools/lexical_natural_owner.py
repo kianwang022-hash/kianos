@@ -5,7 +5,6 @@ import argparse
 import copy
 import hashlib
 import json
-import os
 import shutil
 from collections import defaultdict
 from pathlib import Path
@@ -88,12 +87,7 @@ def relation_identity(payload: dict[str, Any], source_word_id: str, field: str, 
         value = payload.get(key)
         if isinstance(value, str) and value:
             return value
-    basis = stable_json({
-        "source_word_id": source_word_id,
-        "field": field,
-        "index": index,
-        "payload": payload,
-    })
+    basis = stable_json({"source_word_id": source_word_id, "field": field, "index": index, "payload": payload})
     return f"relation:embedded:{sha256_text(basis)[:24]}"
 
 
@@ -126,11 +120,9 @@ def collect_lookup_spelling() -> tuple[set[str], dict[str, list[dict[str, Any]]]
 def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[str, Any]]:
     blockers: list[str] = []
     warnings: list[str] = []
-
     source_words: dict[int, dict[str, Any]] = {}
     word_shards: dict[int, str] = {}
     words_by_id: dict[str, int] = {}
-    words_by_surface: dict[str, list[int]] = defaultdict(list)
 
     for shard, row in iter_store("words"):
         ordinal = row.get("ordinal")
@@ -139,7 +131,6 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
             blockers.append(f"INVALID_WORD_ROW:{relpath(shard)}")
             continue
         wid = record.get("word_id")
-        word = record.get("word")
         if not isinstance(wid, str) or not wid:
             blockers.append(f"WORD_ID_MISSING:o{ordinal:04d}")
             continue
@@ -152,8 +143,6 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
         source_words[ordinal] = record
         word_shards[ordinal] = relpath(shard)
         words_by_id[wid] = ordinal
-        if isinstance(word, str):
-            words_by_surface[word].append(ordinal)
 
     store_rows_by_ordinal: dict[str, dict[int, list[tuple[Path, dict[str, Any], str | None]]]] = {}
     store_by_id: dict[str, dict[str, dict[str, Any]]] = {}
@@ -183,8 +172,8 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
         if wid not in lookup_word_ids:
             blockers.append(f"LOOKUP_MISSING_WORD:{wid}")
 
-    expected_count = None
     canonical_manifest_path = CANON / "manifest.json"
+    expected_count = None
     if canonical_manifest_path.exists():
         manifest = load_json(canonical_manifest_path)
         expected_count = manifest.get("stable_identity", {}).get("word_count")
@@ -192,8 +181,6 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
             blockers.append(f"WORD_COUNT_MISMATCH:{len(source_words)}!={expected_count}")
 
     relation_owners: dict[str, dict[str, Any]] = {}
-
-    # Seed relation owners from the existing relation registry so no accepted relation provenance is lost.
     for rid, record in store_by_id["relations"].items():
         relation_owners[rid] = {
             "schema": "kianos.lexical.relation_owner.v1",
@@ -201,14 +188,10 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
             "canonical_record": copy.deepcopy(record),
             "fact_record": None,
             "word_views": [],
-            "provenance": {
-                "materialized_from": "content/lexical/canonical/relations/",
-                "semantic_delta": 0,
-            },
+            "provenance": {"materialized_from": "content/lexical/canonical/relations/", "semantic_delta": 0},
         }
 
     natural_words: dict[int, dict[str, Any]] = {}
-
     for ordinal in sorted(source_words):
         src = source_words[ordinal]
         wid = src["word_id"]
@@ -216,9 +199,7 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
         relation_refs: list[dict[str, Any]] = []
 
         for field in ("semantic_neighbors", "confusables"):
-            original_views = src.get(field, [])
-            if original_views is None:
-                original_views = []
+            original_views = src.get(field, []) or []
             if not isinstance(original_views, list):
                 blockers.append(f"RELATION_FIELD_NOT_ARRAY:{wid}:{field}")
                 original_views = []
@@ -234,32 +215,26 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
                     "canonical_record": None,
                     "fact_record": None,
                     "word_views": [],
-                    "provenance": {
-                        "materialized_from": "embedded_current_word_view",
-                        "semantic_delta": 0,
-                    },
+                    "provenance": {"materialized_from": "embedded_current_word_view", "semantic_delta": 0},
                 })
                 if owner.get("fact_record") is None and rid in store_by_id["facts"]:
                     owner["fact_record"] = copy.deepcopy(store_by_id["facts"][rid])
-                view = {
+                owner["word_views"].append({
                     "source_word_id": wid,
                     "source_ordinal": ordinal,
                     "field": field,
                     "index": index,
                     "payload": copy.deepcopy(payload),
-                }
-                owner["word_views"].append(view)
-                rpath = relation_owner_path(rid)
+                })
                 relation_refs.append({
                     "relation_id": rid,
-                    "owner_path": relpath(rpath),
+                    "owner_path": relpath(relation_owner_path(rid)),
                     "field": field,
                     "index": index,
                 })
 
         active_sense_ids = {
-            sense.get("sense_id")
-            for sense in src.get("senses", [])
+            sense.get("sense_id") for sense in src.get("senses", [])
             if isinstance(sense, dict) and isinstance(sense.get("sense_id"), str)
         }
         for sid in active_sense_ids:
@@ -279,6 +254,8 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
                     if cid not in store_by_id["collocations"]:
                         blockers.append(f"COLLOCATION_ID_NOT_IN_REGISTRY:{wid}:{cid}")
 
+        # Only deep:* facts belong to the shared deep-fact registry. Word-owned usage:/construction:
+        # identities are valid local objects and must not be forced into that registry.
         for module in ("constructions", "secondary_senses", "word_family"):
             values = src.get(module, []) or []
             if not isinstance(values, list):
@@ -288,8 +265,8 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
                 if not isinstance(obj, dict):
                     continue
                 fid = obj.get("fact_id")
-                if isinstance(fid, str) and fid and fid not in store_by_id["facts"]:
-                    blockers.append(f"FACT_ID_NOT_IN_REGISTRY:{wid}:{module}:{fid}")
+                if isinstance(fid, str) and fid.startswith("deep:") and fid not in store_by_id["facts"]:
+                    blockers.append(f"DEEP_FACT_ID_NOT_IN_REGISTRY:{wid}:{module}:{fid}")
 
         reference_senses: list[dict[str, Any]] = []
         sense_identity_refs: list[dict[str, Any]] = []
@@ -325,14 +302,10 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
         for store in ("facts", "collocations", "exam-mappings", "packs"):
             refs: list[dict[str, Any]] = []
             for shard, row, rid in store_rows_by_ordinal[store].get(ordinal, []):
-                refs.append({
-                    "id": rid,
-                    "source_row": row.get("source_row"),
-                    "source_path": relpath(shard),
-                })
+                refs.append({"id": rid, "source_row": row.get("source_row"), "source_path": relpath(shard)})
             registry_refs[store] = refs
 
-        natural = {
+        natural_words[ordinal] = {
             "schema": "kianos.lexical.word_owner.v1",
             "ordinal": ordinal,
             "word_id": wid,
@@ -353,9 +326,7 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
                 "materializer": "tools/lexical_natural_owner.py",
             },
         }
-        natural_words[ordinal] = natural
 
-    # Exact reconstructability is the migration's semantic-delta-zero proof.
     relation_views_index: dict[tuple[str, str, int, str], dict[str, Any]] = {}
     for rid, owner in relation_owners.items():
         for view in owner["word_views"]:
@@ -368,8 +339,7 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
     for ordinal, natural in natural_words.items():
         reconstructed = copy.deepcopy(natural["record"])
         for field in ("semantic_neighbors", "confusables"):
-            refs = [r for r in natural["relation_refs"] if r["field"] == field]
-            refs.sort(key=lambda r: r["index"])
+            refs = sorted((r for r in natural["relation_refs"] if r["field"] == field), key=lambda r: r["index"])
             reconstructed[field] = []
             for ref in refs:
                 key = (natural["word_id"], field, ref["index"], ref["relation_id"])
@@ -385,7 +355,7 @@ def build() -> tuple[dict[int, dict[str, Any]], dict[str, dict[str, Any]], dict[
     report = {
         "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
         "status": "PASS" if not blockers else "BLOCKED",
-        "semantic_delta": 0 if not reconstruct_failures else None,
+        "semantic_delta": 0 if reconstruct_failures == 0 else None,
         "source": {
             "canonical_manifest": relpath(canonical_manifest_path),
             "canonical_manifest_sha256": sha256_file(canonical_manifest_path) if canonical_manifest_path.exists() else None,
@@ -431,7 +401,7 @@ def materialize() -> int:
     for rid, owner in relation_owners.items():
         dump_json(relation_owner_path(rid), owner)
 
-    word_manifest = {
+    dump_json(WORD_MANIFEST, {
         "schema": "kianos.lexical.word_owner_manifest.v1",
         "status": "MATERIALIZED_NOT_CURRENT",
         "semantic_authority": False,
@@ -440,8 +410,8 @@ def materialize() -> int:
         "audit": relpath(AUDIT_PATH),
         "semantic_delta": 0,
         "source": "content/lexical/canonical/words/",
-    }
-    relation_manifest = {
+    })
+    dump_json(REL_MANIFEST, {
         "schema": "kianos.lexical.relation_owner_manifest.v1",
         "status": "MATERIALIZED_NOT_CURRENT",
         "semantic_authority": False,
@@ -449,12 +419,9 @@ def materialize() -> int:
         "path_rule": "content/lexical/relations/by-id/{sha256(relation_id)[0:2]}/{sha256(relation_id)}.json",
         "audit": relpath(AUDIT_PATH),
         "semantic_delta": 0,
-        "source": [
-            "content/lexical/canonical/relations/",
-            "cross-word views extracted losslessly from Current Word bundles",
-        ],
-    }
-    lexical_manifest = {
+        "source": ["content/lexical/canonical/relations/", "cross-word views extracted losslessly from Current Word bundles"],
+    })
+    dump_json(LEX_MANIFEST, {
         "schema": "kianos.lexical.current_manifest.v1",
         "status": "CUTOVER_CANDIDATE_NOT_CURRENT",
         "semantic_authority": False,
@@ -471,12 +438,8 @@ def materialize() -> int:
         },
         "audit": relpath(AUDIT_PATH),
         "semantic_delta": 0,
-    }
-    dump_json(WORD_MANIFEST, word_manifest)
-    dump_json(REL_MANIFEST, relation_manifest)
-    dump_json(LEX_MANIFEST, lexical_manifest)
+    })
     dump_json(AUDIT_PATH, report)
-
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0
 
@@ -491,9 +454,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="LexicalOS Natural Owner materializer/auditor")
     parser.add_argument("command", choices=("audit", "materialize"))
     args = parser.parse_args()
-    if args.command == "audit":
-        return audit()
-    return materialize()
+    return audit() if args.command == "audit" else materialize()
 
 
 if __name__ == "__main__":
