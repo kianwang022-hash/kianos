@@ -8,6 +8,7 @@ import ReadingWorkspace from '../../components/ReadingWorkspace.astro';
 import ReadingPassageNavigator from '../../components/ReadingPassageNavigator.astro';
 import ReadingDeferredReviewShield from '../../components/ReadingDeferredReviewShield.astro';
 import ReadingRepairCoach from '../../components/ReadingRepairCoach.astro';
+import ReadingSessionHandoff from '../../components/ReadingSessionHandoff.astro';
 import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
 
 export function getStaticPaths() {
@@ -33,4 +34,5 @@ const reading = loadReadingById(readingId);
   <ReadingPassageNavigator reading={reading} />
   <ReadingDeferredReviewShield />
   <ReadingRepairCoach />
+  <ReadingSessionHandoff />
 </Base>
