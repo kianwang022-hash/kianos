@@ -4,75 +4,129 @@ const base = import.meta.env.BASE_URL;
 const questions = reading.questions || [];
 const questionId = (question, index) => String(question.id || question.question_id || `q${question.ordinal || index + 1}`);
 ---
-<section class="portedReadingSession portedReadingSessionV2" data-local-port="reading" data-reading-object={reading.objectId}>
+<section class="portedReadingSession portedReadingSessionV3" data-local-port="reading" data-reading-object={reading.objectId}>
   <header class="portedReadingSessionHeader">
     <a href={base}>‹ Practice</a>
-    <div><span>Reading A</span><b>{reading.title}</b><small data-reading-progress>Q1 / {questions.length}</small></div>
+    <div class="portedReadingHeaderCenter">
+      <span>Reading A</span>
+      <b>{reading.title}</b>
+      <small data-reading-progress>Q1 / {questions.length}</small>
+      <small data-reading-timer>00:00</small>
+    </div>
     <div class="portedReadingHeaderActions">
       <button type="button" data-reading-prev aria-label="上一题">‹</button>
       <button type="button" data-reading-next aria-label="下一题">›</button>
       <button type="button" class="submit" data-reading-submit>Submit</button>
-      <button type="button" data-reading-retry hidden>Retry</button>
-      <button type="button" data-reading-reset>Reset</button>
+      <button type="button" data-reading-retry hidden>再做一轮</button>
+      <button type="button" data-reading-reset>重置</button>
     </div>
   </header>
 
   <nav class="portedReadingQuestionNav" aria-label="Question navigation">
-    {questions.map((question, index) => <button type="button" class={index === 0 ? 'active' : ''} data-target={questionId(question, index)}>Q{question.ordinal || index + 1}</button>)}
+    {questions.map((question, index) => (
+      <button type="button" class={index === 0 ? 'active' : ''} data-target={questionId(question, index)}>
+        Q{question.ordinal || index + 1}
+      </button>
+    ))}
   </nav>
 
   <section class="portedReadingResultBar" data-reading-result hidden>
-    <div><span>Attempt result</span><strong data-reading-score>0 / {questions.length}</strong><small data-reading-result-meta></small></div>
-    <div><b data-reading-wrong-count>0 wrong</b><b data-reading-uncertain-count>0 uncertain</b><small>已写入浏览器本地 History / Problem Record</small></div>
+    <div class="portedReadingResultMain">
+      <span>Result</span>
+      <strong data-reading-score>0 / {questions.length}</strong>
+      <small data-reading-result-meta></small>
+    </div>
+    <div class="portedReadingResultSummary">
+      <b data-reading-summary></b>
+      <div data-reading-review-nav></div>
+    </div>
   </section>
 
   <div class="portedReadingColumns">
     <article class="portedReadingPassage" data-reading-passage>
       <div class="portedReadingAnnotate" role="toolbar" aria-label="Reading annotation">
-        <span>Annotate · session only</span>
+        <span>标记 · 可选</span>
         <button type="button" data-reading-highlight disabled>高亮选区</button>
-        <button type="button" data-reading-clear-highlight disabled>清除高亮</button>
-        <small data-reading-selection>选择原文后可高亮</small>
+        <button type="button" data-reading-clear-highlight disabled>清除</button>
+        <small data-reading-selection>选中文字后可高亮</small>
       </div>
-      <header><span>{reading.paperId || 'English'} · {reading.section}</span><h2>{reading.title}</h2></header>
+      <header>
+        <span>{reading.paperId || 'English'} · {reading.section}</span>
+        <h2>{reading.title}</h2>
+      </header>
       {reading.paragraphs.map((paragraph) => <p id={paragraph.id}>{paragraph.text}</p>)}
     </article>
 
     <aside class="portedReadingQuestions" aria-live="polite">
       {questions.map((question, index) => {
         const id = questionId(question, index);
-        return <section class={`portedReadingQuestion ${index === 0 ? 'is-current' : ''}`} data-question={id} data-index={index} data-answer={JSON.stringify(question.answer ?? '')} hidden={index !== 0}>
-          <header><span>Question {question.ordinal || index + 1}</span><button type="button" class="portedUncertain" aria-pressed="false">Uncertain</button></header>
-          <p>{question.prompt}</p>
-          <div class="portedReadingOptions">
-            {Object.entries(question.options || {}).map(([label, text]) => <button type="button" data-option={label}><b>{label}</b><span>{String(text)}</span></button>)}
-          </div>
-          {question.answer && <details class="portedReadingAnswer" data-reading-answer-details hidden><summary>Current answer</summary><div>Answer: <strong>{Array.isArray(question.answer) ? question.answer.join(', ') : question.answer}</strong></div></details>}
-        </section>;
+        return (
+          <section
+            class={`portedReadingQuestion ${index === 0 ? 'is-current' : ''}`}
+            data-question={id}
+            data-index={index}
+            data-answer={JSON.stringify(question.answer ?? '')}
+            hidden={index !== 0}
+          >
+            <header>
+              <span>Question {question.ordinal || index + 1}</span>
+              <button type="button" class="portedUncertain" aria-pressed="false">Uncertain</button>
+            </header>
+            <p>{question.prompt}</p>
+            <div class="portedReadingOptions">
+              {Object.entries(question.options || {}).map(([label, text]) => (
+                <button type="button" data-option={label}>
+                  <b>{label}</b><span>{String(text)}</span>
+                </button>
+              ))}
+            </div>
+
+            <div class="portedReadingAnswerStrip" data-reading-answer-strip hidden>
+              <span>你的答案 <b data-reading-your-answer>—</b></span>
+              <span>正式答案 <b data-reading-formal-answer>—</b></span>
+            </div>
+
+            <section class="portedReadingRepair" data-reading-repair hidden>
+              <header>
+                <div>
+                  <span>只处理这道</span>
+                  <strong data-reading-repair-title></strong>
+                </div>
+                <small>错因可选，一点即可</small>
+              </header>
+              <div class="portedReadingCauseRow" aria-label="Quick cause">
+                <button type="button" data-cause="没读懂">没读懂</button>
+                <button type="button" data-cause="没定位准">没定位准</button>
+                <button type="button" data-cause="选项没辨清">选项没辨清</button>
+                <button type="button" data-cause="看错/改错">看错 / 改错</button>
+              </div>
+              <div class="portedReadingRepairActions">
+                <button type="button" data-reading-copy-chat>复制给 Chat</button>
+                <small data-reading-copy-status>需要深挖时再用，不必每题都分析。</small>
+              </div>
+            </section>
+          </section>
+        );
       })}
       <footer class="portedReadingQuestionFooter">
-        <span>← / → 切题 · A–D 选择 · U uncertain · Submit 后生成 Problem Record</span>
+        <span>← / → 切题 · A–D 选择 · U uncertain</span>
         <strong data-reading-session-count>0 / {questions.length} answered</strong>
       </footer>
     </aside>
   </div>
 
-  <section class="portedReadingAftercare">
-    <details data-reading-problem-record>
-      <summary>Problem Record <span data-reading-problem-count>0</span></summary>
-      <div class="portedReadingProblemGrid">
-        <section><span>Wrong / unanswered</span><ul data-reading-wrong-list><li>提交后生成。</li></ul></section>
-        <section><span>Uncertain</span><ul data-reading-uncertain-list><li>没有标记。</li></ul></section>
-      </div>
-    </details>
-    <details data-reading-history>
-      <summary>History <span data-reading-history-count>0</span></summary>
-      <ol data-reading-history-list><li>还没有提交记录。</li></ol>
-      <button type="button" data-reading-clear-history>清空本机 History</button>
-    </details>
-  </section>
+  <details class="portedReadingHistory" data-reading-history>
+    <summary>History <span data-reading-history-count>0</span></summary>
+    <ol data-reading-history-list><li>还没有提交记录。</li></ol>
+    <button type="button" data-reading-clear-history>清空本机 History</button>
+  </details>
 
-  <details class="portedReadingSource"><summary>Current provenance</summary><code>{reading.sourcePaths.passage}</code><code>passage:{reading.sourceHashes.passageOwner.slice(0, 12)}</code><code>questions:{reading.sourceHashes.questionOwner.slice(0, 12)}</code></details>
+  <details class="portedReadingSource">
+    <summary>Current provenance</summary>
+    <code>{reading.sourcePaths.passage}</code>
+    <code>passage:{reading.sourceHashes.passageOwner.slice(0, 12)}</code>
+    <code>questions:{reading.sourceHashes.questionOwner.slice(0, 12)}</code>
+  </details>
 </section>
 
 <script>
@@ -83,6 +137,7 @@ const questionId = (question, index) => String(question.id || question.question_
     const navButtons = [...root.querySelectorAll('.portedReadingQuestionNav button')];
     const questions = [...root.querySelectorAll('[data-question]')];
     const progress = root.querySelector('[data-reading-progress]');
+    const timer = root.querySelector('[data-reading-timer]');
     const sessionCount = root.querySelector('[data-reading-session-count]');
     const prev = root.querySelector('[data-reading-prev]');
     const next = root.querySelector('[data-reading-next]');
@@ -92,12 +147,30 @@ const questionId = (question, index) => String(question.id || question.question_
     const resultBar = root.querySelector('[data-reading-result]');
     const scoreLabel = root.querySelector('[data-reading-score]');
     const resultMeta = root.querySelector('[data-reading-result-meta]');
-    const wrongCount = root.querySelector('[data-reading-wrong-count]');
-    const uncertainCount = root.querySelector('[data-reading-uncertain-count]');
-    let state = { version: 1, currentIndex: 0, startedAt: new Date().toISOString(), answers: {}, uncertain: [], submitted: false, submittedAt: '', results: {}, history: [] };
-    try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
+    const summaryLabel = root.querySelector('[data-reading-summary]');
+    const reviewNav = root.querySelector('[data-reading-review-nav]');
 
-    const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
+    let state = {
+      version: 2,
+      currentIndex: 0,
+      startedAt: new Date().toISOString(),
+      answers: {},
+      uncertain: [],
+      submitted: false,
+      submittedAt: '',
+      results: {},
+      history: [],
+      trajectory: {},
+      causes: {}
+    };
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || 'null') || {};
+      state = { ...state, ...saved, trajectory: saved.trajectory || {}, causes: saved.causes || {} };
+    } catch {}
+
+    const save = () => {
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
+    };
     const qid = (question) => question.getAttribute('data-question') || '';
     const ordinal = (question) => Number(question.getAttribute('data-index') || 0) + 1;
     const expected = (question) => {
@@ -112,6 +185,24 @@ const questionId = (question, index) => String(question.id || question.question_
       return left.length === right.length && left.every((value, index) => value === right[index]);
     };
     const answeredCount = () => Object.values(state.answers || {}).filter(Boolean).length;
+    const formatDuration = (seconds) => {
+      const safe = Math.max(0, Number(seconds) || 0);
+      const minutes = Math.floor(safe / 60);
+      const rest = safe % 60;
+      return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
+    };
+    const elapsedSeconds = () => {
+      const start = new Date(state.startedAt || Date.now()).getTime();
+      const end = state.submittedAt ? new Date(state.submittedAt).getTime() : Date.now();
+      return Math.max(0, Math.round((end - start) / 1000));
+    };
+    const isProblem = (question) => {
+      const id = qid(question);
+      return Boolean(state.submitted && (
+        ['wrong', 'unanswered'].includes(state.results?.[id]) ||
+        (state.uncertain || []).includes(id)
+      ));
+    };
 
     const renderHistory = () => {
       const list = root.querySelector('[data-reading-history-list]');
@@ -119,35 +210,27 @@ const questionId = (question, index) => String(question.id || question.question_
       if (count) count.textContent = String((state.history || []).length);
       if (!list) return;
       list.replaceChildren();
-      if (!(state.history || []).length) { const item = document.createElement('li'); item.textContent = '还没有提交记录。'; list.appendChild(item); return; }
+      if (!(state.history || []).length) {
+        const item = document.createElement('li');
+        item.textContent = '还没有提交记录。';
+        list.appendChild(item);
+        return;
+      }
       (state.history || []).forEach((attempt) => {
         const item = document.createElement('li');
         const date = attempt.submittedAt ? new Date(attempt.submittedAt).toLocaleString() : '—';
-        item.textContent = `${date} · ${attempt.score}/${attempt.total} · wrong ${attempt.wrong?.length || 0} · uncertain ${attempt.uncertain?.length || 0}`;
+        item.textContent = `${date} · ${attempt.score}/${attempt.total} · ${formatDuration(attempt.durationSec || 0)} · wrong ${attempt.wrong?.length || 0} · uncertain ${attempt.uncertain?.length || 0}`;
         list.appendChild(item);
       });
     };
 
-    const renderProblemRecord = () => {
-      const wrongList = root.querySelector('[data-reading-wrong-list]');
-      const uncertainList = root.querySelector('[data-reading-uncertain-list]');
-      const count = root.querySelector('[data-reading-problem-count]');
-      const wrong = questions.filter((question) => ['wrong', 'unanswered'].includes(state.results?.[qid(question)])).map((question) => ordinal(question));
-      const uncertain = questions.filter((question) => (state.uncertain || []).includes(qid(question))).map((question) => ordinal(question));
-      if (count) count.textContent = String(new Set([...wrong, ...uncertain]).size);
-      const fill = (list, values, empty) => {
-        if (!list) return;
-        list.replaceChildren();
-        if (!values.length) { const item = document.createElement('li'); item.textContent = empty; list.appendChild(item); return; }
-        values.forEach((value) => { const item = document.createElement('li'); item.textContent = `Question ${value}`; list.appendChild(item); });
-      };
-      fill(wrongList, wrong, state.submitted ? '本次没有错题。' : '提交后生成。');
-      fill(uncertainList, uncertain, '没有标记。');
-    };
-
     const setCurrent = (index) => {
       state.currentIndex = Math.max(0, Math.min(questions.length - 1, Number(index) || 0));
-      questions.forEach((item, itemIndex) => { const active = itemIndex === state.currentIndex; item.hidden = !active; item.classList.toggle('is-current', active); });
+      questions.forEach((item, itemIndex) => {
+        const active = itemIndex === state.currentIndex;
+        item.hidden = !active;
+        item.classList.toggle('is-current', active);
+      });
       navButtons.forEach((button, itemIndex) => button.classList.toggle('active', itemIndex === state.currentIndex));
       if (progress) progress.textContent = `Q${state.currentIndex + 1} / ${questions.length}`;
       if (prev) prev.disabled = state.currentIndex <= 0;
@@ -155,43 +238,93 @@ const questionId = (question, index) => String(question.id || question.question_
       save();
     };
 
+    const renderReviewNav = () => {
+      if (!reviewNav) return;
+      reviewNav.replaceChildren();
+      const problems = questions.filter(isProblem);
+      problems.forEach((question) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = `Q${ordinal(question)}`;
+        button.addEventListener('click', () => setCurrent(questions.indexOf(question)));
+        reviewNav.appendChild(button);
+      });
+    };
+
     const render = () => {
       questions.forEach((question, index) => {
         const id = qid(question);
-        const selected = state.answers?.[id];
+        const selected = state.answers?.[id] || '';
         const result = state.results?.[id] || '';
+        const correct = expected(question);
+        const uncertain = (state.uncertain || []).includes(id);
+        const problem = isProblem(question);
+
         question.querySelectorAll('[data-option]').forEach((option) => {
-          const isSelected = option.getAttribute('data-option') === selected;
-          option.classList.toggle('selected', isSelected);
+          const label = option.getAttribute('data-option') || '';
+          const isSelected = label === selected;
+          const isCorrectOption = correct.includes(label);
+          option.classList.toggle('selected', isSelected && !state.submitted);
           option.classList.remove('result-correct', 'result-wrong');
-          if (state.submitted && isSelected) option.classList.add(result === 'correct' ? 'result-correct' : 'result-wrong');
+          if (problem && isCorrectOption) option.classList.add('result-correct');
+          if (problem && isSelected && !isCorrectOption) option.classList.add('result-wrong');
           option.disabled = Boolean(state.submitted);
         });
+
         const uncertainButton = question.querySelector('.portedUncertain');
-        const isUncertain = (state.uncertain || []).includes(id);
-        uncertainButton?.setAttribute('aria-pressed', String(isUncertain));
-        uncertainButton?.classList.toggle('active', isUncertain);
+        uncertainButton?.setAttribute('aria-pressed', String(uncertain));
+        uncertainButton?.classList.toggle('active', uncertain);
         if (uncertainButton) uncertainButton.disabled = Boolean(state.submitted);
-        const details = question.querySelector('[data-reading-answer-details]');
-        if (details) details.hidden = !state.submitted;
+
         navButtons[index]?.classList.toggle('answered', Boolean(selected));
-        navButtons[index]?.classList.toggle('uncertain', isUncertain);
+        navButtons[index]?.classList.toggle('uncertain', uncertain);
         navButtons[index]?.classList.remove('result-correct', 'result-wrong', 'result-unanswered');
         if (state.submitted && result) navButtons[index]?.classList.add(`result-${result}`);
+
+        const answerStrip = question.querySelector('[data-reading-answer-strip]');
+        if (answerStrip) answerStrip.hidden = !problem;
+        const yourAnswer = question.querySelector('[data-reading-your-answer]');
+        const formalAnswer = question.querySelector('[data-reading-formal-answer]');
+        if (yourAnswer) yourAnswer.textContent = selected || '未答';
+        if (formalAnswer) formalAnswer.textContent = correct.join(', ') || '—';
+
+        const repair = question.querySelector('[data-reading-repair]');
+        if (repair) repair.hidden = !problem;
+        const repairTitle = question.querySelector('[data-reading-repair-title]');
+        if (repairTitle) {
+          repairTitle.textContent = result === 'correct' && uncertain
+            ? '答对但不稳，确认你为什么选它'
+            : result === 'unanswered'
+              ? '先补上这道题的判断链'
+              : '先记住当时为什么会错';
+        }
+        question.querySelectorAll('[data-cause]').forEach((button) => {
+          const cause = button.getAttribute('data-cause') || '';
+          button.classList.toggle('active', state.causes?.[id] === cause);
+        });
       });
+
       if (sessionCount) sessionCount.textContent = `${answeredCount()} / ${questions.length} answered`;
-      if (submit) { submit.hidden = Boolean(state.submitted); submit.disabled = answeredCount() === 0; }
+      if (submit) {
+        submit.hidden = Boolean(state.submitted);
+        submit.disabled = answeredCount() === 0;
+      }
       if (retry) retry.hidden = !state.submitted;
       if (resultBar) resultBar.hidden = !state.submitted;
+
       if (state.submitted) {
-        const correct = Object.values(state.results || {}).filter((value) => value === 'correct').length;
-        const wrong = Object.values(state.results || {}).filter((value) => value === 'wrong' || value === 'unanswered').length;
-        if (scoreLabel) scoreLabel.textContent = `${correct} / ${questions.length}`;
-        if (wrongCount) wrongCount.textContent = `${wrong} wrong / unanswered`;
-        if (uncertainCount) uncertainCount.textContent = `${(state.uncertain || []).length} uncertain`;
-        if (resultMeta) resultMeta.textContent = state.submittedAt ? new Date(state.submittedAt).toLocaleString() : '';
+        const correctCount = Object.values(state.results || {}).filter((value) => value === 'correct').length;
+        const problems = questions.filter(isProblem);
+        if (scoreLabel) scoreLabel.textContent = `${correctCount} / ${questions.length}`;
+        if (resultMeta) resultMeta.textContent = formatDuration(elapsedSeconds());
+        if (summaryLabel) {
+          summaryLabel.textContent = problems.length === 0
+            ? '稳定 · 可以直接下一篇'
+            : `${problems.length} 题值得看一下`;
+        }
       }
-      renderProblemRecord();
+
+      renderReviewNav();
       renderHistory();
       setCurrent(state.currentIndex || 0);
     };
@@ -204,12 +337,20 @@ const questionId = (question, index) => String(question.id || question.question_
       const id = qid(question);
       question.querySelectorAll('[data-option]').forEach((option) => option.addEventListener('click', () => {
         if (state.submitted) return;
-        state.answers = { ...(state.answers || {}), [id]: option.getAttribute('data-option') || '' };
+        const choice = option.getAttribute('data-option') || '';
+        const previous = state.answers?.[id] || '';
+        state.answers = { ...(state.answers || {}), [id]: choice };
+        if (choice && choice !== previous) {
+          const trajectory = [...(state.trajectory?.[id] || [])];
+          trajectory.push({ answer: choice, at: new Date().toISOString() });
+          state.trajectory = { ...(state.trajectory || {}), [id]: trajectory.slice(-8) };
+        }
         save();
         render();
       }));
-      const uncertain = question.querySelector('.portedUncertain');
-      uncertain?.addEventListener('click', (event) => {
+
+      const uncertainButton = question.querySelector('.portedUncertain');
+      uncertainButton?.addEventListener('click', (event) => {
         event.stopPropagation();
         if (state.submitted) return;
         const set = new Set(state.uncertain || []);
@@ -218,6 +359,17 @@ const questionId = (question, index) => String(question.id || question.question_
         save();
         render();
       });
+
+      question.querySelectorAll('[data-cause]').forEach((button) => button.addEventListener('click', () => {
+        if (!state.submitted) return;
+        const cause = button.getAttribute('data-cause') || '';
+        state.causes = {
+          ...(state.causes || {}),
+          [id]: state.causes?.[id] === cause ? '' : cause
+        };
+        save();
+        render();
+      }));
     });
 
     submit?.addEventListener('click', () => {
@@ -237,35 +389,47 @@ const questionId = (question, index) => String(question.id || question.question_
         submittedAt: state.submittedAt,
         score,
         total: questions.length,
+        durationSec: elapsedSeconds(),
         wrong: questions.filter((question) => ['wrong', 'unanswered'].includes(results[qid(question)])).map((question) => ordinal(question)),
         uncertain: questions.filter((question) => (state.uncertain || []).includes(qid(question))).map((question) => ordinal(question))
       };
       state.history = [attempt, ...(state.history || [])].slice(0, 8);
       save();
+      const firstProblemIndex = questions.findIndex((question) =>
+        ['wrong', 'unanswered'].includes(results[qid(question)]) ||
+        (state.uncertain || []).includes(qid(question))
+      );
+      if (firstProblemIndex >= 0) state.currentIndex = firstProblemIndex;
       render();
-      root.querySelector('[data-reading-problem-record]')?.setAttribute('open', '');
     });
 
     const newAttempt = () => {
-      state = { ...state, currentIndex: 0, startedAt: new Date().toISOString(), answers: {}, uncertain: [], submitted: false, submittedAt: '', results: {}, history: state.history || [] };
+      state = {
+        ...state,
+        version: 2,
+        currentIndex: 0,
+        startedAt: new Date().toISOString(),
+        answers: {},
+        uncertain: [],
+        submitted: false,
+        submittedAt: '',
+        results: {},
+        trajectory: {},
+        causes: {},
+        history: state.history || []
+      };
       save();
       render();
     };
     retry?.addEventListener('click', newAttempt);
     reset?.addEventListener('click', newAttempt);
-    root.querySelector('[data-reading-clear-history]')?.addEventListener('click', () => { state.history = []; save(); renderHistory(); });
-
-    document.addEventListener('keydown', (event) => {
-      const target = event.target;
-      if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
-      if (event.key === 'ArrowLeft') { event.preventDefault(); setCurrent(state.currentIndex - 1); return; }
-      if (event.key === 'ArrowRight') { event.preventDefault(); setCurrent(state.currentIndex + 1); return; }
-      if (state.submitted) return;
-      if (event.key.toLowerCase() === 'u') { questions[state.currentIndex]?.querySelector('.portedUncertain')?.click(); return; }
-      const choice = event.key.toUpperCase();
-      if (/^[A-D]$/.test(choice)) questions[state.currentIndex]?.querySelector(`[data-option="${choice}"]`)?.click();
+    root.querySelector('[data-reading-clear-history]')?.addEventListener('click', () => {
+      state.history = [];
+      save();
+      renderHistory();
     });
 
+    let lastPassageSelection = '';
     const passage = root.querySelector('[data-reading-passage]');
     const addHighlight = root.querySelector('[data-reading-highlight]');
     const clearHighlight = root.querySelector('[data-reading-clear-highlight]');
@@ -274,6 +438,7 @@ const questionId = (question, index) => String(question.id || question.question_
     let highlight = null;
     const highlightName = 'kianos-reading-session-highlight';
     const supportsHighlights = typeof CSS !== 'undefined' && CSS.highlights && typeof Highlight !== 'undefined';
+
     const captureSelection = () => {
       const selection = window.getSelection?.();
       if (!selection || selection.isCollapsed || !selection.rangeCount || !passage) {
@@ -283,12 +448,19 @@ const questionId = (question, index) => String(question.id || question.question_
       }
       const range = selection.getRangeAt(0);
       if (!passage.contains(range.commonAncestorContainer)) return;
+      const selectedText = selection.toString().trim();
+      lastPassageSelection = selectedText;
       pendingRange = range.cloneRange();
       if (addHighlight) addHighlight.disabled = !supportsHighlights;
-      if (selectionLabel) selectionLabel.textContent = supportsHighlights ? `已选 ${selection.toString().trim().slice(0, 28)}${selection.toString().trim().length > 28 ? '…' : ''}` : '当前浏览器不支持会话高亮';
+      if (selectionLabel) {
+        selectionLabel.textContent = supportsHighlights
+          ? `已选 ${selectedText.slice(0, 28)}${selectedText.length > 28 ? '…' : ''}`
+          : '已记住选区，可复制给 Chat';
+      }
     };
     passage?.addEventListener('mouseup', captureSelection);
     passage?.addEventListener('keyup', captureSelection);
+
     addHighlight?.addEventListener('click', () => {
       if (!pendingRange || !supportsHighlights) return;
       highlight ||= new Highlight();
@@ -298,14 +470,75 @@ const questionId = (question, index) => String(question.id || question.question_
       window.getSelection?.().removeAllRanges();
       addHighlight.disabled = true;
       if (clearHighlight) clearHighlight.disabled = false;
-      if (selectionLabel) selectionLabel.textContent = '已加入会话高亮';
+      if (selectionLabel) selectionLabel.textContent = '已高亮；需要时可作为 Chat 上下文';
     });
     clearHighlight?.addEventListener('click', () => {
       if (supportsHighlights) CSS.highlights.delete(highlightName);
       highlight = null;
+      lastPassageSelection = '';
       clearHighlight.disabled = true;
-      if (selectionLabel) selectionLabel.textContent = '选择原文后可高亮';
+      if (selectionLabel) selectionLabel.textContent = '选中文字后可高亮';
     });
+
+    questions.forEach((question) => {
+      const id = qid(question);
+      const copyButton = question.querySelector('[data-reading-copy-chat]');
+      const copyStatus = question.querySelector('[data-reading-copy-status]');
+      copyButton?.addEventListener('click', async () => {
+        const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
+        const options = [...question.querySelectorAll('[data-option]')]
+          .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`)
+          .join('\n');
+        const trajectory = (state.trajectory?.[id] || []).map((step) => step.answer).join(' → ') || '—';
+        const packet = [
+          'Reading A review',
+          `Object: ${readingKey}`,
+          `Question: Q${ordinal(question)} (${id})`,
+          `Prompt: ${prompt}`,
+          options,
+          `My answer: ${state.answers?.[id] || '未答'}`,
+          `Formal answer: ${expected(question).join(', ') || '—'}`,
+          `Uncertain: ${(state.uncertain || []).includes(id) ? 'yes' : 'no'}`,
+          `Quick cause: ${state.causes?.[id] || '未标'}`,
+          `Answer path: ${trajectory}`,
+          lastPassageSelection ? `Selected passage context: ${lastPassageSelection}` : ''
+        ].filter(Boolean).join('\n');
+        try {
+          await navigator.clipboard.writeText(packet);
+          if (copyStatus) copyStatus.textContent = '已复制，直接贴到 Chat。';
+        } catch {
+          if (copyStatus) copyStatus.textContent = '复制失败，可手动复制题目。';
+        }
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        setCurrent(state.currentIndex - 1);
+        return;
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        setCurrent(state.currentIndex + 1);
+        return;
+      }
+      if (state.submitted) return;
+      if (event.key.toLowerCase() === 'u') {
+        questions[state.currentIndex]?.querySelector('.portedUncertain')?.click();
+        return;
+      }
+      const choice = event.key.toUpperCase();
+      if (/^[A-D]$/.test(choice)) {
+        questions[state.currentIndex]?.querySelector(`[data-option="${choice}"]`)?.click();
+      }
+    });
+
+    window.setInterval(() => {
+      if (timer) timer.textContent = formatDuration(elapsedSeconds());
+    }, 1000);
 
     render();
   }
