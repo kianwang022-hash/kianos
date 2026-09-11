@@ -1,0 +1,36 @@
+name: Static Web Politics QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/politics/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-politics-qa.yml'
+  pull_request:
+    paths:
+      - 'content/politics/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-politics-qa.yml'
+
+jobs:
+  politics-runtime-qa:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: static-web/package-lock.json
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate Politics Current bindings
+        run: npm run validate:politics
+      - name: Build Astro
+        run: npm run build
