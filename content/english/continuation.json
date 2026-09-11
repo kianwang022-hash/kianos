@@ -26,10 +26,12 @@
     "Reading A module contract is aligned to the frozen passage-level Chat review rule. Question-level objects are internal evidence/repair slices only.",
     "Reading A Astro now has a passage-level Chat handoff. The normal packet includes the passage once, an all-question compact outcome map, and expanded wrong/unanswered/uncertain question content. Legacy per-question copy-to-Chat controls are demoted/hidden in the normal flow.",
     "Reading A continuous-session handoff remains a higher-level cross-passage review surface rather than replacing the minimum one-passage review unit.",
+    "Reading now inherits the KianOS shared learner-surface baseline explicitly: /reading/ is a Current lane home with private last-passage Continue plus Current passage navigation, while clean Attempt/Review/Transfer/Handoff remain owned by the existing passage runtime at /reading/<id>/.",
     "Translation has a canonical module contract at content/english/modules/translation.md and inherits the shared Learning Contract.",
     "Translation Runtime v1 is frozen in translation.md: learner-facing review is one complete Translation task/set while sentence/clause/relation/span remain internal evidence units; cascading downstream errors collapse under the earliest sufficient cause; repair requires learner reconstruction before full-reference comparison when possible; known-sentence correction remains repair evidence; closure requires later fresh/unseen transfer.",
     "Writing currently inherits the shared Learning Contract directly; Writing A/B are output modes inside Writing, not separate base abilities. A Writing-specific module contract should be created only when its own cognitive/runtime baseline is actually frozen.",
     "Module-specific cognition remains non-isomorphic: do not force one error taxonomy, review card, or UI shape across Reading, Translation, Writing, Cloze, and Part B.",
+    "KianOS SYSTEM_CONTRACT.md now applies the shared Current/Continue/Navigate/Repair/Verify/Handoff/Deferred/Validation baseline to independently entered English sub-lane runtimes as they are materialized; a module contract on paper is not enough to call that learner runtime Ready.",
     "Canonical English exam source remains materialized and verified: 27 papers, 235 sets, 1364 questions/prompts; Reading corpus has 110 passages and 540 questions."
   ],
   "current_owners_to_read": [
@@ -44,13 +46,13 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/translation.md"
       ],
-      "inheritance": "Translation inherits all shared English learning/evidence/mastery/memory/UI principles, then applies its own English-representation -> relation preservation -> information preservation -> Chinese reconstruction cognition and its frozen Translation Runtime v1. Objective Runtime does not redefine Translation cognition, review unit, or runtime state semantics."
+      "inheritance": "Translation inherits all shared English learning/evidence/mastery/memory/UI principles, then applies its own English-representation -> relation preservation -> information preservation -> Chinese reconstruction cognition and its frozen Translation Runtime v1. Objective Runtime does not redefine Translation cognition, review unit, or runtime state semantics. When Translation becomes learner-facing, it also inherits the KianOS shared learner-surface baseline from SYSTEM_CONTRACT.md without copying Reading UI."
     },
     "writing": {
       "read": [
         "content/english/LEARNING_CONTRACT.md"
       ],
-      "inheritance": "Writing inherits all shared English learning/evidence/mastery/memory/UI principles. Writing A and Writing B are modes within one Writing ability line. Do not copy Reading/Cloze review mechanics into Writing merely for UI consistency.",
+      "inheritance": "Writing inherits all shared English learning/evidence/mastery/memory/UI principles. Writing A and Writing B are modes within one Writing ability line. Do not copy Reading/Cloze review mechanics into Writing merely for UI consistency. When a Writing learner runtime is materialized, it must also implement the KianOS shared learner-surface baseline in a Writing-appropriate form.",
       "current_owner_status": "No Writing-specific module contract is frozen yet; the next Writing chat should derive and freeze it from the shared contract plus real Writing cognition."
     },
     "objective_tasks": {
@@ -58,12 +60,12 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/objective-runtime.md"
       ],
-      "inheritance": "Objective-task module contracts and Astro trainers may extend task-specific cognition/UI but must preserve the frozen passage/set-level learner review unit, Review Packet v1, root-cause routing, and transfer-based closure semantics."
+      "inheritance": "Objective-task module contracts and Astro trainers may extend task-specific cognition/UI but must preserve the frozen passage/set-level learner review unit, Review Packet v1, root-cause routing, transfer-based closure semantics, and the KianOS shared learner-surface baseline when each trainer becomes independently learner-facing."
     }
   },
   "next_action": {
     "stage": "CLOZE_AND_READING_B_TRAINER_IMPLEMENTATION",
-    "instruction": "Continue objective-task implementation without reopening Objective Runtime v1. Build Cloze and Reading B from the frozen cognitive objects and passage/set Review Packet rules. Reuse shared infrastructure only where it preserves the task-specific learning action; do not clone Reading A UI mechanically.",
+    "instruction": "Continue objective-task implementation without reopening Objective Runtime v1. Build Cloze and Reading B from the frozen cognitive objects and passage/set Review Packet rules. Reuse shared infrastructure only where it preserves the task-specific learning action; do not clone Reading A UI mechanically. Each independently entered trainer must also inherit the KianOS shared learner-surface baseline (Current, Continue, Navigate, Repair, Verify/Transfer, Return/Handoff, Deferred, Validation) in a task-appropriate way.",
     "cloze": [
       "Attempt unit is one complete Cloze passage/set.",
       "Core action is Slot Demand -> active constraints -> competing candidates -> decisive constraint -> Best Fit.",
