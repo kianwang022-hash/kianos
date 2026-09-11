@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "validate:reading": "node scripts/validate-reading-runtime.mjs",
+    "validate:objective": "node scripts/validate-objective-runtime.mjs",
     "validate:politics": "node scripts/validate-politics-runtime.mjs",
+    "qa:objective": "npm run validate:objective && npm run build",
     "qa:politics": "npm run validate:politics && npm run build"
   },
   "dependencies": {
