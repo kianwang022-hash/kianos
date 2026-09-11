@@ -1,0 +1,25 @@
+.portedReadingCoach[hidden]{display:none!important}
+.portedReadingCoach{display:grid;gap:8px;margin-top:9px;padding:10px;border:1px solid #dfe8e4;border-radius:9px;background:#f8fbfa}
+.portedReadingCoachInstruction{margin:0;color:#314841;font-size:11px;line-height:1.55}
+.portedReadingCoachQuiet{margin:0;color:#73817c;font-size:9px;line-height:1.5}
+
+.portedReadingCoachContrast{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.portedReadingCoachChoice{padding:8px 9px;border:1px solid #e1e6e4;border-radius:8px;background:#fff}
+.portedReadingCoachChoice.correct{border-color:#b7d8ca;background:#f1faf6}
+.portedReadingCoachChoice span{display:block;margin-bottom:4px;color:#78847f;font-size:8px;font-weight:850;letter-spacing:.04em}
+.portedReadingCoachChoice p{margin:0;color:#2d4039;font:13px/1.42 Georgia,'Times New Roman',serif}
+
+.portedReadingCoachPath{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 9px;border:1px solid #e1e6e4;border-radius:8px;background:#fff}
+.portedReadingCoachPath span{color:#78847f;font-size:8px;font-weight:850;letter-spacing:.04em}
+.portedReadingCoachPath strong{color:#315d51;font-size:11px}
+
+.portedReadingCoachSpan{display:grid;gap:6px;padding:9px 10px;border-left:3px solid #6f9f8f;border-radius:6px;background:#fff}
+.portedReadingCoachSpan>span{color:#55766c;font-size:8px;font-weight:850;letter-spacing:.05em}
+.portedReadingCoachSpan blockquote{margin:0;color:#263d35;font:13px/1.55 Georgia,'Times New Roman',serif}
+.portedReadingCoachSpan button{justify-self:start;min-height:25px;padding:3px 7px;border:1px solid #dbe3df;border-radius:6px;background:#fff;color:#75837e;font-size:8px}
+
+.portedReadingAnnotate [data-reading-save-review-span]{border-color:#9ebfb3;background:#eef6f2;color:#315f52;font-weight:850}
+
+@media(max-width:760px){
+  .portedReadingCoachContrast{grid-template-columns:1fr}
+}
