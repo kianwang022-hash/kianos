@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'AGENTS.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'LEARNING_ACCEPTANCE.md'
       - 'content/english/**'
       - 'static-web/package.json'
       - 'static-web/package-lock.json'
@@ -32,6 +35,9 @@ on:
       - '.github/workflows/static-web-objective-journey.yml'
   pull_request:
     paths:
+      - 'AGENTS.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'LEARNING_ACCEPTANCE.md'
       - 'content/english/**'
       - 'static-web/package.json'
       - 'static-web/package-lock.json'
