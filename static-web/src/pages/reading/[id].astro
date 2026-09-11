@@ -2,9 +2,11 @@
 import Base from '../../layouts/Base.astro';
 import '../../styles/reading.css';
 import '../../styles/reading-interaction.css';
+import '../../styles/reading-repair.css';
 import '../../styles/reading-navigation.css';
 import ReadingWorkspace from '../../components/ReadingWorkspace.astro';
 import ReadingPassageNavigator from '../../components/ReadingPassageNavigator.astro';
+import ReadingRepairCoach from '../../components/ReadingRepairCoach.astro';
 import { listReadingSets, loadReadingById } from '../../lib/englishReading.mjs';
 
 export function getStaticPaths() {
@@ -28,4 +30,5 @@ const reading = loadReadingById(readingId);
 >
   <ReadingWorkspace reading={reading} />
   <ReadingPassageNavigator reading={reading} />
+  <ReadingRepairCoach />
 </Base>
