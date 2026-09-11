@@ -161,8 +161,7 @@ const packetMeta = {
     };
     const unstableCount = (kpId) => (ext.evidenceHistory || []).filter((row) => row?.kp_id === kpId && (
       (row.type === 'KP_RECALL' && ['unknown', 'fuzzy'].includes(row.rating)) ||
-      (row.type === 'MEMORY' && ['HOT', 'WARM'].includes(row.state)) ||
-      (row.type === 'CHAT_PLAN_REVIEW' && ['unknown', 'fuzzy'].includes(row.rating))
+      (row.type === 'MEMORY' && ['HOT', 'WARM'].includes(row.state))
     )).length;
     const memoryItems = () => {
       const study = readStudy();
