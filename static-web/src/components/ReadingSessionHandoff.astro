@@ -57,7 +57,10 @@
       const passageIds = new Set(session.items.map((item) => item?.id).filter(Boolean));
       const watchStore = readJson(watchKey, { signals: [] });
       const watchSignals = (Array.isArray(watchStore.signals) ? watchStore.signals : [])
-        .filter((signal) => passageIds.has(signal?.passageId));
+        .filter((signal) => {
+          if (passageIds.has(signal?.passageId)) return true;
+          return (signal?.transferEvidence || []).some((evidence) => passageIds.has(evidence?.passageId));
+        });
       const lines = [
         'Reading A session review',
         `Session started: ${session.startedAt || '—'}`,
@@ -89,15 +92,19 @@
 
       if (watchSignals.length) {
         lines.push('');
-        lines.push('Review watch signals:');
+        lines.push('Review watch / transfer signals:');
         watchSignals.forEach((signal) => {
           const subtype = (signal.subtypeCodes || []).join(', ') || '—';
-          lines.push(`- ${signal.questionId}: ${signal.family} · subtype ${subtype} · task ${signal.questionTask || '—'} · status ${signal.status || 'WATCH'}`);
+          const relevantTransfer = (signal.transferEvidence || []).filter((evidence) => passageIds.has(evidence?.passageId));
+          lines.push(`- ${signal.questionId}: ${signal.family} · subtype ${subtype} · task ${signal.questionTask || '—'} · status ${signal.status || 'WATCH'} · prior transfer successes ${signal.transferSuccessCount || 0}`);
+          relevantTransfer.forEach((evidence) => {
+            lines.push(`  current-session evidence: ${evidence.passageId}/${evidence.questionId} · ${evidence.evidenceKind || 'DISTINCT_PASSAGE_SUCCESS'} · unseen ${evidence.unseenStatus || 'UNKNOWN'} · match ${(evidence.matchedSubtypeCodes || []).join(', ') || '—'}`);
+          });
         });
       }
 
       lines.push('');
-      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them. Treat WATCH signals as future observation targets, not as mastery or permanent weakness labels.');
+      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them. Treat WATCH signals as future observation targets, not as mastery or permanent weakness labels. Distinct-passage success with unseenStatus UNKNOWN is weaker than genuine unseen transfer.');
       return lines.join('\n');
     };
 
