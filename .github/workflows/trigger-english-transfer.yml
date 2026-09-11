@@ -1,0 +1,80 @@
+name: Trigger one-shot English source transfer
+
+on:
+  pull_request:
+    branches:
+      - transfer/english-reading-20260911
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout transfer trigger context
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read ephemeral source pointers, verify, and stage exact bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          pointer_file='.github/workflows/transfer-english-reading.yml'
+          manifest_url="$(sed -n 's/^[[:space:]]*MANIFEST_URL: "\(.*\)"$/\1/p' "$pointer_file")"
+          question_url="$(sed -n 's/^[[:space:]]*QUESTION_BANK_URL: "\(.*\)"$/\1/p' "$pointer_file")"
+          reading_url="$(sed -n 's/^[[:space:]]*READING_CORPUS_URL: "\(.*\)"$/\1/p' "$pointer_file")"
+          test -n "$manifest_url"
+          test -n "$question_url"
+          test -n "$reading_url"
+
+          rm -rf /tmp/kianos-english-transfer
+          mkdir -p /tmp/kianos-english-transfer/source
+          curl --fail --location --retry 3 --silent --show-error "$manifest_url" -o /tmp/kianos-english-transfer/manifest.json
+          curl --fail --location --retry 3 --silent --show-error "$question_url" -o /tmp/kianos-english-transfer/source/question_bank.v1.json
+          curl --fail --location --retry 3 --silent --show-error "$reading_url" -o /tmp/kianos-english-transfer/source/reading_corpus.v1.json
+
+          printf '%s  %s\n' \
+            'c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986' \
+            '/tmp/kianos-english-transfer/source/question_bank.v1.json' \
+            | shasum -a 256 -c -
+          printf '%s  %s\n' \
+            '97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a' \
+            '/tmp/kianos-english-transfer/source/reading_corpus.v1.json' \
+            | shasum -a 256 -c -
+
+          test "$(git hash-object /tmp/kianos-english-transfer/manifest.json)" = 'c4ba991e28bd9b0f50f7444ea6bfced774a47d19'
+          test "$(git hash-object /tmp/kianos-english-transfer/source/question_bank.v1.json)" = 'c10b936beb1864715b59f2ef2028d9cc67cce31e'
+          test "$(git hash-object /tmp/kianos-english-transfer/source/reading_corpus.v1.json)" = 'e7347eec936a57914eafa4369f61d9f8e2dfb89d'
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for path in [
+              Path('/tmp/kianos-english-transfer/manifest.json'),
+              Path('/tmp/kianos-english-transfer/source/question_bank.v1.json'),
+              Path('/tmp/kianos-english-transfer/source/reading_corpus.v1.json'),
+          ]:
+              with path.open('r', encoding='utf-8') as f:
+                  json.load(f)
+          print('JSON_PARSE_OK')
+          PY
+
+          git fetch origin main
+          git checkout -B english-source-stage origin/main
+          mkdir -p content/english/source
+          cp /tmp/kianos-english-transfer/manifest.json content/english/manifest.json
+          cp /tmp/kianos-english-transfer/source/question_bank.v1.json content/english/source/question_bank.v1.json
+          cp /tmp/kianos-english-transfer/source/reading_corpus.v1.json content/english/source/reading_corpus.v1.json
+
+          git config user.name 'KianOS Transfer Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add content/english/manifest.json \
+                  content/english/source/question_bank.v1.json \
+                  content/english/source/reading_corpus.v1.json
+          git diff --cached --quiet && { echo 'No transfer changes'; exit 1; }
+          git commit -m 'content: admit English Reading A current sources'
+          git push --force origin HEAD:refs/heads/transfer/english-source-staging-20260911
