@@ -11,25 +11,34 @@ const reserveItems = (block?.pathways?.outgoing || [])
     targetGroupId: row?.target?.logic_group_id || '',
     returnCue: row?.target?.cue || ''
   }));
+const packetMeta = {
+  systemId: block?.systemId || '',
+  canonicalId: block?.systemCanonicalId || '',
+  blockId: block?.blockId || '',
+  blockLabel: block?.label || '',
+  blockTitle: block?.title || '',
+  sourcePath: block?.sourcePath || '',
+  reserveItems
+};
 ---
 <section class="portedStudyExtension xv6MemoryReview" data-study-extension data-study-object={block.objectId} data-study-source-hash={block.sourceHash}>
   <header class="portedExtensionHeader">
     <div>
       <span>After Learn</span>
-      <h3>{block.label} · Memory / 储备 / Review</h3>
-      <p>正式学过但不稳的东西进 Memory；未来重要但现在不展开的放在储备；两者不混。</p>
+      <h3>{block.label} · Memory / 储备 / 回 Chat</h3>
+      <p>正式学过但不稳的进 Memory；未来重要但现在不展开的留在储备；需要深挖时把完整学习证据交给 Chat。</p>
     </div>
     <nav>
       <button type="button" class="active" data-extension-tab="memory">Memory</button>
       <button type="button" data-extension-tab="reserve">储备</button>
-      <button type="button" data-extension-tab="review">Review</button>
+      <button type="button" data-extension-tab="review">回 Chat</button>
     </nav>
   </header>
 
   <section data-extension-panel="memory">
     <div class="portedMemorySummary">
       <strong data-memory-summary>等待 Recall 状态</strong>
-      <span>只收正式学过的薄弱 KP；4 · 稳定后退出当前薄弱队列。</span>
+      <span>只收正式学过的薄弱 KP；稳定后退出当前薄弱队列。</span>
     </div>
     <div class="portedPrecisionShell">
       <aside data-memory-queue></aside>
@@ -46,7 +55,7 @@ const reserveItems = (block?.pathways?.outgoing || [])
         </footer>
       </article></main>
     </div>
-    <small class="xv6RoleNote">Precision 是“最终要记多精确”的属性，不是这条 Memory 队列。全量内容审计完成前，网页不会从正文自动抓数字冒充 Precision。</small>
+    <small class="xv6RoleNote">Precision 是“最终要记多精确”的属性，不等于这条 Memory 队列。</small>
   </section>
 
   <section data-extension-panel="reserve" hidden>
@@ -66,25 +75,35 @@ const reserveItems = (block?.pathways?.outgoing || [])
     ) : (
       <p class="xv6ReserveEmpty">这个 Block 没有需要提前占用注意力的储备项。</p>
     )}
-    <small class="xv6RoleNote">储备不会进入普通 Memory，也不要求现在评分。普通“后面会接”的串联路牌甚至不会进这里，只在正式 owner 到来时重新提示。</small>
+    <small class="xv6RoleNote">储备不会进入普通 Memory，也不要求现在评分。</small>
   </section>
 
   <section data-extension-panel="review" hidden>
     <div class="portedReviewToolbar">
-      <div><span>Review · Chat loop</span><strong data-review-summary>等待本机薄弱项</strong></div>
-      <div><button type="button" data-review-export>复制今日学习包</button><button type="button" data-review-import-toggle>导入 Chat 计划</button></div>
+      <div>
+        <span>Chat handoff</span>
+        <strong data-review-summary>需要深挖时再回 Chat</strong>
+      </div>
+      <div>
+        <button type="button" data-review-export>复制详细学习包</button>
+        <button type="button" data-review-import-toggle>导入 Chat 返回计划</button>
+      </div>
+    </div>
+    <div class="xv6ChatPacketIntro">
+      <strong>这个包可以很详细，你不用自己读。</strong>
+      <p>会带上当前 Block、Current source hash、学习进度、全部 KP Recall、Memory 状态、反复不稳记录、随手记、储备关系和已有 Chat 计划证据。Chat 用它判断是记忆问题、理解问题、提示问题还是页面时机问题。</p>
     </div>
     <div class="portedReviewImport" data-review-import hidden>
-      <textarea rows="5" data-review-import-text placeholder='粘贴 JSON，例如 {"kp_ids":["circulation-b01-kp02"]}'></textarea>
-      <button type="button" data-review-apply>应用计划</button>
-      <small>只接受当前 Block 存在的 KP ID。</small>
+      <textarea rows="6" data-review-import-text placeholder='粘贴 Chat 返回 JSON。支持 {"kp_ids":["respiratory-r03-kp03"]}，也支持带 reason / action 的 plan/items。'></textarea>
+      <button type="button" data-review-apply>应用 Chat 计划</button>
+      <small>只接受当前 Block 真实存在的 KP；其他 ID 自动忽略。</small>
     </div>
     <div class="portedReviewWorkspace">
       <aside data-review-queue></aside>
       <article class="portedReviewCard">
-        <span>Active Review</span>
-        <h4 data-review-title>暂无待复习项</h4>
-        <p data-review-prompt>先完成 Recall，或导入 Chat 返回的 KP 列表。</p>
+        <span>Chat 返回计划</span>
+        <h4 data-review-title>还没有导入计划</h4>
+        <p data-review-prompt>Memory 负责普通薄弱项；这里只有 Chat 明确返回的专项任务。</p>
         <button type="button" data-review-reveal disabled>Reveal</button>
         <div class="portedReviewAnswer markdown" data-review-answer hidden></div>
         <footer data-review-ratings hidden>
@@ -104,6 +123,7 @@ const reserveItems = (block?.pathways?.outgoing || [])
     prompt: kp.prompt,
     detailHtml: kp.detailHtml
   })))}></script>
+  <script type="application/json" data-study-packet-meta set:html={JSON.stringify(packetMeta)}></script>
 </section>
 
 <script>
@@ -112,22 +132,46 @@ const reserveItems = (block?.pathways?.outgoing || [])
     const objectId = extension.getAttribute('data-study-object') || 'xizong:unknown';
     const sourceHash = extension.getAttribute('data-study-source-hash') || '';
     const stateKey = `kianos-xizong-astro-v2:${objectId}`;
+    const personalKey = `kianos-xizong-personal-v1:${objectId}`;
     const extensionKey = `kianos-xizong-memory-review-v2:${objectId}`;
     let kps = [];
+    let packetMeta = {};
     try { kps = JSON.parse(extension.querySelector('[data-study-kp-payload]')?.textContent || '[]'); } catch {}
-    let ext = { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {} };
+    try { packetMeta = JSON.parse(extension.querySelector('[data-study-packet-meta]')?.textContent || '{}'); } catch {}
+    let ext = { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {} };
     try { ext = { ...ext, ...(JSON.parse(localStorage.getItem(extensionKey) || 'null') || {}) }; } catch {}
     const readStudy = () => { try { return JSON.parse(localStorage.getItem(stateKey) || 'null') || {}; } catch { return {}; } };
     const writeStudy = (study) => { try { localStorage.setItem(stateKey, JSON.stringify(study)); } catch {} };
+    const readPersonal = () => { try { return JSON.parse(localStorage.getItem(personalKey) || 'null') || {}; } catch { return {}; } };
     const saveExt = () => { try { localStorage.setItem(extensionKey, JSON.stringify(ext)); } catch {} };
     const byId = new Map(kps.map((kp) => [kp.kpId, kp]));
     const ratingState = (value) => value === 'unknown' || value === 'fuzzy' ? 'HOT' : value === 'known' ? 'WARM' : value === 'mastered' ? 'STABLE' : '';
+    const addEvidence = (event) => {
+      ext.evidenceHistory = [...(ext.evidenceHistory || []), { at: new Date().toISOString(), ...event }].slice(-400);
+    };
+    const syncRecallEvidence = () => {
+      const ratings = readStudy().ratings || {};
+      ext.lastRecallRatings ||= {};
+      Object.entries(ratings).forEach(([kpId, rating]) => {
+        if (!byId.has(kpId) || ext.lastRecallRatings[kpId] === rating) return;
+        addEvidence({ type: 'KP_RECALL', kp_id: kpId, rating });
+        ext.lastRecallRatings[kpId] = rating;
+      });
+      saveExt();
+    };
+    const unstableCount = (kpId) => (ext.evidenceHistory || []).filter((row) => row?.kp_id === kpId && (
+      (row.type === 'KP_RECALL' && ['unknown', 'fuzzy'].includes(row.rating)) ||
+      (row.type === 'MEMORY' && ['HOT', 'WARM'].includes(row.state)) ||
+      (row.type === 'CHAT_PLAN_REVIEW' && ['unknown', 'fuzzy'].includes(row.rating))
+    )).length;
     const memoryItems = () => {
       const study = readStudy();
       const rows = kps.map((kp) => ({ ...kp, sourceRating: study.ratings?.[kp.kpId] || '', memoryState: ext.memory?.[kp.kpId] || ratingState(study.ratings?.[kp.kpId]) || '' }));
       const weak = rows.filter((row) => ['HOT', 'WARM'].includes(row.memoryState));
       return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
     };
+
+    syncRecallEvidence();
 
     const tabs = [...extension.querySelectorAll('[data-extension-tab]')];
     const panels = [...extension.querySelectorAll('[data-extension-panel]')];
@@ -148,6 +192,7 @@ const reserveItems = (block?.pathways?.outgoing || [])
     const memoryActions = extension.querySelector('[data-memory-actions]');
     const memorySummary = extension.querySelector('[data-memory-summary]');
     function renderMemory() {
+      syncRecallEvidence();
       const items = memoryItems();
       ext.memoryIndex = Math.max(0, Math.min(items.length - 1, Number(ext.memoryIndex || 0)));
       if (memorySummary) {
@@ -160,14 +205,18 @@ const reserveItems = (block?.pathways?.outgoing || [])
         const button = document.createElement('button');
         button.type = 'button';
         button.className = index === ext.memoryIndex ? 'active' : '';
-        button.innerHTML = `<b>${item.displayId || item.kpId}</b><span>${item.title}</span><small>${item.memoryState === 'HOT' ? '不稳' : item.memoryState === 'WARM' ? '勉强' : '—'}</small>`;
+        const repeats = unstableCount(item.kpId);
+        button.innerHTML = `<b>${item.displayId || item.kpId}</b><span>${item.title}</span><small>${item.memoryState === 'HOT' ? '不稳' : item.memoryState === 'WARM' ? '勉强' : '—'}${repeats > 1 ? ` · 反复${repeats}` : ''}</small>`;
         button.addEventListener('click', () => { ext.memoryIndex = index; saveExt(); renderMemory(); });
         memoryQueue?.appendChild(button);
       });
       const current = items[ext.memoryIndex];
       if (memoryTitle) memoryTitle.textContent = current ? `${current.displayId || current.kpId}｜${current.title}` : '暂无待练项';
       if (memoryPrompt) memoryPrompt.textContent = current?.prompt || (current ? '先回忆，再翻面。' : '完成 KP Recall 后，不稳项才进入这里。');
-      if (memoryMeta) memoryMeta.textContent = current ? `${current.memoryState === 'HOT' ? '不稳' : '勉强'} · ${ext.memoryIndex + 1}/${items.length}` : '薄弱 Memory';
+      if (memoryMeta) {
+        const repeats = current ? unstableCount(current.kpId) : 0;
+        memoryMeta.textContent = current ? `${current.memoryState === 'HOT' ? '不稳' : '勉强'}${repeats > 1 ? ` · 已反复不稳 ${repeats} 次` : ''} · ${ext.memoryIndex + 1}/${items.length}` : '薄弱 Memory';
+      }
       if (memoryReveal) { memoryReveal.disabled = !current; memoryReveal.hidden = false; }
       if (memoryAnswer) { memoryAnswer.hidden = true; memoryAnswer.innerHTML = current?.detailHtml || ''; }
       if (memoryActions) memoryActions.hidden = true;
@@ -182,7 +231,9 @@ const reserveItems = (block?.pathways?.outgoing || [])
       const items = memoryItems();
       const current = items[ext.memoryIndex];
       if (!current) return;
-      ext.memory = { ...(ext.memory || {}), [current.kpId]: button.getAttribute('data-memory-response') || 'WARM' };
+      const state = button.getAttribute('data-memory-response') || 'WARM';
+      ext.memory = { ...(ext.memory || {}), [current.kpId]: state };
+      addEvidence({ type: 'MEMORY', kp_id: current.kpId, state });
       ext.memoryIndex = Math.min(ext.memoryIndex, Math.max(0, memoryItems().length - 1));
       saveExt();
       renderMemory();
@@ -195,25 +246,37 @@ const reserveItems = (block?.pathways?.outgoing || [])
     const reviewReveal = extension.querySelector('[data-review-reveal]');
     const reviewRatings = extension.querySelector('[data-review-ratings]');
     const reviewSummary = extension.querySelector('[data-review-summary]');
-    const defaultReviewIds = () => memoryItems().map((item) => item.kpId);
-    const activeReview = () => (ext.reviewPlan?.length ? ext.reviewPlan : defaultReviewIds()).map((id) => byId.get(id)).filter(Boolean);
+    const planRows = () => (Array.isArray(ext.reviewPlan) ? ext.reviewPlan : []).map((row) => {
+      if (typeof row === 'string') return { kpId: row, reason: '', action: '', priority: '' };
+      return {
+        kpId: row?.kpId || row?.kp_id || '',
+        reason: row?.reason || row?.why || '',
+        action: row?.action || row?.task || '',
+        priority: row?.priority || ''
+      };
+    }).filter((row) => byId.has(row.kpId));
+    const activeReview = () => planRows().map((plan) => ({ ...byId.get(plan.kpId), plan })).filter(Boolean);
     function renderReview() {
       const items = activeReview();
       ext.reviewIndex = Math.max(0, Math.min(items.length - 1, Number(ext.reviewIndex || 0)));
-      if (reviewSummary) reviewSummary.textContent = items.length ? `${items.length} 个 KP 待复习` : '当前没有待复习项';
+      if (reviewSummary) reviewSummary.textContent = items.length ? `Chat 返回 ${items.length} 个专项任务` : '还没有导入 Chat 计划';
       reviewQueue?.replaceChildren();
       items.forEach((item, index) => {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = index === ext.reviewIndex ? 'active' : '';
-        const rating = ext.reviewRatings?.[item.kpId] || readStudy().ratings?.[item.kpId] || '';
-        button.innerHTML = `<b>${item.displayId || item.kpId}</b><span>${item.title}</span><small>${rating || '待复习'}</small>`;
+        const rating = ext.reviewRatings?.[item.kpId] || '';
+        button.innerHTML = `<b>${item.displayId || item.kpId}</b><span>${item.title}</span><small>${item.plan?.priority || rating || '专项'}</small>`;
         button.addEventListener('click', () => { ext.reviewIndex = index; saveExt(); renderReview(); });
         reviewQueue?.appendChild(button);
       });
       const current = items[ext.reviewIndex];
-      if (reviewTitle) reviewTitle.textContent = current ? `${current.displayId || current.kpId}｜${current.title}` : '暂无待复习项';
-      if (reviewPrompt) reviewPrompt.textContent = current?.prompt || (current ? '先主动恢复，再 Reveal。' : '可导入 Chat 返回的 KP 列表。');
+      if (reviewTitle) reviewTitle.textContent = current ? `${current.displayId || current.kpId}｜${current.title}` : '还没有导入计划';
+      if (reviewPrompt) {
+        const action = current?.plan?.action || '';
+        const reason = current?.plan?.reason || '';
+        reviewPrompt.textContent = current ? [action, reason].filter(Boolean).join(' · ') || current.prompt || '按 Chat 计划做一次主动恢复。' : 'Memory 负责普通薄弱项；这里只有 Chat 明确返回的专项任务。';
+      }
       if (reviewAnswer) { reviewAnswer.hidden = true; reviewAnswer.innerHTML = current?.detailHtml || ''; }
       if (reviewReveal) { reviewReveal.disabled = !current; reviewReveal.hidden = false; }
       if (reviewRatings) reviewRatings.hidden = true;
@@ -230,12 +293,14 @@ const reserveItems = (block?.pathways?.outgoing || [])
       if (!current) return;
       const value = button.getAttribute('data-review-rating') || '';
       ext.reviewRatings = { ...(ext.reviewRatings || {}), [current.kpId]: value };
+      addEvidence({ type: 'CHAT_PLAN_REVIEW', kp_id: current.kpId, rating: value });
       const study = readStudy();
       study.ratings = { ...(study.ratings || {}), [current.kpId]: value };
       writeStudy(study);
       ext.reviewIndex = Math.min(ext.reviewIndex + 1, Math.max(0, items.length - 1));
       saveExt();
       renderReview();
+      renderMemory();
     }));
 
     const importBox = extension.querySelector('[data-review-import]');
@@ -244,33 +309,105 @@ const reserveItems = (block?.pathways?.outgoing || [])
       const text = extension.querySelector('[data-review-import-text]')?.value || '';
       try {
         const parsed = JSON.parse(text);
-        const ids = (parsed.kp_ids || parsed.items || []).map((item) => typeof item === 'string' ? item : item?.kp_id).filter((id) => byId.has(id));
-        ext.reviewPlan = [...new Set(ids)];
+        const raw = Array.isArray(parsed.plan) ? parsed.plan : Array.isArray(parsed.items) ? parsed.items : Array.isArray(parsed.kp_ids) ? parsed.kp_ids : [];
+        const rows = raw.map((item) => typeof item === 'string'
+          ? { kpId: item, reason: '', action: '', priority: '' }
+          : {
+              kpId: item?.kp_id || item?.kpId || '',
+              reason: item?.reason || item?.why || '',
+              action: item?.action || item?.task || '',
+              priority: item?.priority || ''
+            })
+          .filter((row) => byId.has(row.kpId));
+        const seen = new Set();
+        ext.reviewPlan = rows.filter((row) => row.kpId && !seen.has(row.kpId) && seen.add(row.kpId));
         ext.reviewIndex = 0;
+        addEvidence({ type: 'CHAT_PLAN_IMPORTED', kp_ids: ext.reviewPlan.map((row) => row.kpId) });
         saveExt();
         renderReview();
         if (importBox) importBox.hidden = true;
-      } catch { window.alert('Review plan JSON 无法解析。'); }
+      } catch { window.alert('Chat 计划 JSON 无法解析。'); }
     });
+
     extension.querySelector('[data-review-export]')?.addEventListener('click', async () => {
+      syncRecallEvidence();
       const study = readStudy();
+      const personal = readPersonal();
+      const evidenceHistory = ext.evidenceHistory || [];
+      const kpEvidence = kps.map((kp) => {
+        const recallRating = study.ratings?.[kp.kpId] || '';
+        const memoryState = ext.memory?.[kp.kpId] || ratingState(recallRating) || '';
+        const note = personal?.kp?.[kp.kpId]?.comment || '';
+        return {
+          kp_id: kp.kpId,
+          display_id: kp.displayId,
+          title: kp.title,
+          prompt: kp.prompt || '',
+          learned: Boolean(study.learned?.[kp.kpId]),
+          recall_rating: recallRating,
+          memory_state: memoryState,
+          repeated_unstable_count: unstableCount(kp.kpId),
+          note,
+          chat_plan_rating: ext.reviewRatings?.[kp.kpId] || ''
+        };
+      });
+      const weakNow = kpEvidence.filter((row) => ['HOT', 'WARM'].includes(row.memory_state));
+      const repeated = kpEvidence.filter((row) => row.repeated_unstable_count > 1);
       const packet = {
-        schema: 'kianos.xizong.review_packet.v1',
+        schema: 'kianos.xizong.study_packet.v2',
+        exported_at: new Date().toISOString(),
         object_id: objectId,
-        source_hash: sourceHash,
-        kp_ids: defaultReviewIds(),
-        ratings: study.ratings || {},
+        current: {
+          system_id: packetMeta.systemId || '',
+          canonical_id: packetMeta.canonicalId || '',
+          block_id: packetMeta.blockId || '',
+          block_label: packetMeta.blockLabel || '',
+          block_title: packetMeta.blockTitle || '',
+          source_path: packetMeta.sourcePath || '',
+          source_hash: sourceHash
+        },
+        learning_state: {
+          current_stage: study.stage || '',
+          lecture_round_complete: Boolean(personal.lectureRead),
+          learned_kp_ids: Object.entries(study.learned || {}).filter(([, done]) => Boolean(done)).map(([id]) => id),
+          recall_ratings: study.ratings || {},
+          block_recall_done: Boolean(study.blockRecallDone),
+          block_complete: Boolean(study.completed)
+        },
+        summary: {
+          total_kp: kps.length,
+          recalled_kp: Object.keys(study.ratings || {}).length,
+          weak_now_kp_ids: weakNow.map((row) => row.kp_id),
+          repeated_unstable_kp_ids: repeated.map((row) => row.kp_id),
+          notes_count: kpEvidence.filter((row) => Boolean(row.note)).length
+        },
+        kp_evidence: kpEvidence,
         memory: ext.memory || {},
-        instruction: '请基于这些 Current KP 生成简洁复习顺序，只返回 kp_ids，不改写知识内容。'
+        evidence_history: evidenceHistory,
+        reserve_learning: packetMeta.reserveItems || [],
+        imported_chat_plan: planRows(),
+        chat_plan_ratings: ext.reviewRatings || {},
+        request_to_chat: [
+          '请先读取 main@HEAD 对应 Current owner，再结合这个学习包判断，不要只按分数机械排队。',
+          '区分：只是暂时记忆不稳 / 机制理解断点 / Precision 不稳 / 主提示设计问题 / 页面出现时机问题 / canonical 内容疑点。',
+          '优先指出最有价值的少数问题；稳定内容不要制造额外复习。',
+          '如果需要 Astro 专项复习，请返回可直接导入的 JSON；至少包含 kp_ids，或返回 plan/items，其中每项可含 kp_id、reason、action、priority。',
+          '如果不需要额外计划，明确说无需导入，不要为了生成计划而生成计划。'
+        ],
+        import_contract: {
+          simple: { kp_ids: ['respiratory-r03-kp03'] },
+          rich: { plan: [{ kp_id: 'respiratory-r03-kp03', reason: '机制仍不稳', action: '重新跑一次弹性回缩→呼气受限链', priority: 'high' }] }
+        }
       };
       const text = JSON.stringify(packet, null, 2);
-      try { await navigator.clipboard.writeText(text); } catch { window.prompt('复制 Review Packet', text); }
+      try { await navigator.clipboard.writeText(text); } catch { window.prompt('复制详细 Study Packet', text); }
     });
+
     renderMemory();
     renderReview();
   }
 </script>
 
 <style>
-  .xv6ReserveIntro{display:grid;gap:5px;padding:12px 14px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6ReserveIntro>span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.06em}.xv6ReserveIntro strong{font-size:14px}.xv6ReserveIntro p,.xv6RoleNote,.xv6ReserveEmpty{margin:0;color:var(--study-muted,#6d7873);font-size:10px;line-height:1.55}.xv6ReserveList{display:grid;gap:7px;padding:12px 14px}.xv6ReserveList article{padding:9px 10px;border:1px solid var(--study-line,#d9dde5);border-radius:9px;background:var(--study-surface-muted,#f5f6f8)}.xv6ReserveList article>span{color:var(--study-green,#286c57);font-size:8px;font-weight:850}.xv6ReserveList p{margin:4px 0;font-size:11px;line-height:1.55}.xv6ReserveList small{color:var(--study-muted,#6d7873);font-size:8px}.xv6ReserveEmpty{padding:14px}.xv6RoleNote{display:block;padding:9px 14px;border-top:1px solid var(--study-line,#d9dde5)}
+  .xv6ReserveIntro,.xv6ChatPacketIntro{display:grid;gap:5px;padding:12px 14px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6ReserveIntro>span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.06em}.xv6ReserveIntro strong,.xv6ChatPacketIntro strong{font-size:14px}.xv6ReserveIntro p,.xv6ChatPacketIntro p,.xv6RoleNote,.xv6ReserveEmpty{margin:0;color:var(--study-muted,#6d7873);font-size:10px;line-height:1.55}.xv6ReserveList{display:grid;gap:7px;padding:12px 14px}.xv6ReserveList article{padding:9px 10px;border:1px solid var(--study-line,#d9dde5);border-radius:9px;background:var(--study-surface-muted,#f5f6f8)}.xv6ReserveList article>span{color:var(--study-green,#286c57);font-size:8px;font-weight:850}.xv6ReserveList p{margin:4px 0;font-size:11px;line-height:1.55}.xv6ReserveList small{color:var(--study-muted,#6d7873);font-size:8px}.xv6ReserveEmpty{padding:14px}.xv6RoleNote{display:block;padding:9px 14px;border-top:1px solid var(--study-line,#d9dde5)}
 </style>
