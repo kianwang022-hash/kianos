@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { buildRevision, inspectReadingSources, loadAnswer, loadB1, migrationStatus } from '../lib/current.mjs';
+import { buildRevision, inspectReadingSources, loadAnswer, loadB1 } from '../lib/current.mjs';
 
 const base = import.meta.env.BASE_URL;
 const b1 = loadB1();
@@ -22,19 +22,19 @@ const readingReady = readingState.status === 'ready';
     <a class="homeLane" href={`${base}b1/`}>
       <div><span>西医综合 · Ready</span><h2>{b1.title}</h2></div>
       <p>{b1.kpCount} KP · Learn → Recall → Block Recall → Memory / Review。</p>
-      <footer><span>{migrationStatus.xizong}</span><b>进入 →</b></footer>
+      <footer><span>main@HEAD</span><b>进入 →</b></footer>
     </a>
     <a class="homeLane" href={`${base}answer/`}>
       <div><span>LexicalOS · Ready</span><h2>{answer.record.word}</h2></div>
-      <p>L0-first Study Card + Queue / Dictionary / History 入口；语义只来自 Current word object。</p>
-      <footer><span>{migrationStatus.lexical}</span><b>进入 →</b></footer>
+      <p>L0-first Study Card + Queue / Dictionary / History 入口；当前代表页只读取明确绑定的 Current 词条对象。</p>
+      <footer><span>current-bound</span><b>进入 →</b></footer>
     </a>
     <a class="homeLane" href={`${base}reading/`}>
-      <div><span>English · {readingReady ? 'Ready' : 'Migration'}</span><h2>Reading</h2></div>
+      <div><span>English · {readingReady ? 'Ready' : 'Blocked'}</span><h2>Reading</h2></div>
       <p>{readingReady
         ? 'Reading A Workspace · Attempt / Uncertain / History / Problem Record / 二刷；内容只来自 Current Exam Source。'
-        : '完整 Exam Source 正在做机械迁移；Runtime 已 source-gated，Current 落仓并通过 hash gate 后自动启用。'}</p>
-      <footer><span>{readingReady ? 'ready' : migrationStatus.english}</span><b>{readingReady ? '进入 →' : '查看 →'}</b></footer>
+        : 'Current source 未通过读取条件；Runtime 保持 fail-closed，不回退 legacy 或历史版本。'}</p>
+      <footer><span>{readingReady ? 'ready' : 'source-gated'}</span><b>{readingReady ? '进入 →' : '查看 →'}</b></footer>
     </a>
   </section>
 </Base>
