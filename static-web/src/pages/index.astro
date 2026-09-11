@@ -60,5 +60,10 @@ const writingLearning = loadWritingLearningProjection();
         : 'Writing canonical learning projection 当前存在结构 blocker；入口保持 fail-closed。'}</p>
       <footer><span>{writingLearning.status === 'ready' ? 'synthetic-first' : 'projection-gated'}</span><b>{writingLearning.status === 'ready' ? '开始学习 →' : '查看 →'}</b></footer>
     </a>
+    <a class="homeLane" href={`${base}writing/`}>
+      <div><span>English · Writing Synthetic Runtime</span><h2>Whole-Essay Practice</h2></div>
+      <p>完成 First Learning 主链后使用：完整 synthetic Small / Big → Chat whole-essay PASS / Repair → learner re-generation。这里不开放受保护真题。</p>
+      <footer><span>after first learning</span><b>进入 synthetic runtime →</b></footer>
+    </a>
   </section>
 </Base>

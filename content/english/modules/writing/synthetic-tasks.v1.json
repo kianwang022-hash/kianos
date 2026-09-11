@@ -1,0 +1,55 @@
+{
+  "schema": "kianos.english.writing.synthetic_tasks.v1",
+  "status": "CURRENT",
+  "authority": "content/english/modules/writing/learning.md#E12",
+  "purpose": "Learner-safe complete-essay tasks for the cold-start exit. These task instances teach and test full-output generation without consuming protected true-exam material.",
+  "rules": {
+    "learner_unit": "one complete essay",
+    "model_answer_present": false,
+    "template_fill_present": false,
+    "prewritten_paragraph_assembly_present": false,
+    "preserve_first_meaningful_plan_and_first_draft": true,
+    "semantic_review": "Chat-mediated",
+    "true_exam_consumption": false,
+    "same_prompt_repair_is_not_transfer_closure": true,
+    "memory_admission": "Only reusable, high-value generation problems may become TRANSFER_PENDING. A completed repair can end as REPAIR_COMPLETE with no durable review debt."
+  },
+  "tasks": [
+    {
+      "id": "writing-synthetic-small-v1",
+      "kind": "small",
+      "source_kind": "synthetic",
+      "title": "Small Writing · Workshop Change",
+      "target_words": 100,
+      "task": {
+        "role": "student organizer",
+        "audience": "students who registered for a campus workshop",
+        "background": "A campus workshop on practical note-taking tools cannot be held in its original room because of a maintenance problem.",
+        "directions": "Write an email to the registered students. Inform them of the new time and place, tell them what they should bring, and explain how they should contact the organizers if they cannot attend.",
+        "facts": [
+          "New time: Saturday, 10:00 a.m.",
+          "New place: Library Seminar Room 3",
+          "Participants should bring a laptop or tablet",
+          "Students who cannot attend should reply to the organizer by Friday evening"
+        ],
+        "register_hint": "clear, helpful, appropriately polite"
+      },
+      "planning_prompt": "Before drafting, make a compact plan in your own words: required moves, useful content atoms, and a simple information order. If you can already generate directly, explicitly choose direct mode instead of inventing a fake plan.",
+      "draft_prompt": "Write one complete email. Complete the required moves with stable English; do not add filler merely to sound advanced."
+    },
+    {
+      "id": "writing-synthetic-big-v1",
+      "kind": "big",
+      "source_kind": "synthetic",
+      "title": "Big Writing · Effort and Coordination",
+      "target_words": "160–200",
+      "task": {
+        "visual_scenario": "Two student project teams are preparing presentations. In Team A, every member searches for information separately, several people save the same materials, and nobody is sure which outline is the latest. In Team B, members divide work according to their strengths, use one shared outline, and briefly update one another before combining their work.",
+        "directions": "Write an essay based on the contrast. First describe the meaningful difference in the scenario, then interpret what it suggests, and develop your own view with a clear mechanism, consequence, example, contrast, or practical implication.",
+        "observation_boundary": "Keep what the scenario shows separate from what you infer from it."
+      },
+      "planning_prompt": "Before drafting, form your own Observation, Interpretation/Core Message, 2–4 content atoms, and paragraph roles. If you can already generate directly, explicitly choose direct mode instead of inventing a fake plan.",
+      "draft_prompt": "Write one complete essay. Let the material support a developable relation or judgment rather than jumping to a slogan."
+    }
+  ]
+}

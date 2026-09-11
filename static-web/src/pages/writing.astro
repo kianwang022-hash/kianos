@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import { inspectWritingSyntheticTasks, listWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
+
+const base = import.meta.env.BASE_URL;
+const state = inspectWritingSyntheticTasks();
+const tasks = listWritingSyntheticTasks();
+const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
+---
+<Base
+  title="Writing"
+  kicker="English · Productive Lane"
+  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then later fresh transfer."
+  active="home"
+>
+  <section class="writingHome" data-writing-home data-base={base}>
+    <section class="writingHomeHero">
+      <div>
+        <span>Writing · Whole-Essay Runtime</span>
+        <h2>Generate → Chat judge → PASS / Repair</h2>
+        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 会保存在本机；Chat 做语义判断，页面不做假评分，也不提前消耗受保护真题。</p>
+      </div>
+      <aside>
+        <strong>{state.status === 'ready' ? `${tasks.length} synthetic tasks` : state.status}</strong>
+        <span>S/K/L/P already passed</span>
+        <span>R · whole-essay runtime</span>
+        <span>E · later fresh transfer not yet closed</span>
+        <span>U · learner validation untested</span>
+      </aside>
+    </section>
+
+    <a class="writingLearnLink" href={`${base}writing-learn/`}>
+      <div><span>First Learning</span><strong>Global Map → B1–B8 → Full Synthetic Gate</strong></div>
+      <p>还没系统学过写作时先走这里；会的 Block 可以主动跳过，但不把 canonical asset 做薄。</p>
+      <b>学习框架 →</b>
+    </a>
+
+    {state.status !== 'ready' ? (
+      <section class="writingHomeGate">
+        <strong>Writing synthetic runtime source not ready</strong>
+        <p>{state.issues.join(' · ') || 'Unknown runtime source issue.'}</p>
+      </section>
+    ) : (
+      <section class="writingTaskGrid">
+        {tasks.map((task) => (
+          <a class="writingTaskCard" data-writing-task-card={task.id} href={`${base}writing/${encodeURIComponent(task.id)}/`}>
+            <span>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · synthetic</span>
+            <strong>{task.title}</strong>
+            <p>{task.kind === 'small' ? task.learnerTask.directions : task.learnerTask.visual_scenario}</p>
+            <div><small>Target · {task.targetWords} words</small><b data-task-state={task.id}>未开始</b></div>
+          </a>
+        ))}
+      </section>
+    )}
+
+    <section class="writingTrueExamShield">
+      <div><span>Protected true exam</span><strong>现在不展示真题目录</strong></div>
+      <p>Cold-start mechanics 和第一次完整输出先用 synthetic material。真题不是为了证明页面能跑而消耗；等 Synthetic Small + Big 满足退出条件后，再进入后续 exam-fit / fresh evidence 阶段。</p>
+    </section>
+
+    <section class="writingRuntimeBoundary">
+      <strong>R / E boundary</strong>
+      <p>当前 runtime 能完整执行 first evidence → Chat PASS/repair → learner re-generation → repair check。只有可复用、高价值问题才允许进入 TRANSFER_PENDING；later fresh/unseen Writing 如何支持、关闭或重新打开 target 属于下一阶段 Evidence gate。</p>
+    </section>
+
+    <script type="application/json" data-writing-catalog set:html={payload}></script>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-writing-home]');
+  if (root instanceof HTMLElement) {
+    let tasks = [];
+    try { tasks = JSON.parse(root.querySelector('[data-writing-catalog]')?.textContent || '[]'); } catch {}
+    const finalStates = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
+    const stageText = (state) => ({
+      ATTEMPT: '进行中 · Clean Attempt',
+      REVIEW_PENDING: '待 Chat Review',
+      PASS_ACCEPTABLE: 'PASS / ACCEPTABLE',
+      REPAIR_NEEDED: '需要最小 repair',
+      REPAIR_CHECK_PENDING: '待 Repair Check',
+      REPAIR_COMPLETE: 'REPAIR_COMPLETE',
+      TRANSFER_PENDING: 'TRANSFER_PENDING'
+    })[state] || '未开始';
+
+    let completed = 0;
+    tasks.forEach((task) => {
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(`kianos-writing-runtime-v1:${task.id}`) || 'null'); } catch {}
+      const state = saved?.state || '';
+      if (finalStates.has(state)) completed += 1;
+      const label = root.querySelector(`[data-task-state="${task.id}"]`);
+      if (label) label.textContent = stageText(state);
+      const card = root.querySelector(`[data-writing-task-card="${task.id}"]`);
+      if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(state) ? 'true' : 'false';
+    });
+
+    const shield = root.querySelector('.writingTrueExamShield');
+    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = completed === tasks.length && tasks.length > 0 ? 'true' : 'false';
+  }
+</script>
+
+<style>
+  .writingHome{max-width:78rem;margin:0 auto;display:grid;gap:12px}.writingHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.writingHomeHero>div>span,.writingLearnLink span,.writingTaskCard>span,.writingTrueExamShield span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingHomeHero h2{margin:5px 0 8px;font-size:27px}.writingHomeHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.writingHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.writingHomeHero aside strong{color:var(--study-green)}.writingHomeHero aside span{font-size:10px;color:var(--study-faint)}
+  .writingLearnLink{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.writingLearnLink>div{display:grid;gap:3px}.writingLearnLink strong{font-size:14px}.writingLearnLink p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.writingLearnLink b{font-size:11px;color:var(--study-green)}
+  .writingTaskGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.writingTaskCard{display:grid;gap:7px;padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit;text-decoration:none;box-shadow:var(--study-shadow)}.writingTaskCard[data-complete="true"]{border-color:#b8d7c8;background:#fbfdfc}.writingTaskCard strong{font-size:18px}.writingTaskCard p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.6}.writingTaskCard>div{display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--study-line)}.writingTaskCard small{font-size:9px;color:var(--study-faint)}.writingTaskCard b{font-size:9px;color:var(--study-green)}
+  .writingTrueExamShield,.writingRuntimeBoundary,.writingHomeGate{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.writingTrueExamShield{background:#fffdf8}.writingTrueExamShield[data-synthetic-complete="true"]{background:#fbfdfc;border-color:#cfe2d8}.writingTrueExamShield>div{display:grid;gap:3px}.writingTrueExamShield strong,.writingRuntimeBoundary strong,.writingHomeGate strong{font-size:12px}.writingTrueExamShield p,.writingRuntimeBoundary p,.writingHomeGate p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}
+  @media(max-width:820px){.writingHomeHero,.writingLearnLink,.writingTaskGrid{grid-template-columns:1fr}.writingHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}}
+</style>

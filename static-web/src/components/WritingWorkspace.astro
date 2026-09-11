@@ -1,0 +1,457 @@
+---
+const { task } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const previousHref = task.navigation?.previousId
+  ? `${base}writing/${encodeURIComponent(task.navigation.previousId)}/`
+  : '';
+const nextHref = task.navigation?.nextId
+  ? `${base}writing/${encodeURIComponent(task.navigation.nextId)}/`
+  : '';
+const payload = JSON.stringify(task).replace(/</g, '\\u003c');
+---
+<section
+  class="writingRuntime"
+  data-writing-runtime
+  data-task-id={task.id}
+  data-title={task.title}
+  data-base={base}
+>
+  <header class="writingRuntimeHeader">
+    <a href={`${base}writing/`}>‹ Writing</a>
+    <div>
+      <span>Productive lane · one complete essay</span>
+      <h1>{task.title}</h1>
+      <small>{task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · synthetic · <b data-stage-label>Clean Attempt</b></small>
+    </div>
+    <nav aria-label="Writing synthetic task navigation">
+      {previousHref ? <a href={previousHref}>‹ 上一篇</a> : <span>‹ 上一篇</span>}
+      {nextHref ? <a href={nextHref}>下一篇 ›</a> : <span>下一篇 ›</span>}
+    </nav>
+  </header>
+
+  <div class="writingRuntimeColumns">
+    <article class="writingPrompt">
+      <header><span>Prompt stays visible</span><h2>Task</h2></header>
+      <div class="writingPromptBody">
+        {task.kind === 'small' ? (
+          <>
+            <dl>
+              <div><dt>Role</dt><dd>{task.learnerTask.role}</dd></div>
+              <div><dt>Audience</dt><dd>{task.learnerTask.audience}</dd></div>
+            </dl>
+            <p>{task.learnerTask.background}</p>
+            <blockquote>{task.learnerTask.directions}</blockquote>
+            {Array.isArray(task.learnerTask.facts) && (
+              <section class="writingFacts">
+                <strong>Given facts</strong>
+                <ul>{task.learnerTask.facts.map((fact) => <li>{fact}</li>)}</ul>
+              </section>
+            )}
+            {task.learnerTask.register_hint && <p class="writingBoundary"><strong>Register:</strong> {task.learnerTask.register_hint}</p>}
+          </>
+        ) : (
+          <>
+            <p class="writingVisualScenario">{task.learnerTask.visual_scenario}</p>
+            <blockquote>{task.learnerTask.directions}</blockquote>
+            {task.learnerTask.observation_boundary && <p class="writingBoundary"><strong>Observation boundary:</strong> {task.learnerTask.observation_boundary}</p>}
+          </>
+        )}
+      </div>
+      <div class="writingPromptMeta">
+        <span>Target · {task.targetWords} words</span>
+        <span>No model answer in clean runtime</span>
+        <span>Protected true exam · not consumed</span>
+      </div>
+      <details class="writingProvenance">
+        <summary>Runtime provenance</summary>
+        <code>{task.sourcePath}</code>
+        <code>synthetic-owner:{task.sourceHash?.slice(0, 12)}</code>
+        <code>{task.id}</code>
+      </details>
+    </article>
+
+    <section class="writingWork">
+      <section class="writingStage" data-runtime-stage="attempt">
+        <header>
+          <span>01 · Clean Attempt</span>
+          <h2>先生成，再评价</h2>
+          <p>正式 learner-facing 单位是一整篇。先留下 first meaningful planning/content evidence，再锁定第一版；页面不做假评分，也不提前给范文。</p>
+        </header>
+
+        <div class="writingPlanMode">
+          <label><input type="radio" name="writing-plan-mode" value="planned" data-plan-mode checked /> <span><strong>Compact plan</strong><small>用自己的 Task/Core Message、content atoms、信息顺序。</small></span></label>
+          <label><input type="radio" name="writing-plan-mode" value="direct" data-plan-mode /> <span><strong>Direct mode</strong><small>已经能直接生成时，不为了系统强行制造“计划”。</small></span></label>
+        </div>
+
+        <label class="writingField" data-plan-field>
+          <span>First meaningful plan / content</span>
+          <small>{task.planningPrompt}</small>
+          <textarea rows="7" data-plan-draft placeholder="写你真正会用的短计划，不写完整模板。"></textarea>
+        </label>
+
+        <label class="writingField">
+          <span>First draft · complete essay</span>
+          <small>{task.draftPrompt}</small>
+          <textarea rows="18" data-essay-draft placeholder="在这里完成第一版整篇作文…"></textarea>
+        </label>
+
+        <div class="writingActions">
+          <button type="button" class="primary" data-lock-first>锁定 first evidence →</button>
+          <small data-attempt-status>锁定后 first plan / first draft 不再被后续修改覆盖。</small>
+        </div>
+      </section>
+
+      <section class="writingFrozen" data-frozen-evidence hidden>
+        <header><span>Immutable first evidence</span><small data-first-time></small></header>
+        <div class="writingFrozenGrid">
+          <section><strong>First planning/content</strong><pre data-first-plan></pre></section>
+          <section><strong>First draft</strong><pre data-first-draft></pre></section>
+        </div>
+      </section>
+
+      <section class="writingStage" data-runtime-stage="review" hidden>
+        <header>
+          <span>02 · Whole-Essay Review</span>
+          <h2>让 Chat 判断 PASS，或者只找 first meaningful failure</h2>
+          <p>PASS 是真实出口。若要修，只返回最早且足以解释重要下游问题的一层 + 最小 repair；不先给 model essay，不为“还能更高级”制造债务。</p>
+        </header>
+        <div class="writingActions">
+          <button type="button" class="primary" data-copy-review>复制 Review Packet</button>
+          <small data-copy-review-status>把 packet 发给 Chat；它包含 prompt、first planning evidence 和 first draft。</small>
+        </div>
+        <label class="writingField">
+          <span>Chat Return</span>
+          <textarea rows="12" data-review-return placeholder="把 Chat 返回的 kianos.english.writing.review-return.v1 JSON 粘贴到这里…"></textarea>
+        </label>
+        <div class="writingActions">
+          <button type="button" class="primary" data-import-review>导入 Chat 判断 →</button>
+          <small data-review-status>PASS 直接结束；REPAIR_NEEDED 才进入最小重生成。</small>
+        </div>
+      </section>
+
+      <section class="writingStage" data-runtime-stage="repair" hidden>
+        <header>
+          <span>03 · Smallest Repair</span>
+          <h2>只重做真正受影响的范围</h2>
+          <p>learner-facing 仍是一篇作文的复盘；repair scope 可以更小，但这里只让你重新生成，不把 Chat 的替代成文贴给你。</p>
+        </header>
+        <section class="writingDiagnosis" data-diagnosis-card></section>
+        <label class="writingField">
+          <span>Re-generation</span>
+          <small data-regeneration-instruction>按上面的 scope 和 minimal repair 自己重新执行。</small>
+          <textarea rows="12" data-regeneration placeholder="只写需要重新生成的内容；如果 scope 是整篇，就重写整篇。"></textarea>
+        </label>
+        <div class="writingActions">
+          <button type="button" class="primary" data-lock-regeneration>锁定 re-generation →</button>
+          <small data-regeneration-status>同题改对只证明 repair 生效，不等于 transfer closure。</small>
+        </div>
+      </section>
+
+      <section class="writingStage" data-runtime-stage="repair-check" hidden>
+        <header>
+          <span>04 · Repair Check</span>
+          <h2>确认根问题是否真的修掉</h2>
+          <p>Chat 先检查这次 named repair。若上游已修好、但一个后续问题仍独立存在，它才可以成为下一轮 first failure。</p>
+        </header>
+        <div class="writingActions">
+          <button type="button" class="primary" data-copy-repair>复制 Repair Check Packet</button>
+          <small data-copy-repair-status>不会把 same-prompt correction 当 mastery；也不会自动创建 Transfer Pending。</small>
+        </div>
+        <label class="writingField">
+          <span>Chat Repair Return</span>
+          <textarea rows="12" data-repair-return placeholder="把 Chat 返回的 kianos.english.writing.repair-return.v1 JSON 粘贴到这里…"></textarea>
+        </label>
+        <div class="writingActions">
+          <button type="button" class="primary" data-import-repair>导入 Repair 判断 →</button>
+          <small data-repair-status>可复用高价值问题才进入 TRANSFER_PENDING；否则 REPAIR_COMPLETE 直接结束。</small>
+        </div>
+      </section>
+
+      <section class="writingStage writingComplete" data-runtime-stage="passed" hidden>
+        <header><span>PASS / ACCEPTABLE</span><h2>这篇可以离开</h2><p>Chat 没找到足以影响可靠性的 meaningful failure。没有 repair debt，也不会为了“更高级”强制继续。</p></header>
+        <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
+      </section>
+
+      <section class="writingStage writingComplete" data-runtime-stage="repair-complete" hidden>
+        <header><span>REPAIR_COMPLETE</span><h2>当前失败已修复，不进入长期循环</h2><p>same-prompt re-generation 已经证明 repair 生效；这个问题不值得占用未来复习时间，因此没有 TRANSFER_PENDING。</p></header>
+        <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
+      </section>
+
+      <section class="writingStage writingComplete" data-runtime-stage="transfer-pending" hidden>
+        <header><span>TRANSFER_PENDING</span><h2>repair 已完成，等以后 fresh Writing 再验证</h2><p>这里只建立待验证目标，不在同一道 prompt 上自我关闭。真正的 later fresh/unseen evidence 属于下一阶段 E。</p></header>
+        <section class="writingTransfer" data-transfer-card></section>
+        <div class="writingActions">{nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一篇 synthetic →</a>}</div>
+      </section>
+
+      <details class="writingHistory">
+        <summary>Local runtime state · <span data-history-count>0</span> archived</summary>
+        <p>first evidence、repair 和 history 只存在当前浏览器，不写进 GitHub shared Current。</p>
+        <button type="button" data-reset-attempt>归档本轮并重新开始</button>
+      </details>
+    </section>
+  </div>
+  <script type="application/json" data-writing-task set:html={payload}></script>
+</section>
+
+<script>
+  import {
+    WRITING_STATES,
+    createInitialWritingRecord,
+    normalizeWritingRecord,
+    lockFirstAttempt,
+    buildWritingReviewPacket,
+    validateWritingReviewReturn,
+    applyWritingReviewReturn,
+    lockWritingRegeneration,
+    buildWritingRepairCheckPacket,
+    validateWritingRepairReturn,
+    applyWritingRepairReturn,
+    resetWritingAttempt
+  } from '../lib/writingRuntimeModel.mjs';
+
+  const root = document.querySelector('[data-writing-runtime]');
+  if (root instanceof HTMLElement) {
+    let task = null;
+    try { task = JSON.parse(root.querySelector('[data-writing-task]')?.textContent || 'null'); } catch {}
+    if (!task?.id) throw new Error('WRITING_RUNTIME_TASK_PAYLOAD_MISSING');
+
+    const storageKey = `kianos-writing-runtime-v1:${task.id}`;
+    const lastLocationKey = 'kianos-writing-last-location-v1';
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch {}
+    let record = normalizeWritingRecord(task, saved);
+
+    const stageMap = {
+      [WRITING_STATES.ATTEMPT]: 'attempt',
+      [WRITING_STATES.REVIEW_PENDING]: 'review',
+      [WRITING_STATES.PASS_ACCEPTABLE]: 'passed',
+      [WRITING_STATES.REPAIR_NEEDED]: 'repair',
+      [WRITING_STATES.REPAIR_CHECK_PENDING]: 'repair-check',
+      [WRITING_STATES.REPAIR_COMPLETE]: 'repair-complete',
+      [WRITING_STATES.TRANSFER_PENDING]: 'transfer-pending'
+    };
+    const stageLabels = {
+      [WRITING_STATES.ATTEMPT]: 'Clean Attempt',
+      [WRITING_STATES.REVIEW_PENDING]: 'Whole-Essay Review',
+      [WRITING_STATES.PASS_ACCEPTABLE]: 'PASS / ACCEPTABLE',
+      [WRITING_STATES.REPAIR_NEEDED]: 'Smallest Repair',
+      [WRITING_STATES.REPAIR_CHECK_PENDING]: 'Repair Check',
+      [WRITING_STATES.REPAIR_COMPLETE]: 'REPAIR_COMPLETE',
+      [WRITING_STATES.TRANSFER_PENDING]: 'TRANSFER_PENDING'
+    };
+
+    const plan = root.querySelector('[data-plan-draft]');
+    const essay = root.querySelector('[data-essay-draft]');
+    const regeneration = root.querySelector('[data-regeneration]');
+    const reviewReturnBox = root.querySelector('[data-review-return]');
+    const repairReturnBox = root.querySelector('[data-repair-return]');
+
+    function persist() {
+      record.updatedAt = new Date().toISOString();
+      try { localStorage.setItem(storageKey, JSON.stringify(record)); } catch {}
+      try {
+        localStorage.setItem(lastLocationKey, JSON.stringify({
+          id: task.id,
+          title: task.title,
+          state: record.state,
+          href: location.pathname,
+          updatedAt: record.updatedAt
+        }));
+      } catch {}
+    }
+
+    function setStatus(selector, text, bad = false) {
+      const node = root.querySelector(selector);
+      if (!node) return;
+      node.textContent = text;
+      node.classList.toggle('isBad', bad);
+    }
+
+    function renderDiagnosis() {
+      const card = root.querySelector('[data-diagnosis-card]');
+      if (!(card instanceof HTMLElement)) return;
+      card.replaceChildren();
+      const diagnosis = record.reviewReturn;
+      if (!diagnosis) return;
+      const layer = document.createElement('span'); layer.textContent = diagnosis.firstFailureLayer || 'Failure';
+      const scope = document.createElement('strong'); scope.textContent = diagnosis.repairScope || 'Repair scope';
+      const cue = document.createElement('p'); cue.textContent = diagnosis.smallestRepair || '';
+      const reason = document.createElement('small'); reason.textContent = diagnosis.reason || '';
+      card.append(layer, scope, cue, reason);
+      const instruction = root.querySelector('[data-regeneration-instruction]');
+      if (instruction) instruction.textContent = `Scope: ${diagnosis.repairScope || 'specified range'} · Cue: ${diagnosis.smallestRepair || 're-generate the affected range'}`;
+    }
+
+    function renderTransfer() {
+      const card = root.querySelector('[data-transfer-card]');
+      if (!(card instanceof HTMLElement)) return;
+      card.replaceChildren();
+      const target = record.transferCandidate;
+      if (!target) return;
+      const strong = document.createElement('strong'); strong.textContent = target.label || target.targetId || 'Reusable Writing target';
+      const p = document.createElement('p'); p.textContent = target.underlyingDemand || '';
+      const code = document.createElement('code'); code.textContent = target.targetId || '';
+      card.append(strong, p, code);
+    }
+
+    function renderFrozen() {
+      const panel = root.querySelector('[data-frozen-evidence]');
+      if (!(panel instanceof HTMLElement)) return;
+      panel.hidden = !record.firstDraft;
+      if (!record.firstDraft) return;
+      const firstPlan = root.querySelector('[data-first-plan]');
+      const firstDraft = root.querySelector('[data-first-draft]');
+      const firstTime = root.querySelector('[data-first-time]');
+      if (firstPlan) firstPlan.textContent = record.planMode === 'direct' ? 'Direct mode · no separate plan captured.' : record.firstPlan;
+      if (firstDraft) firstDraft.textContent = record.firstDraft;
+      if (firstTime) firstTime.textContent = record.firstSubmittedAt ? new Date(record.firstSubmittedAt).toLocaleString() : '';
+    }
+
+    function render() {
+      const visible = stageMap[record.state] || 'attempt';
+      root.querySelectorAll('[data-runtime-stage]').forEach((node) => {
+        if (node instanceof HTMLElement) node.hidden = node.getAttribute('data-runtime-stage') !== visible;
+      });
+      const label = root.querySelector('[data-stage-label]');
+      if (label) label.textContent = stageLabels[record.state] || record.state;
+      renderFrozen();
+      renderDiagnosis();
+      renderTransfer();
+      const historyCount = root.querySelector('[data-history-count]');
+      if (historyCount) historyCount.textContent = String(Array.isArray(record.history) ? record.history.length : 0);
+      if (plan instanceof HTMLTextAreaElement && record.state === WRITING_STATES.ATTEMPT) plan.value = record.draftPlan || '';
+      if (essay instanceof HTMLTextAreaElement && record.state === WRITING_STATES.ATTEMPT) essay.value = record.draftEssay || '';
+      if (regeneration instanceof HTMLTextAreaElement && record.state === WRITING_STATES.REPAIR_NEEDED) regeneration.value = record.regenerationDraft || '';
+      root.querySelectorAll('[data-plan-mode]').forEach((node) => {
+        if (node instanceof HTMLInputElement) node.checked = node.value === record.planMode;
+      });
+      const planField = root.querySelector('[data-plan-field]');
+      if (planField instanceof HTMLElement) planField.hidden = record.planMode === 'direct';
+      persist();
+    }
+
+    async function copyPacket(packet, statusSelector, label) {
+      const text = `${label}\nReview this KianOS Writing packet under its embedded contract. Return only one JSON object matching the requested return schema. Do not write a model essay.\n\n${JSON.stringify(packet, null, 2)}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        setStatus(statusSelector, '已复制。把整包发给 Chat。');
+      } catch {
+        setStatus(statusSelector, '浏览器未允许自动复制；请手动复制页面中的 packet。', true);
+        window.prompt('Copy this packet', text);
+      }
+    }
+
+    root.querySelectorAll('[data-plan-mode]').forEach((node) => {
+      node.addEventListener('change', () => {
+        if (!(node instanceof HTMLInputElement) || !node.checked || record.state !== WRITING_STATES.ATTEMPT) return;
+        record.planMode = node.value === 'direct' ? 'direct' : 'planned';
+        persist();
+        render();
+      });
+    });
+
+    plan?.addEventListener('input', () => {
+      if (plan instanceof HTMLTextAreaElement && record.state === WRITING_STATES.ATTEMPT) {
+        record.draftPlan = plan.value;
+        persist();
+      }
+    });
+    essay?.addEventListener('input', () => {
+      if (essay instanceof HTMLTextAreaElement && record.state === WRITING_STATES.ATTEMPT) {
+        record.draftEssay = essay.value;
+        persist();
+      }
+    });
+    regeneration?.addEventListener('input', () => {
+      if (regeneration instanceof HTMLTextAreaElement && record.state === WRITING_STATES.REPAIR_NEEDED) {
+        record.regenerationDraft = regeneration.value;
+        persist();
+      }
+    });
+
+    root.querySelector('[data-lock-first]')?.addEventListener('click', () => {
+      try {
+        record = lockFirstAttempt(record, {
+          planMode: record.planMode,
+          firstPlan: plan instanceof HTMLTextAreaElement ? plan.value : record.draftPlan,
+          firstDraft: essay instanceof HTMLTextAreaElement ? essay.value : record.draftEssay
+        });
+        setStatus('[data-attempt-status]', 'first evidence 已锁定。下一步交给 Chat 做 whole-essay semantic judgment。');
+        render();
+      } catch (error) {
+        setStatus('[data-attempt-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-copy-review]')?.addEventListener('click', () => {
+      try { copyPacket(buildWritingReviewPacket(task, record), '[data-copy-review-status]', 'KIANOS_WRITING_REVIEW_PACKET'); }
+      catch (error) { setStatus('[data-copy-review-status]', error instanceof Error ? error.message : String(error), true); }
+    });
+
+    root.querySelector('[data-import-review]')?.addEventListener('click', () => {
+      try {
+        const text = reviewReturnBox instanceof HTMLTextAreaElement ? reviewReturnBox.value : '';
+        const parsed = validateWritingReviewReturn(text, task.id);
+        record = applyWritingReviewReturn(record, parsed);
+        if (reviewReturnBox instanceof HTMLTextAreaElement) reviewReturnBox.value = '';
+        setStatus('[data-review-status]', parsed.verdict === 'PASS_ACCEPTABLE' ? 'PASS / ACCEPTABLE · 不创建 repair debt。' : '已导入 first meaningful failure。');
+        render();
+      } catch (error) {
+        setStatus('[data-review-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-lock-regeneration]')?.addEventListener('click', () => {
+      try {
+        const text = regeneration instanceof HTMLTextAreaElement ? regeneration.value : record.regenerationDraft;
+        record = lockWritingRegeneration(record, text);
+        setStatus('[data-regeneration-status]', 're-generation 已锁定；现在只检查 named repair 是否真正完成。');
+        render();
+      } catch (error) {
+        setStatus('[data-regeneration-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-copy-repair]')?.addEventListener('click', () => {
+      try { copyPacket(buildWritingRepairCheckPacket(task, record), '[data-copy-repair-status]', 'KIANOS_WRITING_REPAIR_CHECK_PACKET'); }
+      catch (error) { setStatus('[data-copy-repair-status]', error instanceof Error ? error.message : String(error), true); }
+    });
+
+    root.querySelector('[data-import-repair]')?.addEventListener('click', () => {
+      try {
+        const text = repairReturnBox instanceof HTMLTextAreaElement ? repairReturnBox.value : '';
+        const parsed = validateWritingRepairReturn(text, record);
+        record = applyWritingRepairReturn(record, parsed);
+        if (repairReturnBox instanceof HTMLTextAreaElement) repairReturnBox.value = '';
+        const message = record.state === WRITING_STATES.TRANSFER_PENDING
+          ? 'repair complete · reusable target admitted to TRANSFER_PENDING.'
+          : record.state === WRITING_STATES.REPAIR_COMPLETE
+            ? 'repair complete · no durable review debt created.'
+            : '仍有可证实 failure；已更新到下一轮 smallest repair。';
+        setStatus('[data-repair-status]', message);
+        render();
+      } catch (error) {
+        setStatus('[data-repair-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    });
+
+    root.querySelector('[data-reset-attempt]')?.addEventListener('click', () => {
+      if (!confirm('归档本轮并重新开始这篇 synthetic Writing？')) return;
+      record = resetWritingAttempt(task, record);
+      if (reviewReturnBox instanceof HTMLTextAreaElement) reviewReturnBox.value = '';
+      if (repairReturnBox instanceof HTMLTextAreaElement) repairReturnBox.value = '';
+      render();
+    });
+
+    render();
+  }
+</script>
+
+<style>
+  .writingRuntime{max-width:84rem;margin:0 auto;display:grid;gap:12px}.writingRuntimeHeader{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 18px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.writingRuntimeHeader>a,.writingRuntimeHeader nav a{color:var(--study-green);text-decoration:none;font-size:11px;font-weight:800}.writingRuntimeHeader>div{display:grid;gap:2px}.writingRuntimeHeader>div>span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingRuntimeHeader h1{margin:0;font-size:21px}.writingRuntimeHeader small{font-size:10px;color:var(--study-faint)}.writingRuntimeHeader nav{display:flex;gap:10px}.writingRuntimeHeader nav span{font-size:10px;color:var(--study-faint)}
+  .writingRuntimeColumns{display:grid;grid-template-columns:minmax(19rem,.7fr) minmax(0,1.3fr);gap:12px}.writingPrompt,.writingWork{min-width:0}.writingPrompt{align-self:start;position:sticky;top:72px;padding:19px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.writingPrompt header span,.writingStage header>span,.writingFrozen header>span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingPrompt h2,.writingStage h2{margin:3px 0 0;font-size:18px}.writingPromptBody{display:grid;gap:11px;margin-top:14px}.writingPromptBody p,.writingPromptBody blockquote{margin:0;font-size:12px;line-height:1.7}.writingPromptBody blockquote{padding:11px 13px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0}.writingPromptBody dl{display:grid;gap:5px;margin:0}.writingPromptBody dl>div{display:grid;grid-template-columns:70px 1fr;gap:8px}.writingPromptBody dt{font-size:9px;font-weight:800;color:var(--study-faint)}.writingPromptBody dd{margin:0;font-size:11px}.writingFacts{padding:10px 12px;border:1px solid var(--study-line);border-radius:10px;background:#fbfdfc}.writingFacts strong{font-size:10px}.writingFacts ul{margin:7px 0 0;padding-left:18px}.writingFacts li{font-size:10px;line-height:1.55}.writingBoundary{color:var(--study-muted)}.writingVisualScenario{padding:12px;border:1px solid var(--study-line);border-radius:10px;background:#fafcfb}.writingPromptMeta{display:grid;gap:3px;margin-top:14px;padding-top:12px;border-top:1px solid var(--study-line)}.writingPromptMeta span{font-size:9px;color:var(--study-faint)}.writingProvenance{margin-top:10px}.writingProvenance summary{cursor:pointer;font-size:9px;color:var(--study-muted)}.writingProvenance code{display:block;margin-top:4px;font-size:8px;color:var(--study-faint);overflow-wrap:anywhere}
+  .writingWork{display:grid;gap:10px}.writingStage,.writingFrozen,.writingHistory{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.writingStage header p{margin:7px 0 0;max-width:76ch;color:var(--study-muted);font-size:11px;line-height:1.65}.writingPlanMode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}.writingPlanMode label{display:flex;gap:8px;align-items:start;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px}.writingPlanMode span{display:grid;gap:2px}.writingPlanMode strong{font-size:10px}.writingPlanMode small{font-size:9px;line-height:1.45;color:var(--study-muted)}.writingField{display:grid;gap:5px;margin-top:13px}.writingField>span{font-size:10px;font-weight:850}.writingField>small{font-size:9px;line-height:1.45;color:var(--study-muted)}.writingField textarea{width:100%;box-sizing:border-box;resize:vertical;padding:12px 13px;border:1px solid var(--study-line);border-radius:10px;background:#fcfdfc;font:inherit;font-size:12px;line-height:1.65}.writingField textarea:focus{outline:2px solid rgba(48,113,85,.12);border-color:var(--study-green)}.writingActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px}.writingActions button,.buttonLink{padding:9px 12px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:10px;font-weight:800;cursor:pointer;text-decoration:none}.writingActions .primary,.primaryLink{border-color:var(--study-green);background:var(--study-green);color:#fff}.writingActions small{font-size:9px;color:var(--study-faint)}.writingActions small.isBad{color:#a24832}
+  .writingFrozen{background:#fbfdfc}.writingFrozen header{display:flex;justify-content:space-between;gap:10px}.writingFrozen header small{font-size:9px;color:var(--study-faint)}.writingFrozenGrid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:8px;margin-top:10px}.writingFrozenGrid section{min-width:0;padding:10px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.writingFrozenGrid strong{font-size:9px}.writingFrozenGrid pre{margin:7px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;font-size:10px;line-height:1.55;color:#35453e}
+  .writingDiagnosis,.writingTransfer{display:grid;gap:5px;margin-top:14px;padding:12px 13px;border:1px solid #cfe2d8;border-radius:11px;background:var(--study-green-soft)}.writingDiagnosis>span{font-size:9px;font-weight:850;text-transform:uppercase;color:var(--study-green)}.writingDiagnosis>strong,.writingTransfer>strong{font-size:12px}.writingDiagnosis p,.writingTransfer p{margin:0;font-size:11px;line-height:1.55}.writingDiagnosis small{font-size:9px;line-height:1.5;color:var(--study-muted)}.writingTransfer code{font-size:9px;color:var(--study-faint)}.writingComplete{background:#fbfdfc}.writingHistory{box-shadow:none}.writingHistory summary{cursor:pointer;font-size:10px;font-weight:800}.writingHistory p{font-size:9px;color:var(--study-muted)}.writingHistory button{padding:7px 9px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;cursor:pointer}
+  @media(max-width:880px){.writingRuntimeHeader{grid-template-columns:1fr}.writingRuntimeHeader nav{justify-content:space-between}.writingRuntimeColumns{grid-template-columns:1fr}.writingPrompt{position:static}.writingFrozenGrid,.writingPlanMode{grid-template-columns:1fr}}
+</style>
