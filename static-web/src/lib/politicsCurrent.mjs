@@ -26,6 +26,7 @@ function exists(relativePath) { return fs.existsSync(absolute(relativePath)); }
 function readText(relativePath) { return fs.readFileSync(absolute(relativePath), 'utf8'); }
 function readJson(relativePath) { return JSON.parse(readText(relativePath)); }
 function sha256(value) { return crypto.createHash('sha256').update(value).digest('hex'); }
+function asList(value) { return Array.isArray(value) ? value.map(String).filter(Boolean) : (value ? [String(value)] : []); }
 
 function parseJsonl(relativePath) {
   if (!exists(relativePath)) return [];
@@ -60,17 +61,17 @@ function orientationView(raw) {
     context: String(o.from_previous || o.starting_point || o.role_in_subject || ''),
     question: String(o.core_problem || o.real_problem || o.question || o.role_question || ''),
     answer: String(o.core_answer || o.learner_thesis || o.answer || ''),
-    chain: Array.isArray(chain) ? chain.map(String) : [],
+    chain: asList(chain),
     attention: String(o.attention_rule || '')
   };
 }
 
 function compressionView(raw) {
   const c = raw?.chapter_compression || {};
-  const rawChain = c.reconstruction_chain || c.timeline || c.reconstruction || c.historical_direction || [];
+  const rawChain = c.reconstruction_chain || c.timeline || c.reconstruction || c.stage_shift || c.historical_direction || [];
   return {
-    chain: Array.isArray(rawChain) ? rawChain.map(String) : (rawChain ? [String(rawChain)] : []),
-    boundaries: Array.isArray(c.major_boundaries) ? c.major_boundaries.map(String) : (Array.isArray(c.boundaries) ? c.boundaries.map(String) : []),
+    chain: asList(rawChain),
+    boundaries: asList(c.major_boundaries || c.boundaries || []),
     prompt: String(c.review_prompt || '')
   };
 }
@@ -179,7 +180,7 @@ function unitBoundaries(unit) {
 
 function unitTeaching(unit) {
   return {
-    bridge: String(unit?.from_previous || unit?.starting_point || unit?.context || ''),
+    bridge: String(unit?.from_previous || unit?.starting_point || unit?.before || unit?.context || ''),
     question: String(unit?.core_problem || unit?.concept_question || unit?.stage_question || unit?.role_question || unit?.judgment_question || unit?.problem || ''),
     answer: String(unit?.answer || unit?.core_answer || unit?.evaluation || ''),
     relation: String(unit?.key_relation || unit?.relation || ''),
@@ -188,10 +189,10 @@ function unitTeaching(unit) {
     closure: String(unit?.closure_cue || unit?.review_prompt || ''),
     boundaries: unitBoundaries(unit),
     beats: Array.isArray(unit?.teaching_beats) ? unit.teaching_beats : [],
-    conditions: Array.isArray(unit?.conditions) ? unit.conditions : [],
-    failureCauses: Array.isArray(unit?.failure_causes) ? unit.failure_causes : [],
-    gains: Array.isArray(unit?.historical_gain) ? unit.historical_gain : [],
-    process: String(unit?.process || ''),
+    conditions: asList(unit?.conditions),
+    failureCauses: [...asList(unit?.failure_causes), ...asList(unit?.failure_lesson)],
+    gains: asList(unit?.historical_gain),
+    process: asList(unit?.process),
     turningPoint: String(unit?.turning_point || ''),
     program: String(unit?.program || ''),
     hierarchy: unit?.hierarchy || null
