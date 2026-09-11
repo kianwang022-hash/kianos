@@ -9,24 +9,9 @@
   "continuation": "content/politics/continuation.json",
   "product_model": "SOURCE_TRUTH_TO_CHAT_JUDGMENT_TO_GITHUB_CURRENT_TO_ASTRO_INTERACTION",
   "source_roles": {
-    "chengfeng": {
-      "role": "CONTINUOUS_FIRST_ROUND_MAINLINE",
-      "structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl",
-      "node_owner": "content/politics/source/source_node_registry.v2.jsonl"
-    },
-    "suyi": {
-      "role": "CHAT_FRAMEWORK_REFERENCE",
-      "learner_required": false,
-      "representation": "suyi_refs on canonical regions + source nodes in source_node_registry",
-      "policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_CHAT_APPROVED_LEARNING_PROJECTIONS_NO_SECOND_MAINLINE"
-    },
-    "xiao1000": {
-      "role": "VALIDATION_AND_TRANSFER_EVIDENCE",
-      "question_owner": "content/politics/source/xiao_2027_questions.jsonl",
-      "relation_owner": "content/politics/source/question_knowledge_links.jsonl",
-      "asset_owner": "content/politics/source/xiao_2027_question_assets.json",
-      "explanation_provenance": "content/politics/source/xiao_2027_explanation_provenance.v1.json"
-    }
+    "chengfeng": {"role": "CONTINUOUS_FIRST_ROUND_MAINLINE", "structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl", "node_owner": "content/politics/source/source_node_registry.v2.jsonl"},
+    "suyi": {"role": "CHAT_FRAMEWORK_REFERENCE", "learner_required": false, "representation": "suyi_refs on canonical regions + source nodes in source_node_registry", "policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_CHAT_APPROVED_LEARNING_PROJECTIONS_NO_SECOND_MAINLINE"},
+    "xiao1000": {"role": "VALIDATION_AND_TRANSFER_EVIDENCE", "question_owner": "content/politics/source/xiao_2027_questions.jsonl", "relation_owner": "content/politics/source/question_knowledge_links.jsonl", "asset_owner": "content/politics/source/xiao_2027_question_assets.json", "explanation_provenance": "content/politics/source/xiao_2027_explanation_provenance.v1.json"}
   },
   "sources": {
     "questions": {"path": "content/politics/source/xiao_2027_questions.jsonl", "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d", "training_ready_records": 1148, "reference_only_material_records": 24},
@@ -40,6 +25,7 @@
     "owner_root": "content/politics/learning/",
     "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
     "marxism_status": "CHAPTER_PROJECTION_COMPLETE_8_OF_8",
+    "history_status": "IN_PROGRESS_CH01_TO_CH03_COMPLETE",
     "current_assets": [
       "content/politics/learning/marxism/ch01.json",
       "content/politics/learning/marxism/ch02.json",
@@ -48,7 +34,10 @@
       "content/politics/learning/marxism/ch05.json",
       "content/politics/learning/marxism/ch06.json",
       "content/politics/learning/marxism/ch07.json",
-      "content/politics/learning/marxism/ch08.json"
+      "content/politics/learning/marxism/ch08.json",
+      "content/politics/learning/history/ch01.json",
+      "content/politics/learning/history/ch02.json",
+      "content/politics/learning/history/ch03.json"
     ],
     "rules": [
       "Chengfeng Natural Unit identity and order remain canonical.",
@@ -65,7 +54,8 @@
     "continuous_natural_unit_registry_verified": true,
     "learning_contract_current": true,
     "marxism_projection_complete": true,
-    "next_content_lane": "HISTORY",
+    "history_projection_started": true,
+    "next_content_lane": "HISTORY_C04_PLUS",
     "astro_politics_projection": false
   }
 }
