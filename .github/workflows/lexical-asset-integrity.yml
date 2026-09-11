@@ -76,6 +76,81 @@ jobs:
           print(json.dumps({k: v for k, v in report.items() if k != 'zero_active_sense_owners'}, ensure_ascii=False, indent=2))
           PY
 
+      - name: Snapshot Issue 113 authority calibration owners 101-300
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          ordinals = [
+              101,102,103,104,106,112,115,116,123,127,131,137,140,141,147,148,153,
+              163,164,183,188,189,197,198,200,209,213,232,249,254,268,269,293,294,296,
+          ]
+          rows = []
+          for ordinal in ordinals:
+              path = Path(f'content/lexical/words/by-ordinal/o{ordinal:04d}.json')
+              owner = json.loads(path.read_text(encoding='utf-8'))
+              rec = owner.get('record') or {}
+              senses = []
+              for sense in rec.get('senses') or []:
+                  senses.append({
+                      'sense_id': sense.get('sense_id'),
+                      'pos': sense.get('pos'),
+                      'level': sense.get('level'),
+                      'definition_cn': sense.get('definition_cn'),
+                      'definition_en': sense.get('definition_en'),
+                      'collocations': [
+                          {
+                              'phrase': c.get('phrase'),
+                              'exam_value': c.get('exam_value'),
+                              'meaning_cn': c.get('meaning_cn'),
+                          }
+                          for c in (sense.get('collocations') or [])
+                      ],
+                  })
+              rows.append({
+                  'ordinal': ordinal,
+                  'word_id': owner.get('word_id'),
+                  'word': owner.get('word') or rec.get('word'),
+                  'card_version': rec.get('card_version'),
+                  'needs_delta_review': rec.get('needs_delta_review'),
+                  'core_concept': rec.get('core_concept'),
+                  'senses': senses,
+                  'constructions': rec.get('constructions') or [],
+                  'secondary_senses': rec.get('secondary_senses') or [],
+                  'reference_senses': [
+                      {
+                          'sense_id': x.get('stable_sense_id'),
+                          'status': x.get('status'),
+                          'merged_into_sense_id': x.get('merged_into_sense_id'),
+                          'pos': x.get('pos'),
+                          'definition_cn': x.get('definition_cn'),
+                          'definition_en': x.get('definition_en'),
+                      }
+                      for x in (owner.get('reference_senses') or [])
+                  ],
+              })
+
+          report = {
+              'schema': 'kianos.lexical.authority_fidelity_snapshot.v1',
+              'historical_authority': {
+                  'repo': 'kianwang022-hash/kianos-legacy',
+                  'issue': 113,
+                  'comment_id': 5574767490,
+                  'range': '101-300',
+                  'approved_core_operation_count': len(ordinals),
+              },
+              'current_ref': '${{ github.sha }}',
+              'owners': rows,
+          }
+          Path('/tmp/lexical-authority-fidelity-0101-0300.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(f'authority calibration owners snapshotted: {len(rows)}')
+          PY
+
       - name: Publish diagnostic summary
         if: always()
         shell: bash
@@ -97,5 +172,6 @@ jobs:
             /tmp/lexical-asset-integrity.json
             /tmp/lexical-asset-integrity.md
             /tmp/lexical-active-sense-shape.json
+            /tmp/lexical-authority-fidelity-0101-0300.json
           if-no-files-found: warn
           retention-days: 14
