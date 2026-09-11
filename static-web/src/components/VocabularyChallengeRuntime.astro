@@ -17,10 +17,7 @@
 
     <section data-challenge-question-panel hidden>
       <header class="portedVocabWordHeader">
-        <div>
-          <span data-challenge-progress>Challenge</span>
-          <h2 data-challenge-word>—</h2>
-        </div>
+        <div><span data-challenge-progress>Challenge</span><h2 data-challenge-word>—</h2></div>
         <aside><b data-challenge-source>Repair</b><small>← ↑ ↓ → 直接作答</small></aside>
       </header>
 
@@ -80,6 +77,7 @@
     const continueButton = challengeRoot.querySelector('[data-challenge-continue]');
     const feedback = challengeRoot.querySelector('[data-challenge-feedback]');
     const choiceButtons = [...challengeRoot.querySelectorAll('[data-challenge-choice]')];
+    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
 
     let packet = null;
     let progress = { packetSignature: '', index: 0, mode: 'main', answered: false, pendingReconstruction: false };
@@ -114,7 +112,6 @@
     const setActive = (active) => challengeRoot.setAttribute('data-challenge-active', String(Boolean(active)));
     const saveProgress = () => saveJson(progressKey, progress);
     const saveEvents = () => saveJson(eventsKey, events);
-
     const currentChallenge = () => packet?.challenges?.[progress.index] || null;
     const currentQuestion = () => {
       const item = currentChallenge();
@@ -136,6 +133,29 @@
     const pushEvent = (item, source, outcome, extra = {}) => {
       events.push({ ...eventBase(item), source, outcome, ...extra });
       saveEvents();
+    };
+
+    const targetMatches = (item, target) => {
+      if (item.target_id && target.target_id) return item.target_id === target.target_id;
+      if (item.target_locator && target.target_locator) return item.target_locator === target.target_locator;
+      return false;
+    };
+
+    const resolveLocalRepairTarget = (item) => {
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const key = localStorage.key(i) || '';
+        if (!key.startsWith('kianos-vocabulary-astro-v2:')) continue;
+        const state = readJson(key, null);
+        if (!state?.repairTargets) continue;
+        let changed = false;
+        for (const [targetKey, target] of Object.entries(state.repairTargets)) {
+          if (targetMatches(item, target)) {
+            delete state.repairTargets[targetKey];
+            changed = true;
+          }
+        }
+        if (changed) saveJson(key, state);
+      }
     };
 
     const renderOptions = (question) => {
@@ -221,6 +241,7 @@
           continueButton.hidden = false;
           continueButton.textContent = 'Space · Next';
         } else {
+          resolveLocalRepairTarget(item);
           window.setTimeout(advance, 260);
         }
       } else if (progress.mode === 'reconstruction') {
@@ -246,7 +267,7 @@
       advance();
     };
 
-    const collectDepthEvents = () => {
+    const collectDepthEvents = (studyDay) => {
       const result = [];
       for (let i = 0; i < localStorage.length; i += 1) {
         const key = localStorage.key(i) || '';
@@ -254,6 +275,7 @@
         const state = readJson(key, null);
         if (!state?.meta || !state?.repairTargets) continue;
         Object.values(state.repairTargets).forEach((target) => {
+          if ((target.study_day || studyDay) !== studyDay) return;
           result.push({
             word_id: state.meta.word_id,
             ordinal: Number(state.meta.ordinal),
@@ -270,12 +292,15 @@
       return result;
     };
 
-    const buildReturnPacket = () => ({
-      schema: 'kianos.lexical.return_packet.v1',
-      study_day: packet?.study_day || new Date().toLocaleDateString('en-CA'),
-      exported_at: new Date().toISOString(),
-      events: [...collectDepthEvents(), ...events]
-    });
+    const buildReturnPacket = () => {
+      const studyDay = packet?.study_day || localStudyDay();
+      return {
+        schema: 'kianos.lexical.return_packet.v1',
+        study_day: studyDay,
+        exported_at: new Date().toISOString(),
+        events: [...collectDepthEvents(studyDay), ...events]
+      };
+    };
 
     const finish = () => {
       setActive(false);
@@ -319,13 +344,15 @@
     continueButton?.addEventListener('click', continueFlow);
 
     challengeRoot.querySelector('[data-challenge-question-issue]')?.addEventListener('click', () => {
+      if (progress.answered) return;
       const item = currentChallenge();
-      if (!item) return;
+      const question = currentQuestion();
+      if (!item || !question) return;
       pushEvent(item, progress.mode === 'reconstruction' ? 'reconstruction' : 'challenge', 'QUESTION_ISSUE', {
-        question_trace: currentQuestion() ? {
-          stem: currentQuestion().stem,
-          options: currentQuestion().options.map((option) => ({ key: option.key, text: option.text }))
-        } : null
+        question_trace: {
+          stem: question.stem,
+          options: question.options.map((option) => ({ key: option.key, text: option.text }))
+        }
       });
       advance();
     });
@@ -361,8 +388,8 @@
       if (target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]')) return;
       const arrowMap = { ArrowLeft: 'left', ArrowUp: 'up', ArrowRight: 'right', ArrowDown: 'down' };
       if (arrowMap[event.key] && !progress.answered) { event.preventDefault(); answer(arrowMap[event.key]); return; }
-      if ((event.code === 'Space' || event.key === 'Enter') && progress.answered) { event.preventDefault(); continueFlow(); return; }
-      if (event.key.toLowerCase() === 'q') {
+      if ((event.code === 'Space' || event.key === 'Enter') && progress.answered && !continueButton.hidden) { event.preventDefault(); continueFlow(); return; }
+      if (event.key.toLowerCase() === 'q' && !progress.answered) {
         event.preventDefault();
         challengeRoot.querySelector('[data-challenge-question-issue]')?.click();
       }
