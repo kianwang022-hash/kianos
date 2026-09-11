@@ -9,12 +9,48 @@ const POLITICS = path.join(repoRoot, 'content/politics');
 const learningManifest = JSON.parse(fs.readFileSync(path.join(POLITICS, 'learning/manifest.json'), 'utf8'));
 const regions = fs.readFileSync(path.join(POLITICS, 'source/politics_unified_regions.v1.jsonl'), 'utf8')
   .split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
+const questionRows = fs.readFileSync(path.join(POLITICS, 'source/xiao_2027_questions.jsonl'), 'utf8')
+  .split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
+
+function projectedUnits(raw) {
+  if (Array.isArray(raw?.unit_projections)) return raw.unit_projections;
+  if (Array.isArray(raw?.units)) return raw.units;
+  if (raw?.unit && typeof raw.unit === 'object') return [raw.unit];
+  return [];
+}
 
 function unitIds(raw) {
-  if (Array.isArray(raw?.unit_projections)) return raw.unit_projections.map((unit) => unit?.natural_unit_id).filter(Boolean);
-  if (Array.isArray(raw?.units)) return raw.units.map((unit) => unit?.natural_unit_id).filter(Boolean);
-  if (raw?.unit?.natural_unit_id) return [raw.unit.natural_unit_id];
-  return [];
+  return projectedUnits(raw).flatMap((unit) => [unit?.natural_unit_id, ...(Array.isArray(unit?.embedded_natural_unit_ids) ? unit.embedded_natural_unit_ids : [])]).filter(Boolean);
+}
+
+function firstString(value, predicate, depth = 0) {
+  if (typeof value === 'string') return predicate(value) ? value : '';
+  if (!value || typeof value !== 'object' || depth > 5) return '';
+  for (const entry of Array.isArray(value) ? value : Object.values(value)) {
+    const found = firstString(entry, predicate, depth + 1);
+    if (found) return found;
+  }
+  return '';
+}
+
+function sourceQuestionId(row) {
+  return firstString(row, (value) => /^xiao_2027_(?:marx|history|mao|xi|ethics)_(?:single|multiple)_\d+$/i.test(value));
+}
+
+const SOURCE_TO_CANONICAL_SUBJECT = Object.freeze({
+  marx: 'MARX',
+  history: 'HISTORY',
+  mao: 'MAO',
+  xi: 'XI',
+  ethics: 'ETHICS'
+});
+
+function canonicalQuestionId(sourceId) {
+  const match = String(sourceId || '').match(/^xiao_2027_(marx|history|mao|xi|ethics)_(single|multiple)_(\d+)$/i);
+  if (!match) return '';
+  const subject = SOURCE_TO_CANONICAL_SUBJECT[match[1].toLowerCase()];
+  const kind = match[2].toLowerCase() === 'single' ? 'S' : 'M';
+  return `X1000-${subject}-${kind}-${String(Number(match[3])).padStart(3, '0')}`;
 }
 
 const represented = new Set();
@@ -38,6 +74,10 @@ const allQuestions = new Set([...byUnit.values()].flatMap((row) => row.xiao_ques
 const representedQuestions = new Set(representedRows.flatMap((row) => row.xiao_question_refs || []));
 const missingQuestions = [...allQuestions].filter((id) => !representedQuestions.has(id));
 
+const sourceQuestionIds = questionRows.map(sourceQuestionId).filter(Boolean);
+const sourceCanonicalQuestionIds = new Set(sourceQuestionIds.map(canonicalQuestionId).filter(Boolean));
+const unlinkedTrainingQuestionIds = [...sourceCanonicalQuestionIds].filter((id) => !allQuestions.has(id));
+
 const report = {
   canonicalRegionRows: canonicalRows.length,
   canonicalNaturalUnits: byUnit.size,
@@ -46,13 +86,20 @@ const report = {
     subject: row.subject,
     natural_unit_id: row.natural_unit_id,
     title: row.title,
+    frozen_pilot: Boolean(row.frozen_pilot),
     priority: row.chat_decision?.priority || '',
     p2_provisional: Boolean(row.p2_provisional),
     xiao_question_refs: row.xiao_question_refs || []
   })),
   canonicalQuestionRefs: allQuestions.size,
   representedQuestionRefs: representedQuestions.size,
-  missingQuestionRefs: missingQuestions
+  missingQuestionRefs: missingQuestions,
+  questionDatabaseRows: questionRows.length,
+  trainingQuestionRowsByIdPattern: sourceQuestionIds.length,
+  referenceOrNonQuestionRowsByIdPattern: questionRows.length - sourceQuestionIds.length,
+  trainingQuestionIds: sourceCanonicalQuestionIds.size,
+  unlinkedTrainingQuestionCount: unlinkedTrainingQuestionIds.length,
+  unlinkedTrainingQuestionIds
 };
 
 console.log('POLITICS_COVERAGE_AUDIT');
