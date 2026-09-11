@@ -5,21 +5,9 @@
   "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
   "contract": "content/politics/LEARNING_CONTRACT.md",
   "source_roles": {
-    "chengfeng": {
-      "role": "CONTINUOUS_FIRST_ROUND_MAINLINE",
-      "canonical_structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl"
-    },
-    "suyi": {
-      "role": "CHAT_FRAMEWORK_REFERENCE",
-      "learner_required": false,
-      "projection_policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_ORIENTATION_BRIDGE_COMPRESSION_WITHOUT_CREATING_A_SECOND_MAINLINE",
-      "binding_mode": "suyi_refs on canonical politics regions/source nodes"
-    },
-    "xiao1000": {
-      "role": "VALIDATION_AND_TRANSFER_EVIDENCE",
-      "question_owner": "content/politics/source/xiao_2027_questions.jsonl",
-      "relation_owner": "content/politics/source/question_knowledge_links.jsonl"
-    }
+    "chengfeng": {"role": "CONTINUOUS_FIRST_ROUND_MAINLINE", "canonical_structure_owner": "content/politics/source/politics_unified_regions.v1.jsonl"},
+    "suyi": {"role": "CHAT_FRAMEWORK_REFERENCE", "learner_required": false, "projection_policy": "ABSORB_USEFUL_MINDMAP_STRUCTURE_INTO_ORIENTATION_BRIDGE_COMPRESSION_WITHOUT_CREATING_A_SECOND_MAINLINE", "binding_mode": "suyi_refs on canonical politics regions/source nodes"},
+    "xiao1000": {"role": "VALIDATION_AND_TRANSFER_EVIDENCE", "question_owner": "content/politics/source/xiao_2027_questions.jsonl", "relation_owner": "content/politics/source/question_knowledge_links.jsonl"}
   },
   "rules": [
     "Do not duplicate Chengfeng into an AI textbook.",
@@ -50,7 +38,12 @@
     "history": {
       "path": "content/politics/learning/history/",
       "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
-      "status": "NEXT_CONTENT_LANE"
+      "status": "IN_PROGRESS_3_CHAPTERS",
+      "current_assets": [
+        "content/politics/learning/history/ch01.json",
+        "content/politics/learning/history/ch02.json",
+        "content/politics/learning/history/ch03.json"
+      ]
     }
   }
 }
