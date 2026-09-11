@@ -7,7 +7,7 @@ import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/polit
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
 const xizongBlocks = xizongSystems.reduce((sum, system) => sum + system.blocks.length, 0);
-const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => sum + block.kpCount, 0), 0);
+const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => blockSum + block.kpCount, 0), 0);
 const answer = loadAnswer();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
