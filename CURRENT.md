@@ -83,12 +83,13 @@ L0-first semantic review continues as Current content work. Semantic repairs upd
 
 ### Politics
 
-Politics Current is now split by responsibility:
+Politics Current is split into source, learning semantics, and teaching projection:
 
-- `content/politics/manifest.json` / `provenance.json` — durable source ownership and provenance;
-- `content/politics/source/` — Chengfeng continuous-source structure, Suyi-linked source nodes/region references, Xiao1000 questions, and relation assets;
+- `content/politics/manifest.json` / `provenance.json` — Current source ownership and provenance;
+- `content/politics/source/` — Chengfeng continuous-source structure, Suyi-linked source references, Xiao1000 questions, and relation assets;
 - `content/politics/LEARNING_CONTRACT.md` — the active Politics learning and interaction semantics;
-- `content/politics/learning/` — Chat-approved teaching projections that add orientation, bridges, compression, and repair guidance without creating a second textbook.
+- `content/politics/learning/` — Chat-approved teaching projections that add orientation, bridges, compression, and repair guidance without creating a second textbook;
+- `content/politics/continuation.json` — the durable shared-work cursor for the Politics content→interaction mainline.
 
 Active first-round Politics chain:
 
@@ -96,12 +97,9 @@ Active first-round Politics chain:
 
 Chengfeng is the only continuous first-round mainline. Suyi is a background framework reference for Chat: useful mind-map structure is absorbed into the learning projection and does not need a separate learner-facing course or standalone Markdown representation. Xiao1000 remains validation and transfer evidence and must not determine the learning order.
 
-Current Marxism teaching-projection pilots are:
+Marxism teaching projection is complete across Chapters 1–8 under `content/politics/learning/marxism/`. The next content lane is History, which must use its own chronology/stage/turning-point/cause/evaluation teaching shape rather than reuse the Marxism internal template.
 
-- `content/politics/learning/marxism/ch01.json`
-- `content/politics/learning/marxism/ch02.json`
-
-They are bound to the canonical Chengfeng MARX regions/Natural Units and preserve the existing Suyi reference bindings already present in Current region/source-node assets.
+Fresh Chats continuing Politics content/runtime work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for the next batch.
 
 ### Astro runtime
 
