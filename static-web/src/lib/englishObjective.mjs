@@ -184,6 +184,42 @@ function candidateInventory(set, questions) {
   });
 }
 
+function readingBTaskForm(instruction, subtitle) {
+  const text = `${instruction} ${subtitle}`.toLowerCase();
+  if (/rearrang|correct order|right order|order of (?:the )?paragraph|arrange/.test(text)) return 'ordering';
+  if (/heading|headings/.test(text)) return 'heading_match';
+  if (/removed from|numbered gaps?|fit into (?:each|the) gap|choose .*paragraph/.test(text)) return 'gap_match';
+  if (/match|matching|information/.test(text)) return 'matching';
+  return 'generic_matching';
+}
+
+function readingBCandidatePolicy(instruction, taskForm) {
+  const text = String(instruction || '').toLowerCase();
+  if (/may be used more than once|can be used more than once|may be chosen more than once/.test(text)) return 'repeat_allowed';
+  if (
+    /each (?:option|choice|heading|letter|paragraph).*?(?:only )?once/.test(text)
+    || /(?:option|choice|heading|letter|paragraph).*?(?:cannot|must not|may not) be used more than once/.test(text)
+    || /(?:option|choice|heading|letter|paragraph).*?may be used only once/.test(text)
+    || /do not use (?:any )?(?:option|choice|heading|letter|paragraph).*?more than once/.test(text)
+  ) return 'single_use';
+  if (['ordering', 'heading_match', 'gap_match'].includes(taskForm)) return 'single_use';
+  return 'source_unspecified';
+}
+
+function taskContextForSet(taskName, set) {
+  const instruction = String(set?.context?.instruction || set?.instruction || '');
+  const subtitle = String(set?.context?.subtitle || '');
+  if (taskName !== 'reading_b') return { instruction, subtitle };
+  const taskForm = readingBTaskForm(instruction, subtitle);
+  return {
+    instruction,
+    subtitle,
+    taskForm,
+    candidateUsePolicy: readingBCandidatePolicy(instruction, taskForm),
+    itemLabel: taskForm === 'heading_match' ? 'Paragraph' : taskForm === 'matching' ? 'Item' : 'Position'
+  };
+}
+
 function sectionInventory(bank) {
   const sets = Array.isArray(bank?.passage_or_sets) ? bank.passage_or_sets : [];
   const questions = Array.isArray(bank?.questions_or_prompts) ? bank.questions_or_prompts : [];
@@ -365,10 +401,7 @@ function loadById(taskName, objectId) {
     code: paper?.code || null,
     section: set.section,
     material,
-    context: {
-      instruction: String(set?.context?.instruction || set?.instruction || ''),
-      subtitle: String(set?.context?.subtitle || '')
-    },
+    context: taskContextForSet(taskName, set),
     questions,
     candidates: candidateInventory(set, questions),
     navigation: {
