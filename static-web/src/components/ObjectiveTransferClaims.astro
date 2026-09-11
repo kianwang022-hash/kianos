@@ -1,0 +1,295 @@
+---
+const { task = '' } = Astro.props;
+---
+<span data-objective-transfer-runtime data-transfer-task={task} hidden></span>
+
+<script>
+  const STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
+  const RETURN_SCHEMA = 'kianos.english.objective_review_return.v1';
+  const RETURN_MARKER = 'KIANOS_OBJECTIVE_RETURN_V1';
+  const VALID_TASKS = new Set(['cloze', 'reading_a', 'reading_b']);
+  const VALID_SCOPES = new Set(['local', 'shared', 'coupled', 'structure']);
+  const VALID_ROUTES = new Set(['lexical', 'reading', 'cloze', 'reading_a', 'reading_b']);
+
+  const readJson = (key, fallback) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+    catch { return fallback; }
+  };
+  const writeJson = (key, value) => {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  };
+  const now = () => new Date().toISOString();
+  const makeId = (task, seed = '') => {
+    const random = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+    return `${task}:${seed || 'claim'}:${random}`;
+  };
+  const normalizeStore = (value = {}) => ({
+    version: 1,
+    claims: Array.isArray(value.claims) ? value.claims : []
+  });
+  const readStore = () => normalizeStore(readJson(STORE_KEY, {}));
+  const writeStore = (value) => writeJson(STORE_KEY, normalizeStore(value));
+  const activeClaimsFor = (task) => readStore().claims.filter((claim) => claim?.task === task && claim?.status === 'TRANSFER_PENDING');
+
+  const extractReturn = (text) => {
+    const raw = String(text || '').trim();
+    if (!raw) return null;
+    try {
+      const direct = JSON.parse(raw);
+      if (direct?.schema === RETURN_SCHEMA) return direct;
+    } catch {}
+
+    const marked = raw.match(/KIANOS_OBJECTIVE_RETURN_V1[\s\S]*?```(?:json)?\s*([\s\S]*?)```/i);
+    if (marked?.[1]) {
+      try {
+        const parsed = JSON.parse(marked[1].trim());
+        if (parsed?.schema === RETURN_SCHEMA) return parsed;
+      } catch {}
+    }
+
+    const fenced = [...raw.matchAll(/```(?:json)?\s*([\s\S]*?)```/gi)];
+    for (const match of fenced) {
+      try {
+        const parsed = JSON.parse(String(match?.[1] || '').trim());
+        if (parsed?.schema === RETURN_SCHEMA) return parsed;
+      } catch {}
+    }
+    return null;
+  };
+
+  const normalizeThread = (thread, index) => {
+    if (!thread || typeof thread !== 'object') return null;
+    const route = String(thread.route || '').trim();
+    if (!VALID_ROUTES.has(route)) return null;
+    const scope = VALID_SCOPES.has(String(thread.scope || '')) ? String(thread.scope) : 'local';
+    return {
+      threadId: String(thread.threadId || `t${index + 1}`),
+      scope,
+      itemIds: Array.isArray(thread.itemIds) ? thread.itemIds.map(String).filter(Boolean).slice(0, 50) : [],
+      route,
+      summary: String(thread.summary || '').trim().slice(0, 1200)
+    };
+  };
+
+  document.querySelectorAll('[data-objective-transfer-runtime]').forEach((host) => {
+    if (!(host instanceof HTMLElement)) return;
+    const task = String(host.getAttribute('data-transfer-task') || '');
+    if (!VALID_TASKS.has(task)) return;
+
+    const readingMode = task === 'reading_a';
+    const root = readingMode
+      ? document.querySelector('[data-local-port="reading"]')
+      : document.querySelector(`[data-objective-root][data-objective-task="${CSS.escape(task)}"]`);
+    if (!(root instanceof HTMLElement)) return;
+
+    const objectId = readingMode
+      ? String(root.getAttribute('data-reading-object') || '')
+      : String(root.getAttribute('data-objective-object') || '');
+    if (!objectId) return;
+
+    const attemptKey = readingMode
+      ? `kianos-reading-attempt-v1:${objectId}`
+      : String(root.getAttribute('data-objective-storage-key') || '');
+    const reviewKey = `kianos-english-objective-review-return-v1:${task}:${objectId}`;
+    const resultSummary = readingMode
+      ? root.querySelector('.portedReadingResultSummary')
+      : root.querySelector('[data-objective-result-summary]');
+    if (!attemptKey || !(resultSummary instanceof HTMLElement)) return;
+
+    const readAttempt = () => readJson(attemptKey, {});
+    const problemCount = (attempt) => {
+      const uncertain = new Set(attempt?.uncertain || []);
+      return Object.keys(attempt?.results || {}).filter((id) =>
+        ['wrong', 'unanswered'].includes(attempt?.results?.[id]) || uncertain.has(id)
+      ).length;
+    };
+
+    let panel = null;
+    const ensurePanel = () => {
+      if (panel) return panel;
+      panel = document.createElement('section');
+      panel.className = 'objectiveTransferPanel';
+      panel.hidden = true;
+      panel.innerHTML = `
+        <div class="objectiveTransferHead">
+          <div>
+            <span>Evidence / Transfer</span>
+            <strong data-transfer-title>Chat 复盘回写</strong>
+          </div>
+          <button type="button" data-transfer-toggle>导入 Chat 返回</button>
+        </div>
+        <p data-transfer-summary></p>
+        <div data-transfer-claims></div>
+        <div data-transfer-import hidden>
+          <textarea rows="7" data-transfer-input placeholder="把包含 KIANOS_OBJECTIVE_RETURN_V1 的 Chat 回复粘贴到这里；也可只粘贴 JSON。"></textarea>
+          <div class="objectiveTransferActions">
+            <button type="button" data-transfer-apply>导入</button>
+            <button type="button" data-transfer-cancel>取消</button>
+            <small data-transfer-status></small>
+          </div>
+        </div>`;
+      resultSummary.appendChild(panel);
+      return panel;
+    };
+
+    const render = () => {
+      const node = ensurePanel();
+      const attempt = readAttempt();
+      const pending = activeClaimsFor(task);
+      const savedReturn = readJson(reviewKey, null);
+      const problems = problemCount(attempt);
+      node.hidden = !attempt?.submitted || (!problems && !pending.length && !savedReturn);
+      if (node.hidden) return;
+
+      const title = node.querySelector('[data-transfer-title]');
+      const summary = node.querySelector('[data-transfer-summary]');
+      const list = node.querySelector('[data-transfer-claims]');
+      if (title) {
+        title.textContent = savedReturn
+          ? `Chat 复盘已回写 · ${savedReturn.threads?.length || 0} thread`
+          : problems
+            ? '整篇 / 整组诊断后回写'
+            : '待迁移能力验证';
+      }
+      if (summary) {
+        summary.textContent = savedReturn
+          ? `本次 review return 已保存到本机。当前 ${pending.length} 个 task-specific claim 仍待新材料验证。`
+          : problems
+            ? 'Chat 先按整篇 / 整组聚类根因；网页只保存真正需要未来验证的 task-specific claim。'
+            : `这次是 clean attempt，但有 ${pending.length} 个 pending claim；只有真正相关时才需要拿这篇做迁移验证。`;
+      }
+      if (list) {
+        list.replaceChildren();
+        pending.slice(0, 6).forEach((claim) => {
+          const row = document.createElement('div');
+          row.className = 'objectiveTransferClaim';
+          const id = document.createElement('span');
+          id.textContent = claim.claimId || 'claim';
+          const statement = document.createElement('strong');
+          statement.textContent = claim.statement || '—';
+          row.append(id, statement);
+          list.appendChild(row);
+        });
+        if (pending.length > 6) {
+          const more = document.createElement('small');
+          more.textContent = `另有 ${pending.length - 6} 个 pending claim`;
+          list.appendChild(more);
+        }
+      }
+    };
+
+    const applyReturn = () => {
+      const node = ensurePanel();
+      const input = node.querySelector('[data-transfer-input]');
+      const status = node.querySelector('[data-transfer-status]');
+      const payload = extractReturn(input?.value || '');
+      if (!payload) {
+        if (status) status.textContent = `没有读到 ${RETURN_MARKER} / ${RETURN_SCHEMA}`;
+        return;
+      }
+      if (String(payload.task || '') !== task || String(payload.objectId || '') !== objectId) {
+        if (status) status.textContent = '返回包 task / objectId 与当前页面不匹配，未导入。';
+        return;
+      }
+
+      const threads = (Array.isArray(payload.threads) ? payload.threads : [])
+        .map(normalizeThread)
+        .filter(Boolean);
+      const store = readStore();
+      let claims = [...store.claims];
+      const importedAt = now();
+
+      (Array.isArray(payload.claimUpdates) ? payload.claimUpdates : []).forEach((update) => {
+        const claimId = String(update?.claimId || '');
+        if (!claimId) return;
+        const index = claims.findIndex((claim) => claim?.claimId === claimId && claim?.task === task);
+        if (index < 0) return;
+        const requested = String(update?.status || 'TRANSFER_PENDING').toUpperCase();
+        const nextStatus = requested === 'CLOSED' ? 'CLOSED' : 'TRANSFER_PENDING';
+        const event = {
+          objectId,
+          decision: requested === 'REOPENED' ? 'REOPENED' : nextStatus,
+          evidence: String(update?.evidence || '').trim().slice(0, 1200),
+          at: importedAt
+        };
+        const history = [...(Array.isArray(claims[index].history) ? claims[index].history : []), event].slice(-12);
+        claims[index] = {
+          ...claims[index],
+          status: nextStatus,
+          history,
+          updatedAt: importedAt
+        };
+      });
+
+      (Array.isArray(payload.newClaims) ? payload.newClaims : []).forEach((claim, index) => {
+        const statement = String(claim?.statement || '').trim();
+        if (!statement) return;
+        const sourceThreadId = String(claim?.sourceThreadId || '');
+        const sourceThread = threads.find((thread) => thread.threadId === sourceThreadId) || null;
+        if (sourceThread && sourceThread.route !== task) return;
+        const claimId = String(claim?.claimId || '').trim() || makeId(task, objectId);
+        const duplicate = claims.find((item) => item?.claimId === claimId);
+        if (duplicate) {
+          duplicate.statement = statement.slice(0, 1200);
+          duplicate.status = 'TRANSFER_PENDING';
+          duplicate.updatedAt = importedAt;
+          return;
+        }
+        claims.push({
+          claimId,
+          task,
+          statement: statement.slice(0, 1200),
+          status: 'TRANSFER_PENDING',
+          sourceObjectId: objectId,
+          sourceThreadId,
+          sourceItemIds: sourceThread?.itemIds || [],
+          createdAt: importedAt,
+          updatedAt: importedAt,
+          history: []
+        });
+      });
+
+      claims = claims.slice(-240);
+      writeStore({ version: 1, claims });
+      writeJson(reviewKey, {
+        schema: RETURN_SCHEMA,
+        task,
+        objectId,
+        threads,
+        importedAt
+      });
+      if (input) input.value = '';
+      const importBox = node.querySelector('[data-transfer-import]');
+      if (importBox instanceof HTMLElement) importBox.hidden = true;
+      if (status) status.textContent = '已导入；只保留 task-specific pending claim，Lexical / Reading 路由不复制进本队列。';
+      root.dispatchEvent(new CustomEvent('kianos:objective-transfer-updated', { bubbles: true }));
+      render();
+    };
+
+    const node = ensurePanel();
+    node.querySelector('[data-transfer-toggle]')?.addEventListener('click', () => {
+      const box = node.querySelector('[data-transfer-import]');
+      if (box instanceof HTMLElement) box.hidden = !box.hidden;
+    });
+    node.querySelector('[data-transfer-cancel]')?.addEventListener('click', () => {
+      const box = node.querySelector('[data-transfer-import]');
+      if (box instanceof HTMLElement) box.hidden = true;
+    });
+    node.querySelector('[data-transfer-apply]')?.addEventListener('click', applyReturn);
+
+    if (readingMode) {
+      root.addEventListener('click', () => window.setTimeout(render, 0));
+    } else {
+      root.addEventListener('kianos:objective-submitted', render);
+      root.addEventListener('click', () => window.setTimeout(render, 0));
+    }
+    window.addEventListener('storage', (event) => {
+      if (event.key === STORE_KEY || event.key === reviewKey) render();
+    });
+    render();
+  });
+</script>
+
+<style>
+  .objectiveTransferPanel{display:grid;gap:8px;margin-top:10px;padding:11px 12px;border:1px solid var(--study-line);border-radius:10px;background:color-mix(in srgb,var(--study-green-soft) 58%,#fff)}.objectiveTransferHead{display:flex;align-items:center;justify-content:space-between;gap:12px}.objectiveTransferHead>div{display:grid;gap:2px}.objectiveTransferHead span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}.objectiveTransferHead strong{font-size:12px}.objectiveTransferHead button,.objectiveTransferActions button{padding:7px 10px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:10px;font-weight:750;cursor:pointer}.objectiveTransferPanel>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.objectiveTransferClaim{display:grid;grid-template-columns:minmax(88px,.28fr) minmax(0,1fr);gap:8px;padding:6px 0;border-top:1px solid var(--study-line)}.objectiveTransferClaim span{color:var(--study-faint);font-size:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.objectiveTransferClaim strong{font-size:10px;line-height:1.45}.objectiveTransferPanel textarea{width:100%;box-sizing:border-box;resize:vertical;padding:9px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:10px;line-height:1.5}.objectiveTransferActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:6px}.objectiveTransferActions small{color:var(--study-muted);font-size:9px;line-height:1.45}@media(max-width:700px){.objectiveTransferHead{align-items:flex-start;flex-direction:column}.objectiveTransferClaim{grid-template-columns:1fr}}
+</style>
