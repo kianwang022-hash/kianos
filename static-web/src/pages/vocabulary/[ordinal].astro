@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import VocabularyWordRuntime from '../../components/VocabularyWordRuntime.astro';
-import VocabularyChallengeRuntime from '../../components/VocabularyChallengeRuntime.astro';
 import { listLexicalOrdinals, loadLexicalWordByOrdinal } from '../../lib/lexical.mjs';
 
 export function getStaticPaths() {
@@ -18,7 +17,7 @@ const base = import.meta.env.BASE_URL;
 <Base
   title={answer.record.word}
   kicker={`LexicalOS · Study · ${answer.ordinal} / ${total}`}
-  description="先看 Recall Map 深搜；Reveal 后只对真正慢、模糊、漏掉或需要产出的具体分支按 +。"
+  description="先看 Recall Map 深搜；Space Reveal。Reveal 后只对真正慢、模糊、漏掉或需要产出的具体分支按 +；Space 直接下一词。"
   sourcePath={answer.sourcePath}
   sourceHash={answer.sourceHash}
   objectId={answer.objectId}
@@ -29,12 +28,13 @@ const base = import.meta.env.BASE_URL;
     <span>{answer.ordinal} / {total}</span>
     <div>
       {previousOrdinal ? <a href={`${base}vocabulary/${previousOrdinal}/`}>← Prev</a> : <span>← Prev</span>}
-      {nextOrdinal ? <a class="next" href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a> : <a class="next" href={`${base}vocabulary/`}>Finish</a>}
+      {nextOrdinal
+        ? <a class="next" data-lexical-next href={`${base}vocabulary/${nextOrdinal}/`}>Next →</a>
+        : <a class="next" data-lexical-next href={`${base}vocabulary/`}>Finish</a>}
     </div>
   </nav>
 
   <VocabularyWordRuntime answer={answer} />
-  <VocabularyChallengeRuntime />
 
   <nav class="lexicalStudyNav lexicalStudyNavBottom">
     <a href={`${base}vocabulary/`}>Back to Vocabulary</a>
@@ -53,6 +53,18 @@ const base = import.meta.env.BASE_URL;
       try { localStorage.setItem('kianos-vocabulary-last-ordinal', String(ordinal)); } catch {}
     }
   }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.defaultPrevented || event.code !== 'Space') return;
+    const target = event.target;
+    if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
+    const details = document.querySelector('[data-local-port="vocabulary"] [data-vocab-details]');
+    if (!(details instanceof HTMLElement) || details.hidden) return;
+    const next = nav?.querySelector('[data-lexical-next]');
+    if (!(next instanceof HTMLAnchorElement)) return;
+    event.preventDefault();
+    window.location.href = next.href;
+  });
 </script>
 
 <style>
