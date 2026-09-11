@@ -10,9 +10,11 @@
     "validate:objective": "node scripts/validate-objective-runtime.mjs && node scripts/validate-objective-learning.mjs",
     "validate:translation": "node scripts/validate-translation-runtime.mjs",
     "validate:politics": "node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs",
+    "validate:xizong": "node scripts/validate-xizong-learning.mjs",
     "qa:objective": "npm run validate:objective && npm run build",
     "qa:translation": "npm run validate:translation && npm run build",
-    "qa:politics": "npm run validate:politics && npm run build"
+    "qa:politics": "npm run validate:politics && npm run build",
+    "qa:xizong": "npm run validate:xizong && npm run build"
   },
   "dependencies": {
     "astro": "^5.0.0",
