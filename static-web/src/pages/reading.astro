@@ -6,6 +6,7 @@ import { listReadingSets } from '../lib/englishReading.mjs';
 
 const sourceState = inspectReadingSources();
 const sets = sourceState.status === 'ready' ? listReadingSets() : [];
+const base = import.meta.env.BASE_URL;
 const pendingDescription = sourceState.status === 'invalid'
   ? 'English Current 已落仓，但来源完整性检查未通过；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 hash gate 后自动启用。';
@@ -19,7 +20,7 @@ const pendingDescription = sourceState.status === 'invalid'
   active="reading"
 >
   {sourceState.status === 'ready' ? (
-    <ReadingHome sets={sets} />
+    <ReadingHome sets={sets} learningHref={`${base}objective-learn/#reading-a`} />
   ) : (
     <section class="migrationPending">
       <span>Fail-closed · {sourceState.status}</span>
