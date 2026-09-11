@@ -10,7 +10,7 @@
     "system_id": "respiratory",
     "reason": "A2 is the current generalization/validation system for the shared Xizong learning runtime."
   },
-  "current_stage": "SYSTEM_RECALL_AND_OFFICIAL_QUESTION_SWEEP",
+  "current_stage": "A2_SYSTEM_EXIT_REAL_LEARNER_VALIDATION",
   "completed_shared_work": [
     "Global 270+ study strategy frozen in study-policy.json: first pass, second pass, late review, mastery ladder, question reuse, Memory admission, compression, and lossless scheduling.",
     "A2 respiratory 12/12 Block first-pass learning support and 62/62 Logic Group goal/closure cues completed.",
@@ -18,8 +18,11 @@
     "Memory, Reserve Learning, Precision, and Connection Hook identities are separated; Reserve and Hook do not enter ordinary Memory.",
     "R3 end-to-end learner-flow audit completed and the first subtraction patch landed: KP Learn no longer defaults to duplicate long-form Core reading, outgoing future cues and group Precision moved to closure, old duplicate Visual Gate is suppressed when point-of-use Visual exists, Learn progress is less KP-checklist-like, and the persistent Study Dock was reduced.",
     "Memory/Review tail was simplified: ordinary weak Memory is distinct from Chat-directed special review; a detailed Study Packet exports Recall ratings, repeated instability, comments, Memory, Block state, Current identity and prior Chat-plan evidence; Chat return-plan import is preserved.",
-    "Historical Heart/Lung/Kidney first-pass routing was audited instead of recreated. Respiratory System membership is deterministically restored as 359 immutable official Question Truth IDs in a2-respiratory-question-scope.json.",
-    "Historical/current Question Truth identity was mechanically checked by the 3750-ID inventory SHA256: 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82 matches exactly."
+    "The user-authorized historical recovery task is closed: respiratory first-pass System membership was deterministically restored from the audited historical source assets and accepted back into Current as a2-respiratory-question-scope.json. Legacy/history is no longer part of normal read authority.",
+    "Respiratory System membership is exactly 359 official Question Truth IDs. Historical/current Question Truth identity was mechanically checked by the 3750-ID inventory SHA256: 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82 matches exactly.",
+    "The 359-question scope is stored as deterministic per-year number specs and must expand to exactly 359 unique IDs with inventory SHA256 b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0; Runtime fails closed on any mismatch or missing Current Question Truth ID.",
+    "A2 System Exit runtime is wired in Astro: explicit closed-book System Recall mode, learner-selected full-paper holdout gate, one-question-at-a-time official-question sweep, X-question multi-select support, correct-and-clear fast pass, correct-but-uncertain marking, automatic Wrong marking, W/U-only repair expansion, reviewed-relation-only precise back-link display, detailed W/U Chat export, and a post-sweep short System Recall entry.",
+    "Full-paper holdout is not guessed by Runtime. The learner must explicitly select the retained paper years before the first System sweep; the selection stays private in browser state and the selected years are excluded from System question consumption."
   ],
   "current_owners_to_read": [
     "content/xizong/knowledge/learner/study-policy.json",
@@ -30,27 +33,32 @@
     "content/xizong/knowledge/systems/a2-respiratory/system.json",
     "content/xizong/questions/manifest.json",
     "content/xizong/question-relations/README.md",
-    "content/xizong/knowledge/manifest.json"
+    "static-web/src/lib/xizongQuestions.mjs",
+    "static-web/src/components/XizongSystemExitRuntime.astro",
+    "static-web/src/pages/xizong/[system]/index.astro"
   ],
   "next_action": {
-    "stage": "SYSTEM_RECALL_TO_RESPIRATORY_QUESTION_SWEEP",
-    "instruction": "Finish the A2 first-pass exit path in Astro: make System Recall a true closed-book recovery step, then let the learner enter the restored 359-question respiratory official-question sweep. Correct-and-clear questions should fast-pass; Wrong/Uncertain should remain as repair evidence. Use an existing reviewed precise Question-to-Knowledge relation when one exists; otherwise do not infer a Block/KP mapping in Astro.",
+    "stage": "REAL_A2_SYSTEM_EXIT_VALIDATION",
+    "instruction": "Do not add another Xizong learning feature yet. Run the Current A2 exit path as a learner: System Recall -> explicitly lock full-paper holdout years -> enter the remaining respiratory System sweep -> verify answer interaction and Wrong/Uncertain handling -> copy a real W/U packet to Chat -> finish with a short System Recall. Use observed friction to decide only the smallest next patch.",
     "question_scope": "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
-    "success_condition": "A learner who has completed the 12 respiratory Blocks can recover the respiratory mother model, enter the exact restored respiratory official-question set, move quickly through stable correct answers, retain Wrong/Uncertain evidence, and return repair evidence to Chat without any guessed Question-to-KP mapping."
+    "success_condition": "The learner can complete the A2 exit path without answer leakage before Recall, accidental holdout consumption, duplicate review work, guessed Question-to-KP mapping, or unnecessary interaction overhead. Wrong/Uncertain evidence reaches Chat with enough detail to distinguish memory, mechanism, precision, distractor/condition, and product/content problems.",
+    "validation_note": "Current data identity and Runtime readback have been checked in Chat, but no repository-wide Astro build/CI result is claimed here. Treat an actual local/build run plus learner use as the next validation evidence."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more learning-stage taxonomies merely for completeness.",
     "Do not turn KianOS into a second Lecture or require duplicate long-form reading.",
     "Do not equate MI-D with Precision or turn Precision into a separate first-pass drill queue.",
     "Do not put Connection Hooks into ordinary Memory or turn Reserve Learning into a second course.",
-    "Do not rebuild the historical respiratory 359-question System scope by model inference; its Current identifier scope is now restored.",
+    "Do not rebuild the respiratory 359-question System scope by model inference; its Current deterministic scope is restored and runtime-validated by count/hash/Question Truth existence.",
     "Do not infer Question-to-Block/KP mappings from title similarity, page proximity, System membership, source section, or model intuition.",
     "Do not treat System-level question membership as the same authority as the explicit Chat-reviewed Question-to-Knowledge relation owner.",
+    "Do not auto-select or auto-consume full-paper holdout papers. The learner explicitly chooses them.",
+    "Do not recover circulation/urinary System question scopes merely for completeness until real A2 System Exit use shows this Runtime shape is worth generalizing.",
     "Do not optimize for more UI controls, cards, metadata, or governance files without observed learning benefit.",
-    "Do not use legacy repository content as normal Current authority except as explicitly audited recovery evidence."
+    "Do not use legacy repository content as normal Current authority. The bounded respiratory historical recovery exception is closed."
   ],
   "after_validation": [
-    "Use real respiratory question-sweep friction to decide whether the same System-level scope/runtime pattern should be recovered for circulation and urinary next.",
+    "If the A2 System Exit flow is good in real use, recover the already-audited circulation and urinary System-level scopes using the same deterministic Current pattern rather than re-reviewing those questions from scratch.",
     "Only deepen Question-to-Block/KP relations for Wrong/Uncertain or otherwise high-value questions unless second-round strategy provides new evidence.",
     "Preserve the frozen first-pass -> second-pass -> late-review stage responsibilities and System-level true-question strategy from study-policy.json."
   ],
