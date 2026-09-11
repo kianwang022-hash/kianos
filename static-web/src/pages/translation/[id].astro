@@ -2,10 +2,10 @@
 import Base from '../../layouts/Base.astro';
 import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
 import TranslationEvidenceGuard from '../../components/TranslationEvidenceGuard.astro';
+import TranslationReferenceLoader from '../../components/TranslationReferenceLoader.astro';
 import {
   listTranslationSets,
-  loadTranslationById,
-  loadTranslationReferencesById
+  loadTranslationById
 } from '../../lib/englishTranslation.mjs';
 
 export function getStaticPaths() {
@@ -17,7 +17,14 @@ export function getStaticPaths() {
 
 const { translationId } = Astro.props;
 const translation = loadTranslationById(translationId);
-const reference = loadTranslationReferencesById(translationId);
+const base = import.meta.env.BASE_URL;
+const reference = {
+  availableCount: translation.referenceCoverage?.available || 0,
+  totalCount: translation.referenceCoverage?.total || translation.prompts?.length || 0,
+  missingCount: translation.referenceCoverage?.missing || 0,
+  references: []
+};
+const referenceUrl = `${base}translation-reference/${encodeURIComponent(translationId)}.json`;
 ---
 <Base
   title={translation.title}
@@ -30,4 +37,5 @@ const reference = loadTranslationReferencesById(translationId);
 >
   <TranslationWorkspace translation={translation} reference={reference} />
   <TranslationEvidenceGuard />
+  <TranslationReferenceLoader referenceUrl={referenceUrl} />
 </Base>
