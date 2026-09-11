@@ -77,7 +77,7 @@ function questionId(row) { return String(row?.question_id || ''); }
 function nodeId(row) { return String(row?.stable_node_id || row?.node_id || row?.id || ''); }
 
 function questionShardFor(id) {
-  const match = id.match(/^xiao_2027_(marx|history|mao|xi|ethics)_(single|multiple)_(\d{3})$/i);
+  const match = id.match(/^xiao_2027_(marx|history|mao|xi|ethics)_([a-z_]+)_(\d{3})$/i);
   if (!match) throw new Error(`UNSUPPORTED_QUESTION_ID:${id}`);
   const subject = match[1].toLowerCase();
   const kind = match[2].toLowerCase();
@@ -151,8 +151,8 @@ function main() {
   const questionStats = {};
   for (const id of questionIds) {
     const { subject, kind } = questionShardFor(id);
-    questionStats[subject] ||= { single: 0, multiple: 0, total: 0 };
-    questionStats[subject][kind] += 1;
+    questionStats[subject] ||= { total: 0 };
+    questionStats[subject][kind] = (questionStats[subject][kind] || 0) + 1;
     questionStats[subject].total += 1;
   }
 
@@ -173,7 +173,7 @@ function main() {
     row_count: questions.rows.length,
     shard_count: questionShards.size,
     shard_width: QUESTION_WIDTH,
-    question_id_pattern: '^xiao_2027_(subject)_(single|multiple)_(NNN)$',
+    source_record_id_pattern: '^xiao_2027_(subject)_(kind)_(NNN)$',
     deterministic_path_rule: 'questions/shards/<subject>/<kind>/q<25-wide-range>.json',
     global_index_required: false,
     subject_counts: questionStats,
