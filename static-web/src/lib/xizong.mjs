@@ -9,6 +9,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const KNOWLEDGE_ROOT = 'content/xizong/knowledge';
 const OWNER_MANIFEST = `${KNOWLEDGE_ROOT}/manifest.json`;
 const SYSTEMS_ROOT = `${KNOWLEDGE_ROOT}/systems`;
+const LEARNER_ROOT = `${KNOWLEDGE_ROOT}/learner`;
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -129,7 +130,7 @@ function metadataValue(body, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const patterns = [
     new RegExp(`^>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`, 'm'),
-    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm')
+    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\s*(.+)$`, 'm')
   ];
   for (const pattern of patterns) {
     const match = body.match(pattern);
@@ -224,6 +225,33 @@ function normalizeFailureModes(system) {
   });
 }
 
+function loadLearningSupport(record) {
+  const pathName = `${LEARNER_ROOT}/${String(record.identity.canonicalId).toLowerCase()}-${record.identity.systemId}-learning.json`;
+  if (!fs.existsSync(absolute(pathName))) return null;
+  const text = readText(pathName);
+  const support = JSON.parse(text);
+  if (support?.status !== 'CURRENT' || !String(support?.authority || '').startsWith('CHAT_APPROVED')) {
+    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_INVALID:${record.identity.systemId}`);
+  }
+  if (support?.system_id !== record.identity.systemId || support?.canonical_id !== record.identity.canonicalId) {
+    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_IDENTITY_MISMATCH:${record.identity.systemId}`);
+  }
+
+  const expectedBlocks = directBlockRoute(record.system).map((row) => row.id);
+  const actualBlocks = Object.keys(support?.blocks || {});
+  if (expectedBlocks.length !== actualBlocks.length || expectedBlocks.some((id) => !actualBlocks.includes(id))) {
+    throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_BLOCK_MISMATCH:${record.identity.systemId}`);
+  }
+  for (const blockId of expectedBlocks) {
+    const expectedGroups = (record.system?.logic_index?.[blockId] || []).map((group) => group.id);
+    const actualGroups = Object.keys(support?.blocks?.[blockId]?.logic_groups || {});
+    if (expectedGroups.length !== actualGroups.length || expectedGroups.some((id) => !actualGroups.includes(id))) {
+      throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_LOGIC_MISMATCH:${blockId}`);
+    }
+  }
+  return { path: pathName, sourceHash: sha256(text), raw: support };
+}
+
 function normalizeSystem(record) {
   const { system, identity, dirName, systemPath, sourceHash } = record;
   const route = directBlockRoute(system);
@@ -275,6 +303,7 @@ function normalizeSystem(record) {
     blocks,
     sourcePath: systemPath,
     sourceHash,
+    learningSupport: loadLearningSupport(record),
     raw: system
   };
 }
@@ -313,7 +342,21 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     if (record.ordinal !== index + 1) throw new Error(`CURRENT_XIZONG_KP_ORDER_INVALID:${blockMeta.blockId}:${record.displayId}`);
   });
 
-  const logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords);
+  let logicGroups = normalizeLogicGroups(system.raw, blockMeta.blockId, kpRecords);
+  const blockSupport = system.learningSupport?.raw?.blocks?.[blockMeta.blockId] || null;
+  if (system.learningSupport && !blockSupport) {
+    throw new Error(`CURRENT_XIZONG_BLOCK_LEARNING_SUPPORT_MISSING:${blockMeta.blockId}`);
+  }
+  if (blockSupport) {
+    logicGroups = logicGroups.map((group) => {
+      const learning = blockSupport.logic_groups?.[group.groupId];
+      if (!learning?.goal || !learning?.closure) {
+        throw new Error(`CURRENT_XIZONG_LOGIC_LEARNING_SUPPORT_INCOMPLETE:${group.groupId}`);
+      }
+      return { ...group, goal: String(learning.goal), closure: String(learning.closure) };
+    });
+  }
+
   const intro = sectionByTitle(markdown, (title) => /^(?:0[｜|])?.*这个 Block 到底解决什么/.test(title));
   const visualGate = sectionByTitle(markdown, (title) => /原图门禁/.test(title));
   if (!intro) throw new Error(`CURRENT_XIZONG_BLOCK_LEARN_MISSING:${blockMeta.blockId}`);
@@ -329,6 +372,11 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     centerQuestion: extractCenterQuestion(markdown),
     blockLearnMarkdown: intro.markdown,
     visualGateMarkdown: visualGate?.markdown || '',
+    firstPassFocus: String(blockSupport?.first_pass_focus || ''),
+    stopLine: String(blockSupport?.stop_line || ''),
+    recallSpine: String(blockSupport?.recall_spine || ''),
+    learningSupportSourcePath: system.learningSupport?.path || '',
+    learningSupportSourceHash: system.learningSupport?.sourceHash || '',
     logicGroups,
     kpRecords,
     sourceHash: sha256(markdown)
