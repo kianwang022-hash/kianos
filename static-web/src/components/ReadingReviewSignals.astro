@@ -35,6 +35,11 @@
       if (!correct.includes(selected)) return selected;
       return [...path].reverse().find((answer) => answer && !correct.includes(answer)) || '';
     };
+    const sameCodes = (left, right) => {
+      const a = [...(left || [])].map(String).sort();
+      const b = [...(right || [])].map(String).sort();
+      return a.length === b.length && a.every((value, index) => value === b[index]);
+    };
 
     const ensureReview = async () => {
       if (reviewPayload) return reviewPayload;
@@ -93,8 +98,18 @@
       const classification = await classify(question, id, attempt, cause);
       const store = readJson(watchKey, { version: 1, signals: [] });
       const signals = Array.isArray(store.signals) ? store.signals : [];
+      const signalId = `${readingKey}:${id}`;
+      const previous = signals.find((item) => item?.signalId === signalId) || null;
+      const sameTarget = Boolean(previous
+        && previous.family === classification.family
+        && String(previous.questionTask || '') === String(classification.questionTask || '')
+        && sameCodes(previous.subtypeCodes, classification.subtypeCodes));
+      const transferEvidence = sameTarget && Array.isArray(previous.transferEvidence)
+        ? previous.transferEvidence
+        : [];
+
       const signal = {
-        signalId: `${readingKey}:${id}`,
+        signalId,
         passageId: readingKey,
         questionId: id,
         family: classification.family,
@@ -104,6 +119,8 @@
         status: 'WATCH',
         sourceSubmittedAt: attempt.submittedAt || '',
         reviewedAt: reviewed.at || new Date().toISOString(),
+        transferEvidence,
+        transferSuccessCount: transferEvidence.length,
         updatedAt: new Date().toISOString()
       };
       const next = [...signals.filter((item) => item?.signalId !== signal.signalId), signal].slice(-200);
