@@ -37,19 +37,26 @@
 .portedReadingCoachReveal{justify-self:start;min-height:29px;padding:5px 9px;border:1px solid #aac9bd;border-radius:7px;background:#eef6f2;color:#315f52;font-size:9px;font-weight:850}
 .portedReadingAnnotate [data-reading-save-review-span]{border-color:#9ebfb3;background:#eef6f2;color:#315f52;font-weight:850}
 
-.portedReadingCoachCloseRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:2px}
-.portedReadingCoachCloseRow button{min-height:30px;padding:5px 10px;border:1px solid #8fb8a9;border-radius:7px;background:#eaf5f0;color:#285b4d;font-size:9px;font-weight:850}
-.portedReadingCoachCloseRow small{color:#82908b;font-size:8px}
+.portedReadingCoachHandleRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:2px}
+.portedReadingCoachHandleRow button{min-height:30px;padding:5px 10px;border:1px solid #8fb8a9;border-radius:7px;background:#eaf5f0;color:#285b4d;font-size:9px;font-weight:850}
+.portedReadingCoachHandleRow small{color:#82908b;font-size:8px}
 
-.portedReadingCoachClosed{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:9px 10px;border:1px solid #bdd9ce;border-radius:8px;background:#eef8f4}
-.portedReadingCoachClosed strong{color:#2c6253;font-size:10px}
-.portedReadingCoachClosed span{flex:1 1 260px;color:#657a73;font-size:9px;line-height:1.45}
-.portedReadingCoachClosed button{min-height:28px;padding:4px 8px;border:1px solid #bdd2ca;border-radius:6px;background:#fff;color:#456c60;font-size:8px;font-weight:800}
+.portedReadingCoachHandled{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 10px;border:1px solid #d7e4df;border-radius:8px;background:#f8fbfa}
+.portedReadingCoachHandled strong{color:#4d7166;font-size:9px}
+.portedReadingCoachHandled span{flex:1 1 260px;color:#7a8883;font-size:8px;line-height:1.45}
 
-.portedReadingQuestion.repair-closed .portedReadingRepair{border-color:#c7ddd4;background:#fbfdfc}
-.portedReadingQuestionNav button.repair-closed{box-shadow:inset 0 -2px 0 #74a693}
+.portedReadingQuestion.repair-reviewed .portedReadingRepair{border-color:#d5e3de;background:#fcfdfd}
+.portedReadingQuestionNav button.repair-reviewed{box-shadow:inset 0 -2px 0 #88aa9e}
+
+.portedReadingPassageReview[hidden]{display:none!important}
+.portedReadingPassageReview{display:grid;gap:6px;margin:12px auto;max-width:1180px;padding:11px 13px;border:1px solid #d9e3df;border-radius:10px;background:#fafcfb}
+.portedReadingPassageReview.complete{border-color:#b9d7cc;background:#f1f8f5}
+.portedReadingPassageReviewHead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.portedReadingPassageReviewHead span{color:#71817b;font-size:9px;font-weight:850;letter-spacing:.04em}
+.portedReadingPassageReviewHead strong{color:#315f52;font-size:10px}
+.portedReadingPassageReview p{margin:0;color:#5f716b;font-size:9px;line-height:1.55}
 
 @media(max-width:760px){
   .portedReadingCoachContrast{grid-template-columns:1fr}
-  .portedReadingCoachClosed{align-items:flex-start}
+  .portedReadingPassageReview{margin:10px 8px}
 }
