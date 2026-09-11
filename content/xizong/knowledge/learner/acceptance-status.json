@@ -1,23 +1,27 @@
 {
-  "schema": "kianos.xizong.learning_acceptance.v1",
+  "schema": "kianos.xizong.learning_acceptance.v2",
   "status": "CURRENT",
   "authority": "LEARNING_ACCEPTANCE_REAUDIT",
   "standard": {
     "path": "LEARNING_ACCEPTANCE.md",
-    "sha": "3287aae048f94d10e74ca3488556179265edab63"
-  },
-  "audit_base": {
-    "branch": "main",
-    "commit": "7452f2d2df1f4964322368c8bbd61326b4a9aeaf",
-    "acceptance_branch": "chat/xizong-learning-acceptance-20260912",
-    "rule": "Gate status records only concrete Current evidence. Build success, file count, page existence, CURRENT labels and question inventory size are evidence only and never substitute for learning acceptance."
+    "sha": "a174880fc6777df118ef408b5a5ad1f0afe77213",
+    "main_head_when_rechecked": "cb175f5d167515bb46d080b8bfa9b3a9907ff340",
+    "delta_reaudit": "The root standard changed during this acceptance branch. S/K/L criteria remain materially compatible, while status vocabulary is now PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED and Module E2E explicitly includes persistence/idempotency/error paths where learner evidence can mutate. This ledger adopts the new vocabulary before merge."
   },
   "gate_legend": {
-    "PASS": "Current evidence is sufficient for this gate.",
-    "PENDING": "The necessary owner/runtime may exist, but this acceptance audit has not yet established the gate.",
-    "FAIL": "A concrete learner-path blocker is present on the audited Current.",
-    "USER_PENDING": "Only real learner use can close this gate."
+    "PASS": "No known acceptance defect remains for the audited scope and sufficient evidence exists.",
+    "PASS_WITH_DEBT": "The intended journey is semantically correct and usable; only named non-blocking debt remains.",
+    "BLOCKED": "A known defect changes learning semantics, prevents the intended action, leaks/protects evidence incorrectly, manufactures debt/mastery, loses evidence, or mutates the wrong learner object.",
+    "UNTESTED": "Evidence is not yet sufficient to judge. This is not failure and cannot be described as PASS."
   },
+  "global_rules": [
+    "Build/CI/page existence/content volume/CURRENT labels/question inventory/simulated QA are evidence only, never acceptance substitutes.",
+    "Engineering State != Learner State.",
+    "Shared semantic rule != private learner strategy/configuration.",
+    "Diagnosis != repair; repair != mastery; same-item correction is repair evidence only.",
+    "Later fresh transfer outranks remembered local correction when mastery/closure claims require transfer.",
+    "U is path-scoped and requires real learner use."
+  ],
   "modules": {
     "A1_circulation": {
       "owners": [
@@ -31,90 +35,75 @@
         "S": {
           "status": "PASS",
           "evidence": [
-            "content/xizong/knowledge/manifest.json resolves one Chat-approved System owner and canonical Block medical Core without legacy runtime fallback.",
-            "A1 has stable System/Block/KP identity and a deterministic CURRENT 376-question System scope with fail-closed count/hash validation.",
-            "The question scope explicitly refuses inferred Question-to-Block/KP relations and keeps learner evidence out of shared Current."
+            "Current manifest resolves one Chat-approved System owner plus canonical Block medical Core without legacy runtime fallback.",
+            "Stable System/Block/KP identity exists; the official System question scope is exactly 376 Current Question Truth IDs with fail-closed count/hash validation.",
+            "The System question scope refuses inferred Question-to-Block/KP relations and keeps learner evidence/private strategy out of shared Current."
           ]
         },
         "K": {
           "status": "PASS",
           "audited_at_stage": "A1_K_CONTENT_CLOSURE_REAUDIT",
           "evidence": [
-            "The A1 System owner defines one circulation mother model using P/Q/R/V, preload/afterload/contractility/compliance, seven Failure Modes, shared judgment axes, a dependency DAG, cross-Block bridges, evidence layers and treatment-action targets; System semantics are not a teacher chapter list.",
-            "B1 teaches the normal mechanical loop as pressure difference -> valves -> chamber volume -> SV/CO -> arterial pressure/organ flow -> venous return -> microcirculation -> coronary self-supply, and explicitly leaves complete coronary disease to B6.",
-            "B2 organizes regulation by sensed variable and time scale: sensing -> fast neural execution -> humoral/renal volume control -> local correction -> acute rescue versus chronic harm.",
-            "B3 keeps four levels distinct (single-cell action potential -> propagation -> body-surface ECG -> Ca2+-mediated mechanical output) and defers clinical rhythm interpretation to B10.",
-            "B4 teaches hemostasis as seal -> fibrin reinforcement -> anticoagulant localization -> fibrinolytic removal, then connects pathological activation to thrombosis/embolism/infarction rather than starting from factor-number memorization.",
-            "B5 teaches two long-term injury axes: chronic pressure abnormality -> resistance-vessel/organ remodeling and chronic endothelial injury -> plaque biology; thresholds and drugs attach after the disease model.",
-            "B6 integrates B1-B5 into two upstream coronary paths (fixed stenosis versus plaque event) and follows ischemia -> necrosis -> evidence -> complications -> reperfusion/secondary prevention.",
-            "B7 reduces four valve diseases to one door-failure model: timing -> stenosis/regurgitation -> abnormal flow -> pressure/volume load -> chamber remodeling -> congestion/low output; rheumatic disease and IE explain why the door fails.",
-            "B8 localizes cardiomyopathy/pericardial disease by pump weak, pump stiff, dynamic obstruction, or external shell restriction before naming diseases.",
-            "B9 first separates arterial downstream ischemia from venous upstream congestion, then acute/chronic and deep/superficial/communicating levels before tests and treatment.",
-            "B10 prioritizes effective pulse/hemodynamic stability before rhythm naming, then uses rate -> QRS width -> regularity -> atrioventricular relation -> mechanism -> treatment target; it preserves the B3 boundary that electrical activity is not perfusion evidence.",
-            "B11 teaches heart failure from pump/filling failure -> forward hypoperfusion + backward congestion -> compensatory neurohumoral activation -> chronic remodeling/decompensation before EF labels or drug lists.",
-            "B12 separates shock from cardiac arrest by effective pulse, then localizes shock to volume, pump, resistance/distribution, or obstructed pathway and treats perfusion restoration plus the first Failure Layer as the execution rule.",
-            "Across all 12 Blocks, first-learning structure is causal/capability-based, cross-owner deferrals are explicit, and reverse search found no unresolved Source Gap/TODO/pending-content marker that would leave the stable Core undefined. No additional medical expansion was justified by this K audit."
+            "The System owner teaches one circulation mother model using P/Q/R/V, preload/afterload/contractility/compliance, seven Failure Modes, judgment axes, dependency DAG, cross-Block bridges, evidence layers and treatment-action targets rather than a teacher chapter list.",
+            "All 12 canonical Blocks / 312 stable KPs were re-audited from medical Core. Each Block has a causal center: normal mechanics; regulation; AP-conduction-ECG-mechanical layering; hemostasis; chronic vascular substrate; coronary events; valve failure; myocardium/pericardium localization; arterial-vs-venous peripheral failure; rhythm with stability first; heart-failure convergence; shock/arrest Failure Layer.",
+            "Cross-owner deferrals are explicit and reverse search found no unresolved Source Gap/TODO/pending stable medical-Core marker. No further A1 medical expansion was justified."
           ],
-          "closure": "The canonical content is complete enough to design first learning around and still makes sense without the webpage. Further medical expansion requires new source or learner evidence."
+          "closure": "The canonical asset is sufficient for first-learning design without the webpage; reopen K only for concrete source/learner evidence."
         },
         "L": {
           "status": "PASS",
           "audited_at_stage": "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
           "evidence": [
-            "A1 system.json now owns a direct 12-Block learner route whose KP counts sum to the canonical 312 without changing Block/KP identity or order.",
-            "The structural logic_index contains 87 natural contiguous Logic Groups. Mechanical flatten validation covers each Block ordinal exactly once and covers all 312 KPs with no gap, overlap, split, merge or renumbering.",
-            "a1-circulation-learning.json covers the same 12 Blocks and 87 Logic Group IDs; every Block has first_pass_focus, stop_line and recall_spine, and every Logic Group has a goal and closure criterion.",
-            "The learning support is attention/retrieval/closure semantics only: it does not restate KP medical Core, invent Question-to-KP relations, or create a second Lecture.",
-            "The route preserves the accepted causal order: normal mechanics/regulation/electrical/hemostasis foundations -> chronic vascular substrate/coronary events -> structural and peripheral failures -> rhythm/heart-failure/shock endpoints.",
-            "learning-cues and pathways remain optional because the Current loaders return null when absent; no symmetry-only A1 owner was created."
+            "A1 owns a direct 12-Block learner route with canonical KP counts summing to 312 and no KP identity/order change.",
+            "The structural logic_index has 87 natural contiguous Logic Groups covering every one of the 312 KPs exactly once with no gap/overlap/split/merge/renumbering.",
+            "a1-circulation-learning.json covers the same 12 Blocks/87 groups: each Block has first_pass_focus, stop_line and recall_spine; each group has goal + closure.",
+            "Learning support owns attention/retrieval/closure only; it does not copy medical Core, infer Question-to-KP mapping or become a second Lecture.",
+            "Optional learning-cues/pathways were not created merely for A2 symmetry because Current loaders tolerate absence and no learning evidence requires them."
           ],
-          "closure": "A1 has an explicit first-learning contract derived from the accepted canonical Core. The next work is Projection/Runtime compatibility and E2E, not more learning taxonomy."
+          "closure": "A1 is Learning-design ready; additional learning taxonomy requires real runtime/learner evidence."
         },
         "P": {
-          "status": "FAIL",
+          "status": "UNTESTED",
           "evidence": [
-            "A1 is now structurally projectable at System level, but loadXizongBlock still requires an A2-specific intro heading matching '这个 Block 到底解决什么'. A1 canonical Blocks use valid but different opening structures, so the current projection rejects accepted content instead of adapting presentation to content structure.",
-            "The System page currently seeds private browser-global holdout years to [2025, 2026] from shared code. This violates LEARNING_ACCEPTANCE shared-rule-versus-private-strategy separation.",
-            "A1 route intentionally does not invent missing Outline counts, but XizongSystemV6 currently renders 'Outline 0'; the projection should omit unavailable metadata rather than display a false learner-facing zero."
-          ],
-          "blocker": "Fix only the observed projection mismatches: generic canonical opening fallback, remove private holdout auto-seeding, and suppress unavailable Outline metadata. Do not edit medical Core to satisfy one page convention."
-        },
-        "R": {
-          "status": "FAIL",
-          "evidence": [
-            "With L materialized, the remaining hard runtime blocker is CURRENT_XIZONG_BLOCK_LEARN_MISSING for A1 because the loader treats one A2 heading phrase as a runtime contract.",
-            "The holdout seeding script is executable shared runtime behavior that mutates private learner state before learner choice."
-          ],
-          "blocker": "After the minimal P/R patches, run Module E2E across clean first pass, weak Recall/Memory, Block closure, Chat handoff/return, System Recall, private holdout, official-question fast pass, W/U and post-question Recall."
-        },
-        "E": {
-          "status": "PENDING",
-          "evidence": [
-            "The 376-question System scope preserves safe W/U boundaries and the Block Runtime has evidence primitives, but evidence cannot pass until the executable A1 learner path is tested end-to-end and private holdout mutation is removed."
+            "Three previously known projection defects are patched on the acceptance branch: canonical Block openings no longer require the A2-specific heading, exact private holdout years are no longer seeded by shared System code, and unavailable Outline counts are omitted rather than shown as Outline 0.",
+            "These patches still require current-main synthetic-merge learner-contract QA before P may become PASS."
           ]
         },
-        "U": {
-          "status": "USER_PENDING",
+        "R": {
+          "status": "UNTESTED",
           "evidence": [
-            "The learner has explicitly stated that circulation study has not started. Engineering state must not be converted into personal progress."
+            "The branch now contains executable System -> Block -> Logic Group/KP Learn -> KP Recall -> Block Recall/closure -> Memory/Chat return -> System Recall -> learner-selected holdout -> official-question stable/W/U -> post-question Recall paths.",
+            "A dedicated validate:xizong contract validator now loads all A1 Current owners and simulates clean, weak, Chat-return, holdout, W/U, persistence, idempotency and error journeys, but it has not yet run on the current-main synthetic merge."
+          ]
+        },
+        "E": {
+          "status": "UNTESTED",
+          "evidence": [
+            "A real evidence defect was found and patched: Chat-plan repair ratings no longer overwrite the original KP Recall rating; they are recorded as CHAT_PLAN_REVIEW with evidence_role=REPAIR_ONLY.",
+            "The Study Packet now states that local Memory/Chat repair is repair evidence and later meaningful fresh Recall/transfer is required for stronger mastery when the learning contract calls for it.",
+            "Stable Recall remains outside weak Memory; Chat-plan import is scoped to real current-Block KP IDs; System W/U contains only wrong/uncertain; precise Question-to-Knowledge relations remain REVIEWED-only; exact holdout choices remain private.",
+            "These evidence paths still require current-main synthetic-merge QA before E may become PASS."
           ]
         }
       },
-      "p0_blockers": [
-        "Remove the A2-specific Block-intro runtime assumption without changing canonical A1 medical Core.",
-        "Remove shared [2025, 2026] holdout auto-seeding; exact holdout years must remain learner-selected private state.",
-        "Suppress unavailable Outline metadata instead of showing Outline 0.",
-        "Run strict A1 P/R/E Module E2E after these subtraction/compatibility patches."
+      "user_validation_by_path": {
+        "first_learning_System_to_Block": "UNTESTED",
+        "weak_recall_to_Memory_or_Chat_return": "UNTESTED",
+        "System_Exit_holdout_and_official_questions": "UNTESTED",
+        "sustained_multi_session_use": "UNTESTED"
+      },
+      "blocking_defects": [],
+      "non_blocking_debt": [],
+      "what_should_not_be_expanded": [
+        "A1 medical Core after K PASS without new source/learner evidence.",
+        "A1 learning taxonomy after L PASS without runtime/learner evidence.",
+        "The deterministic 376-question scope without new source evidence.",
+        "Question-to-Block/KP relations from title/page/System/source/model intuition.",
+        "learning-cues/pathways merely for symmetry.",
+        "System Exit features not demanded by observed acceptance friction."
       ],
-      "do_not_expand": [
-        "Do not add more A1 medical Core after K PASS without new evidence.",
-        "Do not add more A1 first-learning taxonomy after L PASS without learner/runtime evidence.",
-        "Do not touch the restored 376-question scope without new source evidence.",
-        "Do not infer Question-to-KP relations.",
-        "Do not add learning-cues/pathways merely for A2 symmetry.",
-        "Do not use an Astro build to promote P/R/E."
-      ],
-      "allowed_conclusion": "Learning-design ready; module Partial pending P/R/E and real-user U."
+      "next_smallest_meaningful_work": "Run the new Xizong learner-contract QA + Astro build on a PR synthetic merge with latest main; inspect failures as acceptance evidence. Promote P/R/E only if the tested paths actually pass. U remains UNTESTED regardless of synthetic QA.",
+      "allowed_conclusion": "Learning-design ready; P/R/E UNTESTED on latest-main synthetic merge; U UNTESTED by path."
     },
     "A2_respiratory": {
       "owners": [
@@ -131,70 +120,47 @@
           "status": "PASS",
           "evidence": [
             "Current owner manifest forbids legacy runtime fallback and resolves one canonical System owner plus canonical Block medical Core.",
-            "A2 System owner is CURRENT and its 359-question System scope is deterministic, Current-bound and fail-closed by count/hash/Question Truth identity."
+            "A2 official System scope is deterministic and exactly 359 Current Question Truth IDs with fail-closed count/hash/identity validation."
           ]
         },
         "K": {
-          "status": "PENDING",
+          "status": "UNTESTED",
           "evidence": [
-            "A2 has a CURRENT System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance pass still requires an explicit content-closure confirmation rather than inheriting readiness from labels or prior UI work."
+            "A2 has a Current System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance pass has not yet re-confirmed content closure under the latest root standard. Asset existence/prior reputation cannot promote K."
           ]
         },
         "L": {
           "status": "PASS",
           "evidence": [
             "study-policy.json defines Lecture-first first pass, Logic Group closure, KP Recall, Block Recall, System Recall before questions, full System sweep, W/U repair and post-question System Recall.",
-            "a2-respiratory-learning.json provides first-pass focus, stop line, recall spine, and goal/closure support for the complete direct 12-Block / 62-Logic-Group route.",
-            "A2 learning semantics preserve Reserve/Hook/Precision timing and keep Question-to-KP mapping explicit-only."
+            "a2-respiratory-learning.json covers the complete direct 12-Block / 62-Logic-Group route with first-pass focus, stop line, recall spine and group goal/closure semantics.",
+            "Reserve/Hook/Precision timing and explicit-only Question-to-KP policy preserve the intended learner path."
           ]
         },
-        "P": {
-          "status": "PENDING",
-          "evidence": [
-            "XizongBlockV6 implements progressive disclosure, Lecture-first KP learning, non-answer-first Recall, Logic Group closure, Block Recall and optional Outline; System Exit separates closed-book Recall, private holdout and official-question sweep.",
-            "A repository-level projection audit still needs to exercise the complete current A2 journey rather than promoting P from component existence alone."
-          ]
-        },
-        "R": {
-          "status": "PENDING",
-          "evidence": [
-            "Current Runtime contains executable Block learning, Recall, completion gating, Memory, Chat packet/import, System Recall, private holdout, official-question fast-pass and W/U branches.",
-            "Code existence is insufficient; a current-main Module E2E must exercise stable, failure/uncertainty, Chat-return and later-verification paths before R is promoted."
-          ]
-        },
-        "E": {
-          "status": "PENDING",
-          "evidence": [
-            "Block Runtime stores KP Recall evidence, admits weak items into Memory, preserves evidence history, separates Reserve/Hook from ordinary Memory, and System Exit keeps W/U as repair evidence with precise relations only when reviewed.",
-            "The acceptance pass still needs to verify evidence survives real E2E transitions and that clean work creates no manufactured debt."
-          ]
-        },
-        "U": {
-          "status": "USER_PENDING",
-          "evidence": [
-            "Real learner use has not yet validated the complete respiratory journey under this acceptance standard."
-          ]
-        }
+        "P": {"status": "UNTESTED", "evidence": ["Current components appear to support progressive disclosure and System Exit, but P has not yet received a latest-main acceptance journey after A2 K reconfirmation."]},
+        "R": {"status": "UNTESTED", "evidence": ["Runtime paths exist in code, but latest-root Module E2E including persistence/idempotency/error paths has not yet been completed for A2."]},
+        "E": {"status": "UNTESTED", "evidence": ["Evidence primitives exist, but clean-debt, repair/mastery separation, persistence and W/U/holdout behavior have not yet been accepted for A2 under the latest root standard."]}
       },
-      "p0_blockers": [
-        "Complete A2 K content-closure confirmation on Current owners.",
-        "Run Module E2E acceptance on current main for clean first-pass path, W/U repair + Chat return, System Exit, and evidence/holdout behavior.",
-        "Keep U pending until actual learner study provides friction evidence."
+      "user_validation_by_path": {
+        "first_learning": "UNTESTED",
+        "weak_or_wrong_repair_return": "UNTESTED",
+        "System_Exit": "UNTESTED",
+        "sustained_multi_session_use": "UNTESTED"
+      },
+      "blocking_defects": [],
+      "non_blocking_debt": [],
+      "what_should_not_be_expanded": [
+        "More stage taxonomy/controls before an acceptance defect demands them.",
+        "A second Lecture in the webpage.",
+        "Any learner-validated claim before real use."
       ],
-      "do_not_expand": [
-        "Do not add more learning-stage taxonomy or controls before an acceptance failure demands them.",
-        "Do not turn the webpage into a second Lecture.",
-        "Do not call A2 learner-validated before real learner use."
-      ],
-      "allowed_conclusion": "Learning-path accepted; module still Partial pending K/P/R/E acceptance and U real use."
+      "next_smallest_meaningful_work": "After A1 P/R/E is resolved, explicitly re-confirm A2 K from canonical Current owners, then run A2 P/R/E Module E2E under the latest root standard.",
+      "allowed_conclusion": "S PASS, L PASS; K/P/R/E and all U paths UNTESTED under the latest root acceptance pass."
     }
   },
-  "next_smallest_meaningful_work": {
-    "priority": [
-      "A1_P_R_E_MODULE_E2E",
-      "A2_K_CONTENT_CLOSURE_RECONFIRM",
-      "A2_P_R_E_MODULE_E2E"
-    ],
-    "rule": "Advance a gate only from concrete Current evidence. If a stage discovers no real gap, stop expanding and move to the next gate. U always waits for real learner use."
-  }
+  "acceptance_work_queue": [
+    "A1_P_R_E_CURRENT_MAIN_SYNTHETIC_MERGE_QA",
+    "A2_K_CONTENT_CLOSURE_RECONFIRM",
+    "A2_P_R_E_MODULE_E2E"
+  ]
 }
