@@ -7,6 +7,7 @@ import {
 } from '../src/lib/englishTranslation.mjs';
 
 const issues = [];
+const missingReferenceIds = [];
 const summary = {
   status: 'unknown',
   sets: 0,
@@ -27,6 +28,12 @@ function present(value) {
 function sourcePresent(task) {
   return (task.material || []).some((item) => present(item?.text))
     || (task.prompts || []).some((item) => present(item?.sourceText));
+}
+
+function typeSummary(value) {
+  if (Array.isArray(value)) return `array(${value.length})`;
+  if (value && typeof value === 'object') return `object<${Object.keys(value).sort().join(',')}>`;
+  return typeof value;
 }
 
 function validateSourceProjection() {
@@ -74,7 +81,11 @@ function validateSourceProjection() {
       }
       for (const row of answerRows) {
         if (!promptIds.has(String(row?.id || ''))) issues.push(`${task.objectId}:${row?.id || '?'}: reference id does not match prompt id`);
-        if (!present(row?.text)) issues.push(`${task.objectId}:${row?.id || '?'}: formal reference missing`);
+        if (!present(row?.text)) {
+          const id = String(row?.id || '?');
+          missingReferenceIds.push(id);
+          issues.push(`${task.objectId}:${id}: formal reference missing`);
+        }
       }
     } catch (error) {
       issues.push(`${catalogItem.id}: ${error instanceof Error ? error.message : String(error)}`);
@@ -96,8 +107,9 @@ function validateContractAndUi() {
     if (text.includes(needle)) issues.push(`${label}: forbidden learner/runtime coupling ${needle}`);
   };
 
-  requireText('contract', contract, 'Frozen Translation Runtime Contract');
+  requireText('contract', contract, 'H4｜Reference reveal');
   requireText('contract', contract, 'first translation');
+  requireText('contract', contract, 'H8｜Runtime interaction boundary');
   requireText('workspace', workspace, 'kianos-translation-attempt-v1');
   requireText('workspace', workspace, 'KIANOS_TRANSLATION_HANDOFF_V1');
   requireText('workspace', workspace, 'data-frozen-first');
@@ -116,6 +128,38 @@ function validateContractAndUi() {
   forbidText('workspace', workspace, 'kianos-english-objective-transfer-claims-v1');
 }
 
+function printReferenceGapDiagnostics() {
+  if (!missingReferenceIds.length) return;
+  try {
+    const bank = JSON.parse(read('../../content/english/source/question_bank.v1.json'));
+    const rows = Array.isArray(bank?.questions_or_prompts) ? bank.questions_or_prompts : [];
+    const wanted = new Set(missingReferenceIds);
+    const diagnostics = rows
+      .filter((row) => wanted.has(String(row?.id || row?.question_id || '')))
+      .map((row) => {
+        const interesting = Object.fromEntries(Object.entries(row)
+          .filter(([key]) => /answer|translation|reference|target|analysis|explanation|rationale|solution/i.test(key))
+          .map(([key, value]) => [key, typeof value === 'string' ? value.slice(0, 240) : typeSummary(value)]));
+        const context = row?.context && typeof row.context === 'object'
+          ? Object.fromEntries(Object.entries(row.context)
+            .filter(([key]) => /answer|translation|reference|target|analysis|explanation|rationale|solution/i.test(key))
+            .map(([key, value]) => [key, typeof value === 'string' ? value.slice(0, 240) : typeSummary(value)]))
+          : {};
+        return {
+          id: row?.id || row?.question_id || '',
+          keys: Object.keys(row).sort(),
+          contextKeys: row?.context && typeof row.context === 'object' ? Object.keys(row.context).sort() : [],
+          interesting,
+          contextInteresting: context
+        };
+      });
+    console.error('\nTranslation missing-reference source-shape diagnostics:');
+    console.error(JSON.stringify(diagnostics, null, 2));
+  } catch (error) {
+    console.error(`\nTranslation diagnostics failed: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 validateSourceProjection();
 validateContractAndUi();
 summary.issueCount = issues.length;
@@ -125,5 +169,6 @@ if (issues.length) {
   console.error('\nTranslation runtime issues:');
   issues.slice(0, 160).forEach((issue) => console.error(`- ${issue}`));
   if (issues.length > 160) console.error(`- … ${issues.length - 160} more`);
+  printReferenceGapDiagnostics();
   process.exitCode = 1;
 }
