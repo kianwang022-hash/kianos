@@ -91,7 +91,7 @@
             const id = questionId(question);
             const review = payload.questions?.[id];
             if (!review) return;
-            if (priorTask && review.questionTask && priorTask !== review.questionTask) return;
+            if (priorTask && String(review.questionTask || '') !== priorTask) return;
 
             const candidateCodes = diagnosesOnWrongOptions(question, review);
             const matched = [...priorCodes].filter((code) => candidateCodes.has(code));
@@ -104,7 +104,8 @@
               questionId: id,
               matchedSubtypeCodes: matched,
               attemptSubmittedAt: attempt.submittedAt,
-              evidenceKind: 'STABLE_CORRECT_DISTINCT_PASSAGE',
+              evidenceKind: 'DISTINCT_PASSAGE_STABLE_CORRECT',
+              unseenStatus: 'UNKNOWN',
               recordedAt: new Date().toISOString()
             });
             seenKeys.add(key);
@@ -123,7 +124,7 @@
 
         if (anyChanged) writeJson(watchKey, { version: 1, signals: nextSignals.slice(-200) });
       } catch {
-        // Transfer matching is optional evidence. Fail quietly rather than interrupt practice.
+        // Optional evidence only: never interrupt practice if matching is unavailable.
       } finally {
         running = false;
       }
