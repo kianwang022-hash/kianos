@@ -1,0 +1,180 @@
+<span data-reading-passage-handoff-root hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot) {
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const storageKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const resultSummary = readingRoot.querySelector('.portedReadingResultSummary');
+    let handoff = null;
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+
+    const readAttempt = () => readJson(storageKey, {});
+
+    const expected = (question) => {
+      try {
+        const value = JSON.parse(question.getAttribute('data-answer') || '""');
+        return Array.isArray(value)
+          ? value.map(String)
+          : value === null || value === undefined
+            ? []
+            : [String(value)];
+      } catch {
+        return [];
+      }
+    };
+
+    const qid = (question) => question.getAttribute('data-question') || '';
+    const ordinal = (question) => Number(question.getAttribute('data-index') || 0) + 1;
+
+    const durationSeconds = (attempt) => {
+      if (!attempt?.startedAt || !attempt?.submittedAt) return null;
+      const start = new Date(attempt.startedAt).getTime();
+      const end = new Date(attempt.submittedAt).getTime();
+      if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
+      return Math.max(0, Math.round((end - start) / 1000));
+    };
+
+    const formatDuration = (seconds) => {
+      if (!Number.isFinite(seconds)) return '—';
+      const minutes = Math.floor(seconds / 60);
+      const rest = seconds % 60;
+      return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
+    };
+
+    const problemIds = (attempt) => {
+      const uncertain = new Set(attempt.uncertain || []);
+      return Object.keys(attempt.results || {}).filter((id) =>
+        ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
+      );
+    };
+
+    const ensureHandoff = () => {
+      if (handoff || !resultSummary) return handoff;
+      handoff = document.createElement('div');
+      handoff.className = 'portedReadingSessionHandoff';
+      handoff.hidden = true;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = '复制整篇给 Chat';
+      button.setAttribute('data-reading-passage-copy-chat', '');
+
+      const status = document.createElement('small');
+      status.setAttribute('data-reading-passage-copy-status', '');
+      status.textContent = '按整篇复盘；单题只作为内部证据。';
+
+      handoff.append(button, status);
+      resultSummary.appendChild(handoff);
+      return handoff;
+    };
+
+    const demoteLegacyQuestionBridge = () => {
+      readingRoot.querySelectorAll('[data-reading-copy-chat]').forEach((button) => {
+        const actions = button.closest('.portedReadingRepairActions');
+        if (actions instanceof HTMLElement) actions.hidden = true;
+      });
+      readingRoot.querySelectorAll('.portedReadingRepair header span').forEach((label) => {
+        if (label.textContent?.trim() === '只处理这道') label.textContent = '局部证据';
+      });
+    };
+
+    const isRelevant = (attempt) => Boolean(
+      attempt?.submitted &&
+      attempt?.reviewUnlocked !== false &&
+      problemIds(attempt).length > 0
+    );
+
+    const buildPacket = (attempt) => {
+      const questions = [...readingRoot.querySelectorAll('[data-question]')];
+      const passage = readingRoot.querySelector('[data-reading-passage]');
+      const passageTitle = passage?.querySelector('h2')?.textContent?.trim() || readingKey;
+      const passageMeta = passage?.querySelector('header span')?.textContent?.trim() || '';
+      const passageText = [...(passage?.querySelectorAll('p') || [])]
+        .map((paragraph) => paragraph.textContent?.trim() || '')
+        .filter(Boolean)
+        .join('\n\n');
+      const uncertain = new Set(attempt.uncertain || []);
+      const problems = new Set(problemIds(attempt));
+      const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
+      const wrongOrdinals = questions
+        .filter((question) => ['wrong', 'unanswered'].includes(attempt.results?.[qid(question)]))
+        .map((question) => `Q${ordinal(question)}`);
+      const uncertainOrdinals = questions
+        .filter((question) => uncertain.has(qid(question)))
+        .map((question) => `Q${ordinal(question)}`);
+
+      const lines = [
+        'Reading A review packet v1',
+        `Object: ${readingKey}`,
+        `Source: ${passageMeta || '—'}`,
+        `Title: ${passageTitle}`,
+        `Score: ${score}/${questions.length}`,
+        `Time: ${formatDuration(durationSeconds(attempt))}`,
+        `Wrong/unanswered: ${wrongOrdinals.join(', ') || 'none'}`,
+        `Uncertain: ${uncertainOrdinals.join(', ') || 'none'}`,
+        '',
+        'PASSAGE',
+        passageText || '—',
+        '',
+        'ALL-QUESTION OUTCOME MAP'
+      ];
+
+      questions.forEach((question) => {
+        const id = qid(question);
+        const path = (attempt.trajectory?.[id] || [])
+          .map((step) => step?.answer)
+          .filter(Boolean)
+          .join(' → ') || '—';
+        const cause = attempt.causes?.[id] || '—';
+        lines.push(
+          `Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · note ${cause}`
+        );
+      });
+
+      lines.push('', 'EXPANDED DIAGNOSTIC QUESTIONS');
+      questions.filter((question) => problems.has(qid(question))).forEach((question) => {
+        const id = qid(question);
+        const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
+        const options = [...question.querySelectorAll('[data-option]')]
+          .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`);
+        lines.push('', `Q${ordinal(question)} (${id})`, `Prompt: ${prompt}`, ...options);
+      });
+
+      lines.push(
+        '',
+        'REVIEW INSTRUCTION',
+        'Treat this as one complete passage attempt. Diagnose the passage globally first, then merge questions that share one root cause or dependency. Use question-level evidence only to choose the smallest sufficient repair. Route lexical failures to LexicalOS, reading/comprehension failures to Reading, and option-adjudication failures to Reading A. Do not create one permanent weakness or one review card per wrong question. Known-item correction is repair evidence; later unseen transfer is stronger mastery evidence.'
+      );
+
+      return lines.join('\n');
+    };
+
+    const sync = () => {
+      demoteLegacyQuestionBridge();
+      const node = ensureHandoff();
+      if (!node) return;
+      node.hidden = !isRelevant(readAttempt());
+    };
+
+    ensureHandoff()?.querySelector('[data-reading-passage-copy-chat]')?.addEventListener('click', async () => {
+      const attempt = readAttempt();
+      if (!isRelevant(attempt)) return;
+      const status = handoff?.querySelector('[data-reading-passage-copy-status]');
+      try {
+        await navigator.clipboard.writeText(buildPacket(attempt));
+        if (status) status.textContent = '已复制整篇复盘包，直接贴到 Chat。';
+      } catch {
+        if (status) status.textContent = '复制失败，请稍后再试。';
+      }
+    });
+
+    readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
+    sync();
+  }
+</script>
