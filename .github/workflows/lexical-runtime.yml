@@ -1,0 +1,72 @@
+name: LexicalOS Current Runtime
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/lexical/**'
+      - 'static-web/**'
+      - '.github/workflows/lexical-runtime.yml'
+  pull_request:
+    paths:
+      - 'content/lexical/**'
+      - 'static-web/**'
+      - '.github/workflows/lexical-runtime.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate lexical JSON
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          roots = [
+              Path('content/lexical/manifest.json'),
+              Path('content/lexical/schema.json'),
+              Path('content/lexical/continuation.json'),
+              Path('content/lexical/learner/packet-contract.json'),
+          ]
+          roots += list(Path('content/lexical/words/by-ordinal').glob('*.json'))
+          roots += list(Path('content/lexical/relations/by-id').glob('*/*.json'))
+          for path in roots:
+              json.loads(path.read_text())
+          print(f'validated {len(roots)} lexical JSON files')
+          PY
+
+      - name: Verify representative Natural Owner hydration
+        working-directory: static-web
+        run: |
+          node --input-type=module - <<'NODE'
+          import { inspectLexicalSources, loadLexicalWordByOrdinal } from './src/lib/lexical.mjs';
+          const inspection = inspectLexicalSources();
+          if (inspection.status !== 'ready' || inspection.semanticAuthority !== true) throw new Error('LEXICAL_SOURCE_NOT_READY');
+          const ordinals = [1917, 1931, 1259, 1264, 1282, 314, 1670];
+          const words = ordinals.map(loadLexicalWordByOrdinal);
+          if (words.length !== ordinals.length) throw new Error('LEXICAL_VALIDATION_BATCH_INCOMPLETE');
+          const byWord = Object.fromEntries(words.map((item) => [item.record.word, item]));
+          if (!byWord.deduct.record.constructions.some((item) => item.pattern === 'deduct A from B')) throw new Error('DEDUCT_CONSTRUCTION_MISSING');
+          if (!byWord.default.record.constructions.some((item) => item.pattern === 'by default')) throw new Error('DEFAULT_BY_DEFAULT_MISSING');
+          if ((byWord.delicate.record.secondary_senses || []).length < 2) throw new Error('DELICATE_DEPTH_BRANCHES_MISSING');
+          if (!(byWord.fine.record.secondary_senses || []).some((item) => item.definition_cn === '处以罚款')) throw new Error('FINE_HIDDEN_SENSE_MISSING');
+          if (!(byWord.assure.record.semantic_neighbors || []).some((item) => item.target_word === 'ensure')) throw new Error('ASSURE_ENSURE_RELATION_MISSING');
+          if (!(byWord.ensure.record.semantic_neighbors || []).some((item) => item.target_word === 'assure')) throw new Error('ENSURE_ASSURE_RELATION_MISSING');
+          NODE
+
+      - name: Install Astro dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Build Astro
+        working-directory: static-web
+        run: npm run build
