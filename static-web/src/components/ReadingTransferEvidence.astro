@@ -7,6 +7,7 @@
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
     const basePath = readingRoot.getAttribute('data-reading-base') || '/';
     const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const continuousKey = 'kianos-reading-continuous-session-v1';
     const watchKey = 'kianos-reading-watch-signals-v1';
     const reviewUrl = `${basePath}reading-review/${encodeURIComponent(readingKey)}.json`;
     const questions = [...readingRoot.querySelectorAll('[data-question]')];
@@ -18,6 +19,11 @@
     };
     const writeJson = (key, value) => {
       try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    };
+    const belongsToEndedContinuousSession = () => {
+      const session = readJson(continuousKey, {});
+      const items = Array.isArray(session.items) ? session.items : [];
+      return Boolean(!session.active && (session.reviewing || session.lastSummary) && items.some((item) => item?.id === readingKey));
     };
     const questionId = (question) => question?.getAttribute('data-question') || '';
     const expected = (question) => {
@@ -52,7 +58,7 @@
     };
 
     const recordTransfer = async () => {
-      if (running) return;
+      if (running || belongsToEndedContinuousSession()) return;
       running = true;
       try {
         const attempt = readJson(attemptKey, {});
