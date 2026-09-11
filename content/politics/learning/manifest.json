@@ -21,12 +21,6 @@
       "relation_owner": "content/politics/source/question_knowledge_links.jsonl"
     }
   },
-  "asset_types": {
-    "chapter_orientation": "Locates a chapter and exposes its core problem and reasoning chain.",
-    "nu_teaching_bridge": "Connects the owning Chengfeng Natural Unit to prior/next knowledge without changing unit identity.",
-    "compression": "Reconstructs learned content into a small durable relation chain.",
-    "repair_guidance": "Routes wrong/uncertain evidence to the smallest sufficient owning source repair."
-  },
   "rules": [
     "Do not duplicate Chengfeng into an AI textbook.",
     "Do not let Xiao1000 determine first-round unit order.",
@@ -34,18 +28,29 @@
     "Preserve canonical Natural Unit identities and source bindings.",
     "Prefer content changes over hard-coded Astro political semantics.",
     "Keep learner interaction low-friction and progressively disclosed.",
-    "Share only the top-level learning loop across Politics subjects; subject-level teaching shape may differ substantially, e.g. Marxism relation/reasoning chains versus History chronology/turning-point/causal structures."
+    "Share only the top-level learning loop across Politics subjects; subject-level teaching shape may differ substantially.",
+    "Content quality and batch progress take priority over frequent status reporting; interrupt the learner only for real semantic decisions."
   ],
   "subjects": {
     "marxism": {
       "path": "content/politics/learning/marxism/",
-      "teaching_shape": "RELATION_AND_REASONING_CHAIN",
+      "teaching_shape": "RELATION_REASONING_AND_MECHANISM_CHAIN",
+      "status": "CHAPTER_PROJECTION_COMPLETE_8_OF_8",
       "current_assets": [
         "content/politics/learning/marxism/ch01.json",
         "content/politics/learning/marxism/ch02.json",
         "content/politics/learning/marxism/ch03.json",
-        "content/politics/learning/marxism/ch04.json"
+        "content/politics/learning/marxism/ch04.json",
+        "content/politics/learning/marxism/ch05.json",
+        "content/politics/learning/marxism/ch06.json",
+        "content/politics/learning/marxism/ch07.json",
+        "content/politics/learning/marxism/ch08.json"
       ]
+    },
+    "history": {
+      "path": "content/politics/learning/history/",
+      "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
+      "status": "NEXT_CONTENT_LANE"
     }
   }
 }
