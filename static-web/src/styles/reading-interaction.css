@@ -1,0 +1,41 @@
+.portedReadingResultSummary{justify-content:flex-end;flex-wrap:wrap}
+.portedReadingResultSummary>[data-reading-review-nav]{display:flex;gap:5px;flex-wrap:wrap}
+.portedReadingResultSummary>[data-reading-review-nav] button{min-width:30px;height:28px;padding:0 7px;border:1px solid #d2ded9;border-radius:7px;background:#fff;color:#45675e;font-size:9px;font-weight:850}
+
+.portedReadingAnswerStrip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px;padding:8px 10px;border:1px solid #dce4e1;border-radius:9px;background:#f7faf9}
+.portedReadingAnswerStrip[hidden]{display:none!important}
+.portedReadingAnswerStrip span{color:#667a73;font-size:10px}
+.portedReadingAnswerStrip b{margin-left:4px;color:#244c41;font-size:11px}
+
+.portedReadingRepair{display:grid;gap:10px;margin-top:9px;padding:12px;border:1px solid #d7e2dd;border-radius:11px;background:#fbfdfc}
+.portedReadingRepair[hidden]{display:none!important}
+.portedReadingRepair>header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:0}
+.portedReadingRepair>header>div{display:grid;gap:2px}
+.portedReadingRepair>header span{color:#397565;font-size:9px;font-weight:900;letter-spacing:.06em}
+.portedReadingRepair>header strong{color:#2b413a;font-size:12px;line-height:1.35}
+.portedReadingRepair>header small{color:#87938f;font-size:9px;white-space:nowrap}
+
+.portedReadingCauseRow{display:flex;gap:5px;flex-wrap:wrap}
+.portedReadingCauseRow button{min-height:29px;padding:5px 9px;border:1px solid #d8e1dd;border-radius:999px;background:#fff;color:#5e746c;font-size:9px;font-weight:800}
+.portedReadingCauseRow button.active{border-color:#caa260;background:#fff7e5;color:#76531b}
+
+.portedReadingRepairActions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:1px solid #e8eeeb}
+.portedReadingRepairActions button{min-height:30px;padding:5px 9px;border:1px solid #c8d9d2;border-radius:8px;background:#eef6f2;color:#315f52;font-size:9px;font-weight:850}
+.portedReadingRepairActions small{color:#7f8d88;font-size:9px}
+
+.portedReadingHistory{border:1px solid #e1e7e4;border-radius:10px;background:#fbfcfb}
+.portedReadingHistory>summary{display:flex;align-items:center;gap:6px;padding:8px 10px;color:#74827d;font-size:9px;font-weight:800;cursor:pointer}
+.portedReadingHistory>summary span{display:grid;min-width:20px;height:18px;place-items:center;border-radius:999px;background:#eef3f1;color:#60736c;font-size:8px}
+.portedReadingHistory ol{margin:0;padding:0 12px 8px 28px;border-top:1px solid #e7ecea}
+.portedReadingHistory li{padding:7px 0;border-bottom:1px solid #edf1ef;color:#677872;font-size:9px}
+.portedReadingHistory>button{margin:0 10px 9px;min-height:28px;padding:4px 8px;border:1px solid #d8e1dd;border-radius:7px;background:#fff;color:#71817b;font-size:9px}
+
+/* Provenance still exists in the runtime, but it is not part of the learner surface. */
+.portedReadingSource{display:none}
+
+@media(max-width:760px){
+  .portedReadingResultBar{grid-template-columns:1fr;gap:7px}
+  .portedReadingResultSummary{justify-content:flex-start}
+  .portedReadingRepair>header{flex-direction:column}
+  .portedReadingRepair>header small{white-space:normal}
+}
