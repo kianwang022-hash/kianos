@@ -1,0 +1,115 @@
+{
+  "schema": "kianos.xizong.study_policy.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "goal": {
+    "exam": "Xizong 306",
+    "score_target": "270+",
+    "design_center": ["ATTENTION", "CONTINUITY", "COMPRESSION"],
+    "rule": "Optimize for fast, lossless mastery of a very large knowledge system. Learning-path decisions must serve the learner, not the repository or UI."
+  },
+  "mastery_ladder": [
+    {"id": "SEEN", "meaning": "见过并知道它大致属于哪里"},
+    {"id": "UNDERSTOOD", "meaning": "能解释机制、关系或判断依据"},
+    {"id": "RECALLABLE", "meaning": "离开正文后能主动恢复核心结构"},
+    {"id": "PRECISE", "meaning": "数字、阈值、药物、分型、时间、标志物等能精确恢复"},
+    {"id": "APPLICABLE", "meaning": "能在典型题目中稳定调用，并解释关键条件与干扰项"},
+    {"id": "CASE_STABLE", "meaning": "复杂病例、跨系统和时间压力下仍能稳定定位并调用"}
+  ],
+  "stage_contract": {
+    "FIRST_PASS": {
+      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；重要 Precision 开始进入精确记忆；用 System 全量题暴露知识缺口。",
+      "not_the_goal": ["要求所有 Precision 第一次即稳定", "把复杂病例训练做成主任务", "为了串联而顺藤摸瓜学完整个未来 Block"],
+      "required_gates": [
+        "每个 canonical KP 完成正式学习接触，并至少进行一次主动 Recall",
+        "每个 Logic Group 能回答这一组解决什么问题，并完成一次结构闭合",
+        "每个 Block 完成一次 Block Recall，能把 KP 压回局部模型",
+        "每个 System 在题目前先完成一次 System Recall",
+        "System 全量题完成覆盖性 sweep；正确且理由清楚快速通过，Wrong / Uncertain 必须留下并回链修补",
+        "题后完成一次短 System Recall，确认题目没有替代自己的模型"
+      ],
+      "progression_rule": "严格要求主动恢复和缺口不丢，但单个 KP 第一次 Recall 不完美不得无限阻塞主线；弱点进入后续 Memory / Review。"
+    },
+    "SECOND_PASS": {
+      "primary_goal": "把知识模型转换为解题能力：Precision 强化、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
+      "target_mastery": ["PRECISE", "APPLICABLE"],
+      "question_role": "同一道真题再次使用时重点分析决定性条件、干扰项为何错、条件改变后答案如何变化，而不是只重复答案。",
+      "case_role": "病例应用在此轮深度强化，从第一故障→变量→后果→证据→鉴别→治疗。"
+    },
+    "LATE_REVIEW": {
+      "primary_goal": "把已经学会的内容压缩到极薄骨架并提高自动化、整卷切换和时间压力下稳定性。",
+      "target_mastery": ["CASE_STABLE"],
+      "surface": "机制骨架 + 高价值边界 + Precision + Wrong/Uncertain；不反复重读一轮长正文。"
+    }
+  },
+  "content_timing": {
+    "CURRENT_CORE": {
+      "learner_behavior": "现在理解；进入当前 Active Prompt / Core / Recall。",
+      "memory": "正式学过后可进入 Memory。"
+    },
+    "RESERVE_LEARNING": {
+      "learner_behavior": "现在主动看见并允许粗记一点，因为后续会反复调用；不得侵入当前 Active Prompt 或打断机制主线。",
+      "memory": "可进入轻量 Reserve 队列；正式 owner 学完后再升级为普通 Memory。"
+    },
+    "CONNECTION_HOOK": {
+      "learner_behavior": "只知道这根关系存在，以及以后在哪里正式展开；不要求现在背。",
+      "memory": "不进入普通 Memory。系统必须在目标 owner 出现时自动重新提示并完成双向回收。"
+    },
+    "DEFERRED": {
+      "learner_behavior": "当前不占工作记忆；到正式 owner 再展开。",
+      "memory": "正式学习前不进入 Memory。"
+    }
+  },
+  "precision": {
+    "role": "PRECISION_IS_AN_ACCURACY_ATTRIBUTE_NOT_A_LEARNING_STAGE",
+    "rule": "Precision 只说明最终需要精确掌握，不代表第一次出现就必须背牢。是否现在精确学习由正式 owner 和当前学习阶段决定。",
+    "typical_items": ["数字", "阈值", "药物", "分型", "时间", "标志物", "术式", "高价值精确配对"]
+  },
+  "memory_admission": {
+    "rule": "Memory 只收值得占用未来复习时间的内容，不等于今天见过的全部内容。",
+    "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", " learner 主动要求后续复习的内容"],
+    "reject": ["仅作为路牌的 Connection Hook", "尚未正式理解的后续大知识", "低价值补充", "已自然稳定且没有继续复习收益的事实"]
+  },
+  "lecture_runtime_contract": {
+    "lecture": "首次学习必须完整接触的原始教学材料：解释顺序、原图、表格、例子、题旁拓展与讲义配套题。",
+    "kianos": "负责框架、注意力边界、机制定位、串联调度、主动 Recall、压缩与后续复习；不得变成第二本需要与 Lecture 重复通读的长讲义。",
+    "first_pass_rule": "Lecture-first。KianOS 告诉 learner 现在抓什么、哪些先不展开、以后在哪里收回，并在学习后把知识从脑中叫出来。"
+  },
+  "question_reuse": {
+    "principle": "真题不是一次性资产；同一道题在不同轮次承担不同任务。",
+    "first_pass": "按 System 做覆盖性全量 sweep，主要作为知识覆盖探针：会不会、错在哪里、哪个 KP/边界没建立。",
+    "second_pass": "重复使用真题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",
+    "late": "用于整卷、速度、切换和自动化。",
+    "fast_rule": "正确且理由清楚快速通过；正确但蒙的记 Uncertain；错误记 Wrong。深挖优先留给 Wrong / Uncertain。",
+    "mapping_safety": "Runtime 只能使用显式 reviewed Question→Knowledge relation；不得根据标题相似、页码、Block membership 或模型猜测自动绑定。",
+    "full_paper_holdout": {
+      "required": true,
+      "rule": "保留一小组完整试卷不在一轮按 System 拆碎，用于后续整卷诊断；具体 paper IDs 由 learner 明确指定后再锁定，Runtime 不得自动消费。"
+    }
+  },
+  "compression_ladder": {
+    "LEARN": "主提示 + 当前机制 + 必要边界 + Lecture 接触；需要时才显示 Reserve / Hook / Precision / Visual。",
+    "RECALL": "去掉正文提示，只保留非泄题 Active Prompt → 自己恢复 → Reveal → 评分。",
+    "BLOCK_SYSTEM_RECALL": "把多个 KP 压回一个模型，不重复测全部 KP。",
+    "SECOND_PASS_REVIEW": "机制骨架 + 易混边界 + Precision + Wrong/Uncertain。",
+    "LATE_REVIEW": "一句主链 + 少量高价值边界/Precision；内容应越学越薄。"
+  },
+  "lossless_scheduling": {
+    "rule": "信息可以延迟，但不能失踪。隐藏和后置必须来自学习时机优化，而不是删除知识。",
+    "hard_gates": [
+      "ORPHAN_KNOWLEDGE = 0",
+      "SILENT_HIDDEN_KNOWLEDGE = 0",
+      "重要 Reserve / Hook 必须有正式 target owner",
+      "Connection Hook 必须在 target owner 双向回收",
+      "Precision 属性不得被误当成强制当前记忆",
+      "任何展示优化不得改变 canonical medical Core"
+    ]
+  },
+  "learner_surface": {
+    "rule": "后台可以复杂，学习页面必须简单。",
+    "always_prioritize": ["现在学什么", "当前机制", "主提示", "前后推进"],
+    "show_only_when_relevant": ["Precision", "Visual Gate", "Reserve", "后续串联", "Lecture/配套题入口"],
+    "keep_out_of_primary_surface": ["semantic owner", "routing", "coverage gate", "canonical", "audit", "migration", "mastery level code", "backend status taxonomy"],
+    "learning_boundary_rule": "前台不展示工程化 Learning Boundary 字段；通过主提示、当前 Core 和轻量“后面再展开”提示自然表达本轮到此为止。"
+  }
+}
