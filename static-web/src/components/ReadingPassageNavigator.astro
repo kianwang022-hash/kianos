@@ -5,7 +5,12 @@ const navigation = reading?.navigation || {};
 const hrefFor = (id) => id ? `${base}reading/${encodeURIComponent(id)}` : '';
 ---
 {navigation.total > 1 && (
-  <aside class="portedReadingPassageNavigator" data-reading-passage-navigator hidden>
+  <aside
+    class="portedReadingPassageNavigator"
+    data-reading-passage-navigator
+    data-reading-object={reading.objectId}
+    hidden
+  >
     <span>第 {navigation.position} / {navigation.total} 篇</span>
     <div>
       {navigation.previousId && <a href={hrefFor(navigation.previousId)}>← 上一篇</a>}
@@ -20,8 +25,29 @@ const hrefFor = (id) => id ? `${base}reading/${encodeURIComponent(id)}` : '';
   const passageNavigator = document.querySelector('[data-reading-passage-navigator]');
   const result = document.querySelector('[data-reading-result]');
   if (passageNavigator && result) {
-    const sync = () => { passageNavigator.hidden = result.hasAttribute('hidden'); };
+    const readingKey = passageNavigator.getAttribute('data-reading-object') || 'reading';
+    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const continuousKey = 'kianos-reading-continuous-session-v1';
+
+    const readJson = (key) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || {}; }
+      catch { return {}; }
+    };
+
+    const sync = () => {
+      if (result.hasAttribute('hidden')) {
+        passageNavigator.hidden = true;
+        return;
+      }
+      const attempt = readJson(attemptKey);
+      const session = readJson(continuousKey);
+      const deferred = Boolean(attempt.submitted && attempt.reviewUnlocked === false);
+      const reviewingSession = Boolean(session.reviewing && Array.isArray(session.reviewIds) && session.reviewIds.includes(readingKey));
+      passageNavigator.hidden = deferred || reviewingSession;
+    };
+
     new MutationObserver(sync).observe(result, { attributes: true, attributeFilter: ['hidden'] });
+    document.addEventListener('click', () => window.setTimeout(sync, 0));
     sync();
   }
 </script>
