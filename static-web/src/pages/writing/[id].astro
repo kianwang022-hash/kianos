@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import WritingWorkspace from '../../components/WritingWorkspace.astro';
+import { listWritingSyntheticTasks, loadWritingSyntheticTask } from '../../lib/englishWritingSynthetic.mjs';
+
+export function getStaticPaths() {
+  return listWritingSyntheticTasks().map((task) => ({
+    params: { id: task.id },
+    props: { writingId: task.id }
+  }));
+}
+
+const { writingId } = Astro.props;
+const task = loadWritingSyntheticTask(writingId);
+---
+<Base
+  title={task.title}
+  kicker="English · Writing Current"
+  description="Whole-essay productive runtime: preserve first evidence, semantic PASS/repair through Chat, smallest learner re-generation, then repair check."
+  sourcePath={task.sourcePath}
+  sourceHash={task.sourceHash}
+  objectId={task.id}
+  active="home"
+>
+  <WritingWorkspace task={task} />
+</Base>

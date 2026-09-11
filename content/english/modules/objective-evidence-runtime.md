@@ -17,8 +17,9 @@ Therefore:
 
 - one wrong question does not imply one weakness;
 - several wrong questions may belong to one repair thread;
+- a diagnosis is not yet a completed repair;
 - a repaired historical question is not itself the object that needs future spaced repetition;
-- only a reusable ability/procedure claim that still needs proof should remain `TRANSFER_PENDING`.
+- only a reusable task procedure that has actually been repaired and still needs fresh proof may become `TRANSFER_PENDING`.
 
 The learner-facing review unit remains one complete passage / set.
 
@@ -44,15 +45,23 @@ route each thread
 ├─ Reading ability owner
 └─ task-specific procedure owner
 ↓
-repair completed
+smallest useful repair
+↓
+learner re-execution / reconstruction
+↓
+REPAIR_COMPLETED evidence
 ↓
 only justified reusable task-specific claims become TRANSFER_PENDING
 ↓
-later fresh passage/set packet carries active claims back to Chat
+later fresh passage/set carries the unresolved claim plus enough task context back to Chat
 ↓
-Chat judges whether the fresh material is relevant transfer evidence
+Chat judges whether the fresh material genuinely tested the same procedure
 ↓
-TRANSFER_PENDING / CLOSED / REOPENED
+TRANSFER_PENDING / CLOSED
+↓
+later strong fresh contradictory evidence when relevant
+↓
+REOPENED → TRANSFER_PENDING
 ```
 
 The browser must not infer semantic mastery merely from `N correct attempts`.
@@ -69,10 +78,14 @@ Canonical fields:
 - `scope` — `local | shared | coupled | structure`;
 - `itemIds` — question / blank / placement IDs that supply evidence;
 - `route` — `lexical | reading | cloze | reading_a | reading_b`;
-- `summary` — concise statement of the first meaningful failure and repair.
+- `summary` — concise statement of the first meaningful failure;
+- `repairCompleted` — whether the learner actually completed the selected repair / re-execution;
+- `repairEvidence` — concise evidence of what the learner successfully reconstructed or re-executed.
 
 Rules:
 
+- `repairCompleted=false` is a valid diagnosed thread; it must not be promoted into task-specific transfer debt;
+- `repairCompleted=true` requires learner action, not passive explanation alone;
 - dependent/cascading items belong to the same thread when one cause explains them;
 - Reading B swaps/cascades should normally be coupled or structure threads rather than duplicated local threads;
 - Cloze blanks sharing one sentence/discourse or lexical cause may be one shared thread;
@@ -83,7 +96,12 @@ Rules:
 
 ## 4｜Task-specific transfer claim
 
-A **transfer claim** is a reusable task procedure that has been repaired but is not yet proven on sufficiently fresh evidence.
+A **transfer claim** is a reusable task procedure that:
+
+1. was exposed by real evidence;
+2. was repaired through learner re-execution/reconstruction;
+3. is worth checking on a genuinely new opportunity;
+4. is not better owned by Lexical or Reading.
 
 Examples:
 
@@ -93,13 +111,14 @@ Examples:
 
 Do **not** create a task claim for:
 
+- a diagnosis that has not yet been repaired;
 - a one-off mistake with little future value;
 - a lexical sense / phrase / construction that belongs to LexicalOS;
 - a sentence/discourse representation deficit that belongs to Reading;
 - a vague label such as “be more careful”;
 - every wrong item merely because it was wrong.
 
-A task claim should exist only when future unseen execution is worth checking.
+`newClaims` may reference only a task-specific repair thread with `repairCompleted=true` and non-empty `repairEvidence`.
 
 ---
 
@@ -112,7 +131,7 @@ The static learner runtime can reliably know:
 - formal answers after the answer gate;
 - canonical source/task metadata that already exists.
 
-It generally cannot reliably know whether a future Cloze blank or Part B placement presents the **same semantic opportunity** as a free-text procedure claim.
+It generally cannot reliably know whether a future item presents the **same semantic opportunity** as a free-text procedure claim.
 
 Therefore Current must not fake automatic closure by rules such as:
 
@@ -120,15 +139,13 @@ Therefore Current must not fake automatic closure by rules such as:
 - “one full-score set = close every pending claim”;
 - “same task section = relevant transfer opportunity”.
 
-Instead, active claims are carried into later passage/set Chat packets. Chat decides whether the new material actually tests the same behavior and whether the evidence is strong enough to close or reopen the claim.
-
-This keeps the strongest evidence as real transfer rather than item repetition or arbitrary counters.
+A transfer-check packet must carry enough current task context for Chat to judge relevance. A compact outcome map alone is insufficient when the claim could have been tested by a stable-correct item; include the necessary prompt/options/candidate context for the fresh unit when pending claims are being evaluated.
 
 ---
 
 ## 6｜Private Transfer Claim Store
 
-Transfer claims are personal learner state and must remain private/device-local by default.
+Transfer claims are personal learner state and remain private/device-local by default.
 
 Canonical browser key:
 
@@ -144,24 +161,49 @@ A stored claim should preserve at minimum:
 - `status` — `TRANSFER_PENDING | CLOSED`;
 - source passage/set ID;
 - source repair thread / item IDs when available;
+- source repair evidence;
 - creation/update timestamps;
-- compact transfer-history events when Chat later updates the claim.
+- compact later evidence events.
 
-The runtime may retain CLOSED claims as bounded private history, but only active `TRANSFER_PENDING` claims should be placed into future handoff packets.
+Active `TRANSFER_PENDING` claims are carried into normal future transfer-check packets. CLOSED claims may be retained as bounded private history and may be exposed only conservatively as **reopen candidates** when a later fresh attempt contains meaningful contradictory problem evidence.
 
 Legacy Reading A question-level `WATCH` signals are not canonical transfer claims and must not be automatically migrated into this store.
 
 ---
 
-## 7｜Review Return Packet v1
+## 7｜Handoff snapshot
 
-After reviewing one passage/set, Chat should append one machine-readable return block when the learner wants the website to retain review/transfer state.
+Copying a whole-passage/set packet to Chat creates a private handoff snapshot for that object.
+
+Canonical browser key pattern:
+
+`kianos-english-objective-handoff-v1:<task>:<objectId>`
+
+It records at minimum:
+
+- task + objectId;
+- packet mode;
+- `activeClaimIds` actually supplied for possible transfer update;
+- `reopenCandidateIds` actually supplied for conservative reopen consideration;
+- creation time.
+
+The importer uses this snapshot as an authorization/evidence boundary:
+
+- a claim cannot be CLOSED merely because Chat returns a matching arbitrary ID;
+- a CLOSED claim cannot be REOPENED unless it was explicitly supplied as a reopen candidate in this fresh problem packet;
+- ordinary diagnosis-only returns may still save repair threads, but claim-state changes require a matching handoff snapshot.
+
+This does not make the browser the semantic judge. It prevents an unrelated or stale return block from mutating private mastery state.
+
+---
+
+## 8｜Review Return Packet v1
 
 Marker:
 
 `KIANOS_OBJECTIVE_RETURN_V1`
 
-JSON schema shape:
+Schema shape:
 
 ```json
 {
@@ -173,14 +215,16 @@ JSON schema shape:
       "threadId": "t1",
       "scope": "shared",
       "itemIds": ["q3", "q7"],
-      "route": "reading",
-      "summary": "one sentence-relation misunderstanding explains both blanks"
+      "route": "cloze",
+      "summary": "rough-meaning comparison overrode the decisive construction",
+      "repairCompleted": true,
+      "repairEvidence": "learner reconstructed the slot demand, named the decisive construction, and re-decided the competitor pair"
     }
   ],
   "newClaims": [
     {
       "claimId": "optional-stable-id",
-      "sourceThreadId": "t2",
+      "sourceThreadId": "t1",
       "statement": "check the decisive construction before choosing between near-synonyms"
     }
   ],
@@ -197,61 +241,54 @@ JSON schema shape:
 ### Return rules
 
 - `threads` represent whole-unit diagnosis, not one automatic thread per wrong item;
-- `newClaims` contains only task-specific reusable procedure claims justified by the repair;
+- `newClaims` requires a matching task-specific completed repair thread;
 - lexical/reading routes may appear in `threads` but must not be duplicated in `newClaims`;
-- `claimUpdates` may reference only active claims supplied in the incoming packet;
-- allowed update decisions are `TRANSFER_PENDING`, `CLOSED`, or `REOPENED`;
-- `CLOSED` requires relevant fresh transfer evidence, not merely correction of the source item;
-- `REOPENED` means later strong fresh evidence materially contradicts a previously closed/assumed-stable claim;
-- if the current fresh set does not actually test a pending claim, leave it unchanged rather than manufacturing evidence.
+- repeated import of the same return must be idempotent and must not manufacture duplicate debt;
+- `claimUpdates` may reference only claim IDs actually supplied by the matching handoff;
+- `CLOSED` requires the claim to be pending, a different fresh object to genuinely test it, and non-empty evidence;
+- `REOPENED` requires the claim to be closed, to have been supplied as a reopen candidate, a different fresh object to contain meaningful contradictory problem evidence, and non-empty evidence;
+- if the current fresh set does not actually test a claim, leave it unchanged;
+- a persistence failure must not silently report success, clear the learner’s pasted return text, or leave an avoidable partial mutation.
 
-The learner may paste the whole Chat response into the importer; the runtime should extract the marked JSON block rather than requiring manual editing of JSON.
-
----
-
-## 8｜Future handoff behavior
-
-A normal problem passage/set packet includes active task claims after the attempt evidence.
-
-When the learner submits a clean passage/set:
-
-- if there are no active task claims, stable PASS should remain low-friction and no Chat handoff is required;
-- if active task claims exist, the surface may expose one quiet **transfer-check handoff**;
-- using that handoff is optional and exists only to let fresh material test unresolved claims;
-- do not turn every clean passage into compulsory review.
-
-Incoming packet modes may therefore be:
-
-- `REVIEW` — current passage/set contains wrong/unanswered/uncertain evidence;
-- `TRANSFER_CHECK` — current passage/set is clean but active claims may be testable;
-- `REVIEW_AND_TRANSFER_CHECK` — both are true.
+The learner may paste the whole Chat response; the importer extracts the marked JSON block rather than requiring manual JSON editing.
 
 ---
 
-## 9｜Relationship to Reading A legacy runtime
+## 9｜Future handoff behavior
 
-Reading A previously maintained question-level `WATCH` signals derived from per-question local repair choices and automatically matched later question metadata.
+When the learner submits a passage/set:
+
+- problem evidence → `REVIEW`;
+- clean + active claims → optional `TRANSFER_CHECK`;
+- problem evidence + active claims → `REVIEW_AND_TRANSFER_CHECK`;
+- clean + no active claims → `PASS`, no Chat requirement.
+
+For transfer checking, the packet must contain the unresolved claim plus enough fresh task context to judge whether the same behavior was actually demanded.
+
+When a fresh problem attempt exists, the packet may additionally include a small bounded list of recent CLOSED task claims as **reopen candidates**. Their presence does not imply relevance or reopening. Chat must explicitly establish a direct contradiction before returning `REOPENED`.
+
+---
+
+## 10｜Relationship to Reading A legacy runtime
 
 Under Objective Runtime v1:
 
-- question-level evidence remains useful;
-- local repair controls may remain available after whole-passage diagnosis;
-- **durable transfer state must move to claim-level tracking**;
-- the old question-level WATCH store is legacy private state and is not a Current authority;
-- Current learner pages should stop creating/updating that legacy WATCH store once the claim-level runtime is active.
-
-This change does not invalidate useful historical attempts; it only stops treating one question as the durable mastery object.
+- question-level evidence remains useful internally;
+- whole-passage diagnosis selects the repair scope before canonical local repair is exposed;
+- durable transfer state is claim-level rather than question-level WATCH;
+- the old question-level WATCH store is legacy private state and is not a Current authority.
 
 ---
 
-## 10｜Closure principle
+## 11｜Closure principle
 
-> **The client stores state; Chat adjudicates semantic transfer; fresh real tasks provide the evidence.**
+> **The client preserves evidence boundaries; Chat adjudicates semantics; learner re-execution proves repair; fresh real tasks provide transfer evidence.**
 
-The runtime should optimize for minimal learner friction:
+Optimize for minimal learner friction:
 
 - no manual taxonomy per question;
 - no mandatory claim creation;
 - no permanent wrong-question bank;
 - no arbitrary “3 PASS = mastery” counter;
-- no need to send stable clean work to Chat unless an unresolved claim makes transfer checking useful.
+- no need to send stable clean work to Chat unless an unresolved claim makes transfer checking useful;
+- no new future debt from diagnosis alone.

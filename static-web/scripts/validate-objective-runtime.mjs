@@ -17,12 +17,10 @@ function optionCount(options) {
   if (options && typeof options === 'object') return Object.keys(options).length;
   return 0;
 }
-
 function answerPresent(value) {
   if (Array.isArray(value)) return value.length > 0 && value.every((item) => String(item || '').trim());
   return String(value ?? '').trim().length > 0;
 }
-
 function typeSummary(value) {
   if (Array.isArray(value)) {
     const first = value[0];
@@ -33,7 +31,6 @@ function typeSummary(value) {
   if (value && typeof value === 'object') return `object<${Object.keys(value).sort().join(',')}>`;
   return typeof value;
 }
-
 function read(relativeUrl) {
   return fs.readFileSync(new URL(relativeUrl, import.meta.url), 'utf8');
 }
@@ -99,6 +96,15 @@ function validateTask({ task, list, load, loadAnswers }) {
       if (!state.sections.includes(item.section)) issues.push(`${task}:${item.objectId}: section ${item.section} outside resolved task sections`);
       if (answerPayload.objectId !== item.objectId || answerPayload.task !== task) issues.push(`${task}:${item.objectId}: answer payload identity mismatch`);
 
+      if (task === 'reading_b') {
+        if (!item.context?.taskForm) issues.push(`${task}:${item.objectId}: task form not projected`);
+        if (!item.context?.candidateUsePolicy) issues.push(`${task}:${item.objectId}: candidate-use policy not projected`);
+        if (!item.context?.itemLabel) issues.push(`${task}:${item.objectId}: item label not projected`);
+        if (!['single_use', 'repeat_allowed', 'source_unspecified'].includes(item.context?.candidateUsePolicy)) {
+          issues.push(`${task}:${item.objectId}: invalid candidate-use policy ${item.context?.candidateUsePolicy}`);
+        }
+      }
+
       const answerIds = new Set(Object.keys(answerPayload.answers || {}));
       for (const question of questions) {
         const id = String(question?.id || question?.question_id || '');
@@ -118,9 +124,7 @@ function validateTask({ task, list, load, loadAnswers }) {
         if (task === 'cloze' && choices < 2) issues.push(`${task}:${id}: fewer than 2 candidate options`);
         if (task === 'reading_b' && choices < 1 && !(item.candidates?.length)) issues.push(`${task}:${id}: no local or shared candidate inventory`);
       }
-      if (answerIds.size !== questions.length) {
-        issues.push(`${task}:${item.objectId}: answer/question count mismatch ${answerIds.size}/${questions.length}`);
-      }
+      if (answerIds.size !== questions.length) issues.push(`${task}:${item.objectId}: answer/question count mismatch ${answerIds.size}/${questions.length}`);
     } catch (error) {
       issues.push(`${task}:${catalogItem.id}: ${error instanceof Error ? error.message : String(error)}`);
     }
@@ -136,26 +140,38 @@ function validateEvidenceRuntimeWiring() {
     if (!text.includes(needle)) uiIssues.push(`${label}: missing ${needle}`);
   };
   const forbidText = (label, text, needle) => {
-    if (text.includes(needle)) uiIssues.push(`${label}: legacy runtime still loaded: ${needle}`);
+    if (text.includes(needle)) uiIssues.push(`${label}: forbidden/legacy runtime still loaded: ${needle}`);
   };
 
   try {
     const manifest = JSON.parse(read('../../content/english/manifest.json'));
-    if (manifest?.owners?.objective_evidence_runtime !== 'content/english/modules/objective-evidence-runtime.md') {
-      uiIssues.push('manifest: objective_evidence_runtime owner missing or incorrect');
-    }
-    if (manifest?.readiness?.objective_evidence_runtime_present !== true) {
-      uiIssues.push('manifest: objective_evidence_runtime_present is not true');
-    }
+    if (manifest?.owners?.objective_evidence_runtime !== 'content/english/modules/objective-evidence-runtime.md') uiIssues.push('manifest: objective_evidence_runtime owner missing or incorrect');
+    if (manifest?.readiness?.objective_evidence_runtime_present !== true) uiIssues.push('manifest: objective_evidence_runtime_present is not true');
   } catch (error) {
     uiIssues.push(`manifest: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
+    const owner = read('../../content/english/modules/objective-evidence-runtime.md');
+    ['repairCompleted', 'repairEvidence', 'kianos-english-objective-handoff-v1', 'REOPENED', 'idempotent'].forEach((needle) => requireText('objective-evidence-runtime owner', owner, needle));
+  } catch (error) {
+    uiIssues.push(`objective-evidence-runtime owner: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
     const component = read('../src/components/ObjectiveTransferClaims.astro');
-    requireText('ObjectiveTransferClaims', component, 'kianos-english-objective-transfer-claims-v1');
-    requireText('ObjectiveTransferClaims', component, 'KIANOS_OBJECTIVE_RETURN_V1');
-    requireText('ObjectiveTransferClaims', component, 'kianos.english.objective_review_return.v1');
+    [
+      'kianos-english-objective-transfer-claims-v1',
+      'KIANOS_OBJECTIVE_RETURN_V1',
+      'kianos.english.objective_review_return.v1',
+      'kianos.english.objective_handoff.v1',
+      'repairCompleted',
+      'repairEvidence',
+      'allowedActive',
+      'allowedReopen',
+      'persistPair',
+      'REOPENED'
+    ].forEach((needle) => requireText('ObjectiveTransferClaims', component, needle));
     forbidText('ObjectiveTransferClaims', component, 'kianos-reading-watch-signals-v1');
   } catch (error) {
     uiIssues.push(`ObjectiveTransferClaims: ${error instanceof Error ? error.message : String(error)}`);
@@ -173,37 +189,40 @@ function validateEvidenceRuntimeWiring() {
     const readingB = read('../src/pages/reading-b/[id].astro');
     requireText('Reading B page', readingB, 'ObjectiveTransferClaims');
     requireText('Reading B page', readingB, 'task="reading_b"');
+    const workspace = read('../src/components/ReadingBWorkspace.astro');
+    ['data-objective-instruction', 'data-reading-b-task-form', 'data-reading-b-candidate-policy', 'data-reading-b-candidate-use'].forEach((needle) => requireText('Reading B workspace', workspace, needle));
   } catch (error) {
-    uiIssues.push(`Reading B page: ${error instanceof Error ? error.message : String(error)}`);
+    uiIssues.push(`Reading B page/workspace: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
     const readingA = read('../src/pages/reading/[id].astro');
     requireText('Reading A page', readingA, 'ObjectiveTransferClaims');
     requireText('Reading A page', readingA, 'task="reading_a"');
-    forbidText('Reading A page', readingA, 'ReadingReviewSignals');
-    forbidText('Reading A page', readingA, 'ReadingTransferEvidence');
-    forbidText('Reading A page', readingA, 'ReadingSessionTransferEvidence');
+    ['ReadingReviewSignals', 'ReadingTransferEvidence', 'ReadingSessionTransferEvidence', 'ReadingRepairCoach'].forEach((needle) => forbidText('Reading A page', readingA, needle));
   } catch (error) {
     uiIssues.push(`Reading A page: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
     const objectiveHandoff = read('../src/components/ObjectiveHandoff.astro');
-    requireText('ObjectiveHandoff', objectiveHandoff, 'ACTIVE TRANSFER CLAIMS');
-    requireText('ObjectiveHandoff', objectiveHandoff, 'TRANSFER_CHECK');
-    requireText('ObjectiveHandoff', objectiveHandoff, 'KIANOS_OBJECTIVE_RETURN_V1');
+    ['ACTIVE TRANSFER CLAIMS', 'TRANSFER_CHECK', 'KIANOS_OBJECTIVE_RETURN_V1', 'RECENT CLOSED CLAIMS', 'repairCompleted', 'reopenCandidateIds', 'data-objective-instruction'].forEach((needle) => requireText('ObjectiveHandoff', objectiveHandoff, needle));
   } catch (error) {
     uiIssues.push(`ObjectiveHandoff: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
     const readingHandoff = read('../src/components/ReadingPassageHandoff.astro');
-    requireText('ReadingPassageHandoff', readingHandoff, 'ACTIVE TRANSFER CLAIMS');
-    requireText('ReadingPassageHandoff', readingHandoff, 'TRANSFER_CHECK');
-    requireText('ReadingPassageHandoff', readingHandoff, 'KIANOS_OBJECTIVE_RETURN_V1');
+    ['ACTIVE TRANSFER CLAIMS', 'TRANSFER_CHECK', 'KIANOS_OBJECTIVE_RETURN_V1', 'RECENT CLOSED CLAIMS', 'repairCompleted', 'reopenCandidateIds', 'QUESTION CONTEXT FOR DIAGNOSIS / TRANSFER'].forEach((needle) => requireText('ReadingPassageHandoff', readingHandoff, needle));
   } catch (error) {
     uiIssues.push(`ReadingPassageHandoff: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const journey = read('./test-objective-journey.mjs');
+    ['cloze_clean_pass_creates_no_debt', 'duplicate_return_is_idempotent', 'failed_import_preserves_pasted_return', 'fresh_relevant_evidence_closes_claim', 'fresh_contradiction_reopens_closed_claim', 'reading_b_directions_projected'].forEach((needle) => requireText('objective journey E2E', journey, needle));
+  } catch (error) {
+    uiIssues.push(`objective journey E2E: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   issues.push(...uiIssues.map((issue) => `ui:${issue}`));
@@ -214,20 +233,8 @@ function validateEvidenceRuntimeWiring() {
   };
 }
 
-validateTask({
-  task: 'cloze',
-  list: listClozeSets,
-  load: loadClozeById,
-  loadAnswers: loadClozeAnswersById
-});
-
-validateTask({
-  task: 'reading_b',
-  list: listReadingBSets,
-  load: loadReadingBById,
-  loadAnswers: loadReadingBAnswersById
-});
-
+validateTask({ task: 'cloze', list: listClozeSets, load: loadClozeById, loadAnswers: loadClozeAnswersById });
+validateTask({ task: 'reading_b', list: listReadingBSets, load: loadReadingBById, loadAnswers: loadReadingBAnswersById });
 validateEvidenceRuntimeWiring();
 
 summary.issueCount = issues.length;

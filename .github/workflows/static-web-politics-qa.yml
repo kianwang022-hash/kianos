@@ -32,6 +32,10 @@ jobs:
         run: node scripts/audit-politics-coverage.mjs
       - name: Audit Xiao1000 semantic chapter routing
         run: node scripts/audit-politics-question-routing.mjs
+      - name: Prove scoped Politics source loading without monoliths
+        run: node scripts/audit-politics-scoped-source.mjs
+      - name: Audit K03 canonical knowledge closure
+        run: node scripts/audit-politics-k03-knowledge.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
       - name: Build Astro

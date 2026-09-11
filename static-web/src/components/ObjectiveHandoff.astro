@@ -10,11 +10,15 @@
     try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
     catch { return fallback; }
   };
-  const activeClaimsFor = (task) => {
+  const taskClaimsFor = (task) => {
     const store = readJson(TRANSFER_STORE_KEY, { claims: [] });
-    return (Array.isArray(store.claims) ? store.claims : [])
-      .filter((claim) => claim?.task === task && claim?.status === 'TRANSFER_PENDING');
+    return (Array.isArray(store.claims) ? store.claims : []).filter((claim) => claim?.task === task);
   };
+  const activeClaimsFor = (task) => taskClaimsFor(task).filter((claim) => claim?.status === 'TRANSFER_PENDING');
+  const recentClosedClaimsFor = (task, objectId) => taskClaimsFor(task)
+    .filter((claim) => claim?.status === 'CLOSED' && claim?.sourceObjectId !== objectId)
+    .sort((a, b) => String(b?.updatedAt || '').localeCompare(String(a?.updatedAt || '')))
+    .slice(0, 5);
   const formatDuration = (seconds) => {
     if (!Number.isFinite(seconds)) return '—';
     const minutes = Math.floor(seconds / 60);
@@ -30,11 +34,16 @@
     const resultSummary = root.querySelector('[data-objective-result-summary]');
     if (!task || !objectId || !storageKey || !(resultSummary instanceof HTMLElement)) return;
 
+    const handoffKey = `kianos-english-objective-handoff-v1:${task}:${objectId}`;
     let handoff = null;
     const readAttempt = () => readJson(storageKey, {});
     const questions = () => [...root.querySelectorAll('[data-objective-question]')];
     const idOf = (question) => question.getAttribute('data-objective-question') || '';
     const ordinalOf = (question) => Number(question.getAttribute('data-objective-index') || 0) + 1;
+    const itemLabel = task === 'cloze' ? 'Blank' : (root.getAttribute('data-reading-b-item-label') || 'Item');
+    const displayLabelOf = (row) => task === 'cloze'
+      ? `${itemLabel} ${ordinalOf(row)}`
+      : (row.getAttribute('data-reading-b-target-label') || `${itemLabel} ${ordinalOf(row)}`);
     const formalOf = (question) => {
       try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
       catch { return []; }
@@ -69,11 +78,21 @@
       return handoff;
     };
 
+    const itemContext = (row) => {
+      const id = idOf(row);
+      const prompt = row.querySelector('[data-objective-prompt]')?.textContent?.trim() || '';
+      const options = [...row.querySelectorAll('[data-objective-option]')]
+        .map((node) => node.textContent?.trim() || '')
+        .filter(Boolean);
+      return ['', `${displayLabelOf(row)} (${id})`, ...(prompt ? [`Prompt: ${prompt}`] : []), ...options];
+    };
+
     const buildPacket = (attempt) => {
       const rows = questions();
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
       const pendingClaims = activeClaimsFor(task);
+      const reopenCandidates = problems.size ? recentClosedClaimsFor(task, objectId) : [];
       const mode = packetMode(attempt);
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
       const duration = attempt.startedAt && attempt.submittedAt
@@ -87,10 +106,10 @@
         .join('\n\n');
       const wrong = rows
         .filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)]))
-        .map((row) => task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`);
+        .map(displayLabelOf);
       const uncertainRows = rows
         .filter((row) => uncertain.has(idOf(row)))
-        .map((row) => task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`);
+        .map(displayLabelOf);
       const packetName = task === 'cloze' ? 'Cloze passage review packet v1' : 'Reading B set review packet v1';
 
       const lines = [
@@ -102,74 +121,82 @@
         `Score: ${score}/${rows.length}`,
         `Time: ${formatDuration(duration)}`,
         `Wrong/unanswered: ${wrong.join(', ') || 'none'}`,
-        `Uncertain: ${uncertainRows.join(', ') || 'none'}`,
-        '',
-        task === 'cloze' ? 'PASSAGE' : 'MATERIAL',
-        material || '—'
+        `Uncertain: ${uncertainRows.join(', ') || 'none'}`
       ];
 
       if (task === 'reading_b') {
+        const directions = root.querySelector('[data-objective-instruction] p')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
+        const form = root.getAttribute('data-reading-b-task-form') || '';
+        const policy = root.getAttribute('data-reading-b-candidate-policy') || '';
+        lines.push(`Task form: ${form || '—'}`, `Candidate policy: ${policy || '—'}`);
+        if (directions) lines.push('', 'DIRECTIONS', directions);
+        const skeleton = [...root.querySelector('[data-reading-b-ordering-skeleton]')?.children || []]
+          .map((node) => node.getAttribute?.('data-reading-b-fixed') || node.getAttribute?.('data-reading-b-target-label') || '')
+          .filter(Boolean);
+        if (skeleton.length) lines.push('', 'ORDERING SKELETON', skeleton.join(' → '));
+      }
+
+      if (task === 'cloze' || material) lines.push('', task === 'cloze' ? 'PASSAGE' : 'MATERIAL', material || '—');
+
+      if (task === 'reading_b') {
         const candidates = [...root.querySelectorAll('[data-objective-candidate]')]
-          .map((node) => node.textContent?.trim() || '')
+          .map((node) => {
+            const label = node.querySelector('b')?.textContent?.trim() || '';
+            const text = node.querySelector('span')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
+            return [label, text].filter(Boolean).join('. ');
+          })
           .filter(Boolean);
         if (candidates.length) lines.push('', 'CANDIDATE INVENTORY', ...candidates);
       }
 
-      lines.push('', task === 'cloze' ? 'ALL-BLANK OUTCOME MAP' : 'COMPLETE PLACEMENT / MATCHING MAP');
+      lines.push('', task === 'cloze' ? 'ALL-BLANK OUTCOME MAP' : 'COMPLETE MATCH / PLACEMENT MAP');
       rows.forEach((row) => {
         const id = idOf(row);
-        const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
         const path = (attempt.trajectory?.[id] || [])
           .map((step) => step?.answer)
           .filter(Boolean)
           .join(' → ') || '—';
-        lines.push(`${label} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
+        lines.push(`${displayLabelOf(row)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
       });
 
-      if (problems.size) {
-        lines.push('', 'EXPANDED PROBLEM ITEMS');
-        rows.filter((row) => problems.has(idOf(row))).forEach((row) => {
-          const id = idOf(row);
-          const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
-          const prompt = row.querySelector('[data-objective-prompt]')?.textContent?.trim() || '';
-          const options = [...row.querySelectorAll('[data-objective-option]')]
-            .map((node) => node.textContent?.trim() || '')
-            .filter(Boolean);
-          lines.push('', `${label} (${id})`, `Prompt: ${prompt || '—'}`, ...options);
-        });
+      const expanded = pendingClaims.length ? rows : rows.filter((row) => problems.has(idOf(row)));
+      if (expanded.length) {
+        lines.push('', pendingClaims.length ? 'ITEM CONTEXT FOR DIAGNOSIS / TRANSFER' : 'EXPANDED PROBLEM ITEMS');
+        expanded.forEach((row) => lines.push(...itemContext(row)));
       }
 
       lines.push('', 'ACTIVE TRANSFER CLAIMS');
-      if (!pendingClaims.length) {
-        lines.push('none');
-      } else {
-        pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
-      }
+      if (!pendingClaims.length) lines.push('none');
+      else pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
+
+      lines.push('', 'RECENT CLOSED CLAIMS · REOPEN CANDIDATES');
+      if (!reopenCandidates.length) lines.push('none');
+      else reopenCandidates.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
       lines.push('', 'REVIEW INSTRUCTION');
       if (task === 'cloze') {
-        lines.push('Treat this as one complete Cloze passage. Diagnose globally first; merge blanks that share one lexical, sentence, discourse, or task-procedure root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze. Do not create one permanent card per wrong blank.');
+        lines.push('Treat this as one complete Cloze passage. Diagnose globally first; merge blanks that share one lexical, sentence, discourse, or task-procedure root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze.');
       } else {
-        lines.push('Treat this as one complete Reading B set. Reconstruct the discourse skeleton before splitting positions. Compare the learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Attach dependent wrong placements to the primary structural error. Route lexical objects to LexicalOS and representation/discourse failures to Reading. Do not create one permanent weakness per wrong position.');
+        lines.push('Treat this as one complete Reading B set using the actual DIRECTIONS, task form, candidate inventory, and ordering skeleton when present. Diagnose the whole discourse/matching structure before splitting items. Compare the complete learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Route lexical objects to LexicalOS and representation/discourse failures to Reading.');
       }
-      lines.push('Existing ACTIVE TRANSFER CLAIMS are not automatically relevant. Update one only if this fresh material genuinely tests the same behavior. Known-item correction is repair evidence; later fresh transfer is stronger mastery evidence.');
+      lines.push('ACTIVE TRANSFER CLAIMS are not automatically relevant. Close one only if this fresh set genuinely tested the same procedure and execution was stable. RECENT CLOSED CLAIMS are reopen candidates only: reopen one only when a current fresh failure directly contradicts that exact previously closed procedure.');
       lines.push(
         '',
-        'RETURN PROTOCOL',
-        'After the review, append one machine-readable block so the learner can paste the whole Chat reply back into KianOS. Always keep repair threads at the smallest sufficient shared/local/coupled/structure scope. Create newClaims only for reusable task-specific procedure claims; do not duplicate Lexical or Reading objects. claimUpdates may reference only ACTIVE TRANSFER CLAIMS above. CLOSED requires relevant fresh evidence; if this set did not test a claim, leave it unchanged.',
+        'REPAIR / RETURN PROTOCOL',
+        'Diagnosis does not equal completed repair. First diagnose the whole passage/set, then perform the smallest useful repair with the learner in Chat and require re-execution/reconstruction. For any thread genuinely completed, set repairCompleted=true and put the learner re-execution evidence in repairEvidence. Otherwise keep repairCompleted=false.',
+        'newClaims may only reference a task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. claimUpdates may reference only claim IDs actually supplied above. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({
-          schema: 'kianos.english.objective_review_return.v1',
-          task,
-          objectId,
-          threads: [],
-          newClaims: [],
-          claimUpdates: []
-        }, null, 2),
+        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
-      return lines.join('\n');
+
+      return {
+        text: lines.join('\n'),
+        mode,
+        activeClaimIds: pendingClaims.map((claim) => String(claim.claimId || '')).filter(Boolean),
+        reopenCandidateIds: reopenCandidates.map((claim) => String(claim.claimId || '')).filter(Boolean)
+      };
     };
 
     const sync = () => {
@@ -187,7 +214,7 @@
       if (status) {
         status.textContent = mode === 'TRANSFER_CHECK'
           ? `当前有 ${activeClaimsFor(task).length} 个 pending claim；只有相关时才需要验证。`
-          : '按整篇 / 整组复盘；局部题位只作为内部证据。';
+          : '先按整篇 / 整组诊断；局部题位只作为内部证据。';
       }
     };
 
@@ -195,11 +222,21 @@
       const attempt = readAttempt();
       if (!attempt.submitted || packetMode(attempt) === 'PASS') return;
       const status = handoff?.querySelector('[data-objective-copy-status]');
+      const packet = buildPacket(attempt);
       try {
-        await navigator.clipboard.writeText(buildPacket(attempt));
-        if (status) status.textContent = packetMode(attempt) === 'TRANSFER_CHECK'
-          ? '已复制迁移验证包；让 Chat 只判断真正相关的 pending claim。'
-          : '已复制整组复盘包，直接贴到 Chat。';
+        await navigator.clipboard.writeText(packet.text);
+        try {
+          localStorage.setItem(handoffKey, JSON.stringify({
+            schema: 'kianos.english.objective_handoff.v1', task, objectId, mode: packet.mode,
+            activeClaimIds: packet.activeClaimIds, reopenCandidateIds: packet.reopenCandidateIds,
+            createdAt: new Date().toISOString()
+          }));
+          if (status) status.textContent = packet.mode === 'TRANSFER_CHECK'
+            ? '已复制迁移验证包；只判断真正相关的 claim。'
+            : '已复制整篇 / 整组复盘包；先诊断，再完成最小 repair。';
+        } catch {
+          if (status) status.textContent = '复盘包已复制，但本机握手状态保存失败；这次不要导入 claim 状态。';
+        }
       } catch {
         if (status) status.textContent = '复制失败，请稍后再试。';
       }

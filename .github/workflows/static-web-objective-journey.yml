@@ -4,13 +4,87 @@ on:
   push:
     branches: [main]
     paths:
-      - 'content/english/**'
-      - 'static-web/**'
+      - 'AGENTS.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/english/LEARNING_CONTRACT.md'
+      - 'content/english/manifest.json'
+      - 'content/english/modules/objective-learning.md'
+      - 'content/english/modules/objective-runtime.md'
+      - 'content/english/modules/objective-evidence-runtime.md'
+      - 'content/english/modules/reading-a.md'
+      - 'content/english/modules/cloze.md'
+      - 'content/english/modules/reading-b.md'
+      - 'content/english/source/question_bank.v1.json'
+      - 'content/english/source/reading_corpus.v1.json'
+      - 'content/english/source/reading_b_layout.v1.json'
+      - 'content/english/source/global_source_truth.v1.json'
+      - 'static-web/package.json'
+      - 'static-web/package-lock.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/reading*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/englishObjective.mjs'
+      - 'static-web/src/lib/englishReading.mjs'
+      - 'static-web/src/components/Objective*.astro'
+      - 'static-web/src/components/Cloze*.astro'
+      - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/pages/objective-learn.astro'
+      - 'static-web/src/pages/cloze.astro'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/cloze-answer/**'
+      - 'static-web/src/pages/reading.astro'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/reading-review/**'
+      - 'static-web/src/pages/reading-answer/**'
+      - 'static-web/src/pages/reading-b.astro'
+      - 'static-web/src/pages/reading-b/**'
+      - 'static-web/src/pages/reading-b-answer/**'
+      - 'static-web/scripts/*objective*.mjs'
+      - 'static-web/scripts/*reading-b*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   pull_request:
     paths:
-      - 'content/english/**'
-      - 'static-web/**'
+      - 'AGENTS.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/english/LEARNING_CONTRACT.md'
+      - 'content/english/manifest.json'
+      - 'content/english/modules/objective-learning.md'
+      - 'content/english/modules/objective-runtime.md'
+      - 'content/english/modules/objective-evidence-runtime.md'
+      - 'content/english/modules/reading-a.md'
+      - 'content/english/modules/cloze.md'
+      - 'content/english/modules/reading-b.md'
+      - 'content/english/source/question_bank.v1.json'
+      - 'content/english/source/reading_corpus.v1.json'
+      - 'content/english/source/reading_b_layout.v1.json'
+      - 'content/english/source/global_source_truth.v1.json'
+      - 'static-web/package.json'
+      - 'static-web/package-lock.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/reading*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/englishObjective.mjs'
+      - 'static-web/src/lib/englishReading.mjs'
+      - 'static-web/src/components/Objective*.astro'
+      - 'static-web/src/components/Cloze*.astro'
+      - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/pages/objective-learn.astro'
+      - 'static-web/src/pages/cloze.astro'
+      - 'static-web/src/pages/cloze/**'
+      - 'static-web/src/pages/cloze-answer/**'
+      - 'static-web/src/pages/reading.astro'
+      - 'static-web/src/pages/reading/**'
+      - 'static-web/src/pages/reading-review/**'
+      - 'static-web/src/pages/reading-answer/**'
+      - 'static-web/src/pages/reading-b.astro'
+      - 'static-web/src/pages/reading-b/**'
+      - 'static-web/src/pages/reading-b-answer/**'
+      - 'static-web/scripts/*objective*.mjs'
+      - 'static-web/scripts/*reading-b*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   workflow_dispatch:
 
@@ -24,7 +98,7 @@ concurrency:
 jobs:
   journey:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,15 +122,16 @@ jobs:
         working-directory: static-web
         run: npm run build
       - name: Install isolated browser acceptance tools
-        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
         working-directory: static-web
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium webkit
-      - name: Simulate learner journeys with synthetic evidence
-        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
+      - name: Simulate shared Objective learning closure
         working-directory: static-web
         run: node scripts/test-objective-journey.mjs
+      - name: Exercise all real Reading B forms
+        working-directory: static-web
+        run: node scripts/test-reading-b-forms.mjs
       - name: Save audit evidence
         if: always()
         uses: actions/upload-artifact@v4

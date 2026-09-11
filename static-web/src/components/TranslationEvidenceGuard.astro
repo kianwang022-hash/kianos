@@ -1,0 +1,38 @@
+<script>
+  const root = document.querySelector('[data-translation-runtime]');
+  if (root instanceof HTMLElement) {
+    const pending = root.querySelector('[data-pending-panel]');
+    const passedStage = root.querySelector('[data-stage="passed"]');
+
+    const activeStage = () => [...root.querySelectorAll('[data-stage]')]
+      .find((section) => section instanceof HTMLElement && !section.hidden)
+      ?.getAttribute('data-stage') || '';
+
+    const syncPendingDisclosure = () => {
+      if (!(pending instanceof HTMLElement)) return;
+      const stage = activeStage();
+      pending.style.display = stage === 'attempt' || stage === 'decision' ? 'none' : '';
+    };
+
+    if (passedStage instanceof HTMLElement) {
+      const actions = passedStage.querySelector('.translationActions');
+      if (actions && !actions.querySelector('[data-reopen-review]')) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.reopenReview = '';
+        button.textContent = '发现问题 → 回 Review';
+        button.addEventListener('click', () => {
+          const reviewButton = root.querySelector('[data-route-review]');
+          if (reviewButton instanceof HTMLButtonElement) reviewButton.click();
+        });
+        actions.prepend(button);
+      }
+    }
+
+    const observer = new MutationObserver(syncPendingDisclosure);
+    root.querySelectorAll('[data-stage]').forEach((section) => {
+      observer.observe(section, { attributes: true, attributeFilter: ['hidden'] });
+    });
+    syncPendingDisclosure();
+  }
+</script>

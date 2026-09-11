@@ -1,0 +1,298 @@
+---
+import { marked } from 'marked';
+import Base from '../layouts/Base.astro';
+import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
+
+const projection = loadWritingLearningProjection();
+if (projection.status !== 'ready') {
+  throw new Error(`WRITING_LEARNING_PROJECTION_NOT_READY:${projection.issues.join(',')}`);
+}
+
+const render = async (markdown) => await marked.parse(markdown, { gfm: true, breaks: false });
+const globalHtml = await render(projection.globalMap);
+const coreIntroHtml = await render(projection.coreIntro);
+const skillMapHtml = await render(projection.skillMap);
+const syntheticGateHtml = await render(projection.syntheticFullGate);
+const trueExamGateHtml = await render(projection.trueExamEntryGate);
+const blocks = await Promise.all(projection.blocks.map(async (block) => ({
+  ...block,
+  segments: await Promise.all(block.segments.map(async (segment) => ({
+    ...segment,
+    html: await render(segment.markdown)
+  })))
+})));
+
+const layerCards = [
+  ['TASK', 'Task Model', '先恢复真正任务'],
+  ['GENERATE', 'Content', '产生可展开内容'],
+  ['ORGANIZE', 'Structure', '让信息有顺序地推进'],
+  ['REALIZE', 'Language', '用可控英语实现意思'],
+  ['CONTROL', 'Error / Register', '压住高价值风险'],
+  ['DELIVER', 'Execution', '在时间里完整交付']
+];
+---
+<Base
+  title="Writing First Learning"
+  kicker="English · Writing · First Learning"
+  description="先建立从任务约束到英文成品的生成能力，再进入完整 synthetic output 与受保护真题。"
+  sourcePath={projection.sourcePath}
+  sourceHash={projection.sourceHash}
+  objectId="english:writing:first-learning"
+  active="home"
+>
+  <section class="writingLearnShell" data-writing-learning>
+    <header class="writingHero">
+      <div class="writingHeroCopy">
+        <span class="writingEyebrow">Cold Start · Synthetic First</span>
+        <h1>从任务到成文，不从模板开始。</h1>
+        <p>第一次学习只建立一条主链：看懂任务 → 有内容 → 组织推进 → 稳定生成英语 → 控错 → 在考试条件下交付。真题先保护起来。</p>
+      </div>
+      <aside class="writingHeroRule">
+        <strong>First Learning</strong>
+        <span>Global Map → B1–B8 → Full Synthetic Gate</span>
+        <small>会的可以跳，但不把完整资产删薄。</small>
+      </aside>
+    </header>
+
+    <div class="writingLayerChain" aria-label="Writing global generation chain">
+      {layerCards.map(([code, label, note], index) => (
+        <div class="writingLayerCard">
+          <span>{index + 1}</span>
+          <strong>{code}</strong>
+          <b>{label}</b>
+          <small>{note}</small>
+        </div>
+      ))}
+    </div>
+
+    <nav class="writingRoute" aria-label="Writing first learning route">
+      <button type="button" class="isActive" data-writing-route="global-map"><strong>Map</strong><span>先看全局</span></button>
+      {blocks.map((block) => (
+        <button type="button" data-writing-route={block.id}><strong>{block.id.toUpperCase()}</strong><span>{block.title.replace(/^B\d+｜/, '')}</span></button>
+      ))}
+      <button type="button" data-writing-route="synthetic-gate"><strong>Gate</strong><span>完整 synthetic</span></button>
+    </nav>
+
+    <main class="writingStage">
+      <section class="writingPanel" data-writing-panel="global-map">
+        <div class="writingPanelHeader">
+          <div><span>Orientation</span><h2>先建立整张地图</h2></div>
+          <p>这里先回答“写作到底在做什么”，再进入 B1–B8。不要先背信件模板、主题模板或高级句型。</p>
+        </div>
+        <article class="markdownBody" set:html={globalHtml}></article>
+        <article class="markdownBody coreIntro" set:html={coreIntroHtml}></article>
+        <footer class="writingPanelActions">
+          <span>看懂六层关系即可，不要求背术语。</span>
+          <button type="button" data-writing-route="b1">开始 B1 →</button>
+        </footer>
+      </section>
+
+      {blocks.map((block, index) => {
+        const previous = index === 0 ? 'global-map' : blocks[index - 1].id;
+        const next = index === blocks.length - 1 ? 'synthetic-gate' : blocks[index + 1].id;
+        return (
+          <section class="writingPanel" data-writing-panel={block.id} hidden>
+            <div class="writingPanelHeader compact">
+              <div><span>Core Route · {index + 1}/8</span><h2>{block.title}</h2></div>
+              <p>{index < 4 ? '公共生成主干。先学机制，再谈题型外壳。' : index < 6 ? '进入 Small / Big 两种主要输出模式。' : index === 6 ? '把能力压进考试条件。' : '用 synthetic 完整任务重新合并整条链。'}</p>
+            </div>
+
+            <div class="writingBlockFlow">
+              {block.segments.map((segment) => segment.type === 'active_check' ? (
+                <section
+                  class="writingActiveCheck"
+                  data-writing-check={segment.id}
+                  data-requires-check={segment.requires || undefined}
+                >
+                  <div class="writingCheckPrompt markdownBody" set:html={segment.html}></div>
+                  <label for={`${segment.id}-response`}>先自己生成，再继续</label>
+                  <textarea
+                    id={`${segment.id}-response`}
+                    rows="5"
+                    autocomplete="off"
+                    placeholder="写下你的 Task Brief / content atoms / development / sentence /判断。这里不保存答案文本。"
+                    data-check-response
+                  ></textarea>
+                  <div class="writingCheckActions">
+                    <span data-check-state>未锁定 · 后续提示或继续动作暂不展开</span>
+                    <button type="button" data-unlock-check disabled>锁定我的回答，继续 →</button>
+                  </div>
+                </section>
+              ) : (
+                <article
+                  class="markdownBody writingSegment"
+                  data-requires-check={segment.requires || undefined}
+                  set:html={segment.html}
+                ></article>
+              ))}
+            </div>
+
+            <footer class="writingPanelActions">
+              <button type="button" class="secondary" data-writing-route={previous}>← 上一块</button>
+              <span>{block.terminalCheckId ? '完成本 Block 的 first try 后，主线继续；上方路线仍允许主动跳过已会内容。' : '会了可以直接前进；卡住再在本 Block 停留。'}</span>
+              <button
+                type="button"
+                data-writing-route={next}
+                data-check-required-action={block.terminalCheckId || undefined}
+                disabled={Boolean(block.terminalCheckId)}
+              >{index === blocks.length - 1 ? '进入 Synthetic Gate →' : '继续下一块 →'}</button>
+            </footer>
+          </section>
+        );
+      })}
+
+      <section class="writingPanel" data-writing-panel="synthetic-gate" hidden>
+        <div class="writingPanelHeader">
+          <div><span>Cold-start exit</span><h2>先完成两篇 synthetic，再碰受保护真题</h2></div>
+          <p>P 阶段只把入口条件投影清楚；完整作文的 first plan / first draft / Chat repair / fresh transfer 会在 Whole-Essay Runtime 中承接。</p>
+        </div>
+
+        <article class="markdownBody syntheticGate" set:html={syntheticGateHtml}></article>
+
+        <div class="syntheticGateChecklist">
+          <label><input type="checkbox" data-synthetic-gate="small" /> <span><strong>Small Writing</strong><small>至少一篇完整 synthetic output，不靠整篇模板拼装。</small></span></label>
+          <label><input type="checkbox" data-synthetic-gate="big" /> <span><strong>Big Writing</strong><small>至少一篇完整 synthetic output，先自己生成 observation / interpretation / development。</small></span></label>
+        </div>
+        <p class="gateNote" data-gate-note>这两个勾只保存在当前浏览器，用来提示学习入口；它们不是 mastery evidence，也不会自动开放真题。</p>
+
+        <details class="writingLaterAsset">
+          <summary>Skill Map · 后续卡住时再用</summary>
+          <article class="markdownBody" set:html={skillMapHtml}></article>
+        </details>
+
+        <details class="writingLaterAsset" data-true-exam-gate>
+          <summary>True-Exam Entry Gate · 只看入口标准，不打开真题</summary>
+          <article class="markdownBody" set:html={trueExamGateHtml}></article>
+        </details>
+
+        <footer class="writingPanelActions">
+          <button type="button" class="secondary" data-writing-route="b8">← 回 B8</button>
+          <span>下一阶段：Whole-Essay Productive Runtime。</span>
+        </footer>
+      </section>
+    </main>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector('[data-writing-learning]');
+  if (root) {
+    const panels = [...root.querySelectorAll('[data-writing-panel]')];
+    const routeButtons = [...root.querySelectorAll('[data-writing-route]')];
+    const routeIds = panels.map((panel) => panel.getAttribute('data-writing-panel')).filter(Boolean);
+    const positionKey = 'kianos:writing:first-learning:position:v1';
+    const syntheticKey = 'kianos:writing:first-learning:synthetic-gate:v1';
+    const unlocked = new Set();
+
+    function syncCheckGates() {
+      root.querySelectorAll('[data-requires-check]').forEach((node) => {
+        const required = node.getAttribute('data-requires-check');
+        node.hidden = Boolean(required) && !unlocked.has(required);
+      });
+      root.querySelectorAll('[data-check-required-action]').forEach((node) => {
+        if (!(node instanceof HTMLButtonElement)) return;
+        const required = node.getAttribute('data-check-required-action');
+        node.disabled = Boolean(required) && !unlocked.has(required);
+      });
+    }
+
+    function showPanel(id, { updateHash = true } = {}) {
+      const target = routeIds.includes(id) ? id : 'global-map';
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-writing-panel') !== target;
+      });
+      routeButtons.forEach((button) => {
+        button.classList.toggle('isActive', button.getAttribute('data-writing-route') === target);
+      });
+      try { localStorage.setItem(positionKey, target); } catch {}
+      if (updateHash) history.replaceState(null, '', `#${target}`);
+      syncCheckGates();
+      root.querySelector(`[data-writing-panel="${target}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    routeButtons.forEach((button) => {
+      button.addEventListener('click', () => showPanel(button.getAttribute('data-writing-route') || 'global-map'));
+    });
+
+    root.querySelectorAll('[data-writing-check]').forEach((card) => {
+      const response = card.querySelector('[data-check-response]');
+      const unlockButton = card.querySelector('[data-unlock-check]');
+      const state = card.querySelector('[data-check-state]');
+      const checkId = card.getAttribute('data-writing-check');
+      if (!(response instanceof HTMLTextAreaElement) || !(unlockButton instanceof HTMLButtonElement) || !checkId) return;
+      response.addEventListener('input', () => {
+        unlockButton.disabled = response.value.trim().length === 0;
+      });
+      unlockButton.addEventListener('click', () => {
+        if (!response.value.trim()) return;
+        unlocked.add(checkId);
+        response.readOnly = true;
+        unlockButton.disabled = true;
+        unlockButton.textContent = '已锁定';
+        if (state) state.textContent = '已完成 first try · 后续内容 / 继续动作已解锁';
+        syncCheckGates();
+      });
+    });
+
+    const syntheticBoxes = [...root.querySelectorAll('[data-synthetic-gate]')].filter((node) => node instanceof HTMLInputElement);
+    try {
+      const saved = JSON.parse(localStorage.getItem(syntheticKey) || '{}');
+      syntheticBoxes.forEach((box) => { box.checked = Boolean(saved[box.dataset.syntheticGate || '']); });
+    } catch {}
+    syntheticBoxes.forEach((box) => {
+      box.addEventListener('change', () => {
+        const state = Object.fromEntries(syntheticBoxes.map((item) => [item.dataset.syntheticGate || '', item.checked]));
+        try { localStorage.setItem(syntheticKey, JSON.stringify(state)); } catch {}
+      });
+    });
+
+    const fromHash = location.hash.replace(/^#/, '');
+    let saved = '';
+    try { saved = localStorage.getItem(positionKey) || ''; } catch {}
+    showPanel(routeIds.includes(fromHash) ? fromHash : routeIds.includes(saved) ? saved : 'global-map', { updateHash: false });
+  }
+</script>
+
+<style>
+  .writingLearnShell{max-width:82rem;margin:0 auto;display:grid;gap:14px}
+  .writingHero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(15rem,.7fr);gap:14px;padding:24px 26px;border:1px solid var(--study-line);border-radius:18px;background:#fff;box-shadow:var(--study-shadow)}
+  .writingHeroCopy{display:grid;gap:8px}.writingEyebrow{font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--study-green)}
+  .writingHero h1{margin:0;font-size:30px;line-height:1.15;letter-spacing:-.025em}.writingHero p{max-width:54rem;margin:0;color:#42544c;font-size:13px;line-height:1.75}
+  .writingHeroRule{display:grid;align-content:start;gap:6px;padding:15px 16px;border-radius:13px;background:var(--study-green-soft);border:1px solid var(--study-line)}
+  .writingHeroRule strong{font-size:11px;color:var(--study-green)}.writingHeroRule span{font-size:13px;font-weight:850;line-height:1.45}.writingHeroRule small{font-size:10px;line-height:1.55;color:var(--study-muted)}
+
+  .writingLayerChain{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+  .writingLayerCard{min-width:0;display:grid;gap:3px;padding:11px 12px;border:1px solid var(--study-line);border-radius:12px;background:#fff}
+  .writingLayerCard>span{font-size:9px;color:var(--study-faint)}.writingLayerCard>strong{font-size:10px;color:var(--study-green);letter-spacing:.05em}.writingLayerCard>b{font-size:11px}.writingLayerCard>small{font-size:9px;line-height:1.4;color:var(--study-muted)}
+
+  .writingRoute{position:sticky;top:68px;z-index:4;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px;padding:7px;border:1px solid var(--study-line);border-radius:13px;background:rgba(255,255,255,.96);box-shadow:var(--study-shadow);backdrop-filter:blur(10px)}
+  .writingRoute button{min-width:0;display:grid;gap:2px;padding:8px 6px;border:0;border-radius:8px;background:transparent;color:inherit;cursor:pointer;text-align:center}
+  .writingRoute button:hover,.writingRoute button.isActive{background:var(--study-green-soft)}.writingRoute strong{font-size:10px}.writingRoute span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:8.5px;color:var(--study-muted)}
+
+  .writingStage{min-width:0}.writingPanel{scroll-margin-top:130px;padding:26px 32px;border:1px solid var(--study-line);border-radius:17px;background:#fff;box-shadow:var(--study-shadow)}
+  .writingPanel[hidden]{display:none}.writingPanelHeader{display:grid;grid-template-columns:minmax(0,1fr) minmax(15rem,.7fr);gap:20px;align-items:start;padding-bottom:18px;margin-bottom:12px;border-bottom:1px solid var(--study-line)}
+  .writingPanelHeader>div{display:grid;gap:4px}.writingPanelHeader span{font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--study-green)}.writingPanelHeader h2{margin:0;font-size:24px;line-height:1.25}
+  .writingPanelHeader p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.65}.writingPanelHeader.compact h2{font-size:21px}
+  .coreIntro{margin-top:22px;padding-top:18px;border-top:1px solid var(--study-line)}
+  .writingBlockFlow{display:grid;gap:0}
+
+  .writingActiveCheck{display:grid;gap:10px;margin:18px 0;padding:18px;border:1px solid #cbded3;border-radius:14px;background:var(--study-green-soft)}
+  .writingActiveCheck[hidden]{display:none}.writingCheckPrompt :global(h3){margin-top:0!important;color:var(--study-green)}
+  .writingActiveCheck>label{font-size:10px;font-weight:850;color:#31463d}.writingActiveCheck textarea{width:100%;resize:vertical;min-height:7rem;box-sizing:border-box;padding:12px 13px;border:1px solid #bfd0c6;border-radius:10px;background:#fff;color:#1d2b25;font:inherit;font-size:12px;line-height:1.65;outline:none}.writingActiveCheck textarea:focus{border-color:var(--study-green)}
+  .writingCheckActions{display:flex;justify-content:space-between;align-items:center;gap:10px}.writingCheckActions span{font-size:9.5px;color:var(--study-muted)}
+  .writingCheckActions button,.writingPanelActions button{padding:8px 11px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font:inherit;font-size:10px;font-weight:850;cursor:pointer}.writingCheckActions button:disabled,.writingPanelActions button:disabled{opacity:.38;cursor:not-allowed}
+
+  .writingSegment[hidden]{display:none}.writingPanelActions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:24px;padding-top:14px;border-top:1px solid var(--study-line)}
+  .writingPanelActions span{flex:1;text-align:center;font-size:9.5px;color:var(--study-muted)}.writingPanelActions button.secondary{background:#fff;color:var(--study-green)}
+
+  .syntheticGateChecklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}.syntheticGateChecklist label{display:flex;gap:10px;align-items:flex-start;padding:14px;border:1px solid var(--study-line);border-radius:12px;background:#fff;cursor:pointer}.syntheticGateChecklist input{margin-top:3px}.syntheticGateChecklist span{display:grid;gap:3px}.syntheticGateChecklist strong{font-size:11px}.syntheticGateChecklist small{font-size:9.5px;line-height:1.55;color:var(--study-muted)}
+  .gateNote{margin:0 0 16px;padding:10px 12px;border-radius:9px;background:#f7f9f7;color:var(--study-muted);font-size:9.5px;line-height:1.55}.writingLaterAsset{margin-top:10px;border:1px solid var(--study-line);border-radius:12px;background:#fbfcfb}.writingLaterAsset summary{cursor:pointer;padding:13px 14px;font-size:11px;font-weight:850}.writingLaterAsset>.markdownBody{padding:0 16px 16px}
+
+  .markdownBody :global(h1){margin:2.7rem 0 1rem;font-size:25px;line-height:1.28;letter-spacing:-.02em}.markdownBody :global(h1:first-child){margin-top:.3rem}.markdownBody :global(h2){margin:2rem 0 .7rem;font-size:18px;line-height:1.35}.markdownBody :global(h3){margin:1.35rem 0 .5rem;font-size:14px}
+  .markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.83;color:#283830}.markdownBody :global(p){margin:.6rem 0}.markdownBody :global(ul),.markdownBody :global(ol){padding-left:1.35rem}
+  .markdownBody :global(blockquote){margin:.9rem 0;padding:10px 13px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0}.markdownBody :global(blockquote p){margin:.2rem 0;color:#20332a}.markdownBody :global(strong){color:#17261f}
+  .markdownBody :global(pre){overflow:auto;margin:.9rem 0;padding:13px 15px;border:1px solid var(--study-line);border-radius:10px;background:#f7f9f7;font-size:11px;line-height:1.6}.markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2rem 0}
+
+  @media(max-width:980px){.writingHero,.writingPanelHeader{grid-template-columns:1fr}.writingLayerChain{grid-template-columns:repeat(3,minmax(0,1fr))}.writingRoute{position:static;grid-template-columns:repeat(5,minmax(0,1fr))}.writingPanel{padding:22px 20px}}
+  @media(max-width:620px){.writingHero{padding:19px 17px}.writingHero h1{font-size:25px}.writingLayerChain{grid-template-columns:repeat(2,minmax(0,1fr))}.writingRoute{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.writingRoute button:first-child,.writingRoute button:last-child{grid-column:span 2}.writingPanel{padding:18px 14px}.writingPanelHeader h2{font-size:20px}.writingCheckActions,.writingPanelActions{align-items:stretch;flex-direction:column}.writingPanelActions span{order:-1}.writingCheckActions button,.writingPanelActions button{width:100%}.syntheticGateChecklist{grid-template-columns:1fr}.markdownBody :global(h1){font-size:22px}.markdownBody :global(h2){font-size:17px}.markdownBody :global(p),.markdownBody :global(li){font-size:12.7px;line-height:1.75}}
+</style>

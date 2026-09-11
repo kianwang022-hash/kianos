@@ -1,0 +1,66 @@
+name: Politics Source Shards
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/politics/tools/build-source-shards.mjs'
+      - 'content/politics/source/xiao_2027_questions.jsonl'
+      - 'content/politics/source/source_node_registry.v2.jsonl'
+      - '.github/workflows/politics-source-shards.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: politics-source-shards-main
+  cancel-in-progress: false
+
+jobs:
+  generate-and-reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate deterministic Politics source shards from latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          for attempt in 1 2 3; do
+            echo "migration attempt ${attempt}"
+            git fetch origin main
+            git reset --hard origin/main
+
+            node content/politics/tools/build-source-shards.mjs --write
+            node content/politics/tools/build-source-shards.mjs --check
+
+            git add \
+              content/politics/source/questions \
+              content/politics/source/nodes \
+              content/politics/source/source-shard-audit.json
+
+            if git diff --cached --quiet; then
+              echo 'Politics source shards already current.'
+              exit 0
+            fi
+
+            git commit -m 'politics: materialize deterministic source shards'
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            echo 'main moved during migration; rebuilding from newest main'
+            sleep 2
+          done
+
+          echo 'Could not publish Politics source shards after 3 fresh-main attempts.' >&2
+          exit 1

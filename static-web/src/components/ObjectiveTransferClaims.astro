@@ -7,16 +7,15 @@ const { task = '' } = Astro.props;
   const STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
   const RETURN_SCHEMA = 'kianos.english.objective_review_return.v1';
   const RETURN_MARKER = 'KIANOS_OBJECTIVE_RETURN_V1';
+  const HANDOFF_SCHEMA = 'kianos.english.objective_handoff.v1';
   const VALID_TASKS = new Set(['cloze', 'reading_a', 'reading_b']);
   const VALID_SCOPES = new Set(['local', 'shared', 'coupled', 'structure']);
   const VALID_ROUTES = new Set(['lexical', 'reading', 'cloze', 'reading_a', 'reading_b']);
+  const VALID_UPDATE_STATES = new Set(['TRANSFER_PENDING', 'CLOSED', 'REOPENED']);
 
   const readJson = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
     catch { return fallback; }
-  };
-  const writeJson = (key, value) => {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
   };
   const now = () => new Date().toISOString();
   const makeId = (task, seed = '') => {
@@ -28,8 +27,8 @@ const { task = '' } = Astro.props;
     claims: Array.isArray(value.claims) ? value.claims : []
   });
   const readStore = () => normalizeStore(readJson(STORE_KEY, {}));
-  const writeStore = (value) => writeJson(STORE_KEY, normalizeStore(value));
   const activeClaimsFor = (task) => readStore().claims.filter((claim) => claim?.task === task && claim?.status === 'TRANSFER_PENDING');
+  const normalizedStatement = (value) => String(value || '').trim().replace(/\s+/g, ' ').toLowerCase();
 
   const extractReturn = (text) => {
     const raw = String(text || '').trim();
@@ -67,7 +66,9 @@ const { task = '' } = Astro.props;
       scope,
       itemIds: Array.isArray(thread.itemIds) ? thread.itemIds.map(String).filter(Boolean).slice(0, 50) : [],
       route,
-      summary: String(thread.summary || '').trim().slice(0, 1200)
+      summary: String(thread.summary || '').trim().slice(0, 1200),
+      repairCompleted: thread.repairCompleted === true,
+      repairEvidence: String(thread.repairEvidence || '').trim().slice(0, 1600)
     };
   };
 
@@ -91,12 +92,17 @@ const { task = '' } = Astro.props;
       ? `kianos-reading-attempt-v1:${objectId}`
       : String(root.getAttribute('data-objective-storage-key') || '');
     const reviewKey = `kianos-english-objective-review-return-v1:${task}:${objectId}`;
+    const handoffKey = `kianos-english-objective-handoff-v1:${task}:${objectId}`;
     const resultSummary = readingMode
       ? root.querySelector('.portedReadingResultSummary')
       : root.querySelector('[data-objective-result-summary]');
     if (!attemptKey || !(resultSummary instanceof HTMLElement)) return;
 
     const readAttempt = () => readJson(attemptKey, {});
+    const readHandoff = () => {
+      const value = readJson(handoffKey, null);
+      return value?.schema === HANDOFF_SCHEMA && value?.task === task && value?.objectId === objectId ? value : null;
+    };
     const problemCount = (attempt) => {
       const uncertain = new Set(attempt?.uncertain || []);
       return Object.keys(attempt?.results || {}).filter((id) =>
@@ -146,17 +152,17 @@ const { task = '' } = Astro.props;
       const list = node.querySelector('[data-transfer-claims]');
       if (title) {
         title.textContent = savedReturn
-          ? `Chat 复盘已回写 · ${savedReturn.threads?.length || 0} thread`
+          ? `Chat 返回已保存 · ${savedReturn.threads?.length || 0} thread`
           : problems
             ? '整篇 / 整组诊断后回写'
             : '待迁移能力验证';
       }
       if (summary) {
         summary.textContent = savedReturn
-          ? `本次 review return 已保存到本机。当前 ${pending.length} 个 task-specific claim 仍待新材料验证。`
+          ? `本次返回已保存到本机。当前 ${pending.length} 个 task-specific claim 仍待新材料验证。`
           : problems
-            ? 'Chat 先按整篇 / 整组聚类根因；网页只保存真正需要未来验证的 task-specific claim。'
-            : `这次是 clean attempt，但有 ${pending.length} 个 pending claim；只有真正相关时才需要拿这篇做迁移验证。`;
+            ? '先整篇 / 整组诊断并完成真正的最小 repair；只有 repair 后仍值得验证的 task-specific procedure 才进入 pending。'
+            : `这次是 clean attempt，但有 ${pending.length} 个 pending claim；只有这份新材料真的测到了它，才更新状态。`;
       }
       if (list) {
         list.replaceChildren();
@@ -178,11 +184,30 @@ const { task = '' } = Astro.props;
       }
     };
 
+    const persistPair = (nextStore, nextReview) => {
+      const oldStore = localStorage.getItem(STORE_KEY);
+      const oldReview = localStorage.getItem(reviewKey);
+      try {
+        localStorage.setItem(STORE_KEY, JSON.stringify(normalizeStore(nextStore)));
+        localStorage.setItem(reviewKey, JSON.stringify(nextReview));
+        return true;
+      } catch {
+        try {
+          if (oldStore === null) localStorage.removeItem(STORE_KEY);
+          else localStorage.setItem(STORE_KEY, oldStore);
+          if (oldReview === null) localStorage.removeItem(reviewKey);
+          else localStorage.setItem(reviewKey, oldReview);
+        } catch {}
+        return false;
+      }
+    };
+
     const applyReturn = () => {
       const node = ensurePanel();
       const input = node.querySelector('[data-transfer-input]');
       const status = node.querySelector('[data-transfer-status]');
-      const payload = extractReturn(input?.value || '');
+      const rawInput = input?.value || '';
+      const payload = extractReturn(rawInput);
       if (!payload) {
         if (status) status.textContent = `没有读到 ${RETURN_MARKER} / ${RETURN_SCHEMA}`;
         return;
@@ -192,76 +217,147 @@ const { task = '' } = Astro.props;
         return;
       }
 
+      const attempt = readAttempt();
+      if (!attempt?.submitted) {
+        if (status) status.textContent = '当前作答尚未提交，不能导入学习状态。';
+        return;
+      }
+      const handoff = readHandoff();
+      const allowedActive = new Set(Array.isArray(handoff?.activeClaimIds) ? handoff.activeClaimIds.map(String) : []);
+      const allowedReopen = new Set(Array.isArray(handoff?.reopenCandidateIds) ? handoff.reopenCandidateIds.map(String) : []);
+      const currentProblems = problemCount(attempt);
+
       const threads = (Array.isArray(payload.threads) ? payload.threads : [])
         .map(normalizeThread)
         .filter(Boolean);
       const store = readStore();
-      let claims = [...store.claims];
+      let claims = store.claims.map((claim) => ({ ...claim }));
       const importedAt = now();
+      let acceptedUpdates = 0;
+      let acceptedClaims = 0;
+      let skipped = 0;
 
       (Array.isArray(payload.claimUpdates) ? payload.claimUpdates : []).forEach((update) => {
-        const claimId = String(update?.claimId || '');
-        if (!claimId) return;
+        const claimId = String(update?.claimId || '').trim();
+        const requested = String(update?.status || '').toUpperCase();
+        const evidence = String(update?.evidence || '').trim().slice(0, 1600);
+        if (!claimId || !VALID_UPDATE_STATES.has(requested)) { skipped += 1; return; }
         const index = claims.findIndex((claim) => claim?.claimId === claimId && claim?.task === task);
-        if (index < 0) return;
-        const requested = String(update?.status || 'TRANSFER_PENDING').toUpperCase();
-        const nextStatus = requested === 'CLOSED' ? 'CLOSED' : 'TRANSFER_PENDING';
-        const event = {
-          objectId,
-          decision: requested === 'REOPENED' ? 'REOPENED' : nextStatus,
-          evidence: String(update?.evidence || '').trim().slice(0, 1200),
-          at: importedAt
-        };
-        const history = [...(Array.isArray(claims[index].history) ? claims[index].history : []), event].slice(-12);
-        claims[index] = {
-          ...claims[index],
-          status: nextStatus,
-          history,
-          updatedAt: importedAt
-        };
-      });
+        if (index < 0) { skipped += 1; return; }
+        const claim = claims[index];
+        const freshObject = String(claim?.sourceObjectId || '') !== objectId;
 
-      (Array.isArray(payload.newClaims) ? payload.newClaims : []).forEach((claim, index) => {
-        const statement = String(claim?.statement || '').trim();
-        if (!statement) return;
-        const sourceThreadId = String(claim?.sourceThreadId || '');
-        const sourceThread = threads.find((thread) => thread.threadId === sourceThreadId) || null;
-        if (sourceThread && sourceThread.route !== task) return;
-        const claimId = String(claim?.claimId || '').trim() || makeId(task, objectId);
-        const duplicate = claims.find((item) => item?.claimId === claimId);
-        if (duplicate) {
-          duplicate.statement = statement.slice(0, 1200);
-          duplicate.status = 'TRANSFER_PENDING';
-          duplicate.updatedAt = importedAt;
+        if (requested === 'CLOSED') {
+          if (!handoff || !allowedActive.has(claimId) || claim.status !== 'TRANSFER_PENDING' || !freshObject || !evidence) { skipped += 1; return; }
+          claims[index] = {
+            ...claim,
+            status: 'CLOSED',
+            history: [...(Array.isArray(claim.history) ? claim.history : []), { objectId, decision: 'CLOSED', evidence, at: importedAt }].slice(-20),
+            updatedAt: importedAt
+          };
+          acceptedUpdates += 1;
           return;
         }
+
+        if (requested === 'REOPENED') {
+          if (!handoff || !allowedReopen.has(claimId) || claim.status !== 'CLOSED' || !freshObject || currentProblems <= 0 || !evidence) { skipped += 1; return; }
+          claims[index] = {
+            ...claim,
+            status: 'TRANSFER_PENDING',
+            history: [...(Array.isArray(claim.history) ? claim.history : []), { objectId, decision: 'REOPENED', evidence, at: importedAt }].slice(-20),
+            updatedAt: importedAt
+          };
+          acceptedUpdates += 1;
+          return;
+        }
+
+        if (!handoff || !allowedActive.has(claimId) || claim.status !== 'TRANSFER_PENDING') { skipped += 1; return; }
+        claims[index] = {
+          ...claim,
+          history: evidence
+            ? [...(Array.isArray(claim.history) ? claim.history : []), { objectId, decision: 'TRANSFER_PENDING', evidence, at: importedAt }].slice(-20)
+            : claim.history,
+          updatedAt: importedAt
+        };
+        acceptedUpdates += 1;
+      });
+
+      (Array.isArray(payload.newClaims) ? payload.newClaims : []).forEach((newClaim) => {
+        const statement = String(newClaim?.statement || '').trim().slice(0, 1200);
+        const sourceThreadId = String(newClaim?.sourceThreadId || '').trim();
+        const sourceThread = threads.find((thread) => thread.threadId === sourceThreadId) || null;
+        if (!statement || !sourceThread || sourceThread.route !== task || !sourceThread.repairCompleted || !sourceThread.repairEvidence) {
+          skipped += 1;
+          return;
+        }
+
+        const explicitId = String(newClaim?.claimId || '').trim();
+        const semanticKey = `${task}\u0000${objectId}\u0000${sourceThreadId}\u0000${normalizedStatement(statement)}`;
+        const duplicateIndex = claims.findIndex((claim) => {
+          if (explicitId && String(claim?.claimId || '') === explicitId) return true;
+          const existingKey = `${claim?.task || ''}\u0000${claim?.sourceObjectId || ''}\u0000${claim?.sourceThreadId || ''}\u0000${normalizedStatement(claim?.statement)}`;
+          return existingKey === semanticKey;
+        });
+
+        if (duplicateIndex >= 0) {
+          const existing = claims[duplicateIndex];
+          if (existing.status === 'TRANSFER_PENDING') {
+            claims[duplicateIndex] = {
+              ...existing,
+              statement,
+              sourceItemIds: sourceThread.itemIds,
+              repairEvidence: sourceThread.repairEvidence,
+              updatedAt: importedAt
+            };
+            acceptedClaims += 1;
+          } else {
+            skipped += 1;
+          }
+          return;
+        }
+
         claims.push({
-          claimId,
+          claimId: explicitId || makeId(task, objectId),
           task,
-          statement: statement.slice(0, 1200),
+          statement,
           status: 'TRANSFER_PENDING',
           sourceObjectId: objectId,
           sourceThreadId,
-          sourceItemIds: sourceThread?.itemIds || [],
+          sourceItemIds: sourceThread.itemIds,
+          repairEvidence: sourceThread.repairEvidence,
           createdAt: importedAt,
           updatedAt: importedAt,
           history: []
         });
+        acceptedClaims += 1;
       });
 
-      claims = claims.slice(-240);
-      writeStore({ version: 1, claims });
-      writeJson(reviewKey, {
+      const activeClaims = claims.filter((claim) => claim?.status === 'TRANSFER_PENDING');
+      const inactiveClaims = claims
+        .filter((claim) => claim?.status !== 'TRANSFER_PENDING')
+        .sort((a, b) => String(b?.updatedAt || '').localeCompare(String(a?.updatedAt || '')))
+        .slice(0, 240);
+      claims = [...inactiveClaims, ...activeClaims];
+
+      const nextReview = {
         schema: RETURN_SCHEMA,
         task,
         objectId,
         threads,
-        importedAt
-      });
+        importedAt,
+        acceptedUpdates,
+        acceptedClaims,
+        skipped
+      };
+      if (!persistPair({ version: 1, claims }, nextReview)) {
+        if (status) status.textContent = '本机保存失败，未完成导入；你的粘贴内容已保留，可以重试。';
+        return;
+      }
+
       if (input) input.value = '';
       const importBox = node.querySelector('[data-transfer-import]');
       if (importBox instanceof HTMLElement) importBox.hidden = true;
-      if (status) status.textContent = '已导入；只保留 task-specific pending claim，Lexical / Reading 路由不复制进本队列。';
+      if (status) status.textContent = `已导入：${acceptedClaims} 个新 pending claim，${acceptedUpdates} 个状态更新；${skipped} 项因证据不足或不匹配被忽略。`;
       root.dispatchEvent(new CustomEvent('kianos:objective-transfer-updated', { bubbles: true }));
       render();
     };
@@ -284,7 +380,7 @@ const { task = '' } = Astro.props;
       root.addEventListener('click', () => window.setTimeout(render, 0));
     }
     window.addEventListener('storage', (event) => {
-      if (event.key === STORE_KEY || event.key === reviewKey) render();
+      if (event.key === STORE_KEY || event.key === reviewKey || event.key === handoffKey) render();
     });
     render();
   });

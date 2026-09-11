@@ -1,14 +1,14 @@
 # KianOS Learning Acceptance Standard
 
-This document defines the repository-wide acceptance standard for KianOS learning lanes and learner-facing sub-lanes.
+This document defines the repository-wide acceptance standard for KianOS learning lanes and independently entered learner-facing sub-lanes.
 
 It answers one question:
 
-> **When may we truthfully say that a subject/module is ready for the learner, and when may KianOS as a whole be considered closed enough for real use?**
+> **When may we truthfully say that a module is ready for the learner, and when has real learner use actually validated it?**
 
-This is not a UI checklist and not an engineering completion checklist. A content file existing, a page rendering, a build passing, or a question bank being complete are each useful evidence, but none of them alone proves a learning system is closed.
+This is not a UI checklist and not an engineering-completion checklist. A content file existing, a page rendering, a build passing, a source inventory being complete, or a simulated journey succeeding may all be useful evidence, but none of them alone proves a learning system is closed.
 
-The governing sequence is:
+The governing direction is:
 
 ```text
 Source Truth
@@ -24,6 +24,8 @@ Source Truth
 → Evidence-based Revision
 ```
 
+This is a **causal direction, not a one-way waterfall**. Projection or Runtime may expose a real Knowledge/Learning defect and send the module back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
+
 After core modules are individually ready, KianOS enters a separate final layer:
 
 ```text
@@ -33,17 +35,15 @@ Module Acceptance
 → Learner whole-system use
 ```
 
-The Home layer is therefore a **final integration and routing layer**, not a place to compensate for unfinished domain learning models.
+Home is therefore a final integration/routing layer, not a place to compensate for unfinished domain learning models.
 
 ---
 
 # 1｜Two acceptance layers
 
-KianOS uses two different acceptance layers.
-
 ## 1.1 Module Acceptance
 
-Every first-class subject lane or independently entered learner sub-lane must be accepted on its own cognition and learning path before the Home layer may treat it as learner-ready.
+Every first-class subject lane or independently entered learner sub-lane must be accepted on its own cognition and learning path before Home may treat it as learner-ready.
 
 Examples include:
 
@@ -56,7 +56,7 @@ A domain-level page or global Home satisfying a capability does **not** automati
 
 ## 1.2 Global / Home Acceptance
 
-Once the core modules are individually mature enough, KianOS must pass a separate system-level acceptance focused on:
+Once core modules are mature enough, KianOS must pass a separate system-level acceptance focused on:
 
 - navigation;
 - private learner state;
@@ -74,7 +74,7 @@ Home must integrate mature modules without flattening their cognition into one s
 
 # 2｜Module acceptance gates: S / K / L / P / R / E / U
 
-Every module should be audited with seven gates.
+Every module is audited with seven gates:
 
 ```text
 S｜Source
@@ -86,7 +86,64 @@ E｜Evidence
 U｜User Validation
 ```
 
-A vague statement such as “80% done” or “closed” should be replaced with an explicit gate status whenever precision matters.
+Do not replace these with vague language such as “80% done”, “basically closed”, or “build is green”.
+
+## 2.1 Gate status vocabulary
+
+Use these statuses when precision matters:
+
+```text
+PASS
+PASS_WITH_DEBT
+BLOCKED
+UNTESTED
+```
+
+### PASS
+
+The intended learner journey has no known acceptance defect at this gate for the audited scope.
+
+### PASS_WITH_DEBT
+
+The gate is usable for the intended journey, but a **non-blocking** improvement remains. The debt must be named and must not alter the claimed learning behavior.
+
+Examples:
+
+- a label could be clearer but the next action is still unambiguous;
+- a mobile spacing issue is mildly inconvenient but does not hide content or change the learning action;
+- a reference section could be easier to navigate but first learning and repair are unaffected.
+
+`PASS_WITH_DEBT` must not be used to wave through a real learner-flow defect.
+
+### BLOCKED
+
+A known defect can change learning semantics, prevent the intended action, leak protected evidence, manufacture debt/mastery, lose required evidence, or make the learner unable to complete the claimed path correctly.
+
+Examples:
+
+- a required task instruction is missing;
+- formal answers leak before a clean attempt;
+- whole-set cognition is projected as isolated items;
+- diagnosis is recorded as mastery;
+- a repair/transfer state exists only on paper and cannot be executed;
+- return from Chat can mutate the wrong learner object.
+
+### UNTESTED
+
+The gate/path has not received enough evidence to judge. `UNTESTED` is not failure, but it cannot be described as PASS.
+
+## 2.2 Blocker vs improvement
+
+Acceptance should be strict about **learning blockers**, not perfectionistic about every possible improvement.
+
+Ask:
+
+> **If this issue remains, can the learner still execute the intended path with correct semantics and preserved evidence?**
+
+- **No** → blocker; the relevant gate is BLOCKED.
+- **Yes, with only bounded friction/polish debt** → it may be PASS_WITH_DEBT.
+
+Do not keep a mature module permanently “unfinished” because more polish can be imagined. Equally, do not downgrade a real learning-flow defect into “polish” just to reach PASS.
 
 ---
 
@@ -101,43 +158,38 @@ Check:
 - stable object identity exists where needed;
 - supplied/original passages, questions, options, official answers, lectures, or other source facts are preserved faithfully;
 - source gaps are explicit rather than silently fabricated;
-- `main@HEAD` Current is used for normal operation;
+- normal operation uses current `main@HEAD`;
 - historical/legacy material is not a hidden runtime fallback;
 - provenance is distinguishable from Current learning semantics;
 - protected unseen material can remain protected.
 
 Source closure does **not** imply learning closure.
 
-Examples:
-
-- “376 official circulation questions are exactly scoped” may pass Source for that question inventory while the circulation first-learning runtime is still incomplete.
-- “all Translation sets resolve from Current” may pass Source while the productive runtime still lacks PASS or transfer closure.
-
 ---
 
 ## K｜Knowledge — Is the canonical learning asset correct and complete enough?
 
-Knowledge is about the domain model itself, before UI.
+Knowledge concerns the domain/ability model before UI.
 
 Check:
 
 - canonical owner/path is clear;
-- the content hierarchy reflects the underlying capability or knowledge structure, not merely a teacher’s chapter order or a question-type taxonomy;
-- stable high-value concepts are actually taught, not only named;
+- hierarchy reflects the real capability/knowledge structure rather than merely teacher order or question taxonomy;
+- stable high-value concepts are actually taught, not merely named;
 - important mechanisms, relations, boundaries, and execution rules are present;
 - duplicate semantic owners are avoided;
-- another ability owner is referenced/routed rather than copied when appropriate;
+- other ability owners are routed to rather than copied when appropriate;
 - examples/drills support the intended concept;
-- the asset is complete enough for first learning without trying to become an encyclopedia;
-- rare boundaries and personalized edge cases remain adaptive Chat territory unless repeated evidence justifies canonical treatment.
+- the asset is sufficient for first learning without becoming an encyclopedia;
+- rare/personalized edge cases remain adaptive Chat territory unless repeated evidence justifies canonical treatment.
 
-The canonical content should still make sense if the webpage were removed.
+The canonical content should still make sense if the webpage disappeared.
 
-> **If the team is still asking “what should this section actually teach?” during UI construction, Knowledge is not closed yet.**
+> **If the team is still asking “what should this section actually teach?” while constructing UI, Knowledge is not closed.**
 
 ---
 
-## L｜Learning — Does the path match how this learner should actually form the ability?
+## L｜Learning — Does the path match how the learner should actually form the ability?
 
 Correct content can still be taught in the wrong order.
 
@@ -149,8 +201,8 @@ Learning acceptance asks:
 - What can be skipped safely?
 - What is the natural learner-facing unit?
 - When should active recall/output occur?
-- When should official questions or fresh tasks enter?
-- What should Chat do, and what should the static asset teach by itself?
+- When should official/fresh tasks enter?
+- What should static assets teach and what should Chat adapt?
 - What counts as real evidence of learning?
 
 The path must be calibrated to the learner’s real state rather than inferred from engineering progress.
@@ -159,7 +211,7 @@ The path must be calibrated to the learner’s real state rather than inferred f
 
 ```text
 Shared Current / continuation
-= what the product or repository is building / validating
+= what the product/repository is building or validating
 
 Private Learner State
 = what the learner has actually studied / attempted / passed / deferred
@@ -169,46 +221,44 @@ Never infer personal learning progress from an engineering cursor.
 
 Examples of forbidden inference:
 
-- repository next action is “validate A1 System Exit” → therefore learner should do System Recall;
-- runtime supports a final test → therefore learner has reached final test;
+- repository next action is “validate System Exit” → therefore learner should do System Recall;
+- runtime supports a final test → therefore learner has reached it;
 - a module page exists → therefore its content should be shown now.
 
-The correct next learner action comes from current conversation evidence and/or private learner state, not shared engineering state.
+The next learner action comes from conversation evidence and/or private learner state.
 
 ### Learning order must be causally sensible
 
 Examples:
 
-- Xizong first learning should not ask for System Recall before System/Block learning exists in the learner.
-- Translation should not force Diagnosis when a clean attempt is stable and confident.
-- Writing should not burn protected true exams merely to teach cold-start mechanics if synthetic material can teach the mechanism first.
+- Xizong first learning should not ask for System Recall before System/Block learning exists in the learner;
+- Translation should not force Diagnosis when a clean attempt is stable and confident;
+- Writing should not burn protected true exams merely to teach cold-start mechanics when synthetic material can teach the mechanism;
 - Objective English review should remain passage/set-level even if internal evidence is item-level.
 
 ---
 
 ## P｜Projection — Does the learner-facing display serve the learning path?
 
-Projection begins only after Knowledge and Learning are sufficiently clear.
-
 > **Content structure ≠ page structure.**
 
-A canonical asset may contain Global Map, Core Blocks, Skill Map, deep reference content, runtime rules, and material-routing notes. The learner does not necessarily need to see all of those at once.
+A canonical asset may contain Global Map, Core Blocks, Skill Map, deep reference content, runtime rules, and routing notes. The learner does not necessarily need to see all of these at once.
 
 Check:
 
 - first learning foregrounds the correct path;
-- complete content is skippable where learner proficiency makes sections unnecessary;
+- complete content is skippable when proficiency makes sections unnecessary;
 - progressive disclosure protects clean attempts and lowers visual load;
-- navigation supports natural jumps without turning a Skill Map into a compulsory curriculum;
-- long reference/runtime sections can be demoted, folded, or moved out of the first-learning reading stream when appropriate;
+- navigation supports natural jumps without turning Skill Map into a compulsory curriculum;
+- long reference/runtime sections are demoted/folded when appropriate;
 - answer/reference/model output is not revealed before the intended attempt;
-- UI density, typography, and interaction cost fit real study use;
-- the projection does not change or invent domain semantics;
-- different modules are allowed to look and behave differently when their cognition differs.
+- density, typography, and interaction cost fit real study use;
+- projection does not change or invent domain semantics;
+- different modules may look/behave differently when their cognition differs.
 
-The correct design question is:
+The correct question is:
 
-> **At this moment in the learning path, what should the learner see and what should they do next?**
+> **At this moment in the learning path, what should the learner see and do next?**
 
 not:
 
@@ -220,9 +270,7 @@ not:
 
 A learning contract on paper is not enough.
 
-Runtime acceptance requires the real paths to exist.
-
-Depending on the module, this may include:
+Runtime may include, depending on the module:
 
 - Framework / first learning entry;
 - Recall;
@@ -241,30 +289,31 @@ Check especially for forced debt.
 
 > **Stable correct work should be able to pass without manufactured review or repair.**
 
-Examples of runtime failure even when content is mature:
+Runtime fails when, for example:
 
-- a source path moved but the scanner still reads the old owner;
-- clean Translation attempts are forced into Diagnosis because no PASS branch exists;
-- a whole-set attempt can be “completed” after only one segment is entered;
-- Chat can receive a packet but the learner must manually retype the return judgment;
-- a later transfer rule exists only as prose with no executable state path.
+- a source path moved but the scanner still reads an old owner;
+- a clean attempt is forced into diagnosis because PASS is absent;
+- a whole-set task can be completed from a partial entry;
+- Chat can receive a packet but return cannot be applied naturally;
+- transfer/closure exists only as prose and has no executable path.
 
 ---
 
 ## E｜Evidence — Does the system preserve and use the right learning evidence?
 
-Evidence must match the module’s cognition.
+Evidence must match module cognition.
 
 Check:
 
 - learner-facing review unit is appropriate;
-- internal evidence may be finer-grained without forcing fine-grained user workflow;
+- internal evidence may be finer-grained without forcing a fine-grained user workflow;
 - first meaningful evidence is preserved where useful;
-- upstream/root causes are distinguished from dependent/cascade errors;
+- root causes are distinguished from dependent/cascade errors;
+- diagnosis is not mistaken for repair;
 - repair evidence is not mistaken for mastery;
-- fresh/unseen transfer outranks repeated correction of remembered material;
+- fresh/unseen transfer outranks remembered-item correction;
 - only reusable/high-value failures become durable review debt;
-- irrelevant later material does not falsely confirm or refute a pending target;
+- irrelevant later material does not falsely confirm/refute a pending target;
 - closure is based on meaningful evidence, not arbitrary counters;
 - private learner evidence stays private.
 
@@ -273,58 +322,63 @@ Check:
 Examples:
 
 - one Reading passage is reviewed as one learner-facing unit even though evidence is per question;
-- one Translation set is reviewed as a whole even though first-translation evidence should remain segment-bound;
-- one Writing essay is the learner-facing unit even though diagnosis may identify one paragraph, proposition, or lexical span.
+- one Translation set is reviewed as a whole even though first-translation evidence remains segment-bound;
+- one Writing essay is learner-facing even though diagnosis may identify one paragraph/proposition/span.
 
 ### Shared rule ≠ private learner strategy
 
-Shared Current may define:
-
-- fresh/protected material semantics;
-- holdout support;
-- evidence states;
-- scheduling constraints.
-
-It must not hard-code one learner’s private choices as product truth.
-
-Example:
-
-```text
-Shared rule:
-respect protected unseen / holdout material
-
-Private learner state:
-which exact years or sets are currently held out
-```
-
-A learner’s chosen holdout years, personal progress, wrong/uncertain history, session timing, notes, and transfer ledger are private state unless the user explicitly chooses another storage model.
+Shared Current may define fresh/holdout semantics, evidence states, and scheduling constraints. It must not hard-code one learner’s chosen holdout years, personal progress, wrong/uncertain history, timing, notes, or transfer ledger as product truth.
 
 ---
 
 ## U｜User Validation — Has the learner actually used it?
 
-This gate cannot be replaced by architecture discussion, build success, screenshots, or simulated QA.
+U cannot be replaced by architecture discussion, build success, screenshots, simulated QA, synthetic E2E, or another model’s review.
 
-Before U, the team may say:
+Before U, the strongest allowed statement is:
 
-> **Module is ready for learner testing.**
+> **Module ready for learner test.**
 
-Only after real use should it say:
+Only after real use may we say:
 
 > **Learner-validated for the tested path.**
 
+### U is path-scoped, not all-or-nothing
+
+A module can have different real-use evidence for different journeys.
+
+Example:
+
+```text
+Reading A
+clean attempt → PASS                    U: PASS
+wrong → whole-passage review → repair   U: PASS
+later fresh transfer → CLOSED           U: UNTESTED
+```
+
+Do not flatten this into either “Reading A U passed” or “Reading A U failed”. Record exactly which learner journey was actually used.
+
+Typical U paths may include:
+
+- first-learning / Fast Track;
+- stable clean PASS;
+- wrong/uncertain → diagnosis → repair → return;
+- later fresh transfer closure;
+- reopen after later contradictory evidence;
+- sustained multi-session use when relevant.
+
 Real learner validation observes friction such as:
 
-- where the learner does not understand the content;
-- where the learner wants to skip;
+- where content is unclear;
+- where the learner naturally wants to skip;
 - where too much information appears at once;
-- where an answer/reference appears too early;
-- where Chat is invoked too early or too late;
-- where the learner cannot tell the next action;
-- whether a Core Block actually forms the intended capability;
-- whether return from repair/review is natural;
-- whether the Skill Map can explain real failure;
-- whether the module remains usable after sustained study rather than only a short demo.
+- where reference/answer appears too early;
+- where Chat is invoked too early/late;
+- where next action is unclear;
+- whether Core Blocks actually change ability;
+- whether return from repair is natural;
+- whether Skill Map explains real failures;
+- whether the module remains usable during sustained study.
 
 Real friction outranks speculative polish.
 
@@ -332,54 +386,54 @@ Real friction outranks speculative polish.
 
 # 3｜Allowed readiness language
 
-Use precise language instead of one overloaded word such as “closed”.
+Use precise language:
 
-Recommended vocabulary:
-
-- **Source-ready** — S passes for the relevant source boundary.
-- **Knowledge-ready** — S + K pass; the semantic asset is mature enough to design learning around.
+- **Source-ready** — S passes for the relevant boundary.
+- **Knowledge-ready** — S + K pass.
 - **Learning-design ready** — S + K + L pass.
-- **Module ready for learner test** — S + K + L + P + R + E pass; U pending.
-- **Learner-validated** — U has real evidence for the tested journey.
+- **Module ready for learner test** — S + K + L + P + R + E are PASS or legitimately PASS_WITH_DEBT; U is still untested/partial by path.
+- **Learner-validated for <path>** — real U evidence exists for that named journey.
 
-A module may also be described explicitly as Partial, for example:
+A module may be reported as:
 
 ```text
-S ✅
-K ✅
-L ✅
-P ⏳
-R ❌
-E partial
-U ❌
+S  PASS
+K  PASS
+L  PASS
+P  PASS_WITH_DEBT  — mobile spacing only
+R  PASS
+E  PASS
+U  clean path: PASS
+   repair path: PASS
+   transfer path: UNTESTED
 ```
 
-Do not replace this with “basically closed” when the missing gate changes real learner behavior.
+Do not call a module “basically closed” when a missing gate changes real learner behavior.
 
 ---
 
-# 4｜What must NOT be used as a substitute for acceptance
+# 4｜What must NOT substitute for acceptance
 
-The following are evidence, not acceptance by themselves:
+These are evidence, not acceptance by themselves:
 
 - Astro build passes;
 - CI once passed on an older commit;
 - Markdown is long/detailed;
-- a source inventory is complete;
-- all expected pages exist;
-- all buttons render;
+- source inventory is complete;
+- expected pages/buttons exist;
 - a runtime contract is written;
 - a question bank is attached;
-- the module has a nice taxonomy;
-- the current engineering stage is advanced.
+- a taxonomy looks mature;
+- simulated QA succeeds;
+- current engineering stage is advanced.
 
-The acceptance target is always the learner journey on **current `main@HEAD`**, not a prior green build or an intended design.
+Acceptance targets the learner journey on **current `main@HEAD`**.
 
 ---
 
 # 5｜Module development lifecycle
 
-The default mainline for substantial learning modules is:
+Default mainline:
 
 ```text
 1. Source / Knowledge Audit
@@ -394,91 +448,64 @@ The default mainline for substantial learning modules is:
 10. Evidence-based Revision
 ```
 
+This sequence is iterative: a concrete downstream defect may reopen the earliest upstream gate that actually explains it. Do not reopen mature gates merely because more features can be imagined.
+
 ## 5.1 Source / Knowledge Audit
 
-Determine what is true, complete, duplicated, missing, overly fragmented, or incorrectly organized.
-
-Do not start from UI.
+Determine what is true, complete, duplicated, missing, fragmented, or incorrectly organized. Do not start from UI.
 
 ## 5.2 Learning-Path Audit
 
-Determine how this learner should actually form the capability from their real starting point.
-
-Do not assume a teacher’s content order is the optimal learner order.
+Determine how this learner should form the capability from their real starting point. Do not assume teacher order is learner order.
 
 ## 5.3 Learner Calibration
 
-When the path depends materially on personal facts, calibrate against the learner:
-
-- prior exposure;
-- current level;
-- realistic study time;
-- fresh-material status;
-- preferred continuity / granularity;
-- Chat boundaries;
-- device / friction constraints when relevant.
-
-Do not ask repetitive questions when those facts are already known.
+When the path materially depends on personal facts, use already-known evidence about prior exposure, current level, study time, fresh-material status, preferred granularity/continuity, Chat boundaries, and device/friction constraints. Do not ask repetitive questions.
 
 ## 5.4 Content Reconstruction / Optimization
 
-Reorganize the canonical asset around ability formation or knowledge structure.
-
-The canonical asset should own stable learning semantics. UI should not become a hidden second textbook.
+Reorganize canonical assets around ability formation/knowledge structure. UI must not become a hidden second textbook.
 
 ## 5.5 Content Closure Audit
 
-Before UI, audit:
-
-- missing core content;
-- unnecessary expansion;
-- duplication;
-- first-learning continuity;
-- examples / synthetic drills;
-- Chat boundary;
-- true-exam/fresh-material protection;
-- cross-owner duplication;
-- whether the Skill Map/reference map has accidentally become a compulsory syllabus.
-
-If no real gap remains, stop adding content.
+Audit missing core content, unnecessary expansion, duplication, first-learning continuity, examples/synthetic drills, Chat boundary, fresh-material protection, cross-owner duplication, and whether a Skill/reference map became a compulsory syllabus. If no real gap remains, stop adding content.
 
 ## 5.6 Learning UX / Projection Design
 
-Design the display and interaction from the learning path, not from the Markdown headings.
+Design display/interaction from the learning path, not Markdown headings.
 
 ## 5.7 Runtime Implementation
 
-Make the actual attempt/recall/repair/review/transfer behavior executable.
+Make attempt/recall/repair/review/return/transfer behavior executable.
 
 ## 5.8 Module E2E Acceptance
 
-Simulate realistic learner journeys on current `main@HEAD`, including at least:
+Simulate realistic journeys on current `main@HEAD`, including at least:
 
-- a stable/clean path that can pass without manufactured debt;
-- a failure/uncertainty path that reaches the smallest useful repair and returns correctly;
-- a later verification/transfer path when the module claims such closure.
+- stable clean PASS with no manufactured debt;
+- failure/uncertainty → smallest useful repair → correct return;
+- later verification/transfer when closure is claimed;
+- persistence/idempotency/error paths when they can mutate learner evidence.
+
+This can prove S–E behavior for the tested scope. It cannot prove U.
 
 ## 5.9 Learner Test
 
-The learner uses the real product.
+The learner uses the real product. Record U by path.
 
 ## 5.10 Evidence-based Revision
 
-Revise only from concrete defects, friction, missing stable content, or repeated learner evidence. Do not reopen mature architecture merely because more features can be imagined.
+Revise only from concrete defects, friction, missing stable content, or repeated learner evidence.
 
 ---
 
 # 6｜Global / Home Acceptance
 
-Home is a final system-integration layer.
-
-Its job is **not** to own subject cognition. Its job is to route the learner correctly among already-mature modules.
+Home is a final system-integration layer. It routes among already-mature modules; it does not own subject cognition.
 
 ## 6.1 Home prerequisites
 
-Before Home is treated as final integration rather than exploratory scaffolding, core modules should have passed enough of S–E that Home is not being asked to hide missing domain behavior.
-
-A module with unresolved P0/P1 learner-flow defects must remain visibly Partial rather than being presented as complete merely because Home can link to it.
+Core modules must have passed enough of S–E that Home is not hiding missing domain behavior. Any unresolved blocker remains visible as BLOCKED rather than being disguised by navigation.
 
 ## 6.2 Home must reflect the learner’s real study world
 
@@ -488,51 +515,33 @@ Home should make it easy to understand:
 - what is actually available now;
 - what the learner can continue;
 - what genuinely needs attention;
-- how to enter a module directly without reconstructing the whole repository.
+- how to enter a module directly.
 
-Home may present a coherent system map without exposing every internal file, skill node, or engineering stage.
+It may present a coherent map without exposing every internal file/skill/engineering stage.
 
 ## 6.3 Continue must come from private learner state
 
-Home must never infer personal progress from shared engineering state.
-
 ```text
 GitHub Current / continuation
-→ what the product is building or validating
+→ what the product is building/validating
 
 Private learner state
-→ what this learner actually did and should continue
+→ what the learner actually did and should continue
 ```
 
-A correct Home Continue should not require the learner to remember where they stopped, but it also must not invent progress.
+Home must not invent progress.
 
 ## 6.4 Pending must represent real debt only
 
-Home may surface genuinely useful pending work, such as:
+Pending may include Wrong/Uncertain repair, unfinished learning units, valid `TRANSFER_PENDING` targets, due review, unfinished Reconstruction, or explicitly deferred learner actions.
 
-- Wrong / Uncertain repair;
-- unfinished Block / task;
-- TRANSFER_PENDING target;
-- due review;
-- unfinished Reconstruction;
-- explicitly deferred learner action when appropriate.
-
-Do not generate red badges merely because content exists, a learner hesitated once, or a repair path is technically available.
+Do not create red badges merely because content exists, the learner hesitated once, or a repair path is technically available.
 
 > **Availability is not debt.**
 
 ## 6.5 Home unifies navigation/state, not cognition
 
-Home may provide shared shells such as:
-
-- Current;
-- Continue;
-- navigation;
-- pending/review summary;
-- Chat bridge entry;
-- global return.
-
-But once the learner enters a module, the module’s own learning cognition governs.
+Shared Home shells are allowed; once the learner enters a module, that module’s cognition governs.
 
 Examples:
 
@@ -544,141 +553,99 @@ Translation
 First Learning / Clean Attempt → PASS or Repair → Reconstruction → later transfer
 
 Writing
-First Learning → synthetic generation → full output → repair → fresh Writing
+First Learning → generation → full output → repair → fresh Writing
 
 Objective English
 passage/set Attempt → whole-unit review → root-cause repair → later transfer
 ```
 
-Do not force these into one universal card flow for frontend consistency.
+Do not force these into one universal frontend card flow.
 
 ## 6.6 Fresh / holdout protection must survive Home routing
 
-Home recommendations and Continue must respect private protected-unseen choices.
-
-Shared Current defines the semantics; private learner state determines the learner’s current protected sets/years/material.
-
-Home must not consume or recommend protected fresh material merely because it is technically available.
+Shared Current defines semantics; private learner state determines currently protected sets/years/material. Home must not consume protected diagnostic capital merely because it is available.
 
 ## 6.7 Chat entry should follow learning need
-
-Chat is not a global decoration button.
-
-Typical pattern:
 
 ```text
 stable clean work
 → no Chat needed
 
 wrong / uncertain / ambiguous / repeated failure
-→ compact Handoff to Chat
+→ compact whole-unit Handoff
 
-Chat semantic judgment
+Chat semantic judgment + learner repair
 → Return to runtime
 
 later fresh evidence when relevant
 → transfer adjudication / closure
 ```
 
-Home may summarize that a pending repair/transfer exists, but it must not itself invent the semantic judgment.
+Home may surface pending state; it must not invent semantic judgment.
 
 ---
 
 # 7｜Global learner-journey acceptance
 
-Final Home acceptance should test realistic cross-module days rather than only individual page URLs.
+Final Home acceptance should test realistic cross-module days rather than only page URLs.
 
-Example journey A:
+Examples:
 
 ```text
 Open Home
-→ Continue yesterday’s Xizong Block
-→ finish learning
-→ Recall
-→ official questions
-→ two W/U items
-→ Chat repair
-→ Block close
-→ later Nightly Review
-→ return Home
-→ state is correct
+→ Continue Xizong Block
+→ learning → Recall → official questions
+→ W/U → Chat repair → close
+→ Nightly Review → Home
 ```
 
-Example journey B:
-
 ```text
 Open Home
-→ enter English Translation
+→ English Translation
 → clean whole-set Attempt
-→ stable + confident
-→ PASS with zero manufactured debt
-→ return Home
+→ stable/confident PASS
+→ zero manufactured debt
+→ Home
 ```
-
-Example journey C:
 
 ```text
 Open Home
-→ Translation clean Attempt
-→ Need Review
-→ whole-set Handoff to Chat
-→ primary failure + smallest repair
-→ learner Reconstruction
+→ objective/translation problem attempt
+→ whole-unit Chat diagnosis
+→ smallest repair + learner re-execution
 → TRANSFER_PENDING
-→ later fresh Translation tests same underlying demand
-→ evidence adjudicated
+→ later fresh task genuinely tests same demand
 → CLOSED
-→ return Home
+→ Home
 ```
 
-Example journey D:
-
-```text
-Open Home
-→ first-time Writing
-→ First Learning
-→ skip already-mastered parts
-→ synthetic partial task
-→ synthetic/full output
-→ repair if needed
-→ first fresh true-exam attempt only after gate
-→ return Home
-```
-
-Global acceptance fails if these journeys reveal problems such as:
-
-- Home guesses a learner stage from engineering state;
-- module state contaminates another module;
-- private state is written into shared Current;
-- protected fresh material is consumed incorrectly;
-- stable clean work is turned into review debt;
-- return from Chat loses the learning object;
-- the learner cannot identify the next action;
-- navigation exposes implementation structure rather than learning structure;
-- build is green while the current learner path is broken.
+Global acceptance fails when Home guesses learner stage from engineering state, contaminates module state, leaks private state, consumes protected fresh material, manufactures review debt, loses the learning object across Chat return, or makes the learner reconstruct repository implementation details to know what to do.
 
 ---
 
 # 8｜Acceptance report format for module chats
 
-When a module chat is asked whether its lane is ready/closed, use this as the default report skeleton:
+Use this default report skeleton:
 
 ```text
 MODULE: <name>
 CURRENT OWNER(S): <canonical Current paths>
 
-S Source:      ✅ / ⏳ / ❌
-K Knowledge:   ✅ / ⏳ / ❌
-L Learning:    ✅ / ⏳ / ❌
-P Projection:  ✅ / ⏳ / ❌
-R Runtime:     ✅ / ⏳ / ❌
-E Evidence:    ✅ / ⏳ / ❌
-U User Test:   ✅ / ⏳ / ❌
+S Source:      PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+K Knowledge:   PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+L Learning:    PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+P Projection:  PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+R Runtime:     PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
+E Evidence:    PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
 
-P0 blockers:
+U User Validation by path:
+- <journey A>: PASS / BLOCKED / UNTESTED
+- <journey B>: PASS / BLOCKED / UNTESTED
+
+Blocking defects:
 - ...
 
-Structural gaps:
+Non-blocking debt:
 - ...
 
 What should NOT be expanded now:
@@ -689,43 +656,43 @@ Next smallest meaningful work:
 
 Allowed conclusion:
 - Source-ready / Knowledge-ready / Learning-design ready /
-  Module ready for learner test / Learner-validated / Partial
+  Module ready for learner test / Learner-validated for <path> / Blocked
 ```
 
-The report should cite or identify concrete Current evidence rather than infer completion from reputation, prior chats, or historical green builds.
+Reports should identify concrete Current evidence rather than infer completion from reputation, prior chats, or historical green builds.
 
 ---
 
 # 9｜Repository-wide hard rules derived from acceptance
 
-These rules apply across KianOS:
-
 1. **Source coverage ≠ learning closure.**
 2. **Correct content ≠ correct learning path.**
 3. **Content structure ≠ page structure.**
 4. **Page exists ≠ learner should see/use it now.**
-5. **Build/QA pass ≠ learner-ready.**
+5. **Build/QA/simulation pass ≠ learner validation.**
 6. **A prior green commit does not prove current `main@HEAD`.**
 7. **Engineering State ≠ Learner State.**
 8. **Shared semantic rule ≠ private learner strategy/configuration.**
 9. **Evidence granularity may be smaller than Review granularity.**
 10. **Stable correct work should pass without manufactured debt.**
-11. **Same-item correction is repair evidence, not mastery.**
-12. **Later fresh transfer is stronger evidence than remembered local success.**
-13. **Upstream/root cause should absorb dependent cascade errors when justified.**
-14. **Chat should make semantic/adaptive judgments; UI should not fake them.**
-15. **Home unifies routing and state, not domain cognition.**
-16. **Home is a final integration layer, not a substitute for unfinished modules.**
-17. **Real learner use is the final acceptance evidence.**
+11. **Diagnosis ≠ repair; repair ≠ mastery.**
+12. **Same-item correction is repair evidence, not mastery.**
+13. **Later fresh transfer is stronger evidence than remembered local success.**
+14. **Upstream/root cause should absorb dependent cascade errors when justified.**
+15. **Chat should make semantic/adaptive judgments; UI should preserve evidence boundaries rather than fake them.**
+16. **A real blocker and an optional improvement are not the same acceptance status.**
+17. **U is path-scoped and requires real learner use.**
+18. **Home unifies routing/state, not domain cognition.**
+19. **Home is a final integration layer, not a substitute for unfinished modules.**
 
 ---
 
 # 10｜Relationship to other root governance
 
 - `AGENTS.md` defines Current authority, read/write boundaries, content ownership, runtime boundaries, and repository operating rules.
-- `SYSTEM_CONTRACT.md` defines the minimum platform capabilities every first-class learner surface should expose.
-- `LEARNING_ACCEPTANCE.md` defines the order and evidence required before those capabilities may be called a learner-ready module, and defines the final Global/Home acceptance layer.
-- `CURRENT.md` describes the current system state; it must not become private learner progress.
-- Domain manifests/continuations remain child Current objects and must not override these root-level rules.
+- `SYSTEM_CONTRACT.md` defines minimum platform capabilities every first-class learner surface should expose.
+- `LEARNING_ACCEPTANCE.md` defines the evidence required before those capabilities may be called learner-ready and defines final Global/Home acceptance.
+- `CURRENT.md` describes current system state; it must not become private learner progress.
+- Domain manifests/continuations are child Current objects and cannot override these root-level acceptance rules.
 
 When a lane-specific contract conflicts with this document on acceptance semantics, the lane may specialize cognition but may not weaken the distinction between source/content/build completion and real learner readiness without explicit repository-level revision.
