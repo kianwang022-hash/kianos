@@ -9,6 +9,7 @@ const promptSegments = prompts.filter((item) => {
   return text && !materialTexts.has(text);
 });
 const referencePayload = JSON.stringify(reference || {}).replace(/</g, '\\u003c');
+const promptPayload = JSON.stringify(prompts).replace(/</g, '\\u003c');
 const previousHref = translation.navigation?.previousId
   ? `${base}translation/${encodeURIComponent(translation.navigation.previousId)}/`
   : '';
@@ -62,17 +63,16 @@ const nextHref = translation.navigation?.nextId
         )}
       </div>
 
-      {material.length > 0 && prompts.some((item) => item.instruction) && (
-        <div class="translationPromptNotes">
-          {prompts.filter((item) => item.instruction).map((item) => (
-            <p><b>{prompts.length > 1 ? `Segment ${item.ordinal}` : 'Instruction'}：</b>{item.instruction}</p>
-          ))}
-        </div>
-      )}
+      <section class="translationPending" data-pending-panel hidden>
+        <header><span>Transfer Pending</span><strong data-pending-count>0</strong></header>
+        <div data-pending-list></div>
+        <small>这些是过去 repair 后仍等待新材料验证的可复用能力点；当前题不相关时不会自动算证据。</small>
+      </section>
 
       <details class="translationProvenance">
         <summary>Current provenance</summary>
         <code>{translation.sourcePaths?.questions}</code>
+        <code>{translation.sourcePaths?.contract}</code>
         <code>question-bank:{translation.sourceHashes?.questionOwner?.slice(0, 12)}</code>
         <code>task:{translation.sourceHashes?.renderedObject?.slice(0, 12)}</code>
         <code>reference:{translation.referenceCoverage?.available || 0}/{translation.referenceCoverage?.total || prompts.length}</code>
@@ -80,45 +80,68 @@ const nextHref = translation.navigation?.nextId
     </article>
 
     <section class="translationWork">
-      <section class="translationStage translationAttempt" data-stage="attempt">
+      <section class="translationStage" data-stage="attempt">
         <header>
           <span>01 · Clean Attempt</span>
-          <h2>先完整翻一次</h2>
-          <p>参考译文现在不可见。先完成整套 task；不要边写边对答案。</p>
+          <h2>完整做完这一套</h2>
+          <p>Review unit 仍是一整套；但每个 Segment 的第一版分别保存，避免证据被一个大文本框压扁。参考译文现在不可见。</p>
         </header>
-        <textarea data-first-draft rows="15" placeholder="在这里写你的第一版完整译文……"></textarea>
+        <div class="translationAttemptGrid">
+          {prompts.map((item) => (
+            <label class="translationAnswerCard" data-attempt-card={item.id}>
+              <span>Segment {item.ordinal}</span>
+              {item.sourceText && <p>{item.sourceText}</p>}
+              <textarea data-attempt-id={item.id} rows="5" placeholder={`Segment ${item.ordinal} 的第一版译文…`}></textarea>
+            </label>
+          ))}
+        </div>
         <div class="translationActions">
-          <button type="button" class="primary" data-freeze-first>锁定第一版 → Diagnosis</button>
-          <small data-first-status>第一版一旦锁定，后续 revision 不会覆盖它。</small>
+          <button type="button" class="primary" data-freeze-first>锁定整套第一版</button>
+          <small data-first-status>必须完成全部 Segment 才能锁定；锁定后第一版不再被 revision 覆盖。</small>
         </div>
       </section>
 
       <section class="translationFrozen" data-frozen-first hidden>
-        <header><span>First Translation · preserved</span><small data-first-time></small></header>
-        <pre data-first-copy></pre>
+        <header><span>First Translation · immutable evidence</span><small data-first-time></small></header>
+        <div data-first-list></div>
       </section>
 
-      <section class="translationStage translationCompare" data-stage="compare" hidden>
+      <section class="translationStage" data-stage="decision" hidden>
         <header>
-          <span>02 · Diagnosis / Minimal Repair</span>
-          <h2>先找 first meaningful failure</h2>
-          <p>默认先不看参考译文。自己判断，或把整套交给 Chat；最多压缩成两个优先修复点，再由你自己重译。</p>
+          <span>02 · PASS or Review</span>
+          <h2>稳定就走，有真实问题才修</h2>
+          <p>如果意义、关系、信息和中文表达都足够稳定，直接 PASS；不要为了“系统有复盘功能”制造修复债务。</p>
         </header>
-        <div class="translationLensGrid">
-          <label>
-            <span>Priority 1 · Meaning / load-bearing</span>
-            <textarea data-meaning-focus rows="4" placeholder="最影响意思承载的一个问题；没有就留空。"></textarea>
-          </label>
-          <label>
-            <span>Priority 2 · Naturalness / structure</span>
-            <textarea data-natural-focus rows="4" placeholder="最值得重构的一个结构或表达问题；没有就留空。"></textarea>
-          </label>
+        <div class="translationDecisionGrid">
+          <button type="button" class="decisionPass" data-pass-clean>
+            <strong>PASS · 这套稳定</strong>
+            <span>没有足以影响得分可靠性的 meaningful failure，直接离开。</span>
+          </button>
+          <button type="button" class="decisionReview" data-route-review>
+            <strong>Need Review / Verify</strong>
+            <span>有错误、不确定，或这套可能验证了一个旧的 Transfer Pending。</span>
+          </button>
         </div>
-        <div class="translationActions split">
-          <button type="button" data-copy-chat>复制整套给 Chat 复盘</button>
-          <button type="button" class="primary" data-start-reconstruct>直接 Reconstruction（推荐）</button>
-          <button type="button" data-reveal-reference>需要时再看 Reference</button>
-          <small data-copy-status>默认路径：diagnosis / minimal cue → 你自己 reconstruct；只有确实需要时才提前 reveal reference。</small>
+      </section>
+
+      <section class="translationStage" data-stage="diagnosis" hidden>
+        <header>
+          <span>03 · Whole-set Review</span>
+          <h2>把整套交给 Chat，只修 first meaningful failure</h2>
+          <p>Chat 可以在内部定位到句子 / clause / scope，但 learner-facing 仍保持整套复盘。默认不先看 Reference。</p>
+        </header>
+        <div class="translationActions">
+          <button type="button" class="primary" data-copy-chat>复制 Handoff 给 Chat</button>
+          <button type="button" data-reveal-reference>确实需要时看 Reference</button>
+          <small data-copy-status>Handoff 会自动带上第一版和现有 Transfer Pending；不会提前附参考译文。</small>
+        </div>
+        <label class="translationReturnBox">
+          <span>Chat Return</span>
+          <textarea data-chat-return rows="12" placeholder="把 Chat 返回的 KIANOS_TRANSLATION_RETURN_V1 粘贴到这里…"></textarea>
+        </label>
+        <div class="translationActions">
+          <button type="button" class="primary" data-import-return>导入 Chat 判断 →</button>
+          <small data-return-status>PASS 会直接结束；REPAIR_NEEDED 会带着 primary failure / minimal repair 进入 Reconstruction。</small>
         </div>
         <section class="translationReference" data-reference-panel hidden>
           <div class="translationReferenceHead">
@@ -129,45 +152,73 @@ const nextHref = translation.navigation?.nextId
         </section>
       </section>
 
-      <section class="translationStage translationReconstruct" data-stage="reconstruct" hidden>
+      <section class="translationStage" data-stage="reconstruct" hidden>
         <header>
-          <span>03 · Reconstruction</span>
-          <h2>不看参考译文，重新完整表达</h2>
-          <p>原文和第一版仍可见；reference 被收起。目标是重建能力，不是抄改答案。</p>
+          <span>04 · Reconstruction</span>
+          <h2>只重做真正受影响的部分</h2>
+          <p>先用 minimal repair 自己重新执行；Reference 自动收起。同一句重译成功只说明 repair 生效，不等于 mastery。</p>
         </header>
-        <div class="translationFocusSummary" data-focus-summary></div>
-        <textarea data-reconstruct-draft rows="15" placeholder="重新完成整套译文……"></textarea>
+        <section class="translationRepairCard" data-repair-card></section>
+        <div class="translationReconstructGrid" data-reconstruct-list></div>
         <div class="translationActions">
           <button type="button" class="primary" data-save-reconstruction>保存 Reconstruction</button>
-          <button type="button" data-back-compare>返回 Diagnosis</button>
+          <button type="button" data-back-diagnosis>返回 Review</button>
           <small data-reconstruct-status></small>
         </div>
       </section>
 
-      <section class="translationStage translationComplete" data-stage="complete" hidden>
+      <section class="translationStage" data-stage="passed" hidden>
         <header>
-          <span>04 · Reconstructed</span>
-          <h2>这一轮已完成</h2>
-          <p>现在如有必要再做 full-reference / deeper comparison。这里不自动判“掌握”；后续 fresh / unseen Translation 才提供更强 transfer evidence。</p>
+          <span>PASS · no manufactured debt</span>
+          <h2>这套可以离开</h2>
+          <p>当前任务没有需要建立 repair debt 的 meaningful failure。若它同时提供了某个旧 Pending target 的新证据，需要 Chat 明确判定后才更新那个 target。</p>
         </header>
-        <section class="translationLatest">
-          <strong>Latest reconstruction</strong>
-          <pre data-latest-reconstruction></pre>
-        </section>
+        <div class="translationActions">
+          <button type="button" data-toggle-complete-reference>可选：看 Reference</button>
+          {nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一套 →</a>}
+        </div>
         <section class="translationReference" data-complete-reference hidden>
           <div class="translationReferenceHead">
-            <strong>Reference · post-reconstruction</strong>
-            <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available · 不覆盖你的版本</small>
+            <strong>Reference · optional post-attempt comparison</strong>
+            <small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available</small>
           </div>
           <div data-complete-reference-list></div>
         </section>
-        <div class="translationActions split">
-          <button type="button" data-toggle-complete-reference>打开参考译文</button>
-          <button type="button" data-copy-chat-complete>复制整套给 Chat</button>
-          <button type="button" class="primary" data-another-reconstruction>再 Reconstruction 一次</button>
-          {nextHref && <a class="buttonLink" href={nextHref}>下一套 →</a>}
-          <small data-copy-status-complete></small>
+      </section>
+
+      <section class="translationStage" data-stage="repaired" hidden>
+        <header>
+          <span>Repair Complete</span>
+          <h2>当前失败已修复，不自动制造长期债务</h2>
+          <p>Chat 判断这个问题不值得进入 durable transfer ledger。可以看 Reference，也可以直接进入下一套。</p>
+        </header>
+        <div class="translationLatest" data-latest-reconstruction></div>
+        <div class="translationActions">
+          <button type="button" data-toggle-complete-reference>打开 Reference</button>
+          {nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一套 →</a>}
         </div>
+        <section class="translationReference" data-complete-reference hidden>
+          <div class="translationReferenceHead"><strong>Reference · post-reconstruction</strong><small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available</small></div>
+          <div data-complete-reference-list></div>
+        </section>
+      </section>
+
+      <section class="translationStage" data-stage="transfer_pending" hidden>
+        <header>
+          <span>TRANSFER_PENDING</span>
+          <h2>这次 repair 生效；以后新题再验证</h2>
+          <p>当前题的 reconstruction 不能关闭能力问题。这个可复用 target 已进入本机 Pending；只有后续真正相关的 fresh evidence 才能支持或反驳它。</p>
+        </header>
+        <section class="translationTransferCard" data-current-transfer></section>
+        <div class="translationLatest" data-latest-reconstruction></div>
+        <div class="translationActions">
+          <button type="button" data-toggle-complete-reference>打开 Reference</button>
+          {nextHref && <a class="buttonLink primaryLink" href={nextHref}>下一套 →</a>}
+        </div>
+        <section class="translationReference" data-complete-reference hidden>
+          <div class="translationReferenceHead"><strong>Reference · post-reconstruction</strong><small>{reference?.availableCount || 0}/{reference?.totalCount || prompts.length} available</small></div>
+          <div data-complete-reference-list></div>
+        </section>
       </section>
 
       <details class="translationHistory">
@@ -177,15 +228,32 @@ const nextHref = translation.navigation?.nextId
           <button type="button" data-reset-task>归档本轮并重新开始</button>
           <button type="button" data-clear-history>清空已归档 History</button>
         </div>
-        <small>只存在本机浏览器；不会写回 GitHub shared Current。</small>
+        <small>Attempt / repair / transfer 都只存在本机浏览器；不会写回 GitHub shared Current。</small>
       </details>
     </section>
   </div>
 
   <script type="application/json" data-translation-reference set:html={referencePayload}></script>
+  <script type="application/json" data-translation-prompts set:html={promptPayload}></script>
 </section>
 
 <script>
+  import {
+    TRANSLATION_RETURN_SCHEMA,
+    TRANSLATION_TRANSFER_STORAGE_KEY,
+    blankTranslationState,
+    normalizeTranslationState,
+    normalizeTransferLedger,
+    pendingTransferTargets,
+    freezeWholeAttempt,
+    passCleanAttempt,
+    routeAttemptToReview,
+    parseTranslationReturn,
+    applyTranslationReturn,
+    saveReconstruction,
+    archiveTranslationAttempt
+  } from '../lib/translationRuntimeModel.mjs';
+
   const root = document.querySelector('[data-translation-runtime]');
   if (root instanceof HTMLElement) {
     const objectId = root.getAttribute('data-object-id') || 'translation';
@@ -194,56 +262,33 @@ const nextHref = translation.navigation?.nextId
     const position = Number(root.getAttribute('data-position') || 1);
     const total = Number(root.getAttribute('data-total') || 1);
     const base = root.getAttribute('data-base') || '/';
-    const storageKey = `kianos-translation-attempt-v1:${objectId}`;
+    const storageKey = `kianos-translation-attempt-v2:${objectId}`;
+    const legacyStorageKey = `kianos-translation-attempt-v1:${objectId}`;
     const lastLocationKey = 'kianos-translation-last-location-v1';
 
-    const blankState = (history = []) => ({
-      version: 1,
-      stage: 'attempt',
-      draft: '',
-      firstAttempt: '',
-      firstSubmittedAt: '',
-      meaningFocus: '',
-      naturalFocus: '',
-      reconstructDraft: '',
-      reconstructions: [],
-      referenceRevealed: false,
-      completeReferenceOpen: false,
-      history: Array.isArray(history) ? history : []
-    });
-
-    const readJson = (key, fallback) => {
+    const readJson = (key, fallback = null) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
       catch { return fallback; }
     };
     const writeJson = (key, value) => {
       try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
     };
-    const saved = readJson(storageKey, null);
-    let state = { ...blankState(saved?.history || []), ...(saved || {}) };
-    state.reconstructions = Array.isArray(state.reconstructions) ? state.reconstructions : [];
-    state.history = Array.isArray(state.history) ? state.history : [];
-    if (!state.firstAttempt) state.stage = 'attempt';
-    if (state.firstAttempt && !['compare', 'reconstruct', 'complete'].includes(state.stage)) state.stage = 'compare';
 
+    let prompts = [];
     let reference = { references: [], availableCount: 0, totalCount: 0, missingCount: 0 };
+    try { prompts = JSON.parse(root.querySelector('[data-translation-prompts]')?.textContent || '[]'); } catch {}
     try { reference = JSON.parse(root.querySelector('[data-translation-reference]')?.textContent || '{}'); } catch {}
     const references = Array.isArray(reference?.references) ? reference.references : [];
+    const promptById = new Map(prompts.map((prompt) => [String(prompt.id), prompt]));
 
-    const firstDraft = root.querySelector('[data-first-draft]');
-    const reconstructDraft = root.querySelector('[data-reconstruct-draft]');
-    const meaningFocus = root.querySelector('[data-meaning-focus]');
-    const naturalFocus = root.querySelector('[data-natural-focus]');
-    const stageLabel = root.querySelector('[data-translation-stage-label]');
-    const frozen = root.querySelector('[data-frozen-first]');
-    const firstCopy = root.querySelector('[data-first-copy]');
-    const firstTime = root.querySelector('[data-first-time]');
-    const focusSummary = root.querySelector('[data-focus-summary]');
-    const latest = root.querySelector('[data-latest-reconstruction]');
-    const referencePanel = root.querySelector('[data-reference-panel]');
-    const completeReference = root.querySelector('[data-complete-reference]');
+    const saved = readJson(storageKey, null) || readJson(legacyStorageKey, null);
+    let state = normalizeTranslationState(prompts, saved);
+    let transferLedger = normalizeTransferLedger(readJson(TRANSLATION_TRANSFER_STORAGE_KEY, null));
 
-    const save = () => writeJson(storageKey, state);
+    const save = () => {
+      writeJson(storageKey, state);
+      writeJson(TRANSLATION_TRANSFER_STORAGE_KEY, transferLedger);
+    };
     const stampLastLocation = () => writeJson(lastLocationKey, {
       id: objectId,
       title,
@@ -255,6 +300,7 @@ const nextHref = translation.navigation?.nextId
     });
     stampLastLocation();
 
+    const escapeLine = (value) => String(value || '').replace(/\s+/g, ' ').trim();
     const formatTime = (value) => {
       if (!value) return '';
       try { return new Date(value).toLocaleString(); } catch { return String(value); }
@@ -263,20 +309,13 @@ const nextHref = translation.navigation?.nextId
     const fillReference = (container) => {
       if (!container) return;
       container.replaceChildren();
-      if (!references.length) {
-        const p = document.createElement('p');
-        p.textContent = 'Current source has no reference rows.';
-        container.appendChild(p);
-        return;
-      }
       references.forEach((item) => {
         const block = document.createElement('section');
         const label = document.createElement('small');
-        label.textContent = references.length > 1 ? `Segment ${item.ordinal || ''}` : 'Reference';
+        label.textContent = `Segment ${item.ordinal || ''}`;
         const text = document.createElement('p');
-        if (item?.available && String(item?.text || '').trim()) {
-          text.textContent = String(item.text || '');
-        } else {
+        if (item?.available && String(item?.text || '').trim()) text.textContent = String(item.text);
+        else {
           block.classList.add('referenceGap');
           text.textContent = `Current source 暂无已核验参考译文（${item?.status || 'missing_reference'}）；runtime 不会自行补造。`;
         }
@@ -285,59 +324,128 @@ const nextHref = translation.navigation?.nextId
       });
     };
     fillReference(root.querySelector('[data-reference-list]'));
-    fillReference(root.querySelector('[data-complete-reference-list]'));
+    root.querySelectorAll('[data-complete-reference-list]').forEach(fillReference);
 
-    const renderFocus = () => {
-      if (!focusSummary) return;
-      focusSummary.replaceChildren();
-      const rows = [
-        ['Meaning / load-bearing', state.meaningFocus],
-        ['Naturalness / structure', state.naturalFocus]
-      ].filter(([, value]) => String(value || '').trim());
-      if (!rows.length) {
+    const renderFirst = () => {
+      const box = root.querySelector('[data-first-list]');
+      const frozen = root.querySelector('[data-frozen-first]');
+      if (!(box instanceof HTMLElement) || !(frozen instanceof HTMLElement)) return;
+      const rows = Object.entries(state.firstAttempts || {});
+      frozen.hidden = !rows.length;
+      box.replaceChildren();
+      rows.forEach(([id, answer]) => {
+        const item = document.createElement('section');
+        const label = document.createElement('small');
+        label.textContent = `Segment ${promptById.get(id)?.ordinal || id}`;
+        const pre = document.createElement('pre');
+        pre.textContent = String(answer || '');
+        item.append(label, pre);
+        box.appendChild(item);
+      });
+      const time = root.querySelector('[data-first-time]');
+      if (time) time.textContent = state.firstSubmittedAt ? `locked ${formatTime(state.firstSubmittedAt)}` : '';
+    };
+
+    const renderPending = () => {
+      const pending = pendingTransferTargets(transferLedger);
+      const panel = root.querySelector('[data-pending-panel]');
+      const count = root.querySelector('[data-pending-count]');
+      const list = root.querySelector('[data-pending-list]');
+      if (panel instanceof HTMLElement) panel.hidden = pending.length === 0;
+      if (count) count.textContent = String(pending.length);
+      if (!list) return;
+      list.replaceChildren();
+      pending.forEach((target) => {
         const p = document.createElement('p');
-        p.textContent = '没有记录优先修复点；可以直接重新完整表达。';
-        focusSummary.appendChild(p);
-        return;
-      }
-      rows.forEach(([label, value]) => {
-        const p = document.createElement('p');
-        const b = document.createElement('b'); b.textContent = `${label}：`;
-        p.append(b, document.createTextNode(String(value || '')));
-        focusSummary.appendChild(p);
+        const b = document.createElement('b'); b.textContent = target.label || target.id;
+        p.append(b, document.createTextNode(` · ${target.underlyingDemand || ''}`));
+        list.appendChild(p);
       });
     };
 
-    const archiveSnapshot = () => ({
-      firstAttempt: state.firstAttempt,
-      firstSubmittedAt: state.firstSubmittedAt,
-      meaningFocus: state.meaningFocus,
-      naturalFocus: state.naturalFocus,
-      reconstructions: state.reconstructions,
-      archivedAt: new Date().toISOString()
-    });
+    const renderRepair = () => {
+      const card = root.querySelector('[data-repair-card]');
+      const failure = state.chatReturn?.primary_failure;
+      if (card) {
+        card.replaceChildren();
+        if (failure) {
+          const titleEl = document.createElement('strong');
+          titleEl.textContent = [failure.layer, failure.skill].filter(Boolean).join(' · ');
+          const repair = document.createElement('p');
+          repair.textContent = `Minimal repair：${failure.minimal_repair || ''}`;
+          const action = document.createElement('p');
+          action.textContent = `重新执行：${failure.reconstruction_prompt || '按刚才修复重新翻译受影响部分。'}`;
+          card.append(titleEl, repair, action);
+        }
+      }
+
+      const list = root.querySelector('[data-reconstruct-list]');
+      if (!list) return;
+      list.replaceChildren();
+      for (const id of state.affectedSegments || []) {
+        const prompt = promptById.get(id);
+        const label = document.createElement('label');
+        label.className = 'translationAnswerCard';
+        const tag = document.createElement('span'); tag.textContent = `Segment ${prompt?.ordinal || id}`;
+        const source = document.createElement('p'); source.textContent = prompt?.sourceText || '';
+        const first = document.createElement('blockquote'); first.textContent = state.firstAttempts?.[id] || '';
+        const area = document.createElement('textarea');
+        area.rows = 5;
+        area.placeholder = '用 repair 后的能力自己重新翻译…';
+        area.dataset.reconstructId = id;
+        area.value = state.reconstructDrafts?.[id] || '';
+        area.addEventListener('input', () => { state.reconstructDrafts[id] = area.value; save(); });
+        label.append(tag, source, first, area);
+        list.appendChild(label);
+      }
+    };
+
+    const renderLatest = () => {
+      root.querySelectorAll('[data-latest-reconstruction]').forEach((box) => {
+        box.replaceChildren();
+        const latest = state.reconstructions?.[state.reconstructions.length - 1];
+        if (!latest?.answers) return;
+        const strong = document.createElement('strong'); strong.textContent = 'Latest reconstruction';
+        box.appendChild(strong);
+        Object.entries(latest.answers).forEach(([id, answer]) => {
+          const p = document.createElement('p');
+          p.textContent = `Segment ${promptById.get(id)?.ordinal || id}：${answer}`;
+          box.appendChild(p);
+        });
+      });
+      const transferCard = root.querySelector('[data-current-transfer]');
+      if (transferCard) {
+        transferCard.replaceChildren();
+        const candidate = state.pendingTransferCandidate;
+        if (candidate?.admit === true) {
+          const strong = document.createElement('strong'); strong.textContent = candidate.label || candidate.target_id;
+          const p = document.createElement('p'); p.textContent = candidate.underlying_demand || '';
+          transferCard.append(strong, p);
+        }
+      }
+    };
 
     const renderHistory = () => {
       const list = root.querySelector('[data-history-list]');
       const count = root.querySelector('[data-history-count]');
-      if (count) count.textContent = String(state.history.length);
+      if (count) count.textContent = String(state.history?.length || 0);
       if (!list) return;
       list.replaceChildren();
-      if (!state.history.length) {
+      if (!state.history?.length) {
         const p = document.createElement('p'); p.textContent = '还没有已归档记录。'; list.appendChild(p); return;
       }
-      [...state.history].reverse().forEach((item, reverseIndex) => {
+      [...state.history].reverse().forEach((item, index) => {
         const details = document.createElement('details');
         const summary = document.createElement('summary');
-        const originalIndex = state.history.length - reverseIndex;
-        summary.textContent = `Attempt ${originalIndex} · ${formatTime(item.archivedAt || item.firstSubmittedAt)} · reconstruction ${item.reconstructions?.length || 0}`;
-        const first = document.createElement('pre'); first.textContent = item.firstAttempt || '—';
-        details.append(summary, first);
-        (item.reconstructions || []).forEach((revision, index) => {
-          const label = document.createElement('strong'); label.textContent = `Reconstruction ${index + 1}`;
-          const pre = document.createElement('pre'); pre.textContent = revision.text || '';
-          details.append(label, pre);
+        summary.textContent = `Attempt ${state.history.length - index} · ${item.decision || 'legacy'} · ${formatTime(item.archivedAt || item.firstSubmittedAt)}`;
+        details.appendChild(summary);
+        const firstRows = item.firstAttempts || {};
+        Object.entries(firstRows).forEach(([id, answer]) => {
+          const p = document.createElement('p'); p.textContent = `S${promptById.get(id)?.ordinal || id}：${answer}`; details.appendChild(p);
         });
+        if (item.legacy && item.firstAttempt) {
+          const p = document.createElement('p'); p.textContent = `Legacy first attempt：${item.firstAttempt}`; details.appendChild(p);
+        }
         list.appendChild(details);
       });
     };
@@ -346,182 +454,211 @@ const nextHref = translation.navigation?.nextId
       root.querySelectorAll('[data-stage]').forEach((section) => {
         section.hidden = section.getAttribute('data-stage') !== state.stage;
       });
+      const stageLabel = root.querySelector('[data-translation-stage-label]');
       if (stageLabel) stageLabel.textContent = ({
         attempt: 'Clean Attempt',
-        compare: 'Diagnosis / Repair',
+        decision: 'PASS / Review',
+        diagnosis: 'Whole-set Review',
         reconstruct: 'Reconstruction',
-        complete: 'Reconstructed'
+        passed: 'PASS',
+        repaired: 'Repair Complete',
+        transfer_pending: 'TRANSFER_PENDING'
       })[state.stage] || 'Translation';
-      if (firstDraft instanceof HTMLTextAreaElement) firstDraft.value = state.draft || '';
-      if (meaningFocus instanceof HTMLTextAreaElement) meaningFocus.value = state.meaningFocus || '';
-      if (naturalFocus instanceof HTMLTextAreaElement) naturalFocus.value = state.naturalFocus || '';
-      if (reconstructDraft instanceof HTMLTextAreaElement) reconstructDraft.value = state.reconstructDraft || '';
-      if (frozen instanceof HTMLElement) frozen.hidden = !state.firstAttempt;
-      if (firstCopy) firstCopy.textContent = state.firstAttempt || '';
-      if (firstTime) firstTime.textContent = state.firstSubmittedAt ? `locked ${formatTime(state.firstSubmittedAt)}` : '';
+
+      root.querySelectorAll('[data-attempt-id]').forEach((node) => {
+        if (node instanceof HTMLTextAreaElement) node.value = state.drafts?.[node.dataset.attemptId || ''] || '';
+      });
+      renderFirst();
+      renderPending();
+      renderRepair();
+      renderLatest();
+      renderHistory();
+
+      const referencePanel = root.querySelector('[data-reference-panel]');
       if (referencePanel instanceof HTMLElement) referencePanel.hidden = !state.referenceRevealed;
       const revealButton = root.querySelector('[data-reveal-reference]');
-      if (revealButton) revealButton.textContent = state.referenceRevealed ? '收起 Reference' : '需要时再看 Reference';
-      const last = state.reconstructions[state.reconstructions.length - 1];
-      if (latest) latest.textContent = last?.text || '';
-      if (completeReference instanceof HTMLElement) completeReference.hidden = !state.completeReferenceOpen;
-      const toggle = root.querySelector('[data-toggle-complete-reference]');
-      if (toggle) toggle.textContent = state.completeReferenceOpen ? '收起参考译文' : '打开参考译文';
-      renderFocus();
-      renderHistory();
+      if (revealButton) revealButton.textContent = state.referenceRevealed ? '收起 Reference' : '确实需要时看 Reference';
+      root.querySelectorAll('[data-complete-reference]').forEach((panel) => {
+        if (panel instanceof HTMLElement) panel.hidden = !state.completeReferenceOpen;
+      });
+      root.querySelectorAll('[data-toggle-complete-reference]').forEach((button) => {
+        button.textContent = state.completeReferenceOpen ? '收起 Reference' : '打开 Reference';
+      });
       save();
     };
 
-    const sourceText = () => {
-      const source = root.querySelector('[data-translation-source-text]');
-      return String(source?.textContent || '').replace(/\n\s*\n\s*\n+/g, '\n\n').trim();
+    const sourceSegmentsText = () => prompts.map((prompt) =>
+      `[${prompt.id} | Segment ${prompt.ordinal}]\n${prompt.sourceText || ''}`
+    ).join('\n\n');
+    const firstAttemptsText = () => prompts.map((prompt) =>
+      `[${prompt.id} | Segment ${prompt.ordinal}]\n${state.firstAttempts?.[prompt.id] || '—'}`
+    ).join('\n\n');
+    const referenceText = () => references.map((item) =>
+      item?.available && String(item?.text || '').trim()
+        ? `[${item.id} | Segment ${item.ordinal}] ${item.text}`
+        : `[${item.id} | Segment ${item.ordinal}] [reference unavailable: ${item?.status || 'missing_reference'}]`
+    ).join('\n\n');
+    const pendingText = () => {
+      const pending = pendingTransferTargets(transferLedger);
+      if (!pending.length) return 'none';
+      return pending.map((target) =>
+        `- ${target.id} | ${target.label}\n  demand: ${target.underlyingDemand}\n  prior evidence: ${(target.evidence || []).filter((e) => e.relation !== 'irrelevant').length}`
+      ).join('\n');
     };
-    const referenceText = () => references
-      .map((item) => item?.available && String(item?.text || '').trim()
-        ? `[Segment ${item.ordinal}] ${item.text}`
-        : `[Segment ${item.ordinal}] [reference unavailable: ${item?.status || 'missing_reference'}]`)
-      .join('\n\n');
 
-    const referenceAllowedInHandoff = () => state.referenceRevealed || state.completeReferenceOpen;
-    const buildHandoff = () => {
-      const latestRevision = state.reconstructions[state.reconstructions.length - 1]?.text || '';
-      return [
-        'KIANOS_TRANSLATION_HANDOFF_V1',
-        `task: ${objectId}`,
-        `paper: ${paperId}`,
-        `title: ${title}`,
-        '',
-        'SOURCE',
-        sourceText(),
-        '',
-        'FIRST TRANSLATION (preserved)',
-        state.firstAttempt || '—',
-        '',
-        'REFERENCE STATE',
-        referenceAllowedInHandoff() ? referenceText() || '—' : 'intentionally not revealed',
-        '',
-        'CURRENT PRIORITY NOTES',
-        `1. Meaning / load-bearing: ${state.meaningFocus || '—'}`,
-        `2. Naturalness / structure: ${state.naturalFocus || '—'}`,
-        latestRevision ? `\nLATEST RECONSTRUCTION\n${latestRevision}` : '',
-        '',
-        '请按 Translation Runtime v1 复盘整个 task/set，不逐句开独立线程，也不要机械评分。先判断 first meaningful failure，并合并其造成的 cascade。默认最多给两个 priority lenses：一个 meaning/load-bearing，一个 naturalness/structure；minor micro-edit 只有在不挤占主修复时才加。优先给 minimal repair / cue，让我自己 reconstruct；不要主动要求先看完整参考译文。'
-      ].filter((line) => line !== '').join('\n');
-    };
+    const buildHandoff = () => [
+      'KIANOS_TRANSLATION_HANDOFF_V2',
+      `task: ${objectId}`,
+      `paper: ${paperId}`,
+      `title: ${title}`,
+      '',
+      'SOURCE SEGMENTS',
+      sourceSegmentsText(),
+      '',
+      'FIRST TRANSLATION · IMMUTABLE',
+      firstAttemptsText(),
+      '',
+      'PENDING TRANSFER TARGETS',
+      pendingText(),
+      '',
+      'REFERENCE STATE',
+      state.referenceRevealed ? referenceText() : 'intentionally not revealed',
+      '',
+      'REVIEW CONTRACT',
+      '先看完整 task/set，再定位最早一个足以解释结果的 first meaningful failure；可由它解释的 cascade 不另建债务。稳定且可信则 PASS。若需修复，只给 smallest sufficient repair，并让我自己 reconstruct。',
+      '若这套对已有 Pending target 提供了真正相关的新证据，才给 transfer_updates；irrelevant 不得算支持或反驳；close=true 只能来自语义上足够的 fresh independent evidence，不能因为同题改对或凑次数。',
+      '',
+      'RETURN EXACTLY WITH THIS MARKER + JSON',
+      TRANSLATION_RETURN_SCHEMA,
+      JSON.stringify({
+        schema: TRANSLATION_RETURN_SCHEMA,
+        task: objectId,
+        decision: 'PASS | REPAIR_NEEDED',
+        primary_failure: {
+          layer: 'Lexical | English Representation | Relation / Information Preservation | Chinese Reconstruction | Execution / Self-check',
+          skill: 'optional stable skill address',
+          affected_segments: ['exact segment id'],
+          minimal_repair: 'smallest cue / explanation needed to re-execute',
+          reconstruction_prompt: 'what I should now do myself'
+        },
+        transfer_target: {
+          admit: false,
+          target_id: 'stable reusable target id if admitted',
+          label: 'short learner-facing label',
+          layer: 'failure layer',
+          skill: 'optional skill address',
+          underlying_demand: 'what later fresh material must actually test'
+        },
+        transfer_updates: [
+          { target_id: 'existing pending target id', relation: 'support | contradict | irrelevant', note: 'why', close: false }
+        ]
+      }, null, 2)
+    ].join('\n');
 
     const copyText = async (text) => {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch {
+      try { await navigator.clipboard.writeText(text); return true; }
+      catch {
         try {
           const area = document.createElement('textarea');
-          area.value = text;
-          area.style.position = 'fixed';
-          area.style.opacity = '0';
-          document.body.appendChild(area);
-          area.select();
-          const ok = document.execCommand('copy');
-          area.remove();
-          return ok;
+          area.value = text; area.style.position = 'fixed'; area.style.opacity = '0';
+          document.body.appendChild(area); area.select();
+          const ok = document.execCommand('copy'); area.remove(); return ok;
         } catch { return false; }
       }
     };
 
-    if (firstDraft instanceof HTMLTextAreaElement) {
-      firstDraft.addEventListener('input', () => { state.draft = firstDraft.value; save(); });
-    }
-    if (meaningFocus instanceof HTMLTextAreaElement) {
-      meaningFocus.addEventListener('input', () => { state.meaningFocus = meaningFocus.value; save(); renderFocus(); });
-    }
-    if (naturalFocus instanceof HTMLTextAreaElement) {
-      naturalFocus.addEventListener('input', () => { state.naturalFocus = naturalFocus.value; save(); renderFocus(); });
-    }
-    if (reconstructDraft instanceof HTMLTextAreaElement) {
-      reconstructDraft.addEventListener('input', () => { state.reconstructDraft = reconstructDraft.value; save(); });
-    }
+    root.querySelectorAll('[data-attempt-id]').forEach((node) => {
+      if (!(node instanceof HTMLTextAreaElement)) return;
+      node.addEventListener('input', () => {
+        const id = node.dataset.attemptId || '';
+        state.drafts[id] = node.value;
+        node.closest('[data-attempt-card]')?.classList.remove('incomplete');
+        save();
+      });
+    });
 
     root.querySelector('[data-freeze-first]')?.addEventListener('click', () => {
-      const value = String(state.draft || '').trim();
+      const result = freezeWholeAttempt(state, prompts);
       const status = root.querySelector('[data-first-status]');
-      if (!value) {
-        if (status) status.textContent = '先完成第一版，再进入 Diagnosis。';
-        firstDraft?.focus();
+      root.querySelectorAll('[data-attempt-card]').forEach((card) => card.classList.remove('incomplete'));
+      if (!result.ok) {
+        result.missing.forEach((id) => root.querySelector(`[data-attempt-card="${CSS.escape(id)}"]`)?.classList.add('incomplete'));
+        if (status) status.textContent = `还缺 ${result.missing.length} 个 Segment；整套没有完成，不能锁定。`;
         return;
       }
-      if (!state.firstAttempt) {
-        state.firstAttempt = value;
-        state.firstSubmittedAt = new Date().toISOString();
-      }
-      state.stage = 'compare';
-      state.referenceRevealed = false;
-      state.draft = '';
+      state = result.state;
       render();
     });
 
+    root.querySelector('[data-pass-clean]')?.addEventListener('click', () => {
+      state = passCleanAttempt(state);
+      render();
+    });
+    root.querySelector('[data-route-review]')?.addEventListener('click', () => {
+      state = routeAttemptToReview(state);
+      render();
+    });
     root.querySelector('[data-reveal-reference]')?.addEventListener('click', () => {
       state.referenceRevealed = !state.referenceRevealed;
       render();
     });
-    root.querySelector('[data-start-reconstruct]')?.addEventListener('click', () => {
-      state.stage = 'reconstruct';
-      state.referenceRevealed = false;
-      state.completeReferenceOpen = false;
-      render();
-      reconstructDraft?.focus();
+    root.querySelector('[data-copy-chat]')?.addEventListener('click', async () => {
+      const status = root.querySelector('[data-copy-status]');
+      const ok = await copyText(buildHandoff());
+      if (status) status.textContent = ok ? '已复制整套 Handoff；回到 Chat 直接粘贴即可。' : '复制失败，请手动复制。';
     });
-    root.querySelector('[data-back-compare]')?.addEventListener('click', () => {
-      state.stage = 'compare';
+
+    root.querySelector('[data-import-return]')?.addEventListener('click', () => {
+      const area = root.querySelector('[data-chat-return]');
+      const status = root.querySelector('[data-return-status]');
+      if (!(area instanceof HTMLTextAreaElement)) return;
+      try {
+        const payload = parseTranslationReturn(area.value, objectId);
+        const applied = applyTranslationReturn(state, payload, prompts, transferLedger, { task: objectId });
+        state = applied.state;
+        transferLedger = applied.ledger;
+        if (status) status.textContent = payload.decision === 'PASS' ? 'Chat 判定 PASS。' : '已导入 primary failure，进入 Reconstruction。';
+        render();
+      } catch (error) {
+        if (status) status.textContent = `Return 无法导入：${error instanceof Error ? error.message : String(error)}`;
+      }
+    });
+
+    root.querySelector('[data-back-diagnosis]')?.addEventListener('click', () => {
+      state.stage = 'diagnosis';
       state.referenceRevealed = false;
       render();
     });
     root.querySelector('[data-save-reconstruction]')?.addEventListener('click', () => {
-      const value = String(state.reconstructDraft || '').trim();
       const status = root.querySelector('[data-reconstruct-status]');
-      if (!value) {
-        if (status) status.textContent = '先完成 Reconstruction。';
-        reconstructDraft?.focus();
+      const result = saveReconstruction(state, transferLedger, { task: objectId });
+      if (!result.ok) {
+        if (status) status.textContent = `还缺 ${result.missing.length} 个受影响 Segment 的 Reconstruction。`;
         return;
       }
-      state.reconstructions.push({ text: value, createdAt: new Date().toISOString() });
-      state.reconstructDraft = '';
-      state.stage = 'complete';
-      state.referenceRevealed = false;
-      state.completeReferenceOpen = false;
-      render();
-    });
-    root.querySelector('[data-another-reconstruction]')?.addEventListener('click', () => {
-      state.stage = 'reconstruct';
-      state.referenceRevealed = false;
-      state.completeReferenceOpen = false;
-      render();
-      reconstructDraft?.focus();
-    });
-    root.querySelector('[data-toggle-complete-reference]')?.addEventListener('click', () => {
-      state.completeReferenceOpen = !state.completeReferenceOpen;
+      state = result.state;
+      transferLedger = result.ledger;
       render();
     });
 
-    const wireCopy = (selector, statusSelector) => {
-      root.querySelector(selector)?.addEventListener('click', async () => {
-        const status = root.querySelector(statusSelector);
-        const ok = await copyText(buildHandoff());
-        if (status) status.textContent = ok ? '已复制 KIANOS_TRANSLATION_HANDOFF_V1。' : '复制失败，请手动复制。';
+    root.querySelectorAll('[data-toggle-complete-reference]').forEach((button) => {
+      button.addEventListener('click', () => {
+        state.completeReferenceOpen = !state.completeReferenceOpen;
+        render();
       });
-    };
-    wireCopy('[data-copy-chat]', '[data-copy-status]');
-    wireCopy('[data-copy-chat-complete]', '[data-copy-status-complete]');
+    });
 
     root.querySelector('[data-reset-task]')?.addEventListener('click', () => {
       if (!confirm('归档当前 Translation attempt，并重新开始这一套？')) return;
-      const history = [...state.history];
-      if (state.firstAttempt) history.push(archiveSnapshot());
-      state = blankState(history);
+      const history = [...(state.history || [])];
+      const snapshot = archiveTranslationAttempt(state);
+      if (snapshot) history.push(snapshot);
+      state = blankTranslationState(prompts, history);
       render();
-      firstDraft?.focus();
+      root.querySelector('[data-attempt-id]')?.focus();
     });
     root.querySelector('[data-clear-history]')?.addEventListener('click', () => {
-      if (!state.history.length) return;
+      if (!state.history?.length) return;
       if (!confirm('清空这一套已归档的本机 Translation History？')) return;
       state.history = [];
       render();
@@ -532,9 +669,15 @@ const nextHref = translation.navigation?.nextId
 </script>
 
 <style>
-  .translationRuntime{max-width:88rem;margin:0 auto;display:grid;gap:12px}.translationHeader{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 18px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationHeader>div{display:grid;gap:2px}.translationHeader>div>span,.translationSource header>span,.translationStage header>span,.translationFrozen header>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHeader h1{margin:0;font-size:19px}.translationHeader small{color:var(--study-muted);font-size:10px}.translationBack,.translationHeader nav a{color:inherit;text-decoration:none;font-size:11px;font-weight:800}.translationHeader nav{display:flex;gap:8px}.translationHeader nav a,.translationHeader nav span{padding:7px 9px;border:1px solid var(--study-line);border-radius:8px;font-size:10px}.translationHeader nav span{color:var(--study-faint)}
-  .translationColumns{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr);gap:12px;align-items:start}.translationSource,.translationWork{min-width:0}.translationSource{position:sticky;top:12px;padding:22px 24px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationSource header h2{margin:4px 0 0;font-size:20px}.translationInstruction,.translationSubtitle{margin:12px 0 0;padding:10px 12px;border-radius:9px;background:var(--study-green-soft);color:var(--study-muted);font-size:12px;line-height:1.65}.translationSourceBody{margin-top:18px;font-size:15px;line-height:1.9}.translationSourceBody>p{margin:0 0 14px}.translationSegment{padding:12px 0;border-top:1px solid var(--study-line)}.translationSegment small{display:block;margin-bottom:5px;color:var(--study-faint);font-size:9px;font-weight:800}.translationSegment em{display:block;margin-bottom:7px;color:var(--study-muted);font-size:11px;font-style:normal}.translationSegment p{margin:0}.translationMissing{color:#9c4d31}.translationPromptNotes{margin-top:14px;padding-top:10px;border-top:1px solid var(--study-line)}.translationPromptNotes p{margin:4px 0;color:var(--study-muted);font-size:11px;line-height:1.55}.translationProvenance{margin-top:20px;padding-top:12px;border-top:1px solid var(--study-line);color:var(--study-faint);font-size:9px}.translationProvenance code{display:block;margin-top:4px;overflow-wrap:anywhere}
-  .translationWork{display:grid;gap:10px}.translationStage,.translationFrozen,.translationHistory{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationStage header h2{margin:4px 0 5px;font-size:21px}.translationStage header p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.65}.translationStage textarea{width:100%;box-sizing:border-box;resize:vertical;padding:12px 13px;border:1px solid #cad6cf;border-radius:10px;background:#fbfdfc;font:inherit;font-size:13px;line-height:1.75;outline:none}.translationStage textarea:focus{border-color:var(--study-green);box-shadow:0 0 0 3px var(--study-green-soft)}.translationActions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:10px}.translationActions button,.buttonLink,.translationHistoryActions button{padding:8px 11px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:10px;font-weight:800;cursor:pointer;text-decoration:none}.translationActions button.primary{border-color:var(--study-green);background:var(--study-green);color:#fff}.translationActions small{flex-basis:100%;color:var(--study-faint);font-size:9px;line-height:1.45}.translationActions.split{justify-content:flex-start}
-  .translationFrozen{padding:14px 18px;background:#fbfdfc}.translationFrozen header{display:flex;justify-content:space-between;gap:10px}.translationFrozen header small{color:var(--study-faint);font-size:9px}.translationFrozen pre,.translationLatest pre,.translationHistory pre{margin:8px 0 0;white-space:pre-wrap;font:inherit;font-size:12px;line-height:1.65}.translationReference{margin:12px 0;padding:14px;border:1px solid #d7dfdb;border-radius:11px;background:#f8faf9}.translationReferenceHead{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.translationReferenceHead strong{font-size:11px}.translationReferenceHead small{color:var(--study-faint);font-size:9px}.translationReference [data-reference-list],.translationReference [data-complete-reference-list]{display:grid;gap:8px}.translationReference section{padding-top:8px;border-top:1px solid var(--study-line)}.translationReference section:first-child{padding-top:0;border-top:0}.translationReference section small{color:var(--study-green);font-size:9px;font-weight:800}.translationReference section p{margin:4px 0 0;font-size:12px;line-height:1.7}.translationReference section.referenceGap p{color:#8b623e}.translationLensGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.translationLensGrid label{display:grid;gap:5px}.translationLensGrid label>span{font-size:10px;font-weight:800}.translationFocusSummary{display:grid;gap:4px;margin-bottom:10px;padding:10px 12px;border-radius:9px;background:var(--study-green-soft)}.translationFocusSummary p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.55}.translationLatest{padding:12px;border-radius:10px;background:var(--study-green-soft)}.translationLatest strong{font-size:10px}.translationHistory summary{cursor:pointer;font-size:11px;font-weight:800}.translationHistory summary span{margin-left:4px;color:var(--study-green)}.translationHistory [data-history-list]{display:grid;gap:8px;margin-top:10px}.translationHistory [data-history-list]>p{color:var(--study-faint);font-size:10px}.translationHistory details{padding:8px 10px;border:1px solid var(--study-line);border-radius:8px}.translationHistory details summary{font-size:9px}.translationHistory details strong{display:block;margin-top:8px;font-size:9px}.translationHistoryActions{display:flex;gap:7px;margin-top:10px}.translationHistory>small{display:block;margin-top:8px;color:var(--study-faint);font-size:9px}
-  @media(max-width:920px){.translationHeader{grid-template-columns:1fr}.translationHeader nav{justify-content:flex-start}.translationColumns{grid-template-columns:1fr}.translationSource{position:static}.translationLensGrid{grid-template-columns:1fr}}
+  .translationRuntime{max-width:90rem;margin:0 auto;display:grid;gap:12px}.translationHeader{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 18px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationHeader>div{display:grid;gap:2px}.translationHeader>div>span,.translationSource header>span,.translationStage header>span,.translationFrozen header>span,.translationPending header>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHeader h1{margin:0;font-size:19px}.translationHeader small{color:var(--study-muted);font-size:10px}.translationBack,.translationHeader nav a{color:inherit;text-decoration:none;font-size:11px;font-weight:800}.translationHeader nav{display:flex;gap:8px}.translationHeader nav a,.translationHeader nav span{padding:7px 9px;border:1px solid var(--study-line);border-radius:8px;font-size:10px}.translationHeader nav span{color:var(--study-faint)}
+  .translationColumns{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,1fr);gap:12px;align-items:start}.translationSource{position:sticky;top:12px;padding:22px 24px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationSource header h2{margin:4px 0 0;font-size:20px}.translationInstruction,.translationSubtitle{margin:12px 0 0;padding:10px 12px;border-radius:9px;background:var(--study-green-soft);color:var(--study-muted);font-size:12px;line-height:1.65}.translationSourceBody{margin-top:18px;font-size:15px;line-height:1.9}.translationSourceBody>p{margin:0 0 14px}.translationSegment{padding:12px 0;border-top:1px solid var(--study-line)}.translationSegment small{display:block;margin-bottom:5px;color:var(--study-faint);font-size:9px;font-weight:800}.translationSegment em{display:block;margin-bottom:7px;color:var(--study-muted);font-size:11px;font-style:normal}.translationSegment p{margin:0}.translationMissing{color:#9c4d31}.translationProvenance{margin-top:18px;padding-top:12px;border-top:1px solid var(--study-line);color:var(--study-faint);font-size:9px}.translationProvenance code{display:block;margin-top:4px;overflow-wrap:anywhere}
+  .translationPending{margin-top:16px;padding:12px 13px;border:1px solid #d7dfdb;border-radius:10px;background:#f8faf9}.translationPending header{display:flex;justify-content:space-between}.translationPending header strong{font-size:10px}.translationPending p{margin:6px 0 0;font-size:10px;line-height:1.5}.translationPending small{display:block;margin-top:7px;color:var(--study-faint);font-size:9px;line-height:1.45}
+  .translationWork{display:grid;gap:10px;min-width:0}.translationStage,.translationFrozen,.translationHistory{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.translationStage header h2{margin:4px 0 5px;font-size:21px}.translationStage header p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.65}.translationAttemptGrid,.translationReconstructGrid{display:grid;gap:10px}.translationAnswerCard{display:grid;gap:7px;padding:12px;border:1px solid var(--study-line);border-radius:11px;background:#fbfdfc}.translationAnswerCard>span{color:var(--study-green);font-size:9px;font-weight:850}.translationAnswerCard>p{margin:0;color:#26352f;font-size:12px;line-height:1.65}.translationAnswerCard blockquote{margin:0;padding:8px 10px;border-left:3px solid #cad6cf;background:#fff;color:var(--study-muted);font-size:11px;line-height:1.55}.translationAnswerCard.incomplete{border-color:#b85a3f;background:#fff8f5}.translationStage textarea{width:100%;box-sizing:border-box;resize:vertical;padding:11px 12px;border:1px solid #cad6cf;border-radius:9px;background:#fff;font:inherit;font-size:13px;line-height:1.7;outline:none}.translationStage textarea:focus{border-color:var(--study-green);box-shadow:0 0 0 3px var(--study-green-soft)}
+  .translationActions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:11px}.translationActions button,.buttonLink,.translationHistoryActions button{padding:8px 11px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:10px;font-weight:800;cursor:pointer;text-decoration:none}.translationActions button.primary,.primaryLink{border-color:var(--study-green);background:var(--study-green);color:#fff}.translationActions small{flex-basis:100%;color:var(--study-faint);font-size:9px;line-height:1.45}
+  .translationFrozen{padding:14px 18px;background:#fbfdfc}.translationFrozen header{display:flex;justify-content:space-between;gap:10px}.translationFrozen header small{color:var(--study-faint);font-size:9px}.translationFrozen [data-first-list]{display:grid;gap:7px;margin-top:8px}.translationFrozen [data-first-list] section{padding-top:7px;border-top:1px solid var(--study-line)}.translationFrozen [data-first-list] section:first-child{padding-top:0;border-top:0}.translationFrozen small{color:var(--study-green);font-size:9px;font-weight:800}.translationFrozen pre{margin:4px 0 0;white-space:pre-wrap;font:inherit;font-size:12px;line-height:1.6}
+  .translationDecisionGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.translationDecisionGrid button{display:grid;gap:5px;padding:16px;text-align:left;border:1px solid var(--study-line);border-radius:12px;background:#fff;cursor:pointer}.translationDecisionGrid button strong{font-size:13px}.translationDecisionGrid button span{color:var(--study-muted);font-size:10px;line-height:1.5}.translationDecisionGrid .decisionPass{border-color:#bcd8c8;background:var(--study-green-soft)}
+  .translationReturnBox{display:grid;gap:6px;margin-top:14px}.translationReturnBox>span{font-size:10px;font-weight:850}.translationRepairCard,.translationTransferCard{display:grid;gap:5px;margin-bottom:11px;padding:12px 13px;border-radius:10px;background:var(--study-green-soft)}.translationRepairCard strong,.translationTransferCard strong{font-size:11px}.translationRepairCard p,.translationTransferCard p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.55}.translationLatest{margin-top:12px;padding:12px;border-radius:10px;background:#f8faf9}.translationLatest strong{font-size:10px}.translationLatest p{margin:5px 0 0;font-size:11px;line-height:1.55}
+  .translationReference{margin:12px 0;padding:14px;border:1px solid #d7dfdb;border-radius:11px;background:#f8faf9}.translationReferenceHead{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px}.translationReferenceHead strong{font-size:11px}.translationReferenceHead small{color:var(--study-faint);font-size:9px}.translationReference [data-reference-list],.translationReference [data-complete-reference-list]{display:grid;gap:8px}.translationReference section{padding-top:8px;border-top:1px solid var(--study-line)}.translationReference section:first-child{padding-top:0;border-top:0}.translationReference section small{color:var(--study-green);font-size:9px;font-weight:800}.translationReference section p{margin:4px 0 0;font-size:12px;line-height:1.7}.translationReference section.referenceGap p{color:#8b623e}
+  .translationHistory summary{cursor:pointer;font-size:11px;font-weight:800}.translationHistory summary span{margin-left:4px;color:var(--study-green)}.translationHistory [data-history-list]{display:grid;gap:8px;margin-top:10px}.translationHistory [data-history-list]>p{color:var(--study-faint);font-size:10px}.translationHistory details{padding:8px 10px;border:1px solid var(--study-line);border-radius:8px}.translationHistory details summary{font-size:9px}.translationHistory details p{margin:5px 0 0;font-size:10px;line-height:1.5}.translationHistoryActions{display:flex;gap:7px;margin-top:10px}.translationHistory>small{display:block;margin-top:8px;color:var(--study-faint);font-size:9px}
+  @media(max-width:960px){.translationHeader{grid-template-columns:1fr}.translationHeader nav{justify-content:flex-start}.translationColumns{grid-template-columns:1fr}.translationSource{position:static}}@media(max-width:620px){.translationDecisionGrid{grid-template-columns:1fr}.translationStage,.translationSource{padding:16px}.translationHeader{padding:13px}}
 </style>
