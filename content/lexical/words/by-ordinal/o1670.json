@@ -106,18 +106,19 @@
       "core_clusters": [],
       "core_meaning_cn": "确保某事发生或为真",
       "core_meaning_en": "to make certain that something happens or is true",
-      "mental_model_cn": "确保某事发生或为真",
-      "mental_model_en": ""
+      "mental_model_cn": "把事情或结果推进到确定成立",
+      "mental_model_en": "make an event, fact, or result certain"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:ensure:62dce6e5ee8a0b67",
       "construction:deep:constructions:ensure:af4da17d55936ea1",
       "deep:deep:constructions:ensure:62dce6e5ee8a0b67",
-      "deep:deep:constructions:ensure:af4da17d55936ea1"
+      "deep:deep:constructions:ensure:af4da17d55936ea1",
+      "relation:deep:semantic_contrast:assure:13a7b0a90e80dae6"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -166,17 +167,17 @@
       }
     ],
     "verification_summary": {
-      "candidate_fact_count": 3,
+      "candidate_fact_count": 4,
       "deep_modules": {
         "confusables": "no_valid_content",
         "constructions": "completed",
         "secondary_senses": "no_valid_content",
-        "semantic_contrast": "no_valid_content",
+        "semantic_contrast": "completed",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 2,
+      "published_fact_count": 3,
       "rejected_fact_count": 0,
       "runtime_model_calls": false
     },
@@ -184,7 +185,14 @@
     "word_family": [],
     "word_id": "word:ensure"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:assure:13a7b0a90e80dae6",
+      "owner_path": "content/lexical/relations/by-id/7d/7d1b37f658f21a0954956b3e3c17bf330776955de3ec4d3bf2d905be69b29986.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -272,7 +280,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1665-1672.json",
     "source_content_hash": "a4d345044f50eb7cb53789c845dd001652b83488ec2fd2de36bfde520682491e",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
