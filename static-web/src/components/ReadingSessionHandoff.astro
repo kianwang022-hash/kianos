@@ -1,0 +1,112 @@
+<span data-reading-session-handoff-root hidden></span>
+
+<script>
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
+
+  if (readingRoot) {
+    const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
+    const continuousKey = 'kianos-reading-continuous-session-v1';
+    const resultSummary = readingRoot.querySelector('.portedReadingResultSummary');
+    let handoff = null;
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const readSession = () => {
+      const value = readJson(continuousKey, {});
+      return {
+        active: Boolean(value.active),
+        reviewing: Boolean(value.reviewing),
+        startedAt: value.startedAt || '',
+        items: Array.isArray(value.items) ? value.items : [],
+        reviewIds: Array.isArray(value.reviewIds) ? value.reviewIds : [],
+        lastSummary: value.lastSummary || null
+      };
+    };
+
+    const ensureHandoff = () => {
+      if (handoff || !resultSummary) return handoff;
+      handoff = document.createElement('div');
+      handoff.className = 'portedReadingSessionHandoff';
+      handoff.hidden = true;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = '复制本次训练给 Chat';
+      button.setAttribute('data-reading-session-copy-chat', '');
+
+      const status = document.createElement('small');
+      status.setAttribute('data-reading-session-copy-status', '');
+      status.textContent = '跨篇复盘时再用。';
+
+      handoff.append(button, status);
+      resultSummary.appendChild(handoff);
+      return handoff;
+    };
+
+    const isRelevant = (session) => Boolean(
+      session.reviewIds.length > 0 && (
+        (session.reviewing && session.reviewIds.includes(readingKey)) ||
+        session.lastSummary?.lastId === readingKey
+      )
+    );
+
+    const buildPacket = (session) => {
+      const lines = [
+        'Reading A session review',
+        `Session started: ${session.startedAt || '—'}`,
+        `Passages submitted: ${session.items.length}`,
+        `Passages needing review: ${session.reviewIds.length}`
+      ];
+
+      session.items.forEach((item, index) => {
+        const passageId = item?.id || '';
+        if (!passageId) return;
+        const attempt = readJson(`kianos-reading-attempt-v1:${passageId}`, {});
+        const coach = readJson(`kianos-reading-repair-coach-v1:${passageId}`, {});
+        const uncertain = new Set(attempt.uncertain || []);
+        const problemIds = Object.keys(attempt.results || {}).filter((id) =>
+          ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
+        );
+
+        lines.push('');
+        lines.push(`Passage ${index + 1}: ${passageId}`);
+        lines.push(`Score: ${item.score}/${item.total} · Time: ${item.durationSec || 0}s · Problems: ${problemIds.length}`);
+
+        problemIds.forEach((id) => {
+          const path = (attempt.trajectory?.[id] || []).map((step) => step?.answer).filter(Boolean).join(' → ') || '—';
+          const cause = attempt.causes?.[id] || '未标';
+          const handled = Boolean((coach.reviewed || coach.closed || {})?.[id]);
+          lines.push(`- ${id}: ${attempt.results?.[id] || 'uncertain'} · answer ${attempt.answers?.[id] || '未答'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · cause ${cause} · path ${path} · handled ${handled ? 'yes' : 'no'}`);
+        });
+      });
+
+      lines.push('');
+      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them.');
+      return lines.join('\n');
+    };
+
+    const sync = () => {
+      const node = ensureHandoff();
+      if (!node) return;
+      const session = readSession();
+      node.hidden = !isRelevant(session);
+    };
+
+    ensureHandoff()?.querySelector('[data-reading-session-copy-chat]')?.addEventListener('click', async () => {
+      const session = readSession();
+      if (!isRelevant(session)) return;
+      const status = handoff?.querySelector('[data-reading-session-copy-status]');
+      try {
+        await navigator.clipboard.writeText(buildPacket(session));
+        if (status) status.textContent = '已复制整组最小复盘包，直接贴到 Chat。';
+      } catch {
+        if (status) status.textContent = '复制失败，请稍后再试。';
+      }
+    });
+
+    readingRoot.addEventListener('click', () => window.setTimeout(sync, 0));
+    sync();
+  }
+</script>
