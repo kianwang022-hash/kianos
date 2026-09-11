@@ -1,0 +1,263 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { loadPoliticsPilot } from '../../../lib/politics.mjs';
+
+const state = loadPoliticsPilot();
+const chapter = state.chapter || {};
+const orientation = chapter.chapter_orientation || {};
+
+function paragraphs(text) {
+  return String(text || '')
+    .split(/\n{2,}|\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+}
+
+function uniqueSourceNodes(nodes = []) {
+  const seen = new Set();
+  return nodes.filter((node) => {
+    const key = `${node.title}\n${node.text}`;
+    if (!node.text || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+const units = (state.units || []).map((unit) => ({
+  ...unit,
+  sourceNodes: uniqueSourceNodes(unit.sourceNodes)
+}));
+---
+<Base
+  title="马原第一章"
+  kicker="先理解这一章为什么这样展开"
+  description="不用先看第二套框架。定位之后直接沿乘风主线学；题目只负责验证。"
+  active="politics"
+>
+  <section class="learnShell">
+    <aside class="learnRail" aria-label="本章路径">
+      <a class="railBack" href={`${import.meta.env.BASE_URL}politics/`}>← 政治</a>
+      <strong>这一章</strong>
+      <nav>
+        <a href="#orientation">先定位</a>
+        {units.map((unit, index) => <a href={`#unit-${index + 1}`}>{index + 1}. {unit.title}</a>)}
+        <a href="#chapter-close">整章收口</a>
+      </nav>
+    </aside>
+
+    <div class="learnMain">
+      <section class="orientationCard" id="orientation">
+        <p class="microLabel">先定位 · 30 秒</p>
+        <h2>{orientation.core_problem || '这一章到底在解决什么？'}</h2>
+        {orientation.learner_thesis && <p class="leadAnswer">{orientation.learner_thesis}</p>}
+        {Array.isArray(orientation.reasoning_chain) && orientation.reasoning_chain.length > 0 && (
+          <div class="reasonChain">
+            {orientation.reasoning_chain.map((item, index) => (
+              <div class="reasonStep"><span>{index + 1}</span><p>{item}</p></div>
+            ))}
+          </div>
+        )}
+        {orientation.attention_rule && <p class="attentionNote">学这一章时只记住：{orientation.attention_rule}</p>}
+      </section>
+
+      {state.status === 'missing' && (
+        <section class="blockedCard"><strong>Current 内容缺失</strong><p>页面保持阻断，没有回退旧资料。</p></section>
+      )}
+
+      {units.map((unit, index) => (
+        <section class="unitBlock" id={`unit-${index + 1}`} data-unit>
+          <header class="unitHead">
+            <p class="microLabel">{index + 1} / {units.length} · 现在学这个</p>
+            <h2>{unit.title}</h2>
+            {unit.from_previous && <p class="bridge">{unit.from_previous}</p>}
+            <div class="coreQuestion"><span>这一段抓什么</span><strong>{unit.core_problem}</strong></div>
+          </header>
+
+          {Array.isArray(unit.teaching_beats) && unit.teaching_beats.length > 0 && (
+            <details class="mapDetails">
+              <summary>先看一眼这段怎么串</summary>
+              <div class="beatList">
+                {unit.teaching_beats.map((beat) => (
+                  <article class="beat">
+                    <b>{beat.label}</b>
+                    <p>{beat.problem}</p>
+                    <small>{beat.relation}</small>
+                  </article>
+                ))}
+              </div>
+            </details>
+          )}
+
+          <div class="sourceSection" id={`source-${unit.natural_unit_id}`}>
+            <div class="sectionTitle">
+              <div><p class="microLabel">乘风 · 主线正文</p><h3>直接学</h3></div>
+              <span>{unit.sourceNodes.length ? `${unit.sourceNodes.length} 个正文节点` : '正文待接通'}</span>
+            </div>
+
+            {unit.sourceNodes.length > 0 ? (
+              <div class="sourceFlow">
+                {unit.sourceNodes.map((node) => (
+                  <article class="sourceNode">
+                    {node.title && node.title !== node.id && <h4>{node.title}</h4>}
+                    {paragraphs(node.text).map((paragraph) => <p>{paragraph}</p>)}
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div class="failClosed">
+                <strong>这段正文当前没有可靠解析出来。</strong>
+                <p>先不拿旧资料或 AI 重写内容顶上；当前页只保留已经确认的导学。</p>
+              </div>
+            )}
+          </div>
+
+          <details class="closureCard">
+            <summary>学完了 · 用一句闭合</summary>
+            <div>
+              <p>{unit.closure_cue || '闭卷说出刚才这段最核心的关系，再展开核对。'}</p>
+              {unit.boundaries?.length > 0 && (
+                <ul>{unit.boundaries.map((boundary) => <li>{boundary}</li>)}</ul>
+              )}
+            </div>
+          </details>
+
+          <section class="quizSection" data-quiz data-unit-id={unit.natural_unit_id}>
+            <div class="sectionTitle quizTitle">
+              <div><p class="microLabel">肖1000 · 验证</p><h3>学完再做</h3></div>
+              <span>{unit.questions.length ? `${unit.questions.length} 题` : '暂未接通'}</span>
+            </div>
+
+            {unit.questions.length > 0 ? (
+              <div class="quizDeck">
+                {unit.questions.map((question, qIndex) => (
+                  <article
+                    class={`questionCard ${qIndex === 0 ? 'active' : ''}`}
+                    data-question
+                    data-index={qIndex}
+                    data-answer={question.answer}
+                    data-source-anchor={`source-${unit.natural_unit_id}`}
+                  >
+                    <div class="questionMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{question.id}</code></div>
+                    <h4>{question.stem}</h4>
+                    <div class="options" role="group" aria-label="选项">
+                      {question.options.map((option) => (
+                        <button type="button" class="option" data-option={option.label}>
+                          <b>{option.label}</b><span>{option.text}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <div class="questionActions">
+                      <button type="button" class="uncertainBtn" data-uncertain>△ 不确定</button>
+                      <button type="button" class="submitBtn" data-submit>提交</button>
+                    </div>
+                    <div class="result" data-result hidden></div>
+                    <div class="repair" data-repair hidden>
+                      <p class="microLabel">只修最小缺口</p>
+                      {unit.boundaries?.length > 0
+                        ? <ul>{unit.boundaries.slice(0, 3).map((boundary) => <li>{boundary}</li>)}</ul>
+                        : <p>回到刚才这一段，重新确认决定性关系。</p>}
+                      <a href={`#source-${unit.natural_unit_id}`}>回看刚才的乘风位置 ↑</a>
+                    </div>
+                    {question.explanation && (
+                      <details class="questionExplain"><summary>需要时再看解析</summary><p>{question.explanation}</p></details>
+                    )}
+                    <button type="button" class="nextQuestion" data-next hidden>下一题 →</button>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <div class="failClosed">
+                <strong>题目当前没有可靠解析出来。</strong>
+                <p>不猜题干、不猜答案。正文学习仍可继续。</p>
+              </div>
+            )}
+          </section>
+
+          {unit.after_this && <p class="nextBridge">接下来：{unit.after_this}</p>}
+        </section>
+      ))}
+
+      <section class="chapterClose" id="chapter-close">
+        <p class="microLabel">整章收口</p>
+        <h2>别背十个标题，恢复这一条链</h2>
+        {Array.isArray(chapter.chapter_compression?.reconstruction_chain) && (
+          <div class="finalChain">
+            {chapter.chapter_compression.reconstruction_chain.map((item) => <span>{item}</span>)}
+          </div>
+        )}
+        {chapter.chapter_compression?.review_prompt && <p>{chapter.chapter_compression.review_prompt}</p>}
+        {orientation.next_chapter_bridge && <aside>{orientation.next_chapter_bridge}</aside>}
+      </section>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.querySelectorAll('[data-quiz]').forEach((quiz) => {
+      const cards = [...quiz.querySelectorAll('[data-question]')];
+      const showCard = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
+
+      cards.forEach((card, index) => {
+        const selected = new Set();
+        const answer = String(card.dataset.answer || '').split('').sort().join('');
+        const result = card.querySelector('[data-result]');
+        const repair = card.querySelector('[data-repair]');
+        const next = card.querySelector('[data-next]');
+        const submit = card.querySelector('[data-submit]');
+        const uncertain = card.querySelector('[data-uncertain]');
+
+        card.querySelectorAll('[data-option]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const label = button.dataset.option;
+            if (selected.has(label)) selected.delete(label); else selected.add(label);
+            button.classList.toggle('selected', selected.has(label));
+          });
+        });
+
+        uncertain?.addEventListener('click', () => {
+          uncertain.classList.toggle('active');
+          card.classList.toggle('uncertain', uncertain.classList.contains('active'));
+        });
+
+        submit?.addEventListener('click', () => {
+          const choice = [...selected].sort().join('');
+          if (!choice) return;
+          const correct = choice === answer;
+          result.hidden = false;
+          result.className = `result ${correct ? 'correct' : 'wrong'}`;
+          result.textContent = correct ? '✓ 对，继续。' : `你的答案 ${choice} · 正确答案 ${answer}`;
+          repair.hidden = correct;
+          next.hidden = false;
+          card.querySelectorAll('[data-option]').forEach((button) => {
+            button.disabled = true;
+            if (answer.includes(button.dataset.option)) button.classList.add('answer');
+          });
+          submit.disabled = true;
+        });
+
+        next?.addEventListener('click', () => {
+          if (index < cards.length - 1) {
+            showCard(index + 1);
+            cards[index + 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            quiz.classList.add('complete');
+            next.textContent = '这一组完成 ✓';
+            next.disabled = true;
+          }
+        });
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .learnShell{display:grid;grid-template-columns:220px minmax(0,860px);gap:34px;align-items:start;justify-content:center}
+  .learnRail{position:sticky;top:82px;display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid #e5e7eb;border-radius:16px;background:#fff}.learnRail strong{font-size:.85rem;color:#64748b}.learnRail nav{display:flex;flex-direction:column;gap:4px}.learnRail a{padding:8px 10px;border-radius:9px;text-decoration:none;color:#475569;font-size:.9rem}.learnRail a:hover{background:#f4f5f7;color:#111827}.railBack{padding-left:0!important;color:#64748b!important}
+  .learnMain{min-width:0}.microLabel{margin:0 0 8px;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:#64748b;font-weight:750}
+  .orientationCard,.chapterClose{padding:30px;border:1px solid #e5e7eb;border-radius:22px;background:#fff}.orientationCard h2,.chapterClose h2{font-size:1.7rem;line-height:1.35;margin:0 0 12px}.leadAnswer{font-size:1.08rem;line-height:1.85;color:#334155}.reasonChain{display:grid;gap:8px;margin-top:22px}.reasonStep{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}.reasonStep span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#eef2f7;font-weight:800;color:#334155}.reasonStep p{margin:3px 0;line-height:1.65;color:#475569}.attentionNote{margin:20px 0 0;padding:14px 16px;border-radius:12px;background:#fff8e8;color:#6b4e16;line-height:1.65}
+  .unitBlock{padding:44px 0 8px;border-bottom:1px solid #e5e7eb;scroll-margin-top:90px}.unitHead h2{font-size:1.75rem;margin:0 0 12px}.bridge{line-height:1.8;color:#64748b}.coreQuestion{margin-top:18px;padding:16px 18px;border-left:4px solid #111827;background:#f7f8fa;border-radius:0 12px 12px 0}.coreQuestion span{display:block;font-size:.76rem;color:#64748b;margin-bottom:6px}.coreQuestion strong{line-height:1.65;color:#111827}
+  .mapDetails,.closureCard,.questionExplain{margin-top:18px;border:1px solid #e5e7eb;border-radius:14px;background:#fff}.mapDetails summary,.closureCard summary,.questionExplain summary{cursor:pointer;padding:13px 16px;font-weight:700;color:#334155}.beatList{display:grid;gap:9px;padding:0 14px 14px}.beat{padding:13px;border-radius:11px;background:#f7f8fa}.beat p{margin:6px 0;line-height:1.55}.beat small{color:#64748b;line-height:1.5}
+  .sourceSection,.quizSection{margin-top:26px}.sectionTitle{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.sectionTitle h3{margin:0;font-size:1.25rem}.sectionTitle>span{font-size:.78rem;color:#64748b}.sourceFlow{border:1px solid #e5e7eb;border-radius:16px;background:#fff;overflow:hidden}.sourceNode{padding:20px 22px;border-bottom:1px solid #edf0f2}.sourceNode:last-child{border-bottom:0}.sourceNode h4{margin:0 0 12px;font-size:1rem}.sourceNode p{margin:.6rem 0;line-height:1.85;color:#263445;white-space:pre-wrap}.failClosed{padding:18px;border:1px dashed #cbd5e1;border-radius:14px;background:#f8fafc}.failClosed p{margin:.4rem 0 0;color:#64748b;line-height:1.6}
+  .closureCard>div{padding:0 16px 15px}.closureCard p,.closureCard li{line-height:1.7;color:#475569}.closureCard ul{padding-left:20px}.quizTitle{margin-top:4px}.questionCard{display:none;padding:22px;border:1px solid #e5e7eb;border-radius:16px;background:#fff}.questionCard.active{display:block}.questionMeta{display:flex;justify-content:space-between;color:#64748b;font-size:.76rem}.questionMeta code{font-size:.7rem}.questionCard h4{font-size:1.05rem;line-height:1.7;margin:14px 0}.options{display:grid;gap:9px}.option{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;text-align:left;width:100%;padding:12px;border:1px solid #dbe1e7;border-radius:11px;background:#fff;color:#334155;cursor:pointer}.option b{display:grid;place-items:center;width:25px;height:25px;border-radius:7px;background:#f1f5f9}.option.selected{border-color:#64748b;background:#f8fafc}.option.answer{border-color:#86a891;background:#f2f8f4}.option:disabled{cursor:default}.questionActions{display:flex;justify-content:space-between;gap:12px;margin-top:16px}.questionActions button,.nextQuestion{padding:9px 13px;border:1px solid #dbe1e7;border-radius:10px;background:#fff;cursor:pointer}.submitBtn{background:#111827!important;color:#fff;border-color:#111827!important}.uncertainBtn.active{background:#fff7df;border-color:#e8c56d}.result{margin-top:15px;padding:12px 14px;border-radius:10px;font-weight:750}.result.correct{background:#eef8f1;color:#27633a}.result.wrong{background:#fff1f0;color:#9b2c2c}.repair{margin-top:12px;padding:15px;border-radius:12px;background:#fff8e8}.repair li,.repair p{line-height:1.6}.repair a{color:#755b1a;font-weight:700}.questionExplain p{padding:0 16px 14px;line-height:1.7}.nextQuestion{margin-top:16px}.nextBridge{margin:20px 0 0;padding:12px 15px;border-radius:12px;background:#f7f8fa;color:#475569;line-height:1.65}
+  .chapterClose{margin-top:44px}.finalChain{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.finalChain span{padding:8px 11px;border-radius:999px;background:#f1f5f9;color:#334155}.chapterClose>p{line-height:1.7}.chapterClose aside{margin-top:18px;padding:15px;border-radius:12px;background:#eef4ff;color:#34506f;line-height:1.65}.blockedCard{margin-top:20px;padding:18px;border-radius:14px;background:#fff1f0;color:#8b2929}
+  @media(max-width:900px){.learnShell{grid-template-columns:1fr}.learnRail{position:static}.learnRail nav{display:flex;flex-direction:row;overflow:auto}.learnRail nav a{white-space:nowrap}.orientationCard,.chapterClose{padding:22px}.unitBlock{padding-top:34px}}
+</style>
