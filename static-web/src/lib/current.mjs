@@ -290,10 +290,3 @@ export function loadReading() {
     manifestStatus: manifest.status || ''
   };
 }
-
-export const migrationStatus = Object.freeze({
-  xizong: 'ready',
-  lexical: 'ready',
-  english: 'source-gated',
-  politics: 'pending-full-source-transfer'
-});
