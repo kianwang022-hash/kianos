@@ -3,10 +3,12 @@ import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
+import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
 import XizongMemoryReviewV6 from '../../../components/XizongMemoryReviewV6.astro';
 import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from '../../../lib/xizong.mjs';
 import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
+import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
 
 export function getStaticPaths() {
@@ -21,9 +23,12 @@ const block = loadXizongBlock(systemId, blockSlug);
 const system = loadXizongSystem(systemId);
 const pathways = loadXizongPathways(system);
 const blockPathways = pathwaysForBlock(pathways, block.blockId);
+const learningCues = loadXizongLearningCues(system);
+const blockLearningCues = learningCuesForBlock(learningCues, block);
 const projection = {
   ...block,
   pathways: blockPathways,
+  learningCues: blockLearningCues,
   blockLearnHtml: marked.parse(projectBlockLearn(block.blockLearnMarkdown), { gfm: true }),
   visualGateHtml: block.visualGateMarkdown ? marked.parse(projectVisualGate(block.visualGateMarkdown), { gfm: true }) : '',
   kpRecords: block.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
@@ -32,6 +37,7 @@ const projection = {
 <Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
   <XizongBlockV6 block={projection} />
   <XizongConnectionCues block={projection} />
+  <XizongPrecisionVisualCues block={projection} />
   <XizongStudyEnhancer block={projection} />
   <XizongMemoryReviewV6 block={projection} />
 </Base>
