@@ -18,7 +18,7 @@ const SUBJECTS = Object.freeze({
   history: { label: '史纲', shape: '阶段与转折', description: '把事件放回历史电影里。' },
   mao: { label: '毛中特', shape: '问题与理论回应', description: '先知道当时解决什么中国问题。' },
   xi: { label: '新思想', shape: '层级与身份', description: '先分方向、目标、保证、动力、原则与路径。' },
-  'ethics-law': { label: '思修法基', shape: '边界与情境', description: '分清概念和规范，再做具体判断。' }
+  ethics_law: { label: '思修法基', shape: '边界与情境', description: '分清概念和规范，再做具体判断。' }
 });
 
 function absolute(relativePath) { return path.join(repoRoot, relativePath); }
@@ -35,8 +35,13 @@ function parseJsonl(relativePath) {
   });
 }
 
-function chapterFiles(subject) {
-  const root = `${LEARNING}/${subject}`;
+function subjectRoot(subject, manifestRow = null) {
+  const declared = String(manifestRow?.path || '').replace(/\/$/, '');
+  return declared || `${LEARNING}/${subject}`;
+}
+
+function chapterFiles(subject, manifestRow = null) {
+  const root = subjectRoot(subject, manifestRow);
   if (!exists(root)) return [];
   return fs.readdirSync(absolute(root))
     .filter((name) => /^ch\d+\.json$/i.test(name))
@@ -50,10 +55,10 @@ function unitList(raw) { return Array.isArray(raw?.unit_projections) ? raw.unit_
 
 function orientationView(raw) {
   const o = raw?.chapter_orientation || {};
-  const chain = o.reasoning_chain || o.stage_story || o.learning_order || o.chapter_path || [];
+  const chain = o.reasoning_chain || o.stage_story || o.learning_order || o.chapter_path || o.sequence || [];
   return {
     context: String(o.from_previous || o.starting_point || o.role_in_subject || ''),
-    question: String(o.core_problem || o.question || o.role_question || ''),
+    question: String(o.core_problem || o.real_problem || o.question || o.role_question || ''),
     answer: String(o.core_answer || o.learner_thesis || o.answer || ''),
     chain: Array.isArray(chain) ? chain.map(String) : [],
     attention: String(o.attention_rule || '')
@@ -175,8 +180,10 @@ function unitBoundaries(unit) {
 function unitTeaching(unit) {
   return {
     bridge: String(unit?.from_previous || unit?.starting_point || unit?.context || ''),
-    question: String(unit?.core_problem || unit?.stage_question || unit?.role_question || unit?.judgment_question || unit?.problem || ''),
+    question: String(unit?.core_problem || unit?.concept_question || unit?.stage_question || unit?.role_question || unit?.judgment_question || unit?.problem || ''),
     answer: String(unit?.answer || unit?.core_answer || unit?.evaluation || ''),
+    relation: String(unit?.key_relation || unit?.relation || ''),
+    application: String(unit?.application || unit?.situational_application || ''),
     next: String(unit?.after_this || unit?.next || ''),
     closure: String(unit?.closure_cue || unit?.review_prompt || ''),
     boundaries: unitBoundaries(unit),
@@ -219,11 +226,16 @@ function hydrateUnits(raw) {
   });
 }
 
-export function listPoliticsSubjectsCurrent() {
+function learningManifest() {
   const manifest = readJson(MANIFEST);
   if (manifest?.status !== 'CURRENT_ACTIVE') throw new Error(`CURRENT_POLITICS_MANIFEST_INVALID:${manifest?.status || 'unknown'}`);
+  return manifest;
+}
+
+export function listPoliticsSubjectsCurrent() {
+  const manifest = learningManifest();
   return Object.entries(manifest.subjects || {}).map(([subject, row]) => {
-    const files = chapterFiles(subject);
+    const files = chapterFiles(subject, row);
     const meta = SUBJECTS[subject] || { label: subject, shape: '', description: '' };
     return {
       subject,
@@ -243,7 +255,10 @@ export function listPoliticsChapterPathsCurrent() {
 }
 
 export function loadPoliticsChapterCurrent(subject, chapter) {
-  const sourcePath = `${LEARNING}/${subject}/${chapter}.json`;
+  const manifest = learningManifest();
+  const row = manifest.subjects?.[subject];
+  if (!row) throw new Error(`CURRENT_POLITICS_SUBJECT_MISSING:${subject}`);
+  const sourcePath = `${subjectRoot(subject, row)}/${chapter}.json`;
   if (!exists(sourcePath)) throw new Error(`CURRENT_POLITICS_CHAPTER_MISSING:${subject}:${chapter}`);
   const text = readText(sourcePath);
   const raw = JSON.parse(text);
