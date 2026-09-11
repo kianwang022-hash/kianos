@@ -43,7 +43,12 @@
       const key = `kianos-reading-attempt-v1:${id}`;
       const attempt = readJson(key, null);
       if (!attempt || !attempt.submitted) return;
+      if (Boolean(attempt.reviewUnlocked) === Boolean(unlocked)) return;
       writeJson(key, { ...attempt, reviewUnlocked: Boolean(unlocked) });
+    };
+    const releaseDeferredResults = (session) => {
+      if (session.active || (!session.reviewing && !session.lastSummary)) return;
+      session.items.forEach((item) => setReviewUnlockedFor(item?.id || '', true));
     };
     const aggregate = (session) => ({
       passages: session.items.length,
@@ -130,8 +135,9 @@
     };
 
     const sync = () => {
-      const state = readAttempt();
       const session = readSession();
+      releaseDeferredResults(session);
+      const state = readAttempt();
       const active = deferred();
       const canReview = Boolean(state.submitted && state.reviewUnlocked !== false);
       readingRoot.classList.toggle('reading-review-deferred', active);
