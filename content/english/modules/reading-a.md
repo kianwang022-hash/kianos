@@ -94,7 +94,18 @@ For continuous training across multiple passages:
 
 `finish the planned passage set → then review the set`
 
-After a passage is submitted, the runtime may show the score and the questions that need later review, but it should not force-jump into the first problem item. The learner must be able to continue to the next passage without first completing repair.
+Continuous training is a deliberate **sealed mode**. Once enabled, each submitted passage may be recorded privately, but until the learner ends the continuous session the learner-facing surface should reveal only that the passage has been submitted. It must not reveal:
+
+- passage score;
+- which questions were wrong;
+- formal answers;
+- canonical evidence;
+- option diagnosis;
+- repair prompts.
+
+The learner can continue directly to the next passage. Ending the continuous session unlocks review only for passages that actually contain wrong, unanswered, uncertain, or later well-supported execution-anomaly items. Clean passages do not need to become review work merely because they were part of the session.
+
+For ordinary single-passage training, submission itself ends the clean attempt, so review may open immediately after the whole passage has been submitted.
 
 Question-level repair remains local and lightweight, but a single question is only marked **handled for this review**, not “closed” or “mastered.” Completion language belongs at the passage or training-session level.
 
@@ -184,7 +195,7 @@ A retry exists to verify a repair, not to make the learner re-do a page because 
 
 Preferred sequence:
 
-`attempt unit → submit → review queue → local repairs → passage / session review complete → later unseen transfer`
+`attempt unit → submit / seal → finish intended training unit → review queue → local repairs → passage / session review complete → later unseen transfer`
 
 Quick cause logging is optional and should take one click. It supplements, rather than replaces, semantic diagnosis.
 
