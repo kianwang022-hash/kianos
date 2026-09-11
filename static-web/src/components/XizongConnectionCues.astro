@@ -11,8 +11,8 @@ const cueByGroup = Object.fromEntries(groups.map((group) => {
   outgoing
     .filter((row) => row?.source?.logic_group_id === group.groupId)
     .forEach((row) => cues.push({
-      kind: row.reserve_recall ? 'reserve' : 'later',
-      label: row.reserve_recall ? '先留个印象' : '后面会接',
+      kind: row.reserveLearning ? 'reserve' : 'later',
+      label: row.reserveLearning ? '先留个印象' : '后面会接',
       text: row.source.cue
     }));
   return [group.groupId, cues];
