@@ -128,7 +128,7 @@ jobs:
           npx playwright install --with-deps chromium webkit
       - name: Simulate shared Objective learning closure
         working-directory: static-web
-        run: node scripts/test-objective-journey.mjs
+        run: node scripts/run-objective-journey.mjs
       - name: Exercise all real Reading B forms
         working-directory: static-web
         run: node scripts/test-reading-b-forms.mjs
