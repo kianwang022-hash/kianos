@@ -164,6 +164,7 @@ function candidateInventory(set, questions) {
     context?.candidates,
     context?.options,
     context?.choices,
+    context?.shared_option_pool,
     context?.headings
   ];
   let entries = [];
