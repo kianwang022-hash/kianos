@@ -1,0 +1,159 @@
+<span data-objective-handoff-root hidden></span>
+
+<script>
+  const normalizeAnswer = (value) => Array.isArray(value)
+    ? value.map(String)
+    : value === null || value === undefined || value === '' ? [] : [String(value)];
+
+  const formatDuration = (seconds) => {
+    if (!Number.isFinite(seconds)) return '—';
+    const minutes = Math.floor(seconds / 60);
+    const rest = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
+  };
+
+  document.querySelectorAll('[data-objective-root]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const task = root.getAttribute('data-objective-task') || '';
+    const objectId = root.getAttribute('data-objective-object') || '';
+    const storageKey = root.getAttribute('data-objective-storage-key') || '';
+    const resultSummary = root.querySelector('[data-objective-result-summary]');
+    if (!task || !objectId || !storageKey || !(resultSummary instanceof HTMLElement)) return;
+
+    let handoff = null;
+    const readAttempt = () => {
+      try { return JSON.parse(localStorage.getItem(storageKey) || 'null') || {}; }
+      catch { return {}; }
+    };
+    const questions = () => [...root.querySelectorAll('[data-objective-question]')];
+    const idOf = (question) => question.getAttribute('data-objective-question') || '';
+    const ordinalOf = (question) => Number(question.getAttribute('data-objective-index') || 0) + 1;
+    const formalOf = (question) => {
+      try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
+      catch { return []; }
+    };
+    const problemIds = (attempt) => {
+      const uncertain = new Set(attempt.uncertain || []);
+      return Object.keys(attempt.results || {}).filter((id) =>
+        ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
+      );
+    };
+
+    const ensureHandoff = () => {
+      if (handoff) return handoff;
+      handoff = document.createElement('div');
+      handoff.className = 'objectiveHandoff';
+      handoff.hidden = true;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = task === 'cloze' ? '复制整篇完形给 Chat' : '复制整组 Part B 给 Chat';
+      button.setAttribute('data-objective-copy-chat', '');
+      const status = document.createElement('small');
+      status.setAttribute('data-objective-copy-status', '');
+      status.textContent = '按整篇 / 整组复盘；局部题位只作为内部证据。';
+      handoff.append(button, status);
+      resultSummary.appendChild(handoff);
+      return handoff;
+    };
+
+    const buildPacket = (attempt) => {
+      const rows = questions();
+      const uncertain = new Set(attempt.uncertain || []);
+      const problems = new Set(problemIds(attempt));
+      const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
+      const duration = attempt.startedAt && attempt.submittedAt
+        ? Math.max(0, Math.round((new Date(attempt.submittedAt).getTime() - new Date(attempt.startedAt).getTime()) / 1000))
+        : null;
+      const title = root.querySelector('[data-objective-title]')?.textContent?.trim() || objectId;
+      const source = root.querySelector('[data-objective-source-label]')?.textContent?.trim() || '—';
+      const material = [...root.querySelectorAll('[data-objective-material-block]')]
+        .map((node) => node.textContent?.trim() || '')
+        .filter(Boolean)
+        .join('\n\n');
+      const wrong = rows
+        .filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)]))
+        .map((row) => task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`);
+      const uncertainRows = rows
+        .filter((row) => uncertain.has(idOf(row)))
+        .map((row) => task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`);
+      const packetName = task === 'cloze' ? 'Cloze passage review packet v1' : 'Reading B set review packet v1';
+
+      const lines = [
+        packetName,
+        `Object: ${objectId}`,
+        `Source: ${source}`,
+        `Title: ${title}`,
+        `Score: ${score}/${rows.length}`,
+        `Time: ${formatDuration(duration)}`,
+        `Wrong/unanswered: ${wrong.join(', ') || 'none'}`,
+        `Uncertain: ${uncertainRows.join(', ') || 'none'}`,
+        '',
+        task === 'cloze' ? 'PASSAGE' : 'MATERIAL',
+        material || '—'
+      ];
+
+      if (task === 'reading_b') {
+        const candidates = [...root.querySelectorAll('[data-objective-candidate]')]
+          .map((node) => node.textContent?.trim() || '')
+          .filter(Boolean);
+        if (candidates.length) lines.push('', 'CANDIDATE INVENTORY', ...candidates);
+      }
+
+      lines.push('', task === 'cloze' ? 'ALL-BLANK OUTCOME MAP' : 'COMPLETE PLACEMENT / MATCHING MAP');
+      rows.forEach((row) => {
+        const id = idOf(row);
+        const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
+        const path = (attempt.trajectory?.[id] || [])
+          .map((step) => step?.answer)
+          .filter(Boolean)
+          .join(' → ') || '—';
+        lines.push(`${label} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
+      });
+
+      lines.push('', 'EXPANDED PROBLEM ITEMS');
+      rows.filter((row) => problems.has(idOf(row))).forEach((row) => {
+        const id = idOf(row);
+        const label = task === 'cloze' ? `Blank ${ordinalOf(row)}` : `Position ${ordinalOf(row)}`;
+        const prompt = row.querySelector('[data-objective-prompt]')?.textContent?.trim() || '';
+        const options = [...row.querySelectorAll('[data-objective-option]')]
+          .map((node) => node.textContent?.trim() || '')
+          .filter(Boolean);
+        lines.push('', `${label} (${id})`, `Prompt: ${prompt || '—'}`, ...options);
+      });
+
+      lines.push('', 'REVIEW INSTRUCTION');
+      if (task === 'cloze') {
+        lines.push('Treat this as one complete Cloze passage. Diagnose the passage globally first; merge blanks that share one lexical, sentence, or discourse root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze. Do not create one permanent card per wrong blank. Later unseen transfer is stronger mastery evidence than correcting this known passage.');
+      } else {
+        lines.push('Treat this as one complete Reading B set. Reconstruct the discourse skeleton before splitting positions. Compare the learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Attach dependent wrong placements to the primary structural error. Route lexical objects to LexicalOS and representation/discourse failures to Reading. Do not create one permanent weakness per wrong position. Later unseen transfer is stronger mastery evidence than rebuilding this known set.');
+      }
+      return lines.join('\n');
+    };
+
+    const sync = () => {
+      const node = ensureHandoff();
+      const attempt = readAttempt();
+      node.hidden = !(attempt.submitted && problemIds(attempt).length > 0);
+    };
+
+    ensureHandoff()?.querySelector('[data-objective-copy-chat]')?.addEventListener('click', async () => {
+      const attempt = readAttempt();
+      if (!attempt.submitted || !problemIds(attempt).length) return;
+      const status = handoff?.querySelector('[data-objective-copy-status]');
+      try {
+        await navigator.clipboard.writeText(buildPacket(attempt));
+        if (status) status.textContent = '已复制整组复盘包，直接贴到 Chat。';
+      } catch {
+        if (status) status.textContent = '复制失败，请稍后再试。';
+      }
+    });
+
+    root.addEventListener('kianos:objective-submitted', sync);
+    root.addEventListener('click', () => window.setTimeout(sync, 0));
+    sync();
+  });
+</script>
+
+<style>
+  .objectiveHandoff{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}.objectiveHandoff button{padding:8px 12px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font:inherit;font-weight:800;cursor:pointer}.objectiveHandoff small{color:var(--study-muted);font-size:10px}
+</style>
