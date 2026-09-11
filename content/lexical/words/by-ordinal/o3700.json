@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3700,
+  "word_id": "word:postage",
+  "word": "postage",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "d7f043c6e51c6e56db62fc97b100085584f65ce23846a36fb468d3e699e87dfc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "邮资",
+      "core_meaning_en": "the charge for sending mail",
+      "mental_model_cn": "邮资",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:82ca7f77a5742fd2a717",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:postage:da9915f63e2c5c40:collocation:0"
+            ],
+            "meaning_cn": "邮票",
+            "phrase": "postage stamp"
+          },
+          {
+            "collocation_id": "collocation:a29018c94e0af8db8bf3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:postage:da9915f63e2c5c40:collocation:1"
+            ],
+            "meaning_cn": "邮资已付",
+            "phrase": "postage paid"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "邮资，邮费",
+        "definition_en": "the amount charged for sending a letter or package by mail",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:postage:da9915f63e2c5c40",
+        "sense_label_en": "the amount charged for sending a letter or package by mail",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "postage",
+    "word_family": [],
+    "word_id": "word:postage"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:postage:da9915f63e2c5c40",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10320,
+        "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:82ca7f77a5742fd2a717",
+      "collocation:a29018c94e0af8db8bf3"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:82ca7f77a5742fd2a717",
+        "source_row": 11082,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:a29018c94e0af8db8bf3",
+        "source_row": 13799,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:79817b2d03750d85873e",
+        "source_row": 6823,
+        "source_path": "content/lexical/canonical/packs/shards/o3681-3712.json"
+      },
+      {
+        "id": "membership:a34058fa9f0f59b2cbc9",
+        "source_row": 12553,
+        "source_path": "content/lexical/canonical/packs/shards/o3681-3712.json"
+      },
+      {
+        "id": "membership:f57108a9a8f44846e522",
+        "source_row": 16879,
+        "source_path": "content/lexical/canonical/packs/shards/o3681-3712.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "postage",
+      "source": "content/lexical/canonical/lookup/spelling/po.json",
+      "word_id": "word:postage",
+      "ordinal": 3700,
+      "word_shard": "content/lexical/canonical/words/shards/o3697-3704.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/05.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3697-3704.json",
+    "source_content_hash": "d7f043c6e51c6e56db62fc97b100085584f65ce23846a36fb468d3e699e87dfc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

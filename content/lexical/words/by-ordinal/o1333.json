@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1333,
+  "word_id": "word:dessert",
+  "word": "dessert",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "65c0ac77ae6e61ef910be8dd27b374c6218ab77bb81d022e7cb06c76193b49f2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "餐后甜点",
+      "core_meaning_en": "sweet course at end of meal",
+      "mental_model_cn": "餐后甜点",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1c8ae353c2b2cb14a96a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dessert:2dcb15c409515761:collocation:0"
+            ],
+            "meaning_cn": "吃甜点",
+            "phrase": "have dessert"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "餐后甜点",
+        "definition_en": "a sweet dish served after the main course",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dessert:2dcb15c409515761",
+        "sense_label_en": "a sweet dish served after the main course",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "dessert",
+    "word_family": [],
+    "word_id": "word:dessert"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:dessert:2dcb15c409515761",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3723,
+        "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1c8ae353c2b2cb14a96a"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1c8ae353c2b2cb14a96a",
+        "source_row": 2359,
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d37899676b74777fd64a",
+        "source_row": 2505,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:fff5db83218cd9681168",
+        "source_row": 14775,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "dessert",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:dessert",
+      "ordinal": 1333,
+      "word_shard": "content/lexical/canonical/words/shards/o1329-1336.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/95.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1329-1336.json",
+    "source_content_hash": "65c0ac77ae6e61ef910be8dd27b374c6218ab77bb81d022e7cb06c76193b49f2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

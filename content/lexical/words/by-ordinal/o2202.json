@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2202,
+  "word_id": "word:greeting",
+  "word": "greeting",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "8ea76678aede7079bfb0f494c6a595fde0692fdc218e2c61e7d957bf740300d3",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "问候或表达善意",
+      "core_meaning_en": "an acknowledgment or expression of good will",
+      "mental_model_cn": "问候或表达善意",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c75b2d2f42dfe58498e1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:greeting:1406367cdce6539e:collocation:0"
+            ],
+            "meaning_cn": "互相问候",
+            "phrase": "exchange greetings"
+          },
+          {
+            "collocation_id": "collocation:d8ab1d6bd5739775fa5c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:greeting:1406367cdce6539e:collocation:1"
+            ],
+            "meaning_cn": "节日问候",
+            "phrase": "season's greetings"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "问候；祝贺",
+        "definition_en": "(usually plural) an acknowledgment or expression of good will (especially on meeting)",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:greeting:1406367cdce6539e",
+        "sense_label_en": "(usually plural) an acknowledgment or expression of good will (especiall",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "greeting",
+    "word_family": [],
+    "word_id": "word:greeting"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:greeting:1406367cdce6539e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6143,
+        "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:c75b2d2f42dfe58498e1",
+      "collocation:d8ab1d6bd5739775fa5c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:c75b2d2f42dfe58498e1",
+        "source_row": 16856,
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:d8ab1d6bd5739775fa5c",
+        "source_row": 18321,
+        "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f8bae34bd8cd62f582d4",
+        "source_row": 4139,
+        "source_path": "content/lexical/canonical/packs/shards/o2177-2208.json"
+      },
+      {
+        "id": "membership:406376a31768eb1161b7",
+        "source_row": 11609,
+        "source_path": "content/lexical/canonical/packs/shards/o2177-2208.json"
+      },
+      {
+        "id": "membership:b670790bf4ac2751e62a",
+        "source_row": 15527,
+        "source_path": "content/lexical/canonical/packs/shards/o2177-2208.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "greeting",
+      "source": "content/lexical/canonical/lookup/spelling/gr.json",
+      "word_id": "word:greeting",
+      "ordinal": 2202,
+      "word_shard": "content/lexical/canonical/words/shards/o2201-2208.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f7.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2201-2208.json",
+    "source_content_hash": "8ea76678aede7079bfb0f494c6a595fde0692fdc218e2c61e7d957bf740300d3",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5200,
+  "word_id": "word:unfortunately",
+  "word": "unfortunately",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "683ca7403bd1fe92706c57063456e61308196cf76ab8857968e917efbf8ba518",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "不幸地",
+      "core_meaning_en": "by bad luck",
+      "mental_model_cn": "不幸地",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d01705189024b6ee3b0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:unfortunately:9ef6294d2bf15574:collocation:0"
+            ],
+            "meaning_cn": "对某人来说不幸的是",
+            "phrase": "unfortunately for + sb"
+          },
+          {
+            "collocation_id": "collocation:4d966bfb4854b50929be",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:unfortunately:9ef6294d2bf15574:collocation:1"
+            ],
+            "meaning_cn": "不幸的是，……",
+            "phrase": "Unfortunately, ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "不幸地，遗憾地",
+        "definition_en": "used to say that something is sad or disappointing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:unfortunately:9ef6294d2bf15574",
+        "sense_label_en": "used to say that something is sad or disappointing",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "unfortunately",
+    "word_family": [],
+    "word_id": "word:unfortunately"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:unfortunately:9ef6294d2bf15574",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14821,
+        "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1d01705189024b6ee3b0",
+      "collocation:4d966bfb4854b50929be"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1d01705189024b6ee3b0",
+        "source_row": 2401,
+        "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
+      },
+      {
+        "id": "collocation:4d966bfb4854b50929be",
+        "source_row": 6536,
+        "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:cb6eb931e8478c538abb",
+        "source_row": 9643,
+        "source_path": "content/lexical/canonical/packs/shards/o5185-5216.json"
+      },
+      {
+        "id": "membership:2e26e35e41b4b46e7976",
+        "source_row": 9644,
+        "source_path": "content/lexical/canonical/packs/shards/o5185-5216.json"
+      },
+      {
+        "id": "membership:94ebc89137ee754f3d48",
+        "source_row": 13570,
+        "source_path": "content/lexical/canonical/packs/shards/o5185-5216.json"
+      },
+      {
+        "id": "membership:cc38b5d699079f946221",
+        "source_row": 18327,
+        "source_path": "content/lexical/canonical/packs/shards/o5185-5216.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "unfortunately",
+      "source": "content/lexical/canonical/lookup/spelling/un.json",
+      "word_id": "word:unfortunately",
+      "ordinal": 5200,
+      "word_shard": "content/lexical/canonical/words/shards/o5193-5200.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/21.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5193-5200.json",
+    "source_content_hash": "683ca7403bd1fe92706c57063456e61308196cf76ab8857968e917efbf8ba518",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

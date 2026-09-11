@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1554,
+  "word_id": "word:easter",
+  "word": "Easter",
+  "record": {
+    "card_version": "v2",
+    "case_sensitive_identity": true,
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fd62e046d7298334413c18b7b193e5e3924d8d53b54f9a062b98724fb7ab3620",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "复活节",
+      "core_meaning_en": "a Christian holiday celebrating the resurrection of Christ",
+      "mental_model_cn": "复活节",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "lexical_identity_id": "identity:3018e1b31bae477bc02e",
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "search_aliases": [
+      "easter"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:55dd17c94fc97736d423",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:easter:a7e23b1bc2295f1a:collocation:0"
+            ],
+            "meaning_cn": "复活节星期日",
+            "phrase": "Easter Sunday"
+          },
+          {
+            "collocation_id": "collocation:3c785f1106c9e6b2f26e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:easter:a7e23b1bc2295f1a:collocation:1"
+            ],
+            "meaning_cn": "复活节彩蛋",
+            "phrase": "Easter egg"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "复活节",
+        "definition_en": "a Christian festival celebrating the resurrection of Christ, observed on the Sunday after the first full moon following the vernal equinox",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:easter:a7e23b1bc2295f1a",
+        "sense_label_en": "a Christian festival celebrating the resurrection of Christ, observed on",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "Easter",
+    "word_family": [],
+    "word_id": "word:easter"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:easter:a7e23b1bc2295f1a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4348,
+        "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3c785f1106c9e6b2f26e",
+      "collocation:55dd17c94fc97736d423"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3c785f1106c9e6b2f26e",
+        "source_row": 5122,
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+      },
+      {
+        "id": "collocation:55dd17c94fc97736d423",
+        "source_row": 7241,
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:afeec2cf300c6b6f1bbf",
+        "source_row": 2912,
+        "source_path": "content/lexical/canonical/packs/shards/o1537-1568.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "easter",
+      "source": "content/lexical/canonical/lookup/spelling/ea.json",
+      "word_id": "word:easter",
+      "ordinal": 1554,
+      "word_shard": "content/lexical/canonical/words/shards/o1553-1560.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/30.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1553-1560.json",
+    "source_content_hash": "fd62e046d7298334413c18b7b193e5e3924d8d53b54f9a062b98724fb7ab3620",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

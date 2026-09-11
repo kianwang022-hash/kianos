@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1680,
+  "word_id": "word:entity",
+  "word": "entity",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "52210934185c9e8efe4b2320bdbddeeac5ba82e1df18d3cc85f2d1a623df103d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "实体",
+      "core_meaning_en": "something that exists as a separate and independent unit",
+      "mental_model_cn": "实体",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:edab4da5f52abdf480d5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:entity:173b59d34bce5541:collocation:0"
+            ],
+            "meaning_cn": "一个独立的实体",
+            "phrase": "a separate entity"
+          },
+          {
+            "collocation_id": "collocation:1c91dc7621c3c8f5310d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:entity:173b59d34bce5541:collocation:1"
+            ],
+            "meaning_cn": "法律实体；法人",
+            "phrase": "legal entity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "实体；独立存在物",
+        "definition_en": "a thing with distinct and independent existence",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:entity:173b59d34bce5541",
+        "sense_label_en": "a thing with distinct and independent existence",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "entity",
+    "word_family": [],
+    "word_id": "word:entity"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:entity:173b59d34bce5541",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4644,
+        "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1c91dc7621c3c8f5310d",
+      "collocation:edab4da5f52abdf480d5"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1c91dc7621c3c8f5310d",
+        "source_row": 2362,
+        "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json"
+      },
+      {
+        "id": "collocation:edab4da5f52abdf480d5",
+        "source_row": 20139,
+        "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5e17d7164d4757a45394",
+        "source_row": 3151,
+        "source_path": "content/lexical/canonical/packs/shards/o1665-1696.json"
+      },
+      {
+        "id": "membership:22a73e7056ab15ffaac6",
+        "source_row": 3152,
+        "source_path": "content/lexical/canonical/packs/shards/o1665-1696.json"
+      },
+      {
+        "id": "membership:7c86bacfa86b3ad340e9",
+        "source_row": 15073,
+        "source_path": "content/lexical/canonical/packs/shards/o1665-1696.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "entity",
+      "source": "content/lexical/canonical/lookup/spelling/en.json",
+      "word_id": "word:entity",
+      "ordinal": 1680,
+      "word_shard": "content/lexical/canonical/words/shards/o1673-1680.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d1.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1673-1680.json",
+    "source_content_hash": "52210934185c9e8efe4b2320bdbddeeac5ba82e1df18d3cc85f2d1a623df103d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

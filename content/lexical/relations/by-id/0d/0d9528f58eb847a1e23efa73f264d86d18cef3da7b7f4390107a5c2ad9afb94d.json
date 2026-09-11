@@ -1,0 +1,75 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:410e0b7e24331eccd78b",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:archeology",
+      "source_ordinal": 255,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:140",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:140",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon.",
+        "members": [
+          {
+            "word_id": "word:archeology"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:410e0b7e24331eccd78b",
+        "relation_note": "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon.",
+        "relation_scope": "lexeme",
+        "relation_type": "spelling_variant",
+        "sense_ids": [],
+        "shared_meaning": "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "word_id": "word:archeology"
+              }
+            ],
+            "canonical_word_id": "word:archeology",
+            "direction": "R+P",
+            "external_target": "archaeology",
+            "learner_note": "archaeology is the common/preferred modern spelling; archeology is accepted but uncommon.",
+            "presentation_note": "This relation does not itself rename the existing canonical word_id; any display-lemma normalization is a separate identity/presentation decision.",
+            "relation_type": "spelling_variant"
+          }
+        ],
+        "source_expression": "archeology",
+        "source_sense_id": null,
+        "target_expression": "archaeology ↔ archeology",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4100,
+  "word_id": "word:resemblance",
+  "word": "resemblance",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:6daf6d136a77a7da20e1",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与…相似",
+        "pattern": "bear a resemblance to sb/sth"
+      }
+    ],
+    "content_hash": "9454abea4452e5d5ae57762d6cb3db9f2eb062c1d3302feb3eaaf015287e25bd",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "相似",
+      "core_meaning_en": "similarity in appearance or nature",
+      "mental_model_cn": "相似",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:6daf6d136a77a7da20e1"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bd59e5a0b17b24ec9d9c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:resemblance:476ab1c8506f51fc:collocation:1"
+            ],
+            "meaning_cn": "两兄弟非常相像。",
+            "phrase": "There is a strong resemblance between the two brothers."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "相似，相似之处",
+        "definition_en": "the state of being similar to someone or something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:resemblance:476ab1c8506f51fc",
+        "sense_label_en": "the state of being similar to someone or something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "resemblance",
+    "word_family": [],
+    "word_id": "word:resemblance"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:resemblance:476ab1c8506f51fc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11448,
+        "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:bd59e5a0b17b24ec9d9c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:47f76c4e3a09e1d7c6ba",
+        "source_row": 6066,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      },
+      {
+        "id": "collocation:bd59e5a0b17b24ec9d9c",
+        "source_row": 16030,
+        "source_path": "content/lexical/canonical/collocations/shards/o4097-4128.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:10e2b66aecce9dc1c060",
+        "source_row": 7609,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      },
+      {
+        "id": "membership:38e519096b179bd75d9a",
+        "source_row": 17288,
+        "source_path": "content/lexical/canonical/packs/shards/o4097-4128.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "resemblance",
+      "source": "content/lexical/canonical/lookup/spelling/re.json",
+      "word_id": "word:resemblance",
+      "ordinal": 4100,
+      "word_shard": "content/lexical/canonical/words/shards/o4097-4104.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4097-4104.json",
+    "source_content_hash": "9454abea4452e5d5ae57762d6cb3db9f2eb062c1d3302feb3eaaf015287e25bd",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

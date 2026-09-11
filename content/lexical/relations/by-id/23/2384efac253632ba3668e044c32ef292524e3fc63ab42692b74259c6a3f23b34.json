@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:account:7e6042c5223cc39f",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "均可指账单；bill更具体列出应付款项，account另有账户等义",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "an itemized statement of money owed for goods shipped or services rendered",
+      "shared_synset": "06528946-n",
+      "source_definition": "a record for money, access, or business dealings",
+      "source_sense_id": "sense:account:614e5928ef58500a",
+      "target_definition": "a document showing how much money you owe for goods or services",
+      "target_sense_id": "sense:bill:736de9643fb75ec2",
+      "target_word": "bill"
+    },
+    "dimensions": {
+      "certainty": "高",
+      "collocation": "bank account",
+      "core_meaning": "账户 vs 账单",
+      "exam_trap": "近义词辨析",
+      "register": "通用",
+      "semantic_prosody": "中性",
+      "strength": "中",
+      "syntax": "名词",
+      "writing_safety": "安全"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:06528946-n",
+        "evidence_status": "source_checked",
+        "source_locator": "06528946-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:account:7e6042c5223cc39f",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 8.75,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "publishable",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 14,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "a record for money, access, or business dealings",
+      "source_sense_id": "sense:account:614e5928ef58500a",
+      "target_definition": "a document showing how much money you owe for goods or services",
+      "target_sense_id": "sense:bill:736de9643fb75ec2"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:account:614e5928ef58500a",
+    "target_sense_id": "sense:bill:736de9643fb75ec2",
+    "target_word": "bill",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 0.9,
+    "verification_decision": "accept",
+    "verification_status": "verified",
+    "why": "",
+    "word": "account",
+    "word_id": "word:account",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:account",
+      "source_ordinal": 40,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "均可指账单；bill更具体列出应付款项，account另有账户等义",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "bank account",
+          "core_meaning": "账户 vs 账单",
+          "exam_trap": "近义词辨析",
+          "register": "通用",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:06528946-n",
+            "evidence_status": "source_checked",
+            "source_locator": "06528946-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:account:7e6042c5223cc39f",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "an itemized statement of money owed for goods shipped or services rendered",
+        "source_sense_id": "sense:account:614e5928ef58500a",
+        "target_sense_id": "sense:bill:736de9643fb75ec2",
+        "target_word": "bill",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

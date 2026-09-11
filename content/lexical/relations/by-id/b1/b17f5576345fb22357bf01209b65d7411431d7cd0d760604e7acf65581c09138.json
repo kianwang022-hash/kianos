@@ -1,0 +1,91 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:ee550bb5881ac3c29b24",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:allow",
+      "source_ordinal": 151,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:097",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:097",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "allow",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:allow:b42ebb1c0c725d7b"
+            ],
+            "word_id": "word:allow"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:ee550bb5881ac3c29b24",
+        "relation_note": "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences.",
+        "relation_scope": "lexeme",
+        "relation_type": "permission_enable_contrast",
+        "sense_ids": [
+          "sense:allow:b42ebb1c0c725d7b"
+        ],
+        "shared_meaning": "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "allow",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:allow:b42ebb1c0c725d7b"
+                ],
+                "word_id": "word:allow"
+              }
+            ],
+            "learner_note": "allow and permit can grant permission or make something possible; permit is generally more formal. enable primarily makes someone/something able or makes an outcome possible, not permission. Preserve construction differences.",
+            "relation_targets": [
+              "enable",
+              "permit"
+            ],
+            "relation_type": "permission_enable_contrast"
+          }
+        ],
+        "source_expression": "allow",
+        "source_sense_id": "sense:allow:b42ebb1c0c725d7b",
+        "target_expression": "allow ↔ enable/permit",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

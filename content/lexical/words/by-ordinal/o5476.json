@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5476,
+  "word_id": "word:wrist",
+  "word": "wrist",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b2be26cc24cc1c290620248c39c76424c2f81cbe8ccd174bd100574e8044d65f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "连接手和手臂的关节",
+      "core_meaning_en": "the joint connecting the hand to the arm",
+      "mental_model_cn": "连接手和手臂的关节",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f5ce98107b72846cdd37",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:wrist:ed40cb7d8f29536b:collocation:0"
+            ],
+            "meaning_cn": "手表",
+            "phrase": "wrist watch"
+          },
+          {
+            "collocation_id": "collocation:74dc28e1e108cd22b3be",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:wrist:ed40cb7d8f29536b:collocation:1"
+            ],
+            "meaning_cn": "扭伤手腕",
+            "phrase": "sprain one's wrist"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "手腕",
+        "definition_en": "the joint between the forearm and hand",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:wrist:ed40cb7d8f29536b",
+        "sense_label_en": "the joint between the forearm and hand",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "wrist",
+    "word_family": [],
+    "word_id": "word:wrist"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:wrist:ed40cb7d8f29536b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15574,
+        "source_path": "content/lexical/canonical/senses/shards/o5473-5504.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:74dc28e1e108cd22b3be",
+      "collocation:f5ce98107b72846cdd37"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:74dc28e1e108cd22b3be",
+        "source_row": 9852,
+        "source_path": "content/lexical/canonical/collocations/shards/o5473-5504.json"
+      },
+      {
+        "id": "collocation:f5ce98107b72846cdd37",
+        "source_row": 20815,
+        "source_path": "content/lexical/canonical/collocations/shards/o5473-5504.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f5f1f5ed1c3c0e6946ba",
+        "source_row": 10157,
+        "source_path": "content/lexical/canonical/packs/shards/o5473-5504.json"
+      },
+      {
+        "id": "membership:1e485fecd9c7541e016c",
+        "source_row": 13759,
+        "source_path": "content/lexical/canonical/packs/shards/o5473-5504.json"
+      },
+      {
+        "id": "membership:aae25f0e06ee6a381132",
+        "source_row": 18597,
+        "source_path": "content/lexical/canonical/packs/shards/o5473-5504.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "wrist",
+      "source": "content/lexical/canonical/lookup/spelling/wr.json",
+      "word_id": "word:wrist",
+      "ordinal": 5476,
+      "word_shard": "content/lexical/canonical/words/shards/o5473-5480.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/92.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5473-5480.json",
+    "source_content_hash": "b2be26cc24cc1c290620248c39c76424c2f81cbe8ccd174bd100574e8044d65f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

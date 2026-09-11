@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 780,
+  "word_id": "word:cherry",
+  "word": "cherry",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fc580ce3997847572a9e1258c79adafcb259c94bd1941a2a89c3feb26db5bb94",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "樱桃",
+      "core_meaning_en": "a small round red fruit with a stone, or the tree it grows on",
+      "mental_model_cn": "樱桃",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9467deb31cbad1a82fe0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cherry:d77d44c71f8257b7:collocation:0"
+            ],
+            "meaning_cn": "樱花",
+            "phrase": "cherry blossom"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "樱桃；樱桃树",
+        "definition_en": "a small round red or black fruit with a stone, or the tree that produces it",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cherry:d77d44c71f8257b7",
+        "sense_label_en": "a small round red or black fruit with a stone, or the tree that produces",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9d460bdbe20351bf6368",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cherry:ae6660e52926537b:collocation:0"
+            ],
+            "meaning_cn": "樱桃色的嘴唇",
+            "phrase": "cherry lips"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "樱桃色；鲜红色",
+        "definition_en": "a bright red color",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cherry:ae6660e52926537b",
+        "sense_label_en": "a bright red color",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "cherry",
+    "word_family": [],
+    "word_id": "word:cherry"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cherry:ae6660e52926537b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2216,
+        "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
+      },
+      {
+        "sense_id": "sense:cherry:d77d44c71f8257b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2217,
+        "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9467deb31cbad1a82fe0",
+      "collocation:9d460bdbe20351bf6368"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9467deb31cbad1a82fe0",
+        "source_row": 12620,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      },
+      {
+        "id": "collocation:9d460bdbe20351bf6368",
+        "source_row": 13394,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:638de345517631ef29af",
+        "source_row": 1424,
+        "source_path": "content/lexical/canonical/packs/shards/o0769-0800.json"
+      },
+      {
+        "id": "membership:396424023bd1f6b7f049",
+        "source_row": 10701,
+        "source_path": "content/lexical/canonical/packs/shards/o0769-0800.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cherry",
+      "source": "content/lexical/canonical/lookup/spelling/ch.json",
+      "word_id": "word:cherry",
+      "ordinal": 780,
+      "word_shard": "content/lexical/canonical/words/shards/o0777-0784.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0777-0784.json",
+    "source_content_hash": "fc580ce3997847572a9e1258c79adafcb259c94bd1941a2a89c3feb26db5bb94",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 861,
+  "word_id": "word:clothing",
+  "word": "clothing",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b0cafb67b97454a80b6e4b0abf3a66376355147c172e91b0f9a1322b0c4063a3",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "衣服",
+      "core_meaning_en": "items worn to cover the body",
+      "mental_model_cn": "衣服",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:daf8e827a20c64de717f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:clothing:8ffea84694bf59f3:collocation:0"
+            ],
+            "meaning_cn": "一件衣服",
+            "phrase": "an article of clothing"
+          },
+          {
+            "collocation_id": "collocation:2ca7cfa2006d357db448",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:clothing:8ffea84694bf59f3:collocation:1"
+            ],
+            "meaning_cn": "防护服",
+            "phrase": "protective clothing"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "衣服",
+        "definition_en": "a covering designed to be worn on a person's body",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:clothing:8ffea84694bf59f3",
+        "sense_label_en": "a covering designed to be worn on a person's body",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "clothing",
+    "word_family": [],
+    "word_id": "word:clothing"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:clothing:8ffea84694bf59f3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2453,
+        "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2ca7cfa2006d357db448",
+      "collocation:daf8e827a20c64de717f"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2ca7cfa2006d357db448",
+        "source_row": 3783,
+        "source_path": "content/lexical/canonical/collocations/shards/o0833-0864.json"
+      },
+      {
+        "id": "collocation:daf8e827a20c64de717f",
+        "source_row": 18529,
+        "source_path": "content/lexical/canonical/collocations/shards/o0833-0864.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:ee9f37e21daebe12c252",
+        "source_row": 1560,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      },
+      {
+        "id": "membership:811db280a27df55f3e7b",
+        "source_row": 1561,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      },
+      {
+        "id": "membership:de80aee2be83f9ac2d75",
+        "source_row": 10752,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "clothing",
+      "source": "content/lexical/canonical/lookup/spelling/cl.json",
+      "word_id": "word:clothing",
+      "ordinal": 861,
+      "word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/37.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
+    "source_content_hash": "b0cafb67b97454a80b6e4b0abf3a66376355147c172e91b0f9a1322b0c4063a3",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

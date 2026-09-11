@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2343,
+  "word_id": "word:his",
+  "word": "his",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "4579c6d5da6e7070a96810d64c68e4d90250348167b65b918edfd817c5487c1f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "他的",
+      "core_meaning_en": "belonging to him",
+      "mental_model_cn": "他的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:96df5f386cc76191292a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:his:e473dec8add7571f:collocation:0"
+            ],
+            "meaning_cn": "他的书",
+            "phrase": "his book"
+          },
+          {
+            "collocation_id": "collocation:95ed1fd0e067816f8ec6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:his:e473dec8add7571f:collocation:1"
+            ],
+            "meaning_cn": "他的某物",
+            "phrase": "his + noun"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "他的",
+        "definition_en": "belonging to or associated with a male previously mentioned",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:his:e473dec8add7571f",
+        "sense_label_en": "belonging to or associated with a male previously mentioned",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "his",
+    "word_family": [],
+    "word_id": "word:his"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:his:e473dec8add7571f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6537,
+        "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:95ed1fd0e067816f8ec6",
+      "collocation:96df5f386cc76191292a"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:95ed1fd0e067816f8ec6",
+        "source_row": 12757,
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:96df5f386cc76191292a",
+        "source_row": 12846,
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8612bfe4aa6ef6f27921",
+        "source_row": 4374,
+        "source_path": "content/lexical/canonical/packs/shards/o2337-2368.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "his",
+      "source": "content/lexical/canonical/lookup/spelling/hi.json",
+      "word_id": "word:his",
+      "ordinal": 2343,
+      "word_shard": "content/lexical/canonical/words/shards/o2337-2344.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/22.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2337-2344.json",
+    "source_content_hash": "4579c6d5da6e7070a96810d64c68e4d90250348167b65b918edfd817c5487c1f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

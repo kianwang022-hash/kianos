@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2101,
+  "word_id": "word:garment",
+  "word": "garment",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "61400490cbb5528dd3cb6f1e95be3bd517830929588ea01ea7310ca21905ebf9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "一件衣服",
+      "core_meaning_en": "an article of clothing",
+      "mental_model_cn": "一件衣服",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7793d25fecbcb4d0078b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:garment:df7e1ef4a0135085:collocation:0"
+            ],
+            "meaning_cn": "服装工业",
+            "phrase": "garment industry"
+          },
+          {
+            "collocation_id": "collocation:ba6a59d94eb36c1d7c91",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:garment:df7e1ef4a0135085:collocation:1"
+            ],
+            "meaning_cn": "外衣",
+            "phrase": "outer garment"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "衣服，服装",
+        "definition_en": "a piece of clothing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:garment:df7e1ef4a0135085",
+        "sense_label_en": "a piece of clothing",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 2,
+      "runtime_model_calls": false
+    },
+    "word": "garment",
+    "word_family": [],
+    "word_id": "word:garment"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:garment:df7e1ef4a0135085",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5853,
+        "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7793d25fecbcb4d0078b",
+      "collocation:ba6a59d94eb36c1d7c91"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:7793d25fecbcb4d0078b",
+        "source_row": 10097,
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:ba6a59d94eb36c1d7c91",
+        "source_row": 15784,
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:e506e2f43c6e4bcc3fc9",
+        "source_row": 3960,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      },
+      {
+        "id": "membership:51afff20384ea7966a9b",
+        "source_row": 15426,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "garment",
+      "source": "content/lexical/canonical/lookup/spelling/ga.json",
+      "word_id": "word:garment",
+      "ordinal": 2101,
+      "word_shard": "content/lexical/canonical/words/shards/o2097-2104.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2097-2104.json",
+    "source_content_hash": "61400490cbb5528dd3cb6f1e95be3bd517830929588ea01ea7310ca21905ebf9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4754,
+  "word_id": "word:student",
+  "word": "student",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "cdaad8002e64adef2b2915fdc54162d3127fea72acb358350c6976bb52a3ca43",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "学习者",
+      "core_meaning_en": "a person who is learning",
+      "mental_model_cn": "学习者",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ea8b247041682bd85be6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:student:7821430800de5fa4:collocation:0"
+            ],
+            "meaning_cn": "大学生",
+            "phrase": "college student"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "学生",
+        "definition_en": "a person who is studying at a school or university",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:student:7821430800de5fa4",
+        "sense_label_en": "a person who is studying at a school or university",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "student",
+    "word_family": [],
+    "word_id": "word:student"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:student:7821430800de5fa4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13538,
+        "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:ea8b247041682bd85be6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:ea8b247041682bd85be6",
+        "source_row": 19867,
+        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c07bea533dd07c380292",
+        "source_row": 8819,
+        "source_path": "content/lexical/canonical/packs/shards/o4737-4768.json"
+      },
+      {
+        "id": "membership:6776702e9b23368ec20f",
+        "source_row": 8820,
+        "source_path": "content/lexical/canonical/packs/shards/o4737-4768.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "student",
+      "source": "content/lexical/canonical/lookup/spelling/st.json",
+      "word_id": "word:student",
+      "ordinal": 4754,
+      "word_shard": "content/lexical/canonical/words/shards/o4753-4760.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4753-4760.json",
+    "source_content_hash": "cdaad8002e64adef2b2915fdc54162d3127fea72acb358350c6976bb52a3ca43",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

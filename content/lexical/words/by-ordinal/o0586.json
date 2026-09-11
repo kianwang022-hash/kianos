@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 586,
+  "word_id": "word:bride",
+  "word": "bride",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1700d986b17c5d6ae4f8d806cf9e11e3010d144d4afd155407762cf35be1493b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "新娘",
+      "core_meaning_en": "a woman on her wedding day",
+      "mental_model_cn": "新娘",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:78126ba40e551f5ad052",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bride:e17af94ffced5807:collocation:0"
+            ],
+            "meaning_cn": "新娘和新郎",
+            "phrase": "bride and groom"
+          },
+          {
+            "collocation_id": "collocation:6f8be9d258120dce88d3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bride:e17af94ffced5807:collocation:1"
+            ],
+            "meaning_cn": "新娘的礼服",
+            "phrase": "the bride's dress"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "新娘",
+        "definition_en": "a woman who is getting married or has just been married",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bride:e17af94ffced5807",
+        "sense_label_en": "a woman who is getting married or has just been married",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "bride",
+    "word_family": [],
+    "word_id": "word:bride"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:bride:e17af94ffced5807",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1623,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6f8be9d258120dce88d3",
+      "collocation:78126ba40e551f5ad052"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6f8be9d258120dce88d3",
+        "source_row": 9423,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:78126ba40e551f5ad052",
+        "source_row": 10153,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8c339db1e02167d6918d",
+        "source_row": 1100,
+        "source_path": "content/lexical/canonical/packs/shards/o0577-0608.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "bride",
+      "source": "content/lexical/canonical/lookup/spelling/br.json",
+      "word_id": "word:bride",
+      "ordinal": 586,
+      "word_shard": "content/lexical/canonical/words/shards/o0585-0592.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/91.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0585-0592.json",
+    "source_content_hash": "1700d986b17c5d6ae4f8d806cf9e11e3010d144d4afd155407762cf35be1493b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

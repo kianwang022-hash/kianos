@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2851,
+  "word_id": "word:literacy",
+  "word": "literacy",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "439434d78737f1f82be2b0e9719363c7b016798f90c7a6c7113b965c0a6cecf5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "读写能力",
+      "core_meaning_en": "ability to read and write",
+      "mental_model_cn": "读写能力",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d9ea2a81cc7c3695a62d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:literacy:1acc886325745b57:collocation:0"
+            ],
+            "meaning_cn": "基本读写能力",
+            "phrase": "basic literacy"
+          },
+          {
+            "collocation_id": "collocation:bb8dff7ba192be19259d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:literacy:1acc886325745b57:collocation:1"
+            ],
+            "meaning_cn": "识字率",
+            "phrase": "literacy rate"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "读写能力；识字",
+        "definition_en": "the ability to read and write",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:literacy:1acc886325745b57",
+        "sense_label_en": "the ability to read and write",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "literacy",
+    "word_family": [],
+    "word_id": "word:literacy"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:literacy:1acc886325745b57",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7928,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:bb8dff7ba192be19259d",
+      "collocation:d9ea2a81cc7c3695a62d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:bb8dff7ba192be19259d",
+        "source_row": 15887,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:d9ea2a81cc7c3695a62d",
+        "source_row": 18432,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:06e918aa60ed8aba245e",
+        "source_row": 5321,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:44721671f8173866982c",
+        "source_row": 5322,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:c931ab13656ac9473814",
+        "source_row": 16128,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "literacy",
+      "source": "content/lexical/canonical/lookup/spelling/li.json",
+      "word_id": "word:literacy",
+      "ordinal": 2851,
+      "word_shard": "content/lexical/canonical/words/shards/o2849-2856.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/20.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2849-2856.json",
+    "source_content_hash": "439434d78737f1f82be2b0e9719363c7b016798f90c7a6c7113b965c0a6cecf5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

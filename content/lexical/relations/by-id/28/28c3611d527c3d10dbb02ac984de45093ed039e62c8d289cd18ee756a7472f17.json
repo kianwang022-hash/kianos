@@ -1,0 +1,110 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:4136d5aa9c72df5f2de6",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:objective",
+      "source_ordinal": 3296,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:129",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:129",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "objective",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:objective:18fa23e8eda355f2"
+            ],
+            "word_id": "word:objective"
+          },
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "subjective",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:subjective:87b822b5222b53df"
+            ],
+            "word_id": "word:subjective"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:4136d5aa9c72df5f2de6",
+        "relation_note": "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses.",
+        "relation_scope": "lexeme",
+        "relation_type": "antonym",
+        "sense_ids": [
+          "sense:objective:18fa23e8eda355f2"
+        ],
+        "shared_meaning": "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "objective",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:objective:18fa23e8eda355f2"
+                ],
+                "word_id": "word:objective"
+              },
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "subjective",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:subjective:87b822b5222b53df"
+                ],
+                "word_id": "word:subjective"
+              }
+            ],
+            "learner_note": "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses.",
+            "relation_targets": [],
+            "relation_type": "antonym"
+          }
+        ],
+        "source_expression": "objective",
+        "source_sense_id": "sense:objective:18fa23e8eda355f2",
+        "target_expression": "objective ↔ subjective",
+        "target_sense_id": "sense:subjective:87b822b5222b53df",
+        "target_sense_ids": [
+          "sense:subjective:87b822b5222b53df"
+        ],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

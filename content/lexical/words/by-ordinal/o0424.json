@@ -1,0 +1,154 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 424,
+  "word_id": "word:bathroom",
+  "word": "bathroom",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "8ff6b7c26cc4061d6a82f2e3033009d0e4730a41750848216a09d727ccdde377",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "带洗浴和厕所设施的房间",
+      "core_meaning_en": "a room with bathing and toilet facilities",
+      "mental_model_cn": "带洗浴和厕所设施的房间",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:semantic_contrast:bathroom:2eb7ee7ff6ae9980",
+      "relation:deep:semantic_contrast:bathroom:2eb7ee7ff6ae9980"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f073d79f7edc6866cc51",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bathroom:84164cf0d32b57b7:collocation:0"
+            ],
+            "meaning_cn": "去洗手间；上厕所",
+            "phrase": "go to the bathroom"
+          },
+          {
+            "collocation_id": "collocation:ae5bd129339f7cd0b008",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bathroom:84164cf0d32b57b7:collocation:1"
+            ],
+            "meaning_cn": "浴室门",
+            "phrase": "bathroom door"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "浴室；卫生间",
+        "definition_en": "a room containing a bathtub or shower and usually a washbasin and toilet",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bathroom:84164cf0d32b57b7",
+        "sense_label_en": "a room containing a bathtub or shower and usually a washbasin and toilet",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "completed",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "bathroom",
+    "word_family": [],
+    "word_id": "word:bathroom"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:bathroom:2eb7ee7ff6ae9980",
+      "owner_path": "content/lexical/relations/by-id/10/100124e4bf94b838dc7404bf357f2733f4523b6b0ba2803d0a8276cbec48b7da.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:bathroom:84164cf0d32b57b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1107,
+        "source_path": "content/lexical/canonical/senses/shards/o0417-0448.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:ae5bd129339f7cd0b008",
+      "collocation:f073d79f7edc6866cc51"
+    ],
+    "facts": [
+      {
+        "id": "deep:semantic_contrast:bathroom:2eb7ee7ff6ae9980",
+        "source_row": 157,
+        "source_path": "content/lexical/canonical/facts/shards/o0417-0448.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:ae5bd129339f7cd0b008",
+        "source_row": 14755,
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+      },
+      {
+        "id": "collocation:f073d79f7edc6866cc51",
+        "source_row": 20373,
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a39c8608b882b2c93223",
+        "source_row": 816,
+        "source_path": "content/lexical/canonical/packs/shards/o0417-0448.json"
+      },
+      {
+        "id": "membership:930a1355707d2217571b",
+        "source_row": 10474,
+        "source_path": "content/lexical/canonical/packs/shards/o0417-0448.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "bathroom",
+      "source": "content/lexical/canonical/lookup/spelling/ba.json",
+      "word_id": "word:bathroom",
+      "ordinal": 424,
+      "word_shard": "content/lexical/canonical/words/shards/o0417-0424.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ea.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0417-0424.json",
+    "source_content_hash": "8ff6b7c26cc4061d6a82f2e3033009d0e4730a41750848216a09d727ccdde377",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

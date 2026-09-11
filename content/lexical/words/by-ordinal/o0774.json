@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 774,
+  "word_id": "word:chef",
+  "word": "chef",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f3295726c37e90c9aa22d71da1b67ab2b71b0a8fee1a85a55b9a654bfca465ad",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "专业厨师",
+      "core_meaning_en": "a professional cook",
+      "mental_model_cn": "专业厨师",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d9eaa986fb62e4c88c67",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:chef:749a999967eb520b:collocation:0"
+            ],
+            "meaning_cn": "主厨",
+            "phrase": "head chef"
+          },
+          {
+            "collocation_id": "collocation:864a516312da42cd01f0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:chef:749a999967eb520b:collocation:1"
+            ],
+            "meaning_cn": "厨师特荐",
+            "phrase": "chef's special"
+          },
+          {
+            "collocation_id": "collocation:0fef346c6bd72d3e06dc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:chef:749a999967eb520b:collocation:2"
+            ],
+            "meaning_cn": "一位名厨",
+            "phrase": "a famous chef"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "厨师，尤指餐馆的主厨",
+        "definition_en": "a professional cook, especially the chief cook in a restaurant",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:chef:749a999967eb520b",
+        "sense_label_en": "a professional cook, especially the chief cook in a restaurant",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "chef",
+    "word_family": [],
+    "word_id": "word:chef"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:chef:749a999967eb520b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2205,
+        "source_path": "content/lexical/canonical/senses/shards/o0769-0800.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0fef346c6bd72d3e06dc",
+      "collocation:864a516312da42cd01f0",
+      "collocation:d9eaa986fb62e4c88c67"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0fef346c6bd72d3e06dc",
+        "source_row": 1323,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      },
+      {
+        "id": "collocation:864a516312da42cd01f0",
+        "source_row": 11403,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      },
+      {
+        "id": "collocation:d9eaa986fb62e4c88c67",
+        "source_row": 18433,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:7f14e4eb84671248078e",
+        "source_row": 1415,
+        "source_path": "content/lexical/canonical/packs/shards/o0769-0800.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "chef",
+      "source": "content/lexical/canonical/lookup/spelling/ch.json",
+      "word_id": "word:chef",
+      "ordinal": 774,
+      "word_shard": "content/lexical/canonical/words/shards/o0769-0776.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/2d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0769-0776.json",
+    "source_content_hash": "f3295726c37e90c9aa22d71da1b67ab2b71b0a8fee1a85a55b9a654bfca465ad",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

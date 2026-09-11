@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2371,
+  "word_id": "word:hormone",
+  "word": "hormone",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ba6ffe5f27e96af6377d588f9075f9f6a8cfc40140d91be4106c845416ce5bd6",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "激素，荷尔蒙",
+      "core_meaning_en": "a chemical substance produced in the body that controls growth and development",
+      "mental_model_cn": "激素，荷尔蒙",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d4b422157651476ba245",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hormone:75b80640784b565f:collocation:0"
+            ],
+            "meaning_cn": "生长激素",
+            "phrase": "growth hormone"
+          },
+          {
+            "collocation_id": "collocation:27763f5ee375696b4aed",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hormone:75b80640784b565f:collocation:1"
+            ],
+            "meaning_cn": "性激素",
+            "phrase": "sex hormone"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "激素，荷尔蒙",
+        "definition_en": "a chemical substance produced in the body that controls growth and development",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:hormone:75b80640784b565f",
+        "sense_label_en": "a chemical substance produced in the body that controls growth and devel",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "hormone",
+    "word_family": [],
+    "word_id": "word:hormone"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:hormone:75b80640784b565f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6621,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:27763f5ee375696b4aed",
+      "collocation:d4b422157651476ba245"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:27763f5ee375696b4aed",
+        "source_row": 3335,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:d4b422157651476ba245",
+        "source_row": 17969,
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:35bedaa2809badbcd4bc",
+        "source_row": 4419,
+        "source_path": "content/lexical/canonical/packs/shards/o2369-2400.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "hormone",
+      "source": "content/lexical/canonical/lookup/spelling/ho.json",
+      "word_id": "word:hormone",
+      "ordinal": 2371,
+      "word_shard": "content/lexical/canonical/words/shards/o2369-2376.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/78.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2369-2376.json",
+    "source_content_hash": "ba6ffe5f27e96af6377d588f9075f9f6a8cfc40140d91be4106c845416ce5bd6",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

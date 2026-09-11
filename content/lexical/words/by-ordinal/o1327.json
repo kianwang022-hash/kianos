@@ -1,0 +1,151 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1327,
+  "word_id": "word:desolate",
+  "word": "desolate",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bd90f331eff383a4fe52a572935fa288ab9a2987fb45ba9f5fd0c17fa40a4274",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "荒凉的",
+      "core_meaning_en": "crushed by grief",
+      "mental_model_cn": "荒凉的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "sense:sense:desolate:2a926701eb1f5b2e"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:85da8b4bf14c6a842991",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:desolate:84b876591fe75f33:collocation:0"
+            ],
+            "meaning_cn": "荒凉的风景",
+            "phrase": "a desolate landscape"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "荒凉的；荒无人烟的；凄凉的",
+        "definition_en": "empty, bleak, deserted, or lacking people and signs of life",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:desolate:84b876591fe75f33",
+        "sense_label_en": "crushed by grief",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "孤独悲伤的；悲痛的",
+        "definition_en": "extremely lonely, unhappy, or grief-stricken",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:desolate:2a926701eb1f5b2e",
+        "sense_label_en": "crushed by grief",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "desolate",
+    "word_family": [],
+    "word_id": "word:desolate"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:desolate:2a926701eb1f5b2e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3708,
+        "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
+      },
+      {
+        "sense_id": "sense:desolate:84b876591fe75f33",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3709,
+        "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:85da8b4bf14c6a842991"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:85da8b4bf14c6a842991",
+        "source_row": 11359,
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:81f5a34fd1721ed53dd1",
+        "source_row": 2496,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:ecf2c56833f7cb5c08e8",
+        "source_row": 2497,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:ecdc58e17f6bd9d8686f",
+        "source_row": 14769,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "desolate",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:desolate",
+      "ordinal": 1327,
+      "word_shard": "content/lexical/canonical/words/shards/o1321-1328.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/5f.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1321-1328.json",
+    "source_content_hash": "bd90f331eff383a4fe52a572935fa288ab9a2987fb45ba9f5fd0c17fa40a4274",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

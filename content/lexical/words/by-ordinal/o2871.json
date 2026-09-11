@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2871,
+  "word_id": "word:locker",
+  "word": "locker",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "967194fbfa05fb050a59a266fb5b9c88298330e456677b512e2e03faa700b9c5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "储物柜",
+      "core_meaning_en": "a small lockable compartment",
+      "mental_model_cn": "储物柜",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bc352e8f6bc493a0df83",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:locker:b1a8798b42d5574a:collocation:0"
+            ],
+            "meaning_cn": "更衣室",
+            "phrase": "locker room"
+          },
+          {
+            "collocation_id": "collocation:aff5327c65407c8b14a6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:locker:b1a8798b42d5574a:collocation:1"
+            ],
+            "meaning_cn": "健身房储物柜",
+            "phrase": "gym locker"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "储物柜，锁柜",
+        "definition_en": "a small lockable cupboard or compartment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:locker:b1a8798b42d5574a",
+        "sense_label_en": "a small lockable cupboard or compartment",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "locker",
+    "word_family": [],
+    "word_id": "word:locker"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:locker:b1a8798b42d5574a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7991,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:aff5327c65407c8b14a6",
+      "collocation:bc352e8f6bc493a0df83"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:aff5327c65407c8b14a6",
+        "source_row": 14915,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:bc352e8f6bc493a0df83",
+        "source_row": 15941,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2df6a59714f13f0d4693",
+        "source_row": 5358,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "locker",
+      "source": "content/lexical/canonical/lookup/spelling/lo.json",
+      "word_id": "word:locker",
+      "ordinal": 2871,
+      "word_shard": "content/lexical/canonical/words/shards/o2865-2872.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/fa.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2865-2872.json",
+    "source_content_hash": "967194fbfa05fb050a59a266fb5b9c88298330e456677b512e2e03faa700b9c5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

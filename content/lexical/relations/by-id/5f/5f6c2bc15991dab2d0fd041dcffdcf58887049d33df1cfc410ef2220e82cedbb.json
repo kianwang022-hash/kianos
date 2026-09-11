@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:104bfa2d0e54fcd9196b",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:current",
+      "source_ordinal": 1193,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "current and present overlap for 'now'. current often foregrounds what is now in force/use/operation; present foregrounds the time now or existing at this moment. Many contexts allow either; not categorical."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:111",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:111",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "current and present overlap for 'now'. current often foregrounds what is now in force/use/operation; present foregrounds the time now or existing at this moment. Many contexts allow either; not categorical.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "current",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:current:0221493022d150ef"
+            ],
+            "word_id": "word:current"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:104bfa2d0e54fcd9196b",
+        "relation_note": "current and present overlap for 'now'. current often foregrounds what is now in force/use/operation; present foregrounds the time now or existing at this moment. Many contexts allow either; not categorical.",
+        "relation_scope": "lexeme",
+        "relation_type": "probabilistic_semantic_contrast",
+        "sense_ids": [
+          "sense:current:0221493022d150ef"
+        ],
+        "shared_meaning": "current and present overlap for 'now'. current often foregrounds what is now in force/use/operation; present foregrounds the time now or existing at this moment. Many contexts allow either; not categorical.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "current",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:current:0221493022d150ef"
+                ],
+                "word_id": "word:current"
+              }
+            ],
+            "learner_note": "current and present overlap for 'now'. current often foregrounds what is now in force/use/operation; present foregrounds the time now or existing at this moment. Many contexts allow either; not categorical.",
+            "relation_targets": [
+              "present"
+            ],
+            "relation_type": "probabilistic_semantic_contrast"
+          }
+        ],
+        "source_expression": "current",
+        "source_sense_id": "sense:current:0221493022d150ef",
+        "target_expression": "present",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "present",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

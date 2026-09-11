@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2075,
+  "word_id": "word:funeral",
+  "word": "funeral",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ea890331f08991fb84167b66aa633c847b799b4afdcc52b5a526866de9e90522",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "葬礼",
+      "core_meaning_en": "a ceremony for a dead person",
+      "mental_model_cn": "葬礼",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b241fa1c1bd33cde4c06",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:funeral:04869442474953db:collocation:0"
+            ],
+            "meaning_cn": "参加葬礼",
+            "phrase": "attend a funeral"
+          },
+          {
+            "collocation_id": "collocation:0b440d7cba046ac5f06d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:funeral:04869442474953db:collocation:1"
+            ],
+            "meaning_cn": "送葬队伍",
+            "phrase": "funeral procession"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "葬礼，出殡",
+        "definition_en": "a ceremony at which a dead person is buried or cremated",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:funeral:04869442474953db",
+        "sense_label_en": "a ceremony at which a dead person is buried or cremated",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "funeral",
+    "word_family": [],
+    "word_id": "word:funeral"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:funeral:04869442474953db",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5786,
+        "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0b440d7cba046ac5f06d",
+      "collocation:b241fa1c1bd33cde4c06"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0b440d7cba046ac5f06d",
+        "source_row": 930,
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:b241fa1c1bd33cde4c06",
+        "source_row": 15106,
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:916c9725b952b36c5d3f",
+        "source_row": 3918,
+        "source_path": "content/lexical/canonical/packs/shards/o2049-2080.json"
+      },
+      {
+        "id": "membership:0583ad123f605de4eb07",
+        "source_row": 11511,
+        "source_path": "content/lexical/canonical/packs/shards/o2049-2080.json"
+      },
+      {
+        "id": "membership:ae28129ac99d80a11ab9",
+        "source_row": 15402,
+        "source_path": "content/lexical/canonical/packs/shards/o2049-2080.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "funeral",
+      "source": "content/lexical/canonical/lookup/spelling/fu.json",
+      "word_id": "word:funeral",
+      "ordinal": 2075,
+      "word_shard": "content/lexical/canonical/words/shards/o2073-2080.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/aa.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2073-2080.json",
+    "source_content_hash": "ea890331f08991fb84167b66aa633c847b799b4afdcc52b5a526866de9e90522",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

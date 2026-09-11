@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 627,
+  "word_id": "word:burglar",
+  "word": "burglar",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fc9c4fcd71d42b0b7abd8f27f6949fbee1c1819b93392d64230c59fdd1be6644",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "入室盗窃者",
+      "core_meaning_en": "a person who illegally enters a building to steal",
+      "mental_model_cn": "入室盗窃者",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:39d59f970528a8802d66",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:burglar:014f9782f56951a6:collocation:0"
+            ],
+            "meaning_cn": "防盗警报器",
+            "phrase": "a burglar alarm"
+          },
+          {
+            "collocation_id": "collocation:0cbe0075bba7d92614d8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:burglar:014f9782f56951a6:collocation:1"
+            ],
+            "meaning_cn": "窃贼破门而入",
+            "phrase": "the burglar broke in"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "窃贼；夜盗",
+        "definition_en": "a thief who enters a building illegally, especially by force, to steal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:burglar:014f9782f56951a6",
+        "sense_label_en": "a thief who enters a building illegally, especially by force, to steal",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "burglar",
+    "word_family": [],
+    "word_id": "word:burglar"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:burglar:014f9782f56951a6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1759,
+        "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0cbe0075bba7d92614d8",
+      "collocation:39d59f970528a8802d66"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0cbe0075bba7d92614d8",
+        "source_row": 1054,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:39d59f970528a8802d66",
+        "source_row": 4907,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:21dfcf3e6fd0b8f6965e",
+        "source_row": 1168,
+        "source_path": "content/lexical/canonical/packs/shards/o0609-0640.json"
+      },
+      {
+        "id": "membership:d173a306b5eebe6151f8",
+        "source_row": 14167,
+        "source_path": "content/lexical/canonical/packs/shards/o0609-0640.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "burglar",
+      "source": "content/lexical/canonical/lookup/spelling/bu.json",
+      "word_id": "word:burglar",
+      "ordinal": 627,
+      "word_shard": "content/lexical/canonical/words/shards/o0625-0632.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/0e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0625-0632.json",
+    "source_content_hash": "fc9c4fcd71d42b0b7abd8f27f6949fbee1c1819b93392d64230c59fdd1be6644",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

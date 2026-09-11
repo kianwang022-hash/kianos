@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2403,
+  "word_id": "word:humidity",
+  "word": "humidity",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "c583294fdbd13002d202b05f2b8fa01e9ec000ca4805c13ebd3395c49b3fc8e2",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "湿度",
+      "core_meaning_en": "the amount of moisture in the air",
+      "mental_model_cn": "湿度",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:560cb4ba4906e8d6d721",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:humidity:e06e8265c6db5d2f:collocation:0"
+            ],
+            "meaning_cn": "高湿度",
+            "phrase": "high humidity"
+          },
+          {
+            "collocation_id": "collocation:2380ed69e96ba3e085e6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:humidity:e06e8265c6db5d2f:collocation:1"
+            ],
+            "meaning_cn": "相对湿度",
+            "phrase": "relative humidity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "湿度；湿气",
+        "definition_en": "the amount of water vapor in the atmosphere",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:humidity:e06e8265c6db5d2f",
+        "sense_label_en": "the amount of water vapor in the atmosphere",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "humidity",
+    "word_family": [],
+    "word_id": "word:humidity"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:humidity:e06e8265c6db5d2f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6703,
+        "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2380ed69e96ba3e085e6",
+      "collocation:560cb4ba4906e8d6d721"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2380ed69e96ba3e085e6",
+        "source_row": 2971,
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:560cb4ba4906e8d6d721",
+        "source_row": 7258,
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:e362f5186cbfd8b8636d",
+        "source_row": 4472,
+        "source_path": "content/lexical/canonical/packs/shards/o2401-2432.json"
+      },
+      {
+        "id": "membership:81b9966cb4f9ca0c90ac",
+        "source_row": 4473,
+        "source_path": "content/lexical/canonical/packs/shards/o2401-2432.json"
+      },
+      {
+        "id": "membership:a11f44b16a95a130d40b",
+        "source_row": 15700,
+        "source_path": "content/lexical/canonical/packs/shards/o2401-2432.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "humidity",
+      "source": "content/lexical/canonical/lookup/spelling/hu.json",
+      "word_id": "word:humidity",
+      "ordinal": 2403,
+      "word_shard": "content/lexical/canonical/words/shards/o2401-2408.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/67.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2401-2408.json",
+    "source_content_hash": "c583294fdbd13002d202b05f2b8fa01e9ec000ca4805c13ebd3395c49b3fc8e2",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

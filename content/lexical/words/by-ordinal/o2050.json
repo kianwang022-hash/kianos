@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2050,
+  "word_id": "word:friday",
+  "word": "Friday",
+  "record": {
+    "card_version": "v2",
+    "case_sensitive_identity": true,
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "021ce90343636997d8fb5591094e690c9555105b50439f5484d367682a9d5389",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "星期五",
+      "core_meaning_en": "the day of the week between Thursday and Saturday",
+      "mental_model_cn": "星期五",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "lexical_identity_id": "identity:007e62ae67d1c2200e23",
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "search_aliases": [
+      "friday"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:898f562461f2dbfed056",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:friday:7f0ecddeafe8571d:collocation:0"
+            ],
+            "meaning_cn": "在星期五",
+            "phrase": "on Friday"
+          },
+          {
+            "collocation_id": "collocation:7c4cdab321784a0cde59",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:friday:7f0ecddeafe8571d:collocation:1"
+            ],
+            "meaning_cn": "星期五早上",
+            "phrase": "Friday morning"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "星期五",
+        "definition_en": "the sixth day of the week; the fifth working day",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:friday:7f0ecddeafe8571d",
+        "sense_label_en": "the sixth day of the week; the fifth working day",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "Friday",
+    "word_family": [],
+    "word_id": "word:friday"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:friday:7f0ecddeafe8571d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5705,
+        "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7c4cdab321784a0cde59",
+      "collocation:898f562461f2dbfed056"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:7c4cdab321784a0cde59",
+        "source_row": 10505,
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:898f562461f2dbfed056",
+        "source_row": 11668,
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1ec4753577082b54535f",
+        "source_row": 3875,
+        "source_path": "content/lexical/canonical/packs/shards/o2049-2080.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "friday",
+      "source": "content/lexical/canonical/lookup/spelling/fr.json",
+      "word_id": "word:friday",
+      "ordinal": 2050,
+      "word_shard": "content/lexical/canonical/words/shards/o2049-2056.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/95.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2049-2056.json",
+    "source_content_hash": "021ce90343636997d8fb5591094e690c9555105b50439f5484d367682a9d5389",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

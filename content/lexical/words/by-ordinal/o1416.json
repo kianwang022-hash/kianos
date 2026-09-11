@@ -1,0 +1,147 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1416,
+  "word_id": "word:discreet",
+  "word": "discreet",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2822344cf3ec4e5a5f7b7afc972fd95b5237880cc84d5b8616cd7adea6cab5d4",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "谨慎、慎重的",
+      "core_meaning_en": "careful and prudent in speech or action to avoid causing offense or revealing secrets",
+      "mental_model_cn": "谨慎、慎重的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:confusable:0ad78cc0b87bdf566e62"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e6b9ca3e5d70edc57edd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:discreet:a654dcfbc5305f9c:collocation:0"
+            ],
+            "meaning_cn": "对某事谨慎/守口如瓶",
+            "phrase": "discreet about + sth"
+          },
+          {
+            "collocation_id": "collocation:3c415dcda752a197886b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:discreet:a654dcfbc5305f9c:collocation:1"
+            ],
+            "meaning_cn": "谨慎的沉默",
+            "phrase": "a discreet silence"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（言行）谨慎的，慎重的，尤其在避免尴尬或泄露秘密方面",
+        "definition_en": "careful and prudent in one's speech or actions, especially to avoid causing embarrassment or revealing confidential information",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:discreet:a654dcfbc5305f9c",
+        "sense_label_en": "careful and prudent in one's speech or actions, especially to avoid caus",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "discreet",
+    "word_family": [],
+    "word_id": "word:discreet"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "confusable:0ad78cc0b87bdf566e62",
+      "owner_path": "content/lexical/relations/by-id/9d/9d44734b084b2c3d5328b5511c7a7a9c24a94a3f65883d478b246f1a33ed8fe5.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:discreet:a654dcfbc5305f9c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3929,
+        "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3c415dcda752a197886b",
+      "collocation:e6b9ca3e5d70edc57edd"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3c415dcda752a197886b",
+        "source_row": 5108,
+        "source_path": "content/lexical/canonical/collocations/shards/o1409-1440.json"
+      },
+      {
+        "id": "collocation:e6b9ca3e5d70edc57edd",
+        "source_row": 19549,
+        "source_path": "content/lexical/canonical/collocations/shards/o1409-1440.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:4fa019eec8f6889e8bd2",
+        "source_row": 2653,
+        "source_path": "content/lexical/canonical/packs/shards/o1409-1440.json"
+      },
+      {
+        "id": "membership:fa3f945e4f3aba153bbf",
+        "source_row": 2654,
+        "source_path": "content/lexical/canonical/packs/shards/o1409-1440.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "discreet",
+      "source": "content/lexical/canonical/lookup/spelling/di.json",
+      "word_id": "word:discreet",
+      "ordinal": 1416,
+      "word_shard": "content/lexical/canonical/words/shards/o1409-1416.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/46.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1409-1416.json",
+    "source_content_hash": "2822344cf3ec4e5a5f7b7afc972fd95b5237880cc84d5b8616cd7adea6cab5d4",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

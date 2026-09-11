@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2138,
+  "word_id": "word:glacier",
+  "word": "glacier",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2bbefe2e1c15b41e174836b4086c9f77ac908394de626b5b4ba176cc4b1e75c5",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "冰川",
+      "core_meaning_en": "a slowly moving mass of ice",
+      "mental_model_cn": "冰川",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8100b59489405a5bbf25",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:glacier:88fa3834f5db52fa:collocation:0"
+            ],
+            "meaning_cn": "冰川融化",
+            "phrase": "glacier melt"
+          },
+          {
+            "collocation_id": "collocation:ebb8163299ceb1c4c11c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:glacier:88fa3834f5db52fa:collocation:1"
+            ],
+            "meaning_cn": "冰川在退缩",
+            "phrase": "the glacier is retreating"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "冰川",
+        "definition_en": "a slowly moving mass of ice formed from accumulated snow",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:glacier:88fa3834f5db52fa",
+        "sense_label_en": "a slowly moving mass of ice formed from accumulated snow",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "glacier",
+    "word_family": [],
+    "word_id": "word:glacier"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:glacier:88fa3834f5db52fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5954,
+        "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8100b59489405a5bbf25",
+      "collocation:ebb8163299ceb1c4c11c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:8100b59489405a5bbf25",
+        "source_row": 10926,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:ebb8163299ceb1c4c11c",
+        "source_row": 19964,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:7f5abf6c3e1d66d56f2b",
+        "source_row": 4031,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "glacier",
+      "source": "content/lexical/canonical/lookup/spelling/gl.json",
+      "word_id": "word:glacier",
+      "ordinal": 2138,
+      "word_shard": "content/lexical/canonical/words/shards/o2137-2144.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/43.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2137-2144.json",
+    "source_content_hash": "2bbefe2e1c15b41e174836b4086c9f77ac908394de626b5b4ba176cc4b1e75c5",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

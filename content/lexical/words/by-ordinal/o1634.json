@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1634,
+  "word_id": "word:employee",
+  "word": "employee",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "174d71d8ac75f8f6c3d0655fe892f9b1ab44aedcf1b0bc69186c71249ccec09c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "雇员，员工",
+      "core_meaning_en": "a person who works for someone else and is paid",
+      "mental_model_cn": "雇员，员工",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:65b32283278686bba5c1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:employee:dd0a77c42fb35dd4:collocation:0"
+            ],
+            "meaning_cn": "员工福利",
+            "phrase": "employee benefits"
+          },
+          {
+            "collocation_id": "collocation:3bbf084d9fdf47372b3d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:employee:dd0a77c42fb35dd4:collocation:1"
+            ],
+            "meaning_cn": "全职员工",
+            "phrase": "full-time employee"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "雇员，员工",
+        "definition_en": "a person who works for someone else and is paid",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:employee:dd0a77c42fb35dd4",
+        "sense_label_en": "a person who works for someone else and is paid",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "employee",
+    "word_family": [],
+    "word_id": "word:employee"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:employee:dd0a77c42fb35dd4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4534,
+        "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3bbf084d9fdf47372b3d",
+      "collocation:65b32283278686bba5c1"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3bbf084d9fdf47372b3d",
+        "source_row": 5067,
+        "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:65b32283278686bba5c1",
+        "source_row": 8569,
+        "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:656e80bb47927d2a15fd",
+        "source_row": 3063,
+        "source_path": "content/lexical/canonical/packs/shards/o1633-1664.json"
+      },
+      {
+        "id": "membership:1600808daeeaa5361723",
+        "source_row": 3064,
+        "source_path": "content/lexical/canonical/packs/shards/o1633-1664.json"
+      },
+      {
+        "id": "membership:b297a9f5f124d1e5dff3",
+        "source_row": 11232,
+        "source_path": "content/lexical/canonical/packs/shards/o1633-1664.json"
+      },
+      {
+        "id": "membership:4373509bbe1cab994ac4",
+        "source_row": 15033,
+        "source_path": "content/lexical/canonical/packs/shards/o1633-1664.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "employee",
+      "source": "content/lexical/canonical/lookup/spelling/em.json",
+      "word_id": "word:employee",
+      "ordinal": 1634,
+      "word_shard": "content/lexical/canonical/words/shards/o1633-1640.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1633-1640.json",
+    "source_content_hash": "174d71d8ac75f8f6c3d0655fe892f9b1ab44aedcf1b0bc69186c71249ccec09c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

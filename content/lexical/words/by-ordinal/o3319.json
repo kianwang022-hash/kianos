@@ -1,0 +1,151 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3319,
+  "word_id": "word:odor",
+  "word": "odor",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bcaeeb6cdcfc31435953a501c67677539621366f8bdc99e0d4f9cbb6facb6ab7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "气味",
+      "core_meaning_en": "a smell, especially an unpleasant one",
+      "mental_model_cn": "气味",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "search_aliases": [
+      "odour"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5e470849c8297f0e9b31",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:odor:46341ad4015e5ae0:collocation:0"
+            ],
+            "meaning_cn": "体臭",
+            "phrase": "body odor"
+          },
+          {
+            "collocation_id": "collocation:2a64b0074eef4c1408b3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:odor:46341ad4015e5ae0:collocation:1"
+            ],
+            "meaning_cn": "腐烂的气味",
+            "phrase": "the odor of decay"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "气味（尤指难闻的）",
+        "definition_en": "a smell, especially an unpleasant one",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:odor:46341ad4015e5ae0",
+        "sense_label_en": "a smell, especially an unpleasant one",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "odor",
+    "word_family": [],
+    "word_id": "word:odor"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:odor:46341ad4015e5ae0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9201,
+        "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2a64b0074eef4c1408b3",
+      "collocation:5e470849c8297f0e9b31"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2a64b0074eef4c1408b3",
+        "source_row": 3603,
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:5e470849c8297f0e9b31",
+        "source_row": 7936,
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5f717d24bee8327b538b",
+        "source_row": 6147,
+        "source_path": "content/lexical/canonical/packs/shards/o3297-3328.json"
+      },
+      {
+        "id": "membership:66fbed03285ce1939b48",
+        "source_row": 6148,
+        "source_path": "content/lexical/canonical/packs/shards/o3297-3328.json"
+      },
+      {
+        "id": "membership:217ef749844541fd61eb",
+        "source_row": 12299,
+        "source_path": "content/lexical/canonical/packs/shards/o3297-3328.json"
+      },
+      {
+        "id": "membership:3bbada11bccb681932c4",
+        "source_row": 16541,
+        "source_path": "content/lexical/canonical/packs/shards/o3297-3328.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "odor",
+      "source": "content/lexical/canonical/lookup/spelling/od.json",
+      "word_id": "word:odor",
+      "ordinal": 3319,
+      "word_shard": "content/lexical/canonical/words/shards/o3313-3320.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/e8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3313-3320.json",
+    "source_content_hash": "bcaeeb6cdcfc31435953a501c67677539621366f8bdc99e0d4f9cbb6facb6ab7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

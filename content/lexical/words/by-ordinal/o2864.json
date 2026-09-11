@@ -1,0 +1,283 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2864,
+  "word_id": "word:loan",
+  "word": "loan",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "66a20a1e4bfe2f1cf19b2d22e723cfcd28c4e848b24226dcde9d9ca5894d9185",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "贷款，借款",
+          "label_en": "an amount of money lent, usually with interest",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:loan:886627dbdae459c9"
+          ]
+        },
+        {
+          "label_cn": "借出，贷给",
+          "label_en": "to lend something, especially money",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:loan:300477c2957b5b18"
+          ]
+        }
+      ],
+      "core_meaning_cn": "贷款；借出",
+      "core_meaning_en": "money or item lent, often with interest",
+      "mental_model_cn": "贷款；借出",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:secondary_senses:loan:49e76f1cb3ae8062"
+    ],
+    "secondary_senses": [
+      {
+        "boundary": "loan sth to sb",
+        "codex_reviewed": false,
+        "definition_cn": "借出，贷给",
+        "definition_en": "to lend something, especially money",
+        "dimensions": {},
+        "direction": "R",
+        "evidence": [
+          {
+            "evidence_id": "evidence:core-card:loan:e53b97857725",
+            "evidence_status": "source_checked",
+            "source_labels": [],
+            "source_locator": "loan:l2:2",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:secondary_senses:loan:49e76f1cb3ae8062",
+        "family_sources": [],
+        "label_en": "to lend something, especially money",
+        "level": "L2",
+        "meaning_cn": null,
+        "module": "secondary_senses",
+        "pattern": null,
+        "pos": "verb",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:loan:300477c2957b5b18",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    ],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:07886c14b99913ce5132",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:loan:886627dbdae459c9:collocation:0"
+            ],
+            "meaning_cn": "取得贷款",
+            "phrase": "take out a loan"
+          },
+          {
+            "collocation_id": "collocation:f64804d5802dd8be2e4e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:loan:886627dbdae459c9:collocation:1"
+            ],
+            "meaning_cn": "还清贷款",
+            "phrase": "pay off a loan"
+          },
+          {
+            "collocation_id": "collocation:13e112231f14cce99455",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:loan:886627dbdae459c9:collocation:2"
+            ],
+            "meaning_cn": "银行贷款",
+            "phrase": "a bank loan"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "贷款，借款",
+        "definition_en": "an amount of money lent, usually with interest",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:loan:886627dbdae459c9",
+        "sense_label_en": "an amount of money lent, usually with interest",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:30877db58a12137d85d0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:loan:300477c2957b5b18:collocation:0"
+            ],
+            "meaning_cn": "把某物借给某人",
+            "phrase": "loan sth to sb"
+          },
+          {
+            "collocation_id": "collocation:b85f19b5572cd9771f1b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:loan:300477c2957b5b18:collocation:1"
+            ],
+            "meaning_cn": "借钱给朋友",
+            "phrase": "loan money to a friend"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "借出，贷给",
+        "definition_en": "to lend something, especially money",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:loan:300477c2957b5b18",
+        "sense_label_en": "to lend something, especially money",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "completed",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "loan",
+    "word_family": [],
+    "word_id": "word:loan"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:loan:300477c2957b5b18",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7969,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:loan:886627dbdae459c9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7970,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:07886c14b99913ce5132",
+      "collocation:13e112231f14cce99455",
+      "collocation:30877db58a12137d85d0",
+      "collocation:b85f19b5572cd9771f1b",
+      "collocation:f64804d5802dd8be2e4e"
+    ],
+    "facts": [
+      {
+        "id": "deep:secondary_senses:loan:49e76f1cb3ae8062",
+        "source_row": 734,
+        "source_path": "content/lexical/canonical/facts/shards/o2849-2880.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:07886c14b99913ce5132",
+        "source_row": 628,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:13e112231f14cce99455",
+        "source_row": 1641,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:30877db58a12137d85d0",
+        "source_row": 4094,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:b85f19b5572cd9771f1b",
+        "source_row": 15632,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:f64804d5802dd8be2e4e",
+        "source_row": 20872,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:faa548d707fecf808d17",
+        "source_row": 5342,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:5693b281ed4da81af8f1",
+        "source_row": 5343,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:9831391d431a72ccabc3",
+        "source_row": 5344,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:68cc5f0fed6af4bcb93f",
+        "source_row": 12026,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:7a25103d06902b39a23a",
+        "source_row": 16139,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "loan",
+      "source": "content/lexical/canonical/lookup/spelling/lo.json",
+      "word_id": "word:loan",
+      "ordinal": 2864,
+      "word_shard": "content/lexical/canonical/words/shards/o2857-2864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ce.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2857-2864.json",
+    "source_content_hash": "66a20a1e4bfe2f1cf19b2d22e723cfcd28c4e848b24226dcde9d9ca5894d9185",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

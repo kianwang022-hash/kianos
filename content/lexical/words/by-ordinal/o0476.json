@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 476,
+  "word_id": "word:beverage",
+  "word": "beverage",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "5de81fe73b4f6c40b3213f90000f1eed14841ee6c2aca1cb8719ce50ef57fd9c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "饮料",
+      "core_meaning_en": "a drinkable liquid",
+      "mental_model_cn": "饮料",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e5c42a6902f222008be5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:beverage:4342ebd113705481:collocation:0"
+            ],
+            "meaning_cn": "酒精饮料",
+            "phrase": "alcoholic beverage"
+          },
+          {
+            "collocation_id": "collocation:e723efefc17f89f9a781",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:beverage:4342ebd113705481:collocation:1"
+            ],
+            "meaning_cn": "饮料行业",
+            "phrase": "beverage industry"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "饮料",
+        "definition_en": "any liquid suitable for drinking",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:beverage:4342ebd113705481",
+        "sense_label_en": "any liquid suitable for drinking",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "beverage",
+    "word_family": [],
+    "word_id": "word:beverage"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:beverage:4342ebd113705481",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1260,
+        "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e5c42a6902f222008be5",
+      "collocation:e723efefc17f89f9a781"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e5c42a6902f222008be5",
+        "source_row": 19456,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:e723efefc17f89f9a781",
+        "source_row": 19587,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8c711474a0b654c20b9e",
+        "source_row": 904,
+        "source_path": "content/lexical/canonical/packs/shards/o0449-0480.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "beverage",
+      "source": "content/lexical/canonical/lookup/spelling/be.json",
+      "word_id": "word:beverage",
+      "ordinal": 476,
+      "word_shard": "content/lexical/canonical/words/shards/o0473-0480.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/00.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0473-0480.json",
+    "source_content_hash": "5de81fe73b4f6c40b3213f90000f1eed14841ee6c2aca1cb8719ce50ef57fd9c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

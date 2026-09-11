@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3847,
+  "word_id": "word:protein",
+  "word": "protein",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "3f957d41f8e4a0f77e108e98c3c188c6d8438fabb1e4da6791da16827cfdf00e",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "蛋白质",
+      "core_meaning_en": "a nutrient essential for life, made of amino acids",
+      "mental_model_cn": "蛋白质",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:28da780c323b2dee90cc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:protein:1050f036b9705084:collocation:0"
+            ],
+            "meaning_cn": "高蛋白饮食",
+            "phrase": "high-protein diet"
+          },
+          {
+            "collocation_id": "collocation:9e30e6fbd1b6055f0cff",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:protein:1050f036b9705084:collocation:1"
+            ],
+            "meaning_cn": "蛋白质摄入",
+            "phrase": "protein intake"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "蛋白质",
+        "definition_en": "a natural substance found in food such as meat, eggs, and beans, necessary for the body to grow and repair itself",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:protein:1050f036b9705084",
+        "sense_label_en": "a natural substance found in food such as meat, eggs, and beans, necessa",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "protein",
+    "word_family": [],
+    "word_id": "word:protein"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:protein:1050f036b9705084",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10701,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:28da780c323b2dee90cc",
+      "collocation:9e30e6fbd1b6055f0cff"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:28da780c323b2dee90cc",
+        "source_row": 3453,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:9e30e6fbd1b6055f0cff",
+        "source_row": 13462,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:031cfaa6a93bc760f54e",
+        "source_row": 7118,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      },
+      {
+        "id": "membership:6b37b7bd04ac2631cfb4",
+        "source_row": 7119,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      },
+      {
+        "id": "membership:56253744352ec28f75e4",
+        "source_row": 12655,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      },
+      {
+        "id": "membership:191361d2e0f8abcb3535",
+        "source_row": 17028,
+        "source_path": "content/lexical/canonical/packs/shards/o3841-3872.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "protein",
+      "source": "content/lexical/canonical/lookup/spelling/pr.json",
+      "word_id": "word:protein",
+      "ordinal": 3847,
+      "word_shard": "content/lexical/canonical/words/shards/o3841-3848.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/74.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3841-3848.json",
+    "source_content_hash": "3f957d41f8e4a0f77e108e98c3c188c6d8438fabb1e4da6791da16827cfdf00e",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

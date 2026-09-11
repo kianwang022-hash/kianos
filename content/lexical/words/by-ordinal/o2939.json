@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2939,
+  "word_id": "word:mammal",
+  "word": "mammal",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "324e70664c24b7190eb3937bdcf811e6d569c2f71425e4a99255ec56f98fe5a6",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "哺乳动物",
+      "core_meaning_en": "a warm-blooded animal that feeds its young with milk",
+      "mental_model_cn": "哺乳动物",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:658e945ad018b719c493",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mammal:cd96db3d265b5ac1:collocation:0"
+            ],
+            "meaning_cn": "海洋哺乳动物",
+            "phrase": "marine mammals"
+          },
+          {
+            "collocation_id": "collocation:fe6b5a0b4be919914a54",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:mammal:cd96db3d265b5ac1:collocation:1"
+            ],
+            "meaning_cn": "哺乳动物物种",
+            "phrase": "mammal species"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "哺乳动物",
+        "definition_en": "any warm-blooded vertebrate having hair, and feeding its young with milk",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:mammal:cd96db3d265b5ac1",
+        "sense_label_en": "any warm-blooded vertebrate having hair, and feeding its young with milk",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "mammal",
+    "word_family": [],
+    "word_id": "word:mammal"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:mammal:cd96db3d265b5ac1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8181,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:658e945ad018b719c493",
+      "collocation:fe6b5a0b4be919914a54"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:658e945ad018b719c493",
+        "source_row": 8558,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:fe6b5a0b4be919914a54",
+        "source_row": 21514,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:32b2d3c1312c0187a6d1",
+        "source_row": 5477,
+        "source_path": "content/lexical/canonical/packs/shards/o2913-2944.json"
+      },
+      {
+        "id": "membership:ed2bca6d9410c796c809",
+        "source_row": 16201,
+        "source_path": "content/lexical/canonical/packs/shards/o2913-2944.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "mammal",
+      "source": "content/lexical/canonical/lookup/spelling/ma.json",
+      "word_id": "word:mammal",
+      "ordinal": 2939,
+      "word_shard": "content/lexical/canonical/words/shards/o2937-2944.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/88.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2937-2944.json",
+    "source_content_hash": "324e70664c24b7190eb3937bdcf811e6d569c2f71425e4a99255ec56f98fe5a6",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5269,
+  "word_id": "word:venue",
+  "word": "venue",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "cf2e66b586e2a6c11b196ef10756f5ee32590604697da6047d0c30ed51e6281a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "事件发生的地点",
+      "core_meaning_en": "the place where an event or action happens",
+      "mental_model_cn": "事件发生的地点",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6bec072abdf9205057fb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:venue:df7dcc8060005ac3:collocation:0"
+            ],
+            "meaning_cn": "音乐会的举办地点",
+            "phrase": "the venue for the concert"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "活动或会议的举办地点",
+        "definition_en": "the place where an event or meeting is held",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:venue:df7dcc8060005ac3",
+        "sense_label_en": "the place where an event or meeting is held",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dcb552751a3046211123",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:venue:4969126182115892:collocation:0"
+            ],
+            "meaning_cn": "变更审判地",
+            "phrase": "change of venue"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "审判地，管辖地",
+        "definition_en": "the jurisdiction where a trial is held",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:venue:4969126182115892",
+        "sense_label_en": "the jurisdiction where a trial is held",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "venue",
+    "word_family": [],
+    "word_id": "word:venue"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:venue:4969126182115892",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14992,
+        "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json"
+      },
+      {
+        "sense_id": "sense:venue:df7dcc8060005ac3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14993,
+        "source_path": "content/lexical/canonical/senses/shards/o5249-5280.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6bec072abdf9205057fb",
+      "collocation:dcb552751a3046211123"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6bec072abdf9205057fb",
+        "source_row": 9087,
+        "source_path": "content/lexical/canonical/collocations/shards/o5249-5280.json"
+      },
+      {
+        "id": "collocation:dcb552751a3046211123",
+        "source_row": 18678,
+        "source_path": "content/lexical/canonical/collocations/shards/o5249-5280.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6900b816a87224844ffd",
+        "source_row": 9781,
+        "source_path": "content/lexical/canonical/packs/shards/o5249-5280.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "venue",
+      "source": "content/lexical/canonical/lookup/spelling/ve.json",
+      "word_id": "word:venue",
+      "ordinal": 5269,
+      "word_shard": "content/lexical/canonical/words/shards/o5265-5272.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/24.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5265-5272.json",
+    "source_content_hash": "cf2e66b586e2a6c11b196ef10756f5ee32590604697da6047d0c30ed51e6281a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

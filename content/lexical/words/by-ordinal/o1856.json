@@ -1,0 +1,158 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1856,
+  "word_id": "word:famine",
+  "word": "famine",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "74f3bd8dc62d5f86b058ac285744c32ba37731e01697d8efccb81b68eb18280a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "严重食物短缺",
+      "core_meaning_en": "severe food shortage",
+      "mental_model_cn": "严重食物短缺",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:famine:be349ec347bbb0c8"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:96abfff9401cfdd887ee",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:famine:8a0f54b370e6548f:collocation:0"
+            ],
+            "meaning_cn": "饥荒救济",
+            "phrase": "famine relief"
+          },
+          {
+            "collocation_id": "collocation:8ec9f51915d28919b6ab",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:famine:8a0f54b370e6548f:collocation:1"
+            ],
+            "meaning_cn": "大范围饥荒",
+            "phrase": "widespread famine"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "饥荒；严重食物短缺",
+        "definition_en": "a severe shortage of food causing hunger and death",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:famine:8a0f54b370e6548f",
+        "sense_label_en": "a severe shortage of food causing hunger and death",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "famine",
+    "word_family": [],
+    "word_id": "word:famine"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:famine:be349ec347bbb0c8",
+      "owner_path": "content/lexical/relations/by-id/2f/2f76056bea00998a129a0381cae195ee9b0cba7c8439769c945ae670f525f0c9.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:famine:8a0f54b370e6548f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5088,
+        "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:8ec9f51915d28919b6ab",
+      "collocation:96abfff9401cfdd887ee"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:famine:be349ec347bbb0c8",
+        "source_row": 543,
+        "source_path": "content/lexical/canonical/facts/shards/o1825-1856.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:8ec9f51915d28919b6ab",
+        "source_row": 12113,
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:96abfff9401cfdd887ee",
+        "source_row": 12831,
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:e85b6702a8b55a15af5b",
+        "source_row": 3524,
+        "source_path": "content/lexical/canonical/packs/shards/o1825-1856.json"
+      },
+      {
+        "id": "membership:cd4c3220ea9d3a5fc12b",
+        "source_row": 11373,
+        "source_path": "content/lexical/canonical/packs/shards/o1825-1856.json"
+      },
+      {
+        "id": "membership:02873801bbd31c8fbe65",
+        "source_row": 15223,
+        "source_path": "content/lexical/canonical/packs/shards/o1825-1856.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "famine",
+      "source": "content/lexical/canonical/lookup/spelling/fa.json",
+      "word_id": "word:famine",
+      "ordinal": 1856,
+      "word_shard": "content/lexical/canonical/words/shards/o1849-1856.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1849-1856.json",
+    "source_content_hash": "74f3bd8dc62d5f86b058ac285744c32ba37731e01697d8efccb81b68eb18280a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

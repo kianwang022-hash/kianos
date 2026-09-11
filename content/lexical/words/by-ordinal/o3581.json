@@ -1,0 +1,154 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3581,
+  "word_id": "word:philosopher",
+  "word": "philosopher",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2042b1fec294eb43e7972ba88a25ab17a298cf23ab1bc54b8212307ca6209aee",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "哲学家",
+      "core_meaning_en": "a person who studies or writes about philosophy",
+      "mental_model_cn": "哲学家",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:84bff8e44fe6db1a8824",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:philosopher:a86aa35535505d8e:collocation:0"
+            ],
+            "meaning_cn": "希腊哲学家",
+            "phrase": "Greek philosopher"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "哲学家",
+        "definition_en": "a person who studies or writes about philosophy",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:philosopher:a86aa35535505d8e",
+        "sense_label_en": "a person who studies or writes about philosophy",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "哲人；达观的人",
+        "definition_en": "a wise person who is calm and rational",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:philosopher:1fc8b6efb548568a",
+        "sense_label_en": "a wise person who is calm and rational",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "philosopher",
+    "word_family": [],
+    "word_id": "word:philosopher"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:philosopher:1fc8b6efb548568a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9931,
+        "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
+      },
+      {
+        "sense_id": "sense:philosopher:a86aa35535505d8e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9932,
+        "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:84bff8e44fe6db1a8824"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:84bff8e44fe6db1a8824",
+        "source_row": 11264,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f0fb66b63fa3296f3584",
+        "source_row": 6616,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:77e9212c8ec7ba87c44f",
+        "source_row": 6617,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:64e0910a6ba3ae749960",
+        "source_row": 12467,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:700fa90f2eeb33750bbb",
+        "source_row": 16773,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "philosopher",
+      "source": "content/lexical/canonical/lookup/spelling/ph.json",
+      "word_id": "word:philosopher",
+      "ordinal": 3581,
+      "word_shard": "content/lexical/canonical/words/shards/o3577-3584.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/17.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3577-3584.json",
+    "source_content_hash": "2042b1fec294eb43e7972ba88a25ab17a298cf23ab1bc54b8212307ca6209aee",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

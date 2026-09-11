@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 858,
+  "word_id": "word:cloth",
+  "word": "cloth",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "47112ce724d9cd1c04375de9f5cdc248215f4b8c15538effcb4806a67f3dc335",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "布料",
+      "core_meaning_en": "woven or felted material made from fibers",
+      "mental_model_cn": "布料",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:confusables:cloth:4195c568ea20db6e"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7819fe0de9628e3ac9fa",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cloth:c100d84b3e6856dd:collocation:0"
+            ],
+            "meaning_cn": "一块布",
+            "phrase": "a piece of cloth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "布料；织品",
+        "definition_en": "artifact made by weaving or felting or knitting or crocheting natural or synthetic fibers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cloth:c100d84b3e6856dd",
+        "sense_label_en": "artifact made by weaving or felting or knitting or crocheting natural or",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "completed",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "cloth",
+    "word_family": [],
+    "word_id": "word:cloth"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:cloth:4195c568ea20db6e",
+      "owner_path": "content/lexical/relations/by-id/8b/8bfb470dd545387d876c2385a8ef7c1fd75005b7332d7fca5dae325291c6f652.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cloth:c100d84b3e6856dd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2447,
+        "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:7819fe0de9628e3ac9fa"
+    ],
+    "facts": [
+      {
+        "id": "deep:confusables:cloth:4195c568ea20db6e",
+        "source_row": 223,
+        "source_path": "content/lexical/canonical/facts/shards/o0833-0864.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:7819fe0de9628e3ac9fa",
+        "source_row": 10157,
+        "source_path": "content/lexical/canonical/collocations/shards/o0833-0864.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3329299a5db9aa2d6cf9",
+        "source_row": 1556,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      },
+      {
+        "id": "membership:6b0926b8d6787d378c42",
+        "source_row": 10750,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cloth",
+      "source": "content/lexical/canonical/lookup/spelling/cl.json",
+      "word_id": "word:cloth",
+      "ordinal": 858,
+      "word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/94.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
+    "source_content_hash": "47112ce724d9cd1c04375de9f5cdc248215f4b8c15538effcb4806a67f3dc335",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

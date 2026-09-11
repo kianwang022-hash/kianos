@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1630,
+  "word_id": "word:emphasise",
+  "word": "emphasise",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "6c28c3aedd629141c385e06a39e66ec0ffa4fa2cfdfb8941cfe8958882a2e996",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "强调",
+      "core_meaning_en": "to give special importance or attention to something",
+      "mental_model_cn": "强调",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e6940a60b3822be95ea8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:emphasise:e3eae34afc905dd0:collocation:0"
+            ],
+            "meaning_cn": "强调某事",
+            "phrase": "emphasise + sth"
+          },
+          {
+            "collocation_id": "collocation:fd9af9104e03a8cf9a57",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:emphasise:e3eae34afc905dd0:collocation:1"
+            ],
+            "meaning_cn": "强调某事的重要性",
+            "phrase": "emphasise the importance of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "强调，着重",
+        "definition_en": "to give special importance or attention to something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:emphasise:e3eae34afc905dd0",
+        "sense_label_en": "to give special importance or attention to something",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "emphasise",
+    "word_family": [],
+    "word_id": "word:emphasise"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:emphasise:e3eae34afc905dd0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4527,
+        "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e6940a60b3822be95ea8",
+      "collocation:fd9af9104e03a8cf9a57"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e6940a60b3822be95ea8",
+        "source_row": 19535,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:fd9af9104e03a8cf9a57",
+        "source_row": 21452,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2f13f1d87cb5adca8d58",
+        "source_row": 3055,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      },
+      {
+        "id": "membership:84ae5e7cbf67de7e5029",
+        "source_row": 3056,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "emphasise",
+      "source": "content/lexical/canonical/lookup/spelling/em.json",
+      "word_id": "word:emphasise",
+      "ordinal": 1630,
+      "word_shard": "content/lexical/canonical/words/shards/o1625-1632.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1625-1632.json",
+    "source_content_hash": "6c28c3aedd629141c385e06a39e66ec0ffa4fa2cfdfb8941cfe8958882a2e996",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

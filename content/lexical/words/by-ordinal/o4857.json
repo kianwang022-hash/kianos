@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4857,
+  "word_id": "word:sweater",
+  "word": "sweater",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "9d5534ee6e0af932badf685cc8b1c2eee5f33277f6cdadc565e0e17915bad82b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "毛衣",
+      "core_meaning_en": "a knitted garment for the upper body",
+      "mental_model_cn": "毛衣",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3066fcda9403ac47b5d7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sweater:6fbc7ce42f315792:collocation:0"
+            ],
+            "meaning_cn": "穿毛衣",
+            "phrase": "wear a sweater"
+          },
+          {
+            "collocation_id": "collocation:10ada6ce93bdf3ead2fe",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sweater:6fbc7ce42f315792:collocation:1"
+            ],
+            "meaning_cn": "织毛衣",
+            "phrase": "knit a sweater"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "毛衣，毛线衫",
+        "definition_en": "a knitted garment worn on the upper part of the body",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sweater:6fbc7ce42f315792",
+        "sense_label_en": "a knitted garment worn on the upper part of the body",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 2,
+      "runtime_model_calls": false
+    },
+    "word": "sweater",
+    "word_family": [],
+    "word_id": "word:sweater"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:sweater:6fbc7ce42f315792",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13806,
+        "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:10ada6ce93bdf3ead2fe",
+      "collocation:3066fcda9403ac47b5d7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:10ada6ce93bdf3ead2fe",
+        "source_row": 1379,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      },
+      {
+        "id": "collocation:3066fcda9403ac47b5d7",
+        "source_row": 4082,
+        "source_path": "content/lexical/canonical/collocations/shards/o4833-4864.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:1b0c4c2588ec291c73bf",
+        "source_row": 9025,
+        "source_path": "content/lexical/canonical/packs/shards/o4833-4864.json"
+      },
+      {
+        "id": "membership:b2b7e1db311d7aef25bf",
+        "source_row": 13353,
+        "source_path": "content/lexical/canonical/packs/shards/o4833-4864.json"
+      },
+      {
+        "id": "membership:71b75e39c07fb2fe57d0",
+        "source_row": 18002,
+        "source_path": "content/lexical/canonical/packs/shards/o4833-4864.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "sweater",
+      "source": "content/lexical/canonical/lookup/spelling/sw.json",
+      "word_id": "word:sweater",
+      "ordinal": 4857,
+      "word_shard": "content/lexical/canonical/words/shards/o4857-4864.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c4.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4857-4864.json",
+    "source_content_hash": "9d5534ee6e0af932badf685cc8b1c2eee5f33277f6cdadc565e0e17915bad82b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

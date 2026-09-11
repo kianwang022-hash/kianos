@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 205,
+  "word_id": "word:annoy",
+  "word": "annoy",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1f33054cf870c465eda39499faf642dd6bf416d995522e19e5abf4dcf0b08946",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "使恼怒；打扰",
+      "core_meaning_en": "to make someone slightly angry or irritated",
+      "mental_model_cn": "使恼怒；打扰",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f73a61c51cdf239675cc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:annoy:e2dc1d2b104e5f30:collocation:0"
+            ],
+            "meaning_cn": "使某人恼怒",
+            "phrase": "annoy + sb"
+          },
+          {
+            "collocation_id": "collocation:f17172cb2d9d7d7b0f2a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:annoy:e2dc1d2b104e5f30:collocation:1"
+            ],
+            "meaning_cn": "对……感到恼怒",
+            "phrase": "be annoyed at + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使恼怒；使烦扰",
+        "definition_en": "to make someone feel slightly angry or irritated",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:annoy:e2dc1d2b104e5f30",
+        "sense_label_en": "to make someone feel slightly angry or irritated",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "annoy",
+    "word_family": [],
+    "word_id": "word:annoy"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:annoy:e2dc1d2b104e5f30",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 520,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:f17172cb2d9d7d7b0f2a",
+      "collocation:f73a61c51cdf239675cc"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:f17172cb2d9d7d7b0f2a",
+        "source_row": 20449,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      },
+      {
+        "id": "collocation:f73a61c51cdf239675cc",
+        "source_row": 20939,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:235b6929cd3ca1aa1da9",
+        "source_row": 410,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      },
+      {
+        "id": "membership:732726d10075e48741bf",
+        "source_row": 411,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "annoy",
+      "source": "content/lexical/canonical/lookup/spelling/an.json",
+      "word_id": "word:annoy",
+      "ordinal": 205,
+      "word_shard": "content/lexical/canonical/words/shards/o0201-0208.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/18.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0201-0208.json",
+    "source_content_hash": "1f33054cf870c465eda39499faf642dd6bf416d995522e19e5abf4dcf0b08946",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

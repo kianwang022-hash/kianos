@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:cb939a6e84b1b46315c4",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:physician",
+      "source_ordinal": 3586,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "physician = medical doctor; physicist = scientist specializing in physics."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:031",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:031",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:cb939a6e84b1b46315c4",
+        "learning_note": "physician = medical doctor; physicist = scientist specializing in physics.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "physician",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:physician"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "physician = medical doctor; physicist = scientist specializing in physics.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "physician = medical doctor; physicist = scientist specializing in physics.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "physician",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:physician"
+              }
+            ],
+            "learner_note": "physician = medical doctor; physicist = scientist specializing in physics.",
+            "relation_targets": [
+              "physicist"
+            ],
+            "relation_type": "form_semantic_confusable"
+          }
+        ],
+        "source_expression": "physician",
+        "source_sense_id": null,
+        "target_expression": "physicist",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "physicist",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

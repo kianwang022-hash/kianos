@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "均可表训练指导；coach多针对个人技能，train范围更广",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "teach and supervise (someone); act as a trainer or coach (to), as in sports",
+      "shared_synset": "00835381-v",
+      "source_definition": "to train or teach someone",
+      "source_sense_id": "sense:coach:624256fd61275b94",
+      "target_definition": "to teach a person or animal a skill or behavior",
+      "target_sense_id": "sense:train:5457a182d3a955d7",
+      "target_word": "train"
+    },
+    "dimensions": {
+      "certainty": "高",
+      "collocation": "coach sb",
+      "core_meaning": "训练，指导",
+      "exam_trap": "train多义",
+      "register": "中性",
+      "semantic_prosody": "中性",
+      "strength": "强",
+      "syntax": "及物动词",
+      "writing_safety": "安全"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00835381-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00835381-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 9.0,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "publishable",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 5,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "to train or teach someone",
+      "source_sense_id": "sense:coach:624256fd61275b94",
+      "target_definition": "to teach a person or animal a skill or behavior",
+      "target_sense_id": "sense:train:5457a182d3a955d7"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:coach:624256fd61275b94",
+    "target_sense_id": "sense:train:ea2e5f129cbc5703",
+    "target_word": "train",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 0.95,
+    "verification_decision": "accept",
+    "verification_status": "verified",
+    "why": "",
+    "word": "coach",
+    "word_id": "word:coach",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:coach",
+      "source_ordinal": 869,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "均可表训练指导；coach多针对个人技能，train范围更广",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "coach sb",
+          "core_meaning": "训练，指导",
+          "exam_trap": "train多义",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "及物动词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00835381-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00835381-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "teach and supervise (someone); act as a trainer or coach (to), as in sports",
+        "source_sense_id": "sense:coach:624256fd61275b94",
+        "target_sense_id": "sense:train:5457a182d3a955d7",
+        "target_word": "train",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

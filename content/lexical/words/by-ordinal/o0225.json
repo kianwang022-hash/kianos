@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 225,
+  "word_id": "word:apologise",
+  "word": "apologise",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "1912b538cadbfa5ad18b21efa86ddcbfacc6df98903fac2964d8e87b70959e38",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "道歉",
+      "core_meaning_en": "say sorry",
+      "mental_model_cn": "道歉",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3e7afd591a5902559d93",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:apologise:c043b63d402e51d6:collocation:0"
+            ],
+            "meaning_cn": "因某事向某人道歉",
+            "phrase": "apologise to + sb + for + sth"
+          },
+          {
+            "collocation_id": "collocation:b5011250b18cf0f1cc06",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:apologise:c043b63d402e51d6:collocation:1"
+            ],
+            "meaning_cn": "为某事道歉",
+            "phrase": "apologise for + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "道歉",
+        "definition_en": "express regret for something one has done wrong",
+        "governing_pattern": "vi. + to + sb + for + sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:apologise:c043b63d402e51d6",
+        "sense_label_en": "express regret for something one has done wrong",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "apologise",
+    "word_family": [],
+    "word_id": "word:apologise"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:apologise:c043b63d402e51d6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 563,
+        "source_path": "content/lexical/canonical/senses/shards/o0225-0256.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3e7afd591a5902559d93",
+      "collocation:b5011250b18cf0f1cc06"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3e7afd591a5902559d93",
+        "source_row": 5293,
+        "source_path": "content/lexical/canonical/collocations/shards/o0225-0256.json"
+      },
+      {
+        "id": "collocation:b5011250b18cf0f1cc06",
+        "source_row": 15339,
+        "source_path": "content/lexical/canonical/collocations/shards/o0225-0256.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:b5d2296fada036107ec7",
+        "source_row": 449,
+        "source_path": "content/lexical/canonical/packs/shards/o0225-0256.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "apologise",
+      "source": "content/lexical/canonical/lookup/spelling/ap.json",
+      "word_id": "word:apologise",
+      "ordinal": 225,
+      "word_shard": "content/lexical/canonical/words/shards/o0225-0232.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/85.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0225-0232.json",
+    "source_content_hash": "1912b538cadbfa5ad18b21efa86ddcbfacc6df98903fac2964d8e87b70959e38",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

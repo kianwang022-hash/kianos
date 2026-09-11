@@ -1,0 +1,94 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:42c3476a39ccfbf3babf",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:deny",
+      "source_ordinal": 1299,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "deny a statement = say it is untrue; deny sb sth = refuse to give/grant; refuse = say no to doing/giving/accepting; reject = refuse to accept/approve after consideration. Keep the two deny senses separate."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:114",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:114",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "deny a statement = say it is untrue; deny sb sth = refuse to give/grant; refuse = say no to doing/giving/accepting; reject = refuse to accept/approve after consideration. Keep the two deny senses separate.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "deny",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:deny:486533d14b345a85",
+              "sense:deny:f16a8ca39e915180"
+            ],
+            "word_id": "word:deny"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:42c3476a39ccfbf3babf",
+        "relation_note": "deny a statement = say it is untrue; deny sb sth = refuse to give/grant; refuse = say no to doing/giving/accepting; reject = refuse to accept/approve after consideration. Keep the two deny senses separate.",
+        "relation_scope": "lexeme",
+        "relation_type": "denial_refusal_rejection_contrast",
+        "sense_ids": [
+          "sense:deny:486533d14b345a85",
+          "sense:deny:f16a8ca39e915180"
+        ],
+        "shared_meaning": "deny a statement = say it is untrue; deny sb sth = refuse to give/grant; refuse = say no to doing/giving/accepting; reject = refuse to accept/approve after consideration. Keep the two deny senses separate.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "deny",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:deny:486533d14b345a85",
+                  "sense:deny:f16a8ca39e915180"
+                ],
+                "word_id": "word:deny"
+              }
+            ],
+            "learner_note": "deny a statement = say it is untrue; deny sb sth = refuse to give/grant; refuse = say no to doing/giving/accepting; reject = refuse to accept/approve after consideration. Keep the two deny senses separate.",
+            "relation_targets": [
+              "refuse",
+              "reject"
+            ],
+            "relation_type": "denial_refusal_rejection_contrast"
+          }
+        ],
+        "source_expression": "deny",
+        "source_sense_id": null,
+        "target_expression": "deny ↔ refuse/reject",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": null,
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

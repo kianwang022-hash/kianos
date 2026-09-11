@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:b8fe43a1b5e0a1e3d139",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:ingenious",
+      "source_ordinal": 2535,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "ingenious = clever/inventive; ingenuous = innocent, candid, or naively straightforward."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:022",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:022",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:b8fe43a1b5e0a1e3d139",
+        "learning_note": "ingenious = clever/inventive; ingenuous = innocent, candid, or naively straightforward.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "ingenious",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:ingenious"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "ingenious = clever/inventive; ingenuous = innocent, candid, or naively straightforward.",
+        "relation_scope": "lexeme",
+        "relation_type": "advanced_form_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "ingenious = clever/inventive; ingenuous = innocent, candid, or naively straightforward.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "ingenious",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:ingenious"
+              }
+            ],
+            "learner_note": "ingenious = clever/inventive; ingenuous = innocent, candid, or naively straightforward.",
+            "relation_targets": [
+              "ingenuous"
+            ],
+            "relation_type": "advanced_form_semantic_confusable"
+          }
+        ],
+        "source_expression": "ingenious",
+        "source_sense_id": null,
+        "target_expression": "ingenuous",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "ingenuous",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

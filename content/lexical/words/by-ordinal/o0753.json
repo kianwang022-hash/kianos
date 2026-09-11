@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 753,
+  "word_id": "word:chancellor",
+  "word": "chancellor",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "4005a63199b524926bcb70396b21b4f19f82cd19dfa8654c22afb28856fb33d1",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "高级官员或大学校长",
+      "core_meaning_en": "high-ranking official or head of a university",
+      "mental_model_cn": "高级官员或大学校长",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:74f5673877bcac4a8d54",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:chancellor:51c0f8bc6fb05921:collocation:0"
+            ],
+            "meaning_cn": "德国总理",
+            "phrase": "Chancellor of Germany"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "政府高级官员；（某些国家的）总理",
+        "definition_en": "a person holding a very high government office; in some countries, the head of government",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:chancellor:51c0f8bc6fb05921",
+        "sense_label_en": "the person who is head of state in several countries",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bb99af4d26d18010443a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:chancellor:c075958efcb1527a:collocation:0"
+            ],
+            "meaning_cn": "大学校长",
+            "phrase": "university chancellor"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "大学名誉校长",
+        "definition_en": "the honorary or titular head of a university",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:chancellor:c075958efcb1527a",
+        "sense_label_en": "the honorary or titular head of a university",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "chancellor",
+    "word_family": [],
+    "word_id": "word:chancellor"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:chancellor:51c0f8bc6fb05921",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2129,
+        "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      },
+      {
+        "sense_id": "sense:chancellor:c075958efcb1527a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2130,
+        "source_path": "content/lexical/canonical/senses/shards/o0737-0768.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:74f5673877bcac4a8d54",
+      "collocation:bb99af4d26d18010443a"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:74f5673877bcac4a8d54",
+        "source_row": 9864,
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+      },
+      {
+        "id": "collocation:bb99af4d26d18010443a",
+        "source_row": 15891,
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f8cb997a8a12dc0a5e87",
+        "source_row": 1370,
+        "source_path": "content/lexical/canonical/packs/shards/o0737-0768.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "chancellor",
+      "source": "content/lexical/canonical/lookup/spelling/ch.json",
+      "word_id": "word:chancellor",
+      "ordinal": 753,
+      "word_shard": "content/lexical/canonical/words/shards/o0753-0760.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ad.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0753-0760.json",
+    "source_content_hash": "4005a63199b524926bcb70396b21b4f19f82cd19dfa8654c22afb28856fb33d1",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4975,
+  "word_id": "word:therefore",
+  "word": "therefore",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "da51b59016cad4b44313168b487a8511ee38b49ab11f6155ee15de3bd8d029ab",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "因此",
+      "core_meaning_en": "as a result; for that reason",
+      "mental_model_cn": "因此",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "deep:deep:semantic_contrast:therefore:bfdfcf425b420269",
+      "relation:deep:semantic_contrast:therefore:bfdfcf425b420269"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cc1e48513e70d488d55d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:therefore:7ac6708a217d589c:collocation:0"
+            ],
+            "meaning_cn": "因此",
+            "phrase": "and therefore"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "因此，所以",
+        "definition_en": "as a result; consequently",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:therefore:7ac6708a217d589c",
+        "sense_label_en": "as a result; consequently",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "completed",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 1,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "therefore",
+    "word_family": [],
+    "word_id": "word:therefore"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:therefore:bfdfcf425b420269",
+      "owner_path": "content/lexical/relations/by-id/05/053419e2dc3c9261bf14f2e2fdad434e0ec45faa91cd942a6a503407a1b59838.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:therefore:7ac6708a217d589c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14145,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:cc1e48513e70d488d55d"
+    ],
+    "facts": [
+      {
+        "id": "deep:semantic_contrast:therefore:bfdfcf425b420269",
+        "source_row": 1194,
+        "source_path": "content/lexical/canonical/facts/shards/o4961-4992.json"
+      }
+    ],
+    "collocations": [
+      {
+        "id": "collocation:cc1e48513e70d488d55d",
+        "source_row": 17245,
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:833e7541f00fd557ee06",
+        "source_row": 9262,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      },
+      {
+        "id": "membership:7e630c0b999a8ead0d72",
+        "source_row": 9263,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      },
+      {
+        "id": "membership:655bede6e83f99eaab4a",
+        "source_row": 13422,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      },
+      {
+        "id": "membership:548a426fac049e24f93a",
+        "source_row": 18108,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "therefore",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:therefore",
+      "ordinal": 4975,
+      "word_shard": "content/lexical/canonical/words/shards/o4969-4976.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d7.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4969-4976.json",
+    "source_content_hash": "da51b59016cad4b44313168b487a8511ee38b49ab11f6155ee15de3bd8d029ab",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

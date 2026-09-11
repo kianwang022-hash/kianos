@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4821,
+  "word_id": "word:supper",
+  "word": "supper",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "bc7d622572dcf4042304e456c471f8d6eb40fb43db80f3603405f553d171995b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "晚餐",
+      "core_meaning_en": "a light evening meal",
+      "mental_model_cn": "晚餐",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:11da87df8fcff59c361d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supper:abcbbe1276305fbc:collocation:0"
+            ],
+            "meaning_cn": "吃晚餐",
+            "phrase": "have supper"
+          },
+          {
+            "collocation_id": "collocation:728010c8c3edf98c8e8d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supper:abcbbe1276305fbc:collocation:1"
+            ],
+            "meaning_cn": "晚餐后",
+            "phrase": "after supper"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "晚餐，通常指傍晚或深夜的便餐",
+        "definition_en": "a light evening meal, often eaten in the early evening or late at night",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:supper:abcbbe1276305fbc",
+        "sense_label_en": "a light evening meal, often eaten in the early evening or late at night",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "supper",
+    "word_family": [],
+    "word_id": "word:supper"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:supper:abcbbe1276305fbc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13696,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:11da87df8fcff59c361d",
+      "collocation:728010c8c3edf98c8e8d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:11da87df8fcff59c361d",
+        "source_row": 1476,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      },
+      {
+        "id": "collocation:728010c8c3edf98c8e8d",
+        "source_row": 9669,
+        "source_path": "content/lexical/canonical/collocations/shards/o4801-4832.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c38cd880bddf1bf8465e",
+        "source_row": 8953,
+        "source_path": "content/lexical/canonical/packs/shards/o4801-4832.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "supper",
+      "source": "content/lexical/canonical/lookup/spelling/su.json",
+      "word_id": "word:supper",
+      "ordinal": 4821,
+      "word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/37.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4817-4824.json",
+    "source_content_hash": "bc7d622572dcf4042304e456c471f8d6eb40fb43db80f3603405f553d171995b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3724,
+  "word_id": "word:precaution",
+  "word": "precaution",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "e73fee1b4e3dc715b2a24da49a6f2fc640212cd8f30146f912b648ace1a8bd32",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "预防措施",
+      "core_meaning_en": "an action taken to prevent something dangerous or unpleasant",
+      "mental_model_cn": "预防措施",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ea742ff5c84bcd1272b8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:precaution:993d751e68b854f8:collocation:0"
+            ],
+            "meaning_cn": "对某事采取预防措施",
+            "phrase": "take precautions against + sth"
+          },
+          {
+            "collocation_id": "collocation:a6e55683d3d199555ee2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:precaution:993d751e68b854f8:collocation:1"
+            ],
+            "meaning_cn": "作为预防",
+            "phrase": "as a precaution"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "预防措施；防备",
+        "definition_en": "a measure taken in advance to prevent harm or danger",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:precaution:993d751e68b854f8",
+        "sense_label_en": "a measure taken in advance to prevent harm or danger",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "precaution",
+    "word_family": [],
+    "word_id": "word:precaution"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:precaution:993d751e68b854f8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10380,
+        "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a6e55683d3d199555ee2",
+      "collocation:ea742ff5c84bcd1272b8"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a6e55683d3d199555ee2",
+        "source_row": 14161,
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:ea742ff5c84bcd1272b8",
+        "source_row": 19857,
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:dabb8db8b708e760d035",
+        "source_row": 6864,
+        "source_path": "content/lexical/canonical/packs/shards/o3713-3744.json"
+      },
+      {
+        "id": "membership:b067937b3101b25b16e4",
+        "source_row": 6865,
+        "source_path": "content/lexical/canonical/packs/shards/o3713-3744.json"
+      },
+      {
+        "id": "membership:9a2202f1e87b00fe64ce",
+        "source_row": 12570,
+        "source_path": "content/lexical/canonical/packs/shards/o3713-3744.json"
+      },
+      {
+        "id": "membership:39e57f2e4ddc05b91b94",
+        "source_row": 16901,
+        "source_path": "content/lexical/canonical/packs/shards/o3713-3744.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "precaution",
+      "source": "content/lexical/canonical/lookup/spelling/pr.json",
+      "word_id": "word:precaution",
+      "ordinal": 3724,
+      "word_shard": "content/lexical/canonical/words/shards/o3721-3728.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3721-3728.json",
+    "source_content_hash": "e73fee1b4e3dc715b2a24da49a6f2fc640212cd8f30146f912b648ace1a8bd32",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

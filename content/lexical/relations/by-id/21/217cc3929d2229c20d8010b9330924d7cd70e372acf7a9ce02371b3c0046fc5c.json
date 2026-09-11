@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:467b0989341eb3ad718e",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:position",
+      "source_ordinal": 3693,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "position and stance are near-paraphrases only in the opinion/viewpoint sense."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:063",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:063",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "position and stance are near-paraphrases only in the opinion/viewpoint sense.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "position",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:position:ac8dae002ac75eac"
+            ],
+            "word_id": "word:position"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:467b0989341eb3ad718e",
+        "relation_note": "position and stance are near-paraphrases only in the opinion/viewpoint sense.",
+        "relation_scope": "lexeme",
+        "relation_type": "near_paraphrase",
+        "sense_ids": [
+          "sense:position:ac8dae002ac75eac"
+        ],
+        "shared_meaning": "position and stance are near-paraphrases only in the opinion/viewpoint sense.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "position",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:position:ac8dae002ac75eac"
+                ],
+                "word_id": "word:position"
+              }
+            ],
+            "learner_note": "position and stance are near-paraphrases only in the opinion/viewpoint sense.",
+            "relation_targets": [
+              "stance"
+            ],
+            "relation_type": "near_paraphrase"
+          }
+        ],
+        "source_expression": "position",
+        "source_sense_id": "sense:position:ac8dae002ac75eac",
+        "target_expression": "stance",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "stance",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

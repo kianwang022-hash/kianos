@@ -1,0 +1,123 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2775,
+  "word_id": "word:layoff",
+  "word": "layoff",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "17fbd0de39df8fa68a6436b432db9670d018920cd16b547dab2b3e9127e61354",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "解雇员工的行为",
+      "core_meaning_en": "the act of dismissing employees",
+      "mental_model_cn": "解雇员工的行为",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ba24c3ba3a3df18fc564",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:layoff:749f827732b85b1e:collocation:0"
+            ],
+            "meaning_cn": "大规模裁员",
+            "phrase": "mass layoff"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "解雇，裁员",
+        "definition_en": "the act of laying off an employee or a work force",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:layoff:749f827732b85b1e",
+        "sense_label_en": "the act of laying off an employee or a work force",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "layoff",
+    "word_family": [],
+    "word_id": "word:layoff"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:layoff:749f827732b85b1e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7678,
+        "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:ba24c3ba3a3df18fc564"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:ba24c3ba3a3df18fc564",
+        "source_row": 15765,
+        "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:3787bf2fbafcdc54fa0c",
+        "source_row": 5183,
+        "source_path": "content/lexical/canonical/packs/shards/o2753-2784.json"
+      },
+      {
+        "id": "membership:a866c29f5dfae1985cf4",
+        "source_row": 16058,
+        "source_path": "content/lexical/canonical/packs/shards/o2753-2784.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "layoff",
+      "source": "content/lexical/canonical/lookup/spelling/la.json",
+      "word_id": "word:layoff",
+      "ordinal": 2775,
+      "word_shard": "content/lexical/canonical/words/shards/o2769-2776.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/dd.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2769-2776.json",
+    "source_content_hash": "17fbd0de39df8fa68a6436b432db9670d018920cd16b547dab2b3e9127e61354",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

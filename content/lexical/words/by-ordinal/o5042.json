@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5042,
+  "word_id": "word:tobacco",
+  "word": "tobacco",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "654c3aa03ae9b6d3fc6af07e9d8c7a2612c503a30aa217900a75472d2aa734e9",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "烟草",
+      "core_meaning_en": "a plant or its dried leaves used for smoking",
+      "mental_model_cn": "烟草",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0462c74fcb4dcac22578",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tobacco:5e04daefb53d54ed:collocation:0"
+            ],
+            "meaning_cn": "嚼烟",
+            "phrase": "chewing tobacco"
+          },
+          {
+            "collocation_id": "collocation:aa2e43f28f71800f0c4f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tobacco:5e04daefb53d54ed:collocation:1"
+            ],
+            "meaning_cn": "烟草业",
+            "phrase": "tobacco industry"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "烟叶；烟草",
+        "definition_en": "the dried leaves of a plant that are smoked in cigarettes, pipes, etc.",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:tobacco:5e04daefb53d54ed",
+        "sense_label_en": "the dried leaves of a plant that are smoked in cigarettes, pipes, etc.",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "tobacco",
+    "word_family": [],
+    "word_id": "word:tobacco"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:tobacco:5e04daefb53d54ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14339,
+        "source_path": "content/lexical/canonical/senses/shards/o5025-5056.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0462c74fcb4dcac22578",
+      "collocation:aa2e43f28f71800f0c4f"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0462c74fcb4dcac22578",
+        "source_row": 363,
+        "source_path": "content/lexical/canonical/collocations/shards/o5025-5056.json"
+      },
+      {
+        "id": "collocation:aa2e43f28f71800f0c4f",
+        "source_row": 14419,
+        "source_path": "content/lexical/canonical/collocations/shards/o5025-5056.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:94b596cc4b4d184ef0aa",
+        "source_row": 9369,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      },
+      {
+        "id": "membership:769a2103b277c95e2acb",
+        "source_row": 13461,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      },
+      {
+        "id": "membership:0ee649bf0bc73a36ba56",
+        "source_row": 18162,
+        "source_path": "content/lexical/canonical/packs/shards/o5025-5056.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "tobacco",
+      "source": "content/lexical/canonical/lookup/spelling/to.json",
+      "word_id": "word:tobacco",
+      "ordinal": 5042,
+      "word_shard": "content/lexical/canonical/words/shards/o5041-5048.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/79.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5041-5048.json",
+    "source_content_hash": "654c3aa03ae9b6d3fc6af07e9d8c7a2612c503a30aa217900a75472d2aa734e9",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

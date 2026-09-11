@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 196,
+  "word_id": "word:angel",
+  "word": "angel",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "da60480a22892bc7cfae982b9c67a18934f8b87432b4096eb659d3d0d1f910a8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "天使；善人",
+      "core_meaning_en": "a spiritual being or a very good person",
+      "mental_model_cn": "天使；善人",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ca992b50b34516c58275",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:angel:20a8019542935112:collocation:0"
+            ],
+            "meaning_cn": "守护天使",
+            "phrase": "guardian angel"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "天使",
+        "definition_en": "a spiritual being believed to serve as a messenger of God",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:angel:20a8019542935112",
+        "sense_label_en": "a spiritual being believed to serve as a messenger of God",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0b888ac794e545da235",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:angel:c972ba2eb64b5ee9:collocation:0"
+            ],
+            "meaning_cn": "做个好人（常用于请求）",
+            "phrase": "be an angel"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "善人；守护神",
+        "definition_en": "a person who is very kind and helpful",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:angel:c972ba2eb64b5ee9",
+        "sense_label_en": "a person who is very kind and helpful",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "angel",
+    "word_family": [],
+    "word_id": "word:angel"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:angel:20a8019542935112",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 496,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      },
+      {
+        "sense_id": "sense:angel:c972ba2eb64b5ee9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 497,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:a0b888ac794e545da235",
+      "collocation:ca992b50b34516c58275"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:a0b888ac794e545da235",
+        "source_row": 13666,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      },
+      {
+        "id": "collocation:ca992b50b34516c58275",
+        "source_row": 17112,
+        "source_path": "content/lexical/canonical/collocations/shards/o0193-0224.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:e3fb2b6ad5f77dae64c5",
+        "source_row": 394,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      },
+      {
+        "id": "membership:c20d1464fc650837bc09",
+        "source_row": 10328,
+        "source_path": "content/lexical/canonical/packs/shards/o0193-0224.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "angel",
+      "source": "content/lexical/canonical/lookup/spelling/an.json",
+      "word_id": "word:angel",
+      "ordinal": 196,
+      "word_shard": "content/lexical/canonical/words/shards/o0193-0200.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/0e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0193-0200.json",
+    "source_content_hash": "da60480a22892bc7cfae982b9c67a18934f8b87432b4096eb659d3d0d1f910a8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

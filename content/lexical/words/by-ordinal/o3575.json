@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3575,
+  "word_id": "word:petrol",
+  "word": "petrol",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "91767c983d51dd56f79e4638c10b9c464b28114ebabfc939a38097f7c574ae4c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "汽油",
+      "core_meaning_en": "a volatile flammable liquid obtained from petroleum, used as fuel in internal-combustion engines",
+      "mental_model_cn": "汽油",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:246044aeb8d13bdd9a10",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:petrol:23ff131011b35228:collocation:0"
+            ],
+            "meaning_cn": "加油站",
+            "phrase": "a petrol station"
+          },
+          {
+            "collocation_id": "collocation:ebbc642054348bc27123",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:petrol:23ff131011b35228:collocation:1"
+            ],
+            "meaning_cn": "汽油发动机",
+            "phrase": "petrol engine"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "汽油",
+        "definition_en": "a liquid obtained from petroleum, used mainly as fuel for vehicles",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:petrol:23ff131011b35228",
+        "sense_label_en": "a liquid obtained from petroleum, used mainly as fuel for vehicles",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "petrol",
+    "word_family": [],
+    "word_id": "word:petrol"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:petrol:23ff131011b35228",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9919,
+        "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:246044aeb8d13bdd9a10",
+      "collocation:ebbc642054348bc27123"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:246044aeb8d13bdd9a10",
+        "source_row": 3053,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:ebbc642054348bc27123",
+        "source_row": 19965,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:85bd97a4264bbe27eec5",
+        "source_row": 6605,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:aca7a98477c3370d3325",
+        "source_row": 12463,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      },
+      {
+        "id": "membership:14878b7c9f47add4a022",
+        "source_row": 16766,
+        "source_path": "content/lexical/canonical/packs/shards/o3553-3584.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "petrol",
+      "source": "content/lexical/canonical/lookup/spelling/pe.json",
+      "word_id": "word:petrol",
+      "ordinal": 3575,
+      "word_shard": "content/lexical/canonical/words/shards/o3569-3576.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/36.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3569-3576.json",
+    "source_content_hash": "91767c983d51dd56f79e4638c10b9c464b28114ebabfc939a38097f7c574ae4c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

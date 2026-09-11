@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:ff35d42ca5511ac26ae2",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:fair",
+      "source_ordinal": 1845,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "fair = just/reasonable or public event; fare = price paid for travel, food, or how one gets on."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:019",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:019",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:ff35d42ca5511ac26ae2",
+        "learning_note": "fair = just/reasonable or public event; fare = price paid for travel, food, or how one gets on.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "fair",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:fair"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "fair = just/reasonable or public event; fare = price paid for travel, food, or how one gets on.",
+        "relation_scope": "lexeme",
+        "relation_type": "homophone_spelling_confusable",
+        "sense_ids": [],
+        "shared_meaning": "fair = just/reasonable or public event; fare = price paid for travel, food, or how one gets on.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "fair",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:fair"
+              }
+            ],
+            "learner_note": "fair = just/reasonable or public event; fare = price paid for travel, food, or how one gets on.",
+            "relation_targets": [
+              "fare"
+            ],
+            "relation_type": "homophone_spelling_confusable"
+          }
+        ],
+        "source_expression": "fair",
+        "source_sense_id": null,
+        "target_expression": "fare",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "fare",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

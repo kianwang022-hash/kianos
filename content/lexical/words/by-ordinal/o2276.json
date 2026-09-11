@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2276,
+  "word_id": "word:hatred",
+  "word": "hatred",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "428439025adbd92d0274fa1fca206dcf82c00b034ab5c7b72b5794102c604194",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "强烈的厌恶",
+      "core_meaning_en": "intense dislike",
+      "mental_model_cn": "强烈的厌恶",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d08baf0fd3b02bd4d06",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hatred:9056d3f207765116:collocation:0"
+            ],
+            "meaning_cn": "对某事的憎恨",
+            "phrase": "hatred of + sth"
+          },
+          {
+            "collocation_id": "collocation:8b3903d785317f4aa594",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hatred:9056d3f207765116:collocation:1"
+            ],
+            "meaning_cn": "深仇大恨",
+            "phrase": "deep hatred"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "憎恨；仇恨",
+        "definition_en": "the emotion of intense dislike; a feeling of dislike so strong that it demands action",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:hatred:9056d3f207765116",
+        "sense_label_en": "the emotion of intense dislike; a feeling of dislike so strong that it d",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "hatred",
+    "word_family": [],
+    "word_id": "word:hatred"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:hatred:9056d3f207765116",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6353,
+        "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1d08baf0fd3b02bd4d06",
+      "collocation:8b3903d785317f4aa594"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1d08baf0fd3b02bd4d06",
+        "source_row": 2404,
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:8b3903d785317f4aa594",
+        "source_row": 11805,
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:21224598ed217e2647cc",
+        "source_row": 4262,
+        "source_path": "content/lexical/canonical/packs/shards/o2273-2304.json"
+      },
+      {
+        "id": "membership:6d4daebf653f7ffd1ec9",
+        "source_row": 11660,
+        "source_path": "content/lexical/canonical/packs/shards/o2273-2304.json"
+      },
+      {
+        "id": "membership:332767db8e0d12e1cb52",
+        "source_row": 15599,
+        "source_path": "content/lexical/canonical/packs/shards/o2273-2304.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "hatred",
+      "source": "content/lexical/canonical/lookup/spelling/ha.json",
+      "word_id": "word:hatred",
+      "ordinal": 2276,
+      "word_shard": "content/lexical/canonical/words/shards/o2273-2280.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/4d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2273-2280.json",
+    "source_content_hash": "428439025adbd92d0274fa1fca206dcf82c00b034ab5c7b72b5794102c604194",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

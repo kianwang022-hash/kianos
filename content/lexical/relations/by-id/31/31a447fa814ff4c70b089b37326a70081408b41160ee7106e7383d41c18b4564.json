@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:0401fe1e68179c25bc22",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:adverse",
+      "source_ordinal": 91,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "adverse = unfavorable/harmful; averse = strongly opposed or unwilling, normally in 'averse to'."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:002",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:002",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:0401fe1e68179c25bc22",
+        "learning_note": "adverse = unfavorable/harmful; averse = strongly opposed or unwilling, normally in 'averse to'.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "adverse",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:adverse"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_note": "adverse = unfavorable/harmful; averse = strongly opposed or unwilling, normally in 'averse to'.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "adverse = unfavorable/harmful; averse = strongly opposed or unwilling, normally in 'averse to'.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "adverse",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:adverse"
+              }
+            ],
+            "learner_note": "adverse = unfavorable/harmful; averse = strongly opposed or unwilling, normally in 'averse to'.",
+            "relation_targets": [
+              "averse"
+            ],
+            "relation_type": "form_semantic_confusable"
+          }
+        ],
+        "source_expression": "adverse",
+        "source_sense_id": null,
+        "target_expression": "averse",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "averse",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

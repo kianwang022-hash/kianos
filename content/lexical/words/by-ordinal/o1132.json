@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1132,
+  "word_id": "word:cousin",
+  "word": "cousin",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "10a66c67c7c11ef9e6f24ef91ec7323702001fecabca61bc6a39ebbc10541f53",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "堂/表兄弟姐妹",
+      "core_meaning_en": "a child of one's aunt or uncle",
+      "mental_model_cn": "堂/表兄弟姐妹",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4bf295c6c21772244475",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cousin:f6e187cb555957aa:collocation:0"
+            ],
+            "meaning_cn": "第一代堂/表亲",
+            "phrase": "first cousin"
+          },
+          {
+            "collocation_id": "collocation:85fa7ab76b591bf14767",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cousin:f6e187cb555957aa:collocation:1"
+            ],
+            "meaning_cn": "远房亲戚",
+            "phrase": "distant cousin"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "堂兄弟姊妹；表兄弟姊妹",
+        "definition_en": "the child of your aunt or uncle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cousin:f6e187cb555957aa",
+        "sense_label_en": "the child of your aunt or uncle",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "cousin",
+    "word_family": [],
+    "word_id": "word:cousin"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:cousin:f6e187cb555957aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3166,
+        "source_path": "content/lexical/canonical/senses/shards/o1121-1152.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:4bf295c6c21772244475",
+      "collocation:85fa7ab76b591bf14767"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:4bf295c6c21772244475",
+        "source_row": 6401,
+        "source_path": "content/lexical/canonical/collocations/shards/o1121-1152.json"
+      },
+      {
+        "id": "collocation:85fa7ab76b591bf14767",
+        "source_row": 11373,
+        "source_path": "content/lexical/canonical/collocations/shards/o1121-1152.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c02f1bd462c54cdcb95c",
+        "source_row": 2132,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:44bc16f78483bcfccbbb",
+        "source_row": 2133,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:00a88cd73acd0ee5bc3f",
+        "source_row": 10923,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      },
+      {
+        "id": "membership:05016ae9575def6a8fbf",
+        "source_row": 14589,
+        "source_path": "content/lexical/canonical/packs/shards/o1121-1152.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "cousin",
+      "source": "content/lexical/canonical/lookup/spelling/co.json",
+      "word_id": "word:cousin",
+      "ordinal": 1132,
+      "word_shard": "content/lexical/canonical/words/shards/o1129-1136.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1129-1136.json",
+    "source_content_hash": "10a66c67c7c11ef9e6f24ef91ec7323702001fecabca61bc6a39ebbc10541f53",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

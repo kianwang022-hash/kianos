@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3920,
+  "word_id": "word:radar",
+  "word": "radar",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:59ac977a45dbcb9efa09",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "在关注/监测范围内；引起注意",
+        "pattern": "be/put sth on the radar"
+      }
+    ],
+    "content_hash": "df46fe071dd755e0cf21a09e9d99720fb667a5a4ffdfc07061199d7ef558fb07",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "雷达",
+      "core_meaning_en": "system using radio waves to detect objects",
+      "mental_model_cn": "雷达",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:59ac977a45dbcb9efa09"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6891c46012a879af32d9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:radar:2128602c49fe5554:collocation:0"
+            ],
+            "meaning_cn": "雷达屏幕",
+            "phrase": "radar screen"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "雷达，无线电探测器",
+        "definition_en": "a system that uses radio waves to detect and locate objects",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:radar:2128602c49fe5554",
+        "sense_label_en": "a system that uses radio waves to detect and locate objects",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "radar",
+    "word_family": [],
+    "word_id": "word:radar"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:radar:2128602c49fe5554",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10918,
+        "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6891c46012a879af32d9"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6095ee15e0309afdecbd",
+        "source_row": 8118,
+        "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      },
+      {
+        "id": "collocation:6891c46012a879af32d9",
+        "source_row": 8826,
+        "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:522c15f7d06220d3a538",
+        "source_row": 7252,
+        "source_path": "content/lexical/canonical/packs/shards/o3905-3936.json"
+      },
+      {
+        "id": "membership:53ed984eba9d09a81eef",
+        "source_row": 12703,
+        "source_path": "content/lexical/canonical/packs/shards/o3905-3936.json"
+      },
+      {
+        "id": "membership:bd5e7dba4e79ab95ffa1",
+        "source_row": 17099,
+        "source_path": "content/lexical/canonical/packs/shards/o3905-3936.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "radar",
+      "source": "content/lexical/canonical/lookup/spelling/ra.json",
+      "word_id": "word:radar",
+      "ordinal": 3920,
+      "word_shard": "content/lexical/canonical/words/shards/o3913-3920.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/64.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3913-3920.json",
+    "source_content_hash": "df46fe071dd755e0cf21a09e9d99720fb667a5a4ffdfc07061199d7ef558fb07",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

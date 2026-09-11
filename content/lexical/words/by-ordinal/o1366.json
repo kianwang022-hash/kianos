@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1366,
+  "word_id": "word:dictionary",
+  "word": "dictionary",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "a92aca893c6b1f764b88829227053ebed658e4d42ee4b4bf0de3e5e670d11015",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "按字母顺序排列并解释词语的参考书",
+      "core_meaning_en": "a reference book listing words and their meanings",
+      "mental_model_cn": "按字母顺序排列并解释词语的参考书",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1df84ede05b9c8eea2a6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dictionary:310899c755595f2d:collocation:0"
+            ],
+            "meaning_cn": "在词典中查一个词",
+            "phrase": "look up a word in a dictionary"
+          },
+          {
+            "collocation_id": "collocation:a0be42dfca2835efbd55",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dictionary:310899c755595f2d:collocation:1"
+            ],
+            "meaning_cn": "查阅词典",
+            "phrase": "consult a dictionary"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "字典，词典",
+        "definition_en": "a reference book containing an alphabetical list of words with information about them",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dictionary:310899c755595f2d",
+        "sense_label_en": "a reference book containing an alphabetical list of words with informati",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "dictionary",
+    "word_family": [],
+    "word_id": "word:dictionary"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:dictionary:310899c755595f2d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3797,
+        "source_path": "content/lexical/canonical/senses/shards/o1345-1376.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1df84ede05b9c8eea2a6",
+      "collocation:a0be42dfca2835efbd55"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1df84ede05b9c8eea2a6",
+        "source_row": 2480,
+        "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      },
+      {
+        "id": "collocation:a0be42dfca2835efbd55",
+        "source_row": 13668,
+        "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a43c2679accece4027d6",
+        "source_row": 2562,
+        "source_path": "content/lexical/canonical/packs/shards/o1345-1376.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "dictionary",
+      "source": "content/lexical/canonical/lookup/spelling/di.json",
+      "word_id": "word:dictionary",
+      "ordinal": 1366,
+      "word_shard": "content/lexical/canonical/words/shards/o1361-1368.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/f8.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1361-1368.json",
+    "source_content_hash": "a92aca893c6b1f764b88829227053ebed658e4d42ee4b4bf0de3e5e670d11015",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

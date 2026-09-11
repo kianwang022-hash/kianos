@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1893,
+  "word_id": "word:federation",
+  "word": "federation",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "34500d07860241e794372fab185e3e9d0064bd10beedd8bf8136dcd5d9b7422b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "国家或团体的联合",
+      "core_meaning_en": "a union of states or groups",
+      "mental_model_cn": "国家或团体的联合",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:becc0585dbb8829a5f00",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:federation:6b819f5ce4605dbf:collocation:0"
+            ],
+            "meaning_cn": "工会联合会",
+            "phrase": "a federation of labor unions"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "联盟，联合会",
+        "definition_en": "an organization formed by merging several groups or parties",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:federation:6b819f5ce4605dbf",
+        "sense_label_en": "an organization formed by merging several groups or parties",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:642127647650263a7897",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:federation:18908b93462c57df:collocation:0"
+            ],
+            "meaning_cn": "俄罗斯联邦",
+            "phrase": "the Russian Federation"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "联邦（制），联邦化",
+        "definition_en": "the act of constituting a political unity out of a number of separate states or colonies or provinces so that each member retains the management of its internal affairs",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:federation:18908b93462c57df",
+        "sense_label_en": "the act of constituting a political unity out of a number of separate st",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "federation",
+    "word_family": [],
+    "word_id": "word:federation"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:federation:18908b93462c57df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5198,
+        "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      },
+      {
+        "sense_id": "sense:federation:6b819f5ce4605dbf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5199,
+        "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:642127647650263a7897",
+      "collocation:becc0585dbb8829a5f00"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:642127647650263a7897",
+        "source_row": 8441,
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:becc0585dbb8829a5f00",
+        "source_row": 16146,
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:071eed829a69045aedfd",
+        "source_row": 3588,
+        "source_path": "content/lexical/canonical/packs/shards/o1889-1920.json"
+      },
+      {
+        "id": "membership:0da30a77059d12d1ce0d",
+        "source_row": 3589,
+        "source_path": "content/lexical/canonical/packs/shards/o1889-1920.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "federation",
+      "source": "content/lexical/canonical/lookup/spelling/fe.json",
+      "word_id": "word:federation",
+      "ordinal": 1893,
+      "word_shard": "content/lexical/canonical/words/shards/o1889-1896.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/9d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1889-1896.json",
+    "source_content_hash": "34500d07860241e794372fab185e3e9d0064bd10beedd8bf8136dcd5d9b7422b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

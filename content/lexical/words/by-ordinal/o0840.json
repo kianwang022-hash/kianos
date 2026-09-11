@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 840,
+  "word_id": "word:clergy",
+  "word": "clergy",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "03c516e956023040f123d523a65f7af3cca4307f3379398278031c05d0a95ee0",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "神职人员（总称）",
+      "core_meaning_en": "ordained religious officials as a group",
+      "mental_model_cn": "神职人员（总称）",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:aef751dab0b7beb4ed9c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:clergy:382c7a5604a1559d:collocation:0"
+            ],
+            "meaning_cn": "神职人员",
+            "phrase": "members of the clergy"
+          },
+          {
+            "collocation_id": "collocation:6f902efbcdf335a647e3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:clergy:382c7a5604a1559d:collocation:1"
+            ],
+            "meaning_cn": "神职人员与平信徒",
+            "phrase": "the clergy and the laity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "神职人员（尤指基督教中受任圣职的人）",
+        "definition_en": "the body of people ordained for religious service, especially in the Christian Church",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:clergy:382c7a5604a1559d",
+        "sense_label_en": "the body of people ordained for religious service, especially in the Chr",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "clergy",
+    "word_family": [],
+    "word_id": "word:clergy"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:clergy:382c7a5604a1559d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2398,
+        "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6f902efbcdf335a647e3",
+      "collocation:aef751dab0b7beb4ed9c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6f902efbcdf335a647e3",
+        "source_row": 9426,
+        "source_path": "content/lexical/canonical/collocations/shards/o0833-0864.json"
+      },
+      {
+        "id": "collocation:aef751dab0b7beb4ed9c",
+        "source_row": 14815,
+        "source_path": "content/lexical/canonical/collocations/shards/o0833-0864.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:46a3b9c709dddb656a34",
+        "source_row": 1529,
+        "source_path": "content/lexical/canonical/packs/shards/o0833-0864.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "clergy",
+      "source": "content/lexical/canonical/lookup/spelling/cl.json",
+      "word_id": "word:clergy",
+      "ordinal": 840,
+      "word_shard": "content/lexical/canonical/words/shards/o0833-0840.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/22.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0833-0840.json",
+    "source_content_hash": "03c516e956023040f123d523a65f7af3cca4307f3379398278031c05d0a95ee0",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

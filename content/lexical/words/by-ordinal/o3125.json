@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3125,
+  "word_id": "word:morning",
+  "word": "morning",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f4af442046e16f7c5a4125ee967dbf87660e58464d01c316d7a1e886ce51df00",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "早晨",
+      "core_meaning_en": "the early part of the day",
+      "mental_model_cn": "早晨",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:65077631d14c049678e2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:morning:e6ab2e80409050ea:collocation:0"
+            ],
+            "meaning_cn": "在早晨；在上午",
+            "phrase": "in the morning"
+          },
+          {
+            "collocation_id": "collocation:845d9566b9abe4496971",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:morning:e6ab2e80409050ea:collocation:1"
+            ],
+            "meaning_cn": "早高峰",
+            "phrase": "morning rush hour"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "早晨；上午",
+        "definition_en": "the time period between dawn and noon",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:morning:e6ab2e80409050ea",
+        "sense_label_en": "the time period between dawn and noon",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "morning",
+    "word_family": [],
+    "word_id": "word:morning"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:morning:e6ab2e80409050ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8697,
+        "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:65077631d14c049678e2",
+      "collocation:845d9566b9abe4496971"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:65077631d14c049678e2",
+        "source_row": 8517,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:845d9566b9abe4496971",
+        "source_row": 11226,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:39052ad5edfb0eaf8b4f",
+        "source_row": 5804,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      },
+      {
+        "id": "membership:45c7d7e04d99c322fcc8",
+        "source_row": 5805,
+        "source_path": "content/lexical/canonical/packs/shards/o3105-3136.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "morning",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:morning",
+      "ordinal": 3125,
+      "word_shard": "content/lexical/canonical/words/shards/o3121-3128.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/d0.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3121-3128.json",
+    "source_content_hash": "f4af442046e16f7c5a4125ee967dbf87660e58464d01c316d7a1e886ce51df00",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

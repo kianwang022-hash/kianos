@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5314,
+  "word_id": "word:vitamin",
+  "word": "vitamin",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f7a87059a9a302b00c629f40dbd50ba256a1d3190cb14a02467157c386d2086b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "维生素",
+      "core_meaning_en": "organic substance essential for normal metabolism",
+      "mental_model_cn": "维生素",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:64e92551ccacc19e2970",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:vitamin:88ef0ecbe2955791:collocation:0"
+            ],
+            "meaning_cn": "维生素缺乏",
+            "phrase": "vitamin deficiency"
+          },
+          {
+            "collocation_id": "collocation:7585dd4815bc5ad97a0c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:vitamin:88ef0ecbe2955791:collocation:1"
+            ],
+            "meaning_cn": "服用维生素",
+            "phrase": "take vitamins"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "维生素",
+        "definition_en": "any of a group of organic substances essential in small quantities to normal metabolism",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:vitamin:88ef0ecbe2955791",
+        "sense_label_en": "any of a group of organic substances essential in small quantities to no",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "vitamin",
+    "word_family": [],
+    "word_id": "word:vitamin"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:vitamin:88ef0ecbe2955791",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15102,
+        "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:64e92551ccacc19e2970",
+      "collocation:7585dd4815bc5ad97a0c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:64e92551ccacc19e2970",
+        "source_row": 8507,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:7585dd4815bc5ad97a0c",
+        "source_row": 9915,
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:58ac46a044c12aec6723",
+        "source_row": 9873,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      },
+      {
+        "id": "membership:33796d71d6b86c24605f",
+        "source_row": 13658,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      },
+      {
+        "id": "membership:e0e993460e294db07dae",
+        "source_row": 18450,
+        "source_path": "content/lexical/canonical/packs/shards/o5313-5344.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "vitamin",
+      "source": "content/lexical/canonical/lookup/spelling/vi.json",
+      "word_id": "word:vitamin",
+      "ordinal": 5314,
+      "word_shard": "content/lexical/canonical/words/shards/o5313-5320.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/55.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5313-5320.json",
+    "source_content_hash": "f7a87059a9a302b00c629f40dbd50ba256a1d3190cb14a02467157c386d2086b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

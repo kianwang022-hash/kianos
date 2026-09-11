@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 282,
+  "word_id": "word:artist",
+  "word": "artist",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "300a973c1cadf5a312a0aff94e66167b82499c615ed3a2388b5119c2bfeb8189",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "艺术家",
+      "core_meaning_en": "a person who creates art",
+      "mental_model_cn": "艺术家",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:825b68ad49d5baaccc4d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:artist:c9733d5683a55447:collocation:0"
+            ],
+            "meaning_cn": "视觉艺术家",
+            "phrase": "visual artist"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "艺术家；画家",
+        "definition_en": "a person who creates art, such as a painter, sculptor, or musician",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:artist:c9733d5683a55447",
+        "sense_label_en": "a person who creates art, such as a painter, sculptor, or musician",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "artist",
+    "word_family": [],
+    "word_id": "word:artist"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:artist:c9733d5683a55447",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 716,
+        "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:825b68ad49d5baaccc4d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:825b68ad49d5baaccc4d",
+        "source_row": 11044,
+        "source_path": "content/lexical/canonical/collocations/shards/o0257-0288.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:bfd94900867c39d1a240",
+        "source_row": 553,
+        "source_path": "content/lexical/canonical/packs/shards/o0257-0288.json"
+      },
+      {
+        "id": "membership:45bc09185d3a3228317e",
+        "source_row": 554,
+        "source_path": "content/lexical/canonical/packs/shards/o0257-0288.json"
+      },
+      {
+        "id": "membership:19d901938c44cfb8c881",
+        "source_row": 10382,
+        "source_path": "content/lexical/canonical/packs/shards/o0257-0288.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "artist",
+      "source": "content/lexical/canonical/lookup/spelling/ar.json",
+      "word_id": "word:artist",
+      "ordinal": 282,
+      "word_shard": "content/lexical/canonical/words/shards/o0281-0288.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1d.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0281-0288.json",
+    "source_content_hash": "300a973c1cadf5a312a0aff94e66167b82499c615ed3a2388b5119c2bfeb8189",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

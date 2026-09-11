@@ -1,0 +1,160 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4398,
+  "word_id": "word:shipment",
+  "word": "shipment",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "816717adb81b257bfe67acee0c0b8c503ef931211098e28cc69485fa777d190a",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "装运；货物",
+      "core_meaning_en": "the act of sending goods; goods transported together",
+      "mental_model_cn": "装运；货物",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:365ff7524fad25405522",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shipment:45191008fcd55fc1:collocation:0"
+            ],
+            "meaning_cn": "货物的装运",
+            "phrase": "the shipment of goods"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "装运，运送",
+        "definition_en": "the act of sending goods from one place to another",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shipment:45191008fcd55fc1",
+        "sense_label_en": "the act of sending goods from one place to another",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e20ab59de04fa4c32e79",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shipment:7025fd12d8995bcd:collocation:0"
+            ],
+            "meaning_cn": "一批谷物",
+            "phrase": "a shipment of grain"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "装载的货物（一批）",
+        "definition_en": "goods carried together by a large vehicle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shipment:7025fd12d8995bcd",
+        "sense_label_en": "goods carried together by a large vehicle",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "shipment",
+    "word_family": [],
+    "word_id": "word:shipment"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:shipment:45191008fcd55fc1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12393,
+        "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:shipment:7025fd12d8995bcd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12394,
+        "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:365ff7524fad25405522",
+      "collocation:e20ab59de04fa4c32e79"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:365ff7524fad25405522",
+        "source_row": 4613,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      },
+      {
+        "id": "collocation:e20ab59de04fa4c32e79",
+        "source_row": 19120,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a7b9ef7e28a83384c3ba",
+        "source_row": 8173,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      },
+      {
+        "id": "membership:4f4d09b262ce7c2ace0b",
+        "source_row": 17577,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "shipment",
+      "source": "content/lexical/canonical/lookup/spelling/sh.json",
+      "word_id": "word:shipment",
+      "ordinal": 4398,
+      "word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/5f.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4393-4400.json",
+    "source_content_hash": "816717adb81b257bfe67acee0c0b8c503ef931211098e28cc69485fa777d190a",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:effect:f3dca04254d4a864",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "effect 常凸显原因造成的影响；result 更中性地指结果",
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "OEWN shared sense is genuine; the verifier's noncompetitor label conflicts with the source and usage boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "a phenomenon that follows and is caused by some previous phenomenon",
+      "shared_synset": "11430739-n",
+      "source_definition": "a symptom caused by an illness or a drug",
+      "source_sense_id": "sense:effect:b10e490521e55ff5",
+      "target_definition": "something that is caused or produced by something else",
+      "target_sense_id": "sense:result:90c66033f02e57ed",
+      "target_word": "result"
+    },
+    "dimensions": {
+      "certainty": "均可确定",
+      "collocation": "effect on/result of",
+      "core_meaning": "影响/结果",
+      "exam_trap": "因果焦点变化",
+      "register": "均通用",
+      "semantic_prosody": "均中性",
+      "strength": "effect因果更强",
+      "syntax": "搭配结构不同",
+      "writing_safety": "不可机械互换"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:11430739-n",
+        "evidence_status": "source_checked",
+        "source_locator": "11430739-n",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:effect:f3dca04254d4a864",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "loose_association",
+      "missing_boundary",
+      "incomplete_contrast_dimensions"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 6,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "a symptom caused by an illness or a drug",
+      "source_sense_id": "sense:effect:b10e490521e55ff5",
+      "target_definition": "something that is caused or produced by something else",
+      "target_sense_id": "sense:result:90c66033f02e57ed"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:effect:b10e490521e55ff5",
+    "target_sense_id": "sense:result:90c66033f02e57ed",
+    "target_word": "result",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "effect",
+    "word_id": "word:effect",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:effect",
+      "source_ordinal": 1575,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "effect 常凸显原因造成的影响；result 更中性地指结果",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均可确定",
+          "collocation": "effect on/result of",
+          "core_meaning": "影响/结果",
+          "exam_trap": "因果焦点变化",
+          "register": "均通用",
+          "semantic_prosody": "均中性",
+          "strength": "effect因果更强",
+          "syntax": "搭配结构不同",
+          "writing_safety": "不可机械互换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:11430739-n",
+            "evidence_status": "source_checked",
+            "source_locator": "11430739-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:effect:f3dca04254d4a864",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "a phenomenon that follows and is caused by some previous phenomenon",
+        "source_sense_id": "sense:effect:b10e490521e55ff5",
+        "target_sense_id": "sense:result:90c66033f02e57ed",
+        "target_word": "result",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

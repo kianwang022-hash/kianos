@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1005,
+  "word_id": "word:congratulate",
+  "word": "congratulate",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "efc1f043373dfe0568fe676627029425de8b9f196b4d5517bfe8df83c2c31420",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "祝贺",
+      "core_meaning_en": "to express joy or praise for someone's achievement",
+      "mental_model_cn": "祝贺",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee0678605ca84b063314",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:congratulate:e6cd76018629551b:collocation:0"
+            ],
+            "meaning_cn": "就某事祝贺某人",
+            "phrase": "congratulate sb on sth"
+          },
+          {
+            "collocation_id": "collocation:2928ca8667dc870b7232",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:congratulate:e6cd76018629551b:collocation:1"
+            ],
+            "meaning_cn": "因某事祝贺某人",
+            "phrase": "congratulate sb for sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "祝贺，庆贺",
+        "definition_en": "to express pleasure to someone for their good fortune or achievement",
+        "governing_pattern": "vt. + sb",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:congratulate:e6cd76018629551b",
+        "sense_label_en": "to express pleasure to someone for their good fortune or achievement",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "congratulate",
+    "word_family": [],
+    "word_id": "word:congratulate"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:congratulate:e6cd76018629551b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2843,
+        "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2928ca8667dc870b7232",
+      "collocation:ee0678605ca84b063314"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2928ca8667dc870b7232",
+        "source_row": 3479,
+        "source_path": "content/lexical/canonical/collocations/shards/o0993-1024.json"
+      },
+      {
+        "id": "collocation:ee0678605ca84b063314",
+        "source_row": 20174,
+        "source_path": "content/lexical/canonical/collocations/shards/o0993-1024.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:697ffb7b2f843ae98161",
+        "source_row": 1865,
+        "source_path": "content/lexical/canonical/packs/shards/o0993-1024.json"
+      },
+      {
+        "id": "membership:9158f6da1c3193c05129",
+        "source_row": 10846,
+        "source_path": "content/lexical/canonical/packs/shards/o0993-1024.json"
+      },
+      {
+        "id": "membership:7b8dfb956e8900126f1d",
+        "source_row": 14477,
+        "source_path": "content/lexical/canonical/packs/shards/o0993-1024.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "congratulate",
+      "source": "content/lexical/canonical/lookup/spelling/co.json",
+      "word_id": "word:congratulate",
+      "ordinal": 1005,
+      "word_shard": "content/lexical/canonical/words/shards/o1001-1008.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/60.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1001-1008.json",
+    "source_content_hash": "efc1f043373dfe0568fe676627029425de8b9f196b4d5517bfe8df83c2c31420",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

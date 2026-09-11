@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3103,
+  "word_id": "word:moisture",
+  "word": "moisture",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "7185e4a1d56fc76fff2ce1ea3b625b1b7f473bd40ec824a6126852f377811343",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "由水引起的潮湿",
+      "core_meaning_en": "wetness caused by water",
+      "mental_model_cn": "由水引起的潮湿",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:748d52c20c80e3f1a488",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:moisture:eabb6c045b0c57c3:collocation:0"
+            ],
+            "meaning_cn": "含水量",
+            "phrase": "moisture content"
+          },
+          {
+            "collocation_id": "collocation:d30c812ffa8b0025f062",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:moisture:eabb6c045b0c57c3:collocation:1"
+            ],
+            "meaning_cn": "防潮层",
+            "phrase": "moisture barrier"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "湿气；水分",
+        "definition_en": "wetness caused by water",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:moisture:eabb6c045b0c57c3",
+        "sense_label_en": "wetness caused by water",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "moisture",
+    "word_family": [],
+    "word_id": "word:moisture"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:moisture:eabb6c045b0c57c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8644,
+        "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:748d52c20c80e3f1a488",
+      "collocation:d30c812ffa8b0025f062"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:748d52c20c80e3f1a488",
+        "source_row": 9822,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:d30c812ffa8b0025f062",
+        "source_row": 17835,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:dad2bb916a95bf40f830",
+        "source_row": 5768,
+        "source_path": "content/lexical/canonical/packs/shards/o3073-3104.json"
+      },
+      {
+        "id": "membership:e4328fed75580e89836c",
+        "source_row": 12175,
+        "source_path": "content/lexical/canonical/packs/shards/o3073-3104.json"
+      },
+      {
+        "id": "membership:f505f53174a5e2eb20fb",
+        "source_row": 16358,
+        "source_path": "content/lexical/canonical/packs/shards/o3073-3104.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "moisture",
+      "source": "content/lexical/canonical/lookup/spelling/mo.json",
+      "word_id": "word:moisture",
+      "ordinal": 3103,
+      "word_shard": "content/lexical/canonical/words/shards/o3097-3104.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/65.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3097-3104.json",
+    "source_content_hash": "7185e4a1d56fc76fff2ce1ea3b625b1b7f473bd40ec824a6126852f377811343",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

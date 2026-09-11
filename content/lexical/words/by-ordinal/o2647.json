@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2647,
+  "word_id": "word:irrigate",
+  "word": "irrigate",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "2ec1077a99c4c8aaeb123f56e7f3efa7c8fc8e4b126ac01886df9c09e76ffa93",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "供水或液体",
+      "core_meaning_en": "to supply water or liquid to land or a wound",
+      "mental_model_cn": "供水或液体",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:01f0b68e2833aae0525f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:irrigate:3bcea28e6872547c:collocation:0"
+            ],
+            "meaning_cn": "灌溉田地",
+            "phrase": "irrigate the fields"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "灌溉（田地）",
+        "definition_en": "to supply land with water by means of channels or pipes",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:irrigate:3bcea28e6872547c",
+        "sense_label_en": "to supply land with water by means of channels or pipes",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:88ebe17887034365509d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:irrigate:684fd6e2ad5b5502:collocation:0"
+            ],
+            "meaning_cn": "冲洗伤口",
+            "phrase": "irrigate the wound"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "冲洗（伤口）",
+        "definition_en": "to wash out a wound or body part with a stream of liquid",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:irrigate:684fd6e2ad5b5502",
+        "sense_label_en": "to wash out a wound or body part with a stream of liquid",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "irrigate",
+    "word_family": [],
+    "word_id": "word:irrigate"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:irrigate:3bcea28e6872547c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7295,
+        "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
+      {
+        "sense_id": "sense:irrigate:684fd6e2ad5b5502",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7296,
+        "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:01f0b68e2833aae0525f",
+      "collocation:88ebe17887034365509d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:01f0b68e2833aae0525f",
+        "source_row": 163,
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:88ebe17887034365509d",
+        "source_row": 11614,
+        "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:a2a9b8ead02626a1a3f3",
+        "source_row": 4972,
+        "source_path": "content/lexical/canonical/packs/shards/o2625-2656.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "irrigate",
+      "source": "content/lexical/canonical/lookup/spelling/ir.json",
+      "word_id": "word:irrigate",
+      "ordinal": 2647,
+      "word_shard": "content/lexical/canonical/words/shards/o2641-2648.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/fc.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2641-2648.json",
+    "source_content_hash": "2ec1077a99c4c8aaeb123f56e7f3efa7c8fc8e4b126ac01886df9c09e76ffa93",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

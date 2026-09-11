@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 477,
+  "word_id": "word:beware",
+  "word": "beware",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "d2b789ab8e2eff099c9ca49dd9c6f118e724a85fd4082f7a110710a6d0a2d54e",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "小心或警惕",
+      "core_meaning_en": "to be cautious or wary",
+      "mental_model_cn": "小心或警惕",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:937b948908df8869ab4f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:beware:0bb7fcea78185720:collocation:0"
+            ],
+            "meaning_cn": "谨防某事",
+            "phrase": "beware of + sth"
+          },
+          {
+            "collocation_id": "collocation:6c561e9e13c9e939e778",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:beware:0bb7fcea78185720:collocation:1"
+            ],
+            "meaning_cn": "当心狗",
+            "phrase": "beware of the dog"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "小心；谨防",
+        "definition_en": "to be on one's guard; be cautious or wary about",
+        "governing_pattern": "vi. + of",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:beware:0bb7fcea78185720",
+        "sense_label_en": "to be on one's guard; be cautious or wary about",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "beware",
+    "word_family": [],
+    "word_id": "word:beware"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:beware:0bb7fcea78185720",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1261,
+        "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6c561e9e13c9e939e778",
+      "collocation:937b948908df8869ab4f"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6c561e9e13c9e939e778",
+        "source_row": 9131,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:937b948908df8869ab4f",
+        "source_row": 12533,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:9a1a5462bf24563d22b5",
+        "source_row": 905,
+        "source_path": "content/lexical/canonical/packs/shards/o0449-0480.json"
+      },
+      {
+        "id": "membership:39104f5bd3969d16c9c1",
+        "source_row": 14078,
+        "source_path": "content/lexical/canonical/packs/shards/o0449-0480.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "beware",
+      "source": "content/lexical/canonical/lookup/spelling/be.json",
+      "word_id": "word:beware",
+      "ordinal": 477,
+      "word_shard": "content/lexical/canonical/words/shards/o0473-0480.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/3c.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0473-0480.json",
+    "source_content_hash": "d2b789ab8e2eff099c9ca49dd9c6f118e724a85fd4082f7a110710a6d0a2d54e",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

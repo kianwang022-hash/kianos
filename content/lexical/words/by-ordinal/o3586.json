@@ -1,0 +1,137 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3586,
+  "word_id": "word:physician",
+  "word": "physician",
+  "record": {
+    "card_version": "v3",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "569155b8e029fda48f3a3ca6af188d5eb69f988550db1900203c95f8e4841983",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "医师",
+      "core_meaning_en": "a medical doctor",
+      "mental_model_cn": "医师",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "confusable:horizontal:cb939a6e84b1b46315c4"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3ccd996b88b43eca7867",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:physician:9c398ea2a8c65880:collocation:0"
+            ],
+            "meaning_cn": "家庭医生",
+            "phrase": "family physician"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "医生；医师（尤指非外科医生，主要见于美式/正式语境）",
+        "definition_en": "a licensed medical practitioner",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:physician:9c398ea2a8c65880",
+        "sense_label_en": "a licensed medical practitioner",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "physician",
+    "word_family": [],
+    "word_id": "word:physician"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:cb939a6e84b1b46315c4",
+      "owner_path": "content/lexical/relations/by-id/ab/ab49d412b7210c5c1aa7b52fe3977376cd0721054bd2dcc341ef57d1c9b53cb1.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:physician:9c398ea2a8c65880",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9945,
+        "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:3ccd996b88b43eca7867"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:3ccd996b88b43eca7867",
+        "source_row": 5141,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8079f730f5f21cc08064",
+        "source_row": 6628,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      },
+      {
+        "id": "membership:77910996e66bc1d45f57",
+        "source_row": 12473,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      },
+      {
+        "id": "membership:fa63c0fe9df63d441fd2",
+        "source_row": 16779,
+        "source_path": "content/lexical/canonical/packs/shards/o3585-3616.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "physician",
+      "source": "content/lexical/canonical/lookup/spelling/ph.json",
+      "word_id": "word:physician",
+      "ordinal": 3586,
+      "word_shard": "content/lexical/canonical/words/shards/o3585-3592.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/06.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3585-3592.json",
+    "source_content_hash": "569155b8e029fda48f3a3ca6af188d5eb69f988550db1900203c95f8e4841983",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

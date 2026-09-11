@@ -1,0 +1,154 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1321,
+  "word_id": "word:deserve",
+  "word": "deserve",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "df60569cb6d455a4f243ab223913e422661d3eb3b60c59668098d7560e44fffb",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "应得；值得",
+      "core_meaning_en": "to be worthy of something",
+      "mental_model_cn": "应得；值得",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0c5a9fae26a5e99c8ae7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:deserve:5e9d86bdbb485f54:collocation:0"
+            ],
+            "meaning_cn": "值得关注",
+            "phrase": "deserve attention"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "应得；值得",
+        "definition_en": "to be worthy of or entitled to something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:deserve:5e9d86bdbb485f54",
+        "sense_label_en": "to be worthy of or entitled to something",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "应得报答（或惩罚）",
+        "definition_en": "to be worthy of reward or punishment",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:deserve:0c7432fa84305f95",
+        "sense_label_en": "to be worthy of reward or punishment",
+        "sort_order": 1,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "deserve",
+    "word_family": [],
+    "word_id": "word:deserve"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:deserve:0c7432fa84305f95",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3694,
+        "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
+      },
+      {
+        "sense_id": "sense:deserve:5e9d86bdbb485f54",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3695,
+        "source_path": "content/lexical/canonical/senses/shards/o1313-1344.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:0c5a9fae26a5e99c8ae7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:0c5a9fae26a5e99c8ae7",
+        "source_row": 1025,
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:f7e981bc23efebf20e64",
+        "source_row": 2484,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:f8b4777b30f658966a40",
+        "source_row": 2485,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:19bce8db1a8768d7aa4c",
+        "source_row": 11048,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      },
+      {
+        "id": "membership:17c9997f656682247390",
+        "source_row": 14764,
+        "source_path": "content/lexical/canonical/packs/shards/o1313-1344.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "deserve",
+      "source": "content/lexical/canonical/lookup/spelling/de.json",
+      "word_id": "word:deserve",
+      "ordinal": 1321,
+      "word_shard": "content/lexical/canonical/words/shards/o1321-1328.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/96.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1321-1328.json",
+    "source_content_hash": "df60569cb6d455a4f243ab223913e422661d3eb3b60c59668098d7560e44fffb",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

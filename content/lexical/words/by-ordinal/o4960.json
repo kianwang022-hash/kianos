@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4960,
+  "word_id": "word:the",
+  "word": "the",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:337c2e5119c976687a95",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "越…，就越…",
+        "pattern": "the + comparative ..., the + comparative ..."
+      }
+    ],
+    "content_hash": "dcfd4649fc0a03373b1533aa807d29f8edfc6d2254c0d31ac14891d29a66b403",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "定冠词",
+      "core_meaning_en": "definite article",
+      "mental_model_cn": "定冠词",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:337c2e5119c976687a95"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e02e59c67b1b020d898e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:the:67b3b450482950aa:collocation:0"
+            ],
+            "meaning_cn": "那本书",
+            "phrase": "the book"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用于名词前，表示特指或已知的人或事物",
+        "definition_en": "used before nouns to refer to a specific or known person or thing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "article",
+        "sense_id": "sense:the:67b3b450482950aa",
+        "sense_label_en": "used before nouns to refer to a specific or known person or thing",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "the",
+    "word_family": [],
+    "word_id": "word:the"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:the:67b3b450482950aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14119,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:e02e59c67b1b020d898e"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:e02e59c67b1b020d898e",
+        "source_row": 18964,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6209df138b8d35190b29",
+        "source_row": 9235,
+        "source_path": "content/lexical/canonical/packs/shards/o4929-4960.json"
+      },
+      {
+        "id": "membership:c79208210e363418c5a7",
+        "source_row": 9236,
+        "source_path": "content/lexical/canonical/packs/shards/o4929-4960.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "the",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:the",
+      "ordinal": 4960,
+      "word_shard": "content/lexical/canonical/words/shards/o4953-4960.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/05.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4953-4960.json",
+    "source_content_hash": "dcfd4649fc0a03373b1533aa807d29f8edfc6d2254c0d31ac14891d29a66b403",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

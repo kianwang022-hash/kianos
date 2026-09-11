@@ -1,0 +1,155 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+  "canonical_record": null,
+  "fact_record": {
+    "boundary": "均可指猛烈抨击；assault语气更强且也常指人身攻击",
+    "codex_boundary_corrected": true,
+    "codex_disposition": "explicit_promote",
+    "codex_disposition_status": "resolved",
+    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_reviewed": true,
+    "content": {
+      "shared_definition": "attack in speech or writing",
+      "shared_synset": "00864347-v",
+      "source_definition": "take aggressive action against",
+      "source_sense_id": "sense:attack:b2f86d36ea7556c5",
+      "target_definition": "to make a violent attack on",
+      "target_sense_id": "sense:assault:0a5899f9365b5f73",
+      "target_word": "assault"
+    },
+    "dimensions": {
+      "certainty": "均表已施加动作",
+      "collocation": "attack policy/assault person",
+      "core_meaning": "攻击",
+      "exam_trap": "暴力范围扩大",
+      "register": "assault偏法律",
+      "semantic_prosody": "负面",
+      "strength": "assault更强",
+      "syntax": "均可作及物动词",
+      "writing_safety": "非暴力语境勿换"
+    },
+    "direction": "C",
+    "evidence": [
+      {
+        "evidence_id": "evidence:oewn:00864347-v",
+        "evidence_status": "source_checked",
+        "source_locator": "00864347-v",
+        "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+        "source_type": "learner_dictionary"
+      }
+    ],
+    "fact_existence_status": "verified",
+    "fact_id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+    "generation_checked": true,
+    "high_risk_flags": [],
+    "independent_verification_checked": true,
+    "learning_value_score": 12.25,
+    "learning_value_status": "selected",
+    "machine_checked": true,
+    "module": "semantic_contrast",
+    "policy_reasons": [],
+    "prepolicy_high_risk_flags": [],
+    "prepolicy_publication_status": "codex_reviewed",
+    "prepolicy_verification_status": "verified",
+    "presentation_status": "published",
+    "priority": "A",
+    "publication_policy": "deep_vocabulary_module_policies_2026-08-14_v4:semantic_contrast",
+    "publication_status": "codex_reviewed",
+    "record_type": "deep_vocabulary_fact",
+    "resolved_high_risk_flags": [
+      "unresolved_source_sense_anchor"
+    ],
+    "rule_checked": true,
+    "schema_validated": true,
+    "selection_rank": 6,
+    "semantic_stage_a": {
+      "relation_class": "partial_overlap",
+      "source_definition": "take aggressive action against",
+      "source_sense_id": "sense:attack:b2f86d36ea7556c5",
+      "target_definition": "to make a violent attack on",
+      "target_sense_id": "sense:assault:0a5899f9365b5f73"
+    },
+    "semantic_stage_b": {
+      "dimensions_complete": true,
+      "eligible_relation": true,
+      "learning_contrast_value": true,
+      "specific_boundary": true,
+      "translation_or_exam_competition": true
+    },
+    "source_grounded": true,
+    "source_sense_id": "sense:attack:b2f86d36ea7556c5",
+    "target_sense_id": "sense:assault:0a5899f9365b5f73",
+    "target_word": "assault",
+    "task_tags": [
+      "reading"
+    ],
+    "tier": "A",
+    "validator_version": "deep_vocabulary_target_gate_2026-08-13_v1",
+    "verification_confidence": 1.0,
+    "verification_decision": "codex_promote",
+    "verification_status": "verified",
+    "why": "",
+    "word": "attack",
+    "word_id": "word:attack",
+    "writing_safe": false
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:attack",
+      "source_ordinal": 323,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "均可指猛烈抨击；assault语气更强且也常指人身攻击",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表已施加动作",
+          "collocation": "attack policy/assault person",
+          "core_meaning": "攻击",
+          "exam_trap": "暴力范围扩大",
+          "register": "assault偏法律",
+          "semantic_prosody": "负面",
+          "strength": "assault更强",
+          "syntax": "均可作及物动词",
+          "writing_safety": "非暴力语境勿换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00864347-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00864347-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "attack in speech or writing",
+        "source_sense_id": "sense:attack:b2f86d36ea7556c5",
+        "target_sense_id": "sense:assault:0a5899f9365b5f73",
+        "target_word": "assault",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1207,
+  "word_id": "word:dairy",
+  "word": "dairy",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "55c33a837f64c5069a6e42244692518da3fbb703f3e05786c9c220dedabbc9de",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "乳品生产或销售场所",
+      "core_meaning_en": "a place where milk products are made or sold",
+      "mental_model_cn": "乳品生产或销售场所",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "confusable:horizontal:9f3920adab93765c1ea8"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dfcb5fe0d9c8c214fbb0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dairy:e65ab101d0895a80:collocation:0"
+            ],
+            "meaning_cn": "奶牛场",
+            "phrase": "dairy farm"
+          },
+          {
+            "collocation_id": "collocation:9db17b6b5deb24f3ed90",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dairy:e65ab101d0895a80:collocation:1"
+            ],
+            "meaning_cn": "乳制品",
+            "phrase": "dairy products"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "乳牛场；牛奶公司",
+        "definition_en": "a farm or business that produces milk and milk products",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dairy:e65ab101d0895a80",
+        "sense_label_en": "a farm or business that produces milk and milk products",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "dairy",
+    "word_family": [],
+    "word_id": "word:dairy"
+  },
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:9f3920adab93765c1ea8",
+      "owner_path": "content/lexical/relations/by-id/97/9754bc596d65cc39045ce94bef694a9c838f86677d3f20df5cc6c73e00d12d7a.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:dairy:e65ab101d0895a80",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3402,
+        "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:9db17b6b5deb24f3ed90",
+      "collocation:dfcb5fe0d9c8c214fbb0"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:9db17b6b5deb24f3ed90",
+        "source_row": 13430,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:dfcb5fe0d9c8c214fbb0",
+        "source_row": 18935,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6a09428e4ee486d2f946",
+        "source_row": 2270,
+        "source_path": "content/lexical/canonical/packs/shards/o1185-1216.json"
+      },
+      {
+        "id": "membership:40df380e1bf0bb7c1bcf",
+        "source_row": 10977,
+        "source_path": "content/lexical/canonical/packs/shards/o1185-1216.json"
+      },
+      {
+        "id": "membership:cba7fc72fd4574cc2f60",
+        "source_row": 14663,
+        "source_path": "content/lexical/canonical/packs/shards/o1185-1216.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "dairy",
+      "source": "content/lexical/canonical/lookup/spelling/da.json",
+      "word_id": "word:dairy",
+      "ordinal": 1207,
+      "word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/23.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
+    "source_content_hash": "55c33a837f64c5069a6e42244692518da3fbb703f3e05786c9c220dedabbc9de",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 439,
+  "word_id": "word:because",
+  "word": "because",
+  "record": {
+    "card_version": "v2",
+    "confusables": [],
+    "constructions": [
+      {
+        "construction_id": "construction:7976891788c727e75e34",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "因为；由于…",
+        "pattern": "because of sth"
+      }
+    ],
+    "content_hash": "fb7d2dea6fca42219eb7a1719cb0a3b1c322305f954e345f2717513d781dc130",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "因为",
+      "core_meaning_en": "for the reason that",
+      "mental_model_cn": "因为",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": true,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [
+      "construction:construction:7976891788c727e75e34"
+    ],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:50422a989fb54ba6bfbc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:because:be5e15e631bb5f83:collocation:1"
+            ],
+            "meaning_cn": "因为下雨",
+            "phrase": "because it was raining"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "因为",
+        "definition_en": "for the reason that",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "conjunction",
+        "sense_id": "sense:because:be5e15e631bb5f83",
+        "sense_label_en": "for the reason that",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "because",
+    "word_family": [],
+    "word_id": "word:because"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:because:be5e15e631bb5f83",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1158,
+        "source_path": "content/lexical/canonical/senses/shards/o0417-0448.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:50422a989fb54ba6bfbc"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:50422a989fb54ba6bfbc",
+        "source_row": 6775,
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+      },
+      {
+        "id": "collocation:ec429c384c211a0defa2",
+        "source_row": 20021,
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6087dd31717eb07f55a2",
+        "source_row": 839,
+        "source_path": "content/lexical/canonical/packs/shards/o0417-0448.json"
+      },
+      {
+        "id": "membership:2a94fc58b67d86cfdec0",
+        "source_row": 840,
+        "source_path": "content/lexical/canonical/packs/shards/o0417-0448.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "because",
+      "source": "content/lexical/canonical/lookup/spelling/be.json",
+      "word_id": "word:because",
+      "ordinal": 439,
+      "word_shard": "content/lexical/canonical/words/shards/o0433-0440.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/28.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0433-0440.json",
+    "source_content_hash": "fb7d2dea6fca42219eb7a1719cb0a3b1c322305f954e345f2717513d781dc130",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 130,
+  "word_id": "word:aircraft",
+  "word": "aircraft",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "c752a29e045e46315445114e868a4559ffc55abd828b85bb921f58e24cbba991",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "能飞的交通工具",
+      "core_meaning_en": "a vehicle that can fly",
+      "mental_model_cn": "能飞的交通工具",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b3eec5153d14316ed8af",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aircraft:cadb6d3718515ce2:collocation:0"
+            ],
+            "meaning_cn": "军用飞机",
+            "phrase": "military aircraft"
+          },
+          {
+            "collocation_id": "collocation:2cc9dc3328472b5f6561",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aircraft:cadb6d3718515ce2:collocation:1"
+            ],
+            "meaning_cn": "商用飞机",
+            "phrase": "commercial aircraft"
+          },
+          {
+            "collocation_id": "collocation:f22c54aa23ee45e3c403",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aircraft:cadb6d3718515ce2:collocation:2"
+            ],
+            "meaning_cn": "航空母舰",
+            "phrase": "aircraft carrier"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "航空器；飞机",
+        "definition_en": "a vehicle that can fly, such as an airplane or helicopter",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:aircraft:cadb6d3718515ce2",
+        "sense_label_en": "a vehicle that can fly, such as an airplane or helicopter",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "aircraft",
+    "word_family": [],
+    "word_id": "word:aircraft"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:aircraft:cadb6d3718515ce2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 355,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2cc9dc3328472b5f6561",
+      "collocation:b3eec5153d14316ed8af",
+      "collocation:f22c54aa23ee45e3c403"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2cc9dc3328472b5f6561",
+        "source_row": 3797,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:b3eec5153d14316ed8af",
+        "source_row": 15254,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:f22c54aa23ee45e3c403",
+        "source_row": 20515,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:6c94898a943716c6dc4f",
+        "source_row": 266,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:dfbbf423ee010ab27c8f",
+        "source_row": 267,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      },
+      {
+        "id": "membership:ed7c2ca718af6002f075",
+        "source_row": 10295,
+        "source_path": "content/lexical/canonical/packs/shards/o0129-0160.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "aircraft",
+      "source": "content/lexical/canonical/lookup/spelling/ai.json",
+      "word_id": "word:aircraft",
+      "ordinal": 130,
+      "word_shard": "content/lexical/canonical/words/shards/o0129-0136.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/c5.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0129-0136.json",
+    "source_content_hash": "c752a29e045e46315445114e868a4559ffc55abd828b85bb921f58e24cbba991",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

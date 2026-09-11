@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3418,
+  "word_id": "word:overhear",
+  "word": "overhear",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "4c26ffb7b8f0d10b9f4fbed3f63c4257bf658f735a39f2e6904cba18a566c7c7",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "无意中听到",
+      "core_meaning_en": "hear without the speakers' knowledge",
+      "mental_model_cn": "无意中听到",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b8a15c91f6c9233a9e5c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:overhear:1dbdbf54f034550f:collocation:0"
+            ],
+            "meaning_cn": "无意中听到谈话",
+            "phrase": "overhear a conversation"
+          },
+          {
+            "collocation_id": "collocation:49fdcb9e9ea289963480",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overhear:1dbdbf54f034550f:collocation:1"
+            ],
+            "meaning_cn": "无意中听到某人说某事",
+            "phrase": "overhear sb saying sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "无意中听到，偷听",
+        "definition_en": "hear (a conversation or speaker) without their knowledge",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overhear:1dbdbf54f034550f",
+        "sense_label_en": "hear (a conversation or speaker) without their knowledge",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "overhear",
+    "word_family": [],
+    "word_id": "word:overhear"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:overhear:1dbdbf54f034550f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9481,
+        "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:49fdcb9e9ea289963480",
+      "collocation:b8a15c91f6c9233a9e5c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:49fdcb9e9ea289963480",
+        "source_row": 6228,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:b8a15c91f6c9233a9e5c",
+        "source_row": 15640,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:c9e5b5aeba4cfa80e7ce",
+        "source_row": 6325,
+        "source_path": "content/lexical/canonical/packs/shards/o3393-3424.json"
+      },
+      {
+        "id": "membership:0ceabff1e0ba711f598a",
+        "source_row": 16623,
+        "source_path": "content/lexical/canonical/packs/shards/o3393-3424.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "overhear",
+      "source": "content/lexical/canonical/lookup/spelling/ov.json",
+      "word_id": "word:overhear",
+      "ordinal": 3418,
+      "word_shard": "content/lexical/canonical/words/shards/o3417-3424.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/42.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3417-3424.json",
+    "source_content_hash": "4c26ffb7b8f0d10b9f4fbed3f63c4257bf658f735a39f2e6904cba18a566c7c7",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

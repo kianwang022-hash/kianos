@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:bcd5e086d23d76794896",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:adopt",
+      "source_ordinal": 82,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "adapt = adjust/change to fit; adopt = take up/accept or legally take as one's child."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:001",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:001",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:bcd5e086d23d76794896",
+        "learning_note": "adapt = adjust/change to fit; adopt = take up/accept or legally take as one's child.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "adopt",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:adopt"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "adapt = adjust/change to fit; adopt = take up/accept or legally take as one's child.",
+        "relation_scope": "lexeme",
+        "relation_type": "spelling_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "adapt = adjust/change to fit; adopt = take up/accept or legally take as one's child.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "adopt",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:adopt"
+              }
+            ],
+            "learner_note": "adapt = adjust/change to fit; adopt = take up/accept or legally take as one's child.",
+            "relation_targets": [
+              "adapt"
+            ],
+            "relation_type": "spelling_semantic_confusable"
+          }
+        ],
+        "source_expression": "adopt",
+        "source_sense_id": null,
+        "target_expression": "adapt",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "adapt",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

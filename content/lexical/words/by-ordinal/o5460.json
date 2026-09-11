@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5460,
+  "word_id": "word:workout",
+  "word": "workout",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "a387fe8f23bbfd53ab2f58eb50cce372b7fb95838a9a39516b02867de675f5a1",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "锻炼，健身",
+      "core_meaning_en": "a session of physical exercise",
+      "mental_model_cn": "锻炼，健身",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e3db13ca8270337c0091",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:workout:46a381f1e2f35aae:collocation:0"
+            ],
+            "meaning_cn": "做锻炼",
+            "phrase": "do a workout"
+          },
+          {
+            "collocation_id": "collocation:d61f0f9f6c403765a65d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:workout:46a381f1e2f35aae:collocation:1"
+            ],
+            "meaning_cn": "日常锻炼",
+            "phrase": "daily workout"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "锻炼；健身",
+        "definition_en": "the activity of exerting your muscles in various ways to keep fit",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:workout:46a381f1e2f35aae",
+        "sense_label_en": "the activity of exerting your muscles in various ways to keep fit",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "workout",
+    "word_family": [],
+    "word_id": "word:workout"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:workout:46a381f1e2f35aae",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15523,
+        "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:d61f0f9f6c403765a65d",
+      "collocation:e3db13ca8270337c0091"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:d61f0f9f6c403765a65d",
+        "source_row": 18115,
+        "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json"
+      },
+      {
+        "id": "collocation:e3db13ca8270337c0091",
+        "source_row": 19286,
+        "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:13b5724b9625734837a1",
+        "source_row": 10131,
+        "source_path": "content/lexical/canonical/packs/shards/o5441-5472.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "workout",
+      "source": "content/lexical/canonical/lookup/spelling/wo.json",
+      "word_id": "word:workout",
+      "ordinal": 5460,
+      "word_shard": "content/lexical/canonical/words/shards/o5457-5464.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/38.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5457-5464.json",
+    "source_content_hash": "a387fe8f23bbfd53ab2f58eb50cce372b7fb95838a9a39516b02867de675f5a1",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

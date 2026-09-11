@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2081,
+  "word_id": "word:furniture",
+  "word": "furniture",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fcd3f9a8f955202b52d0408465f3bbd44cbad01604fe676412b908ec0c94bfc8",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "家具",
+      "core_meaning_en": "movable objects in a room that make it usable",
+      "mental_model_cn": "家具",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fd9cd419c79554d5a148",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:furniture:bae04488550f58ab:collocation:0"
+            ],
+            "meaning_cn": "一件家具",
+            "phrase": "a piece of furniture"
+          },
+          {
+            "collocation_id": "collocation:6f6b5f2c34167aa795aa",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:furniture:bae04488550f58ab:collocation:1"
+            ],
+            "meaning_cn": "家具店",
+            "phrase": "furniture store"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "家具；室内设备",
+        "definition_en": "furnishings that make a room or other area ready for occupancy",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:furniture:bae04488550f58ab",
+        "sense_label_en": "furnishings that make a room or other area ready for occupancy",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "furniture",
+    "word_family": [],
+    "word_id": "word:furniture"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:furniture:bae04488550f58ab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5800,
+        "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:6f6b5f2c34167aa795aa",
+      "collocation:fd9cd419c79554d5a148"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:6f6b5f2c34167aa795aa",
+        "source_row": 9409,
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:fd9cd419c79554d5a148",
+        "source_row": 21454,
+        "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:e4ecbf8a5aee57ddac12",
+        "source_row": 3927,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      },
+      {
+        "id": "membership:4ebb99ac4f54b35729b7",
+        "source_row": 3928,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      },
+      {
+        "id": "membership:9ef734f290c0ea9c570b",
+        "source_row": 11517,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      },
+      {
+        "id": "membership:965ab6b78fe3adb01047",
+        "source_row": 15407,
+        "source_path": "content/lexical/canonical/packs/shards/o2081-2112.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "furniture",
+      "source": "content/lexical/canonical/lookup/spelling/fu.json",
+      "word_id": "word:furniture",
+      "ordinal": 2081,
+      "word_shard": "content/lexical/canonical/words/shards/o2081-2088.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/af.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2081-2088.json",
+    "source_content_hash": "fcd3f9a8f955202b52d0408465f3bbd44cbad01604fe676412b908ec0c94bfc8",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

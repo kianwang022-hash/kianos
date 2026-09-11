@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "confusable:horizontal:2d6d0dc0f31aea8f24de",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:beside",
+      "source_ordinal": 469,
+      "field": "confusables",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:007",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:007",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "fact_id": "confusable:horizontal:2d6d0dc0f31aea8f24de",
+        "learning_note": "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "beside",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:beside"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_note": "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable.",
+        "relation_scope": "lexeme",
+        "relation_type": "form_semantic_confusable",
+        "sense_ids": [],
+        "shared_meaning": "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "beside",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:beside"
+              }
+            ],
+            "learner_note": "beside = next to; besides = in addition to / moreover. Do not treat them as interchangeable.",
+            "relation_targets": [
+              "besides"
+            ],
+            "relation_type": "form_semantic_confusable"
+          }
+        ],
+        "source_expression": "beside",
+        "source_sense_id": null,
+        "target_expression": "besides",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "besides",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1623,
+  "word_id": "word:emigrate",
+  "word": "emigrate",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "f785802552ff05235b02d3cf476663d596455e90e5f9d9fd125c8e10c24b8a21",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "移居国外",
+      "core_meaning_en": "leave one's own country to live elsewhere",
+      "mental_model_cn": "移居国外",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:95fbd0f2485819ddc7c6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:emigrate:a7136f1ba8f85b0f:collocation:0"
+            ],
+            "meaning_cn": "从某国移居到某国",
+            "phrase": "emigrate from + 国家 + to + 国家"
+          },
+          {
+            "collocation_id": "collocation:02cc89b80d4d319dfbf1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:emigrate:a7136f1ba8f85b0f:collocation:1"
+            ],
+            "meaning_cn": "移居加拿大",
+            "phrase": "emigrate to Canada"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "移居国外；移民",
+        "definition_en": "leave one's country of residence for a new one",
+        "governing_pattern": "vi. + from + 地点 + to + 地点",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:emigrate:a7136f1ba8f85b0f",
+        "sense_label_en": "leave one's country of residence for a new one",
+        "sort_order": 0,
+        "transitivity": "vi"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "emigrate",
+    "word_family": [],
+    "word_id": "word:emigrate"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:emigrate:a7136f1ba8f85b0f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4518,
+        "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:02cc89b80d4d319dfbf1",
+      "collocation:95fbd0f2485819ddc7c6"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:02cc89b80d4d319dfbf1",
+        "source_row": 236,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:95fbd0f2485819ddc7c6",
+        "source_row": 12761,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:13c88323bb9cdd7f7ed5",
+        "source_row": 3043,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      },
+      {
+        "id": "membership:877b04061e14edeb9381",
+        "source_row": 15025,
+        "source_path": "content/lexical/canonical/packs/shards/o1601-1632.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "emigrate",
+      "source": "content/lexical/canonical/lookup/spelling/em.json",
+      "word_id": "word:emigrate",
+      "ordinal": 1623,
+      "word_shard": "content/lexical/canonical/words/shards/o1617-1624.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/44.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1617-1624.json",
+    "source_content_hash": "f785802552ff05235b02d3cf476663d596455e90e5f9d9fd125c8e10c24b8a21",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

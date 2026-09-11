@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5008,
+  "word_id": "word:throat",
+  "word": "throat",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "31d6f5dc7619a2e91b8fa54e4b1dea4c9fbaa86333d1b8c3f87f7fa8a71e6ddc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "喉咙；咽喉",
+      "core_meaning_en": "the front part of the neck that contains the passage for food and air",
+      "mental_model_cn": "喉咙；咽喉",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ea33037207be49ed7b02",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:throat:39b23ff605d15427:collocation:0"
+            ],
+            "meaning_cn": "喉咙痛",
+            "phrase": "sore throat"
+          },
+          {
+            "collocation_id": "collocation:71863db17d8a053ae007",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:throat:39b23ff605d15427:collocation:1"
+            ],
+            "meaning_cn": "清嗓子",
+            "phrase": "clear one's throat"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "咽喉；喉咙",
+        "definition_en": "the passage from the mouth to the stomach and lungs",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:throat:39b23ff605d15427",
+        "sense_label_en": "the passage from the mouth to the stomach and lungs",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "throat",
+    "word_family": [],
+    "word_id": "word:throat"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:throat:39b23ff605d15427",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14228,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:71863db17d8a053ae007",
+      "collocation:ea33037207be49ed7b02"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:71863db17d8a053ae007",
+        "source_row": 9592,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:ea33037207be49ed7b02",
+        "source_row": 19839,
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:51913694d0fd4a6ef21c",
+        "source_row": 9311,
+        "source_path": "content/lexical/canonical/packs/shards/o4993-5024.json"
+      },
+      {
+        "id": "membership:ba39e410a113bf6988f1",
+        "source_row": 9312,
+        "source_path": "content/lexical/canonical/packs/shards/o4993-5024.json"
+      },
+      {
+        "id": "membership:1d9ef19700272f512318",
+        "source_row": 13437,
+        "source_path": "content/lexical/canonical/packs/shards/o4993-5024.json"
+      },
+      {
+        "id": "membership:be929e4aaf8289d4fe7c",
+        "source_row": 18132,
+        "source_path": "content/lexical/canonical/packs/shards/o4993-5024.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "throat",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:throat",
+      "ordinal": 5008,
+      "word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/14.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5001-5008.json",
+    "source_content_hash": "31d6f5dc7619a2e91b8fa54e4b1dea4c9fbaa86333d1b8c3f87f7fa8a71e6ddc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2880,
+  "word_id": "word:longitude",
+  "word": "longitude",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "33a7970f1e803f6da5f5ceeee8e262a402b2420394551746015a15e1d5da1f9c",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "经度",
+      "core_meaning_en": "angular distance east or west from the prime meridian",
+      "mental_model_cn": "经度",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:076c02d03f755ce5a871",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:longitude:3a70ec6586015b4d:collocation:0"
+            ],
+            "meaning_cn": "经线",
+            "phrase": "lines of longitude"
+          },
+          {
+            "collocation_id": "collocation:4b5b89a4e9f55442ddf7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:longitude:3a70ec6586015b4d:collocation:1"
+            ],
+            "meaning_cn": "在东经30度",
+            "phrase": "at longitude 30°E"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "经度",
+        "definition_en": "the angular distance of a point on the earth's surface measured east or west from the prime meridian at Greenwich",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:longitude:3a70ec6586015b4d",
+        "sense_label_en": "the angular distance of a point on the earth's surface measured east or ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "longitude",
+    "word_family": [],
+    "word_id": "word:longitude"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:longitude:3a70ec6586015b4d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8019,
+        "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:076c02d03f755ce5a871",
+      "collocation:4b5b89a4e9f55442ddf7"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:076c02d03f755ce5a871",
+        "source_row": 616,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:4b5b89a4e9f55442ddf7",
+        "source_row": 6347,
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:adbd9b44c1f3c19ab262",
+        "source_row": 5376,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      },
+      {
+        "id": "membership:0c6b29a4751d385b1ba6",
+        "source_row": 16156,
+        "source_path": "content/lexical/canonical/packs/shards/o2849-2880.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "longitude",
+      "source": "content/lexical/canonical/lookup/spelling/lo.json",
+      "word_id": "word:longitude",
+      "ordinal": 2880,
+      "word_shard": "content/lexical/canonical/words/shards/o2873-2880.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/8e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2873-2880.json",
+    "source_content_hash": "33a7970f1e803f6da5f5ceeee8e262a402b2420394551746015a15e1d5da1f9c",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

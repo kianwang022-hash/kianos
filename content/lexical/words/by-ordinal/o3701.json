@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3701,
+  "word_id": "word:postcard",
+  "word": "postcard",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "52fcce7c6af4c39dc273fb8217ab94ad6b1fb2c1817a7fa5a4c03f0a6520550f",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "明信片",
+      "core_meaning_en": "a card for sending messages by mail without an envelope",
+      "mental_model_cn": "明信片",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f19273f2872e97f4905c",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:postcard:295a8987dbe85e8b:collocation:0"
+            ],
+            "meaning_cn": "寄明信片",
+            "phrase": "send a postcard"
+          },
+          {
+            "collocation_id": "collocation:1ea3fbf19b0f2c77a79d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:postcard:295a8987dbe85e8b:collocation:1"
+            ],
+            "meaning_cn": "风景明信片",
+            "phrase": "picture postcard"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "明信片",
+        "definition_en": "a card for sending messages by post without an envelope",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:postcard:295a8987dbe85e8b",
+        "sense_label_en": "a card for sending messages by post without an envelope",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "postcard",
+    "word_family": [],
+    "word_id": "word:postcard"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:postcard:295a8987dbe85e8b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10321,
+        "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1ea3fbf19b0f2c77a79d",
+      "collocation:f19273f2872e97f4905c"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1ea3fbf19b0f2c77a79d",
+        "source_row": 2544,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:f19273f2872e97f4905c",
+        "source_row": 20456,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:36139b873ab794ae5b8a",
+        "source_row": 6824,
+        "source_path": "content/lexical/canonical/packs/shards/o3681-3712.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "postcard",
+      "source": "content/lexical/canonical/lookup/spelling/po.json",
+      "word_id": "word:postcard",
+      "ordinal": 3701,
+      "word_shard": "content/lexical/canonical/words/shards/o3697-3704.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/0e.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3697-3704.json",
+    "source_content_hash": "52fcce7c6af4c39dc273fb8217ab94ad6b1fb2c1817a7fa5a4c03f0a6520550f",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

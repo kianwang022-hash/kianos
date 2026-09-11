@@ -1,0 +1,156 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1847,
+  "word_id": "word:fairy",
+  "word": "fairy",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "ba392f860e2525ffe46d59c634d4f548e8724945e812a9d443015bcef705ab93",
+    "core_concept": {
+      "core_clusters": [
+        {
+          "label_cn": "仙女，精灵",
+          "label_en": "a small imaginary being with magical powers",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fairy:7ad00493be4a5bbf"
+          ]
+        },
+        {
+          "label_cn": "仙女的",
+          "label_en": "of or relating to fairies",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fairy:bf4826ef187154d4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "小仙子，精灵",
+      "core_meaning_en": "a small magical being",
+      "mental_model_cn": "小仙子，精灵",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:311f69f2fb4eb405e193",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:fairy:7ad00493be4a5bbf:collocation:0"
+            ],
+            "meaning_cn": "童话故事",
+            "phrase": "fairy tale"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "仙女，精灵",
+        "definition_en": "a small imaginary being with magical powers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fairy:7ad00493be4a5bbf",
+        "sense_label_en": "a small imaginary being with magical powers",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "仙女的",
+        "definition_en": "of or relating to fairies",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:fairy:bf4826ef187154d4",
+        "sense_label_en": "of or relating to fairies",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "fairy",
+    "word_family": [],
+    "word_id": "word:fairy"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:fairy:7ad00493be4a5bbf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5055,
+        "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:fairy:bf4826ef187154d4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5056,
+        "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:311f69f2fb4eb405e193"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:311f69f2fb4eb405e193",
+        "source_row": 4150,
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:2c636ebe77c1edcbcbe1",
+        "source_row": 3510,
+        "source_path": "content/lexical/canonical/packs/shards/o1825-1856.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "fairy",
+      "source": "content/lexical/canonical/lookup/spelling/fa.json",
+      "word_id": "word:fairy",
+      "ordinal": 1847,
+      "word_shard": "content/lexical/canonical/words/shards/o1841-1848.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/18.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1841-1848.json",
+    "source_content_hash": "ba392f860e2525ffe46d59c634d4f548e8724945e812a9d443015bcef705ab93",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

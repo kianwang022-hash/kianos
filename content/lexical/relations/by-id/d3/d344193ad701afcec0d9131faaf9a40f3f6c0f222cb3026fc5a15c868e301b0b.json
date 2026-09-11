@@ -1,0 +1,93 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:2125f43043b8d81847d7",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:power",
+      "source_ordinal": 3715,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "power = broad ability/capacity or controlling influence; authority = recognized/legitimate right to command, decide, or act, and also expert credibility. Bind only to control/right senses."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:103",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:103",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "power = broad ability/capacity or controlling influence; authority = recognized/legitimate right to command, decide, or act, and also expert credibility. Bind only to control/right senses.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "power",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:power:6f4b9a2a61b15005",
+              "sense:power:d169aee6945d52b4"
+            ],
+            "word_id": "word:power"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:2125f43043b8d81847d7",
+        "relation_note": "power = broad ability/capacity or controlling influence; authority = recognized/legitimate right to command, decide, or act, and also expert credibility. Bind only to control/right senses.",
+        "relation_scope": "lexeme",
+        "relation_type": "governance_power_contrast",
+        "sense_ids": [
+          "sense:power:6f4b9a2a61b15005",
+          "sense:power:d169aee6945d52b4"
+        ],
+        "shared_meaning": "power = broad ability/capacity or controlling influence; authority = recognized/legitimate right to command, decide, or act, and also expert credibility. Bind only to control/right senses.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "power",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:power:6f4b9a2a61b15005",
+                  "sense:power:d169aee6945d52b4"
+                ],
+                "word_id": "word:power"
+              }
+            ],
+            "learner_note": "power = broad ability/capacity or controlling influence; authority = recognized/legitimate right to command, decide, or act, and also expert credibility. Bind only to control/right senses.",
+            "relation_targets": [
+              "authority"
+            ],
+            "relation_type": "governance_power_contrast"
+          }
+        ],
+        "source_expression": "power",
+        "source_sense_id": null,
+        "target_expression": "authority",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "authority",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

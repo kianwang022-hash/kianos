@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 289,
+  "word_id": "word:ashamed",
+  "word": "ashamed",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "36ed26c95307e11b1a6ba39e781d72813d090cd3b143d942b2d0cdf07ffe90d3",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "感到羞愧或尴尬",
+      "core_meaning_en": "feeling shame or embarrassment",
+      "mental_model_cn": "感到羞愧或尴尬",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f639546e217e22dd5c36",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ashamed:f9d3aa2b03675477:collocation:0"
+            ],
+            "meaning_cn": "为……感到羞愧",
+            "phrase": "be ashamed of + sth/sb"
+          },
+          {
+            "collocation_id": "collocation:26ff442cd410df3a2b9d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ashamed:f9d3aa2b03675477:collocation:1"
+            ],
+            "meaning_cn": "羞于做某事",
+            "phrase": "be ashamed to do sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "感到羞愧的；羞耻的",
+        "definition_en": "feeling shame or guilt because of something done or a quality possessed",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:ashamed:f9d3aa2b03675477",
+        "sense_label_en": "feeling shame or guilt because of something done or a quality possessed",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "ashamed",
+    "word_family": [],
+    "word_id": "word:ashamed"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:ashamed:f9d3aa2b03675477",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 733,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:26ff442cd410df3a2b9d",
+      "collocation:f639546e217e22dd5c36"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:26ff442cd410df3a2b9d",
+        "source_row": 3289,
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      },
+      {
+        "id": "collocation:f639546e217e22dd5c36",
+        "source_row": 20864,
+        "source_path": "content/lexical/canonical/collocations/shards/o0289-0320.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:165dc9707f2a3c4a7d3d",
+        "source_row": 565,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:58b882b445b7319b4840",
+        "source_row": 566,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      },
+      {
+        "id": "membership:d95d44280989d9f7f8bb",
+        "source_row": 10386,
+        "source_path": "content/lexical/canonical/packs/shards/o0289-0320.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "ashamed",
+      "source": "content/lexical/canonical/lookup/spelling/as.json",
+      "word_id": "word:ashamed",
+      "ordinal": 289,
+      "word_shard": "content/lexical/canonical/words/shards/o0289-0296.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/83.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o0289-0296.json",
+    "source_content_hash": "36ed26c95307e11b1a6ba39e781d72813d090cd3b143d942b2d0cdf07ffe90d3",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

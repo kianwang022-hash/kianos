@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1478,
+  "word_id": "word:donate",
+  "word": "donate",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "423fc160cfaf1c4fe5a24789cf82171128e0cd103d0a0b1179e35750ab695314",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "捐赠",
+      "core_meaning_en": "give something to a charity or cause",
+      "mental_model_cn": "捐赠",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:418108c22501953e03b3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:donate:0c293a00677158f3:collocation:0"
+            ],
+            "meaning_cn": "把某物捐赠给某人/某机构",
+            "phrase": "donate + sth to + sb/sth"
+          },
+          {
+            "collocation_id": "collocation:ad23ae32f3cbf851aa8f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:donate:0c293a00677158f3:collocation:1"
+            ],
+            "meaning_cn": "献血",
+            "phrase": "donate blood"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "捐赠（钱、物品或时间）给慈善机构或公益事业",
+        "definition_en": "give money, goods, or time to a charity or good cause",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:donate:0c293a00677158f3",
+        "sense_label_en": "give money, goods, or time to a charity or good cause",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "donate",
+    "word_family": [],
+    "word_id": "word:donate"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:donate:0c293a00677158f3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4098,
+        "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:418108c22501953e03b3",
+      "collocation:ad23ae32f3cbf851aa8f"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:418108c22501953e03b3",
+        "source_row": 5546,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:ad23ae32f3cbf851aa8f",
+        "source_row": 14669,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:d9b9df2c0b71c31aa8ad",
+        "source_row": 2784,
+        "source_path": "content/lexical/canonical/packs/shards/o1473-1504.json"
+      },
+      {
+        "id": "membership:70fcbec4a3e50e928af9",
+        "source_row": 2785,
+        "source_path": "content/lexical/canonical/packs/shards/o1473-1504.json"
+      },
+      {
+        "id": "membership:c1ad4aac7eb2166d0d73",
+        "source_row": 14911,
+        "source_path": "content/lexical/canonical/packs/shards/o1473-1504.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "donate",
+      "source": "content/lexical/canonical/lookup/spelling/do.json",
+      "word_id": "word:donate",
+      "ordinal": 1478,
+      "word_shard": "content/lexical/canonical/words/shards/o1473-1480.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ff.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1473-1480.json",
+    "source_content_hash": "423fc160cfaf1c4fe5a24789cf82171128e0cd103d0a0b1179e35750ab695314",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

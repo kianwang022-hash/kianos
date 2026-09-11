@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 1096,
+  "word_id": "word:coronavirus",
+  "word": "coronavirus",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "07387da8bfac5851bc067bbac702326ec636e2af42cd4a91c2f4079a29529d86",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "冠状病毒",
+      "core_meaning_en": "a type of virus causing respiratory illness",
+      "mental_model_cn": "冠状病毒",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b47f70b3eeee4cbd7070",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:coronavirus:b188e0646b7557f4:collocation:0"
+            ],
+            "meaning_cn": "新型冠状病毒",
+            "phrase": "novel coronavirus"
+          },
+          {
+            "collocation_id": "collocation:039bc37543817d1e24cb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:coronavirus:b188e0646b7557f4:collocation:1"
+            ],
+            "meaning_cn": "冠状病毒大流行",
+            "phrase": "coronavirus pandemic"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "冠状病毒（可导致人类和动物疾病，包括引发COVID-19的病毒）",
+        "definition_en": "a type of virus that can cause disease in humans and animals, including the one causing COVID-19",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:coronavirus:b188e0646b7557f4",
+        "sense_label_en": "a type of virus that can cause disease in humans and animals, including ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 0,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "coronavirus",
+    "word_family": [],
+    "word_id": "word:coronavirus"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:coronavirus:b188e0646b7557f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3074,
+        "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:039bc37543817d1e24cb",
+      "collocation:b47f70b3eeee4cbd7070"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:039bc37543817d1e24cb",
+        "source_row": 296,
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+      },
+      {
+        "id": "collocation:b47f70b3eeee4cbd7070",
+        "source_row": 15296,
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:57dda9e52784f8a272a4",
+        "source_row": 2068,
+        "source_path": "content/lexical/canonical/packs/shards/o1089-1120.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "coronavirus",
+      "source": "content/lexical/canonical/lookup/spelling/co.json",
+      "word_id": "word:coronavirus",
+      "ordinal": 1096,
+      "word_shard": "content/lexical/canonical/words/shards/o1089-1096.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/02.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o1089-1096.json",
+    "source_content_hash": "07387da8bfac5851bc067bbac702326ec636e2af42cd4a91c2f4079a29529d86",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

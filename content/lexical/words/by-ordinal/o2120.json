@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2120,
+  "word_id": "word:genre",
+  "word": "genre",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "588cd597ad3e7570a064d05faa5938e640ce1b2365febd8efaab3b8e3b6c7698",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "艺术或文学作品的类别",
+      "core_meaning_en": "a category of artistic or literary work",
+      "mental_model_cn": "艺术或文学作品的类别",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7e79d40b5dbd134a7025",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:genre:e5863ad907715068:collocation:0"
+            ],
+            "meaning_cn": "类型小说（如科幻、侦探等）",
+            "phrase": "genre fiction"
+          },
+          {
+            "collocation_id": "collocation:2c10c5208e621b9266e0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:genre:e5863ad907715068:collocation:1"
+            ],
+            "meaning_cn": "文学体裁",
+            "phrase": "literary genre"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（文学、艺术、电影等的）体裁，类型",
+        "definition_en": "a category of artistic composition, as in music, literature, or film, characterized by similarities in form, style, or subject matter",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:genre:e5863ad907715068",
+        "sense_label_en": "a category of artistic composition, as in music, literature, or film, ch",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "genre",
+    "word_family": [],
+    "word_id": "word:genre"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:genre:e5863ad907715068",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5911,
+        "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:2c10c5208e621b9266e0",
+      "collocation:7e79d40b5dbd134a7025"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:2c10c5208e621b9266e0",
+        "source_row": 3735,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:7e79d40b5dbd134a7025",
+        "source_row": 10695,
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:954c842a3610849327cc",
+        "source_row": 4000,
+        "source_path": "content/lexical/canonical/packs/shards/o2113-2144.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "genre",
+      "source": "content/lexical/canonical/lookup/spelling/ge.json",
+      "word_id": "word:genre",
+      "ordinal": 2120,
+      "word_shard": "content/lexical/canonical/words/shards/o2113-2120.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/67.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2113-2120.json",
+    "source_content_hash": "588cd597ad3e7570a064d05faa5938e640ce1b2365febd8efaab3b8e3b6c7698",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

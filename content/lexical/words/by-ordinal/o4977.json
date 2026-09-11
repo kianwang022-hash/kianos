@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4977,
+  "word_id": "word:thermometer",
+  "word": "thermometer",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "8b26a007ee286aa82485f879e15b56019421cfe314c95783cefedc5f14ab7f8b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "测量温度的仪器",
+      "core_meaning_en": "an instrument for measuring temperature",
+      "mental_model_cn": "测量温度的仪器",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:34efa335a18aa5d11ff2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:thermometer:f11c4133a29a5dba:collocation:0"
+            ],
+            "meaning_cn": "读温度计",
+            "phrase": "read a thermometer"
+          },
+          {
+            "collocation_id": "collocation:76847ea6170941b86df3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:thermometer:f11c4133a29a5dba:collocation:1"
+            ],
+            "meaning_cn": "体温计",
+            "phrase": "clinical thermometer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "温度计，体温计",
+        "definition_en": "an instrument for measuring temperature",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:thermometer:f11c4133a29a5dba",
+        "sense_label_en": "an instrument for measuring temperature",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "thermometer",
+    "word_family": [],
+    "word_id": "word:thermometer"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:thermometer:f11c4133a29a5dba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14149,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:34efa335a18aa5d11ff2",
+      "collocation:76847ea6170941b86df3"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:34efa335a18aa5d11ff2",
+        "source_row": 4481,
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      },
+      {
+        "id": "collocation:76847ea6170941b86df3",
+        "source_row": 10007,
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:298a668a741f24b5e848",
+        "source_row": 9265,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      },
+      {
+        "id": "membership:221d2da3d5f385eb7916",
+        "source_row": 13423,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      },
+      {
+        "id": "membership:72e444600d4832f6c773",
+        "source_row": 18112,
+        "source_path": "content/lexical/canonical/packs/shards/o4961-4992.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "thermometer",
+      "source": "content/lexical/canonical/lookup/spelling/th.json",
+      "word_id": "word:thermometer",
+      "ordinal": 4977,
+      "word_shard": "content/lexical/canonical/words/shards/o4977-4984.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/1a.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4977-4984.json",
+    "source_content_hash": "8b26a007ee286aa82485f879e15b56019421cfe314c95783cefedc5f14ab7f8b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 3038,
+  "word_id": "word:metaphor",
+  "word": "metaphor",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "fa31964fa972cb1448dd422ae0cdade7de07b373181132316724fd487085e2cc",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "隐喻",
+      "core_meaning_en": "figure of speech suggesting similarity",
+      "mental_model_cn": "隐喻",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:60f375ffcd0b6cd8f85d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:metaphor:0bd820abe4335c4b:collocation:0"
+            ],
+            "meaning_cn": "某物的隐喻",
+            "phrase": "a metaphor for + sth"
+          },
+          {
+            "collocation_id": "collocation:241715c56638f92b0211",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:metaphor:0bd820abe4335c4b:collocation:1"
+            ],
+            "meaning_cn": "混合隐喻",
+            "phrase": "mixed metaphor"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "隐喻，暗喻",
+        "definition_en": "a figure of speech in which a word or phrase is applied to something it does not literally denote to suggest a resemblance",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:metaphor:0bd820abe4335c4b",
+        "sense_label_en": "a figure of speech in which a word or phrase is applied to something it ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "metaphor",
+    "word_family": [],
+    "word_id": "word:metaphor"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:metaphor:0bd820abe4335c4b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8472,
+        "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:241715c56638f92b0211",
+      "collocation:60f375ffcd0b6cd8f85d"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:241715c56638f92b0211",
+        "source_row": 3028,
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      },
+      {
+        "id": "collocation:60f375ffcd0b6cd8f85d",
+        "source_row": 8160,
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:4b5a9db659c2bbcb41a4",
+        "source_row": 5652,
+        "source_path": "content/lexical/canonical/packs/shards/o3009-3040.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "metaphor",
+      "source": "content/lexical/canonical/lookup/spelling/me.json",
+      "word_id": "word:metaphor",
+      "ordinal": 3038,
+      "word_shard": "content/lexical/canonical/words/shards/o3033-3040.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/ac.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o3033-3040.json",
+    "source_content_hash": "fa31964fa972cb1448dd422ae0cdade7de07b373181132316724fd487085e2cc",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

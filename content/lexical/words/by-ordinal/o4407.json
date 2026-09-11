@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 4407,
+  "word_id": "word:shortage",
+  "word": "shortage",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "29b0d14e505ba21e76e1d8ff7e207c352cfb2e3dd5e805c250a65cb07119688b",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "不足，缺乏",
+      "core_meaning_en": "a lack or deficiency",
+      "mental_model_cn": "不足，缺乏",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:af09cf9ed13891c2bd5f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:shortage:19557bffa7115922:collocation:0"
+            ],
+            "meaning_cn": "某物的短缺",
+            "phrase": "a shortage of + sth"
+          },
+          {
+            "collocation_id": "collocation:e07cb58cd572539a2953",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:shortage:19557bffa7115922:collocation:1"
+            ],
+            "meaning_cn": "水资源短缺",
+            "phrase": "water shortage"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "不足，缺乏",
+        "definition_en": "a situation where there is not enough of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shortage:19557bffa7115922",
+        "sense_label_en": "a situation where there is not enough of something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 2,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 1,
+      "runtime_model_calls": false
+    },
+    "word": "shortage",
+    "word_family": [],
+    "word_id": "word:shortage"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:shortage:19557bffa7115922",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12431,
+        "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:af09cf9ed13891c2bd5f",
+      "collocation:e07cb58cd572539a2953"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:af09cf9ed13891c2bd5f",
+        "source_row": 14825,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      },
+      {
+        "id": "collocation:e07cb58cd572539a2953",
+        "source_row": 18985,
+        "source_path": "content/lexical/canonical/collocations/shards/o4385-4416.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:747c377bae82e05d3f1c",
+        "source_row": 8190,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      },
+      {
+        "id": "membership:782dd8d287dbc6bc64d5",
+        "source_row": 13060,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      },
+      {
+        "id": "membership:86f882095c4b67e63349",
+        "source_row": 17585,
+        "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "shortage",
+      "source": "content/lexical/canonical/lookup/spelling/sh.json",
+      "word_id": "word:shortage",
+      "ordinal": 4407,
+      "word_shard": "content/lexical/canonical/words/shards/o4401-4408.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/31.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o4401-4408.json",
+    "source_content_hash": "29b0d14e505ba21e76e1d8ff7e207c352cfb2e3dd5e805c250a65cb07119688b",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

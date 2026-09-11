@@ -1,0 +1,138 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 5353,
+  "word_id": "word:warranty",
+  "word": "warranty",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "c26b473c5e4f2459fa7a48e9aeeb2eaf64e6c96fd39c6777822443ad86a7d38d",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "书面保证",
+      "core_meaning_en": "a written guarantee",
+      "mental_model_cn": "书面保证",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:98e3daf6ae74ea115893",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:warranty:ebbf1ee5e6a45ae0:collocation:0"
+            ],
+            "meaning_cn": "在保修期内",
+            "phrase": "under warranty"
+          },
+          {
+            "collocation_id": "collocation:5f584c485989836252d4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:warranty:ebbf1ee5e6a45ae0:collocation:1"
+            ],
+            "meaning_cn": "保修期",
+            "phrase": "a warranty period"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "保证书；保修单",
+        "definition_en": "a written assurance that a product or service will meet certain specifications",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:warranty:ebbf1ee5e6a45ae0",
+        "sense_label_en": "a written assurance that a product or service will meet certain specific",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 1,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "warranty",
+    "word_family": [],
+    "word_id": "word:warranty"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:warranty:ebbf1ee5e6a45ae0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 15212,
+        "source_path": "content/lexical/canonical/senses/shards/o5345-5376.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:5f584c485989836252d4",
+      "collocation:98e3daf6ae74ea115893"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:5f584c485989836252d4",
+        "source_row": 8018,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      },
+      {
+        "id": "collocation:98e3daf6ae74ea115893",
+        "source_row": 13016,
+        "source_path": "content/lexical/canonical/collocations/shards/o5345-5376.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:8b58e4cdfba5b14fbb90",
+        "source_row": 9940,
+        "source_path": "content/lexical/canonical/packs/shards/o5345-5376.json"
+      },
+      {
+        "id": "membership:c62ab06978bfc39938e9",
+        "source_row": 9941,
+        "source_path": "content/lexical/canonical/packs/shards/o5345-5376.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "warranty",
+      "source": "content/lexical/canonical/lookup/spelling/wa.json",
+      "word_id": "word:warranty",
+      "ordinal": 5353,
+      "word_shard": "content/lexical/canonical/words/shards/o5353-5360.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/84.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o5353-5360.json",
+    "source_content_hash": "c26b473c5e4f2459fa7a48e9aeeb2eaf64e6c96fd39c6777822443ad86a7d38d",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}

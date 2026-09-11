@@ -1,0 +1,32 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:bb8be6b4838dcd0bfebf",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:deny",
+      "source_ordinal": 1299,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "difference_axes": {
+          "core": "deny says a statement/allegation is not true; reject refuses to accept/approve/believe something",
+          "syntax": "deny an allegation / deny doing; reject an offer/proposal/claim"
+        },
+        "direction": "C",
+        "relation_id": "relation:bb8be6b4838dcd0bfebf",
+        "relation_type": "semantic_contrast",
+        "shared_core": "negative stance toward a claim/request/proposal",
+        "source_sense_id": "sense:deny:486533d14b345a85",
+        "target_sense_id": "sense:reject:8dc2944cdf3d51c7",
+        "target_word": "reject",
+        "unsafe_swap": "deny ≠ reject globally; truth denial is not the same as refusal/non-acceptance."
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "embedded_current_word_view",
+    "semantic_delta": 0
+  }
+}

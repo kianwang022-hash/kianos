@@ -1,0 +1,143 @@
+{
+  "schema": "kianos.lexical.word_owner.v1",
+  "ordinal": 2450,
+  "word_id": "word:imaginary",
+  "word": "imaginary",
+  "record": {
+    "card_version": "v1",
+    "confusables": [],
+    "constructions": [],
+    "content_hash": "b72b86a6cba0e517c9b1d81a5371ae286ba923e7bfd4a6a6850517520a326497",
+    "core_concept": {
+      "core_clusters": [],
+      "core_meaning_cn": "只存在于想象中的；不真实的",
+      "core_meaning_en": "existing only in the mind; not real",
+      "mental_model_cn": "只存在于想象中的；不真实的",
+      "mental_model_en": ""
+    },
+    "exam_paraphrases": [],
+    "needs_delta_review": false,
+    "processing_status": "completed",
+    "record_type": "word_card_bundle",
+    "review_signature": [],
+    "secondary_senses": [],
+    "semantic_neighbors": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c36f2eab6ed9e00314e2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:imaginary:0ff8bbe733555981:collocation:0"
+            ],
+            "meaning_cn": "想象中的朋友",
+            "phrase": "imaginary friend"
+          },
+          {
+            "collocation_id": "collocation:1036b7084df93116b510",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:imaginary:0ff8bbe733555981:collocation:1"
+            ],
+            "meaning_cn": "虚数",
+            "phrase": "imaginary number"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "想象的；虚构的",
+        "definition_en": "not real; existing only in the imagination",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:imaginary:0ff8bbe733555981",
+        "sense_label_en": "not real; existing only in the imagination",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
+    "verification_summary": {
+      "candidate_fact_count": 3,
+      "deep_modules": {
+        "confusables": "no_valid_content",
+        "constructions": "no_valid_content",
+        "secondary_senses": "no_valid_content",
+        "semantic_contrast": "no_valid_content",
+        "word_family": "no_valid_content"
+      },
+      "default_review_target": "word",
+      "object_queue_mode": "optional_specialist",
+      "published_fact_count": 0,
+      "rejected_fact_count": 0,
+      "runtime_model_calls": false
+    },
+    "word": "imaginary",
+    "word_family": [],
+    "word_id": "word:imaginary"
+  },
+  "relation_refs": [],
+  "reference_senses": [],
+  "identity_refs": {
+    "senses": [
+      {
+        "sense_id": "sense:imaginary:0ff8bbe733555981",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6816,
+        "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      }
+    ],
+    "active_collocations": [
+      "collocation:1036b7084df93116b510",
+      "collocation:c36f2eab6ed9e00314e2"
+    ],
+    "facts": [],
+    "collocations": [
+      {
+        "id": "collocation:1036b7084df93116b510",
+        "source_row": 1346,
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:c36f2eab6ed9e00314e2",
+        "source_row": 16538,
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:5ebc8d0411cb89219b20",
+        "source_row": 4568,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      },
+      {
+        "id": "membership:f61a043bc9f93cf1898f",
+        "source_row": 11747,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      },
+      {
+        "id": "membership:2fa5c4c53cf31ab12174",
+        "source_row": 15739,
+        "source_path": "content/lexical/canonical/packs/shards/o2433-2464.json"
+      }
+    ]
+  },
+  "lookup_refs": [
+    {
+      "spelling": "imaginary",
+      "source": "content/lexical/canonical/lookup/spelling/im.json",
+      "word_id": "word:imaginary",
+      "ordinal": 2450,
+      "word_shard": "content/lexical/canonical/words/shards/o2449-2456.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/b7.json"
+    }
+  ],
+  "provenance": {
+    "source_word_shard": "content/lexical/canonical/words/shards/o2449-2456.json",
+    "source_content_hash": "b72b86a6cba0e517c9b1d81a5371ae286ba923e7bfd4a6a6850517520a326497",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
+  }
+}
