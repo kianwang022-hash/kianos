@@ -1,0 +1,79 @@
+{
+  "schema": "kianos.xizong.learning_continuation.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "lane": "xizong_learning_runtime",
+  "role": "CURRENT_WORK_CURSOR_ONLY",
+  "rule": "This file records where shared Xizong learning/runtime work should continue. It is not medical Core, not learner state, and not a substitute for study-policy.json. A fresh Chat should read this cursor together with the referenced Current owners before proposing new Xizong work.",
+  "current_system": {
+    "canonical_id": "A2",
+    "system_id": "respiratory",
+    "reason": "A2 is the current generalization/validation system for the shared Xizong learning runtime."
+  },
+  "current_stage": "REAL_LEARNING_VALIDATION",
+  "completed_shared_work": [
+    "Global 270+ study strategy frozen in study-policy.json: first pass, second pass, late review, mastery ladder, question reuse, Memory admission, compression, and lossless scheduling.",
+    "A2 respiratory 12/12 Block first-pass learning support completed.",
+    "A2 respiratory 62/62 Logic Group goal and closure cues completed.",
+    "Block first-pass focus, stop-line behavior, and Block Recall spine completed for A2.",
+    "System failure-mode mechanism projection is runnable in Astro without front-end medical inference.",
+    "Selective cross-Block Reserve Learning and Connection Hook reactivation are implemented; target owners reactivate prior sightings.",
+    "Memory, Reserve Learning, Precision, and Connection Hook identities are separated. Reserve and Hook do not enter ordinary Memory.",
+    "A2 selective Precision awareness index completed: 32 high-value cues; index absence never downgrades canonical content.",
+    "A2 Visual timing index completed: 17 source-locator + micro-task bindings across R1-R12; no copied medical answer or image-rating ceremony.",
+    "Astro projects learning focus, Logic Group goal/closure, cross-Block cues, selective Precision awareness, Visual triggers, KP Recall, Block Recall, and weak-Memory review while keeping canonical Block/KP content authoritative."
+  ],
+  "current_owners_to_read": [
+    "content/xizong/knowledge/learner/study-policy.json",
+    "content/xizong/knowledge/learner/a2-respiratory-learning.json",
+    "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
+    "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+    "content/xizong/knowledge/systems/a2-respiratory/system.json",
+    "content/xizong/knowledge/manifest.json"
+  ],
+  "next_action": {
+    "stage": "END_TO_END_BLOCK_VALIDATION",
+    "instruction": "Run one complete A2 Block through the real learner flow before adding another learning taxonomy or major feature. Observe actual friction in Block Learn -> Logic Group -> KP Learn -> Lecture use -> paired Lecture questions where applicable -> Logic Group closure -> KP Recall -> Block Recall -> Memory/Review.",
+    "default_pilot": "respiratory-r03",
+    "default_pilot_reason": "COPD exercises mechanism, Lecture/KianOS boundary, Reserve/Hook reactivation, selective Precision, Visual timing, Recall, and Memory without requiring the heaviest procedural/TNM material.",
+    "learner_override": "If the learner is actually studying another A2 Block, use that real Block instead of forcing the default pilot.",
+    "observe": [
+      "REPETITION: KianOS and Lecture make the learner read the same knowledge twice.",
+      "INTERRUPTION: Reserve, Hook, Precision, Visual, controls, or handoff break the current mechanism chain.",
+      "OVERLOAD: the screen shows more than is useful for the current cognitive action.",
+      "UNDER_SUPPORT: a missing cue/visual/boundary materially slows understanding or causes content-loss anxiety.",
+      "RECALL_QUALITY: prompts support active recovery without leaking the answer and Block Recall genuinely compresses instead of rereading."
+    ],
+    "success_condition": "Use observed learner friction to remove, move, or minimally patch existing support. Do not generalize new functionality across 159 Blocks until the real Block validation shows it is useful."
+  },
+  "do_not_reopen_without_new_evidence": [
+    "Do not add more learning-stage taxonomies merely for completeness.",
+    "Do not turn KianOS into a second Lecture or require duplicate long-form reading.",
+    "Do not equate MI-D with Precision or turn Precision into a separate first-pass drill queue.",
+    "Do not put Connection Hooks into ordinary Memory.",
+    "Do not turn Reserve Learning into a second course or require full Recall before the formal owner.",
+    "Do not build a giant all-relations knowledge graph; only structure relations that change learner attention, timing, or reactivation.",
+    "Do not infer Question-to-Knowledge mappings from title similarity, page proximity, Block membership, or model intuition.",
+    "Do not optimize for more UI controls, cards, metadata, or governance files without observed learning benefit.",
+    "Do not treat selective Precision/Visual indexes as exhaustive coverage; canonical Block/KP content remains lossless authority.",
+    "Do not use legacy repository content as normal Current authority."
+  ],
+  "after_validation": [
+    "Patch the validated Block based on learner friction, preferring deletion/simplification over new feature creation.",
+    "If the learning language survives real use, generalize by cognitive family rather than forcing every subject into one identical template.",
+    "Preserve the frozen first-pass -> second-pass -> late-review stage responsibilities and System-level true-question strategy from study-policy.json."
+  ],
+  "continuation_policy": {
+    "update_when": "Update this file only at meaningful shared-work stage transitions or when the next shared Xizong action changes materially.",
+    "do_not_store": [
+      "personal progress",
+      "Recall ratings",
+      "Wrong/Uncertain state",
+      "comments/notes",
+      "session position",
+      "timers",
+      "private browser history"
+    ],
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, study-policy.json, and only the Current owners needed by next_action. Continue from next_action instead of reconstructing the roadmap from legacy chats."
+  }
+}
