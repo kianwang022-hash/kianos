@@ -210,7 +210,7 @@ Durable lexical knowledge belongs in LexicalOS.
 
 ### Reading admission
 
-Prefer a small WATCH-style future observation target over a permanent “weakness label.”
+Prefer a small reusable future observation target over a permanent “weakness label.” For objective-task procedures, the tracked object is a justified repair thread / transfer claim under `modules/objective-evidence-runtime.md`, not a per-question WATCH signal. Reading-comprehension knowledge remains with the Reading ability owner.
 
 ### Translation admission
 
@@ -241,11 +241,13 @@ Primary path:
 
 `understand → locate evidence → adjudicate options → execute`
 
-Default review object:
+User-facing review object: **one complete passage and its full question set**.
+
+Internal repair slice, selected only after whole-passage diagnosis:
 
 `question + minimal decisive evidence + chosen/correct contrast`
 
-Question type may describe an item, but it is not assumed to explain the failure.
+Question type may describe an item, but it is not assumed to explain the failure. Shared root causes should absorb dependent errors when supported; genuinely independent failures must not be forced into one cause.
 
 ### Translation
 
@@ -282,7 +284,9 @@ Primary path:
 
 `slot demand → lexical / syntactic / discourse constraints → candidate best fit`
 
-Default review object:
+User-facing review object: **one complete Cloze passage/set**.
+
+Internal repair slice, selected only after whole-set diagnosis:
 
 `local context + decisive constraints + high-value candidate contrast`
 
@@ -292,9 +296,9 @@ Primary path:
 
 `discourse structure → missing / required role → cohesion constraints → candidate fit`
 
-Default review object:
+User-facing review object: **one complete Part B material/set**, preserving its actual directions, task form, candidate inventory, and any fixed givens.
 
-`before/after context + discourse role + decisive fit constraint`
+Internal repair slices depend on the source form. Gap matching and ordering may require before/after context, discourse roles, and a coupled placement map. Heading matching requires paragraph central claim and heading scope. Comment–statement matching requires speaker attribution, stance, and qualification. These are task-specific applications of the shared model, not permission to turn every form into a gap-filling UI.
 
 ## Vocabulary / LexicalOS
 
@@ -354,3 +358,11 @@ Any new button, label, panel, field, persistent state, or review step must answe
 If not, remove or avoid it.
 
 The system should become **richer in backend learning value and smaller in learner-facing noise**.
+
+## Complete-but-skippable learning and acceptance boundary
+
+Static first-learning assets remain substantive even for proficient learners. Skipping changes navigation only: self-report, a skim, an explanation, a synthetic demonstration, or a passing software test must not create learner mastery or close a real transfer claim. Do not record a calibration PASS merely because the learner says the introductory framework is familiar.
+
+Engineering continuation is not private learner progress. The next learner action must follow actual learning evidence and the learner's intent, not whichever test the repository can execute. During an authorized engineering/content acceptance task, do not require the learner to consume a fresh exam merely to compensate for missing software validation.
+
+Root `LEARNING_ACCEPTANCE.md` governs S/K/L/P/R/E/U and readiness language. Evaluate Reading A, Cloze, and Reading B individually; a shared runtime or learning page does not grant their gates automatically. Simulated clean, repair, return, and transfer journeys may support S–E within the tested scope. U requires actual learner use and cannot be supplied by screenshots, build success, or synthetic QA. Module acceptance is separate from final Home/global integration.
