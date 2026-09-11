@@ -36,6 +36,18 @@ function typeSummary(value) {
   return typeof value;
 }
 
+function compactDiagnostic(value, depth = 0) {
+  if (value === null || value === undefined) return value;
+  if (typeof value === 'string') return value.slice(0, 500);
+  if (typeof value === 'number' || typeof value === 'boolean') return value;
+  if (depth >= 3) return typeSummary(value);
+  if (Array.isArray(value)) return value.slice(0, 8).map((item) => compactDiagnostic(item, depth + 1));
+  if (typeof value === 'object') {
+    return Object.fromEntries(Object.entries(value).map(([key, child]) => [key, compactDiagnostic(child, depth + 1)]));
+  }
+  return String(value);
+}
+
 function validateSourceProjection() {
   const state = inspectTranslationSources();
   const sets = listTranslationSets();
@@ -136,24 +148,16 @@ function printReferenceGapDiagnostics() {
     const wanted = new Set(missingReferenceIds);
     const diagnostics = rows
       .filter((row) => wanted.has(String(row?.id || row?.question_id || '')))
-      .map((row) => {
-        const interesting = Object.fromEntries(Object.entries(row)
-          .filter(([key]) => /answer|translation|reference|target|analysis|explanation|rationale|solution/i.test(key))
-          .map(([key, value]) => [key, typeof value === 'string' ? value.slice(0, 240) : typeSummary(value)]));
-        const context = row?.context && typeof row.context === 'object'
-          ? Object.fromEntries(Object.entries(row.context)
-            .filter(([key]) => /answer|translation|reference|target|analysis|explanation|rationale|solution/i.test(key))
-            .map(([key, value]) => [key, typeof value === 'string' ? value.slice(0, 240) : typeSummary(value)]))
-          : {};
-        return {
-          id: row?.id || row?.question_id || '',
-          keys: Object.keys(row).sort(),
-          contextKeys: row?.context && typeof row.context === 'object' ? Object.keys(row.context).sort() : [],
-          interesting,
-          contextInteresting: context
-        };
-      });
-    console.error('\nTranslation missing-reference source-shape diagnostics:');
+      .map((row) => ({
+        id: row?.id || row?.question_id || '',
+        answer: compactDiagnostic(row?.answer),
+        analysis: compactDiagnostic(row?.analysis),
+        formal_answer: compactDiagnostic(row?.formal_answer),
+        correct_answer: compactDiagnostic(row?.correct_answer),
+        reference_translation: compactDiagnostic(row?.reference_translation),
+        target_text: compactDiagnostic(row?.target_text)
+      }));
+    console.error('\nTranslation missing-reference nested diagnostics:');
     console.error(JSON.stringify(diagnostics, null, 2));
   } catch (error) {
     console.error(`\nTranslation diagnostics failed: ${error instanceof Error ? error.message : String(error)}`);
