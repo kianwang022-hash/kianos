@@ -177,7 +177,7 @@ function validateContractAndUi() {
   requireText('workspace', workspace, 'KIANOS_TRANSLATION_HANDOFF_V2');
   requireText('workspace', workspace, 'data-chat-return');
   requireText('workspace', workspace, 'data-import-return');
-  requireText('workspace', workspace, 'data-reconstruct-id');
+  requireText('workspace', workspace, 'dataset.reconstructId');
   requireText('workspace', workspace, 'TRANSFER_PENDING');
   requireText('workspace', workspace, 'pendingTransferTargets');
   requireText('workspace', workspace, 'referenceRevealed');
@@ -188,7 +188,7 @@ function validateContractAndUi() {
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
   requireText('task page', taskPage, 'loadTranslationReferencesById');
-  requireText('learn page', learnPage, 'translation-b1');
+  requireText('learn page', learnPage, "['B1', 'B1 · Representation']");
   requireText('learn page', learnPage, 'Skill Map + Deep Skills');
   requireText('learn page', learnPage, '系统 / Chat 参考');
 }
@@ -199,14 +199,12 @@ function validateLearnerJourneys() {
     { id: 's2', ordinal: 2, sourceText: 'Source two.' }
   ];
 
-  // Whole-set evidence gate: one filled segment must never count as a complete set.
   let state = blankTranslationState(prompts);
   state.drafts.s1 = '译文一';
   let frozen = freezeWholeAttempt(state, prompts, '2026-09-12T00:00:00.000Z');
   check(frozen.ok === false, 'partial set must not freeze');
   check(frozen.missing.length === 1 && frozen.missing[0] === 's2', 'missing segment must be identified');
 
-  // Stable clean path: complete set -> decision -> PASS, with no manufactured repair debt.
   state.drafts.s2 = '译文二';
   frozen = freezeWholeAttempt(state, prompts, '2026-09-12T00:01:00.000Z');
   check(frozen.ok === true && frozen.state.stage === 'decision', 'complete clean attempt must reach PASS/Review decision');
@@ -214,7 +212,6 @@ function validateLearnerJourneys() {
   check(passed.stage === 'passed' && passed.decision === 'PASS', 'stable work must have executable PASS path');
   check(passed.pendingTransferCandidate == null, 'clean PASS must not manufacture a transfer target');
 
-  // Failure path: whole-set review -> structured Chat return -> targeted reconstruction -> TRANSFER_PENDING.
   state = blankTranslationState(prompts);
   state.drafts.s1 = '第一次一';
   state.drafts.s2 = '第一次二';
@@ -255,7 +252,6 @@ function validateLearnerJourneys() {
   check(repaired.ok === true && repaired.state.stage === 'transfer_pending', 'reusable repaired failure must become TRANSFER_PENDING');
   check(pendingTransferTargets(repaired.ledger).length === 1, 'admitted reusable target must exist in private transfer ledger');
 
-  // Fresh transfer path: later relevant independent evidence may close; irrelevant evidence may not.
   const irrelevantPacket = `${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({
     schema: TRANSLATION_RETURN_SCHEMA,
     task: 'task-b',
