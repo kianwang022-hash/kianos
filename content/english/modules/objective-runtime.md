@@ -88,7 +88,89 @@ Dependent errors must not be counted as independent weaknesses merely because se
 
 ---
 
-## 4｜Objective runtime state machine
+## 4｜Passage / Set Review Packet v1
+
+The Chat bridge follows the frozen review unit. The normal action is **copy/send one complete passage or question set**, not one question at a time.
+
+### Packet layers
+
+A review packet should contain four layers.
+
+#### A. Unit identity
+
+- task: Cloze / Reading A / Reading B;
+- stable passage/set object ID;
+- paper/year/section identity when available;
+- source identity sufficient to resolve the canonical Current object.
+
+#### B. Attempt summary
+
+- score / total;
+- duration when captured;
+- submitted time when useful;
+- wrong / unanswered item ordinals;
+- uncertain item ordinals;
+- whether this came from an ordinary single-unit attempt or a sealed continuous-training session.
+
+#### C. Complete outcome map
+
+Every item remains visible to diagnosis in compact form, including stable correct items. For each question / blank / placement, preserve when available:
+
+- item ID / ordinal;
+- learner final answer;
+- formal answer;
+- outcome: correct / wrong / unanswered;
+- uncertain state;
+- answer trajectory when captured;
+- optional learner quick note/cause, if the learner chose to record one.
+
+Stable correct items stay compact. Their presence matters because Chat may need to distinguish a local failure from a passage-level representation failure, but they should not be expanded into needless explanation.
+
+#### D. Diagnostic content
+
+The packet must contain enough source/task content for Chat to diagnose the unit without forcing the learner to manually retell it.
+
+Preferred clipboard behavior is self-contained at the **one-passage / one-set** level:
+
+- include the passage/material once;
+- expand prompts/options/candidates for wrong, unanswered, or uncertain items;
+- keep stable-correct items as compact outcome rows unless their content is needed to establish a shared cause;
+- include a learner-selected text span only as supplemental evidence, never as a substitute for the unit context.
+
+Stable IDs may reduce duplication when Chat can resolve Current content directly, but the learner-facing copy action should not depend on a fragile cross-repository lookup merely to understand one normal review packet.
+
+### Chat diagnosis order
+
+Chat should process the packet in this order:
+
+```text
+whole-unit attempt
+→ identify meaningful problem items
+→ test for shared root cause / shared representation failure
+→ distinguish primary vs dependent/cascading errors
+→ choose minimum repair scope
+→ route durable ability failures
+→ create only justified TRANSFER_PENDING claims
+→ mark the passage/set review complete
+```
+
+The default output should therefore be a small number of **repair threads**, not one review card per wrong item.
+
+A repair thread may cover:
+
+- one local item when genuinely independent;
+- several items sharing one Reading/Lexical/task-specific cause;
+- one structure-level failure that explains several downstream errors.
+
+### UI consequence
+
+A single-question `copy to Chat` control must not be the normal objective-review bridge.
+
+Question-level controls may still exist for internal navigation, evidence inspection, or a local repair action **after the passage/set has been diagnosed**, but they must not redefine the user-facing review unit.
+
+---
+
+## 5｜Objective runtime state machine
 
 ```text
 ATTEMPT
@@ -121,7 +203,7 @@ Rules:
 
 ---
 
-## 5｜Cloze v1
+## 6｜Cloze v1
 
 ### Cognitive object
 
@@ -144,6 +226,15 @@ A Cloze repair should not default to explaining all four words. The valuable dia
 
 > What did this slot require, and which constraint actually separated the competing candidates?
 
+### Review packet specialization
+
+A Cloze packet is one complete Cloze passage/set.
+
+- preserve a compact outcome row for every blank;
+- expand wrong / unanswered / uncertain blanks with the minimum sentence/local-window context plus candidates;
+- keep the whole passage available so Chat can detect sentence-to-sentence or global-context causes;
+- do not generate twenty independent review cards merely because the paper contains twenty blanks.
+
 ### Root-cause routing
 
 - unknown sense / phrase / construction / collocation / confusable → **Lexical**;
@@ -162,7 +253,7 @@ Task-specific procedural claims live as temporary **TRANSFER_PENDING** evidence 
 
 ---
 
-## 6｜Reading A v1 relationship
+## 7｜Reading A v1 relationship
 
 ### Cognitive object
 
@@ -172,11 +263,21 @@ Reading A remains governed by its module contract for task-specific interaction,
 
 The learner completes the passage before review. Internal question-level evidence may be used to locate local failures, but Chat review begins from the complete passage attempt and merges shared causes/dependencies before deciding repair scope.
 
+### Review packet specialization
+
+A Reading A packet is one complete passage attempt.
+
+- include the passage once;
+- include a compact outcome row for every question;
+- expand prompt/options for wrong, unanswered, or uncertain questions;
+- preserve answer trajectory / uncertainty / optional learner note when captured;
+- let Chat decide whether several question failures originate from one sentence, paragraph, discourse, evidence-boundary, or option-adjudication failure.
+
 A remembered old question answered correctly is weak mastery evidence; later correct reasoning on fresh material is stronger.
 
 ---
 
-## 7｜Reading B / Part B v1
+## 8｜Reading B / Part B v1
 
 ### Cognitive object
 
@@ -198,11 +299,22 @@ Local keyword overlap is evidence, not authority. A candidate may fit one adjace
 
 Because one early placement can distort later candidate relationships, Part B diagnosis must support dependency/cascade analysis rather than treating every wrong slot as an independent weakness.
 
+### Review packet specialization
+
+A Reading B packet is one complete Part B material/set.
+
+- include the full passage/material and candidate inventory needed to reconstruct the task;
+- include the learner's complete placement/matching map and formal map;
+- preserve uncertainty/trajectory when captured;
+- diagnose structure before splitting the set into local positions;
+- explicitly allow local, coupled, or structure-level repair;
+- attach dependent wrong placements to the primary structural error instead of counting each as a separate weakness.
+
 Long-term review should target reusable lexical/reading objects or a genuinely recurring Part B procedure failure, not memorization of one historical ordering.
 
 ---
 
-## 8｜Evidence hierarchy
+## 9｜Evidence hierarchy
 
 A useful cross-objective ordering is:
 
@@ -224,7 +336,7 @@ The exact evidence object may differ by task, but the direction is frozen:
 
 ---
 
-## 9｜Relationship to Translation and Writing
+## 10｜Relationship to Translation and Writing
 
 This Objective Runtime does **not** govern Translation/Writing cognition. They inherit the common rules from `content/english/LEARNING_CONTRACT.md`, including:
 
@@ -245,9 +357,11 @@ Writing currently inherits the common Learning Contract directly until a Writing
 
 ---
 
-## 10｜Do not reopen casually
+## 11｜Do not reopen casually
 
 This v1 is frozen as the objective-task baseline.
+
+The passage/set packet rules above are an implementation clarification of the already-frozen review-unit principle, not a reopening of the cognitive architecture.
 
 Do not reopen it because a UI component is inconvenient, because one source/book uses a different taxonomy, or because each exam section appears separately on the paper.
 
