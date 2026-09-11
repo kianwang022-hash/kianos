@@ -2,10 +2,12 @@
 import Base from '../layouts/Base.astro';
 import '../styles/reading.css';
 import ReadingWorkspace from '../components/ReadingWorkspace.astro';
-import { inspectReadingSources, loadReading } from '../lib/current.mjs';
+import ReadingPassageNavigator from '../components/ReadingPassageNavigator.astro';
+import { inspectReadingSources } from '../lib/current.mjs';
+import { loadDefaultReading } from '../lib/englishReading.mjs';
 
 const sourceState = inspectReadingSources();
-const reading = sourceState.status === 'ready' ? loadReading() : null;
+const reading = sourceState.status === 'ready' ? loadDefaultReading() : null;
 const pendingDescription = sourceState.status === 'invalid'
   ? 'English Current 已落仓，但来源完整性检查未通过；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 hash gate 后自动启用。';
@@ -20,7 +22,10 @@ const pendingDescription = sourceState.status === 'invalid'
   active="reading"
 >
   {reading ? (
-    <ReadingWorkspace reading={reading} />
+    <>
+      <ReadingWorkspace reading={reading} />
+      <ReadingPassageNavigator reading={reading} />
+    </>
   ) : (
     <section class="migrationPending">
       <span>Fail-closed · {sourceState.status}</span>
@@ -38,7 +43,7 @@ const pendingDescription = sourceState.status === 'invalid'
           {sourceState.issues.map((item) => <code>{item}</code>)}
         </div>
       )}
-      <code>Current source → hash gate → loadReading() → Reading Workspace</code>
+      <code>Current source → hash gate → Reading Workspace</code>
     </section>
   )}
 </Base>
