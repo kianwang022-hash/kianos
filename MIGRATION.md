@@ -36,12 +36,54 @@ The new runtime verifies the manifest/source hashes before `loadReading()` is al
 
 **Phase 1 clean-room baseline is closed.** Full asset migration and global QA remain separate bounded phases.
 
+## Phase 2 — Politics Current transferred
+
+Politics was admitted only after the pinned legacy owner manifest had already resolved the durable source roles. Migration did not re-interpret political content and did not promote generated projections.
+
+Transferred Current owners:
+- `content/politics/manifest.json`
+- `content/politics/provenance.json`
+- `content/politics/source/politics_unified_regions.v1.jsonl`
+- `content/politics/source/question_knowledge_links.jsonl`
+- `content/politics/source/source_node_registry.v2.jsonl`
+- `content/politics/source/xiao_2027_explanation_provenance.v1.json`
+- `content/politics/source/xiao_2027_question_assets.json`
+- `content/politics/source/xiao_2027_questions.jsonl`
+
+Destination admission commit: `42a76bb11b5ef27c80b6261460da9e181b0a64cd`.
+
+Exact identity proof:
+- `manifest.json` — Git blob `da00efadff3e870e3b4259c68f0fbca1e78949b8`; SHA-256 `e28c9cd622f85ab8581b86990257bc06a15a174b7cc974f0db0dcd7b0e532dcb`
+- `provenance.json` — Git blob `07f78fce8505550f34e34deb0864692642009b2a`; SHA-256 `38c30180fa37cd5fd7b5a1d2980b721207cf62883ba7e80a76ae1c4ef8309bf5`
+- `politics_unified_regions.v1.jsonl` — Git blob `7a850bd96c6263302c9b53dd0a1b73801538857f`; SHA-256 `2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054`
+- `question_knowledge_links.jsonl` — Git blob `5b7600e523cab3cfe736cd8e5baf89a048a0b65a`; SHA-256 `b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a`
+- `source_node_registry.v2.jsonl` — Git blob `6199f1dfc8af72470a76145aedf92f840e331cfc`; SHA-256 `0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38`
+- `xiao_2027_explanation_provenance.v1.json` — Git blob `24b97cbb13c85359b82fa531058ff546593c3b48`; SHA-256 `f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899`
+- `xiao_2027_question_assets.json` — Git blob `eb97f07022157c4d4714c4be5b6d8045ad070e0c`; SHA-256 `8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1`
+- `xiao_2027_questions.jsonl` — Git blob `47d372d73efceef82222a2d418e97a4d8538ba97`; SHA-256 `67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d`
+
+Mechanical validation:
+- GitHub source-side export verified the pinned Git blob identities and source SHA-256 values before creating the transfer artifact.
+- The transfer artifact digest was independently verified before extraction.
+- Destination import re-verified all eight Git blob identities and SHA-256 values before commit.
+- JSON owner/provenance sidecars parse successfully.
+- JSONL cardinalities: questions `1172`; knowledge links `1148`; unified regions `160`; source nodes `19528`.
+- Destination `main` directory identities independently match the pinned source blobs after the import commit.
+
+Explicit Politics exclusions:
+- legacy `content/politics/README.md`
+- legacy `content/politics/RECOVERY_CONTRACT.md`
+- generated `app/product/politics-continuous-coverage.generated.json`
+- generated Politics audit/build/runtime/freeze projections named by the owner manifest
+- legacy governance/runtime/release trees
+
+**Phase 2 Politics Current is closed.**
+
 ## Later migration
 
 - remaining accepted Xizong Current
 - full Lexical canonical owner set
 - remaining English Current beyond the admitted Reading dependencies
-- Politics Current
 - only mechanical tools still proven necessary in the new architecture
 
 Accepted content is not semantically re-reviewed merely because it moves repositories.
