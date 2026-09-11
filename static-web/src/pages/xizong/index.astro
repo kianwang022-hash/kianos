@@ -1,15 +1,21 @@
 ---
 import Base from '../../layouts/Base.astro';
+import XizongHomeTools from '../../components/XizongHomeTools.astro';
 import { listProjectableXizongSystems } from '../../lib/xizong.mjs';
 
 const base = import.meta.env.BASE_URL;
 const systems = listProjectableXizongSystems();
+const firstSystem = systems[0];
+const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
+const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
 ---
 <Base title="西医综合" kicker="Xizong · Current" description="System owner 决定系统学习结构；Block Markdown 保持医学 Core；Astro 只做 learner-facing projection。" active="xizong">
   <section class="homeCurrentStrip">
     <div><p class="pageKicker">Current owner projection</p><h2>System → Block → Logic Group → KP</h2><p>只有已经具备 Chat-approved system owner + exact Logic Group index 的系统才在这里进入 v6 Runtime；缺失依赖直接 fail closed。</p></div>
     <aside><strong>{systems.length} systems ready</strong><span>learner state · browser local</span><span>no legacy fallback</span></aside>
   </section>
+
+  <XizongHomeTools firstHref={firstHref} firstLabel={firstLabel} />
 
   <section class="homeGrid">
     {systems.map((system) => <a class="homeLane" href={`${base}xizong/${system.systemId}/`}>
