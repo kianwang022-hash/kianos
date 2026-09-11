@@ -34,7 +34,10 @@ jobs:
         run: |
           mkdir -p objective-audit
           git rev-parse HEAD > objective-audit/commit.txt
-          tar -czf objective-audit/inputs.tar.gz static-web content/english AGENTS.md CURRENT.md SYSTEM_CONTRACT.md
+          tar -czf objective-audit/inputs.tar.gz static-web content/english AGENTS.md CURRENT.md SYSTEM_CONTRACT.md LEARNING_ACCEPTANCE.md
+      - name: Inspect Reading B Current source forms
+        working-directory: static-web
+        run: node scripts/audit-reading-b-source.mjs > ../objective-audit/reading-b-source.json
       - name: Install runtime
         working-directory: static-web
         run: npm install --no-audit --no-fund
