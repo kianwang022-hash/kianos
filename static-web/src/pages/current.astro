@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
+import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
@@ -8,6 +9,7 @@ import { politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
 const reading = inspectReadingSources();
+const translation = inspectTranslationSources();
 const lexical = inspectLexicalSources();
 const politics = politicsCurrentHealth();
 
@@ -33,17 +35,22 @@ const lanes = [
     key: 'english',
     label: '英语',
     href: `${base}reading/`,
-    current: reading.status === 'ready' ? 'Ready' : 'Partial',
+    secondary: translation.status === 'ready'
+      ? { label: 'Translation', href: `${base}translation/` }
+      : null,
+    current: reading.status === 'ready' && translation.status === 'ready' ? 'Ready' : 'Partial',
     note: reading.status === 'ready'
-      ? 'Reading 已接通 Current、Review、Transfer 与 Session Handoff；Translation/Writing runtime 仍按各自认知继续落地。'
+      ? translation.status === 'ready'
+        ? `Objective/Reading 仍是默认主入口；Translation 已作为独立 Productive lane 接通 ${translation.setCount} 套 Current task。${translation.referenceGaps?.length ? `其中 ${translation.referenceGaps.length} 个 segment 的 reference 仍为 pending_review，但原文与 productive runtime 可用且不会补造答案。` : ''} Writing 继续后置。`
+        : `Reading 已接通 Current、Review、Transfer 与 Session Handoff；Translation Current gate: ${translation.status}。`
       : `Reading Current gate: ${reading.status}`,
     capabilities: [
-      ['Current', reading.status === 'ready' ? 'Ready' : 'Partial'],
-      ['Continue', 'Reading ready'],
-      ['Navigate', 'Reading ready'],
-      ['Repair / Review', 'Reading ready'],
-      ['Verify / Transfer', 'Reading ready'],
-      ['Return / Handoff', 'Reading ready'],
+      ['Objective / Reading', reading.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Productive / Translation', translation.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Continue / Navigate', reading.status === 'ready' && translation.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Repair / Review', reading.status === 'ready' && translation.status === 'ready' ? 'Ready' : 'Partial'],
+      ['Verify / Transfer', 'Lane-specific'],
+      ['Return / Handoff', reading.status === 'ready' && translation.status === 'ready' ? 'Ready' : 'Partial'],
       ['Deferred', 'Shared'],
       ['Validation', 'Module-by-module']
     ]
@@ -108,7 +115,10 @@ const lanes = [
       <article class="currentLane">
         <header>
           <div><span>{lane.current}</span><h2>{lane.label}</h2></div>
-          <a href={lane.href}>进入 →</a>
+          <nav>
+            <a href={lane.href}>进入 →</a>
+            {lane.secondary && <a class="secondary" href={lane.secondary.href}>{lane.secondary.label} →</a>}
+          </nav>
         </header>
         <p>{lane.note}</p>
         <dl>
@@ -127,6 +137,6 @@ const lanes = [
 <style>
   .currentIntro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding:26px 28px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
   .currentIntro>div>span{color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.currentIntro h2{margin:5px 0 8px;font-size:28px}.currentIntro p{max-width:78ch;margin:0;color:var(--study-muted);font-size:14px;line-height:1.7}.currentIntro aside{display:grid;gap:3px;min-width:190px;padding-left:22px;border-left:1px solid var(--study-line)}.currentIntro aside strong{color:var(--study-green)}.currentIntro aside span{color:var(--study-faint);font-size:11px}
-  .currentGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.currentLane{padding:22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.currentLane header{display:flex;justify-content:space-between;gap:14px;align-items:start}.currentLane header span{color:var(--study-green);font-size:10px;font-weight:800}.currentLane h2{margin:4px 0 0;font-size:25px}.currentLane header a{color:inherit;text-decoration:none;font-size:12px;font-weight:800}.currentLane>p{min-height:66px;color:var(--study-muted);font-size:13px;line-height:1.65}.currentLane dl{display:grid;gap:5px;margin:14px 0 0}.currentLane dl>div{display:flex;justify-content:space-between;gap:16px;padding:7px 9px;border-radius:8px;background:var(--study-green-soft)}.currentLane dl>div.partial{background:#fff4e7}.currentLane dt{font-size:11px;font-weight:750}.currentLane dd{margin:0;color:var(--study-muted);font-size:11px;text-align:right}
+  .currentGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.currentLane{padding:22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.currentLane header{display:flex;justify-content:space-between;gap:14px;align-items:start}.currentLane header span{color:var(--study-green);font-size:10px;font-weight:800}.currentLane h2{margin:4px 0 0;font-size:25px}.currentLane header nav{display:grid;gap:5px;justify-items:end}.currentLane header a{color:inherit;text-decoration:none;font-size:12px;font-weight:800}.currentLane header a.secondary{color:var(--study-green);font-size:10px}.currentLane>p{min-height:66px;color:var(--study-muted);font-size:13px;line-height:1.65}.currentLane dl{display:grid;gap:5px;margin:14px 0 0}.currentLane dl>div{display:flex;justify-content:space-between;gap:16px;padding:7px 9px;border-radius:8px;background:var(--study-green-soft)}.currentLane dl>div.partial{background:#fff4e7}.currentLane dt{font-size:11px;font-weight:750}.currentLane dd{margin:0;color:var(--study-muted);font-size:11px;text-align:right}
   @media(max-width:860px){.currentIntro{grid-template-columns:1fr}.currentIntro aside{padding:14px 0 0;border-left:0;border-top:1px solid var(--study-line)}.currentGrid{grid-template-columns:1fr}}
 </style>
