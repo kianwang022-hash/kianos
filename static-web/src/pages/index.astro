@@ -53,12 +53,17 @@ const writingLearning = loadWritingLearningProjection();
         : 'Current source 未通过读取条件；Runtime 保持 fail-closed，不回退 legacy 或历史版本。'}</p>
       <footer><span>{readingReady ? 'ready' : 'source-gated'}</span><b>{readingReady ? '进入 →' : '查看 →'}</b></footer>
     </a>
-    <a class="homeLane" href={`${base}writing/`}>
-      <div><span>English · Writing Productive Lane</span><h2>Writing</h2></div>
+    <a class="homeLane" href={`${base}writing-learn/`}>
+      <div><span>English · Writing First Learning</span><h2>Writing</h2></div>
       <p>{writingLearning.status === 'ready'
-        ? 'First Learning → Full Synthetic Output → Whole-Essay PASS / Repair；先建立主动生成能力，受保护真题不用于 cold start。'
+        ? 'Global Map → B1–B8 → Full Synthetic Gate；先建立主动生成能力，受保护真题不用于 cold start。'
         : 'Writing canonical learning projection 当前存在结构 blocker；入口保持 fail-closed。'}</p>
-      <footer><span>{writingLearning.status === 'ready' ? 'synthetic-first' : 'projection-gated'}</span><b>{writingLearning.status === 'ready' ? '进入 →' : '查看 →'}</b></footer>
+      <footer><span>{writingLearning.status === 'ready' ? 'synthetic-first' : 'projection-gated'}</span><b>{writingLearning.status === 'ready' ? '开始学习 →' : '查看 →'}</b></footer>
+    </a>
+    <a class="homeLane" href={`${base}writing/`}>
+      <div><span>English · Writing Synthetic Runtime</span><h2>Whole-Essay Practice</h2></div>
+      <p>完成 First Learning 主链后使用：完整 synthetic Small / Big → Chat whole-essay PASS / Repair → learner re-generation。这里不开放受保护真题。</p>
+      <footer><span>after first learning</span><b>进入 synthetic runtime →</b></footer>
     </a>
   </section>
 </Base>
