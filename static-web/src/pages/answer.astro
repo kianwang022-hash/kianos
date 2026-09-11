@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import VocabularyBrowser from '../components/VocabularyBrowser.astro';
 import VocabularyWordRuntime from '../components/VocabularyWordRuntime.astro';
+import VocabularyChallengeRuntime from '../components/VocabularyChallengeRuntime.astro';
 import { loadAnswer } from '../lib/lexical.mjs';
 
 const answer = loadAnswer();
@@ -9,4 +10,5 @@ const answer = loadAnswer();
 <Base title="Vocabulary" kicker="LexicalOS · Current Natural Owner" sourcePath={answer.sourcePath} sourceHash={answer.sourceHash} objectId={answer.objectId} active="lexical">
   <VocabularyBrowser answer={answer} />
   <VocabularyWordRuntime answer={answer} />
+  <VocabularyChallengeRuntime />
 </Base>
