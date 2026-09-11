@@ -2,9 +2,16 @@
 const { reading } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const questions = reading.questions || [];
+const navigation = reading.navigation || {};
 const questionId = (question, index) => String(question.id || question.question_id || `q${question.ordinal || index + 1}`);
 ---
-<section class="portedReadingSession portedReadingSessionV3" data-local-port="reading" data-reading-object={reading.objectId}>
+<section
+  class="portedReadingSession portedReadingSessionV3"
+  data-local-port="reading"
+  data-reading-object={reading.objectId}
+  data-reading-base={base}
+  data-reading-next-id={navigation.nextId || ''}
+>
   <header class="portedReadingSessionHeader">
     <a href={base}>‹ Practice</a>
     <div class="portedReadingHeaderCenter">
@@ -14,6 +21,7 @@ const questionId = (question, index) => String(question.id || question.question_
       <small data-reading-timer>00:00</small>
     </div>
     <div class="portedReadingHeaderActions">
+      <button type="button" data-reading-continuous aria-pressed="false">连续练</button>
       <button type="button" data-reading-prev aria-label="上一题">‹</button>
       <button type="button" data-reading-next aria-label="下一题">›</button>
       <button type="button" class="submit" data-reading-submit>Submit</button>
@@ -39,6 +47,12 @@ const questionId = (question, index) => String(question.id || question.question_
     <div class="portedReadingResultSummary">
       <b data-reading-summary></b>
       <div data-reading-review-nav></div>
+      <div class="portedReadingSessionActions" data-reading-session-actions hidden>
+        <button type="button" data-reading-session-continue>下一篇 →</button>
+        <button type="button" data-reading-session-review>结束并统一复盘</button>
+        <button type="button" data-reading-session-next-review hidden>下一篇复盘 →</button>
+        <button type="button" data-reading-session-finish hidden>结束本次训练</button>
+      </div>
     </div>
   </section>
 
@@ -89,7 +103,7 @@ const questionId = (question, index) => String(question.id || question.question_
             <section class="portedReadingRepair" data-reading-repair hidden>
               <header>
                 <div>
-                  <span>本篇复盘 · 当前题</span>
+                  <span>只处理这道</span>
                   <strong data-reading-repair-title></strong>
                 </div>
                 <small>错因可选，一点即可</small>
@@ -133,7 +147,10 @@ const questionId = (question, index) => String(question.id || question.question_
   const root = document.querySelector('[data-local-port="reading"]');
   if (root) {
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
+    const basePath = root.getAttribute('data-reading-base') || '/';
+    const nextReadingId = root.getAttribute('data-reading-next-id') || '';
     const storageKey = `kianos-reading-attempt-v1:${readingKey}`;
+    const continuousKey = 'kianos-reading-continuous-session-v1';
     const navButtons = [...root.querySelectorAll('.portedReadingQuestionNav button')];
     const questions = [...root.querySelectorAll('[data-question]')];
     const progress = root.querySelector('[data-reading-progress]');
@@ -141,6 +158,7 @@ const questionId = (question, index) => String(question.id || question.question_
     const sessionCount = root.querySelector('[data-reading-session-count]');
     const prev = root.querySelector('[data-reading-prev]');
     const next = root.querySelector('[data-reading-next]');
+    const continuous = root.querySelector('[data-reading-continuous]');
     const submit = root.querySelector('[data-reading-submit]');
     const retry = root.querySelector('[data-reading-retry]');
     const reset = root.querySelector('[data-reading-reset]');
@@ -149,9 +167,42 @@ const questionId = (question, index) => String(question.id || question.question_
     const resultMeta = root.querySelector('[data-reading-result-meta]');
     const summaryLabel = root.querySelector('[data-reading-summary]');
     const reviewNav = root.querySelector('[data-reading-review-nav]');
+    const sessionActions = root.querySelector('[data-reading-session-actions]');
+    const continueSession = root.querySelector('[data-reading-session-continue]');
+    const reviewSession = root.querySelector('[data-reading-session-review]');
+    const nextReview = root.querySelector('[data-reading-session-next-review]');
+    const finishReview = root.querySelector('[data-reading-session-finish]');
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    };
+    const normalizeSession = (value = {}) => ({
+      version: 1,
+      active: Boolean(value.active),
+      reviewing: Boolean(value.reviewing),
+      startedAt: value.startedAt || '',
+      items: Array.isArray(value.items) ? value.items : [],
+      reviewIds: Array.isArray(value.reviewIds) ? value.reviewIds : [],
+      reviewIndex: Number.isFinite(Number(value.reviewIndex)) ? Number(value.reviewIndex) : 0,
+      lastSummary: value.lastSummary || null
+    });
+    const readSession = () => normalizeSession(readJson(continuousKey, {}));
+    const writeSession = (value) => writeJson(continuousKey, normalizeSession(value));
+    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}`;
+    const setReviewUnlockedFor = (id, unlocked) => {
+      if (!id) return;
+      const key = `kianos-reading-attempt-v1:${id}`;
+      const attempt = readJson(key, null);
+      if (!attempt || !attempt.submitted) return;
+      writeJson(key, { ...attempt, reviewUnlocked: Boolean(unlocked) });
+    };
 
     let state = {
-      version: 2,
+      version: 3,
       currentIndex: 0,
       startedAt: new Date().toISOString(),
       answers: {},
@@ -161,16 +212,32 @@ const questionId = (question, index) => String(question.id || question.question_
       results: {},
       history: [],
       trajectory: {},
-      causes: {}
+      causes: {},
+      reviewUnlocked: true
     };
     try {
       const saved = JSON.parse(localStorage.getItem(storageKey) || 'null') || {};
-      state = { ...state, ...saved, trajectory: saved.trajectory || {}, causes: saved.causes || {} };
+      state = {
+        ...state,
+        ...saved,
+        trajectory: saved.trajectory || {},
+        causes: saved.causes || {},
+        reviewUnlocked: saved.reviewUnlocked !== false
+      };
     } catch {}
+
+    let initialSession = readSession();
+    if (state.submitted && initialSession.reviewing && initialSession.reviewIds.includes(readingKey)) {
+      state.reviewUnlocked = true;
+    } else if (state.submitted && initialSession.active && initialSession.items.some((item) => item?.id === readingKey)) {
+      state.reviewUnlocked = false;
+    }
 
     const save = () => {
       try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {}
     };
+    save();
+
     const qid = (question) => question.getAttribute('data-question') || '';
     const ordinal = (question) => Number(question.getAttribute('data-index') || 0) + 1;
     const expected = (question) => {
@@ -202,6 +269,17 @@ const questionId = (question, index) => String(question.id || question.question_
         ['wrong', 'unanswered'].includes(state.results?.[id]) ||
         (state.uncertain || []).includes(id)
       ));
+    };
+    const reviewVisible = () => Boolean(state.submitted && state.reviewUnlocked !== false);
+    const aggregateSession = (session) => {
+      const items = session.items || [];
+      return {
+        passages: items.length,
+        score: items.reduce((sum, item) => sum + Number(item?.score || 0), 0),
+        total: items.reduce((sum, item) => sum + Number(item?.total || 0), 0),
+        durationSec: items.reduce((sum, item) => sum + Number(item?.durationSec || 0), 0),
+        reviewPassages: (session.reviewIds || []).length
+      };
     };
 
     const renderHistory = () => {
@@ -241,8 +319,8 @@ const questionId = (question, index) => String(question.id || question.question_
     const renderReviewNav = () => {
       if (!reviewNav) return;
       reviewNav.replaceChildren();
-      const problems = questions.filter(isProblem);
-      problems.forEach((question) => {
+      if (!reviewVisible()) return;
+      questions.filter(isProblem).forEach((question) => {
         const button = document.createElement('button');
         button.type = 'button';
         button.textContent = `Q${ordinal(question)}`;
@@ -251,14 +329,47 @@ const questionId = (question, index) => String(question.id || question.question_
       });
     };
 
+    const renderSessionControls = () => {
+      const session = readSession();
+      const deferred = Boolean(state.submitted && !reviewVisible());
+      const inReviewSession = Boolean(session.reviewing && session.reviewIds.includes(readingKey));
+      const itemCount = session.items.length;
+
+      if (continuous) {
+        continuous.setAttribute('aria-pressed', String(session.active));
+        continuous.classList.toggle('active', session.active);
+        continuous.textContent = session.active ? `连续练 · ${itemCount}` : '连续练';
+        continuous.hidden = session.reviewing;
+        continuous.disabled = Boolean(state.submitted || (session.active && itemCount > 0));
+      }
+
+      if (sessionActions) sessionActions.hidden = !(deferred || inReviewSession);
+      if (continueSession) {
+        continueSession.hidden = !deferred || !session.active || !nextReadingId;
+        continueSession.textContent = nextReadingId ? '下一篇 →' : '已到最后一篇';
+      }
+      if (reviewSession) {
+        reviewSession.hidden = !deferred || !session.active;
+        reviewSession.textContent = session.reviewIds.length ? '结束并统一复盘' : '结束连续训练';
+      }
+
+      if (nextReview || finishReview) {
+        const currentReviewIndex = session.reviewIds.indexOf(readingKey);
+        const hasNextReview = inReviewSession && currentReviewIndex >= 0 && currentReviewIndex < session.reviewIds.length - 1;
+        if (nextReview) nextReview.hidden = !hasNextReview;
+        if (finishReview) finishReview.hidden = !inReviewSession || hasNextReview;
+      }
+    };
+
     const render = () => {
+      const canReview = reviewVisible();
       questions.forEach((question, index) => {
         const id = qid(question);
         const selected = state.answers?.[id] || '';
         const result = state.results?.[id] || '';
         const correct = expected(question);
         const uncertain = (state.uncertain || []).includes(id);
-        const problem = isProblem(question);
+        const problem = canReview && isProblem(question);
 
         question.querySelectorAll('[data-option]').forEach((option) => {
           const label = option.getAttribute('data-option') || '';
@@ -273,13 +384,13 @@ const questionId = (question, index) => String(question.id || question.question_
 
         const uncertainButton = question.querySelector('.portedUncertain');
         uncertainButton?.setAttribute('aria-pressed', String(uncertain));
-        uncertainButton?.classList.toggle('active', uncertain);
+        uncertainButton?.classList.toggle('active', uncertain && !state.submitted);
         if (uncertainButton) uncertainButton.disabled = Boolean(state.submitted);
 
         navButtons[index]?.classList.toggle('answered', Boolean(selected));
-        navButtons[index]?.classList.toggle('uncertain', uncertain);
+        navButtons[index]?.classList.toggle('uncertain', uncertain && !state.submitted);
         navButtons[index]?.classList.remove('result-correct', 'result-wrong', 'result-unanswered');
-        if (state.submitted && result) navButtons[index]?.classList.add(`result-${result}`);
+        if (canReview && result) navButtons[index]?.classList.add(`result-${result}`);
 
         const answerStrip = question.querySelector('[data-reading-answer-strip]');
         if (answerStrip) answerStrip.hidden = !problem;
@@ -309,29 +420,67 @@ const questionId = (question, index) => String(question.id || question.question_
         submit.hidden = Boolean(state.submitted);
         submit.disabled = answeredCount() === 0;
       }
-      if (retry) retry.hidden = !state.submitted;
+      if (retry) retry.hidden = !state.submitted || !canReview;
       if (resultBar) resultBar.hidden = !state.submitted;
 
       if (state.submitted) {
         const correctCount = Object.values(state.results || {}).filter((value) => value === 'correct').length;
         const problems = questions.filter(isProblem);
-        if (scoreLabel) scoreLabel.textContent = `${correctCount} / ${questions.length}`;
+        const session = readSession();
+        const aggregate = aggregateSession(session);
+
         if (resultMeta) resultMeta.textContent = formatDuration(elapsedSeconds());
-        if (summaryLabel) {
-          summaryLabel.textContent = problems.length === 0
-            ? '稳定 · 可以直接下一篇'
-            : `有 ${problems.length} 题待复盘`;
+        if (!canReview) {
+          if (scoreLabel) scoreLabel.textContent = '已收卷';
+          if (summaryLabel) summaryLabel.textContent = `连续训练 · ${aggregate.passages} 篇已收卷 · 答案暂不展开`;
+        } else {
+          if (scoreLabel) scoreLabel.textContent = `${correctCount} / ${questions.length}`;
+          if (summaryLabel) {
+            if (session.reviewing && session.reviewIds.includes(readingKey)) {
+              const index = session.reviewIds.indexOf(readingKey);
+              summaryLabel.textContent = `统一复盘 · ${index + 1} / ${session.reviewIds.length} 篇`;
+            } else if (session.lastSummary?.lastId === readingKey) {
+              const last = session.lastSummary;
+              summaryLabel.textContent = `本次训练 ${last.passages} 篇 · ${last.score}/${last.total}${last.reviewPassages ? ' · 复盘结束' : ' · 无待复盘'}`;
+            } else {
+              summaryLabel.textContent = problems.length === 0
+                ? '稳定 · 可以直接下一篇'
+                : `有 ${problems.length} 题待复盘`;
+            }
+          }
         }
       }
 
       renderReviewNav();
       renderHistory();
+      renderSessionControls();
       setCurrent(state.currentIndex || 0);
     };
 
     navButtons.forEach((button, index) => button.addEventListener('click', () => setCurrent(index)));
     prev?.addEventListener('click', () => setCurrent(state.currentIndex - 1));
     next?.addEventListener('click', () => setCurrent(state.currentIndex + 1));
+
+    continuous?.addEventListener('click', () => {
+      if (state.submitted) return;
+      const session = readSession();
+      if (session.active && session.items.length > 0) return;
+      if (session.active) {
+        writeSession({ ...session, active: false, reviewing: false });
+      } else {
+        writeSession({
+          version: 1,
+          active: true,
+          reviewing: false,
+          startedAt: new Date().toISOString(),
+          items: [],
+          reviewIds: [],
+          reviewIndex: 0,
+          lastSummary: null
+        });
+      }
+      renderSessionControls();
+    });
 
     questions.forEach((question) => {
       const id = qid(question);
@@ -361,7 +510,7 @@ const questionId = (question, index) => String(question.id || question.question_
       });
 
       question.querySelectorAll('[data-cause]').forEach((button) => button.addEventListener('click', () => {
-        if (!state.submitted) return;
+        if (!reviewVisible()) return;
         const cause = button.getAttribute('data-cause') || '';
         state.causes = {
           ...(state.causes || {}),
@@ -385,6 +534,10 @@ const questionId = (question, index) => String(question.id || question.question_
       state.submitted = true;
       state.submittedAt = new Date().toISOString();
       const score = Object.values(results).filter((value) => value === 'correct').length;
+      const problemCount = questions.filter((question) =>
+        ['wrong', 'unanswered'].includes(results[qid(question)]) ||
+        (state.uncertain || []).includes(qid(question))
+      ).length;
       const attempt = {
         submittedAt: state.submittedAt,
         score,
@@ -394,14 +547,88 @@ const questionId = (question, index) => String(question.id || question.question_
         uncertain: questions.filter((question) => (state.uncertain || []).includes(qid(question))).map((question) => ordinal(question))
       };
       state.history = [attempt, ...(state.history || [])].slice(0, 8);
+
+      const session = readSession();
+      if (session.active) {
+        const currentItem = {
+          id: readingKey,
+          score,
+          total: questions.length,
+          durationSec: attempt.durationSec,
+          problemCount,
+          submittedAt: state.submittedAt
+        };
+        const items = [...session.items.filter((item) => item?.id !== readingKey), currentItem];
+        const reviewIds = items.filter((item) => Number(item?.problemCount || 0) > 0).map((item) => item.id);
+        state.reviewUnlocked = false;
+        writeSession({ ...session, items, reviewIds, reviewIndex: 0, lastSummary: null });
+      } else {
+        state.reviewUnlocked = true;
+      }
+
       save();
+      render();
+    });
+
+    continueSession?.addEventListener('click', () => {
+      const session = readSession();
+      if (!session.active || !nextReadingId) return;
+      window.location.href = hrefForReading(nextReadingId);
+    });
+
+    reviewSession?.addEventListener('click', () => {
+      const session = readSession();
+      if (!session.active) return;
+      const aggregate = aggregateSession(session);
+      if (!session.reviewIds.length) {
+        state.reviewUnlocked = true;
+        writeSession({
+          ...session,
+          active: false,
+          reviewing: false,
+          reviewIndex: 0,
+          lastSummary: { ...aggregate, lastId: readingKey, endedAt: new Date().toISOString() }
+        });
+        save();
+        render();
+        return;
+      }
+
+      const firstId = session.reviewIds[0];
+      writeSession({ ...session, active: false, reviewing: true, reviewIndex: 0, lastSummary: null });
+      setReviewUnlockedFor(firstId, true);
+      window.location.href = `${hrefForReading(firstId)}?reviewSession=1`;
+    });
+
+    nextReview?.addEventListener('click', () => {
+      const session = readSession();
+      if (!session.reviewing) return;
+      const index = session.reviewIds.indexOf(readingKey);
+      if (index < 0 || index >= session.reviewIds.length - 1) return;
+      const nextId = session.reviewIds[index + 1];
+      setReviewUnlockedFor(nextId, true);
+      writeSession({ ...session, reviewIndex: index + 1 });
+      window.location.href = `${hrefForReading(nextId)}?reviewSession=1`;
+    });
+
+    finishReview?.addEventListener('click', () => {
+      const session = readSession();
+      if (!session.reviewing) return;
+      const aggregate = aggregateSession(session);
+      writeSession({
+        ...session,
+        active: false,
+        reviewing: false,
+        reviewIndex: 0,
+        lastSummary: { ...aggregate, lastId: readingKey, endedAt: new Date().toISOString() }
+      });
       render();
     });
 
     const newAttempt = () => {
       state = {
         ...state,
-        version: 2,
+        version: 3,
         currentIndex: 0,
         startedAt: new Date().toISOString(),
         answers: {},
@@ -411,6 +638,7 @@ const questionId = (question, index) => String(question.id || question.question_
         results: {},
         trajectory: {},
         causes: {},
+        reviewUnlocked: true,
         history: state.history || []
       };
       save();
@@ -480,6 +708,7 @@ const questionId = (question, index) => String(question.id || question.question_
       const copyButton = question.querySelector('[data-reading-copy-chat]');
       const copyStatus = question.querySelector('[data-reading-copy-status]');
       copyButton?.addEventListener('click', async () => {
+        if (!reviewVisible()) return;
         const prompt = question.querySelector(':scope > p')?.textContent?.trim() || '';
         const options = [...question.querySelectorAll('[data-option]')]
           .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`)
