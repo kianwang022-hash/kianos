@@ -12,13 +12,20 @@
     {"id": "SEEN", "meaning": "见过并知道它大致属于哪里"},
     {"id": "UNDERSTOOD", "meaning": "能解释机制、关系或判断依据"},
     {"id": "RECALLABLE", "meaning": "离开正文后能主动恢复核心结构"},
-    {"id": "PRECISE", "meaning": "数字、阈值、药物、分型、时间、标志物等能精确恢复"},
     {"id": "APPLICABLE", "meaning": "能在典型题目中稳定调用，并解释关键条件与干扰项"},
     {"id": "CASE_STABLE", "meaning": "复杂病例、跨系统和时间压力下仍能稳定定位并调用"}
   ],
+  "precision_axis": {
+    "role": "PRECISION_IS_AN_ACCURACY_ATTRIBUTE_NOT_A_MASTERY_STAGE",
+    "states": ["NOT_REQUIRED", "REQUIRED_UNSTABLE", "REQUIRED_STABLE"],
+    "rule": "Precision 只说明最终需要精确掌握到数字、阈值、药物、分型、时间、标志物等何种程度，不代表第一次出现就必须背牢；是否现在精确学习由正式 owner 和当前学习阶段决定。",
+    "typical_items": ["数字", "阈值", "药物", "分型", "时间", "标志物", "术式", "高价值精确配对"]
+  },
   "stage_contract": {
     "FIRST_PASS": {
-      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；重要 Precision 开始进入精确记忆；用 System 全量题暴露知识缺口。",
+      "primary_goal": "建立完整知识模型，完成 Lecture 全量接触，并把当前核心推进到 UNDERSTOOD + RECALLABLE；当前 owner 下的重要 Precision 开始进入精确记忆；用 System 全量题暴露知识缺口。",
+      "target_mastery": ["UNDERSTOOD", "RECALLABLE"],
+      "precision_target": "重要当前-owner Precision 必须被识别并开始记忆，但第一次不稳定不得无限阻塞主线。",
       "not_the_goal": ["要求所有 Precision 第一次即稳定", "把复杂病例训练做成主任务", "为了串联而顺藤摸瓜学完整个未来 Block"],
       "required_gates": [
         "每个 canonical KP 完成正式学习接触，并至少进行一次主动 Recall",
@@ -31,14 +38,16 @@
       "progression_rule": "严格要求主动恢复和缺口不丢，但单个 KP 第一次 Recall 不完美不得无限阻塞主线；弱点进入后续 Memory / Review。"
     },
     "SECOND_PASS": {
-      "primary_goal": "把知识模型转换为解题能力：Precision 强化、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
-      "target_mastery": ["PRECISE", "APPLICABLE"],
+      "primary_goal": "把知识模型转换为解题能力：Precision 稳定、鉴别边界、干扰项、条件变化、跨 Block/跨 System 调用与病例推理。",
+      "target_mastery": ["APPLICABLE"],
+      "precision_target": "高价值 Precision 推进到 REQUIRED_STABLE。",
       "question_role": "同一道真题再次使用时重点分析决定性条件、干扰项为何错、条件改变后答案如何变化，而不是只重复答案。",
       "case_role": "病例应用在此轮深度强化，从第一故障→变量→后果→证据→鉴别→治疗。"
     },
     "LATE_REVIEW": {
       "primary_goal": "把已经学会的内容压缩到极薄骨架并提高自动化、整卷切换和时间压力下稳定性。",
       "target_mastery": ["CASE_STABLE"],
+      "precision_target": "高价值 Precision 保持稳定，只回收真正易掉或题目反复暴露的项目。",
       "surface": "机制骨架 + 高价值边界 + Precision + Wrong/Uncertain；不反复重读一轮长正文。"
     }
   },
@@ -60,14 +69,9 @@
       "memory": "正式学习前不进入 Memory。"
     }
   },
-  "precision": {
-    "role": "PRECISION_IS_AN_ACCURACY_ATTRIBUTE_NOT_A_LEARNING_STAGE",
-    "rule": "Precision 只说明最终需要精确掌握，不代表第一次出现就必须背牢。是否现在精确学习由正式 owner 和当前学习阶段决定。",
-    "typical_items": ["数字", "阈值", "药物", "分型", "时间", "标志物", "术式", "高价值精确配对"]
-  },
   "memory_admission": {
     "rule": "Memory 只收值得占用未来复习时间的内容，不等于今天见过的全部内容。",
-    "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", " learner 主动要求后续复习的内容"],
+    "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", "learner 主动要求后续复习的内容"],
     "reject": ["仅作为路牌的 Connection Hook", "尚未正式理解的后续大知识", "低价值补充", "已自然稳定且没有继续复习收益的事实"]
   },
   "lecture_runtime_contract": {
