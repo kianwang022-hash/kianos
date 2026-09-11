@@ -1,0 +1,284 @@
+{
+  "schema": "kianos.politics.content.owner_manifest.v1",
+  "status": "CURRENT_DURABLE_SOURCES_MATERIALIZED",
+  "owner_path": "content/politics/",
+  "current_promotion_allowed": true,
+  "semantic_authority": "CHAT_AFTER_LOCAL_CONTINUOUS_SOURCE_CHAIN_PROOF",
+  "formal_local_continuous_projection": {
+    "repository": "kianwang022-hash/kianos-site-v238-recovery",
+    "ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
+    "path": "app/product/politics-continuous-coverage.generated.json",
+    "git_blob_sha1": "303212372e0076d4a5d98d50a8c8be20e205ee90",
+    "schema_version": "politics_continuous_coverage_projection_v1",
+    "role": "GENERATED_PRODUCT_PROJECTION_NOT_CANONICAL_OWNER",
+    "hard_gate": {
+      "objective_questions": 1148,
+      "first_ready": 1148,
+      "orphans": 0,
+      "duplicated_first_ready_owner": 0,
+      "source_refs_accounted": 1260,
+      "source_refs_total": 1260,
+      "multi_source_preserved": 75,
+      "material_deferred_excluded": 24,
+      "final_unit_closure": "PASS"
+    },
+    "source_audit": {
+      "path": "reports/Politics_Runtime/POLITICS_CONTINUOUS_CHENGFENG_COVERAGE_AUDIT_v1.json",
+      "sha256": "ba078d55469e29a93f5edc4d52034a8d5aa0f86041c9309fff1824b104b7dfe4",
+      "git_recovery_ref_presence": "NOT_FOUND_AT_PINNED_RECOVERY_REF"
+    }
+  },
+  "frozen_study_truth": {
+    "study_head": "602652309a7d3ab2be40933e08a335798dce96dc",
+    "questions": {
+      "path": "Study/政治资料库/database/xiao_2027_questions.jsonl",
+      "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+      "records": 1148,
+      "unique_stable_ids": 1148,
+      "clean": 1148,
+      "blocked": 0
+    },
+    "read_plane_validation": {
+      "path": "04_HQ/Reports/Content_Read_Plane/evidence/CONTENT_READ_PLANE_MECHANICAL_AUDIT_v1.json",
+      "canonical_records": 1148,
+      "source_records_compared": 1148,
+      "unique_stable_ids": 1148,
+      "source_projection_equal": true,
+      "failures": [],
+      "stale_sources": [],
+      "index_sha256": "3877ecdaa8b43ed4d5c8faa8ae51a3b9be9586f29b532cc01fadf4370ffea306"
+    },
+    "release": {
+      "release_id": "p0-e4-politics-67cdd96c6fe5",
+      "source_identity_sha256": "49ee4ff4b3eecd06b58eeaeca30b50e4e1a7716ef72e697235fd3145a2e2d377",
+      "governed_source_count": 8,
+      "source_custody_status": "LOCKED_AT_STUDY_HEAD",
+      "untracked_source_count": 0,
+      "dirty_source_count": 0
+    },
+    "measured_related_records": {
+      "knowledge_links": 1148,
+      "question_assets": 1148,
+      "explanation_provenance": 1148,
+      "final_explanation": 1148,
+      "runtime_objective": 1148,
+      "runtime_question_ids_unique": 1148,
+      "objective_routable": 1148
+    }
+  },
+  "role_classification": {
+    "durable_current_candidates": [
+      "content/politics/source/xiao_2027_questions.jsonl",
+      "content/politics/source/question_knowledge_links.jsonl",
+      "content/politics/source/xiao_2027_question_assets.json",
+      "content/politics/source/xiao_2027_explanation_provenance.v1.json",
+      "content/politics/source/politics_unified_regions.v1.jsonl",
+      "content/politics/source/source_node_registry.v2.jsonl"
+    ],
+    "generated_evidence_excluded_from_canonical": [
+      "app/product/politics-continuous-coverage.generated.json",
+      "reports/Politics_Runtime/POLITICS_CONTINUOUS_CHENGFENG_COVERAGE_AUDIT_v1.json",
+      "Study/政治资料库/database/build_report.json",
+      "Study/政治资料库/database/question_knowledge_links_report.json",
+      "Study/政治资料库/runtime/politics_xiao1000_chengfeng_runtime_apply.v1.json",
+      "/Users/ben/KianOSBeta/site/public/lexical-data/kianos-owner-full.generated.learning.000.json",
+      "Study/政治资料库/runtime/politics_question_explanation_final_freeze_candidate.v1.json"
+    ],
+    "requires_local_role_proof": []
+  },
+  "equivalence_state": {
+    "study_question_identity_proven": true,
+    "study_read_plane_full_stable_id_equivalence_proven": true,
+    "formal_local_objective_cardinality_agrees": true,
+    "formal_local_full_stable_id_inventory_equivalence_proven": true,
+    "continuous_natural_unit_source_owner_normalized": true,
+    "generated_projection_copy_allowed_as_canonical": false,
+    "final_explanation_role_resolved": true
+  },
+  "required_recovery": {
+    "mode": "EXACT_POINTER_CHAIN_ONLY_NO_REPOSITORY_SCAN",
+    "contract": "content/politics/RECOVERY_CONTRACT.md",
+    "provenance": "content/politics/provenance.json",
+    "execution_issue": 100,
+    "remaining_tasks": [
+      "Read the exact Local continuous-coverage audit from the real Local/Study environment and follow only explicit source-input pointers.",
+      "Prove the formal Local 1148 first-ready stable-ID inventory equals the frozen Study 1148 stable-ID inventory.",
+      "Identify durable natural-unit / Chengfeng source object(s) and separate them from generated projections.",
+      "Resolve the durable role of the 1148-record final-explanation file.",
+      "Materialize only verified durable Current content and provenance under content/politics/."
+    ],
+    "stop_on": [
+      "QUESTION_ID_DRIFT",
+      "SOURCE_HASH_MISMATCH",
+      "MISSING_EXPLICIT_SOURCE_POINTER",
+      "SUBSTANTIVE_SOURCE_VERSION_CONFLICT"
+    ]
+  },
+  "gates": {
+    "study_question_identity_verified": true,
+    "study_source_custody_verified": true,
+    "study_read_plane_projection_verified": true,
+    "formal_local_stable_id_equivalence_verified": true,
+    "durable_continuous_source_owner_resolved": true,
+    "source_bytes_materialized": true,
+    "pass": true
+  },
+  "protections": {
+    "semantic_mutation": false,
+    "learner_state_mutation": false,
+    "local_mutation": false,
+    "runtime_repoint": false,
+    "site_deploy": false
+  },
+  "materialized_sources": [
+    {
+      "name": "questions",
+      "source_path": "Study/政治资料库/database/xiao_2027_questions.jsonl",
+      "owner_path": "content/politics/source/xiao_2027_questions.jsonl",
+      "sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+      "role": "DURABLE_CANONICAL_QUESTION_SOURCE",
+      "byte_identity": "EXACT_MATCH"
+    },
+    {
+      "name": "knowledge_links",
+      "source_path": "Study/政治资料库/database/question_knowledge_links.jsonl",
+      "owner_path": "content/politics/source/question_knowledge_links.jsonl",
+      "sha256": "b0e6a21cf682f6aad4974cbf27cf23c787e1acfb5549d78e3981c55fa93a6e1a",
+      "role": "DURABLE_QUESTION_KNOWLEDGE_RELATION_SOURCE",
+      "byte_identity": "EXACT_MATCH"
+    },
+    {
+      "name": "question_assets",
+      "source_path": "Study/政治资料库/database/xiao_2027_question_assets.json",
+      "owner_path": "content/politics/source/xiao_2027_question_assets.json",
+      "sha256": "8995be1e40fe9a75fae46693dc0179ac6d27bb6255464387cae85fe1bd62aef1",
+      "role": "DURABLE_QUESTION_SOURCE_ASSET_METADATA",
+      "byte_identity": "EXACT_MATCH"
+    },
+    {
+      "name": "explanation_provenance",
+      "source_path": "Study/政治资料库/database/xiao_2027_explanation_provenance.v1.json",
+      "owner_path": "content/politics/source/xiao_2027_explanation_provenance.v1.json",
+      "sha256": "f42582cf21e44f2c9bb19c01988e45b5c27e431f45a728ee2ed335ba2c55e899",
+      "role": "DURABLE_EXPLANATION_PROVENANCE_SIDECAR",
+      "byte_identity": "EXACT_MATCH"
+    },
+    {
+      "name": "regions",
+      "source_path": "Study/政治资料库/registry/politics_unified_regions.v1.jsonl",
+      "owner_path": "content/politics/source/politics_unified_regions.v1.jsonl",
+      "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054",
+      "role": "DURABLE_CONTINUOUS_NATURAL_UNIT_REGISTRY",
+      "byte_identity": "EXACT_MATCH"
+    },
+    {
+      "name": "source_nodes",
+      "source_path": "Study/政治资料库/registry/source_node_registry.v2.jsonl",
+      "owner_path": "content/politics/source/source_node_registry.v2.jsonl",
+      "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
+      "role": "DURABLE_SOURCE_NODE_REGISTRY",
+      "byte_identity": "EXACT_MATCH"
+    }
+  ],
+  "identity_proof": {
+    "study_head": "602652309a7d3ab2be40933e08a335798dce96dc",
+    "question_source": {
+      "total_records": 1172,
+      "unique_ids": 1172,
+      "missing_ids": 0,
+      "training_ready_records": 1148,
+      "reference_only_material_records_excluded": 24,
+      "ordered_training_ready_id_inventory_rule": "UTF-8 lexicographic ascending question_id with trailing newline",
+      "ordered_training_ready_id_inventory_sha256": "13cf8cbb82872a1934f627bf9dac5fb80317bd5fb184ae74a801ded0d9ca9e7d"
+    },
+    "formal_local_equivalence": {
+      "formal_runtime_ids": 1148,
+      "formal_runtime_unique_ids": 1148,
+      "formal_runtime_id_inventory_sha256": "13cf8cbb82872a1934f627bf9dac5fb80317bd5fb184ae74a801ded0d9ca9e7d",
+      "formal_canonical_ids": 1148,
+      "formal_canonical_unique_ids": 1148,
+      "formal_canonical_id_inventory_sha256": "37600066e58f0c19b154b81839c807e8b4098d58603f3dc5a3cf943cd7030653",
+      "canonical_to_runtime_pair_inventory_sha256": "2eab7e224685772478a6f009a209e9268d57088975c038a52b0bcc5547709790",
+      "training_ready_inventory_equal": true,
+      "continuous_audit_inventory_equal": true
+    },
+    "linked_durable_sources": {
+      "knowledge_links": {
+        "records": 1148,
+        "unique_ids": 1148,
+        "inventory_equal_to_training_ready": true
+      },
+      "question_assets": {
+        "records": 1148,
+        "unique_ids": 1148,
+        "inventory_equal_to_training_ready": true
+      },
+      "explanation_provenance": {
+        "records": 1148,
+        "unique_ids": 1148,
+        "inventory_equal_to_training_ready": true
+      }
+    },
+    "continuous_source_owner": {
+      "audit_path": "reports/Politics_Runtime/POLITICS_CONTINUOUS_CHENGFENG_COVERAGE_AUDIT_v1.json",
+      "audit_sha256": "ba078d55469e29a93f5edc4d52034a8d5aa0f86041c9309fff1824b104b7dfe4",
+      "audit_local_git_blob_sha1": "c0f226b3bcd2a2efb6f046652d198ca33ced21e0",
+      "regions_records": 160,
+      "regions_sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054",
+      "source_node_records": 19528,
+      "source_nodes_sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
+      "resolved": true
+    },
+    "question_assets_embedded_binding": {
+      "embedded_question_database_sha256": "0754e6a24888db6cf02f5537ee21db4db21bd790a2e6471bfb0e2829541efd32",
+      "current_question_source_sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+      "stable_id_inventory_equal": true,
+      "treatment": "PRESERVED_AS_HISTORICAL_BUILD_POINTER; NOT_USED_AS_CURRENT_QUESTION_AUTHORITY"
+    }
+  },
+  "excluded_generated_artifacts": [
+    {
+      "path": "app/product/politics-continuous-coverage.generated.json",
+      "role": "GENERATED_PRODUCT_PROJECTION_EVIDENCE_ONLY",
+      "git_blob_sha1": "303212372e0076d4a5d98d50a8c8be20e205ee90"
+    },
+    {
+      "path": "reports/Politics_Runtime/POLITICS_CONTINUOUS_CHENGFENG_COVERAGE_AUDIT_v1.json",
+      "role": "GENERATED_AUDIT_EVIDENCE_ONLY",
+      "sha256": "ba078d55469e29a93f5edc4d52034a8d5aa0f86041c9309fff1824b104b7dfe4"
+    },
+    {
+      "path": "Study/政治资料库/database/build_report.json",
+      "role": "GENERATED_BUILD_EVIDENCE_ONLY",
+      "sha256": "6f780b165e8447f2a2c89b12bdac093c56b38f59a74c51a314078eebacd31b3e"
+    },
+    {
+      "path": "Study/政治资料库/database/question_knowledge_links_report.json",
+      "role": "GENERATED_RELATION_QA_REPORT_ONLY",
+      "sha256": "6c58ee76b87064a2cb5adec62cc64af9b43c71065776c0ea975ea08035cec8e0"
+    },
+    {
+      "path": "Study/政治资料库/runtime/politics_xiao1000_chengfeng_runtime_apply.v1.json",
+      "role": "GENERATED_RUNTIME_MAPPING_EVIDENCE_ONLY",
+      "sha256": "04fbaf4669be2ab42842225cdbd394fb91dfe292f2da099514fa723eaa86c091"
+    },
+    {
+      "path": "/Users/ben/KianOSBeta/site/public/lexical-data/kianos-owner-full.generated.learning.000.json",
+      "role": "GENERATED_FORMAL_LOCAL_OWNER_SNAPSHOT_INPUT_NOT_CANONICAL",
+      "sha256": "f88b2b8ea6221023a8d64567617723eb3ea2fa5a31bbdf143e18ece6db0344f3",
+      "identity_source": "continuous_source_audit.inputs.owner_snapshot"
+    },
+    {
+      "path": "Study/政治资料库/runtime/politics_question_explanation_final_freeze_candidate.v1.json",
+      "role": "EXCLUDED_GENERATED_FREEZE_PROJECTION_NOT_CURRENT_DURABLE_TRUTH",
+      "sha256": "e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec",
+      "proof": {
+        "package_status": "FINAL_PRO_AUDIT_PASS_FREEZE_CANDIDATE",
+        "materialization_scope": "MECHANICAL_ONLY_NO_POLITICAL_CONTENT_AUDIT",
+        "upstream_zip_sha256": "2922699e823b8757fbd19992808c962d74f3b086cee0e55c0d08dd32feaec701",
+        "upstream_master_sha256": "34287e0bb43a6ae69adfbc7c24f4fea3044dc92c35f6bfffde0bad31d81dcb1d",
+        "regular_qa_pending_records": 251
+      }
+    }
+  ]
+}
