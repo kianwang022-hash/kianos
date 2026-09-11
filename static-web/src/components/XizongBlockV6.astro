@@ -4,6 +4,7 @@ const base = import.meta.env.BASE_URL;
 const kps = block?.kpRecords || [];
 const groups = block?.logicGroups || [];
 const firstKp = kps[0];
+const firstGroup = groups[0];
 ---
 <section class="portedStudyRuntime portedStudyRuntimeV2 xv6Block" data-xizong-v6-block data-study-object={block.objectId} data-block-label={block.label}>
   <header class="portedStudyHeader">
@@ -22,7 +23,7 @@ const firstKp = kps[0];
       </div>
       <div class="portedStudyIdentityMeta">
         <strong data-study-local-status>本机进度 · 0/{kps.length}</strong>
-        <small>Canonical read-only · learner state local-only</small>
+        <small>← / → 推进 · 状态只留在本机</small>
       </div>
     </div>
     <nav class="portedStudyTabs" aria-label="Block workspace">
@@ -33,7 +34,7 @@ const firstKp = kps[0];
 
   <div class="portedStudyLayout" data-study-layout>
     <aside class="portedStudyOutline" id="content-map">
-      <header><span data-study-rail-kicker>Logic Map</span><strong data-study-rail-title>连续学习</strong></header>
+      <header><span data-study-rail-kicker>Logic Map</span><strong data-study-rail-title>学习节</strong></header>
       <nav data-study-group-rail aria-label="Logic Group navigation">
         {groups.map((group, index) => <button type="button" data-group-target={index}>
           <b>LG{String(index + 1).padStart(2, '0')}</b>
@@ -46,25 +47,34 @@ const firstKp = kps[0];
           <b>{kp.displayId}</b><span>{kp.groupLabel}</span><small data-kp-state={kp.kpId}>未记录</small>
         </button>)}
       </nav>
-      <footer>Logic Group 来自 Current system owner；医学 Core 仍只来自当前 Block Markdown。</footer>
+      <footer>需要时跳转；正常学习只用 ← / → 往前推进。</footer>
     </aside>
 
     <main class="portedStudyMain" id="canonical-content">
       <section data-study-panel="learn">
         <section data-study-stage="block_learn">
-          <div class="portedStudyLead"><span>Learn · Block Learn</span><strong>先建立这一块的局部机制电影，再进入 Logic Group。</strong></div>
-          <article class="portedStudyArticle markdown" set:html={block.blockLearnHtml}></article>
-          {block.visualGateHtml && <details class="xv6VisualGate"><summary>Visual Gate · 必看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
-          <footer class="portedStudyStageAction"><span>这里只完成局部模型定位，不代表掌握。</span><button type="button" class="portedPrimaryAction" data-stage-next="logic_group">进入 Logic Group</button></footer>
+          <div class="portedStudyLead xv6BlockFocus">
+            <span>这块现在抓什么</span>
+            <strong>{block.firstPassFocus || '先建立这一块的局部模型，再进入学习节。'}</strong>
+          </div>
+          {block.recallSpine && <div class="xv6BlockSpine"><span>先抓住这条主线</span><strong>{block.recallSpine}</strong></div>}
+          {block.stopLine && <p class="xv6LaterCue"><span>后面再展开</span>{block.stopLine}</p>}
+          <details class="xv6BlockOrientation">
+            <summary>需要时看完整 Block 定位</summary>
+            <article class="portedStudyArticle markdown" set:html={block.blockLearnHtml}></article>
+          </details>
+          {block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
+          <footer class="portedStudyStageAction"><span>先知道这块为什么存在，不在这里重读一遍讲义。</span><button type="button" class="portedPrimaryAction" data-stage-next="logic_group">进入第一个学习节</button></footer>
         </section>
 
         <section class="xv6LogicStage" data-study-stage="logic_group" hidden>
-          <span>Learn · Logic Group</span>
+          <span>当前学习节</span>
           <b data-logic-counter>LG01 / {groups.length}</b>
-          <h3 data-logic-title>{groups[0]?.label}</h3>
-          <p>先回答“接下来这组 KP 在共同解决什么问题”，再进入本组连续精学。</p>
+          <h3 data-logic-title>{firstGroup?.label}</h3>
+          <p class="xv6LogicGoal" data-logic-goal>{firstGroup?.goal || '先回答这组 KP 在共同解决什么问题。'}</p>
+          {firstGroup?.closure && <div class="xv6LogicTarget"><span>学完这一组，你应该能</span><p data-logic-closure>{firstGroup.closure}</p></div>}
           <div class="xv6LogicKps" data-logic-kps>
-            {groups[0]?.kpIds.map((id) => <code>{id.split('-').at(-1)?.toUpperCase()}</code>)}
+            {firstGroup?.kpIds.map((id) => <code>{id.split('-').at(-1)?.toUpperCase()}</code>)}
           </div>
           <button type="button" class="portedPrimaryAction" data-enter-group>进入本组 KP</button>
         </section>
@@ -78,16 +88,17 @@ const firstKp = kps[0];
             {kps.map((kp, index) => <article class="portedKpCard" data-kp-learn-card={index} hidden={index !== 0}>
               <header><span>{kp.groupLabel}</span><h3>{kp.displayId}｜{kp.title}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
               <div class="portedKpCanonical markdown" set:html={kp.detailHtml}></div>
-              <footer><span>Current canonical · {kp.kpId}</span><button type="button" data-kp-learned={kp.kpId}>本 KP 已精学</button></footer>
+              <footer><span>{kp.sourceLocator ? `讲义 · ${kp.sourceLocator}` : '回讲义完成对应学习'}</span><button type="button" data-kp-learned={kp.kpId}>本 KP 已精学</button></footer>
             </article>)}
           </div>
         </section>
 
         <section class="xv6LogicStage close" data-study-stage="group_close" hidden>
-          <span>Natural subsection closure</span>
-          <h3 data-group-close-title>本 Logic Group 已闭合</h3>
-          <p>此时才释放该自然小节的 Lecture-attached Questions。当前 Current 没有暴露可验证的题组 Binding，因此 Astro 不补造题目，也不伪造完成状态。</p>
-          <button type="button" class="portedPrimaryAction" data-group-close-next>完成讲义配套题后继续</button>
+          <span>这一组收口</span>
+          <h3 data-group-close-title>{firstGroup?.label} 已闭合</h3>
+          <p class="xv6GroupClosure" data-group-close-closure>{firstGroup?.closure || '先确认这一组的主问题已经能自己讲清，再继续。'}</p>
+          <small>有讲义配套题就在讲义完成；网页没有可靠绑定时不会猜题目。</small>
+          <button type="button" class="portedPrimaryAction" data-group-close-next>处理完继续</button>
         </section>
 
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
@@ -112,52 +123,52 @@ const firstKp = kps[0];
         </section>
 
         <section class="portedBlockRecall" data-study-stage="block_recall" hidden>
-          <header><span>Recall · Block</span><h3>先恢复整块，再按 Logic Group 核对</h3><p>{block.centerQuestion}</p></header>
-          <div>{groups.map((group) => <details>
-            <summary><strong>{group.label}</strong><small>KP{String(group.start).padStart(2, '0')}–KP{String(group.end).padStart(2, '0')}</small></summary>
-            <div class="xv6RecallList">{kps.filter((kp) => kp.groupId === group.groupId).map((kp) => <details>
-              <summary><b>{kp.displayId}</b><span>{kp.title}</span></summary>
-              {kp.prompt && <p>{kp.prompt}</p>}
-              <div class="markdown" set:html={kp.detailHtml}></div>
-            </details>)}</div>
-          </details>)}</div>
-          <footer><span>展开核对不会自动算完成。</span><button type="button" data-block-recall-complete>确认本轮 Block Recall 已完成</button></footer>
+          <header><span>Recall · Block</span><h3>把这一块重新压回一条主链</h3><p>{block.centerQuestion}</p></header>
+          <div class="xv6BlockRecallCore">
+            <div class="xv6RecallPromptBox"><strong>先别展开答案。</strong><p>离开 KP 标题，自己从起点跑到终点；卡住的位置才是这次 Block Recall 真正要修的地方。</p></div>
+            {block.recallSpine && <details class="xv6RecallSpine"><summary>恢复主链</summary><p>{block.recallSpine}</p></details>}
+            <details class="xv6GroupReview">
+              <summary>需要时按学习节核对</summary>
+              <div>{groups.map((group) => <section><strong>{group.label}</strong><p>{group.closure || group.goal || `KP${String(group.start).padStart(2, '0')}–KP${String(group.end).padStart(2, '0')}`}</p></section>)}</div>
+            </details>
+          </div>
+          <footer><span>Block Recall 测的是能不能重新运行模型，不是再读一遍全部 KP。</span><button type="button" data-block-recall-complete>确认本轮 Block Recall 已完成</button></footer>
         </section>
 
         <section class="portedBlockComplete" data-study-stage="block_complete" hidden>
           <span>Learn · Block 完成</span><h3 data-block-complete-title>还没有满足本机 First-Pass 检查点</h3>
           <p data-block-complete-detail>需要完成全部 KP 精学、全部 KP Recall 评分，并明确完成一次 Block Recall。</p>
           <button type="button" class="portedPrimaryAction" data-block-complete disabled>确认 Block 第一轮完成</button>
-          <small>这里只写浏览器本地 learner state；不会修改 Current content。</small>
+          <small>这里记录的只是你的本机学习进度。</small>
         </section>
       </section>
 
       <section class="portedStudyOutlinePanel" data-study-panel="outline" hidden>
-        <header><span>Outline · Logic index</span><h3>Block 学习地图</h3><p>这里只投影 Current system.json 的 Logic Group → stable KP 关系；不是第二份知识内容。</p></header>
+        <header><span>Outline</span><h3>Block 学习地图</h3><p>需要跳转或检查覆盖时再看；正常学习不靠这里推进。</p></header>
         <div class="portedOutlineSectionList">
-          {groups.map((group, index) => <section><b>{String(index + 1).padStart(2, '0')}</b><div><strong>{group.label}</strong><p>KP{String(group.start).padStart(2, '0')}–KP{String(group.end).padStart(2, '0')}</p></div><button type="button" data-outline-open={index}>进入</button></section>)}
+          {groups.map((group, index) => <section><b>{String(index + 1).padStart(2, '0')}</b><div><strong>{group.label}</strong><p>{group.goal || `KP${String(group.start).padStart(2, '0')}–KP${String(group.end).padStart(2, '0')}`}</p><small>KP{String(group.start).padStart(2, '0')}–KP{String(group.end).padStart(2, '0')}</small></div><button type="button" data-outline-open={index}>进入</button></section>)}
         </div>
       </section>
     </main>
 
     <aside class="portedStudyChain" aria-label="Learning Chain">
-      <header><span>Learning Chain</span><strong>v6 · First-Pass</strong></header>
+      <header><span>Learning Chain</span><strong>First Pass</strong></header>
       <ol>
         <li data-chain-step="block_learn"><button type="button" data-stage-target="block_learn"><i></i><span><b>Block Learn</b><small>局部模型</small></span></button></li>
-        <li data-chain-step="logic_group"><button type="button" data-stage-target="logic_group"><i></i><span><b>Logic Group</b><small data-chain-group>1/{groups.length}</small></span></button></li>
+        <li data-chain-step="logic_group"><button type="button" data-stage-target="logic_group"><i></i><span><b>学习节</b><small data-chain-group>1/{groups.length}</small></span></button></li>
         <li data-chain-step="kp_learn"><button type="button" data-stage-target="kp_learn"><i></i><span><b>KP Learn</b><small data-chain-kp-learn>0/{kps.length}</small></span></button></li>
         <li data-chain-step="kp_recall"><button type="button" data-stage-target="kp_recall"><i></i><span><b>KP Recall</b><small data-chain-kp-recall>0/{kps.length}</small></span></button></li>
         <li data-chain-step="block_recall"><button type="button" data-stage-target="block_recall"><i></i><span><b>Block Recall</b><small data-chain-block-recall>未完成</small></span></button></li>
-        <li data-chain-step="block_complete"><button type="button" data-stage-target="block_complete"><i></i><span><b>Block Complete</b><small data-chain-complete>未完成</small></span></button></li>
+        <li data-chain-step="block_complete"><button type="button" data-stage-target="block_complete"><i></i><span><b>Block 完成</b><small data-chain-complete>未完成</small></span></button></li>
       </ol>
-      <footer>配套题按自然小节闭合释放；无 verified Binding 时 fail closed。</footer>
+      <footer>主线先推进；题目、图和辅助信息只在需要时出现。</footer>
     </aside>
   </div>
 
-  <details class="portedSourceFoot"><summary>Current Block owner</summary><code>{block.sourcePath}</code><code>sha256:{String(block.sourceHash).slice(0, 16)}</code></details>
+  <details class="portedSourceFoot"><summary>Source</summary><code>{block.sourcePath}</code><code>sha256:{String(block.sourceHash).slice(0, 16)}</code>{block.learningSupportSourcePath && <code>{block.learningSupportSourcePath}</code>}</details>
 </section>
 
-<script define:vars={{ groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds })), kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId })) }}>
+<script define:vars={{ groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '' })), kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId })) }}>
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
     const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
@@ -190,19 +201,28 @@ const firstKp = kps[0];
       const ordinal = index + 1;
       return Math.max(0, groups.findIndex((group) => ordinal >= group.start && ordinal <= group.end));
     };
-    const stageLabel = { block_learn: 'Block Learn', logic_group: 'Logic Group', kp_learn: 'KP Learn', group_close: '自然小节闭合', kp_recall: 'KP Recall', block_recall: 'Block Recall', block_complete: 'Block Complete' };
+    const stageLabel = { block_learn: 'Block Learn', logic_group: '学习节', kp_learn: 'KP Learn', group_close: '学习节收口', kp_recall: 'KP Recall', block_recall: 'Block Recall', block_complete: 'Block 完成' };
 
     const syncGroupStage = () => {
       const group = currentGroup();
       root.querySelector('[data-logic-counter]')?.replaceChildren(document.createTextNode(`LG${String(state.groupIndex + 1).padStart(2, '0')} / ${groups.length}`));
-      root.querySelector('[data-logic-title]')?.replaceChildren(document.createTextNode(group?.label || 'Logic Group'));
+      root.querySelector('[data-logic-title]')?.replaceChildren(document.createTextNode(group?.label || '学习节'));
+      root.querySelector('[data-logic-goal]')?.replaceChildren(document.createTextNode(group?.goal || '先回答这组 KP 在共同解决什么问题。'));
+      root.querySelector('[data-logic-closure]')?.replaceChildren(document.createTextNode(group?.closure || '学完后能自己恢复这一组的核心关系。'));
+      root.querySelector('[data-group-close-title]')?.replaceChildren(document.createTextNode(`${group?.label || '这一组'} 已闭合`));
+      root.querySelector('[data-group-close-closure]')?.replaceChildren(document.createTextNode(group?.closure || '先确认这一组的主问题已经能自己讲清，再继续。'));
       const box = root.querySelector('[data-logic-kps]');
       if (box) {
         box.replaceChildren();
         (group?.kpIds || []).forEach((id) => { const code = document.createElement('code'); code.textContent = id.split('-').at(-1)?.toUpperCase() || id; box.appendChild(code); });
       }
       root.querySelector('[data-chain-group]')?.replaceChildren(document.createTextNode(`${state.groupIndex + 1}/${groups.length}`));
-      groupRailButtons.forEach((button, index) => { button.classList.toggle('active', index === state.groupIndex); button.classList.toggle('done', (groups[index]?.end || 0) <= learnedCount()); });
+      groupRailButtons.forEach((button, index) => {
+        const active = index === state.groupIndex;
+        const done = (groups[index]?.kpIds || []).length > 0 && (groups[index]?.kpIds || []).every((id) => Boolean(state.learned?.[id]));
+        button.classList.toggle('active', active);
+        button.classList.toggle('done', done);
+      });
     };
 
     const syncState = () => {
@@ -248,7 +268,7 @@ const firstKp = kps[0];
       if (kpRail) kpRail.hidden = !kpMode;
       if (groupRail) groupRail.hidden = kpMode;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
-      if (contextLabel) contextLabel.textContent = `西医综合 · ${blockLabel} · Learn · ${stageLabel[state.stage] || 'Learn'}`;
+      if (contextLabel) contextLabel.textContent = `西医综合 · ${blockLabel} · ${stageLabel[state.stage] || 'Learn'}`;
       save(); syncState();
     };
 
@@ -281,7 +301,6 @@ const firstKp = kps[0];
       button.classList.add('completed'); button.textContent = '已精学'; save(); syncState();
       const group = currentGroup();
       if ((state.kpIndex + 1) >= Number(group?.end || totalKp)) {
-        root.querySelector('[data-group-close-title]')?.replaceChildren(document.createTextNode(`${group?.label || 'Logic Group'} 已闭合`));
         window.setTimeout(() => setStage('group_close'), 120);
       } else {
         window.setTimeout(() => setKpIndex(state.kpIndex + 1), 120);
@@ -350,5 +369,5 @@ const firstKp = kps[0];
 </script>
 
 <style>
-  .xv6Block .portedStudyArticle>h2:first-child{margin-top:0}.xv6VisualGate{margin:1rem 0;padding:.8rem 1rem;border:1px solid var(--line,#d9dde5);border-radius:14px;background:var(--soft,#f5f6f8)}.xv6VisualGate summary{cursor:pointer;font-weight:700}.xv6VisualGate>div{margin-top:.8rem}.xv6LogicStage{max-width:760px;margin:1rem auto;padding:1.4rem;border:1px solid var(--line,#d9dde5);border-radius:20px;background:var(--panel,#fff)}.xv6LogicStage>span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.58}.xv6LogicStage>b{float:right;font-size:.78rem;opacity:.6}.xv6LogicStage h3{font-size:1.5rem;margin:.55rem 0}.xv6LogicStage p{line-height:1.75}.xv6LogicKps{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0}.xv6LogicKps code{padding:.4rem .6rem;border-radius:999px;background:var(--soft,#f5f6f8)}.xv6LogicStage.close{border-style:dashed}.portedRecallAnswer>h4{font-size:1.15rem;margin:.25rem 0 1rem}.xv6RecallList{display:grid;gap:.5rem;padding:.75rem 0}.xv6RecallList details{padding:.55rem .7rem;border:1px solid var(--line,#d9dde5);border-radius:12px}.xv6RecallList summary{display:flex;gap:.7rem;cursor:pointer}.xv6RecallList p{opacity:.78;line-height:1.6}
+  .xv6Block .portedStudyArticle>h2:first-child{margin-top:0}.xv6BlockFocus strong{max-width:52rem}.xv6BlockSpine{margin:.85rem 0;padding:.7rem 0;border-top:1px solid var(--line,#d9dde5);border-bottom:1px solid var(--line,#d9dde5);display:grid;gap:.25rem}.xv6BlockSpine span,.xv6LogicTarget span,.xv6LaterCue span{font-size:.76rem;letter-spacing:.04em;opacity:.62}.xv6BlockSpine strong{font-size:1rem;line-height:1.65}.xv6LaterCue{margin:.7rem 0 1rem;font-size:.88rem;line-height:1.6;opacity:.78}.xv6LaterCue span{margin-right:.7rem;font-weight:700}.xv6BlockOrientation{margin:.75rem 0}.xv6BlockOrientation summary,.xv6VisualGate summary,.xv6RecallSpine summary,.xv6GroupReview summary{cursor:pointer;font-weight:700}.xv6BlockOrientation .portedStudyArticle{margin-top:.8rem}.xv6VisualGate{margin:.75rem 0;padding:.65rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px;background:var(--soft,#f5f6f8)}.xv6VisualGate>div{margin-top:.8rem}.xv6LogicStage{max-width:760px;margin:1rem auto;padding:1.25rem 1.35rem;border:1px solid var(--line,#d9dde5);border-radius:18px;background:var(--panel,#fff)}.xv6LogicStage>span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.58}.xv6LogicStage>b{float:right;font-size:.78rem;opacity:.6}.xv6LogicStage h3{font-size:1.42rem;margin:.5rem 0}.xv6LogicGoal{font-size:1rem;line-height:1.75;margin:.5rem 0}.xv6LogicTarget{margin:.9rem 0;padding:.7rem .8rem;border-left:3px solid var(--line,#d9dde5);background:var(--soft,#f5f6f8)}.xv6LogicTarget p{margin:.25rem 0 0;line-height:1.65}.xv6LogicKps{display:flex;flex-wrap:wrap;gap:.4rem;margin:.9rem 0}.xv6LogicKps code{padding:.35rem .55rem;border-radius:999px;background:var(--soft,#f5f6f8)}.xv6LogicStage.close{border-style:dashed}.xv6GroupClosure{font-size:1rem;line-height:1.75}.xv6LogicStage.close small{display:block;margin:.5rem 0 1rem;opacity:.62}.portedRecallAnswer>h4{font-size:1.15rem;margin:.25rem 0 1rem}.xv6BlockRecallCore{display:grid;gap:.8rem;margin:1rem 0}.xv6RecallPromptBox{padding:.8rem 0;border-bottom:1px solid var(--line,#d9dde5)}.xv6RecallPromptBox p{margin:.3rem 0 0;line-height:1.65;opacity:.75}.xv6RecallSpine,.xv6GroupReview{padding:.7rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px}.xv6RecallSpine p{font-size:1.02rem;line-height:1.75;margin:.8rem 0 .15rem;font-weight:650}.xv6GroupReview>div{display:grid;gap:.65rem;margin-top:.75rem}.xv6GroupReview section{padding:.55rem 0;border-top:1px solid var(--line,#d9dde5)}.xv6GroupReview section:first-child{border-top:0}.xv6GroupReview p{margin:.2rem 0 0;line-height:1.6;opacity:.78}.portedOutlineSectionList small{display:block;margin-top:.25rem;opacity:.58}
 </style>
