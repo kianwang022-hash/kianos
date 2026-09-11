@@ -7,6 +7,8 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - Source Truth is upstream evidence.
 - Chat owns semantic/content judgments and approves shared learning content.
 - GitHub `main@HEAD` is the single editable and readable shared Current repository state.
+- Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
+- `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-lane capabilities.
 - `content/` owns shared learning assets.
 - `static-web/` owns the Astro learner-facing display and interaction runtime.
 - Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
@@ -19,6 +21,25 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 Private browser or device state may support the final interaction step, but it is not a semantic owner and is not part of the shared Current chain.
 
 Astro may transform representation and provide interaction. It must not invent, merge, silently repair, or override domain semantics.
+
+## Shared learner-lane baseline
+
+Every first-class learner lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md`:
+
+1. Current;
+2. Continue;
+3. Navigate / Explore;
+4. Repair / Review;
+5. Verify / Challenge / Transfer;
+6. Return / Handoff;
+7. Deferred;
+8. Validation.
+
+The capability contract is shared, but domain cognition, error taxonomy, evidence unit, scheduler, and UI shape are not required to be identical.
+
+When a lane is added or materially rebuilt, audit these capabilities. If a genuinely necessary capability is absent, do not call the lane fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+
+Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject imitate another merely for frontend consistency.
 
 ## Current read boundary
 
