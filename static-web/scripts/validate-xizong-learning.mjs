@@ -188,7 +188,9 @@ has(xizongLib, 'const intro = blockOpeningOrientation(markdown);', 'loader-bypas
 
 lacks(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared-runtime-seeds-private-holdout');
 has(exitUi, 'let holdoutYears = readJson(holdoutKey, []);', 'holdout-not-empty-by-default');
-has(exitUi, 'function normalizeHoldoutYears(value) {', 'holdout-normalization-error-path-missing');
+has(exitUi, 'const normalizeHoldout = (value) =>', 'holdout-normalization-missing');
+has(exitUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-to-eligible-years');
+has(exitUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
 has(exitUi, 'const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));', 'holdout-filter-runtime-missing');
 matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'sweep-gate-missing-recall-or-explicit-holdout');
 
