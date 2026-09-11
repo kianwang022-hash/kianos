@@ -1,0 +1,93 @@
+{
+  "schema": "kianos.politics.first_ready_projection.v1",
+  "status": "CURRENT_PILOT",
+  "chapter_id": "POL27-LEARN-MARX-C02",
+  "authority": {
+    "kind": "FORMAL_CONTINUOUS_COVERAGE_PROJECTION",
+    "repository": "kianwang022-hash/kianos-site-v238-recovery",
+    "artifact": "app/product/politics-continuous-coverage.generated.json",
+    "schema_version": "politics_continuous_coverage_projection_v1",
+    "artifact_status": "PASS",
+    "hard_gate": {
+      "objective_questions": 1148,
+      "first_ready": 1148,
+      "orphans": 0,
+      "duplicated_first_ready_owner": 0
+    },
+    "rule": "Owner coverage and first-ready timing are different facts. This projection controls when a question may first appear to the learner; Current Natural Unit ownership remains authoritative for semantic repair."
+  },
+  "embedded_checkpoints": [
+    {
+      "host_natural_unit_id": "POL27-CF-MARX-C02-S01",
+      "embedded_natural_unit_id": "POL27-CF-MARX-C02-K03",
+      "runtime_natural_unit_id": "POL27-REGION-PILOT-MARX-REG-01",
+      "after_source_owner_id": "POL27-CF-MARX-C02-K03",
+      "learner_title": "第一节 · 先走到对立统一规律",
+      "natural_unit_title": "对立统一规律",
+      "bridge": "先用联系和发展建立前提；读到对立统一规律后先在这里闭合，不把后面的量变、否定等内容混进这一轮验证。",
+      "core_problem": "矛盾双方怎样既统一又斗争，并由此推动发展、形成共性与个性以及主次结构？",
+      "closure_cue": "闭卷恢复四个关系：同一性与斗争性是什么、二者怎样共同推动发展、共性与个性怎样嵌套、主次层级为什么不能混淆。",
+      "after_checkpoint_bridge": "这组验证做完后继续第一节后半；仍依赖后文的题不会提前出现。",
+      "continue_title": "第一节 · 继续往后推",
+      "continue_problem": "对立统一规律闭合以后，发展的状态跃迁和前进形式还需要哪些规律来解释？",
+      "checkpoint_teaching_beat_labels": [
+        "普遍联系",
+        "发展",
+        "对立统一规律"
+      ],
+      "continue_teaching_beat_labels": [
+        "矛盾分析",
+        "量变质变规律",
+        "否定之否定规律"
+      ],
+      "owner_question_ids": [
+        "X1000-MARX-S-028",
+        "X1000-MARX-S-029",
+        "X1000-MARX-S-039",
+        "X1000-MARX-M-026",
+        "X1000-MARX-M-027",
+        "X1000-MARX-M-028",
+        "X1000-MARX-M-029",
+        "X1000-MARX-M-030",
+        "X1000-MARX-M-035",
+        "X1000-MARX-M-045",
+        "X1000-MARX-M-046",
+        "X1000-MARX-M-047",
+        "X1000-MARX-M-048",
+        "X1000-MARX-M-049",
+        "X1000-MARX-M-074"
+      ],
+      "first_ready_question_ids": [
+        "X1000-MARX-S-028",
+        "X1000-MARX-S-029",
+        "X1000-MARX-S-039",
+        "X1000-MARX-M-026",
+        "X1000-MARX-M-027",
+        "X1000-MARX-M-028",
+        "X1000-MARX-M-030",
+        "X1000-MARX-M-045",
+        "X1000-MARX-M-047",
+        "X1000-MARX-M-048",
+        "X1000-MARX-M-049"
+      ],
+      "deferred_questions": [
+        {
+          "question_id": "X1000-MARX-M-029",
+          "first_ready_natural_unit_id": "POL27-CF-MARX-C03-S02"
+        },
+        {
+          "question_id": "X1000-MARX-M-035",
+          "first_ready_natural_unit_id": "POL27-CF-MARX-C02-S02"
+        },
+        {
+          "question_id": "X1000-MARX-M-046",
+          "first_ready_natural_unit_id": "POL27-CF-MARX-C02-S02"
+        },
+        {
+          "question_id": "X1000-MARX-M-074",
+          "first_ready_natural_unit_id": "POL27-CF-MARX-C03-S02"
+        }
+      ]
+    }
+  ]
+}
