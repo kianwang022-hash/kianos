@@ -41,6 +41,9 @@
     const idOf = (question) => question.getAttribute('data-objective-question') || '';
     const ordinalOf = (question) => Number(question.getAttribute('data-objective-index') || 0) + 1;
     const itemLabel = task === 'cloze' ? 'Blank' : (root.getAttribute('data-reading-b-item-label') || 'Item');
+    const displayLabelOf = (row) => task === 'cloze'
+      ? `${itemLabel} ${ordinalOf(row)}`
+      : (row.getAttribute('data-reading-b-target-label') || `${itemLabel} ${ordinalOf(row)}`);
     const formalOf = (question) => {
       try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
       catch { return []; }
@@ -81,7 +84,7 @@
       const options = [...row.querySelectorAll('[data-objective-option]')]
         .map((node) => node.textContent?.trim() || '')
         .filter(Boolean);
-      return ['', `${itemLabel} ${ordinalOf(row)} (${id})`, `Prompt: ${prompt || '—'}`, ...options];
+      return ['', `${displayLabelOf(row)} (${id})`, ...(prompt ? [`Prompt: ${prompt}`] : []), ...options];
     };
 
     const buildPacket = (attempt) => {
@@ -103,10 +106,10 @@
         .join('\n\n');
       const wrong = rows
         .filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)]))
-        .map((row) => `${itemLabel} ${ordinalOf(row)}`);
+        .map(displayLabelOf);
       const uncertainRows = rows
         .filter((row) => uncertain.has(idOf(row)))
-        .map((row) => `${itemLabel} ${ordinalOf(row)}`);
+        .map(displayLabelOf);
       const packetName = task === 'cloze' ? 'Cloze passage review packet v1' : 'Reading B set review packet v1';
 
       const lines = [
@@ -122,18 +125,26 @@
       ];
 
       if (task === 'reading_b') {
-        const directions = root.querySelector('[data-objective-instruction]')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
+        const directions = root.querySelector('[data-objective-instruction] p')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
         const form = root.getAttribute('data-reading-b-task-form') || '';
         const policy = root.getAttribute('data-reading-b-candidate-policy') || '';
         lines.push(`Task form: ${form || '—'}`, `Candidate policy: ${policy || '—'}`);
         if (directions) lines.push('', 'DIRECTIONS', directions);
+        const skeleton = [...root.querySelector('[data-reading-b-ordering-skeleton]')?.children || []]
+          .map((node) => node.getAttribute?.('data-reading-b-fixed') || node.getAttribute?.('data-reading-b-target-label') || '')
+          .filter(Boolean);
+        if (skeleton.length) lines.push('', 'ORDERING SKELETON', skeleton.join(' → '));
       }
 
-      lines.push('', task === 'cloze' ? 'PASSAGE' : 'MATERIAL', material || '—');
+      if (task === 'cloze' || material) lines.push('', task === 'cloze' ? 'PASSAGE' : 'MATERIAL', material || '—');
 
       if (task === 'reading_b') {
         const candidates = [...root.querySelectorAll('[data-objective-candidate]')]
-          .map((node) => node.textContent?.replace(/\s+/g, ' ')?.trim() || '')
+          .map((node) => {
+            const label = node.querySelector('b')?.textContent?.trim() || '';
+            const text = node.querySelector('span')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
+            return [label, text].filter(Boolean).join('. ');
+          })
           .filter(Boolean);
         if (candidates.length) lines.push('', 'CANDIDATE INVENTORY', ...candidates);
       }
@@ -145,7 +156,7 @@
           .map((step) => step?.answer)
           .filter(Boolean)
           .join(' → ') || '—';
-        lines.push(`${itemLabel} ${ordinalOf(row)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
+        lines.push(`${displayLabelOf(row)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
       });
 
       const expanded = pendingClaims.length ? rows : rows.filter((row) => problems.has(idOf(row)));
@@ -166,7 +177,7 @@
       if (task === 'cloze') {
         lines.push('Treat this as one complete Cloze passage. Diagnose globally first; merge blanks that share one lexical, sentence, discourse, or task-procedure root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze.');
       } else {
-        lines.push('Treat this as one complete Reading B set using the actual DIRECTIONS and task form above. Reconstruct the discourse skeleton / required matching structure before splitting items. Compare the complete learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Route lexical objects to LexicalOS and representation/discourse failures to Reading.');
+        lines.push('Treat this as one complete Reading B set using the actual DIRECTIONS, task form, candidate inventory, and ordering skeleton when present. Diagnose the whole discourse/matching structure before splitting items. Compare the complete learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Route lexical objects to LexicalOS and representation/discourse failures to Reading.');
       }
       lines.push('ACTIVE TRANSFER CLAIMS are not automatically relevant. Close one only if this fresh set genuinely tested the same procedure and execution was stable. RECENT CLOSED CLAIMS are reopen candidates only: reopen one only when a current fresh failure directly contradicts that exact previously closed procedure.');
       lines.push(
@@ -176,14 +187,7 @@
         'newClaims may only reference a task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. claimUpdates may reference only claim IDs actually supplied above. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({
-          schema: 'kianos.english.objective_review_return.v1',
-          task,
-          objectId,
-          threads: [],
-          newClaims: [],
-          claimUpdates: []
-        }, null, 2),
+        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 
@@ -223,12 +227,8 @@
         await navigator.clipboard.writeText(packet.text);
         try {
           localStorage.setItem(handoffKey, JSON.stringify({
-            schema: 'kianos.english.objective_handoff.v1',
-            task,
-            objectId,
-            mode: packet.mode,
-            activeClaimIds: packet.activeClaimIds,
-            reopenCandidateIds: packet.reopenCandidateIds,
+            schema: 'kianos.english.objective_handoff.v1', task, objectId, mode: packet.mode,
+            activeClaimIds: packet.activeClaimIds, reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
           if (status) status.textContent = packet.mode === 'TRANSFER_CHECK'
