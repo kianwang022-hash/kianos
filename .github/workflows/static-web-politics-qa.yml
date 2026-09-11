@@ -30,6 +30,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Audit Politics canonical coverage
         run: node scripts/audit-politics-coverage.mjs
+      - name: Audit Xiao1000 semantic chapter routing
+        run: node scripts/audit-politics-question-routing.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
       - name: Build Astro
