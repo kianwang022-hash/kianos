@@ -1,0 +1,78 @@
+{
+  "schema": "kianos.english.learning_continuation.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "lane": "english_learning_runtime",
+  "role": "CURRENT_WORK_CURSOR_ONLY",
+  "rule": "This file records where shared English learning/runtime work should continue. It is not exam/source truth, not private learner state, and not a substitute for LEARNING_CONTRACT.md or module contracts. A fresh Chat should read this cursor plus the referenced Current owners before proposing new English work.",
+  "goal": {
+    "exam": "English I",
+    "score_target": "80–85+",
+    "objective_training_target": "60/60"
+  },
+  "current_stage": "READING_A_REAL_USE_VALIDATION",
+  "completed_shared_work": [
+    "English Current consolidation completed: concise manifest, provenance separation, canonical exam/source assets, and Current-only Astro gating.",
+    "Global English LEARNING_CONTRACT.md frozen around Clean Attempt -> first meaningful failure -> smallest sufficient repair -> reconstruction -> transfer.",
+    "Module-specific cognition is frozen; one diagnostic taxonomy must not be forced across Reading A, Cloze, Part B, Translation, and Writing.",
+    "Reading A module contract completed: understand -> locate decisive evidence -> adjudicate options -> execute.",
+    "Reading A clean-attempt surface exists in Astro with passage/question split, A-D controls, Uncertain, timer/progress, keyboard navigation, and optional lightweight marking.",
+    "Reading A post-submit behavior already compresses stable-correct items and prioritizes wrong/uncertain items.",
+    "Reading A private interaction evidence includes answers, uncertainty, timing/history, answer trajectory when captured, optional quick cause, and compact copy-to-Chat handoff.",
+    "Canonical English exam source is materialized and verified: 27 papers, 235 sets, 1364 questions/prompts; Reading corpus has 110 passages and 540 questions.",
+    "External-reading inventory and object schema exist; TPO56-65 and IELTS17-19 remain candidate private unseen material and are not bulk-materialized for completeness."
+  ],
+  "current_owners_to_read": [
+    "content/english/LEARNING_CONTRACT.md",
+    "content/english/modules/reading-a.md",
+    "content/english/manifest.json",
+    "content/english/external/manifest.json",
+    "content/english/external/schema.json",
+    "static-web/src/components/ReadingWorkspace.astro",
+    "static-web/src/pages/reading.astro"
+  ],
+  "next_action": {
+    "stage": "END_TO_END_READING_VALIDATION",
+    "instruction": "Run one real Reading A passage through the current Astro flow before adding more English UI or diagnostic taxonomy. Observe the learner from clean attempt through submission, compressed stable-correct handling, wrong/uncertain repair, and Chat handoff. Patch only friction demonstrated by real use.",
+    "source_choice": "Use a canonical exam Reading A passage when memory residue is acceptable. If prior exposure makes it non-diagnostic, materialize exactly one selected TPO/IELTS external-reading object under the existing schema and use it as the validation passage; do not bulk-build the external corpus.",
+    "observe": [
+      "ATTEMPT_FRICTION: controls, layout, marking, timer, or navigation distract from reading/answering.",
+      "OVER_REVIEW: stable correct items create unnecessary explanation or second-pass work.",
+      "UNDER_DIAGNOSIS: wrong/uncertain handoff lacks the minimum evidence Chat needs to identify the first meaningful failure.",
+      "REPAIR_BLOAT: a local failure opens more passage/explanation than necessary.",
+      "MEMORY_RESIDUE: reused true-exam material looks strong only because the learner remembers it.",
+      "TRANSFER: after repair, later unseen material is the stronger mastery signal."
+    ],
+    "success_condition": "The learner can complete a passage with exam-like focus, stable correct items disappear quickly, only meaningful failures expand, and Chat can diagnose deeper failures from a compact handoff without the learner manually retelling the attempt."
+  },
+  "do_not_reopen_without_new_evidence": [
+    "Do not create more English governance/contract files merely for completeness.",
+    "Do not force one failure taxonomy or one review-card shape across all English modules.",
+    "Do not show formal answers, evidence, explanations, teacher methods, or prior-attempt analysis before a clean attempt.",
+    "Do not require annotation, quick-cause labels, or note-taking for every question.",
+    "Do not make stable-correct questions enter full review by default.",
+    "Do not turn teacher-method material into the default learning path; it remains a repair reservoir.",
+    "Do not duplicate lexical knowledge inside Reading/Cloze/Translation when LexicalOS is the canonical owner.",
+    "Do not bulk-materialize TPO/IELTS merely to complete a corpus; preserve unseen diagnostic capital and materialize incrementally when selected for real study.",
+    "Do not treat accuracy on memorized true-exam passages as equivalent to unseen mastery.",
+    "Do not add UI controls/panels unless they improve score reliability, reduce high-value friction, preserve diagnostic evidence, or enable more precise repair/transfer."
+  ],
+  "after_validation": [
+    "Patch Reading A based on observed friction, preferring deletion/simplification and progressive disclosure over new panels.",
+    "Materialize external reading incrementally only when real unseen study requires it.",
+    "Create/upgrade another module contract or Astro interaction only when that module becomes the active learner task; do not prebuild empty module systems.",
+    "Preserve the global 80–85+ / objective 60/60 target and smallest-sufficient-repair philosophy."
+  ],
+  "continuation_policy": {
+    "update_when": "Update at meaningful English shared-work stage transitions or when the next active module/action changes materially.",
+    "do_not_store": [
+      "personal answers",
+      "wrong/uncertain history",
+      "timing/history",
+      "quick-cause choices",
+      "private notes/highlights",
+      "session position"
+    ],
+    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, LEARNING_CONTRACT.md, and only the Current module/source owners needed by next_action. Continue from next_action rather than reconstructing the roadmap from prior chats."
+  }
+}
