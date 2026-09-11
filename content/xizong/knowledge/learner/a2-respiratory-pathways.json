@@ -1,0 +1,128 @@
+{
+  "schema": "kianos.xizong.system_pathways_support.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "system_owner": "content/xizong/knowledge/systems/a2-respiratory/system.json",
+  "learning_support": "content/xizong/knowledge/learner/a2-respiratory-learning.json",
+  "role": "MECHANISM_PROJECTION_AND_CROSS_BLOCK_REACTIVATION_ONLY",
+  "rule": "Only relationships that change learner attention, timing or reactivation belong here. This file does not own medical Core. Source cues are intentionally light; target cues explicitly reactivate previously seen relations. Connection cues do not enter ordinary Memory unless reserve_recall is true.",
+  "system_failure_views": {
+    "FM1": {
+      "focus_nodes": [2, 4],
+      "chain": "气道阻力↑ → 呼气流量下降 → 有效肺泡通气受限 → 严重时可出现 CO₂ 潴留",
+      "variables": ["气道阻力↑", "FEV1↓", "FEV1/FVC↓", "VA可↓", "PaCO2严重时↑"]
+    },
+    "FM2": {
+      "focus_nodes": [3, 4],
+      "chain": "呼吸肌/胸廓/胸膜耦联失败 → 肺扩张不足 → 肺泡通气下降 → 低氧，严重时 CO₂ 潴留",
+      "variables": ["VA↓", "呼吸功↑", "PaO2↓", "PaCO2可↑"]
+    },
+    "FM3": {
+      "focus_nodes": [4, 6],
+      "chain": "肺泡充填或塌陷 → 局部通气显著下降但血流仍在 → 低 VA/Q / 分流样 → PaO₂下降",
+      "variables": ["VA/Q↓", "PaO2↓", "分流样↑"]
+    },
+    "FM4": {
+      "focus_nodes": [5],
+      "chain": "呼吸膜增厚或有效面积减少 → 弥散能力下降 → DLCO下降 → 低氧",
+      "variables": ["DLCO↓", "PaO2↓"]
+    },
+    "FM5": {
+      "focus_nodes": [4, 6],
+      "chain": "通气与灌注不匹配 → 高 VA/Q 形成死腔样，低 VA/Q 形成分流样 → 低氧",
+      "variables": ["VA/Q失配", "PaO2↓"]
+    },
+    "FM6": {
+      "focus_nodes": [6],
+      "chain": "肺血流减少或 PVR 升高 → 死腔样换气增加和/或右室后负荷升高",
+      "variables": ["PVR↑", "PAP可↑", "右室后负荷↑"]
+    },
+    "FM7": {
+      "focus_nodes": [3, 4],
+      "parallel_focus": "呼吸控制器",
+      "chain": "呼吸驱动或通气泵失败 → 有效肺泡通气下降 → PaCO₂升高 → 严重时酸中毒并伴低氧",
+      "variables": ["VA↓", "PaCO2↑", "pH↓", "PaO2可↓"]
+    },
+    "FM8": {
+      "focus_nodes": [2, 4, 5, 6],
+      "chain": "持续结构破坏、纤维化、空洞或占位 → 局部通气/弥散/灌注长期改变 → 慢性功能损害",
+      "variables": ["功能改变取决于主要受损层级"]
+    }
+  },
+  "connections": [
+    {
+      "id": "a2-r01-obstruction-to-r03",
+      "source": {"block_id": "respiratory-r01", "logic_group_id": "respiratory-r01-lg04", "cue": "先记住阻塞性的方向语言；疾病细节现在不展开。"},
+      "target": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg03", "cue": "你在 R1 已经建立过阻塞性肺功能坐标；现在把它正式用于 COPD。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r01-obstruction-to-r04",
+      "source": {"block_id": "respiratory-r01", "logic_group_id": "respiratory-r01-lg04", "cue": "可变阻塞以后会在哮喘重新出现，现在只保留方向。"},
+      "target": {"block_id": "respiratory-r04", "logic_group_id": "respiratory-r04-lg03", "cue": "R1 的阻塞坐标现在要加上‘可变、可逆’这一层，正式进入哮喘证据。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r02-vaq-to-r09-pe",
+      "source": {"block_id": "respiratory-r02", "logic_group_id": "respiratory-r02-lg02", "cue": "高 VA/Q / 死腔样以后会在肺血管阻断真正用起来。"},
+      "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg04", "cue": "你在 R2 见过‘有气没血’的高 VA/Q；现在 PE 就是在真实疾病里调用这套语言。"},
+      "reserve_recall": true
+    },
+    {
+      "id": "a2-r03-copd-to-r09-cor-pulmonale",
+      "source": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg04", "cue": "慢性低氧 → 肺血管阻力长期升高 → 肺心病。现在先认识这条出口，R9 正式展开。"},
+      "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg01", "cue": "你在 COPD 已经见过慢性低氧通向肺心病；现在正式展开 PVR→PAP→右室重构。"},
+      "reserve_recall": true
+    },
+    {
+      "id": "a2-r03-copd-to-r12-respiratory-failure",
+      "source": {"block_id": "respiratory-r03", "logic_group_id": "respiratory-r03-lg04", "cue": "严重 COPD 最终可进入通气失败/Ⅱ型呼衰；现在不展开呼衰管理。"},
+      "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg04", "cue": "你在 COPD 已经见过 CO₂ 潴留的出口；现在正式用血气边界理解Ⅱ型呼衰。"},
+      "reserve_recall": true
+    },
+    {
+      "id": "a2-r04-severe-asthma-to-r12",
+      "source": {"block_id": "respiratory-r04", "logic_group_id": "respiratory-r04-lg05", "cue": "危重哮喘可从可变阻塞走到通气泵失败；通用呼衰支持留到 R12。"},
+      "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg04", "cue": "你在危重哮喘见过通气失败；现在把它放回Ⅰ/Ⅱ型呼衰和支持策略。"},
+      "reserve_recall": true
+    },
+    {
+      "id": "a2-r05-pneumonia-to-r12-ards",
+      "source": {"block_id": "respiratory-r05", "logic_group_id": "respiratory-r05-lg04", "cue": "重症肺炎可进入共同终末通路 ARDS；现在只知道这个并发去向。"},
+      "target": {"block_id": "respiratory-r12", "logic_group_id": "respiratory-r12-lg01", "cue": "你在重症肺炎见过 ARDS 这个出口；现在正式展开屏障损伤→肺泡充填/塌陷→分流低氧。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r06-cavity-to-r07-tb",
+      "source": {"block_id": "respiratory-r06", "logic_group_id": "respiratory-r06-lg04", "cue": "空腔鉴别里先保留结核这一支，不在 R6 展开结核全套。"},
+      "target": {"block_id": "respiratory-r07", "logic_group_id": "respiratory-r07-lg03", "cue": "你在 R6 的空腔鉴别见过结核；现在正式学习空洞、播散和结核类型。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r06-cavity-to-r11-tumor",
+      "source": {"block_id": "respiratory-r06", "logic_group_id": "respiratory-r06-lg04", "cue": "空腔鉴别里先保留肿瘤这一支，肺癌正式内容留到 R11。"},
+      "target": {"block_id": "respiratory-r11", "logic_group_id": "respiratory-r11-lg02", "cue": "你在 R6 的空腔鉴别见过肿瘤；现在把它放回肺癌的位置、侵犯和影像证据。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r08-ild-to-r09-pulmonary-hypertension",
+      "source": {"block_id": "respiratory-r08", "logic_group_id": "respiratory-r08-lg01", "cue": "慢性低氧/结构病可继续走向肺高压和右心负荷；R9 正式展开。"},
+      "target": {"block_id": "respiratory-r09", "logic_group_id": "respiratory-r09-lg01", "cue": "你在 ILD 已经见过慢性低氧这个上游；现在正式接到 PVR↑ 和右室重构。"},
+      "reserve_recall": true
+    },
+    {
+      "id": "a2-r10-pleural-effusion-to-r07-tb",
+      "source": {"block_id": "respiratory-r10", "logic_group_id": "respiratory-r10-lg03", "cue": "结核性胸水这里只学胸膜证据；结核本体仍由 R7 负责。"},
+      "target": {"block_id": "respiratory-r07", "logic_group_id": "respiratory-r07-lg05", "cue": "胸水场景曾调用结核证据；回到 R7 时把感染、活动和传染性证据重新分层。"},
+      "reserve_recall": false
+    },
+    {
+      "id": "a2-r10-pleural-effusion-to-r11-malignancy",
+      "source": {"block_id": "respiratory-r10", "logic_group_id": "respiratory-r10-lg03", "cue": "恶性胸水这里只学胸膜鉴别证据；肺癌本体留到 R11。"},
+      "target": {"block_id": "respiratory-r11", "logic_group_id": "respiratory-r11-lg04", "cue": "你在胸水鉴别见过恶性证据；现在正式进入肺癌的发现、取材、分期和组织证据。"},
+      "reserve_recall": false
+    }
+  ]
+}
