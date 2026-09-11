@@ -11,46 +11,87 @@ const base = import.meta.env.BASE_URL;
     const readingKey = root.getAttribute('data-reading-object') || 'reading';
     const basePath = gate.getAttribute('data-reading-base') || '/';
     const answerUrl = `${basePath}reading-answer/${encodeURIComponent(readingKey)}.json`;
+    const attemptKey = `kianos-reading-attempt-v1:${readingKey}`;
     const submit = root.querySelector('[data-reading-submit]');
+    const questions = [...root.querySelectorAll('[data-question]')];
     let ready = root.getAttribute('data-reading-answers-ready') === 'true';
-    let loading = false;
+    let loading = null;
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const normalizeAnswer = (value) => Array.isArray(value)
+      ? value.map(String)
+      : value === null || value === undefined || value === '' ? [] : [String(value)];
+
+    const decorateSubmittedReview = () => {
+      const attempt = readJson(attemptKey, {});
+      if (!attempt.submitted || attempt.reviewUnlocked === false) return;
+      const uncertain = new Set(attempt.uncertain || []);
+
+      questions.forEach((question) => {
+        const id = question.getAttribute('data-question') || '';
+        let correct = [];
+        try { correct = normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
+        catch {}
+        const selected = String(attempt.answers?.[id] || '');
+        const problem = ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id);
+        const formal = question.querySelector('[data-reading-formal-answer]');
+        if (formal) formal.textContent = correct.join(', ') || '—';
+        if (!problem) return;
+
+        question.querySelectorAll('[data-option]').forEach((option) => {
+          const label = option.getAttribute('data-option') || '';
+          option.classList.toggle('result-correct', correct.includes(label));
+          option.classList.toggle('result-wrong', Boolean(selected && label === selected && !correct.includes(label)));
+        });
+      });
+    };
+
+    const applyAnswers = (payload) => {
+      if (!payload || payload.objectId !== readingKey || typeof payload.answers !== 'object') return false;
+      questions.forEach((question) => {
+        const id = question.getAttribute('data-question') || '';
+        if (!id || !Object.prototype.hasOwnProperty.call(payload.answers, id)) return;
+        question.setAttribute('data-answer', JSON.stringify(payload.answers[id] ?? ''));
+      });
+
+      ready = questions.every((question) => {
+        try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')).length > 0; }
+        catch { return false; }
+      });
+      if (!ready) return false;
+
+      root.setAttribute('data-reading-answers-ready', 'true');
+      decorateSubmittedReview();
+      return true;
+    };
 
     const loadAnswers = async () => {
       if (ready) return true;
-      if (loading) return false;
-      loading = true;
+      if (loading) return loading;
       const originalText = submit?.textContent || 'Submit';
       if (submit) {
         submit.disabled = true;
         submit.textContent = 'Submitting…';
       }
 
-      try {
-        const response = await fetch(answerUrl, { headers: { Accept: 'application/json' } });
-        if (!response.ok) throw new Error(`answer ${response.status}`);
-        const payload = await response.json();
-        if (!payload || payload.objectId !== readingKey || typeof payload.answers !== 'object') {
-          throw new Error('answer payload mismatch');
-        }
-
-        root.querySelectorAll('[data-question]').forEach((question) => {
-          const id = question.getAttribute('data-question') || '';
-          if (!id || !(id in payload.answers)) return;
-          question.setAttribute('data-answer', JSON.stringify(payload.answers[id] ?? ''));
+      loading = fetch(answerUrl, { headers: { Accept: 'application/json' } })
+        .then((response) => {
+          if (!response.ok) throw new Error(`answer ${response.status}`);
+          return response.json();
+        })
+        .then(applyAnswers)
+        .catch(() => false)
+        .finally(() => {
+          loading = null;
+          if (submit) {
+            submit.disabled = false;
+            submit.textContent = originalText;
+          }
         });
-
-        ready = true;
-        root.setAttribute('data-reading-answers-ready', 'true');
-        return true;
-      } catch {
-        return false;
-      } finally {
-        loading = false;
-        if (submit) {
-          submit.disabled = false;
-          submit.textContent = originalText;
-        }
-      }
+      return loading;
     };
 
     document.addEventListener('click', async (event) => {
@@ -61,8 +102,24 @@ const base = import.meta.env.BASE_URL;
       event.preventDefault();
       event.stopImmediatePropagation();
       const ok = await loadAnswers();
-      if (ok) button.click();
-      else button.textContent = '重试提交';
+      if (ok) {
+        button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      } else if (submit) {
+        submit.disabled = false;
+        submit.textContent = '重试提交';
+        submit.title = '答案加载失败，本次作答尚未提交。';
+      }
     }, true);
+
+    const savedAttempt = readJson(attemptKey, {});
+    if (savedAttempt.submitted) {
+      void loadAnswers().then((ok) => {
+        if (!ok) return;
+        decorateSubmittedReview();
+        // Re-run post-submit listeners after reload now that formal answers exist in the DOM.
+        submit?.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        root.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      });
+    }
   }
 </script>
