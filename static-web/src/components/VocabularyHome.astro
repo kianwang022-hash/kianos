@@ -14,6 +14,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <button type="button" class="active" data-lexical-tab="study">Study</button>
       <button type="button" data-lexical-tab="search">Search</button>
       <button type="button" data-lexical-tab="review">Review</button>
+      <button type="button" data-lexical-tab="challenge">Challenge</button>
     </nav>
   </header>
 
@@ -51,6 +52,10 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       <header><strong>Repair</strong><span>只保留你明确标记为慢、模糊、漏掉或需要产出的具体对象</span></header>
       <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
     </section>
+  </section>
+
+  <section class="lexicalHomePanel" data-lexical-panel="challenge" hidden>
+    <slot name="challenge" />
   </section>
 
   <script type="application/json" data-lexical-catalog set:html={payload}></script>
