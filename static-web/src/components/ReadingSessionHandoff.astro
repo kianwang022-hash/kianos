@@ -6,6 +6,7 @@
   if (readingRoot) {
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
     const continuousKey = 'kianos-reading-continuous-session-v1';
+    const watchKey = 'kianos-reading-watch-signals-v1';
     const resultSummary = readingRoot.querySelector('.portedReadingResultSummary');
     let handoff = null;
 
@@ -53,6 +54,10 @@
     );
 
     const buildPacket = (session) => {
+      const passageIds = new Set(session.items.map((item) => item?.id).filter(Boolean));
+      const watchStore = readJson(watchKey, { signals: [] });
+      const watchSignals = (Array.isArray(watchStore.signals) ? watchStore.signals : [])
+        .filter((signal) => passageIds.has(signal?.passageId));
       const lines = [
         'Reading A session review',
         `Session started: ${session.startedAt || '—'}`,
@@ -82,8 +87,17 @@
         });
       });
 
+      if (watchSignals.length) {
+        lines.push('');
+        lines.push('Review watch signals:');
+        watchSignals.forEach((signal) => {
+          const subtype = (signal.subtypeCodes || []).join(', ') || '—';
+          lines.push(`- ${signal.questionId}: ${signal.family} · subtype ${subtype} · task ${signal.questionTask || '—'} · status ${signal.status || 'WATCH'}`);
+        });
+      }
+
       lines.push('');
-      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them.');
+      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them. Treat WATCH signals as future observation targets, not as mastery or permanent weakness labels.');
       return lines.join('\n');
     };
 
