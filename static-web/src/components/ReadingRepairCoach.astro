@@ -75,7 +75,9 @@ const base = import.meta.env.BASE_URL;
       const stored = readJson(coachStorageKey, {});
       return {
         spans: stored.spans || {},
-        revealedEvidence: stored.revealedEvidence || {}
+        revealedEvidence: stored.revealedEvidence || {},
+        revealedDiagnosis: stored.revealedDiagnosis || {},
+        closed: stored.closed || {}
       };
     };
     const writeCoachState = (value) => {
@@ -105,6 +107,10 @@ const base = import.meta.env.BASE_URL;
     };
     const answerPath = (state, id) => (state.trajectory?.[id] || []).map((step) => String(step.answer || '')).filter(Boolean);
     const reviewFor = (id) => reviewPayload?.questions?.[id] || null;
+    const closedFor = (id, cause) => {
+      const record = coachState().closed?.[id];
+      return Boolean(record && record.cause === cause);
+    };
 
     const rivalLabel = (state, id, selected, correct) => {
       const path = answerPath(state, id);
@@ -119,6 +125,45 @@ const base = import.meta.env.BASE_URL;
       if (className) node.className = className;
       if (text !== undefined) node.textContent = text;
       return node;
+    };
+
+    const normalizeEnglish = (text) => String(text || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+
+    const evidenceAlignment = (selected, canonical) => {
+      const left = normalizeEnglish(selected);
+      const right = normalizeEnglish(canonical);
+      if (!left || !right) return 'unknown';
+      if (left.includes(right) || right.includes(left)) return 'aligned';
+      const leftTokens = new Set(left.split(/\s+/).filter((token) => token.length > 1));
+      const rightTokens = new Set(right.split(/\s+/).filter((token) => token.length > 1));
+      if (!rightTokens.size) return 'unknown';
+      const common = [...rightTokens].filter((token) => leftTokens.has(token)).length;
+      const coverage = common / rightTokens.size;
+      if (coverage >= 0.75) return 'aligned';
+      if (coverage >= 0.45) return 'partial';
+      return 'miss';
+    };
+
+    const diagnosesFor = (review, label) => (review?.optionDiagnosis?.[label] || [])
+      .filter((code) => code !== 'SUPPORTED')
+      .slice(0, 2);
+
+    const executionSignal = (state, id, correct) => {
+      const path = answerPath(state, id);
+      const finalAnswer = state.answers?.[id] || '';
+      const fromCorrectToWrong = path.length > 1
+        && path.slice(0, -1).some((answer) => correct.includes(answer))
+        && !correct.includes(finalAnswer);
+      if (fromCorrectToWrong) {
+        return {
+          strong: true,
+          rule: '没有新的决定性证据，不从已经正确的答案改走。'
+        };
+      }
+      return { strong: false, rule: '' };
     };
 
     const ensureReviewAssets = async () => {
@@ -171,12 +216,27 @@ const base = import.meta.env.BASE_URL;
       guide.appendChild(card);
     };
 
-    const renderEvidenceGate = (guide, id, review, saved) => {
+    const renderEvidenceGate = (guide, id, review, saved, cause) => {
       const evidence = review?.minimalEvidence?.[0];
-      if (!saved?.text || !evidence?.text) return;
+      if (!saved?.text) return;
+      if (!evidence?.text) {
+        if (reviewLoadState === 'failed') {
+          guide.appendChild(make('p', 'portedReadingCoachQuiet', '标准证据暂时没有读到，这题先不要标完成；需要确认时发给 Chat。'));
+        }
+        return;
+      }
       const stored = coachState();
       if (stored.revealedEvidence?.[id]) {
         renderCanonicalEvidence(guide, review);
+        if (cause === '没定位准') {
+          const alignment = evidenceAlignment(saved.text, evidence.text);
+          const note = alignment === 'aligned'
+            ? '这次重新定位已经覆盖标准最小证据。'
+            : alignment === 'partial'
+              ? '已经碰到关键处，但还偏宽或偏窄；再缩成真正决定答案的最小证据。'
+              : '这次定位还没有对上标准证据，换一段再试。';
+          guide.appendChild(make('p', `portedReadingCoachAlignment ${alignment}`, note));
+        }
         return;
       }
       const button = make('button', 'portedReadingCoachReveal', '核对标准最小证据');
@@ -185,13 +245,31 @@ const base = import.meta.env.BASE_URL;
       guide.appendChild(button);
     };
 
-    const renderDiagnosis = (guide, review, label) => {
-      const diagnoses = (review?.optionDiagnosis?.[label] || []).filter((code) => code !== 'SUPPORTED').slice(0, 2);
+    const renderDiagnosis = (guide, diagnoses) => {
       if (!diagnoses.length) return;
       const card = make('div', 'portedReadingCoachDiagnosis');
       card.appendChild(make('span', '', '真正分胜负的地方'));
       card.appendChild(make('strong', '', diagnoses.map((code) => diagnosisLabels[code] || code).join(' · ')));
       guide.appendChild(card);
+    };
+
+    const renderDiagnosisGate = (guide, id, review, label) => {
+      const diagnoses = diagnosesFor(review, label);
+      if (!diagnoses.length) {
+        if (reviewLoadState === 'failed' || reviewPayload) {
+          guide.appendChild(make('p', 'portedReadingCoachQuiet', '这题没有读到可用的标准选项诊断，先自己比较；需要确认时发给 Chat。'));
+        }
+        return;
+      }
+      const stored = coachState();
+      if (stored.revealedDiagnosis?.[id]) {
+        renderDiagnosis(guide, diagnoses);
+        return;
+      }
+      const button = make('button', 'portedReadingCoachReveal', '我先自己说，再核对关键差异');
+      button.type = 'button';
+      button.setAttribute('data-reading-coach-reveal-diagnosis', '');
+      guide.appendChild(button);
     };
 
     const renderContrast = (guide, question, state, id, selected, correct, review) => {
@@ -200,7 +278,7 @@ const base = import.meta.env.BASE_URL;
 
       if (!alternative) {
         guide.appendChild(make('p', 'portedReadingCoachQuiet', '你最终答对了，而且轨迹里没有留下明确的对手项。若只是轻微犹豫，不必硬造一个错因。'));
-        return;
+        return '';
       }
 
       const correctLabel = correct[0] || '';
@@ -214,8 +292,9 @@ const base = import.meta.env.BASE_URL;
       right.appendChild(make('p', '', optionText(question, correctLabel) || '—'));
       grid.append(left, right);
       guide.appendChild(grid);
-      renderDiagnosis(guide, review, alternative);
-      guide.appendChild(make('p', 'portedReadingCoachQuiet', '只比较这两个。先自己说出哪里变了，再看上面的提示是不是同一个问题。'));
+      guide.appendChild(make('p', 'portedReadingCoachQuiet', '先自己说出：到底哪个词、范围、逻辑关系或偷换让它们分出胜负。'));
+      renderDiagnosisGate(guide, id, review, alternative);
+      return alternative;
     };
 
     const renderExecution = (guide, state, id, correct) => {
@@ -227,13 +306,19 @@ const base = import.meta.env.BASE_URL;
       card.appendChild(make('strong', '', shownPath.length ? shownPath.join(' → ') : '没有记录到选项轨迹'));
       guide.appendChild(card);
 
-      if (path.length > 1 && path.slice(0, -1).some((answer) => correct.includes(answer)) && !correct.includes(finalAnswer)) {
-        guide.appendChild(make('p', 'portedReadingCoachQuiet', '你确实出现了“从对改错”。重点不是背答案，而是回想：最后一次改动是被什么错误信号触发的？'));
+      const signal = executionSignal(state, id, correct);
+      if (signal.strong) {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '这里有真实的“从对改错”证据，所以可以把它当成执行问题处理。'));
+        const rule = make('div', 'portedReadingCoachRule');
+        rule.appendChild(make('span', '', '下次规则'));
+        rule.appendChild(make('strong', '', signal.rule));
+        guide.appendChild(rule);
       } else if (path.length > 1) {
-        guide.appendChild(make('p', 'portedReadingCoachQuiet', '有改答案，但轨迹并不支持把它简单归成“从对改错”。先找最后一次改动依据，再判断是不是执行问题。'));
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '有改答案，但现有轨迹不足以证明是执行问题。别硬记成“改错”；更可能要回到理解、定位或选项判断。'));
       } else {
-        guide.appendChild(make('p', 'portedReadingCoachQuiet', '这次没有明显改答案轨迹。别硬记成“改错”，更可能需要回到理解、定位或选项判断。'));
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '没有明显改答案轨迹，现有记录不足以证明是执行问题。建议换一个更贴近的原因，或者发给 Chat。'));
       }
+      return signal;
     };
 
     const renderSavedSpan = (guide, span, cause) => {
@@ -246,6 +331,63 @@ const base = import.meta.env.BASE_URL;
       clear.setAttribute('data-reading-coach-clear-span', '');
       card.appendChild(clear);
       guide.appendChild(card);
+    };
+
+    const closureState = ({ cause, id, review, saved, state, selected, correct, rival, execution }) => {
+      const stored = coachState();
+      if (closedFor(id, cause)) return { ready: true, closed: true };
+
+      if (cause === '没读懂') {
+        return { ready: Boolean(saved?.text), closed: false };
+      }
+      if (cause === '没定位准') {
+        const evidence = review?.minimalEvidence?.[0]?.text || '';
+        const aligned = saved?.text && evidence && stored.revealedEvidence?.[id]
+          ? evidenceAlignment(saved.text, evidence) === 'aligned'
+          : false;
+        return { ready: Boolean(aligned), closed: false };
+      }
+      if (cause === '选项没辨清') {
+        const diagnoses = rival ? diagnosesFor(review, rival) : [];
+        return { ready: Boolean(rival && diagnoses.length && stored.revealedDiagnosis?.[id]), closed: false };
+      }
+      if (cause === '看错/改错') {
+        return { ready: Boolean(execution?.strong), closed: false };
+      }
+      return { ready: false, closed: false };
+    };
+
+    const renderClosure = (guide, question, cause, status) => {
+      const id = questionId(question);
+      if (status.closed) {
+        question.classList.add('repair-closed');
+        const card = make('div', 'portedReadingCoachClosed');
+        card.appendChild(make('strong', '', '本题局部修复已闭环'));
+        card.appendChild(make('span', '', '这只说明这道已知题已经修通，不等于真正掌握；以后遇到新的文章再验证。'));
+        const next = make('button', '', '下一道待处理');
+        next.type = 'button';
+        next.setAttribute('data-reading-coach-next-problem', '');
+        card.appendChild(next);
+        guide.appendChild(card);
+        return;
+      }
+
+      question.classList.remove('repair-closed');
+      if (!status.ready) return;
+
+      const labels = {
+        '没读懂': '我现在能重新说清这句',
+        '没定位准': '这次定位已经对上',
+        '选项没辨清': '我能自己说出两项差异',
+        '看错/改错': '我确认下次按这条规则执行'
+      };
+      const row = make('div', 'portedReadingCoachCloseRow');
+      const button = make('button', '', labels[cause] || '完成本题修复');
+      button.type = 'button';
+      button.setAttribute('data-reading-coach-close', '');
+      row.appendChild(button);
+      row.appendChild(make('small', '', '这是本题修复确认，不算掌握证明。'));
+      guide.appendChild(row);
     };
 
     const renderGuide = (question, state) => {
@@ -263,32 +405,45 @@ const base = import.meta.env.BASE_URL;
       const id = questionId(question);
       const cause = state.causes?.[id] || '';
       guide.hidden = !cause || !isProblem(question, state);
-      if (guide.hidden) return;
+      if (guide.hidden) {
+        question.classList.remove('repair-closed');
+        return;
+      }
 
       const selected = state.answers?.[id] || '';
       const correct = expected(question);
-      const saved = coachState().spans?.[id];
+      const stored = coachState();
+      const saved = stored.spans?.[id];
       const review = reviewFor(id);
+      let rival = '';
+      let execution = null;
 
       if (cause === '没读懂') {
         renderTask(guide, review);
-        guide.appendChild(make('p', 'portedReadingCoachInstruction', '回左侧只选真正卡住你的最小句子。先自己还原主干和逻辑；仍然讲不清，再把这一处交给 Chat。'));
+        guide.appendChild(make('p', 'portedReadingCoachInstruction', '回左侧只选真正卡住你的最小句子。先自己还原主干和逻辑；能用自己的话说清以后再收口。'));
         renderSavedSpan(guide, saved, cause);
-        renderEvidenceGate(guide, id, review, saved);
+        renderEvidenceGate(guide, id, review, saved, cause);
       } else if (cause === '没定位准') {
         renderTask(guide, review);
         guide.appendChild(make('p', 'portedReadingCoachInstruction', '先不继续看解析。重新找一段“没有它就不能确定答案”的最小证据，选中后记为本题证据。'));
         renderSavedSpan(guide, saved, cause);
-        renderEvidenceGate(guide, id, review, saved);
+        renderEvidenceGate(guide, id, review, saved, cause);
       } else if (cause === '选项没辨清') {
         renderTask(guide, review);
         guide.appendChild(make('p', 'portedReadingCoachInstruction', '不要重新分析四个选项。只处理你真正纠结的对手项和正确项。'));
         renderCanonicalEvidence(guide, review);
-        renderContrast(guide, question, state, id, selected, correct, review);
+        rival = renderContrast(guide, question, state, id, selected, correct, review);
       } else if (cause === '看错/改错') {
         guide.appendChild(make('p', 'portedReadingCoachInstruction', '先看真实答题轨迹，再决定这是不是执行问题。'));
-        renderExecution(guide, state, id, correct);
+        execution = renderExecution(guide, state, id, correct);
       }
+
+      if (reviewLoadState === 'loading' && ['没定位准', '选项没辨清'].includes(cause) && !review) {
+        guide.appendChild(make('p', 'portedReadingCoachQuiet', '正在准备标准核对内容…'));
+      }
+
+      const status = closureState({ cause, id, review, saved, state, selected, correct, rival, execution });
+      renderClosure(guide, question, cause, status);
     };
 
     let saveSpanButton = null;
@@ -314,10 +469,20 @@ const base = import.meta.env.BASE_URL;
       saveSpanButton.textContent = cause === '没定位准' ? '记为本题证据' : '记为本题卡句';
     };
 
+    const renderNavClosure = (state) => {
+      questions.forEach((question) => {
+        const id = questionId(question);
+        const cause = state.causes?.[id] || '';
+        const nav = readingRoot.querySelector(`.portedReadingQuestionNav [data-target="${CSS.escape(id)}"]`);
+        nav?.classList.toggle('repair-closed', Boolean(cause && isProblem(question, state) && closedFor(id, cause)));
+      });
+    };
+
     const renderAll = () => {
       const state = mainState();
       if (state.submitted && reviewLoadState === 'idle') void ensureReviewAssets();
       questions.forEach((question) => renderGuide(question, state));
+      renderNavClosure(state);
       updateSaveSpanButton();
     };
 
@@ -351,6 +516,7 @@ const base = import.meta.env.BASE_URL;
         capturedAt: new Date().toISOString()
       };
       stored.revealedEvidence[id] = false;
+      delete stored.closed[id];
       writeCoachState(stored);
       pendingSelection = '';
       window.getSelection?.().removeAllRanges();
@@ -362,12 +528,62 @@ const base = import.meta.env.BASE_URL;
       const question = target?.closest('[data-question]');
       const id = questionId(question);
 
-      const reveal = target?.closest('[data-reading-coach-reveal-evidence]');
-      if (reveal && id) {
+      if (target?.closest('[data-cause]') && id) {
+        const stored = coachState();
+        delete stored.closed[id];
+        delete stored.revealedDiagnosis[id];
+        writeCoachState(stored);
+        window.setTimeout(renderAll, 0);
+        return;
+      }
+
+      const revealEvidence = target?.closest('[data-reading-coach-reveal-evidence]');
+      if (revealEvidence && id) {
         const stored = coachState();
         stored.revealedEvidence[id] = true;
+        delete stored.closed[id];
         writeCoachState(stored);
         renderAll();
+        return;
+      }
+
+      const revealDiagnosis = target?.closest('[data-reading-coach-reveal-diagnosis]');
+      if (revealDiagnosis && id) {
+        const stored = coachState();
+        stored.revealedDiagnosis[id] = true;
+        delete stored.closed[id];
+        writeCoachState(stored);
+        renderAll();
+        return;
+      }
+
+      const close = target?.closest('[data-reading-coach-close]');
+      if (close && id) {
+        const state = mainState();
+        const cause = state.causes?.[id] || '';
+        if (!cause) return;
+        const stored = coachState();
+        stored.closed[id] = { cause, at: new Date().toISOString() };
+        writeCoachState(stored);
+        renderAll();
+        return;
+      }
+
+      const nextProblem = target?.closest('[data-reading-coach-next-problem]');
+      if (nextProblem && id) {
+        const state = mainState();
+        const currentIndex = questions.findIndex((item) => questionId(item) === id);
+        const ordered = [...questions.slice(currentIndex + 1), ...questions.slice(0, currentIndex)];
+        const nextQuestion = ordered.find((item) => {
+          if (!isProblem(item, state)) return false;
+          const nextId = questionId(item);
+          const cause = state.causes?.[nextId] || '';
+          return !cause || !closedFor(nextId, cause);
+        });
+        if (nextQuestion) {
+          const nextId = questionId(nextQuestion);
+          readingRoot.querySelector(`.portedReadingQuestionNav [data-target="${CSS.escape(nextId)}"]`)?.click();
+        }
         return;
       }
 
@@ -376,6 +592,7 @@ const base = import.meta.env.BASE_URL;
         const stored = coachState();
         delete stored.spans[id];
         delete stored.revealedEvidence[id];
+        delete stored.closed[id];
         writeCoachState(stored);
         renderAll();
         return;
@@ -403,13 +620,15 @@ const base = import.meta.env.BASE_URL;
         .map((option) => `${option.getAttribute('data-option')}. ${option.querySelector('span')?.textContent?.trim() || ''}`)
         .join('\n');
       const path = answerPath(state, id);
-      const span = coachState().spans?.[id]?.text || '';
+      const stored = coachState();
+      const span = stored.spans?.[id]?.text || '';
       const review = reviewFor(id);
       const correct = expected(question);
       const selected = state.answers?.[id] || '';
       const rival = rivalLabel(state, id, selected, correct);
       const evidence = review?.minimalEvidence?.[0]?.text || '';
-      const diagnosis = rival ? (review?.optionDiagnosis?.[rival] || []) : [];
+      const diagnosis = rival ? diagnosesFor(review, rival) : [];
+      const cause = state.causes?.[id] || '';
       const packet = [
         'Reading A review',
         `Object: ${readingKey}`,
@@ -419,12 +638,13 @@ const base = import.meta.env.BASE_URL;
         `My answer: ${selected || '未答'}`,
         `Formal answer: ${correct.join(', ') || '—'}`,
         `Uncertain: ${(state.uncertain || []).includes(id) ? 'yes' : 'no'}`,
-        `Quick cause: ${state.causes?.[id] || '未标'}`,
+        `Quick cause: ${cause || '未标'}`,
         `Answer path: ${path.length ? path.join(' → ') : '—'}`,
         review?.questionTask ? `Canonical task: ${review.questionTask}` : '',
         evidence ? `Canonical minimal evidence: ${evidence}` : '',
         rival && diagnosis.length ? `Canonical diagnosis for ${rival}: ${diagnosis.join(', ')}` : '',
-        span ? `My selected passage span: ${span}` : ''
+        span ? `My selected passage span: ${span}` : '',
+        cause ? `Local repair closed: ${closedFor(id, cause) ? 'yes' : 'no'}` : ''
       ].filter(Boolean).join('\n');
       const status = question.querySelector('[data-reading-copy-status]');
 
