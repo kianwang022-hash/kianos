@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import { marked } from 'marked';
 import Base from '../layouts/Base.astro';
 
-const sourcePath = 'content/english/modules/translation.md';
+const sourcePath = 'content/english/modules/translation/learning.md';
 const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
 const markdown = fs.readFileSync(sourceUrl, 'utf8');
 const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
