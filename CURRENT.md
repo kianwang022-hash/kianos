@@ -61,9 +61,23 @@ External reading is private learner material. It may include TPO, IELTS, and lat
 
 ### LexicalOS
 
-The canonical natural-owner corpus is present under `content/lexical/canonical/`, while `content/lexical/words/answer.json` remains the representative runtime word owner currently projected by Astro.
+LexicalOS Natural Owner cutover is complete.
 
-Lexical natural-owner auditing and L0-first semantic review are active Current work. Migration does not freeze, replace, or roll those owners back.
+- `content/lexical/manifest.json` — Current lexical authority entry;
+- `content/lexical/words/by-ordinal/` — 7,946 Current Word natural owners for all word-local semantics;
+- `content/lexical/relations/by-id/` — Current owners for genuine cross-word semantic relationships;
+- `content/lexical/schema.json` — ownership contract;
+- `content/lexical/audit/natural-owner-cutover.json` — accepted zero-delta full-corpus cutover proof.
+
+The old bounded stores under `content/lexical/canonical/` are now identity/provenance/evidence/reference stores only. `canonical/lookup/` remains a deterministic non-semantic routing index. They are not normal semantic edit targets and must not be maintained as a parallel lexical truth.
+
+`content/lexical/words/answer.json` is only a non-authoritative compatibility pointer to `content/lexical/words/by-ordinal/o0209.json`; Astro reads the Natural Owner directly.
+
+Normal lexical work is now:
+
+`manifest / lookup → Word Natural Owner → referenced Relation only when needed → Astro display/interaction`
+
+L0-first semantic review continues as Current content work. Semantic repairs update the Natural Owner in place; migration does not need to be replayed and old bounded stores do not need manual semantic synchronization.
 
 ### Politics
 
@@ -97,7 +111,7 @@ The legacy repository knowledge-asset transport is closed. Migration evidence re
 
 The migration dual-read exception is closed for normal work. Future reads from `kianos-legacy` require an explicit recovery, rollback, historical comparison, or newly authorized migration/recovery task.
 
-Active Xizong v6 upgrades, Lexical semantic review/natural-owner audit, English learning/content upgrades, Politics teaching-projection upgrades, Astro projection expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
+Active Xizong v6 upgrades, Lexical semantic review, English learning/content upgrades, Politics teaching-projection upgrades, Astro expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
 
 ## Known inherited source-asset gap
 
