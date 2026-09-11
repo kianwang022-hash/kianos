@@ -10,6 +10,7 @@ import ReadingDeferredReviewShield from '../components/ReadingDeferredReviewShie
 import ReadingRepairCoach from '../components/ReadingRepairCoach.astro';
 import ReadingReviewSignals from '../components/ReadingReviewSignals.astro';
 import ReadingTransferEvidence from '../components/ReadingTransferEvidence.astro';
+import ReadingSessionTransferEvidence from '../components/ReadingSessionTransferEvidence.astro';
 import ReadingSessionHandoff from '../components/ReadingSessionHandoff.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { loadDefaultReading } from '../lib/englishReading.mjs';
@@ -37,6 +38,7 @@ const pendingDescription = sourceState.status === 'invalid'
       <ReadingRepairCoach />
       <ReadingReviewSignals />
       <ReadingTransferEvidence />
+      <ReadingSessionTransferEvidence />
       <ReadingSessionHandoff />
     </>
   ) : (
