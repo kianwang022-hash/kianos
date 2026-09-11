@@ -9,6 +9,7 @@ import ReadingPassageNavigator from '../components/ReadingPassageNavigator.astro
 import ReadingDeferredReviewShield from '../components/ReadingDeferredReviewShield.astro';
 import ReadingRepairCoach from '../components/ReadingRepairCoach.astro';
 import ReadingReviewSignals from '../components/ReadingReviewSignals.astro';
+import ReadingTransferEvidence from '../components/ReadingTransferEvidence.astro';
 import ReadingSessionHandoff from '../components/ReadingSessionHandoff.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
 import { loadDefaultReading } from '../lib/englishReading.mjs';
@@ -35,6 +36,7 @@ const pendingDescription = sourceState.status === 'invalid'
       <ReadingDeferredReviewShield />
       <ReadingRepairCoach />
       <ReadingReviewSignals />
+      <ReadingTransferEvidence />
       <ReadingSessionHandoff />
     </>
   ) : (
