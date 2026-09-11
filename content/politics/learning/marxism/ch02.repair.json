@@ -1,0 +1,68 @@
+{
+  "schema": "kianos.politics.question_repair_projection.v1",
+  "status": "CURRENT_PILOT",
+  "chapter_id": "POL27-LEARN-MARX-C02",
+  "source_priority": [
+    "CURRENT_POLITICS_UNIFIED_REGIONS_AND_CONTINUOUS_UNIT_OWNERSHIP",
+    "XIAO1000_ORIGINAL_STEM_OPTIONS_ANSWER_EXPLANATION",
+    "CHENGFENG_SOURCE_NODE_REGISTRY",
+    "SUYI_OR_OTHER_APPROVED_SUPPORT_SOURCE",
+    "LEGACY_QUESTION_KNOWLEDGE_LINKS_PROVENANCE_ONLY"
+  ],
+  "semantic_authority_rule": "Legacy question_knowledge_links may explain historical provenance but may not override Current Unit ownership or reclassify a question semantically.",
+  "repairs": {
+    "X1000-MARX-S-028": {
+      "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
+      "tested_node": "K03.N02 同一性在事物发展中的作用",
+      "reasoning": "题眼是供给和需求互为存在、实现和发展的条件，而不是二者 merely different；优先识别相互依存及同一性在发展中的作用。",
+      "traps": [
+        "把斗争性说成有条件、相对，方向正好颠倒。",
+        "共性/个性是真命题，但材料没有在做一般与个别的转换。",
+        "主要方面决定性质属于另一关系节点，不是本材料的决定性关系。"
+      ],
+      "lecture_return": "同一性 → 相互依存 → 一方的发展以另一方的发展为条件",
+      "transfer": "看到相互需要、缺一不可、一方发展以另一方为条件、相互吸取有利因素时，优先检查同一性及其在发展中的作用。",
+      "precision_candidate": null
+    },
+    "X1000-MARX-M-029": {
+      "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
+      "tested_node": "K03.N03 共性与个性的关系",
+      "reasoning": "试点是个别/特殊经验，推广是在条件成熟后把其中可复制的一般性关系扩展到更大范围；当前 Unit 只修一般与个别的方向关系。",
+      "current_unit_hits": [
+        "个性在一定条件下可转化为共性",
+        "个别中存在一般，共性通过个性表现"
+      ],
+      "cross_unit_hits": [
+        {
+          "note": "实践检验认识/理论的正确性",
+          "source_basis": "XIAO1000_ORIGINAL_OPTION_AND_EXPLANATION"
+        }
+      ],
+      "lecture_return": "共性寓于个性之中，并通过个性表现；不要把方向倒置。",
+      "transfer": "材料出现试点、典型、经验总结、推广时，先区分个别经验与其中可推广的一般性。",
+      "precision_candidate": null
+    },
+    "X1000-MARX-M-026": {
+      "owner_natural_unit_id": "POL27-CF-MARX-C02-K03",
+      "tested_node": "K03 条件下的对立面转化与一分为二",
+      "reasoning": "当前 Unit 只抓材料中的两面性与对立面在条件变化下的转化，不把同题其他辩证法或价值论节点塞回本 Unit。",
+      "current_unit_hits": [
+        "一分为二地看对象",
+        "对立面在一定条件下可以相互转化"
+      ],
+      "cross_unit_hits": [
+        {
+          "note": "条件可以改变",
+          "source_basis": "OTHER_DIALECTICS_NODE"
+        },
+        {
+          "note": "价值是否满足需要不能由主观愿望任意决定",
+          "source_basis": "VALUE_THEORY_DISTRACTOR"
+        }
+      ],
+      "lecture_return": "矛盾双方的关系与转化必须放在具体条件中判断。",
+      "transfer": "同一道题可以命中多个知识点，但 Repair 只突出当前 Unit 的决定性缺口，其余保留为 cross-unit hit。",
+      "precision_candidate": null
+    }
+  }
+}
