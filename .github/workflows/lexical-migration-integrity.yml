@@ -9,6 +9,7 @@ on:
       - 'content/lexical/words/by-ordinal/**'
       - 'content/lexical/relations/by-id/**'
       - 'tools/lexical_migration_integrity_readback.py'
+      - 'tools/lexical_migration_semantic_review_packet.py'
       - '.github/workflows/lexical-migration-integrity.yml'
   pull_request:
     paths:
@@ -16,6 +17,7 @@ on:
       - 'content/lexical/words/by-ordinal/**'
       - 'content/lexical/relations/by-id/**'
       - 'tools/lexical_migration_integrity_readback.py'
+      - 'tools/lexical_migration_semantic_review_packet.py'
       - '.github/workflows/lexical-migration-integrity.yml'
   workflow_dispatch:
 
@@ -37,6 +39,13 @@ jobs:
             --output /tmp/r12-expansion-readback.json \
             --summary /tmp/r12-expansion-summary.md
 
+      - name: Build P0/P1 semantic review packet
+        shell: bash
+        run: |
+          python tools/lexical_migration_semantic_review_packet.py \
+            /tmp/r12-expansion-readback.json \
+            --output /tmp/r12-expansion-review-packet.json
+
       - name: Publish compact review summary
         if: always()
         shell: bash
@@ -54,5 +63,6 @@ jobs:
           path: |
             /tmp/r12-expansion-readback.json
             /tmp/r12-expansion-summary.md
+            /tmp/r12-expansion-review-packet.json
           if-no-files-found: error
           retention-days: 14
