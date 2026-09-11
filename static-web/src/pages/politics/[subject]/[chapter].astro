@@ -1,0 +1,26 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
+import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../../../lib/politicsCurrent.mjs';
+
+export function getStaticPaths() {
+  return listPoliticsChapterPathsCurrent()
+    .filter((row) => !(row.subject === 'marxism' && row.chapter === 'ch01'))
+    .map((row) => ({ params: { subject: row.subject, chapter: row.chapter }, props: row }));
+}
+
+const { subject, chapter } = Astro.props;
+const data = loadPoliticsChapterCurrent(subject, chapter);
+const base = import.meta.env.BASE_URL;
+---
+<Base
+  title={data.title}
+  kicker={`${data.subjectMeta.label} · ${data.subjectMeta.shape}`}
+  description={data.subjectMeta.description}
+  sourcePath={data.sourcePath}
+  sourceHash={data.sourceHash}
+  objectId={data.objectId}
+  active="politics"
+>
+  <PoliticsChapterRuntime chapter={data} base={base} />
+</Base>
