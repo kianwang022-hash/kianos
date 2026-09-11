@@ -9,87 +9,171 @@ const recallPrompt = typeof recall === 'string'
 const recallSteps = Array.isArray(recall?.reverse_case_algorithm)
   ? recall.reverse_case_algorithm
   : Array.isArray(recall?.algorithm) ? recall.algorithm : [];
+const totalKp = system.blocks.reduce((sum, block) => sum + block.kpCount, 0);
+const firstBlock = system.blocks[0];
 ---
-<section class="xv6System" data-xizong-system={system.systemId}>
-  <header class="xv6SystemHero">
-    <div>
-      <span>{system.canonicalId} · System Learn</span>
-      <h2>{system.title}</h2>
-      <p>{system.mission}</p>
-    </div>
-    <aside>
-      <strong>{system.blocks.length} Blocks</strong>
-      <span>{system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} canonical KP</span>
-      <small>Current owner · system.json</small>
-    </aside>
-  </header>
-
-  <section class="xv6Panel">
-    <header><span>Mother Model</span><h3>先把整个系统压成一条运输链</h3></header>
-    {system.mentalModel.motherModel && <p class="xv6Mother">{system.mentalModel.motherModel}</p>}
-    <ol class="xv6Spine">
-      {system.mentalModel.spine.map((item, index) => <li><b>{String(index + 1).padStart(2, '0')}</b><span>{item}</span></li>)}
-    </ol>
-    {system.mentalModel.parallelControls.length > 0 && (
-      <div class="xv6Parallel">
-        {system.mentalModel.parallelControls.map((item) => <span>{item}</span>)}
-      </div>
-    )}
-  </section>
-
-  <section class="xv6Panel">
-    <header><span>Failure Modes</span><h3>先定位哪里坏，再搜索病名</h3></header>
-    <div class="xv6FailureGrid">
-      {system.failureModes.map((mode, index) => <article>
-        <b>FM{index + 1}</b>
-        <h4>{mode.label}</h4>
-        {mode.chain && <p>{mode.chain}</p>}
-      </article>)}
-    </div>
-  </section>
-
-  <section class="xv6TwoCol">
-    <article class="xv6Panel">
-      <header><span>Judgment Axes</span><h3>病例时固定问这些轴</h3></header>
-      <div class="xv6Chips">{system.judgmentAxes.map((item) => <span>{item}</span>)}</div>
-    </article>
-    <article class="xv6Panel">
-      <header><span>Core Variables</span><h3>系统最小变量语言</h3></header>
-      <div class="xv6Chips">{system.coreVariables.map((item) => <span>{variableLabel(item)}</span>)}</div>
-      {system.coreRelations.length > 0 && <div class="xv6Relations">{system.coreRelations.map((item) => <code>{item}</code>)}</div>}
-    </article>
-  </section>
-
-  <section class="xv6Panel">
-    <header><span>Block Route</span><h3>按依赖顺序进入 12 个局部模型</h3></header>
-    <div class="xv6BlockGrid">
-      {system.blocks.map((block) => <a href={`${base}xizong/${system.systemId}/${block.slug}/`}>
-        <span>{block.label}</span>
-        <strong>{block.title}</strong>
-        <small>{block.kpCount} KP · Outline {block.outlineCount}</small>
+<section class="xv6SystemShell" data-xizong-system={system.systemId}>
+  <aside class="xv6SystemRail">
+    <header>
+      <span>{system.canonicalId} · System</span>
+      <strong>{system.title}</strong>
+      <small>{system.blocks.length} Blocks · {totalKp} KP</small>
+    </header>
+    <nav aria-label="Block route">
+      {system.blocks.map((block, index) => <a
+        href={`${base}xizong/${system.systemId}/${block.slug}/`}
+        data-system-block={index}
+        class={index === 0 ? 'selected' : ''}
+      >
+        <b>{block.label}</b>
+        <span>{block.title}</span>
+        <small>{block.kpCount} KP</small>
       </a>)}
-    </div>
-  </section>
+    </nav>
+    <footer><kbd>↑</kbd><kbd>↓</kbd> 选 Block · <kbd>Enter</kbd> 进入</footer>
+  </aside>
 
-  <section class="xv6Panel xv6Recall">
-    <header><span>System Recall</span><h3>学完后从陌生病例反向恢复系统</h3></header>
-    <blockquote>{recallPrompt}</blockquote>
-    {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
+  <main class="xv6SystemMain">
+    <header class="xv6SystemHeroDense">
+      <div>
+        <span>{system.canonicalId} · System Learn</span>
+        <h2>{system.title}</h2>
+      </div>
+      <p>{system.mission}</p>
+    </header>
+
+    <section class="xv6Panel xv6MotherPanel" data-system-section="mother">
+      <header><span>Mother Model</span><h3>先把整个系统压成一条可运行的链</h3></header>
+      {system.mentalModel.motherModel && <p class="xv6Mother">{system.mentalModel.motherModel}</p>}
+      <ol class="xv6Spine">
+        {system.mentalModel.spine.map((item, index) => <li><b>{String(index + 1).padStart(2, '0')}</b><span>{item}</span></li>)}
+      </ol>
+      {system.mentalModel.parallelControls.length > 0 && (
+        <div class="xv6Parallel">{system.mentalModel.parallelControls.map((item) => <span>{item}</span>)}</div>
+      )}
+    </section>
+
+    <section class="xv6DensePair">
+      <article class="xv6Panel">
+        <header><span>Core Variables</span><h3>最小变量语言</h3></header>
+        <div class="xv6Chips">{system.coreVariables.map((item) => <span>{variableLabel(item)}</span>)}</div>
+        {system.coreRelations.length > 0 && <div class="xv6Relations">{system.coreRelations.map((item) => <code>{item}</code>)}</div>}
+      </article>
+      <article class="xv6Panel">
+        <header><span>Judgment Axes</span><h3>病例固定坐标</h3></header>
+        <div class="xv6Chips">{system.judgmentAxes.map((item) => <span>{item}</span>)}</div>
+      </article>
+    </section>
+
+    <section class="xv6Panel" data-system-section="failure">
+      <header><span>Failure Modes</span><h3>先定位哪里坏，再搜索病名</h3></header>
+      <div class="xv6FailureGrid">
+        {system.failureModes.map((mode, index) => <article>
+          <b>FM{index + 1}</b>
+          <div><h4>{mode.label}</h4>{mode.chain && <p>{mode.chain}</p>}</div>
+        </article>)}
+      </div>
+    </section>
+
     {system.dependencyDag.length > 0 && (
-      <details>
-        <summary>查看 Block 依赖图</summary>
+      <details class="xv6Dependency">
+        <summary>Block 依赖图</summary>
         <div class="xv6Relations">{system.dependencyDag.map((item) => <code>{item}</code>)}</div>
       </details>
     )}
-  </section>
 
-  <details class="portedSourceFoot">
-    <summary>Current System owner</summary>
-    <code>{system.sourcePath}</code>
-    <code>sha256:{String(system.sourceHash).slice(0, 16)}</code>
-  </details>
+    <details class="portedSourceFoot">
+      <summary>Current System owner</summary>
+      <code>{system.sourcePath}</code>
+      <code>sha256:{String(system.sourceHash).slice(0, 16)}</code>
+    </details>
+  </main>
+
+  <aside class="xv6SystemContext">
+    <section class="xv6SelectedBlock">
+      <span>Selected Block</span>
+      <b data-selected-label>{firstBlock?.label}</b>
+      <h3 data-selected-title>{firstBlock?.title}</h3>
+      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP · Outline ${firstBlock.outlineCount}` : ''}</p>
+      <button type="button" data-open-selected>Enter · 进入当前 Block</button>
+    </section>
+
+    <section class="xv6RecallCompact" data-system-section="recall">
+      <span>System Recall</span>
+      <h3>陌生病例先恢复系统</h3>
+      <blockquote>{recallPrompt}</blockquote>
+      {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
+    </section>
+
+    <section class="xv6SystemKeys">
+      <span>Keyboard</span>
+      <p><kbd>↑</kbd><kbd>↓</kbd> 选择 Block</p>
+      <p><kbd>Enter</kbd> 进入</p>
+      <p><kbd>M</kbd> 母模型 · <kbd>F</kbd> Failure · <kbd>R</kbd> Recall</p>
+    </section>
+  </aside>
+
+  <script type="application/json" data-system-block-payload set:html={JSON.stringify(system.blocks.map((block) => ({
+    label: block.label,
+    title: block.title,
+    kpCount: block.kpCount,
+    outlineCount: block.outlineCount
+  })))}></script>
 </section>
 
+<script>
+  const root = document.querySelector('[data-xizong-system]');
+  if (root) {
+    const systemId = root.getAttribute('data-xizong-system') || 'system';
+    const links = [...root.querySelectorAll('[data-system-block]')];
+    let blocks = [];
+    try { blocks = JSON.parse(root.querySelector('[data-system-block-payload]')?.textContent || '[]'); } catch {}
+    let selected = 0;
+    try { selected = Number(sessionStorage.getItem(`kianos-xizong-system-selection:${systemId}`) || 0); } catch {}
+    selected = Math.max(0, Math.min(links.length - 1, selected));
+
+    const label = root.querySelector('[data-selected-label]');
+    const title = root.querySelector('[data-selected-title]');
+    const meta = root.querySelector('[data-selected-meta]');
+    const open = root.querySelector('[data-open-selected]');
+
+    const renderSelection = (scroll = true) => {
+      links.forEach((link, index) => link.classList.toggle('selected', index === selected));
+      const block = blocks[selected];
+      if (block) {
+        if (label) label.textContent = block.label || '';
+        if (title) title.textContent = block.title || '';
+        if (meta) meta.textContent = `${block.kpCount || 0} KP · Outline ${block.outlineCount || 0}`;
+      }
+      if (scroll) links[selected]?.scrollIntoView({ block: 'nearest' });
+      try { sessionStorage.setItem(`kianos-xizong-system-selection:${systemId}`, String(selected)); } catch {}
+    };
+
+    links.forEach((link, index) => {
+      link.addEventListener('focus', () => { selected = index; renderSelection(false); });
+      link.addEventListener('mouseenter', () => { selected = index; renderSelection(false); });
+    });
+    open?.addEventListener('click', () => links[selected]?.click());
+
+    document.addEventListener('keydown', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,button,[contenteditable="true"]')) return;
+      if (event.key === 'ArrowUp') { event.preventDefault(); selected = Math.max(0, selected - 1); renderSelection(); return; }
+      if (event.key === 'ArrowDown') { event.preventDefault(); selected = Math.min(links.length - 1, selected + 1); renderSelection(); return; }
+      if (event.key === 'Enter') { event.preventDefault(); links[selected]?.click(); return; }
+      const key = event.key.toLowerCase();
+      if (key === 'm') root.querySelector('[data-system-section="mother"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (key === 'f') root.querySelector('[data-system-section="failure"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (key === 'r') root.querySelector('[data-system-section="recall"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    renderSelection(false);
+  }
+</script>
+
 <style>
-  .xv6System{display:grid;gap:1.1rem}.xv6SystemHero,.xv6Panel{border:1px solid var(--line,#d9dde5);border-radius:20px;background:var(--panel,#fff);padding:1.2rem}.xv6SystemHero{display:flex;gap:1.5rem;justify-content:space-between;align-items:flex-start}.xv6SystemHero span,.xv6Panel header span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.62}.xv6SystemHero h2,.xv6Panel h3{margin:.25rem 0 .5rem}.xv6SystemHero p,.xv6Mother,.xv6FailureGrid p{line-height:1.75}.xv6SystemHero aside{display:grid;gap:.2rem;min-width:150px;text-align:right}.xv6Spine{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.55rem;list-style:none;padding:0;margin:1rem 0 0}.xv6Spine li{display:flex;gap:.55rem;align-items:center;padding:.75rem;border-radius:14px;background:var(--soft,#f5f6f8)}.xv6Spine b{font-size:.7rem;opacity:.5}.xv6Parallel,.xv6Chips,.xv6Relations{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.8rem}.xv6Parallel span,.xv6Chips span,.xv6Relations code{padding:.42rem .62rem;border-radius:999px;background:var(--soft,#f5f6f8);font-size:.82rem}.xv6FailureGrid,.xv6BlockGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.7rem;margin-top:.9rem}.xv6FailureGrid article,.xv6BlockGrid a{padding:.9rem;border:1px solid var(--line,#d9dde5);border-radius:15px;text-decoration:none;color:inherit}.xv6FailureGrid h4{margin:.25rem 0}.xv6FailureGrid p{font-size:.88rem;margin:.35rem 0 0;opacity:.78}.xv6BlockGrid a{display:grid;gap:.3rem}.xv6BlockGrid a:hover{transform:translateY(-1px);border-color:currentColor}.xv6BlockGrid span{font-size:.75rem;opacity:.6}.xv6BlockGrid small{opacity:.62}.xv6TwoCol{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}.xv6Recall blockquote{margin:1rem 0;padding:1rem 1.1rem;border-left:3px solid currentColor;background:var(--soft,#f5f6f8);line-height:1.75}.xv6Recall details{margin-top:1rem}@media(max-width:760px){.xv6SystemHero{display:grid}.xv6SystemHero aside{text-align:left}.xv6TwoCol{grid-template-columns:1fr}}
+  .xv6SystemShell{display:grid;grid-template-columns:220px minmax(0,1fr) 285px;gap:12px;align-items:start}.xv6SystemRail,.xv6SystemContext{position:sticky;top:58px;max-height:calc(100vh - 70px);overflow:auto;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff}.xv6SystemRail header{display:grid;gap:3px;padding:13px 12px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SystemRail header span,.xv6SystemContext>section>span,.xv6Panel header span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xv6SystemRail header strong{font-size:16px}.xv6SystemRail header small{color:var(--study-muted,#6d7873);font-size:9px}.xv6SystemRail nav{display:grid;padding:5px 0}.xv6SystemRail nav a{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:3px 7px;align-items:center;min-height:46px;padding:6px 9px;border-left:3px solid transparent;color:inherit;text-decoration:none}.xv6SystemRail nav a:hover,.xv6SystemRail nav a.selected{border-left-color:var(--study-green,#286c57);background:#f0f7f4}.xv6SystemRail nav a b{font-size:10px;color:var(--study-green,#286c57)}.xv6SystemRail nav a span{overflow:hidden;font-size:10px;font-weight:720;text-overflow:ellipsis;white-space:nowrap}.xv6SystemRail nav a small{color:var(--study-muted,#6d7873);font-size:8px}.xv6SystemRail footer{padding:9px 10px;border-top:1px solid var(--study-line,#d9dde5);color:var(--study-muted,#6d7873);font-size:8px}.xv6SystemShell kbd{display:inline-block;min-width:19px;padding:1px 4px;border:1px solid #d7ddd9;border-bottom-width:2px;border-radius:4px;background:#fff;color:#4d5b55;font:700 8px/1.4 system-ui;text-align:center}
+  .xv6SystemMain{display:grid;gap:10px;min-width:0}.xv6SystemHeroDense,.xv6Panel,.xv6Dependency{border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff}.xv6SystemHeroDense{display:grid;grid-template-columns:minmax(180px,.55fr) minmax(0,1.45fr);gap:18px;align-items:center;padding:13px 16px}.xv6SystemHeroDense span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.08em}.xv6SystemHeroDense h2{margin:3px 0 0;font-size:26px}.xv6SystemHeroDense p{margin:0;color:var(--study-muted,#6d7873);font-size:12px;line-height:1.55}.xv6Panel{padding:14px 16px}.xv6Panel h3{margin:2px 0 7px;font-size:17px}.xv6Mother{margin:6px 0 9px;font-size:13px;line-height:1.6}.xv6Spine{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:5px;list-style:none;padding:0;margin:8px 0 0}.xv6Spine li{display:flex;gap:6px;align-items:center;min-height:42px;padding:7px 8px;border-radius:9px;background:var(--study-surface-muted,#f5f6f8)}.xv6Spine li b{font-size:8px;opacity:.5}.xv6Spine li span{font-size:10px;font-weight:700}.xv6Parallel,.xv6Chips,.xv6Relations{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}.xv6Parallel span,.xv6Chips span,.xv6Relations code{padding:4px 7px;border-radius:999px;background:var(--study-surface-muted,#f5f6f8);font-size:9px}.xv6DensePair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.xv6FailureGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:8px}.xv6FailureGrid article{display:grid;grid-template-columns:36px minmax(0,1fr);gap:6px;padding:8px 9px;border:1px solid var(--study-line,#d9dde5);border-radius:9px}.xv6FailureGrid article>b{color:var(--study-green,#286c57);font-size:9px}.xv6FailureGrid h4{margin:0;font-size:11px}.xv6FailureGrid p{margin:3px 0 0;color:var(--study-muted,#6d7873);font-size:9px;line-height:1.45}.xv6Dependency{padding:9px 12px}.xv6Dependency summary{cursor:pointer;font-size:10px;font-weight:750}
+  .xv6SystemContext{display:grid;align-content:start}.xv6SystemContext>section{padding:12px;border-bottom:1px solid var(--study-line,#d9dde5)}.xv6SelectedBlock b{display:block;margin-top:5px;color:var(--study-green,#286c57);font-size:10px}.xv6SelectedBlock h3{margin:4px 0;font-size:17px;line-height:1.25}.xv6SelectedBlock p{margin:0 0 9px;color:var(--study-muted,#6d7873);font-size:9px}.xv6SelectedBlock button{width:100%;min-height:34px;border:1px solid var(--study-green,#286c57);border-radius:8px;background:var(--study-green,#286c57);color:#fff;font-size:10px;font-weight:800}.xv6RecallCompact h3{margin:4px 0 7px;font-size:15px}.xv6RecallCompact blockquote{margin:0;padding:8px 9px;border-left:3px solid var(--study-green,#286c57);background:var(--study-surface-muted,#f5f6f8);font-size:10px;line-height:1.5}.xv6RecallCompact ol{margin:8px 0 0;padding-left:18px}.xv6RecallCompact li{margin:4px 0;color:var(--study-muted,#6d7873);font-size:9px;line-height:1.45}.xv6SystemKeys p{margin:5px 0;color:var(--study-muted,#6d7873);font-size:9px}
+  @media(max-width:1050px){.xv6SystemShell{grid-template-columns:200px minmax(0,1fr)}.xv6SystemContext{position:static;grid-column:1/-1;max-height:none;grid-template-columns:1fr 1fr 1fr}.xv6SystemContext>section{border-right:1px solid var(--study-line,#d9dde5);border-bottom:0}}@media(max-width:760px){.xv6SystemShell{display:block}.xv6SystemRail,.xv6SystemContext{position:static;max-height:none;margin-bottom:10px}.xv6SystemRail nav{grid-template-columns:1fr 1fr}.xv6SystemHeroDense,.xv6DensePair,.xv6SystemContext{display:grid;grid-template-columns:1fr}.xv6FailureGrid{grid-template-columns:1fr}}
 </style>
