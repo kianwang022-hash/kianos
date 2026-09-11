@@ -6,7 +6,50 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "boundary": "by default",
+        "codex_reviewed": true,
+        "definition_cn": "在没有另行选择、指定或行动时，按默认状态/规则发生",
+        "definition_en": "automatically under the preset or fallback state when no alternative is chosen or specified",
+        "dimensions": {},
+        "direction": "R+P",
+        "evidence": [
+          {
+            "evidence_id": "evidence:current-semantic-review:default:28e85a4f7abe",
+            "evidence_status": "semantic_auditor_verified",
+            "source_labels": [
+              "Current Core",
+              "high-value phrase review"
+            ],
+            "source_locator": "word:default",
+            "source_path": "content/lexical/words/by-ordinal/o1264.json",
+            "source_type": "current_owner_review"
+          }
+        ],
+        "fact_id": "deep:constructions:default:28e85a4f7abe1e02df03",
+        "family_sources": [],
+        "label_en": "by default",
+        "level": null,
+        "meaning_cn": "默认地；在没有其他选择/指定时",
+        "module": "constructions",
+        "pattern": "by default",
+        "pos": "phrase",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": null,
+        "source_sense_id": "sense:default:836aee9f2d66537d",
+        "target_sense_id": null,
+        "target_word": null,
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "semantic_auditor_verified",
+        "writing_safe": true
+      }
+    ],
     "content_hash": "8d9eacf43dc1fef1b102af6d3faf1b01cadef9401e9f7517221a5685998d54ac",
     "core_concept": {
       "core_clusters": [
@@ -30,14 +73,16 @@
       ],
       "core_meaning_cn": "未履行义务或预设选项",
       "core_meaning_en": "failure to fulfill an obligation or the preset option",
-      "mental_model_cn": "未履行义务或预设选项",
-      "mental_model_en": ""
+      "mental_model_cn": "没有另行选择、指定或履行时，落到预设状态或违约结果",
+      "mental_model_en": "the state or consequence that applies when no alternative is chosen or an obligation is not met"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "construction:deep:constructions:default:28e85a4f7abe1e02df03"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -114,17 +159,17 @@
       }
     ],
     "verification_summary": {
-      "candidate_fact_count": 2,
+      "candidate_fact_count": 3,
       "deep_modules": {
         "confusables": "no_valid_content",
-        "constructions": "no_valid_content",
+        "constructions": "completed",
         "secondary_senses": "no_valid_content",
         "semantic_contrast": "no_valid_content",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 0,
+      "published_fact_count": 1,
       "rejected_fact_count": 1,
       "runtime_model_calls": false
     },
@@ -251,7 +296,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
     "source_content_hash": "8d9eacf43dc1fef1b102af6d3faf1b01cadef9401e9f7517221a5685998d54ac",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
