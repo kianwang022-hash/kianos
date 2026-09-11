@@ -2,23 +2,27 @@
 import Base from '../layouts/Base.astro';
 import { buildRevision, inspectReadingSources, loadAnswer } from '../lib/current.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
+import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
 const xizongBlocks = xizongSystems.reduce((sum, system) => sum + system.blocks.length, 0);
-const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => blockSum + block.kpCount, 0), 0);
+const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduce((blockSum, block) => sum + block.kpCount, 0), 0);
 const answer = loadAnswer();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
+const politicsSubjects = listPoliticsSubjectsCurrent();
+const politicsHealth = politicsCurrentHealth();
+const politicsChapters = politicsSubjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
 ---
-<Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 负责 learner-facing UI / 功能；动态学习状态只留在本地。" active="home">
+<Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 把它变成低摩擦学习动作。" active="home">
   <section class="homeCurrentStrip">
     <div>
       <p class="pageKicker">Runtime contract</p>
       <h2>Current 内容层 + Astro</h2>
-      <p>内容更新与 UI 功能已经分层。普通内容升级只改 GitHub Current；Astro 按同一 canonical object 重新投影。</p>
+      <p>内容更新与 UI 功能已经分层。学习反馈先改正确的内容或互动，再由 Astro 直接投影。</p>
     </div>
-    <aside><strong>Current connected</strong><span>build {buildRevision.slice(0, 12)}</span><span>learner-state · browser local</span></aside>
+    <aside><strong>Current connected</strong><span>build {buildRevision.slice(0, 12)}</span><span>private interaction state only when useful</span></aside>
   </section>
 
   <section class="homeGrid">
@@ -28,6 +32,11 @@ const readingReady = readingState.status === 'ready';
         ? `${xizongSystems.length} 个 Current System · ${xizongBlocks} Blocks · ${xizongKp} KP；System → Block → Logic Group → KP。`
         : '尚无满足 Current system owner + Logic Group gate 的系统；Runtime 保持 fail-closed。'}</p>
       <footer><span>main@HEAD</span><b>{xizongSystems.length ? '进入 →' : '查看 →'}</b></footer>
+    </a>
+    <a class="homeLane" href={`${base}politics/`}>
+      <div><span>政治 · {politicsHealth.status === 'ready' ? 'Ready' : 'Partial'}</span><h2>Politics</h2></div>
+      <p>{politicsSubjects.length} 科 · {politicsChapters} 个 Current 学习章节；定位 → 乘风 → 小闭合 → 肖1000 → 错题最小回源。</p>
+      <footer><span>content-first</span><b>进入 →</b></footer>
     </a>
     <a class="homeLane" href={`${base}answer/`}>
       <div><span>LexicalOS · Ready</span><h2>{answer.record.word}</h2></div>
