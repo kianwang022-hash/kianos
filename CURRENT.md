@@ -80,11 +80,12 @@ Active first-round Politics chain:
 
 Chengfeng is the only continuous first-round mainline. Suyi is a background framework reference for Chat: useful mind-map structure is absorbed into the learning projection and does not need a separate learner-facing course or standalone Markdown representation. Xiao1000 remains validation and transfer evidence and must not determine the learning order.
 
-The first Current teaching-projection pilot is:
+Current Marxism teaching-projection pilots are:
 
 - `content/politics/learning/marxism/ch01.json`
+- `content/politics/learning/marxism/ch02.json`
 
-It is bound to the canonical Chengfeng MARX Chapter 1 regions/Natural Units and preserves the existing Suyi reference bindings already present in Current region/source-node assets.
+They are bound to the canonical Chengfeng MARX regions/Natural Units and preserve the existing Suyi reference bindings already present in Current region/source-node assets.
 
 ### Astro runtime
 
