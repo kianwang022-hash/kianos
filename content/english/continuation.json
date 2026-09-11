@@ -4,16 +4,16 @@
   "authority": "CHAT_APPROVED",
   "lane": "english_learning_runtime",
   "role": "CURRENT_WORK_CURSOR_ONLY",
-  "rule": "This file records where shared English learning/runtime work should continue. It is not exam/source truth, private learner state, or a substitute for the Learning Contract and module owners.",
+  "rule": "This file records where shared English learning/runtime work should continue. It is not exam/source truth, private learner state, or a substitute for the Learning Contract, root LEARNING_ACCEPTANCE.md, and module owners.",
   "goal": {
     "exam": "English I",
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_V1_COMPLETE__AUDIT_ONLY__TRANSLATION_PRODUCTIVE_RUNTIME_ACTIVE__WRITING_STATIC_ASSET_READY",
+  "current_stage": "OBJECTIVE_ACCEPTANCE_REMEDIATION__S_K_L_PASS__P_R_E_ACTIVE__U_UNTESTED",
   "objective_v1": {
-    "status": "FROZEN_COMPLETE",
-    "development_mode": "AUDIT_ONLY",
+    "status": "ACCEPTANCE_REMEDIATION",
+    "development_mode": "BLOCKER_ONLY",
     "canonical_learning_owner": "content/english/modules/objective-learning.md",
     "runtime_owner": "content/english/modules/objective-runtime.md",
     "evidence_transfer_owner": "content/english/modules/objective-evidence-runtime.md",
@@ -33,28 +33,45 @@
     "review_unit": "one complete passage or set",
     "evidence_unit": "question / blank / placement may remain internal evidence only",
     "transfer_rule": "later relevant fresh evidence outranks same-item correction; semantic closure remains Chat-mediated",
+    "acceptance": {
+      "S_source": "PASS",
+      "K_knowledge": "PASS",
+      "L_learning": "PASS",
+      "P_projection": "REMEDIATION",
+      "R_runtime": "REMEDIATION",
+      "E_evidence": "REMEDIATION",
+      "U_user_validation": "UNTESTED"
+    },
+    "current_blockers": [
+      "Reading B must preserve and display the real Current task directions/form instead of projecting every set as a generic position task.",
+      "Reading B candidate assignment must preserve source constraints and support whole-map reconciliation without allowing invalid duplicate use when the directions forbid it.",
+      "Reading A local repair assets must not outrun whole-passage diagnosis; passage-level diagnosis chooses the repair scope first.",
+      "A task-specific transfer claim must not become TRANSFER_PENDING merely from diagnosis; explicit completed repair/re-execution evidence is required.",
+      "Transfer-check packets must carry enough current-task context for Chat to judge whether a pending claim was genuinely tested.",
+      "Claim import must be idempotent, reject unsupported closure/reopen updates, preserve pasted return text on persistence failure, and provide an executable conservative CLOSED -> REOPENED path."
+    ],
     "reopen_only_when": [
-      "a deliberate audit finds a concrete semantic, structural, coverage, or UI defect",
+      "a deliberate audit finds a concrete semantic, structural, coverage, Projection, Runtime, or Evidence defect",
       "real learner use exposes repeatable friction or a missing stable high-value mental model",
       "source/schema change breaks Current projection or validation"
     ]
   },
   "completed_shared_work": [
     "English capability architecture is frozen as Lexical / Reading / Translation / Writing plus task-specific trainers.",
-    "Objective v1 is complete across Reading A / Cloze / Reading B: first-learning static assets, clean-attempt runtimes, whole-unit review, evidence/repair threads, claim-level transfer, Current-only source binding, and learner UI are all landed.",
+    "Objective Source, Knowledge, and Learning gates currently pass under root LEARNING_ACCEPTANCE.md; this does not imply Projection, Runtime, Evidence, or User Validation closure.",
     "Objective static learning is complete-but-skippable: stable, frequent, generalizable teaching content remains in the canonical asset; learner proficiency changes navigation, not canonical content depth.",
     "Reading A includes Question Demand, Decisive Evidence/Boundary, Option Proposition, Adjudication/Execution, Skill Map, and stable deeper content for cause/relation shift, attribution, local-to-global/example-to-claim, true-but-irrelevant, answer-switch discipline, and stop rules.",
     "Cloze includes Slot Demand, five-layer Constraint Stack, Candidate Competition, context expansion/uncertainty execution, Skill Map, and stable deeper content for best-fit, collocation/semantic preference, near-synonym competition, construction authority, and discourse relation.",
     "Reading B includes Discourse Skeleton, Position Demand, Candidate Role/Cohesion, Global Reconciliation, confidence ordering, provisional placement, coupled/cascade analysis, Skill Map, and stable deeper content for local-vs-global fit, coupled placement, and reference chains.",
-    "The shared /objective-learn/ page renders the canonical learning asset directly and provides fine-grained jump navigation to all three tasks, their Core Blocks, Deep Skill sections, and Runtime bridge while keeping direct practice available.",
-    "Objective QA hard-checks all three task Core/Skill anchors, Deep Skill anchors, learner-page wiring, home-page First Learning links, runtime bindings, and Astro build.",
-    "Objective Runtime v1 keeps learner-Chat review passage/set-level while question/blank/placement remains internal evidence; stable clean work passes without manufactured review debt.",
+    "The shared /objective-learn/ page renders the canonical learning asset directly and provides fine-grained jump navigation while keeping direct practice available.",
+    "Objective Runtime v1 keeps learner-Chat review passage/set-level while question/blank/placement remains internal evidence; stable clean work is designed to pass without manufactured review debt.",
     "Objective Evidence/Transfer v1 tracks repair threads and task-specific reusable claims rather than historical questions; Lexical and Reading roots route to their canonical ability owners.",
     "Reading A legacy per-question WATCH transfer is no longer loaded in Current.",
     "Translation has an independent Productive runtime and canonical learning owner at content/english/modules/translation/learning.md; it remains semantically separate from Objective.",
     "Writing has a canonical static learning/runtime owner at content/english/modules/writing/learning.md; learner-facing web projection remains future work."
   ],
   "current_owners_to_read": [
+    "LEARNING_ACCEPTANCE.md",
     "content/english/LEARNING_CONTRACT.md",
     "content/english/modules/objective-learning.md",
     "content/english/modules/objective-runtime.md",
@@ -62,19 +79,18 @@
     "content/english/modules/reading-a.md",
     "content/english/modules/cloze.md",
     "content/english/modules/reading-b.md",
-    "content/english/modules/translation/learning.md",
-    "content/english/modules/writing/learning.md",
     "content/english/manifest.json"
   ],
   "module_entry_rules": {
     "objective_tasks": {
       "read": [
+        "LEARNING_ACCEPTANCE.md",
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/objective-learning.md",
         "content/english/modules/objective-runtime.md",
         "content/english/modules/objective-evidence-runtime.md"
       ],
-      "inheritance": "Objective v1 is complete and audit-only by default. First learning uses complete-but-skippable static assets. Practice uses the frozen passage/set-level Objective Runtime. Skill Maps are diagnostic addresses, not compulsory curricula. Do not resume feature or taxonomy development without audit findings, real learner evidence, or a source/schema break."
+      "inheritance": "Objective cognition and first-learning content remain frozen unless evidence contradicts them. Current work is acceptance remediation only: repair concrete P/R/E blockers, then run module E2E. Do not call the lane complete or learner-validated until the corresponding gates actually pass."
     },
     "translation": {
       "read": [
@@ -93,32 +109,33 @@
     }
   },
   "next_action": {
-    "stage": "OBJECTIVE_AUDIT_ONLY__NEXT_ACTIVE_ENGLISH_WORK_MUST_BE_INTENTIONALLY_SELECTED",
-    "instruction": "Treat Objective v1 as finished. Do not add Objective infrastructure, taxonomy, Skill Content, or UI by default. Future Objective work should be an explicit audit or a concrete learner-evidence repair. If English development continues elsewhere, intentionally select Translation validation or Writing learner-page/runtime projection rather than reopening Objective by inertia.",
-    "objective_audit_sequence": [
-      "Audit semantic completeness and internal consistency across objective-learning.md, task contracts, runtime, and evidence-transfer rules.",
-      "Audit Reading A / Cloze / Reading B parity: stable high-value content should be present, while task cognition remains non-isomorphic.",
-      "Audit learner UI for skip/navigation friction, information density, answer isolation, and passage/set-level review behavior.",
-      "Audit source binding and QA gates; fail visibly rather than guessing or falling back to legacy.",
-      "Only land changes tied to concrete findings; otherwise keep v1 frozen."
+    "stage": "OBJECTIVE_P_R_E_BLOCKER_REMEDIATION",
+    "instruction": "Fix only the concrete acceptance blockers already found. Preserve S/K/L semantics. Then run current-main module E2E for clean PASS, wrong/uncertain -> whole-unit diagnosis -> completed repair/return, later relevant fresh transfer -> CLOSED, and later contradictory fresh evidence -> REOPENED. If S-E pass, relabel Objective as MODULE_READY_FOR_LEARNER_TEST with U still UNTESTED. Real learner use is required for any learner-validated claim.",
+    "remediation_order": [
+      "Reading B task-form/direction projection and candidate constraints",
+      "Reading A whole-passage diagnosis before local repair",
+      "repair-completed evidence before new TRANSFER_PENDING claims",
+      "self-contained transfer-check packets",
+      "idempotent and evidence-bound return import including conservative reopen",
+      "isolated browser E2E acceptance on current main@HEAD",
+      "update Current acceptance language from actual evidence"
     ]
   },
   "do_not_reopen_without_new_evidence": [
+    "Do not expand Objective taxonomy or static Skill Content during this remediation unless a blocker proves a Knowledge gap.",
     "Do not turn Reading A / Cloze / Reading B into question-by-question Chat review systems.",
     "Do not restore per-question WATCH as the durable Reading A transfer object.",
     "Do not close transfer claims from arbitrary N-pass counters.",
     "Do not duplicate Lexical or Reading knowledge inside objective task stores.",
     "Do not make First Learning a compulsory gate before direct practice or Continue.",
     "Do not use learner proficiency as a reason to thin canonical static first-learning content; proficiency changes navigation and skip behavior instead.",
-    "Do not confuse complete stable content with an encyclopedia; rare boundaries, unusual structures, multi-mechanism ambiguity, personalized error patterns, and custom micro-drills remain adaptive Chat territory unless repeated evidence proves they deserve canonical treatment.",
     "Do not turn Skill Maps into compulsory curricula or teacher question-type taxonomies.",
     "Do not expose formal answers or diagnostic assets before a clean attempt.",
-    "Do not resume Objective feature development merely because another English lane is still active.",
     "Do not merge Translation or Writing cognition into Objective merely for UI consistency.",
-    "Do not treat QA/build success as a substitute for real learner evidence when revising behavior."
+    "Do not treat QA/build success as a substitute for S/K/L/P/R/E/U acceptance evidence."
   ],
   "continuation_policy": {
-    "update_when": "Update only at meaningful English shared-work stage transitions or when the intentionally selected next active lane changes.",
+    "update_when": "Update at each meaningful Objective acceptance transition and after each blocker class is resolved or disproven.",
     "do_not_store": [
       "personal answers",
       "wrong/uncertain history",
@@ -128,6 +145,6 @@
       "personal transfer claims",
       "session position"
     ],
-    "fresh_chat_rule": "Read main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current owners needed for the intentionally selected task. Objective work is audit-only unless a concrete finding reopens it."
+    "fresh_chat_rule": "Read root LEARNING_ACCEPTANCE.md, main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current owners needed for the acceptance task. Engineering acceptance state must not be mistaken for private learner progress."
   }
 }
