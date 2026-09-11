@@ -8,50 +8,52 @@
   "current_system": {
     "canonical_id": "A1",
     "system_id": "circulation",
-    "reason": "A1 Source and Knowledge gates now pass under root LEARNING_ACCEPTANCE. The smallest remaining blocker is the missing canonical first-learning route, which currently prevents honest Projection/Runtime acceptance."
+    "reason": "A1 S/K/L now pass under root LEARNING_ACCEPTANCE. The next work is the smallest observed Projection/Runtime compatibility repair followed by strict Module E2E; no additional medical or learning taxonomy expansion is justified."
   },
-  "current_stage": "LEARNING_ACCEPTANCE_A1_L_IN_PROGRESS",
+  "current_stage": "LEARNING_ACCEPTANCE_A1_P_R_E_IN_PROGRESS",
   "durable_acceptance_owner": "content/xizong/knowledge/learner/acceptance-status.json",
   "completed_shared_work": [
-    "A1 official-question System scope is deterministically restored as exactly 376 Current Question Truth IDs with inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be; it does not imply Question-to-KP mapping or learning closure.",
+    "A1 official-question System scope is deterministically restored as exactly 376 Current Question Truth IDs with inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be; this does not imply Question-to-KP mapping or learning closure.",
     "A2 official-question System scope is deterministically restored as exactly 359 Current Question Truth IDs with inventory SHA256 b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0.",
-    "A2 has an accepted first-learning path contract covering 12 Blocks / 62 Logic Groups; its P/R/E gates still require strict Module E2E and U requires real learner use.",
-    "System Exit runtime supports closed-book System Recall, private browser-global learner-selected holdout, official-question fast pass, W/U repair, Chat handoff and post-question Recall; these runtime capabilities do not imply learner progress.",
-    "Root LEARNING_ACCEPTANCE.md now governs Xizong readiness claims. Build green, page existence, content volume, CURRENT labels and question inventory completion are explicitly non-substitutes for S/K/L/P/R/E/U.",
-    "A1 S PASS was established from Current owner/source boundaries and deterministic question identity.",
-    "A1 K PASS was established by a content-closure re-audit of the System model and all 12 canonical Block medical-Core owners / 312 stable KPs. The Blocks consistently teach causal mechanism, shared variables/failure layers, boundaries and execution rules; no unresolved Source Gap/TODO/pending medical-core marker justified further expansion."
+    "Root LEARNING_ACCEPTANCE.md governs readiness: build green, page existence, content volume, CURRENT labels and question inventory completion are non-substitutes for S/K/L/P/R/E/U.",
+    "A1 S PASS was established from Current owner/source boundaries and deterministic Question Truth identity.",
+    "A1 K PASS was established by re-auditing the System model plus all 12 canonical Block medical-Core owners / 312 stable KPs. No unresolved stable medical-Core gap justified expansion.",
+    "A1 L PASS was established after materializing a direct 12-Block route plus 87 natural contiguous Logic Groups covering 312/312 stable KPs exactly once and a separate a1-circulation-learning.json owner with Block focus/stop/recall and group goal/closure semantics. KP identity/order and medical Core were unchanged; no Question-to-KP relation was inferred.",
+    "Optional learning-cues/pathways owners were not created for symmetry because Current loaders tolerate their absence and no learning evidence requires them."
   ],
   "current_owners_to_read": [
     "LEARNING_ACCEPTANCE.md",
     "content/xizong/knowledge/learner/acceptance-status.json",
-    "content/xizong/knowledge/manifest.json",
     "content/xizong/knowledge/learner/study-policy.json",
     "content/xizong/knowledge/systems/a1-circulation/system.json",
-    "content/xizong/knowledge/systems/a1-circulation/blocks/",
+    "content/xizong/knowledge/learner/a1-circulation-learning.json",
     "static-web/src/lib/xizong.mjs",
-    "static-web/src/lib/xizongLearningCues.mjs",
-    "static-web/src/lib/xizongPathways.mjs"
+    "static-web/src/pages/xizong/[system]/index.astro",
+    "static-web/src/components/XizongSystemV6.astro",
+    "static-web/src/components/XizongBlockV6.astro",
+    "static-web/src/components/XizongSystemExitRuntime.astro"
   ],
   "next_action": {
-    "stage": "A1_L_CANONICAL_FIRST_LEARNING_ROUTE",
-    "instruction": "Using only the accepted A1 System/Block medical Core and frozen study-policy, express the first-learning path as shared learning semantics: convert the grouped System route into the direct 12-Block learner route required by Current projection; add a lossless contiguous Logic Group index that preserves all 312 stable KP identities and order; add first-pass Block focus, stop-line, recall-spine and per-Logic-Group goal/closure support. Add timing/pathway support only where Current Runtime truly requires it. Do not copy a second medical Core, infer Question-to-KP mapping, or change KP identity/order.",
-    "success_condition": "Every one of the 312 A1 KPs belongs to exactly one contiguous Logic Group; every direct Block and Logic Group has learner-facing first-pass semantics; the route is causally sensible under study-policy; no medical truth is invented by UI/runtime; acceptance-status.json records an evidence-backed L PASS or concrete remaining blocker.",
-    "validation_note": "The learner has not started circulation. This shared engineering stage must not trigger System Recall, official-question sweep, or any assumption of personal progress."
+    "stage": "A1_P_R_E_MODULE_E2E",
+    "instruction": "Fix only three concrete learner-flow defects already observed: (1) remove the xizong.mjs assumption that every canonical Block must contain the A2-specific heading '这个 Block 到底解决什么'; preserve the explicit A2 intro when present and use a safe opening-orientation fallback for other canonical Block structures rather than editing medical Core; (2) delete System-page shared runtime code that auto-seeds private holdout years to [2025, 2026]; (3) when Outline count is unavailable, omit it instead of displaying Outline 0. Then run strict A1 Module E2E through System entry -> B1 first learning -> Logic Group/KP Recall -> clean and weak evidence paths -> Block closure -> Chat handoff/return -> System Recall -> learner-selected private holdout -> official-question clean/W/U branches -> post-question Recall. Record P/R/E as PASS only from demonstrated behavior, not build success.",
+    "success_condition": "A1 current projection accepts its canonical Block opening structure without content edits; shared code never chooses exact holdout years for the learner; unavailable metadata is not falsified; clean work can progress without manufactured debt; weak/W/U work creates only appropriate evidence; Chat return preserves the learning object; protected holdout is respected; no Question-to-KP relation is guessed; acceptance-status.json records evidence-backed P/R/E results.",
+    "validation_note": "The learner has not started circulation. Module E2E is engineering acceptance only and must not be converted into learner U evidence or a request for the learner to perform System Exit."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more A1 medical Core after K PASS without new source or learner evidence.",
+    "Do not add more A1 first-learning taxonomy after L PASS without learner/runtime evidence.",
     "Do not rebuild A1 376 or A2 359 System question scopes by model inference.",
     "Do not infer Question-to-Block/KP mappings from title, page, System membership, source section or model intuition.",
     "Do not persist learner-specific holdout years, progress, Recall ratings, W/U, comments, session position, timers or browser history in shared Current.",
-    "Do not turn KianOS into a second Lecture or require duplicate long-form reading.",
-    "Do not add taxonomy, controls, cards or governance merely for symmetry/completeness.",
-    "Do not promote a LEARNING_ACCEPTANCE gate from build/CI, page rendering, file count or CURRENT labels.",
+    "Do not turn KianOS into a second Lecture or edit canonical medical Core merely to satisfy one projection heading convention.",
+    "Do not add taxonomy, controls, cards or optional owners merely for symmetry/completeness.",
+    "Do not promote P/R/E from build/CI, page rendering or component existence.",
     "Do not infer learner progress from this continuation file or acceptance-status.json."
   ],
   "after_validation": [
-    "If A1 L passes, make/verify A1 learner projection and run strict P/R/E Module E2E: clean first-pass path, weak Recall/Memory path, Block close, Chat handoff/return, System Exit, private holdout and W/U evidence behavior.",
+    "If A1 P/R/E pass, the allowed state is Module ready for learner test with U USER_PENDING; do not call it learner-validated until real circulation study produces use evidence.",
     "Then re-confirm A2 K and run A2 P/R/E Module E2E under the same root acceptance standard.",
-    "U remains USER_PENDING until the learner actually uses the tested path; real friction outranks speculative polish."
+    "Real learner friction outranks speculative polish and is the only basis for later acceptance-driven revision."
   ],
   "continuation_policy": {
     "update_when": "Update only at meaningful shared-work stage transitions or when the next shared Xizong action changes materially.",
