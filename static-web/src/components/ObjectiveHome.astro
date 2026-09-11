@@ -6,7 +6,9 @@ const {
   headline = 'Clean Attempt → Review → Transfer',
   description = '',
   unitLabel = 'sets',
-  lastLocationKey = ''
+  lastLocationKey = '',
+  learningHref = '',
+  learningSummary = '第一次系统学习时先建立题型认知模型；平时训练可直接 Continue。'
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
@@ -25,6 +27,14 @@ const first = sets[0];
       <span>passage / set-level review</span>
     </aside>
   </section>
+
+  {learningHref && (
+    <a class="objectiveLearnEntry" href={learningHref}>
+      <div><span>First Learning</span><strong>先建立 {label} 的做题框架</strong></div>
+      <p>{learningSummary}</p>
+      <b>学习框架 →</b>
+    </a>
+  )}
 
   <section class="objectiveHomeGrid">
     <a class="objectiveContinue" data-objective-continue href={first ? `${base}${route}/${encodeURIComponent(first.id)}/` : `${base}${route}/`}>
@@ -101,5 +111,7 @@ const first = sets[0];
 </script>
 
 <style>
-  .objectiveHome{max-width:72rem;margin:0 auto;display:grid;gap:12px}.objectiveHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.objectiveHomeHero>div>span,.objectiveBrowse header span,.objectiveContinue>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveHomeHero h2{margin:5px 0 8px;font-size:27px}.objectiveHomeHero p{max-width:74ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.objectiveHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.objectiveHomeHero aside strong{color:var(--study-green)}.objectiveHomeHero aside span{color:var(--study-faint);font-size:10px}.objectiveHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.objectiveContinue,.objectiveBrowse{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.objectiveContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.objectiveContinue strong{font-size:22px;line-height:1.35}.objectiveContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.objectiveBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.objectiveBrowse header>div{display:grid;gap:3px}.objectiveBrowse header input{width:min(280px,48%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.objectiveBrowse [data-objective-results]{display:grid;gap:5px}.objectiveBrowse [data-objective-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.objectiveBrowse [data-objective-results]>a:hover{background:var(--study-green-soft)}.objectiveBrowse [data-objective-results] div{display:grid;gap:2px;min-width:0}.objectiveBrowse [data-objective-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.objectiveBrowse [data-objective-results] span,.objectiveBrowse [data-objective-results] small{color:var(--study-faint);font-size:9px}.objectiveBrowse [data-objective-results]>p{color:var(--study-muted);font-size:12px}@media(max-width:820px){.objectiveHomeHero,.objectiveHomeGrid{grid-template-columns:1fr}.objectiveHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.objectiveBrowse header{align-items:stretch;flex-direction:column}.objectiveBrowse header input{width:100%;box-sizing:border-box}}
+  .objectiveHome{max-width:72rem;margin:0 auto;display:grid;gap:12px}.objectiveHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.objectiveHomeHero>div>span,.objectiveBrowse header span,.objectiveContinue>span,.objectiveLearnEntry span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveHomeHero h2{margin:5px 0 8px;font-size:27px}.objectiveHomeHero p{max-width:74ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.objectiveHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.objectiveHomeHero aside strong{color:var(--study-green)}.objectiveHomeHero aside span{color:var(--study-faint);font-size:10px}
+  .objectiveLearnEntry{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.objectiveLearnEntry>div{display:grid;gap:3px}.objectiveLearnEntry strong{font-size:14px}.objectiveLearnEntry p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.objectiveLearnEntry b{color:var(--study-green);font-size:11px;white-space:nowrap}
+  .objectiveHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.objectiveContinue,.objectiveBrowse{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.objectiveContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.objectiveContinue strong{font-size:22px;line-height:1.35}.objectiveContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.objectiveBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.objectiveBrowse header>div{display:grid;gap:3px}.objectiveBrowse header input{width:min(280px,48%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.objectiveBrowse [data-objective-results]{display:grid;gap:5px}.objectiveBrowse [data-objective-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.objectiveBrowse [data-objective-results]>a:hover{background:var(--study-green-soft)}.objectiveBrowse [data-objective-results] div{display:grid;gap:2px;min-width:0}.objectiveBrowse [data-objective-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.objectiveBrowse [data-objective-results] span,.objectiveBrowse [data-objective-results] small{color:var(--study-faint);font-size:9px}.objectiveBrowse [data-objective-results]>p{color:var(--study-muted);font-size:12px}@media(max-width:820px){.objectiveHomeHero,.objectiveHomeGrid,.objectiveLearnEntry{grid-template-columns:1fr}.objectiveHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.objectiveBrowse header{align-items:stretch;flex-direction:column}.objectiveBrowse header input{width:100%;box-sizing:border-box}}
 </style>
