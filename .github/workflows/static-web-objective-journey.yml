@@ -1,0 +1,63 @@
+name: Objective Learner Journey
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/english/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-objective-journey.yml'
+  pull_request:
+    paths:
+      - 'content/english/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-objective-journey.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: objective-journey-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preserve exact audit inputs
+        run: |
+          mkdir -p objective-audit
+          git rev-parse HEAD > objective-audit/commit.txt
+          tar -czf objective-audit/inputs.tar.gz static-web content/english AGENTS.md CURRENT.md SYSTEM_CONTRACT.md
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate objective content and bindings
+        working-directory: static-web
+        run: npm run validate:objective
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tools
+        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium webkit
+      - name: Simulate learner journeys with synthetic evidence
+        if: ${{ hashFiles('static-web/scripts/test-objective-journey.mjs') != '' }}
+        working-directory: static-web
+        run: node scripts/test-objective-journey.mjs
+      - name: Save audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: objective-journey-${{ github.sha }}
+          path: objective-audit/
+          retention-days: 7
