@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import { buildRevision, loadAnswer, loadB1, migrationStatus } from '../lib/current.mjs';
+
+const base = import.meta.env.BASE_URL;
+const b1 = loadB1();
+const answer = loadAnswer();
+---
+<Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 负责 learner-facing UI / 功能；动态学习状态只留在本地。" active="home">
+  <section class="homeCurrentStrip">
+    <div>
+      <p class="pageKicker">Runtime contract</p>
+      <h2>Current 内容层 + Astro</h2>
+      <p>内容更新与 UI 功能已经分层。普通内容升级只改 GitHub Current；Astro 按同一 canonical object 重新投影。</p>
+    </div>
+    <aside><strong>Current connected</strong><span>build {buildRevision.slice(0, 12)}</span><span>learner-state · browser local</span></aside>
+  </section>
+
+  <section class="homeGrid">
+    <a class="homeLane" href={`${base}b1/`}>
+      <div><span>西医综合 · Ready</span><h2>{b1.title}</h2></div>
+      <p>{b1.kpCount} KP · Learn → Recall → Block Recall → Memory / Review。</p>
+      <footer><span>{migrationStatus.xizong}</span><b>进入 →</b></footer>
+    </a>
+    <a class="homeLane" href={`${base}answer/`}>
+      <div><span>LexicalOS · Ready</span><h2>{answer.record.word}</h2></div>
+      <p>L0-first Study Card + Queue / Dictionary / History 入口；语义只来自 Current word object。</p>
+      <footer><span>{migrationStatus.lexical}</span><b>进入 →</b></footer>
+    </a>
+    <a class="homeLane" href={`${base}reading/`}>
+      <div><span>English · Migration</span><h2>Reading</h2></div>
+      <p>UI 已保留设计方向；完整 Exam Source 正在从 legacy 做机械迁移，迁完后再启用 Runtime。</p>
+      <footer><span>{migrationStatus.english}</span><b>查看 →</b></footer>
+    </a>
+  </section>
+</Base>

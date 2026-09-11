@@ -1,0 +1,176 @@
+---
+const { answer } = Astro.props;
+const card = answer.record || {};
+const core = card.core_concept || {};
+const relations = card.semantic_neighbors || [];
+---
+<section class="portedVocabRuntime portedVocabRuntimeV2" data-local-port="vocabulary" data-vocab-word={card.word} data-vocab-object={answer.objectId}>
+  <header class="portedVocabPreviewBar">
+    <a href="/">‹ Vocabulary</a>
+    <div><span>Study</span><b>{card.word}</b><small data-vocab-state-label>Ready · 1 / 1</small></div>
+    <div class="portedVocabPreviewActions">
+      <button type="button" data-vocab-speak="en-US" aria-label="美式发音">US</button>
+      <button type="button" data-vocab-speak="en-GB" aria-label="英式发音">UK</button>
+      <button type="button" data-vocab-evidence aria-pressed="false">Evidence</button>
+    </div>
+  </header>
+
+  <section class="portedVocabStudySheet">
+    <section class="portedVocabWordFront" data-vocab-front>
+      <span>Recall first</span>
+      <h2>{card.word}</h2>
+      <p>先回忆核心语义；Space / Enter 翻开。</p>
+      <button type="button" class="portedPrimaryAction" data-vocab-reveal>Reveal</button>
+      <small>Canonical 内容仍只读；本页只把复习状态写入浏览器本地。</small>
+    </section>
+
+    <div data-vocab-details hidden>
+      <header class="portedVocabWordHeader">
+        <div>
+          <span>Vocabulary · canonical word</span>
+          <h2>{card.word}</h2>
+          <p>{core.core_meaning_en || '—'}</p>
+        </div>
+        <aside>
+          <b>L0 first</b>
+          <span>ordinal {answer.ordinal}</span>
+          <small>{answer.objectId}</small>
+        </aside>
+      </header>
+
+      <div class="portedVocabBody" data-vocab-body>
+        <main class="portedVocabMeaningColumn">
+          <section class="portedVocabCoreSense">
+            <header><span>L0 Core</span><small>Core Semantic Model</small></header>
+            <div>
+              <p>{core.core_meaning_cn || '—'}</p>
+              <strong>{core.core_meaning_en || '—'}</strong>
+            </div>
+          </section>
+
+          {core.mental_model_cn && <section class="portedVocabIntuition"><b>MENTAL MODEL</b><span>{core.mental_model_cn}</span></section>}
+
+          <div class="portedVocabSenseMeta">
+            <span>Active senses</span>
+            <small>{(card.senses || []).length} represented · canonical only</small>
+          </div>
+          <div class="portedVocabSenseList">
+            {(card.senses || []).map((sense, index) => (
+              <section class={index === 0 ? 'active-sense' : ''}>
+                <header><span>{sense.pos || 'sense'}</span><small>{sense.level || `S${index + 1}`}</small></header>
+                <div>
+                  <p>{sense.definition_cn || '—'}</p>
+                  <strong>{sense.definition_en || '—'}</strong>
+                  {(sense.collocations || []).length > 0 && <ul>{sense.collocations.map((item) => <li><b>{item.phrase}</b><span>{item.meaning_cn}</span></li>)}</ul>}
+                </div>
+              </section>
+            ))}
+          </div>
+        </main>
+
+        <aside class="portedVocabEvidenceColumn" data-vocab-evidence-column>
+          <section>
+            <header><span>Constructions</span><small>Current only</small></header>
+            {(card.constructions || []).length ? <div class="portedVocabEvidenceList">{card.constructions.map((item) => <article><b>{item.pattern || item.label_en}</b><p>{item.meaning_cn || item.definition_cn || '—'}</p></article>)}</div> : <p class="portedEmptyState">Current canonical 此栏为空；页面不补写。</p>}
+          </section>
+          <section>
+            <header><span>Relations</span><small>contrast evidence</small></header>
+            {relations.length ? <div class="portedVocabEvidenceList">{relations.map((relation) => <article><b>{relation.target_expression || relation.target_word || relation.relation_type}</b>{relation.boundaries?.map((boundary) => <p>{boundary}</p>)}{relation.learning_note && <p>{relation.learning_note}</p>}{relation.unsafe_swap && <small>swap risk · {relation.unsafe_swap}</small>}</article>)}</div> : <p class="portedEmptyState">当前没有 relation evidence。</p>}
+          </section>
+          <section class="portedVocabLocalNote">
+            <header><span>Personal note</span><small>local-only</small></header>
+            <textarea data-vocab-note rows="4" placeholder="给这个词留一条只存在本浏览器的笔记"></textarea>
+          </section>
+        </aside>
+      </div>
+
+      <footer class="portedVocabRatingBar">
+        <div><span>Recall quality</span><small data-vocab-attempts>attempt 1</small></div>
+        <div>
+          <button type="button" data-vocab-rating="unknown">1 · UNKNOWN</button>
+          <button type="button" data-vocab-rating="fuzzy">2 · FUZZY</button>
+          <button type="button" data-vocab-rating="known">3 · KNOW</button>
+          <button type="button" data-vocab-rating="pass">4 · PASS</button>
+        </div>
+      </footer>
+    </div>
+
+    <footer class="portedVocabFoot">
+      <span>Space Reveal · 1–4 评分 · S 发音 · learner state local-only</span>
+      <details><summary>Source</summary><code>{answer.sourcePath}</code><code>sha256:{String(answer.sourceHash).slice(0, 16)}</code></details>
+    </footer>
+  </section>
+</section>
+
+<script>
+  const root = document.querySelector('[data-local-port="vocabulary"]');
+  if (root) {
+    const word = root.getAttribute('data-vocab-word') || '';
+    const objectId = root.getAttribute('data-vocab-object') || word;
+    const storageKey = `kianos-vocabulary-astro-v1:${objectId}`;
+    const front = root.querySelector('[data-vocab-front]');
+    const details = root.querySelector('[data-vocab-details]');
+    const reveal = root.querySelector('[data-vocab-reveal]');
+    const evidenceButton = root.querySelector('[data-vocab-evidence]');
+    const body = root.querySelector('[data-vocab-body]');
+    const note = root.querySelector('[data-vocab-note]');
+    const stateLabel = root.querySelector('[data-vocab-state-label]');
+    const attemptsLabel = root.querySelector('[data-vocab-attempts]');
+    let state = { revealed: false, attempts: 0, lastRating: '', note: '', lastSeenAt: '' };
+    try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
+    const save = () => { state.lastSeenAt = new Date().toISOString(); try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
+
+    const render = () => {
+      if (front) front.hidden = Boolean(state.revealed);
+      if (details) details.hidden = !state.revealed;
+      root.querySelectorAll('[data-vocab-rating]').forEach((button) => button.classList.toggle('selected', button.getAttribute('data-vocab-rating') === state.lastRating));
+      if (note && note.value !== state.note) note.value = state.note || '';
+      if (stateLabel) stateLabel.textContent = state.lastRating ? `${state.lastRating.toUpperCase()} · 1 / 1` : state.revealed ? 'Revealed · 1 / 1' : 'Ready · 1 / 1';
+      if (attemptsLabel) attemptsLabel.textContent = `attempt ${Math.max(1, Number(state.attempts || 0))}`;
+    };
+
+    const openCard = () => {
+      if (!state.revealed) state.attempts = Number(state.attempts || 0) + 1;
+      state.revealed = true; save(); render();
+    };
+    reveal?.addEventListener('click', openCard);
+
+    const speak = (lang = 'en-US') => {
+      if (!('speechSynthesis' in window) || !word) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = lang; utterance.rate = 0.86; window.speechSynthesis.speak(utterance);
+      root.querySelectorAll('[data-vocab-speak]').forEach((button) => {
+        const active = button.getAttribute('data-vocab-speak') === lang;
+        button.classList.toggle('speaking', active);
+        window.setTimeout(() => button.classList.remove('speaking'), 700);
+      });
+    };
+    root.querySelectorAll('[data-vocab-speak]').forEach((button) => button.addEventListener('click', () => speak(button.getAttribute('data-vocab-speak') || 'en-US')));
+
+    evidenceButton?.addEventListener('click', () => {
+      if (!state.revealed) openCard();
+      const visible = body?.classList.toggle('evidence-focused') || false;
+      evidenceButton.setAttribute('aria-pressed', String(visible));
+    });
+
+    root.querySelectorAll('[data-vocab-rating]').forEach((button) => button.addEventListener('click', () => {
+      state.lastRating = button.getAttribute('data-vocab-rating') || '';
+      state.revealed = true; save(); render();
+    }));
+    note?.addEventListener('input', () => { state.note = String(note.value || '').slice(0, 500); save(); });
+
+    document.addEventListener('keydown', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
+      if (event.key.toLowerCase() === 's') { speak('en-US'); return; }
+      if (event.code === 'Space' || event.key === 'Enter') { event.preventDefault(); openCard(); return; }
+      if (state.revealed && /^[1-4]$/.test(event.key)) {
+        const values = ['unknown', 'fuzzy', 'known', 'pass'];
+        root.querySelector(`[data-vocab-rating="${values[Number(event.key) - 1]}"]`)?.click();
+      }
+    });
+
+    render();
+  }
+</script>

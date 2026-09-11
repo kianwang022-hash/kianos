@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Reading" kicker="English · Current migration" description="完整 English Exam Source 迁移完成后启用。" active="reading">
+  <section class="migrationPending">
+    <span>Fail-closed</span>
+    <h2>Reading source 正在迁移</h2>
+    <p>新仓库不会回退读取 legacy。当前缺少完整 `question_bank.v1.json` 与 `reading_corpus.v1.json`，所以 Reading Runtime 暂不伪造内容。</p>
+    <code>kianos-legacy → copy-preserving transfer → content/english/ → Astro</code>
+  </section>
+</Base>

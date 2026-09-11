@@ -1,0 +1,102 @@
+---
+const { answer } = Astro.props;
+const rows = answer.shardEntries || [];
+const activeWord = answer.record?.word || 'answer';
+const previewRows = rows.map((row) => ({
+  objectId: row.objectId,
+  ordinal: row.ordinal,
+  word: row.record?.word || '',
+  coreCn: row.record?.core_concept?.core_meaning_cn || '',
+  coreEn: row.record?.core_concept?.core_meaning_en || '',
+  senseCount: row.record?.senses?.length || 0
+}));
+---
+<section class="portedVocabBrowser" data-vocab-browser data-active-word={activeWord}>
+  <header>
+    <div><span>Vocabulary · Current shard</span><h3>Queue / Dictionary / History</h3><p>先移植 Local 的入口形态；当前只浏览 answer 所在 Current shard，不伪装成完整 7,946 词库。</p></div>
+    <nav><button type="button" class="active" data-vocab-browser-tab="queue">Queue</button><button type="button" data-vocab-browser-tab="dictionary">Dictionary</button><button type="button" data-vocab-browser-tab="history">History</button></nav>
+  </header>
+
+  <section data-vocab-browser-panel="queue">
+    <div class="portedVocabQueueSummary"><strong>{rows.length} words in current shard</strong><span>评分状态读取 browser-local learner state</span></div>
+    <div class="portedVocabQueueGrid" data-vocab-queue></div>
+  </section>
+
+  <section data-vocab-browser-panel="dictionary" hidden>
+    <label class="portedVocabSearch"><span>Dictionary</span><input type="search" data-vocab-search placeholder="Search current shard" /></label>
+    <div class="portedVocabDictionaryGrid">
+      <aside data-vocab-dictionary-list></aside>
+      <article data-vocab-dictionary-preview><span>L0 preview</span><h4>{activeWord}</h4><p>选择词条查看 Current core preview。</p></article>
+    </div>
+  </section>
+
+  <section data-vocab-browser-panel="history" hidden>
+    <div class="portedVocabLocalHistory"><span>Local History</span><ol data-vocab-history-list><li>还没有本机学习记录。</li></ol></div>
+  </section>
+
+  <script type="application/json" data-vocab-shard-payload set:html={JSON.stringify(previewRows)}></script>
+</section>
+
+<script>
+  const browser = document.querySelector('[data-vocab-browser]');
+  if (browser) {
+    let rows = [];
+    try { rows = JSON.parse(browser.querySelector('[data-vocab-shard-payload]')?.textContent || '[]'); } catch {}
+    const activeWord = browser.getAttribute('data-active-word') || '';
+    const tabs = [...browser.querySelectorAll('[data-vocab-browser-tab]')];
+    const panels = [...browser.querySelectorAll('[data-vocab-browser-panel]')];
+    const stateFor = (row) => {
+      try { return JSON.parse(localStorage.getItem(`kianos-vocabulary-astro-v1:${row.objectId}`) || 'null') || {}; } catch { return {}; }
+    };
+    const switchTab = (name) => {
+      tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-vocab-browser-tab') === name));
+      panels.forEach((panel) => { panel.hidden = panel.getAttribute('data-vocab-browser-panel') !== name; });
+      if (name === 'history') renderHistory();
+    };
+    tabs.forEach((button) => button.addEventListener('click', () => switchTab(button.getAttribute('data-vocab-browser-tab') || 'queue')));
+
+    const queue = browser.querySelector('[data-vocab-queue]');
+    const dictionary = browser.querySelector('[data-vocab-dictionary-list]');
+    const preview = browser.querySelector('[data-vocab-dictionary-preview]');
+    const showPreview = (row) => {
+      if (!preview || !row) return;
+      preview.replaceChildren();
+      const kicker = document.createElement('span'); kicker.textContent = 'L0 preview · Current';
+      const title = document.createElement('h4'); title.textContent = row.word;
+      const cn = document.createElement('strong'); cn.textContent = row.coreCn || '—';
+      const en = document.createElement('p'); en.textContent = row.coreEn || '—';
+      const meta = document.createElement('small'); meta.textContent = `ordinal ${row.ordinal} · ${row.senseCount} senses`;
+      preview.append(kicker, title, cn, en, meta);
+      if (row.word === activeWord) {
+        const link = document.createElement('button'); link.type = 'button'; link.textContent = '打开当前 Study Card';
+        link.addEventListener('click', () => document.querySelector('[data-local-port="vocabulary"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+        preview.appendChild(link);
+      }
+    };
+    const renderRows = (filter = '') => {
+      const visible = rows.filter((row) => String(row.word || '').toLowerCase().includes(filter.toLowerCase()));
+      [queue, dictionary].forEach((host) => { if (host) host.replaceChildren(); });
+      visible.forEach((row) => {
+        const state = stateFor(row);
+        const make = (mode) => {
+          const button = document.createElement('button'); button.type = 'button';
+          button.className = row.word === activeWord ? 'active' : '';
+          const status = state.lastRating ? String(state.lastRating).toUpperCase() : state.revealed ? 'REVEALED' : 'READY';
+          button.innerHTML = `<b>${row.word}</b><span>${mode === 'queue' ? (row.coreCn || row.coreEn || 'Current word') : (row.coreCn || '—')}</span><small>${status}</small>`;
+          button.addEventListener('click', () => showPreview(row)); return button;
+        };
+        queue?.appendChild(make('queue')); dictionary?.appendChild(make('dictionary'));
+      });
+      if (visible.length) showPreview(visible.find((row) => row.word === activeWord) || visible[0]);
+    };
+    const renderHistory = () => {
+      const list = browser.querySelector('[data-vocab-history-list]'); if (!list) return;
+      const history = rows.map((row) => ({ row, state: stateFor(row) })).filter(({ state }) => state.lastSeenAt || state.lastRating || state.attempts).sort((a, b) => String(b.state.lastSeenAt || '').localeCompare(String(a.state.lastSeenAt || '')));
+      list.replaceChildren();
+      if (!history.length) { const item = document.createElement('li'); item.textContent = '还没有本机学习记录。'; list.appendChild(item); return; }
+      history.forEach(({ row, state }) => { const item = document.createElement('li'); item.textContent = `${row.word} · ${state.lastRating ? String(state.lastRating).toUpperCase() : 'SEEN'} · attempts ${state.attempts || 0}`; list.appendChild(item); });
+    };
+    browser.querySelector('[data-vocab-search]')?.addEventListener('input', (event) => renderRows(event.currentTarget.value || ''));
+    renderRows(); renderHistory();
+  }
+</script>
