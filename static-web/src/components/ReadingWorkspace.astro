@@ -89,7 +89,7 @@ const questionId = (question, index) => String(question.id || question.question_
             <section class="portedReadingRepair" data-reading-repair hidden>
               <header>
                 <div>
-                  <span>只处理这道</span>
+                  <span>本篇复盘 · 当前题</span>
                   <strong data-reading-repair-title></strong>
                 </div>
                 <small>错因可选，一点即可</small>
@@ -320,7 +320,7 @@ const questionId = (question, index) => String(question.id || question.question_
         if (summaryLabel) {
           summaryLabel.textContent = problems.length === 0
             ? '稳定 · 可以直接下一篇'
-            : `${problems.length} 题值得看一下`;
+            : `有 ${problems.length} 题待复盘`;
         }
       }
 
@@ -395,11 +395,6 @@ const questionId = (question, index) => String(question.id || question.question_
       };
       state.history = [attempt, ...(state.history || [])].slice(0, 8);
       save();
-      const firstProblemIndex = questions.findIndex((question) =>
-        ['wrong', 'unanswered'].includes(results[qid(question)]) ||
-        (state.uncertain || []).includes(qid(question))
-      );
-      if (firstProblemIndex >= 0) state.currentIndex = firstProblemIndex;
       render();
     });
 
