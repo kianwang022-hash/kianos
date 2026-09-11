@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL;
 <Base
   title="Objective First Learning"
   kicker="English · First Learning"
-  description="先建立题型认知模型，再进入大量真题训练。Skill Map 是后续诊断地址，不是第一次学习任务清单。"
+  description="静态资产完整保留；会的直接跳过，真实题卡住再回对应 Core / Skill。"
   sourcePath={sourcePath}
   sourceHash={sourceHash}
   objectId="english:objective-first-learning"
@@ -22,14 +22,58 @@ const base = import.meta.env.BASE_URL;
 >
   <section class="objectiveLearnShell">
     <nav class="objectiveLearnNav" aria-label="Objective first learning navigation">
-      <a href="#top"><strong>Global Map</strong><span>先看共同决策骨架</span></a>
-      <a href="#cloze"><strong>Cloze</strong><span>Slot Constraint → Best Fit</span></a>
-      <a href="#reading-a"><strong>Reading A</strong><span>Evidence Adjudication</span></a>
-      <a href="#reading-b"><strong>Reading B</strong><span>Discourse Reconstruction</span></a>
+      <a href="#global-map"><strong>Global Map</strong><span>共同决策骨架</span></a>
+
+      <details open>
+        <summary>Reading A</summary>
+        <a href="#reading-a">Global Model</a>
+        <a href="#ra-core-1">Question Demand</a>
+        <a href="#ra-core-2">Evidence Boundary</a>
+        <a href="#ra-core-3">Option Proposition</a>
+        <a href="#ra-core-4">Adjudication</a>
+        <a href="#ra-skill-map">Skill Map</a>
+        <a href="#ra-skill-boundary">Deep · Boundary</a>
+        <a href="#ra-skill-cause">Deep · Cause</a>
+        <a href="#ra-skill-attribution">Deep · Attribution</a>
+        <a href="#ra-skill-local-global">Deep · Local→Global</a>
+        <a href="#ra-skill-true-irrelevant">Deep · Irrelevant</a>
+        <a href="#ra-execution">Execution</a>
+      </details>
+
+      <details>
+        <summary>Cloze</summary>
+        <a href="#cloze">Global Model</a>
+        <a href="#cl-core-1">Slot Demand</a>
+        <a href="#cl-core-2">Constraint Stack</a>
+        <a href="#cl-core-3">Competition</a>
+        <a href="#cl-core-4">Execution</a>
+        <a href="#cl-skill-map">Skill Map</a>
+        <a href="#cl-skill-best-fit">Deep · Best Fit</a>
+        <a href="#cl-skill-collocation">Deep · Collocation</a>
+        <a href="#cl-skill-relation">Deep · Relation</a>
+        <a href="#cl-execution">Exam Compression</a>
+      </details>
+
+      <details>
+        <summary>Reading B</summary>
+        <a href="#reading-b">Global Model</a>
+        <a href="#rb-core-1">Skeleton</a>
+        <a href="#rb-core-2">Position Demand</a>
+        <a href="#rb-core-3">Candidate Role</a>
+        <a href="#rb-core-4">Global Reconcile</a>
+        <a href="#rb-skill-map">Skill Map</a>
+        <a href="#rb-skill-local-global">Deep · Local/Global</a>
+        <a href="#rb-skill-coupled">Deep · Coupled</a>
+        <a href="#rb-skill-reference">Deep · Reference</a>
+        <a href="#rb-execution">Execution</a>
+      </details>
+
+      <a href="#runtime-bridge"><strong>Runtime Bridge</strong><span>学完以后怎么进入真实训练</span></a>
+
       <div class="objectiveLearnPractice">
         <span>回到训练</span>
-        <a href={`${base}cloze/`}>Cloze</a>
         <a href={`${base}reading/`}>Reading A</a>
+        <a href={`${base}cloze/`}>Cloze</a>
         <a href={`${base}reading-b/`}>Part B</a>
       </div>
     </nav>
@@ -37,14 +81,14 @@ const base = import.meta.env.BASE_URL;
     <div class="objectiveLearnMain">
       <aside class="objectiveFastTrack">
         <div>
-          <span>Fast Track · Calibration Gate</span>
-          <strong>已经会的框架，不必顺序重学。</strong>
+          <span>Skippable · Complete Static Asset</span>
+          <strong>内容写全，不要求线性读完。</strong>
         </div>
-        <p>如果你能稳定说清当前 task 的 demand、decisive evidence / constraint，以及真实竞争项为什么分出胜负，就直接跳到 Starter Skill Content 或真实题。Core Blocks 是第一次建立模型的资产，不是每个人都必须完整走一遍的教程。</p>
+        <p>Core Blocks 和 Deep Skill 都作为长期静态资产保留。已经会的直接跳过；能稳定解释并在真题里执行的机制不重复学习；只有真实题暴露 friction 时才回对应节点。</p>
         <div class="objectiveFastTrackRules">
-          <b>知道 → 快速扫过</b>
-          <b>能解释 → 跳过教学</b>
-          <b>真实题卡住 → 回对应 Skill</b>
+          <b>不会 → 连续学</b>
+          <b>会 → 直接跳</b>
+          <b>卡住 → 回对应 Skill</b>
         </div>
       </aside>
 
@@ -54,26 +98,24 @@ const base = import.meta.env.BASE_URL;
 </Base>
 
 <style>
-  .objectiveLearnShell{max-width:82rem;margin:0 auto;display:grid;grid-template-columns:15rem minmax(0,1fr);gap:16px;align-items:start}
-  .objectiveLearnNav{position:sticky;top:76px;display:grid;gap:6px;padding:12px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}
-  .objectiveLearnNav>a{display:grid;gap:2px;padding:10px 11px;border-radius:10px;color:inherit;text-decoration:none}
-  .objectiveLearnNav>a:hover{background:var(--study-green-soft)}
-  .objectiveLearnNav strong{font-size:12px}.objectiveLearnNav span{color:var(--study-muted);font-size:9px;line-height:1.45}
-  .objectiveLearnPractice{display:flex;gap:6px;flex-wrap:wrap;padding:10px 11px 2px;border-top:1px solid var(--study-line);margin-top:4px}
-  .objectiveLearnPractice>span{width:100%;color:var(--study-faint);font-size:9px}.objectiveLearnPractice a{font-size:10px;font-weight:800;color:var(--study-green);text-decoration:none}
-  .objectiveLearnMain{min-width:0;display:grid;gap:10px}
-  .objectiveFastTrack{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-green-soft)}
+  .objectiveLearnShell{max-width:86rem;margin:0 auto;display:grid;grid-template-columns:16rem minmax(0,1fr);gap:16px;align-items:start}
+  .objectiveLearnNav{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto;display:grid;gap:6px;padding:12px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}
+  .objectiveLearnNav>a{display:grid;gap:2px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.objectiveLearnNav>a:hover{background:var(--study-green-soft)}
+  .objectiveLearnNav>a strong{font-size:12px}.objectiveLearnNav>a span{color:var(--study-muted);font-size:9px;line-height:1.45}
+  .objectiveLearnNav details{border-top:1px solid var(--study-line);padding-top:5px}.objectiveLearnNav details:first-of-type{border-top:0;padding-top:0}
+  .objectiveLearnNav summary{cursor:pointer;padding:7px 9px;border-radius:8px;font-size:11px;font-weight:850;color:#23372f}.objectiveLearnNav summary:hover{background:var(--study-green-soft)}
+  .objectiveLearnNav details>a{display:block;padding:5px 10px 5px 18px;border-radius:7px;color:var(--study-muted);font-size:9.5px;text-decoration:none;line-height:1.35}.objectiveLearnNav details>a:hover{background:var(--study-green-soft);color:#1d352a}
+  .objectiveLearnPractice{display:flex;gap:6px;flex-wrap:wrap;padding:10px 11px 2px;border-top:1px solid var(--study-line);margin-top:4px}.objectiveLearnPractice>span{width:100%;color:var(--study-faint);font-size:9px}.objectiveLearnPractice a{font-size:10px;font-weight:800;color:var(--study-green);text-decoration:none}
+  .objectiveLearnMain{min-width:0;display:grid;gap:10px}.objectiveFastTrack{display:grid;gap:10px;padding:16px 18px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-green-soft)}
   .objectiveFastTrack>div:first-child{display:grid;gap:3px}.objectiveFastTrack span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.objectiveFastTrack strong{font-size:16px}.objectiveFastTrack p{margin:0;color:#33463e;font-size:12px;line-height:1.75}
   .objectiveFastTrackRules{display:flex;gap:7px;flex-wrap:wrap}.objectiveFastTrackRules b{padding:5px 8px;border:1px solid var(--study-line);border-radius:999px;background:#fff;font-size:9px;color:#2d4138}
   .objectiveLearnContent{min-width:0;padding:30px 36px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
   .markdownBody :global(h1){margin:3.2rem 0 1rem;padding-top:.4rem;font-size:28px;line-height:1.28;letter-spacing:-.02em}.markdownBody :global(h1:first-of-type){margin-top:0}
   .markdownBody :global(h2){margin:2.35rem 0 .75rem;font-size:20px;line-height:1.35}.markdownBody :global(h3){margin:1.55rem 0 .55rem;font-size:15px}
   .markdownBody :global(p),.markdownBody :global(li){font-size:13.5px;line-height:1.86;color:#26352f}.markdownBody :global(p){margin:.65rem 0}.markdownBody :global(ul),.markdownBody :global(ol){padding-left:1.4rem}
-  .markdownBody :global(blockquote){margin:1rem 0;padding:10px 14px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0;color:#1e3129}
-  .markdownBody :global(blockquote p){margin:.25rem 0;color:inherit}.markdownBody :global(strong){color:#16251f}
-  .markdownBody :global(pre){overflow:auto;margin:1rem 0;padding:14px 16px;border:1px solid var(--study-line);border-radius:11px;background:#f7f9f7;font-size:12px;line-height:1.6}
-  .markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.5rem 0}
+  .markdownBody :global(blockquote){margin:1rem 0;padding:10px 14px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0;color:#1e3129}.markdownBody :global(blockquote p){margin:.25rem 0;color:inherit}.markdownBody :global(strong){color:#16251f}
+  .markdownBody :global(pre){overflow:auto;margin:1rem 0;padding:14px 16px;border:1px solid var(--study-line);border-radius:11px;background:#f7f9f7;font-size:12px;line-height:1.6}.markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.5rem 0}
   .markdownBody :global(a[id]){display:block;position:relative;top:-88px;visibility:hidden}
-  @media(max-width:900px){.objectiveLearnShell{grid-template-columns:1fr}.objectiveLearnNav{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.objectiveLearnPractice{grid-column:1/-1}.objectiveLearnContent{padding:22px 18px}}
+  @media(max-width:960px){.objectiveLearnShell{grid-template-columns:1fr}.objectiveLearnNav{position:static;max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}.objectiveLearnNav details{border:1px solid var(--study-line);border-radius:9px;padding:3px}.objectiveLearnPractice{grid-column:1/-1}.objectiveLearnContent{padding:22px 18px}}
   @media(max-width:560px){.objectiveLearnNav{grid-template-columns:1fr}.objectiveLearnContent{padding:18px 14px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}.objectiveFastTrackRules{display:grid}.objectiveFastTrackRules b{width:max-content}}
 </style>
