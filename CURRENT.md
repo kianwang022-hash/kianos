@@ -23,13 +23,13 @@
 
 Clean-room source pin: `kianos-legacy@40e0fdefb9150fc011b37b303f3f24720ef61186`.
 
-Phase 1 now has a working clean baseline:
+**Phase 1 clean-room baseline: CLOSED.**
 
 - Xizong representative Current: **READY** — B1 canonical Markdown migrated unchanged.
 - Lexical representative Current: **READY** — `word:answer` migrated as its natural word owner at `content/lexical/words/answer.json`; migration did not repair or reinterpret its semantics.
-- Astro learner runtime: **READY AS BASELINE** — clean product shell plus the migrated B1 / Vocabulary learner-facing interactions, with no old React/API/cache/fallback dependency.
-- English: **PENDING EXACT SOURCE TRANSFER** — full Current Exam Source stores are not yet present, so Reading deliberately fails closed rather than reading legacy.
-- Politics: **PENDING FULL SOURCE TRANSFER**.
+- Astro learner runtime: **READY AS BASELINE** — clean product shell plus the migrated B1 / Vocabulary / Reading learner-facing interactions, with no old React/API/cache/fallback dependency.
+- English Reading representative Current: **READY** — `manifest.json`, `question_bank.v1.json`, and `reading_corpus.v1.json` were transferred byte-identically from the pinned legacy Current, passed Git-blob and SHA-256 identity checks, passed the runtime source gate, and produced a successful Astro static build. Reading does not read legacy or a historical Read Plane fallback.
+- Politics: **PENDING FULL SOURCE TRANSFER (PHASE 2)**.
 
 Accepted content is transported without semantic re-review. Any semantic repair is a later Chat-owned content change, not part of migration.
 

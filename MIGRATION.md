@@ -19,25 +19,32 @@ Only explicitly admitted Current assets may enter the new repository. Legacy gov
 
 `word:answer` is transported as the natural word owner. Its accepted/source record is preserved; migration itself performs no semantic repair.
 
-## Phase 1 — approved source identity, transfer pending
-
-### English
-The Current owners to transfer mechanically are:
+### English Reading representative Current
+The following Current owners were transferred mechanically and byte-identically:
 - `content/english/manifest.json`
 - `content/english/source/question_bank.v1.json`
 - `content/english/source/reading_corpus.v1.json`
 
-The large minified source stores have not yet been copied into the new repository through the available bounded connector path. Until exact transfer lands, Reading fails closed and must not use legacy or historical Read Plane fallback.
+Transfer identity proof:
+- `manifest.json` Git blob: `c4ba991e28bd9b0f50f7444ea6bfced774a47d19`
+- `question_bank.v1.json` Git blob: `c10b936beb1864715b59f2ef2028d9cc67cce31e`
+- `question_bank.v1.json` SHA-256: `c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986`
+- `reading_corpus.v1.json` Git blob: `e7347eec936a57914eafa4369f61d9f8e2dfb89d`
+- `reading_corpus.v1.json` SHA-256: `97d3204e7b6141652a3ed196914f74236e13ca24ef03de692f4b969d1a839f4a`
+
+The new runtime verifies the manifest/source hashes before `loadReading()` is allowed to project a learner object. A clean `main` validation resolved `english1-2000-reading-a-text1` with non-empty passage/questions and completed the Astro static build, including `/reading/index.html`. No legacy or historical Read Plane fallback is used.
+
+**Phase 1 clean-room baseline is closed.** Full asset migration and global QA remain separate bounded phases.
 
 ## Later migration
 
 - remaining accepted Xizong Current
 - full Lexical canonical owner set
-- full English Current owners
+- remaining English Current beyond the admitted Reading dependencies
 - Politics Current
 - only mechanical tools still proven necessary in the new architecture
 
-Full-asset migration and global QA are a separate bounded phase. Accepted content is not semantically re-reviewed merely because it moves repositories.
+Accepted content is not semantically re-reviewed merely because it moves repositories.
 
 ## Explicitly not inherited
 
