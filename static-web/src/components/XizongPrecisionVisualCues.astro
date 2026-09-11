@@ -1,0 +1,115 @@
+---
+const { block } = Astro.props;
+const groups = block?.logicGroups || [];
+const kps = block?.kpRecords || [];
+const precision = block?.learningCues?.precision || [];
+const visuals = block?.learningCues?.visuals || [];
+
+const byAnchor = (rows, key) => Object.fromEntries(rows.reduce((acc, row) => {
+  const id = row?.anchor?.[key];
+  if (!id) return acc;
+  const found = acc.find(([candidate]) => candidate === id);
+  if (found) found[1].push(row);
+  else acc.push([id, [row]]);
+  return acc;
+}, []));
+
+const payload = {
+  groups: groups.map((group) => group.groupId),
+  kps: kps.map((kp) => kp.kpId),
+  groupPrecision: byAnchor(precision, 'logic_group_id'),
+  kpPrecision: byAnchor(precision, 'kp_id'),
+  groupVisuals: byAnchor(visuals, 'logic_group_id'),
+  kpVisuals: byAnchor(visuals, 'kp_id')
+};
+---
+<div data-xizong-precision-visual-cues data-study-object={block.objectId} hidden>
+  <div data-group-cue-host></div>
+  <script type="application/json" data-learning-cue-payload set:html={JSON.stringify(payload)}></script>
+</div>
+
+<script>
+  const cueRoot = document.querySelector('[data-xizong-precision-visual-cues]');
+  const studyRoot = document.querySelector('[data-xizong-v6-block]');
+  if (cueRoot && studyRoot) {
+    let payload = { groups: [], kps: [], groupPrecision: {}, kpPrecision: {}, groupVisuals: {}, kpVisuals: {} };
+    try { payload = JSON.parse(cueRoot.querySelector('[data-learning-cue-payload]')?.textContent || '{}'); } catch {}
+
+    const renderRows = (precisionRows = [], visualRows = []) => {
+      const fragment = document.createDocumentFragment();
+      precisionRows.forEach((row) => {
+        const el = document.createElement('div');
+        el.className = 'xv6LearningCue precision';
+        const label = document.createElement('span');
+        label.textContent = 'Precision · 最终要精确';
+        const text = document.createElement('p');
+        text.textContent = row?.cue || '';
+        el.append(label, text);
+        fragment.appendChild(el);
+      });
+      visualRows.forEach((row) => {
+        const el = document.createElement('div');
+        el.className = 'xv6LearningCue visual';
+        const label = document.createElement('span');
+        label.textContent = `看原图 · ${row?.source_locator || 'Lecture'}`;
+        const text = document.createElement('p');
+        text.textContent = row?.task || '';
+        el.append(label, text);
+        fragment.appendChild(el);
+      });
+      return fragment;
+    };
+
+    // KP cues are attached once to their existing learner cards. They never enter Recall cards.
+    const learnCards = [...studyRoot.querySelectorAll('[data-kp-learn-card]')];
+    learnCards.forEach((card, index) => {
+      const kpId = payload.kps?.[index] || '';
+      const precisionRows = payload.kpPrecision?.[kpId] || [];
+      const visualRows = payload.kpVisuals?.[kpId] || [];
+      if (!precisionRows.length && !visualRows.length) return;
+      const stack = document.createElement('div');
+      stack.className = 'xv6LearningCueStack kp';
+      stack.appendChild(renderRows(precisionRows, visualRows));
+      const header = card.querySelector(':scope > header');
+      if (header) header.insertAdjacentElement('afterend', stack);
+      else card.prepend(stack);
+    });
+
+    // Logic-group cues follow the one active group entrance and remain nonblocking.
+    const logicStage = studyRoot.querySelector('[data-study-stage="logic_group"]');
+    const groupHost = cueRoot.querySelector('[data-group-cue-host]');
+    const anchor = logicStage?.querySelector('.xv6LogicTarget') || logicStage?.querySelector('[data-logic-kps]');
+    if (logicStage && groupHost && anchor) {
+      cueRoot.hidden = false;
+      cueRoot.classList.add('xv6LearningCueStack', 'group');
+      anchor.insertAdjacentElement('afterend', cueRoot);
+    }
+
+    const currentGroupIndex = () => {
+      const text = studyRoot.querySelector('[data-logic-counter]')?.textContent || '';
+      const match = text.match(/LG(\d+)/i);
+      return Math.max(0, Number(match?.[1] || 1) - 1);
+    };
+    const renderGroup = () => {
+      if (!groupHost) return;
+      const groupId = payload.groups?.[currentGroupIndex()] || '';
+      const precisionRows = payload.groupPrecision?.[groupId] || [];
+      const visualRows = payload.groupVisuals?.[groupId] || [];
+      groupHost.replaceChildren();
+      if (!precisionRows.length && !visualRows.length) {
+        cueRoot.hidden = true;
+        return;
+      }
+      cueRoot.hidden = false;
+      groupHost.appendChild(renderRows(precisionRows, visualRows));
+    };
+
+    const counter = studyRoot.querySelector('[data-logic-counter]');
+    if (counter) new MutationObserver(renderGroup).observe(counter, { childList: true, subtree: true, characterData: true });
+    renderGroup();
+  }
+</script>
+
+<style>
+  .xv6LearningCueStack{display:grid;gap:6px}.xv6LearningCueStack.group{margin:.65rem 0}.xv6LearningCueStack.kp{margin:.1rem 0 .8rem}.xv6LearningCue{display:grid;grid-template-columns:148px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem;border-top:1px solid var(--line,#d9dde5)}.xv6LearningCue:first-child{border-top:0}.xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}.xv6LearningCue.precision span{color:var(--study-green,#286c57)}.xv6LearningCue.visual{padding:.5rem .6rem;border:0;border-radius:9px;background:var(--soft,#f5f6f8)}.xv6LearningCue.visual span{white-space:nowrap}@media(max-width:720px){.xv6LearningCue{grid-template-columns:1fr;gap:.15rem}}
+</style>
