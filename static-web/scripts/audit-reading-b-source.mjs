@@ -25,6 +25,11 @@ const directionsFromRaw = (raw) => {
   const block = section.match(/^Directions\s*:?\s*([\s\S]*?)(?:\n\s*\n)/i);
   return compact(block?.[1] || '', 1000);
 };
+const poolEntries = (pool) => {
+  if (Array.isArray(pool)) return pool.map((value, index) => [String.fromCharCode(65 + index), value]);
+  if (pool && typeof pool === 'object') return Object.entries(pool);
+  return [];
+};
 
 const expected = {
   GAP_MATCHING: 8,
@@ -42,13 +47,16 @@ for (const set of sets.sort((a, b) => String(a.id).localeCompare(String(b.id))))
   counts[groupType] = (counts[groupType] || 0) + 1;
   const directions = compact(context.directions || directionsFromRaw(context.raw_text), 1000);
   const qs = (bySet.get(String(set.id || '')) || []).sort((a, b) => Number(a?.ordinal || 0) - Number(b?.ordinal || 0));
-  const sourcePool = Array.isArray(context.shared_option_pool) ? context.shared_option_pool : [];
+  const sourcePool = poolEntries(context.shared_option_pool);
   const layoutObject = layout?.objects?.[set.id] || null;
 
   if (!groupType) issues.push(`${set.id}: missing question_group_type`);
   if (!directions) issues.push(`${set.id}: directions not recoverable`);
   if (qs.length !== 5) issues.push(`${set.id}: expected 5 questions, got ${qs.length}`);
-  if (![7, 8].includes(sourcePool.length)) issues.push(`${set.id}: expected 7/8 candidate labels, got ${sourcePool.length}`);
+  if (![7, 8].includes(sourcePool.length)) issues.push(`${set.id}: expected 7/8 candidates, got ${sourcePool.length}`);
+  if (sourcePool.some(([label, text]) => !String(text || '').trim() || String(text || '').trim() === String(label))) {
+    issues.push(`${set.id}: candidate text missing or label-only in Current source`);
+  }
   if (groupType === 'PARAGRAPH_ORDERING') {
     const skeleton = context.ordering_skeleton || layoutObject?.ordering_skeleton;
     if (!Array.isArray(skeleton) || !skeleton.length) issues.push(`${set.id}: ordering skeleton missing`);
@@ -58,7 +66,7 @@ for (const set of sets.sort((a, b) => String(a.id).localeCompare(String(b.id))))
     id: set.id,
     groupType,
     directionsRecoveredFrom: context.directions ? 'context.directions' : 'context.raw_text',
-    candidateLabelCount: sourcePool.length,
+    candidateCount: sourcePool.length,
     questionCount: qs.length,
     orderingSkeleton: groupType === 'PARAGRAPH_ORDERING' ? (context.ordering_skeleton || layoutObject?.ordering_skeleton || []) : undefined
   });
