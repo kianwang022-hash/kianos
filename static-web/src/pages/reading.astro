@@ -1,48 +1,25 @@
 ---
 import Base from '../layouts/Base.astro';
-import '../styles/reading.css';
-import '../styles/reading-interaction.css';
-import '../styles/reading-repair.css';
-import '../styles/reading-navigation.css';
-import ReadingWorkspace from '../components/ReadingWorkspace.astro';
-import ReadingAnswerGate from '../components/ReadingAnswerGate.astro';
-import ReadingPassageNavigator from '../components/ReadingPassageNavigator.astro';
-import ReadingDeferredReviewShield from '../components/ReadingDeferredReviewShield.astro';
-import ReadingRepairCoach from '../components/ReadingRepairCoach.astro';
-import ReadingReviewSignals from '../components/ReadingReviewSignals.astro';
-import ReadingTransferEvidence from '../components/ReadingTransferEvidence.astro';
-import ReadingSessionTransferEvidence from '../components/ReadingSessionTransferEvidence.astro';
-import ReadingSessionHandoff from '../components/ReadingSessionHandoff.astro';
+import ReadingHome from '../components/ReadingHome.astro';
 import { inspectReadingSources } from '../lib/current.mjs';
-import { loadDefaultReading } from '../lib/englishReading.mjs';
+import { listReadingSets } from '../lib/englishReading.mjs';
 
 const sourceState = inspectReadingSources();
-const reading = sourceState.status === 'ready' ? loadDefaultReading() : null;
+const sets = sourceState.status === 'ready' ? listReadingSets() : [];
 const pendingDescription = sourceState.status === 'invalid'
   ? 'English Current 已落仓，但来源完整性检查未通过；Runtime 保持 fail-closed。'
   : 'English Current 依赖缺失；补齐当前依赖并通过 hash gate 后自动启用。';
 ---
 <Base
-  title={reading?.title || 'Reading'}
-  kicker={reading ? 'English · Current' : 'English · Current gate'}
-  description={reading ? '' : pendingDescription}
-  sourcePath={reading?.sourcePaths.passage}
-  sourceHash={reading?.sourceHashes.renderedObject}
-  objectId={reading?.objectId}
+  title="Reading"
+  kicker={sourceState.status === 'ready' ? 'English · Current' : 'English · Current gate'}
+  description={sourceState.status === 'ready' ? 'Continue / Navigate / clean attempt. 具体复盘与 Handoff 在 passage runtime 完成。' : pendingDescription}
+  sourcePath="content/english/manifest.json"
+  objectId="english:reading-home"
   active="reading"
 >
-  {reading ? (
-    <>
-      <ReadingWorkspace reading={reading} />
-      <ReadingAnswerGate />
-      <ReadingPassageNavigator reading={reading} />
-      <ReadingDeferredReviewShield />
-      <ReadingRepairCoach />
-      <ReadingReviewSignals />
-      <ReadingTransferEvidence />
-      <ReadingSessionTransferEvidence />
-      <ReadingSessionHandoff />
-    </>
+  {sourceState.status === 'ready' ? (
+    <ReadingHome sets={sets} />
   ) : (
     <section class="migrationPending">
       <span>Fail-closed · {sourceState.status}</span>
