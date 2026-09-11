@@ -34,9 +34,13 @@ function typeSummary(value) {
   return typeof value;
 }
 
+function read(relativeUrl) {
+  return fs.readFileSync(new URL(relativeUrl, import.meta.url), 'utf8');
+}
+
 function readingBShapeSamples() {
   try {
-    const bank = JSON.parse(fs.readFileSync(new URL('../../content/english/source/question_bank.v1.json', import.meta.url), 'utf8'));
+    const bank = JSON.parse(read('../../content/english/source/question_bank.v1.json'));
     const sets = Array.isArray(bank.passage_or_sets) ? bank.passage_or_sets : [];
     const questions = Array.isArray(bank.questions_or_prompts) ? bank.questions_or_prompts : [];
     return [2005, 2024, 2026].map((year) => {
@@ -126,6 +130,90 @@ function validateTask({ task, list, load, loadAnswers }) {
   summary[task] = stats;
 }
 
+function validateEvidenceRuntimeWiring() {
+  const uiIssues = [];
+  const requireText = (label, text, needle) => {
+    if (!text.includes(needle)) uiIssues.push(`${label}: missing ${needle}`);
+  };
+  const forbidText = (label, text, needle) => {
+    if (text.includes(needle)) uiIssues.push(`${label}: legacy runtime still loaded: ${needle}`);
+  };
+
+  try {
+    const manifest = JSON.parse(read('../../content/english/manifest.json'));
+    if (manifest?.owners?.objective_evidence_runtime !== 'content/english/modules/objective-evidence-runtime.md') {
+      uiIssues.push('manifest: objective_evidence_runtime owner missing or incorrect');
+    }
+    if (manifest?.readiness?.objective_evidence_runtime_present !== true) {
+      uiIssues.push('manifest: objective_evidence_runtime_present is not true');
+    }
+  } catch (error) {
+    uiIssues.push(`manifest: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const component = read('../src/components/ObjectiveTransferClaims.astro');
+    requireText('ObjectiveTransferClaims', component, 'kianos-english-objective-transfer-claims-v1');
+    requireText('ObjectiveTransferClaims', component, 'KIANOS_OBJECTIVE_RETURN_V1');
+    requireText('ObjectiveTransferClaims', component, 'kianos.english.objective_review_return.v1');
+    forbidText('ObjectiveTransferClaims', component, 'kianos-reading-watch-signals-v1');
+  } catch (error) {
+    uiIssues.push(`ObjectiveTransferClaims: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const cloze = read('../src/pages/cloze/[id].astro');
+    requireText('Cloze page', cloze, 'ObjectiveTransferClaims');
+    requireText('Cloze page', cloze, 'task="cloze"');
+  } catch (error) {
+    uiIssues.push(`Cloze page: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const readingB = read('../src/pages/reading-b/[id].astro');
+    requireText('Reading B page', readingB, 'ObjectiveTransferClaims');
+    requireText('Reading B page', readingB, 'task="reading_b"');
+  } catch (error) {
+    uiIssues.push(`Reading B page: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const readingA = read('../src/pages/reading/[id].astro');
+    requireText('Reading A page', readingA, 'ObjectiveTransferClaims');
+    requireText('Reading A page', readingA, 'task="reading_a"');
+    forbidText('Reading A page', readingA, 'ReadingReviewSignals');
+    forbidText('Reading A page', readingA, 'ReadingTransferEvidence');
+    forbidText('Reading A page', readingA, 'ReadingSessionTransferEvidence');
+  } catch (error) {
+    uiIssues.push(`Reading A page: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const objectiveHandoff = read('../src/components/ObjectiveHandoff.astro');
+    requireText('ObjectiveHandoff', objectiveHandoff, 'ACTIVE TRANSFER CLAIMS');
+    requireText('ObjectiveHandoff', objectiveHandoff, 'TRANSFER_CHECK');
+    requireText('ObjectiveHandoff', objectiveHandoff, 'KIANOS_OBJECTIVE_RETURN_V1');
+  } catch (error) {
+    uiIssues.push(`ObjectiveHandoff: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const readingHandoff = read('../src/components/ReadingPassageHandoff.astro');
+    requireText('ReadingPassageHandoff', readingHandoff, 'ACTIVE TRANSFER CLAIMS');
+    requireText('ReadingPassageHandoff', readingHandoff, 'TRANSFER_CHECK');
+    requireText('ReadingPassageHandoff', readingHandoff, 'KIANOS_OBJECTIVE_RETURN_V1');
+  } catch (error) {
+    uiIssues.push(`ReadingPassageHandoff: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  issues.push(...uiIssues.map((issue) => `ui:${issue}`));
+  summary.evidenceRuntime = {
+    status: uiIssues.length ? 'invalid' : 'ready',
+    issueCount: uiIssues.length,
+    legacyQuestionWatchLoaded: uiIssues.some((issue) => issue.includes('legacy runtime still loaded'))
+  };
+}
+
 validateTask({
   task: 'cloze',
   list: listClozeSets,
@@ -139,6 +227,8 @@ validateTask({
   load: loadReadingBById,
   loadAnswers: loadReadingBAnswersById
 });
+
+validateEvidenceRuntimeWiring();
 
 summary.issueCount = issues.length;
 console.log(JSON.stringify(summary, null, 2));
