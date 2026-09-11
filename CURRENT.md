@@ -11,6 +11,24 @@
 
 Private browser/device state may support interaction, but it is not a Current product layer, not a semantic owner, and must not be written into shared Current content.
 
+## KianOS-wide Current
+
+This root `CURRENT.md` is the Current overview for the **entire KianOS learning system**.
+
+Domain manifests and continuations are child Current objects beneath this root; they do not form separate parallel top-level Current systems.
+
+The durable hierarchy is:
+
+`KianOS Current → lane Current owner/manifest → natural content owners → learner runtime`
+
+All first-class learner lanes inherit the shared baseline in `SYSTEM_CONTRACT.md`:
+
+`Current · Continue · Navigate/Explore · Repair/Review · Verify/Challenge/Transfer · Return/Handoff · Deferred · Validation`
+
+The capabilities are shared; the cognition and UI are not forced to be identical. A lane that is missing a genuinely necessary baseline capability is Partial until it is repaired or explicitly deferred.
+
+Repository-wide intentionally postponed work uses `DEFERRED.md` + GitHub Issue #5 rather than separate lane backlogs.
+
 ## Current owners
 
 - Xizong: `content/xizong/`
@@ -41,6 +59,8 @@ System-by-system v6 upgrades are active Current content work. They update natura
 
 The durable shared-work cursor for the current Xizong learning/runtime mainline is `content/xizong/knowledge/learner/continuation.json`. Fresh Chats should read that cursor plus its referenced Current owners before proposing or continuing Xizong learning/runtime work; it records construction position only and is not medical Core or personal learner state.
 
+Xizong already implements most shared lane capabilities through its System/Block navigation, local learner state, selective Memory/Review, System Exit verification, detailed Study/Wrong-Uncertain packet export, and Chat return-plan import. Real learner validation remains the current quality gate.
+
 ### English
 
 English Current is intentionally split by responsibility:
@@ -63,6 +83,8 @@ Astro Reading remains source-gated to Current assets only. English content and i
 External reading is private learner material. It may include TPO, IELTS, and later periodicals or other unseen texts. Its main value is fresh input and diagnostic transfer, especially when exam-question memory makes reused true-exam material less informative.
 
 Fresh Chats continuing English learning/runtime work should read `content/english/continuation.json` first, then `LEARNING_CONTRACT.md` and only the smallest Current module/source owners needed by the active stage.
+
+English Reading already exposes navigation, review/repair, transfer evidence, and session handoff. Translation/Writing and other module runtimes inherit the KianOS shared lane baseline as they are materialized; they must keep their own cognition rather than copying Reading UI mechanically.
 
 ### LexicalOS
 
@@ -94,6 +116,8 @@ The vocabulary learner surface must not turn 7,946 words or their active senses 
 
 Fresh Chats continuing LexicalOS learning/runtime work should read `content/lexical/continuation.json` first, then `LEARNING_CONTRACT.md` and only the smallest Current Natural Owner/runtime files needed by the active stage.
 
+LexicalOS currently provides the clearest full implementation of the shared lane baseline: whole-catalog Current, Continue, Search/Explore, selective Review, generated Challenge, daily Return Packet, global Deferred integration, and runtime/build validation. It is a platform reference, not a UI template that other subjects must copy.
+
 ### Politics
 
 Politics Current is split into source, learning semantics, teaching projection, and learner interaction:
@@ -121,11 +145,15 @@ Current content projection is complete across all Current Politics subjects:
 
 Politics Astro now has a Current learner entry, all-subject chapter index, and a generic chapter runtime that projects the shared loop while preserving each subject's own teaching shape. The active Politics stage is real learner validation, not further taxonomy or dashboard expansion.
 
+Politics already has Current, navigation, Xiao1000 verification, and minimal repair. Continue/session resume and a compact learner Return/Handoff path are not yet as explicit as in Xizong/English/LexicalOS and should be treated as shared-baseline gaps rather than ignored.
+
 Fresh Chats continuing Politics work should read `content/politics/continuation.json` first, then the smallest referenced Current assets needed for validation or repair.
 
 ### Astro runtime
 
 `static-web/` is the clean Astro learner runtime. Astro turns Current learning semantics into low-friction display and interaction. Runtime coverage may lag content coverage; Astro should project only Current assets it explicitly supports, and missing projections must not be filled by legacy fallback.
+
+Astro is the shared platform layer for learner-facing baseline capabilities. Shared components/utilities are appropriate when the interaction decision is genuinely the same across lanes; domain cognition and semantic ownership remain in the domain lane.
 
 ## Migration boundary
 
