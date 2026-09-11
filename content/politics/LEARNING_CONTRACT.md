@@ -86,6 +86,25 @@ Default repair hierarchy:
 
 Do not replace this with a second full AI explanation textbook.
 
+### 5.1 Question-repair semantic authority
+
+Question Repair must preserve the distinction between **question provenance** and **semantic authority**. Freeze the default source priority as:
+
+1. Current `politics_unified_regions` and approved continuous Natural Unit ownership;
+2. Xiao1000 original stem/options/official answer/original explanation;
+3. Chengfeng `source_node_registry` source text;
+4. Suyi or another explicitly approved support source;
+5. legacy `question_knowledge_links` as provenance/audit evidence only.
+
+Legacy `question_knowledge_links` must never override Current Unit ownership, create a new tested node, or make an old mapping semantically authoritative merely because the row exists.
+
+A question may test more than one knowledge node. Repair therefore distinguishes:
+
+- `current_unit_hits` — the part being learned/repaired in the current Natural Unit;
+- `cross_unit_hits` — legitimate other knowledge hits in the same question that must not be pulled into the current Unit's teaching content merely because the option exists.
+
+The current learning chain repairs the **current-unit failure** first. Cross-unit hits are retained as evidence/context, not used to inflate the current Unit.
+
 ## 6. Review / Memory / Mock
 
 Review is evidence-driven and may use elapsed time, but no fixed Politics cadence is frozen as learner-facing truth.
@@ -101,6 +120,32 @@ Later review may include:
 - Mock transfer.
 
 The learner should see **what to do and why**, not scheduler internals.
+
+### 6.1 Memory admission: understanding may expand; Memory may not
+
+Politics teaching projection may synthesize, reorder, and explain source material when that improves understanding. Durable Memory/Precision has a stricter rule:
+
+`NO SOURCE SUPPORT → NO MEMORY ADMISSION`
+
+A rich explanation, a useful analogy, or a Chat-generated relation is not by itself a reason to create future review debt.
+
+Memory candidates should preferentially come from a **designated memory source/handbook** when one is available and approved for the learner. The designated source is a memory-admission/cross-check source, not a replacement continuous course. If that source has not been bound or inspected, mark handbook alignment as pending; never claim that a point appears there from model memory.
+
+A source-grounded candidate becomes durable review debt only when at least one of these is true:
+
+1. the designated memory source explicitly confirms it as a fixed retention target; or
+2. Wrong/Uncertain evidence shows that exact retention of this source-grounded boundary/hat/list/identity/timeline/legal wording is needed.
+
+Default non-admission cases include:
+
+- explanation richness alone;
+- a single stable correct answer;
+- a broad conceptual relation that is better reconstructed than memorized;
+- AI-generated extensions without explicit source grounding.
+
+Precision is narrower still. A question may produce conceptual repair without producing any Precision candidate.
+
+Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
 
 ## 7. Astro boundary
 
