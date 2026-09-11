@@ -1,14 +1,18 @@
 {
-  "schema": "kianos.english.external_manifest.v1",
+  "schema": "kianos.english.external_manifest.v2",
   "status": "CURRENT_INVENTORY_ONLY",
   "owner_path": "content/english/external/",
+  "object_schema": "content/english/external/schema.json",
+  "reading_contract": "content/english/modules/reading-a.md",
   "purpose": "Fresh unseen English input and transfer testing when true-exam memory residue reduces diagnostic value.",
   "materialization_policy": {
     "current_step": "INVENTORY_ONLY",
     "content_bytes_materialized": false,
+    "materialize_incrementally": true,
     "materialize_only_when_selected_for_real_study_or_runtime_support": true,
     "preserve_source_locator": true,
-    "preserve_clean_attempt_before_answer_exposure": true
+    "preserve_clean_attempt_before_answer_exposure": true,
+    "do_not_build_corpus_for_completeness": true
   },
   "pools": [
     {
@@ -16,15 +20,15 @@
       "kind": "TPO_READING",
       "range": "56-65",
       "status": "CANDIDATE_NOT_MATERIALIZED",
-      "default_role": "UNSEEN_OR_FRESH_PRACTICE",
-      "notes": "Use as high-quality unseen academic reading and transfer material; do not force full compression when normal read-and-answer performance is stable."
+      "default_role": "UNSEEN_DIAGNOSTIC",
+      "notes": "Use as high-quality unseen academic reading and transfer material. Normal successful use may be read → answer → done; expand only when evidence requires repair."
     },
     {
       "id": "ielts-17-19",
       "kind": "IELTS_READING",
       "range": "17-19",
       "status": "CANDIDATE_NOT_MATERIALIZED",
-      "default_role": "UNSEEN_OR_FRESH_PRACTICE",
+      "default_role": "UNSEEN_DIAGNOSTIC",
       "notes": "Use selectively for fresh reading exposure when it serves comprehension, discourse, or transfer goals."
     },
     {
@@ -33,7 +37,7 @@
       "range": "OPEN_ENDED",
       "status": "FUTURE_INCREMENTAL",
       "default_role": "FRESH_INPUT",
-      "notes": "Add high-quality periodical articles incrementally when they provide useful fresh language/discourse exposure. Prefer learner value over corpus size."
+      "notes": "Add high-quality periodical articles incrementally. Articles do not need questions when pure comprehension/discourse transfer is the real learning objective. Prefer learner value and freshness over corpus size."
     }
   ],
   "unseen_policy": {
@@ -43,7 +47,9 @@
       "PRACTICE_POOL",
       "EXPOSED"
     ],
-    "rule": "Do not reveal passage-specific answers, analysis, or decisive evidence before the first clean attempt when an item is held as unseen."
+    "rule": "Do not reveal passage-specific answers, analysis, or decisive evidence before the first clean attempt when an item is held as unseen.",
+    "memory_residue_rule": "Once exam or external material carries substantial memory residue, use it for repair/exam-mechanics practice rather than treating its accuracy as clean unseen evidence."
   },
-  "selection_rule": "Prefer the next text that best tests the learner's current reading bottleneck while remaining genuinely fresh; do not consume unseen material merely to complete a fixed quota."
+  "selection_rule": "Prefer the next text that best tests the learner's current reading bottleneck while remaining genuinely fresh. Do not consume unseen material merely to complete a fixed quota.",
+  "projection_rule": "Astro should project the same core clean-attempt and progressive-disclosure interaction semantics across exam and external reading, while allowing questionless periodical objects to use read → optional compression/repair flows."
 }
