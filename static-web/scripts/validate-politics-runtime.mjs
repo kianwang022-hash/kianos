@@ -6,7 +6,7 @@ import {
 } from '../src/lib/politicsRuntime.mjs';
 
 const EXPECTED = Object.freeze({
-  marxism: 8,
+  marxism: 9,
   history: 10,
   mao: 9,
   xi: 18,
