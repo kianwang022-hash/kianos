@@ -28,6 +28,8 @@
     "Reading A continuous-session handoff remains a higher-level cross-passage review surface rather than replacing the minimum one-passage review unit.",
     "Reading now inherits the KianOS shared learner-surface baseline explicitly: /reading/ is a Current lane home with private last-passage Continue plus Current passage navigation, while clean Attempt/Review/Transfer/Handoff remain owned by the existing passage runtime at /reading/<id>/.",
     "Translation has a canonical module contract at content/english/modules/translation.md and inherits the shared Learning Contract.",
+    "Translation learner asset is reorganized around learner ability formation rather than a long sequential guide: Global Map -> four dense Core Learning Blocks (English Representation / Preservation & Fidelity / Chinese Reconstruction / Exam Execution) -> stable Skill Map -> selective high-value Skill Content -> separate Runtime. Skill Map is an address/diagnostic layer, not a substitute for dense first-learning content.",
+    "Translation initial Skill Content now includes high-value starter leaves for Negation Scope, Attachment, Reference, and Modifier Unloading/Nominalization, each with mechanism, boundaries, executable judgment actions, synthetic examples, and active generation/judgment rather than definition-only taxonomy.",
     "Translation Runtime v1 is frozen in translation.md: learner-facing review is one complete Translation task/set while sentence/clause/relation/span remain internal evidence units; cascading downstream errors collapse under the earliest sufficient cause; repair requires learner reconstruction before full-reference comparison when possible; known-sentence correction remains repair evidence; closure requires later fresh/unseen transfer.",
     "Writing currently inherits the shared Learning Contract directly; Writing A/B are output modes inside Writing, not separate base abilities. A Writing-specific module contract should be created only when its own cognitive/runtime baseline is actually frozen.",
     "Module-specific cognition remains non-isomorphic: do not force one error taxonomy, review card, or UI shape across Reading, Translation, Writing, Cloze, and Part B.",
@@ -46,7 +48,7 @@
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/translation.md"
       ],
-      "inheritance": "Translation inherits all shared English learning/evidence/mastery/memory/UI principles, then applies its own English-representation -> relation preservation -> information preservation -> Chinese reconstruction cognition and its frozen Translation Runtime v1. Objective Runtime does not redefine Translation cognition, review unit, or runtime state semantics. When Translation becomes learner-facing, it also inherits the KianOS shared learner-surface baseline from SYSTEM_CONTRACT.md without copying Reading UI."
+      "inheritance": "Translation inherits all shared English learning/evidence/mastery/memory/UI principles, then applies its own dense learner-asset architecture: Global Map -> Core Learning Blocks -> Skill Map -> selective Skill Content, followed by its frozen Translation Runtime v1. English Representation, Preservation & Fidelity, Chinese Reconstruction, and Exam Execution are learner ability blocks; the Skill Map provides stable addresses and Chat diagnosis but must not replace information-dense first-learning assets. Objective Runtime does not redefine Translation cognition, review unit, or runtime state semantics. When Translation becomes learner-facing, it also inherits the KianOS shared learner-surface baseline from SYSTEM_CONTRACT.md without copying Reading UI."
     },
     "writing": {
       "read": [
@@ -84,6 +86,7 @@
   "do_not_reopen_without_new_evidence": [
     "Do not reopen English Objective Runtime v1 merely because a UI implementation is inconvenient or a source uses a different taxonomy.",
     "Do not reopen Translation Runtime v1 merely to harmonize UI or taxonomy with objective tasks; reopen only when new learner evidence materially contradicts the frozen Translation model.",
+    "Do not reduce Translation first-learning content to a thin taxonomy or a set of definition-only Skill leaves; Core Learning Blocks must remain information-dense enough to teach the ability before Skill Map routing is used for diagnosis and targeted repair.",
     "Do not turn Cloze / Reading A / Reading B into three independent knowledge systems.",
     "Do not make the learner review objective questions one-by-one in Chat; passage/set is the minimum user-facing review unit.",
     "Do not restore per-question copy-to-Chat as the normal Reading A bridge.",
