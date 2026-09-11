@@ -126,11 +126,27 @@ function sectionByTitle(markdown, predicate) {
   return { title: current.title, markdown: markdown.slice(current.index, end).trim() };
 }
 
+function blockOpeningOrientation(markdown) {
+  const explicit = sectionByTitle(markdown, (title) => /^(?:0[｜|])?.*这个 Block 到底解决什么/.test(title));
+  if (explicit) return explicit;
+
+  const source = String(markdown);
+  const firstKpIndex = source.search(/^(?:#{2,4})\s+KP\d+[｜|]\s*.+$/m);
+  const end = firstKpIndex >= 0 ? firstKpIndex : source.length;
+  const opening = source
+    .slice(0, end)
+    .replace(/^#\s+.+\n+/, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+  if (!opening) return null;
+  return { title: 'Block orientation', markdown: opening };
+}
+
 function metadataValue(body, label) {
   const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const patterns = [
     new RegExp(`^>\\s*\\*\\*${escaped}\\*\\*[：:]?\\s*(.+)$`, 'm'),
-    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\*\\s*(.+)$`, 'm')
+    new RegExp(`^>\\s*\\*\\*${escaped}[：:]\\*\\s*(.+)$`, 'm')
   ];
   for (const pattern of patterns) {
     const match = body.match(pattern);
@@ -357,7 +373,7 @@ export function loadXizongBlock(systemId, blockSlugOrId) {
     });
   }
 
-  const intro = sectionByTitle(markdown, (title) => /^(?:0[｜|])?.*这个 Block 到底解决什么/.test(title));
+  const intro = blockOpeningOrientation(markdown);
   const visualGate = sectionByTitle(markdown, (title) => /原图门禁/.test(title));
   if (!intro) throw new Error(`CURRENT_XIZONG_BLOCK_LEARN_MISSING:${blockMeta.blockId}`);
 
