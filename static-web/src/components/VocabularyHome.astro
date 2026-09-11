@@ -1,0 +1,209 @@
+---
+const { rows = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
+---
+<section class="lexicalHome" data-lexical-home data-base={base}>
+  <header class="lexicalHomeHeader">
+    <div>
+      <span>LexicalOS · Current</span>
+      <h2>Vocabulary</h2>
+      <p>继续学习、查词、看真正需要 Repair 的分支。完整词库存在，但不会自动变成复习债。</p>
+    </div>
+    <nav aria-label="Vocabulary modes">
+      <button type="button" class="active" data-lexical-tab="study">Study</button>
+      <button type="button" data-lexical-tab="search">Search</button>
+      <button type="button" data-lexical-tab="review">Review</button>
+    </nav>
+  </header>
+
+  <section class="lexicalHomePanel" data-lexical-panel="study">
+    <a class="lexicalContinueCard" data-lexical-continue href={`${base}vocabulary/1/`}>
+      <span>Continue</span>
+      <strong data-lexical-continue-word>开始 Vocabulary</strong>
+      <p data-lexical-continue-core>从第一个 Current Word 开始；之后自动从最近学习位置继续。</p>
+      <small data-lexical-continue-meta>{rows.length} Current Words</small>
+    </a>
+
+    <section class="lexicalRecent">
+      <header><strong>最近学习</strong><span>只显示你实际打开过的词</span></header>
+      <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
+    </section>
+  </section>
+
+  <section class="lexicalHomePanel" data-lexical-panel="search" hidden>
+    <label class="lexicalSearchBox">
+      <span>Search all Current Words</span>
+      <input type="search" autocomplete="off" spellcheck="false" data-lexical-search placeholder="输入单词，例如 default / account / observe" />
+    </label>
+    <div class="lexicalSearchResults" data-lexical-search-results>
+      <p class="lexicalEmpty">输入词形后直接打开对应 Depth Card。</p>
+    </div>
+  </section>
+
+  <section class="lexicalHomePanel" data-lexical-panel="review" hidden>
+    <section class="lexicalRecent">
+      <header><strong>Repair</strong><span>只保留你明确标记为慢、模糊、漏掉或需要产出的具体对象</span></header>
+      <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
+    </section>
+  </section>
+
+  <script type="application/json" data-lexical-catalog set:html={payload}></script>
+</section>
+
+<script>
+  const root = document.querySelector('[data-lexical-home]');
+  if (root instanceof HTMLElement) {
+    const base = root.getAttribute('data-base') || '/';
+    const prefix = 'kianos-vocabulary-astro-v2:';
+    let rows = [];
+    try { rows = JSON.parse(root.querySelector('[data-lexical-catalog]')?.textContent || '[]'); } catch {}
+
+    const byObjectId = new Map(rows.map((row) => [row.objectId, row]));
+    const hrefFor = (ordinal) => `${base}vocabulary/${ordinal}/`;
+    const stateFor = (row) => {
+      try { return JSON.parse(localStorage.getItem(`${prefix}${row.objectId}`) || 'null') || {}; } catch { return {}; }
+    };
+
+    const tabs = [...root.querySelectorAll('[data-lexical-tab]')];
+    const panels = [...root.querySelectorAll('[data-lexical-panel]')];
+    const switchTab = (name) => {
+      tabs.forEach((button) => button.classList.toggle('active', button.getAttribute('data-lexical-tab') === name));
+      panels.forEach((panel) => { panel.hidden = panel.getAttribute('data-lexical-panel') !== name; });
+      if (name === 'review') renderReview();
+      if (name === 'search') root.querySelector('[data-lexical-search]')?.focus();
+    };
+    tabs.forEach((button) => button.addEventListener('click', () => switchTab(button.getAttribute('data-lexical-tab') || 'study')));
+
+    const makeWordRow = (row, state = {}) => {
+      const link = document.createElement('a');
+      link.className = 'lexicalWordRow';
+      link.href = hrefFor(row.ordinal);
+
+      const copy = document.createElement('div');
+      const word = document.createElement('strong'); word.textContent = row.word;
+      const core = document.createElement('span'); core.textContent = row.coreCn || row.coreEn || '—';
+      copy.append(word, core);
+
+      const meta = document.createElement('small');
+      const repairCount = Object.keys(state.repairTargets || {}).length;
+      const promptCount = Number(row.promptCount || 0) + Number(row.relationCount || 0);
+      meta.textContent = repairCount ? `${repairCount} Repair` : `${row.senseCount || 0} senses${promptCount ? ` · ${promptCount} prompts` : ''}`;
+      link.append(copy, meta);
+      return link;
+    };
+
+    const studiedRows = () => {
+      const entries = [];
+      for (let index = 0; index < localStorage.length; index += 1) {
+        const key = localStorage.key(index) || '';
+        if (!key.startsWith(prefix)) continue;
+        const objectId = key.slice(prefix.length);
+        const row = byObjectId.get(objectId);
+        if (!row) continue;
+        const state = stateFor(row);
+        if (!state.revealed && !Object.keys(state.repairTargets || {}).length) continue;
+        entries.push({ row, state, seen: Date.parse(state.lastSeenAt || '') || 0 });
+      }
+      return entries.sort((a, b) => b.seen - a.seen);
+    };
+
+    const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
+    const lastOrdinal = Number.isInteger(lastOrdinalRaw) && lastOrdinalRaw >= 1 && lastOrdinalRaw <= rows.length ? lastOrdinalRaw : 1;
+    const continueRow = rows.find((row) => row.ordinal === lastOrdinal) || rows[0];
+    const continueLink = root.querySelector('[data-lexical-continue]');
+    if (continueLink && continueRow) {
+      continueLink.href = hrefFor(continueRow.ordinal);
+      const word = root.querySelector('[data-lexical-continue-word]');
+      const core = root.querySelector('[data-lexical-continue-core]');
+      const meta = root.querySelector('[data-lexical-continue-meta]');
+      if (word) word.textContent = continueRow.word;
+      if (core) core.textContent = continueRow.coreCn || continueRow.coreEn || '继续上次的 Depth Scan';
+      if (meta) meta.textContent = `#${continueRow.ordinal} / ${rows.length}`;
+    }
+
+    const recentHost = root.querySelector('[data-lexical-recent-list]');
+    const renderRecent = () => {
+      if (!recentHost) return;
+      recentHost.replaceChildren();
+      const recent = studiedRows().slice(0, 8);
+      if (!recent.length) {
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '还没有本地学习记录。'; recentHost.appendChild(empty); return;
+      }
+      recent.forEach(({ row, state }) => recentHost.appendChild(makeWordRow(row, state)));
+    };
+
+    const searchInput = root.querySelector('[data-lexical-search]');
+    const searchHost = root.querySelector('[data-lexical-search-results]');
+    const renderSearch = (query = '') => {
+      if (!searchHost) return;
+      searchHost.replaceChildren();
+      const q = String(query || '').trim().toLowerCase();
+      if (!q) {
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '输入词形后直接打开对应 Depth Card。'; searchHost.appendChild(empty); return;
+      }
+      const matches = rows
+        .filter((row) => String(row.word || '').toLowerCase().includes(q))
+        .sort((a, b) => {
+          const aw = String(a.word || '').toLowerCase();
+          const bw = String(b.word || '').toLowerCase();
+          const ae = aw === q ? 0 : aw.startsWith(q) ? 1 : 2;
+          const be = bw === q ? 0 : bw.startsWith(q) ? 1 : 2;
+          return ae - be || aw.length - bw.length || aw.localeCompare(bw);
+        })
+        .slice(0, 30);
+      if (!matches.length) {
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = 'Current 词库中没有匹配结果。'; searchHost.appendChild(empty); return;
+      }
+      matches.forEach((row) => searchHost.appendChild(makeWordRow(row, stateFor(row))));
+    };
+    searchInput?.addEventListener('input', (event) => renderSearch(event.currentTarget.value || ''));
+
+    const reviewHost = root.querySelector('[data-lexical-review-list]');
+    const renderReview = () => {
+      if (!reviewHost) return;
+      reviewHost.replaceChildren();
+      const repairRows = studiedRows().filter(({ state }) => Object.keys(state.repairTargets || {}).length > 0);
+      if (!repairRows.length) {
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '当前没有 Repair 对象。'; reviewHost.appendChild(empty); return;
+      }
+      repairRows.forEach(({ row, state }) => reviewHost.appendChild(makeWordRow(row, state)));
+    };
+
+    renderRecent();
+  }
+</script>
+
+<style>
+  .lexicalHome { max-width: 72rem; margin: 0 auto; display: grid; gap: 1rem; }
+  .lexicalHomeHeader { display: flex; justify-content: space-between; gap: 1.2rem; align-items: end; padding: 1.2rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
+  .lexicalHomeHeader span { font-size: .78rem; opacity: .62; }
+  .lexicalHomeHeader h2 { margin: .2rem 0 .45rem; font-size: clamp(1.7rem, 3vw, 2.45rem); }
+  .lexicalHomeHeader p { margin: 0; max-width: 42rem; line-height: 1.6; opacity: .76; }
+  .lexicalHomeHeader nav { display: flex; gap: .45rem; flex-wrap: wrap; }
+  .lexicalHomeHeader button { border: 1px solid var(--line, #d7d7d7); background: transparent; padding: .55rem .82rem; border-radius: 999px; cursor: pointer; }
+  .lexicalHomeHeader button.active { border-color: currentColor; font-weight: 700; }
+  .lexicalHomePanel { display: grid; gap: 1rem; }
+  .lexicalContinueCard { display: grid; gap: .38rem; padding: 1.35rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; text-decoration: none; color: inherit; background: var(--panel, #fff); }
+  .lexicalContinueCard > span { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; opacity: .58; }
+  .lexicalContinueCard strong { font-size: clamp(1.8rem, 4vw, 3rem); }
+  .lexicalContinueCard p { margin: 0; line-height: 1.55; }
+  .lexicalContinueCard small { opacity: .58; }
+  .lexicalRecent { padding: 1.1rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
+  .lexicalRecent > header { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
+  .lexicalRecent > header span { opacity: .58; font-size: .84rem; }
+  [data-lexical-recent-list], [data-lexical-review-list], .lexicalSearchResults { display: grid; gap: .5rem; }
+  .lexicalSearchBox { display: grid; gap: .45rem; padding: 1rem; border: 1px solid var(--line, #d7d7d7); border-radius: 1rem; background: var(--panel, #fff); }
+  .lexicalSearchBox span { font-size: .8rem; opacity: .62; }
+  .lexicalSearchBox input { width: 100%; font: inherit; font-size: 1.08rem; padding: .8rem .9rem; border: 1px solid var(--line, #cfcfcf); border-radius: .7rem; background: transparent; color: inherit; }
+  .lexicalWordRow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .82rem .92rem; border: 1px solid var(--line, #ddd); border-radius: .75rem; color: inherit; text-decoration: none; }
+  .lexicalWordRow > div { display: grid; gap: .15rem; min-width: 0; }
+  .lexicalWordRow strong { font-size: 1.06rem; }
+  .lexicalWordRow span { opacity: .72; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lexicalWordRow small { white-space: nowrap; opacity: .58; }
+  .lexicalEmpty { margin: .2rem 0; opacity: .58; }
+  @media (max-width: 720px) {
+    .lexicalHomeHeader { align-items: stretch; flex-direction: column; }
+    .lexicalWordRow { align-items: start; }
+  }
+</style>
