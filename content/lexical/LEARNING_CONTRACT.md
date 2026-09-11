@@ -19,7 +19,7 @@ Do not optimize for dictionary completion, sense-count completion, or total revi
 
 `Natural Owner semantics → Depth Scan → selective Repair → Challenge → Return Packet → next learning day → real transfer`
 
-Shared Current owns durable lexical semantics and durable learning rules. Astro turns them into low-friction learner interaction. Chat owns semantic and learning judgment and may update content, challenge design, and the next learning packet from real learner feedback.
+Shared Current owns durable lexical semantics and durable learning rules. Astro turns them into low-friction learner actions. Chat owns semantic and learning judgment and may update both content and interaction design from real learner feedback.
 
 Private learner answers, progress, repair state, timing, and session history are not shared lexical semantic owners. They may live in local/private interaction state or learner packets, but must not become a parallel lexical truth.
 
@@ -169,6 +169,42 @@ After a wrong answer, show only the smallest sufficient repair, then reconstruct
 
 Keyboard and mouse actions should represent the same learner decision; keyboard is the preferred high-speed path.
 
+## Daily Challenge scheduling
+
+Daily Challenge is **compiled from current evidence**, not treated as an ever-growing `due cards` queue.
+
+### Next-day carry rules
+
+- A learner-added `+` should normally receive its first real Challenge on the **next learning day**, not immediately after Reveal. Immediate same-card retesting is weak evidence and should not be the default.
+- `WRONG` / `Again` during Challenge receives the smallest sufficient repair plus at most one same-session reconstruction when useful, and the target must return in the next learning day's compiled Challenge.
+- Slow / hesitant / fuzzy performance should normally receive a targeted next-day probe without forcing a large same-session review chain.
+- A defective or ambiguous generated question does not create learner repair debt.
+- Repeated failure remains a next-day obligation, but the repair method must change rather than repeating near-identical questions.
+
+### Daily priority order
+
+When compiling the next Challenge, prioritize:
+
+1. previous-day `WRONG` / `Again` and repeated failures;
+2. previous-day explicit `+` targets;
+3. previous-day slow / fuzzy targets;
+4. older unresolved repair targets only when they still have meaningful evidence value;
+5. a small minority of blind probes, only after real repair obligations are covered.
+
+Blind probes must never displace explicit repair evidence merely to satisfy a sampling quota.
+
+If repair load is unusually high, reduce or remove blind probes and reduce new Depth volume before creating a large automatic review backlog.
+
+### Fading
+
+- A clean next-day Challenge after a prior `+` or failure may move the target out of immediate obligation; it does not need another next-day test merely to satisfy a fixed interval.
+- Later fresh Challenge success or successful real-context use is stronger evidence and may move the target to dormant.
+- Strong later unseen-context success may cancel weaker planned artificial review when there is no contradictory recent evidence.
+- A new real failure immediately reactivates the smallest affected target.
+- Missed calendar days must not manufacture an `overdue` pile. The next session is recompiled from unresolved evidence rather than from elapsed-card debt.
+
+The exact numerical spacing and sampling knobs remain tunable runtime parameters. The durable rule is **evidence-driven carry, bounded Challenge, fast fading, and no mechanical review debt**.
+
 ## Evidence strength
 
 Evidence is not equal.
@@ -230,6 +266,22 @@ At minimum, distinguish these observable outcomes:
 - explanation or semantic content appears wrong → inspect and, if necessary, repair the Natural Owner;
 - repeated failure of the same target → change the repair method, not merely repeat near-identical questions.
 
+### Minimum packet evidence
+
+The runtime should capture the minimum evidence Chat needs without asking the learner to maintain backend taxonomy manually.
+
+For a meaningful lexical event, preserve when available:
+
+- session / study-day identity;
+- `word_id` and ordinal;
+- target kind such as Core, sense, construction, collocation/phrase, relation/confusable, word feel, or productive need;
+- stable target identity such as `sense_id`, `collocation_id`, `relation_id`, or another Current owner-local stable locator when available;
+- source of evidence: Depth `+`, Challenge, Reading, Cloze, Translation, Writing, or blind probe;
+- observable outcome: added, correct, wrong, slow/fuzzy, Again, question issue, or semantic issue;
+- the generated question/answer trace only when needed to diagnose a wrong judgment or defective question.
+
+Do not copy whole lexical definitions into the packet when a stable Natural Owner identity is sufficient. The packet points back to lexical truth; it does not duplicate it.
+
 ### Feedback outranks mechanical scheduling
 
 Fresh evidence has priority over a stale scheduler.
@@ -240,7 +292,7 @@ Examples:
 - a target nominally due tomorrow but was just handled successfully in strong real context may be delayed or removed;
 - repeated failure should trigger stronger reconstruction or boundary repair rather than simple repetition.
 
-The exact spacing algorithm is not frozen by this contract. The durable rule is that **current evidence and Return Packet feedback control the next learning action more strongly than a mechanical interval alone**.
+Every meaningful problem in the Return Packet must affect the next-day compilation. Explicit `+`, `WRONG`, `Again`, and repeated-failure evidence must not disappear silently. The next-day response may change form — Challenge, focused repair, boundary reconstruction, or semantic repair — but the evidence must be consumed.
 
 ## Module feedback into LexicalOS
 
