@@ -6,11 +6,11 @@
   "role": "CURRENT_WORK_CURSOR_ONLY",
   "rule": "This file records where shared Xizong learning/runtime work should continue. It is not medical Core, not learner state, and not a substitute for study-policy.json. A fresh Chat should read this cursor together with the referenced Current owners before proposing new Xizong work.",
   "current_system": {
-    "canonical_id": "A2",
-    "system_id": "respiratory",
-    "reason": "A2 is the current generalization/validation system for the shared Xizong learning runtime."
+    "canonical_id": "A1",
+    "system_id": "circulation",
+    "reason": "A1 circulation is the newly re-audited second System-level official-question scope used to validate that the A2 System Exit pattern generalizes without medical inference in Astro."
   },
-  "current_stage": "A2_SYSTEM_EXIT_REAL_LEARNER_VALIDATION",
+  "current_stage": "A1_CIRCULATION_SCOPE_REAUDIT_COMPLETE_RUNTIME_GENERALIZED",
   "completed_shared_work": [
     "Global 270+ study strategy frozen in study-policy.json: first pass, second pass, late review, mastery ladder, question reuse, Memory admission, compression, and lossless scheduling.",
     "A2 respiratory 12/12 Block first-pass learning support and 62/62 Logic Group goal/closure cues completed.",
@@ -22,16 +22,17 @@
     "Respiratory System membership is exactly 359 official Question Truth IDs. Historical/current Question Truth identity was mechanically checked by the 3750-ID inventory SHA256: 0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82 matches exactly.",
     "The 359-question scope is stored as deterministic per-year number specs and must expand to exactly 359 unique IDs with inventory SHA256 b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0; Runtime fails closed on any mismatch or missing Current Question Truth ID.",
     "A2 System Exit runtime is wired in Astro: explicit closed-book System Recall mode, learner-selected full-paper holdout gate, one-question-at-a-time official-question sweep, X-question multi-select support, correct-and-clear fast pass, correct-but-uncertain marking, automatic Wrong marking, W/U-only repair expansion, reviewed-relation-only precise back-link display, detailed W/U Chat export, and a post-sweep short System Recall entry.",
-    "Full-paper holdout is not guessed by Runtime. The learner must explicitly select the retained paper years before the first System sweep; the selection stays private in browser state and the selected years are excluded from System question consumption.",
+    "Full-paper holdout is private browser-global learner state rather than shared Current. System sweeps exclude the years stored in that browser state; the learner-specific year values are not persisted in shared governance.",
     "KianOS shared baseline Continue is now explicit at the Xizong lane level: the Xizong home resumes the most recently opened Current System or Block from private browser state, while Block/System Exit Study Packet and Chat return-plan remain the existing Return/Handoff path rather than being duplicated at lane home.",
-    "Current Xizong/whole-site runtime changes have passed the repository Astro build/CI after the shared-baseline integration."
+    "Current Xizong/whole-site runtime changes have passed the repository Astro build/CI after the shared-baseline integration.",
+    "A1 circulation System membership was re-audited and restored as exactly 376 Current official Question Truth IDs. Recovery is deterministic: 342 unambiguous exact lecture-scope owners plus the only collision-group subset compatible with the later frozen 376-owner range (19 physiological-hemostasis + 15 cardiac-pump questions); later HLK Block owner counts independently exclude the competing blood-characteristic and renal-tubule groups. The restored inventory SHA256 is ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
+    "System Exit presentation is generalized across Current Systems: System title and question-range copy no longer hard-code respiratory, while the existing shared browser-global holdout state continues to filter questions by official exam year."
   ],
   "current_owners_to_read": [
     "content/xizong/knowledge/learner/study-policy.json",
-    "content/xizong/knowledge/learner/a2-respiratory-learning.json",
-    "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
-    "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+    "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
     "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+    "content/xizong/knowledge/systems/a1-circulation/system.json",
     "content/xizong/knowledge/systems/a2-respiratory/system.json",
     "content/xizong/questions/manifest.json",
     "content/xizong/question-relations/README.md",
@@ -40,27 +41,27 @@
     "static-web/src/pages/xizong/[system]/index.astro"
   ],
   "next_action": {
-    "stage": "REAL_A2_SYSTEM_EXIT_VALIDATION",
-    "instruction": "Do not add another Xizong learning feature yet. Run the Current A2 exit path as a learner: System Recall -> explicitly lock full-paper holdout years -> enter the remaining respiratory System sweep -> verify answer interaction and Wrong/Uncertain handling -> copy a real W/U packet to Chat -> finish with a short System Recall. Use observed friction to decide only the smallest next patch.",
-    "question_scope": "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
-    "success_condition": "The learner can complete the A2 exit path without answer leakage before Recall, accidental holdout consumption, duplicate review work, guessed Question-to-KP mapping, or unnecessary interaction overhead. Wrong/Uncertain evidence reaches Chat with enough detail to distinguish memory, mechanism, precision, distractor/condition, and product/content problems.",
-    "validation_note": "Current runtime/source identity and repository Astro build/CI have been checked successfully. Real learner use of the complete A2 System Exit path is still the next and stronger validation evidence."
+    "stage": "REAL_A1_SYSTEM_EXIT_VALIDATION",
+    "instruction": "Use the Current A1 circulation exit path as a learner: closed-book System Recall -> browser-global full-paper holdout -> enter the remaining circulation System sweep -> verify fast-pass and Wrong/Uncertain handling -> export a real W/U packet to Chat -> finish with a short System Recall. Do not add another learning feature merely because A1 scope now exists.",
+    "question_scope": "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
+    "success_condition": "A1 expands to exactly 376 Current Question Truth IDs, the browser-global holdout removes its stored full-paper years before consumption, no respiratory-specific presentation leaks into A1, and Wrong/Uncertain evidence reaches Chat without guessed Question-to-KP mapping.",
+    "validation_note": "A1 membership has been deterministically re-audited against historical source-coverage/taxonomy evidence and later HLK owner-range evidence. This branch runs a full Astro build before the transition is fast-forwarded to main; real learner use remains the stronger interaction-level evidence."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more learning-stage taxonomies merely for completeness.",
     "Do not turn KianOS into a second Lecture or require duplicate long-form reading.",
     "Do not equate MI-D with Precision or turn Precision into a separate first-pass drill queue.",
     "Do not put Connection Hooks into ordinary Memory or turn Reserve Learning into a second course.",
-    "Do not rebuild the respiratory 359-question System scope by model inference; its Current deterministic scope is restored and runtime-validated by count/hash/Question Truth existence.",
+    "Do not rebuild the restored A1 circulation 376-question or A2 respiratory 359-question System scopes by model inference; both are deterministic Current identifier scopes and Runtime must fail closed on count/hash/Question Truth mismatch.",
     "Do not infer Question-to-Block/KP mappings from title similarity, page proximity, System membership, source section, or model intuition.",
     "Do not treat System-level question membership as the same authority as the explicit Chat-reviewed Question-to-Knowledge relation owner.",
-    "Do not auto-select or auto-consume full-paper holdout papers. The learner explicitly chooses them.",
-    "Do not recover circulation/urinary System question scopes merely for completeness until real A2 System Exit use shows this Runtime shape is worth generalizing.",
+    "Do not persist learner-specific full-paper holdout year values in shared Current; holdout is private browser-global learner state and every System sweep must respect the stored years.",
+    "Do not recover urinary System question scope merely for completeness; use the same deterministic evidence standard that was required for A1/A2 and do not infer membership from titles or model intuition.",
     "Do not optimize for more UI controls, cards, metadata, or governance files without observed learning benefit.",
     "Do not use legacy repository content as normal Current authority. The bounded respiratory historical recovery exception is closed."
   ],
   "after_validation": [
-    "If the A2 System Exit flow is good in real use, recover the already-audited circulation and urinary System-level scopes using the same deterministic Current pattern rather than re-reviewing those questions from scratch.",
+    "If A1/A2 System Exit remains good in real use and the urinary historical evidence can meet the same deterministic standard, re-audit A3 urinary next rather than re-reviewing its questions from scratch.",
     "Only deepen Question-to-Block/KP relations for Wrong/Uncertain or otherwise high-value questions unless second-round strategy provides new evidence.",
     "Preserve the frozen first-pass -> second-pass -> late-review stage responsibilities and System-level true-question strategy from study-policy.json."
   ],
