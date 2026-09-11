@@ -27,6 +27,55 @@ jobs:
             --output /tmp/lexical-asset-integrity.json \
             --summary /tmp/lexical-asset-integrity.md
 
+      - name: Quantify active-sense shape
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import collections, json
+          from pathlib import Path
+
+          root = Path('content/lexical/words/by-ordinal')
+          dist = collections.Counter()
+          zero_by_version = collections.Counter()
+          one_by_version = collections.Counter()
+          zero = []
+          for path in sorted(root.glob('o*.json')):
+              owner = json.loads(path.read_text(encoding='utf-8'))
+              rec = owner.get('record') or {}
+              senses = rec.get('senses') or []
+              n = len(senses) if isinstance(senses, list) else -1
+              dist[n] += 1
+              version = str(rec.get('card_version'))
+              if n == 0:
+                  zero_by_version[version] += 1
+                  zero.append({
+                      'ordinal': owner.get('ordinal'),
+                      'word': owner.get('word') or rec.get('word'),
+                      'word_id': owner.get('word_id'),
+                      'card_version': rec.get('card_version'),
+                      'core_cn': (rec.get('core_concept') or {}).get('core_meaning_cn'),
+                      'core_en': (rec.get('core_concept') or {}).get('core_meaning_en'),
+                      'reference_sense_count': len(owner.get('reference_senses') or []),
+                      'construction_count': len(rec.get('constructions') or []),
+                      'secondary_sense_count': len(rec.get('secondary_senses') or []),
+                  })
+              elif n == 1:
+                  one_by_version[version] += 1
+
+          report = {
+              'schema': 'kianos.lexical.active_sense_shape.v1',
+              'owners_scanned': sum(dist.values()),
+              'active_sense_count_distribution': dict(sorted(dist.items())),
+              'zero_active_sense_count': len(zero),
+              'zero_active_sense_by_card_version': dict(sorted(zero_by_version.items())),
+              'one_active_sense_by_card_version': dict(sorted(one_by_version.items())),
+              'zero_active_sense_owners': zero,
+          }
+          Path('/tmp/lexical-active-sense-shape.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(json.dumps({k: v for k, v in report.items() if k != 'zero_active_sense_owners'}, ensure_ascii=False, indent=2))
+          PY
+
       - name: Publish diagnostic summary
         if: always()
         shell: bash
@@ -47,5 +96,6 @@ jobs:
           path: |
             /tmp/lexical-asset-integrity.json
             /tmp/lexical-asset-integrity.md
+            /tmp/lexical-active-sense-shape.json
           if-no-files-found: warn
           retention-days: 14
