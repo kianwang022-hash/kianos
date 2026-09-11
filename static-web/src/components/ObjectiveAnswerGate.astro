@@ -24,6 +24,44 @@ const base = import.meta.env.BASE_URL;
     const normalizeAnswer = (value) => Array.isArray(value)
       ? value.map(String)
       : value === null || value === undefined || value === '' ? [] : [String(value)];
+    const readAttempt = () => {
+      try { return storageKey ? JSON.parse(localStorage.getItem(storageKey) || 'null') || {} : {}; }
+      catch { return {}; }
+    };
+    const formalOf = (question) => {
+      try { return normalizeAnswer(JSON.parse(question.getAttribute('data-answer') || '""')); }
+      catch { return []; }
+    };
+
+    const decorateSubmittedReview = () => {
+      const attempt = readAttempt();
+      if (!attempt.submitted) return;
+      questions.forEach((question) => {
+        const id = question.getAttribute('data-objective-question') || '';
+        const formal = formalOf(question);
+        const selected = String(attempt.answers?.[id] || '');
+        const formalLine = question.querySelector('[data-objective-formal]');
+        if (formalLine instanceof HTMLElement) {
+          formalLine.hidden = false;
+          const strong = formalLine.querySelector('strong');
+          if (strong) strong.textContent = formal.join(', ') || '—';
+        }
+
+        if (task === 'cloze') {
+          question.querySelectorAll('[data-cloze-option]').forEach((option) => {
+            const value = option.getAttribute('data-value') || '';
+            option.classList.toggle('result-correct', formal.includes(value));
+            option.classList.toggle('result-wrong', Boolean(selected && value === selected && !formal.includes(value)));
+          });
+        }
+
+        if (task === 'reading_b') {
+          question.classList.remove('result-correct', 'result-wrong');
+          question.classList.add(attempt.results?.[id] === 'correct' ? 'result-correct' : 'result-wrong');
+        }
+      });
+      root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
+    };
 
     const applyAnswers = (payload) => {
       if (!payload || payload.objectId !== objectId || payload.task !== task || typeof payload.answers !== 'object') return false;
@@ -39,11 +77,15 @@ const base = import.meta.env.BASE_URL;
       if (!ready) return false;
       root.setAttribute('data-objective-answers-ready', 'true');
       root.dispatchEvent(new CustomEvent('kianos:objective-answers-ready', { bubbles: true }));
+      decorateSubmittedReview();
       return true;
     };
 
     const loadAnswers = async () => {
-      if (ready) return true;
+      if (ready) {
+        decorateSubmittedReview();
+        return true;
+      }
       if (loading) return loading;
       const originalText = submit?.textContent || 'Submit';
       if (submit instanceof HTMLButtonElement) {
@@ -82,11 +124,7 @@ const base = import.meta.env.BASE_URL;
       }
     }, true);
 
-    if (storageKey) {
-      try {
-        const saved = JSON.parse(localStorage.getItem(storageKey) || 'null') || {};
-        if (saved.submitted) void loadAnswers();
-      } catch {}
-    }
+    const saved = readAttempt();
+    if (saved.submitted) void loadAnswers();
   });
 </script>
