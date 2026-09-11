@@ -3,26 +3,43 @@
 Source repository: `kianwang022-hash/kianos-legacy`  
 Pinned source commit: `40e0fdefb9150fc011b37b303f3f24720ef61186`
 
-Only assets explicitly admitted here may be copied into new Current. Legacy governance/runtime/release trees are excluded by default.
+Only explicitly admitted Current assets may enter the new repository. Legacy governance/runtime/release trees are excluded by default.
 
-## Phase 1 — admitted
+## Phase 1 — transferred
 
-### Runtime
-- `static-web/**` from the pinned legacy snapshot, as the Astro UI/function baseline.
+### Astro runtime
+- `static-web/**` is the new learner-facing Astro UI/function baseline.
+- Useful Local UI/behavior was ported, but old React APIs, caches, Site runtime, fallback logic, and server learner state are not dependencies.
 
-### Xizong representative dependency
+### Xizong representative Current
 - `content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md`
 
-### Lexical representative dependencies
-- `content/lexical/canonical/lookup/spelling/an.json`
-- the exact Current word shard referenced by `word:answer`
+### Lexical representative Current
+- `content/lexical/words/answer.json`
 
-### English representative dependencies
+`word:answer` is transported as the natural word owner. Its accepted/source record is preserved; migration itself performs no semantic repair.
+
+## Phase 1 — approved source identity, transfer pending
+
+### English
+The Current owners to transfer mechanically are:
 - `content/english/manifest.json`
 - `content/english/source/question_bank.v1.json`
 - `content/english/source/reading_corpus.v1.json`
 
-## Explicitly not inherited in Phase 1
+The large minified source stores have not yet been copied into the new repository through the available bounded connector path. Until exact transfer lands, Reading fails closed and must not use legacy or historical Read Plane fallback.
+
+## Later migration
+
+- remaining accepted Xizong Current
+- full Lexical canonical owner set
+- full English Current owners
+- Politics Current
+- only mechanical tools still proven necessary in the new architecture
+
+Full-asset migration and global QA are a separate bounded phase. Accepted content is not semantically re-reviewed merely because it moves repositories.
+
+## Explicitly not inherited
 
 - legacy `AGENTS.md` / governance control planes
 - `runtime/**`
@@ -31,10 +48,8 @@ Only assets explicitly admitted here may be copied into new Current. Legacy gove
 - historical Issues as execution authority
 - compatibility/fallback snapshots
 - learner state or learner databases
-- old generated read planes unless later proven necessary as Current dependencies
+- generated/historical Read Planes unless an exact future Current dependency is explicitly admitted
 
 ## Migration invariant
 
-Content migration is copy-preserving: no semantic rewrite, repair, merging, or reinterpretation is performed merely because an asset moves repositories. Semantic changes require a separate Chat-owned decision.
-
-If a copied Astro surface requires an undeclared legacy asset, fail closed and add that exact dependency to this whitelist before migration rather than importing a broad legacy tree.
+If new Astro needs a missing asset, fail closed and admit the exact Current dependency first. Never solve a missing Current asset by broad-copying legacy or inventing replacement domain semantics.
