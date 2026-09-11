@@ -82,6 +82,22 @@ Only high-value items enter review by default:
 
 Stable correct questions stay compressed.
 
+## Review timing
+
+Attempt and review are separate phases. Do not interleave repair into the middle of the intended attempt unit.
+
+For a single-passage session:
+
+`finish the whole passage → submit → review the passage`
+
+For continuous training across multiple passages:
+
+`finish the planned passage set → then review the set`
+
+After a passage is submitted, the runtime may show the score and the questions that need later review, but it should not force-jump into the first problem item. The learner must be able to continue to the next passage without first completing repair.
+
+Question-level repair remains local and lightweight, but a single question is only marked **handled for this review**, not “closed” or “mastered.” Completion language belongs at the passage or training-session level.
+
 ## Review principle
 
 The review target is the **first meaningful failure**, not the largest available explanation.
@@ -168,7 +184,7 @@ A retry exists to verify a repair, not to make the learner re-do a page because 
 
 Preferred sequence:
 
-`problem item → quick cause if useful → local repair → reconstruct / retry → close → later unseen transfer`
+`attempt unit → submit → review queue → local repairs → passage / session review complete → later unseen transfer`
 
 Quick cause logging is optional and should take one click. It supplements, rather than replaces, semantic diagnosis.
 
