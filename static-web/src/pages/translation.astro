@@ -11,28 +11,29 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
 <Base
   title="Translation"
   kicker="English · Productive Lane"
-  description="Whole-task productive runtime: clean translation, diagnosis/minimal repair, reconstruction, then reference comparison when useful."
+  description="Whole-task productive runtime: clean attempt can PASS; real failures receive minimal repair, reconstruction, and later fresh transfer validation."
   active="home"
 >
   <section class="translationHome" data-translation-home data-base={base}>
     <section class="translationHero">
       <div>
         <span>Translation · Current</span>
-        <h2>Produce → Diagnose → Reconstruct → Compare</h2>
-        <p>Translation 是独立 Productive lane。整套 task/set 是 learner-facing review unit；第一版永久保留，参考译文默认不提前揭示，不做自动评分。</p>
+        <h2>Produce → PASS / Repair → Transfer</h2>
+        <p>Translation 是独立 Productive lane。整套 task/set 是 learner-facing review unit；每个 Segment 保留自己的 first evidence。稳定工作直接 PASS，真实 failure 才进入 Chat repair。</p>
       </div>
       <aside>
         <strong>{state.status === 'ready' ? `${sets.length} sets` : state.status}</strong>
         {state.status === 'ready' && <span>{state.completeReferenceSetCount} full-reference · {state.partialReferenceSetCount} partial-reference</span>}
         {state.status === 'ready' && state.referenceGaps?.length > 0 && <span>{state.referenceGaps.length} segment reference gaps · transparent, never fabricated</span>}
+        <span data-translation-pending-count>Transfer Pending · 0</span>
         <span>{state.sectionResolutionMode || 'Current source gate'}</span>
-        <span>private attempt state stays on-device</span>
+        <span>private learner state stays on-device</span>
       </aside>
     </section>
 
     <a class="translationLearn" href={`${base}translation-learn/`}>
-      <div><span>First Learning</span><strong>先建立 Translation 的稳定高价值模型</strong></div>
-      <p>第一次系统学习走 Global Map → dense Core Blocks；Skill Map 是之后真实错误出现时的诊断地址，不是预习清单。</p>
+      <div><span>First Learning</span><strong>Global Map → B1–B4 → real Translation</strong></div>
+      <p>主干连续学习；Skill Map / Deep Skills / Runtime rules 保持完整但按需展开，不把 taxonomy 变成第一次学习清单。</p>
       <b>学习框架 →</b>
     </a>
 
@@ -60,17 +61,23 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
       </section>
     )}
 
+    <section class="translationPendingHome" data-translation-pending-home hidden>
+      <header><div><span>Verify / Transfer</span><strong>真正等待新材料验证的能力点</strong></div><b data-translation-pending-total>0</b></header>
+      <div data-translation-pending-list></div>
+      <p>下一套材料只有在真正测试到某个 target 时才算 evidence；不相关材料不会为了“刷次数”自动支持或关闭它。</p>
+    </section>
+
     {state.status === 'ready' && state.referenceGaps?.length > 0 && (
       <details class="translationSourceGaps">
         <summary>Current reference source gaps · {state.referenceGaps.length}</summary>
-        <p>这些句子的英文原文仍可正常完成 Attempt → diagnosis → reconstruction；只是 Current owner 尚无已核验参考译文，因此 runtime 不会自行补造。</p>
+        <p>这些句子的英文原文仍可正常完成 Attempt → PASS / repair → reconstruction；只是 Current owner 尚无已核验参考译文，因此 runtime 不会自行补造。</p>
         {state.referenceGaps.map((gap) => <code>{gap.id} · {gap.status}</code>)}
       </details>
     )}
 
     <section class="translationContractNote">
       <strong>Runtime boundary</strong>
-      <p>浏览器负责 clean production、第一版保留、本机历史与 reconstruction。需要诊断时再把整套 handoff 给 Chat；Chat 默认最多返回两个 priority lenses，并合并 cascade。完整 reference 只在确有需要时提前 reveal，或 reconstruction 后再比较。</p>
+      <p>浏览器保存 private first attempt / reconstruction / transfer ledger；Chat 做 whole-set semantic judgment。Stable clean work 可以 PASS；repair 后只有可复用 target 才进入 TRANSFER_PENDING，later fresh evidence 才可能 CLOSED。</p>
     </section>
 
     <script type="application/json" data-translation-catalog set:html={payload}></script>
@@ -88,17 +95,56 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
       const coverage = item?.referenceCoverage || {};
       return coverage.complete ? `reference ${coverage.available}/${coverage.total}` : `reference ${coverage.available}/${coverage.total} · partial`;
     };
+    const stageText = (stage) => ({
+      attempt: 'Clean Attempt',
+      decision: 'PASS / Review',
+      diagnosis: '待 Chat Review',
+      reconstruct: 'Reconstruction',
+      passed: 'PASS',
+      repaired: 'Repair Complete',
+      transfer_pending: 'TRANSFER_PENDING'
+    })[stage] || '';
 
     let last = null;
     try { last = JSON.parse(localStorage.getItem('kianos-translation-last-location-v1') || 'null'); } catch {}
     const continueLink = root.querySelector('[data-translation-continue]');
     if (last?.id && continueLink instanceof HTMLAnchorElement && sets.some((item) => item.id === last.id)) {
       const current = sets.find((item) => item.id === last.id);
+      let taskState = null;
+      try {
+        taskState = JSON.parse(localStorage.getItem(`kianos-translation-attempt-v2:${last.id}`) || 'null');
+      } catch {}
       continueLink.href = last.href || hrefFor(last.id);
       const title = root.querySelector('[data-translation-continue-title]');
       const meta = root.querySelector('[data-translation-continue-meta]');
       if (title) title.textContent = last.title || last.id;
-      if (meta) meta.textContent = `${last.paperId || 'Translation'} · 第 ${last.position || '?'} / ${last.total || sets.length} 套 · ${coverageText(current)} · 最近打开`;
+      if (meta) {
+        const stage = stageText(taskState?.stage);
+        meta.textContent = `${last.paperId || 'Translation'} · 第 ${last.position || '?'} / ${last.total || sets.length} 套 · ${coverageText(current)}${stage ? ` · ${stage}` : ''}`;
+      }
+    }
+
+    let transferLedger = { targets: [] };
+    try { transferLedger = JSON.parse(localStorage.getItem('kianos-translation-transfer-v1') || 'null') || transferLedger; } catch {}
+    const pending = Array.isArray(transferLedger?.targets)
+      ? transferLedger.targets.filter((target) => target?.status !== 'closed')
+      : [];
+    const pendingCount = root.querySelector('[data-translation-pending-count]');
+    if (pendingCount) pendingCount.textContent = `Transfer Pending · ${pending.length}`;
+    const pendingHome = root.querySelector('[data-translation-pending-home]');
+    const pendingTotal = root.querySelector('[data-translation-pending-total]');
+    const pendingList = root.querySelector('[data-translation-pending-list]');
+    if (pendingHome instanceof HTMLElement) pendingHome.hidden = pending.length === 0;
+    if (pendingTotal) pendingTotal.textContent = String(pending.length);
+    if (pendingList) {
+      pendingList.replaceChildren();
+      pending.slice(0, 8).forEach((target) => {
+        const item = document.createElement('div');
+        const strong = document.createElement('strong'); strong.textContent = target.label || target.id || 'Pending target';
+        const p = document.createElement('p'); p.textContent = target.underlyingDemand || '';
+        item.append(strong, p);
+        pendingList.appendChild(item);
+      });
     }
 
     const results = root.querySelector('[data-translation-results]');
@@ -131,8 +177,9 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
 </script>
 
 <style>
-  .translationHome{max-width:76rem;margin:0 auto;display:grid;gap:12px}.translationHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationHero>div>span,.translationBrowse header span,.translationContinue>span,.translationLearn span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHero h2{margin:5px 0 8px;font-size:27px}.translationHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.translationHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.translationHero aside strong{color:var(--study-green)}.translationHero aside span{color:var(--study-faint);font-size:10px}
+  .translationHome{max-width:76rem;margin:0 auto;display:grid;gap:12px}.translationHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationHero>div>span,.translationBrowse header span,.translationContinue>span,.translationLearn span,.translationPendingHome header span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationHero h2{margin:5px 0 8px;font-size:27px}.translationHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.translationHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.translationHero aside strong{color:var(--study-green)}.translationHero aside span{color:var(--study-faint);font-size:10px}
   .translationLearn{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.translationLearn>div{display:grid;gap:3px}.translationLearn strong{font-size:14px}.translationLearn p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.translationLearn b{color:var(--study-green);font-size:11px;white-space:nowrap}
-  .translationHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.translationContinue,.translationBrowse,.translationContractNote,.translationGate,.translationSourceGaps{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.translationContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.translationContinue strong{font-size:22px;line-height:1.35}.translationContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.translationBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.translationBrowse header>div{display:grid;gap:3px}.translationBrowse header input{width:min(300px,50%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.translationBrowse [data-translation-results]{display:grid;gap:5px}.translationBrowse [data-translation-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.translationBrowse [data-translation-results]>a:hover{background:var(--study-green-soft)}.translationBrowse [data-translation-results] div{display:grid;gap:2px;min-width:0}.translationBrowse [data-translation-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.translationBrowse [data-translation-results] span,.translationBrowse [data-translation-results] small{color:var(--study-faint);font-size:9px}.translationBrowse [data-translation-results]>p,.translationContractNote p,.translationGate p,.translationSourceGaps p{margin:5px 0 0;color:var(--study-muted);font-size:11px;line-height:1.6}.translationContractNote strong,.translationGate strong{font-size:11px}.translationGate{border-color:#e2c4ad;background:#fff9f3}.translationGate code,.translationSourceGaps code{display:block;margin-top:6px;color:var(--study-faint);font-size:9px;overflow-wrap:anywhere}.translationSourceGaps summary{cursor:pointer;font-size:11px;font-weight:800}.translationSourceGaps{background:#fffdf8}
-  @media(max-width:820px){.translationHero,.translationHomeGrid,.translationLearn{grid-template-columns:1fr}.translationHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.translationBrowse header{align-items:stretch;flex-direction:column}.translationBrowse header input{width:100%;box-sizing:border-box}}
+  .translationHomeGrid{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:12px}.translationContinue,.translationBrowse,.translationContractNote,.translationGate,.translationSourceGaps,.translationPendingHome{padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.translationContinue{display:grid;align-content:start;gap:6px;text-decoration:none}.translationContinue strong{font-size:22px;line-height:1.35}.translationContinue p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.6}.translationBrowse header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.translationBrowse header>div{display:grid;gap:3px}.translationBrowse header input{width:min(300px,50%);padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;font:inherit}.translationBrowse [data-translation-results]{display:grid;gap:5px}.translationBrowse [data-translation-results]>a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;color:inherit;text-decoration:none}.translationBrowse [data-translation-results]>a:hover{background:var(--study-green-soft)}.translationBrowse [data-translation-results] div{display:grid;gap:2px;min-width:0}.translationBrowse [data-translation-results] strong{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.translationBrowse [data-translation-results] span,.translationBrowse [data-translation-results] small{color:var(--study-faint);font-size:9px}
+  .translationPendingHome{background:#fbfdfc}.translationPendingHome header{display:flex;align-items:end;justify-content:space-between;gap:12px}.translationPendingHome header>div{display:grid;gap:3px}.translationPendingHome header strong{font-size:14px}.translationPendingHome header>b{color:var(--study-green);font-size:18px}.translationPendingHome [data-translation-pending-list]{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:11px}.translationPendingHome [data-translation-pending-list]>div{padding:9px 10px;border:1px solid var(--study-line);border-radius:9px;background:#fff}.translationPendingHome [data-translation-pending-list] strong{font-size:10px}.translationPendingHome [data-translation-pending-list] p,.translationPendingHome>p,.translationBrowse [data-translation-results]>p,.translationContractNote p,.translationGate p,.translationSourceGaps p{margin:5px 0 0;color:var(--study-muted);font-size:10px;line-height:1.55}.translationContractNote strong,.translationGate strong{font-size:11px}.translationGate{border-color:#e2c4ad;background:#fff9f3}.translationGate code,.translationSourceGaps code{display:block;margin-top:6px;color:var(--study-faint);font-size:9px;overflow-wrap:anywhere}.translationSourceGaps summary{cursor:pointer;font-size:11px;font-weight:800}.translationSourceGaps{background:#fffdf8}
+  @media(max-width:820px){.translationHero,.translationHomeGrid,.translationLearn{grid-template-columns:1fr}.translationHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.translationBrowse header{align-items:stretch;flex-direction:column}.translationBrowse header input{width:100%;box-sizing:border-box}.translationPendingHome [data-translation-pending-list]{grid-template-columns:1fr}}
 </style>
