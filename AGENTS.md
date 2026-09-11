@@ -56,6 +56,23 @@ When migration closes, the dual-read exception closes with it.
 
 GitHub is read-only by default. Before any mutation, present the concrete intended scope and obtain explicit user authorization. Authorization is bounded to the approved scope. Destructive cleanup, production deployment, and real private learner-state mutation require separate explicit authorization.
 
+## Deferred work
+
+KianOS has one repository-wide lightweight parking lot for intentionally postponed work:
+
+- `DEFERRED.md` defines the rule;
+- GitHub Issue #5, **KianOS Deferred Queue**, stores the live checklist.
+
+This applies to every current or future KianOS lane, including Xizong, English, Politics, LexicalOS, Astro/runtime, and later modules.
+
+When the learner explicitly postpones a concrete item with real future value (`later`, `not now`, `after the mainline`, `keep for future`, or equivalent), record it briefly in Issue #5 so it cannot be lost. Group or prefix by lane when useful. Do not create separate backlog systems per lane unless the learner later asks for one.
+
+Do not put ordinary continuation steps, speculative ideas, implementation noise, or private learner state into the Deferred Queue. Active work remains in the relevant Current owner / continuation. When deferred work becomes active again, move it back into the active lane and check the queue item off.
+
+The learner has explicitly authorized this lightweight queue behavior repository-wide. A clear postponement instruction is sufficient authorization to add or update the corresponding Issue #5 checklist entry; do not ask for a second confirmation just to record it. This standing authorization does not permit unrelated GitHub mutations.
+
+Rule of thumb: **if postponing it could make us accidentally lose it later, park it in Issue #5.**
+
 ## Content rules
 
 - Each semantic knowledge object has one canonical Current owner/path.
