@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kianos.english.external_reading_object.v1",
+  "title": "KianOS External Reading Object",
+  "type": "object",
+  "required": [
+    "schema",
+    "object_id",
+    "source",
+    "exposure_state",
+    "content"
+  ],
+  "properties": {
+    "schema": {
+      "const": "kianos.english.external_reading_object.v1"
+    },
+    "object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "source_id"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "TPO_READING",
+            "IELTS_READING",
+            "PERIODICAL_READING",
+            "OTHER_READING"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": ["string", "null"]
+        },
+        "publication": {
+          "type": ["string", "null"]
+        },
+        "published_at": {
+          "type": ["string", "null"]
+        },
+        "locator": {
+          "type": ["string", "null"],
+          "description": "Stable private source locator, page/range, file path, or source reference sufficient to recover the original material."
+        }
+      },
+      "additionalProperties": true
+    },
+    "exposure_state": {
+      "enum": [
+        "UNSEEN_HOLDOUT",
+        "PRACTICE_POOL",
+        "EXPOSED"
+      ]
+    },
+    "role": {
+      "enum": [
+        "FRESH_INPUT",
+        "UNSEEN_DIAGNOSTIC",
+        "TRANSFER_TEST",
+        "ORDINARY_PRACTICE"
+      ]
+    },
+    "content": {
+      "type": "object",
+      "required": ["paragraphs"],
+      "properties": {
+        "title": {
+          "type": ["string", "null"]
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "text"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "questions": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "required": ["id", "prompt"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ordinal": {
+            "type": ["integer", "null"],
+            "minimum": 1
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "options": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "answer": {
+            "oneOf": [
+              {"type": "string"},
+              {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              {"type": "null"}
+            ]
+          },
+          "review_assets": {
+            "type": "object",
+            "description": "Optional durable learner assets. Keep sparse; do not require a full explanation for every question.",
+            "properties": {
+              "decisive_evidence_refs": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "decisive_proposition": {
+                "type": ["string", "null"]
+              },
+              "decisive_contrast": {
+                "type": ["string", "null"]
+              },
+              "sentence_focus_refs": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "discourse_focus_refs": {
+                "type": "array",
+                "items": {"type": "string"}
+              },
+              "note": {
+                "type": ["string", "null"]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "study_note": {
+      "type": ["string", "null"],
+      "description": "Optional shared note about why this object is useful. Never store the learner's private attempt, answer history, timing, or personal diagnosis here."
+    }
+  },
+  "additionalProperties": true
+}
