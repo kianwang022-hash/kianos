@@ -4,4 +4,4 @@ export {
   loadPoliticsChapterCurrent,
   politicsCurrentHealth,
   politicsRuntimeDiagnostics
-} from './politicsRuntime.mjs';
+} from './politicsRuntimeScoped.mjs';
