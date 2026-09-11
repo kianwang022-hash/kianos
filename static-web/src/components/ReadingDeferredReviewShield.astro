@@ -10,6 +10,7 @@
     const continuousKey = 'kianos-reading-continuous-session-v1';
     const parent = readingRoot.parentElement;
     const history = readingRoot.querySelector('[data-reading-history]');
+    const retry = readingRoot.querySelector('[data-reading-retry]');
     const headerActions = readingRoot.querySelector('.portedReadingHeaderActions');
 
     const readJson = (key, fallback) => {
@@ -49,6 +50,13 @@
       durationSec: session.items.reduce((sum, item) => sum + Number(item?.durationSec || 0), 0),
       reviewPassages: session.reviewIds.length
     });
+
+    const problemCount = (attempt) => {
+      const uncertain = new Set(attempt.uncertain || []);
+      return Object.keys(attempt.results || {}).filter((id) =>
+        ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
+      ).length;
+    };
 
     const resetStaleSubmittedAttempt = () => {
       const session = readSession();
@@ -124,9 +132,11 @@
       const state = readAttempt();
       const session = readSession();
       const active = deferred();
+      const canReview = Boolean(state.submitted && state.reviewUnlocked !== false);
       readingRoot.classList.toggle('reading-review-deferred', active);
 
-      if (history) history.hidden = !(state.submitted && state.reviewUnlocked !== false);
+      if (history) history.hidden = !canReview;
+      if (retry) retry.hidden = !(canReview && problemCount(state) > 0);
 
       const summary = document.querySelector('[data-reading-passage-review]');
       if (summary && active) summary.hidden = true;
