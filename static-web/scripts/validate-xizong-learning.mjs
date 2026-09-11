@@ -68,10 +68,21 @@ function reviewPlanForCurrentBlock(rawPlan, kpIds) {
     .filter((kpId) => kpId && allowed.has(kpId) && !seen.has(kpId) && seen.add(kpId));
 }
 
+function normalizeHoldoutYears(years, eligibleYears) {
+  const eligible = new Set(eligibleYears.map(Number));
+  return [...new Set((Array.isArray(years) ? years : []).map(Number))]
+    .filter((year) => eligible.has(year))
+    .sort((a, b) => a - b);
+}
+
 function wuItems(results) {
   return Object.entries(results)
     .filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))
     .map(([questionId]) => questionId);
+}
+
+function roundTrip(value) {
+  return JSON.parse(JSON.stringify(value));
 }
 
 const system = loadXizongSystem('circulation');
@@ -116,7 +127,19 @@ assert(currentWeakMemory(b1KpIds, masteredAll).length === 0, 'clean mastered Rec
 assert(!blockCanComplete({ totalKp: b1KpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: false }), 'Block closes without Lecture one-pass confirmation');
 assert(blockCanComplete({ totalKp: b1KpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: true }), 'clean Block cannot close after required checkpoints');
 
-// Weak path: one fuzzy Recall enters Memory; local repair does not rewrite the original Recall evidence.
+// Persistence: the Block's keyed evidence survives a JSON storage round-trip without changing object identity or counts.
+const persistedBlockState = roundTrip({
+  stage: 'block_complete',
+  learned: learnedAll,
+  ratings: masteredAll,
+  blockRecallDone: true,
+  completed: true
+});
+assert(Object.keys(persistedBlockState.learned).length === b1KpIds.length, 'persisted learned evidence lost');
+assert(Object.keys(persistedBlockState.ratings).length === b1KpIds.length, 'persisted Recall evidence lost');
+assert(persistedBlockState.completed === true, 'persisted Block closure lost');
+
+// Weak path: one fuzzy Recall enters Memory; local repair may clear the local queue but cannot rewrite original Recall evidence/mastery.
 const weakKpId = b1KpIds[0];
 const weakRatings = { ...masteredAll, [weakKpId]: 'fuzzy' };
 assert(currentWeakMemory(b1KpIds, weakRatings).some((row) => row.kpId === weakKpId), 'fuzzy Recall did not enter Memory');
@@ -124,13 +147,14 @@ const repairedMemory = { [weakKpId]: 'STABLE' };
 assert(currentWeakMemory(b1KpIds, weakRatings, repairedMemory).every((row) => row.kpId !== weakKpId), 'local repair cannot clear local weak queue');
 assert(weakRatings[weakKpId] === 'fuzzy', 'repair simulation rewrote original Recall evidence');
 
-// Chat-return journey: only IDs that exist in the current Block survive import.
+// Chat-return + idempotency/error scope: only current-Block IDs survive and duplicate returns collapse to one task.
 const imported = reviewPlanForCurrentBlock([
   { kp_id: weakKpId, reason: 'repair' },
   { kp_id: 'circulation-b12-kp99', reason: 'foreign-or-invalid' },
+  null,
   weakKpId
 ], b1KpIds);
-assert(imported.length === 1 && imported[0] === weakKpId, `Chat import scope:${imported.join(',')}`);
+assert(imported.length === 1 && imported[0] === weakKpId, `Chat import scope/idempotency:${imported.join(',')}`);
 
 const sweep = loadXizongSystemQuestionSweep(system);
 assert(sweep, 'A1 System question sweep missing');
@@ -138,14 +162,18 @@ assert(sweep.questionCount === 376, `A1 sweep count:${sweep.questionCount}`);
 assert(sweep.questionInventoryHash === 'ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be', `A1 sweep hash:${sweep.questionInventoryHash}`);
 assert(sweep.questions.length === 376, `A1 loaded questions:${sweep.questions.length}`);
 
-// Holdout journey: use one deterministic test year only as test data; runtime product truth remains learner-selected empty-by-default state.
+// Holdout journey: one deterministic year is test data only. Runtime product truth remains learner-selected empty-by-default state.
 const testHoldoutYear = sweep.years[0];
+const normalizedHoldout = normalizeHoldoutYears([testHoldoutYear, testHoldoutYear, -1, 9999, 'not-a-year'], sweep.years);
+assert(normalizedHoldout.length === 1 && normalizedHoldout[0] === testHoldoutYear, `holdout normalization/idempotency:${normalizedHoldout.join(',')}`);
+const persistedHoldout = roundTrip(normalizedHoldout);
+assert(persistedHoldout.length === 1 && persistedHoldout[0] === testHoldoutYear, 'private holdout persistence lost');
 const expectedHeld = sweep.questions.filter((question) => question.year === testHoldoutYear).length;
-const activeQuestions = sweep.questions.filter((question) => question.year !== testHoldoutYear);
+const activeQuestions = sweep.questions.filter((question) => !normalizedHoldout.includes(question.year));
 assert(expectedHeld > 0, `test holdout year has no questions:${testHoldoutYear}`);
 assert(activeQuestions.length === 376 - expectedHeld, `holdout exclusion:${activeQuestions.length}/${376 - expectedHeld}`);
 
-// Official-question evidence journey: stable fast-pass creates no W/U; uncertain/wrong do.
+// Official-question evidence journey: stable fast-pass creates no W/U; uncertain/wrong do; repeat writes remain one keyed result per Question Truth ID.
 const q1 = activeQuestions[0]?.questionId;
 const q2 = activeQuestions[1]?.questionId;
 const q3 = activeQuestions[2]?.questionId;
@@ -155,7 +183,9 @@ const simulatedResults = {
   [q2]: { status: 'uncertain' },
   [q3]: { status: 'wrong' }
 };
-const simulatedWu = wuItems(simulatedResults);
+simulatedResults[q2] = { status: 'uncertain' };
+assert(Object.keys(simulatedResults).length === 3, 'repeat question evidence manufactured duplicate result rows');
+const simulatedWu = wuItems(roundTrip(simulatedResults));
 assert(!simulatedWu.includes(q1), 'stable question manufactured W/U debt');
 assert(simulatedWu.includes(q2) && simulatedWu.includes(q3) && simulatedWu.length === 2, 'W/U routing mismatch');
 
@@ -181,6 +211,7 @@ mustInclude(xizongLib, "const intro = blockOpeningOrientation(markdown);", 'Bloc
 // Private strategy must remain private: shared System page cannot seed exact holdout years.
 mustNotMatch(systemPage, /2025-2026-v1|writeJson\(holdoutKey,\s*\[2025,\s*2026\]\)/, 'shared runtime seeds private holdout years');
 mustInclude(exitComponent, "let holdoutYears = readJson(holdoutKey, []);", 'holdout is not empty-by-default private state');
+mustInclude(exitComponent, 'function normalizeHoldoutYears(value) {', 'holdout error/normalization path missing');
 mustInclude(exitComponent, "const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));", 'holdout does not filter System sweep');
 mustMatch(exitComponent, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'System sweep can start before Recall + explicit holdout');
 
@@ -188,10 +219,12 @@ mustMatch(exitComponent, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt
 mustMatch(systemComponent, /outlineCount\s*>\s*0\s*\?/, 'System projection does not conditionally omit absent Outline metadata');
 mustNotMatch(systemComponent, /Outline\s*\$\{?0\}?/, 'System projection contains literal Outline 0');
 
-// Block Recall stays answer-hidden until Reveal; completion requires learned + Recall + Block Recall.
+// Block Recall stays answer-hidden until Reveal; completion requires learned + Recall + Block Recall; localStorage error paths fail safely.
 mustInclude(blockComponent, 'data-kp-answer hidden', 'KP Recall answer is not hidden by default');
 mustInclude(blockComponent, 'data-kp-reveal', 'KP Recall Reveal control missing');
 mustMatch(blockComponent, /learnedCount\(\)\s*>=\s*totalKp\s*&&\s*recallCount\(\)\s*>=\s*totalKp\s*&&\s*Boolean\(state\.blockRecallDone\)/, 'Block completion core gate mismatch');
+mustMatch(blockComponent, /JSON\.parse\(localStorage\.getItem\(storageKey\)[\s\S]*?catch\s*\{\}/, 'Block persistence parse error is not contained');
+mustInclude(blockComponent, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'Block state persistence missing');
 mustMatch(enhancerComponent, /!personal\.lectureRead\s*\|\|\s*!coreReady/, 'Lecture one-pass gate missing from Block completion');
 
 // Stable Recall is not manufactured into debt; Chat repair evidence cannot rewrite original Recall/mastery state.
@@ -199,12 +232,15 @@ mustMatch(memoryComponent, /\['HOT',\s*'WARM'\]\.includes\(row\.memoryState\)/, 
 mustInclude(memoryComponent, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'Chat repair evidence role missing');
 mustNotMatch(memoryComponent, /study\.ratings\s*=\s*\{[^\n]*current\.kpId/, 'Chat repair still rewrites original Recall ratings');
 mustInclude(memoryComponent, '.filter((row) => byId.has(row.kpId))', 'Chat import does not filter to current Block KP IDs');
+mustInclude(memoryComponent, "if (ext.lastRecallRatings[kpId] === rating) return;", 'Recall evidence sync is not idempotent');
+mustMatch(memoryComponent, /try\s*\{[\s\S]*?JSON\.parse\(text\)[\s\S]*?\}\s*catch\s*\{\s*window\.alert\('Chat 计划 JSON 无法解析。'\);\s*\}/, 'malformed Chat-return JSON error path missing');
 
-// System question path preserves fast pass + W/U-only repair and never fabricates precise relations.
+// System question path preserves fast pass + W/U-only repair, persists by Question Truth ID, and never fabricates precise relations.
 mustInclude(exitComponent, "persistResult(currentQuestion, 'wrong', currentSelection);", 'wrong path missing');
 mustInclude(exitComponent, "nextAfter('stable')", 'stable fast-pass missing');
 mustInclude(exitComponent, "persistResult(currentQuestion, 'uncertain', currentSelection);", 'uncertain path missing');
 mustInclude(exitComponent, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'W/U packet is not W/U-only');
+mustInclude(exitComponent, 'results[question.questionId] = {', 'question evidence is not keyed by stable Question Truth ID');
 mustInclude(exitComponent, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'missing-relation no-guess guard missing');
 mustInclude(questionLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'question relation loader accepts unreviewed precise relation');
 
@@ -216,6 +252,6 @@ console.log([
   `LogicGroups=${totalLogicGroups}`,
   `Questions=${sweep.questionCount}`,
   `HoldoutTestYear=${testHoldoutYear} excluded=${expectedHeld}`,
-  'Journeys=clean,weak,chat-return,holdout,W/U',
+  'Journeys=clean,weak,chat-return,holdout,W/U,persistence,idempotency,error',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
