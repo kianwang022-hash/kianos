@@ -185,6 +185,8 @@ Minimum packet:
 - answer trajectory if captured;
 - only the necessary passage context when selected by the learner or runtime.
 
+For continuous training, Astro may also produce one compact **session packet** containing passage/question IDs and private attempt evidence across the set. It should avoid duplicating full canonical text because Chat can resolve Current content by stable IDs.
+
 Chat may then decide the first meaningful failure and the smallest repair. Personal diagnosis is not written into shared Current by default. If repeated evidence justifies a durable shared learning asset or interaction improvement, update the relevant canonical owner in GitHub.
 
 ## Retry / second pass
@@ -198,6 +200,24 @@ Preferred sequence:
 `attempt unit → submit / seal → finish intended training unit → review queue → local repairs → passage / session review complete → later unseen transfer`
 
 Quick cause logging is optional and should take one click. It supplements, rather than replaces, semantic diagnosis.
+
+## Future validation / transfer
+
+Handling a known problem item is not mastery evidence.
+
+After a high-value item is reviewed, private runtime may keep a small **WATCH signal** describing what should be observed later. A WATCH signal is only a future observation target. It is not a permanent weakness label and does not by itself create more review work.
+
+Evidence strength should rise roughly as follows:
+
+`known-item repair < later clean success < later matching success on genuinely fresh / unseen material`
+
+Rules:
+
+- do not claim transfer from re-answering the same known question;
+- do not promote a one-off failure into a durable weakness;
+- repeated high-confidence failures on distinct passages matter more than one event;
+- a stable success on fresh material is stronger than a remembered success on a reused exam passage;
+- automatic transfer matching must remain conservative; if the runtime cannot establish the same underlying weakness reliably, leave the signal as WATCH and let later evidence or Chat resolve it.
 
 ## Content assets
 
