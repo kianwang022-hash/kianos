@@ -5,12 +5,14 @@ const base = import.meta.env.BASE_URL;
 
 <script>
   const host = document.querySelector('[data-reading-session-transfer-root]');
+  const readingRoot = document.querySelector('[data-local-port="reading"]');
 
   if (host) {
     const basePath = host.getAttribute('data-reading-base') || '/';
     const continuousKey = 'kianos-reading-continuous-session-v1';
     const watchKey = 'kianos-reading-watch-signals-v1';
     const scanKey = 'kianos-reading-session-transfer-scans-v1';
+    let running = false;
 
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
@@ -39,8 +41,16 @@ const base = import.meta.env.BASE_URL;
       return path.length === 1 && path[0] === selected;
     };
     const reviewUrl = (id) => `${basePath}reading-review/${encodeURIComponent(id)}.json`;
+    const writeScan = (scans, sessionId, matched) => {
+      const entries = Object.entries({
+        ...(scans.sessions || {}),
+        [sessionId]: { scannedAt: new Date().toISOString(), matched }
+      }).slice(-60);
+      writeJson(scanKey, { version: 1, sessions: Object.fromEntries(entries) });
+    };
 
     const run = async () => {
+      if (running) return;
       const session = readSession();
       if (!session.startedAt || !session.items.length || session.active) return;
       if (!session.reviewing && !session.lastSummary) return;
@@ -48,99 +58,100 @@ const base = import.meta.env.BASE_URL;
       const scans = readJson(scanKey, { version: 1, sessions: {} });
       if (scans.sessions?.[session.startedAt]) return;
 
-      const watchStore = readJson(watchKey, { version: 1, signals: [] });
-      const signals = Array.isArray(watchStore.signals) ? watchStore.signals : [];
-      if (!signals.some((signal) => signal?.status === 'WATCH' && signal?.family === 'JUDGE' && (signal.subtypeCodes || []).length)) {
-        writeJson(scanKey, {
-          version: 1,
-          sessions: { ...(scans.sessions || {}), [session.startedAt]: { scannedAt: new Date().toISOString(), matched: 0 } }
-        });
-        return;
-      }
-
-      const passageData = [];
-      for (const item of session.items) {
-        const passageId = item?.id || '';
-        if (!passageId) continue;
-        const attempt = readJson(`kianos-reading-attempt-v1:${passageId}`, {});
-        if (!attempt.submitted || !attempt.submittedAt) continue;
-        try {
-          const response = await fetch(reviewUrl(passageId), { headers: { Accept: 'application/json' } });
-          if (!response.ok) return;
-          const review = await response.json();
-          if (!review || review.objectId !== passageId || typeof review.questions !== 'object') return;
-          passageData.push({ passageId, attempt, review });
-        } catch {
+      running = true;
+      try {
+        const watchStore = readJson(watchKey, { version: 1, signals: [] });
+        const signals = Array.isArray(watchStore.signals) ? watchStore.signals : [];
+        if (!signals.some((signal) => signal?.status === 'WATCH' && signal?.family === 'JUDGE' && (signal.subtypeCodes || []).length)) {
+          writeScan(scans, session.startedAt, 0);
           return;
         }
-      }
 
-      let matchedCount = 0;
-      const nextSignals = signals.map((signal) => {
-        if (signal?.status !== 'WATCH' || signal?.family !== 'JUDGE' || !(signal.subtypeCodes || []).length || !signal.reviewedAt) return signal;
-        const priorCodes = new Set((signal.subtypeCodes || []).map(String));
-        const priorTask = String(signal.questionTask || '');
-        const evidence = Array.isArray(signal.transferEvidence) ? [...signal.transferEvidence] : [];
-        const seen = new Set(evidence.map((item) => `${item?.passageId}:${item?.questionId}`));
-        let changed = false;
+        const passageData = [];
+        for (const item of session.items) {
+          const passageId = item?.id || '';
+          if (!passageId) continue;
+          const attempt = readJson(`kianos-reading-attempt-v1:${passageId}`, {});
+          if (!attempt.submitted || !attempt.submittedAt) continue;
+          try {
+            const response = await fetch(reviewUrl(passageId), { headers: { Accept: 'application/json' } });
+            if (!response.ok) return;
+            const review = await response.json();
+            if (!review || review.objectId !== passageId || typeof review.questions !== 'object') return;
+            passageData.push({ passageId, attempt, review });
+          } catch {
+            return;
+          }
+        }
 
-        passageData.forEach(({ passageId, attempt, review }) => {
-          if (passageId === signal.passageId) return;
-          if (new Date(attempt.submittedAt).getTime() <= new Date(signal.reviewedAt).getTime()) return;
+        let matchedCount = 0;
+        const nextSignals = signals.map((signal) => {
+          if (signal?.status !== 'WATCH' || signal?.family !== 'JUDGE' || !(signal.subtypeCodes || []).length || !signal.reviewedAt) return signal;
+          const priorCodes = new Set((signal.subtypeCodes || []).map(String));
+          const priorTask = String(signal.questionTask || '');
+          const evidence = Array.isArray(signal.transferEvidence) ? [...signal.transferEvidence] : [];
+          const seen = new Set(evidence.map((item) => `${item?.passageId}:${item?.questionId}`));
+          let changed = false;
 
-          Object.entries(attempt.results || {}).forEach(([questionId, result]) => {
-            if (result !== 'correct' || !stableCorrect(attempt, questionId)) return;
-            const reviewItem = review.questions?.[questionId];
-            if (!reviewItem) return;
-            if (priorTask && String(reviewItem.questionTask || '') !== priorTask) return;
+          passageData.forEach(({ passageId, attempt, review }) => {
+            if (passageId === signal.passageId) return;
+            if (new Date(attempt.submittedAt).getTime() <= new Date(signal.reviewedAt).getTime()) return;
 
-            const selectedCorrect = String(attempt.answers?.[questionId] || '');
-            const candidateCodes = new Set();
-            Object.entries(reviewItem.optionDiagnosis || {}).forEach(([label, diagnoses]) => {
-              if (String(label) === selectedCorrect) return;
-              (Array.isArray(diagnoses) ? diagnoses : []).forEach((code) => {
-                if (code && code !== 'SUPPORTED') candidateCodes.add(String(code));
+            Object.entries(attempt.results || {}).forEach(([questionId, result]) => {
+              if (result !== 'correct' || !stableCorrect(attempt, questionId)) return;
+              const reviewItem = review.questions?.[questionId];
+              if (!reviewItem) return;
+              if (priorTask && String(reviewItem.questionTask || '') !== priorTask) return;
+
+              const selectedCorrect = String(attempt.answers?.[questionId] || '');
+              const candidateCodes = new Set();
+              Object.entries(reviewItem.optionDiagnosis || {}).forEach(([label, diagnoses]) => {
+                if (String(label) === selectedCorrect) return;
+                (Array.isArray(diagnoses) ? diagnoses : []).forEach((code) => {
+                  if (code && code !== 'SUPPORTED') candidateCodes.add(String(code));
+                });
               });
-            });
-            const matched = [...priorCodes].filter((code) => candidateCodes.has(code));
-            if (!matched.length) return;
+              const matched = [...priorCodes].filter((code) => candidateCodes.has(code));
+              if (!matched.length) return;
 
-            const evidenceKey = `${passageId}:${questionId}`;
-            if (seen.has(evidenceKey)) return;
-            evidence.push({
-              passageId,
-              questionId,
-              matchedSubtypeCodes: matched,
-              attemptSubmittedAt: attempt.submittedAt,
-              evidenceKind: 'DISTINCT_PASSAGE_STABLE_CORRECT',
-              unseenStatus: 'UNKNOWN',
-              recordedAt: new Date().toISOString()
+              const evidenceKey = `${passageId}:${questionId}`;
+              if (seen.has(evidenceKey)) return;
+              evidence.push({
+                passageId,
+                questionId,
+                matchedSubtypeCodes: matched,
+                attemptSubmittedAt: attempt.submittedAt,
+                evidenceKind: 'DISTINCT_PASSAGE_STABLE_CORRECT',
+                unseenStatus: 'UNKNOWN',
+                recordedAt: new Date().toISOString()
+              });
+              seen.add(evidenceKey);
+              changed = true;
+              matchedCount += 1;
             });
-            seen.add(evidenceKey);
-            changed = true;
-            matchedCount += 1;
           });
+
+          if (!changed) return signal;
+          return {
+            ...signal,
+            transferEvidence: evidence.slice(-8),
+            transferSuccessCount: evidence.length,
+            updatedAt: new Date().toISOString()
+          };
         });
 
-        if (!changed) return signal;
-        return {
-          ...signal,
-          transferEvidence: evidence.slice(-8),
-          transferSuccessCount: evidence.length,
-          updatedAt: new Date().toISOString()
-        };
-      });
-
-      if (matchedCount) writeJson(watchKey, { version: 1, signals: nextSignals.slice(-200) });
-      writeJson(scanKey, {
-        version: 1,
-        sessions: {
-          ...(scans.sessions || {}),
-          [session.startedAt]: { scannedAt: new Date().toISOString(), matched: matchedCount }
-        }
-      });
+        if (matchedCount) writeJson(watchKey, { version: 1, signals: nextSignals.slice(-200) });
+        writeScan(scans, session.startedAt, matchedCount);
+      } finally {
+        running = false;
+      }
     };
 
     void run();
+    readingRoot?.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target?.closest('[data-reading-session-review],[data-reading-continuous-stop],[data-reading-session-finish]')) return;
+      window.setTimeout(() => { void run(); }, 40);
+    });
   }
 </script>
