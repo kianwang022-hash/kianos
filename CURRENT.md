@@ -7,6 +7,8 @@
 
 `Source Truth → Chat-approved GitHub Current content → Astro learner runtime → local learner state`
 
+`main@HEAD` is the only normal shared Current authority. `kianos-legacy` is recovery/reference only.
+
 ## Current owners
 
 - Xizong: `content/xizong/`
@@ -15,28 +17,60 @@
 - Politics: `content/politics/`
 - Learner UI/function runtime: `static-web/`
 
-## Legacy boundary
+## Current asset state
 
-`kianwang022-hash/kianos-legacy` is recovery/reference only. It is not a normal continuation source, build dependency, semantic fallback, UI data source, or governance authority.
+### Xizong
 
-## Rebuild status
+The accepted Xizong owner roots are now present on `main`:
 
-Clean-room source pin: `kianos-legacy@40e0fdefb9150fc011b37b303f3f24720ef61186`.
+- `content/xizong/knowledge/`
+- `content/xizong/questions/`
+- `content/xizong/question_explanations/`
+- `content/xizong/question-relations/`
+- `content/xizong/explanations/`
 
-**Phase 1 clean-room baseline: CLOSED.**
+Within `knowledge/`, System ownership is resolved by the Current owner rules in `content/xizong/knowledge/manifest.json`:
 
-- Xizong representative Current: **READY** — B1 canonical Markdown migrated unchanged.
-- Lexical representative Current: **READY** — `word:answer` migrated as its natural word owner at `content/lexical/words/answer.json`; migration did not repair or reinterpret its semantics.
-- Astro learner runtime: **READY AS BASELINE** — clean product shell plus the migrated B1 / Vocabulary / Reading learner-facing interactions, with no old React/API/cache/fallback dependency.
-- English Reading representative Current: **READY** — `manifest.json`, `question_bank.v1.json`, and `reading_corpus.v1.json` were transferred byte-identically from the pinned legacy Current, passed Git-blob and SHA-256 identity checks, passed the runtime source gate, and produced a successful Astro static build. Reading does not read legacy or a historical Read Plane fallback.
+- same-system `system.json` present → it is the System-level owner;
+- no `system.json` yet → the corresponding `system-guides/` file remains transitional substrate;
+- canonical Block Markdown remains the Block/KP medical Core owner.
 
-**Phase 2 Politics Current: CLOSED.**
+System-by-system v6 upgrades are **active Current content work**, not migration. They update natural owners in place and must not be overwritten by migrated snapshots.
 
-- Politics Current: **READY** — `manifest.json`, `provenance.json`, and the six durable source owners under `content/politics/source/` were transferred byte-identically from the pinned legacy Current in commit `42a76bb11b5ef27c80b6261460da9e181b0a64cd`.
-- Destination `main` independently matches all eight pinned legacy Git blob identities.
-- Source cardinality / parse gate: `xiao_2027_questions.jsonl` = 1172 records; `question_knowledge_links.jsonl` = 1148; `politics_unified_regions.v1.jsonl` = 160; `source_node_registry.v2.jsonl` = 19528. JSON owner/provenance sidecars parse successfully.
-- Generated Politics projections, legacy recovery contracts, runtime/release trees, and the stale legacy Politics README were not admitted as Current owners.
+### English
 
-Accepted content is transported without semantic re-review. Any semantic repair is a later Chat-owned content change, not part of migration.
+Current now contains:
 
-Known inherited source-asset gap: B1 Markdown references `Block1_正常机械循环_v6_assets/*`, but that media directory is absent from the pinned tracked legacy Block tree. The clean rebuild neither fabricates nor silently removes those references.
+- `content/english/manifest.json`
+- `content/english/provenance.json`
+- `content/english/source/question_bank.v1.json`
+- `content/english/source/reading_corpus.v1.json`
+- `content/english/source/global_source_truth.v1.json`
+
+Astro Reading remains source-gated to Current assets only.
+
+### LexicalOS
+
+The canonical natural-owner corpus is present under `content/lexical/canonical/`, while `content/lexical/words/answer.json` remains the representative runtime word owner currently projected by Astro.
+
+Lexical natural-owner auditing and L0-first semantic review are **active Current work**. Migration does not freeze, replace, or roll those owners back.
+
+### Politics
+
+Politics durable Current owners under `content/politics/` are present and remain the authority. Generated historical projections and legacy runtime/recovery files are not Current owners.
+
+### Astro runtime
+
+`static-web/` is the clean Astro learner runtime. Runtime coverage may lag content coverage: Astro should project only Current assets it explicitly supports, and missing projections must not be filled by legacy fallback.
+
+## Migration boundary
+
+The legacy repository knowledge-asset transport is **closed** after the accepted missing owner trees were admitted to the new repository in commit `cfa0a2e5826ab0d2dc076067d28334e938e0af87`.
+
+The migration dual-read exception is therefore closed for normal work. Future reads from `kianos-legacy` require an explicit recovery, rollback, historical comparison, or newly authorized migration/recovery task.
+
+Active Xizong v6 upgrades, Lexical semantic review/natural-owner audit, Astro projection expansion, and future source repairs are all new-repo Current work. They are not permission to re-import or prefer older legacy content.
+
+## Known inherited source-asset gap
+
+B1 Markdown references `Block1_正常机械循环_v6_assets/*`, but that media directory was absent from the pinned tracked legacy Block tree. Current must fail visibly on that missing asset rather than fabricate or silently remove the reference.

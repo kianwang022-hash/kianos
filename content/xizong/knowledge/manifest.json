@@ -1,57 +1,60 @@
 {
-  "schema": "kianos.xizong.knowledge.owner_manifest.v1",
-  "status": "CURRENT_MIGRATED_OWNER",
+  "schema": "kianos.xizong.knowledge.owner_manifest.v2",
+  "status": "CURRENT",
   "owner_path": "content/xizong/knowledge/",
   "semantic_authority": "CHAT_APPROVED_DURABLE_XIZONG_KNOWLEDGE",
-  "source_owner": "01_Learning/Content/XizongOS/Knowledge/",
-  "migration_policy": {
-    "mode": "FILTERED_EXACT_SUBTREE_REUSE",
-    "semantic_mutation": false,
-    "include": ["System Guides", "durable Block/Logic/KP/Extension content", "O9 pathology tumor-general overlay"],
-    "exclude": ["00_Global/Current_Control", "00_Vault_Control", "all *_Final_Gate directories", "02_A1_循环/04_Current_FirstPass_Source_v5_2", "historical audit/control/report/provenance-only material"],
-    "reason": "Keep learner/content authority separate from historical gate/control material; legacy names containing Current/Final do not confer semantic authority."
-  },
   "identity": {
     "numbered_systems": 8,
     "numbered_blocks": 159,
     "numbered_canonical_kps": 2514,
-    "retained_overlay": {"id":"O9","description":"病理 U019 肿瘤总论","stable_kp_count":22,"included_in_2514_count":false}
+    "retained_overlay": {
+      "id": "O9",
+      "description": "病理 U019 肿瘤总论",
+      "stable_kp_count": 22,
+      "included_in_2514_count": false
+    }
   },
-  "system_guides": {
-    "source_tree_sha1": "3c5d20c3a856ff470b9c92a6a5944287c9a27dee",
-    "target": "system-guides/",
-    "selection": "all eight existing system-guide files; no competing same-system version found in the bounded Current directory"
+  "owner_resolution": {
+    "system_level": {
+      "preferred_owner": "systems/**/system.json",
+      "transition_owner": "system-guides/*.md",
+      "rule": "When a same-system system.json exists on Current main@HEAD with Chat-approved semantic authority, it is the single System-level owner. Its lifecycle status (for example CURRENT or FREEZE_CANDIDATE) describes maturity, not permission to revive a parallel guide owner. The same-system guide remains prior substrate/reference only. When no system.json exists yet, the corresponding system guide remains the transitional System-level substrate.",
+      "parallel_owner_forbidden": true
+    },
+    "block_medical_core": {
+      "owner": "systems/** canonical Block Markdown",
+      "rule": "Block Markdown owns Block/KP medical Core. System-level files may organize, route, compress, or reference that Core but must not silently override or fork it."
+    },
+    "logic_group": {
+      "role": "STRUCTURAL_LEARNING_INDEX_ONLY",
+      "rule": "Logic groups/framework nodes organize stable Block/KP identities. They are not an independent medical-Core owner."
+    },
+    "kp": {
+      "owner": "canonical KP records embedded in the canonical Block owner",
+      "rule": "Preserve stable KP identity and order. Split, merge, renumber, or semantic replacement requires an explicit Chat-approved content change."
+    },
+    "overlay": {
+      "owner": "overlays/o9-tumor-general/",
+      "rule": "O9 remains a separately retained overlay and is not counted inside the numbered 2514 canonical KPs."
+    }
   },
-  "systems": [
-    {"id":"A1","name":"循环","target":"systems/a1-circulation/blocks/","source_tree_sha1":"ab152e3cc6e0409efc357562d9f992dda4da9d8a","block_count":12},
-    {"id":"A2","name":"呼吸","target":"systems/a2-respiratory/blocks/","source_tree_sha1":"52193a240f3c19a9e4cf2d31c7a13f0cdcfde4de","block_count":12},
-    {"id":"A3","name":"泌尿","target":"systems/a3-urinary/blocks/","source_tree_sha1":"5bc2a7cbeb2e6ce074e1875f1a72e1e4c83b14ce","block_count":14},
-    {"id":"B-D","name":"消化","target":"systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/","source_tree_sha1":"ea7d7c0d2db6297a653696666418f60720d04d69","block_count":23},
-    {"id":"B-M","name":"代谢/相关模块","target":"systems/b-digestive-metabolic-endocrine-tumor/m-m1-m10/","source_tree_sha1":"26665179349580ed475d17a47c28abf1a0085021","block_count":10},
-    {"id":"B-G","name":"内分泌/相关模块","target":"systems/b-digestive-metabolic-endocrine-tumor/g-g1-g5/","source_tree_sha1":"1f1c004996a342677015ae60c0ee162aea9f2bef","block_count":5},
-    {"id":"C","name":"血液免疫感染","target":"systems/c-hematology-immunity-infection/blocks/","source_tree_sha1":"538a70874c549a284eb214efaa3f149e376ccab2","block_count":27},
-    {"id":"D-N","name":"神经感觉运动","target":"systems/d-neuro-sensory-motor-orthopedics/n-n1-n11/","source_tree_sha1":"746a13ff2a8fb99507124e11073b7264c4343828","block_count":11},
-    {"id":"D-O","name":"骨科/相关模块","target":"systems/d-neuro-sensory-motor-orthopedics/o-o1-o16/","source_tree_sha1":"8a352fb3b23a5572079aed92bc2f88b35f8b3eef","block_count":16},
-    {"id":"E-SR","name":"生殖/相关模块","target":"systems/e-reproductive-breast/sr-sr1-sr6/","source_tree_sha1":"bc0818afad8200e8e80852bfc5b69aed33d4ebbf","block_count":6},
-    {"id":"E-E","name":"乳腺/相关模块","target":"systems/e-reproductive-breast/e-e1-e14/","source_tree_sha1":"67398390abfd7cd5826a6f05c0908da911d6db07","block_count":14},
-    {"id":"F","name":"剩余独立临床模块","target":"systems/f-remaining-clinical/blocks/","source_tree_sha1":"f923e87f8b826695214ce09a4584cdae7c70a5cb","block_count":9}
-  ],
-  "overlay": {"target":"overlays/o9-tumor-general/","source_tree_sha1":"ec11b1766c36816a2e17d4522ea292d9d358d266","content_file_blob_sha1":"96987d49eed33fb02dbcd5e52bcc68688a5e5ab4"},
-  "block_count_check": {"sum":159,"pass":true},
-  "source_reference_policy": "Exact source locators already embedded in retained byte-identical knowledge files are preserved. Legacy Vault_Control and mechanical Current_Control are not copied as canonical knowledge.",
-  "legacy_source_removal": "PENDING_RB7",
-  "runtime_repoint_allowed": true,
-  "runtime_projection": {
-    "authority": "CHAT_APPROVED_ISSUE_130_SOURCE_REPAIR",
-    "compiler": "tools/xizong_learning_content_v1.py",
-    "sync_entrypoint": "tools/sync_site_shared_product_v1.py",
-    "shared_fields": "learner/shared-fields.json",
-    "exact_identity_aliases": "learner/identity-aliases.json",
-    "generated_output": "runtime/site/app/product/xizong-current-learning.generated.json",
-    "scope": "numbered 159 Blocks / 2514 KP; existing overlay remains its separately retained owner",
-    "stable_identity_and_order_preserved": true,
-    "local_readback_required": true,
-    "production_deployment_authorized": false
+  "stable_roots": {
+    "system_guides": "system-guides/",
+    "systems": "systems/",
+    "overlays": "overlays/",
+    "shared_learning_support": "learner/"
   },
+  "shared_learning_support": {
+    "role": "CURRENT_SHARED_FIELDS_AND_IDENTITY_SUPPORT",
+    "rule": "Files under learner/ may support Current learning projections and stable identity joins. They are not personal learner state and must not become a second semantic owner over system.json, Block Markdown, or canonical KP Core."
+  },
+  "upgrade_policy": {
+    "mode": "NATURAL_OWNER_IN_PLACE",
+    "rule": "System-by-system v6 upgrades add or update the natural Current owner in systems/** without copying a second semantic truth. Once a system.json exists, the old same-system guide is retained only as reference/substrate unless explicitly removed later.",
+    "legacy_fallback": false
+  },
+  "migration_history": "MIGRATION.md",
+  "runtime_authority": "static-web/",
+  "runtime_rule": "Astro may project Current assets but cannot create or override Xizong semantic truth.",
   "learner_state_included": false
 }
