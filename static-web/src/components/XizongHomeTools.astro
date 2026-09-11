@@ -1,0 +1,39 @@
+---
+const { firstHref, firstLabel = '开始西综学习' } = Astro.props;
+---
+<section class="xizongHomeTools" data-xizong-home-tools>
+  <a class="xizongContinue" data-xizong-continue href={firstHref}>
+    <span>Continue</span>
+    <strong data-xizong-continue-title>{firstLabel}</strong>
+    <small data-xizong-continue-meta>从 Current System 开始；之后自动回到最近打开的 System / Block。</small>
+  </a>
+  <aside>
+    <span>Return / Handoff</span>
+    <strong>Study Packet stays local to the active learning context</strong>
+    <p>Block / System Exit 已有精确 Study、Wrong/Uncertain、Chat return-plan 流程；首页不再复制一套第二回包系统。</p>
+  </aside>
+</section>
+
+<script>
+  const root = document.querySelector('[data-xizong-home-tools]');
+  if (root instanceof HTMLElement) {
+    let last = null;
+    try { last = JSON.parse(localStorage.getItem('kianos-xizong-last-location-v1') || 'null'); } catch {}
+    const link = root.querySelector('[data-xizong-continue]');
+    if (last?.href && link instanceof HTMLAnchorElement) {
+      link.href = last.href;
+      const title = root.querySelector('[data-xizong-continue-title]');
+      const meta = root.querySelector('[data-xizong-continue-meta]');
+      if (title) title.textContent = last.blockTitle
+        ? `${last.blockLabel || ''} · ${last.blockTitle}`
+        : `${last.systemCanonical || ''} · ${last.systemTitle || last.systemId}`;
+      if (meta) meta.textContent = last.blockTitle
+        ? `${last.systemCanonical || last.systemId} · 最近 Block`
+        : `${last.systemCanonical || last.systemId} · 最近 System`;
+    }
+  }
+</script>
+
+<style>
+  .xizongHomeTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}.xizongContinue,.xizongHomeTools aside{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit}.xizongContinue{display:grid;gap:5px;text-decoration:none}.xizongContinue>span,.xizongHomeTools aside>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xizongContinue strong,.xizongHomeTools aside strong{font-size:17px;line-height:1.45}.xizongContinue small,.xizongHomeTools aside p{color:var(--study-muted);font-size:11px;line-height:1.6}.xizongHomeTools aside{display:grid;gap:5px}.xizongHomeTools aside p{margin:0}@media(max-width:760px){.xizongHomeTools{grid-template-columns:1fr}}
+</style>
