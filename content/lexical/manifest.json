@@ -1,18 +1,36 @@
 {
   "schema": "kianos.lexical.current_manifest.v1",
-  "status": "CUTOVER_CANDIDATE_NOT_CURRENT",
-  "semantic_authority": false,
+  "status": "CURRENT_NATURAL_OWNER",
+  "semantic_authority": true,
   "owner_contract": "content/lexical/schema.json",
   "word_manifest": "content/lexical/words/manifest.json",
   "relation_manifest": "content/lexical/relations/manifest.json",
-  "lookup": "content/lexical/canonical/lookup/",
+  "lookup": {
+    "path": "content/lexical/canonical/lookup/",
+    "semantic_authority": false,
+    "role": "DETERMINISTIC_NON_SEMANTIC_ROUTING"
+  },
   "reference_stores": {
     "senses": "content/lexical/canonical/senses/",
     "facts": "content/lexical/canonical/facts/",
     "collocations": "content/lexical/canonical/collocations/",
     "exam_mappings": "content/lexical/canonical/exam-mappings/",
-    "packs": "content/lexical/canonical/packs/"
+    "packs": "content/lexical/canonical/packs/",
+    "pre_cutover_words": "content/lexical/canonical/words/",
+    "pre_cutover_relations": "content/lexical/canonical/relations/"
   },
   "audit": "content/lexical/audit/natural-owner-cutover.json",
-  "semantic_delta": 0
+  "cutover": {
+    "status": "ACCEPTED",
+    "semantic_delta": 0,
+    "word_owner_count": 7946,
+    "relation_owner_count": 369,
+    "exact_word_reconstruction": true,
+    "lookup_closure": true
+  },
+  "runtime_contract": {
+    "astro_reads_current_natural_owners": true,
+    "legacy_or_reference_semantic_fallback": false,
+    "ui_semantic_authority": false
+  }
 }
