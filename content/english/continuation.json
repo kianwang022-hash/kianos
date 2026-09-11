@@ -10,7 +10,7 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_ACCEPTANCE_REMEDIATION__S_K_L_PASS__P_R_E_ACTIVE__U_UNTESTED",
+  "current_stage": "OBJECTIVE_ACCEPTANCE_REMEDIATION__S_K_L_PASS__P_R_E_ACTIVE__U_UNTESTED__WRITING_S_K_L_P_PASS__R_ACTIVE__E_DESIGN_ONLY__U_UNTESTED",
   "objective_v1": {
     "status": "ACCEPTANCE_REMEDIATION",
     "development_mode": "BLOCKER_ONLY",
@@ -56,6 +56,48 @@
       "source/schema change breaks Current projection or validation"
     ]
   },
+  "writing_v1": {
+    "status": "IN_PROGRESS",
+    "active_phase": "R_WHOLE_ESSAY_PRODUCTIVE_RUNTIME",
+    "canonical_learning_owner": "content/english/modules/writing/learning.md",
+    "source_owner": "content/english/source/question_bank.v1.json",
+    "learner_page": "/writing-learn/",
+    "source_gate": {
+      "status": "PASS",
+      "question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
+      "boundary": {
+        "writing_part_a": "22 sets / 22 prompts / 2005-2026 / Small Writing",
+        "writing_part_b": "27 sets / 27 prompts / 2000-2026 / Big Writing",
+        "total": "49 sets / 49 prompts / 49 unique set IDs / 49 unique prompt IDs / 0 unknown kinds"
+      },
+      "learner_projection_protection": "Clean attempt objects exclude formal answer, analysis, taxonomy, QA/seal state, and model/reference fields while preserving required task background, directions, and images.",
+      "validator": "static-web/scripts/validate-writing-source.mjs"
+    },
+    "projection_gate": {
+      "status": "PASS",
+      "route": "Global Map -> B1-B8 -> Full Synthetic Gate",
+      "active_checks": "6/6 have a response-gated post-action: 5 gate canonical follow-up content and terminal B5 gates in-route progression while the learner may still intentionally skip a known Block from the route navigator.",
+      "skill_map": "later diagnostic navigation, not first-learning spine",
+      "true_exam_policy": "criteria visible; protected true-exam task catalog is not exposed during cold start",
+      "private_state": "Active Check answer text is ephemeral; only route position and synthetic-gate convenience state may persist locally.",
+      "validator": "static-web/scripts/validate-writing-learning.mjs"
+    },
+    "acceptance": {
+      "S_source": "PASS",
+      "K_knowledge": "PASS",
+      "L_learning": "PASS",
+      "P_projection": "PASS",
+      "R_runtime": "ACTIVE",
+      "E_evidence": "DESIGN_ONLY",
+      "U_user_validation": "UNTESTED"
+    },
+    "runtime_target": "Prompt -> first meaningful plan/content -> first draft -> PASS/ACCEPTABLE or earliest meaningful failure -> smallest sufficient repair -> learner re-generation -> later fresh Writing transfer.",
+    "protected_exam_rule": "Cold-start mechanics and first integrated output use synthetic material. Protected true-exam tasks are not consumed merely to teach the mechanism.",
+    "next_action": {
+      "stage": "WRITING_R_WHOLE_ESSAY_PRODUCTIVE_RUNTIME",
+      "instruction": "Implement one-complete-essay Productive Runtime. Preserve the first meaningful plan/content response and first draft; provide an explicit PASS/ACCEPTABLE path with no manufactured repair debt; route semantic judgment through Chat rather than fake local scoring; if repair is needed, apply only the earliest sufficient failure layer and smallest repair, require learner re-generation, and keep same-prompt success as repair evidence rather than transfer closure."
+    }
+  },
   "completed_shared_work": [
     "English capability architecture is frozen as Lexical / Reading / Translation / Writing plus task-specific trainers.",
     "Objective Source, Knowledge, and Learning gates currently pass under root LEARNING_ACCEPTANCE.md; this does not imply Projection, Runtime, Evidence, or User Validation closure.",
@@ -68,7 +110,8 @@
     "Objective Evidence/Transfer v1 tracks repair threads and task-specific reusable claims rather than historical questions; Lexical and Reading roots route to their canonical ability owners.",
     "Reading A legacy per-question WATCH transfer is no longer loaded in Current.",
     "Translation has an independent Productive runtime and canonical learning owner at content/english/modules/translation/learning.md; it remains semantically separate from Objective.",
-    "Writing has a canonical static learning/runtime owner at content/english/modules/writing/learning.md; learner-facing web projection remains future work."
+    "Writing Source gate passes against exact Current writing_part_a / writing_part_b boundaries: 49 stable complete-essay task objects, Current owner/hash closure, no learner answer/analysis leakage, and required task context preserved.",
+    "Writing Projection gate passes: Global Map is first, B1-B8 form one continuous skippable route, all six Active Checks require a first response before their post-action, Skill Map is later diagnostic navigation, synthetic output precedes protected true exams, and the learner page is discoverable without claiming Runtime/Evidence/User closure."
   ],
   "current_owners_to_read": [
     "LEARNING_ACCEPTANCE.md",
@@ -79,6 +122,7 @@
     "content/english/modules/reading-a.md",
     "content/english/modules/cloze.md",
     "content/english/modules/reading-b.md",
+    "content/english/modules/writing/learning.md",
     "content/english/manifest.json"
   ],
   "module_entry_rules": {
@@ -101,11 +145,12 @@
     },
     "writing": {
       "read": [
+        "LEARNING_ACCEPTANCE.md",
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/writing/learning.md"
       ],
       "inheritance": "Writing is an independent Productive lane. Preserve first meaningful planning/content evidence and the first draft, diagnose the first meaningful failure, apply the smallest repair, require learner re-generation, and use later fresh Writing transfer as stronger evidence than same-prompt rewriting.",
-      "current_owner_status": "Static learning/runtime owner is ready; learner-facing web projection is intentionally not claimed complete."
+      "current_owner_status": "S/K/L/P PASS. Whole-essay Productive Runtime is the active phase. Evidence is design-only and User Validation is untested."
     }
   },
   "next_action": {
@@ -132,10 +177,12 @@
     "Do not turn Skill Maps into compulsory curricula or teacher question-type taxonomies.",
     "Do not expose formal answers or diagnostic assets before a clean attempt.",
     "Do not merge Translation or Writing cognition into Objective merely for UI consistency.",
-    "Do not treat QA/build success as a substitute for S/K/L/P/R/E/U acceptance evidence."
+    "Do not treat QA/build success as a substitute for S/K/L/P/R/E/U acceptance evidence.",
+    "Do not treat Writing S/P closure as Runtime, Evidence, or User Validation closure.",
+    "Do not consume protected Writing true-exam tasks merely to teach cold-start mechanics when synthetic material can teach the same mechanism."
   ],
   "continuation_policy": {
-    "update_when": "Update at each meaningful Objective acceptance transition and after each blocker class is resolved or disproven.",
+    "update_when": "Update at each meaningful module acceptance transition or when an active module's stage target changes; do not use this as a per-commit construction log.",
     "do_not_store": [
       "personal answers",
       "wrong/uncertain history",
@@ -145,6 +192,6 @@
       "personal transfer claims",
       "session position"
     ],
-    "fresh_chat_rule": "Read root LEARNING_ACCEPTANCE.md, main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current owners needed for the acceptance task. Engineering acceptance state must not be mistaken for private learner progress."
+    "fresh_chat_rule": "Read root LEARNING_ACCEPTANCE.md, main@HEAD CURRENT.md, this continuation file, content/english/LEARNING_CONTRACT.md, and only the Current owners needed for the selected module acceptance task. Engineering acceptance state must not be mistaken for private learner progress."
   }
 }
