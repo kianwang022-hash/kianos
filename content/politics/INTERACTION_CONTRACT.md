@@ -151,7 +151,36 @@ Selective precision becomes prominent only when evidence shows that a fixed form
 
 Review should tell the learner what to do and why, not expose scheduler internals such as D1/D3/D7 labels.
 
-## 8. Astro implementation rule
+## 8. Continue and Return / Handoff
+
+Politics inherits the KianOS-wide Continue and Return/Handoff capabilities without creating a second Politics scheduler.
+
+### Continue
+
+The runtime may remember the learner's most recently opened Politics chapter in private browser/device state and offer a Continue entry from the Politics home.
+
+This is personal session position, not shared Current and not a semantic owner.
+
+### Return / Handoff
+
+Stable correct Xiao1000 answers do not need to enter the daily handoff by default.
+
+The minimum Politics handoff evidence is:
+
+- Current subject and chapter identity;
+- owning Natural Unit when available;
+- stable Xiao1000 `question_id`;
+- learner choice and official answer when the question produced repair evidence;
+- observable outcome: `WRONG` or `UNCERTAIN`;
+- event time / study day.
+
+The default daily Politics handoff therefore carries only meaningful Wrong/Uncertain evidence plus last location. It is private learner evidence and must not be committed to shared Current.
+
+`kianos.politics.return_packet.v1` is a runtime handoff shape, not a political-knowledge owner. Chat consumes it to decide the smallest next repair, compression, or content/runtime correction.
+
+Repeated failure may justify stronger reconstruction or review. A clean stable answer should not create ritual review debt merely because the question exists.
+
+## 9. Astro implementation rule
 
 Astro should provide reusable interaction primitives, not political semantics.
 
@@ -164,11 +193,13 @@ Useful primitives include:
 - uncertain marker;
 - minimal repair drawer;
 - exact source jump;
-- next-unit continuation.
+- next-unit continuation;
+- lane Continue entry;
+- compact Wrong/Uncertain handoff.
 
 If a better explanation, relation, boundary, hierarchy, or stage story can live in Current content, update the content owner instead of hard-coding it in Astro.
 
-## 9. Quality test
+## 10. Quality test
 
 A Politics learner screen is good when:
 - the learner knows what they are trying to understand now;
@@ -176,4 +207,5 @@ A Politics learner screen is good when:
 - only useful supporting structure is visible;
 - a correct answer costs almost no extra time;
 - a failure sends the learner back to the smallest useful source;
+- meaningful Wrong/Uncertain evidence can return to Chat without manual reconstruction;
 - the page feels simpler as the backend becomes richer.
