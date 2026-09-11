@@ -1,0 +1,47 @@
+{
+  "schema": "kianos.politics.question_shards.v1",
+  "status": "CURRENT_DERIVED_FROM_MONOLITH",
+  "authority": "SOURCE_FAITHFUL_QUESTION_TRUTH_PROJECTION",
+  "source_monolith": "content/politics/source/xiao_2027_questions.jsonl",
+  "source_raw_sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+  "canonical_row_digest_sha256": "d1e820bc4d288913fccfdd921c229bf7a60a8805cc1c213ff09687d3a1440e50",
+  "row_count": 1172,
+  "shard_count": 56,
+  "shard_width": 25,
+  "source_record_id_pattern": "^xiao_2027_(subject)_(kind)_(NNN)$",
+  "deterministic_path_rule": "questions/shards/<subject>/<kind>/q<25-wide-range>.json",
+  "global_index_required": false,
+  "subject_counts": {
+    "marx": {
+      "total": 402,
+      "single": 184,
+      "multiple": 212,
+      "material": 6
+    },
+    "mao": {
+      "total": 117,
+      "single": 56,
+      "multiple": 59,
+      "material": 2
+    },
+    "xi": {
+      "total": 226,
+      "single": 93,
+      "multiple": 127,
+      "material": 6
+    },
+    "history": {
+      "total": 256,
+      "single": 129,
+      "multiple": 122,
+      "material": 5
+    },
+    "ethics": {
+      "total": 171,
+      "single": 66,
+      "multiple": 100,
+      "material": 5
+    }
+  },
+  "semantic_change": false
+}

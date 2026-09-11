@@ -1,0 +1,29 @@
+{
+  "schema": "kianos.politics.source_shard_audit.v1",
+  "status": "PASS",
+  "questions": {
+    "source_rows": 1172,
+    "shard_rows": 1172,
+    "source_raw_sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+    "source_canonical_digest_sha256": "d1e820bc4d288913fccfdd921c229bf7a60a8805cc1c213ff09687d3a1440e50",
+    "shard_canonical_digest_sha256": "d1e820bc4d288913fccfdd921c229bf7a60a8805cc1c213ff09687d3a1440e50",
+    "shard_count": 56,
+    "parity": true
+  },
+  "nodes": {
+    "source_rows": 19528,
+    "shard_rows": 19528,
+    "source_raw_sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38",
+    "source_canonical_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "shard_canonical_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "shard_count": 302,
+    "parity": true
+  },
+  "guarantees": [
+    "same immutable IDs",
+    "same parsed row content under canonical JSON comparison",
+    "no duplicate IDs",
+    "no missing rows",
+    "no added learning semantics"
+  ]
+}
