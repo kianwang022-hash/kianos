@@ -11,6 +11,8 @@
     const parent = readingRoot.parentElement;
     const history = readingRoot.querySelector('[data-reading-history]');
     const retry = readingRoot.querySelector('[data-reading-retry]');
+    const reset = readingRoot.querySelector('[data-reading-reset]');
+    const continuousToggle = readingRoot.querySelector('[data-reading-continuous]');
     const headerActions = readingRoot.querySelector('.portedReadingHeaderActions');
 
     const readJson = (key, fallback) => {
@@ -116,8 +118,7 @@
         button.type = 'button';
         button.textContent = '结束并复盘';
         button.setAttribute('data-reading-continuous-stop', '');
-        const continuous = headerActions.querySelector('[data-reading-continuous]');
-        continuous?.insertAdjacentElement('afterend', button);
+        continuousToggle?.insertAdjacentElement('afterend', button);
         button.addEventListener('click', endContinuousSession);
       }
       return button;
@@ -135,6 +136,9 @@
       const canReview = Boolean(state.submitted && state.reviewUnlocked !== false);
       readingRoot.classList.toggle('reading-review-deferred', active);
 
+      // After submission, keep the header quiet. Retake/review actions belong below the result.
+      if (reset) reset.hidden = Boolean(state.submitted);
+      if (continuousToggle) continuousToggle.hidden = Boolean(state.submitted || session.reviewing);
       if (history) history.hidden = !canReview;
       if (retry) retry.hidden = !(canReview && problemCount(state) > 0);
 
