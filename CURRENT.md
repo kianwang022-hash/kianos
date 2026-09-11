@@ -39,6 +39,8 @@ Within `knowledge/`, System ownership is resolved by the Current owner rules in 
 
 System-by-system v6 upgrades are active Current content work. They update natural owners in place and must not be overwritten by migrated snapshots.
 
+The durable shared-work cursor for the current Xizong learning/runtime mainline is `content/xizong/knowledge/learner/continuation.json`. Fresh Chats should read that cursor plus its referenced Current owners before proposing or continuing Xizong learning/runtime work; it records construction position only and is not medical Core or personal learner state.
+
 ### English
 
 English Current is intentionally split by responsibility:
