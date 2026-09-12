@@ -23,69 +23,28 @@ English currently has three independently continued learner-facing scopes with t
 
 Their current stages belong only to those local `CURRENT.md` owners. Do not copy them into this lane router.
 
----
-
-## Lane rule layer
-
-Stable English learning semantics are owned by:
-
-`content/english/LEARNING_CONTRACT.md`
-
-It defines the four major capability lines, task-specific cognitive objects, Clean Attempt / first-meaningful-failure / smallest-repair / later-fresh-validation philosophy, evidence boundaries, lexical routing and UI non-isomorphism rule.
-
-English does **not** currently have a lane-level `ACCEPTANCE.md` by design.
-
-Acceptance Truth is owned at the narrowest independently continued learner scope above. Creating a lane aggregate would duplicate scoped truth without adding a distinct acceptance claim. Add a lane-level Acceptance owner only if a future English-wide integration/readiness claim genuinely needs durable evidence that cannot be owned by Objective / Translation / Writing separately.
-
----
-
-## Sub-lane qualification
-
-A future English scope becomes first-class only when it has both:
-
-- a genuinely distinct cognitive / learner decision object; and
-- enough independent entry/continuation that a local Work Cursor materially reduces reads or ambiguity.
-
-A separate exam section heading or directory is not sufficient by itself.
-
-Do not create `CURRENT / ACCEPTANCE / CONTRACT` sets merely for symmetry.
+English has no lane-level `ACCEPTANCE.md` at present: current Acceptance Truth already belongs to the three independently continued scopes above. Do not add an aggregate Acceptance owner unless a future English-wide claim has its own distinct evidence responsibility.
 
 ---
 
 ## Retired continuation boundary
 
-`content/english/continuation.json` is a retired tombstone only:
+`content/english/continuation.json` remains a retired tombstone with `status=RETIRED`, `authority=NONE`, `normal_read=false`.
 
-```text
-status = RETIRED
-authority = NONE
-normal_read = false
-```
-
-It is not a Work Cursor, Acceptance owner, Artifact owner, learner-state store, or normal startup read. Git history preserves retired narrative if an explicitly bounded historical recovery is ever authorized.
-
-Do not add new progress/history to it.
+It is not a Work Cursor, Acceptance owner, Artifact owner, learner-state store, or normal startup read. Do not add new progress/history to it.
 
 ---
 
-## Stable English Artifact owners
+## Stable English owners
 
 - source / content owner map → `content/english/manifest.json`
-- lane learning rules → `content/english/LEARNING_CONTRACT.md`
+- lane learning semantics → `content/english/LEARNING_CONTRACT.md`
 - canonical source root → `content/english/source/`
 - provenance → `content/english/provenance.json`
 - module Artifact owners → `content/english/modules/`
 - learner-facing runtime → English surfaces under `static-web/`
 
-Repository-wide inherited owners:
-
-- project requirements → root `PROJECT_DEFINITION.md`
-- architecture → root `ARCHITECTURE.md`
-- learning-asset construction → root `LEARNING_ASSET_STANDARD.md`
-- S/K/L/P/R/E/U acceptance standard → root `LEARNING_ACCEPTANCE.md`
-- shared mature learner-surface capabilities → root `SYSTEM_CONTRACT.md`
-
-These are referenced, not copied into English sub-lane owners.
+Repository-wide requirements, architecture, construction order, acceptance semantics and shared mature platform capability remain inherited from root owners rather than copied here.
 
 ---
 
@@ -121,6 +80,6 @@ English CURRENT
 → exact required owner(s)
 ```
 
-Read the lane `LEARNING_CONTRACT.md` only when the task concerns English-wide cognition, capability ownership, learning/evidence relationships or sub-lane boundaries.
+Read `content/english/LEARNING_CONTRACT.md` only when the task actually concerns English-wide cognition, capability ownership or learning/evidence relationships.
 
 Do not read retired English continuation, unrelated modules, history, legacy repositories, or prior Chats by default.
