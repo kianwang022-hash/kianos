@@ -1,0 +1,223 @@
+---
+const { system } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const routes = Object.fromEntries((system?.blocks || []).map((block) => [block.blockId, {
+  label: block.label,
+  title: block.title,
+  href: `${base}xizong/${system.systemId}/${block.slug}/`
+}]));
+const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
+---
+<details class="xrr" data-xizong-repair-return={system.systemId}>
+  <summary>
+    <span>Wrong / Uncertain 修补</span>
+    <strong>Chat 修完后回到对应 Block，再继续真题</strong>
+    <small>只走审核过的精确回链；没有就不猜。</small>
+  </summary>
+  <div class="xrrBody">
+    <p>需要集中修补时，用这里把当前 Wrong / Uncertain 交给 Chat。返回计划只接受本轮真实题号；能精确回链的任务会送到对应 Block 的 Review，原始 Recall 不会被覆盖。</p>
+    <div class="xrrActions">
+      <button type="button" data-copy-chat>复制 W/U + 返回格式给 Chat</button>
+      <button type="button" class="secondary" data-return-sweep>回到当前真题</button>
+    </div>
+    <label>
+      <span>粘贴 Chat 返回计划</span>
+      <textarea rows="6" data-plan-text placeholder='{"plan":[{"question_id":"xizong-official-2026-n129","reason":"为什么要修","action":"怎么修","priority":"high"}]}'></textarea>
+    </label>
+    <div class="xrrApplyRow">
+      <button type="button" data-apply-plan>导入修补计划</button>
+      <small data-plan-status>尚未导入。</small>
+    </div>
+    <div class="xrrList" data-plan-list></div>
+  </div>
+  <script type="application/json" data-block-routes set:html={routePayload}></script>
+</details>
+
+<script>
+  const root = document.querySelector('[data-xizong-repair-return]');
+  if (root instanceof HTMLElement) {
+    const systemId = root.getAttribute('data-xizong-repair-return') || '';
+    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
+    const status = root.querySelector('[data-plan-status]');
+    const list = root.querySelector('[data-plan-list]');
+    let routes = {};
+    let data = null;
+    try { routes = JSON.parse(root.querySelector('[data-block-routes]')?.textContent || '{}'); } catch {}
+    try { data = JSON.parse(document.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+    const sweepState = () => readJson(sweepKey, { results: {} });
+    const questionById = new Map((data?.questions || []).map((q) => [q.questionId, q]));
+    const currentWu = () => Object.entries(sweepState()?.results || {})
+      .filter(([, row]) => row && ['wrong', 'uncertain'].includes(row.status))
+      .map(([questionId, result]) => ({ question: questionById.get(questionId), result }))
+      .filter((row) => row.question);
+
+    const planRows = (parsed) => {
+      const raw = Array.isArray(parsed?.plan) ? parsed.plan
+        : Array.isArray(parsed?.items) ? parsed.items
+        : Array.isArray(parsed?.question_ids) ? parsed.question_ids
+        : [];
+      const allowed = new Set(currentWu().map((row) => row.question.questionId));
+      const seen = new Set();
+      return raw.map((item) => typeof item === 'string'
+        ? { questionId: item, reason: '', action: '', priority: '' }
+        : {
+            questionId: String(item?.question_id || item?.questionId || ''),
+            reason: String(item?.reason || item?.why || ''),
+            action: String(item?.action || item?.task || ''),
+            priority: String(item?.priority || '')
+          })
+        .filter((row) => row.questionId && allowed.has(row.questionId) && !seen.has(row.questionId) && seen.add(row.questionId));
+    };
+
+    const deliverToBlock = (rows) => {
+      const byBlockKp = new Map();
+      rows.forEach((row) => {
+        const question = questionById.get(row.questionId);
+        const relation = question?.relation;
+        if (!relation?.blockId || !relation?.primaryKpId || !routes?.[relation.blockId]) return;
+        const key = `${relation.blockId}::${relation.primaryKpId}`;
+        const old = byBlockKp.get(key) || {
+          blockId: relation.blockId,
+          kpId: relation.primaryKpId,
+          questionIds: [],
+          reasons: [],
+          actions: [],
+          priority: row.priority || ''
+        };
+        old.questionIds.push(row.questionId);
+        if (row.reason) old.reasons.push(row.reason);
+        if (row.action) old.actions.push(row.action);
+        if (!old.priority && row.priority) old.priority = row.priority;
+        byBlockKp.set(key, old);
+      });
+
+      byBlockKp.forEach((item) => {
+        const objectId = `xizong:${item.blockId}`;
+        const key = `kianos-xizong-memory-review-v2:${objectId}`;
+        const ext = readJson(key, { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {} });
+        const existing = Array.isArray(ext.reviewPlan) ? ext.reviewPlan : [];
+        const plan = {
+          kpId: item.kpId,
+          reason: [...new Set(item.reasons)].join('；') || `来自 ${item.questionIds.length} 道 W/U 题`,
+          action: [...new Set(item.actions)].join('；') || '重新运行这一 KP 所属机制链，再回到题目主线。',
+          priority: item.priority || 'high',
+          sourceQuestionIds: item.questionIds
+        };
+        const withoutSameKp = existing.filter((row) => String(row?.kpId || row?.kp_id || row || '') !== item.kpId);
+        ext.reviewPlan = [...withoutSameKp, plan];
+        ext.reviewIndex = 0;
+        writeJson(key, ext);
+      });
+    };
+
+    const render = (rows) => {
+      if (!list) return;
+      list.replaceChildren();
+      rows.forEach((row) => {
+        const q = questionById.get(row.questionId);
+        if (!q) return;
+        const relation = q.relation;
+        const route = relation?.blockId ? routes?.[relation.blockId] : null;
+        const article = document.createElement('article');
+        const head = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = `${q.year} · 第 ${q.number} 题`;
+        const badge = document.createElement('span');
+        badge.textContent = sweepState()?.results?.[row.questionId]?.status === 'wrong' ? 'Wrong' : 'Uncertain';
+        head.append(title, badge);
+        const body = document.createElement('p');
+        body.textContent = [row.action, row.reason].filter(Boolean).join(' · ') || '按 Chat 计划做最小修补。';
+        article.append(head, body);
+        if (route && relation?.primaryKpId) {
+          const meta = document.createElement('small');
+          meta.textContent = `已送入 ${route.label} · ${relation.primaryKpId} 的 Review；新标签打开，不丢当前真题位置。`;
+          const link = document.createElement('a');
+          link.href = route.href;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = `去 ${route.label} 修补 ↗`;
+          article.append(meta, link);
+        } else {
+          const meta = document.createElement('small');
+          meta.textContent = '暂无审核过的精确 Block/KP 回链：保留题号给 Chat，不自动猜。';
+          article.append(meta);
+        }
+        list.appendChild(article);
+      });
+    };
+
+    root.querySelector('[data-copy-chat]')?.addEventListener('click', async (event) => {
+      const wu = currentWu();
+      const packet = {
+        schema: 'kianos.xizong.system_wu_repair_handoff.v1',
+        system: { system_id: data?.systemId || systemId, canonical_id: data?.canonicalId || '', title: data?.title || '' },
+        wrong_uncertain: wu.map(({ question, result }) => ({
+          question_id: question.questionId,
+          year: question.year,
+          number: question.number,
+          status: result.status,
+          learner_answer: result.selected || [],
+          correct_answer: question.correctAnswer,
+          stem: question.stem,
+          explanation: question.explanation,
+          reviewed_relation: question.relation
+        })),
+        request_to_chat: [
+          '只处理真正需要修的 Wrong / Uncertain；稳定内容不要制造复习。',
+          '区分记忆不稳、机制断点、Precision、条件/干扰项错误，优先给最小充分修补。',
+          '返回 JSON：{"plan":[{"question_id":"...","reason":"...","action":"...","priority":"high|medium|low"}]}。',
+          '不要返回未经审核的 Block/KP 映射；网页只会使用仓库已有 reviewed relation。'
+        ]
+      };
+      const text = JSON.stringify(packet, null, 2);
+      const button = event.currentTarget;
+      try {
+        await navigator.clipboard.writeText(text);
+        const old = button.textContent;
+        button.textContent = '已复制，粘给 Chat';
+        setTimeout(() => { button.textContent = old; }, 1600);
+      } catch { window.prompt('复制给 Chat', text); }
+    });
+
+    root.querySelector('[data-apply-plan]')?.addEventListener('click', () => {
+      const text = root.querySelector('[data-plan-text]')?.value || '';
+      try {
+        const parsed = JSON.parse(text);
+        const rows = planRows(parsed);
+        if (!rows.length) {
+          if (status) status.textContent = '没有匹配到本轮真实 W/U 题号；未写入任何修补任务。';
+          render([]);
+          return;
+        }
+        deliverToBlock(rows);
+        writeJson(repairKey, { importedAt: new Date().toISOString(), plan: rows });
+        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已送回对应 Block。`;
+        render(rows);
+      } catch {
+        if (status) status.textContent = '返回计划无法解析；没有改动任何学习状态。';
+      }
+    });
+
+    root.querySelector('[data-return-sweep]')?.addEventListener('click', () => {
+      document.querySelector('[data-question-workspace]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    const saved = readJson(repairKey, null);
+    if (Array.isArray(saved?.plan) && saved.plan.length) {
+      if (status) status.textContent = `已保存 ${saved.plan.length} 个修补任务。`;
+      render(saved.plan);
+    }
+  }
+</script>
+
+<style>
+  .xrr{margin:12px;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff;overflow:hidden}.xrr>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:12px 14px;cursor:pointer;list-style:none}.xrr>summary::-webkit-details-marker{display:none}.xrr>summary span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.07em}.xrr>summary strong{font-size:13px}.xrr>summary small{color:var(--study-muted,#6d7873);font-size:9px}.xrrBody{display:grid;gap:10px;padding:13px 14px;border-top:1px solid var(--study-line,#d9dde5)}.xrrBody>p,.xrrApplyRow small,.xrrList small{margin:0;color:var(--study-muted,#6d7873);font-size:10px;line-height:1.55}.xrrActions,.xrrApplyRow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.xrr button,.xrr a{border:1px solid #246b55;border-radius:8px;background:#286c57;color:#fff;padding:7px 10px;font:750 10px/1.2 system-ui;text-decoration:none;cursor:pointer}.xrr button.secondary{background:#fff;color:#286c57}.xrr label{display:grid;gap:5px}.xrr label span{font-size:10px;font-weight:800}.xrr textarea{width:100%;box-sizing:border-box;padding:9px;border:1px solid var(--study-line,#d9dde5);border-radius:9px;background:#fff;font:10px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}.xrrList{display:grid;gap:7px}.xrrList article{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;padding:10px;border:1px solid var(--study-line,#d9dde5);border-radius:10px;background:#f8faf9}.xrrList article>div{display:flex;gap:8px;align-items:center}.xrrList article>div span{padding:2px 6px;border-radius:999px;background:#eef4f1;color:#286c57;font-size:8px;font-weight:850}.xrrList article p{grid-column:1/-1;margin:0;font-size:10px;line-height:1.5}.xrrList article small{align-self:center}.xrrList article a{justify-self:end}.xrr script{display:none}@media(max-width:760px){.xrr>summary{grid-template-columns:1fr}.xrrList article{grid-template-columns:1fr}.xrrList article a{justify-self:start}}
+</style>
