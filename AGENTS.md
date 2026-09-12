@@ -47,6 +47,44 @@ Do not block Current construction solely because a historical asset cannot be fo
 
 The exception is a genuinely historical claim whose object is the old artifact itself, such as “what exactly did version X say then?”. In that case the original historical evidence is required; if it is unavailable, report the historical claim as unavailable / unverified rather than silently replacing it with a reconstruction.
 
+## 1.1 Current-first stop｜Current outranks stale Chat state
+
+Before continuing a long-running GitHub-backed task from conversational context, read the target scope's current canonical `CURRENT.md` / Acceptance owner first when the state may have changed.
+
+If Current says the previously discussed blocker is closed, the engineering scope is stopped, or the next unresolved stage has moved, **do not continue the old Chat narrative**. Report the Current delta and follow the current Work Cursor.
+
+Hard rule:
+
+> **“Continue” means continue Current, not continue the last remembered red light.**
+
+Prior Chat diagnostics are evidence/history only. They do not outrank newer canonical state.
+
+## 1.2 Blocker validity and loop escape
+
+Fail-closed behavior protects truth, but a blocker itself must remain justified.
+
+A valid blocker must be able to name:
+
+1. **the Current requirement / acceptance claim it prevents**;
+2. **why proceeding without it would create a real semantic, source, evidence, safety, or runtime defect**;
+3. **the smallest admissible closure evidence**;
+4. **whether that closure requires historical fidelity specifically, or only reliable Current truth**.
+
+A failed proof method is not automatically a failed requirement. For example, inability to re-hash an old file is a blocker only when exact authentication of that historical artifact is itself the required claim. It must not silently become the only path to a reconstructable Current authority.
+
+When repeated attempts produce no material semantic/evidence progress—e.g. cycling through old commits, zips, scripts, Chats, or transports—the worker must stop the current proof path and revalidate the blocker:
+
+```text
+No material progress
+→ restate the actual Current requirement
+→ ask whether the blocker is about Historical Fidelity or Current Truth
+→ inspect alternative admissible closure paths
+→ use bounded Current reconstruction when allowed
+→ otherwise preserve the historical claim as unavailable / unverified
+```
+
+Do not weaken a real gate merely to make progress. The purpose is to prevent **false deadlock**, not to permit false PASS.
+
 Hard scheduling rule:
 
 > **Hierarchy is ownership/routing. Dependency is scheduling.**
@@ -309,6 +347,16 @@ branch base/current SHA
 ```
 
 Then do the smallest correct work.
+
+If the task is a continuation or a repeated failure loop, additionally check:
+
+```text
+is the Chat state stale relative to Current?
+is the named blocker still blocking a real Current requirement?
+is the failure in the requirement, or only in one proof/recovery method?
+has the current path produced material semantic/evidence progress?
+is there a valid alternative closure path?
+```
 
 Compact scheduler:
 
