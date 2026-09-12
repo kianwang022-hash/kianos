@@ -1,0 +1,48 @@
+name: LexicalOS Knowledge Re-acceptance Audit
+
+on:
+  pull_request:
+    paths:
+      - 'content/lexical/words/by-ordinal/**'
+      - 'content/lexical/audit/knowledge-reacceptance/**'
+      - 'tools/lexical_knowledge_reacceptance_audit.py'
+      - '.github/workflows/lexical-knowledge-reacceptance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  knowledge-reacceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Scan Current lexical Knowledge
+        shell: bash
+        run: |
+          python tools/lexical_knowledge_reacceptance_audit.py \
+            --output /tmp/lexical-knowledge-reacceptance.json \
+            --summary /tmp/lexical-knowledge-reacceptance.md
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/lexical-knowledge-reacceptance.md ]; then
+            cat /tmp/lexical-knowledge-reacceptance.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Lexical Knowledge re-acceptance summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-knowledge-reacceptance
+          path: |
+            /tmp/lexical-knowledge-reacceptance.json
+            /tmp/lexical-knowledge-reacceptance.md
+          if-no-files-found: warn
+          retention-days: 14
