@@ -1,0 +1,142 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 1, "end": 40, "count": 40},
+  "status_counts": {"PASS": 21, "REVISE": 19, "SOURCE_CHECK": 0},
+  "downstream": {
+    "learning_logic": "FROZEN_PENDING_UPSTREAM",
+    "content_realization": "FROZEN_PENDING_UPSTREAM",
+    "projection_interaction": "FROZEN_PENDING_UPSTREAM",
+    "runtime_loop": "FROZEN_PENDING_UPSTREAM",
+    "evidence_acceptance": "FROZEN_PENDING_UPSTREAM"
+  },
+  "source_checks": [
+    {
+      "word": "abide",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/abide-by",
+      "resolved": true,
+      "finding": "abide by sth is a normal formal phrasal verb meaning accept/obey an agreement, decision, or rule; it is learner-worthy and missing from Current Active Knowledge."
+    },
+    {
+      "word": "abnormal",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/abnormal",
+      "resolved": true,
+      "finding": "Contemporary learner-dictionary treatment centers on different from usual/average; 'much greater than normal' does not need a separate learner-active sense."
+    },
+    {
+      "word": "absorb",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/absorb",
+      "resolved": true,
+      "finding": "Current major branches (take in, understand, absorb attention, cost/impact, incorporation) are legitimate; the main defect is semantic compression/Core, not wholesale sense deletion."
+    },
+    {
+      "word": "abstract",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/abstract",
+      "resolved": true,
+      "finding": "Noun 'summary' and verb summarize/abstract/extract are legitimate contemporary uses; Current needs better branch organization rather than treating the summary verb as automatically invalid."
+    },
+    {
+      "word": "accept",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/accept",
+      "resolved": true,
+      "finding": "High-value uses include taking/agreeing, believing/recognizing truth, accepting difficult reality, and social/institutional acceptance. Generic 'tolerate/put up with' is too broad as a standalone learner sense."
+    },
+    {
+      "word": "acceptance",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/acceptance",
+      "resolved": true,
+      "finding": "General approval/recognition/inclusion and acceptance of a difficult situation are major contemporary branches; Current 'gain acceptance' is attached to a definition that does not cover that meaning."
+    },
+    {
+      "word": "accommodate",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/accommodate",
+      "resolved": true,
+      "finding": "Main modern learner patterns are transitive accommodate sb/sth/needs and reflexive accommodate oneself to conditions; bare intransitive 'accommodate to sth' should not be promoted as an ordinary learner-active pattern."
+    }
+  ],
+  "relation_decisions": [
+    {
+      "relation_id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
+      "decision": "REVISE",
+      "target_truth": "Do not keep the current accent↔emphasis object as a high-value semantic contrast in its present form: source is verb accent, target is noun emphasis, while shared_definition is noun stress/prominence. The object mixes lexical/POS layers and overstates learner value."
+    },
+    {
+      "relation_id": "deep:confusables:accept:09cf96291d1ea0be",
+      "decision": "REVISE",
+      "target_truth": "accept vs except is factually distinct but is an elementary spelling/meaning contrast for this learner; it should not occupy a high-priority main lexical boundary unless later learner evidence demonstrates confusion."
+    },
+    {
+      "relation_id": "deep:semantic_contrast:account:7e6042c5223cc39f",
+      "decision": "REVISE",
+      "target_truth": "Current relation claims account and bill overlap as bills, but its source sense is the Current 'record/account' sense and does not itself encode bill. The relation is semantically misaligned with its source object and should not remain as-is."
+    }
+  ],
+  "decisions": [
+    {"ordinal":1,"word":"a","decision":"PASS"},
+    {"ordinal":2,"word":"abandon","decision":"PASS"},
+    {"ordinal":3,"word":"abdomen","decision":"REVISE","target_truth":"Keep the ordinary body-region sense. 'abdominal pain' is a derivative-form example owned by abdominal/word-family knowledge, not an abdomen-local collocation; do not model the adjective form as if it were a phrase headed by abdomen."},
+    {"ordinal":4,"word":"abide","decision":"REVISE","target_truth":"Keep 'cannot abide sb/sth' = cannot tolerate. Add learner-worthy 'abide by sth' = accept/obey a rule, decision, agreement. Current Core already names 遵守 but Active Knowledge does not realize it."},
+    {"ordinal":5,"word":"ability","decision":"REVISE","target_truth":"Keep the single ability/capacity sense. Normalize productive structure as 'ability to do sth / have the ability to do sth'; current 'to do + sth' pattern notation is malformed learner Knowledge."},
+    {"ordinal":6,"word":"able","decision":"PASS"},
+    {"ordinal":7,"word":"abnormal","decision":"REVISE","target_truth":"Use one main semantic center: different from what is usual/normal/average, often undesirably. Do not maintain 'much greater than normal' as a separate learner-active lexical sense; examples such as abnormal amount/level are compositional uses of the core."},
+    {"ordinal":8,"word":"aboard","decision":"PASS"},
+    {"ordinal":9,"word":"abolish","decision":"PASS"},
+    {"ordinal":10,"word":"abound","decision":"PASS"},
+    {"ordinal":11,"word":"about","decision":"PASS"},
+    {"ordinal":12,"word":"above","decision":"REVISE","target_truth":"Preserve physical, quantitative and textual-order uses, but the Core should compress them as 'higher than a reference point' across space/amount/order instead of omitting the quantitative branch."},
+    {"ordinal":13,"word":"abroad","decision":"PASS"},
+    {"ordinal":14,"word":"abrupt","decision":"REVISE","target_truth":"Preserve sudden/unexpected, brusque manner, and steep/sharp physical applications. Replace list-like Core/Word Feel with the shared idea of an abrupt break/change with little or no gradual transition."},
+    {"ordinal":15,"word":"absence","decision":"REVISE","target_truth":"Preserve absence-from-place/person and lack/nonexistence. Bind 'in the absence of sth' to the lack/without branch (or a construction spanning that branch), not to the simple being-away sense."},
+    {"ordinal":16,"word":"absent","decision":"PASS"},
+    {"ordinal":17,"word":"absolute","decision":"PASS"},
+    {"ordinal":18,"word":"absorb","decision":"REVISE","target_truth":"Preserve the major Current branches. Rebuild Core/Word Feel around taking something into a system/self so it is incorporated, understood, occupied, or borne; current '吸收；吸入' is too physical to organize the legitimate abstract branches."},
+    {"ordinal":19,"word":"abstract","decision":"REVISE","target_truth":"Preserve high-value adjective abstract, noun abstract=summary, and legitimate abstract/extract/summarize verb uses. Reorganize the word into coherent branches rather than using adjective '抽象的' as if it were the semantic center of the summary branch; keep lower-frequency verb use subordinate to the main academic meanings."},
+    {"ordinal":20,"word":"absurd","decision":"PASS"},
+    {"ordinal":21,"word":"abundant","decision":"PASS"},
+    {"ordinal":22,"word":"abuse","decision":"PASS"},
+    {"ordinal":23,"word":"academic","decision":"REVISE","target_truth":"Preserve academic/educational adjective, academic scholar noun, and familiar-new 'merely theoretical/not practical' adjective. Remove semantic duplication where the scholar noun exists both as an Active sense and as secondary_senses. Core must acknowledge the theoretical/not-practical branch instead of reducing the word to education/scholarship."},
+    {"ordinal":24,"word":"academy","decision":"PASS"},
+    {"ordinal":25,"word":"accelerate","decision":"PASS"},
+    {"ordinal":26,"word":"accent","decision":"REVISE","target_truth":"Keep pronunciation/accent, accent mark, and verb emphasize/stress as legitimate branches. Reassess/remove the current accent↔emphasis relation because it mixes verb/noun senses and a noun-stress shared definition, creating an incoherent learner boundary."},
+    {"ordinal":27,"word":"accept","decision":"REVISE","target_truth":"Preserve take/agree, accept as true, and responsibility/difficult-reality uses. Replace the overbroad generic 'tolerate/put up with' branch with the real acceptance-of-an-unpleasant-reality meaning, and ensure high-value institutional/social acceptance is represented. Demote accept↔except from high-priority main confusable knowledge unless learner evidence warrants it."},
+    {"ordinal":28,"word":"acceptance","decision":"REVISE","target_truth":"Represent general approval/recognition/inclusion as a major branch (the meaning in 'gain acceptance'), alongside agreement to an offer/plan and acceptance of difficult reality when learner-worthy. Current 'gain acceptance' is attached to an incompatible 'taking something offered' definition."},
+    {"ordinal":29,"word":"access","decision":"REVISE","target_truth":"Preserve the central 'ability/right/way to reach or use' model and high-value noun/verb uses. Remove exact semantic duplication between Active 'enter/reach' and secondary_senses. Reassess fine-grained computer micro-senses so ordinary access knowledge is not fragmented by dictionary completeness."},
+    {"ordinal":30,"word":"accessory","decision":"PASS"},
+    {"ordinal":31,"word":"accident","decision":"REVISE","target_truth":"Preserve harmful accident and chance/accidental-event branches. Bind 'by accident' to the chance/unintentional branch rather than the injury/damage event branch."},
+    {"ordinal":32,"word":"acclaim","decision":"PASS"},
+    {"ordinal":33,"word":"accommodate","decision":"REVISE","target_truth":"Preserve provide space, meet/fit needs, and adapt/adjust meanings. Do not teach bare intransitive 'accommodate to sth' as an ordinary main pattern; contemporary learner usage favors transitive accommodate and reflexive 'accommodate oneself to'. Re-evaluate the current adapt patterns accordingly."},
+    {"ordinal":34,"word":"accommodation","decision":"REVISE","target_truth":"Preserve lodging and compromise/settlement; retain adaptation/adjustment only at an appropriate recognition level. Core must account for the compromise/adjustment family rather than presenting only 'lodging; adaptation' as an unstructured list."},
+    {"ordinal":35,"word":"accompany","decision":"PASS"},
+    {"ordinal":36,"word":"accomplish","decision":"PASS"},
+    {"ordinal":37,"word":"accord","decision":"REVISE","target_truth":"Preserve agreement/harmony, formal accord, grant/accord sth to sb, accord with, and 'of one's own accord'. Replace list-like '一致或给予' Word Feel with a coherent branch model that distinguishes agreement/conformity from formal granting without pretending they are one simple translation."},
+    {"ordinal":38,"word":"accordance","decision":"PASS"},
+    {"ordinal":39,"word":"accordingly","decision":"PASS"},
+    {"ordinal":40,"word":"account","decision":"REVISE","target_truth":"Keep account for=cause/explanation, account for=share/proportion, noun report/description, and noun account/record. Model 'take sth into account / take account of sth' as a noun construction, not a verb sense of account. Remove duplicate report secondary object. Reassess/remove the current account↔bill relation because it is not aligned to the Current source sense."}
+  ],
+  "calibration_findings": [
+    "Current Natural Owner presence/cutover correctness is not semantic acceptance.",
+    "Missing high-value ordinary branches occur in Current (e.g. abide by).",
+    "Derivative forms can be mis-owned as same-word collocations (abdomen→abdominal pain).",
+    "Dictionary/POS granularity can be mistaken for learner-meaning granularity.",
+    "Exact semantic duplication can exist across Active and secondary/deep layers (academic, access, account).",
+    "Core/Word Feel frequently repeats translation instead of compressing a rich word (abrupt, absorb, accord).",
+    "Current Relation owners can be stale, POS-mismatched, or too low-value even when marked verified/codex_reviewed (accent, account, accept).",
+    "Construction membership/POS can be semantically mis-modeled (take into account as verb sense)."
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Continue Truth-stage review through ordinal 200; do not repair Current owners yet."
+}
