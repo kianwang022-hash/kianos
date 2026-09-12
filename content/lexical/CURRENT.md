@@ -44,9 +44,10 @@ While K is BLOCKED:
 For normal re-entry into the active K lane:
 
 1. `content/lexical/ACCEPTANCE.md`
-2. `content/lexical/audit/knowledge-reacceptance/README.md`
-3. current GitHub Issue #6 / latest exact audit checkpoint
-4. only the exact Natural Owner / Relation / batch evidence required by that checkpoint
+2. current GitHub Issue #6 / latest exact audit checkpoint
+3. only the exact Natural Owner / Relation / batch evidence required by that checkpoint
+
+Read `content/lexical/audit/knowledge-reacceptance/README.md` only when the audit method / K exit rule itself needs inspection; it is not a routine startup read because Acceptance already preserves the current blocker and exit boundary.
 
 Do not read the full 7,946-word corpus or retired continuation/history by default.
 
@@ -82,9 +83,9 @@ Known scope `LexicalOS semantic re-acceptance` should normally recover as:
 ```text
 Lexical CURRENT
 → Lexical ACCEPTANCE
-→ knowledge-reacceptance README / current Issue #6 checkpoint
+→ current Issue #6 checkpoint
 → exact owner(s) under audit
 → work
 ```
 
-Implementation/runtime files are diagnostic reads, not startup reads for K.
+The audit README and implementation/runtime files are diagnostic/method reads, not startup reads for K.
