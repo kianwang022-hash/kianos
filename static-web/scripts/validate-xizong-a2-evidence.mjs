@@ -60,14 +60,21 @@ const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 
-assert(blockGuard.includes("type: 'KP_RECALL'"), 'block-recall-ledger-missing');
-assert(blockGuard.includes('evidenceHistory = [...'), 'block-evidence-history-not-appended');
-assert(blockGuard.includes("['known', 'mastered'].includes(value)"), 'resolved-repair-closure-missing');
-assert(blockGuard.includes('ext.reviewPlan ='), 'resolved-repair-not-removed-from-active-plan');
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-remains-current');
 assert(blockGuard.includes("kp: oldPersonal?.kp || {}"), 'learner-notes-not-preserved-on-version-reset');
+assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-evidence-guard-still-competes-for-recall-writes');
+assert(!blockGuard.includes("[data-review-rating]"), 'block-evidence-guard-still-competes-for-repair-writes');
 assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'block-evidence-guard-not-mounted');
+
+assert(memoryUi.includes("type: 'KP_RECALL'"), 'memory-owner-recall-ledger-missing');
+assert(memoryUi.includes("evidence_origin: 'USER_RECALL_ATTEMPT'"), 'actual-recall-attempt-not-appended');
+assert(memoryUi.includes("evidence_origin: 'BOOTSTRAP_EXISTING_STATE'"), 'legacy-recall-bootstrap-missing');
+assert(memoryUi.includes("type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'"), 'chat-repair-role-regressed');
+assert(memoryUi.includes("['known', 'mastered'].includes(value)"), 'resolved-repair-closure-missing');
+assert(memoryUi.includes('ext.reviewPlan ='), 'resolved-repair-not-removed-by-evidence-owner');
+assert(memoryUi.includes("memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating'"), 'memory-semantics-regressed');
+assert(memoryUi.includes("mastery: 'requires later meaningful fresh Recall/transfer evidence"), 'mastery-closure-too-weak');
 
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
@@ -77,9 +84,6 @@ assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-repai
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-question-results-remain-current');
 assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'system-evidence-guard-not-mounted');
 
-assert(memoryUi.includes("evidence_role: 'REPAIR_ONLY'"), 'chat-repair-role-regressed');
-assert(memoryUi.includes("memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating'"), 'memory-semantics-regressed');
-assert(memoryUi.includes("mastery: 'requires later meaningful fresh Recall/transfer evidence"), 'mastery-closure-too-weak');
 assert(repairReturn.includes('const sweepState = () => readJson'), 'system-repair-return-does-not-read-private-wu');
 assert(!repairReturn.includes('localStorage.setItem("content/'), 'private-evidence-writing-shared-content');
 
@@ -89,8 +93,8 @@ console.log([
   `Blocks=${system.blocks.length}`,
   `Questions=${sweep.questionCount}`,
   'Memory=selective+stable-exit',
-  'RecallHistory=repeated-attempts-preserved',
-  'ChatRepair=repair-only+queue-closure',
+  'RecallHistory=single-owner+repeated-attempts-preserved',
+  'ChatRepair=repair-only+single-owner-queue-closure',
   'SystemRecall=pre/mid/post-distinct',
   'StaleEvidence=archive+fail-closed',
   'LearnerState=browser-private',
