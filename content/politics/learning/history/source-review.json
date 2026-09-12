@@ -2,11 +2,16 @@
   "schema": "kianos.politics.history_source_review.v1",
   "status": "CURRENT_REVIEW_COMPLETE",
   "scope": "HISTORY_CH01_TO_CH10",
+  "review_snapshot": {
+    "node_registry_canonical_row_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "semantic_review_blob_sha": "6d236a627495a1e6b696d80162d444568c74fef2",
+    "rule": "This disposition is valid only while the Current node-shard manifest retains the same canonical row digest. Any Source change reopens compact review instead of silently inheriting an old approval."
+  },
   "review_rule": "Record reviewed Source/Knowledge dispositions without rewriting canonical OCR truth. Chengfeng remains the learner mainline. Suyi is background cross-check only; admit a delta only when it adds stable stage, turning-point, causal, evaluation or historical-position value missing from Current.",
   "root_ocr_review": {
     "status": "COMPLETE",
     "decision": "NO_BLOCKING_NATURAL_UNIT_OWNER_GAP_FOUND",
-    "boundary": "Observed source_bound_ocr_needs_review rows in the History scan are local child table/item/example OCR or layout defects. They do not make a declared Natural Unit owner unresolved and do not justify manufacturing whole-subject Source debt. Any future root-owner exception not covered by this review must re-enter the compact queue.",
+    "boundary": "Observed source_bound_ocr_needs_review rows in the History scan are local child table/item/example OCR or layout defects. They do not make a declared Natural Unit owner unresolved and do not justify manufacturing whole-subject Source debt. Any future Source snapshot change reopens the compact queue.",
     "examples_reviewed": [
       "C01 local invasion-example OCR fragments",
       "C02 Taiping timeline/table and reform-detail fragments",
