@@ -1,96 +1,14 @@
 {
-  "schema": "kianos.politics.continuation.v1",
-  "status": "CURRENT",
-  "lane": "politics_content_to_interaction",
-  "mainline": "Close Politics by subject. Keep Chengfeng as the only continuous first-round learner mainline, absorb useful Suyi delta without creating a second course, use Xiao1000 only at formal first-ready timing, and reuse the K03 zero-debt Repair/Return model where the subject evidence supports it.",
-  "completed": [
-    "Politics learning contract frozen",
-    "Suyi downgraded from learner-required material to Chat background framework reference",
-    "Chengfeng preserved as the only continuous first-round mainline",
-    "Xiao1000 preserved as validation rather than ordering authority",
-    "Marxism Chapters 1-8 teaching projections completed with relation/reasoning/mechanism shape",
-    "History Chapters 1-10 plus subject map completed with chronology/stage/turning-point/cause/evaluation shape",
-    "Mao C00-C08 plus subject map completed with historical-problem-to-theory-response and positioning/boundary shape",
-    "Xi/New Thought C00-C17 plus subject map completed with hierarchy/role/goal/principle/path and formulation-boundary shape",
-    "Ethics/Law C00-C06 plus subject map completed with concept-boundary/normative-judgment/situational-application shape",
-    "Cross-subject interaction contract frozen",
-    "Politics Astro entry added to primary KianOS navigation/home",
-    "Politics subject/chapter index generalized across all five subjects",
-    "Generic chapter runtime added: orientation → Chengfeng source → short closure → Xiao1000 → minimal repair → chapter compression",
-    "KianOS shared-lane Continue capability added to Politics: last opened chapter stays private in browser state and Politics home resumes it without writing personal progress into shared Current",
-    "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat",
-    "Marxism K03 pilot accepted at S/K/L/P/R/E PASS with U UNTESTED",
-    "Politics Xiao1000 source truth losslessly materialized as 1172 records across 56 deterministic shards with canonical digest parity",
-    "Politics source-node truth losslessly materialized as 19528 records across 302 deterministic scoped shards with canonical digest parity",
-    "Politics Current runtime cut over to deterministic scoped question/node readers; the 5.97 MB Xiao bank and 21.4 MB node registry are no longer normal runtime dependencies",
-    "K03 formal first-ready timing separated 11 immediate questions from 4 deferred questions, then closed zero-debt first-attempt/Repair/Unit Return semantics",
-    "Marxism batch content audit added so normal units can batch-pass candidate screening and only real blockers/P0/P1 exceptions require manual reading",
-    "Marxism ch00-ch08 canonical semantic requirements manually compared against Current teaching projections; no broad rewrite was needed",
-    "C01-S01 genuine P0 Knowledge gap repaired: dialectics vs metaphysics restored as the third judgment axis beside materialism/idealism and knowability",
-    "C06-S01 genuine P0 Knowledge gap repaired: monopoly profit restored as a mechanism linking monopoly position, surplus-value source, monopoly-price realization and the continuing validity of the law of value",
-    "C03/C04/C05/C07/C08 and the non-K03 C02 semantic mainline showed no same-level missing relation/boundary in this pass and were left unchanged rather than stylistically rewritten",
-    "Marxism global formal-first-ready derivation added from Current Natural Unit order plus canonical region question ownership, eliminating chapter-local early leakage as the intended Current runtime rule",
-    "Marxism first-ready acceptance gate added against the frozen formal projection: 22 Natural Units, 396 unique questions, exact per-unit counts, exact K03 11-question set and named cross-unit/cross-chapter deferrals"
-  ],
-  "accepted_pilot": {
-    "module": "POL27-CF-MARX-C02-K03",
-    "status": "MODULE_READY_FOR_LEARNER_TEST",
-    "gates": {"S":"PASS","K":"PASS","L":"PASS","P":"PASS","R":"PASS","E":"PASS","U":"UNTESTED"},
-    "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Marxism."
+  "schema": "kianos.politics.continuation.retired.v1",
+  "status": "RETIRED",
+  "authority": "NONE",
+  "reason": "Politics Work Cursor moved to content/politics/CURRENT.md and Acceptance Truth moved to content/politics/ACCEPTANCE.md. The predecessor continuation mixed completed Artifact history, K03 acceptance, whole-Marxism pending gates, CI infrastructure notes, and current next action.",
+  "normal_read": false,
+  "replacements": {
+    "work_cursor": "content/politics/CURRENT.md",
+    "acceptance_truth": "content/politics/ACCEPTANCE.md",
+    "learning_contract": "content/politics/LEARNING_CONTRACT.md",
+    "interaction_contract": "content/politics/INTERACTION_CONTRACT.md"
   },
-  "current_stage": "MARXISM_BATCH_ACCEPTANCE",
-  "current_subject": "MARXISM_ALL_CHAPTERS",
-  "acceptance_target": "Close Marxism as the first whole Politics subject. Existing teaching assets are the baseline, not a rewrite target. Accept Source/Knowledge only after the named OCR/Suyi exception debt is checked and the batch gate actually executes; accept Learning/Projection only after the 22-unit/396-question global first-ready parity gate executes on current main. Then generalize the K03 Runtime/Evidence contract without hand-coding every unit.",
-  "batch_acceptance": {
-    "scope": "MARXISM_CH00_TO_CH08_WITH_K03_ACCEPTED_PILOT",
-    "S": "IN_PROGRESS_NAMED_SOURCE_REVIEW_DEBT_REMAINS",
-    "K": "MANUAL_SEMANTIC_SCAN_COMPLETE_TWO_GAPS_FIXED_AUTOMATED_GATE_PENDING",
-    "L": "GLOBAL_FIRST_READY_RULE_IMPLEMENTED_PARITY_GATE_PENDING",
-    "P": "GLOBAL_FIRST_READY_RUNTIME_CUTOVER_IMPLEMENTED_PARITY_GATE_PENDING",
-    "R": "COMMON_RUNTIME_EXISTS_NOT_YET_WHOLE_SUBJECT_ACCEPTED",
-    "E": "K03_MODEL_EXISTS_NOT_YET_WHOLE_SUBJECT_ACCEPTED",
-    "U": "NOT_REQUIRED_FOR_ENGINEERING_BATCH_PROGRESS"
-  },
-  "source_architecture_target": {
-    "reference_pattern": "Follow the mature Xizong Question Truth pattern: immutable stable IDs, deterministic scoped shards, manifest/provenance separation, and no global repository search or full-bank scan for exact-ID consumption.",
-    "politics_adaptation": "Politics now uses deterministic subject/kind/25-number shards for Xiao source records and source/subject/chapter-or-page shards for source nodes. The large monoliths remain migration/recovery inputs during parity protection but are not Current learner-runtime APIs.",
-    "migration_status": "CURRENT_RUNTIME_CUTOVER_COMPLETE_K03_BEHAVIORALLY_PROVEN",
-    "resolved_debt": [
-      "1172/1172 Xiao source records preserved, including material records, across 56 shards with canonical digest parity",
-      "19528/19528 source-node records preserved across 302 shards with canonical digest parity",
-      "Current Politics runtime resolves exact questions and source owners from scoped shards rather than scanning 5.97 MB / 21.4 MB monoliths",
-      "question truth, semantic routing, explanations/provenance and private learner evidence remain distinct ownership layers"
-    ],
-    "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision."
-  },
-  "current_blocking_infrastructure_note": "Recent Static Web Politics QA runs are failing before runner allocation with steps=[] and runner_id=0. Treat this as CI infrastructure/no-start, not as a Politics acceptance result. Do not mark pending gates PASS until their dedicated steps actually execute.",
-  "next": "Continue without repository archaeology: inspect only remaining named P0/P1 Suyi/source-review exceptions while waiting for a runnable CI slot. When CI executes, require both Marxism batch content audit and Marxism global first-ready parity to pass. Then extend K03 private first-attempt → zero-debt stable / Wrong-Uncertain repair → Unit Return semantics across the 22 Marxism Natural Units using generated ownership rather than per-unit hard-coding.",
-  "validation_focus": [
-    "Do any remaining P0/P1 Marxism source/Suyi exceptions add stable teaching value not already represented in Current?",
-    "Does the global last-necessary-owner rule reproduce all 22 frozen formal first-ready counts totaling 396 unique Marxism questions?",
-    "Do known deferrals such as M029/M035/M046/M074 and cross-chapter M054/M011 remain withheld until their sufficient later Unit?",
-    "Does K03 remain exactly 11 first-ready questions after the global cutover?",
-    "Can the K03 zero-debt first-attempt/Repair/Unit Return semantics be reused generically without inventing learner mastery?"
-  ],
-  "working_preferences": [
-    "Content quality has priority over UI polish.",
-    "Advance a meaningful batch before reporting; do not stop after every chapter unless a real semantic decision is needed.",
-    "Normal items should be batch-pass candidates; manually read only blockers and compact P0/P1 exception queues.",
-    "Keep learner-facing explanation plain and concise; hide engineering detail unless requested.",
-    "Backend content may be rich, but learner interaction must stay low-friction and high-quality.",
-    "For small scoped tasks, retrieve and modify only the minimum authoritative evidence required; do not expand into repository-wide archaeology without a blocking reason."
-  ],
-  "do_not_reopen": [
-    "Do not make Suyi a second course or require the learner to read it separately by default.",
-    "Do not create a second AI Politics textbook that duplicates Chengfeng.",
-    "Do not let Xiao1000 question order replace the Chengfeng learning order.",
-    "Do not force different Politics subjects into one internal teaching template.",
-    "Do not turn first-round learning into indiscriminate fixed-formulation memorization.",
-    "Do not let Astro component convenience reshape canonical content semantics.",
-    "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
-    "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
-    "Do not make K03 real-user U a prerequisite for engineering progress on other Marxism units.",
-    "Do not call the whole Marxism learner-ready merely because K03 passed or chapter projections exist.",
-    "Do not interpret a no-run CI job as either PASS or a content/runtime failure."
-  ]
+  "rule": "Do not use this file for normal Politics continuation, acceptance, product truth, or learner state. Git history preserves the retired narrative for explicitly bounded historical audit only."
 }
