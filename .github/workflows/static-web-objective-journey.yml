@@ -131,6 +131,15 @@ jobs:
         env:
           OBJECTIVE_JOURNEY_BATCH: shared
         run: node scripts/run-objective-journey.mjs
+      - name: Preserve shared closure evidence
+        run: cp objective-audit/journey.json objective-audit/journey-shared.json
+      - name: Seal Reading A and Reading B task-page integration
+        working-directory: static-web
+        env:
+          OBJECTIVE_JOURNEY_BATCH: task-smoke
+        run: node scripts/run-objective-journey.mjs
+      - name: Preserve task integration evidence
+        run: cp objective-audit/journey.json objective-audit/journey-task-smoke.json
       - name: Exercise all real Reading B forms
         working-directory: static-web
         run: node scripts/test-reading-b-forms.mjs
