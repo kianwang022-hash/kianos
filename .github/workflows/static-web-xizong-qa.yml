@@ -84,3 +84,10 @@ jobs:
         run: npm run build
       - name: Run Xizong browser adversarial QA
         run: npm run test:xizong:e2e
+      - name: Upload browser QA diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-browser-qa-diagnostics
+          path: static-web/test-results
+          if-no-files-found: ignore
