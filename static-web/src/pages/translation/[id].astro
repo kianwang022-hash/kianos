@@ -40,4 +40,24 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   <TranslationWorkspace translation={translation} reference={reference} />
   <TranslationEvidenceGuard />
   <TranslationReferenceLoader referenceUrl={referenceUrl} />
+
+  <script>
+    // Projection guard: pending transfer labels are useful only after the
+    // current task's complete first attempt is frozen. Revealing them during
+    // Clean Attempt would cue the very demand that fresh evidence should test.
+    const root = document.querySelector('[data-translation-runtime]');
+    if (root instanceof HTMLElement) {
+      const attempt = root.querySelector('[data-stage="attempt"]');
+      const pending = root.querySelector('[data-pending-panel]');
+      if (attempt instanceof HTMLElement && pending instanceof HTMLElement) {
+        const protectCleanAttempt = () => {
+          if (!attempt.hidden && !pending.hidden) pending.hidden = true;
+        };
+        const observer = new MutationObserver(protectCleanAttempt);
+        observer.observe(attempt, { attributes: true, attributeFilter: ['hidden'] });
+        observer.observe(pending, { attributes: true, attributeFilter: ['hidden'] });
+        protectCleanAttempt();
+      }
+    }
+  </script>
 </Base>
