@@ -1,6 +1,6 @@
 # English Writing Acceptance
 
-Status: CURRENT on governance pilot branch
+Status: CURRENT
 Scope: English Writing learner-facing module
 Standard: root `LEARNING_ACCEPTANCE.md`
 
@@ -15,7 +15,7 @@ It does not own Writing content, runtime semantics, Work Cursor, or private lear
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
 | S — Source | PASS | Current writing source boundary is 49 stable complete-essay prompts: Small Writing 2005–2026 (22) + Big Writing 2000–2026 (27); Current source owner `content/english/source/question_bank.v1.json`; source validation `static-web/scripts/validate-writing-source.mjs`. |
-| K — Knowledge | PASS | Current accepted Writing knowledge/capability owner is `content/english/modules/writing/learning.md`; no current Knowledge blocker is recorded in the migrated English Current state. |
+| K — Knowledge | PASS | Current accepted Writing knowledge/capability owner is `content/english/modules/writing/learning.md`; no current Knowledge blocker is recorded. |
 | L — Learning | PASS | Writing remains an independent Productive lane using one complete essay as the learner-facing unit; learning semantics are owned by `content/english/LEARNING_CONTRACT.md` + `content/english/modules/writing/learning.md`. |
 | P — Projection | PASS | Accepted projection: Global Map → B1–B8 continuous/skippable route → synthetic output before protected true exams; projection validator `static-web/scripts/validate-writing-learning.mjs`. |
 | R — Runtime | PASS | Whole-essay runtime exists through `static-web/src/components/WritingWorkspace.astro` + `static-web/src/lib/writingRuntimeModel.mjs`; accepted path includes first evidence → whole-essay Chat judgment → PASS or smallest repair → learner re-generation → repair check / TRANSFER_PENDING. Runtime validator: `static-web/scripts/validate-writing-runtime.mjs`. |
@@ -67,11 +67,3 @@ Read actual owners/implementation, including:
 Private Writing attempt/repair/transfer state belongs to learner-local/runtime-private state.
 
 This Acceptance file does not claim that Kian has started, attempted, repaired, or transferred Writing merely because the module/runtime exists.
-
----
-
-## Migration note
-
-The gate positions above were extracted from the previously combined English `continuation.json` Current state on this governance branch so that Acceptance Truth no longer depends on a narrative Work Cursor.
-
-This is a governance ownership migration only. It does not change Writing learning semantics, source facts, runtime behavior, or Kian's learner state.
