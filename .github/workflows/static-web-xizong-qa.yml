@@ -70,5 +70,7 @@ jobs:
         run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Validate A3 runtime contracts
         run: node scripts/validate-xizong-a3-runtime.mjs
+      - name: Validate A3 evidence contracts
+        run: node scripts/validate-xizong-a3-evidence.mjs
       - name: Build Astro
         run: npm run build
