@@ -42,103 +42,42 @@ These are not automatically the same.
 
 ---
 
-## Independent re-acceptance directive｜anti-cocoon audit
+## Independent re-acceptance directive｜anti-cocoon
 
-This is a **user-requested re-acceptance instruction**, not a new eighth gate and not an automatic revocation of existing PASS claims.
+When Kian asks to **重新验收 / fresh acceptance / independent audit**, use this directive for the requested System. It does not add an eighth gate or automatically revoke existing PASS claims.
 
-Purpose:
+**Anti-anchoring:** old scoped `CURRENT.md` / `ACCEPTANCE.md` / PR summaries / green validators are claims and prior evidence, not the first-pass answer key. A fresh auditor should first inspect actual Source/Core/learning/runtime owners plus inherited contracts, form a provisional S–E verdict, expected model/route, negative-space check and strongest failure hypotheses, and only then read the old Acceptance to reconcile deltas. A builder Chat remains `SELF` evidence even if it later reviews its own work critically.
 
-> prevent a self-confirming loop in which the same implementation / validator / Acceptance chain defines the expected answer and then proves itself internally consistent without enough independent challenge.
-
-When Kian asks to **重新验收 / independent audit / fresh acceptance** for an Xizong System, apply this directive to that System independently. A1/A2/A3 may be re-audited in parallel; this parent router must not serialize them.
-
-### Anti-anchoring entry
-
-For the first-pass audit:
-
-1. use this lane `CURRENT.md` only to route to the target System and identify inherited Xizong owners;
-2. resolve the target's actual Source / medical Core / learning-support / runtime owners;
-3. treat the target System's existing `CURRENT.md`, `ACCEPTANCE.md`, prior PR summaries and old PASS language as **claims to be tested, not evidence**;
-4. if the local `CURRENT.md` must be read for paths, ignore its verdict/status prose as proof;
-5. before using the old scoped `ACCEPTANCE.md` to reconcile history, form a provisional S–E judgment from actual artifacts, inherited contracts and independent evidence;
-6. only then read the old Acceptance and explain agreement/delta explicitly.
-
-The auditor should be a **fresh Chat / fresh auditor when practical**. A builder Chat that designed or repaired the same gate is `SELF` evidence, not independent review merely because it changes tone and says it is being critical.
-
-### Evidence declaration
-
-Every re-accepted gate must state the evidence actually supporting it. Do not collapse these into one score.
-
-Evidence modes:
+For every re-accepted gate, name the evidence rather than reporting a naked PASS:
 
 ```text
-STRUCTURAL   schema / identity / static source inspection / contract presence
-EXECUTED     the claimed behavior was actually executed through the relevant path
-ADVERSARIAL  deliberate negative / edge / mutation / contradiction challenge survived
-REAL_USE     Kian actually used the path
-TRANSFER     later fresh / unseen evidence survived across time/context
+Evidence mode: STRUCTURAL / EXECUTED / ADVERSARIAL / REAL_USE / TRANSFER
+Independence:  SELF / FRESH_AUDITOR / AUTHORITATIVE_EXTERNAL / REAL_USER
 ```
 
-Independence labels:
+`REAL_USE` / `TRANSFER` cannot be simulated and remain U / later real-evidence territory. If a material R/E claim has only `SELF + STRUCTURAL` evidence, independent re-acceptance is incomplete.
+
+Minimum falsification floor:
+
+- **S/K:** independently challenge provenance/completeness and inspect **negative space**; do not derive completeness only from current counts, hashes, KP taxonomy or question mappings.
+- **L:** generate at least one plausible alternative learner route/surface allocation and challenge why the accepted route is better for Kian.
+- **P:** inspect material learner-facing behavior/rendering where practical; source-string presence alone is structural evidence.
+- **R:** execute material state transitions under realistic browser/private state.
+- **E:** adversarially test overwrite/stale state, repeated evidence, root-cause vs cascade debt, repair≠mastery, holdout/fresh protection and return/handoff; critical validators should prove detection power with a targeted negative/mutation case.
+- **U:** real Kian use only.
+
+Xizong-specific challenge focus: independently reconstruct the expected medical/concept map; look for Source + Question Truth blind spots shared by current taxonomy; challenge System→Block→Logic Group→KP causality versus teacher/file/question order; re-test `iPad / MarginNote original Lecture = external-primary` versus accidental second-textbook behavior in Astro; black-box Recall/completion/holdout/W-U repair/version-invalidation paths.
+
+Required re-audit output per gate:
 
 ```text
-SELF                    builder / same reasoning chain
-FRESH_AUDITOR           fresh audit not anchored to the old verdict
-AUTHORITATIVE_EXTERNAL  independent authoritative source / benchmark where applicable
-REAL_USER               Kian's observed real use
-```
-
-`REAL_USE` / `TRANSFER` cannot be simulated by CI or another model and remain U / later real-evidence territory.
-
-### Minimum challenge floor by gate
-
-- **S:** count/hash/schema is not enough by itself. Independently sample provenance, omissions, boundary cases and protected/fresh material; ask whether Source and current taxonomy could be jointly missing the same area.
-- **K:** construct an expected high-value concept/mechanism map before using the current Core as the answer key; explicitly inspect **negative space** — what should exist but is absent. Use authoritative medical/exam evidence when the Current source boundary cannot independently settle the question.
-- **L:** generate at least one plausible alternative learner route/surface allocation and ask why the accepted route is better for Kian. Re-test `iPad / MarginNote original Lecture = external-primary` versus KianOS companion behavior rather than inheriting it from existing Astro implementation.
-- **P:** material learner-facing claims require inspection of the rendered/interactive surface where practical. Static string/component presence alone is STRUCTURAL evidence, not full Projection behavior evidence.
-- **R:** execute material state transitions under realistic private/browser state. Static `includes(...)` checks may guard contracts but cannot alone establish Runtime PASS.
-- **E:** adversarially test overwrite, stale-version invalidation, repeated evidence, root-cause/cascade debt, repair≠mastery, fresh/holdout protection and cross-tab/state handoff. Critical guards should demonstrate that at least one targeted mutation/negative case would actually turn the acceptance red.
-- **U:** real learner use only; never upgraded by synthetic audit.
-
-### Falsification rule
-
-For each material PASS, the auditor must answer:
-
-> **What is the strongest realistic way this claim could be false even though the current validators are green?**
-
-Then test the highest-value challenge that can materially change the verdict.
-
-Old validators are evidence, not Acceptance Truth. A validator proving that source text contains its expected strings proves a structural contract; it does not prove the composed behavior unless the behavior is independently executed/challenged.
-
-If only `SELF + STRUCTURAL` evidence exists for a material R/E claim, do **not** call the independent re-acceptance complete. Gather executed/adversarial evidence or leave the independent audit explicitly incomplete.
-
-If the audit finds a real defect, reopen only the **earliest responsible gate/object** and freeze only its dependent chain. Do not reopen unrelated Systems for symmetry.
-
-### Xizong-specific challenge focus
-
-For A1/A2/A3, prioritize:
-
-- independent medical/concept negative-space checks rather than deriving completeness only from current KP/question inventories;
-- Question Truth / Source scope omissions that current mappings could fail to reveal because both sides share the same blind spot;
-- causal System→Block→Logic Group→KP learning structure versus teacher/file/question order;
-- external-primary Lecture ownership, cross-device return friction and accidental second-textbook behavior in Astro;
-- real browser/state behavior for Recall, completion, holdout, W/U repair, stale-version invalidation and evidence preservation;
-- mutation tests for critical Runtime/Evidence guards so green CI demonstrates detection power, not just conformance to current strings.
-
-### Required re-acceptance output
-
-The re-audit should report, per gate:
-
-```text
-previous claim
-independent provisional verdict
-Evidence modes
-Independence labels
+previous claim → independent provisional verdict
+Evidence mode + Independence
 strongest falsification attempted
 material delta / blocker / debt
 ```
 
-Do not create a second permanent acceptance system. When a re-audit is complete, update the target System's existing `ACCEPTANCE.md` / `CURRENT.md` only if the evidence actually changes its claim or next action.
+If a real defect appears, reopen only the earliest responsible gate/object and freeze only its dependent chain. Do not create a second permanent acceptance system.
 
 ---
 
@@ -187,7 +126,7 @@ Private learner/browser/conversation evidence only. System readiness or lane Wor
 
 ## Fresh-Chat routing
 
-Known A1/A2/A3 ordinary continuation:
+Known A1/A2/A3 — ordinary continuation:
 
 ```text
 requested System CURRENT
@@ -196,14 +135,13 @@ requested System CURRENT
 → work
 ```
 
-Known A1/A2/A3 **independent re-acceptance**:
+Known A1/A2/A3 — independent re-acceptance:
 
 ```text
 Xizong CURRENT anti-cocoon directive
-→ target System actual owners + inherited contracts
+→ target actual owners + inherited contracts
 → provisional S–E challenge verdict
 → only then old scoped ACCEPTANCE for reconciliation
-→ update narrow owner only if evidence changes the claim
 ```
 
 Xizong lane known but exact System not yet resolved:
