@@ -9,9 +9,9 @@ This file does not own medical Core, lane learning semantics, scoped Acceptance 
 
 ## Lane Work Cursor
 
-**Active child scope:** A2 Respiratory  
-**Blocker:** none at lane-routing level; A2 owns its own unresolved K blocker  
-**Next action:** route current work directly to `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md`.
+**Active lane-level scope:** none — router-only baseline  
+**Blocker:** none at lane-routing level  
+**Next action:** route work directly to the requested independently continued System `CURRENT.md`. Do not appoint one System as Xizong's global active child merely because it was worked on most recently.
 
 Current independently continued Systems:
 
@@ -21,6 +21,23 @@ Current independently continued Systems:
 | A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md` | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
 
 A1/A2 current stages and gate claims belong only to those local owners. Do not copy their detailed state back into this lane router.
+
+A1 and A2 may be worked on concurrently when their current tasks are independent. If a future shared Xizong owner/runtime creates a real dependency, name that dependency explicitly and coordinate only the affected scopes.
+
+Hard scheduling boundary:
+
+```text
+System hierarchy
+= ownership / learning-domain structure
+
+System construction dependency
+= whether one System's current artifact/decision is required by another
+
+Kian learner order
+= the sequence Kian should actually study
+```
+
+These are not automatically the same.
 
 ---
 
@@ -39,6 +56,8 @@ Until then, those Systems remain canonical medical/learning objects under the la
 
 Do not create System-level `LEARNING_CONTRACT.md` files merely for symmetry. Lane cognition remains owned by `content/xizong/LEARNING_CONTRACT.md`; System-specific learner order/closure remains in justified `*-learning.json` support.
 
+Learner order in those owners does not automatically serialize engineering/construction work across Systems.
+
 ---
 
 ## Stable lane owners
@@ -56,6 +75,8 @@ Do not create System-level `LEARNING_CONTRACT.md` files merely for symmetry. Lan
 ### Lane Acceptance
 
 `content/xizong/ACCEPTANCE.md` owns only genuine Xizong-wide integration/readiness claims. A1/A2 readiness belongs to their local Acceptance owners.
+
+A lane-wide integration claim may depend on multiple Systems, but that does not turn the parent lane into a serial scheduler for child construction.
 
 ### Learner Truth
 
@@ -87,10 +108,12 @@ Xizong lane known but exact System not yet resolved:
 
 ```text
 Xizong CURRENT
-→ choose independently continued System when applicable
+→ choose requested independently continued System when applicable
 → local CURRENT
 → exact required owner(s)
 ```
+
+Multiple System Chats may use these local paths concurrently. Each System advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
 
 Read the lane Learning Contract only when the task actually concerns Xizong cognition, learner order, phase linkage or System/Block/KP learning boundaries.
 
