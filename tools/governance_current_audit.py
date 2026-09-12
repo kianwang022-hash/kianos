@@ -22,8 +22,12 @@ CURRENT_PATHS = [
     "content/english/modules/translation/CURRENT.md",
     "content/english/modules/writing/CURRENT.md",
     "content/xizong/CURRENT.md",
+    "content/xizong/knowledge/systems/a1-circulation/CURRENT.md",
+    "content/xizong/knowledge/systems/a2-respiratory/CURRENT.md",
     "content/lexical/CURRENT.md",
     "content/politics/CURRENT.md",
+    "content/politics/learning/marxism/CURRENT.md",
+    "content/politics/learning/history/CURRENT.md",
 ]
 
 ACCEPTANCE_PATHS = [
@@ -32,8 +36,12 @@ ACCEPTANCE_PATHS = [
     "content/english/modules/translation/ACCEPTANCE.md",
     "content/english/modules/writing/ACCEPTANCE.md",
     "content/xizong/ACCEPTANCE.md",
+    "content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md",
+    "content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md",
     "content/lexical/ACCEPTANCE.md",
     "content/politics/ACCEPTANCE.md",
+    "content/politics/learning/marxism/ACCEPTANCE.md",
+    "content/politics/learning/history/ACCEPTANCE.md",
 ]
 
 RETIRED_JSON_PATHS = [
