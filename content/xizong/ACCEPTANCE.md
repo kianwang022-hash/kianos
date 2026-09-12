@@ -18,6 +18,7 @@ Current independently continued Systems own their own readiness evidence:
 | --- | --- | --- |
 | A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` | S–E PASS; U UNTESTED by real learner path |
 | A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` | S–E PASS; Module ready for learner test; U UNTESTED by real learner path |
+| A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` | S BLOCKED on exact 243-question scope recovery; System-level K and downstream gates UNTESTED |
 
 The table is routing only. The local files are the canonical evidence ledgers and must not be synchronized by copying their detailed evidence here.
 
@@ -55,6 +56,7 @@ Read the narrowest independent System owner first:
 
 - A1 → `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md`
 - A2 → `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md`
+- A3 → `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md`
 
 ### Learner Truth
 
