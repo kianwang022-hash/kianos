@@ -1,67 +1,92 @@
 {
   "schema": "kianos.xizong.canonical_repair_spec.v1",
-  "status": "READY_TO_APPLY",
+  "status": "APPLIED",
   "authority": "CHAT_APPROVED_REPAIR_SPEC",
   "system_id": "urinary",
   "batch": "A3-K-BATCH-03",
-  "rule": "Apply narrowly to B9-B11 natural owners. Preserve all stable Block/KP ids and exam-relevant traditional LM/IF/EM tables. The goal is to separate clinical syndrome, morphology pattern, immune pattern and etiologic disease—not to replace the 306 pathology syllabus with a modern nephrology taxonomy.",
+  "rule": "Applied narrowly to B9-B11 natural owners. Stable Block/KP ids and exam-relevant traditional LM/IF/EM tables were preserved. The repair separates clinical syndrome, morphology pattern, immune pattern and etiologic disease without replacing the 306 pathology syllabus with a modern nephrology taxonomy.",
+  "applied_commits": {
+    "urinary-b09": "d375befaf2f3cc1c535aba0d95e19e084d5cd2a7",
+    "urinary-b10": "70a08a509a289a2aebc7f1a243b20752af9aa116",
+    "urinary-b11": "a575e8a85ec98feb8e07ac24fc67c324bbe8df02"
+  },
   "repairs": [
     {
       "id": "A3-B09-ONTOLOGY01",
-      "target": "urinary-b09 pathology-coordinate entry / traditional five-pathology comparison",
-      "insert_or_replace_semantic_core": [
-        "先把双坐标写成两个独立问题：临床坐标回答‘病人表现成什么综合征’，病理坐标回答‘LM/IF/EM看见什么损伤模式’。两者需要互相映射，但任何一边都不能单独等于病因诊断。",
-        "306传统五病理类型继续作为考试识别索引保留。MCD、膜性有相对稳定的经典形态身份；系膜增生、MPGN/系膜毛细血管性和FSGS尤其要理解为形态/损伤模式，可以由不同病因或机制产生。",
-        "因此学习顺序是：临床综合征 → LM模式 → IF免疫模式 → EM沉积/足突位置 → 病因/疾病实体。不要从‘看到双轨/系膜增生/节段硬化’一步跳到唯一病因。",
-        "这条边界不是让第一轮记现代所有病因分类，而是为了以后遇到继发性/免疫/遗传病因时不必推翻已学的病理形态。"
-      ]
+      "target": "urinary-b09 pathology-coordinate entry / traditional pathology comparison",
+      "applied": [
+        "Clinical syndrome and LM/IF/EM damage pattern are separate coordinates; neither pattern alone equals final etiology.",
+        "Traditional 306 pathology labels remain as exam recognition indices.",
+        "Mesangial proliferative, MPGN and FSGS are explicitly pattern-first and require etiologic context."
+      ],
+      "status": "APPLIED"
     },
     {
       "id": "A3-B09-RELATION01",
-      "target": "urinary-b09 deposit-location / nephritic-vs-nephrotic relation section",
-      "insert_or_replace_semantic_core": [
-        "沉积位置可以提供高价值倾向，而不是确定性函数。内皮下/毛细血管腔侧的免疫炎症更容易直接招募炎细胞、扰乱GFR并表现为肾炎性血尿；上皮下/足细胞侧损伤更容易以屏障通透性和大量蛋白尿突出。",
-        "但同一疾病可随严重度/阶段同时出现血尿、蛋白尿、肾功能下降甚至新月体；临床综合征与病理类型本来就是双坐标，不允许把‘位置=唯一综合征’写成硬表。"
-      ]
+      "target": "urinary-b09 deposit-location / nephritic-vs-nephrotic relation",
+      "applied": [
+        "Subendothelial/endocapillary injury is retained as an inflammatory/nephritic tendency and subepithelial/podocyte injury as a heavy-proteinuria tendency.",
+        "Deposit location is not encoded as a deterministic syndrome or etiology lookup."
+      ],
+      "status": "APPLIED"
     },
     {
       "id": "A3-B10-SC01",
       "target": "urinary-b10 RPGN type-III / pauci-immune section",
-      "replace_semantic_core_with": [
-        "RPGN III型的形态身份是 pauci-immune crescentic GN：IF几乎看不到或只有很少免疫球蛋白/补体沉积。",
-        "它常与ANCA相关小血管炎相连，因此306看到ANCA阳性 + pauci-immune + 新月体要高度匹配III型；但ANCA阴性的pauci-immune GN确实存在，所以‘ANCA阳性’是高价值病因证据，不是pauci-immune定义本身的必要条件。",
-        "第一轮继续保留三型压缩：I型 anti-GBM / linear；II型 immune-complex / granular；III型 pauci-immune / often ANCA-associated。完整血管炎疾病谱后置免疫系统。"
-      ]
+      "applied": [
+        "RPGN III identity is pauci-immune crescentic GN: IF sparse/negative and no typical dense deposits.",
+        "ANCA association remains high-yield but ANCA positivity is not required by the pauci-immune definition.",
+        "The 306 I anti-GBM/linear, II immune-complex/granular, III pauci-immune/often-ANCA triad is preserved."
+      ],
+      "status": "APPLIED"
     },
     {
       "id": "A3-B10-SC02",
       "target": "urinary-b10 IgA nephropathy pathology section",
-      "replace_semantic_core_with": [
-        "IgA肾病最稳定的病理身份锚点是IF：系膜区IgA优势或共优势沉积；EM常见系膜/旁系膜电子致密物。",
-        "LM常见系膜细胞/基质增生，是306高频典型，但不是固定唯一形态。LM可从接近轻微改变，到系膜增生、节段硬化，重症时也可有新月体等变化。",
-        "因此‘IgA常见系膜增生’可以背；‘IgA = 系膜增生性肾小球肾炎这个单一LM病型’不能作为Current ontology。临床上仍用感染同步/短间隔血尿等入口，再由IF把身份钉住。",
-        "Oxford MEST-C等现代预后评分除非Current 306 Source明确要求，不在这里扩写。"
-      ]
+      "applied": [
+        "IF mesangial IgA dominance/co-dominance is the stable identity anchor.",
+        "Mesangial proliferation remains the high-yield common LM pattern but LM is explicitly variable; EM mesangial/paramesangial deposits are retained.",
+        "IgA is no longer encoded as identical to one fixed mesangial-proliferative LM entity."
+      ],
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B10-XBLOCK01",
+      "target": "urinary-b10 chronic-GN RAS-blockade treatment boundary",
+      "applied": [
+        "B10 inherits the accepted B7 Current RAS-blockade owner.",
+        "Old absolute Scr/BP/protein targets remain Source-specific exam Precision rather than a second Current clinical truth."
+      ],
+      "status": "APPLIED"
     },
     {
       "id": "A3-B11-ONTOLOGY01",
-      "target": "urinary-b11 nephrotic pathology comparison entry + MsPGN/MPGN/FSGS sections",
-      "insert_or_replace_semantic_core": [
-        "B11的传统五型表是306病理识别坐标，不是五个同层级、互斥、单病因疾病实体。",
-        "MsPGN/系膜增生：首先描述系膜细胞/基质增生这一LM模式，可见于不同免疫性疾病；传统教材把‘原发性MsPGN’作为考试病型时继续按Source记其经典组合。",
-        "MPGN/系膜毛细血管性：双轨、内皮下/系膜改变等是形态模式。现代病因会按免疫复合物或补体介导等重组，但306仍可用传统MPGN形态表做识别；不要把‘双轨’自动等于一个唯一病因。",
-        "FSGS：局灶+节段硬化是损伤模式，可有原发、遗传、继发/适应性等背景。考试中的‘原发FSGS’经典肾病综合征和激素反应趋势继续保留，但看到FSGS lesion后仍要问病因背景。",
-        "MCD与膜性继续按传统考试经典形态学习；同样允许继发病因作为后续 etiologic layer。"
-      ]
+      "target": "urinary-b11 nephrotic pathology comparison + MsPGN/MPGN/FSGS",
+      "applied": [
+        "The traditional five-type table remains a 306 morphology index rather than five same-level single-cause entities.",
+        "MsPGN is a mesangial-proliferative LM pattern, MPGN is a double-contour pattern, and FSGS is a focal-segmental sclerosis injury pattern; each may have multiple etiologic backgrounds.",
+        "MCD/membranous classic identities are preserved while secondary etiologies remain possible."
+      ],
+      "status": "APPLIED"
     },
     {
       "id": "A3-B11-TREATMENT01",
       "target": "urinary-b11 steroid-response comparison",
-      "insert_or_replace_semantic_core": [
-        "把激素反应写成‘典型疾病/原发实体的考试倾向’，不要从单一形态模式直接推出治疗。",
-        "MCD典型激素敏感，作为306高价值识别保留；传统原发FSGS相对更易出现激素抵抗/反应较差，也保留。",
-        "但继发/适应性或遗传FSGS与原发FSGS的免疫抑制owner不同，因此‘看到FSGS病理=一律按原发FSGS激素方案’不是Current规则。"
-      ]
+      "applied": [
+        "Traditional steroid/cyclophosphamide pairings remain 306 Source Precision.",
+        "MCD typical steroid responsiveness is preserved; traditional primary FSGS lower responsiveness remains an exam tendency.",
+        "An FSGS/MsPGN/MPGN morphology alone no longer owns immunosuppression; treatment follows the specific disease/etiology owner."
+      ],
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B11-XBLOCK01",
+      "target": "urinary-b11 MCD filter-barrier mechanism",
+      "applied": [
+        "The classical size/charge model remains available for 306 recognition.",
+        "Current MCD mechanism inherits B2 podocyte/slit-diaphragm functional injury and foot-process effacement rather than creating a second pure-charge molecular owner."
+      ],
+      "status": "APPLIED"
     }
   ],
   "preserve_without_rewrite": [
@@ -72,12 +97,16 @@
     "membranous nephropathy subepithelial immune deposits/spike recognition and thrombosis interface",
     "traditional 306 age/LM/IF/EM comparison tables as exam-recognition Precision"
   ],
-  "post_repair_checks": [
-    "Clinical syndrome, LM morphology, IF immune pattern and etiologic disease remain separable layers throughout B9-B11.",
-    "Pauci-immune is not encoded as logically requiring ANCA positivity.",
-    "IgA nephropathy is not reduced to one fixed LM pattern; IF mesangial IgA remains the identity anchor.",
-    "MsPGN/MPGN/FSGS traditional exam labels remain available without being promoted into single-cause ontology.",
-    "No stable Block/KP id changes are introduced."
-  ],
-  "after_apply": "Re-run source-to-KP closure for B9-B11. If no further mechanism-level or owner-level defect remains, freeze Batch-03 Logic Groups and mark B9-B11 PASS_BLOCK_LEVEL_K. Whole-A3 K must still remain blocked by B5 until its separate Source/owner decision is resolved."
+  "post_repair_checks": {
+    "clinical_vs_pathology_vs_etiology_layers_separable": "PASS",
+    "pauci_immune_not_logically_ANCA_required": "PASS",
+    "IgA_not_reduced_to_one_LM_pattern": "PASS",
+    "MsPGN_MPGN_FSGS_pattern_not_single_cause": "PASS",
+    "B7_RAS_owner_not_duplicated": "PASS",
+    "B2_filter_barrier_owner_not_duplicated": "PASS",
+    "stable_block_or_kp_id_change": false,
+    "source_to_kp_orphan_count": 0,
+    "logic_group_closure": "68_KP_17_LOGIC_GROUPS_CONTIGUOUS_NO_GAP_NO_OVERLAP"
+  },
+  "after_apply": "B9-B11 are PASS_BLOCK_LEVEL_K for the audited scope. Whole-A3 K remains blocked by B5 until its separate acid-base Source/owner decision is resolved."
 }
