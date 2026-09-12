@@ -1,0 +1,149 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r17_round_checkpoint.v1",
+  "audit_id": "R17_3501_3800_CORE_EXPANSION_CONTRAST",
+  "range": [3501, 3800],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5582749681,
+    "frozen_path": "content/lexical/audit/migration-integrity/r17-authority.md",
+    "counts": {
+      "core": 97,
+      "historical_core_direct_pass": 203,
+      "expansion_declared_owner_targets": 183,
+      "expansion_enumerated_owner_targets": 185,
+      "mandatory_surface_groups": 137,
+      "contrast": 34
+    },
+    "metadata_note": "Historical comment declares 183 Expansion targets but enumerates 185 unique owner words. Preserve the mismatch; exact Expansion acceptance is based on 137 named mandatory surface groups plus fresh Chat judgment, not owner existence alone."
+  },
+  "bulk_readback": {
+    "workflow_run_id": 34705652960,
+    "artifact": "lexical-r17-bulk-triage",
+    "direct_pass_calibration_embedded": true
+  },
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; historical authority is evidence, not immutable truth",
+  "core": {
+    "current_correct": 30,
+    "defective_or_upgrade_required": 67,
+    "current_correct_indices": [2,7,15,17,20,22,23,27,30,33,41,44,47,49,51,58,60,64,73,79,80,82,83,84,86,87,90,91,92,93],
+    "current_correct_words": ["patent","peace","people","percentage","perplex","person","personal","pest","piano","pig","pirate","pity","plant","plaster","pleasure","policy","popular","pose","precedent","prejudice","preliminary","preside","press","pretend","previous","price","principal","principle","prior","prison"],
+    "rule": "all other historical R17 Core targets are defective or require a latest-target upgrade at current evidence",
+    "p0_active_zero_count": 1,
+    "p0_word_ids": ["word:permanent"],
+    "dead_anchor_word_ids": ["word:pay"],
+    "severe_examples": {
+      "word:peanut": "carrier inversion: slang child remains Active while literal peanut and low-value little-money branch are reference-only",
+      "word:pen": "carrier inversion: female-swan/confine branches remain Active while ordinary writing-pen/write carrier is reference-only",
+      "word:persecute": "carrier inversion: generalized annoy-persistently branch Active while systematic cruel/unfair treatment is reference-only",
+      "word:perspective": "high-value viewpoint branch is reference-only while rare adjective remains Active",
+      "word:pickup": "low-value warrant/restorative branches Active while truck/pickup/device meanings are reference-only",
+      "word:pill": "figurative unpleasant-thing branch Active while medicine/tablet is reference-only",
+      "word:plantation": "ordinary estate/crop plantation is reference-only while narrow forest-planting branch is Active",
+      "word:precede": "core come-before meaning is reference-only while dubious be-more-important-than branch remains Active",
+      "word:pole": "proper Pole identity is merged into lowercase pole owner",
+      "word:polish": "proper Polish identity and pronunciation boundary are merged into lowercase polish owner"
+    }
+  },
+  "expansion": {
+    "authority_unit": "137 named mandatory high-value surface groups mapped to the enumerated owner targets",
+    "current_correct": 61,
+    "partial_or_presentation_or_wrong_anchor": 30,
+    "authority_missing_from_current": 46,
+    "current_correct_indices": [1,3,16,17,20,22,23,30,36,38,39,40,44,46,49,50,54,58,59,61,63,64,65,66,69,70,72,73,74,77,80,81,84,85,91,93,95,97,98,101,102,103,104,105,106,108,109,111,113,114,116,117,118,123,124,128,129,132,133,134,137],
+    "partial_indices": [4,5,6,10,21,26,35,41,42,47,48,56,60,78,79,83,86,87,96,100,107,110,112,115,120,121,122,131,135,136],
+    "missing_indices": [2,7,8,9,11,12,13,14,15,18,19,24,25,27,28,29,31,32,33,34,37,43,45,51,52,53,55,57,62,67,68,71,75,76,82,88,89,90,92,94,99,119,125,126,127,130],
+    "partial_notes": {
+      "4": "pay attention/pay visit/pay off/pay for surfaces exist, but noun pay and several semantic carriers are merged/reference-only and two constructions have dead anchors",
+      "5": "peace of mind exists; at peace and make peace with are not fully owned",
+      "6": "peak at exists; peak hours/performance family is incomplete",
+      "10": "peel off exists; peel away branch is not owned",
+      "21": "perform role/function is supported by the verb but mandatory role/function surfaces are not explicitly owned",
+      "26": "on one's person exists; in person is absent",
+      "35": "get the picture and picture A as B are present; big picture is not explicitly owned",
+      "41": "pilot has trial/test adjective and pilot-program evidence, but pilot study/program family is incomplete",
+      "42": "pin blame on exists; pin down and pin hopes on are missing",
+      "47": "pitch a tent is present and proposal pitch is semantically represented, but pitch A to B / pitch in family is incomplete",
+      "48": "can't place is present; take place/in place/out of place/in place of/place emphasis family is incomplete",
+      "56": "play a role is present; phrasal play out/down/into/along/on family is incomplete",
+      "60": "pledge support exists; pledge to branch is incomplete",
+      "78": "take a position on exists; in a position to is absent",
+      "79": "positive test result exists; positive effect surface is not owned",
+      "83": "potential for is present; potential to family is incomplete",
+      "86": "poverty line exists; poverty trap is absent",
+      "87": "come to power exists; in power / power over surfaces are incomplete",
+      "96": "precious little exists; precious few is absent",
+      "100": "prefer A to B exists; prefer doing/to do, would prefer, prefer sb to do are incomplete",
+      "107": "prescribe that exists, but current medical syntax is malformed as prescribe for sb rather than prescribe sth for sb",
+      "110": "present A as B and at present exist; present sb with is missing",
+      "112": "press for exists; press charges / press on / press ahead are absent",
+      "115": "prevail on/upon sb to do is present, but prevail over is missing and the two branches must not be conflated",
+      "120": "prime suspect is present; prime example / prime sb for family is incomplete",
+      "121": "in principle exists; on principle is absent",
+      "122": "in print exists; print out/out of print/fine print family is incomplete",
+      "131": "proceed against exists; proceed with/to/from family is incomplete",
+      "135": "proclaim that and proclaim sb/sth + noun are present, but A to be/as B family is incomplete",
+      "136": "produce evidence exists; produce results surface is not explicitly owned"
+    },
+    "mechanical_readback": {
+      "present_candidate": 62,
+      "partial_or_equivalent_candidate": 15,
+      "no_match_candidate": 60,
+      "note": "mechanical labels were triage only; final Chat classification overrides false positives/negatives using owner semantics and exact learner surfaces"
+    }
+  },
+  "contrast": {
+    "latest_ownership": {"relation_owned": 27, "word_or_identity_or_form_owned": 7},
+    "relation": {
+      "current_correct": 2,
+      "current_correct_indices": [13,14],
+      "missing": 25,
+      "missing_indices": [1,2,3,4,5,6,7,8,10,12,15,18,21,22,23,24,25,26,27,28,29,31,32,33,34]
+    },
+    "word_or_identity_or_form": {
+      "current_correct": 0,
+      "partial": 0,
+      "full_gap": 7,
+      "full_gap_indices": [9,11,16,17,19,20,30],
+      "notes": {
+        "9": "perfect adjective/noun vs verb stress belongs in Word-form heteronym data; boundary missing",
+        "11": "permit noun vs verb stress belongs in Word-form heteronym data; boundary missing",
+        "16": "phenomenon/phenomena is inflectional morphology, not a cross-word semantic relation; morphology boundary missing",
+        "17": "pickup/pick up is an orthographic/construction-form boundary; explicit learner trap is missing",
+        "19": "Pole/pole is a case-sensitive identity split; Current merges them",
+        "20": "polish/Polish is a case + pronunciation identity split; Current merges them",
+        "30": "produce noun vs verb stress belongs in Word-form heteronym data; boundary missing"
+      }
+    },
+    "overall": {"current_correct": 2, "partial": 0, "missing": 32},
+    "ownership_upgrade": "same-word stress, case identities, inflectional morphology and word-vs-phrasal-form traps stay with Word/Identity/Form owners; genuine cross-word semantic/confusable/regional pairs remain Relation-owned"
+  },
+  "fresh_semantic_judgments": [
+    {"target":"pathetic","decision":"UPGRADE_TARGET","latest":"separate pity-evoking from modern colloquial very poor/contemptible; do not compress them into one vague negative sense"},
+    {"target":"pay","decision":"UPGRADE_TARGET","latest":"Word Feel = give/return what is due, supporting money, pay attention, pay a visit, pay off, pay for consequences, and noun pay without dead-anchor constructions"},
+    {"target":"period","decision":"UPGRADE_TARGET","latest":"time span, punctuation, and menstruation are learner-relevant branches; geology lower and ice-hockey/archaic stop material reference-level"},
+    {"target":"physician","decision":"UPGRADE_TARGET","latest":"AmE broad medical doctor; BrE commonly physician/internal-medicine specialist; never teach non-surgeon as universal"},
+    {"target":"pickup","decision":"UPGRADE_TARGET","latest":"prioritize pickup truck, pickup/collection act, increase/improvement, and signal/device; demote warrant/restorative noise"},
+    {"target":"pitch","decision":"UPGRADE_TARGET","latest":"keep real high-value branches distinct but scanable: BrE field, throw, proposal/sales pitch, musical pitch, slope, tent; tar lower; constructions carry pitch A to B / pitch in / pitch a tent"},
+    {"target":"place","decision":"UPGRADE_TARGET","latest":"location/put + situation/rank + recognition can't place; remove malformed place sb as pattern and keep high-value phrase family at construction level"},
+    {"target":"people","decision":"HISTORICAL_STILL_VALID","latest":"people/population/ethnic group are useful noun branches; literary people-as-verb stays demoted"},
+    {"target":"pole/polish identities","decision":"UPGRADE_TARGET","latest":"Pole/pole and Polish/polish must be explicit case-sensitive identities; Polish/polish additionally requires pronunciation separation"},
+    {"target":"positive","decision":"UPGRADE_TARGET","latest":"organize affirmation/beneficial polarity, positive test/result, and mathematical positive as learner-value branches; grammar/photo branches lower"},
+    {"target":"prejudice","decision":"UPGRADE_TARGET","latest":"ordinary bias/preconception is primary; legal harm and without prejudice are technical/lower but useful recognition"},
+    {"target":"prescribe","decision":"UPGRADE_TARGET","latest":"medical syntax must be prescribe sth for sb; preserve prescribe that for officially stipulating"},
+    {"target":"principle","decision":"HISTORICAL_STILL_VALID","latest":"compress fundamental rule/truth/law into one transferable learner core, with moral/natural-domain applications rather than duplicate senses"},
+    {"target":"privacy","decision":"UPGRADE_TARGET","latest":"mental model = freedom from intrusion/observation; secrecy/hiddenness is an application, not a second equal sense"},
+    {"target":"privilege","decision":"UPGRADE_TARGET","latest":"special right/advantage + be privileged to do; remove unnatural privilege sb with sth and use privilege one group over another when verb use is needed"}
+  ],
+  "direct_pass_latest_target_calibration": {
+    "sample_size": 12,
+    "ordinals": [3503,3529,3557,3584,3619,3647,3670,3695,3716,3746,3772,3800],
+    "words": ["path","pedestrian","permission","phrase","plagiarism","plug","politics","possess","powerful","preparation","priest","product"],
+    "new_core_systematic_defects_found": 0,
+    "result": "PASS_CALIBRATION",
+    "note": "No new systematic Core defect class emerged; sample-specific Expansion/Contrast debt remains separately tracked."
+  },
+  "semantic_mutation_performed": false,
+  "learner_state_mutation_performed": false,
+  "interpretation": "R17 coverage complete under dual-track review. This closes target/defect coverage only; it is not semantic repair and not K PASS."
+}
