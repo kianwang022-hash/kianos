@@ -15,7 +15,7 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 
 ```text
 S  PASS — CURRENT_RECONSTRUCTION
-K  UNTESTED at System level
+K  PASS
 L  UNTESTED
 P  UNTESTED
 R  UNTESTED
@@ -25,21 +25,24 @@ U  UNTESTED by every real learner path
 
 Current allowed conclusion:
 
-> **A3 Source is accepted. Current official-question System scope is a deterministic 243-question owner reconciled against Current Question Truth, with inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`. The accepted system-below Knowledge substrate remains 14 Blocks / 257 stable KPs / 75 Logic Groups. A3 as a whole is not yet System-ready because System-level K and every downstream gate remain untested.**
+> **A3 Source and System-level Knowledge are accepted. Current official-question System scope is a deterministic 243-question owner reconciled against Current Question Truth, and the Current System owner organizes the accepted 14 Blocks / 257 stable KPs / 75 Logic Groups into one coherent urinary mother model without changing Block/KP medical truth. A3 is not yet learner-ready because L/P/R/E remain untested and real User Validation has not occurred.**
 
 ---
 
 ## Current evidence boundary
 
 - Current System question-scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`.
-- Owner authority → `CHAT_APPROVED_CURRENT_RECONSTRUCTION`; this is explicitly not a claim that the old historical bytes were recovered exactly.
+- Source owner authority → `CHAT_APPROVED_CURRENT_RECONSTRUCTION`; this is explicitly not a claim that the old historical bytes were recovered exactly.
 - Accepted Current membership → **243 unique official-question IDs, 2005–2026**.
 - Runtime-sorted membership inventory SHA256 → `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`.
 - Current Question Truth → **3750 immutable IDs**, inventory SHA256 `0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82`.
-- The Current owner preserves System membership only. It does **not** infer Question→Block, Question→LogicGroup or Question→KP relations.
-- The 14 canonical urinary Blocks remain the accepted System-below boundary: **14 Blocks / 257 stable KPs / 75 Logic Groups**.
-- Historical HLK evidence is retained as reconstruction/reconciliation provenance: reviewed urinary range count 243, reviewed one-primary-route / no-ownership-violation / no-source-gap guarantees, and recovered 243-question candidate membership.
-- `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` raw bytes were located but could not be materialized for a fresh re-hash because the source transport returned 403. The Current owner records that limitation and does not promote the locator into exact Current authority.
+- The Source owner preserves System membership only. It does **not** infer Question→Block, Question→LogicGroup or Question→KP relations.
+- Current System-level Knowledge owner → `content/xizong/knowledge/systems/a3-urinary/system.json`, authority `CHAT_APPROVED`.
+- The accepted System boundary remains **14 canonical Blocks / 257 stable KPs / 75 Logic Groups** with no Block/KP split, merge or renumbering.
+- Block/KP medical truth remains owned by `content/xizong/knowledge/systems/a3-urinary/blocks/`; `system.json` only organizes/compresses it at System level.
+- `system.json.logic_index` is a structural System index. First-pass attention, Logic-Group closure and KP compression remain owned by `content/xizong/knowledge/learner/a3-urinary-learning.json`; neither owner restates Block/KP medical Core.
+- The historical System Guide is retained as transitional/reference evidence and no longer competes with `system.json` for Current System-level semantics.
+- Historical HLK evidence remains reconstruction/reconciliation provenance only. `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` raw bytes could not be freshly re-hashed because source transport returned 403; no exact-byte claim is made.
 
 ---
 
@@ -71,23 +74,38 @@ Validation evidence on branch commit `e5f3afc34844e3a168e98c2d0f4fd8f157ef99c2`,
 - `Validate A2 runtime contracts` → PASS;
 - `Build Astro` → PASS.
 
-Important gate-order invariant discovered during closure:
+Gate-order invariant retained:
 
-> **S must not require accepted System-level K.** A3 `system.json` correctly remains `K_WORKING_SYSTEM_TOP / WORKING_A3_SYSTEM_K_NOT_ACCEPTED`; Source validation therefore uses the stable System identity from the S owner rather than requiring the K-level System owner to be `CHAT_APPROVED` first.
+> **S validates stable System identity + Source owner + Current Question Truth. S must not require accepted System-level K.**
 
-This preserves the intended order `S → K → L → P → R → E → U` and prevents Source acceptance from silently depending on a later gate.
+This preserves `S → K → L → P → R → E → U` and prevents Source acceptance from depending on a later gate.
 
-### K — UNTESTED at System level
+### K — PASS
 
-Earliest unresolved gate.
+Accepted System owner:
 
-The 14 Blocks are accepted substrate, but the urinary mother model / failure modes / judgment axes / dependency route / System Recall skeleton have not yet received formal System-level K acceptance. The working `system.json` remains a candidate until it is audited against the accepted Blocks and promoted deliberately.
+`content/xizong/knowledge/systems/a3-urinary/system.json`
 
-S closure does not itself authorize K promotion.
+Bounded System-level audit basis:
+
+1. the accepted 14-Block / 257-KP / 75-Logic-Group substrate was preserved exactly; no stable Block/KP identity change was introduced;
+2. the mother model correctly unifies **灌注 → 滤过量/选择性 → 分段小管处理 → 髓质梯度/末端激素调节 → 尿液证据 → 尿路运送/储存/排空** rather than reproducing physiology, internal medicine and urology as separate teacher-order silos;
+3. the nine System Failure Modes cover perfusion failure, filtration-driving/Kf failure, filtration-barrier leak, tubular transport failure, concentration/dilution failure, immune glomerular injury, tubulointerstitial/urinary infection-inflammation, urinary obstruction and structural/mass/trauma failure;
+4. the judgment axes preserve the high-value discriminations needed before disease-specific precision: prerenal/intrinsic/postrenal, filtration amount vs barrier leak, glomerular vs tubulointerstitial vs outlet, volume vs tonicity/electrolyte/acid-base, acute vs chronic, syndrome vs LM/IF/EM pattern vs etiology, and stability/danger before precision;
+5. the dependency DAG is consistent with the accepted Block substrate: normal renal processing precedes evidence language and disease branches; the glomerular dual-coordinate model precedes nephritic/nephrotic branches; outlet/obstruction knowledge precedes downstream urologic tumor/trauma integration;
+6. the System Recall skeleton can reconstruct the neutral mother model and reverse-localize a case before invoking drugs, thresholds, procedures or Source Precision;
+7. System boundaries explicitly route higher-order endocrine, immune, tumor-general, ICU/fluid-resuscitation and cardio-pulmonary-renal SuperSystem models outward rather than duplicating them;
+8. targeted reconciliation against the transitional System Guide and accepted Block/Core material found no System-level semantic blocker requiring a Block reopen. Legacy Guide detail is not promoted merely because it existed historically when the accepted Current Core does not own it as a stable first-pass object.
+
+The historical System Guide therefore remains reference/provenance only. It is not a second Current System owner.
+
+K PASS does **not** establish the learner-facing learning path, projection, runtime, evidence semantics or real learner validation.
 
 ### L / P / R / E / U — UNTESTED
 
-Frozen downstream. Do not treat A3 as learner-ready and do not infer that Kian has started Urinary.
+`L` is now the earliest unresolved eligible gate. `P/R/E/U` remain downstream-frozen until their actual dependencies pass.
+
+Do not treat A3 as learner-ready and do not infer that Kian has started Urinary.
 
 ---
 
@@ -96,8 +114,8 @@ Frozen downstream. Do not treat A3 as learner-ready and do not infer that Kian h
 ### Artifact Truth
 
 - accepted Source scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`
-- transitional System substrate → `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
-- working System-top candidate → `content/xizong/knowledge/systems/a3-urinary/system.json`
+- Current System-level Knowledge owner → `content/xizong/knowledge/systems/a3-urinary/system.json`
+- transitional/reference System guide → `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
 - canonical medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
 - consolidated system-below learning support → `content/xizong/knowledge/learner/a3-urinary-learning.json`
 - B5 admitted external source boundary → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`
