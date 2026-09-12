@@ -74,6 +74,8 @@ jobs:
         run: node scripts/audit-politics-k03-runtime-evidence.mjs
       - name: Audit Marxism runtime and evidence closure
         run: node scripts/audit-politics-marxism-runtime-evidence.mjs
+      - name: Audit History batch content closure
+        run: node scripts/audit-politics-history-content.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
       - name: Build Astro
