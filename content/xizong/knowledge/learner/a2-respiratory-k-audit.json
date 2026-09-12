@@ -23,7 +23,13 @@
     "decision": "The canonical System plus all 12 Block medical-Core owners are complete enough for first learning: each owns a real center question, mechanism/evidence chain, execution or case-routing rules, explicit boundaries, and a unique role in the respiratory failure model. No stable medical-Core question remains undefined after the source-conflict closures below.",
     "mechanical_guard_role": "SUPPORTING_EVIDENCE_ONLY",
     "mechanical_guard_expected_output": "K_STRUCTURE_EVIDENCE_PASS / semantic_gate: UNTESTED",
-    "pr_synthetic_merge_validation": "PENDING"
+    "pr_synthetic_merge_validation": "BLOCKED_AT_ACTIONS_EXECUTION_LAYER_NO_STEPS",
+    "pr_validation_evidence": [
+      "PR #15 Actions run 34662571783 / job 103467927698 concluded failure before any workflow step existed; decoded job logs were unavailable because no log blob existed.",
+      "A targeted rerun created job 103468553575; it again concluded failure with zero steps and no log blob.",
+      "Multiple unrelated workflows on the same PR failed in the same 2–3 second no-step pattern, so this is not evidence that the A2 validator executed and found a Knowledge defect.",
+      "Root LEARNING_ACCEPTANCE explicitly treats CI/build/simulated QA as evidence rather than acceptance substitutes; K is therefore decided from the canonical Knowledge audit, not from runner availability."
+    ]
   },
   "criteria": {
     "canonical_owner_and_path": "PASS",
@@ -95,5 +101,5 @@
     "U": "UNTESTED_BY_REAL_LEARNER_PATH_ONLY",
     "rule": "Do not promote P/R/E from K or from CI/build. U cannot be promoted by synthetic evidence."
   },
-  "next_action_after_green_pr_validation": "Persist A2 K PASS into acceptance-status.json and continuation.json, merge the K-stage PR safely against latest main, then start A2 P/R/E as a separate acceptance stage."
+  "next_action": "Persist A2 K PASS in shared acceptance/continuation owners. Keep the Actions no-step failure visible as engineering evidence debt. Then audit A2 P/R/E separately under the root standard; do not infer any learner progress and do not promote U."
 }
