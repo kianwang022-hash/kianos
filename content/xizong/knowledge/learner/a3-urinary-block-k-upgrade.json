@@ -11,62 +11,32 @@
     "system_guide": "content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
     "blocks": "content/xizong/knowledge/systems/a3-urinary/blocks/",
     "status": "HISTORICAL_SUBSTRATE_PARTIALLY_UPGRADED",
-    "rule": "Only explicitly accepted Block batches are Current-upgraded Knowledge. Historical labels such as '最终执行版' do not grant acceptance to untouched A3 Blocks."
+    "rule": "Only explicitly accepted Blocks are Current-upgraded Knowledge. Historical labels such as '最终执行版' do not grant acceptance to untouched A3 Blocks."
   },
   "upgrade_contract": {
-    "identity": "Preserve stable block_id and KP identity unless an explicit semantic defect requires a reviewed split/merge/renumber. Reordering for causal learner order does not itself authorize identity replacement.",
+    "identity": "Preserve stable block_id and KP identity unless a reviewed semantic defect requires change.",
     "lecture_first": "First learning is Framework orientation -> continuous Lecture/source contact -> Logic Group/KP active Recall -> Block compression.",
-    "logic_group": "A Logic Group is one continuous mechanism/judgment chain that can be learned and closed as a unit; it is not an arbitrary equal-sized slice or a second medical-Core owner.",
-    "kp_lossless": "The union of canonical KPs plus required original-source visual gates must preserve stable Lecture learning value without turning KianOS into a second textbook.",
-    "timing": "Current Core, Recall, Reserve, Connection Hook and Deferred content must be separated by learning timing.",
-    "precision": "Precision is an accuracy attribute, not a demand that every number/drug/threshold become stable on first exposure.",
-    "source_safety": "Source conflicts, uncertain claims and unsupported expansions must be explicit and adjudicated before the affected medical Core can pass.",
-    "runtime_boundary": "Projection/Runtime is not redesigned per Block during this content pass. A1/A2 provide the platform reference; A3 may expose genuine system-specific needs later."
+    "logic_group": "A Logic Group is one continuous mechanism/judgment chain, not an arbitrary slice or second medical-Core owner.",
+    "kp_lossless": "Canonical KPs plus required original-source visual gates preserve stable Lecture learning value without becoming a second textbook.",
+    "timing": "Separate Current Core, Recall, Reserve, Connection Hook and Deferred by learning timing.",
+    "precision": "Precision is an accuracy attribute, not mandatory first-exposure mastery.",
+    "source_safety": "Real conflicts/gaps are explicit and adjudicated; source errors are not silently copied into learner-canonical truth.",
+    "runtime_boundary": "Do not redesign Projection/Runtime during Block Knowledge upgrade."
   },
   "batch_plan": [
-    {
-      "id": "A3-K-BATCH-01",
-      "scope": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
-      "theme": "normal renal physiology foundation: map/clearance -> filtration -> segmental transport/diuretics -> hormonal control/concentration",
-      "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
-      "closure": {
-        "stable_block_count": 4,
-        "stable_kp_count": 67,
-        "logic_group_count": 20,
-        "source_revalidation": "Original physiology source P257-P296 re-read; stable source orphan count 0; named source conflicts adjudicated rather than copied.",
-        "canonical_repairs": [
-          "B1 bidirectional TGF + Lecture-first",
-          "B2 nephrin/slit-diaphragm vs classical charge-selectivity boundary + Lecture-first",
-          "B3 K-H context gate + stored-RBC potassium mechanism",
-          "B4 stable three-input renin Core + low-frequency regulator Precision boundary"
-        ],
-        "identity_change": false
-      }
-    },
-    {
-      "id": "A3-K-BATCH-02",
-      "scope": ["urinary-b05", "urinary-b06", "urinary-b07", "urinary-b08"],
-      "theme": "water-electrolyte-acid-base -> urine evidence -> AKI/CKD/dialysis -> bacterial UTI",
-      "status": "ACTIVE_NEXT"
-    },
-    {
-      "id": "A3-K-BATCH-03",
-      "scope": ["urinary-b09", "urinary-b10", "urinary-b11"],
-      "theme": "glomerular immune mechanism -> nephritic branch -> nephrotic branch",
-      "status": "NOT_STARTED"
-    },
-    {
-      "id": "A3-K-BATCH-04",
-      "scope": ["urinary-b12", "urinary-b13", "urinary-b14"],
-      "theme": "outflow/obstruction/stones/BPH/incontinence -> TB/tumors -> urinary trauma",
-      "status": "NOT_STARTED"
-    }
+    {"id":"A3-K-BATCH-01","scope":["urinary-b01","urinary-b02","urinary-b03","urinary-b04"],"status":"PASS_BLOCK_LEVEL_K_SCOPE_ONLY","stable_kp_count":67,"logic_group_count":20},
+    {"id":"A3-K-BATCH-02","scope":["urinary-b05","urinary-b06","urinary-b07","urinary-b08"],"status":"PARTIAL_B6_B8_PASS_B05_BLOCKED","accepted":["urinary-b06","urinary-b07","urinary-b08"],"blocked":["urinary-b05"],"accepted_stable_kp_count":53,"accepted_logic_group_count":16,"blocker":"B5 claims a complete acid-base algorithm that current project Sources do not actually contain; B5 also must inherit the repaired B3 K+/acid-base semantics."},
+    {"id":"A3-K-BATCH-03","scope":["urinary-b09","urinary-b10","urinary-b11"],"theme":"glomerular immune mechanism -> nephritic branch -> nephrotic branch","status":"ACTIVE_NEXT"},
+    {"id":"A3-K-BATCH-04","scope":["urinary-b12","urinary-b13","urinary-b14"],"theme":"outflow/obstruction/stones/BPH/incontinence -> TB/tumors -> urinary trauma","status":"NOT_STARTED"}
   ],
   "accepted_current_scope": {
-    "blocks": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
-    "block_level_k": "PASS",
+    "blocks": ["urinary-b01","urinary-b02","urinary-b03","urinary-b04","urinary-b06","urinary-b07","urinary-b08"],
+    "accepted_block_count": 7,
+    "accepted_stable_kp_count": 120,
+    "block_level_k": "PASS_FOR_NAMED_BLOCKS_ONLY",
+    "blocked_blocks": ["urinary-b05"],
     "a3_system_level_k": "NOT_PROMOTED",
     "learner_readiness": "NOT_CLAIMED"
   },
-  "next": "Audit and upgrade B5-B8 source-first. B1-B4 should not be reopened without concrete new source conflict, missing stable learning value, or later learner evidence."
+  "next": "Proceed to B9-B11 source-first while keeping B5 as a durable blocker that must be resolved before whole-A3 Knowledge closure."
 }
