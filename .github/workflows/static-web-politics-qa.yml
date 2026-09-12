@@ -75,7 +75,19 @@ jobs:
       - name: Audit Marxism batch content closure
         run: node scripts/audit-politics-marxism-content.mjs
       - name: Audit Marxism global first-ready parity
-        run: node scripts/audit-politics-marxism-first-ready.mjs
+        id: marxism_first_ready
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p _diagnostics
+          node scripts/audit-politics-marxism-first-ready.mjs 2>&1 | tee _diagnostics/marxism-first-ready.log
+      - name: Upload Marxism first-ready diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marxism-first-ready-diagnostics-${{ github.run_id }}
+          path: static-web/_diagnostics/marxism-first-ready.log
+          if-no-files-found: ignore
       - name: Audit K03 learning and projection closure
         run: node scripts/audit-politics-k03-learning-projection.mjs
       - name: Audit K03 runtime and evidence closure
