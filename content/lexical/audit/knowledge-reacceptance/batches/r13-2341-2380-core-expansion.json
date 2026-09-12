@@ -1,0 +1,45 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R13 ordinals 2341-2380",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5581086274",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2352,"word_id":"word:hold","classification":"AUTHORITY_MISSING_FROM_CURRENT","current":"Core already hints at 容纳/contain, but no Active learner sense realizes hold = contain/have capacity for; added meeting/event and opinion/belief senses are present","approved_target":"add high-frequency familiar sense 容纳；装得下 / contain or have capacity for; preserve real hold boundaries"},
+    {"ordinal":2357,"word_id":"word:holy","classification":"CURRENT_CORRECT","current":"holy adjective is the sole Active learner sense; rare noun a holy thing/place is deprecated/reference-only and absent from Core","approved_target":"demote rare noun a holy; adjective remains primary"},
+    {"ordinal":2361,"word_id":"word:honest","classification":"CURRENT_CORRECT","current":"truthful/frank/marked-by-truth rows are merged into one Active honesty carrier; former overlapping rows are merged/reference-only and learner Core centers truthful/not deceptive","approved_target":"merge heavily overlapping truthful/frank/marked-by-truth rows into one stable honesty/sincerity core"},
+    {"ordinal":2362,"word_id":"word:honey","classification":"CARRIER_INVERSION","severity":"SEVERE","current":"ordinary honey noun is Active, but common term-of-endearment noun honey is deprecated/reference-only while rare derived adjective and two rare derived verb senses remain Active L3 and remain in Core","approved_target":"demote rare derived adjective/verb uses; keep substance + common term of endearment"},
+    {"ordinal":2363,"word_id":"word:honor","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"dated female-chastity sense is correctly deprecated/reference-only and honor a promise/contract survives, but Core cluster still explicitly includes 贞操 / a woman's virtue or chastity","approved_target":"demote dated female chastity/virtue; preserve honor/respect and honor a commitment extension"},
+    {"ordinal":2365,"word_id":"word:hook","classification":"AUTHORITY_MISSING_FROM_CURRENT","current":"Current contains only literal hook noun/verb and curved-shape uses; familiar figurative attention-grabber/engage-an-audience meaning and get/be hooked on are absent","approved_target":"add/rewrite familiar figurative 吸引点/抓住注意力; bind hook an audience and get/be hooked on without excess senses"},
+    {"ordinal":2368,"word_id":"word:hopeful","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"P0","current":"Core says 有希望的 / feeling or inspiring hope, but senses array is empty: both ordinary adjective senses and the noun a hopeful are deprecated/reference-only","approved_target":"demote noun a hopeful from normal Active; adjective remains primary"},
+    {"ordinal":2372,"word_id":"word:horn","classification":"CARRIER_INVERSION","severity":"SEVERE","current":"animal horn remains Active, but useful warning/instrument horn is deprecated/reference-only while saddle horn and rare derived verb gore/provide-with-horns remain Active and Core still foregrounds them","approved_target":"demote saddle-horn and rare derived verb; keep animal horn + warning/instrument horn as useful"},
+    {"ordinal":2375,"word_id":"word:horse","classification":"CURRENT_CORRECT","current":"horse noun and gymnastics equipment noun are Active; rare provide-with-horses verb is deprecated/reference-only and absent from Core","approved_target":"demote rare verb provide with horses"},
+    {"ordinal":2377,"word_id":"word:hose","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"historical clothing sense is deprecated/reference-only and ordinary hose noun/verb remain Active, but Core cluster still explicitly includes （旧时）紧身裤 / historical close-fitting garment","approved_target":"demote historical clothing sense from normal Active"},
+    {"ordinal":2380,"word_id":"word:host","classification":"AUTHORITY_MISSING_FROM_CURRENT","current":"host person/presenter, hosting verb and computer/network host are Active, but high-value biology host = organism harboring parasite/pathogen/symbiont is absent","approved_target":"add high-value biology sense 宿主 while preserving computer/network host separately"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:history","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"make history; go down in history","current":"ordinary history senses and in history are Active, but both approved idioms are absent"},
+    {"word_id":"word:hit","classification":"PARTIAL_CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"hit a record/high/low; hit the market","current":"hit a record high exists under reach-a-level, but hit the market is absent and the broader high/low target family is not fully realized"},
+    {"word_id":"word:hold","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"hold back; hold on; hold off; hold up; hold sb responsible/accountable","current":"none of the five approved targets appear in Current constructions/collocations"},
+    {"word_id":"word:home","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"bring/drive sth home to sb","current":"home in on sth exists as an unrelated construction, but the approved make-someone-fully-understand construction is absent"},
+    {"word_id":"word:honor","classification":"CURRENT_CORRECT","approved_target":"honor a commitment/agreement","current":"honor a promise/contract is an existing equivalent Active collocation under fulfill/keep an agreement or promise"},
+    {"word_id":"word:hook","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"be/get hooked on + sth; noun a hook = attention-grabber","current":"both approved familiar figurative targets are absent"},
+    {"word_id":"word:hope","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"there is little/no hope of + sth/doing","current":"hope for, in the hope of, hope to do and hope that survive, but the approved little/no hope construction is absent"},
+    {"word_id":"word:horizon","classification":"CURRENT_CORRECT","approved_target":"broaden/expand one's horizons","current":"exact learner construction broaden/expand one's horizons is present and tied to the knowledge/interests sense"}
+  ],
+  "summary": {
+    "core_decisions_checked": 11,
+    "core_current_correct": 3,
+    "core_defective": 8,
+    "expansion_owner_groups_checked": 8,
+    "expansion_current_correct": 2,
+    "expansion_partial_phrase_or_construction_landing_gap": 1,
+    "expansion_phrase_or_construction_landing_gap": 5,
+    "new_p0_reproduced": ["word:hopeful"],
+    "other_severe_carrier_inversion": ["word:honey", "word:horn"]
+  },
+  "next": "Continue R13 Core + Expansion reconciliation from ordinal 2381 onward against legacy Issue #113 comment 5581086274. R13 Contrast targets remain to be reconciled separately; do not mutate Natural Owners yet."
+}
