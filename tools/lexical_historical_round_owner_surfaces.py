@@ -60,7 +60,7 @@ def expansion_targets_from_body(body: str) -> list[str] | None:
 def parse_owner_group_expansion(body: str):
     targets = expansion_targets_from_body(body)
     m_surfaces = re.search(
-        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include):\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\n### Contrast Gate)",
+        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include|Representative high-transfer surfaces include):\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\nReuse rather than duplicate|\n\n### Contrast Gate)",
         body,
         flags=re.S,
     )
@@ -134,6 +134,11 @@ def phrase_tokens(text: str) -> list[str]:
     return [token for token in raw if token not in PHRASE_FILLER and (len(token) > 1 or token == "i")]
 
 
+def raw_tokens(text: str) -> list[str]:
+    norm = triage.normalize(triage.target_code_text(text))
+    return re.findall(r"[a-z][a-z0-9'-]*", norm)
+
+
 def token_forms(token: str) -> set[str]:
     return set(triage.possible_forms(token))
 
@@ -161,9 +166,11 @@ def expansion_match_compatible(target: str, owners: list[dict]):
             sn = surface["normalized"]
             if not sn:
                 continue
-            surface_raw_tokens = phrase_tokens(sn)
-            surface_forms = expanded_forms(surface_raw_tokens)
-            owner_hit = bool(owner_forms & surface_forms)
+            surface_raw_forms = expanded_forms(raw_tokens(sn))
+            surface_forms = expanded_forms(phrase_tokens(sn))
+            # Owner identity must survive even when the headword itself is a
+            # grammatical function word such as `the`.
+            owner_hit = bool(owner_forms & surface_raw_forms)
             modifier_hits = [
                 token for token in target_modifier_tokens
                 if token_forms(token) & surface_forms
@@ -212,14 +219,8 @@ def expansion_match_compatible(target: str, owners: list[dict]):
 
 def contrast_terms_compatible(text: str) -> list[str]:
     norm = triage.normalize(text)
-    if "pronunciation-identity" in norm:
-        first = triage.normalize(text.split("/", 1)[0])
-        return [first] if first else []
-    if "contronym" in norm:
-        m = re.match(r"\s*([A-Za-z][A-Za-z'-]*)", text)
-        return [triage.normalize(m.group(1))] if m else []
-    if "past of" in norm:
-        m = re.match(r"\s*([A-Za-z][A-Za-z'-]*)", text)
+    if "pronunciation-identity" in norm or "heteronym" in norm or "contronym" in norm or "past of" in norm:
+        m = re.match(r"\s*(?:regional\s+)?([A-Za-z][A-Za-z'-]*)", text)
         return [triage.normalize(m.group(1))] if m else []
     return ORIGINAL_CONTRAST_TERMS(text)
 
