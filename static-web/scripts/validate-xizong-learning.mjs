@@ -209,7 +209,9 @@ matches(memoryUi, /\['HOT',\s*'WARM'\]\.includes\(row\.memoryState\)/, 'weak-mem
 has(memoryUi, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'chat-repair-role');
 lacks(memoryUi, /study\.ratings\s*=\s*\{[^\n]*current\.kpId/, 'chat-repair-rewrites-recall');
 has(memoryUi, '.filter((row) => byId.has(row.kpId))', 'chat-import-not-current-block-scoped');
-has(memoryUi, 'ext.lastRecallRatings[kpId] === rating', 'recall-evidence-sync-not-idempotent');
+has(memoryUi, 'if (!byId.has(kpId) || ext.lastRecallRatings[kpId]) return;', 'bootstrap-recall-evidence-not-idempotent');
+has(memoryUi, "evidence_origin: 'USER_RECALL_ATTEMPT'", 'real-recall-attempt-not-preserved');
+lacks(memoryUi, /ext\.lastRecallRatings\[kpId\]\s*===\s*rating/, 'real-recall-attempt-still-collapsed-by-rating');
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse-path');
 has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'chat-return-json-error-path');
 has(memoryUi, "chat_plan_review: 'repair-only evidence; never promoted into original Recall or mastery automatically'", 'study-packet-evidence-semantics');
