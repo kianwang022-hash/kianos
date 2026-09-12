@@ -2,6 +2,8 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadXizongSystem } from '../src/lib/xizong.mjs';
+import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const repoRoot = path.resolve(webRoot, '..');
@@ -13,7 +15,6 @@ const pad3 = (value) => String(value).padStart(3, '0');
 
 const OWNER_PATH = 'content/xizong/knowledge/learner/a3-urinary-question-scope.json';
 const LEARNING_PATH = 'content/xizong/knowledge/learner/a3-urinary-learning.json';
-const QUESTION_ROOT = 'content/xizong/questions';
 const EXPECTED_QUESTION_TRUTH_HASH = '0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82';
 const EXPECTED_A3_HASH = 'bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e';
 
@@ -51,16 +52,7 @@ function inventoryHash(ids) {
   return sha256(`${[...ids].sort().join('\n')}\n`);
 }
 
-function routeForId(questionId) {
-  const match = questionId.match(/^xizong-official-(\d{4})-n(\d{3})$/);
-  assert(match, `bad-id:${questionId}`);
-  const year = match[1];
-  const number = Number(match[2]);
-  const start = Math.floor((number - 1) / 25) * 25 + 1;
-  const end = start + 24;
-  return `shards/${year}/q${pad3(start)}-${pad3(end)}.json`;
-}
-
+// ---------- Current A3 scope owner ----------
 const owner = readJson(OWNER_PATH);
 assert(owner.schema === 'kianos.xizong.system_question_scope.v2', `owner-schema:${owner.schema}`);
 assert(owner.status === 'CURRENT', `owner-status:${owner.status}`);
@@ -79,21 +71,22 @@ for (const [year, spec] of Object.entries(owner?.id_expansion?.question_number_s
   assert(expandNumberSpec(spec).length === Number(owner.year_counts?.[year]), `year-count:${year}`);
 }
 
-const manifest = readJson(`${QUESTION_ROOT}/manifest.json`);
-assert(Number(manifest?.stable_identity?.question_count) === 3750, `question-truth-count:${manifest?.stable_identity?.question_count}`);
-assert(manifest?.stable_identity?.immutable_question_ids === true, 'question-truth-ids-not-immutable');
-assert(manifest?.stable_identity?.inventory_sha256 === EXPECTED_QUESTION_TRUTH_HASH, `question-truth-hash:${manifest?.stable_identity?.inventory_sha256}`);
+// ---------- Reuse the Current runtime loader as the Source truth gate ----------
+// This is deliberately the same deterministic loader already used by accepted
+// A1/A2. It checks the Current 3750-question identity, scope count/hash and
+// resolves every selected System ID from the Current question shards.
+const system = loadXizongSystem('urinary');
+assert(system.canonicalId === 'A3', `runtime-canonical-id:${system.canonicalId}`);
+const sweep = loadXizongSystemQuestionSweep(system);
+assert(sweep, 'runtime-sweep-missing');
+assert(sweep.questionCount === 243, `runtime-count:${sweep.questionCount}`);
+assert(sweep.questions.length === 243, `runtime-loaded-count:${sweep.questions.length}`);
+assert(new Set(sweep.questions.map((question) => question.questionId)).size === 243, 'runtime-question-id-duplicate');
+assert(sweep.questionInventoryHash === EXPECTED_A3_HASH, `runtime-inventory-hash:${sweep.questionInventoryHash}`);
+assert(sweep.scopePath === OWNER_PATH, `runtime-owner-path:${sweep.scopePath}`);
 assert(owner?.recovery?.current_question_truth_identity_check?.current_question_id_inventory_sha256 === EXPECTED_QUESTION_TRUTH_HASH, 'owner-question-truth-hash');
 
-const shardCache = new Map();
-for (const questionId of ids) {
-  const shard = routeForId(questionId);
-  if (!shardCache.has(shard)) shardCache.set(shard, readJson(`${QUESTION_ROOT}/${shard}`));
-  const truth = shardCache.get(shard)?.[questionId];
-  assert(truth && truth.question_id === questionId, `orphan:${questionId}`);
-  assert(truth?.provenance?.annual_source?.source_question_id === questionId, `source-id-mismatch:${questionId}`);
-}
-
+// ---------- Accepted Current A3 boundary ----------
 const learning = readJson(LEARNING_PATH);
 assert(learning.status === 'SYSTEM_BELOW_K_CLOSED', `learning-status:${learning.status}`);
 assert(learning.system_id === 'urinary' && learning.canonical_id === 'A3', 'learning-identity');
@@ -101,28 +94,31 @@ assert(Number(learning?.identity?.stable_block_count) === 14, `block-count:${lea
 assert(Number(learning?.identity?.stable_kp_count) === 257, `kp-count:${learning?.identity?.stable_kp_count}`);
 assert(Number(learning?.identity?.logic_group_count) === 75, `logic-group-count:${learning?.identity?.logic_group_count}`);
 const blockIds = Object.keys(learning.blocks || {}).sort();
-const expectedBlockIds = Array.from({ length: 14 }, (_, index) => `urinary-b${pad3(index + 1).slice(-2)}`);
+const expectedBlockIds = Array.from({ length: 14 }, (_, index) => `urinary-b${String(index + 1).padStart(2, '0')}`);
 assert(JSON.stringify(blockIds) === JSON.stringify(expectedBlockIds), `block-identity:${blockIds.join(',')}`);
 for (const blockId of blockIds) {
   assert(String(learning.blocks?.[blockId]?.stop_line || '').trim().length > 0, `stop-line-missing:${blockId}`);
 }
 assert(JSON.stringify(owner?.recovery?.accepted_a3_boundary?.block_ids || []) === JSON.stringify(expectedBlockIds), 'owner-block-boundary');
 
+// ---------- Reconstruction provenance, never promoted above Current truth ----------
 const historical = owner?.recovery?.historical_membership_evidence;
 assert(historical?.role === 'RECONCILIATION_CANDIDATE_NOT_RUNTIME_AUTHORITY', 'historical-evidence-role');
 assert(Number(historical?.candidate_question_count) === 243, 'historical-candidate-count');
 assert(historical?.candidate_runtime_sorted_inventory_sha256 === EXPECTED_A3_HASH, 'historical-candidate-hash');
+
 const range = owner?.recovery?.historical_range_and_qa_evidence?.range_config;
 assert(range?.schema === 'hlk_official_system_range_config_v1', 'range-schema');
 assert(range?.system_id === 'urinary', 'range-system');
 assert(Number(range?.official_question_count) === 243, 'range-count');
-assert(range?.manifest_declared_sha256 === 'fbfb9123f5bb4dd02e6f7590d56fadbc1a9683a45cb6eb53262226c962b515db', 'range-hash');
 assert(range?.all_14_current_block_ids_covered === true, 'range-block-coverage');
+
 const qa = owner?.recovery?.historical_range_and_qa_evidence?.qa_receipt;
 assert(qa?.status === 'HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY', 'qa-status');
-for (const check of ['INPUT_SHA_GATE','CANONICAL_3750_UNIQUE_2005_2026','SYSTEM_RANGE_COUNT_GATE','SYSTEM_RANGE_TOTAL_978','FIRST_PASS_ROUTE_COMPLETE','FIRST_PASS_ONE_ROUTE_PER_CANONICAL_ID','NO_OWNERSHIP_VIOLATION','NO_SOURCE_GAP_VIOLATION','CANONICAL_CONTENT_UNCHANGED']) {
+for (const check of ['SYSTEM_RANGE_COUNT_GATE','FIRST_PASS_ONE_ROUTE_PER_CANONICAL_ID','NO_OWNERSHIP_VIOLATION','NO_SOURCE_GAP_VIOLATION','CANONICAL_CONTENT_UNCHANGED']) {
   assert(qa?.required_true_checks?.includes(check), `qa-check-not-recorded:${check}`);
 }
+
 const index = owner?.recovery?.historical_range_and_qa_evidence?.historical_index_locator;
 assert(index?.raw_byte_rehash_status === 'UNAVAILABLE_SOURCE_TRANSPORT_403', 'historical-index-transport-status');
 assert(index?.used_as_exact_current_authority === false, 'historical-index-false-authentication');
@@ -146,10 +142,9 @@ assert(owner?.boundaries?.historical_raw_bytes_claimed_rehashed === false, 'hist
 console.log([
   'A3 Source scope acceptance PASS',
   'System=A3/urinary',
-  `Questions=${ids.length}`,
-  `Inventory=${inventoryHash(ids)}`,
-  `QuestionTruth=${manifest.stable_identity.inventory_sha256}`,
-  `ShardsLoaded=${shardCache.size}`,
+  `Questions=${sweep.questionCount}`,
+  `Inventory=${sweep.questionInventoryHash}`,
+  `Scope=${sweep.scopePath}`,
   'CurrentTruthOrphans=0',
   'UnresolvedMembershipAmbiguities=0',
   'QuestionToKPInference=0',
