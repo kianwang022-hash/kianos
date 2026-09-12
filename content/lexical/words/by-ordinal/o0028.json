@@ -25,7 +25,65 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e2d1a26a70171776765c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acceptance:36d6ec9867445964:collocation:0"
+            ],
+            "meaning_cn": "对某事物的接受",
+            "phrase": "acceptance of + sth"
+          },
+          {
+            "collocation_id": "collocation:fb81052e56d06f99b905",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acceptance:36d6ec9867445964:collocation:1"
+            ],
+            "meaning_cn": "获得认可",
+            "phrase": "gain acceptance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "接受；接纳",
+        "definition_en": "the act of taking something that is offered",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:acceptance:36d6ec9867445964",
+        "sense_label_en": "the act of taking something that is offered",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:99bdb037e152c3b730d6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acceptance:90cafc9ec9555ecc:collocation:0"
+            ],
+            "meaning_cn": "接受提议",
+            "phrase": "acceptance of an offer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "同意；赞同",
+        "definition_en": "agreement to an offer or proposal",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:acceptance:90cafc9ec9555ecc",
+        "sense_label_en": "agreement to an offer or proposal",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -88,56 +146,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:acceptance:36d6ec9867445964",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "接受；接纳",
-      "definition_en": "the act of taking something that is offered",
-      "semantic_key": "648af3501573d42e9964290432a404a79e5875b513898d225d44f2ac4a51a144",
-      "semantic_key_history": [
-        "127c94a2939cc8dee9bb2156156ca3e44aa48cbc7a0cb014cd10942c97ddb910"
-      ],
-      "legacy_aliases": [
-        "acceptance:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "acceptance:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 76,
-      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:acceptance:90cafc9ec9555ecc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "同意；赞同",
-      "definition_en": "agreement to an offer or proposal",
-      "semantic_key": "1caff896d3934ac38f048cf887d6db1a5bae6a0e8dcca62367d2d08d49c67529",
-      "semantic_key_history": [
-        "ff60a8c05e987b9312a5cc37fd4f48a12745079b8e77d40141110e07e1eebcbd"
-      ],
-      "legacy_aliases": [
-        "acceptance:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "acceptance:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 77,
-      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:acceptance:fb11ed57a25354cd",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -167,14 +175,14 @@
     "senses": [
       {
         "sense_id": "sense:acceptance:36d6ec9867445964",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 76,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
       },
       {
         "sense_id": "sense:acceptance:90cafc9ec9555ecc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 77,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -187,7 +195,11 @@
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:99bdb037e152c3b730d6",
+      "collocation:e2d1a26a70171776765c",
+      "collocation:fb81052e56d06f99b905"
+    ],
     "facts": [
       {
         "id": "deep:word_family:acceptance:8f4e70307ef38cc3",
@@ -255,7 +267,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "038eb8f236494e3e2d55b26015ef3435684f68324e34f1113b70f589b5d6d78b",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

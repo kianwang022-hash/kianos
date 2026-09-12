@@ -22,7 +22,41 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3d1330370b07164667f3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:absurd:8d020d7c1b3f5099:collocation:0"
+            ],
+            "meaning_cn": "荒谬的想法",
+            "phrase": "absurd idea"
+          },
+          {
+            "collocation_id": "collocation:fc709982aacb472e9bf3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:absurd:8d020d7c1b3f5099:collocation:1"
+            ],
+            "meaning_cn": "做某事是荒谬的",
+            "phrase": "it is absurd to do sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "荒谬的；不合理的",
+        "definition_en": "completely unreasonable or silly",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:absurd:8d020d7c1b3f5099",
+        "sense_label_en": "completely unreasonable or silly",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,31 +78,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:absurd:8d020d7c1b3f5099",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "荒谬的；不合理的",
-      "definition_en": "completely unreasonable or silly",
-      "semantic_key": "6683cc87b94c808a533846e0143496b7aca84428f8889234e110beecddbce7ac",
-      "semantic_key_history": [
-        "d94e498d4376dc7896116023813b191a934dc4b8cefcafec6dd44d2fb89ab4a1"
-      ],
-      "legacy_aliases": [
-        "absurd:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "absurd:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 50,
-      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:absurd:dd99fa27029e5fe2",
       "status": "merged",
@@ -96,8 +105,8 @@
     },
     {
       "stable_sense_id": "sense:absurd:ef90693f44ed515b",
-      "status": "merged",
-      "merged_into_sense_id": "sense:absurd:8d020d7c1b3f5099",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "荒诞",
       "definition_en": "a state or condition of being absurd, especially in philosophy",
@@ -124,7 +133,7 @@
     "senses": [
       {
         "sense_id": "sense:absurd:8d020d7c1b3f5099",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 50,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -138,13 +147,16 @@
       },
       {
         "sense_id": "sense:absurd:ef90693f44ed515b",
-        "status": "merged",
-        "merged_into_sense_id": "sense:absurd:8d020d7c1b3f5099",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 52,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:3d1330370b07164667f3",
+      "collocation:fc709982aacb472e9bf3"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -195,7 +207,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0017-0024.json",
     "source_content_hash": "5c37538cd892364948226e20b5654b1730328b5d4e447523d2a4717abafd9d26",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
