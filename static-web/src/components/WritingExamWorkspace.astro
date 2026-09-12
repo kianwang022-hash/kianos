@@ -1,0 +1,212 @@
+---
+import WritingWorkspace from './WritingWorkspace.astro';
+
+const { task, syntheticIds = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const taskPayload = JSON.stringify(task).replace(/</g, '\\u003c');
+const syntheticPayload = JSON.stringify(syntheticIds).replace(/</g, '\\u003c');
+---
+<section class="writingExamShell" data-writing-exam-shell>
+  <section class="writingExamLock" data-writing-exam-lock>
+    <span>Protected true exam · private gate</span>
+    <h1>先完成两篇 full synthetic output</h1>
+    <p>这个入口看的是本机 whole-essay Runtime 的真实完成状态，不看 First Learning 页的两个 convenience checkbox。未满足 gate 时，页面不会把真题 prompt 展示给你。</p>
+    <div>
+      <a href={`${base}writing-learn/`}>回 First Learning</a>
+      <a href={`${base}writing/`}>回 Synthetic Runtime</a>
+    </div>
+  </section>
+
+  <section data-writing-exam-content hidden>
+    <div class="writingExamCatalogBack">
+      <a href={`${base}writing/exam/`}>‹ True-Exam Catalog</a>
+      <span>{task.year || 'Exam'} · {task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · clean attempt</span>
+    </div>
+    <WritingWorkspace task={task} />
+  </section>
+
+  <script type="application/json" data-writing-exam-task set:html={taskPayload}></script>
+  <script type="application/json" data-writing-synthetic-ids set:html={syntheticPayload}></script>
+</section>
+
+<script>
+  const shell = document.querySelector('[data-writing-exam-shell]');
+  if (shell instanceof HTMLElement) {
+    let task = null;
+    let syntheticIds = [];
+    try { task = JSON.parse(shell.querySelector('[data-writing-exam-task]')?.textContent || 'null'); } catch {}
+    try { syntheticIds = JSON.parse(shell.querySelector('[data-writing-synthetic-ids]')?.textContent || '[]'); } catch {}
+
+    const finalStates = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
+    const gatePassed = Array.isArray(syntheticIds) && syntheticIds.length >= 2 && syntheticIds.every((id) => {
+      try {
+        const saved = JSON.parse(localStorage.getItem(`kianos-writing-runtime-v1:${id}`) || 'null');
+        return finalStates.has(saved?.state);
+      } catch {
+        return false;
+      }
+    });
+
+    const lock = shell.querySelector('[data-writing-exam-lock]');
+    const content = shell.querySelector('[data-writing-exam-content]');
+    if (lock instanceof HTMLElement) lock.hidden = gatePassed;
+    if (content instanceof HTMLElement) content.hidden = !gatePassed;
+
+    function scalarText(value) {
+      if (value === null || value === undefined) return '';
+      if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+      return '';
+    }
+
+    function textualValues(value, prefix = '') {
+      const out = [];
+      const scalar = scalarText(value);
+      if (scalar) return [{ label: prefix, text: scalar }];
+      if (Array.isArray(value)) {
+        value.forEach((child, index) => out.push(...textualValues(child, prefix ? `${prefix} ${index + 1}` : String(index + 1))));
+        return out;
+      }
+      if (!value || typeof value !== 'object') return out;
+      Object.entries(value).forEach(([key, child]) => {
+        if (String(key).toLowerCase() === 'images') return;
+        const label = prefix ? `${prefix} · ${key}` : key;
+        out.push(...textualValues(child, label));
+      });
+      return out;
+    }
+
+    function imageDescriptor(value) {
+      if (!value) return null;
+      if (typeof value === 'string') {
+        const text = value.trim();
+        const looksLikeSrc = /^(https?:\/\/|\/|\.\/|\.\.\/|data:image\/)|\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(text);
+        return looksLikeSrc ? { src: text, alt: 'Writing exam source image' } : { src: '', alt: text };
+      }
+      if (typeof value !== 'object') return null;
+      const srcKeys = ['src', 'url', 'path', 'asset_path', 'asset', 'file', 'href'];
+      const altKeys = ['alt', 'caption', 'description', 'title', 'text'];
+      const src = srcKeys.map((key) => scalarText(value[key])).find(Boolean) || '';
+      const alt = altKeys.map((key) => scalarText(value[key])).find(Boolean) || 'Writing exam source image';
+      return src || alt ? { src, alt } : null;
+    }
+
+    function normalizeImageSrc(src) {
+      if (!src) return '';
+      if (/^(https?:\/\/|data:image\/|\/)/i.test(src)) return src;
+      if (src.startsWith('static-web/public/')) return `/${src.slice('static-web/public/'.length)}`;
+      if (src.startsWith('public/')) return `/${src.slice('public/'.length)}`;
+      return src;
+    }
+
+    function appendText(container, label, text, className = '') {
+      if (!text) return;
+      const section = document.createElement('section');
+      section.className = className || 'writingExamTextBlock';
+      if (label) {
+        const strong = document.createElement('strong');
+        strong.textContent = label.replace(/_/g, ' ');
+        section.appendChild(strong);
+      }
+      const p = document.createElement('p');
+      p.textContent = text;
+      section.appendChild(p);
+      container.appendChild(section);
+    }
+
+    function renderExamPrompt() {
+      if (!gatePassed || !task?.learnerTask) return;
+      const runtime = shell.querySelector('[data-writing-runtime]');
+      const body = runtime?.querySelector('.writingPromptBody');
+      const meta = runtime?.querySelector('.writingPromptMeta');
+      const headerMeta = runtime?.querySelector('.writingRuntimeHeader small');
+      if (!(body instanceof HTMLElement)) return;
+
+      if (headerMeta instanceof HTMLElement) {
+        const stage = headerMeta.querySelector('[data-stage-label]');
+        if (stage) {
+          headerMeta.replaceChildren(
+            document.createTextNode(`${task.kind === 'small' ? 'Small Writing' : 'Big Writing'} · true exam · `),
+            stage
+          );
+        }
+      }
+
+      body.replaceChildren();
+      const context = task.learnerTask.context || {};
+      for (const key of ['title', 'subtitle', 'task_background', 'directions', 'instruction', 'directive']) {
+        const rows = textualValues(context[key], key);
+        rows.forEach((row) => appendText(body, row.label, row.text, key === 'directions' || key === 'instruction' || key === 'directive' ? 'writingExamDirections' : 'writingExamContext'));
+      }
+
+      const images = Array.isArray(context.images) ? context.images : context.images ? [context.images] : [];
+      if (images.length) {
+        const gallery = document.createElement('section');
+        gallery.className = 'writingExamImages';
+        const heading = document.createElement('strong');
+        heading.textContent = 'Source image';
+        gallery.appendChild(heading);
+        images.forEach((value) => {
+          const descriptor = imageDescriptor(value);
+          if (!descriptor) return;
+          const src = normalizeImageSrc(descriptor.src);
+          if (src) {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = descriptor.alt;
+            img.loading = 'eager';
+            gallery.appendChild(img);
+          } else if (descriptor.alt) {
+            const p = document.createElement('p');
+            p.textContent = descriptor.alt;
+            gallery.appendChild(p);
+          }
+        });
+        body.appendChild(gallery);
+      }
+
+      const material = Array.isArray(task.learnerTask.material) ? task.learnerTask.material : [];
+      material.forEach((row, index) => appendText(body, `Material ${index + 1}`, scalarText(row?.text || row), 'writingExamMaterial'));
+
+      const prompts = Array.isArray(task.learnerTask.prompts) ? task.learnerTask.prompts : [];
+      prompts.forEach((prompt) => {
+        const section = document.createElement('section');
+        section.className = 'writingExamPromptCard';
+        const strong = document.createElement('strong');
+        strong.textContent = 'Official task prompt';
+        section.appendChild(strong);
+        if (scalarText(prompt?.instruction)) {
+          const p = document.createElement('p');
+          p.textContent = scalarText(prompt.instruction);
+          section.appendChild(p);
+        }
+        if (scalarText(prompt?.promptText)) {
+          const block = document.createElement('blockquote');
+          block.textContent = scalarText(prompt.promptText);
+          section.appendChild(block);
+        }
+        body.appendChild(section);
+      });
+
+      if (meta instanceof HTMLElement) {
+        meta.replaceChildren();
+        const rows = [
+          `${task.year || 'Exam'} · ${task.kind === 'small' ? 'Small Writing' : 'Big Writing'}`,
+          'Clean Current projection · formal answers / analysis / model essays excluded',
+          'First evidence stays private in this browser'
+        ];
+        rows.forEach((text) => {
+          const span = document.createElement('span');
+          span.textContent = text;
+          meta.appendChild(span);
+        });
+      }
+    }
+
+    renderExamPrompt();
+  }
+</script>
+
+<style>
+  .writingExamShell{display:grid;gap:10px}.writingExamLock{max-width:50rem;margin:32px auto;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fffdf8;box-shadow:var(--study-shadow)}.writingExamLock>span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingExamLock h1{margin:5px 0 8px;font-size:24px}.writingExamLock p{margin:0;color:var(--study-muted);font-size:12px;line-height:1.7}.writingExamLock>div{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.writingExamLock a,.writingExamCatalogBack a{padding:8px 10px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:var(--study-green);font-size:10px;font-weight:800;text-decoration:none}.writingExamCatalogBack{max-width:84rem;width:100%;box-sizing:border-box;margin:0 auto 8px;display:flex;justify-content:space-between;align-items:center;gap:10px}.writingExamCatalogBack span{font-size:10px;color:var(--study-muted)}
+  :global(.writingExamShell .writingExamTextBlock),:global(.writingExamShell .writingExamContext),:global(.writingExamShell .writingExamMaterial),:global(.writingExamShell .writingExamPromptCard),:global(.writingExamShell .writingExamDirections),:global(.writingExamShell .writingExamImages){display:grid;gap:5px;padding:10px 12px;border:1px solid var(--study-line);border-radius:10px;background:#fbfdfc}:global(.writingExamShell .writingExamTextBlock strong),:global(.writingExamShell .writingExamContext strong),:global(.writingExamShell .writingExamMaterial strong),:global(.writingExamShell .writingExamPromptCard strong),:global(.writingExamShell .writingExamDirections strong),:global(.writingExamShell .writingExamImages strong){font-size:9px;text-transform:capitalize;color:var(--study-muted)}:global(.writingExamShell .writingExamTextBlock p),:global(.writingExamShell .writingExamContext p),:global(.writingExamShell .writingExamMaterial p),:global(.writingExamShell .writingExamPromptCard p),:global(.writingExamShell .writingExamDirections p),:global(.writingExamShell .writingExamImages p){margin:0;font-size:11px;line-height:1.65;white-space:pre-wrap}:global(.writingExamShell .writingExamPromptCard blockquote){margin:0;padding:10px 12px;border-left:3px solid var(--study-green);background:#fff;border-radius:0 9px 9px 0;font-size:12px;line-height:1.7;white-space:pre-wrap}:global(.writingExamShell .writingExamImages img){display:block;max-width:100%;height:auto;border:1px solid var(--study-line);border-radius:9px;background:#fff}
+</style>
