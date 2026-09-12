@@ -68,6 +68,8 @@ jobs:
         run: node scripts/audit-politics-history-first-ready.mjs
       - name: Audit History Runtime closure
         run: node scripts/audit-politics-history-runtime.mjs
+      - name: Audit History Evidence closure
+        run: node scripts/audit-politics-history-evidence.mjs
       - name: Audit K03 canonical knowledge closure
         run: node scripts/audit-politics-k03-knowledge.mjs
       - name: Audit Marxism batch content closure
