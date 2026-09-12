@@ -14,6 +14,7 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
   : path.resolve(process.cwd(), '..');
 
+const K03 = 'POL27-CF-MARX-C02-K03';
 const EXPECTED = [
   'X1000-MARX-S-028',
   'X1000-MARX-S-029',
@@ -51,9 +52,10 @@ function buildSnapshot(config, overrides = {}) {
 
 const chapter = enrichPoliticsChapterCurrent(loadPoliticsChapterCurrent('marxism', 'ch02'));
 const configs = buildPoliticsUnitReturnConfigs(chapter);
-assert.equal(configs.length, 1, 'K03 pilot must expose exactly one Unit Return config');
-const config = configs[0];
-assert.equal(config.natural_unit_id, 'POL27-CF-MARX-C02-K03');
+const k03Configs = configs.filter((candidate) => candidate.natural_unit_id === K03);
+assert.equal(k03Configs.length, 1, 'K03 pilot must expose exactly one K03 Unit Return config');
+const config = k03Configs[0];
+assert.equal(config.natural_unit_id, K03);
 assert.equal(config.learner_state, 'PENDING_ATTEMPT_EVIDENCE', 'shared Current must not precompute learner state');
 assert.equal(config.mastery_claim, 'NONE', 'Unit Return must not preclaim mastery');
 assert.deepEqual(config.expected_question_ids, EXPECTED, 'Unit Return must consume exactly the 11 formal first-ready questions in learner order');
