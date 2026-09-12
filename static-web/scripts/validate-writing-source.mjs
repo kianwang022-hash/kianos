@@ -10,6 +10,8 @@ import {
 const report = inspectWritingSources();
 const tasks = listWritingTasks();
 const failures = [];
+const repoRoot = path.resolve(process.cwd(), '..');
+const globalTruthPath = path.join(repoRoot, 'content/english/source/global_source_truth.v1.json');
 
 function requireCheck(condition, code) {
   if (!condition) failures.push(code);
@@ -30,6 +32,42 @@ function preview(value, max = 320) {
   return '';
 }
 
+function collectWritingBTruth(value, out = new Map(), seen = new Set()) {
+  if (!value || typeof value !== 'object' || seen.has(value)) return out;
+  seen.add(value);
+  if (!Array.isArray(value)) {
+    const unitId = String(value.unit_id || value.set_id || value.id || '');
+    if (/^english1-\d{4}-writing-b-main$/.test(unitId)) {
+      const current = out.get(unitId);
+      const currentVisuals = Array.isArray(current?.visual_assets) ? current.visual_assets.length : 0;
+      const candidateVisuals = Array.isArray(value.visual_assets) ? value.visual_assets.length : 0;
+      if (!current || candidateVisuals > currentVisuals) out.set(unitId, value);
+    }
+  }
+  const children = Array.isArray(value) ? value : Object.values(value);
+  for (const child of children) collectWritingBTruth(child, out, seen);
+  return out;
+}
+
+function assetExistence(assetPath) {
+  const relative = String(assetPath || '').replace(/^\/+/, '');
+  if (!relative) return { root: false, webPublic: false };
+  return {
+    root: fs.existsSync(path.join(repoRoot, relative)),
+    webPublic: fs.existsSync(path.join(repoRoot, 'static-web/public', relative))
+  };
+}
+
+let globalWritingB = new Map();
+let globalTruthLoadError = null;
+try {
+  const truth = JSON.parse(fs.readFileSync(globalTruthPath, 'utf8'));
+  globalWritingB = collectWritingBTruth(truth);
+} catch (error) {
+  globalTruthLoadError = String(error?.message || error);
+}
+
+requireCheck(!globalTruthLoadError, `GLOBAL_SOURCE_TRUTH_LOAD:${globalTruthLoadError || 'ok'}`);
 requireCheck(report.status === 'ready', `SOURCE_STATUS:${report.status}`);
 requireCheck(report.sourceGate === 'S_PASS', `SOURCE_GATE:${report.sourceGate}`);
 requireCheck(report.setCount === 49, `WRITING_SET_COUNT:${report.setCount}`);
@@ -76,7 +114,14 @@ for (const task of tasks) {
     const rawImages = loaded.context?.images;
     const images = Array.isArray(rawImages) ? rawImages : rawImages ? [rawImages] : [];
     const directionText = `${prompt.instruction || ''}\n${prompt.promptText || ''}\n${loaded.context?.directions || ''}`.trim();
-    const visualLanguage = /\b(drawing|picture|pictures|cartoon|chart|charts|graph|graphs|table|tables|diagram|illustration)\b/i.test(directionText);
+    const visualLanguage = /\b(drawing|picture|pictures|photo|photos|cartoon|chart|charts|graph|graphs|table|tables|diagram|illustration)\b/i.test(directionText);
+    const truthRow = globalWritingB.get(task.id) || null;
+    const truthVisuals = Array.isArray(truthRow?.visual_assets) ? truthRow.visual_assets : [];
+    const normalizedTruthVisuals = truthVisuals.map((asset) => ({
+      ...asset,
+      asset_path: String(asset?.asset_path || asset?.path || ''),
+      exists: assetExistence(asset?.asset_path || asset?.path)
+    }));
     const row = {
       taskId: task.id,
       year: Number(task.year),
@@ -88,28 +133,51 @@ for (const task of tasks) {
       materialBlockCount: Array.isArray(loaded.material) ? loaded.material.length : 0,
       directionPreview: preview(directionText),
       materialPreview: preview(loaded.material),
-      imageDescriptors: images
+      imageDescriptors: images,
+      globalSourceTruth: truthRow ? {
+        found: true,
+        status: truthRow.status || null,
+        runtime_status: truthRow.runtime_status || null,
+        source_file: truthRow.source_file || null,
+        source_file_sha256: truthRow.source_file_sha256 || null,
+        visual_assets: normalizedTruthVisuals
+      } : { found: false, visual_assets: [] }
     };
     visualAudit.push(row);
     requireCheck(images.length > 0, `WRITING_BIG_VISUAL_MISSING:${task.id}`);
+    requireCheck(Boolean(truthRow), `WRITING_BIG_GLOBAL_TRUTH_MISSING:${task.id}`);
+    requireCheck(truthVisuals.length > 0, `WRITING_BIG_GLOBAL_VISUAL_MISSING:${task.id}`);
   }
 }
 
 const missingBigVisuals = visualAudit.filter((row) => row.imageDescriptorCount === 0);
+const missingGlobalTruth = visualAudit.filter((row) => !row.globalSourceTruth.found);
+const missingGlobalVisuals = visualAudit.filter((row) => row.globalSourceTruth.visual_assets.length === 0);
+const expectedAssetCount = visualAudit.reduce((sum, row) => sum + row.globalSourceTruth.visual_assets.length, 0);
+const expectedAssetsPresentInRepo = visualAudit.reduce((sum, row) => sum + row.globalSourceTruth.visual_assets.filter((asset) => asset.exists.root || asset.exists.webPublic).length, 0);
 const visualClosure = {
   expectedBigWritingTasks: 27,
   auditedBigWritingTasks: visualAudit.length,
   tasksWithImageDescriptors: visualAudit.filter((row) => row.imageDescriptorCount > 0).length,
   tasksMissingImageDescriptors: missingBigVisuals.length,
   missingTaskIds: missingBigVisuals.map((row) => row.taskId),
-  policy: 'Writing Part B is a visual-observation task lane. Clean source projection must preserve the original learner-visible drawing/chart rather than replace Observation with a textual description.',
+  globalSourceTruthRecords: globalWritingB.size,
+  tasksMissingGlobalTruth: missingGlobalTruth.map((row) => row.taskId),
+  tasksMissingGlobalVisualAssets: missingGlobalVisuals.map((row) => row.taskId),
+  expectedVisualAssetCountFromGlobalTruth: expectedAssetCount,
+  expectedVisualAssetsPresentInRepo: expectedAssetsPresentInRepo,
+  policy: 'Writing Part B is a visual-observation task lane. Clean source projection must preserve the original learner-visible drawing/chart rather than replace Observation with OCR text or a prose description.',
   records: visualAudit
 };
 requireCheck(visualAudit.length === 27, `WRITING_BIG_VISUAL_AUDIT_COUNT:${visualAudit.length}`);
+requireCheck(globalWritingB.size === 27, `WRITING_BIG_GLOBAL_TRUTH_COUNT:${globalWritingB.size}/27`);
+requireCheck(missingGlobalTruth.length === 0, `WRITING_BIG_GLOBAL_TRUTH_CLOSURE:${27 - missingGlobalTruth.length}/27`);
+requireCheck(missingGlobalVisuals.length === 0, `WRITING_BIG_GLOBAL_VISUAL_CLOSURE:${27 - missingGlobalVisuals.length}/27`);
 requireCheck(missingBigVisuals.length === 0, `WRITING_BIG_VISUAL_CLOSURE:${27 - missingBigVisuals.length}/27`);
+requireCheck(expectedAssetCount > 0 && expectedAssetsPresentInRepo === expectedAssetCount, `WRITING_BIG_VISUAL_BINARY_CLOSURE:${expectedAssetsPresentInRepo}/${expectedAssetCount}`);
 
 const validation = {
-  schema: 'kianos.english.writing.source-gate-validation.v2',
+  schema: 'kianos.english.writing.source-gate-validation.v3',
   gate: 'S',
   pass: failures.length === 0,
   sourceHash: report.sourceHash,
@@ -136,9 +204,9 @@ const validation = {
     analysisExcluded: true,
     taxonomyExcluded: true,
     requiredSetContextPreserved: true,
-    originalVisualObservationPreservedForBigWriting: missingBigVisuals.length === 0
+    originalVisualObservationPreservedForBigWriting: missingBigVisuals.length === 0 && expectedAssetCount > 0 && expectedAssetsPresentInRepo === expectedAssetCount
   },
-  note: 'A green validation is evidence for the Writing Source gate only. Visual closure is required because Big Writing explicitly trains Observation before Interpretation. This does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
+  note: 'A green validation is evidence for the Writing Source gate only. Visual closure is required because Big Writing explicitly trains Observation before Interpretation. This validator reconciles question-bank projection against Global Source Truth and physical asset presence; it does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
 };
 
 const rendered = `${JSON.stringify(validation, null, 2)}\n`;
@@ -148,7 +216,7 @@ if (outPath) {
   fs.writeFileSync(outPath, rendered, 'utf8');
 }
 fs.writeFileSync(path.resolve(process.cwd(), 'writing-source-visual-audit.json'), `${JSON.stringify({
-  schema: 'kianos.english.writing.visual-source-audit.v1',
+  schema: 'kianos.english.writing.visual-source-audit.v2',
   gate: 'S',
   sourceHash: report.sourceHash,
   visualClosure
