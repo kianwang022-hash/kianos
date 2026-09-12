@@ -38,11 +38,13 @@ materials exist
 
 Engineering progress is downstream evidence. It cannot settle an upstream learning question.
 
-The governing question is always:
+The governing questions are always:
 
 > **How does this capability actually form in the learner?**
+>
+> **Where should each important learner action actually occur when surface choice materially changes that formation or friction?**
 
-Tools, files, page layouts, question banks, taxonomies, and runtime components are selected only after the relevant upstream learning need is understood.
+Tools, files, page layouts, question banks, taxonomies, runtime components, devices, and applications are selected only after the relevant upstream learning need is understood.
 
 This causal order applies **within the dependency chain of the declared learning scope**. It is not a repository-wide queue and does not serialize independent sibling scopes.
 
@@ -106,7 +108,8 @@ When Knowledge or Learning is reopened:
 - existing card layouts are not content schemas;
 - generated questions are not semantic owners;
 - review schedulers do not determine what deserves learning;
-- current implementation effort is a sunk cost, not evidence that the model is correct.
+- current implementation effort is a sunk cost, not evidence that the model is correct;
+- an existing reader/viewer/component does not own the learner action merely because it can render the source.
 
 If correct upstream work requires later P/R/E changes, those changes happen **after** the upstream stage is accepted for that dependency chain.
 
@@ -187,16 +190,43 @@ This stage answers questions such as:
 - What does stable success look like?
 - After failure, where should the learner return?
 - What should static Current teach and what should adaptive Chat decide?
+- For each important cognitive action, what is the primary learning surface when location materially changes cognition or friction?
+- Which surfaces are companion/reference/runtime-only rather than primary?
+- What cross-surface handoff is required, and what substitution must be forbidden?
 
 A question bank must not determine learning order merely because questions are easy to count.
 
 A teacher/source order must not be inherited automatically when learner cognition requires another order.
+
+A technically capable surface must not inherit a learning action merely because it can render the source or already has a component for it.
 
 ### Stage-1 output
 
 A domain-specific learning contract or equivalent durable learning-path decision.
 
 The learning logic must be able to stand independently of a particular UI implementation.
+
+### Surface ownership is Learning Logic
+
+Surface choice belongs here whenever changing the device/application/environment changes the actual learner behavior, continuity, attention, evidence, or switching cost.
+
+Hard invariant:
+
+```text
+Source ownership ≠ Surface ownership.
+Content availability ≠ Render entitlement.
+Runtime capability ≠ Learning-surface authority.
+```
+
+The relevant Learning Contract should identify the primary surface for material actions, or explicitly state that an action is surface-agnostic. It may also define companion surfaces, forbidden substitution, and handoff rules.
+
+Examples:
+
+- an original lecture may remain the primary continuous-learning surface while KianOS supplies orientation, checkpoints, verification, repair routing, and evidence capture;
+- an interactive Lexical Challenge may legitimately be Astro-primary because the interaction itself is part of the target cognition;
+- a fresh external Reading task may remain protected in its task surface while KianOS receives only the evidence needed for later diagnosis.
+
+Do not turn device preference into a universal rule. The owner is the **cognitive action**, and the correct surface is domain/path-specific.
 
 ### Learner order is not construction scheduling
 
@@ -251,7 +281,7 @@ If not, Content is not closed.
 
 Goal:
 
-> **At this exact moment in the learning path, what should the learner see and what decision/action should be easy?**
+> **At this exact moment in the learning path, what should the learner see and what decision/action should be easy on the surface that actually owns this action?**
 
 Content structure is not page structure.
 
@@ -264,13 +294,17 @@ Projection decides:
 - what can be skipped quickly;
 - where attention should land;
 - which learner actions deserve controls;
-- how much interaction is necessary to preserve evidence without turning learning into UI work.
+- how much interaction is necessary to preserve evidence without turning learning into UI work;
+- what bounded companion information is useful when the primary learning action occurs on another surface;
+- how the learner sees the next cross-surface handoff without maintaining two competing mainlines.
 
 ### Projection rule
 
-**Content-rich, display-precise.**
+**Content-rich, display-precise, surface-faithful.**
 
 A rich backend asset may project to a very small learner surface when that is cognitively correct.
+
+If another surface owns the current cognitive action, KianOS Projection should normally provide only the approved companion role—such as orientation, locator, checkpoint, attempt, repair cue, or return—not silently duplicate the primary source/task into a second course.
 
 ### Interaction quality test
 
@@ -280,7 +314,8 @@ Every learner-facing element must earn its place by doing at least one of:
 2. exposing a meaningful hidden gap;
 3. reducing friction in a real learner decision;
 4. producing a cleaner verification/repair judgment;
-5. preserving evidence that changes the next action.
+5. preserving evidence that changes the next action;
+6. making an approved cross-surface handoff clearer without taking over the other surface's learner action.
 
 Otherwise remove or demote it.
 
@@ -292,7 +327,7 @@ Goal:
 
 > **Make the approved learning behavior executable end to end.**
 
-A runtime loop is domain-specific. Shared platform capabilities do not imply one common cognitive loop.
+A runtime loop is domain-specific. Shared platform capabilities do not imply one common cognitive loop or one universal primary surface.
 
 A typical shape may be:
 
@@ -314,7 +349,9 @@ Two KianOS-wide runtime principles are mandatory:
 
 > **Repair only the smallest thing that actually failed.**
 
-Runtime must not manufacture ritual review, diagnosis, or reconstruction debt simply because a component supports those states.
+For a multi-surface path, Runtime must also make the approved handoff executable: preserve enough object/position identity to leave one surface, act on another, and return without reconstructing the workflow manually.
+
+Runtime must not manufacture ritual review, diagnosis, reconstruction debt, or surface switching simply because a component supports those states.
 
 A written contract is not enough. The learner must be able to execute the path.
 
@@ -459,11 +496,11 @@ Examples:
 - Xizong may keep System / Block / KP logic;
 - Reading, Translation, Writing, and Cloze may retain their own natural learner units and failure loops.
 
-The standard governs **construction order along real dependencies**.
+The standard governs **construction order along real dependencies**, including the rule that material surface ownership is settled in Learning Logic before Projection/Runtime.
 
-The domain contract governs **domain cognition and learner behavior**.
+The domain contract governs **domain cognition, learner behavior, and path-specific surface ownership**.
 
-`SYSTEM_CONTRACT.md` governs **shared platform capabilities**.
+`SYSTEM_CONTRACT.md` governs **shared platform capabilities and the cross-KianOS surface boundary**.
 
 `LEARNING_ACCEPTANCE.md` governs **readiness evidence**.
 
@@ -485,11 +522,22 @@ Independent sibling scopes: untouched / may continue concurrently
 Current-stage exit condition: <concrete condition>
 ```
 
+When surface choice materially affects the path, also resolve before Projection:
+
+```text
+Primary surface for each material learner action: <surface or surface-agnostic>
+Companion surface(s): <if any>
+Forbidden substitution: <if any>
+Cross-surface handoff: <if any>
+```
+
 Then work only on the active stage of that dependency chain unless new evidence forces an upstream rollback.
 
 The durable KianOS principles are:
 
 > **Start from the learning need, not from the available tool.**
+
+> **Assign surface ownership from cognition before implementation capability.**
 
 > **Resolve the upstream learning question before optimizing its downstream representation.**
 
