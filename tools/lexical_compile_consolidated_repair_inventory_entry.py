@@ -5,6 +5,7 @@ import json
 import re
 
 import lexical_compile_consolidated_repair_inventory as compiler
+import lexical_historical_round_from_source_lock as r18_source
 
 OVERRIDE_PATH = compiler.ROOT / "content" / "lexical" / "audit" / "knowledge-reacceptance" / "post-r31-ownership-overrides.json"
 OWNERSHIP_OVERRIDES = json.loads(OVERRIDE_PATH.read_text(encoding="utf-8"))
@@ -66,19 +67,27 @@ def parse_round_source_from_local_authority(checkpoint):
     compiler.base.EXPANSION_OWNER_TARGETS = []
     compiler.base.EXPANSION_DECLARED_COUNT = None
 
-    core_rows = compiler.owner_surfaces.parse_core_compatible(body)
-    expansion_rows = compiler.owner_surfaces.parse_simple_targets_compatible(
-        body,
-        "### Expansion Gate",
-        ("### Contrast Gate", "### Existing", "### Mechanical", "### Apply", "Canonical Apply:"),
-        "expansion",
-    )
-    contrast_rows = compiler.owner_surfaces.parse_simple_targets_compatible(
-        body,
-        "### Contrast Gate",
-        ("### Existing", "### Mechanical", "### Apply", "Canonical Apply:", "Reuse rather than duplicate"),
-        "contrast",
-    )
+    if str(checkpoint.get("audit_id") or "").startswith("R18_"):
+        # R18 is the one historical round whose normalized Current transport
+        # deliberately uses grouped bullet lines. Reuse the exact parser that
+        # originally closed R18 instead of silently returning 0/0/0.
+        core_rows = r18_source.parse_core_compatible(body)
+        expansion_rows = r18_source.parse_grouped_expansion(body)
+        contrast_rows = r18_source.parse_bulleted_contrast(body)
+    else:
+        core_rows = compiler.owner_surfaces.parse_core_compatible(body)
+        expansion_rows = compiler.owner_surfaces.parse_simple_targets_compatible(
+            body,
+            "### Expansion Gate",
+            ("### Contrast Gate", "### Existing", "### Mechanical", "### Apply", "Canonical Apply:"),
+            "expansion",
+        )
+        contrast_rows = compiler.owner_surfaces.parse_simple_targets_compatible(
+            body,
+            "### Contrast Gate",
+            ("### Existing", "### Mechanical", "### Apply", "Canonical Apply:", "Reuse rather than duplicate"),
+            "contrast",
+        )
     meta = legacy_source_comment_meta(checkpoint)
     comment_id = meta[1] if meta else None
     return body, comment_id, core_rows, expansion_rows, contrast_rows
