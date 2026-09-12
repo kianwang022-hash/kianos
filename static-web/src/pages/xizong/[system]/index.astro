@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import XizongSystemV6 from '../../../components/XizongSystemV6.astro';
 import XizongSystemExitRuntime from '../../../components/XizongSystemExitRuntime.astro';
+import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
@@ -28,6 +29,7 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
         <small>{questionSweep.questionCount} 道系统真题已准备好；现在不用占注意力。</small>
       </summary>
       <XizongSystemExitRuntime system={system} sweep={questionSweep} />
+      <XizongSystemRepairReturn system={system} />
     </details>
   )}
   <XizongRuntimeStageGuard system={system} />
