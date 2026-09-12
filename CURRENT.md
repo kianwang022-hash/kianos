@@ -1,7 +1,6 @@
 # KianOS Root Current
 
 **Repository:** `kianwang022-hash/kianos`  
-**Branch:** `governance/federated-current-v2-20260912`  
 **Role:** root Work Cursor + scope router
 
 `CURRENT.md` is a navigation/control surface, not a Truth owner and not a project history.
@@ -10,39 +9,31 @@
 
 ## Root Work Cursor
 
-**Active scope:** KianOS governance redesign  
-**Current stage:** top-level governance landing readiness  
-**Blocker:** none inside the accepted governance design  
-**Next action:** keep all lane-level content/runtime upgrades frozen on this branch. Require the PR's current-head Governance Anti-Entropy check to stay green; if `main` has no new real owner/write-set overlap, PR #21 is merge-ready. Actual merge to `main` still requires explicit user authorization.
+**Active scope:** none — router-only baseline  
+**Current stage:** accepted top-level governance baseline  
+**Blocker:** none  
+**Next action:** route future work to the narrowest known lane / sub-lane `CURRENT.md`. Open a root integration/governance scope only when a real cross-lane requirement, owner conflict, or architecture failure requires it.
 
-### Current landing state
+### Accepted top-level baseline
 
-- latest reconciled `main` owner set is already contained in this branch;
-- PR #21 is mergeable;
-- A1–A6 governance acceptance is PASS in `GOVERNANCE_ACCEPTANCE.md`;
-- exact-head CI evidence is owned by the GitHub PR check surface, not copied back into Current.
+KianOS now uses:
 
-The latest reconciliation retained newer Politics History Artifact work while preserving the governance Current / Acceptance ownership split and retired continuation boundary.
-
-### Top-level completion boundary
-
-This governance branch is responsible only for:
-
-- Project Definition;
-- Architecture;
-- worker/routing rules;
+- `Project Definition → Architecture → Operating Cycle`;
 - Three Truths + One Cursor;
-- federated Current / Acceptance ownership;
-- continuation retirement boundaries;
-- concurrency / bounded reconciliation behavior;
-- minimal anti-entropy protection;
-- governance acceptance evidence.
+- federated Root / Lane / justified Sub-lane Current ownership;
+- single-owner + inherited-rule boundaries;
+- current-only restart paths with roughly 2–4 precise reads after scope resolution;
+- continuation only when a proven narrow machine/process responsibility exists;
+- concurrency-first bounded reconciliation;
+- earliest-unresolved-stage containment for learning-asset work;
+- lightweight anti-entropy protection;
+- strict separation between engineering readiness and Kian's real learner progress.
 
-It is **not** the place to finish unresolved English / Xizong / Lexical / Politics learning-content/runtime work.
+Top-level governance should now remain stable. Do not keep expanding it merely because more sophisticated infrastructure is possible.
 
-### Post-landing sequence
+### Lower-level upgrade sequence
 
-After the governance layer lands, lower-level upgrades should be handled as separate bounded scopes using the new hierarchy:
+Lower-level work proceeds as separate bounded scopes:
 
 ```text
 known lane / sub-lane
@@ -52,17 +43,16 @@ known lane / sub-lane
 → implement / accept / real learner use
 ```
 
-Do not aggregate all lane upgrades into a second root mega-migration. Shared infrastructure is changed only when multiple lane-level needs prove a real common requirement.
+Do not aggregate all lane upgrades into a root mega-migration. Shared infrastructure changes only when multiple real lane-level needs prove a common requirement.
 
-### Frozen / out of scope for this root task
+### Root out-of-scope by default
 
 - no additional governance abstraction without a new root requirement;
-- no domain content/source semantic rewrite under governance authority;
-- no private learner-state mutation;
-- no broad lane feature work;
+- no domain content/source semantic rewrite under root governance authority;
+- no private learner-state mutation from engineering state;
+- no broad sibling-lane repair by convenience;
 - no reopening accepted domain cognition merely to simplify governance;
-- no CI optimization project merely because public hosted runners are now available;
-- no merge to `main` before explicit merge authorization.
+- no CI/runner/platform expansion without a demonstrated execution need.
 
 ---
 
@@ -73,7 +63,7 @@ Highest-level owners:
 - project requirements / invariants → `PROJECT_DEFINITION.md`
 - project architecture → `ARCHITECTURE.md`
 - worker routing / operating rules → `AGENTS.md`
-- governance acceptance / merge-readiness evidence → `GOVERNANCE_ACCEPTANCE.md`
+- governance acceptance evidence → `GOVERNANCE_ACCEPTANCE.md`
 
 Repository-wide learning/platform standards:
 
