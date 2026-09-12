@@ -9,6 +9,9 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEARNING_ROOT = path.join(repoRoot, 'content/politics/learning/history');
 const REGIONS = path.join(repoRoot, 'content/politics/source/politics_unified_regions.v1.jsonl');
 const NODE_SHARDS = path.join(repoRoot, 'content/politics/source/nodes/shards');
+const NODE_MANIFEST = path.join(repoRoot, 'content/politics/source/nodes/manifest.json');
+const SOURCE_REVIEW = path.join(LEARNING_ROOT, 'source-review.json');
+const SEMANTIC_REVIEW = path.join(LEARNING_ROOT, 'semantic-review.json');
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function readJsonl(file) {
@@ -20,6 +23,18 @@ function uniq(values) { return [...new Set(values.filter(Boolean))]; }
 const regionRows = readJsonl(REGIONS).filter((row) => row?.status === 'canonical' && row?.subject === 'HISTORY');
 const regionByUnit = new Map(regionRows.map((row) => [String(row.natural_unit_id), row]));
 const shardCache = new Map();
+const nodeManifest = readJson(NODE_MANIFEST);
+const sourceReview = fs.existsSync(SOURCE_REVIEW) ? readJson(SOURCE_REVIEW) : null;
+const semanticReview = fs.existsSync(SEMANTIC_REVIEW) ? readJson(SEMANTIC_REVIEW) : null;
+
+const sourceReviewSnapshotValid = Boolean(
+  sourceReview?.status === 'CURRENT_REVIEW_COMPLETE'
+  && sourceReview?.root_ocr_review?.status === 'COMPLETE'
+  && sourceReview?.suyi_delta_review?.status === 'COMPLETE'
+  && sourceReview?.review_snapshot?.node_registry_canonical_row_digest_sha256
+    === nodeManifest?.canonical_row_digest_sha256
+);
+const semanticReviewComplete = semanticReview?.status === 'CURRENT_MAINLINE_SCAN_COMPLETE';
 
 function shardPathForNode(nodeId) {
   const id = String(nodeId || '');
@@ -111,13 +126,15 @@ const reviewQueue = [];
 const chapters = [];
 const allUnitIds = new Set();
 
+if (!semanticReviewComplete) blockers.push({ chapter: 'subject', code: 'HISTORY_SEMANTIC_REVIEW_NOT_COMPLETE' });
+if (!sourceReviewSnapshotValid) reviewQueue.push({ chapter: 'subject', unit_id: 'HISTORY_ALL', priority: 'P0', code: 'SOURCE_REVIEW_SNAPSHOT_REOPENED' });
+
 for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$/i.test(file)).sort()) {
   const chapterCode = path.basename(name, '.json').toLowerCase();
   const raw = readJson(path.join(LEARNING_ROOT, name));
   const current = loadPoliticsChapterCurrent('history', chapterCode);
   const declared = asList(raw?.source_bindings?.natural_unit_ids);
   const projected = uniq(asList(raw?.units).flatMap(representedIds));
-  const chapterSuyi = new Set(asList(raw?.source_bindings?.suyi_refs));
   const currentRepresented = new Set(current.units.flatMap((unit) => asList(unit?.representedNaturalUnitIds)));
 
   if (declared.length !== projected.length || declared.some((id) => !projected.includes(id)) || projected.some((id) => !declared.includes(id))) {
@@ -165,9 +182,10 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
     if (!signals) localBlockers.push('MISSING_STAGE_CAUSE_TURNING_POINT_EVALUATION_SIGNAL');
 
     if ((priority === 'P0' || priority === 'P1') && signals < 2) localReview.push('HIGH_PRIORITY_HISTORY_PROJECTION_THIN');
-    if (rootReview.length) localReview.push(`SOURCE_ROOT_REVIEW:${rootReview.map((row) => `${row.id}:${row.status}`).join('|')}`);
-    if (suyiRefs.length) localReview.push(`SUYI_DELTA_REVIEW:${suyiRefs.length}`);
-    for (const ref of suyiRefs) if (!chapterSuyi.has(ref)) localReview.push(`SUYI_BINDING_DRIFT:${ref}`);
+    if (!sourceReviewSnapshotValid && rootReview.length) {
+      localReview.push(`SOURCE_ROOT_REVIEW:${rootReview.map((row) => `${row.id}:${row.status}`).join('|')}`);
+    }
+    if (!sourceReviewSnapshotValid && suyiRefs.length) localReview.push(`SUYI_DELTA_REVIEW:${suyiRefs.length}`);
 
     for (const code of localBlockers) blockers.push({ chapter: chapterCode, unit_id: unitId, represented_unit_ids: unitIds, priority, code });
     for (const code of uniq(localReview)) reviewQueue.push({ chapter: chapterCode, unit_id: unitId, represented_unit_ids: unitIds, priority, code });
@@ -208,6 +226,9 @@ const compact = {
   status: blockers.length ? 'BLOCKED' : reviewQueue.length ? 'PASS_WITH_REVIEW_QUEUE' : 'PASS',
   scope: 'HISTORY_ALL_CHAPTERS_CONTENT',
   teaching_shape: 'CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION',
+  source_review_snapshot_valid: sourceReviewSnapshotValid,
+  semantic_review_complete: semanticReviewComplete,
+  source_node_digest: nodeManifest?.canonical_row_digest_sha256 || '',
   chapter_count: chapters.length,
   represented_natural_unit_count: allUnitIds.size,
   learner_unit_count: chapters.reduce((sum, chapter) => sum + chapter.learnerUnits.length, 0),
