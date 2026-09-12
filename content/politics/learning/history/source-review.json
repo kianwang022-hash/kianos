@@ -1,0 +1,69 @@
+{
+  "schema": "kianos.politics.history_source_review.v1",
+  "status": "CURRENT_REVIEW_COMPLETE",
+  "scope": "HISTORY_CH01_TO_CH10",
+  "review_snapshot": {
+    "node_registry_canonical_row_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "semantic_review_blob_sha": "6d236a627495a1e6b696d80162d444568c74fef2",
+    "rule": "This disposition is valid only while the Current node-shard manifest retains the same canonical row digest. Any Source change reopens compact review instead of silently inheriting an old approval."
+  },
+  "review_rule": "Record reviewed Source/Knowledge dispositions without rewriting canonical OCR truth. Chengfeng remains the learner mainline. Suyi is background cross-check only; admit a delta only when it adds stable stage, turning-point, causal, evaluation or historical-position value missing from Current.",
+  "root_ocr_review": {
+    "status": "COMPLETE",
+    "decision": "NO_BLOCKING_NATURAL_UNIT_OWNER_GAP_FOUND",
+    "boundary": "Observed source_bound_ocr_needs_review rows in the History scan are local child table/item/example OCR or layout defects. They do not make a declared Natural Unit owner unresolved and do not justify manufacturing whole-subject Source debt. Any future Source snapshot change reopens the compact queue.",
+    "examples_reviewed": [
+      "C01 local invasion-example OCR fragments",
+      "C02 Taiping timeline/table and reform-detail fragments",
+      "C03 Qing New Policies and Nanjing provisional-government child fragments",
+      "C05 armed-uprising child annotation fragments",
+      "C10 recent-meeting child glyph noise"
+    ]
+  },
+  "suyi_delta_review": {
+    "status": "COMPLETE",
+    "decision": "NO_SECOND_COURSE",
+    "scope": "DECLARED_HISTORY_SUYI_SUPPORT_PLUS_FROZEN_C04_PILOT_SUPPORT",
+    "admitted_deltas": [
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C03-S01",
+        "delta": "Restore failure of Qing New Policies and preparatory constitutionalism as a causal bridge from reform exhaustion to revolutionary ascendancy.",
+        "status": "FIXED_IN_CURRENT"
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C04-S01",
+        "delta": "Restore the October Revolution as the bridge from New Culture ideological liberation to a new revolutionary direction and wider Marxism spread.",
+        "status": "FIXED_IN_CURRENT"
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C06-S05",
+        "delta": "Restore the source-backed victory-cause hierarchy and Taiwan/Penghu return as an important marker of complete victory.",
+        "status": "FIXED_IN_CURRENT"
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C08-S03",
+        "delta": "Promote The Ten Major Relationships and the Eighth Party Congress into learner-facing anchors for independent socialist-construction exploration.",
+        "status": "FIXED_IN_CURRENT"
+      },
+      {
+        "natural_unit_id": "POL27-CF-HISTORY-C09-S02",
+        "delta": "Promote the Southern Talks as the later reform-breakthrough anchor; keep rectification of disorder inside the 1978 transition chain.",
+        "status": "FIXED_IN_CURRENT"
+      }
+    ],
+    "reviewed_no_additional_delta": [
+      "POL27-CF-HISTORY-C01-S01",
+      "POL27-CF-HISTORY-C01-S03",
+      "POL27-CF-HISTORY-C02-S02",
+      "POL27-CF-HISTORY-C02-S03",
+      "POL27-CF-HISTORY-C03-S01",
+      "POL27-CF-HISTORY-C06-S04",
+      "POL27-CF-HISTORY-C06-S05",
+      "POL27-CF-HISTORY-C07-S02",
+      "POL27-CF-HISTORY-C07-S04",
+      "POL27-CF-HISTORY-C08-S01"
+    ],
+    "frozen_pilot_rule": "C04 K03-K07 already carry frozen_pilot_semantic_decision authority. Their many Suyi refs remain provenance for those accepted semantic decisions and are not re-expanded into a second learner course."
+  },
+  "acceptance_boundary": "Child OCR defects may remain in canonical Source metadata when the Natural Unit owner is stable, the relevant learner relation is already supported by readable Chengfeng/Suyi evidence, and the defect is not itself required to reconstruct the learner claim."
+}

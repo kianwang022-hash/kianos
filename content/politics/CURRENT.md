@@ -10,21 +10,33 @@ This file does not own political Source Truth, Acceptance Truth, learner progres
 ## Work Cursor
 
 **Active scope:** History whole-subject acceptance  
-**Active / earliest unresolved stage:** `S — compact Source-root OCR + declared Suyi review`  
-**Blocker:** History semantic mainline scan is complete and five real gaps were repaired on latest `main`, but Source-root / Suyi review still needs bounded closure before History S/K can be accepted  
-**Next action:** inspect only the compact History Source-root OCR exceptions and declared Suyi references across ch01–ch10, persist/adopt only evidence-backed dispositions in the owning Politics mainline, then let the History batch content gate judge S/K. Only after S/K close should formal first-ready L/P timing be derived; History R/E remain downstream.
+**Active / earliest unresolved stage:** `S/K → L/P executable acceptance gates`  
+**Blocker:** History Source-root / Suyi review and learner-facing semantic scan are complete on latest `main`, and global last-necessary-owner first-ready projection is implemented, but the dedicated History content and first-ready assertions have not yet produced acceptance evidence on this reconciled governance head  
+**Next action:** execute the current Politics QA History content gate and History global first-ready parity gate. If they pass, update `content/politics/ACCEPTANCE.md` only from executed evidence; if they fail, repair only concrete red evidence. Keep History R/E frozen until L/P close.
+
+### Current History candidate boundary
+
+Latest-main Artifact now contains:
+
+- durable `content/politics/learning/history/source-review.json` with Current Source digest binding;
+- completed History semantic scan with five evidence-backed repairs;
+- History content audit consuming the durable Source/Suyi review snapshot;
+- global first-ready derivation from canonical Natural Unit learner order using the last necessary owner for each Xiao1000 question;
+- independent first-ready parity audit;
+- Current runtime cut over to that History global first-ready projection;
+- C04 K03–K07 preserved as one continuous learner segment.
+
+These are Artifact/evidence candidates, not Acceptance PASS by existence alone.
 
 ### Parallel Marxism boundary
 
-Whole-Marxism implementation is currently **fixed pending executable acceptance gates** on latest `main`:
+Whole-Marxism implementation remains fixed pending executable acceptance evidence:
 
-- manual Source/Suyi review is complete;
-- semantic scan is complete with the two known gaps repaired;
-- 22-unit / 396-question global first-ready logic is implemented;
-- whole-subject zero-debt Unit Return / first-attempt Evidence behavior is implemented;
-- formal S/K/L/P/R/E claims remain UNTESTED until their dedicated assertions actually execute.
-
-No-start Politics QA jobs are neither PASS nor product failure. Do not reopen broad Marxism work merely because the runner has not started.
+- manual Source/Suyi review complete;
+- semantic scan complete with the two accepted gaps repaired;
+- 22-unit / 396-question global first-ready logic implemented;
+- whole-subject zero-debt Unit Return / first-attempt Evidence behavior implemented;
+- formal S/K/L/P/R/E claims remain UNTESTED until their dedicated assertions execute.
 
 ### Accepted pilot boundary
 
@@ -41,31 +53,33 @@ This means K03 is ready for a learner test path; it does **not** mean Kian has s
 
 ## Frozen / out of scope
 
-During the active History S stage:
+During the active History acceptance gates:
 
 - do not reopen accepted K03 S–E without concrete new evidence;
-- do not broadly rewrite Marxism while its formal gates are waiting to execute;
+- do not broadly rewrite Marxism merely because formal whole-subject gates remain pending;
 - do not call whole Marxism or whole History learner-ready from Artifact completeness;
-- do not add History Runtime/Evidence before History S/K then L/P close;
+- do not add History Runtime/Evidence before History L/P close;
 - do not create a second Suyi learner course;
 - do not let Xiao1000 determine first-round learning order;
-- preserve History's chronology / stage / turning-point / cause / evaluation teaching shape rather than forcing Marxism heuristics onto it;
-- preserve continuous learner Units such as History C04 K03–K07 rather than fragmenting them for bookkeeping;
+- preserve History's chronology / stage / turning-point / cause / evaluation teaching shape;
+- preserve continuous learner Units such as History C04 K03–K07;
 - do not modify Mao / Xi / Ethics-Law merely because Politics acceptance is active elsewhere;
-- do not mutate private learner progress / W-U / Return Packet state;
-- no-start CI (`steps=[]`, `runner_id=0`) is neither PASS nor product failure.
+- do not mutate private learner progress / W-U / Return Packet state.
 
 ---
 
 ## Required reads
 
-For normal re-entry into the active History S closure:
+For normal re-entry into the active History acceptance seal:
 
 1. `content/politics/ACCEPTANCE.md`
-2. `static-web/scripts/audit-politics-history-content.mjs` from latest `main`
-3. only the exact Current History learning/source owner(s) named by the remaining compact review queue
+2. `content/politics/learning/history/source-review.json`
+3. `static-web/scripts/audit-politics-history-content.mjs`
+4. `static-web/scripts/audit-politics-history-first-ready.mjs`
 
-If the task is specifically the blocked Marxism acceptance seal instead, read `content/politics/ACCEPTANCE.md` then the current Politics QA workflow / exact failing-or-pending gate only.
+Then inspect only the exact failing owner if an executable gate is red.
+
+If the task is specifically Marxism acceptance, read `content/politics/ACCEPTANCE.md` then the current Politics QA workflow / exact pending gate only.
 
 No Politics continuation/history narrative is required for normal work.
 
@@ -99,8 +113,8 @@ Known scope `Politics History acceptance` should normally recover as:
 ```text
 Politics CURRENT
 → Politics ACCEPTANCE
-→ History content-audit owner
-→ exact source/learning exception under review
+→ History content / first-ready gate
+→ exact failing owner only if needed
 → work
 ```
 
