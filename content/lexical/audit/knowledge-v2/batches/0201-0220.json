@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 201, "end": 220},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 9, "REVISE": 11, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":201,"word":"animal","verdict":"REVISE","target_truth":"Keep the ordinary noun and adjective branches, but replace the scientifically brittle Core definition based on voluntary movement with a broad learner-safe animal concept; do not define Animalia by one non-universal trait."},
+    {"ordinal":202,"word":"ankle","verdict":"PASS","target_truth":"Single ordinary anatomical noun is correct and learner-relevant; current sprain/joint collocations are coherent."},
+    {"ordinal":203,"word":"anniversary","verdict":"PASS","target_truth":"Yearly recurrence/commemoration of a date is correctly centered and sufficiently represented."},
+    {"ordinal":204,"word":"announce","verdict":"REVISE","target_truth":"Center one ordinary announce/make known publicly or officially branch and expose high-value complements such as announce sth / announce that-clause; avoid over-splitting a vague notice/presage branch as an equal main sense."},
+    {"ordinal":205,"word":"annoy","verdict":"PASS","target_truth":"Ordinary transitive make irritated/annoyed meaning and passive pattern are coherent."},
+    {"ordinal":206,"word":"annual","verdict":"REVISE","target_truth":"Keep yearly/once-a-year and per-year/calculated-over-a-year adjective uses as learner core. Downgrade annual=n yearly publication and botanical annual=n annual plant to recognition/reference rather than equal main Active branches."},
+    {"ordinal":207,"word":"anonymous","verdict":"PASS","target_truth":"Keep anonymous/unknown identity-or-source as core plus the extended indistinct/unremarkable sense as a valid secondary branch."},
+    {"ordinal":208,"word":"another","verdict":"REVISE","target_truth":"Keep another = one more / a different one. Do not treat one another as an ordinary collocation of this sense; own it as a reciprocal phrase/construction boundary."},
+    {"ordinal":209,"word":"answer","verdict":"REVISE","target_truth":"Keep noun answer, transitive answer a question/person/phone, answer for = be responsible, and answer a need/description/purpose = satisfy/fit where useful. Correct answer for governing pattern to with-for, and consolidate overlapping answer↔respond vs answer↔reply/respond Relation ownership into one non-duplicative contrast."},
+    {"ordinal":210,"word":"ant","verdict":"PASS","target_truth":"Single ordinary insect noun is correct and learner-relevant."},
+    {"ordinal":211,"word":"antenna","verdict":"PASS","target_truth":"Keep device aerial and insect sensory appendage branches; both are ordinary modern meanings."},
+    {"ordinal":212,"word":"anticipate","verdict":"REVISE","target_truth":"Center foresee/expect in advance with anticipate sth / doing / that-clause. Keep act-before/pre-empt as a distinct lower branch. Avoid duplicate construction presentation for anticipate that; do not over-separate emotional look-forward-to as an equal main branch."},
+    {"ordinal":213,"word":"antique","verdict":"REVISE","target_truth":"Restore ordinary noun antique = old valuable object and adjective antique = old/period-valued. Keep rare verbs such as shop for antiques / give an antique appearance out of the main learner map."},
+    {"ordinal":214,"word":"anxiety","verdict":"PASS","target_truth":"Keep anxiety as state/feeling of worry and plural/instance causes of worry as a useful secondary noun branch."},
+    {"ordinal":215,"word":"anxious","verdict":"PASS","target_truth":"Keep worried/anxious about and eager/anxious to/for as two high-value modern branches."},
+    {"ordinal":216,"word":"any","verdict":"PASS","target_truth":"Determiner/pronoun any plus adverbial any degree are all high-value grammar distinctions and currently coherent."},
+    {"ordinal":217,"word":"anybody","verdict":"REVISE","target_truth":"Center pronoun anybody = any person. Downgrade rare noun anybody = a person of standing/importance to recognition/reference rather than main Active learner content."},
+    {"ordinal":218,"word":"anyhow","verdict":"REVISE","target_truth":"Preserve anyhow ≈ anyway/in any case and genuine manner use in any way/carelessly as appropriate, but rewrite the first branch so its discourse meaning is explicit and not the opaque 'explains or supports previous statement' gloss; separate discourse vs manner use cleanly."},
+    {"ordinal":219,"word":"anything","verdict":"REVISE","target_truth":"Keep pronoun anything = any thing/matter and add high-value construction anything but = definitely not / far from; do not leave the familiar word as a one-line pronoun only."},
+    {"ordinal":220,"word":"anyway","verdict":"REVISE","target_truth":"Center one-word anyway as in any case/despite that/discourse-resumption or at-least marker. Remove or reclassify current 'in any way whatsoever' branch as primarily two-word any way, preserving the spelling/grammar boundary explicitly."}
+  ],
+  "relation_truth": [
+    {"source_word":"answer","verdict":"REVISE","target_truth":"The answer↔respond contrast is valid (answer takes direct object; respond normally takes to), but it overlaps a broader answer↔reply/respond owner. Consolidate to one authoritative relation rather than duplicate the respond boundary."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "Contemporary usage checks were used only where a decision depended on modern licensing/spelling boundary (notably anyway vs any way)."
+  ]
+}
