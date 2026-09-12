@@ -1,0 +1,98 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 161, "end": 200, "count": 40},
+  "status_counts": {"PASS": 24, "REVISE": 16, "SOURCE_CHECK": 0},
+  "source_checks": [
+    {
+      "word": "alternate",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/alternate",
+      "resolved": true,
+      "finding": "Modern US English uses adjective alternate for UK/general alternative and noun alternate for a substitute/deputy, in addition to the alternating/every-second meanings."
+    },
+    {
+      "word": "anger",
+      "source": "Cambridge Dictionary",
+      "url": "https://dictionary.cambridge.org/dictionary/english/anger",
+      "resolved": true,
+      "finding": "Current learner-dictionary treatment marks anger as a transitive verb meaning 'make someone angry'; the Current intransitive L2 'anger at sth/sb = become angry' should not be promoted as an ordinary active branch."
+    }
+  ],
+  "relation_decisions": [
+    {
+      "relation_id": "deep:confusables:alter:ec2b2a5d2e1f3a7b",
+      "decision": "REVISE",
+      "target_truth": "alter vs alert may remain a low-friction spelling/form boundary if useful, but Current is internally factually contradictory: same_normalized_pronunciation=true while its own phonetics differ. Do not default it to high-priority A merely because edit distance is small; learner priority should depend on real confusion risk."
+    },
+    {
+      "relation_id": "confusable:5f8097e4dfdf95849b33",
+      "decision": "REVISE",
+      "target_truth": "Keep the alternative↔alternate boundary, but encode regional variation: alternative is the general choice/substitute adjective/noun; alternate also means alternating/every second, while US English additionally uses alternate as adjective/noun for an alternative/substitute. Current relation incorrectly presents those meanings as mutually exclusive."
+    },
+    {
+      "relation_id": "relation:horizontal:f9b2d3df4709e2afb2f5",
+      "decision": "PASS",
+      "target_truth": "Keep aluminum vs aluminium as regional spelling variants of the same chemical element: aluminum is standard American English; aluminium is standard British/international English."
+    }
+  ],
+  "decisions": [
+    {"ordinal":161,"word":"already","decision":"PASS"},
+    {"ordinal":162,"word":"also","decision":"PASS"},
+    {"ordinal":163,"word":"alter","decision":"REVISE","target_truth":"Restore ordinary alter=change/make different as the main high-value verb. Specialist veterinary alter=neuter/spay is valid but lower reference/recognition and must not be the sole Active sense while Core says '改变'. Reassess the alter↔alert relation separately."},
+    {"ordinal":164,"word":"alternate","decision":"REVISE","target_truth":"Preserve verb alternate=take turns/change repeatedly and adjective alternate=every other/every second. Add modern US adjective alternate=alternative/substitute and noun alternate=substitute/deputy/backup at appropriate recognition depth. Current Truth is incomplete without this regional branch."},
+    {"ordinal":165,"word":"alternative","decision":"PASS"},
+    {"ordinal":166,"word":"although","decision":"PASS"},
+    {"ordinal":167,"word":"altitude","decision":"REVISE","target_truth":"Keep ordinary altitude=height above sea/ground level as the main learner meaning. Geometry altitude=perpendicular from a vertex is a valid specialist term but belongs in reference/recognition rather than equal main Active depth for general English."},
+    {"ordinal":168,"word":"altogether","decision":"PASS"},
+    {"ordinal":169,"word":"aluminum","decision":"PASS"},
+    {"ordinal":170,"word":"always","decision":"REVISE","target_truth":"Keep always=at all times/on every occasion as the core. Preserve pragmatic fallback use 'you can always...' = in any event/as an available option. 'As always' means as usual and belongs to the ordinary frequency branch, not as evidence for the fallback/any-event branch."},
+    {"ordinal":171,"word":"amateur","decision":"REVISE","target_truth":"Use one main noun center: a person who does an activity for enjoyment rather than as a profession, plus adjective nonprofessional. 'Amateur athlete' is an instance of that nonprofessional meaning, not a separate lexical sense. Recognize the evaluative extension amateur=unskilled/inexperienced as a contextual negative nuance rather than a redundant dictionary split."},
+    {"ordinal":172,"word":"amaze","decision":"PASS"},
+    {"ordinal":173,"word":"ambassador","decision":"PASS"},
+    {"ordinal":174,"word":"ambiguous","decision":"PASS"},
+    {"ordinal":175,"word":"ambition","decision":"REVISE","target_truth":"Use one semantic center: strong desire/goal to achieve something, especially success, position, power or another important outcome. Positive 'ambition' and negative 'political/power ambition' are largely contextual/connotative realizations rather than clean independent noun senses. Preserve productive patterns such as ambition to do sth / ambition for sth as appropriate."},
+    {"ordinal":176,"word":"ambitious","decision":"PASS"},
+    {"ordinal":177,"word":"ambulance","decision":"PASS"},
+    {"ordinal":178,"word":"amend","decision":"PASS"},
+    {"ordinal":179,"word":"amiable","decision":"PASS"},
+    {"ordinal":180,"word":"amid","decision":"PASS"},
+    {"ordinal":181,"word":"among","decision":"PASS"},
+    {"ordinal":182,"word":"amount","decision":"REVISE","target_truth":"Keep noun amount=quantity/total and high-value phrasal verb amount to=total/be equivalent to. Represent amount to once as one coherent lexical branch plus its canonical pattern; Current duplicates the same object as an Active sense, a secondary_sense, and two construction facts."},
+    {"ordinal":183,"word":"ample","decision":"PASS"},
+    {"ordinal":184,"word":"amplify","decision":"PASS"},
+    {"ordinal":185,"word":"amuse","decision":"PASS"},
+    {"ordinal":186,"word":"analog","decision":"PASS"},
+    {"ordinal":187,"word":"analogy","decision":"PASS"},
+    {"ordinal":188,"word":"analyse","decision":"PASS"},
+    {"ordinal":189,"word":"analysis","decision":"REVISE","target_truth":"Keep general analysis=detailed examination/breakdown/reasoning as the learner center. Literary analysis is a domain application of that general meaning, not an independent lexical sense 'a form of literary criticism in which structure is analyzed'; demote/remove that subtype as a separate Active branch."},
+    {"ordinal":190,"word":"analytic","decision":"REVISE","target_truth":"Keep general analytic=relating to/using analysis or logical reasoning as the main adjective. Analytic geometry and linguistics analytic language are legitimate specialist terms but belong in reference/recognition rather than equal main Active L2/L3 depth for general English."},
+    {"ordinal":191,"word":"ancestor","decision":"REVISE","target_truth":"Broaden beyond a human person: ancestor can be a person, animal, plant or ancestral organism from which a later individual/group descends, and can extend to a predecessor/forerunner of a later thing. Current person-only definition is too narrow for high-value academic/evolutionary reading."},
+    {"ordinal":192,"word":"anchor","decision":"PASS"},
+    {"ordinal":193,"word":"ancient","decision":"REVISE","target_truth":"Keep adjective ancient=belonging to remote history / very old as the main learner map. Noun 'the ancients'=people of ancient times is valid but lower-frequency recognition/reference, not equal main Active depth."},
+    {"ordinal":194,"word":"and","decision":"REVISE","target_truth":"Keep conjunction and as the function-word core and explicit high-value structures such as and so on where useful. Do not store lexicalized idioms such as bread and butter=livelihood as ordinary collocation evidence for the semantic core of and; such idioms require their own phrase-level ownership/layer."},
+    {"ordinal":195,"word":"anecdote","decision":"PASS"},
+    {"ordinal":196,"word":"angel","decision":"PASS"},
+    {"ordinal":197,"word":"anger","decision":"REVISE","target_truth":"Keep noun anger as the main meaning and transitive verb anger sb=make someone angry as a legitimate lower branch. Remove/demote Current intransitive 'anger at sth/sb = become angry' from ordinary Active Knowledge; current learner dictionaries mark the verb transitive. Keep noun patterns anger at/over sth and in anger. A specialized idiom 'in anger' meaning in a real/serious use context may remain separate reference knowledge if later judged worthwhile."},
+    {"ordinal":198,"word":"angle","decision":"REVISE","target_truth":"Center the learner map on physical angle and high-value familiar-new noun angle=perspective/way of considering a subject. Keep angle for sth=try indirectly to obtain as a useful construction. Physical position/move-at-angle verbs may be lower. Historic ethnonym Angles belongs in reference only and must not sit in Core/main Active alongside ordinary angle."},
+    {"ordinal":199,"word":"angry","decision":"REVISE","target_truth":"Keep ordinary angry at/about/with as the main adjective. Literary violent-elements use (angry waves/weather) and medical-looking inflamed/red 'angry wound' are valid extensions but low-value recognition/reference, not equal main learner-active depth."},
+    {"ordinal":200,"word":"anguish","decision":"REVISE","target_truth":"Restore noun anguish=extreme mental or physical suffering as the main Active meaning; Current Core already states this while Active senses are empty. Verb anguish/suffer anguish may be lower recognition where contemporary; rare causative 'anguish sb' must not displace the noun core."}
+  ],
+  "defect_classes_added": [
+    "REGIONAL_MODERN_SENSE_MISSING_FROM_CONFUSABLE_BOUNDARY",
+    "INTERNAL_RELATION_METADATA_FACTUALLY_SELF_CONTRADICTORY",
+    "FUNCTION_WORD_IDIOM_MISOWNED_AS_CORE_COLLOCATION",
+    "GENERAL_ACADEMIC_WORD_SPLIT_BY_DOMAIN_APPLICATION",
+    "HUMAN_ONLY_DEFINITION_MISSES_HIGH_VALUE_BIOLOGICAL_OR_FIGURATIVE_EXTENSION",
+    "TRANSITIVITY_ERROR_PROMOTED_AS_ACTIVE_SENSE"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Close Truth batch 0001-0200, update continuation to 0201, then continue full-corpus Truth audit."
+}
