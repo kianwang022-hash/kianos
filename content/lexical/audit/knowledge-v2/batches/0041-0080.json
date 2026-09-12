@@ -1,0 +1,90 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 41, "end": 80, "count": 40},
+  "status_counts": {"PASS": 20, "REVISE": 20, "SOURCE_CHECK": 0},
+  "downstream": {
+    "learning_logic": "FROZEN_PENDING_UPSTREAM",
+    "content_realization": "FROZEN_PENDING_UPSTREAM",
+    "projection_interaction": "FROZEN_PENDING_UPSTREAM",
+    "runtime_loop": "FROZEN_PENDING_UPSTREAM",
+    "evidence_acceptance": "FROZEN_PENDING_UPSTREAM"
+  },
+  "relation_decisions": [
+    {
+      "relation_id": "deep:semantic_contrast:accuse:0b0520c2bf256dec",
+      "decision": "REVISE",
+      "target_truth": "The learner-worthy contrast is accuse sb of sth/doing vs charge sb with sth, with charge typically more formal/legal. Current Relation owner is internally inconsistent because its target_sense_id/target_definition point to charge=price/fee while other fields claim the accusation verb. Re-anchor to the correct charge accusation sense and fix the syntax field."
+    },
+    {
+      "relation_id": "deep:semantic_contrast:address:83139cce53b73825",
+      "decision": "REVISE",
+      "target_truth": "If retained, compare verb address sb/an audience with speak to sb/an audience and express the typical register/directness difference. Current owner anchors a noun 'formal speech' source sense against a verb speak sense, so the semantic objects/POS are misaligned."
+    },
+    {
+      "relation_id": "relation:horizontal:a79b15260df251ab9574",
+      "decision": "PASS",
+      "target_truth": "Keep the sense-specific near-paraphrase address an issue ≈ deal with an issue, with address emphasizing directing attention/action and deal with being broader handling/coping."
+    }
+  ],
+  "decisions": [
+    {"ordinal":41,"word":"accountant","decision":"PASS"},
+    {"ordinal":42,"word":"accumulate","decision":"PASS"},
+    {"ordinal":43,"word":"accuracy","decision":"PASS"},
+    {"ordinal":44,"word":"accurate","decision":"PASS"},
+    {"ordinal":45,"word":"accuse","decision":"REVISE","target_truth":"Keep one main accusation sense and one canonical high-value pattern accuse sb of sth/doing sth. Remove the duplicate/incomplete construction 'accuse of + sth'. The accuse↔charge boundary is useful only after its Relation owner is re-anchored to the correct charge accusation sense."},
+    {"ordinal":46,"word":"accustom","decision":"REVISE","target_truth":"Keep accustom sb/oneself to sth as the verb pattern. Treat be accustomed to sth/doing as the high-value participial/adjectival accustomed pattern rather than pretending it is an ordinary inflectional pattern of the active verb without distinction."},
+    {"ordinal":47,"word":"ache","decision":"PASS"},
+    {"ordinal":48,"word":"achieve","decision":"PASS"},
+    {"ordinal":49,"word":"acid","decision":"PASS"},
+    {"ordinal":50,"word":"acknowledge","decision":"REVISE","target_truth":"Keep acknowledge truth/existence, acknowledge receipt, express thanks, and formally recognize status/authority as legitimate branches. Remove exact semantic duplication of the express-thanks meaning between Active and secondary_senses."},
+    {"ordinal":51,"word":"acquaint","decision":"PASS"},
+    {"ordinal":52,"word":"acquaintance","decision":"REVISE","target_truth":"Keep two learner-worthy centers: familiarity/knowledge of sb/sth and a person one knows slightly. Fold 'a relationship less intimate than friendship' into the acquaintance-person/familiarity meaning rather than maintaining it as a separate Active sense. Prefer natural acquaintance with sth over overpromoting less-common pattern wording."},
+    {"ordinal":53,"word":"acquire","decision":"REVISE","target_truth":"Core should be obtain/gain/come to possess something, not restrict acquisition to one's own effort/ability. Cover skills/knowledge and ordinary possession/business/assets under that broader semantic center; keep radar target acquisition outside the main learner map."},
+    {"ordinal":54,"word":"acquisition","decision":"PASS"},
+    {"ordinal":55,"word":"acre","decision":"PASS"},
+    {"ordinal":56,"word":"across","decision":"REVISE","target_truth":"Preserve plain across meanings: side-to-side, opposite side, and throughout/across a range. Model come across and get across as separate high-value phrasal/construction knowledge because their meanings are not ordinary collocations of the plain adverb sense."},
+    {"ordinal":57,"word":"act","decision":"REVISE","target_truth":"Do not collapse distinct POS/meaning families into one noun sense. Learner-worthy target includes noun act=deed/action; verb act=take action/behave; verb act=perform/pretend at appropriate depth; noun Act=law; and lower-priority noun act=part/performance unit. Core may compress around doing/performing but cannot erase the branches."},
+    {"ordinal":58,"word":"action","decision":"REVISE","target_truth":"Keep ordinary action/process toward a result. Restore recognition of academic/scientific action=effect/operation (e.g. action of a drug/substance/mechanism) rather than merging it into generic action. War 'action'=fighting may remain lower-priority recognition rather than equal main depth."},
+    {"ordinal":59,"word":"activate","decision":"REVISE","target_truth":"Keep ordinary activate=make/start/enable something to become active or operational as the main learner meaning. Demote specialist 'make radioactive' from the main learner-active map unless domain-specific use later warrants it."},
+    {"ordinal":60,"word":"active","decision":"REVISE","target_truth":"Center the adjective on being in action/operation/participation and cover ordinary currently operating/engaged/in effect uses alongside active disease where useful. Do not promote rare noun 'an active' and grammar noun active voice as equal main learner senses; keep them recognition/reference as appropriate."},
+    {"ordinal":61,"word":"activity","decision":"REVISE","target_truth":"Keep ordinary activity/action/state or level of being active as learner Knowledge. Demote chemistry-specific activity/reactivity from the main general learner map to reference/explore unless a domain-specific need explicitly calls it back."},
+    {"ordinal":62,"word":"actor","decision":"REVISE","target_truth":"Use gender-neutral 演员 / performer for the theatrical sense, not 男演员. Preserve academic/general actor=participant/agent/player in a process, system, negotiation, policy, etc. as a high-value familiar-new sense."},
+    {"ordinal":63,"word":"actual","decision":"PASS"},
+    {"ordinal":64,"word":"acute","decision":"PASS"},
+    {"ordinal":65,"word":"adapt","decision":"REVISE","target_truth":"Preserve three useful branches: adapt sth to a purpose/situation; adapt to conditions; adapt a work for another medium. Keep one semantic structure object per distinct pattern and remove duplicate adapt-to constructions / redundant representations of the same pattern."},
+    {"ordinal":66,"word":"add","decision":"REVISE","target_truth":"Keep add sth to sth/add to sth, add that..., add up, and add up to. Represent mathematical addition coherently rather than as a malformed 'vi. + to' sense. Remove duplicate add to + sth collocation objects that express the same pattern."},
+    {"ordinal":67,"word":"addict","decision":"REVISE","target_truth":"Keep noun addict as the main headword meaning. Do not make rare/formal causative verb addict sb/oneself to the Core merely for completeness. The learner asset should connect to high-value addicted to sth/doing family knowledge at the proper owner later; Current Core '上瘾者或使上瘾' overstates the deprecated verb branch."},
+    {"ordinal":68,"word":"addition","decision":"REVISE","target_truth":"Preserve ordinary noun addition and arithmetic meaning at suitable depth, but represent in addition and in addition to explicitly as high-value discourse/prepositional phrase structures rather than merely collocations attached to 'act of adding'."},
+    {"ordinal":69,"word":"additional","decision":"PASS"},
+    {"ordinal":70,"word":"address","decision":"PASS"},
+    {"ordinal":71,"word":"adequate","decision":"REVISE","target_truth":"Use one semantic center: sufficient/good enough in quantity or quality for a purpose. 'Acceptable but not excellent' is an important pragmatic nuance of adequacy, not a separate independent learner-active meaning. Keep adequate for sth / adequate to do sth patterns."},
+    {"ordinal":72,"word":"adhere","decision":"REVISE","target_truth":"Keep physical stick/adhere to and figurative adhere to rules/principles/standards as the two main learner branches. Treat devoted follower/supporter as lower-frequency recognition. Remove duplicate physical adhere-to constructions and organize one structural pattern across its semantic branches."},
+    {"ordinal":73,"word":"adjacent","decision":"PASS"},
+    {"ordinal":74,"word":"adjective","decision":"PASS"},
+    {"ordinal":75,"word":"adjust","decision":"PASS"},
+    {"ordinal":76,"word":"administer","decision":"REVISE","target_truth":"Restore the ordinary/high-value branches currently absent from Active Knowledge: manage/run/supervise or formally carry out; and administer/give/apply medicine, treatment, a test, oath, etc. Demote archaic/formal administer to the sick=give help from being the sole Active sense. Core should compress formal management/execution/delivery."},
+    {"ordinal":77,"word":"administration","decision":"PASS"},
+    {"ordinal":78,"word":"admire","decision":"PASS"},
+    {"ordinal":79,"word":"admission","decision":"PASS"},
+    {"ordinal":80,"word":"admit","decision":"REVISE","target_truth":"Preserve acknowledge truth and allow entry/admission branches. Explicitly represent high-value complement structures admit that..., admit doing sth, and admit to doing sth. Keep formal admit of sth only at low recognition/reference depth rather than equal main learner weight."}
+  ],
+  "defect_classes_added": [
+    "DUPLICATE_OR_INCOMPLETE_CONSTRUCTION_OBJECTS",
+    "PARTICIPLE_OR_DERIVED_FORM_OWNERSHIP_AMBIGUITY",
+    "OVER_MERGE_ERASES_DISTINCT_POS_OR_HIGH_VALUE_SENSES",
+    "SPECIALIST_MICROSENSE_PROMOTED_OVER_GENERAL_LEARNER_VALUE",
+    "OUTDATED_OR_INACCURATE_CHINESE_GLOSS",
+    "PHRASAL_EXPRESSION_MISMODELED_AS_PLAIN_WORD_COLLOCATION",
+    "RELATION_TARGET_SENSE_OR_POS_MISALIGNED"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Continue Truth-stage review from ordinal 81 through 200; do not repair Current owners yet."
+}
