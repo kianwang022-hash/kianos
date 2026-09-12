@@ -41,6 +41,107 @@ These are not automatically the same.
 
 ---
 
+## Independent re-acceptance directive｜anti-cocoon audit
+
+This is a **user-requested re-acceptance instruction**, not a new eighth gate and not an automatic revocation of existing PASS claims.
+
+Purpose:
+
+> prevent a self-confirming loop in which the same implementation / validator / Acceptance chain defines the expected answer and then proves itself internally consistent without enough independent challenge.
+
+When Kian asks to **重新验收 / independent audit / fresh acceptance** for Marxism or History, apply this directive to that subject independently. Subjects may be re-audited in parallel when their evidence chains are independent.
+
+### Anti-anchoring entry
+
+For the first-pass audit:
+
+1. use this lane `CURRENT.md` only to route to the target subject and identify inherited Politics owners;
+2. resolve the target's actual Source / teaching asset / lane contracts / runtime owners;
+3. treat existing subject `CURRENT.md`, `ACCEPTANCE.md`, prior PR summaries and old PASS language as **claims to be tested, not evidence**;
+4. if the local `CURRENT.md` must be read for paths, ignore its verdict/status prose as proof;
+5. before using the old scoped `ACCEPTANCE.md` to reconcile history, form a provisional S–E judgment from actual artifacts, inherited contracts and independent evidence;
+6. only then read the old Acceptance and explain agreement/delta explicitly.
+
+The auditor should be a **fresh Chat / fresh auditor when practical**. A builder Chat that designed or repaired the same gate is `SELF` evidence, not independent review merely because it changes tone.
+
+### Evidence declaration
+
+Every re-accepted gate must state the evidence actually supporting it. Do not collapse these into one score.
+
+Evidence modes:
+
+```text
+STRUCTURAL   schema / identity / static source inspection / contract presence
+EXECUTED     the claimed behavior was actually executed through the relevant path
+ADVERSARIAL  deliberate negative / edge / mutation / contradiction challenge survived
+REAL_USE     Kian actually used the path
+TRANSFER     later fresh / unseen evidence survived across time/context
+```
+
+Independence labels:
+
+```text
+SELF                    builder / same reasoning chain
+FRESH_AUDITOR           fresh audit not anchored to the old verdict
+AUTHORITATIVE_EXTERNAL  independent authoritative source / benchmark where applicable
+REAL_USER               Kian's observed real use
+```
+
+`REAL_USE` / `TRANSFER` cannot be simulated by CI or another model and remain U / later real-evidence territory.
+
+### Minimum challenge floor by gate
+
+- **S:** source inventory/count/schema is not enough by itself. Independently sample provenance, source-role boundaries, exact claims/questions/answers and omissions; verify that one source is not silently standing in for another role.
+- **K:** construct an expected conceptual/argument map before using current teaching assets as the answer key; inspect **negative space**, missing distinctions, scope creep and copied source structure masquerading as learning structure.
+- **L:** generate at least one plausible alternative learner route/surface allocation and ask why the accepted path is better for Kian. Re-test the division between orientation, continuous source learning, question verification, repair and later review.
+- **P:** inspect the rendered learner surface for whether the current cognitive action is foregrounded without turning Astro into a competing primary reader. Static component/string presence alone is STRUCTURAL evidence.
+- **R:** execute source handoff/checkpoint, question verification, Wrong/Uncertain return, repair, resume and review paths where applicable. Source inspection alone cannot establish Runtime PASS.
+- **E:** adversarially test first-attempt evidence, W/U durability, repair≠mastery, cascade/root-cause routing, review debt admission, source-version changes, private learner state and return-to-mainline semantics. Critical guards should demonstrate detection power through targeted negative/mutation cases.
+- **U:** real learner use only; never upgraded by synthetic audit.
+
+### Falsification rule
+
+For each material PASS, the auditor must answer:
+
+> **What is the strongest realistic way this claim could be false even though the current validators are green?**
+
+Then test the highest-value challenge that can materially change the verdict.
+
+Old validators are evidence, not Acceptance Truth. A validator proving that expected strings/schema exist proves a structural contract; it does not prove the composed learner behavior unless the path is independently executed/challenged.
+
+If only `SELF + STRUCTURAL` evidence exists for a material R/E claim, do **not** call the independent re-acceptance complete. Gather executed/adversarial evidence or leave the independent audit explicitly incomplete.
+
+If the audit finds a real defect, reopen only the **earliest responsible gate/object** and freeze only its dependent chain. Do not reopen unrelated Politics subjects for symmetry.
+
+### Politics-specific challenge focus
+
+Prioritize:
+
+- whether source roles are preserved rather than blurred: **Su Yi = framework/orientation, Chengfeng = continuous mainline source, Xiao1000 = verification**;
+- whether Chengfeng continuous learning remains **external-primary on iPad / MarginNote**, with Astro acting as orientation / Recall / verification / repair companion rather than a second continuous source reader;
+- whether source claims, teaching reconstruction and question-derived inference remain distinguishable, especially where current assets may share the same omission or framing bias;
+- whether learner order reflects conceptual dependency and discrimination needs rather than lecture/file/question order;
+- whether answer/model/reference leakage or over-foregrounded framework content can distort a clean question attempt;
+- whether stable correct work can pass without manufactured review debt and W/U repair returns to the smallest sufficient owner;
+- whether current validators can actually detect intentionally injected wrong-source-role, answer-leakage, forced-debt, stale-state or wrong-object-return defects.
+
+### Required re-acceptance output
+
+The re-audit should report, per gate:
+
+```text
+previous claim
+independent provisional verdict
+Evidence modes
+Independence labels
+strongest falsification attempted
+material delta / blocker / debt
+```
+
+Do not create a second permanent acceptance system. Update the target subject's existing `ACCEPTANCE.md` / `CURRENT.md` only if the evidence actually changes its claim or next action.
+
+---
+
 ## Subjects that are not first-class governance scopes yet
 
 Mao / Chinese Marxism theory development, Xi / New Thought, and Ethics / Law remain Politics subject/content structures but do not currently justify independent governance owners.
@@ -90,7 +191,7 @@ Private browser / Return Packet / conversation evidence only. Subject readiness 
 
 ## Fresh-Chat routing
 
-Known History:
+Known History — ordinary continuation:
 
 ```text
 History CURRENT
@@ -99,13 +200,23 @@ History CURRENT
 → work
 ```
 
-Known Marxism:
+Known Marxism — ordinary continuation:
 
 ```text
 Marxism CURRENT
 → Marxism ACCEPTANCE
 → exact active acceptance gate / required owner
 → work
+```
+
+Known Marxism/History — **independent re-acceptance**:
+
+```text
+Politics CURRENT anti-cocoon directive
+→ target actual owners + inherited Politics contracts
+→ provisional S–E challenge verdict
+→ only then old scoped ACCEPTANCE for reconciliation
+→ update narrow owner only if evidence changes the claim
 ```
 
 Politics lane known but exact independently continued subject not yet resolved:
