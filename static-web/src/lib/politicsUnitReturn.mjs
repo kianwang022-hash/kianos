@@ -130,7 +130,8 @@ function safeNaturalUnitConfig(chapter, unit) {
 
 export function buildPoliticsUnitReturnConfigs(chapter) {
   const manual = manualUnitReturnConfigs(chapter);
-  if (String(chapter?.subject || '') !== 'marxism') return manual;
+  const subject = String(chapter?.subject || '');
+  if (!['marxism', 'history'].includes(subject)) return manual;
 
   const manuallyOwnedUnitIds = new Set(manual.flatMap((config) => [
     String(config?.natural_unit_id || ''),
