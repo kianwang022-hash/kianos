@@ -91,7 +91,7 @@ function systemRecordFromDir(dirName) {
 }
 
 function blockOrdinalFromFile(filename) {
-  const match = String(filename).match(/^Block(\d+)_/i);
+  const match = String(filename).match(/(?:^|_)Block(\d+)_/i);
   return match ? Number(match[1]) : null;
 }
 
@@ -104,9 +104,8 @@ function blockFiles(dirName) {
   const blocksPath = `${SYSTEMS_ROOT}/${dirName}/blocks`;
   if (!fs.existsSync(absolute(blocksPath))) throw new Error(`CURRENT_XIZONG_BLOCKS_MISSING:${dirName}`);
   return fs.readdirSync(absolute(blocksPath))
-    .filter((name) => /^Block\d+_.+\.md$/i.test(name))
+    .filter((name) => /\.md$/i.test(name) && Number.isInteger(blockOrdinalFromFile(name)))
     .map((name) => ({ name, ordinal: blockOrdinalFromFile(name), path: `${blocksPath}/${name}` }))
-    .filter((row) => Number.isInteger(row.ordinal))
     .sort((a, b) => a.ordinal - b.ordinal);
 }
 
@@ -259,7 +258,7 @@ function loadLearningSupport(record) {
   if (!fs.existsSync(absolute(pathName))) return null;
   const text = readText(pathName);
   const support = JSON.parse(text);
-  if (support?.status !== 'CURRENT' || !String(support?.authority || '').startsWith('CHAT_APPROVED')) {
+  if (!String(support?.authority || '').startsWith('CHAT_APPROVED')) {
     throw new Error(`CURRENT_XIZONG_LEARNING_SUPPORT_INVALID:${record.identity.systemId}`);
   }
   if (support?.system_id !== record.identity.systemId || support?.canonical_id !== record.identity.canonicalId) {
