@@ -1,0 +1,89 @@
+---
+const { system, sweep } = Astro.props;
+const evidenceVersion = [system?.sourceHash || '', sweep?.scopeHash || '', sweep?.questionInventoryHash || ''].join(':');
+---
+<span data-xizong-system-evidence-guard data-system-id={system.systemId} data-evidence-version={evidenceVersion} hidden></span>
+
+<script>
+  const marker = document.querySelector('[data-xizong-system-evidence-guard]');
+  const root = document.querySelector('[data-xizong-system-exit]');
+  if (marker instanceof HTMLElement && root instanceof HTMLElement) {
+    const systemId = marker.getAttribute('data-system-id') || '';
+    const version = marker.getAttribute('data-evidence-version') || '';
+    const recallKey = `kianos:xizong:system-recall:${systemId}:v1`;
+    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const repairKey = `kianos:xizong:system-repair-return:${systemId}:v1`;
+    const ledgerKey = `kianos:xizong:system-evidence:${systemId}:v1`;
+    const metaKey = `kianos:xizong:system-evidence-meta:${systemId}:v1`;
+    const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    const previousMeta = readJson(metaKey, null);
+    if (previousMeta?.version && previousMeta.version !== version) {
+      const archiveKey = `kianos-xizong-stale-system-evidence:${systemId}:${Date.now()}`;
+      writeJson(archiveKey, {
+        archived_at: new Date().toISOString(),
+        previous_version: previousMeta.version,
+        current_version: version,
+        recall: readJson(recallKey, {}),
+        sweep: readJson(sweepKey, {}),
+        repair: readJson(repairKey, {}),
+        ledger: readJson(ledgerKey, {})
+      });
+      try {
+        localStorage.removeItem(recallKey);
+        localStorage.removeItem(sweepKey);
+        localStorage.removeItem(repairKey);
+        localStorage.removeItem(ledgerKey);
+      } catch {}
+      writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+      try { sessionStorage.setItem(`kianos-xizong-system-evidence-reset:${systemId}`, '1'); } catch {}
+      window.location.reload();
+    } else {
+      if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+
+      try {
+        const resetKey = `kianos-xizong-system-evidence-reset:${systemId}`;
+        if (sessionStorage.getItem(resetKey) === '1') {
+          sessionStorage.removeItem(resetKey);
+          const status = root.querySelector('[data-recall-status]');
+          if (status) status.textContent = '当前内容版本已更新：旧 System/题目证据已归档，请按当前版本重新收口。';
+        }
+      } catch {}
+
+      let data = null;
+      try { data = JSON.parse(root.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+      const append = (event) => {
+        const ledger = readJson(ledgerKey, { events: [] });
+        ledger.events = [...(Array.isArray(ledger.events) ? ledger.events : []), { at: new Date().toISOString(), ...event }].slice(-300);
+        writeJson(ledgerKey, ledger);
+      };
+      const activeQuestionCounts = () => {
+        const years = Array.isArray(readJson(holdoutKey, [])) ? readJson(holdoutKey, []) : [];
+        const held = new Set(years.map(Number));
+        const active = (data?.questions || []).filter((question) => !held.has(Number(question.year)));
+        const results = readJson(sweepKey, { results: {} })?.results || {};
+        const answered = active.filter((question) => Boolean(results?.[question.questionId])).length;
+        return { answered, total: active.length };
+      };
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (!target?.closest('[data-complete-recall]')) return;
+        window.setTimeout(() => {
+          const { answered, total } = activeQuestionCounts();
+          const phase = answered === 0 ? 'PRE_QUESTION'
+            : total > 0 && answered >= total ? 'POST_QUESTION'
+            : 'MID_SWEEP';
+          append({ type: 'SYSTEM_RECALL', phase, answered_questions: answered, active_questions: total });
+        }, 0);
+      });
+    }
+  }
+</script>
