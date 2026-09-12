@@ -1,32 +1,90 @@
 # LexicalOS Current
 
-This file is the stable entrypoint for fresh Chats working on LexicalOS. It routes to Current owners; it does not duplicate lexical semantics, audit history, or progress.
+Role: LexicalOS lane Work Cursor + restart entry
+Parent: root `CURRENT.md`
 
-## Owners
+This file does not own lexical semantics, Acceptance Truth, or Kian's private learner progress.
 
-- owner map: `content/lexical/manifest.json`
-- stable lane learning rules: `content/lexical/LEARNING_CONTRACT.md`
-- shared-work continuation: `content/lexical/continuation.json`
-- ownership schema: `content/lexical/schema.json`
-- natural word owners: `content/lexical/words/by-ordinal/`
-- relation owners: `content/lexical/relations/by-id/`
-- audits/evidence: `content/lexical/audit/`
-- learner runtime: lexical surfaces under `static-web/`
+---
 
-## Fresh-Chat read order
+## Work Cursor
 
-1. `content/lexical/continuation.json`
-2. read the exact Natural Owner / Relation / audit/runtime files required by the active batch
-3. read `content/lexical/LEARNING_CONTRACT.md` only when the task depends on lane learning behavior rather than pure semantic-owner work
+**Active / earliest unresolved stage:** `K — Knowledge re-acceptance / migration semantic-integrity closure`  
+**Blocker:** known Current semantic-fidelity defects remain; full-catalog K is BLOCKED  
+**Current work owner:** GitHub Issue #6 + `content/lexical/audit/knowledge-reacceptance/`  
+**Next action:** continue the bounded K re-acceptance / migration-integrity audit from current Issue #6 and the latest main evidence. Classify and close P0/P1 defects before unrestricted learner-runtime validation. Do not restart a 7,946-word review and do not infer new semantic authority mechanically.
 
-Do not scan the full lexical corpus or historical stores by default.
+Latest main evidence includes:
 
-## Boundaries
+- Knowledge reopen commit `3721460828220ad44a3aca01b5a6004fd3671b62`;
+- P0 calibration repair commit `3f3aef9a677cfe64e855898b613fe0349ee7e5c2`, reducing P0 **368 → 361** while K remains BLOCKED;
+- Issue #6 migration-integrity lane with R12+ authority reconciliation.
 
-- Word-local semantics live in Natural Owners; relation semantics live in Relation owners.
-- Lookup/reference/evidence stores do not become parallel semantic owners.
-- Repository-wide construction order is owned by root `LEARNING_ASSET_STANDARD.md`.
-- S/K/L/P/R/E/U acceptance semantics are owned by root `LEARNING_ACCEPTANCE.md`.
-- Shared learner-surface capabilities are owned by root `SYSTEM_CONTRACT.md`.
-- Detailed active status belongs in the continuation/audit owner, not here.
-- Historical repositories/commits/issues/migration artifacts are not normal LexicalOS inputs.
+This governance branch does not own lexical semantic mutation. Any later governance landing must reconcile with latest `main` rather than replaying stale Natural Owners.
+
+---
+
+## Frozen / out of scope
+
+While K is BLOCKED:
+
+- do not present unrestricted full-catalog learner use as accepted U;
+- do not use build/route/UI completeness to promote K/P/R/E;
+- do not resume broad learner-runtime expansion to mask semantic defects;
+- do not regenerate all 7,946 words;
+- do not use frozen baseline alone as semantic authority;
+- do not mutate private learner + / wrong / slow / Challenge / packet history;
+- do not change English / Politics / Xizong sibling scopes;
+- controlled UX smoke is allowed only on semantically accepted subsets and cannot close full-module U.
+
+---
+
+## Required reads
+
+For normal re-entry into the active K lane:
+
+1. `content/lexical/ACCEPTANCE.md`
+2. `content/lexical/audit/knowledge-reacceptance/README.md`
+3. current GitHub Issue #6 / latest exact audit checkpoint
+4. only the exact Natural Owner / Relation / batch evidence required by that checkpoint
+
+Do not read the full 7,946-word corpus or retired continuation/history by default.
+
+`LEARNING_CONTRACT.md` is not a startup read for pure semantic re-acceptance unless a learner-value boundary becomes material.
+
+---
+
+## Truth references
+
+### Artifact Truth
+
+- owner map → `content/lexical/manifest.json`
+- owner schema → `content/lexical/schema.json`
+- Natural Word owners → `content/lexical/words/by-ordinal/`
+- Relation owners → `content/lexical/relations/by-id/`
+- knowledge audit evidence → `content/lexical/audit/knowledge-reacceptance/`
+- learner runtime → Vocabulary surfaces under `static-web/`
+
+### Acceptance Truth
+
+`content/lexical/ACCEPTANCE.md`
+
+### Learner Truth
+
+Private browser / packet / conversation evidence only. Shared lexical K/P/R/E state cannot manufacture personal learner progress or repair debt.
+
+---
+
+## Fresh-Chat target
+
+Known scope `LexicalOS semantic re-acceptance` should normally recover as:
+
+```text
+Lexical CURRENT
+→ Lexical ACCEPTANCE
+→ knowledge-reacceptance README / current Issue #6 checkpoint
+→ exact owner(s) under audit
+→ work
+```
+
+Implementation/runtime files are diagnostic reads, not startup reads for K.
