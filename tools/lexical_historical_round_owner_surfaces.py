@@ -8,6 +8,14 @@ import lexical_historical_round_from_file as base
 
 ORIGINAL_CONTRAST_TERMS = base.contrast_terms_compatible
 
+# These are filler for phrase matching only. Deliberately retain structurally
+# meaningful words such as that/do/done/doing and particles/prepositions.
+PHRASE_FILLER = {
+    "a", "an", "the", "and", "or", "vs", "sth", "sb", "someone", "something",
+    "one", "ones", "be", "is", "are", "was", "were", "your", "their", "his",
+    "her", "its", "this", "these", "those",
+}
+
 
 def expand_ordinal_spec(spec: str) -> list[int]:
     out: list[int] = []
@@ -120,6 +128,88 @@ def parse_owner_group_expansion(body: str):
     return rows
 
 
+def phrase_tokens(text: str) -> list[str]:
+    norm = triage.normalize(triage.target_code_text(text))
+    raw = re.findall(r"[a-z][a-z0-9'-]*", norm)
+    return [token for token in raw if token not in PHRASE_FILLER and (len(token) > 1 or token == "i")]
+
+
+def token_forms(token: str) -> set[str]:
+    return set(triage.possible_forms(token))
+
+
+def expanded_forms(tokens: list[str]) -> set[str]:
+    out: set[str] = set()
+    for token in tokens:
+        out.update(token_forms(token))
+    return out
+
+
+def expansion_match_compatible(target: str, owners: list[dict]):
+    discovery_tokens = triage.content_tokens(target)
+    target_tokens = phrase_tokens(target)
+    raw_norm = triage.normalize(triage.target_code_text(target))
+    candidates: list[dict] = []
+    exact = False
+
+    for owner in owners:
+        word = triage.normalize((owner.get("record") or {}).get("word") or "")
+        owner_forms = token_forms(word) if word else set()
+        target_modifier_tokens = [t for t in target_tokens if not (token_forms(t) & owner_forms)]
+
+        for surface in triage.collect_surfaces(owner):
+            sn = surface["normalized"]
+            if not sn:
+                continue
+            surface_raw_tokens = phrase_tokens(sn)
+            surface_forms = expanded_forms(surface_raw_tokens)
+            owner_hit = bool(owner_forms & surface_forms)
+            modifier_hits = [
+                token for token in target_modifier_tokens
+                if token_forms(token) & surface_forms
+            ]
+            modifier_hits = list(dict.fromkeys(modifier_hits))
+            score = (1 if owner_hit else 0) + len(modifier_hits)
+
+            this_exact = bool(raw_norm and (raw_norm in sn or sn in raw_norm) and min(len(raw_norm), len(sn)) >= 5)
+            if this_exact:
+                exact = True
+                score = max(score, len(set(target_tokens)) + 2)
+
+            if this_exact or (owner_hit and modifier_hits):
+                candidates.append({
+                    "word": word,
+                    "ordinal": owner.get("ordinal"),
+                    "word_id": owner.get("word_id"),
+                    "kind": surface["kind"],
+                    "object_id": surface.get("object_id"),
+                    "text": surface["text"],
+                    "learner_visible": surface["learner_visible"],
+                    "score": score,
+                    "matched_target_modifiers": modifier_hits,
+                })
+
+    candidates = sorted(
+        candidates,
+        key=lambda r: (-r["score"], r["ordinal"] or 0, r["kind"], r["text"]),
+    )[:12]
+    visible = [r for r in candidates if r["learner_visible"]]
+    if exact and visible:
+        label = "PRESENT_CANDIDATE"
+    elif visible:
+        label = "PARTIAL_OR_EQUIVALENT_CANDIDATE"
+    elif candidates:
+        label = "REFERENCE_ONLY_CANDIDATE"
+    else:
+        label = "NO_MATCH_CANDIDATE"
+    return {
+        "mechanical_label": label,
+        "content_tokens": discovery_tokens,
+        "surface_tokens": target_tokens,
+        "candidate_surfaces": candidates,
+    }
+
+
 def contrast_terms_compatible(text: str) -> list[str]:
     norm = triage.normalize(text)
     if "pronunciation-identity" in norm:
@@ -136,6 +226,7 @@ def contrast_terms_compatible(text: str) -> list[str]:
 
 base.parse_owner_group_expansion = parse_owner_group_expansion
 base.contrast_terms_compatible = contrast_terms_compatible
+triage.expansion_match = expansion_match_compatible
 
 
 if __name__ == "__main__":
