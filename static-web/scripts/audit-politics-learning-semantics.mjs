@@ -94,27 +94,45 @@ function checkNoUiImplementation(value, errors, label, trail = []) {
 }
 
 function validateFramework(map, errors, label) {
-  if (!map || typeof map !== 'object') return;
-  if (!nonEmptyString(map.id)) fail(errors, label, 'framework_map.id missing');
-  if (!nonEmptyString(map.title)) fail(errors, label, 'framework_map.title missing');
+  if (!map || typeof map !== 'object' || Array.isArray(map)) {
+    fail(errors, label, 'framework_maps entries must be objects');
+    return;
+  }
+  if (!nonEmptyString(map.id)) fail(errors, label, 'framework map id missing');
+  if (!nonEmptyString(map.title)) fail(errors, label, 'framework map title missing');
   const nodes = list(map.nodes);
-  if (nodes.length < 2) fail(errors, label, 'framework_map requires at least 2 nodes');
+  if (nodes.length < 2) fail(errors, label, `${map.id || 'framework map'} requires at least 2 nodes`);
   const nodeIds = new Set();
   for (const node of nodes) {
     if (!nonEmptyString(node?.id)) {
-      fail(errors, label, 'framework_map node id missing');
+      fail(errors, label, `${map.id || 'framework map'} node id missing`);
       continue;
     }
-    if (nodeIds.has(node.id)) fail(errors, label, `duplicate framework node id ${node.id}`);
+    if (nodeIds.has(node.id)) fail(errors, label, `duplicate framework node id ${node.id} in ${map.id || 'framework map'}`);
     nodeIds.add(node.id);
     if (!nonEmptyString(node?.label)) fail(errors, label, `framework node ${node.id} label missing`);
     if (!nonEmptyString(node?.meaning)) fail(errors, label, `framework node ${node.id} meaning missing`);
     if (!list(node?.source_evidence).length) fail(errors, label, `framework node ${node.id} source_evidence missing`);
   }
   for (const edge of list(map.edges)) {
-    if (!nodeIds.has(edge?.from)) fail(errors, label, `framework edge from unknown node ${edge?.from || '<missing>'}`);
-    if (!nodeIds.has(edge?.to)) fail(errors, label, `framework edge to unknown node ${edge?.to || '<missing>'}`);
+    if (!nodeIds.has(edge?.from)) fail(errors, label, `framework edge from unknown node ${edge?.from || '<missing>'} in ${map.id || 'framework map'}`);
+    if (!nodeIds.has(edge?.to)) fail(errors, label, `framework edge to unknown node ${edge?.to || '<missing>'} in ${map.id || 'framework map'}`);
     if (!nonEmptyString(edge?.relation)) fail(errors, label, `framework edge ${edge?.from || '?'}→${edge?.to || '?'} relation missing`);
+  }
+}
+
+function validateFrameworks(semantics, errors, label) {
+  if (Object.prototype.hasOwnProperty.call(semantics, 'framework_map')) {
+    fail(errors, label, 'legacy singular framework_map is not allowed; use framework_maps[]');
+  }
+  const maps = list(semantics?.framework_maps);
+  const ids = new Set();
+  for (const map of maps) {
+    validateFramework(map, errors, label);
+    if (nonEmptyString(map?.id)) {
+      if (ids.has(map.id)) fail(errors, label, `duplicate framework map id ${map.id}`);
+      ids.add(map.id);
+    }
   }
 }
 
@@ -154,7 +172,7 @@ function validateSemantics(semantics, errors, label) {
   }
   if (!list(semantics?.problem?.source_evidence).length) fail(errors, label, 'problem.source_evidence missing');
 
-  validateFramework(semantics?.framework_map, errors, label);
+  validateFrameworks(semantics, errors, label);
   validateChains(semantics?.relation_chains, errors, label);
   validateBoundaries(semantics?.boundaries, errors, label);
 
