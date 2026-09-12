@@ -11,7 +11,9 @@
     const syncPendingDisclosure = () => {
       if (!(pending instanceof HTMLElement)) return;
       const stage = activeStage();
-      pending.style.display = stage === 'attempt' || stage === 'decision' ? 'none' : '';
+      // Protect fresh evidence only while the learner is still producing the immutable first attempt.
+      // Once the whole attempt is locked, Pending details may be revealed without cueing that attempt.
+      pending.style.display = stage === 'attempt' ? 'none' : '';
     };
 
     if (passedStage instanceof HTMLElement) {
