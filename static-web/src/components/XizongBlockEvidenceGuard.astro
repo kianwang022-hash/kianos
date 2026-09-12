@@ -13,6 +13,7 @@ const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '',
     const studyKey = `kianos-xizong-astro-v2:${objectId}`;
     const personalKey = `kianos-xizong-personal-v1:${objectId}`;
     const extensionKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    const repairInboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
     const metaKey = `kianos-xizong-evidence-meta-v1:${objectId}`;
 
     const readJson = (key, fallback = null) => {
@@ -27,6 +28,7 @@ const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '',
       const oldStudy = readJson(studyKey, {});
       const oldPersonal = readJson(personalKey, {});
       const oldExtension = readJson(extensionKey, {});
+      const oldRepairInbox = readJson(repairInboxKey, null);
       const archiveKey = `kianos-xizong-stale-evidence-v1:${objectId}:${Date.now()}`;
       writeJson(archiveKey, {
         archived_at: new Date().toISOString(),
@@ -34,9 +36,14 @@ const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '',
         current_version: version,
         study: oldStudy,
         personal: oldPersonal,
-        extension: oldExtension
+        extension: oldExtension,
+        repair_inbox: oldRepairInbox
       });
-      try { localStorage.removeItem(studyKey); localStorage.removeItem(extensionKey); } catch {}
+      try {
+        localStorage.removeItem(studyKey);
+        localStorage.removeItem(extensionKey);
+        localStorage.removeItem(repairInboxKey);
+      } catch {}
       writeJson(personalKey, { lectureRead: false, kp: oldPersonal?.kp || {} });
       writeJson(metaKey, { version, observed_at: new Date().toISOString() });
       try { sessionStorage.setItem(`kianos-xizong-evidence-reset:${objectId}`, '1'); } catch {}
