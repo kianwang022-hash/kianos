@@ -1,0 +1,45 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R13 ordinals 2481-2500",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5581086274",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2482,"word_id":"word:impulse","classification":"CURRENT_CORRECT","current":"psychological urge, stimulus/force and electrical/nerve pulse noun senses are Active; rare verb drive/push forward is deprecated/reference-only","approved_target":"demote rare verb to drive/push forward; keep psychological urge, stimulus and electrical/nerve pulse"},
+    {"ordinal":2483,"word_id":"word:in","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"P0","current":"Core says inside/within, but senses array is empty; core preposition and adverb, fashionable adjective and rare noun are all deprecated/reference-only","approved_target":"demote rare noun an in; keep core preposition/adverb uses Active, with fashionable in only lower recognition if retained"},
+    {"ordinal":2485,"word_id":"word:incentive","classification":"CORE_LANDING_INCOMPLETE","current":"normal noun incentive is Active L1, but rare adjective serving-to-motivate remains a normal Active L3 learner sense","approved_target":"demote rare adjective if lifecycle permits; noun is the normal learner target"},
+    {"ordinal":2494,"word_id":"word:incorporate","classification":"CURRENT_CORRECT","current":"include/absorb, legal incorporation and merge verbs are Active; rare adjective incorporate=united into a whole is deprecated/reference-only","approved_target":"demote rare adjective; keep verbs include/merge/incorporate legally"},
+    {"ordinal":2500,"word_id":"word:independence","classification":"CARRIER_INVERSION","severity":"SEVERE","current":"Core correctly says freedom from control/influence, but ordinary independence/autonomy is deprecated/reference-only; the only Active learner sense is the proper-name city Independence, Missouri","approved_target":"remove/demote proper-name rows; main learner meaning is autonomy/freedom from control"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:incentive","classification":"PARTIAL_LANDING_GAP","approved_target":"an incentive for sb to do sth","current":"noun incentive and incentive to do sth are Active, but the approved for-sb-to-do frame is absent"},
+    {"word_id":"word:inch","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"inch closer to + sth","current":"inch forward / inch along and transitive inch sth forward are Active, but the approved metaphorical/comparative inch closer to frame is absent"},
+    {"word_id":"word:incidence","classification":"CURRENT_CORRECT","approved_target":"incidence of + disease/problem","current":"exact Active pattern incidence of a disease exists, with high incidence of crime as a parallel learner example"},
+    {"word_id":"word:incline","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"be inclined to do; be inclined to think/believe","current":"active incline to + sth and I incline to the view that... exist, but the approved be inclined to do/think/believe constructions are absent"},
+    {"word_id":"word:increase","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"increase by + amount; increase to + level; increase from A to B","current":"increase in + sth and transitive increase + sth are Active, but all three approved quantitative change frames are absent"}
+  ],
+  "summary": {
+    "core_decisions_checked": 5,
+    "core_current_correct": 2,
+    "core_defective": 3,
+    "expansion_owner_groups_checked": 5,
+    "expansion_current_correct": 1,
+    "expansion_partial_landing_gap": 1,
+    "expansion_full_landing_gap": 3,
+    "new_p0_reproduced": ["word:in"],
+    "other_severe_carrier_inversion": ["word:independence"]
+  },
+  "cumulative_r13_through_2500": {
+    "core_decisions_checked": 59,
+    "core_current_correct": 14,
+    "core_defective": 45,
+    "expansion_owner_groups_checked": 40,
+    "expansion_current_correct": 12,
+    "expansion_partial_landing_gap": 10,
+    "expansion_full_landing_gap": 18
+  },
+  "next": "Continue R13 Core + Expansion reconciliation from ordinal 2501 onward against legacy Issue #113 comment 5581086274. R13 Contrast targets remain separate; do not mutate Natural Owners yet."
+}
