@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/runtime.css';
+import '../styles/english.css';
 
 const {
   title,
@@ -13,13 +14,33 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const englishPrefixes = [
+  'english',
+  'reading',
+  'reading-answer',
+  'reading-review',
+  'reading-b',
+  'reading-b-answer',
+  'cloze',
+  'cloze-answer',
+  'objective-learn',
+  'translation',
+  'translation-learn',
+  'translation-reference',
+  'writing',
+  'writing-learn'
+];
+const isEnglishRoute = englishPrefixes.some((segment) => {
+  const route = `${base}${segment}`.replace(/\/+/g, '/');
+  return pathname === route || pathname === `${route}/` || pathname.startsWith(`${route}/`);
+});
+const navActive = isEnglishRoute ? 'english' : active;
 const navItems = [
   { key: 'xizong', label: '西综', href: `${base}xizong/` },
   { key: 'politics', label: '政治', href: `${base}politics/` },
   { key: 'lexical', label: 'Vocabulary', href: `${base}vocabulary/` },
-  { key: 'cloze', label: 'Cloze', href: `${base}cloze/` },
-  { key: 'reading', label: 'Reading A', href: `${base}reading/` },
-  { key: 'reading_b', label: 'Part B', href: `${base}reading-b/` }
+  { key: 'english', label: 'English', href: `${base}english/` }
 ];
 ---
 <!doctype html>
@@ -40,7 +61,7 @@ const navItems = [
         <span class="productBrandCopy"><strong>KianOS</strong><small>Learning Runtime</small></span>
       </a>
       <nav class="productNav" aria-label="学习模块">
-        {navItems.map((item) => <a class={`productNavItem ${active === item.key ? 'active' : ''}`} href={item.href}>{item.label}</a>)}
+        {navItems.map((item) => <a class={`productNavItem ${navActive === item.key ? 'active' : ''}`} href={item.href}>{item.label}</a>)}
       </nav>
       <details class="sourceDock">
         <summary><span class="sourcePulse"></span>Current</summary>
@@ -54,7 +75,7 @@ const navItems = [
         </div>
       </details>
     </header>
-    <main class={`productCanvas surface-${active}`}>
+    <main class={`productCanvas surface-${active}${isEnglishRoute ? ' englishCanvas' : ''}`}>
       <section class="pageLead">
         <p class="pageKicker">{kicker}</p>
         <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
