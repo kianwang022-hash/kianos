@@ -1,0 +1,48 @@
+name: Writing visual source recovery
+
+on:
+  push:
+    branches:
+      - feat/writing-r-true-exam-current
+    paths:
+      - .github/workflows/writing-visual-recovery.yml
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    env:
+      WRITING_VISUAL_RECOVERY_YEARS: '2000,2001,2002,2003,2004'
+      KIANOS_WRITING_VISUAL_RECOVERY_REPORT: /tmp/writing-visual-recovery-report.json
+    steps:
+      - name: Checkout recovery branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Recover exact canonical Writing visuals
+        run: node static-web/scripts/recover-writing-visual-source.mjs
+
+      - name: Commit verified source binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -- static-web/public/english-assets/source-truth-v1
+          if git diff --cached --quiet; then
+            echo 'No binary changes required.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'fix(writing): restore source visuals 2000-2004'
+          git push origin HEAD:"${GITHUB_REF_NAME}"
+
+      - name: Publish recovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: writing-visual-recovery-2000-2004
+          path: /tmp/writing-visual-recovery-report.json
+          if-no-files-found: warn
