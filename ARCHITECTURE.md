@@ -1,7 +1,7 @@
 # KianOS Architecture
 
-Status: DRAFT — derived from `PROJECT_DEFINITION.md`
-Version: 0.1
+Status: CURRENT — accepted top-level architecture
+Version: 1.0
 
 This document defines **how KianOS is structurally organized to satisfy the project requirements**.
 
@@ -200,9 +200,7 @@ Normal Current reasoning does not carry migration narratives or old implementati
 
 `continuation.*` is **not a required architecture layer**.
 
-Each existing continuation must be audited by responsibility.
-
-Keep it only when it owns a narrow machine/process responsibility that Current should not own, such as:
+Each continuation is justified only by a proven narrow machine/process responsibility that Current should not own, such as:
 
 - deterministic structured cursor consumed by automation/runtime;
 - stable machine schema/identity state that cannot be represented by simple Current routing;
@@ -225,7 +223,7 @@ A retained continuation must not become:
 - an Artifact Truth owner;
 - a learner-state store.
 
-Target fresh-worker path after continuation audit:
+Target fresh-worker path:
 
 ```text
 known scope
@@ -357,21 +355,17 @@ Once the accepted recovery result is represented in Current authority, normal wo
 
 # 10｜Anti-entropy guardrails
 
-KianOS should use lightweight governance checks specifically to prevent recurring structural entropy.
+KianOS uses lightweight governance checks specifically to prevent recurring structural entropy.
 
-Candidate checks include:
+The guard is intentionally narrow and should only expand when a real repeated failure class appears. Current checks defend against:
 
-- Current exceeds a bounded size / becomes narrative;
-- Current contains historical phrases or completed-work logs;
-- continuation grows without a narrow machine responsibility;
-- required reads point to missing files;
-- one fact appears to have multiple current owners;
-- root governance is changed by normal lane progress;
-- lane Contract copies root standards;
-- Current copies Artifact/Acceptance Truth instead of referencing owners;
-- legacy/history appears in normal runtime/read routing;
-- learner state appears in shared engineering Current;
-- independently continued scope requires broad repository search.
+- Current becoming oversized/narrative;
+- required Current / Acceptance owners disappearing;
+- retired continuation / legacy acceptance paths returning to authority;
+- manifests pointing back to retired owners;
+- continuation reappearing as a mandatory required-read hop.
+
+Additional checks are added only when observed failures justify them.
 
 The lint exists to defend requirements R1–R8, not to create a second governance platform.
 
@@ -402,7 +396,7 @@ If a proposed durable abstraction cannot name a Project Requirement it satisfies
 
 # 12｜Architecture acceptance tests
 
-Before this Architecture may replace the current governance model, it must pass:
+This Architecture remains accepted only while it continues to satisfy:
 
 ## A1｜Fresh Chat Test
 
@@ -429,7 +423,7 @@ Important current facts/rules have one canonical owner.
 
 ## A5｜Three-month Entropy Test
 
-Simulated continued use does not predict ballooning Current/continuation files, duplicate rules/status, broad searches, root-contention, or learner/product state leakage.
+Continued use should not recreate ballooning Current/continuation files, duplicate rules/status, broad searches, root-contention, or learner/product state leakage.
 
 ## A6｜Learning Closure Test
 
@@ -437,27 +431,22 @@ Learner-facing readiness claims still require the learning construction and acce
 
 ---
 
-# 13｜Migration strategy from the current governance draft
+# 13｜Change discipline
 
-The existing `governance/federated-current-v2-20260912` branch is treated as provisional downstream implementation.
+The accepted architecture is a baseline, not a license to keep expanding governance.
 
-Do not rewrite every file immediately.
+Normal lower-level upgrades proceed from their own local `CURRENT` and earliest unresolved stage. Root Architecture changes only when real use demonstrates that an existing Project Requirement is not being satisfied reliably enough.
 
-Migration order:
+When a new abstraction, registry, automation, status owner, runner layer, dashboard, or shared platform feature is proposed, require this chain:
 
 ```text
-1. accept Project Definition
-2. accept Architecture
-3. audit root AGENTS / CURRENT responsibilities
-4. choose one pilot scope
-5. audit its continuation / Current / Truth owners
-6. run Fresh Chat + Truth Separation tests
-7. revise architecture if the pilot exposes a requirement miss
-8. only then migrate the other lanes/sub-lanes
-9. add the smallest anti-entropy lint justified by observed failure modes
-10. perform final governance acceptance before merge to main
+observed blocker / repeated failure
+→ named Project Requirement / Invariant
+→ prove the current simpler layer is insufficient
+→ choose the smallest reversible architecture change
+→ execute / accept / observe
 ```
 
-No learning content, source semantics, learner evidence, or unrelated runtime behavior should be rewritten merely because governance ownership changes.
+If that chain cannot be shown, keep the simpler structure.
 
-The governance migration changes **how work is routed and owned**, not what the learner has learned.
+No learning content, source semantics, learner evidence, or unrelated runtime behavior should be rewritten merely because governance ownership changes.
