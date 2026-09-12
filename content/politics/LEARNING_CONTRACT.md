@@ -25,7 +25,7 @@ The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture
 
 The active first-round chain is:
 
-`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure → Xiao1000 verification on its explicitly approved answer surface → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
+`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure → Xiao1000 verification in Astro/KianOS web → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
 
 This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
 
@@ -45,13 +45,13 @@ Politics first-round learning uses explicit surface ownership rather than inferr
 | Chapter / Unit Orientation | Chat and/or Astro | Short map / WHY NOW only; not a second lecture |
 | Chengfeng continuous first study | **iPad / MarginNote original lecture surface** | Astro may hold position/checkpoint/bridge/locator, but must not substitute a continuous lecture reader |
 | Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
-| Xiao1000 verification | **Must be explicitly bound before L re-closes** | Existing Astro question components do not decide this by themselves |
-| Wrong / Uncertain evidence capture | Astro when the attempt surface supports/returns that evidence | Preserve only evidence needed for repair/return |
+| Xiao1000 verification | **Astro / KianOS web Politics question surface** | Original question/options/official answer remain source-owned; the web surface owns attempt/evidence interaction, not learning order |
+| Wrong / Uncertain evidence capture | Astro | Preserve only evidence needed for repair/return |
 | Exact Chengfeng source repair | Original Chengfeng lecture surface by default | Astro may show a locator or minimal decisive excerpt; it must not expand into a second full lecture |
 | Deep semantic / relation repair | Chat | Adaptive diagnosis/repair; return to the owning learner path afterward |
 | Unit Return / handoff | Astro ↔ Chat as approved | Preserve Natural Unit / question identity and next action |
 
-The unresolved Xiao1000 answer-surface decision is a **Learning Logic item**, not permission for Projection to guess from current code. Until it is explicitly bound, affected downstream P/R/E claims must be revalidated after L closes.
+The Xiao1000 answer-surface binding preserves the existing approved PoliticsWorkbench practice chain: Unit learning closes, Astro launches the Unit's ready questions, records the attempt/evidence, and returns the learner to the Unit path. This binding does **not** authorize Astro to absorb Chengfeng continuous reading.
 
 ## 3. Teaching projection
 
@@ -94,9 +94,9 @@ Only create an asset when it improves learning. Do not materialize empty module 
 
 ## 5. Xiao1000 verification and repair
 
-Xiao1000 appears as a verification checkpoint after the relevant Natural Unit / natural subsection has been learned.
+Xiao1000 appears in **Astro/KianOS web** as the verification checkpoint after the relevant Natural Unit / natural subsection has been learned on the original Chengfeng surface.
 
-Its **semantic role is frozen; its primary answer surface must be explicitly bound before the reopened Politics Learning gate may close**. Do not use current page/component existence as that decision.
+Astro owns the learner's question-attempt interaction, Wrong/Uncertain capture, fast correct continuation, and Unit return. It does not own Xiao1000's source truth and does not use Xiao1000 to organize first learning.
 
 For a stable correct answer:
 
@@ -180,14 +180,14 @@ Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded
 
 Astro renders and interacts with Current assets **only for learner actions assigned to the Astro surface by this Learning Contract**.
 
-For Politics first-round learning, appropriate reusable primitives may include:
+For Politics first-round learning, appropriate reusable primitives include:
 
 - orientation;
 - current Natural Unit / source locator;
 - external-primary study checkpoint / return;
 - short closure cue;
 - recall / reveal when approved;
-- question attempt only after the Xiao1000 answer surface is explicitly bound;
+- Xiao1000 question attempt;
 - wrong / uncertain marking;
 - minimal source-repair excerpt / exact source jump;
 - highlight / note / next when they serve an approved Astro-owned action.
