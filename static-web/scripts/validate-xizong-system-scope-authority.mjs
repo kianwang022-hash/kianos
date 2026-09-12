@@ -102,6 +102,15 @@ function validateRecoveryEvidence(repoRoot, lock) {
     });
   }
 
+  const locatorPath = path.join(repoRoot, evidence.historical_artifact_locator_evidence_path || '');
+  assert(Boolean(evidence.historical_artifact_locator_evidence_path) && fs.existsSync(locatorPath), 'Historical HLK artifact locator evidence is missing', {
+    path: evidence.historical_artifact_locator_evidence_path || null
+  });
+  const locator = readJson(locatorPath);
+  assert(locator?.status === 'HISTORICAL_ARTIFACT_LOCATED_RAW_BYTES_REHASH_PENDING', 'Historical artifact locator lost fail-closed status');
+  assert(locator?.boundary?.this_receipt_does_not_claim_raw_bytes_were_rehashed === true, 'Historical locator must not claim a raw-byte rehash');
+  assert(locator?.boundary?.a3_promotion_allowed === false, 'Historical locator must not authorize A3 promotion');
+
   const recovered = JSON.parse(bytes.toString('utf8'));
   assert(recovered?.schema === 'kianos.xizong.system_scope_recovery_evidence.v1', 'Unexpected recovery evidence schema');
   assert(recovered?.status === 'EVIDENCE_ONLY_NEVER_RUNTIME_AUTHORITY', 'Recovery evidence lost evidence-only boundary');
@@ -143,27 +152,62 @@ function validateRecoveryEvidence(repoRoot, lock) {
   assert(sameList(evidenceMinusAccepted, expectedEvidenceMinus), 'A2 evidence-minus-accepted set changed', { expected: expectedEvidenceMinus, actual: evidenceMinusAccepted });
   results.respiratory.relationship_to_current = 'EXPECTED_7_FOR_7_DIVERGENCE_CONFIRMED';
 
-  assert(lock.systems.urinary.status !== 'CURRENT', 'A3 must remain fail-closed until exact historical HLK authority is reproduced');
+  assert(lock.systems.urinary.status !== 'CURRENT', 'A3 must remain fail-closed until exact historical HLK authority is authenticated');
   assert(lock.systems.urinary.accepted_owner_path == null, 'A3 must not carry an accepted owner while blocked');
   results.urinary.relationship_to_current = 'EVIDENCE_ONLY_NO_ACCEPTED_SCOPE';
 
   return {
     status: 'PASS_EVIDENCE_ONLY',
     file_sha256: actualEvidenceHash,
+    historical_artifact_locator: {
+      status: locator.status,
+      raw_byte_rehash_pending: true
+    },
     systems: results
   };
 }
 
-function validateRebuildGate(lock) {
+function validateClosureGate(lock) {
   const historical = lock.historical_authority_bundle;
-  const unresolved = [];
-  if (historical?.resolver?.source_bytes_status !== 'RECOVERED_EXACT') unresolved.push('resolver_bytes');
-  if (historical?.hlk_output?.exact_output_status !== 'RECOVERED_EXACT') unresolved.push('exact_hlk_output');
-  if (historical?.generator?.status !== 'LOCKED' || historical?.generator?.deterministic_rebuild_enabled !== true) unresolved.push('exact_hlk_generator');
+  const exactOutputReady = historical?.hlk_output?.exact_output_status === 'RECOVERED_EXACT';
+
+  const rebuildUnresolved = [];
+  const producerInputs = historical?.original_relation_layer_package?.producer_inputs_declared_by_manifest || {};
+  if (!Object.keys(producerInputs).length) rebuildUnresolved.push('original_producer_input_identity');
+  // Declared hashes are not equivalent to recovered source bytes. Until explicit
+  // RECOVERED_EXACT byte states are added for the producer inputs, rebuild stays closed.
+  const producerBytesRecovered = Object.values(producerInputs).length > 0
+    && Object.values(producerInputs).every((item) => item?.source_bytes_status === 'RECOVERED_EXACT');
+  if (!producerBytesRecovered) rebuildUnresolved.push('original_producer_input_bytes');
+  if (historical?.resolver?.source_bytes_status !== 'RECOVERED_EXACT') rebuildUnresolved.push('resolver_bytes');
+  if (historical?.generator?.status !== 'LOCKED' || historical?.generator?.deterministic_rebuild_enabled !== true) rebuildUnresolved.push('exact_hlk_generator');
+
+  const exactOutputPath = {
+    status: exactOutputReady ? 'READY' : 'BLOCKED',
+    unresolved: exactOutputReady ? [] : ['exact_hlk_raw_bytes_rehash'],
+    located_status: historical?.hlk_output?.exact_output_status || null,
+    expected_output: historical?.hlk_output || null,
+    generator_required: false
+  };
+  const deterministicPath = {
+    status: rebuildUnresolved.length ? 'BLOCKED' : 'READY_TO_EXECUTE_AND_VERIFY_OUTPUT',
+    unresolved: rebuildUnresolved,
+    expected_output: historical?.hlk_output || null,
+    generator_required: true
+  };
+
   return {
-    status: unresolved.length ? 'BLOCKED_FAIL_CLOSED' : 'READY',
-    unresolved,
-    expected_output: historical.hlk_output
+    status: exactOutputReady || rebuildUnresolved.length === 0 ? 'READY' : 'BLOCKED_FAIL_CLOSED',
+    policy: 'ANY_OF',
+    paths: {
+      EXACT_HISTORICAL_OUTPUT: exactOutputPath,
+      DETERMINISTIC_REBUILD: deterministicPath
+    },
+    closure_satisfied: exactOutputReady,
+    a3_promotion_allowed: false,
+    note: exactOutputReady
+      ? 'Historical HLK is authenticated; A3 still requires exact membership extraction into an accepted owner.'
+      : 'Historical HLK is located but raw-byte rehash is pending; deterministic rebuild remains an independent fallback path.'
   };
 }
 
@@ -238,7 +282,7 @@ function main() {
       question_truth: validateQuestionTruth(repoRoot, lock),
       systems: validateAcceptedSystems(repoRoot, lock),
       recovery_evidence: validateRecoveryEvidence(repoRoot, lock),
-      rebuild_gate: validateRebuildGate(lock)
+      closure_gate: validateClosureGate(lock)
     },
     execution: {
       status: 'NOT_EVALUATED',
