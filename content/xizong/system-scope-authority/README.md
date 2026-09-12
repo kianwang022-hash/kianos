@@ -20,13 +20,31 @@ A CI job with `runner_id=0`, an empty runner name, and zero steps is `CI_EXECUTI
 - `486228` bytes
 - `978` rows
 
-The four recovered historical inputs are hash-locked in `system-scope-authority.lock.json`. The semantic resolver hash and its nine collision decision IDs are also locked. The resolver bytes and the exact HLK generator identity/version are not yet recovered, so deterministic rebuild remains intentionally disabled.
+The original 2026-09-01 HLK relation-layer package has now been re-located in the user's saved historical file library. The exact index filename is present with the expected `486228` byte size beside its original manifest, range config, QA receipt and sibling ledgers. The recovered manifest declares the same `ed456...` SHA and `486228` bytes, and the report declares the System Question Index as `978 identifier-only rows`.
+
+That is **strong historical locator evidence, not a new raw-byte hash calculation**. Current source transport denies raw-byte materialization, so the lock records the index as `LOCATED_HISTORICAL_ARTIFACT_RAW_BYTES_UNVERIFIED`. A3 remains fail-closed until the located raw bytes are actually passed through the locked SHA256/bytes/rows verifier.
+
+The recovered manifest also reveals the original relation-layer producer input identities. Those are recorded separately from the later 2026-09-04 recovery inputs. Recovery inputs must not be silently re-labelled as the complete original generator input set.
+
+## Closure policy: ANY-OF
+
+There are two independent authority recovery paths:
+
+### A. Exact historical output
+
+If the original `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` raw bytes are available, `rebuild-xizong-system-scope-authority.mjs --verify-output <path>` verifies the frozen SHA256, byte count and row count. If all three match, the historical HLK output is authenticated. The historical generator is **not** required for this path.
+
+### B. Deterministic rebuild
+
+If the original output cannot be recovered, deterministic rebuild requires the exact original producer input bytes, exact resolver bytes, and exact generator identity/version/hash. The rebuilt file must then reproduce the same SHA256, bytes and rows. Recovery-time taxonomy counts or medical-semantic inference are forbidden substitutes.
+
+These paths are `ANY_OF`, not `ALL_OF`. After either path authenticates the historical HLK authority, A3 still needs a separate exact membership-extraction step into an accepted owner; no inferred 243-question owner is created automatically.
 
 ## Current systems
 
 - **A1 circulation**: Current accepted owner, 376 questions, inventory hash `ded191082...`.
 - **A2 respiratory**: Current accepted owner, 359 questions, inventory hash `b7721e26...`.
-- **A3 urinary**: blocked. Historical count 243 is known, but no accepted Current membership is admitted until exact HLK authority is recovered or the exact deterministic generator reproduces the historical output fingerprint.
+- **A3 urinary**: `BLOCKED_EXACT_HLK_RAW_BYTES_UNVERIFIED`. The original historical index has been located, but raw-byte re-hash is still pending and no accepted Current A3 owner exists.
 
 The preserved frozen-resolver replay is **evidence only**. It proves why count-only closure is unsafe: its A1 membership exactly matches Current A1, but its A2 membership also has 359 questions while differing from Current A2 by seven IDs in each direction. Therefore `376/359/243 = 978` is not sufficient authority.
 
@@ -43,12 +61,13 @@ The preserved frozen-resolver replay is **evidence only**. It proves why count-o
 
 `OUTPUT_BYTE_COUNT_MISMATCH` is additionally explicit because the historical output is byte-locked.
 
-The normal validator succeeds when the lock is internally coherent even if A3 is intentionally blocked. A blocked authority state is not a validator failure. The validator fails only when the declared authority/evidence invariants are violated.
+The validator reports the two closure paths separately. A located-but-not-rehashed historical index is not treated as missing authority, and it is also not treated as authenticated authority. A blocked authority state is not itself a validator failure; the validator fails only when declared authority/evidence invariants are violated.
 
 ## Runtime consumption
 
 Runtime must obtain accepted system scope through the shared lock. A system is consumable only when the lock says `CURRENT` and the owner file independently reproduces the locked count and inventory hash. Recovery evidence is never a runtime fallback.
 
-## Rebuild contract
+## Evidence receipts
 
-`static-web/scripts/rebuild-xizong-system-scope-authority.mjs` is fail-closed. It verifies every available locked input and the resolver before any generation could be admitted. Until the exact historical generator is recovered and locked, it deliberately refuses to generate membership. This prevents taxonomy counts, current medical semantics, or replay heuristics from silently replacing historical authority.
+- `evidence/hlk-first-pass-system-pools.evidence.json` preserves the frozen resolver replay as membership evidence only.
+- `evidence/historical-hlk-library-locator.evidence.json` records the recovered original relation-layer package identity while explicitly stating that raw-byte re-hash has not yet occurred.
