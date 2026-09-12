@@ -1,0 +1,80 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "IN_PROGRESS",
+  "authority": "CHAT_REVIEWED_WITH_SOURCE_REVALIDATION_AND_EXTERNAL_MEDICAL_ADJUDICATION",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-03",
+  "scope": ["urinary-b09", "urinary-b10", "urinary-b11"],
+  "scope_rule": "Preserve the traditional 306 clinicopathologic vocabulary and high-yield LM/IF/EM patterns, but do not let historical morphology labels become false one-to-one etiologic ontology. Pattern/entity boundaries are part of Current Knowledge quality, not an excuse to modernize away exam-relevant classifications.",
+  "source_review": {
+    "primary": "Current internal-medicine Lecture/AI-readable source covering primary glomerular disease, nephritic/nephrotic syndromes and case integration",
+    "external_adjudication_role": "Used only where historical compression turns a pathology pattern into an unconditional disease/etiology rule; not used to expand 306 Core into a modern nephrology textbook."
+  },
+  "findings": [
+    {
+      "id": "A3-B09-ONTOLOGY01",
+      "block_id": "urinary-b09",
+      "type": "TRADITIONAL_MORPHOLOGY_INDEX_VS_ETIOLOGIC_ENTITY",
+      "severity": "K_BOUNDARY_REPAIR_REQUIRED",
+      "historical_state": "B9 presents the traditional five pathology labels as a compact second coordinate alongside the clinical syndromes. This is useful for the exam but can be read as five mutually exclusive disease entities if projected without a boundary.",
+      "adjudication": "Keep the traditional 306 five-type pathology index for recognition and routing, but mark it as morphology/clinicopathologic pattern language rather than a complete etiologic taxonomy. In particular, mesangial proliferative, MPGN/membranoproliferative and FSGS are patterns that can arise from more than one disease mechanism; diagnosis still requires IF/EM, clinical context and cause.",
+      "learning_boundary": "First pass should answer two independent questions: what clinical syndrome is present, and what morphology/IF/EM pattern is present. Do not require modern etiologic subclassification beyond the stable source/exam boundary.",
+      "status": "CANONICAL_BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B09-RELATION01",
+      "block_id": "urinary-b09",
+      "type": "TENDENCY_NOT_DETERMINISTIC_MAPPING",
+      "severity": "K_BOUNDARY_REPAIR_REQUIRED",
+      "historical_state": "The source/block uses deposit location and immune-pattern shortcuts to explain why some lesions tend toward nephritic/inflammatory vs nephrotic/permeability phenotypes.",
+      "adjudication": "Preserve the mechanistic tendency: subendothelial/endocapillary inflammatory exposure tends to produce nephritic inflammation, while subepithelial/podocyte-side injury more often produces heavy proteinuria. But this is not a deterministic lookup table; the same clinicopathologic entity can overlap syndromes and evolve over time.",
+      "status": "CANONICAL_BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B10-SC01",
+      "block_id": "urinary-b10",
+      "type": "PAUCI_IMMUNE_ANCA_OVERGENERALIZATION",
+      "severity": "K_BOUNDARY_REPAIR_REQUIRED",
+      "historical_state": "Traditional RPGN type-III shorthand strongly couples pauci-immune crescentic GN with ANCA-associated vasculitis and can collapse the relationship into 'type III = ANCA positive'.",
+      "adjudication": "Current Core should teach type III as pauci-immune crescentic GN, commonly associated with ANCA-associated vasculitis. ANCA-negative pauci-immune GN exists, so ANCA positivity is high-value supporting/etiologic evidence rather than a logical requirement of the pauci-immune morphology.",
+      "learning_boundary": "For 306, retain the high-yield triad: type I anti-GBM/linear, type II immune-complex/granular, type III pauci-immune/often ANCA-associated. Do not expand the full vasculitis taxonomy here.",
+      "status": "CANONICAL_BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B10-SC02",
+      "block_id": "urinary-b10",
+      "type": "IGA_LM_PATTERN_OVERBINDING",
+      "severity": "K_BOUNDARY_REPAIR_REQUIRED",
+      "historical_state": "The traditional exam route strongly associates IgA nephropathy with mesangial proliferation and can be read as a fixed LM identity.",
+      "adjudication": "The stable diagnostic pathology Core is mesangial-dominant/co-dominant IgA on immunofluorescence with mesangial/paramesangial deposits on EM. Light microscopy is variable: mesangial hypercellularity/proliferation is common, but LM can range from minimal change-like appearances to segmental sclerosis or crescentic injury. Do not encode IgA nephropathy as identical to one LM pattern.",
+      "learning_boundary": "Keep 'mesangial proliferation is typical/high-yield' for 306 recognition; IF IgA dominance is the stronger identity anchor. Full Oxford MEST-C prognostic scoring is not required unless the Current exam source explicitly owns it.",
+      "status": "CANONICAL_BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B11-ONTOLOGY01",
+      "block_id": "urinary-b11",
+      "type": "PATTERN_VS_DISEASE_BOUNDARY",
+      "severity": "K_BOUNDARY_REPAIR_REQUIRED",
+      "historical_state": "B11 teaches MCD, membranous, mesangial proliferative, MPGN and FSGS as the traditional nephrotic pathology comparison set. That is exam-useful, but MsPGN/MPGN/FSGS can be misread as single-cause disease entities.",
+      "adjudication": "Preserve the classic 306 LM/IF/EM and age/treatment tendencies, but mark MsPGN, MPGN and FSGS as morphology/clinicopathologic patterns whose etiology can be primary or secondary depending on context. MPGN in particular is a pattern that modern classification re-organizes by immune-complex vs complement-mediated mechanisms; FSGS can be primary, genetic or secondary. The exam table remains a recognition index, not a complete etiologic ontology.",
+      "learning_boundary": "Do not replace the 306 table with modern guideline taxonomy. Add one explicit boundary before/inside the comparison so the learner can later absorb etiologic classification without unlearning the morphology.",
+      "status": "CANONICAL_BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B11-TREATMENT01",
+      "block_id": "urinary-b11",
+      "type": "PATTERN_TREATMENT_NOT_UNIVERSAL",
+      "severity": "NONBLOCKING_IF_BOUNDED",
+      "historical_state": "Traditional tables attach steroid sensitivity/resistance tendencies directly to pathology labels, especially MCD vs FSGS.",
+      "adjudication": "Keep the exam tendency: MCD is typically steroid-responsive and primary FSGS is often less responsive. But treatment logic must not be generalized from the FSGS lesion alone because secondary/adaptive/genetic FSGS is not the same immunosuppressive owner as primary FSGS.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    }
+  ],
+  "block_status": {
+    "urinary-b09": "PROMISING_NOT_ACCEPTED; ontology/relationship boundary repair pending",
+    "urinary-b10": "PROMISING_NOT_ACCEPTED; RPGN ANCA and IgA pathology boundaries pending",
+    "urinary-b11": "PROMISING_NOT_ACCEPTED; pattern/entity and treatment-boundary repair pending"
+  },
+  "batch_status": "IN_PROGRESS_NOT_PASSED",
+  "next": "Apply the five ontology/boundary repairs narrowly to B9-B11 while preserving stable IDs and exam-relevant traditional pathology tables. Then perform source-to-KP closure and freeze Logic Groups only if no additional mechanism-level defect remains. B5 remains a separate durable blocker for whole-A3 closure."
+}
