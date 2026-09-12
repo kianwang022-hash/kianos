@@ -7,8 +7,8 @@ on:
     paths:
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
-      - 'tools/lexical_historical_round_from_source_lock.py'
-      - 'content/lexical/audit/migration-integrity/r18-authority-lock.md'
+      - 'tools/lexical_historical_round_owner_surfaces.py'
+      - 'content/lexical/audit/migration-integrity/r19-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
 
@@ -16,41 +16,42 @@ permissions:
   contents: read
 
 jobs:
-  r18-bulk-triage:
+  r19-bulk-triage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read locked R18 authority and bulk-triage Current
+      - name: Read frozen R19 authority and bulk-triage Current
         shell: bash
         run: |
-          python tools/lexical_historical_round_from_source_lock.py \
-            content/lexical/audit/migration-integrity/r18-authority-lock.md \
-            --legacy-repo kianwang022-hash/kianos \
-            --comment-id 5647361220 \
-            --audit-id R18_3801_4100_GROUPED_BULK_TRIAGE \
-            --expected-core 103 \
-            --expected-contrast 71 \
-            --output /tmp/r18-bulk-triage.json \
-            --summary /tmp/r18-bulk-triage-summary.md
+          python tools/lexical_historical_round_owner_surfaces.py \
+            content/lexical/audit/migration-integrity/r19-authority.md \
+            --legacy-repo kianwang022-hash/kianos-legacy \
+            --comment-id 5583494301 \
+            --audit-id R19_4101_4400_CORE_EXPANSION_CONTRAST \
+            --expected-core 78 \
+            --expected-expansion 92 \
+            --expected-contrast 56 \
+            --output /tmp/r19-bulk-triage.json \
+            --summary /tmp/r19-bulk-triage-summary.md
 
       - name: Publish summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/r18-bulk-triage-summary.md ]; then
-            cat /tmp/r18-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/r19-bulk-triage-summary.md ]; then
+            cat /tmp/r19-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## R18 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo '## R19 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload triage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-r18-bulk-triage
+          name: lexical-r19-bulk-triage
           path: |
-            /tmp/r18-bulk-triage.json
-            /tmp/r18-bulk-triage-summary.md
+            /tmp/r19-bulk-triage.json
+            /tmp/r19-bulk-triage-summary.md
           if-no-files-found: error
           retention-days: 14
