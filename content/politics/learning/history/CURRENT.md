@@ -10,19 +10,10 @@ This file does not own History Source Truth, teaching content, Politics learning
 ## Work Cursor
 
 **Scope:** History whole-subject acceptance  
-**Active / earliest unresolved stage:** `E｜Evidence acceptance`  
-**Closed upstream:** `S/K/L/P/R PASS` in local `ACCEPTANCE.md`  
-**Frozen downstream:** `U UNTESTED`  
-**Blocker:** History Runtime is accepted, but no whole-subject History Evidence gate has yet proved that first meaningful attempt evidence is preserved and interpreted with the right granularity without manufacturing mastery.  
-**Next action:** inspect only the current History Evidence owner and add/execute the smallest dedicated E assertion. Do not reopen S/K/L/P/R without new concrete evidence; do not infer U from engineering state.
-
----
-
-## Closed upstream boundary
-
-History S/K/L/P/R are accepted and frozen. The dedicated Runtime gate passed on `Static Web Politics QA` run `34694972737`; later Marxism failure is a sibling-scope blocker and does not invalidate History R.
-
-Ordinary continuation must not re-read closed Source/content/first-ready/Runtime internals unless the Evidence gate produces a concrete upstream red.
+**Engineering acceptance:** `S/K/L/P/R/E PASS`  
+**Earliest unresolved stage:** `U｜User Validation` — learner-only, not an engineering task  
+**Blocker:** none at the engineering layer. U has no evidence because Kian has not yet used a named History learner path.  
+**Next action:** stop engineering this scope. When Kian actually studies History, record only the real learner path used and reopen the responsible earlier gate only if concrete learner friction exposes a defect.
 
 ---
 
@@ -34,30 +25,35 @@ S PASS
 → L PASS
 → P PASS
 → R PASS
-→ E ACTIVE
-→ U UNTESTED (learner-only)
+→ E PASS
+→ U UNTESTED (real learner use only)
 ```
 
-Only E is active now.
+There is no synthetic next engineering stage after E.
 
 ---
 
-## Current E owner boundary
+## Closed boundary
 
-Evidence lives in the Politics attempt/evidence path under `static-web/`. For E acceptance, verify only the semantics required by the repository-wide Evidence standard: preserve first meaningful evidence, distinguish STABLE / UNCERTAIN / WRONG correctly, keep repair distinct from mastery, use an appropriate learner-facing Unit Return granularity, and fail closed when evidence cannot be persisted.
+History is **module ready for learner test**, not learner-validated.
 
-Do not use Marxism/K03 Evidence results as History evidence.
+Do not:
+
+- keep polishing merely because more architecture can be imagined;
+- pre-run or simulate U;
+- infer learner progress from CI/repository state;
+- reopen S/K/L/P/R/E without new concrete evidence;
+- modify Marxism / Mao / Xi / Ethics-Law as part of this closed History scope.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active History E stage:
+For ordinary re-entry before real learner use:
 
 1. `content/politics/learning/history/ACCEPTANCE.md`
-2. exact History Evidence owner or compact History E gate only
 
-Do not pre-read closed upstream audits, sibling subjects, or learner-private state.
+Nothing else is required unless a real learner path or concrete defect gives a narrower owner to inspect.
 
 ---
 
@@ -65,8 +61,7 @@ Do not pre-read closed upstream audits, sibling subjects, or learner-private sta
 
 ### Artifact Truth
 
-- History teaching projection / review → `content/politics/learning/history/`
-- learner runtime/evidence implementation → Politics surfaces under `static-web/`
+History content/runtime/evidence artifacts remain under `content/politics/learning/history/` and Politics surfaces under `static-web/`.
 
 ### Acceptance Truth
 
@@ -74,7 +69,7 @@ Do not pre-read closed upstream audits, sibling subjects, or learner-private sta
 
 ### Learner Truth
 
-Private browser / Return Packet / conversation evidence only. Engineering Evidence acceptance cannot manufacture Kian's learner progress.
+Private browser / Return Packet / conversation evidence only.
 
 ---
 
@@ -83,8 +78,8 @@ Private browser / Return Packet / conversation evidence only. Engineering Eviden
 ```text
 History CURRENT
 → History ACCEPTANCE
-→ exact E owner / compact E gate
-→ work
+→ if no real U evidence: stop
+→ if real learner evidence exists: inspect only that named path
 ```
 
-No Politics-wide Acceptance, closed upstream gate, sibling subject, legacy repository, or prior Chat is required for ordinary History E continuation.
+No closed gate, sibling subject, legacy repository, or prior Chat is required by default.
