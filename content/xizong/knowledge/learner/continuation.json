@@ -8,57 +8,50 @@
   "current_system": {
     "canonical_id": "A1",
     "system_id": "circulation",
-    "reason": "A1 S/K/L pass under the latest root acceptance semantics. Previously known P/R/E defects have been repaired on the acceptance branch; P/R/E remain UNTESTED until the branch is exercised against latest main through the dedicated learner-contract QA plus Astro build."
+    "reason": "A1 S/K/L/P/R/E are accepted on the PR #12 synthetic-merge learner-contract journey. Every learner U path remains UNTESTED because the learner has not started circulation. The immediate stage is final PR QA/merge; after merge the next domain acceptance target is A2 Knowledge."
   },
-  "current_stage": "LEARNING_ACCEPTANCE_A1_P_R_E_SYNTHETIC_MERGE_QA",
+  "current_stage": "A1_S_E_ACCEPTED_FINAL_PR_QA_THEN_A2_K",
   "durable_acceptance_owner": "content/xizong/knowledge/learner/acceptance-status.json",
   "root_acceptance_sha": "a174880fc6777df118ef408b5a5ad1f0afe77213",
   "completed_shared_work": [
-    "A1 official-question System scope is exactly 376 Current Question Truth IDs with inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be; System membership does not imply Question-to-KP mapping.",
-    "A2 official-question System scope is exactly 359 Current Question Truth IDs with inventory SHA256 b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0.",
-    "A1 S PASS: Current source/owner boundaries and deterministic Question Truth identity are accepted.",
-    "A1 K PASS: System + all 12 canonical Block medical-Core owners / 312 stable KPs were content-closure re-audited; no stable medical-Core gap justified expansion.",
-    "A1 L PASS: direct 12-Block route + 87 contiguous Logic Groups cover 312/312 KPs exactly once; a1-circulation-learning.json owns first-pass focus/stop/recall and goal/closure semantics without duplicating medical Core or inferring Question-to-KP relations.",
-    "Projection/runtime blocker repaired: canonical A1 Block openings no longer need the A2-specific '这个 Block 到底解决什么' heading; loader preserves explicit A2 intro where present and otherwise projects the canonical pre-KP opening orientation.",
-    "Private-state blocker repaired: shared System page no longer auto-seeds [2025, 2026] or any exact holdout years. System Exit defaults to empty private holdout and requires learner selection before sweep.",
-    "Projection blocker repaired: unavailable Outline count is omitted instead of projected as Outline 0.",
-    "Evidence blocker repaired: Chat-plan repair rating is recorded separately as CHAT_PLAN_REVIEW / REPAIR_ONLY and no longer overwrites the original KP Recall rating. Study Packet explicitly distinguishes first Recall, local repair, Chat repair and later mastery evidence.",
-    "A dedicated static-web/scripts/validate-xizong-learning.mjs now loads all A1 Blocks/question scope and tests clean, weak, Chat-return, holdout, W/U, persistence, idempotency and error journeys while explicitly declaring U=NOT_TESTED_BY_THIS_SCRIPT.",
-    "The latest root LEARNING_ACCEPTANCE changed during this branch; acceptance-status.json was upgraded to PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED and latest-main standard SHA a174880fc6777df118ef408b5a5ad1f0afe77213."
+    "A1 Source PASS: canonical owners + exactly 376 Current official Question Truth IDs; inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
+    "A1 Knowledge PASS: System + 12 canonical Blocks / 312 stable KPs were content-closure re-audited; no further stable medical-Core expansion was justified.",
+    "A1 Learning PASS: direct 12-Block route + 87 Logic Groups + separate first-pass focus/stop/recall and goal/closure support. Medical Core and Question-to-KP authority were not duplicated.",
+    "Acceptance red-light #1 was substantive: run 34659476134 exposed the false assumption that stable KP ordinal equals learner reading order. B5 canonical order is KP01-03 -> KP07-12 -> KP04-06. Loader identity checking and B5 Logic Group order were repaired to preserve stable IDs while following canonical learner order.",
+    "Acceptance red-light #2 was test-only: run 34659942142 showed a validator helper-name assumption; Runtime already normalized malformed/duplicate/ineligible private holdout years. Validator was changed to assert behavior rather than helper naming.",
+    "A1 Projection PASS: canonical Block opening projection is generic; YAML frontmatter cannot leak; unavailable Outline metadata is omitted; exact holdout years are never seeded by shared runtime.",
+    "A1 Runtime PASS: PR #12 synthetic-merge run 34660072688 passed the Xizong learner-contract validator across clean, weak, Chat-return, private holdout, W/U, persistence, idempotency and error journeys, then passed Astro build.",
+    "A1 Evidence PASS: Chat repair is REPAIR_ONLY and cannot overwrite first Recall/mastery; stable clean work creates no weak debt; W/U is wrong/uncertain only; Question-to-Knowledge precise back-links remain REVIEWED-only and otherwise fail safe without guessing.",
+    "A1 U remains path-scoped UNTESTED: first learning, weak repair/Chat return, System Exit, and sustained multi-session real use all await the learner. Synthetic QA cannot promote U."
   ],
   "current_owners_to_read": [
     "LEARNING_ACCEPTANCE.md",
     "content/xizong/knowledge/learner/acceptance-status.json",
     "content/xizong/knowledge/learner/study-policy.json",
-    "content/xizong/knowledge/systems/a1-circulation/system.json",
-    "content/xizong/knowledge/learner/a1-circulation-learning.json",
-    "static-web/scripts/validate-xizong-learning.mjs",
-    "static-web/src/lib/xizong.mjs",
-    "static-web/src/components/XizongBlockV6.astro",
-    "static-web/src/components/XizongMemoryReviewV6.astro",
-    "static-web/src/components/XizongSystemExitRuntime.astro"
+    "content/xizong/knowledge/systems/a2-respiratory/system.json",
+    "content/xizong/knowledge/systems/a2-respiratory/blocks/",
+    "content/xizong/knowledge/learner/a2-respiratory-learning.json"
   ],
   "next_action": {
-    "stage": "A1_P_R_E_CURRENT_MAIN_SYNTHETIC_MERGE_QA",
-    "instruction": "Open a PR from chat/xizong-learning-acceptance-20260912 onto latest main. Use the PR synthetic merge as the acceptance target because root governance and parallel English work advanced after the branch point. Run Static Web Xizong QA: validate:xizong first, then Astro build. Inspect any failure as learner-contract evidence rather than forcing green. Confirm the PR net diff does not overwrite parallel English work. If learner-contract QA passes on the current-main synthetic merge and no new acceptance defect appears, update acceptance-status.json to P/R/E PASS, keep every U path UNTESTED, then merge safely and confirm the post-merge main Xizong QA. If QA exposes a defect, repair the earliest gate that explains it and rerun.",
-    "success_condition": "Current-main synthetic merge loads A1 as 12 Blocks / 312 KP / 87 Logic Groups / 376 scoped questions and passes clean, weak, Chat-return, private holdout, W/U, persistence, idempotency and error contracts; Astro compiles; exact holdout choices remain private; clean work creates no manufactured debt; repair does not become mastery; precise relations remain REVIEWED-only; U remains UNTESTED.",
-    "validation_note": "The learner has not started circulation. Synthetic Module E2E may prove S-E behavior for its tested scope but cannot prove U and must never trigger a learner System Recall or question sweep."
+    "stage": "FINAL_A1_PR_QA_AND_MERGE",
+    "instruction": "Let the acceptance-status/continuation-only commits retrigger PR #12. Confirm Static Web Xizong QA still passes validate:xizong and Astro build on the current synthetic merge; re-check latest main for parallel conflicts. If green and safe, squash-merge PR #12, then confirm the post-merge main Xizong QA push run. After that, create a fresh acceptance branch for A2 and start A2_K_CONTENT_CLOSURE_RECONFIRM from canonical System + 12 Block medical Core under the latest root LEARNING_ACCEPTANCE standard. Do not inherit A2 K from file presence or prior reputation.",
+    "success_condition": "PR #12 and post-merge main retain A1 S/K/L/P/R/E accepted behavior, parallel English/Politics/Translation/Writing work is untouched, every A1 U path remains UNTESTED, and shared continuation advances to A2 K rather than asking the learner to perform circulation System Exit.",
+    "validation_note": "The learner has not started circulation. 'Module ready for learner test' means the product path is ready when study reaches it; it does not mean the learner should test System Exit now."
   },
   "do_not_reopen_without_new_evidence": [
     "Do not add more A1 medical Core after K PASS without new source or learner evidence.",
-    "Do not add more A1 first-learning taxonomy after L PASS without runtime/learner evidence.",
+    "Do not add more A1 learning taxonomy after L PASS without runtime/learner evidence.",
     "Do not rebuild A1 376 or A2 359 System question scopes by model inference.",
     "Do not infer Question-to-Block/KP mappings from title, page, System membership, source section or model intuition.",
     "Do not persist learner-specific holdout years, progress, Recall ratings, W/U, comments, session position, timers or browser history in shared Current.",
-    "Do not turn KianOS into a second Lecture or edit canonical medical Core merely to satisfy projection conventions.",
-    "Do not add taxonomy, controls, cards or optional owners merely for symmetry/completeness.",
-    "Do not promote P/R/E from build alone; validate the learner contracts. Do not promote U from any synthetic QA.",
+    "Do not equate stable KP numeric ID with canonical learner reading order.",
+    "Do not promote U from CI, build, validator, screenshots, architecture discussion or simulated QA.",
     "Do not infer learner progress from this continuation file or acceptance-status.json."
   ],
   "after_validation": [
-    "If A1 P/R/E pass on current-main and post-merge main, allowed state is Module ready for learner test; every U path remains UNTESTED until real learner use.",
-    "Then explicitly re-confirm A2 K and run A2 P/R/E under the same latest root standard.",
-    "Real learner friction outranks speculative polish and is the only basis for later U/evidence-driven revision."
+    "A2 K content-closure reconfirm from canonical Current owners.",
+    "A2 P/R/E Module E2E under the same persistence/idempotency/error/evidence standard.",
+    "A1/A2 U only advances from real learner use of the named path; real friction outranks speculative polish."
   ],
   "continuation_policy": {
     "update_when": "Update only at meaningful shared-work stage transitions or when the next shared Xizong action changes materially.",
