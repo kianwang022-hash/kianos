@@ -11,7 +11,7 @@ This file does not own Translation content, acceptance evidence, or learner prog
 
 **Scope:** English Translation  
 **Active / earliest unresolved gate:** `U — Learner Validation`  
-**Blocker:** no engineering blocker. S is `PASS_WITH_DEBT`; K/L/P/R/E are `PASS`; U is `UNTESTED`.  
+**Blocker:** no engineering blocker. S/K/L/P/R/E are `PASS`; U is `UNTESTED`.  
 **Next action:** do **not** create a special Translation task merely to close U. Keep S–E frozen. When normal English study naturally uses Translation, treat that real path as U evidence; if a real-use defect appears, reopen the exact responsible gate.
 
 ---
@@ -19,7 +19,7 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ## Stage discipline
 
 ```text
-S  PASS_WITH_DEBT  ← accepted; 3 explicit pending_review Source reference gaps
+S  PASS            ← accepted; 27/27 sets complete, 0 pending reference debt
 K  PASS            ← accepted
 L  PASS            ← accepted
 P  PASS            ← accepted
@@ -36,7 +36,7 @@ Translation is now **Module ready for learner test**, not learner-validated.
 
 ### Source
 
-27 Current sets / 135 stable prompts. Three reference rows remain explicit `pending_review` Source debt. Missing references stay unavailable and may not be fabricated.
+27 Current sets / 135 stable prompts / 27 complete-reference sets / 0 partial-reference sets / 0 pending reference debt. The former 2022 Q48, 2022 Q49, and 2025 Q46 gaps were closed only after exact prompt identity plus independent public semantic cross-check. Their normalized references are explicitly marked `official: false`; they are not represented as official or unique wording. Canonical question owner SHA-256: `406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e`.
 
 ### Knowledge / Learning
 
@@ -55,7 +55,7 @@ Skill Map/deep content is later repair/navigation. Clean first output precedes d
 
 ### Projection
 
-Accepted after removing fresh-attempt cue leakage and restoring `HOW YOU LEARN IT` before the first-learning exit. P gate: 161 checks, 27/27 task pages, 0 reference leaks, 0 issues.
+Accepted after removing fresh-attempt cue leakage and restoring `HOW YOU LEARN IT` before the first-learning exit. P gate remains regression-protected by Translation QA.
 
 ### Runtime
 
@@ -118,7 +118,7 @@ For a real learner-use issue, read only the exact owner needed to diagnose that 
 While waiting for U:
 
 - S–E are frozen by default;
-- do not fill the 3 Source reference gaps with generated answers;
+- do not replace cross-verified references with generated or falsely official wording;
 - do not manufacture engineering work merely because U is still `UNTESTED`;
 - do not touch Objective / Writing / sibling scopes from this cursor;
 - do not infer or mutate Kian's Learner Truth from repository acceptance.
@@ -138,7 +138,7 @@ While waiting for U:
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ S–E frozen / Module ready for learner test
+→ S–E PASS / frozen / Module ready for learner test
 → wait for real Translation use
 ```
 
