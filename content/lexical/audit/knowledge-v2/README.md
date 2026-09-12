@@ -6,10 +6,11 @@
 
 Downstream stages are `FROZEN_PENDING_UPSTREAM` for this rebuild:
 
-- Learning Logic — existing `LEARNING_CONTRACT.md` remains preserved but is not being redesigned or used to excuse Knowledge defects;
+- Learning Logic — existing `LEARNING_CONTRACT.md` is preserved, but is not being redesigned or used to excuse Knowledge defects;
+- Content Realization / Optimization — frozen; this audit defines target truth but does not yet rewrite Word Owners;
 - Projection / Interaction — frozen;
 - Runtime Loop — frozen;
-- Evidence / Acceptance — frozen except for evidence about this Knowledge audit itself.
+- Evidence / Acceptance — frozen except for audit evidence about the active Truth stage.
 
 This audit follows root `LEARNING_ASSET_STANDARD.md`.
 
@@ -27,9 +28,9 @@ Reference/provenance fields inside Current may help locate an identity, but they
 
 ## Stage goal
 
-Re-accept the semantic Knowledge of all **7,946 / 7,946** Current Word Owners.
+Determine and re-accept the semantic **target truth** for all **7,946 / 7,946** Current Word Owners.
 
-The cutover proves ownership/reconstruction, not semantic correctness. Every word therefore receives a new Knowledge judgment.
+The Natural Owner cutover proves ownership/reconstruction, not semantic correctness. Every word therefore receives a new Truth-stage Knowledge judgment.
 
 Full coverage does **not** mean equal effort per word:
 
@@ -62,31 +63,33 @@ For every Word Owner, review these dimensions.
 - Are high-value constructions, proposition frames, phrase skeletons, phrasal patterns, or fixed collocations represented as semantic learning objects when they materially change access?
 - Are trivial examples being mistaken for important structures?
 - Is the same structure duplicated across sense/collocation/construction objects without a learning reason?
+- Is a construction accidentally modeled as the wrong part of speech or as an ordinary lexical sense?
 
 ### 4. Boundaries
 
 - Are genuine confusables / semantic contrasts present when they materially prevent misreading or wrong selection?
-- Are low-value or artificial contrasts adding noise?
+- Are low-value, stale, mismatched, or artificial relations adding noise?
 
 ### 5. Noise / scope
 
-- Remove unsupported wording, accidental dictionary artifacts, stale specialist material, or completeness-only branches from the main learner map.
+- Identify unsupported wording, accidental dictionary artifacts, stale specialist material, or completeness-only branches that should not remain in the main learner map.
 - Reference/explore material may remain available without becoming learner-worthy Active Knowledge.
 
 ### 6. Internal coherence
 
 - Core, active meanings, structures, and relations must not contradict one another.
-- Stable object identities should be preserved when the semantic object survives.
+- The same semantic object must not be duplicated as both an Active sense and a secondary/deep object without a real distinction.
+- Stable object identities should be preserved later when the semantic object survives.
 
 ## Decision vocabulary
 
-Each reviewed word ends in exactly one current Knowledge decision:
+Each reviewed word ends in exactly one Truth-stage decision:
 
-- `PASS` — current semantic asset is accepted as learner-worthy as-is;
-- `REVISE` — one or more Current semantic objects must change before acceptance;
-- `SOURCE_CHECK` — semantic judgment genuinely requires external authoritative verification before deciding; this is not a pass or a deferral of obvious work.
+- `PASS` — current semantic target is accepted as learner-worthy as-is;
+- `REVISE` — the target truth differs from Current; record exactly what must eventually change, but do **not** implement the repair in this stage;
+- `SOURCE_CHECK` — semantic judgment genuinely requires authoritative verification before deciding; this is not a pass or a deferral of obvious work.
 
-A word may be `PASS` even if future Projection could be improved. Projection is not being judged in this stage.
+A word may be `PASS` even if future Learning Logic or Projection could be improved. Those stages are not being judged now.
 
 ## Verification policy
 
@@ -105,7 +108,7 @@ Do not web-check every trivial word merely to create ritual evidence.
 
 ## Batching
 
-Default semantic review batch: **200 ordinals**.
+Default semantic review batch: **200 ordinals**. Smaller calibration slices may be used at the start of a new audit rule, but they roll up into the same 200-ordinal batch.
 
 Batching controls review load only; it does not weaken full-corpus coverage or permit downstream work.
 
@@ -115,19 +118,20 @@ Each batch must record:
 - `PASS` count;
 - `REVISE` count;
 - `SOURCE_CHECK` count;
-- exact owner changes for revised words;
-- unresolved source checks;
-- confirmation that no Projection/Runtime mutation occurred.
+- exact target-truth change required for each `REVISE` word;
+- resolved/unresolved source checks;
+- relation-owner truth decisions when relevant;
+- confirmation that no Content/Projection/Runtime semantic mutation occurred.
 
 ## Stage exit
 
 Truth / Knowledge Boundary closes only when:
 
-1. all 7,946 Word Owners have an explicit new v2 semantic decision;
-2. every `REVISE` item has been repaired and read back against the v2 semantic decision;
-3. every `SOURCE_CHECK` is resolved or explicitly shown to be outside the intended lexical Knowledge scope;
-4. Current Relation owners touched by accepted word boundaries are coherent;
-5. no known structural or semantic Knowledge blocker remains;
-6. a full-corpus closure report states exactly what was accepted, changed, and excluded.
+1. all 7,946 Word Owners have an explicit new v2 Truth-stage decision;
+2. every `SOURCE_CHECK` is resolved or explicitly shown to be outside the intended lexical Knowledge scope;
+3. every `REVISE` item has a sufficiently precise target-truth specification for later Content Realization;
+4. Current Relation owners implicated by reviewed word boundaries have an explicit truth decision where needed;
+5. no unresolved question remains about **what the lexical asset should teach** for the audited corpus;
+6. a full-corpus closure report states exactly what is accepted, what target truth must change, and what is excluded from main learner Knowledge.
 
-Only then may Lexical proceed to Learning Logic verification.
+Only then may Lexical proceed to **Learning Logic verification**. Content owner repair remains frozen until that Learning stage is checked and the construction sequence reaches Content Realization / Optimization.
