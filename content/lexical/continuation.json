@@ -28,12 +28,12 @@
     "work_branch": "lexical/knowledge-audit-v2",
     "pull_request": 20,
     "corpus_target": 7946,
-    "reviewed_through": 400,
-    "reviewed_count": 400,
-    "truth_progress": "400/7946",
+    "reviewed_through": 480,
+    "reviewed_count": 480,
+    "truth_progress": "480/7946",
     "cumulative_counts": {
-      "PASS": 216,
-      "REVISE": 184,
+      "PASS": 255,
+      "REVISE": 225,
       "SOURCE_CHECK": 0
     },
     "latest_completed_batch": {
@@ -41,10 +41,15 @@
       "end": 400,
       "summary": "content/lexical/audit/knowledge-v2/batches/0201-0400-summary.json"
     },
+    "latest_completed_slice": {
+      "start": 461,
+      "end": 480,
+      "summary": "content/lexical/audit/knowledge-v2/batches/0461-0480.json"
+    },
     "active_batch": {
       "start": 401,
       "end": 600,
-      "next_ordinal": 401
+      "next_ordinal": 481
     },
     "decision_vocabulary": ["PASS", "REVISE", "SOURCE_CHECK"],
     "hard_rule": "Truth stage records target truth only. Do not mutate Word/Relation semantics until Learning Logic has subsequently been verified and staged development reaches Content Realization / Optimization."
@@ -54,13 +59,13 @@
     "content/lexical/manifest.json",
     "content/lexical/schema.json",
     "content/lexical/audit/knowledge-v2/README.md",
-    "content/lexical/audit/knowledge-v2/batches/0201-0400-summary.json",
-    "content/lexical/words/by-ordinal/o0401.json"
+    "content/lexical/audit/knowledge-v2/batches/0461-0480.json",
+    "content/lexical/words/by-ordinal/o0481.json"
   ],
   "next_action": {
     "stage": "TRUTH_AUDIT_BATCH_0401_0600",
-    "instruction": "Continue Current-only semantic audit from ordinal 401 through 600. Fast-pass simple correct words; deeply inspect real polysemy, familiar-new meanings, structures, ownership, Core/Word Feel, embedded facts, and Current Relation boundaries. Use authoritative contemporary sources selectively only where the Truth decision genuinely depends on usage/register/licensing/region. Record target truth only; do not repair Natural Owners or touch Learning/UI/Runtime.",
+    "instruction": "Continue Current-only semantic audit from ordinal 481 through 600. Fast-pass simple correct words; deeply inspect real polysemy, familiar-new meanings, structures, ownership, Core/Word Feel, embedded facts, and Current Relation boundaries. Use authoritative contemporary sources selectively only where the Truth decision genuinely depends on usage/register/licensing/region. Record target truth only; do not repair Natural Owners or touch Learning/UI/Runtime.",
     "success_condition": "Ordinals 401–600 have explicit Truth-stage decisions with resolved source checks and precise target-truth notes for every REVISE, while all downstream stages remain unchanged."
   },
-  "fresh_chat_rule": "Read main@HEAD LEARNING_ASSET_STANDARD.md, this continuation, the Knowledge v2 audit contract, the latest completed batch summary, and only the smallest Current Natural Owners/Relations needed from next_ordinal. Do not reconstruct normal work from history or legacy."
+  "fresh_chat_rule": "Read main@HEAD LEARNING_ASSET_STANDARD.md, this continuation, the Knowledge v2 audit contract, the latest completed slice, and only the smallest Current Natural Owners/Relations needed from next_ordinal. Do not reconstruct normal work from history or legacy."
 }
