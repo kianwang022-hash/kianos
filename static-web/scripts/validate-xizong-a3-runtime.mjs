@@ -89,8 +89,10 @@ const blockEvidenceGuard = read('static-web/src/components/XizongBlockEvidenceGu
 const systemEvidenceGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 const repairUi = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
 const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
+const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 
 has(blockUi, "setStage('group_close')", 'logic-group-close-transition');
 has(blockUi, "setStage('kp_recall')", 'kp-recall-transition');
@@ -106,11 +108,13 @@ has(stageGuard, "target.closest('[data-start-sweep]')", 'system-sweep-completion
 has(stageGuard, 'if (completed.length < blockIds.length)', 'whole-system-prerequisite-guard');
 
 has(blockEvidenceGuard, "block?.learningSupportSourceHash || ''", 'block-learning-support-not-versioned');
+has(blockEvidenceGuard, 'localStorage.removeItem(repairInboxKey);', 'stale-block-repair-inbox-not-invalidated');
 has(systemEvidenceGuard, 'const blockEvidenceRows = (system?.blocks || []).map((block) => {', 'system-block-content-not-versioned');
 has(systemEvidenceGuard, "system?.learningSupport?.sourceHash || ''", 'system-learning-support-not-versioned');
 has(systemEvidenceGuard, 'blockEvidenceHash.toString(16)', 'system-block-version-not-in-evidence-version');
 has(systemEvidenceGuard, 'localStorage.removeItem(recallKey);', 'stale-system-recall-not-invalidated');
 has(systemEvidenceGuard, 'localStorage.removeItem(sweepKey);', 'stale-system-sweep-not-invalidated');
+has(systemEvidenceGuard, 'stale_block_repair_inboxes', 'stale-system-repair-inbox-not-archived');
 
 has(exitUi, "let recallState = readJson(recallKey, { completedAt: null });", 'system-recall-default-progress');
 has(exitUi, "let holdoutYears = readJson(holdoutKey, []);", 'holdout-not-empty-by-default');
@@ -120,6 +124,12 @@ has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让�
 
 has(repairUi, 'allowed.has(row.questionId)', 'chat-plan-not-scoped-to-real-wu');
 has(repairUi, '!relation?.blockId || !relation?.primaryKpId', 'repair-route-not-reviewed-relation-only');
+has(repairUi, 'kianos-xizong-repair-inbox-v1:', 'repair-return-does-not-use-inbox');
+has(repairBridge, 'kianos-xizong-repair-inbox-v1:', 'block-repair-inbox-not-consumed');
+has(repairBridge, "type: 'SYSTEM_WU_PLAN_IMPORTED'", 'repair-inbox-import-not-evidenced');
+has(repairBridge, "window.addEventListener('storage'", 'open-block-tab-repair-return-missing');
+has(repairBridge, 'window.location.reload();', 'repair-return-does-not-rebuild-block-memory-state');
+has(blockPage, '<XizongRepairInboxBridge block={projection} />', 'repair-inbox-bridge-not-mounted');
 has(memoryUi, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'repair-evidence-overwrites-mastery');
 has(lastLocation, "localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value))", 'resume-location-not-persisted');
 
@@ -131,6 +141,6 @@ console.log([
   `LogicGroups=${totalGroups}`,
   `Questions=${sweep.questionCount}`,
   `BlockEvidence=${currentBlockEvidenceHash}`,
-  'Journeys=lecture-handoff,KP-recall-guard,block-close,system-recall-gate,system-sweep-gate,stale-evidence-invalidation,W/U-repair-return,resume',
+  'Journeys=lecture-handoff,KP-recall-guard,block-close,system-recall-gate,system-sweep-gate,stale-evidence-invalidation,W/U-repair-inbox-return,resume',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
