@@ -6,6 +6,8 @@ import {
   loadWritingById,
   WRITING_SOURCE_BOUNDARY
 } from '../src/lib/englishWriting.mjs';
+import { projectWritingExamRuntimeTask } from '../src/lib/englishWritingExamRuntime.mjs';
+import { inspectWritingVisualSource } from '../src/lib/englishWritingVisualSource.mjs';
 
 const report = inspectWritingSources();
 const tasks = listWritingTasks();
@@ -61,6 +63,17 @@ function collectWritingBTruth(value, out = new Map(), seen = new Set()) {
   return out;
 }
 
+function normalizedAssetPath(value) {
+  if (!value) return '';
+  if (typeof value === 'string') return value.trim().replace(/^\/+/, '');
+  if (typeof value !== 'object') return '';
+  for (const key of ['asset_path', 'path', 'src', 'url', 'asset', 'file', 'href']) {
+    const candidate = String(value?.[key] || '').trim();
+    if (candidate) return candidate.replace(/^\/+/, '');
+  }
+  return '';
+}
+
 function assetExistence(assetPath) {
   const relative = String(assetPath || '').replace(/^\/+/, '');
   if (!relative) return { root: false, webPublic: false };
@@ -78,6 +91,7 @@ try {
 } catch (error) {
   globalTruthLoadError = String(error?.message || error);
 }
+const exactVisualSource = inspectWritingVisualSource();
 
 requireCheck(!globalTruthLoadError, `GLOBAL_SOURCE_TRUTH_LOAD:${globalTruthLoadError || 'ok'}`);
 requireCheck(report.status === 'ready', `SOURCE_STATUS:${report.status}`);
@@ -94,6 +108,7 @@ requireCheck(JSON.stringify(report.yearsBySection.writing_part_a || []) === JSON
 requireCheck(JSON.stringify(report.yearsBySection.writing_part_b || []) === JSON.stringify(Array.from({ length: 27 }, (_, i) => 2000 + i)), 'WRITING_PART_B_YEAR_COVERAGE');
 requireCheck(Object.values(report.checks || {}).every(Boolean), `SOURCE_CHECK_FAILURE:${Object.entries(report.checks || {}).filter(([, pass]) => !pass).map(([key]) => key).join('|')}`);
 requireCheck(tasks.length === 49, `WRITING_TASK_CATALOG_COUNT:${tasks.length}`);
+requireCheck(exactVisualSource.mappingReady === true, `WRITING_BIG_CANONICAL_MAPPING:${exactVisualSource.recordCount}/27`);
 
 const setIds = new Set();
 const promptIds = new Set();
@@ -123,7 +138,8 @@ for (const task of tasks) {
   requireCheck(prompt.id === spec?.promptIdForYear(Number(task.year)), `WRITING_PROMPT_ID_PATTERN:${prompt.id}`);
 
   if (task.kind === 'big') {
-    const rawImages = loaded.context?.images;
+    const examProjection = projectWritingExamRuntimeTask(loaded);
+    const rawImages = examProjection?.learnerTask?.context?.images;
     const images = Array.isArray(rawImages) ? rawImages : rawImages ? [rawImages] : [];
     const directionText = `${prompt.instruction || ''}\n${prompt.promptText || ''}\n${loaded.context?.directions || ''}`.trim();
     const visualLanguage = /\b(drawing|picture|pictures|photo|photos|cartoon|chart|charts|graph|graphs|table|tables|diagram|illustration)\b/i.test(directionText);
@@ -132,9 +148,12 @@ for (const task of tasks) {
     const truthVisualField = canonicalVisualField(truthRow);
     const normalizedTruthVisuals = truthVisuals.map((asset) => ({
       ...asset,
-      asset_path: String(asset?.asset_path || asset?.path || ''),
+      asset_path: String(asset?.asset_path || asset?.path || '').replace(/^\/+/, ''),
       exists: assetExistence(asset?.asset_path || asset?.path)
     }));
+    const projectedAssetPaths = images.map(normalizedAssetPath).filter(Boolean);
+    const canonicalAssetPaths = normalizedTruthVisuals.map((asset) => asset.asset_path).filter(Boolean);
+    const projectionMatchesCanonical = JSON.stringify(projectedAssetPaths) === JSON.stringify(canonicalAssetPaths);
     const row = {
       taskId: task.id,
       year: Number(task.year),
@@ -142,7 +161,10 @@ for (const task of tasks) {
       visualRequiredByLane: true,
       visualLanguageDetected: visualLanguage,
       imageDescriptorCount: images.length,
-      contextKeys: Object.keys(loaded.context || {}).sort(),
+      projectedAssetPaths,
+      canonicalAssetPaths,
+      projectionMatchesCanonical,
+      contextKeys: Object.keys(examProjection?.learnerTask?.context || {}).sort(),
       materialBlockCount: Array.isArray(loaded.material) ? loaded.material.length : 0,
       directionPreview: preview(directionText),
       materialPreview: preview(loaded.material),
@@ -161,37 +183,46 @@ for (const task of tasks) {
     requireCheck(images.length > 0, `WRITING_BIG_VISUAL_MISSING:${task.id}`);
     requireCheck(Boolean(truthRow), `WRITING_BIG_GLOBAL_TRUTH_MISSING:${task.id}`);
     requireCheck(truthVisuals.length > 0, `WRITING_BIG_GLOBAL_VISUAL_MISSING:${task.id}`);
+    requireCheck(projectionMatchesCanonical, `WRITING_BIG_VISUAL_PROJECTION_DRIFT:${task.id}:projected=${projectedAssetPaths.join('|')}:canonical=${canonicalAssetPaths.join('|')}`);
   }
 }
 
 const missingBigVisuals = visualAudit.filter((row) => row.imageDescriptorCount === 0);
+const projectionDrift = visualAudit.filter((row) => !row.projectionMatchesCanonical);
 const missingGlobalTruth = visualAudit.filter((row) => !row.globalSourceTruth.found);
 const missingGlobalVisuals = visualAudit.filter((row) => row.globalSourceTruth.visual_assets.length === 0);
 const expectedAssetCount = visualAudit.reduce((sum, row) => sum + row.globalSourceTruth.visual_assets.length, 0);
 const expectedAssetsPresentInRepo = visualAudit.reduce((sum, row) => sum + row.globalSourceTruth.visual_assets.filter((asset) => asset.exists.root || asset.exists.webPublic).length, 0);
+const exactRuntimePublicAssetCount = exactVisualSource.exactAssetCount || 0;
 const visualClosure = {
   expectedBigWritingTasks: 27,
   auditedBigWritingTasks: visualAudit.length,
   tasksWithImageDescriptors: visualAudit.filter((row) => row.imageDescriptorCount > 0).length,
   tasksMissingImageDescriptors: missingBigVisuals.length,
   missingTaskIds: missingBigVisuals.map((row) => row.taskId),
+  tasksWithCanonicalProjection: visualAudit.filter((row) => row.projectionMatchesCanonical).length,
+  tasksWithProjectionDrift: projectionDrift.map((row) => row.taskId),
   globalSourceTruthRecords: globalWritingB.size,
   tasksMissingGlobalTruth: missingGlobalTruth.map((row) => row.taskId),
   tasksMissingGlobalVisualAssets: missingGlobalVisuals.map((row) => row.taskId),
   expectedVisualAssetCountFromGlobalTruth: expectedAssetCount,
-  expectedVisualAssetsPresentInRepo: expectedAssetsPresentInRepo,
-  policy: 'Writing Part B is a visual-observation task lane. Clean source projection must preserve the original learner-visible drawing/chart rather than replace Observation with OCR text or a prose description.',
+  expectedVisualAssetsPresentSomewhereInRepo: expectedAssetsPresentInRepo,
+  exactVisualAssetsInRuntimePublic: exactRuntimePublicAssetCount,
+  exactBinaryClosure: exactVisualSource.binaryReady,
+  binaryClosureIssue: exactVisualSource.issue || null,
+  policy: 'Writing Part B is a visual-observation task lane. Clean true-exam learner projection must derive its image descriptors from canonical Global Source Truth, and Runtime stays blocked until the original binary bytes in static-web/public match canonical byte counts and SHA256 values.',
   records: visualAudit
 };
 requireCheck(visualAudit.length === 27, `WRITING_BIG_VISUAL_AUDIT_COUNT:${visualAudit.length}`);
 requireCheck(globalWritingB.size === 27, `WRITING_BIG_GLOBAL_TRUTH_COUNT:${globalWritingB.size}/27`);
 requireCheck(missingGlobalTruth.length === 0, `WRITING_BIG_GLOBAL_TRUTH_CLOSURE:${27 - missingGlobalTruth.length}/27`);
 requireCheck(missingGlobalVisuals.length === 0, `WRITING_BIG_GLOBAL_VISUAL_CLOSURE:${27 - missingGlobalVisuals.length}/27`);
-requireCheck(missingBigVisuals.length === 0, `WRITING_BIG_VISUAL_CLOSURE:${27 - missingBigVisuals.length}/27`);
-requireCheck(expectedAssetCount > 0 && expectedAssetsPresentInRepo === expectedAssetCount, `WRITING_BIG_VISUAL_BINARY_CLOSURE:${expectedAssetsPresentInRepo}/${expectedAssetCount}`);
+requireCheck(missingBigVisuals.length === 0, `WRITING_BIG_VISUAL_DESCRIPTOR_CLOSURE:${27 - missingBigVisuals.length}/27`);
+requireCheck(projectionDrift.length === 0, `WRITING_BIG_VISUAL_PROJECTION_CLOSURE:${27 - projectionDrift.length}/27`);
+requireCheck(expectedAssetCount > 0 && exactRuntimePublicAssetCount === expectedAssetCount && exactVisualSource.binaryReady === true, `WRITING_BIG_VISUAL_BINARY_CLOSURE:${exactRuntimePublicAssetCount}/${expectedAssetCount}`);
 
 const validation = {
-  schema: 'kianos.english.writing.source-gate-validation.v3',
+  schema: 'kianos.english.writing.source-gate-validation.v4',
   gate: 'S',
   pass: failures.length === 0,
   sourceHash: report.sourceHash,
@@ -218,9 +249,10 @@ const validation = {
     analysisExcluded: true,
     taxonomyExcluded: true,
     requiredSetContextPreserved: true,
-    originalVisualObservationPreservedForBigWriting: missingBigVisuals.length === 0 && expectedAssetCount > 0 && expectedAssetsPresentInRepo === expectedAssetCount
+    canonicalVisualProjectionForBigWriting: projectionDrift.length === 0 && missingBigVisuals.length === 0,
+    originalVisualObservationPreservedForBigWriting: projectionDrift.length === 0 && expectedAssetCount > 0 && exactRuntimePublicAssetCount === expectedAssetCount && exactVisualSource.binaryReady === true
   },
-  note: 'A green validation is evidence for the Writing Source gate only. Visual closure is required because Big Writing explicitly trains Observation before Interpretation. This validator reconciles question-bank projection against Global Source Truth and physical asset presence; it does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
+  note: 'A green validation is evidence for the Writing Source gate only. Big Writing learner descriptors are joined from canonical Global Source Truth rather than duplicated into the question bank. S remains red until every runtime-public original binary matches canonical bytes + SHA256; this does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
 };
 
 const rendered = `${JSON.stringify(validation, null, 2)}\n`;
@@ -230,7 +262,7 @@ if (outPath) {
   fs.writeFileSync(outPath, rendered, 'utf8');
 }
 fs.writeFileSync(path.resolve(process.cwd(), 'writing-source-visual-audit.json'), `${JSON.stringify({
-  schema: 'kianos.english.writing.visual-source-audit.v2',
+  schema: 'kianos.english.writing.visual-source-audit.v3',
   gate: 'S',
   sourceHash: report.sourceHash,
   visualClosure
