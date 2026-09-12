@@ -4,46 +4,55 @@ Status: CURRENT
 
 This file defines how mature Politics Current content should interact with the learner. It does not own political knowledge. Subject-specific learning files remain the teaching-semantic owners.
 
+It inherits the root surface invariant: **an interaction primitive does not own a learner action merely because it can technically render or execute it.** Politics surface ownership is defined by `content/politics/LEARNING_CONTRACT.md`.
+
 ## 1. Shared learner loop
 
 The shared first-round loop is:
 
-`Orientation → Chengfeng continuous learning → short closure → Xiao1000 verification → smallest sufficient repair when needed → continue`
+`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → short closure/checkpoint → Xiao1000 verification in Astro/KianOS web → smallest sufficient repair when needed → continue`
 
 Later phases may add Unit/Block compression, selective Memory, and Mock transfer.
 
-Only this top-level loop is shared across subjects. Internal teaching shape remains subject-specific.
+Only this top-level cognitive loop is shared across subjects. Internal teaching shape remains subject-specific, and the path is allowed to cross surfaces.
 
 ## 2. Learner attention order
 
 During first-round learning, attention priority is:
 
-1. current cognitive question;
-2. current Chengfeng content;
-3. only the minimum orientation/boundary needed to understand it;
-4. Xiao1000 verification after natural closure;
+1. current cognitive question / Natural Unit position;
+2. current Chengfeng content **on its original iPad/MarginNote lecture surface**;
+3. only the minimum Astro/Chat orientation, boundary, checkpoint, or locator needed to understand/continue it;
+4. Xiao1000 verification in Astro/KianOS web after natural closure;
 5. repair only when evidence shows a failure.
 
-Question counts, memory counts, scheduler labels, source metadata, and engineering taxonomy must not dominate the learning surface.
+Question counts, memory counts, scheduler labels, source metadata, engineering taxonomy, and a duplicate web lecture must not dominate the learning path.
 
 ## 3. Progressive disclosure
 
-Default display should be quiet.
+Default Astro display should be quiet and companion-like when another surface owns the active learning action.
 
 ### Before a chapter / unit
 Show only:
 - where this content sits;
 - why it appears now;
-- the core question it solves.
+- the core question it solves;
+- where to continue in the original Chengfeng lecture when a locator is needed.
 
 ### During Chengfeng learning
-Keep Chengfeng continuous and visually primary. Teaching projection may add small anchors, relation maps, stage markers, or boundaries, but must not become a second lecture.
+The original iPad/MarginNote Chengfeng lecture is primary.
+
+Astro may keep the current Natural Unit, learning question, checkpoint, relation anchor, boundary, or source locator visible when useful, but it must **not** render Chengfeng as a competing continuous lecture reader.
+
+A minimal source excerpt is allowed only when it serves a bounded repair/orientation decision. It must not expand by convenience into a second full lecture.
 
 ### At natural closure
-Use one short reconstruction cue. Do not create a large recall workflow unless later evidence justifies it.
+Use one short reconstruction/checkpoint cue. Do not create a large recall workflow unless later evidence justifies it.
 
 ### Verification
-Show the currently relevant Xiao1000 questions only after the owning content is learned.
+Open the currently relevant Xiao1000 questions in the Astro/KianOS web question surface only after the owning content is learned.
+
+The web owns the attempt interaction and evidence capture. Original question/options/official answer remain source-owned, and Xiao1000 still does not determine first-learning order.
 
 ### Stable correct
 `✓ → continue`
@@ -57,10 +66,10 @@ Repair order:
 1. fixed wording / hat / identity confusion → show decisive distinction;
 2. concept boundary confusion → show the smallest relevant boundary;
 3. relation / stage / theory-position confusion → reopen the relevant teaching bridge;
-4. whole Natural Unit model broken → return to the owning Chengfeng segment;
+4. whole Natural Unit model broken → return to the owning Chengfeng segment on the original source surface;
 5. repeated cross-unit confusion → use compression/review.
 
-After repair, return the learner to the interrupted path.
+After repair, return the learner to the interrupted path and surface.
 
 ## 4. Subject-specific interaction shapes
 
@@ -139,6 +148,7 @@ Xiao1000 validates learning; it does not organize learning.
 
 - release by owning Natural Unit / natural subsection;
 - preserve original question/options/answer;
+- answer in the Astro/KianOS web Politics question surface after the owning content is learned;
 - wrong/uncertain should repair to Chengfeng rather than open a second explanation textbook;
 - stable correct should pass fast;
 - repeated questions are allowed later with a different cognitive task.
@@ -157,9 +167,11 @@ Politics inherits the KianOS-wide Continue and Return/Handoff capabilities witho
 
 ### Continue
 
-The runtime may remember the learner's most recently opened Politics chapter in private browser/device state and offer a Continue entry from the Politics home.
+The runtime may remember the learner's most recently opened Politics chapter / Natural Unit and, when useful, the last external-source locator in private browser/device state and offer a Continue entry from the Politics home.
 
 This is personal session position, not shared Current and not a semantic owner.
+
+Continue must not imply that the learner resumes by reading duplicated Chengfeng text in Astro. When Chengfeng study is next, Continue should route/point the learner back to the original iPad/MarginNote source position and keep the Astro companion state aligned.
 
 ### Return / Handoff
 
@@ -174,6 +186,8 @@ The minimum Politics handoff evidence is:
 - observable outcome: `WRONG` or `UNCERTAIN`;
 - event time / study day.
 
+For cross-surface Chengfeng repair/return, also preserve a stable source locator when the Current source model provides one and it materially reduces resume friction.
+
 The default daily Politics handoff therefore carries only meaningful Wrong/Uncertain evidence plus last location. It is private learner evidence and must not be committed to shared Current.
 
 `kianos.politics.return_packet.v1` is a runtime handoff shape, not a political-knowledge owner. Chat consumes it to decide the smallest next repair, compression, or content/runtime correction.
@@ -182,30 +196,38 @@ Repeated failure may justify stronger reconstruction or review. A clean stable a
 
 ## 9. Astro implementation rule
 
-Astro should provide reusable interaction primitives, not political semantics.
+Astro should provide reusable interaction primitives, not political semantics and not a substitute Chengfeng course.
 
-Useful primitives include:
+Useful Politics primitives include:
 - orientation panel;
-- continuous source reader;
+- current Natural Unit / source locator;
+- external-primary study checkpoint / return;
 - subject-specific map/strip;
 - short closure/reveal;
-- question attempt;
+- Xiao1000 question attempt;
 - uncertain marker;
 - minimal repair drawer;
+- minimal decisive source excerpt when necessary;
 - exact source jump;
 - next-unit continuation;
 - lane Continue entry;
 - compact Wrong/Uncertain handoff.
 
+`continuous source reader` is **not** an approved first-round Politics primitive for Chengfeng. A shared component may still exist for another domain or reference use, but Politics must not use it to take over Chengfeng continuous study.
+
 If a better explanation, relation, boundary, hierarchy, or stage story can live in Current content, update the content owner instead of hard-coding it in Astro.
 
 ## 10. Quality test
 
-A Politics learner screen is good when:
+A Politics learner experience is good when:
 - the learner knows what they are trying to understand now;
-- Chengfeng remains the obvious mainline;
-- only useful supporting structure is visible;
+- Chengfeng remains the obvious single mainline **without requiring a duplicate Astro lecture**;
+- the original iPad/MarginNote source surface remains primary during continuous Chengfeng study;
+- Astro shows only useful orientation/checkpoint/verification/repair/return structure;
+- Xiao1000 questions enter Astro only after the owning Chengfeng content is learned;
+- switching between original source, Astro, and Chat is clear and low-friction;
 - a correct answer costs almost no extra time;
-- a failure sends the learner back to the smallest useful source;
+- a failure sends the learner back to the smallest useful source/action;
 - meaningful Wrong/Uncertain evidence can return to Chat without manual reconstruction;
-- the page feels simpler as the backend becomes richer.
+- the learner never has to wonder which of two competing surfaces is the real place to study the same content;
+- the KianOS surface feels simpler as the backend becomes richer.

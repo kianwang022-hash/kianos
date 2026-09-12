@@ -28,6 +28,8 @@ KianOS now uses:
 - hierarchy for ownership/routing, not scheduling;
 - earliest-unresolved-stage containment only along the affected dependency chain;
 - explicit separation of governance hierarchy, construction dependency, and learner order;
+- a federated **multi-surface learner model** in which Learning Logic assigns material surface ownership and `static-web/` is the common KianOS-owned execution layer rather than the presumptive primary surface for every learner action;
+- explicit separation of Source ownership, Surface ownership, render availability, and runtime capability;
 - lightweight anti-entropy protection;
 - strict separation between engineering readiness and Kian's real learner progress.
 
@@ -48,7 +50,7 @@ known lane / sub-lane
 
 Independent scopes may run this sequence concurrently, including siblings under the same parent lane.
 
-Do not aggregate all lane upgrades into a root mega-migration. Shared infrastructure changes only when multiple real lane-level needs prove a common requirement.
+Do not aggregate all lane upgrades into a root mega-migration. Shared infrastructure changes only when multiple real lane-level needs prove a common requirement or real learner evidence exposes a root invariant gap.
 
 ### Root out-of-scope by default
 
@@ -58,6 +60,7 @@ Do not aggregate all lane upgrades into a root mega-migration. Shared infrastruc
 - no broad sibling-lane repair by convenience;
 - no serialization of independent child scopes by parent routing;
 - no reopening accepted domain cognition merely to simplify governance;
+- no automatic migration of learner actions into `static-web/` merely because a component can render or execute them;
 - no CI/runner/platform expansion without a demonstrated execution need.
 
 ---
@@ -68,14 +71,14 @@ Highest-level owners:
 
 - project requirements / invariants → `PROJECT_DEFINITION.md`
 - project architecture → `ARCHITECTURE.md`
-- worker routing / operating rules → `AGENTS.md`
-- governance acceptance evidence → `GOVERNANCE_ACCEPTANCE.md`
+- worker operating rules → `AGENTS.md`
+- governance acceptance → `GOVERNANCE_ACCEPTANCE.md`
 
 Repository-wide learning/platform standards:
 
-- formal learning-asset construction order → `LEARNING_ASSET_STANDARD.md`
-- S/K/L/P/R/E/U readiness → `LEARNING_ACCEPTANCE.md`
-- shared mature learner-surface capabilities → `SYSTEM_CONTRACT.md`
+- formal learning-asset construction order, including material Surface Ownership at Learning Logic → `LEARNING_ASSET_STANDARD.md`
+- S/K/L/P/R/E/U readiness, including cross-surface acceptance → `LEARNING_ACCEPTANCE.md`
+- shared mature learner-surface capabilities + cross-KianOS Surface Ownership boundary → `SYSTEM_CONTRACT.md`
 - temporary branch lifecycle → `BRANCH_LIFECYCLE.md`
 - intentionally postponed work → `DEFERRED.md`
 
@@ -133,6 +136,8 @@ For any scope, keep separate:
 Hard rule:
 
 > **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; this Current cannot manufacture any of them.**
+
+Surface ownership is orthogonal to those Truth/Cursor owners: it tells the learner **where a cognitive action occurs**, not who owns its semantic truth or readiness evidence.
 
 ---
 

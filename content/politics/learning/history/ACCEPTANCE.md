@@ -25,24 +25,56 @@ U  UNTESTED   ← learner-only
 
 Allowed conclusion:
 
-> **History is module-ready for learner test: S/K/L/P/R/E are accepted. U remains UNTESTED until Kian actually uses a named learner path.**
+> **History is module-ready for learner test under the current Politics Surface Ownership contract: S/K/L/P/R/E are accepted. U remains UNTESTED until Kian actually uses a named History learner path.**
 
 Do not promote this to learner-validated.
 
 ---
 
-## Executed acceptance evidence
+## 2026-09-13 shared Surface Ownership reacceptance
 
-### S/K/L/P — PASS
+Politics' shared Learning/Interaction contract was corrected after real Marxism learner use exposed the missing distinction between Source ownership and Surface ownership. Because History uses the same Politics chapter projection/runtime shell, its affected L/P/R/E dependency was re-walked rather than assuming an old PASS automatically survived the shared contract change.
 
-Accepted History content + first-ready execution:
+Current shared surface binding relevant to History:
+
+```text
+Chengfeng continuous study  iPad / MarginNote original lecture surface
+Astro                       orientation / checkpoint / Xiao1000 / evidence / return
+Chat                        adaptive semantic repair
+```
+
+Executed evidence:
+
+- workflow: `Static Web Politics QA`
+- run: #365 (`34708774536`)
+- tested code head: `5cc43829199851afe493e5c39352cc1d337da1b9`
+- `Audit History batch content closure` → **PASS**
+- `Audit History global first-ready parity` → **PASS**
+- `Audit History Runtime closure` → **PASS**
+- `Audit History Evidence closure` → **PASS**
+- `Validate Politics Current bindings` → **PASS**, including the Surface Ownership regression guard
+- `Build Astro` → **PASS**
+
+The shared Politics projection no longer renders Chengfeng continuous source text in Astro. History still retains its stage/timeline teaching projection, Xiao1000 verification, Wrong/Uncertain repair route, and Unit Return behavior.
+
+History has no real learner U evidence yet. The Marxism friction that triggered the shared fix is not copied into History as learner evidence.
+
+---
+
+## Earlier executed acceptance evidence
+
+### S/K/L/P — prior PASS
+
+Earlier accepted History content + first-ready execution:
 
 - workflow: `Static Web Politics QA`
 - run: `34694179748`
 - `Audit History batch content closure` → **PASS**
 - `Audit History global first-ready parity` → **PASS**
 
-### R — PASS
+These remain valid for Source/Knowledge/first-ready ownership; the shared surface assumption was reaccepted separately above.
+
+### R — prior PASS
 
 Accepted Runtime execution:
 
@@ -53,7 +85,7 @@ Accepted Runtime execution:
 
 The Runtime gate verifies accepted first-ready History units have an executable Unit Return path for units with questions, with clean-pass continuation and Wrong/Uncertain repair routing available without manufacturing mastery.
 
-### E — PASS
+### E — prior PASS
 
 Accepted Evidence execution:
 
@@ -71,7 +103,7 @@ The Evidence gate verifies that History preserves the first meaningful attempt, 
 ## Stage boundary
 
 ```text
-S/K/L/P/R/E  CLOSED
+S/K/L/P/R/E  CLOSED under current Surface Ownership
 U            UNTESTED, learner-only
 ```
 
@@ -86,6 +118,7 @@ U cannot be accepted from CI, code, simulated attempts, screenshots, architectur
 ### Artifact Truth
 
 - History teaching projection / durable review dispositions → `content/politics/learning/history/`
+- shared Politics learning/surface semantics → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 - learner runtime/evidence implementation → Politics surfaces under `static-web/`
 - acceptance harness → History-specific executable gates under `static-web/scripts/` / Politics QA
 

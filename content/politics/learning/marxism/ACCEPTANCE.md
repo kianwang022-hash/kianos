@@ -22,22 +22,96 @@ L  PASS
 P  PASS
 R  PASS
 E  PASS
-U  UNTESTED   ← learner-only
+U  UNTESTED   ← current surface path still requires real learner use
 ```
 
 Allowed conclusion:
 
-> **Marxism is module-ready for learner test: S/K/L/P/R/E are accepted. U remains UNTESTED until Kian actually uses a named learner path.**
+> **Marxism is module-ready for learner test under the corrected Surface Ownership contract: S/K/L/P/R/E are accepted. The current iPad/MarginNote Chengfeng → Astro Xiao1000 path remains U UNTESTED until Kian uses it.**
 
 Do not promote this to learner-validated and do not infer that Kian has studied Marxism from repository state.
 
 ---
 
-## Executed acceptance evidence
+## 2026-09-13 Surface Ownership reacceptance
 
-### S/K/L/P — PASS
+### Real U trigger
 
-Accepted content + formal first-ready projection execution:
+Kian's first real Marxism use exposed a learner-facing blocker in the prior implementation: Astro projected Chengfeng as `乘风 · 主线 / 直接学正文` and rendered the continuous Chengfeng source text inside the web page, while the intended continuous-learning surface was the original iPad/MarginNote lecture.
+
+This was not treated as CSS debt. Following root rollback rules, the earliest responsible gate was reopened at **L｜Learning** because the prior Learning Contract had not distinguished Source ownership from Surface ownership.
+
+The retired pre-fix learner path therefore has real U evidence:
+
+```text
+pre-fix Astro continuous Chengfeng reader
+U  BLOCKED — real learner friction; path retired by the corrected L/P contract
+```
+
+This historical U evidence is evidence about the retired path. It does not automatically validate the corrected path.
+
+### L — PASS after reopen
+
+Current Politics Learning/Interaction contracts now bind the material first-round actions explicitly:
+
+```text
+Orientation                 Chat and/or Astro
+Chengfeng continuous study  iPad / MarginNote original lecture surface
+Natural Unit checkpoint     Astro
+Xiao1000 verification       Astro / KianOS web
+Wrong / Uncertain capture   Astro
+exact Chengfeng repair      original lecture surface by default
+adaptive semantic repair    Chat
+Return / handoff            Astro ↔ Chat as approved
+```
+
+Hard invariant:
+
+```text
+Source ownership ≠ Surface ownership.
+Content availability ≠ Render entitlement.
+Runtime capability ≠ Learning-surface authority.
+```
+
+This closes the missing Learning-Logic decision that the prior acceptance did not test.
+
+### P/R/E — PASS after bounded re-walk
+
+Executed reacceptance evidence:
+
+- workflow: `Static Web Politics QA`
+- run: #365 (`34708774536`)
+- tested code head: `5cc43829199851afe493e5c39352cc1d337da1b9`
+- `Audit Politics canonical coverage` → **PASS**
+- `Audit Xiao1000 semantic chapter routing` → **PASS**
+- `Audit Marxism batch content closure` → **PASS**
+- `Audit Marxism global first-ready parity` → **PASS**
+- `Audit K03 learning and projection closure` → **PASS**
+- `Audit K03 runtime and evidence closure` → **PASS**
+- `Audit Marxism runtime and evidence closure` → **PASS**
+- `Validate Politics Current bindings` → **PASS**
+- `Build Astro` → **PASS**
+
+The current `PoliticsChapterRuntime.astro` no longer renders Chengfeng continuous `node.text`. It projects the original iPad/MarginNote lecture as primary, keeps source-owner locators/checkpoints in Astro, preserves Xiao1000 web attempts and Wrong/Uncertain evidence, and retains the same stable source anchor for Repair / Unit Return.
+
+`validate-politics-runtime.mjs` now contains a regression guard that fails if Politics reintroduces `node.text`, the old `politicsSourceFlow`, or `直接学正文`, and also requires the explicit iPad/MarginNote handoff plus Astro Xiao1000 ownership.
+
+### Current U boundary
+
+```text
+retired pre-fix first-learning path: BLOCKED (real evidence; archived as the reason for reopen)
+current corrected first-learning path: UNTESTED
+```
+
+A new learner use is required before the corrected surface arrangement can be called learner-validated.
+
+---
+
+## Earlier executed acceptance evidence
+
+### S/K/L/P — prior PASS under the earlier surface specification
+
+Earlier accepted content + formal first-ready projection execution:
 
 - workflow: `Static Web Politics QA`
 - run: #362 (`34706407418`)
@@ -50,11 +124,11 @@ Accepted content + formal first-ready projection execution:
 - `Audit Marxism global first-ready parity` → **PASS**
 - `Audit K03 learning and projection closure` → **PASS**
 
-The accepted projection keeps chapter projection protocol and whole-subject first-ready ownership as separate facts: `projectionMode` remains the chapter protocol, while Marxism global first-ready uses its own metadata. The 396 formal questions have a unique accepted first-ready location; sidecar deferrals remain explicit rather than being hidden by runtime reassignment.
+Those checks remain valid for Source/Knowledge/first-ready ownership, but the old L/P surface assumption was superseded by real learner U evidence and the reacceptance above.
 
-### R/E — PASS
+### R/E — prior PASS
 
-The same accepted run executed:
+The same earlier run executed:
 
 - `Audit K03 runtime and evidence closure` → **PASS**
 - `Audit Marxism runtime and evidence closure` → **PASS**
@@ -67,7 +141,7 @@ Runtime/Evidence preserves the first meaningful attempt, rejects duplicate overw
 
 ### Final K03 compatibility repair
 
-The final red was not a learner-runtime defect. Whole-subject Runtime correctly exposes three `ch02` Unit Return configs (`S01`, embedded `K03`, `S02`), while the older K03 pilot audit still asserted that the entire chapter could expose only one config.
+The earlier final red was not a learner-runtime defect. Whole-subject Runtime correctly exposes three `ch02` Unit Return configs (`S01`, embedded `K03`, `S02`), while the older K03 pilot audit still asserted that the entire chapter could expose only one config.
 
 Commit `22f72a3fc741e45d1776d6e5ebdf008e18914705` narrowed that assertion to the real invariant: **exactly one K03 config**. It did not delete the valid S01/S02 configs or weaken the whole-subject 22-config acceptance rule. The complete Politics QA then passed through production build.
 
@@ -84,23 +158,25 @@ L  PASS
 P  PASS
 R  PASS
 E  PASS
-U  UNTESTED
+U  UNTESTED on the corrected current path
 ```
 
 K03 preserves Chengfeng mainline, Suyi reference role, Xiao1000 validation role, formal first-ready timing, stable-correct zero debt, smallest repair, and Unit Return without manufacturing mastery.
 
-Its accepted pilot state is now a strict subset of the accepted whole-subject Marxism boundary; it still does not prove Kian has studied or attempted K03.
+Under the corrected surface contract, Chengfeng continuity means continuity in the original iPad/MarginNote lecture, not continuous source-text rendering inside Astro.
+
+Its accepted pilot state is now a strict subset of the accepted whole-subject Marxism boundary; it still does not prove Kian has studied or attempted K03 on the corrected path.
 
 ---
 
 ## Stage boundary
 
 ```text
-S/K/L/P/R/E  CLOSED
-U            UNTESTED, learner-only
+S/K/L/P/R/E  CLOSED under corrected Surface Ownership
+U            current path UNTESTED, learner-only
 ```
 
-No engineering stage remains active for whole-subject Marxism. New engineering work requires new concrete evidence that reopens the responsible gate.
+No engineering stage remains active for whole-subject Marxism after the bounded L→P→R→E reacceptance. New engineering work requires new concrete evidence that reopens the responsible gate.
 
 U cannot be accepted from CI, code, simulated attempts, screenshots, architecture discussion, or repository state.
 
@@ -122,4 +198,4 @@ U cannot be accepted from CI, code, simulated attempts, screenshots, architectur
 
 Private browser / Return Packet / conversation evidence only.
 
-> **Marxism is ready for learner test; it is not yet learner-validated.**
+> **Marxism is ready for learner test on the corrected surface arrangement; it is not yet learner-validated for that current path.**

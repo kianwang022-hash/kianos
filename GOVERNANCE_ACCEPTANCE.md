@@ -35,6 +35,16 @@ Learner order = learner experience sequence
 
 Independent scopes may progress concurrently at any justified depth. Within one real dependency chain, only the earliest unresolved eligible stage/gate advances.
 
+The accepted learner-platform model is also multi-surface:
+
+```text
+Source ownership ≠ Surface ownership
+Content availability ≠ Render entitlement
+Runtime capability ≠ Learning-surface authority
+```
+
+A material learner action is assigned to a primary surface by Learning Logic when surface choice changes cognition or friction; `static-web/` is the common KianOS-owned execution layer, not automatic ownership of every learning action.
+
 ---
 
 # A1｜Fresh Chat Test — PASS
@@ -54,7 +64,7 @@ Accepted restart paths:
 | Xizong A2 | A2 `CURRENT` → A2 `ACCEPTANCE` → exact owner(s) required by active gate | 2–4 |
 | Lexical K reacceptance | Lexical `CURRENT` → Lexical `ACCEPTANCE` → current Issue #6 checkpoint → exact Natural/Relation owner | 4 |
 | Politics History | History `CURRENT` → History `ACCEPTANCE` → stop unless real U evidence or concrete reopen evidence exists | 2 |
-| Politics Marxism | Marxism `CURRENT` → Marxism `ACCEPTANCE` → failed content gate → exact failing owner only when identified | 3–4 |
+| Politics Marxism | Marxism `CURRENT` → Marxism `ACCEPTANCE` → stop unless current-path U evidence or concrete reopen evidence exists | 2 |
 
 Parent lane routers are used only when the narrower target scope is not already known. Retired continuation narratives are not normal reads.
 
@@ -77,6 +87,7 @@ Concrete safeguards include:
 - Xizong A1 `S–E PASS` explicitly cannot become “Kian should do System Recall”;
 - Lexical runtime maturity cannot outrun reopened `K BLOCKED` semantic fidelity;
 - Politics implementation completeness cannot become learner progress;
+- Politics Source ownership cannot be silently converted into web Surface ownership merely because Astro can render the source;
 - no-start CI is neither PASS nor product failure;
 - module-ready claims keep U separate from engineering acceptance.
 
@@ -121,7 +132,7 @@ Current owner model:
 - root Work Cursor → `CURRENT.md`
 - learning construction standard → `LEARNING_ASSET_STANDARD.md`
 - readiness standard → `LEARNING_ACCEPTANCE.md`
-- mature shared learner-surface capabilities → `SYSTEM_CONTRACT.md`
+- mature shared learner-surface capabilities + Surface Ownership boundary → `SYSTEM_CONTRACT.md`
 
 ## Lanes / independent child scopes
 
@@ -133,6 +144,8 @@ Current owner model:
 Parent routers do not duplicate child stage/gate state.
 
 Retired compatibility paths are pointer/tombstone surfaces only and are not competing owners.
+
+Surface ownership is intentionally **not** a new governance owner or eighth acceptance gate. It is a Learning-Logic decision enforced through the existing Learning / Projection / Runtime / U owners.
 
 ---
 
@@ -148,7 +161,8 @@ The redesign removes the observed entropy mechanisms:
 - known scopes have bounded read paths;
 - rules inherit from root rather than being copied into every lane;
 - history remains recoverable without entering normal Current reasoning;
-- downstream `UNTESTED` gates are not interpreted as simultaneous active TODOs.
+- downstream `UNTESTED` gates are not interpreted as simultaneous active TODOs;
+- a capable shared runtime cannot silently acquire a learner action without Learning-Logic authority.
 
 ## Minimal anti-entropy guard
 
@@ -177,6 +191,13 @@ Governance Anti-Entropy run: 34695616882
 conclusion: success
 ```
 
+The 2026-09-13 Surface Ownership root-standard patch also executed the Governance Anti-Entropy workflow successfully on its code head before acceptance-ledger-only follow-up commits:
+
+```text
+Governance Anti-Entropy run: 34708774532
+conclusion: success
+```
+
 This demonstrates both fail-closed execution and bounded repair of the governance guard itself.
 
 The **GitHub check surface on the current commit/PR** remains the authoritative exact-head execution evidence; this Acceptance file does not copy its own changing head SHA back into itself.
@@ -191,21 +212,59 @@ Governance simplification and concurrency have not weakened learning acceptance.
 
 Observed safeguards:
 
-- root `LEARNING_ASSET_STANDARD.md` still owns construction order, now explicitly scoped to real dependency chains;
-- root `LEARNING_ACCEPTANCE.md` still owns S/K/L/P/R/E/U semantics and now distinguishes evidence status from gate activation;
+- root `LEARNING_ASSET_STANDARD.md` still owns construction order, now explicitly scoped to real dependency chains and explicitly requires material Surface Ownership to be decided in Learning Logic before Projection/Runtime;
+- root `LEARNING_ACCEPTANCE.md` still owns S/K/L/P/R/E/U semantics, distinguishes evidence status from gate activation, and now checks surface assignment / cross-surface handoff without creating an eighth gate;
+- root `SYSTEM_CONTRACT.md` defines `static-web/` as the common KianOS-owned execution layer rather than the presumptive primary surface for every learner action;
 - `UNTESTED` no longer implies that every unresolved downstream gate may be worked in parallel;
 - English Objective keeps P active while R/E remain frozen;
 - English Translation has been migrated from a bundled S/K/L/P/R/E audit to **S-only active**, with K/L/P/R/E preserved but downstream-frozen;
 - Xizong A2 advances only its local earliest unresolved gate while unrelated Systems remain independent;
 - Lexical downstream work remains bounded by upstream semantic fidelity;
-- Politics History may sit at U while Marxism independently remains blocked earlier; neither scope's state manufactures the other's schedule;
+- Politics History may sit at U while Marxism independently receives real path-scoped U evidence; neither scope's state manufactures the other's schedule;
 - U remains real learner evidence and cannot be simulated by engineering.
 
-The accepted invariant is:
+### 2026-09-13 Reality/U rollback test
+
+A real Marxism learner attempt exposed a defect the earlier engineering acceptance did not model: Politics treated Chengfeng as Source/mainline owner and also projected Astro as a continuous source reader, causing the web surface to take over the intended iPad/MarginNote continuous-learning action.
+
+The correction followed the accepted causal rollback rule rather than treating the friction as CSS:
+
+```text
+real U friction
+→ earliest responsible gate = L
+→ define Surface Ownership invariant at root
+→ bind Politics Chengfeng = iPad/MarginNote, Xiao1000 = Astro
+→ re-walk P → R → E
+→ keep corrected-path U UNTESTED until real re-use
+```
+
+Executed Politics reacceptance evidence:
+
+- `Static Web Politics QA` run #365 (`34708774536`) on tested code head `5cc43829199851afe493e5c39352cc1d337da1b9`
+- Politics Source/coverage/routing → **PASS**
+- History content/first-ready/runtime/evidence → **PASS**
+- Marxism content/first-ready/K03 L/P/K03 R/E/whole-subject R/E → **PASS**
+- Politics Current binding validation, including the new Surface Ownership regression guard → **PASS**
+- Astro production build → **PASS**
+
+The learner evidence remains correctly separated:
+
+```text
+retired pre-fix Marxism web-reader path  U BLOCKED
+corrected current multi-surface path     U UNTESTED
+```
+
+This is direct evidence that U can reopen the earliest responsible upstream gate without erasing valid Source/Knowledge/Runtime work or manufacturing learner validation after a repair.
+
+The accepted invariant remains:
 
 > **Independent scopes may progress in parallel; dependent stages/gates progress in causal order.**
 
-Therefore governance routing does not convert engineering completion into learning closure, and concurrency does not permit downstream leapfrogging.
+It is now complemented by:
+
+> **Source ownership does not grant Surface ownership; a shared runtime can execute only the learner actions authorized by Learning Logic.**
+
+Therefore governance routing does not convert engineering completion into learning closure, concurrency does not permit downstream leapfrogging, and platform capability does not silently centralize the learner's real study surface.
 
 ---
 
