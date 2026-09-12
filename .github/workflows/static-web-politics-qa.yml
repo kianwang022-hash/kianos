@@ -62,6 +62,8 @@ jobs:
         run: node scripts/audit-politics-question-routing.mjs
       - name: Prove scoped Politics source loading without monoliths
         run: node scripts/audit-politics-scoped-source.mjs
+      - name: Audit Mao Xi Ethics-Law content closure
+        run: node scripts/audit-politics-other-subject-content.mjs
       - name: Audit History batch content closure
         run: node scripts/audit-politics-history-content.mjs
       - name: Audit History global first-ready parity
