@@ -10,7 +10,6 @@ const ids = new Set([
   'english1-2022-translation-main-q48',
   'english1-2022-translation-main-q49',
   'english1-2022-translation-main-q50',
-  'english1-2025-translation-main-q45',
   'english1-2025-translation-main-q46',
   'english1-2025-translation-main-q47'
 ]);
