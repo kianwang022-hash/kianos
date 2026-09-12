@@ -23,6 +23,25 @@ function clean(value) {
   return String(value ?? '').trim();
 }
 
+function repairSignature(payload) {
+  const failure = payload?.primary_failure || {};
+  const target = payload?.transfer_target || {};
+  return JSON.stringify({
+    decision: clean(payload?.decision),
+    layer: clean(failure?.layer),
+    skill: clean(failure?.skill),
+    affectedSegments: Array.isArray(failure?.affected_segments) ? failure.affected_segments.map(clean) : [],
+    minimalRepair: clean(failure?.minimal_repair),
+    reconstructionPrompt: clean(failure?.reconstruction_prompt),
+    transferAdmit: target?.admit === true,
+    transferId: clean(target?.target_id),
+    transferLabel: clean(target?.label),
+    transferLayer: clean(target?.layer),
+    transferSkill: clean(target?.skill),
+    transferDemand: clean(target?.underlying_demand)
+  });
+}
+
 export function translationPromptIds(prompts = []) {
   return prompts.map((prompt) => clean(prompt?.id)).filter(Boolean);
 }
@@ -127,6 +146,8 @@ export function passCleanAttempt(state, now) {
   next.stage = 'passed';
   next.decision = 'PASS';
   next.passedAt = nowIso(now);
+  next.pendingTransferCandidate = null;
+  next.affectedSegments = [];
   next.referenceRevealed = false;
   next.completeReferenceOpen = false;
   return next;
@@ -137,6 +158,7 @@ export function routeAttemptToReview(state) {
   next.stage = 'diagnosis';
   next.decision = 'REPAIR_NEEDED';
   next.referenceRevealed = false;
+  next.completeReferenceOpen = false;
   return next;
 }
 
@@ -188,10 +210,16 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
     }
   }
   const updates = Array.isArray(payload?.transfer_updates) ? payload.transfer_updates : [];
+  const seenUpdateTargets = new Set();
   for (const update of updates) {
-    if (!clean(update?.target_id) || !VALID_TRANSFER_RELATIONS.has(update?.relation)) {
+    const targetId = clean(update?.target_id);
+    if (!targetId || !VALID_TRANSFER_RELATIONS.has(update?.relation)) {
       throw new Error('RETURN_PACKET_TRANSFER_UPDATE_INVALID');
     }
+    if (seenUpdateTargets.has(targetId)) {
+      throw new Error(`RETURN_PACKET_TRANSFER_UPDATE_DUPLICATE:${targetId}`);
+    }
+    seenUpdateTargets.add(targetId);
     if (update?.close === true && update.relation !== 'support') {
       throw new Error('RETURN_PACKET_TRANSFER_CLOSE_INVALID');
     }
@@ -203,8 +231,9 @@ export function applyTransferUpdates(ledger, updates = [], context = {}) {
   const next = normalizeTransferLedger(ledger);
   const task = clean(context.task);
   for (const update of updates) {
-    const target = next.targets.find((item) => item.id === clean(update?.target_id));
-    if (!target) continue;
+    const targetId = clean(update?.target_id);
+    const target = next.targets.find((item) => item.id === targetId);
+    if (!target) throw new Error(`RETURN_PACKET_TRANSFER_TARGET_UNKNOWN:${targetId || 'missing'}`);
     const relation = update.relation;
     if (!VALID_TRANSFER_RELATIONS.has(relation)) continue;
     if (!task || task === clean(target.sourceTask) || task === clean(target.lastSourceTask)) continue;
@@ -248,6 +277,7 @@ function normalizedAffectedSegments(payload, prompts) {
 export function applyTranslationReturn(state, payload, prompts = [], ledger = null, context = {}) {
   let nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], context);
   const next = structuredClone(state);
+  const previousRepairSignature = repairSignature(next.chatReturn);
   next.chatReturn = payload;
   next.referenceRevealed = false;
   next.completeReferenceOpen = false;
@@ -256,6 +286,8 @@ export function applyTranslationReturn(state, payload, prompts = [], ledger = nu
     next.stage = 'passed';
     next.decision = 'PASS';
     next.passedAt = nowIso(context.now);
+    next.pendingTransferCandidate = null;
+    next.affectedSegments = [];
     return { state: next, ledger: nextLedger };
   }
 
@@ -263,8 +295,9 @@ export function applyTranslationReturn(state, payload, prompts = [], ledger = nu
   next.decision = 'REPAIR_NEEDED';
   next.affectedSegments = normalizedAffectedSegments(payload, prompts);
   next.pendingTransferCandidate = payload?.transfer_target?.admit === true ? payload.transfer_target : null;
+  const repairChanged = previousRepairSignature !== repairSignature(payload);
   for (const id of next.affectedSegments) {
-    if (!(id in next.reconstructDrafts)) next.reconstructDrafts[id] = '';
+    if (!(id in next.reconstructDrafts) || repairChanged) next.reconstructDrafts[id] = '';
   }
   return { state: next, ledger: nextLedger };
 }
