@@ -1,0 +1,228 @@
+---
+const { task } = Astro.props;
+const payload = JSON.stringify(task).replace(/</g, '\\u003c');
+---
+<section class="writingEvidencePanel" data-writing-evidence-panel data-task-id={task.id}>
+  <header>
+    <div>
+      <span>05 · Later Fresh Transfer</span>
+      <h2>用后续新作文验证可复用问题</h2>
+      <p>这里只读当前浏览器里的真实 Writing evidence。same-prompt repair 不能关闭 target；只有后续不同 task 的 first draft 才能提供 SUPPORT / CLOSE，已关闭 target 遇到矛盾 fresh evidence 才能 REOPEN。</p>
+    </div>
+    <aside data-evidence-summary>Evidence ledger · 0 pending · 0 closed</aside>
+  </header>
+
+  <section class="writingEvidenceStatus" data-evidence-status>
+    当前 task 完成后，这里会自动检查是否存在可由本篇 fresh first draft 验证的 target。
+  </section>
+
+  <section class="writingEvidenceTarget" data-evidence-target hidden>
+    <div class="writingEvidenceTargetHead">
+      <span data-target-state>PENDING</span>
+      <strong data-target-label></strong>
+      <code data-target-id></code>
+    </div>
+    <p data-target-demand></p>
+    <small data-target-origin></small>
+
+    <div class="writingEvidenceActions">
+      <button type="button" class="primary" data-copy-transfer>复制 Fresh Transfer Packet</button>
+      <small data-copy-transfer-status>Chat 只判断这个 named target，不重做整篇 review。</small>
+    </div>
+
+    <label class="writingEvidenceField">
+      <span>Chat Transfer Return</span>
+      <textarea rows="10" data-transfer-return placeholder="粘贴 kianos.english.writing.transfer-return.v1 JSON…"></textarea>
+    </label>
+    <div class="writingEvidenceActions">
+      <button type="button" class="primary" data-import-transfer>导入 Transfer Evidence →</button>
+      <small data-import-transfer-status>回写只发生在本机 private evidence ledger。</small>
+    </div>
+  </section>
+
+  <details class="writingEvidenceLedger">
+    <summary>Private evidence ledger</summary>
+    <div data-ledger-list></div>
+  </details>
+
+  <script type="application/json" data-writing-evidence-task set:html={payload}></script>
+</section>
+
+<script>
+  import {
+    WRITING_TRANSFER_STATUS,
+    createWritingEvidenceLedger,
+    summarizeWritingEvidenceLedger,
+    admitWritingTransferCandidate,
+    listEligibleWritingTransferTargets,
+    buildWritingTransferCheckPacket,
+    validateWritingTransferReturn,
+    applyWritingTransferReturn
+  } from '../lib/writingEvidenceModel.mjs';
+
+  const evidenceRoot = document.querySelector('[data-writing-evidence-panel]');
+  if (evidenceRoot instanceof HTMLElement) {
+    let task = null;
+    try { task = JSON.parse(evidenceRoot.querySelector('[data-writing-evidence-task]')?.textContent || 'null'); } catch {}
+    if (!task?.id) throw new Error('WRITING_EVIDENCE_TASK_PAYLOAD_MISSING');
+
+    const ledgerKey = 'kianos-writing-evidence-v1';
+    const runtimeKey = `kianos-writing-runtime-v1:${task.id}`;
+    let ledger = loadLedger();
+    let activeTarget = null;
+
+    function loadLedger() {
+      let saved = null;
+      try { saved = JSON.parse(localStorage.getItem(ledgerKey) || 'null'); } catch {}
+      return createWritingEvidenceLedger(saved);
+    }
+
+    function loadRuntimeRecord() {
+      try { return JSON.parse(localStorage.getItem(runtimeKey) || 'null'); }
+      catch { return null; }
+    }
+
+    function persistLedger() {
+      try { localStorage.setItem(ledgerKey, JSON.stringify(ledger)); } catch {}
+    }
+
+    function setText(selector, text) {
+      const node = evidenceRoot.querySelector(selector);
+      if (node) node.textContent = text;
+    }
+
+    function setStatus(selector, text, bad = false) {
+      const node = evidenceRoot.querySelector(selector);
+      if (!node) return;
+      node.textContent = text;
+      node.classList.toggle('isBad', bad);
+    }
+
+    function syncCurrentAdmission(record) {
+      if (!record || record.state !== 'TRANSFER_PENDING' || !record.transferCandidate) return;
+      const before = JSON.stringify(ledger);
+      ledger = admitWritingTransferCandidate(ledger, task, record);
+      if (JSON.stringify(ledger) !== before) persistLedger();
+    }
+
+    function renderLedger() {
+      const summary = summarizeWritingEvidenceLedger(ledger);
+      setText('[data-evidence-summary]', `Evidence ledger · ${summary.pending} pending · ${summary.closed} closed`);
+      const list = evidenceRoot.querySelector('[data-ledger-list]');
+      if (!(list instanceof HTMLElement)) return;
+      list.replaceChildren();
+      if (!ledger.targets.length) {
+        const empty = document.createElement('p');
+        empty.textContent = 'No admitted transfer target yet.';
+        list.append(empty);
+        return;
+      }
+      ledger.targets.forEach((target) => {
+        const row = document.createElement('div');
+        row.className = 'writingEvidenceLedgerRow';
+        const state = document.createElement('span'); state.textContent = target.status;
+        const label = document.createElement('strong'); label.textContent = target.label;
+        const meta = document.createElement('small'); meta.textContent = `${target.targetId} · ${target.events.length} fresh evidence event${target.events.length === 1 ? '' : 's'}`;
+        row.append(state, label, meta);
+        list.append(row);
+      });
+    }
+
+    function render() {
+      ledger = loadLedger();
+      const record = loadRuntimeRecord();
+      syncCurrentAdmission(record);
+      renderLedger();
+
+      const targetPanel = evidenceRoot.querySelector('[data-evidence-target]');
+      if (!(targetPanel instanceof HTMLElement)) return;
+      activeTarget = null;
+
+      if (!record?.firstDraft) {
+        targetPanel.hidden = true;
+        setStatus('[data-evidence-status]', '当前 task 还没有锁定 first draft；没有 fresh evidence 可用于 transfer。');
+        return;
+      }
+      if (!['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING'].includes(record.state)) {
+        targetPanel.hidden = true;
+        setStatus('[data-evidence-status]', `当前 task 仍在 ${record.state || 'ATTEMPT'}；先完成本篇 whole-essay path，再判断既有 target。`);
+        return;
+      }
+
+      const eligible = listEligibleWritingTransferTargets(ledger, task, record);
+      if (!eligible.length) {
+        targetPanel.hidden = true;
+        const summary = summarizeWritingEvidenceLedger(ledger);
+        const message = summary.total === 0
+          ? '当前没有 durable TRANSFER_PENDING target。不会为了测试系统而制造 review debt。'
+          : '本篇没有尚未处理的 eligible target：可能是同题、时间不晚于 admission，或本篇 evidence 已经回写。';
+        setStatus('[data-evidence-status]', message);
+        return;
+      }
+
+      activeTarget = eligible[0];
+      targetPanel.hidden = false;
+      setStatus('[data-evidence-status]', `本篇 fresh first draft 可检查 ${eligible.length} 个 target；当前显示第 1 个。`);
+      setText('[data-target-state]', activeTarget.status);
+      setText('[data-target-label]', activeTarget.label);
+      setText('[data-target-id]', activeTarget.targetId);
+      setText('[data-target-demand]', activeTarget.underlyingDemand);
+      setText('[data-target-origin]', `Origin · ${activeTarget.originTaskId} · admitted ${activeTarget.admittedAt || 'unknown time'}`);
+    }
+
+    async function copyActivePacket() {
+      try {
+        const record = loadRuntimeRecord();
+        if (!activeTarget || !record) throw new Error('WRITING_TRANSFER_NO_ACTIVE_TARGET');
+        const packet = buildWritingTransferCheckPacket(task, record, activeTarget);
+        const text = `KIANOS_WRITING_TRANSFER_CHECK_PACKET\nJudge only the named reusable Writing target under the embedded contract. Return only one JSON object matching the requested schema. Do not rewrite the essay.\n\n${JSON.stringify(packet, null, 2)}`;
+        try {
+          await navigator.clipboard.writeText(text);
+          setStatus('[data-copy-transfer-status]', '已复制。把整包发给 Chat。');
+        } catch {
+          setStatus('[data-copy-transfer-status]', '浏览器未允许自动复制；请从弹窗手动复制。', true);
+          window.prompt('Copy this packet', text);
+        }
+      } catch (error) {
+        setStatus('[data-copy-transfer-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    }
+
+    function importActiveReturn() {
+      try {
+        const record = loadRuntimeRecord();
+        if (!activeTarget || !record) throw new Error('WRITING_TRANSFER_NO_ACTIVE_TARGET');
+        const box = evidenceRoot.querySelector('[data-transfer-return]');
+        const raw = box instanceof HTMLTextAreaElement ? box.value : '';
+        const packet = buildWritingTransferCheckPacket(task, record, activeTarget);
+        const parsed = validateWritingTransferReturn(raw, packet);
+        ledger = applyWritingTransferReturn(ledger, activeTarget.targetId, parsed);
+        persistLedger();
+        if (box instanceof HTMLTextAreaElement) box.value = '';
+        const message = parsed.verdict === 'CLOSE'
+          ? 'Fresh evidence 已关闭该 target。'
+          : parsed.verdict === 'REOPEN'
+            ? 'Contradictory fresh evidence 已重新打开同一 target。'
+            : parsed.verdict === 'IRRELEVANT'
+              ? '本篇与该 target 无关；未制造 mastery/failure 结论。'
+              : 'Fresh evidence 已记录；target 状态按证据保持。';
+        setStatus('[data-import-transfer-status]', message);
+        render();
+      } catch (error) {
+        setStatus('[data-import-transfer-status]', error instanceof Error ? error.message : String(error), true);
+      }
+    }
+
+    evidenceRoot.querySelector('[data-copy-transfer]')?.addEventListener('click', copyActivePacket);
+    evidenceRoot.querySelector('[data-import-transfer]')?.addEventListener('click', importActiveReturn);
+
+    const stageLabel = document.querySelector('[data-writing-runtime] [data-stage-label]');
+    if (stageLabel) new MutationObserver(() => render()).observe(stageLabel, { childList: true, subtree: true, characterData: true });
+    window.addEventListener('focus', render);
+    render();
+  }
+</script>
+
+<style>
+  .writingEvidencePanel{max-width:84rem;margin:12px auto 0;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow);display:grid;gap:12px}.writingEvidencePanel>header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start}.writingEvidencePanel>header>div{display:grid;gap:4px}.writingEvidencePanel>header span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingEvidencePanel h2{margin:0;font-size:17px}.writingEvidencePanel header p{margin:0;max-width:82ch;color:var(--study-muted);font-size:10px;line-height:1.6}.writingEvidencePanel header aside{font-size:9px;color:var(--study-faint);white-space:nowrap}.writingEvidenceStatus{padding:10px 12px;border-radius:10px;background:#fbfdfc;color:var(--study-muted);font-size:10px;line-height:1.55}.writingEvidenceTarget{padding:13px;border:1px solid #cfe2d8;border-radius:11px;background:var(--study-green-soft)}.writingEvidenceTargetHead{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.writingEvidenceTargetHead>span{font-size:8px;font-weight:850;color:var(--study-green)}.writingEvidenceTargetHead>strong{font-size:12px}.writingEvidenceTargetHead code{font-size:8px;color:var(--study-faint)}.writingEvidenceTarget>p{margin:7px 0 3px;font-size:11px;line-height:1.55}.writingEvidenceTarget>small{font-size:8px;color:var(--study-faint)}.writingEvidenceActions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:11px}.writingEvidenceActions button{padding:8px 11px;border:1px solid var(--study-green);border-radius:9px;background:var(--study-green);color:#fff;font:inherit;font-size:9px;font-weight:800;cursor:pointer}.writingEvidenceActions small{font-size:8px;color:var(--study-faint)}.writingEvidenceActions small.isBad{color:#a24832}.writingEvidenceField{display:grid;gap:5px;margin-top:11px}.writingEvidenceField>span{font-size:9px;font-weight:850}.writingEvidenceField textarea{width:100%;box-sizing:border-box;padding:10px 11px;border:1px solid var(--study-line);border-radius:9px;background:#fff;font:inherit;font-size:10px;line-height:1.55}.writingEvidenceLedger summary{cursor:pointer;font-size:9px;font-weight:800}.writingEvidenceLedger [data-ledger-list]{display:grid;gap:6px;margin-top:8px}.writingEvidenceLedgerRow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--study-line);border-radius:9px}.writingEvidenceLedgerRow span{font-size:8px;color:var(--study-green);font-weight:850}.writingEvidenceLedgerRow strong{font-size:9px}.writingEvidenceLedgerRow small,.writingEvidenceLedger p{font-size:8px;color:var(--study-faint);margin:0}@media(max-width:820px){.writingEvidencePanel>header{grid-template-columns:1fr}.writingEvidencePanel header aside{white-space:normal}.writingEvidenceLedgerRow{grid-template-columns:1fr}}
+</style>
