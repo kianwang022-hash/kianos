@@ -4,7 +4,13 @@ Status: CURRENT
 
 This file defines how mature Politics Current content should interact with the learner. It does not own political knowledge. Subject-specific learning files remain the teaching-semantic owners.
 
-It inherits the root surface invariant: **an interaction primitive does not own a learner action merely because it can technically render or execute it.** Politics surface ownership is defined by `content/politics/LEARNING_CONTRACT.md`.
+It inherits:
+
+- the root surface invariant from `SYSTEM_CONTRACT.md`: **an interaction primitive does not own a learner action merely because it can technically render or execute it**;
+- the shared Mac-first cognitive presentation grammar from `static-web/PRESENTATION_CONTRACT.md`;
+- Politics surface ownership from `content/politics/LEARNING_CONTRACT.md`.
+
+The shared presentation grammar decides how approved cognition is represented. This file decides the Politics-specific cognitive states and semantic shapes that the shared grammar must represent.
 
 ## 1. Shared learner loop
 
@@ -22,7 +28,7 @@ During first-round learning, attention priority is:
 
 1. current cognitive question / Natural Unit position;
 2. current Chengfeng content **on its original iPad/MarginNote lecture surface**;
-3. only the minimum Astro/Chat orientation, boundary, checkpoint, or locator needed to understand/continue it;
+3. only the minimum Astro/Chat orientation, framework, boundary, checkpoint, or locator needed to understand/continue it;
 4. Xiao1000 verification in Astro/KianOS web after natural closure;
 5. repair only when evidence shows a failure.
 
@@ -37,12 +43,13 @@ Show only:
 - where this content sits;
 - why it appears now;
 - the core question it solves;
+- the smallest useful absorbed framework/relation scaffold;
 - where to continue in the original Chengfeng lecture when a locator is needed.
 
 ### During Chengfeng learning
 The original iPad/MarginNote Chengfeng lecture is primary.
 
-Astro may keep the current Natural Unit, learning question, checkpoint, relation anchor, boundary, or source locator visible when useful, but it must **not** render Chengfeng as a competing continuous lecture reader.
+Astro may keep the current Natural Unit, learning question, checkpoint, relation anchor, boundary, absorbed Suyi framework object, or source locator visible when useful, but it must **not** render Chengfeng as a competing continuous lecture reader.
 
 A minimal source excerpt is allowed only when it serves a bounded repair/orientation decision. It must not expand by convenience into a second full lecture.
 
@@ -63,13 +70,109 @@ Do not force a full explanation.
 Open only enough information to resolve the first meaningful failure.
 
 Repair order:
-1. fixed wording / hat / identity confusion → show decisive distinction;
-2. concept boundary confusion → show the smallest relevant boundary;
-3. relation / stage / theory-position confusion → reopen the relevant teaching bridge;
+1. fixed wording / hat / identity confusion → show decisive `Exact` / `Boundary` distinction;
+2. concept boundary confusion → show the smallest relevant `Compare` / `Boundary`;
+3. relation / stage / theory-position confusion → reopen the relevant `Chain` / `Map` / teaching bridge;
 4. whole Natural Unit model broken → return to the owning Chengfeng segment on the original source surface;
 5. repeated cross-unit confusion → use compression/review.
 
 After repair, return the learner to the interrupted path and surface.
+
+### 3.1 Politics cognitive state model
+
+Politics uses the shared presentation contract through the following first-round state model:
+
+```text
+ORIENT
+→ EXTERNAL_LEARN
+→ RETURN / CLOSE
+→ VERIFY
+→ stable correct → CONTINUE
+→ wrong / uncertain → REPAIR → VERIFY or CONTINUE
+```
+
+Later phases may add `REVIEW`, `PRECISION`, and `MOCK / TRANSFER` states when the applicable contract makes them learner-relevant.
+
+These states are not backend status labels for display everywhere. At runtime, one state owns the dominant learner task.
+
+#### `ORIENT`
+Dominant task: know what problem this Natural Unit solves and how it sits in the subject/chapter structure.
+
+Primary Politics semantic objects:
+- `Problem`;
+- a small `Map` / `Chain` / `Compare` / `Boundary` when it materially reduces later source-reading load;
+- `Handoff / Locator` to Chengfeng.
+
+#### `EXTERNAL_LEARN`
+Dominant task: learn the owning Chengfeng Natural Unit on iPad/MarginNote.
+
+Astro is companion-only. It may preserve:
+- current `Problem`;
+- compact framework / relation anchor;
+- what to look for;
+- source locator;
+- return/checkpoint action.
+
+It must not compete with the iPad lecture.
+
+#### `RETURN / CLOSE`
+Dominant task: re-establish the Natural Unit model after leaving the original lecture surface.
+
+Use the smallest justified reconstruction object. This may be:
+- a `Recall` derived from the earlier `Map` / `Chain`;
+- a short closure question;
+- one key `Boundary` / `Anchor`.
+
+Do not create a large recall ritual merely because the UI supports one.
+
+#### `VERIFY`
+Dominant task: answer the currently first-ready Xiao1000 task cleanly.
+
+The question/task owns the Cognitive Stage. Framework/reference content must not leak the answer before submission.
+
+#### `REPAIR`
+Dominant task: fix the first meaningful failure and return.
+
+Repair representation follows failure shape instead of opening one generic explanation panel.
+
+#### `CONTINUE`
+Dominant task: know what is stable, what remains uncertain if anything, and the next Natural Unit / learner action.
+
+Closure should be compact; do not turn it into a dashboard.
+
+### 3.2 Politics semantic presentation grammar
+
+Politics uses the shared semantic roles in `static-web/PRESENTATION_CONTRACT.md`, with these lane-specific meanings:
+
+- `Problem` — the central political-theory / historical / normative question of the current Natural Unit;
+- `Map` — subject position, theory hierarchy, conceptual topology, or absorbed Suyi framework;
+- `Chain` — causal reasoning, historical development, mechanism-like theory relation, or `problem → response → consequence` sequence;
+- `Compare` — confusable theory positions, hats/roles, historical choices, or moral/legal concepts;
+- `Boundary` — exact scope distinction such as what a formulation includes, excludes, or must not be confused with;
+- `Anchor` — a scarce organizing relation that should survive the Unit;
+- `Exact` — fixed formulation, identity, timeline point, list item, legal wording, or later precision target;
+- `Handoff / Locator` — the exact Chengfeng location / next cross-device action;
+- `Recall` — hidden-node / hidden-relation reconstruction rather than answer-first summary;
+- `Question / Task` — Xiao1000 clean attempt;
+- `Repair` — smallest semantics matching the actual failure;
+- `Closure` — compact Unit result and next action.
+
+Do not mechanically materialize all roles for every Unit. The content semantics decide which shapes exist.
+
+### 3.3 Mac landscape workspace behavior
+
+Politics inherits the Mac / wide-landscape primary workspace from `static-web/PRESENTATION_CONTRACT.md`.
+
+Default composition should therefore behave like a cognitive workspace rather than a vertically stretched chapter document:
+
+- thin top `Location / State` context;
+- large central `Cognitive Stage` for the current Problem / Map / Recall / Xiao1000 task / Repair;
+- right `Contextual Inspector` for currently useful Suyi-derived framework detail, Chengfeng locator, Exact object, evidence, or bounded repair;
+- broad left navigation only when it materially helps orientation; otherwise collapse it into breadcrumb/location context.
+
+Politics should use horizontal space to show relationships and discrimination, not to display more counters/cards.
+
+During a clean Xiao1000 attempt the Inspector must remain quiet enough to prevent answer leakage. After Wrong/Uncertain, the same space may become a bounded Repair surface.
 
 ## 4. Subject-specific interaction shapes
 
@@ -140,7 +243,20 @@ Avoid abstract slogan repetition when a concrete judgment can test understanding
 
 Suyi is background framework input for Chat, not a default learner surface.
 
-If a Suyi mind-map structure materially improves orientation, absorb the useful relation into the approved learning projection. Do not expose a parallel Suyi course merely because the source exists.
+Its useful value must be **consumed into KianOS cognition**, not merely acknowledged as an optional source.
+
+For a declared Politics content-closure scope, materially relevant Suyi framework/relation/boundary input should receive an explicit disposition such as:
+
+- `ABSORBED` — becomes an approved `Map` / `Chain` / `Compare` / `Boundary` / `Anchor` / bridge/compression object;
+- `DUPLICATE` — already represented adequately by Current Chengfeng-derived learning semantics;
+- `CROSS_UNIT` — valid but belongs to another Natural Unit / compression owner;
+- `REPAIR_ONLY` — useful only after a specific failure;
+- `REFERENCE_ONLY` — valuable context but not first-round projection;
+- `REJECTED / UNSUPPORTED` — not adopted because it is misleading, source-specific method preference, unsupported, or outside the Current learner need.
+
+The exact storage format is a Content-stage decision. The Logic requirement is that useful Suyi cognition is **accounted for rather than silently dropped**, while the learner is still not required to study Suyi as a second course.
+
+Do not expose a parallel Suyi reader merely because the source exists.
 
 ## 6. Xiao1000 behavior
 
@@ -196,22 +312,24 @@ Repeated failure may justify stronger reconstruction or review. A clean stable a
 
 ## 9. Astro implementation rule
 
-Astro should provide reusable interaction primitives, not political semantics and not a substitute Chengfeng course.
+Astro should provide reusable representation/interaction primitives, not political semantics and not a substitute Chengfeng course.
 
-Useful Politics primitives include:
-- orientation panel;
+Useful Politics primitives may implement approved semantic roles such as:
+- cognitive-stage Problem;
 - current Natural Unit / source locator;
 - external-primary study checkpoint / return;
-- subject-specific map/strip;
-- short closure/reveal;
-- Xiao1000 question attempt;
+- subject-specific Map / Chain / Compare / Boundary;
+- short Recall / closure reveal;
+- Xiao1000 Question / Task attempt;
 - uncertain marker;
-- minimal repair drawer;
+- contextual Repair inspector;
 - minimal decisive source excerpt when necessary;
 - exact source jump;
 - next-unit continuation;
 - lane Continue entry;
 - compact Wrong/Uncertain handoff.
+
+The primitive/component is downstream of the semantic role. Do not make content conform to a generic card schema merely because the component exists.
 
 `continuous source reader` is **not** an approved first-round Politics primitive for Chengfeng. A shared component may still exist for another domain or reference use, but Politics must not use it to take over Chengfeng continuous study.
 
@@ -220,14 +338,18 @@ If a better explanation, relation, boundary, hierarchy, or stage story can live 
 ## 10. Quality test
 
 A Politics learner experience is good when:
-- the learner knows what they are trying to understand now;
+- the learner knows what they are trying to understand or do now without scanning the whole page;
 - Chengfeng remains the obvious single mainline **without requiring a duplicate Astro lecture**;
 - the original iPad/MarginNote source surface remains primary during continuous Chengfeng study;
-- Astro shows only useful orientation/checkpoint/verification/repair/return structure;
+- useful Suyi cognition has been absorbed/accounted for without creating a second Suyi course;
+- Astro shows only useful orientation/framework/checkpoint/verification/repair/return structure;
+- the Mac landscape workspace uses space to make relations/discrimination clearer rather than simply adding widgets;
+- the central Cognitive Stage has one dominant task and the Inspector remains secondary/contextual;
 - Xiao1000 questions enter Astro only after the owning Chengfeng content is learned;
+- clean attempts are not contaminated by framework/answer leakage;
 - switching between original source, Astro, and Chat is clear and low-friction;
 - a correct answer costs almost no extra time;
-- a failure sends the learner back to the smallest useful source/action;
+- a failure sends the learner back to the smallest useful semantic object/source/action;
 - meaningful Wrong/Uncertain evidence can return to Chat without manual reconstruction;
 - the learner never has to wonder which of two competing surfaces is the real place to study the same content;
 - the KianOS surface feels simpler as the backend becomes richer.
