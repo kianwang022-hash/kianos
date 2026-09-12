@@ -1,0 +1,104 @@
+---
+const { block } = Astro.props;
+const evidenceVersion = [block?.sourceHash || '', block?.systemSourceHash || '', block?.learningSupportSourceHash || ''].join(':');
+---
+<span data-xizong-block-evidence-guard data-object-id={block.objectId} data-evidence-version={evidenceVersion} hidden></span>
+
+<script>
+  const marker = document.querySelector('[data-xizong-block-evidence-guard]');
+  const root = document.querySelector('[data-xizong-v6-block]');
+  const extension = document.querySelector('.xv6MemoryReview[data-study-extension]');
+  if (marker instanceof HTMLElement && root instanceof HTMLElement && extension instanceof HTMLElement) {
+    const objectId = marker.getAttribute('data-object-id') || 'xizong:unknown';
+    const version = marker.getAttribute('data-evidence-version') || '';
+    const studyKey = `kianos-xizong-astro-v2:${objectId}`;
+    const personalKey = `kianos-xizong-personal-v1:${objectId}`;
+    const extensionKey = `kianos-xizong-memory-review-v2:${objectId}`;
+    const metaKey = `kianos-xizong-evidence-meta-v1:${objectId}`;
+
+    const readJson = (key, fallback = null) => {
+      try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
+    };
+    const writeJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
+    };
+
+    const previousMeta = readJson(metaKey, null);
+    if (previousMeta?.version && previousMeta.version !== version) {
+      const oldStudy = readJson(studyKey, {});
+      const oldPersonal = readJson(personalKey, {});
+      const oldExtension = readJson(extensionKey, {});
+      const archiveKey = `kianos-xizong-stale-evidence-v1:${objectId}:${Date.now()}`;
+      writeJson(archiveKey, {
+        archived_at: new Date().toISOString(),
+        previous_version: previousMeta.version,
+        current_version: version,
+        study: oldStudy,
+        personal: oldPersonal,
+        extension: oldExtension
+      });
+      try { localStorage.removeItem(studyKey); localStorage.removeItem(extensionKey); } catch {}
+      writeJson(personalKey, { lectureRead: false, kp: oldPersonal?.kp || {} });
+      writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+      try { sessionStorage.setItem(`kianos-xizong-evidence-reset:${objectId}`, '1'); } catch {}
+      window.location.reload();
+    } else {
+      if (!previousMeta?.version) writeJson(metaKey, { version, observed_at: new Date().toISOString() });
+
+      const status = root.querySelector('[data-study-local-status]');
+      try {
+        const resetKey = `kianos-xizong-evidence-reset:${objectId}`;
+        if (sessionStorage.getItem(resetKey) === '1') {
+          sessionStorage.removeItem(resetKey);
+          if (status) status.textContent = '内容版本已更新：旧学习证据已归档，随手记保留；请按当前版本重新确认。';
+        }
+      } catch {}
+
+      const readExt = () => readJson(extensionKey, { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {} });
+      const saveExt = (ext) => writeJson(extensionKey, ext);
+      const refreshActivePanel = (name) => {
+        const button = extension.querySelector(`[data-extension-tab="${name}"]`);
+        if (button?.classList.contains('active')) window.setTimeout(() => button.click(), 0);
+      };
+
+      root.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        const ratingButton = target?.closest('[data-rating]');
+        if (!ratingButton) return;
+        const card = ratingButton.closest('[data-kp-id]');
+        const kpId = card?.getAttribute('data-kp-id') || '';
+        const rating = ratingButton.getAttribute('data-rating') || '';
+        if (!kpId || !rating) return;
+        const ext = readExt();
+        ext.evidenceHistory = [...(Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : []), {
+          at: new Date().toISOString(),
+          type: 'KP_RECALL',
+          kp_id: kpId,
+          rating
+        }].slice(-400);
+        ext.lastRecallRatings = { ...(ext.lastRecallRatings || {}), [kpId]: rating };
+        saveExt(ext);
+        refreshActivePanel('memory');
+      });
+
+      extension.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        const reviewRating = target?.closest('[data-review-rating]');
+        if (!reviewRating) return;
+        const value = reviewRating.getAttribute('data-review-rating') || '';
+        window.setTimeout(() => {
+          const ext = readExt();
+          const history = Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : [];
+          const last = [...history].reverse().find((row) => row?.type === 'CHAT_PLAN_REVIEW');
+          const kpId = last?.kp_id || '';
+          if (kpId && ['known', 'mastered'].includes(value)) {
+            ext.reviewPlan = (Array.isArray(ext.reviewPlan) ? ext.reviewPlan : []).filter((row) => String(row?.kpId || row?.kp_id || row || '') !== kpId);
+            ext.reviewIndex = 0;
+            saveExt(ext);
+          }
+          refreshActivePanel('review');
+        }, 0);
+      });
+    }
+  }
+</script>
