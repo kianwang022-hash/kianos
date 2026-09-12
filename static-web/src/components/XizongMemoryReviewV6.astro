@@ -11,6 +11,7 @@ const reserveItems = (block?.pathways?.outgoing || [])
     targetGroupId: row?.target?.logic_group_id || '',
     returnCue: row?.target?.cue || ''
   }));
+const exampleKpId = kps[0]?.kpId || 'current-block-kp-id';
 const packetMeta = {
   systemId: block?.systemId || '',
   canonicalId: block?.systemCanonicalId || '',
@@ -18,7 +19,8 @@ const packetMeta = {
   blockLabel: block?.label || '',
   blockTitle: block?.title || '',
   sourcePath: block?.sourcePath || '',
-  reserveItems
+  reserveItems,
+  exampleKpId
 };
 ---
 <section class="portedStudyExtension xv6MemoryReview" data-study-extension data-study-object={block.objectId} data-study-source-hash={block.sourceHash}>
@@ -94,7 +96,7 @@ const packetMeta = {
       <p>会带上当前 Block、Current source hash、学习进度、全部 KP Recall、Memory 状态、反复不稳记录、随手记、储备关系和已有 Chat 计划证据。Chat 用它判断是记忆问题、理解问题、提示问题还是页面时机问题。</p>
     </div>
     <div class="portedReviewImport" data-review-import hidden>
-      <textarea rows="6" data-review-import-text placeholder='粘贴 Chat 返回 JSON。支持 {"kp_ids":["respiratory-r03-kp03"]}，也支持带 reason / action 的 plan/items。'></textarea>
+      <textarea rows="6" data-review-import-text placeholder='粘贴 Chat 返回 JSON。支持 kp_ids，也支持带 reason / action 的 plan/items。'></textarea>
       <button type="button" data-review-apply>应用 Chat 计划</button>
       <small>只接受当前 Block 真实存在的 KP；其他 ID 自动忽略。</small>
     </div>
@@ -112,6 +114,7 @@ const packetMeta = {
           <button type="button" data-review-rating="known">3 · 会了</button>
           <button type="button" data-review-rating="mastered">4 · 稳定</button>
         </footer>
+        <small class="xv6RoleNote">专项修补评分只记录 repair evidence，不覆盖最初 KP Recall；后续新的 Recall / transfer 才能提供更强 mastery 证据。</small>
       </article>
     </div>
   </section>
@@ -141,7 +144,6 @@ const packetMeta = {
     let ext = { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {} };
     try { ext = { ...ext, ...(JSON.parse(localStorage.getItem(extensionKey) || 'null') || {}) }; } catch {}
     const readStudy = () => { try { return JSON.parse(localStorage.getItem(stateKey) || 'null') || {}; } catch { return {}; } };
-    const writeStudy = (study) => { try { localStorage.setItem(stateKey, JSON.stringify(study)); } catch {} };
     const readPersonal = () => { try { return JSON.parse(localStorage.getItem(personalKey) || 'null') || {}; } catch { return {}; } };
     const saveExt = () => { try { localStorage.setItem(extensionKey, JSON.stringify(ext)); } catch {} };
     const byId = new Map(kps.map((kp) => [kp.kpId, kp]));
@@ -292,10 +294,7 @@ const packetMeta = {
       if (!current) return;
       const value = button.getAttribute('data-review-rating') || '';
       ext.reviewRatings = { ...(ext.reviewRatings || {}), [current.kpId]: value };
-      addEvidence({ type: 'CHAT_PLAN_REVIEW', kp_id: current.kpId, rating: value });
-      const study = readStudy();
-      study.ratings = { ...(study.ratings || {}), [current.kpId]: value };
-      writeStudy(study);
+      addEvidence({ type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY', kp_id: current.kpId, rating: value });
       ext.reviewIndex = Math.min(ext.reviewIndex + 1, Math.max(0, items.length - 1));
       saveExt();
       renderReview();
@@ -386,6 +385,12 @@ const packetMeta = {
         reserve_learning: packetMeta.reserveItems || [],
         imported_chat_plan: planRows(),
         chat_plan_ratings: ext.reviewRatings || {},
+        evidence_semantics: {
+          kp_recall: 'primary same-session recall evidence',
+          memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating',
+          chat_plan_review: 'repair-only evidence; never promoted into original Recall or mastery automatically',
+          mastery: 'requires later meaningful fresh Recall/transfer evidence when the learning contract calls for it'
+        },
         request_to_chat: [
           '请先读取 main@HEAD 对应 Current owner，再结合这个学习包判断，不要只按分数机械排队。',
           '区分：只是暂时记忆不稳 / 机制理解断点 / Precision 不稳 / 主提示设计问题 / 页面出现时机问题 / canonical 内容疑点。',
@@ -394,8 +399,8 @@ const packetMeta = {
           '如果不需要额外计划，明确说无需导入，不要为了生成计划而生成计划。'
         ],
         import_contract: {
-          simple: { kp_ids: ['respiratory-r03-kp03'] },
-          rich: { plan: [{ kp_id: 'respiratory-r03-kp03', reason: '机制仍不稳', action: '重新跑一次弹性回缩→呼气受限链', priority: 'high' }] }
+          simple: { kp_ids: [packetMeta.exampleKpId || 'current-block-kp-id'] },
+          rich: { plan: [{ kp_id: packetMeta.exampleKpId || 'current-block-kp-id', reason: '机制仍不稳', action: '重新运行这一 KP 所属机制链', priority: 'high' }] }
         }
       };
       const text = JSON.stringify(packet, null, 2);

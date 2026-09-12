@@ -1,0 +1,36 @@
+name: Static Web Xizong QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/xizong/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-xizong-qa.yml'
+  pull_request:
+    paths:
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/xizong/**'
+      - 'static-web/**'
+      - '.github/workflows/static-web-xizong-qa.yml'
+
+jobs:
+  xizong-learning-qa:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate Xizong learner contract
+        run: npm run validate:xizong
+      - name: Build Astro
+        run: npm run build

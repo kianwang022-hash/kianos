@@ -104,7 +104,7 @@ const failureViews = pathways?.systemFailureViews || {};
       <span>Selected Block</span>
       <b data-selected-label>{firstBlock?.label}</b>
       <h3 data-selected-title>{firstBlock?.title}</h3>
-      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP · Outline ${firstBlock.outlineCount}` : ''}</p>
+      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP${firstBlock.outlineCount > 0 ? ` · Outline ${firstBlock.outlineCount}` : ''}` : ''}</p>
       <button type="button" data-open-selected>Enter · 进入当前 Block</button>
     </section>
 
@@ -164,7 +164,7 @@ const failureViews = pathways?.systemFailureViews || {};
       if (block) {
         if (label) label.textContent = block.label || '';
         if (title) title.textContent = block.title || '';
-        if (meta) meta.textContent = `${block.kpCount || 0} KP · Outline ${block.outlineCount || 0}`;
+        if (meta) meta.textContent = `${block.kpCount || 0} KP${Number(block.outlineCount) > 0 ? ` · Outline ${block.outlineCount}` : ''}`;
       }
       if (scroll) links[selected]?.scrollIntoView({ block: 'nearest' });
       try { sessionStorage.setItem(`kianos-xizong-system-selection:${systemId}`, String(selected)); } catch {}

@@ -1,6 +1,6 @@
 {
   "schema": "kianos.xizong.knowledge.system.v1",
-  "status": "FREEZE_CANDIDATE",
+  "status": "CURRENT",
   "semantic_authority": "CHAT_APPROVED",
   "baseline": "learning/xizong/current.md",
   "identity": {
@@ -28,74 +28,21 @@
     ]
   },
   "core_variables": [
-    {
-      "id": "P",
-      "label": "压力",
-      "role": "推动血流并反映上游/下游负荷；必须结合位置解释。"
-    },
-    {
-      "id": "Q",
-      "label": "流量",
-      "role": "决定单位时间有效输送；局部流量与全身心排量不可互相替代。"
-    },
-    {
-      "id": "R",
-      "label": "阻力",
-      "role": "决定压力差下的流量分配，并构成心脏后负荷的重要来源。"
-    },
-    {
-      "id": "V",
-      "label": "容量",
-      "role": "决定静脉容量池、回心、前负荷与长期循环工作点。"
-    }
+    {"id": "P", "label": "压力", "role": "推动血流并反映上游/下游负荷；必须结合位置解释。"},
+    {"id": "Q", "label": "流量", "role": "决定单位时间有效输送；局部流量与全身心排量不可互相替代。"},
+    {"id": "R", "label": "阻力", "role": "决定压力差下的流量分配，并构成心脏后负荷的重要来源。"},
+    {"id": "V", "label": "容量", "role": "决定静脉容量池、回心、前负荷与长期循环工作点。"}
   ],
-  "core_relations": [
-    "CO = HR × SV",
-    "MAP ≈ CO × TPR",
-    "Q ≈ ΔP / R"
-  ],
-  "mechanical_coordinates": [
-    "preload",
-    "afterload",
-    "contractility",
-    "compliance"
-  ],
+  "core_relations": ["CO = HR × SV", "MAP ≈ CO × TPR", "Q ≈ ΔP / R"],
+  "mechanical_coordinates": ["preload", "afterload", "contractility", "compliance"],
   "failure_modes": [
-    {
-      "id": "pump_weak",
-      "label": "泵弱",
-      "chain": "收缩性下降 → 排空失败 → 前向流量下降 + 上游压力升高"
-    },
-    {
-      "id": "pump_stiff",
-      "label": "泵硬",
-      "chain": "顺应性/主动舒张异常 → 充盈困难 → 充盈压升高 + 储备下降"
-    },
-    {
-      "id": "outflow_obstruction",
-      "label": "出口受阻",
-      "chain": "正向通路受阻 → 上游压力负荷升高 + 下游流量下降"
-    },
-    {
-      "id": "valve_failure",
-      "label": "瓣膜故障",
-      "chain": "狭窄或反流 → 压力/容量负荷重新分配 → 心腔重构 + 淤血/低输出"
-    },
-    {
-      "id": "conduit_narrowing_or_block",
-      "label": "管路狭窄 / 阻断",
-      "chain": "阻力升高或通路中断 → 下游灌注下降；急慢性由侧支与组织可救性决定"
-    },
-    {
-      "id": "rhythm_or_timing_failure",
-      "label": "节律 / 时序失败",
-      "chain": "起搏、传导、同步或时序异常 → 充盈/射血受损 → 有效流量下降"
-    },
-    {
-      "id": "volume_or_distribution_failure",
-      "label": "容量 / 分布异常",
-      "chain": "有效容量、静脉回流或血流分布异常 → 前负荷/阻力失配 → 组织灌注不足"
-    }
+    {"id": "pump_weak", "label": "泵弱", "chain": "收缩性下降 → 排空失败 → 前向流量下降 + 上游压力升高"},
+    {"id": "pump_stiff", "label": "泵硬", "chain": "顺应性/主动舒张异常 → 充盈困难 → 充盈压升高 + 储备下降"},
+    {"id": "outflow_obstruction", "label": "出口受阻", "chain": "正向通路受阻 → 上游压力负荷升高 + 下游流量下降"},
+    {"id": "valve_failure", "label": "瓣膜故障", "chain": "狭窄或反流 → 压力/容量负荷重新分配 → 心腔重构 + 淤血/低输出"},
+    {"id": "conduit_narrowing_or_block", "label": "管路狭窄 / 阻断", "chain": "阻力升高或通路中断 → 下游灌注下降；急慢性由侧支与组织可救性决定"},
+    {"id": "rhythm_or_timing_failure", "label": "节律 / 时序失败", "chain": "起搏、传导、同步或时序异常 → 充盈/射血受损 → 有效流量下降"},
+    {"id": "volume_or_distribution_failure", "label": "容量 / 分布异常", "chain": "有效容量、静脉回流或血流分布异常 → 前负荷/阻力失配 → 组织灌注不足"}
   ],
   "judgment_axes": [
     "上游淤积 ↔ 下游低灌注",
@@ -107,43 +54,132 @@
     "稳定 ↔ 不稳定"
   ],
   "block_route": [
-    {
-      "group": "正常运行底座",
-      "blocks": [
-        "circulation-b01",
-        "circulation-b02",
-        "circulation-b03",
-        "circulation-b04"
-      ],
-      "why": "先建立机械、调节、电活动和止血四套正常底座，后续疾病才有可调用的变量、证据与故障语言。"
-    },
-    {
-      "group": "慢性底物",
-      "blocks": [
-        "circulation-b05",
-        "circulation-b06"
-      ],
-      "why": "长期压力和内皮损伤先形成结构性血管底物，再进入冠脉固定狭窄、斑块事件、缺血与坏死。"
-    },
-    {
-      "group": "器质性与血流故障",
-      "blocks": [
-        "circulation-b07",
-        "circulation-b08",
-        "circulation-b09"
-      ],
-      "why": "把瓣膜、心肌/心包和外周血管放回统一的门、泵、外壳与管路故障坐标。"
-    },
-    {
-      "group": "共同功能崩溃",
-      "blocks": [
-        "circulation-b10",
-        "circulation-b11",
-        "circulation-b12"
-      ],
-      "why": "节律异常、心衰和休克/骤停是多种上游疾病最终汇合的功能性终点，必须在已有机械与器质性模型上判断。"
-    }
+    {"id": "circulation-b01", "label": "B1", "title": "正常机械循环", "kp": 32},
+    {"id": "circulation-b02", "label": "B2", "title": "循环调节与容量控制", "kp": 19},
+    {"id": "circulation-b03", "label": "B3", "title": "心肌电活动与 ECG 语言", "kp": 21},
+    {"id": "circulation-b04", "label": "B4", "title": "正常止血与病理循环整合", "kp": 19},
+    {"id": "circulation-b05", "label": "B5", "title": "高血压与动脉粥样硬化", "kp": 26},
+    {"id": "circulation-b06", "label": "B6", "title": "冠心病与心肌梗死", "kp": 37},
+    {"id": "circulation-b07", "label": "B7", "title": "风湿、感染性心内膜炎与四瓣膜病", "kp": 42},
+    {"id": "circulation-b08", "label": "B8", "title": "心肌与心包", "kp": 34},
+    {"id": "circulation-b09", "label": "B9", "title": "周围血管疾病", "kp": 16},
+    {"id": "circulation-b10", "label": "B10", "title": "心律失常", "kp": 23},
+    {"id": "circulation-b11", "label": "B11", "title": "心力衰竭", "kp": 24},
+    {"id": "circulation-b12", "label": "B12", "title": "休克与心脏骤停", "kp": 19}
   ],
+  "logic_index": {
+    "circulation-b01": [
+      {"id":"circulation-b01-lg01","label":"心动周期：压力—瓣膜—容积","kp":[1,3]},
+      {"id":"circulation-b01-lg02","label":"搏出量、负荷与心输出量","kp":[4,8]},
+      {"id":"circulation-b01-lg03","label":"充盈、储备与泵功能评价","kp":[9,13]},
+      {"id":"circulation-b01-lg04","label":"PV环、功能曲线与瓣膜时相验证","kp":[14,16]},
+      {"id":"circulation-b01-lg05","label":"动脉压力、阻力与血管分工","kp":[17,22]},
+      {"id":"circulation-b01-lg06","label":"静脉回心与微循环交换","kp":[23,26]},
+      {"id":"circulation-b01-lg07","label":"冠脉自供与氧供需接口","kp":[27,32]}
+    ],
+    "circulation-b02": [
+      {"id":"circulation-b02-lg01","label":"感知与急性调节总链","kp":[1,4]},
+      {"id":"circulation-b02-lg02","label":"神经快速执行","kp":[5,7]},
+      {"id":"circulation-b02-lg03","label":"体液—肾容量接力","kp":[8,13]},
+      {"id":"circulation-b02-lg04","label":"局部血流修正","kp":[14,16]},
+      {"id":"circulation-b02-lg05","label":"场景、时间意义与最终压缩","kp":[17,19]}
+    ],
+    "circulation-b03": [
+      {"id":"circulation-b03-lg01","label":"细胞类型与电—机械层级","kp":[1,2]},
+      {"id":"circulation-b03-lg02","label":"工作心肌动作电位","kp":[3,5]},
+      {"id":"circulation-b03-lg03","label":"起搏细胞与自律性","kp":[6,8]},
+      {"id":"circulation-b03-lg04","label":"不应期与兴奋性","kp":[9,12]},
+      {"id":"circulation-b03-lg05","label":"传导速度与主导起搏","kp":[13,16]},
+      {"id":"circulation-b03-lg06","label":"兴奋—收缩耦联","kp":[17,18]},
+      {"id":"circulation-b03-lg07","label":"神经与药物调制","kp":[19,21]}
+    ],
+    "circulation-b04": [
+      {"id":"circulation-b04-lg01","label":"血小板快速封口","kp":[1,4]},
+      {"id":"circulation-b04-lg02","label":"凝血级联与纤维蛋白加固","kp":[5,9]},
+      {"id":"circulation-b04-lg03","label":"抗凝限域","kp":[10,12]},
+      {"id":"circulation-b04-lg04","label":"纤溶拆除","kp":[13,14]},
+      {"id":"circulation-b04-lg05","label":"证据与抗栓药物定位","kp":[15,16]},
+      {"id":"circulation-b04-lg06","label":"血栓—栓塞—梗死整合","kp":[17,19]}
+    ],
+    "circulation-b05": [
+      {"id":"circulation-b05-lg01","label":"长期升压变量与病因定位","kp":[1,3]},
+      {"id":"circulation-b05-lg03","label":"高压重构与靶器官损害","kp":[7,12]},
+      {"id":"circulation-b05-lg02","label":"测量、分级与风险坐标","kp":[4,6]},
+      {"id":"circulation-b05-lg04","label":"急症与危险边界","kp":[13,15]},
+      {"id":"circulation-b05-lg05","label":"长期治疗与继发性入口","kp":[16,20]},
+      {"id":"circulation-b05-lg06","label":"内皮损伤到脂纹","kp":[21,23]},
+      {"id":"circulation-b05-lg07","label":"斑块结构、稳定性与器官出口","kp":[24,26]}
+    ],
+    "circulation-b06": [
+      {"id":"circulation-b06-lg01","label":"冠脉供需、斑块与药物变量","kp":[1,4]},
+      {"id":"circulation-b06-lg02","label":"固定狭窄与稳定缺血","kp":[5,10]},
+      {"id":"circulation-b06-lg03","label":"斑块事件与ACS分流","kp":[11,15]},
+      {"id":"circulation-b06-lg04","label":"STEMI表现、低压与部位接口","kp":[16,18]},
+      {"id":"circulation-b06-lg05","label":"坏死时程与多层证据","kp":[19,23]},
+      {"id":"circulation-b06-lg06","label":"电泵结构血栓重构并发症","kp":[24,28]},
+      {"id":"circulation-b06-lg07","label":"再灌注、抗栓与右室梗死","kp":[29,32]},
+      {"id":"circulation-b06-lg08","label":"致命鉴别、整合算法与向后交接","kp":[33,37]}
+    ],
+    "circulation-b07": [
+      {"id":"circulation-b07-lg01","label":"四扇门共同语言","kp":[1,4]},
+      {"id":"circulation-b07-lg02","label":"风湿免疫到慢性瓣膜病","kp":[5,9]},
+      {"id":"circulation-b07-lg03","label":"感染性心内膜炎完整链","kp":[10,17]},
+      {"id":"circulation-b07-lg04","label":"四瓣膜统一坐标","kp":[18,18]},
+      {"id":"circulation-b07-lg05","label":"二尖瓣狭窄","kp":[19,23]},
+      {"id":"circulation-b07-lg06","label":"二尖瓣关闭不全","kp":[24,28]},
+      {"id":"circulation-b07-lg07","label":"主动脉瓣狭窄","kp":[29,34]},
+      {"id":"circulation-b07-lg08","label":"主动脉瓣关闭不全","kp":[35,39]},
+      {"id":"circulation-b07-lg09","label":"四瓣膜证据与病例反推","kp":[40,42]}
+    ],
+    "circulation-b08": [
+      {"id":"circulation-b08-lg01","label":"四个故障层与共同观察量","kp":[1,2]},
+      {"id":"circulation-b08-lg02","label":"HCM：泵硬与动态梗阻","kp":[3,8]},
+      {"id":"circulation-b08-lg03","label":"DCM：泵弱与扩张","kp":[9,14]},
+      {"id":"circulation-b08-lg04","label":"RCM与特殊心肌病：充盈受限","kp":[15,18]},
+      {"id":"circulation-b08-lg05","label":"心肌炎：电与泵共同受损","kp":[19,23]},
+      {"id":"circulation-b08-lg06","label":"心包炎与积液","kp":[24,28]},
+      {"id":"circulation-b08-lg07","label":"压塞与缩窄：外壳限制","kp":[29,33]},
+      {"id":"circulation-b08-lg08","label":"心肌—心包最终定位","kp":[34,34]}
+    ],
+    "circulation-b09": [
+      {"id":"circulation-b09-lg01","label":"动脉下游缺血 vs 静脉上游淤血","kp":[1,1]},
+      {"id":"circulation-b09-lg02","label":"Raynaud功能性痉挛","kp":[2,3]},
+      {"id":"circulation-b09-lg03","label":"急性动脉阻断与肢体可救性","kp":[4,5]},
+      {"id":"circulation-b09-lg04","label":"慢性动脉缺血进展","kp":[6,8]},
+      {"id":"circulation-b09-lg05","label":"静脉回流障碍与DVT","kp":[9,13]},
+      {"id":"circulation-b09-lg06","label":"检查定位与最终分流","kp":[14,16]}
+    ],
+    "circulation-b10": [
+      {"id":"circulation-b10-lg01","label":"ECG最小语言与宽QRS入口","kp":[1,2]},
+      {"id":"circulation-b10-lg02","label":"冲动形成与传导机制","kp":[3,4]},
+      {"id":"circulation-b10-lg03","label":"窦性节律与SSS","kp":[5,5]},
+      {"id":"circulation-b10-lg04","label":"预激、AVNRT与PSVT折返","kp":[6,8]},
+      {"id":"circulation-b10-lg05","label":"房扑房颤与栓塞/控率/转复","kp":[9,13]},
+      {"id":"circulation-b10-lg06","label":"室性节律与恶性风险","kp":[14,16]},
+      {"id":"circulation-b10-lg07","label":"传导阻滞与房室分离","kp":[17,19]},
+      {"id":"circulation-b10-lg08","label":"治疗统一坐标：观察、电治疗、起搏与ICD","kp":[20,22]},
+      {"id":"circulation-b10-lg09","label":"稳定性门 + ECG四道门重建","kp":[23,23]}
+    ],
+    "circulation-b11": [
+      {"id":"circulation-b11-lg01","label":"EF、分期与功能标签","kp":[1,3]},
+      {"id":"circulation-b11-lg02","label":"病因、诱因与共同恶性循环","kp":[4,6]},
+      {"id":"circulation-b11-lg03","label":"左/右心衰与淤血方向","kp":[7,9]},
+      {"id":"circulation-b11-lg04","label":"血流动力学、影像与标志物证据","kp":[10,12]},
+      {"id":"circulation-b11-lg05","label":"急性心衰湿冷分流","kp":[13,15]},
+      {"id":"circulation-b11-lg06","label":"慢性HFrEF抗重构与症状治疗","kp":[16,21]},
+      {"id":"circulation-b11-lg07","label":"HFpEF充盈压与治疗目标","kp":[22,23]},
+      {"id":"circulation-b11-lg08","label":"心衰最终病例反推","kp":[24,24]}
+    ],
+    "circulation-b12": [
+      {"id":"circulation-b12-lg01","label":"有效脉搏与休克Failure Layer","kp":[1,2]},
+      {"id":"circulation-b12-lg02","label":"微循环代偿到崩溃","kp":[3,4]},
+      {"id":"circulation-b12-lg03","label":"灌注严重度证据","kp":[5,7]},
+      {"id":"circulation-b12-lg04","label":"CVP/PAWP与容量—泵校准","kp":[8,9]},
+      {"id":"circulation-b12-lg05","label":"恢复灌注并处理第一故障","kp":[10,14]},
+      {"id":"circulation-b12-lg06","label":"无脉骤停与复苏路径","kp":[15,18]},
+      {"id":"circulation-b12-lg07","label":"脉搏—低灌注—Failure Layer最终反推","kp":[19,19]}
+    ]
+  },
   "dependency_dag": [
     "B1 → B2 / B3 / B7 / B8",
     "B2 + B4 → B5",
@@ -156,129 +192,37 @@
     "B4 + B9 + B10 + B11 → B12"
   ],
   "cross_block_bridges": [
-    {
-      "id": "mechanics_to_structure_to_hf",
-      "title": "正常机械 → 结构故障 → 心衰",
-      "route": "B1 → B7/B8 → B11",
-      "chain": "正常压力—容积与充盈/射血关系 → 瓣膜或心肌结构故障 → 压力/容量/充盈/泵异常 → 前向低灌注 + 后向淤血 → 心衰"
-    },
-    {
-      "id": "compensation_to_chronic_disease_to_shock",
-      "title": "代偿 → 慢性反噬 → 灌注崩溃",
-      "route": "B2 → B5/B11 → B12",
-      "chain": "神经体液与容量调节急性保压保灌注 → 长期持续激活增加后负荷、潴留与重构 → 慢性高压/心衰 → 严重时进入全身低灌注"
-    },
-    {
-      "id": "hemostasis_to_thrombotic_event",
-      "title": "止血 → 病理血栓 → 缺血事件",
-      "route": "B4 → B5 → B6/B9 → B12",
-      "chain": "局部止血机制在错误地点启动 → 斑块/血栓 → 冠脉或外周通路阻断 → 局部缺血/梗死；足够严重时进入全身循环崩溃"
-    },
-    {
-      "id": "electrical_to_mechanical_to_perfusion",
-      "title": "电活动 → 节律 → 机械输出 → 灌注",
-      "route": "B3 → B10 → B11/B12",
-      "chain": "动作电位与传导 → ECG节律 → 机械充盈/射血 → 有效脉搏与灌注；有电活动不等于有有效循环"
-    }
+    {"id":"mechanics_to_structure_to_hf","title":"正常机械 → 结构故障 → 心衰","route":"B1 → B7/B8 → B11","chain":"正常压力—容积与充盈/射血关系 → 瓣膜或心肌结构故障 → 压力/容量/充盈/泵异常 → 前向低灌注 + 后向淤血 → 心衰"},
+    {"id":"compensation_to_chronic_disease_to_shock","title":"代偿 → 慢性反噬 → 灌注崩溃","route":"B2 → B5/B11 → B12","chain":"神经体液与容量调节急性保压保灌注 → 长期持续激活增加后负荷、潴留与重构 → 慢性高压/心衰 → 严重时进入全身低灌注"},
+    {"id":"hemostasis_to_thrombotic_event","title":"止血 → 病理血栓 → 缺血事件","route":"B4 → B5 → B6/B9 → B12","chain":"局部止血机制在错误地点启动 → 斑块/血栓 → 冠脉或外周通路阻断 → 局部缺血/梗死；足够严重时进入全身循环崩溃"},
+    {"id":"electrical_to_mechanical_to_perfusion","title":"电活动 → 节律 → 机械输出 → 灌注","route":"B3 → B10 → B11/B12","chain":"动作电位与传导 → ECG节律 → 机械充盈/射血 → 有效脉搏与灌注；有电活动不等于有有效循环"}
   ],
   "cross_system_interfaces": [
-    {
-      "topic": "肺栓塞",
-      "circulation_role": "B9保留DVT→PE危险接口，B12保留阻塞性休克接口",
-      "primary_owner": "respiratory"
-    },
-    {
-      "topic": "DIC",
-      "circulation_role": "B4拥有凝血/抗凝/纤溶机制，B12只作休克阶段应用",
-      "primary_owner": "hematology"
-    },
-    {
-      "topic": "感染性休克源控制",
-      "circulation_role": "B12保留循环Failure Layer与灌注恢复目标",
-      "primary_owner": "infection / source-specific system"
-    },
-    {
-      "topic": "肺高压 / 肺心病",
-      "circulation_role": "B8/B11只保留右室后负荷与心衰接口",
-      "primary_owner": "respiratory"
-    }
+    {"topic":"肺栓塞","circulation_role":"B9保留DVT→PE危险接口，B12保留阻塞性休克接口","primary_owner":"respiratory"},
+    {"topic":"DIC","circulation_role":"B4拥有凝血/抗凝/纤溶机制，B12只作休克阶段应用","primary_owner":"hematology"},
+    {"topic":"感染性休克源控制","circulation_role":"B12保留循环Failure Layer与灌注恢复目标","primary_owner":"infection / source-specific system"},
+    {"topic":"肺高压 / 肺心病","circulation_role":"B8/B11只保留右室后负荷与心衰接口","primary_owner":"respiratory"}
   ],
   "evidence_ladder": [
-    {
-      "order": 1,
-      "layer": "病史 / 症状",
-      "question": "患者发生了什么、何时发生、由什么触发，是否符合供需、淤血、低灌注或节律事件模式？"
-    },
-    {
-      "order": 2,
-      "layer": "体征",
-      "question": "压力、流量、心腔负荷、淤血与灌注不足在床旁留下了什么机械证据？"
-    },
-    {
-      "order": 3,
-      "layer": "ECG",
-      "question": "电活动、缺血/损伤层级和节律提供了什么证据？ECG不能替代机械输出或灌注证据。"
-    },
-    {
-      "order": 4,
-      "layer": "生物标志物",
-      "question": "是否存在心肌坏死、牵张或组织低灌注等生物学证据？"
-    },
-    {
-      "order": 5,
-      "layer": "超声",
-      "question": "结构、瓣膜、心腔大小、室壁运动、收缩/充盈与压力接口怎样？"
-    },
-    {
-      "order": 6,
-      "layer": "血管 / 冠脉影像",
-      "question": "管路是否固定狭窄、急性阻断、斑块事件或其他结构性病变？"
-    },
-    {
-      "order": 7,
-      "layer": "血流动力学",
-      "question": "特定位置的压力、充盈与输出怎样；是否需要用CVP/PAWP/CI等校准Failure Layer？"
-    },
-    {
-      "order": 8,
-      "layer": "病理",
-      "question": "组织层面到底发生了什么结构改变、坏死、炎症、修复或重构？"
-    }
+    {"order":1,"layer":"病史 / 症状","question":"患者发生了什么、何时发生、由什么触发，是否符合供需、淤血、低灌注或节律事件模式？"},
+    {"order":2,"layer":"体征","question":"压力、流量、心腔负荷、淤血与灌注不足在床旁留下了什么机械证据？"},
+    {"order":3,"layer":"ECG","question":"电活动、缺血/损伤层级和节律提供了什么证据？ECG不能替代机械输出或灌注证据。"},
+    {"order":4,"layer":"生物标志物","question":"是否存在心肌坏死、牵张或组织低灌注等生物学证据？"},
+    {"order":5,"layer":"超声","question":"结构、瓣膜、心腔大小、室壁运动、收缩/充盈与压力接口怎样？"},
+    {"order":6,"layer":"血管 / 冠脉影像","question":"管路是否固定狭窄、急性阻断、斑块事件或其他结构性病变？"},
+    {"order":7,"layer":"血流动力学","question":"特定位置的压力、充盈与输出怎样；是否需要用CVP/PAWP/CI等校准Failure Layer？"},
+    {"order":8,"layer":"病理","question":"组织层面到底发生了什么结构改变、坏死、炎症、修复或重构？"}
   ],
   "evidence_principle": "证据分层互相校准，不是越往下越高级，也不能用某一层证据替代它没有证明的层级。",
   "treatment_action_map": [
-    {
-      "action": "恢复通路 / 再灌注 / 解除机械阻塞",
-      "targets": "冠脉、外周动脉或阻塞性循环故障"
-    },
-    {
-      "action": "改变血小板 / 凝血 / 纤溶过程",
-      "targets": "病理血栓形成、扩大或已形成纤维蛋白血栓"
-    },
-    {
-      "action": "恢复有效容量 / 静脉回流",
-      "targets": "低容量或前负荷不足"
-    },
-    {
-      "action": "调整前负荷 / 后负荷",
-      "targets": "负荷失配、淤血、压力或容量负担"
-    },
-    {
-      "action": "改善泵功能或减轻泵负担",
-      "targets": "收缩性失败或严重低输出"
-    },
-    {
-      "action": "纠正节律 / 时序",
-      "targets": "控率、转复、起搏、电治疗或器械"
-    },
-    {
-      "action": "打断慢性神经体液 / 重构恶性循环",
-      "targets": "长期高压、HFrEF等慢性失代偿底物"
-    },
-    {
-      "action": "源控制",
-      "targets": "感染或其他持续驱动循环崩溃的上游病因"
-    }
+    {"action":"恢复通路 / 再灌注 / 解除机械阻塞","targets":"冠脉、外周动脉或阻塞性循环故障"},
+    {"action":"改变血小板 / 凝血 / 纤溶过程","targets":"病理血栓形成、扩大或已形成纤维蛋白血栓"},
+    {"action":"恢复有效容量 / 静脉回流","targets":"低容量或前负荷不足"},
+    {"action":"调整前负荷 / 后负荷","targets":"负荷失配、淤血、压力或容量负担"},
+    {"action":"改善泵功能或减轻泵负担","targets":"收缩性失败或严重低输出"},
+    {"action":"纠正节律 / 时序","targets":"控率、转复、起搏、电治疗或器械"},
+    {"action":"打断慢性神经体液 / 重构恶性循环","targets":"长期高压、HFrEF等慢性失代偿底物"},
+    {"action":"源控制","targets":"感染或其他持续驱动循环崩溃的上游病因"}
   ],
   "system_recall": {
     "neutral_front": "面对一个从未见过的循环病例，不先搜索病名：哪里先坏了，哪个变量先变，血流后果是什么，怎样确认并首先改变哪一层？",
@@ -301,72 +245,30 @@
   },
   "system_exit": {
     "compression_maps": [
-      {
-        "name": "机械面",
-        "content": "心动周期 → PV → preload / afterload / contractility / compliance → SV / CO"
-      },
-      {
-        "name": "调节面",
-        "content": "P/Q/R/V → 神经 → 体液 → 肾容量 → 急性代偿 / 慢性反噬"
-      },
-      {
-        "name": "电活动面",
-        "content": "AP → 传导 → ECG → Ca²⁺ → 机械射血"
-      },
-      {
-        "name": "血管事件面",
-        "content": "止血 → 血栓 + 内皮/斑块 → ACS / 外周阻断 → 梗死"
-      },
-      {
-        "name": "结构—心衰面",
-        "content": "瓣膜 + 心肌/心包 → 压力/容量/充盈/泵异常 → 心衰"
-      },
-      {
-        "name": "崩溃面",
-        "content": "外周血流 → 休克四Failure Layer → 有无有效脉搏 → 骤停"
-      }
+      {"name":"机械面","content":"心动周期 → PV → preload / afterload / contractility / compliance → SV / CO"},
+      {"name":"调节面","content":"P/Q/R/V → 神经 → 体液 → 肾容量 → 急性代偿 / 慢性反噬"},
+      {"name":"电活动面","content":"AP → 传导 → ECG → Ca²⁺ → 机械射血"},
+      {"name":"血管事件面","content":"止血 → 血栓 + 内皮/斑块 → ACS / 外周阻断 → 梗死"},
+      {"name":"结构—心衰面","content":"瓣膜 + 心肌/心包 → 压力/容量/充盈/泵异常 → 心衰"},
+      {"name":"崩溃面","content":"外周血流 → 休克四Failure Layer → 有无有效脉搏 → 骤停"}
     ],
     "final_gate": "给一个陌生循环病例，能够正向从第一故障推到变量、淤血/低灌注、代偿、重构、表现和治疗靶点；也能够反向从病例表现定位Failure Layer，并准确调用相应Block，而不在12个章节里随机搜索疾病名称。"
   },
   "ownership_boundaries": {
-    "system_owns": [
-      "系统母模型",
-      "核心变量",
-      "Failure Modes",
-      "判断轴",
-      "Block学习路线与跨Block桥",
-      "跨系统接口",
-      "证据层",
-      "治疗动作层",
-      "System Recall / Exit"
-    ],
-    "system_does_not_own": [
-      "完整疾病细节",
-      "完整药物剂量与精确数字",
-      "Block内部KP答案",
-      "个人mastery / attempts / wrong / uncertain / annotations / scheduler"
-    ]
+    "system_owns": ["系统母模型","核心变量","Failure Modes","判断轴","Block学习路线与跨Block桥","跨系统接口","证据层","治疗动作层","System Recall / Exit"],
+    "system_does_not_own": ["完整疾病细节","完整药物剂量与精确数字","Block内部KP答案","个人mastery / attempts / wrong / uncertain / annotations / scheduler"]
   },
   "source_refs": [
-    {
-      "role": "prior_system_substrate",
-      "path": "content/xizong/knowledge/system-guides/西综循环系统_System_Guide_v2_完整导学_认知依赖与学习顺序.md"
-    },
-    {
-      "role": "current_shared_semantic_substrate",
-      "path": "content/xizong/knowledge/learner/shared-fields.json"
-    },
-    {
-      "role": "block_medical_source_truth",
-      "path": "content/xizong/knowledge/systems/a1-circulation/blocks/"
-    }
+    {"role":"prior_system_substrate","path":"content/xizong/knowledge/system-guides/西综循环系统_System_Guide_v2_完整导学_认知依赖与学习顺序.md"},
+    {"role":"current_shared_semantic_substrate","path":"content/xizong/knowledge/learner/shared-fields.json"},
+    {"role":"block_medical_source_truth","path":"content/xizong/knowledge/systems/a1-circulation/blocks/"}
   ],
   "migration": {
     "natural_owner_rule": "Natural Owner + Reference, Not Copy",
-    "semantic_delta": "CHAT_APPROVED_SYSTEM_V6_ADDITION_ONLY",
+    "semantic_delta": "CHAT_APPROVED_LEARNING_ACCEPTANCE_L_ROUTE_ONLY",
     "kp_identity_change": false,
     "learner_state_included": false,
     "runtime_or_ui_authority": false,
-    "promotion_note": "Keep FREEZE_CANDIDATE until all 12 Block natural owners are materialized and exact readback confirms 12 Blocks / 312 canonical KPs with no unintended medical-Core delta."
+    "promotion_note": "Promoted to CURRENT after LEARNING_ACCEPTANCE K PASS and materialization of the direct 12-Block learner route plus lossless 312-KP Logic Group structural index. Medical Core is unchanged; Logic Group order follows canonical learner reading order even when stable KP ordinals are intentionally non-monotonic. Learning support is separately owned in learner/a1-circulation-learning.json."
   }
 }

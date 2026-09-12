@@ -17,19 +17,6 @@ const pathways = loadXizongPathways(system);
 const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
 <Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
-  <script is:inline>
-    (() => {
-      const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
-      const policyKey = 'kianos:xizong:full-paper-holdout-policy:v1';
-      const policyId = '2025-2026-v1';
-      try {
-        if (localStorage.getItem(policyKey) !== policyId) {
-          localStorage.setItem(holdoutKey, JSON.stringify([2025, 2026]));
-          localStorage.setItem(policyKey, policyId);
-        }
-      } catch {}
-    })();
-  </script>
   <XizongLastLocation system={system} />
   <XizongSystemV6 system={system} pathways={pathways} />
   {questionSweep && <XizongSystemExitRuntime system={system} sweep={questionSweep} />}

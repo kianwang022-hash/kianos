@@ -1,0 +1,156 @@
+{
+  "schema": "kianos.xizong.learning_acceptance.v2",
+  "status": "CURRENT",
+  "authority": "LEARNING_ACCEPTANCE_REAUDIT",
+  "standard": {
+    "path": "LEARNING_ACCEPTANCE.md",
+    "sha": "a174880fc6777df118ef408b5a5ad1f0afe77213",
+    "status_vocabulary": ["PASS", "PASS_WITH_DEBT", "BLOCKED", "UNTESTED"]
+  },
+  "global_rules": [
+    "Build/CI/page existence/content volume/CURRENT labels/question inventory are evidence only, never acceptance substitutes.",
+    "Engineering State != Learner State.",
+    "Shared semantic rule != private learner strategy/configuration.",
+    "Diagnosis != repair; repair != mastery; same-item correction is repair evidence only.",
+    "Later fresh transfer outranks remembered local correction when mastery/closure claims require transfer.",
+    "U is path-scoped and requires real learner use."
+  ],
+  "modules": {
+    "A1_circulation": {
+      "owners": [
+        "content/xizong/knowledge/systems/a1-circulation/system.json",
+        "content/xizong/knowledge/systems/a1-circulation/blocks/",
+        "content/xizong/knowledge/learner/a1-circulation-learning.json",
+        "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
+        "content/xizong/knowledge/learner/study-policy.json",
+        "static-web/scripts/validate-xizong-learning.mjs"
+      ],
+      "gates": {
+        "S": {
+          "status": "PASS",
+          "evidence": [
+            "Current manifest resolves one Chat-approved System owner and canonical Block medical Core without legacy runtime fallback.",
+            "A1 has stable System/Block/KP identity and exactly 376 Current official Question Truth IDs with fail-closed inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
+            "System membership does not invent Question-to-Block/KP mapping; precise relations remain REVIEWED-only."
+          ]
+        },
+        "K": {
+          "status": "PASS",
+          "evidence": [
+            "System + all 12 canonical Block medical-Core owners / 312 stable KPs were re-audited from content rather than file presence.",
+            "The Blocks consistently teach causal mechanisms, shared variables/failure layers, execution rules and explicit cross-owner boundaries instead of teacher chapter order or disease-name lists.",
+            "No unresolved stable Source Gap/TODO/pending medical-Core marker justified further A1 content expansion."
+          ]
+        },
+        "L": {
+          "status": "PASS",
+          "evidence": [
+            "A1 owns a direct 12-Block first-learning route plus 87 Logic Groups and separate first-pass focus/stop/recall + group goal/closure support without duplicating medical Core.",
+            "All 312 stable KP identities are complete and unique; learner reading order follows canonical Markdown rather than numeric KP order.",
+            "The first synthetic acceptance run exposed B5 as an intentional non-monotonic case: KP01-03 -> KP07-12 -> KP04-06. The System Logic Group order and loader were corrected so stable identity and learner order are separate concepts.",
+            "The final validator mechanically confirms every Logic Group flatten matches canonical document order while the stable KP identity set remains exactly 1..N for every Block."
+          ],
+          "acceptance_history": [
+            "PR #12 run 34659476134 failed correctly on CURRENT_XIZONG_KP_ORDER_INVALID:circulation-b05:KP07, exposing the false numeric-order assumption.",
+            "After source-order re-audit, B5 Logic Groups were reordered to canonical learner order and the loader changed from ordinal==array-index to complete-unique identity-set validation."
+          ]
+        },
+        "P": {
+          "status": "PASS",
+          "evidence": [
+            "Canonical A1 Block openings project without requiring the A2-specific '这个 Block 到底解决什么' heading; explicit A2 intros remain preserved.",
+            "Generic A1 opening projection strips YAML frontmatter before learner display; B10/B11/B12 are acceptance-checked for no metadata leakage.",
+            "Unavailable Outline counts are omitted instead of rendered as false 'Outline 0'.",
+            "Shared System code no longer seeds exact holdout years; learner-selected protected years remain private state.",
+            "PR #12 synthetic-merge learner-contract validator and Astro build both passed in workflow run 34660072688."
+          ]
+        },
+        "R": {
+          "status": "PASS",
+          "evidence": [
+            "The accepted journey is executable as System -> Block -> Logic Group/KP Learn -> hidden-answer KP Recall -> Block Recall/closure -> Memory/Chat return -> System Recall -> learner-selected holdout -> official-question stable/W/U -> post-question Recall.",
+            "Clean first-pass simulation closes only after Lecture one-pass confirmation + all KP Learn/Recall + Block Recall and creates zero manufactured weak-Memory debt.",
+            "Weak Recall enters Memory; Chat return is current-Block-ID scoped and deduplicated; malformed return JSON has an explicit contained error path.",
+            "Private holdout normalization/filtering, Question Truth keyed result idempotency and local-storage persistence/error containment are included in acceptance validation.",
+            "PR #12 workflow run 34660072688 passed validate:xizong before Astro build; build success is retained only as compilation evidence, not as the reason R passes."
+          ]
+        },
+        "E": {
+          "status": "PASS",
+          "evidence": [
+            "Stable/mastered Recall does not enter weak Memory; fuzzy/unknown Recall does.",
+            "Chat-plan repair ratings are stored separately as CHAT_PLAN_REVIEW with evidence_role=REPAIR_ONLY and no longer overwrite the original KP Recall rating.",
+            "Memory STABLE may clear the local weak queue but does not rewrite the first Recall; Study Packet states that later meaningful fresh Recall/transfer is stronger mastery evidence when the contract calls for it.",
+            "Official-question stable answers fast-pass without W/U debt; only wrong/uncertain enter W/U repair and Chat export.",
+            "Precise Question-to-Knowledge back-links remain REVIEWED-only; when absent, Runtime explicitly preserves the Question Truth ID for Chat rather than guessing a KP.",
+            "Learner-selected holdout years, progress, W/U, notes and evidence remain private rather than shared Current."
+          ]
+        }
+      },
+      "user_validation_by_path": {
+        "System_to_first_Block_first_learning": "UNTESTED",
+        "weak_Recall_to_Memory_or_Chat_return": "UNTESTED",
+        "System_Exit_holdout_and_official_questions": "UNTESTED",
+        "sustained_multi_session_use": "UNTESTED"
+      },
+      "blocking_defects": [],
+      "non_blocking_debt": [],
+      "what_should_not_be_expanded": [
+        "A1 medical Core after K PASS without new source/learner evidence.",
+        "A1 learning taxonomy after L PASS without runtime/learner evidence.",
+        "The deterministic 376-question scope without new source evidence.",
+        "Question-to-Block/KP relations from title/page/System/source/model intuition.",
+        "Optional learning-cues/pathways merely for symmetry.",
+        "System Exit features not demanded by observed learner friction."
+      ],
+      "allowed_conclusion": "Module ready for learner test; U UNTESTED by path."
+    },
+    "A2_respiratory": {
+      "owners": [
+        "content/xizong/knowledge/systems/a2-respiratory/system.json",
+        "content/xizong/knowledge/systems/a2-respiratory/blocks/",
+        "content/xizong/knowledge/learner/a2-respiratory-learning.json",
+        "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+        "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
+        "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+        "content/xizong/knowledge/learner/study-policy.json"
+      ],
+      "gates": {
+        "S": {
+          "status": "PASS",
+          "evidence": [
+            "Current owner manifest forbids legacy runtime fallback and A2 official System scope is exactly 359 Current Question Truth IDs with fail-closed identity/count/hash validation."
+          ]
+        },
+        "K": {
+          "status": "UNTESTED",
+          "evidence": [
+            "A2 has a Current System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance sequence has not yet re-confirmed K from canonical content under the latest root standard."
+          ]
+        },
+        "L": {
+          "status": "PASS",
+          "evidence": [
+            "study-policy defines Lecture-first first learning, Logic Group closure, KP Recall, Block Recall, System Recall before questions, W/U repair and post-question Recall.",
+            "a2-respiratory-learning.json covers the complete direct 12-Block / 62-Logic-Group route with first-pass focus, stop line, recall spine and group goal/closure semantics."
+          ]
+        },
+        "P": {"status": "UNTESTED", "evidence": ["Latest-root Projection acceptance has not yet been run after A2 K reconfirmation."]},
+        "R": {"status": "UNTESTED", "evidence": ["Latest-root Module E2E including persistence/idempotency/error paths has not yet been accepted for A2."]},
+        "E": {"status": "UNTESTED", "evidence": ["Evidence semantics must be re-accepted for A2 after K under the same standard used for A1."]}
+      },
+      "user_validation_by_path": {
+        "first_learning": "UNTESTED",
+        "weak_or_wrong_repair_return": "UNTESTED",
+        "System_Exit": "UNTESTED",
+        "sustained_multi_session_use": "UNTESTED"
+      },
+      "allowed_conclusion": "S PASS, L PASS; K/P/R/E and all U paths UNTESTED under the latest root acceptance pass."
+    }
+  },
+  "acceptance_work_queue": [
+    "FINAL_A1_PR_QA_AND_MERGE",
+    "A2_K_CONTENT_CLOSURE_RECONFIRM",
+    "A2_P_R_E_MODULE_E2E"
+  ]
+}
