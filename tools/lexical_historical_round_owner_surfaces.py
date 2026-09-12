@@ -74,6 +74,8 @@ def parse_owner_group_expansion(body: str):
         m_declared = re.search(r"### Expansion Gate\s+—\s+(\d+)\s+target words", body, flags=re.I)
     base.EXPANSION_DECLARED_COUNT = int(m_declared.group(1)) if m_declared else None
     target_set = set(base.EXPANSION_OWNER_TARGETS)
+    start, end = triage.parse_round_range(body)
+    _by_ord, round_by_word, _by_id = triage.load_range_owners(start, end)
 
     surface_blob = m_surfaces.group(1).strip()
     if surface_blob.startswith("`") and surface_blob.endswith("`."):
@@ -117,14 +119,28 @@ def parse_owner_group_expansion(body: str):
             "noun/verb use pronunciation": ["use"],
         }
         if norm in special_owner_hints:
-            hints = [w for w in special_owner_hints[norm] if w in target_set]
+            hints = [w for w in special_owner_hints[norm] if w in round_by_word]
         elif "shipping/product-release" in norm:
-            hints = ["ship"] if "ship" in target_set else []
+            hints = ["ship"] if "ship" in round_by_word else []
         elif norm.startswith("select/elect"):
-            hints = ["select"] if "select" in target_set else []
+            hints = ["select"] if "select" in round_by_word else []
+
+        # Historical owner enumerations are coverage metadata, not semantic
+        # vetoes. If an explicitly approved learner surface names a valid Word
+        # owner inside the same round but that owner was omitted from the
+        # metadata list (R22: BrE dessert trifle), preserve the explicit surface.
+        if not hints:
+            round_candidates: list[tuple[int, str]] = []
+            for pos, token in enumerate(tokens):
+                for form in triage.possible_forms(token):
+                    if form in round_by_word:
+                        round_candidates.append((pos, form))
+            if round_candidates:
+                first_pos = min(pos for pos, _ in round_candidates)
+                hints = list(dict.fromkeys(word for pos, word in round_candidates if pos == first_pos))
 
         if not hints:
-            raise RuntimeError(f"cannot map named Expansion surface to owner target: {chunk}")
+            raise RuntimeError(f"cannot map named Expansion surface to any Current owner in round: {chunk}")
 
         base.EXPANSION_OWNER_HINTS[chunk] = hints
         rows.append({"index": i, "approved_target": chunk, "kind": "expansion"})
@@ -141,7 +157,6 @@ def parse_inline_contrast(body: str) -> list[dict] | None:
     if not m:
         return None
     blob = m.group(1).strip()
-    # Numbered lists remain owned by the existing parser.
     if re.search(r"^\s*\d+\.\s+", blob, flags=re.M):
         return None
     codes = [c.strip() for c in re.findall(r"`([^`]+)`", blob) if c.strip()]
