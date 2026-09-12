@@ -9,6 +9,7 @@ on:
       - 'content/lexical/words/by-ordinal/**'
       - 'content/lexical/relations/by-id/**'
       - 'tools/lexical_migration_integrity_readback.py'
+      - 'tools/lexical_migration_contrast_readback.py'
       - 'tools/lexical_migration_semantic_review_packet.py'
       - '.github/workflows/lexical-migration-integrity.yml'
   pull_request:
@@ -17,6 +18,7 @@ on:
       - 'content/lexical/words/by-ordinal/**'
       - 'content/lexical/relations/by-id/**'
       - 'tools/lexical_migration_integrity_readback.py'
+      - 'tools/lexical_migration_contrast_readback.py'
       - 'tools/lexical_migration_semantic_review_packet.py'
       - '.github/workflows/lexical-migration-integrity.yml'
   workflow_dispatch:
@@ -64,5 +66,39 @@ jobs:
             /tmp/r12-expansion-readback.json
             /tmp/r12-expansion-summary.md
             /tmp/r12-expansion-review-packet.json
+          if-no-files-found: error
+          retention-days: 14
+
+  r13-contrast-readback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bulk read R13 Contrast authority against Current Relation Owners
+        shell: bash
+        run: |
+          python tools/lexical_migration_contrast_readback.py \
+            content/lexical/audit/migration-integrity/r13-contrast-authority.json \
+            --output /tmp/r13-contrast-readback.json \
+            --summary /tmp/r13-contrast-summary.md
+
+      - name: Publish R13 Contrast review summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/r13-contrast-summary.md ]; then
+            cat /tmp/r13-contrast-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## R13 Contrast readback summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload R13 Contrast evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-r13-contrast-readback
+          path: |
+            /tmp/r13-contrast-readback.json
+            /tmp/r13-contrast-summary.md
           if-no-files-found: error
           retention-days: 14
