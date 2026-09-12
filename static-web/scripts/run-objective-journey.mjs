@@ -28,7 +28,23 @@ if (!source.includes(target)) {
   console.error('OBJECTIVE_ACCEPTANCE_INSTRUMENTATION_TARGET_MISSING');
   process.exit(1);
 }
-fs.writeFileSync(instrumentedPath, source.replace(target, replacement));
+
+let instrumented = source.replace(target, replacement);
+const batch = String(process.env.OBJECTIVE_JOURNEY_BATCH || 'all').trim().toLowerCase();
+if (batch === 'shared') {
+  const allJourneyTarget = [
+    '  await chromiumJourney();',
+    "  await readingAAndBSmoke(chromium, 'chromium-smoke');",
+    "  await readingAAndBSmoke(webkit, 'webkit');"
+  ].join('\n');
+  if (!instrumented.includes(allJourneyTarget)) {
+    console.error('OBJECTIVE_ACCEPTANCE_SHARED_BATCH_TARGET_MISSING');
+    process.exit(1);
+  }
+  instrumented = instrumented.replace(allJourneyTarget, '  await chromiumJourney();');
+}
+
+fs.writeFileSync(instrumentedPath, instrumented);
 
 const child = spawn(process.execPath, [instrumentedPath], {
   cwd: process.cwd(),
