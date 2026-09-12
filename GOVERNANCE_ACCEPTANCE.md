@@ -17,17 +17,14 @@ A1 Fresh Chat            PASS
 A2 Truth Separation      PASS
 A3 Parallel Chat         PASS
 A4 Owner Uniqueness      PASS
-A5 Three-month Entropy   BLOCKED_BY_EXECUTION_ENVIRONMENT
+A5 Three-month Entropy   PASS
 A6 Learning Closure      PASS
 
-MERGE TO MAIN            NOT_READY
+GOVERNANCE MERGE-READY   YES
+MERGE ACTION             AWAITS EXPLICIT USER AUTHORIZATION
 ```
 
-Current blocker to governance landing:
-
-> the minimal anti-entropy gate exists, but GitHub-hosted execution has twice failed before runner allocation (`steps=[]`), and the current container cannot resolve GitHub DNS for an exact local checkout. No lint assertion has executed yet.
-
-Do not convert this environment blocker into either PASS or a governance defect.
+This means the **top-level governance architecture is accepted as a landing candidate**. It does not mean any lane's unresolved learning/content/runtime work has been completed, and it does not create learner progress.
 
 ---
 
@@ -37,7 +34,7 @@ Requirement:
 
 > known scope → effective work in roughly 2–4 precise reads, without prior-chat recall or repository-wide archaeology.
 
-Current restart paths after migration:
+Accepted restart paths:
 
 | Known scope | Normal startup path | Reads before exact work |
 | --- | --- | ---: |
@@ -46,25 +43,16 @@ Current restart paths after migration:
 | English Translation | Translation `CURRENT` → Translation `ACCEPTANCE` → canonical learning / QA entry needed by audit | 3 |
 | Xizong A2 | Xizong `CURRENT` → Xizong `ACCEPTANCE` → A2 System → exact Block slice | 3–4 |
 | Lexical K reacceptance | Lexical `CURRENT` → Lexical `ACCEPTANCE` → current Issue #6 checkpoint → exact Natural/Relation owner | 4 |
-| Politics History | Politics `CURRENT` → Politics `ACCEPTANCE` → History content audit → exact review exception | 4 |
-| Politics Marxism seal | Politics `CURRENT` → Politics `ACCEPTANCE` → Politics QA / exact pending gate | 3 |
+| Politics History | Politics `CURRENT` → Politics `ACCEPTANCE` → History content / first-ready gate → exact failing owner only if needed | 3–4 |
+| Politics Marxism | Politics `CURRENT` → Politics `ACCEPTANCE` → current Politics QA / exact pending gate | 3 |
 
-The Lexical re-entry was explicitly reduced from five routine reads by making the knowledge-reacceptance README a method reference rather than a mandatory startup hop.
-
-Retired lane continuation narratives are not normal reads.
-
-Evidence owners:
-
-- `content/english/CURRENT.md` + sub-lane Currents;
-- `content/xizong/CURRENT.md`;
-- `content/lexical/CURRENT.md`;
-- `content/politics/CURRENT.md`.
+Retired continuation narratives are not normal reads.
 
 ---
 
 # A2｜Truth Separation Test — PASS
 
-Every migrated first-class lane now exposes four separate answers:
+Every migrated first-class lane exposes separate owners/boundaries for:
 
 ```text
 Artifact Truth   → real natural/canonical source/content/runtime owners
@@ -73,12 +61,12 @@ Learner Truth    → private learner/browser/conversation state only
 Work Cursor      → scoped CURRENT.md
 ```
 
-Concrete safeguards now present:
+Concrete safeguards include:
 
 - English Objective / Translation / Writing have independent `CURRENT + ACCEPTANCE` owners;
-- Xizong A1 `S–E PASS` explicitly cannot become “Kian should do System Recall”; A2 K is a worker acceptance task, not learner progress;
-- Lexical full-catalog runtime existence cannot outrun reopened `K BLOCKED` semantic fidelity;
-- Politics teaching-projection completeness cannot become whole-subject acceptance, and K03 acceptance cannot become learner progress;
+- Xizong A1 `S–E PASS` explicitly cannot become “Kian should do System Recall”;
+- Lexical runtime maturity cannot outrun reopened `K BLOCKED` semantic fidelity;
+- Politics implementation completeness cannot become whole-subject PASS, and K03 acceptance cannot become learner progress;
 - no-start CI is neither PASS nor product failure;
 - module-ready claims keep U separate from engineering acceptance.
 
@@ -88,144 +76,108 @@ No shared repository Work Cursor owns private learner progress.
 
 # A3｜Parallel Chat Test — PASS
 
-The redesign permits lane-local work and does not require root status writes for ordinary lane progress. A branch being behind `main` is not itself a defect.
+The redesign treats concurrent `main` movement as normal and reconciles only real authority/write-set overlap.
 
-## Real concurrency case exercised
+Two real concurrency rounds were exercised during this branch:
 
-While governance work continued, `main` advanced by 18 commits. The true main-side overlap was concentrated in Politics:
+1. `main` first advanced by 18 commits while governance work continued. Politics was the true overlap. Governance routing/owners were preserved, 13 exact newer Politics Artifact blobs were retained, and the old Politics continuation narrative was not restored. Merge commit: `2e4b7b978bc87a6514e472bed6684af73ba44909`.
+2. While the execution blocker was being resolved, `main` advanced again by 8 Politics History commits to `eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8`. The bounded reconciliation retained the newer History Source review, content/first-ready audits and runtime projection while preserving the governance `CURRENT / ACCEPTANCE` split and retired continuation boundary. Reconciliation commit: `dc86645ff1069d67027e9743680dac8226822032`.
 
-- Politics QA workflow;
-- Politics continuation;
-- Marxism/History audit and learning evidence;
-- Politics Unit Return runtime/evidence implementation.
-
-English / Xizong / Lexical were not in that latest-main overlap set.
-
-The conflict was reconciled without restarting the governance work:
-
-1. governance routing/owner tree remained the base;
-2. 13 exact Politics Artifact blobs from main commit `3409db7acfe74fdd8205927f6d39c285970811a7` were overlaid unchanged;
-3. `content/politics/continuation.json` was intentionally not restored because its latest current facts had already been extracted into `content/politics/CURRENT.md` and `content/politics/ACCEPTANCE.md`;
-4. merge commit `2e4b7b978bc87a6514e472bed6684af73ba44909` has both the governance head and latest-main head as parents.
-
-Post-reconciliation evidence:
+Post-second-reconciliation evidence:
 
 ```text
-governance branch vs main: ahead 46 / behind 0
+main reconciled at: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
+governance branch vs main: ahead 51 / behind 0
 PR #21 mergeable: true
 ```
 
-This demonstrates the intended rule:
-
-> unrelated main progress does not invalidate the whole branch; reconcile only actual overlapping owners/write-sets while preserving newer parallel Artifact work.
-
-A3 therefore passes.
+Therefore unrelated or bounded parallel progress does not force project-wide restart.
 
 ---
 
 # A4｜Owner Uniqueness Test — PASS
 
-Current owner model after migration:
+Current owner model:
 
 ## Root
 
-- project requirements → `PROJECT_DEFINITION.md`
+- requirements / invariants → `PROJECT_DEFINITION.md`
 - architecture → `ARCHITECTURE.md`
 - worker operating rules → `AGENTS.md`
-- governance acceptance evidence → `GOVERNANCE_ACCEPTANCE.md`
+- governance acceptance → `GOVERNANCE_ACCEPTANCE.md`
 - root Work Cursor → `CURRENT.md`
+- learning construction standard → `LEARNING_ASSET_STANDARD.md`
+- readiness standard → `LEARNING_ACCEPTANCE.md`
+- mature shared learner-surface capabilities → `SYSTEM_CONTRACT.md`
 
-## English
+## Lanes
 
-- lane Work Cursor → `content/english/CURRENT.md`
-- Objective / Translation / Writing Work Cursors → local `CURRENT.md`
-- corresponding readiness → local `ACCEPTANCE.md`
-- old English continuation → retired tombstone, `authority=NONE`, removed from manifest owner map
+- English lane + Objective / Translation / Writing → local `CURRENT + ACCEPTANCE` owners;
+- Xizong → `content/xizong/CURRENT.md` + `ACCEPTANCE.md`;
+- LexicalOS → `content/lexical/CURRENT.md` + `ACCEPTANCE.md`;
+- Politics → `content/politics/CURRENT.md` + `ACCEPTANCE.md`.
 
-## Xizong
-
-- Work Cursor → `content/xizong/CURRENT.md`
-- Acceptance Truth → `content/xizong/ACCEPTANCE.md`
-- old `learner/continuation.json` → retired tombstone
-- old mixed `learner/acceptance-status.json` → retired tombstone
-- medical Core / learning support remain in natural owners
-
-## LexicalOS
-
-- Work Cursor → `content/lexical/CURRENT.md`
-- Acceptance Truth → `content/lexical/ACCEPTANCE.md`
-- semantic owners → Natural Word / Relation owners
-- active K audit evidence → Issue #6 + knowledge-reacceptance audit tree
-- old continuation → retired tombstone and removed from manifest owner map
-
-## Politics
-
-- Work Cursor → `content/politics/CURRENT.md`
-- Acceptance Truth → `content/politics/ACCEPTANCE.md`
-- source/learning/runtime remain natural Artifact owners
-- old continuation → retired tombstone and removed from manifest owner map
-
-Retired compatibility paths are pointers only and are not competing owners.
+Retired compatibility paths are pointer/tombstone surfaces only and are not competing owners.
 
 ---
 
-# A5｜Three-month Entropy Test — BLOCKED_BY_EXECUTION_ENVIRONMENT
+# A5｜Three-month Entropy Test — PASS
 
-The structural redesign directly removes the observed entropy mechanisms:
+The redesign removes the observed entropy mechanisms:
 
-- 10–20 KB narrative continuation files are no longer startup authorities;
-- root Current no longer aggregates lane progress;
-- acceptance evidence no longer lives inside Work Cursor narratives;
-- learner state is explicitly separated from engineering Current;
+- narrative continuation files are no longer startup authorities;
+- root Current does not aggregate lane progress;
+- acceptance evidence is separate from Work Cursor;
+- learner state is separate from engineering state;
 - known scopes have bounded read paths;
-- rules inherit from root rather than being copied into each lane;
-- Git history preserves retired narrative without keeping it hot in normal reasoning.
+- rules inherit from root rather than being copied into every lane;
+- history remains recoverable without entering normal Current reasoning.
 
-## Minimal anti-entropy guard now implemented
+## Minimal anti-entropy guard
 
 - script → `tools/governance_current_audit.py`
 - workflow → `.github/workflows/governance-anti-entropy.yml`
 
-The guard deliberately checks only observed failure classes:
+It checks only the observed governance failure classes:
 
-1. required Current / Acceptance owners exist;
-2. Current files remain bounded and do not regain known narrative-status-log structures;
+1. expected Current / Acceptance owners exist;
+2. Current files remain bounded and do not regain narrative-status-log structures;
 3. retired continuation / legacy acceptance paths remain `RETIRED`, `authority=NONE`, `normal_read=false`;
-4. Current manifests do not point back to retired continuation / acceptance paths;
+4. manifests do not point back to retired continuation / acceptance owners;
 5. numbered Required-reads lists do not make continuation a mandatory hop.
 
 It does not inspect domain semantics or learner mastery.
 
-## Execution evidence
+## Executed evidence
 
-PR #21 head initially triggered Governance Anti-Entropy run `34678774566`.
+Earlier private-repository runs were blocked before runner allocation (`steps=[]`) because no hosted-runner entitlement remained. Those runs were correctly treated as no evidence rather than lint failure.
 
-First job:
-
-```text
-job 103513328146
-conclusion: failure
-steps: []
-logs: unavailable
-```
-
-One bounded rerun was requested. Rerun job:
+After hosted execution became available, PR #21 Governance Anti-Entropy run `34682747645` executed successfully. After reconciling the newer Politics History `main`, the gate was executed again on reconciled governance head `dc86645ff1069d67027e9743680dac8226822032`:
 
 ```text
-job 103513462017
-conclusion: failure
-steps: []
+run: 34687047450
+job: 103535741826
+conclusion: success
+checkout: success
+python setup: success
+governance audit: success
+cleanup: success
 ```
 
-No checkout, Python setup, or audit assertion executed in either attempt.
+Audit payload:
 
-A local exact-head fallback was also attempted, but the current container could not resolve `github.com`, so the branch could not be checked out for truthful local execution.
+```text
+schema: kianos.governance.current-audit.v1
+pass: true
+checks: 192
+current_files: 8
+acceptance_files: 7
+retired_paths: 5
+manifests: 4
+errors: []
+```
 
-Therefore:
-
-> **A5 is not a lint failure. A5 is also not PASS. It is blocked because no execution environment has actually run the gate.**
-
-Do not weaken the acceptance rule merely to finish governance.
+A5 therefore passes from real execution evidence.
 
 ---
 
@@ -237,30 +189,29 @@ Observed safeguards:
 
 - root `LEARNING_ASSET_STANDARD.md` still owns construction order;
 - root `LEARNING_ACCEPTANCE.md` still owns S/K/L/P/R/E/U semantics;
-- Translation refuses to promote rich implementation/validators into formal PASS without reacceptance;
-- Lexical downstream P/R/E are blocked by upstream K semantic-fidelity defects despite mature runtime Artifact;
-- Politics whole-subject gates remain UNTESTED despite complete teaching projection and implemented acceptance candidates;
-- Xizong A1 engineering acceptance preserves U as path-scoped UNTESTED;
-- English Objective distinguishes known shared-browser evidence from still-pending task-browser seal.
+- Translation does not promote validator existence into formal PASS;
+- Lexical downstream P/R/E remain bounded by upstream semantic fidelity;
+- Politics whole-subject Artifact candidates remain separate from executed gate claims and U;
+- Xizong A1 engineering acceptance keeps U separate from real learner use;
+- English Objective keeps task/browser acceptance separate from learner progress.
 
-Therefore governance routing did not convert engineering completion into learning closure.
+Therefore governance routing does not convert engineering completion into learning closure.
 
 ---
 
-# Merge rule
+# Landing rule
 
-PR #21 remains draft and mergeable, but **not merge-ready**.
+The governance redesign is **merge-ready as an architecture/governance change**.
 
-Required remaining evidence:
+Before the actual merge action:
 
 ```text
-an execution environment actually runs Governance Anti-Entropy
-→ audit assertions PASS
-→ reread exact governance owners at that head
-→ confirm A1–A6 still hold
-→ only then mark governance merge-ready
+confirm main has not moved into a real overlapping owner/write-set
+→ require Governance Anti-Entropy PASS on the exact landing head
+→ preserve all A1–A6 PASS
+→ merge only with explicit user authorization
 ```
 
-If `main` advances again before that point, repeat only the bounded overlap reconciliation required by changed owner/write-sets; do not restart unrelated lane governance.
+No lane content/runtime upgrade should be pulled into this governance landing merely because its local Current remains unresolved. After governance lands, lane upgrades proceed as separate bounded work from their own local `CURRENT` and earliest unresolved stage.
 
-`main@HEAD` remains the durable shared Current after accepted landing. This draft branch is an execution surface only.
+`main@HEAD` becomes the durable shared Current only after accepted landing. This branch remains an execution surface until then.

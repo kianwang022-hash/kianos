@@ -11,42 +11,65 @@
 ## Root Work Cursor
 
 **Active scope:** KianOS governance redesign  
-**Current stage:** final governance acceptance  
-**Blocker:** A5 anti-entropy gate has not executed because GitHub-hosted jobs fail before runner allocation (`steps=[]`); one bounded rerun produced the same no-start result, and exact local checkout is unavailable because the current container cannot resolve GitHub DNS  
-**Next action:** do not add more governance features. When an execution environment can actually run `.github/workflows/governance-anti-entropy.yml` / `tools/governance_current_audit.py`, require a real PASS, reread the exact governance owners at that head, then update `GOVERNANCE_ACCEPTANCE.md`. If `main` moves before then, reconcile only real owner/write-set overlap.
+**Current stage:** top-level governance landing readiness  
+**Blocker:** none inside the accepted governance design; Governance Anti-Entropy has executed successfully on the latest reconciled branch head  
+**Next action:** keep all lane-level content/runtime upgrades frozen on this branch. Confirm exact landing head still has no new overlapping `main` movement, require the governance gate to remain green after this final evidence writeback, then treat PR #21 as merge-ready. Actual merge to `main` still requires explicit user authorization.
 
-### Reconciliation state
-
-Latest-main concurrency debt is currently closed:
+### Current landing evidence
 
 ```text
-main reconciled at 3409db7acfe74fdd8205927f6d39c285970811a7
-governance merge commit 2e4b7b978bc87a6514e472bed6684af73ba44909
-branch vs main: ahead / behind = 46 / 0 at reconciliation
-PR #21: mergeable = true, draft = true
+latest reconciled main: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
+latest bounded reconciliation: dc86645ff1069d67027e9743680dac8226822032
+branch vs reconciled main: ahead 51 / behind 0 before final evidence writeback
+PR #21: mergeable = true
+Governance Anti-Entropy run: 34687047450
+Governance job: 103535741826
+result: PASS
+checks: 192
+errors: 0
 ```
 
-The reconciliation retained latest-main Politics Artifact changes while preserving the new Politics Current / Acceptance ownership and retired continuation boundary.
+The reconciliation retained newer Politics History Artifact work while preserving the governance Current / Acceptance ownership split and retired continuation boundary.
 
-### Completed migration boundary
+### Top-level completion boundary
 
-The governance redesign has migrated the normal Current / Acceptance ownership model for:
+This governance branch is responsible only for:
 
-- English Objective / Translation / Writing;
-- Xizong;
-- LexicalOS;
-- Politics.
+- Project Definition;
+- Architecture;
+- worker/routing rules;
+- Three Truths + One Cursor;
+- federated Current / Acceptance ownership;
+- continuation retirement boundaries;
+- concurrency / bounded reconciliation behavior;
+- minimal anti-entropy protection;
+- governance acceptance evidence.
 
-Narrative continuation files in those audited paths are retired from normal authority. This line is a migration boundary only, not a lane-progress summary.
+It is **not** the place to finish unresolved English / Xizong / Lexical / Politics learning-content/runtime work.
+
+### Post-landing sequence
+
+After the governance layer lands, lower-level upgrades should be handled as separate bounded scopes using the new hierarchy:
+
+```text
+known lane / sub-lane
+→ local CURRENT
+→ local ACCEPTANCE + exact Artifact owner(s)
+→ earliest unresolved construction / acceptance stage
+→ implement / accept / real learner use
+```
+
+Do not aggregate all lane upgrades into a second root mega-migration. Shared infrastructure is changed only when multiple lane-level needs prove a real common requirement.
 
 ### Frozen / out of scope for this root task
 
-- no new governance abstraction merely to bypass the execution blocker;
-- no learning-content/source semantic rewrite under governance authority;
+- no additional governance abstraction without a new root requirement;
+- no domain content/source semantic rewrite under governance authority;
 - no private learner-state mutation;
 - no broad lane feature work;
-- no reopening of accepted domain cognition merely to simplify governance;
-- no merge to `main` before `GOVERNANCE_ACCEPTANCE.md` is merge-ready on an actually executed anti-entropy gate.
+- no reopening accepted domain cognition merely to simplify governance;
+- no CI optimization project merely because public hosted runners are now available;
+- no merge to `main` before exact landing-head governance PASS and explicit merge authorization.
 
 ---
 
@@ -96,8 +119,6 @@ For any scope, keep separate:
 Hard rule:
 
 > **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; this Current cannot manufacture any of them.**
-
-The relevant local Current should point to their owners/boundaries when the active work needs them.
 
 ---
 
