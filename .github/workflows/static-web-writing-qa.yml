@@ -49,6 +49,10 @@ on:
       - 'static-web/scripts/*writing*.mjs'
       - '.github/workflows/static-web-writing-qa.yml'
 
+concurrency:
+  group: writing-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   writing-runtime-qa:
     runs-on: ubuntu-latest

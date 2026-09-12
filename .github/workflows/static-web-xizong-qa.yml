@@ -39,6 +39,10 @@ on:
       - 'static-web/scripts/*xizong*.mjs'
       - '.github/workflows/static-web-xizong-qa.yml'
 
+concurrency:
+  group: xizong-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   xizong-learning-qa:
     runs-on: ubuntu-latest

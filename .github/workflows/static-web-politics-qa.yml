@@ -37,6 +37,10 @@ on:
       - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-qa.yml'
 
+concurrency:
+  group: politics-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   politics-runtime-qa:
     runs-on: ubuntu-latest

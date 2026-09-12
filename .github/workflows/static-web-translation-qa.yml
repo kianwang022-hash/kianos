@@ -51,6 +51,10 @@ on:
       - 'static-web/scripts/*translation*.mjs'
       - '.github/workflows/static-web-translation-qa.yml'
 
+concurrency:
+  group: translation-qa-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   translation-runtime-qa:
     runs-on: ubuntu-latest
