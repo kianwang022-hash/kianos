@@ -2,7 +2,7 @@
   "schema": "kianos.politics.continuation.v1",
   "status": "CURRENT",
   "lane": "politics_content_to_interaction",
-  "mainline": "Content first. Chat absorbs Suyi framework value into a single Chengfeng-centered learning line, Xiao1000 verifies at formal first-ready timing, wrong/uncertain answers repair back to the smallest sufficient Chengfeng source, then later compression/Memory/Mock.",
+  "mainline": "Close Politics by subject. Keep Chengfeng as the only continuous first-round learner mainline, absorb useful Suyi delta without creating a second course, use Xiao1000 only at formal first-ready timing, and reuse the K03 zero-debt Repair/Return model where the subject evidence supports it.",
   "completed": [
     "Politics learning contract frozen",
     "Suyi downgraded from learner-required material to Chat background framework reference",
@@ -30,40 +30,27 @@
     "Formal continuous-coverage evidence separated K03 semantic ownership from learner first-ready timing: 11 questions are ready immediately after K03 and 4 are deferred to later sufficient Natural Units",
     "K03 learner projection now keeps Chengfeng continuous through K01 → K02 → K03, performs the 20-second K03 closure at the natural boundary, validates with exactly the 11 formal first-ready Xiao1000 questions, then continues S01 without duplication or premature later-unit testing",
     "K03 Runtime/Evidence now preserves all 11 real first attempts in a separate private attempt snapshot, emits Unit Return only when the current first-ready evidence is complete, and projects outcomes to N01-N04 as this-pass STABLE/UNCERTAIN/REPAIR without claiming long-term mastery",
-    "Stable correct K03 work remains zero durable review debt; Wrong/Uncertain alone continue into the daily Chat handoff, duplicate same-item submissions cannot overwrite first evidence, deferred questions cannot mutate the K03 snapshot, and private persistence failure fails closed before Unit Return advances"
+    "Stable correct K03 work remains zero durable review debt; Wrong/Uncertain alone continue into the daily Chat handoff, duplicate same-item submissions cannot overwrite first evidence, deferred questions cannot mutate the K03 snapshot, and private persistence failure fails closed before Unit Return advances",
+    "Marxism batch content audit added so remaining chapters can be screened in one pass for real Source/Knowledge exceptions instead of repeating K03-style manual archaeology"
   ],
-  "current_stage": "MODULE_READY_FOR_LEARNER_TEST",
-  "current_subject": "MARX_C02_K03_PILOT",
-  "acceptance_target": "Repository-root LEARNING_ACCEPTANCE.md has been applied literally to the K03 pilot. S/K/L/P/R/E pass on current main@HEAD, so the strongest truthful status is Module ready for learner test. U remains UNTESTED until the learner uses the real path; no CI/build/simulation result may substitute for U.",
-  "acceptance_gates": {
-    "S": {
-      "status": "PASS",
-      "reason": "K03 pilot has one authoritative frozen owner, stable source/question identities, explicit Current-vs-legacy semantics, lossless deterministic scoped source access, and a behavioral acceptance that loads the real K03 path with both large source monoliths unavailable. Residual OCR-review markers remain explicit; none blocks the critical K03 teaching facts."
-    },
-    "K": {
-      "status": "PASS",
-      "reason": "K03 has exactly four canonical learning nodes with source-backed teaching descendants covering identity/struggle and their relation, developmental roles, universality/specificity, and imbalance/method. The 15-question evidence projects onto these same owners; Repair remains adaptive rather than a second textbook, Memory remains candidate-only, and the K03 Suyi delta closes with zero mandatory new canonical teaching owners."
-    },
-    "L": {
-      "status": "PASS",
-      "reason": "Behavioral acceptance proves the actual first-learning path remains continuous and Chengfeng-centered through K01 → K02 → K03, then performs an immediate short K03 closure before validation. Exactly the 11 formally first-ready Xiao1000 questions enter there; the four owner questions that still depend on later learning are withheld until their formal sufficient Natural Units, so the path neither pre-tests nor delays K03 behind unrelated later content."
-    },
-    "P": {
-      "status": "PASS",
-      "reason": "Current learner projection exposes K03 as an embedded Natural Unit checkpoint inside S01 without changing canonical semantic ownership. The learner sees prerequisite source, K03 source, closure and the 11 ready questions at one natural point, then continues the remaining S01 content. Checkpoint questions do not duplicate later and deferred questions do not leak early."
-    },
-    "R": {
-      "status": "PASS",
-      "reason": "The executable path now supports continuous first learning, clean question attempts, zero-debt stable pass, Wrong/Uncertain smallest-source repair, return to the Unit Return, and continuation into the remaining S01. Unit Return waits for all 11 real first attempts; persistence failure fails closed instead of silently advancing evidence."
-    },
-    "E": {
-      "status": "PASS",
-      "reason": "A private kianos.politics.attempt_snapshot.v1 preserves each K03 first attempt exactly once and is distinct from durable Wrong/Uncertain review debt. The existing 15/15 semantic map projects the 11 currently first-ready attempts to four nodes, including M048 multi-node evidence; duplicate resubmission cannot rewrite first evidence, deferred questions are out of scope, stable means this-pass clean evidence only, mastery_claim remains NONE, and failed persistence cannot manufacture closure."
-    },
-    "U": {
-      "status": "UNTESTED",
-      "reason": "Architecture, dedicated S-E behavior audits and integration QA cannot substitute for real learner use. Record U separately for the real clean path and Wrong/Uncertain → repair → return path after the learner actually uses them."
-    }
+  "accepted_pilot": {
+    "module": "POL27-CF-MARX-C02-K03",
+    "status": "MODULE_READY_FOR_LEARNER_TEST",
+    "gates": {"S":"PASS","K":"PASS","L":"PASS","P":"PASS","R":"PASS","E":"PASS","U":"UNTESTED"},
+    "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Marxism."
+  },
+  "current_stage": "MARXISM_BATCH_CONTENT_ACCEPTANCE",
+  "current_subject": "MARXISM_REMAINING_CHAPTERS",
+  "acceptance_target": "Start with Source/Knowledge correction across Marxism ch00-ch08 excluding the already accepted K03 semantics. Use the batch audit to pass normal units by candidate, inspect only blockers/P0/P1 exceptions, absorb Suyi only where it adds stable learning value, and then batch-propagate formal first-ready/Repair/Return behavior. Do not rewrite already-good teaching projections merely for stylistic uniformity.",
+  "batch_acceptance": {
+    "scope": "MARXISM_CH00_TO_CH08_EXCEPT_ACCEPTED_K03",
+    "S": "IN_PROGRESS",
+    "K": "IN_PROGRESS",
+    "L": "NOT_YET_BATCH_ACCEPTED",
+    "P": "NOT_YET_BATCH_ACCEPTED",
+    "R": "COMMON_RUNTIME_EXISTS_NOT_YET_BATCH_ACCEPTED",
+    "E": "K03_MODEL_EXISTS_NOT_YET_BATCH_ACCEPTED",
+    "U": "NOT_REQUIRED_FOR_ENGINEERING_BATCH_PROGRESS"
   },
   "source_architecture_target": {
     "reference_pattern": "Follow the mature Xizong Question Truth pattern: immutable stable IDs, deterministic scoped shards, manifest/provenance separation, and no global repository search or full-bank scan for exact-ID consumption.",
@@ -71,24 +58,25 @@
     "migration_status": "CURRENT_RUNTIME_CUTOVER_COMPLETE_K03_BEHAVIORALLY_PROVEN",
     "resolved_debt": [
       "1172/1172 Xiao source records preserved, including material records, across 56 shards with canonical digest parity",
-      "19528/19528 source-node records preserved across 302 deterministic scoped shards with canonical digest parity",
+      "19528/19528 source-node records preserved across 302 shards with canonical digest parity",
       "Current Politics runtime resolves exact questions and source owners from scoped shards rather than scanning 5.97 MB / 21.4 MB monoliths",
       "question truth, semantic routing, explanations/provenance and private learner evidence remain distinct ownership layers"
     ],
-    "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision and is not required for K03 learner acceptance once normal runtime dependency is zero."
+    "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision."
   },
-  "next": "Stop speculative K03 engineering and run the real learner test. Enter Marxism C02 normally, learn through the K03 Natural Unit, perform the 20-second closure and the 11 first-ready Xiao1000 questions, then observe U separately for the stable clean path and any Wrong/Uncertain → smallest repair → Unit Return path. Revise K03 only from concrete learner friction or incorrect evidence behavior; do not expand features merely because more polish is imaginable.",
+  "next": "Run the Marxism batch content audit on current main. Treat missing canonical regions/source resolution/core learning questions/closure cues as blockers. Treat P0/P1 thin teaching, unresolved source-review roots and Suyi-bearing units as compact manual review candidates. Fix real content/source exceptions in meaningful batches, starting with the highest-priority Marxism exceptions. Once S/K are batch-closed, derive formal first-ready timing for the remaining Marxism units and reuse the K03 Runtime/Evidence model without hand-coding every unit.",
   "validation_focus": [
-    "U clean path: does continuous learning → 20-second closure → 11-question validation → Unit Return feel natural, and can stable work continue with zero manufactured debt?",
-    "U repair path: when a real Wrong/Uncertain occurs, is the smallest useful repair obvious and is return to the Unit Return/continuation natural?",
-    "Does learner-facing STABLE read as this-pass evidence rather than a claim of permanent mastery?",
-    "Does the learner naturally want to skip, expand or move any content at a different point than the current projection assumes?",
-    "Does any reference, answer or backend structure appear earlier than useful during real study?",
-    "Are shared Current engineering state and private learner state kept strictly separate during real use?"
+    "Across Marxism, which units have actual Source/Knowledge blockers versus merely not-yet-accepted status?",
+    "Do high-priority P0/P1 units teach the relation/mechanism/boundary they need, not just name the topic?",
+    "Where Suyi has useful delta, is it absorbed into one Chengfeng-centered course rather than exposed as a second course?",
+    "Are low-value Suyi restatements left in background instead of inflating canonical teaching?",
+    "Can formal first-ready timing be generated per Natural Unit without burning cross-unit questions early?",
+    "Can the K03 zero-debt first-attempt/Repair/Unit Return semantics be reused generically without inventing learner mastery?"
   ],
   "working_preferences": [
     "Content quality has priority over UI polish.",
     "Advance a meaningful batch before reporting; do not stop after every chapter unless a real semantic decision is needed.",
+    "Normal items should be batch-pass candidates; manually read only blockers and compact P0/P1 exception queues.",
     "Keep learner-facing explanation plain and concise; hide engineering detail unless requested.",
     "Backend content may be rich, but learner interaction must stay low-friction and high-quality.",
     "For small scoped tasks, retrieve and modify only the minimum authoritative evidence required; do not expand into repository-wide archaeology without a blocking reason."
@@ -102,6 +90,7 @@
     "Do not let Astro component convenience reshape canonical content semantics.",
     "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
     "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
-    "Do not call Politics learner-validated because CI/build is green, content exists, question coverage is complete or simulated paths pass; only real U can make that claim."
+    "Do not make K03 real-user U a prerequisite for engineering progress on other Marxism units.",
+    "Do not call the whole Marxism learner-ready merely because K03 passed or chapter projections exist."
   ]
 }
