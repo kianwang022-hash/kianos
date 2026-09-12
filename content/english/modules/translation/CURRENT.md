@@ -10,36 +10,55 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ## Work Cursor
 
 **Scope:** English Translation  
-**Active / earliest unresolved stage:** scoped Acceptance establishment — S/K/L/P/R/E formalization  
-**Blocker:** formal S/K/L/P/R/E acceptance has not yet been re-established from current Artifact evidence; implementation exists but must not be mistaken for PASS  
-**Next action:** run a bounded Translation acceptance audit from current Source + canonical learning owner + existing `qa:translation`; update `ACCEPTANCE.md` only from evidence.
+**Active / earliest unresolved gate:** `S — Source acceptance`  
+**Blocker:** formal Translation S acceptance has not yet been established from current scoped Source evidence; downstream K/L/P/R/E remain UNTESTED and are not parallel TODOs  
+**Next action:** run a bounded **S-only** Translation source-boundary audit from current manifest/question-bank/source scanner evidence; update `ACCEPTANCE.md` only from executed/audited evidence. If S passes, update this Work Cursor so K becomes the next active gate before any L/P/R/E work.
+
+---
+
+## Stage discipline
+
+```text
+S  UNTESTED  ← ACTIVE
+K  UNTESTED  ← downstream-frozen
+L  UNTESTED  ← downstream-frozen
+P  UNTESTED  ← downstream-frozen
+R  UNTESTED  ← downstream-frozen
+E  UNTESTED  ← downstream-frozen
+U  UNTESTED  ← real learner use only; not yet eligible
+```
+
+`UNTESTED` does not mean all gates should be audited together.
+
+The existing learning asset, runtime, projection and validators remain preserved Artifact/candidate evidence. They do not authorize leapfrogging S.
 
 ---
 
 ## Frozen / out of scope
 
-Until the acceptance audit finds a concrete defect:
+During S acceptance:
 
+- K/L/P/R/E remain downstream-frozen until their prerequisite gate becomes PASS;
 - do not redesign Translation learning cognition;
 - do not add new Translation features/taxonomy;
-- do not rewrite Source facts;
+- do not rewrite Source facts merely to satisfy a validator;
 - do not change Objective / Writing / other English sibling scopes;
 - do not infer or mutate Kian's Learner Truth;
 - do not convert validator existence into PASS claims.
 
-If acceptance discovers a real upstream defect, reopen only the earliest responsible stage under root `LEARNING_ASSET_STANDARD.md`.
+If S execution exposes a concrete Knowledge/Learning/implementation defect, record the exact evidence but keep the active gate at the earliest responsible dependency rather than repairing several layers at once.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active acceptance audit:
+For ordinary re-entry into active S acceptance:
 
 1. `content/english/modules/translation/ACCEPTANCE.md`
-2. `content/english/modules/translation/learning.md`
-3. `static-web/package.json` — only to resolve the existing `qa:translation` / `validate:translation` execution entry
+2. `content/english/manifest.json`
+3. exact Translation source/scanner owner required to establish the Source boundary
 
-Do **not** read validator/runtime implementation code up front. Read the exact failing validator/owner only if execution or the S/K/L audit exposes a concrete issue.
+Read `content/english/modules/translation/learning.md`, validator/runtime implementation, Projection or Evidence owners **only after S passes and the local Work Cursor advances**, or if S execution identifies a concrete defect requiring exact ownership tracing.
 
 English `continuation.json` is not required for normal Translation continuation.
 
@@ -58,6 +77,8 @@ English `continuation.json` is not required for normal Translation continuation.
 - Translation learner pages → `static-web/src/pages/translation*`
 - validators → `static-web/scripts/validate-translation-runtime.mjs`, `validate-translation-evidence-guard.mjs`
 
+These downstream owners are references, not startup reads while S is active.
+
 ### Acceptance Truth
 
 `content/english/modules/translation/ACCEPTANCE.md`
@@ -75,10 +96,12 @@ Known scope `English Translation` should normally recover as:
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ canonical learning owner / existing QA entry
-→ work
+→ exact Source owner(s)
+→ S only
 ```
 
-Implementation internals are diagnostic reads, not startup reads.
+When S becomes PASS, write the local durable transition first; the next fresh Chat should recover at K automatically.
+
+Implementation internals are diagnostic/later-stage reads, not startup reads for S.
 
 No English-wide continuation/history read is required unless a concrete machine dependency is later proven.
