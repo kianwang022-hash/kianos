@@ -34,11 +34,20 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
       </aside>
     </header>
 
+    <a class="englishResume" data-english-resume hidden href={`${base}english/`}>
+      <div>
+        <span>Resume</span>
+        <strong data-english-resume-title>Continue English</strong>
+        <p data-english-resume-meta>最近的真实学习动作</p>
+      </div>
+      <b>继续 →</b>
+    </a>
+
     <div class="englishHubLayout">
       <main class="englishCapabilityMap">
         <header>
           <div><span>Capability Map</span><strong>四条能力线</strong></div>
-          <p>不是四个长得一样的页面；每条线保留自己的认知对象和证据。</p>
+          <p>没有可继续状态，或你主动换能力时，再从这里进入。</p>
         </header>
 
         <a class="englishCapabilityRow" href={`${base}vocabulary/`}>
@@ -114,8 +123,88 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
   </section>
 </Base>
 
+<script>
+  const root = document.querySelector('[data-english-hub]');
+  if (root instanceof HTMLElement) {
+    const readJson = (key) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
+      catch { return null; }
+    };
+    const asTime = (value) => {
+      const time = Date.parse(String(value || ''));
+      return Number.isFinite(time) ? time : 0;
+    };
+    const entries = [];
+
+    const readingLast = readJson('kianos-reading-last-location-v1');
+    if (readingLast?.id && readingLast?.href) {
+      const attempt = readJson(`kianos-reading-attempt-v1:${readingLast.id}`);
+      entries.push({
+        lane: 'Reading A',
+        title: readingLast.title || readingLast.id,
+        href: readingLast.href,
+        time: asTime(readingLast.observed_at),
+        state: attempt?.submitted ? '已提交 · 可继续 review / next' : 'Clean Attempt'
+      });
+    }
+
+    const translationLast = readJson('kianos-translation-last-location-v1');
+    if (translationLast?.id && translationLast?.href) {
+      const attempt = readJson(`kianos-translation-attempt-v2:${translationLast.id}`);
+      const stage = ({
+        attempt: 'Clean Attempt',
+        decision: 'PASS / Review',
+        diagnosis: 'Review needed',
+        reconstruct: 'Reconstruction',
+        passed: 'PASS',
+        repaired: 'Repair Complete',
+        transfer_pending: 'Fresh validation pending'
+      })[attempt?.stage] || 'Continue';
+      entries.push({
+        lane: 'Translation',
+        title: translationLast.title || translationLast.id,
+        href: translationLast.href,
+        time: asTime(translationLast.updatedAt),
+        state: stage
+      });
+    }
+
+    const writingLast = readJson('kianos-writing-last-location-v1');
+    if (writingLast?.id && writingLast?.href) {
+      const state = ({
+        ATTEMPT: 'Clean Attempt',
+        REVIEW_PENDING: 'Review needed',
+        PASS_ACCEPTABLE: 'PASS',
+        REPAIR_NEEDED: 'Smallest Repair',
+        REPAIR_CHECK_PENDING: 'Repair Check',
+        REPAIR_COMPLETE: 'Repair Complete',
+        TRANSFER_PENDING: 'Fresh validation pending'
+      })[writingLast.state] || 'Continue';
+      entries.push({
+        lane: 'Writing',
+        title: writingLast.title || writingLast.id,
+        href: writingLast.href,
+        time: asTime(writingLast.updatedAt),
+        state
+      });
+    }
+
+    const latest = entries.sort((a, b) => b.time - a.time)[0];
+    const resume = root.querySelector('[data-english-resume]');
+    if (latest && resume instanceof HTMLAnchorElement) {
+      resume.hidden = false;
+      resume.href = latest.href;
+      const title = root.querySelector('[data-english-resume-title]');
+      const meta = root.querySelector('[data-english-resume-meta]');
+      if (title) title.textContent = latest.title;
+      if (meta) meta.textContent = `${latest.lane} · ${latest.state}`;
+    }
+  }
+</script>
+
 <style>
-  .englishHub{max-width:80rem;margin:0 auto;display:grid;gap:12px}.englishOverview{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,.48fr);gap:22px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishOverview>div>span,.englishCapabilityMap header span,.englishCapabilityCopy>span,.englishContextRail section>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.englishOverview h2{margin:5px 0 7px;font-size:24px;line-height:1.22;letter-spacing:-.025em}.englishOverview p{max-width:72ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.65}.englishOverview aside{display:grid;gap:3px;padding-left:18px;border-left:1px solid var(--study-line)}.englishOverview aside strong{font-size:11px;line-height:1.45;color:#29483f}.englishOverview aside span{font-size:9px;color:var(--study-faint)}
+  .englishHub{max-width:80rem;margin:0 auto;display:grid;gap:12px}.englishOverview{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,.48fr);gap:22px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishOverview>div>span,.englishCapabilityMap header span,.englishCapabilityCopy>span,.englishContextRail section>span,.englishResume span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.englishOverview h2{margin:5px 0 7px;font-size:24px;line-height:1.22;letter-spacing:-.025em}.englishOverview p{max-width:72ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.65}.englishOverview aside{display:grid;gap:3px;padding-left:18px;border-left:1px solid var(--study-line)}.englishOverview aside strong{font-size:11px;line-height:1.45;color:#29483f}.englishOverview aside span{font-size:9px;color:var(--study-faint)}
+  .englishResume{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px;border:1px solid #bdd8c8;border-radius:12px;background:var(--study-green-soft);color:inherit;text-decoration:none}.englishResume[hidden]{display:none}.englishResume>div{display:grid;gap:2px}.englishResume strong{font-size:15px;line-height:1.35}.englishResume p{margin:0;color:var(--study-muted);font-size:10px}.englishResume>b{color:var(--study-green);font-size:11px;white-space:nowrap}
   .englishHubLayout{display:grid;grid-template-columns:minmax(0,1fr) 17rem;gap:12px;align-items:start}.englishCapabilityMap{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishCapabilityMap>header{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:16px 18px;border-bottom:1px solid var(--study-line);background:#fafbfa}.englishCapabilityMap>header>div{display:grid;gap:2px}.englishCapabilityMap>header strong{font-size:15px}.englishCapabilityMap>header p{max-width:32rem;margin:0;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}
   .englishCapabilityRow{display:grid;grid-template-columns:42px minmax(0,1fr) 12rem;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}.englishCapabilityRow:last-child{border-bottom:0}.englishCapabilityRow:hover{background:#fbfdfc}.englishCapabilityIndex{font:700 12px/1 var(--study-mono);color:#91a099}.englishCapabilityCopy{min-width:0;display:grid;gap:4px}.englishCapabilityCopy strong{font-size:16px;line-height:1.35;letter-spacing:-.015em}.englishCapabilityCopy p{max-width:70ch;margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.englishCapabilityAction{display:grid;gap:5px;justify-items:end;text-align:right}.englishCapabilityAction small{color:var(--study-faint);font-size:9px}.englishCapabilityAction b,.englishCapabilityAction>a{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.englishTrainerLinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}.englishTrainerLinks a{padding:5px 8px;border:1px solid #d3dfda;border-radius:999px;background:#fbfdfc;color:#2e6254;font-size:9px;font-weight:800;text-decoration:none}.readingRow{cursor:default}
   .englishContextRail{display:grid;gap:10px}.englishContextRail section{display:grid;gap:7px;padding:14px 15px;border:1px solid var(--study-line);border-radius:13px;background:#fff}.englishContextRail section>strong{font-size:13px;line-height:1.4}.englishContextRail section>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.englishContextRail nav{display:grid;gap:5px}.englishContextRail nav a{display:grid;gap:1px;padding:8px 9px;border-radius:9px;background:#f7f9f8;color:inherit;text-decoration:none}.englishContextRail nav a:hover{background:var(--study-green-soft)}.englishContextRail nav b{font-size:10px}.englishContextRail nav small{color:var(--study-muted);font-size:9px}.englishFreshRule{background:#fbfdfc!important}
