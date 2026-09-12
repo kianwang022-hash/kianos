@@ -8,6 +8,7 @@ import {
 
 const issues = [];
 const guard = fs.readFileSync(new URL('../src/components/TranslationEvidenceGuard.astro', import.meta.url), 'utf8');
+const persistenceGuard = fs.readFileSync(new URL('../src/components/TranslationPersistenceGuard.astro', import.meta.url), 'utf8');
 const taskPage = fs.readFileSync(new URL('../src/pages/translation/[id].astro', import.meta.url), 'utf8');
 
 function check(condition, message) {
@@ -20,6 +21,11 @@ check(guard.includes('dataset.reopenReview'), 'PASS view must create an explicit
 check(guard.includes("root.querySelector('[data-route-review]')"), 'reopen-review must route through canonical Review action');
 check(taskPage.includes('TranslationEvidenceGuard'), 'task page must attach TranslationEvidenceGuard');
 
+check(persistenceGuard.includes('localStorage.setItem(probeKey'), 'task runtime must actively probe private persistence before a formal attempt is locked');
+check(persistenceGuard.includes('freeze.disabled = true'), 'unavailable persistence must fail closed by disabling first-attempt lock');
+check(persistenceGuard.includes('刷新 / 离开会丢失 Attempt'), 'persistence failure must be visible to learner instead of silently losing evidence');
+check(taskPage.includes('TranslationPersistenceGuard'), 'task page must attach TranslationPersistenceGuard');
+
 const prompts = [{ id: 's1', ordinal: 1, sourceText: 'Fresh source.' }];
 let state = blankTranslationState(prompts);
 state.drafts.s1 = '干净第一版';
@@ -31,7 +37,7 @@ state = routeAttemptToReview(state);
 check(state.stage === 'diagnosis' && state.decision === 'REPAIR_NEEDED', 'PASS must remain recoverable into Review if later evidence reveals a real issue');
 
 console.log(JSON.stringify({
-  guardChecks: 8,
+  guardChecks: 12,
   issueCount: issues.length
 }, null, 2));
 
