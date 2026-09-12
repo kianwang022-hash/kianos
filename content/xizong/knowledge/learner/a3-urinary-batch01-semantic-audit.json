@@ -1,0 +1,78 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "IN_PROGRESS",
+  "authority": "CHAT_REVIEWED_WITH_EXTERNAL_MEDICAL_ADJUDICATION",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-01",
+  "scope": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
+  "rule": "Historical Study-bound content is useful substrate but is not automatically Current medical truth. Only named conflicts/gaps are changed; stable source-aligned Core is preserved. External references adjudicate conflicts and do not authorize encyclopedic expansion beyond the exam-learning owner.",
+  "findings": [
+    {
+      "id": "A3-B01-KG01",
+      "block_id": "urinary-b01",
+      "kp_id": "urinary-b01-kp12",
+      "type": "MISSING_STABLE_MECHANISM_HALF",
+      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
+      "historical_state": "The historical TGF section teaches the low distal NaCl -> renin/AngII preservation side in detail, but does not explicitly close the reciprocal high distal NaCl -> afferent constriction -> lower single-nephron GFR feedback side; searches for high-NaCl direction in the canonical historical Block returned no match.",
+      "adjudication": "Current B1 must teach TGF as a two-direction negative-feedback loop. Increased NaCl delivery at the macula densa increases afferent arteriolar resistance and reduces single-nephron GFR, with renin suppressed; decreased NaCl delivery relaxes the afferent response and stimulates renin release through macula-densa/JGA signaling. The renin/AngII axis is related but must not replace the acute afferent TGF mechanism.",
+      "learning_boundary": "Do not expand into full purinergic/prostaglandin signaling in first pass. The stable first-pass model is sensor -> afferent tone/GFR plus low-NaCl renin handoff.",
+      "sources": [
+        {"title": "Macula Densa Sensing and Signaling Mechanisms of Renin Release", "source": "PMC4577295", "support": "Names high distal NaCl-induced afferent vasoconstriction as TGF and low NaCl-induced renin release as two major JGA functions."},
+        {"title": "Renal blood flow and oxygenation", "source": "PMC9338895", "support": "States high macula-densa NaCl triggers afferent contraction and reduced filtration, while low NaCl leads to afferent dilation."}
+      ],
+      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B02-SC01",
+      "block_id": "urinary-b02",
+      "kp_id": "urinary-b02-kp02",
+      "type": "SOURCE_CLASSIFICATION_CONFLICT",
+      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
+      "historical_state": "The historical Block explicitly preserves a Study placement of nephrin reduction inside an electrostatic/charge-barrier explanation rather than adjudicating the molecular role.",
+      "adjudication": "Nephrin is learner-canonical as a core structural/signaling component of the podocyte slit diaphragm whose disruption impairs glomerular permselectivity/protein restriction. Do not teach nephrin loss itself as the mechanism of losing a negative charge barrier. The exam-source size/charge-selectivity model may remain, but the anatomic/molecular basis of charge selectivity is more nuanced and is not reduced to nephrin or a single GBM charge layer.",
+      "learning_boundary": "First pass keeps three layers + size/selectivity + classical charge-selectivity language needed for the exam, but uses nephrin only on the slit-diaphragm structural axis. No modern filtration-barrier literature review belongs in the learner Core.",
+      "sources": [
+        {"title": "Nephrin--a unique structural and signaling protein of the kidney filter", "pmid": "17766183", "doi": "10.1016/j.molmed.2007.06.006", "support": "Nephrin is a central slit-diaphragm component forming part of a porous molecular sieve."},
+        {"title": "Molecular basis of glomerular permselectivity", "pmid": "11458036", "support": "Describes nephrin/slit diaphragm as central to size-selective filtration."},
+        {"title": "Revisiting the glomerular charge barrier in the molecular era", "pmid": "18660676", "doi": "10.1097/MNH.0b013e32830464de", "support": "Supports that charge-selectivity biology is not adequately represented by a simplistic single-layer negative-charge account."}
+      ],
+      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B03-SC01",
+      "block_id": "urinary-b03",
+      "kp_id": "urinary-b03-kp14",
+      "type": "PRECISION_MECHANISM_WORDING",
+      "severity": "NON_STRUCTURAL_K_REPAIR",
+      "historical_state": "The historical special case explains transfusion-associated hyperkalemia primarily as red-cell destruction releasing potassium and pairs it with citrate-derived bicarbonate/alkalosis.",
+      "adjudication": "For Current wording, stored RBC products accumulate extracellular potassium during storage because potassium leaks from RBCs and cellular pump/reuptake is impaired; rapid/high-volume infusion, especially of older units, can therefore cause hyperkalemia. Citrate can be metabolized by the liver to bicarbonate and contribute to metabolic alkalosis when citrate metabolism is intact. Hemolysis may add potassium in some settings but should not be the default storage-lesion explanation.",
+      "learning_boundary": "This remains a low-frequency precision/special case under the K-H mechanism; it must not interrupt the normal principal/intercalated-cell chain.",
+      "sources": [
+        {"title": "Massive Transfusion", "source": "NCBI Bookshelf NBK499929", "support": "Notes elevated extracellular potassium in stored RBC units and hyperkalemia risk with rapid/high-volume older blood."},
+        {"title": "Red Blood Cell Transfusion Risks in Patients with End-Stage Renal Disease", "source": "PMC3676886", "support": "Describes storage-related potassium leakage into supernatant and citrate metabolism to bicarbonate."}
+      ],
+      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B03-CHECK01",
+      "block_id": "urinary-b03",
+      "kp_id": "urinary-b03-kp14",
+      "type": "MECHANISM_CONFIRMED",
+      "severity": "NONE",
+      "historical_state": "Low magnesium is used to explain refractory hypokalemia through loss of magnesium-mediated ROMK inhibition.",
+      "adjudication": "Preserve. Reduced intracellular magnesium relieves inhibition of ROMK and increases distal potassium secretion; concurrent distal sodium delivery/aldosterone context can amplify potassium wasting.",
+      "sources": [
+        {"title": "Mechanism of hypokalemia in magnesium deficiency", "pmid": "17804670", "doi": "10.1681/ASN.2007070792", "support": "Direct review of magnesium-mediated ROMK inhibition and potassium wasting."}
+      ],
+      "status": "PRESERVE"
+    }
+  ],
+  "block_status": {
+    "urinary-b01": "BLOCKED_PENDING_B01_KG01_AND_FIRST_PASS_RECONSTRUCTION",
+    "urinary-b02": "BLOCKED_PENDING_B02_SC01_AND_FIRST_PASS_RECONSTRUCTION",
+    "urinary-b03": "PROMISING_NOT_ACCEPTED; SC01 wording repair + remaining full-line audit",
+    "urinary-b04": "PROMISING_NOT_ACCEPTED; remaining full-line semantic/source audit"
+  },
+  "batch_status": "NOT_PASSED",
+  "next": "Apply the three named canonical repairs narrowly, then finish B3/B4 full-line audit and verify that the proposed Logic Groups are lossless in canonical KP order before Batch-01 acceptance."
+}
