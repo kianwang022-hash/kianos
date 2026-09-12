@@ -152,7 +152,8 @@
       const stop = ensureStopButton();
       if (stop) {
         stop.hidden = !(session.active && session.items.length > 0 && !state.submitted);
-        stop.textContent = session.reviewIds.length ? '结束并复盘' : '结束连续练';
+        const label = session.reviewIds.length ? '结束并复盘' : '结束连续练';
+        if (stop.textContent !== label) stop.textContent = label;
       }
     };
 
