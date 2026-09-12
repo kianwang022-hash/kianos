@@ -12,7 +12,7 @@
     "validate:writing-source": "node scripts/validate-writing-source.mjs",
     "validate:writing-learning": "node scripts/validate-writing-learning.mjs",
     "validate:writing-runtime": "node scripts/validate-writing-runtime.mjs",
-    "validate:writing": "npm run validate:writing-source && npm run validate:writing-learning && npm run validate:writing-runtime",
+    "validate:writing": "npm run validate:writing-source && npm run validate:writing-learning && npm run validate:writing-runtime && node scripts/validate-writing-exam-runtime.mjs",
     "validate:politics": "node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs",
     "validate:xizong": "node scripts/validate-xizong-learning.mjs",
     "qa:objective": "npm run validate:objective && npm run build",
