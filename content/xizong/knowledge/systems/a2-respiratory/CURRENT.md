@@ -10,35 +10,53 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A2 Respiratory  
-**Active / earliest unresolved stage:** `E — private Evidence persistence / closure acceptance`  
-**Blocker:** no accepted S/K/L/P/R blocker remains. E has not yet been accepted for the meaning, persistence and closure of learner evidence across Recall, Memory, Chat repair, System questions and post-question reconstruction.  
-**Next action:** perform a bounded A2 E audit. Verify that first Recall is preserved, weak evidence enters only appropriate Memory/Review, repair evidence does not become mastery, stable work can leave the weak queue, W/U remains question evidence until meaningful repair/reconstruction, post-question System Recall is distinguishable enough to support closure, private state survives ordinary return without becoming shared Current truth, and malformed/stale evidence fails safely. Do not promote U while E is unresolved.
+**Active / earliest unresolved stage:** `U — real learner validation; awaiting actual learner use`  
+**Blocker:** U cannot be advanced synthetically. Kian has not started Respiratory in real learner state, so no U path may be claimed.  
+**Next action:** no further engineering acceptance action is required for A2. When Kian actually starts Respiratory, collect only path-scoped real-use evidence from the journey he genuinely performs. Do not trigger System Recall, System Exit or any test merely because the module is ready.
+
+Current allowed product conclusion:
+
+> **Module ready for learner test.**
+
+Not allowed:
+
+> learner-validated / Respiratory learned / System Recall due now / questions due now.
 
 ---
 
 ## Frozen / out of scope
 
-During A2 E work:
+While A2 awaits real learner use:
 
-- S, K, L, P and R remain frozen unless concrete new evidence reopens the responsible upstream gate;
-- do not rebuild or reinterpret the 359-question System scope;
-- do not infer Question→Block/KP mappings without reviewed authority;
-- do not redesign the accepted first-learning path for evidence convenience;
+- S, K, L, P, R and E remain frozen unless concrete new source, content, runtime or learner evidence reopens the smallest responsible gate;
+- do not create synthetic U evidence;
 - do not manufacture private learner Recall, Wrong/Uncertain, holdout, notes, review state or mastery;
-- do not modify A1 or unrelated sibling Systems by convenience;
-- U remains real-use-only and cannot be inferred from synthetic evidence acceptance.
+- do not start a learner test as an engineering acceptance ritual;
+- do not modify A1 or unrelated sibling Systems by convenience.
+
+---
+
+## U paths currently awaiting real evidence
+
+All remain `UNTESTED` until Kian actually uses them:
+
+- System orientation → first Block → first-learning flow;
+- weak KP Recall → Memory / Chat repair → natural return;
+- completed System → System Recall → learner-selected holdout → official question sweep → W/U repair → post-question Recall;
+- sustained multi-session Continue / return behavior.
+
+Passing one path later must not silently promote the others.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active A2 E audit:
+For ordinary re-entry while A2 is awaiting U:
 
 1. `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md`
-2. exact Xizong evidence owner(s) under `static-web/` for the evidence path under audit
-3. `content/xizong/knowledge/learner/study-policy.json` only when exact Memory / question / closure semantics are needed
+2. actual current-conversation/private learner evidence only when Kian has genuinely started or used a named path
 
-Do not reopen medical Core or broad lane history unless Evidence audit reveals a concrete upstream defect.
+Do not reopen runtime, medical Core, broad lane history, retired continuation files or unrelated Systems without concrete evidence requiring it.
 
 ---
 
@@ -66,13 +84,13 @@ Private learner/browser/conversation evidence only. Shared Artifact / Acceptance
 
 ## Fresh-Chat target
 
-Known scope `Xizong A2` should normally recover as:
+Known scope `Xizong A2` now recovers as:
 
 ```text
 A2 CURRENT
 → A2 ACCEPTANCE
-→ exact evidence owner(s) required by E
-→ work
+→ if real learner evidence exists, inspect only that named U path
+→ otherwise stop; A2 is already module-ready
 ```
 
 No parent-lane Acceptance, retired continuation/history, unrelated System, legacy repository, or prior Chat is required for ordinary A2 continuation.
