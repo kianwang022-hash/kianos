@@ -19,19 +19,18 @@
     "Generic chapter runtime added: orientation → Chengfeng source → short closure → Xiao1000 → minimal repair → chapter compression",
     "KianOS shared-lane Continue capability added to Politics: last opened chapter stays private in browser state and Politics home resumes it without writing personal progress into shared Current",
     "Politics daily Return/Handoff added: only Xiao1000 WRONG/UNCERTAIN evidence is captured by default, stable correct answers remain zero-debt fast pass, and Politics home exports kianos.politics.return_packet.v1 for Chat",
-    "Marxism K03 frozen pilot authoritative 15-question ownership revalidated",
-    "Marxism K03 15/15 question-to-node evidence completed as 16 node edges across N01-N04, with X1000-MARX-M-048 as the only multi-node question",
+    "Marxism K03 pilot accepted at S/K/L/P/R/E PASS with U UNTESTED",
     "Politics Xiao1000 source truth losslessly materialized as 1172 records across 56 deterministic shards with canonical digest parity",
     "Politics source-node truth losslessly materialized as 19528 records across 302 deterministic scoped shards with canonical digest parity",
     "Politics Current runtime cut over to deterministic scoped question/node readers; the 5.97 MB Xiao bank and 21.4 MB node registry are no longer normal runtime dependencies",
-    "Scoped-source acceptance proved Marxism ch02/K03 still resolves all 15 K03 questions and Chengfeng C02 source nodes while both source monoliths are physically unavailable",
-    "K03 Knowledge closure audit proved the four canonical nodes, critical source relations, 15/15 question projection, adaptive Repair boundary and candidate-only Memory boundary",
-    "K03 Suyi delta audit closed with zero mandatory new teaching owners; useful Suyi boundaries remain support/Repair and cross-unit content is not inflated into K03",
-    "Formal continuous-coverage evidence separated K03 semantic ownership from learner first-ready timing: 11 questions are ready immediately after K03 and 4 are deferred to later sufficient Natural Units",
-    "K03 learner projection now keeps Chengfeng continuous through K01 → K02 → K03, performs the 20-second K03 closure at the natural boundary, validates with exactly the 11 formal first-ready Xiao1000 questions, then continues S01 without duplication or premature later-unit testing",
-    "K03 Runtime/Evidence now preserves all 11 real first attempts in a separate private attempt snapshot, emits Unit Return only when the current first-ready evidence is complete, and projects outcomes to N01-N04 as this-pass STABLE/UNCERTAIN/REPAIR without claiming long-term mastery",
-    "Stable correct K03 work remains zero durable review debt; Wrong/Uncertain alone continue into the daily Chat handoff, duplicate same-item submissions cannot overwrite first evidence, deferred questions cannot mutate the K03 snapshot, and private persistence failure fails closed before Unit Return advances",
-    "Marxism batch content audit added so remaining chapters can be screened in one pass for real Source/Knowledge exceptions instead of repeating K03-style manual archaeology"
+    "K03 formal first-ready timing separated 11 immediate questions from 4 deferred questions, then closed zero-debt first-attempt/Repair/Unit Return semantics",
+    "Marxism batch content audit added so normal units can batch-pass candidate screening and only real blockers/P0/P1 exceptions require manual reading",
+    "Marxism ch00-ch08 canonical semantic requirements manually compared against Current teaching projections; no broad rewrite was needed",
+    "C01-S01 genuine P0 Knowledge gap repaired: dialectics vs metaphysics restored as the third judgment axis beside materialism/idealism and knowability",
+    "C06-S01 genuine P0 Knowledge gap repaired: monopoly profit restored as a mechanism linking monopoly position, surplus-value source, monopoly-price realization and the continuing validity of the law of value",
+    "C03/C04/C05/C07/C08 and the non-K03 C02 semantic mainline showed no same-level missing relation/boundary in this pass and were left unchanged rather than stylistically rewritten",
+    "Marxism global formal-first-ready derivation added from Current Natural Unit order plus canonical region question ownership, eliminating chapter-local early leakage as the intended Current runtime rule",
+    "Marxism first-ready acceptance gate added against the frozen formal projection: 22 Natural Units, 396 unique questions, exact per-unit counts, exact K03 11-question set and named cross-unit/cross-chapter deferrals"
   ],
   "accepted_pilot": {
     "module": "POL27-CF-MARX-C02-K03",
@@ -39,17 +38,17 @@
     "gates": {"S":"PASS","K":"PASS","L":"PASS","P":"PASS","R":"PASS","E":"PASS","U":"UNTESTED"},
     "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Marxism."
   },
-  "current_stage": "MARXISM_BATCH_CONTENT_ACCEPTANCE",
-  "current_subject": "MARXISM_REMAINING_CHAPTERS",
-  "acceptance_target": "Start with Source/Knowledge correction across Marxism ch00-ch08 excluding the already accepted K03 semantics. Use the batch audit to pass normal units by candidate, inspect only blockers/P0/P1 exceptions, absorb Suyi only where it adds stable learning value, and then batch-propagate formal first-ready/Repair/Return behavior. Do not rewrite already-good teaching projections merely for stylistic uniformity.",
+  "current_stage": "MARXISM_BATCH_ACCEPTANCE",
+  "current_subject": "MARXISM_ALL_CHAPTERS",
+  "acceptance_target": "Close Marxism as the first whole Politics subject. Existing teaching assets are the baseline, not a rewrite target. Accept Source/Knowledge only after the named OCR/Suyi exception debt is checked and the batch gate actually executes; accept Learning/Projection only after the 22-unit/396-question global first-ready parity gate executes on current main. Then generalize the K03 Runtime/Evidence contract without hand-coding every unit.",
   "batch_acceptance": {
-    "scope": "MARXISM_CH00_TO_CH08_EXCEPT_ACCEPTED_K03",
-    "S": "IN_PROGRESS",
-    "K": "IN_PROGRESS",
-    "L": "NOT_YET_BATCH_ACCEPTED",
-    "P": "NOT_YET_BATCH_ACCEPTED",
-    "R": "COMMON_RUNTIME_EXISTS_NOT_YET_BATCH_ACCEPTED",
-    "E": "K03_MODEL_EXISTS_NOT_YET_BATCH_ACCEPTED",
+    "scope": "MARXISM_CH00_TO_CH08_WITH_K03_ACCEPTED_PILOT",
+    "S": "IN_PROGRESS_NAMED_SOURCE_REVIEW_DEBT_REMAINS",
+    "K": "MANUAL_SEMANTIC_SCAN_COMPLETE_TWO_GAPS_FIXED_AUTOMATED_GATE_PENDING",
+    "L": "GLOBAL_FIRST_READY_RULE_IMPLEMENTED_PARITY_GATE_PENDING",
+    "P": "GLOBAL_FIRST_READY_RUNTIME_CUTOVER_IMPLEMENTED_PARITY_GATE_PENDING",
+    "R": "COMMON_RUNTIME_EXISTS_NOT_YET_WHOLE_SUBJECT_ACCEPTED",
+    "E": "K03_MODEL_EXISTS_NOT_YET_WHOLE_SUBJECT_ACCEPTED",
     "U": "NOT_REQUIRED_FOR_ENGINEERING_BATCH_PROGRESS"
   },
   "source_architecture_target": {
@@ -64,13 +63,13 @@
     ],
     "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision."
   },
-  "next": "Run the Marxism batch content audit on current main. Treat missing canonical regions/source resolution/core learning questions/closure cues as blockers. Treat P0/P1 thin teaching, unresolved source-review roots and Suyi-bearing units as compact manual review candidates. Fix real content/source exceptions in meaningful batches, starting with the highest-priority Marxism exceptions. Once S/K are batch-closed, derive formal first-ready timing for the remaining Marxism units and reuse the K03 Runtime/Evidence model without hand-coding every unit.",
+  "current_blocking_infrastructure_note": "Recent Static Web Politics QA runs are failing before runner allocation with steps=[] and runner_id=0. Treat this as CI infrastructure/no-start, not as a Politics acceptance result. Do not mark pending gates PASS until their dedicated steps actually execute.",
+  "next": "Continue without repository archaeology: inspect only remaining named P0/P1 Suyi/source-review exceptions while waiting for a runnable CI slot. When CI executes, require both Marxism batch content audit and Marxism global first-ready parity to pass. Then extend K03 private first-attempt → zero-debt stable / Wrong-Uncertain repair → Unit Return semantics across the 22 Marxism Natural Units using generated ownership rather than per-unit hard-coding.",
   "validation_focus": [
-    "Across Marxism, which units have actual Source/Knowledge blockers versus merely not-yet-accepted status?",
-    "Do high-priority P0/P1 units teach the relation/mechanism/boundary they need, not just name the topic?",
-    "Where Suyi has useful delta, is it absorbed into one Chengfeng-centered course rather than exposed as a second course?",
-    "Are low-value Suyi restatements left in background instead of inflating canonical teaching?",
-    "Can formal first-ready timing be generated per Natural Unit without burning cross-unit questions early?",
+    "Do any remaining P0/P1 Marxism source/Suyi exceptions add stable teaching value not already represented in Current?",
+    "Does the global last-necessary-owner rule reproduce all 22 frozen formal first-ready counts totaling 396 unique Marxism questions?",
+    "Do known deferrals such as M029/M035/M046/M074 and cross-chapter M054/M011 remain withheld until their sufficient later Unit?",
+    "Does K03 remain exactly 11 first-ready questions after the global cutover?",
     "Can the K03 zero-debt first-attempt/Repair/Unit Return semantics be reused generically without inventing learner mastery?"
   ],
   "working_preferences": [
@@ -91,6 +90,7 @@
     "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
     "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
     "Do not make K03 real-user U a prerequisite for engineering progress on other Marxism units.",
-    "Do not call the whole Marxism learner-ready merely because K03 passed or chapter projections exist."
+    "Do not call the whole Marxism learner-ready merely because K03 passed or chapter projections exist.",
+    "Do not interpret a no-run CI job as either PASS or a content/runtime failure."
   ]
 }
