@@ -77,7 +77,8 @@ Current acceptance evidence includes:
 
 - commit `3721460828220ad44a3aca01b5a6004fd3671b62` — reopened Knowledge with fidelity-first reacceptance;
 - commit `3f3aef9a677cfe64e855898b613fe0349ee7e5c2` — repaired P0 calibration batch 0001 and reduced P0 from **368 → 361**; K remained BLOCKED;
-- current Issue #6 — migration semantic-integrity audit / R12+ authority reconciliation.
+- current Issue #6 — migration semantic-integrity audit / R12+ authority reconciliation;
+- commit `7943292b6eaa08059dbbf24057cd22067ce7d5c1` — exact R12 Core + Expansion reconciliation for ordinals 2101–2140: 18 historically approved Core decisions checked (**3 Current-correct / 15 defective**) and 7 Expansion owner-groups checked (**1 Current-correct / 1 presentation-only gap / 5 phrase-landing gaps**), with **0 semantic mutation**. This checkpoint reproduced a real P0 carrier-loss state at `word:gentle` and severe carrier/authority loss at `word:ghost`; therefore K remains BLOCKED.
 
 Rule-layer maintenance must not reapply, infer, or rewrite lexical semantics. Semantic repair remains with the active Lexical K owner/work lane and must read latest Current authority before mutation.
 
