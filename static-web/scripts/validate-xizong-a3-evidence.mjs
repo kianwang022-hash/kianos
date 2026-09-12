@@ -80,12 +80,15 @@ assert(sweep.questions.filter((question) => Number(question.year) === heldYear).
 const blockGuard = read('static-web/src/components/XizongBlockEvidenceGuard.astro');
 const systemGuard = read('static-web/src/components/XizongSystemEvidenceGuard.astro');
 const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
+const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
+const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.astro');
 
 assert(blockGuard.includes('kianos-xizong-stale-evidence-v1:'), 'stale-block-evidence-not-archived');
 assert(blockGuard.includes('localStorage.removeItem(studyKey)'), 'stale-block-progress-not-invalidated');
 assert(blockGuard.includes('localStorage.removeItem(extensionKey)'), 'stale-block-extension-not-invalidated');
+assert(blockGuard.includes('localStorage.removeItem(repairInboxKey)'), 'stale-block-repair-inbox-not-invalidated');
 assert(blockGuard.includes("kp: oldPersonal?.kp || {}"), 'learner-notes-not-preserved-on-version-reset');
 assert(!blockGuard.includes("type: 'KP_RECALL'"), 'block-guard-competes-for-recall-evidence');
 assert(!blockGuard.includes('[data-review-rating]'), 'block-guard-competes-for-repair-evidence');
@@ -100,11 +103,24 @@ assert(memoryUi.includes("STABLE may clear the local weak queue but does not rew
 assert(memoryUi.includes("known/mastered may close the active repair task but never rewrite original Recall or mastery automatically"), 'repair-closure-semantics-too-strong');
 assert(memoryUi.includes("requires later meaningful fresh Recall/transfer evidence"), 'fresh-evidence-mastery-boundary-missing');
 
+assert(repairReturn.includes('kianos-xizong-repair-inbox-v1:'), 'system-repair-return-bypasses-inbox');
+assert(!repairReturn.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-repair-return-competes-for-block-evidence-store');
+assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
+assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'repair-inbox-not-consumed');
+assert(repairBridge.includes('kianos-xizong-memory-review-v2:'), 'repair-inbox-does-not-merge-into-current-block-store');
+assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'repair-inbox-import-event-missing');
+assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'repair-inbox-promoted-beyond-repair');
+assert(repairBridge.includes('source_question_ids:'), 'repair-inbox-loses-question-provenance');
+assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-tab-cannot-receive-inbox');
+assert(repairBridge.includes('window.location.reload();'), 'repair-inbox-consume-does-not-rebuild-in-memory-owner');
+
 assert(systemGuard.includes("phase = answered === 0 ? 'PRE_QUESTION'"), 'system-recall-phase-ledger-missing');
 assert(systemGuard.includes("'POST_QUESTION'"), 'post-question-recall-phase-missing');
 assert(systemGuard.includes('blockEvidenceHash.toString(16)'), 'block-content-not-versioned-at-system-level');
 assert(systemGuard.includes("system?.learningSupport?.sourceHash || ''"), 'learning-support-not-versioned-at-system-level');
 assert(systemGuard.includes('stale_block_question_plans'), 'stale-question-derived-repair-not-archived');
+assert(systemGuard.includes('stale_block_repair_inboxes'), 'stale-repair-inbox-not-archived');
+assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-repair-inbox-not-invalidated');
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
 
 assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
@@ -129,6 +145,7 @@ console.log([
   'Memory=selective+stable-exit-without-rewriting-first-recall',
   'RecallHistory=single-owner+repeated-attempts-preserved',
   'ChatRepair=repair-only+resolved-task-closure+no-mastery-promotion',
+  'RepairReturn=atomic-inbox+cross-tab-safe+question-provenance',
   'SystemRecall=pre/mid/post-distinct',
   `Holdout=private+whole-year-exclusion(${heldYear})`,
   'StaleEvidence=block+system archive/fail-closed',
