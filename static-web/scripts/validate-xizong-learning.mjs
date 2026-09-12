@@ -212,9 +212,12 @@ has(memoryUi, '.filter((row) => byId.has(row.kpId))', 'chat-import-not-current-b
 has(memoryUi, 'if (!byId.has(kpId) || ext.lastRecallRatings[kpId]) return;', 'bootstrap-recall-evidence-not-idempotent');
 has(memoryUi, "evidence_origin: 'USER_RECALL_ATTEMPT'", 'real-recall-attempt-not-preserved');
 lacks(memoryUi, /ext\.lastRecallRatings\[kpId\]\s*===\s*rating/, 'real-recall-attempt-still-collapsed-by-rating');
+has(memoryUi, "kp_recall: 'primary same-session recall evidence; each actual Recall attempt is appended, including repeated identical ratings'", 'study-packet-kp-recall-semantics');
+has(memoryUi, "memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating'", 'study-packet-memory-semantics');
+has(memoryUi, "chat_plan_review: 'repair-only evidence; known/mastered may close the active repair task but never rewrite original Recall or mastery automatically'", 'study-packet-chat-repair-semantics');
+has(memoryUi, "mastery: 'requires later meaningful fresh Recall/transfer evidence when the learning contract calls for it'", 'study-packet-mastery-semantics');
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse-path');
 has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'chat-return-json-error-path');
-has(memoryUi, "chat_plan_review: 'repair-only evidence; never promoted into original Recall or mastery automatically'", 'study-packet-evidence-semantics');
 
 has(exitUi, "persistResult(currentQuestion, 'wrong', currentSelection);", 'wrong-path');
 has(exitUi, "nextAfter('stable')", 'stable-fast-pass');
@@ -232,6 +235,6 @@ console.log([
   `LogicGroups=${totalGroups}`,
   `Questions=${sweep.questionCount}`,
   `HoldoutTestYear=${testYear} excluded=${heldCount}`,
-  'Journeys=canonical-order,clean,weak,chat-return,holdout,W/U,persistence,idempotency,error',
+  'Journeys=canonical-order,clean,weak,chat-return,holdout,W/U,persistence,bootstrap-idempotency,attempt-history,error',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
