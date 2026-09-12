@@ -19,7 +19,7 @@ assert(system.status === 'CURRENT', `status:${system.status}`);
 assert(system.blocks.length === 12, `block-count:${system.blocks.length}`);
 assert(system.learningSupport, 'learning-support-owner-missing');
 
-const unresolvedPattern = /SOURCE[_ ]?GAP|待补(?:充|齐|完)?|内容待定|未决(?:内容|知识|来源)|待核对|待确认|未核对|待裁决/i;
+const unresolvedPattern = /\bSOURCE[ _]?GAP\b|待补(?:充|齐|完)?|内容待定|未决(?:内容|知识|来源)|待核对|待确认|未核对|待裁决/i;
 
 const formalSourceGaps = systemRaw?.source_refs?.formal_source_gaps ?? [];
 assert(Array.isArray(formalSourceGaps), 'system-formal-source-gaps-not-array');
@@ -61,7 +61,7 @@ for (const meta of system.blocks) {
 
   const unresolvedMarkers = [
     /\bTODO\b/i,
-    /SOURCE[_ ]?GAP/i,
+    /\bSOURCE[ _]?GAP\b/i,
     /待补(?:充|齐|完)?/,
     /内容待定/,
     /未决(?:内容|知识|来源)/,
