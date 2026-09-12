@@ -56,6 +56,10 @@ def main() -> int:
         if marker not in body and ascii_marker not in body:
             raise RuntimeError(f"historical authority range marker missing: {expected_range}")
 
+    # Normalize heading-only transport variants before handing the unchanged
+    # semantic payload to the generic parser. This does not alter target text.
+    body = body.replace("Representative high-value surfaces:", "Representative surfaces include:")
+
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", suffix="-authority.md", delete=False) as f:
         f.write(body)
         authority_path = f.name
