@@ -10,21 +10,22 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A2 Respiratory  
-**Active / earliest unresolved stage:** `K — Knowledge content-closure reconfirm`  
-**Blocker:** substantial Current Artifact content exists, but K has not yet been re-accepted from canonical System + Block medical Core under the current acceptance sequence  
-**Next action:** perform a bounded A2 K audit from current canonical System + exact Block owners; update local `ACCEPTANCE.md` only from evidence. Do not proceed to A2 P/R/E until K is accepted.
+**Active / earliest unresolved stage:** `P — learner-facing Projection acceptance`  
+**Blocker:** no accepted K blocker remains. P has not yet been accepted from the actual learner-facing projection under the current S/K/L truth.  
+**Next action:** perform a bounded A2 P audit: verify that accepted System / Block / Logic Group / KP learning semantics are projected with the correct first-learning attention hierarchy and timing. Do not run R/E acceptance or infer learner use while P is unresolved.
 
 ---
 
 ## Frozen / out of scope
 
-During A2 K work:
+During A2 P work:
 
-- S and L remain frozen unless concrete new evidence reopens them;
-- P/R/E remain downstream/frozen until K PASS;
-- do not rebuild the 359-question System scope by model inference;
+- S, K and L remain frozen unless concrete new evidence reopens the responsible upstream gate;
+- R/E remain downstream/frozen until P PASS;
+- do not rebuild or reinterpret the 359-question System scope;
 - do not infer Question→Block/KP mappings without reviewed authority;
-- do not expand medical Core merely for symmetry or content volume;
+- do not expand medical Core for display symmetry;
+- do not redesign the accepted learning constitution merely to fit current UI;
 - do not mutate private learner Recall, Wrong/Uncertain, holdout, notes, review state, or mastery;
 - do not modify A1 or unrelated sibling Systems by convenience.
 
@@ -32,13 +33,14 @@ During A2 K work:
 
 ## Required reads
 
-For ordinary re-entry into the active A2 K audit:
+For ordinary re-entry into the active A2 P audit:
 
 1. `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md`
 2. `content/xizong/knowledge/systems/a2-respiratory/system.json`
-3. exact A2 Block owner(s) required by the current audit slice
+3. `content/xizong/knowledge/learner/a2-respiratory-learning.json`
+4. only the exact `static-web/` projection owner(s) required by the learner surface currently under audit
 
-Read `content/xizong/LEARNING_CONTRACT.md`, detailed shared study policy, A2 learning support, runtime, or validators only when the exact K boundary question requires them.
+Read runtime/evidence persistence owners only when P itself requires a concrete boundary check. Do not advance to R/E acceptance from their mere existence.
 
 ---
 
@@ -52,7 +54,7 @@ Read `content/xizong/LEARNING_CONTRACT.md`, detailed shared study policy, A2 lea
 - detailed shared policy → `content/xizong/knowledge/learner/study-policy.json`
 - A2 learning support → `content/xizong/knowledge/learner/a2-respiratory-learning.json`
 - official questions / explanations / reviewed relations → Xizong content roots
-- learner runtime → Xizong surfaces under `static-web/`
+- learner projection/runtime → Xizong surfaces under `static-web/`
 
 ### Acceptance Truth
 
@@ -71,7 +73,7 @@ Known scope `Xizong A2` should normally recover as:
 ```text
 A2 CURRENT
 → A2 ACCEPTANCE
-→ A2 system owner / exact Block under audit
+→ exact owner(s) required by the earliest unresolved gate
 → work
 ```
 
