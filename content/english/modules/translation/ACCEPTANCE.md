@@ -14,10 +14,10 @@ It does not own Translation content, Work Cursor, or private learner state.
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | PASS_WITH_DEBT | Canonical Current source resolves to 27 sets / 135 stable prompts. 25 sets have complete reference coverage; 2 are partial with exactly 3 explicit `pending_review` reference gaps. Missing references remain fail-closed and may not be fabricated. |
+| S — Source | PASS | Canonical Current source resolves to 27 sets / 135 stable prompts / 27 complete-reference sets / 0 partial sets / 0 pending reference debt. The former 2022 Q48/Q49 and 2025 Q46 gaps were closed only after exact prompt identity plus independent public semantic cross-check; normalized references are explicitly `official: false`. |
 | K — Knowledge | PASS | Canonical learning asset uses a capability-native Translation model: Representation → Preservation → Reconstruction → Exam Execution, with substantive mechanisms, active checks, LexicalOS routing, protected-unseen separation, and adaptive Chat for long-tail cases. |
 | L — Learning | PASS | Approved path is Global Map → four continuous Core Learning Blocks → integrated use → normal whole-set Translation. Clean first output precedes diagnosis/reference; smallest repair requires learner Reconstruction; later fresh transfer outranks same-item correction. |
-| P — Projection | PASS | Two Projection blockers were repaired before acceptance: pending-target cues leaking during Clean Attempt, and `HOW YOU LEARN IT` being folded while the first-learning exit tested its concepts. Dedicated P gate: 161 checks, 27/27 built task pages, 132 canonical reference rows checked, 0 clean-attempt reference leaks, 0 issues. |
+| P — Projection | PASS | Two Projection blockers were repaired before acceptance: pending-target cues leaking during Clean Attempt, and `HOW YOU LEARN IT` being folded while the first-learning exit tested its concepts. Dedicated P gate passed; Translation QA remains the regression owner after Source changes. |
 | R — Runtime | PASS | Two Runtime blockers were repaired before acceptance: missing `affected_segments` silently widening repair to the whole set, and failed return application risking partial ledger mutation. Dedicated R gate: 40 checks, 0 issues. |
 | E — Evidence | PASS | Two Evidence blockers were repaired before acceptance: old/repeated tasks could masquerade as fresh transfer closure, and LexicalOS-owned durable knowledge could be duplicated into the Translation transfer ledger. Dedicated E gate: 27 checks, 0 issues; old/repeated task non-closure, irrelevant non-confirmation, same-task idempotency, fresh semantic closure, contradiction reopen, non-reusable no-debt, lexical canonical routing, and private-evidence locality all passed. |
 | U — User Validation | UNTESTED | Real Kian use only. Engineering, synthetic QA, build success, and model review cannot supply U. |
@@ -28,7 +28,7 @@ It does not own Translation content, Work Cursor, or private learner state.
 
 Allowed statement:
 
-> **Translation is Module ready for learner test. S is PASS_WITH_DEBT; K/L/P/R/E are PASS; U remains UNTESTED.**
+> **Translation is Module ready for learner test. S/K/L/P/R/E are PASS; U remains UNTESTED.**
 
 Do **not** call Translation learner-validated until Kian actually uses the relevant path.
 
@@ -36,27 +36,39 @@ Do **not** call Translation learner-validated until Kian actually uses the relev
 
 ## S — Accepted Source evidence
 
-Validator: `static-web/scripts/validate-translation-source.mjs`
+Validator: `static-web/scripts/validate-translation-source.mjs`  
+Closure apply run: `34702810732`
 
 Accepted boundary:
 
-- decision: `PASS_WITH_DEBT`
+- decision: `PASS`
 - section: `translation`
 - sets: `27`
 - stable prompts: `135`
-- complete-reference sets: `25`
-- partial-reference sets: `2`
-- explicit pending reference debts: `3`
+- complete-reference sets: `27`
+- partial-reference sets: `0`
+- explicit pending reference debts: `0`
 - Source failures: `0`
-- canonical question owner SHA-256: `c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986`
+- canonical question owner SHA-256: `406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e`
 
-Bounded Source debts:
+The three former bounded gaps are now closed:
 
-1. `english1-2022-translation-main-q48` — `pending_review`
-2. `english1-2022-translation-main-q49` — `pending_review`
-3. `english1-2025-translation-main-q46` — `pending_review`
+1. `english1-2022-translation-main-q48`
+2. `english1-2022-translation-main-q49`
+3. `english1-2025-translation-main-q46`
 
-These are Source gaps, not learner debt. They do not block normal Translation use and do not authorize generated reference translations.
+Closure rule:
+
+- repository prompt identity had to match the independently published exam sentence exactly enough to rule out transcription drift;
+- core semantics had to agree across multiple independent public analyses;
+- KianOS stores a normalized Chinese reference rather than copying one provider's wording;
+- verification status is `cross_verified_public_reference`;
+- `official: false` is explicit: these references are not represented as Ministry/official unique translations;
+- the original canonical `answer` field remains `null` for these rows, preserving the distinction between missing local answer-source material and an independently cross-verified reference.
+
+This closes Source reference debt without fabricating provenance or rewriting missing answer-source history.
+
+S decision: **PASS**.
 
 ---
 
@@ -130,7 +142,7 @@ Two real blockers were found and repaired:
 
 Dedicated validator: `static-web/scripts/validate-translation-projection.mjs`
 
-Machine evidence:
+Accepted historical machine evidence before the final Source-reference closure:
 
 - schema: `kianos.english.translation.projection-gate-validation.v1`
 - decision: `PASS`
@@ -143,6 +155,8 @@ Machine evidence:
 - progressive disclosure: `true`
 - initial reference payload empty: `true`
 - pending-cue guard: `true`
+
+The Translation QA workflow reruns Projection against Current Source after Source changes; merge requires that regression run to remain green.
 
 P decision: **PASS**.
 
@@ -286,7 +300,7 @@ Canonical Translation learning/source/projection/runtime/evidence owners.
 
 ### Acceptance Truth
 
-This file: S `PASS_WITH_DEBT`; K/L/P/R/E `PASS`; U `UNTESTED`.
+This file: S/K/L/P/R/E `PASS`; U `UNTESTED`.
 
 ### Learner Truth
 
