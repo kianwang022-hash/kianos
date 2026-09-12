@@ -165,11 +165,13 @@ def parse_owner_group_expansion(body: str):
                 first_pos = min(pos for pos, _ in round_candidates)
                 hints = list(dict.fromkeys(word for pos, word in round_candidates if pos == first_pos))
 
-        if not hints:
-            raise RuntimeError(f"cannot map named Expansion surface to any Current owner in round: {chunk}")
-
+        # An explicit historical learner surface may have no Current Word owner
+        # at all. Preserve it as auditable missing debt instead of failing the
+        # transport parser. Empty hints intentionally flow to ordinary
+        # expansion candidate discovery, which yields NO_MATCH when no owner is
+        # available. This does not authorize any semantic write.
         base.EXPANSION_OWNER_HINTS[chunk] = hints
-        rows.append({"index": i, "approved_target": chunk, "kind": "expansion"})
+        rows.append({"index": i, "approved_target": chunk, "kind": "expansion", "owner_hint_status": "MAPPED" if hints else "OWNER_ABSENT_OR_UNMAPPED"})
 
     return rows
 
