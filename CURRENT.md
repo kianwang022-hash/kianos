@@ -12,22 +12,17 @@
 
 **Active scope:** KianOS governance redesign  
 **Current stage:** top-level governance landing readiness  
-**Blocker:** none inside the accepted governance design; Governance Anti-Entropy has executed successfully on the latest reconciled branch head  
-**Next action:** keep all lane-level content/runtime upgrades frozen on this branch. Confirm exact landing head still has no new overlapping `main` movement, require the governance gate to remain green after this final evidence writeback, then treat PR #21 as merge-ready. Actual merge to `main` still requires explicit user authorization.
+**Blocker:** none inside the accepted governance design  
+**Next action:** keep all lane-level content/runtime upgrades frozen on this branch. Require the PR's current-head Governance Anti-Entropy check to stay green; if `main` has no new real owner/write-set overlap, PR #21 is merge-ready. Actual merge to `main` still requires explicit user authorization.
 
-### Current landing evidence
+### Current landing state
 
-```text
-latest reconciled main: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
-latest bounded reconciliation: dc86645ff1069d67027e9743680dac8226822032
-exact landing candidate head: 3e9546ea557aaa473f83a9edd9f77af91daa0adf
-PR #21: mergeable = true
-Governance Anti-Entropy final run: 34687195678
-Governance final job: 103536135147
-result: PASS
-```
+- latest reconciled `main` owner set is already contained in this branch;
+- PR #21 is mergeable;
+- A1–A6 governance acceptance is PASS in `GOVERNANCE_ACCEPTANCE.md`;
+- exact-head CI evidence is owned by the GitHub PR check surface, not copied back into Current.
 
-The reconciliation retained newer Politics History Artifact work while preserving the governance Current / Acceptance ownership split and retired continuation boundary.
+The latest reconciliation retained newer Politics History Artifact work while preserving the governance Current / Acceptance ownership split and retired continuation boundary.
 
 ### Top-level completion boundary
 
