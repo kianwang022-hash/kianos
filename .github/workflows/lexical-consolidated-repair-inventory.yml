@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'tools/lexical_compile_consolidated_repair_inventory.py'
+      - 'tools/lexical_compile_consolidated_repair_inventory_entry.py'
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
       - 'tools/lexical_historical_round_owner_surfaces.py'
@@ -30,7 +31,7 @@ jobs:
       - name: Compile deduplicated repair inventory
         shell: bash
         run: |
-          python tools/lexical_compile_consolidated_repair_inventory.py \
+          python tools/lexical_compile_consolidated_repair_inventory_entry.py \
             --output /tmp/consolidated-repair-inventory.json \
             --summary /tmp/consolidated-repair-inventory-summary.md
 
