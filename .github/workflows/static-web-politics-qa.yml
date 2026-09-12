@@ -38,6 +38,8 @@ jobs:
         run: node scripts/audit-politics-k03-knowledge.mjs
       - name: Audit Marxism batch content closure
         run: node scripts/audit-politics-marxism-content.mjs
+      - name: Audit Marxism global first-ready parity
+        run: node scripts/audit-politics-marxism-first-ready.mjs
       - name: Audit K03 learning and projection closure
         run: node scripts/audit-politics-k03-learning-projection.mjs
       - name: Audit K03 runtime and evidence closure
