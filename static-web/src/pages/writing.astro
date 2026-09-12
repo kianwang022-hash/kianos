@@ -10,7 +10,7 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
 <Base
   title="Writing"
   kicker="English · Productive Lane"
-  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then later fresh transfer."
+  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then private later-fresh transfer evidence."
   active="home"
 >
   <section class="writingHome" data-writing-home data-base={base}>
@@ -23,8 +23,8 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       <aside>
         <strong>{state.status === 'ready' ? `${tasks.length} synthetic tasks` : state.status}</strong>
         <span>S/K/L/P already passed</span>
-        <span>R · whole-essay runtime</span>
-        <span>E · later fresh transfer not yet closed</span>
+        <span>R · whole-essay runtime accepted</span>
+        <span>E · later fresh transfer accepted</span>
         <span>U · learner validation untested</span>
       </aside>
     </section>
@@ -59,8 +59,8 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
     </section>
 
     <section class="writingRuntimeBoundary">
-      <strong>R / E boundary</strong>
-      <p>当前 runtime 能完整执行 first evidence → Chat PASS/repair → learner re-generation → repair check。只有可复用、高价值问题才允许进入 TRANSFER_PENDING；later fresh/unseen Writing 如何支持、关闭或重新打开 target 属于下一阶段 Evidence gate。</p>
+      <strong>R / E accepted boundary</strong>
+      <p>whole-essay runtime 负责 first evidence → Chat PASS/repair → learner re-generation → repair check；只有显式可复用高价值问题才进入 TRANSFER_PENDING。后续不同 Writing 的 fresh first draft 通过本机 private evidence ledger 提供 SUPPORT / KEEP_PENDING / CLOSE，已关闭 target 只有遇到矛盾 fresh evidence 才能 REOPEN。同题 repair 不等于 transfer closure。</p>
     </section>
 
     <script type="application/json" data-writing-catalog set:html={payload}></script>
