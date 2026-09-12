@@ -1,0 +1,87 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r15_round_checkpoint.v1",
+  "audit_id": "R15_2901_3200_CORE_EXPANSION_CONTRAST",
+  "range": [2901, 3200],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5581974895,
+    "frozen_path": "content/lexical/audit/migration-integrity/r15-authority.md",
+    "counts": {"core": 120, "expansion": 145, "contrast": 45}
+  },
+  "bulk_readback": {"workflow_run_id": 34702590050, "artifact": "lexical-r15-bulk-triage"},
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; historical authority is evidence, not immutable truth",
+  "core": {
+    "current_correct": 22,
+    "defective": 98,
+    "current_correct_ordinals": [2909,2926,2929,2979,2992,2998,3001,3003,3007,3017,3019,3024,3033,3039,3075,3116,3136,3149,3151,3172,3177,3193],
+    "rule": "all other historical Core target ordinals in r15-authority.md are defective at current evidence",
+    "p0_active_zero_count": 10,
+    "p0_word_ids": ["word:lyric","word:machine","word:maintenance","word:married","word:mental","word:midst","word:modern","word:mold","word:mute","word:nearby"],
+    "dead_anchor_word_ids": ["word:miss"]
+  },
+  "expansion": {
+    "current_correct": 52,
+    "partial_or_presentation_gap": 16,
+    "authority_missing_from_current": 77,
+    "current_correct_indices": [6,14,16,20,21,22,23,24,25,29,31,33,38,41,47,50,52,53,54,56,59,60,61,63,64,65,70,74,78,81,86,88,91,92,95,104,108,111,112,116,121,122,125,127,130,132,134,135,136,137,141,143],
+    "partial_indices": [1,19,39,44,51,67,69,77,82,94,106,123,129,139,140,145],
+    "partial_notes": {
+      "1": "lump together phrase exists but remains an independent sense, not construction/use",
+      "19": "manifest family incomplete",
+      "39": "only as a matter of fact present, broader skeleton incomplete",
+      "44": "mean to do phrase present but true-intention semantic carrier missing",
+      "51": "within one's means present; beyond missing",
+      "67": "in the midst of present but word:midst is P0 Active=0",
+      "69": "milk money/information present but target remains too narrow and benefit branch missing",
+      "77": "take minutes present; minutes-of-a-meeting family incomplete",
+      "82": "mission statement present but core-purpose sense deprecated",
+      "94": "moral support present but psychological branch still independent sense",
+      "106": "set in motion present; put in motion missing",
+      "123": "mushroom into present; full rapid-growth family incomplete",
+      "129": "nail in the coffin present; final nail form incomplete",
+      "139": "near completion present; near the end missing",
+      "140": "nearly all present; half/every family incomplete",
+      "145": "in need present; in need of incomplete"
+    },
+    "rule": "all other numbered R15 Expansion targets are authority-missing at current evidence"
+  },
+  "contrast": {
+    "latest_ownership": {"relation_owned": 36, "word_or_identity_owned": 9},
+    "relation": {
+      "current_correct_indices": [15],
+      "partial_indices": [5],
+      "missing_indices": [2,3,4,7,8,9,11,13,14,16,17,18,19,21,22,23,24,25,27,28,32,33,34,35,36,37,38,39,40,41,42,43,44,45]
+    },
+    "word_or_identity": {
+      "full_gap_indices": [1,6,12,20,29,30,31],
+      "partial_indices": [10,26]
+    },
+    "ownership_upgrade": "March/march, may/May, mercury/Mercury, miss/Miss are case/identity; minute/moderate are heteronym form data; mad at/about, marry vs married, million vs millions of are same-word construction/form targets, not forced cross-word relations"
+  },
+  "fresh_semantic_judgments": [
+    {"target":"mad","decision":"UPGRADE_TARGET","latest":"angry mad at (esp AmE) + fond/enthusiastic mad about (esp BrE) high value; insane/mentally ill informal/dated; noun in a mad reference-only"},
+    {"target":"male","decision":"UPGRADE_TARGET","latest":"neutral biological sex/reproductive-role definition, not cannot have babies; keep male vs masculine boundary"},
+    {"target":"mankind","decision":"UPGRADE_TARGET","latest":"recognition useful; productive/formal preference humankind/humanity"},
+    {"target":"mark","decision":"UPGRADE_TARGET","latest":"Word Feel connects visible sign/score with indicate/characterize; mark a turning point / be marked by as constructions"},
+    {"target":"mean","decision":"UPGRADE_TARGET","latest":"signify and intend are distinct high-value branches; mean to do=intend, mean doing=involve/result in; retain matter, unkind/stingy, mathematical mean"},
+    {"target":"minute","decision":"UPGRADE_TARGET","latest":"heteronym owned inside Word Owner: /ˈmɪnɪt/ time/meeting minutes vs /maɪˈnjuːt/ tiny/detailed; minutes = official meeting record"},
+    {"target":"moderate","decision":"UPGRADE_TARGET","latest":"adjective middle/not extreme, verb reduce/preside, useful noun a moderate; heteronym pronunciation is Word Owner form data"},
+    {"target":"monkey","decision":"UPGRADE_TARGET","latest":"non-ape primate, typically with a tail; do not equate 猴子 with 猿 or make tail absolute; animal noun Active"},
+    {"target":"narrative","decision":"UPGRADE_TARGET","latest":"promote modern academic/media account/framing used to shape understanding"},
+    {"target":"native","decision":"UPGRADE_TARGET","latest":"prioritize native to, native speaker/language, innate; native species adjective application; do not conflate native with indigenous"},
+    {"target":"nature","decision":"UPGRADE_TARGET","latest":"natural world + essential character/disposition main; personified Nature poetic/reference"},
+    {"target":"contrast ownership","decision":"UPGRADE_TARGET","latest":"case identities, heteronyms, and same-word construction/form contrasts stay in Word/identity owners rather than forced Relation Owners"}
+  ],
+  "direct_pass_latest_target_calibration": {
+    "sample_size": 12,
+    "ordinals": [2905,2934,2968,2997,3020,3050,3088,3110,3130,3150,3170,3196],
+    "words": ["luggage","major","Marxist","meat","mend","mile","mixture","monetary","most","multiply","myth","necessitate"],
+    "new_core_systematic_defects_found": 0,
+    "result": "PASS_CALIBRATION",
+    "note": "Known Expansion/Contrast debt on sampled words is already captured and does not reopen their Core."
+  },
+  "semantic_mutation_performed": false,
+  "learner_state_mutation_performed": false,
+  "interpretation": "R15 coverage complete under dual-track review. This is target/defect coverage, not repair and not K PASS."
+}

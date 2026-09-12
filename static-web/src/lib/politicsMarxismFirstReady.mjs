@@ -10,6 +10,7 @@ const REGIONS = 'content/politics/source/politics_unified_regions.v1.jsonl';
 
 function absolute(relativePath) { return path.join(repoRoot, relativePath); }
 function asList(value) { return Array.isArray(value) ? value.map(String).filter(Boolean) : (value ? [String(value)] : []); }
+function objectList(value) { return Array.isArray(value) ? value.filter((row) => row && typeof row === 'object') : []; }
 function readJson(relativePath) { return JSON.parse(fs.readFileSync(absolute(relativePath), 'utf8')); }
 function readJsonl(relativePath) {
   return fs.readFileSync(absolute(relativePath), 'utf8')
@@ -17,6 +18,31 @@ function readJsonl(relativePath) {
     .map((line) => line.trim())
     .filter(Boolean)
     .map(JSON.parse);
+}
+
+function firstReadyDeferrals() {
+  const deferrals = new Map();
+  const sidecars = fs.readdirSync(absolute(LEARNING_ROOT))
+    .filter((name) => /^ch\d+\.first-ready\.json$/i.test(name))
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+
+  for (const name of sidecars) {
+    const projection = readJson(`${LEARNING_ROOT}/${name}`);
+    if (projection?.status !== 'CURRENT' && projection?.status !== 'CURRENT_PILOT') continue;
+    for (const checkpoint of objectList(projection?.embedded_checkpoints)) {
+      for (const row of objectList(checkpoint?.deferred_questions)) {
+        const questionId = String(row?.question_id || '');
+        const targetId = String(row?.first_ready_natural_unit_id || '');
+        if (!questionId || !targetId) continue;
+        const existing = deferrals.get(questionId);
+        if (existing && existing !== targetId) {
+          throw new Error(`POLITICS_MARXISM_FIRST_READY_DEFERRAL_CONFLICT:${questionId}:${existing}:${targetId}`);
+        }
+        deferrals.set(questionId, targetId);
+      }
+    }
+  }
+  return deferrals;
 }
 
 let cache;
@@ -60,13 +86,24 @@ function buildIndex() {
     for (const questionId of asList(row?.xiao_question_refs)) ownerByQuestion.set(questionId, unitId);
   }
 
+  const deferrals = firstReadyDeferrals();
+  for (const [questionId, targetId] of deferrals.entries()) {
+    if (!seenUnits.has(targetId)) {
+      throw new Error(`POLITICS_MARXISM_FIRST_READY_DEFERRAL_TARGET_MISSING:${questionId}:${targetId}`);
+    }
+    if (!ownerByQuestion.has(questionId)) {
+      throw new Error(`POLITICS_MARXISM_FIRST_READY_DEFERRAL_QUESTION_UNOWNED:${questionId}`);
+    }
+    ownerByQuestion.set(questionId, targetId);
+  }
+
   for (const [questionId, ownerId] of ownerByQuestion.entries()) {
     if (!questionsByOwner.has(ownerId)) questionsByOwner.set(ownerId, []);
     questionsByOwner.get(ownerId).push(questionId);
   }
   for (const questions of questionsByOwner.values()) questions.sort();
 
-  cache = { orderedUnitIds, regions, ownerByQuestion, questionsByOwner, missingRegions };
+  cache = { orderedUnitIds, regions, ownerByQuestion, questionsByOwner, missingRegions, deferrals };
   return cache;
 }
 
@@ -111,6 +148,7 @@ export function marxismFirstReadyDiagnostics() {
     orderedUnitIds: [...index.orderedUnitIds],
     missingRegions: [...index.missingRegions],
     questionCount: index.ownerByQuestion.size,
-    counts: Object.fromEntries(index.orderedUnitIds.map((id) => [id, index.questionsByOwner.get(id)?.length || 0]))
+    counts: Object.fromEntries(index.orderedUnitIds.map((id) => [id, index.questionsByOwner.get(id)?.length || 0])),
+    deferralCount: index.deferrals.size
   };
 }
