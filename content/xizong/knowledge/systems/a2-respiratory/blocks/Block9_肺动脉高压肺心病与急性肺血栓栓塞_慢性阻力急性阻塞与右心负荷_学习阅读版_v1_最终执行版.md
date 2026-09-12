@@ -6,7 +6,7 @@
 > **Primary Outline**：病理 U001“肺心病”6题；内科 U004 12题 + U005 3题 + U006 15题，共 **36 / 36**。  
 > **前置**：R2 的 VA/Q、低氧与肺血流；循环系统的 P/Q/R/V、右室后负荷、血栓—栓塞与休克；R3、R7、R8 提供 COPD、慢纤空、ILD / 硅肺等慢性上游病因。  
 > **后续接口**：PE 或肺高压出现胸痛、低氧、右心衰和休克时，本 Block完成肺血管模型；ARDS / 呼衰共同终点仍后置 R12。  
-> **Source boundary**：保留当前 Study 对肺高压阈值、PAH药物、PE危险分层、抗凝疗程及溶栓禁忌的考试口径；不静默以外部最新版指南更新。
+> **Source boundary**：保留当前 Study 对肺高压阈值、PAH药物、PE危险分层、抗凝疗程及溶栓禁忌的考试口径；不静默以外部最新版指南更新。Study 原页把西地那非相关第二信使写成 `cAMP↑` 的位置已作为 source conflict 显式裁决：canonical 首学机制采用 PDE5—cGMP 链，原页表述仅保留 provenance，不再作为 Recall target。
 
 ---
 > **中心问题**：面对呼吸困难、P2亢进、颈静脉怒张或突发胸痛，怎样区分肺血管阻力慢性升高与急性阻塞，并据此判断右心负荷、证据层和治疗优先级？
@@ -140,7 +140,7 @@ E｜证据与治疗
 9. X线、超声和 ECG 的右心 / 肺动脉高压主要标准；
 10. 慢性肺心病急性加重核心：控制感染、改善呼吸、防治并发症；重点“治肺不治心”；
 11. 利尿剂、强心苷均不常规使用；知道各自风险与使用边界；
-12. 特发性 PAH：超声首选，右心导管金标准；急性血管反应阳性才用 CCB；
+12. 特发性 PAH：超声首选，右心导管金标准；急性血管反应阳性才用 CCB；西地那非按 PDE5 抑制 → cGMP↑ → 肺血管平滑肌舒张理解；
 13. PTE 最常来自下肢 DVT；识别 Virchow 三类危险因素；
 14. DVT：单侧或双侧不对称肿痛；PTE：突发气促 / 胸痛 / 晕厥 / 少量咯血，三联征并不常齐全；
 15. PE 低氧 + 过度通气：PaO₂↓、PaCO₂↓；
@@ -504,13 +504,13 @@ E｜证据与治疗
 
 > **讲义定位 →** 内科 Lecture P15  
 > **Outline →** 内科 U005｜治疗1–2  
-> **主提示：** 6类｜CCB门槛｜快/慢心率配药｜重构药1｜代表药3
+> **主提示：** 6类｜CCB门槛｜快/慢心率配药｜重构药1｜PDE5-cGMP｜代表药3
 
 六类治疗：
 
 1. 钙通道阻滞剂 CCB；
 2. 前列环素；
-3. PDE 抑制剂，如西地那非；
+3. **PDE5 抑制剂**，如西地那非；
 4. NO；
 5. 可溶性鸟苷酸环化酶 sGC 激动剂，如利奥西呱；
 6. 内皮素受体拮抗剂，如波生坦。
@@ -523,7 +523,30 @@ CCB 边界：
 
 前列环素：当前 Study 强调扩血管，并可逆转肺血管重构。
 
-> **待核对但保留 Source**：讲义原页将 PDE 抑制剂相关平滑肌第二信使写作 `cAMP↑`；本文件不以外部知识静默改写，学习时回原页确认该考试口径。
+### PDE5 第二信使 Source Conflict 裁决｜R9-SC01
+
+当前 Lecture 原页把西地那非相关平滑肌第二信使写作 `cAMP↑`。该句与药物机制的权威来源冲突，因此不再作为 learner Recall target。
+
+canonical 首学机制固定为：
+
+```text
+NO
+→ sGC
+→ cGMP↑
+→ 肺血管平滑肌舒张
+
+PDE5
+→ 降解 cGMP
+
+西地那非抑制 PDE5
+→ cGMP 降解↓
+→ 肺血管平滑肌内 cGMP↑
+→ 舒张 / 肺血管扩张
+```
+
+裁决依据：**FDA REVATIO（sildenafil）Prescribing Information，Clinical Pharmacology §12.1 Mechanism of Action，核验于 2026-09-12**。该标签明确写明 PDE5 负责降解 cGMP，西地那非抑制 PDE5 后增加肺血管平滑肌细胞内 cGMP 并导致舒张。
+
+> 原 Lecture 的 `cAMP↑` 只保留为 source-conflict provenance，避免以后误以为 canonical 曾无依据改写；学习、Recall 与后续机制串联均使用 **PDE5—cGMP**。
 
 ---
 
@@ -829,6 +852,8 @@ PTE血压不稳 / 休克
 6. **内科 P18**：急性右室扩张、室间隔左移、CTPA充盈缺损、V/Q失配；
 7. **内科 P19**：低 / 中 / 高危分层与抗凝—溶栓流程。
 
+> P13–16 原图中的 PAH 第二信使仍必须回看，但 `cAMP↑` 冲突已经在 KP14 裁决；原图用于理解来源与图形，不得覆盖 canonical PDE5—cGMP Recall。
+
 ---
 
 ## 6｜Outline Coverage Checksum
@@ -854,6 +879,7 @@ study_continuity = PASS
 main_prompt_friction = PASS
 detail_density = PASS
 source_gap_boundary = PASS
+pde5_cgmp_source_conflict = RESOLVED_R9_SC01
 ```
 
 ### Lecture Knowledge Routing 摘要
@@ -872,7 +898,7 @@ RECOGNITION / VISUAL_ONLY
 残根征、右室形态、ECG、CTPA、V/Q、右心超声
 
 BOUNDARY
-PAH阈值、PDE原页表述、高危溶栓禁忌均保留当前Study口径
+PAH阈值和高危溶栓禁忌保留当前Study口径；PDE5第二信使冲突已按 FDA REVATIO §12.1 显式裁决为 cGMP
 
 MI-D
 数字、电压、药物、疗程与全部危险因素
@@ -914,7 +940,7 @@ R9-B｜KP06–KP12
 慢性肺心病代偿 / 失代偿、检查与治疗边界
 
 R9-C｜KP13–KP14
-特发性肺动脉高压检查与六类治疗
+特发性肺动脉高压检查、PDE5—cGMP与六类治疗
 
 R9-D｜KP15–KP19
 DVT→PE、血流动力学、识别与确诊
@@ -948,7 +974,7 @@ R9-E｜KP20–KP22
 9. 慢性肺心病急性加重三原则和最特征心律失常是什么？
 10. 为什么利尿剂和强心苷都不常规使用，各自在什么条件下使用？
 11. IPAH 的首选 / 金标准检查和当前阈值是什么？
-12. IPAH 六类治疗是什么，CCB 的使用门槛是什么？
+12. IPAH 六类治疗是什么，CCB 的使用门槛是什么；西地那非为什么通过 PDE5—cGMP 链使肺血管平滑肌舒张？
 13. PTE 栓子最常来自哪里，怎样沿血流到达肺动脉？
 14. 静脉血栓危险因素怎样归入内皮、淤滞和高凝三类？
 15. PE 如何由肺动脉阻塞推到急性右心衰、左室充盈下降、胸痛和休克？

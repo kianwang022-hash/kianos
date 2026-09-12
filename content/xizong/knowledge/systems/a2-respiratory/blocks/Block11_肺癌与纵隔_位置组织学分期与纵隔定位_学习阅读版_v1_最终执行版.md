@@ -1,13 +1,13 @@
 # Block 11｜肺癌与纵隔：位置、组织学、分期与纵隔定位 · 学习阅读版 v1｜最终执行版
 
 > **System**：呼吸｜**Block**：R11  
-> **Semantic IDs**：`system_id=respiratory`｜`block_id=respiratory-r11`｜`framework_node_id=respiratory-r11-framework`｜`kp_id=respiratory-r11-kp01…kp23`｜`source_gap_id=R11-SG01`  
+> **Semantic IDs**：`system_id=respiratory`｜`block_id=respiratory-r11`｜`framework_node_id=respiratory-r11-framework`｜`kp_id=respiratory-r11-kp01…kp23`｜`resolved_evidence_id=R11-SG01`  
 > **文件性质**：呼吸系统第十一个完整学习 Block。用于把“肺内肿块在哪里—来自哪类细胞—造成什么局部与全身表现—已扩展到哪里—还能否手术”组织成一条连续器官肿瘤链，并用前 / 中 / 后纵隔坐标处理肺外胸内肿块。  
 > **Primary Study**：`病理学讲义_AI阅读版.md`，原 PDF《27病理精编版合集【不带导图】》P77–80；`内科学讲义_AI阅读版.md`，原 PDF《内科精编版小合集1【开始→胸膜疾病】》P61–66；外科正式 Lecture《27 外科跟课合集改.pdf》书页 P23“纵隔肿瘤”。  
 > **Primary Outline**：病理 U002“呼吸道肿瘤”20题；内科 U024 19题 + U025 12题；外科 U006“纵隔肿瘤”1题，共 **52 / 52**。  
 > **前置**：R1 支气管树与中央 / 周围空间；R5–R7 的实变、空洞、结核和咯血入口；R10 胸水、胸膜空间与纵隔移位；P0 最小肿瘤语言只 Recall。  
 > **后续接口**：肿瘤导致的阻塞、肺不张、胸水、广泛肺内病变或治疗损伤怎样进入低氧与呼吸衰竭，汇合于 R12。完整肿瘤总论、分子生物学和全实体瘤共同治疗逻辑仍后置全局肿瘤 Gate。  
-> **Source boundary**：本文件严格保留当前 Study 的组织学、TNM、可切除性和靶向药配对，不静默升级外部指南。内科 Outline 的 2026“类癌综合征最常见肺癌类型”在当前 Lecture 中缺乏唯一单选口径，保留 Source Gap，不自行猜答。
+> **Source boundary**：本文件严格保留当前 Study 的组织学、TNM、可切除性和靶向药配对，不静默升级外部指南。对于内科 Outline 的 2026“类癌综合征最常见肺癌类型”，Lecture 仍保留“小细胞癌和腺癌多见”的一般配对；repo 内已验证的全国西综 2026 N129 则提供单选裁决：**C＝小细胞癌**。两层口径并存，不把单选“最常见”反写成“只有小细胞癌可导致”。
 
 ---
 > **中心问题**：面对肺部或纵隔肿块，怎样按空间位置—组织来源—扩展范围—分期连续定位，并据此决定下一步治疗，而不是只靠某个癌种特征？
@@ -189,7 +189,7 @@ F｜肺外胸内肿块
 10. SVC、喉返、膈神经、食管、胸壁、心包受累各自表现；
 11. Pancoast瘤位于肺尖；臂丛和颈交感受侵分别产生上肢症状与 Horner；
 12. 淋巴转移偏小细胞 / 鳞癌，血道转移偏小细胞 / 腺癌；右锁骨上和脑 / 肾上腺 / 骨；
-13. 副癌综合征 > 异位内分泌综合征 > 类癌综合征；
+13. 副癌综合征 > 异位内分泌综合征 > 类癌综合征；2026 全国西综 N129 的“可导致类癌综合征的最常见肺癌类型”单选裁决为**小细胞癌**；
 14. 低剂量 CT 筛查；支气管镜活检为金标准；PET/CT用于早期灶、转移、分期和疗效；
 15. 小细胞癌首选化疗；I、II期 NSCLC首选手术；T4 / N3 / M1当前 Study 不手术；
 16. T按3、5、7 cm；N按同侧肺内 / 同侧纵隔 / 对侧或锁骨上；M1包括对侧肺结节、恶性胸 / 心包受累和远处器官；
@@ -723,11 +723,11 @@ Pancoast 瘤 / 肺上沟瘤位于肺尖。
 
 ---
 
-## KP15｜异位激素配对 + 类癌综合征 Source Gap
+## KP15｜异位激素配对 + 类癌综合征：Lecture范围与2026单选裁决
 
 > **讲义定位 →** 病理 Lecture P78；内科 Lecture P62  
 > **Outline →** 内科 U024｜临床13；U025｜14  
-> **主提示：** 激素5｜癌型5｜表现5｜类癌4表现｜（Source Gap：2026单选）
+> **主提示：** 激素5｜癌型5｜表现5｜类癌4表现｜2026 N129单选裁决
 
 ### 1｜当前 Study 配对
 
@@ -753,29 +753,30 @@ Pancoast 瘤 / 肺上沟瘤位于肺尖。
 - APUD / 神经内分泌肿瘤有特定细胞来源；
 - 腺癌、鳞癌不属于神经内分泌肿瘤，但也可异常分泌激素。
 
-### 4｜Source Gap｜2026“最常见肺癌类型”
+### 4｜2026 单选裁决：最常见 = 小细胞癌
 
-内科 U025 询问：
-
-> 可导致类癌综合征的**最常见**肺癌类型是什么？
-
-当前正式 Lecture 只给出：
+当前正式 Lecture 的一般配对仍是：
 
 ```text
 5-HT增多 / 类癌综合征
 → 小细胞癌和腺癌多见
 ```
 
-没有在两者中明确唯一“最常见”答案。因此本文件：
-
-- 完整保留当前双类型口径；
-- 不凭一般医学常识猜出唯一答案；
-- 等待正式 2026 答案源后，只对本 KP 和 Outline relation 做定点补丁。
+repo 内正式 2026 全国西综题源已经提供更窄的单选裁决：
 
 ```text
-source_gap_id = R11-SG01
-status = OPEN_BUT_NONBLOCKING
+xizong-official-2026-n129
+题干：可导致类癌综合征的最常见肺癌类型是
+正确答案：C｜小细胞癌
+source_status = LOCAL_QUESTION_AND_REFERENCE_ANSWER_VERIFIED
 ```
+
+因此本 KP 同时保留两个不冲突的层次：
+
+- 问“哪些肺癌可导致 / 哪些类型多见”时，保留 Lecture 的**小细胞癌 + 腺癌**配对；
+- 问正式 2026 单选“**最常见**”时，答案为**小细胞癌**。
+
+这不是用外部常识覆盖 Lecture，而是把已经进入 repo Source Truth 的正式答案吸收回 canonical medical-Core。
 
 ---
 
@@ -1160,7 +1161,7 @@ unsupported_expansion = 0
 study_continuity = PASS
 main_prompt_friction = PASS
 detail_density = PASS
-source_gap_boundary = PASS_WITH_R11_SG01
+official_2026_single_choice_closure = PASS_N129
 ```
 
 ### Lecture Knowledge Routing 摘要
@@ -1184,8 +1185,8 @@ BOUNDARY
 MI-D
 组织形态、激素配对、靶点药物、TNM细分、纵隔完整名单
 
-SOURCE_GAP
-R11-SG01：2026类癌综合征“唯一最常见肺癌类型”当前Lecture未裁决
+OFFICIAL_2026_CLOSURE
+R11-SG01 已由 xizong-official-2026-n129 裁决：“可导致类癌综合征的最常见肺癌类型”＝小细胞癌；一般 Lecture 配对仍保留小细胞癌 + 腺癌
 
 DEFERRED_MODEL
 全局肿瘤Gate U019 / G1–G5；实体瘤共同分子与治疗体系
@@ -1211,7 +1212,7 @@ SOURCE_POSITION
 
 - 本文件不按“题目看起来像肺癌”自行猜测讲义配套题绑定。
 - 讲义内出现的正式真题若可安全对应 official question，应复用同一 Question identity；一轮 Attempt Context 与二轮 Official Full Corpus 仍分开记录。
-- `R11-SG01` 不阻塞一轮学习，但在正式 2026 答案源进入前，不生成唯一单选答案 relation。
+- N129 的正式答案已经作为 KP15 的 source-closure evidence；当前 `question-relations` 尚无 2026 shard，因此这里只闭合知识口径，不伪造尚不存在的题目 relation。
 
 ---
 
@@ -1267,7 +1268,7 @@ R11-F｜KP23
 14. Pancoast瘤为什么产生上肢神经症状和 Horner 综合征？
 15. 淋巴 / 血道转移各偏哪些类型，右锁骨上与脑肾上腺骨如何记？
 16. 副癌、异位内分泌、类癌综合征的包含关系是什么？
-17. 五组异位激素—癌型—表现如何配对？R11-SG01 的 Source Gap 是什么？
+17. 五组异位激素—癌型—表现如何配对？2026 N129 对“最常见”这一单选边界怎样裁决？
 18. 低剂量 CT、CT、支气管镜、经胸壁穿刺和痰细胞学各自职责是什么？
 19. 分叶毛刺、癌性空洞、倒 S 征分别怎样形成？
 20. PET/CT和基因检测分别回答什么，为什么 PET 不能单凭浓聚定癌？
