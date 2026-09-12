@@ -17,9 +17,9 @@ It does not own Objective cognition/content, runtime implementation, Work Cursor
 | S — Source | PASS | Current source ownership/coverage remains accepted; no Source blocker is recorded. |
 | K — Knowledge | PASS | Canonical Objective learning owner and task contracts remain accepted; no Knowledge blocker is recorded. |
 | L — Learning | PASS | Whole passage/set remains the learner-facing unit; first learning remains complete-but-skippable; no Learning blocker is recorded. |
-| P — Projection | **PASS** | Strict Chromium/WebKit task-page execution now confirms Reading A and Reading B learner-facing projection, including all four real Reading B forms and the ordering whole-set handoff. |
-| R — Runtime | **UNTESTED — ACTIVE** | Earliest unresolved gate. Preserved shared-browser closure plus current task-page execution are candidate Runtime evidence; they must now be evaluated against the Runtime contract before R can PASS. |
-| E — Evidence | UNTESTED — FROZEN | Downstream of R. Preserved evidence/transfer checks remain candidate evidence only until R closes. |
+| P — Projection | PASS | Strict Chromium/WebKit task-page seal confirms Reading A and Reading B projection, all four real Reading B forms, and source-faithful ordering handoff. |
+| R — Runtime | **PASS** | Current browser evidence executes clean attempt/submission, whole-unit problem routing, safe repair return, idempotent state changes, task continuation into fresh material, and actual Reading A/B task pages without manufactured debt. |
+| E — Evidence | **UNTESTED — ACTIVE** | Earliest unresolved gate. Existing shared-browser observations are candidate Evidence proof and must now be checked against the canonical evidence/transfer contract. |
 | U — User Validation | UNTESTED | Real Kian use only; engineering/browser evidence cannot replace learner validation. |
 
 ---
@@ -28,115 +28,104 @@ It does not own Objective cognition/content, runtime implementation, Work Cursor
 
 Allowed statement:
 
-> **Objective S/K/L/P are accepted. R is now the earliest unresolved and only active gate. E remains UNTESTED/FROZEN. U is UNTESTED. Objective is not yet `Module ready for learner test`.**
+> **Objective S/K/L/P/R are accepted. E is now the earliest unresolved and only active gate. U remains UNTESTED. Objective is not yet `Module ready for learner test`.**
 
 ---
 
 ## Accepted P — Projection evidence
 
-### Canonical P seal
+Canonical P seal:
 
 - artifact head: `addb1c74cbe6ca756fd613bff7e634a3741c0995`
-- workflow: `Objective Learner Journey`
 - workflow run: `34695962533`
 - successful rerun job: `103559543188`
-- successful artifact: `objective-journey-addb1c74cbe6ca756fd613bff7e634a3741c0995`
 - artifact id: `10297889295`
+- `journey-task-smoke.json` → `pass: true`
+- `reading-b-forms.json` → `pass: true`, `88` checks
 
-Primary P evidence surfaces:
+What P proves:
 
-1. `journey-task-smoke.json` — `pass: true`
-2. `reading-b-forms.json` — `pass: true`, `88` checks
+- Reading A strict task pages load and execute in Chromium + WebKit;
+- clean Reading A PASS does not force Chat;
+- Reading A problem work remains passage-first;
+- Reading B projects task form, directions, candidate policy/text and executable answer maps;
+- all four real Reading B forms execute in Chromium + WebKit;
+- ordering preserves skeleton/fixed givens and whole-set context;
+- a source-faithful wrong ordering produces a whole-set Chat packet containing task form, ordering skeleton, candidate inventory, and exam-slot context.
 
-### What P now proves
+Real P defect found/fixed during seal:
 
-Reading A, in both Chromium and WebKit:
+- `ReadingDeferredReviewShield.astro` had a self-triggering `MutationObserver` loop caused by unconditional stop-button `textContent` rewriting;
+- product fix commit: `74e0f3655efec9feec976525bae00e4fc22e4706`;
+- the strict `DOMContentLoaded + real interaction` seal then passed.
 
-- real task page loads under the strict browser seal;
-- clean passage work can execute and PASS;
-- clean PASS does not force Chat review;
-- problem work remains passage-first rather than question-first;
-- the retired local semantic coach is not projected back into the learner path.
+A later ordering red light was an acceptance-fixture error, not a product defect: all ordering candidates are correctly consumed exactly once, so an “unused extra candidate” cannot exist. The negative case was corrected to swap two valid movable answers without weakening the single-use rule.
 
-Reading B, in both Chromium and WebKit:
-
-- task form and single-use candidate policy are projected;
-- directions and candidate text are visible;
-- formal maps are executable;
-- all four real forms execute cleanly:
-  - `gap_match`;
-  - `heading_match`;
-  - `ordering`;
-  - `comment_match`;
-- ordering shows the real skeleton and fixed givens without a fake material panel;
-- fixed givens are not selectable as movable candidates;
-- comment matching projects the actual named target;
-- clean PASS does not force Chat review.
-
-Ordering negative-path handoff also proves that a source-faithful wrong ordering can still produce a **whole-set** Chat packet carrying:
-
-- `Task form: ordering`;
-- `ORDERING SKELETON`;
-- `CANDIDATE INVENTORY`;
-- exam slot context (`Slot 41`).
-
-### P defect found and fixed during acceptance
-
-The strict P seal exposed a real Reading A browser-initialization defect in `ReadingDeferredReviewShield.astro`: a `MutationObserver` called `sync()`, while `sync()` unconditionally rewrote the stop-button `textContent`, creating a self-triggering child-list mutation loop.
-
-Product fix:
-
-- commit `74e0f3655efec9feec976525bae00e4fc22e4706`
-- `textContent` is now rewritten only when the label actually changes.
-
-After that product fix, the strict `DOMContentLoaded + real interaction` task-page seal passed. The standard was not weakened to make CI green.
-
-A later Reading B red light was traced to the acceptance fixture itself: ordering consumes every candidate exactly once, so an “unused extra candidate” cannot exist. The negative test was corrected to swap two valid movable formal answers, preserving the real single-use rule while intentionally producing a wrong order.
-
-Test-fixture fix:
-
-- commit `addb1c74cbe6ca756fd613bff7e634a3741c0995`
-
-This fixture correction did not change Objective product semantics or lower the P standard.
+- fixture fix commit: `addb1c74cbe6ca756fd613bff7e634a3741c0995`
 
 ---
 
-## Active gate — R / Runtime
+## Accepted R — Runtime evidence
 
-### R acceptance question
+### Canonical current Runtime seal
 
-> Does the accepted learner-facing Objective projection actually execute the intended task lifecycle reliably — clean attempt, submission, whole-unit problem routing, repair return, state persistence, and task continuation — without hidden runtime contradictions or manufactured learning debt?
+The successful rerun of workflow run `34695962533` produced all three current evidence surfaces successfully.
 
-### Candidate R evidence already preserved
+`journey-shared.json`:
 
-#### Shared Objective browser closure
+- `pass: true`;
+- Chromium full journey PASS;
+- `15/15` runtime/evidence lifecycle checks PASS.
 
-- commit: `d1fd9e53238320678bd86b08146e3c8805249313`
-- workflow run: `34661647477`
-- artifact: `journey.json`
-- checks: `15/15 PASS`
+`journey-task-smoke.json`:
 
-This candidate evidence exercised:
+- `pass: true`;
+- Chromium + WebKit task-page integration PASS.
 
-- clean PASS without forced Chat/debt;
-- whole-unit problem handoff;
-- completed repair before reusable claim admission;
-- later fresh close;
-- later contradictory fresh reopen.
+`reading-b-forms.json`:
 
-#### Current P execution
+- `pass: true`;
+- `88` form/runtime checks PASS.
 
-The accepted P seal above also proves that the actual Reading A / Reading B task pages execute in Chromium and WebKit, including clean submission and the Reading B ordering problem handoff.
+### R contract mapping
 
-These are strong Runtime candidates, but **R is not PASS until they are checked against the current Runtime owner and any missing runtime acceptance path is identified or executed.**
+The current execution proves the Runtime contract rather than merely showing implementation existence:
+
+- **Clean attempt / submission:** Cloze clean score executes; Reading A clean submission executes in Chromium + WebKit; Reading B formal maps execute in both browsers.
+- **No manufactured debt:** clean PASS creates no forced Chat and no transfer debt.
+- **Whole-unit problem routing:** Cloze problem packet is whole-unit; Reading A problem flow is passage-first; Reading B wrong ordering produces one complete set packet.
+- **Safe return behavior:** failed return import preserves pasted return text and rolls back claim state rather than partially mutating learner state.
+- **Repair return:** a completed repair can create exactly one justified pending claim.
+- **Idempotence:** importing the same return twice does not duplicate debt/state.
+- **State continuity:** attempt/trajectory/results are persisted and read back during the browser journey; transfer packets carry active claim + fresh item context forward.
+- **Fresh-task continuation:** the journey uses multiple fresh Cloze sets and carries the claim into later fresh material instead of looping on the repaired historical item.
+- **Cross-task execution:** Reading A and Reading B actual task pages execute on Chromium + WebKit; Reading B all real forms are executable.
+
+No missing Runtime path required a new product feature or a lowered acceptance standard.
+
+Therefore **R = PASS**.
 
 ---
 
-## Preserved downstream Evidence candidates — not active acceptance
+## Active gate — E / Evidence
 
-The same shared-browser closure contains useful Evidence-layer observations, but E remains frozen while R is unresolved.
+### E acceptance question
 
-Do not promote E from those observations until R PASS is written first.
+> Does Objective admit, preserve, update, close, and reopen learning evidence in a way that matches the canonical evidence/transfer semantics — without confusing diagnosis with repair, remembered-item success with transfer, one-off failure with durable weakness, or engineering state with learner mastery?
+
+### Candidate E evidence already available
+
+The current shared browser journey already executed evidence-relevant checks including:
+
+- clean PASS creates no debt;
+- completed repair creates one pending claim;
+- duplicate return is idempotent;
+- closure without fresh evidence is rejected;
+- fresh relevant evidence closes the claim;
+- a problem packet can surface a closed claim as a reopen candidate;
+- fresh contradictory evidence reopens the closed claim.
+
+These observations are strong candidate E evidence, but **E is not PASS until checked against `content/english/modules/objective-evidence-runtime.md`.**
 
 ---
 
@@ -147,51 +136,29 @@ S PASS
 → K PASS
 → L PASS
 → P PASS
-→ R ACTIVE / UNTESTED
-→ E FROZEN / UNTESTED
+→ R PASS
+→ E ACTIVE / UNTESTED
 → U UNTESTED by real learner path
 ```
 
 Required transition behavior:
 
-1. Only R is active now.
-2. If R PASSes, write R PASS here first and move Objective `CURRENT.md` to E.
-3. Only then evaluate E.
-4. Only after S–E PASS may Objective be called `Module ready for learner test`.
-5. U remains separate and path-specific to real learner use.
+1. Only E is active now.
+2. If E PASSes, write E PASS here first and move Objective `CURRENT.md` to U / learner validation.
+3. Only after S–E PASS may Objective be called `Module ready for learner test`.
+4. U remains separate and path-specific to real learner use.
 
-A single workflow run may contain evidence relevant to several gates, but Acceptance Truth still advances one earliest unresolved gate at a time.
-
----
-
-## Acceptance execution owner
-
-Current workflow owner:
-
-`.github/workflows/static-web-objective-journey.yml`
-
-Evidence surfaces currently available:
-
-1. `journey-shared.json`
-2. `journey-task-smoke.json`
-3. `reading-b-forms.json`
-
-Their existence alone is not Acceptance PASS; gate decisions come from executed assertions interpreted against the active gate owner.
+A single workflow run may contain evidence relevant to several gates, but Acceptance Truth advances one earliest unresolved gate at a time.
 
 ---
 
 ## Reopen policy
 
-Do not reopen S/K/L/P merely because a downstream assertion fails.
+Do not reopen S/K/L/P/R merely because an E assertion fails.
 
-Reopen an upstream gate only when:
+Reopen an upstream gate only when a concrete failure traces to that upstream owner, a source/schema change invalidates it, or real learner use exposes a repeatable upstream defect.
 
-- a concrete assertion traces to that upstream owner;
-- real learner use exposes repeatable upstream friction;
-- a source/schema change invalidates accepted projection/content;
-- a deliberate local audit finds a specific upstream contradiction.
-
-If an R assertion fails, trace the earliest responsible layer and reopen only that layer. Do not relax the acceptance standard to make the run green.
+Do not relax the Evidence standard to make existing automation green.
 
 ---
 
@@ -214,4 +181,4 @@ This file only.
 
 Private learner/runtime state only.
 
-This Acceptance file does not mean Kian has attempted Objective tasks, repaired any error, or reached transfer closure.
+This Acceptance file does not mean Kian has personally attempted Objective tasks, repaired any error, or reached transfer closure.
