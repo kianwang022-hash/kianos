@@ -30,6 +30,35 @@ if (!source.includes(target)) {
 }
 
 let instrumented = source.replace(target, replacement);
+const serverTarget = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {\n  cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe']\n});";
+const serverReplacement = "const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {\n  cwd: process.cwd(),\n  stdio: ['ignore', 'pipe', 'pipe'],\n  detached: process.platform !== 'win32'\n});";
+const cleanupTarget = "} finally {\n  server.kill('SIGTERM');\n}";
+const cleanupReplacement = `} finally {
+  if (process.platform !== 'win32' && server.pid) {
+    try { process.kill(-server.pid, 'SIGTERM'); } catch {}
+  } else {
+    try { server.kill('SIGTERM'); } catch {}
+  }
+  server.stdout?.destroy();
+  server.stderr?.destroy();
+  await Promise.race([
+    new Promise((resolve) => server.once('exit', resolve)),
+    sleep(1000)
+  ]);
+  if (server.exitCode === null) {
+    if (process.platform !== 'win32' && server.pid) {
+      try { process.kill(-server.pid, 'SIGKILL'); } catch {}
+    } else {
+      try { server.kill('SIGKILL'); } catch {}
+    }
+  }
+}`;
+if (!instrumented.includes(serverTarget) || !instrumented.includes(cleanupTarget)) {
+  console.error('OBJECTIVE_ACCEPTANCE_SERVER_CLEANUP_TARGET_MISSING');
+  process.exit(1);
+}
+instrumented = instrumented.replace(serverTarget, serverReplacement).replace(cleanupTarget, cleanupReplacement);
+
 const batch = String(process.env.OBJECTIVE_JOURNEY_BATCH || 'all').trim().toLowerCase();
 if (batch === 'shared') {
   const allJourneyTarget = [
