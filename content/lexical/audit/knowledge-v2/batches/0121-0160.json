@@ -1,0 +1,81 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 121, "end": 160, "count": 40},
+  "status_counts": {"PASS": 24, "REVISE": 16, "SOURCE_CHECK": 0},
+  "relation_decisions": [
+    {
+      "relation_id": "deep:semantic_contrast:align:0c13954baa450400",
+      "decision": "PASS",
+      "target_truth": "Keep align vs coordinate as a sense-specific partial-overlap boundary: align emphasizes bringing into line/agreement or fitting with a reference; coordinate emphasizes organizing parts/people/actions so they work together."
+    },
+    {
+      "relation_id": "deep:semantic_contrast:allow:fd230d8b350d5bb8",
+      "decision": "REVISE",
+      "target_truth": "The allow vs let boundary is learner-worthy, but construction difference is essential: allow sb to do sth vs let sb do sth. Current Relation metadata says 'sb to do' generically and overreduces the distinction to formal-vs-colloquial. Rebuild around permission + syntax + register."
+    },
+    {
+      "relation_id": "relation:horizontal:ee550bb5881ac3c29b24",
+      "decision": "PASS",
+      "target_truth": "Keep allow/permit/enable boundary: allow and permit can grant permission or make something possible, permit is generally more formal, while enable primarily makes someone/something able or makes an outcome possible rather than granting permission."
+    }
+  ],
+  "decisions": [
+    {"ordinal":121,"word":"ago","decision":"PASS"},
+    {"ordinal":122,"word":"agony","decision":"PASS"},
+    {"ordinal":123,"word":"agree","decision":"REVISE","target_truth":"Keep agreement/consent, compatibility, and familiar-new 'food/climate does not agree with sb' branches. Consolidate learner-worthy structures agree with sb/sth, agree on sth, agree to sth, agree to do sth, and agreed that...; Current duplicates the same structures across sense collocations and multiple construction objects."},
+    {"ordinal":124,"word":"agreeable","decision":"REVISE","target_truth":"Keep pleasant/enjoyable as the ordinary adjective. Distinguish formal agreeable to sth as acceptable/suitable or willing to accept/agree, rather than treating every 'agreeable to' use as generic agreement. Preserve register and complement boundary."},
+    {"ordinal":125,"word":"agriculture","decision":"REVISE","target_truth":"Keep agriculture=farming/cultivation and the science/practice of farming as one coherent noun center. Do not treat unnatural 'agriculture industry' as a model collocation; adjective-owned 'agricultural industry/sector' belongs to agricultural/word-family knowledge."},
+    {"ordinal":126,"word":"ahead","decision":"REVISE","target_truth":"Keep spatial, temporal and progress/lead meanings under one ahead center. Make high-value ahead of and go ahead structures explicit. Avoid duplicating the same lead/progress meaning merely because one row is labeled adjective and another adverb."},
+    {"ordinal":127,"word":"aid","decision":"PASS"},
+    {"ordinal":128,"word":"aim","decision":"REVISE","target_truth":"Keep noun aim=purpose, verb aim at a physical target, and verb aim=intend/try to achieve. Add high-value aim to do sth. Consolidate duplicate aim-at construction objects and preserve distinctions among aim at doing, aim for sth, and physical aim at sb/sth."},
+    {"ordinal":129,"word":"air","decision":"REVISE","target_truth":"Keep ordinary air, sky/airspace where useful, atmosphere/manner, ventilate/dry, and modern verb air=express/broadcast opinions or grievances. Demote ancient-four-elements air to reference/recognition. Treat in the air and air views/grievances as lexicalized phrase/construction knowledge when appropriate rather than burying modern uses behind specialist completeness."},
+    {"ordinal":130,"word":"aircraft","decision":"PASS"},
+    {"ordinal":131,"word":"airline","decision":"PASS"},
+    {"ordinal":132,"word":"airport","decision":"PASS"},
+    {"ordinal":133,"word":"aisle","decision":"REVISE","target_truth":"Use ordinary passage between rows of seats/shelves as the main sense. Keep church architectural side-aisle only as lower reference/recognition. Preserve walk down the aisle as a high-value lexicalized marriage phrase rather than treating it as ordinary spatial collocation only."},
+    {"ordinal":134,"word":"alarm","decision":"PASS"},
+    {"ordinal":135,"word":"albeit","decision":"PASS"},
+    {"ordinal":136,"word":"album","decision":"PASS"},
+    {"ordinal":137,"word":"alcohol","decision":"REVISE","target_truth":"Distinguish alcohol as alcoholic drink/ethanol in drinks from chemistry alcohol=a class of organic compounds containing a hydroxyl group, with ethanol one member. Current chemical definition incorrectly defines the class as volatile hydroxyl compounds made from hydrocarbons by distillation."},
+    {"ordinal":138,"word":"alert","decision":"PASS"},
+    {"ordinal":139,"word":"algorithm","decision":"PASS"},
+    {"ordinal":140,"word":"alien","decision":"REVISE","target_truth":"Represent ordinary modern noun alien=extraterrestrial, adjective alien=foreign/strange, and alien to sth=unfamiliar/incompatible. Legal/formal noncitizen use is recognition/reference-level rather than the default noun center. Avoid loaded/outdated 'illegal alien' as the central learner example."},
+    {"ordinal":141,"word":"alienate","decision":"REVISE","target_truth":"Restore ordinary main verb alienate sb / alienate sb from others=sour relations, make hostile, isolated or estranged. Legal property/rights transfer is a specialist lower-priority sense and must not displace the ordinary meaning while Core says '使疏远'."},
+    {"ordinal":142,"word":"align","decision":"PASS"},
+    {"ordinal":143,"word":"alike","decision":"PASS"},
+    {"ordinal":144,"word":"alive","decision":"REVISE","target_truth":"Keep alive=living, alive with=full of activity, and alive to=aware/sensitive to. Remove the purported volcano sense and invalid example 'an alive volcano'; English uses active volcano."},
+    {"ordinal":145,"word":"all","decision":"PASS"},
+    {"ordinal":146,"word":"allege","decision":"PASS"},
+    {"ordinal":147,"word":"allegiance","decision":"REVISE","target_truth":"Use one broader learner center: loyalty/commitment to a person, group, country, sovereign, cause, or principle. Current Active definition is unnecessarily restricted to citizens/country or subjects/sovereign even though Core correctly includes cause."},
+    {"ordinal":148,"word":"alleviate","decision":"PASS"},
+    {"ordinal":149,"word":"alliance","decision":"REVISE","target_truth":"Keep alliance as a cooperative union/relationship or formal agreement between countries, organizations or groups. Treaty/agreement is part of the same main alliance concept rather than a separate dictionary-completeness L3 sense; kinship/marriage alliance is valid but lower recognition unless context requires it."},
+    {"ordinal":150,"word":"allocate","decision":"PASS"},
+    {"ordinal":151,"word":"allow","decision":"PASS"},
+    {"ordinal":152,"word":"allowance","decision":"REVISE","target_truth":"Keep regular money/payment allowance and permitted quota/amount as main branches; retain tax/technical allowance at appropriate depth. Treat make allowance(s) for as a separate high-value phrase meaning take account of, adjust for, or be tolerant of—not as a collocation semantically attached to the pocket-money definition."},
+    {"ordinal":153,"word":"alloy","decision":"PASS"},
+    {"ordinal":154,"word":"ally","decision":"PASS"},
+    {"ordinal":155,"word":"almost","decision":"PASS"},
+    {"ordinal":156,"word":"alone","decision":"PASS"},
+    {"ordinal":157,"word":"along","decision":"REVISE","target_truth":"Keep plain preposition/adverb along=following a line/forward. Represent along with as a separate together-with construction. Come along, bring along, and tag along are lexicalized phrasal expressions and should not serve as ordinary collocation evidence for generic along senses."},
+    {"ordinal":158,"word":"alongside","decision":"PASS"},
+    {"ordinal":159,"word":"aloud","decision":"REVISE","target_truth":"Core is audibly/using the voice rather than silently. Remove default Chinese '大声地', because aloud does not itself mean loudly. Preserve read aloud as the high-value phrase."},
+    {"ordinal":160,"word":"alphabet","decision":"PASS"}
+  ],
+  "defect_classes_added": [
+    "INVALID_EXAMPLE_CREATES_FALSE_SENSE",
+    "COMMON_MODERN_SENSE_DEMOTED_BEHIND_ARCHAIC_OR_SPECIALIST_SENSE",
+    "CHEMICAL_OR_DOMAIN_DEFINITION_FACTUALLY_INACCURATE",
+    "RELATION_BOUNDARY_CORRECT_BUT_SYNTAX_METADATA_MISLEADING",
+    "LEXICALIZED_PHRASE_ATTACHED_TO_UNRELATED_LITERAL_SENSE"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Continue Truth-stage review from ordinal 161 through 200; do not repair Current owners yet."
+}
