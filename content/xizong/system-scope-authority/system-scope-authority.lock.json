@@ -8,10 +8,37 @@
     "count_only_closure_forbidden": true,
     "semantic_membership_inference_forbidden": true
   },
+  "closure_policy": {
+    "mode": "ANY_OF",
+    "paths": {
+      "EXACT_HISTORICAL_OUTPUT": {
+        "requires": [
+          "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl raw bytes available",
+          "sha256 exact match",
+          "byte count exact match",
+          "row count exact match"
+        ],
+        "generator_required": false
+      },
+      "DETERMINISTIC_REBUILD": {
+        "requires": [
+          "exact original producer inputs locked and matched",
+          "exact resolver bytes locked and matched",
+          "exact generator identity/version/hash locked",
+          "rebuilt output sha256 exact match",
+          "rebuilt output byte count exact match",
+          "rebuilt output row count exact match"
+        ],
+        "generator_required": true
+      }
+    },
+    "a3_runtime_promotion_requires_exact_hlk_membership_extraction_after_one_path_closes": true
+  },
   "historical_authority_bundle": {
     "recovery_repository": "kianwang022-hash/kianos-legacy",
     "immutable_backup_path": "04_HQ/Backups/File_Consolidation_v2_Unresolved_20260904/FILE_CONSOLIDATION_V2_UNRESOLVED_EXACT_BACKUP_v1.zip",
     "recovery_workflow_ref": "recovery/hlk-route-extract-20260912",
+    "verified_inputs_role": "RECOVERY_INPUTS_NOT_CONFIRMED_AS_COMPLETE_ORIGINAL_PRODUCER_INPUT_SET",
     "verified_inputs": {
       "canonical_questions": {
         "filename": "canonical_questions.v2.candidate.json",
@@ -33,6 +60,32 @@
         "sha256": "6970c6faa1ff2427199bc7c02789a43873a8ddfefec405584db361736f0453fa",
         "bytes": 23741
       }
+    },
+    "original_relation_layer_package": {
+      "manifest_schema": "hlk_question_relation_layer_manifest_v1",
+      "manifest_status": "HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY",
+      "qa_schema": "hlk_question_relation_layer_qa_v1",
+      "qa_status": "HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY",
+      "qa_generated_at": "2026-09-01T03:46:41.943163+00:00",
+      "producer_inputs_declared_by_manifest": {
+        "canonical_questions": {
+          "sha256": "5d557c0011651f51ce2f45e4f137a3fa870b6a30f5269e3744380fd34814c584"
+        },
+        "practice_taxonomy": {
+          "sha256": "838f1aadfba7ee0f8484e433de4b448f9595fa503c957846d94363228c3bead0"
+        },
+        "system_official_scope_local": {
+          "sha256": "be76c1f303e077007e4baf75ecf6c232147783924519ea8de86edbc5e6b3c96f"
+        },
+        "system_source_routing_local": {
+          "sha256": "7b691ea0a7f1e197054d61a9cfc03971db6cfb11a1b394119c578921d5b12366"
+        },
+        "mechanism_axis_registry_zip": {
+          "sha256": "00c02ac1cea4bd4b23a52120d43cfba165d67d72ae3a159c4049ec5aadb969ae"
+        }
+      },
+      "evidence_path": "content/xizong/system-scope-authority/evidence/historical-hlk-library-locator.evidence.json",
+      "boundary": "Manifest-declared producer identity is historical evidence; exact input bytes and generator remain separately gated."
     },
     "resolver": {
       "filename": "XIZONG_SYSTEM_SCOPE_CHAT_SEMANTIC_DECISIONS_v1.json",
@@ -59,7 +112,26 @@
       "sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d",
       "bytes": 486228,
       "rows": 978,
-      "exact_output_status": "UNRECOVERED"
+      "exact_output_status": "LOCATED_HISTORICAL_ARTIFACT_RAW_BYTES_UNVERIFIED",
+      "located_artifact": {
+        "source_surface": "user_owned_saved_file_library",
+        "observed_filename": "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl",
+        "observed_bytes": 486228,
+        "created_at_utc": "2026-09-01T04:57:26Z",
+        "manifest_declared_sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d",
+        "manifest_declared_bytes": 486228,
+        "report_declared_rows": 978,
+        "raw_byte_rehash_status": "BLOCKED_BY_SOURCE_TRANSPORT_PERMISSION",
+        "evidence_path": "content/xizong/system-scope-authority/evidence/historical-hlk-library-locator.evidence.json"
+      }
+    },
+    "range_config": {
+      "filename": "HLK_SYSTEM_RANGE_CONFIG_v1.json",
+      "manifest_declared_sha256": "fbfb9123f5bb4dd02e6f7590d56fadbc1a9683a45cb6eb53262226c962b515db",
+      "manifest_declared_bytes": 41498,
+      "observed_bytes": 41498,
+      "created_at_utc": "2026-09-01T04:57:24Z",
+      "status": "LOCATED_HISTORICAL_ARTIFACT_RAW_BYTES_UNVERIFIED"
     },
     "generator": {
       "status": "UNRESOLVED",
@@ -67,7 +139,7 @@
       "script_path": null,
       "sha256": null,
       "deterministic_rebuild_enabled": false,
-      "block_reason": "Exact HLK generator identity/version has not yet been recovered; rebuild must fail closed."
+      "block_reason": "Exact generator authority is still required for the deterministic-rebuild closure path, but not for independent authentication of a recovered exact historical output."
     }
   },
   "current_question_truth_identity": {
@@ -120,7 +192,7 @@
     },
     "urinary": {
       "canonical_id": "A3",
-      "status": "BLOCKED_EXACT_HLK_NOT_REPRODUCED",
+      "status": "BLOCKED_EXACT_HLK_RAW_BYTES_UNVERIFIED",
       "accepted_owner_path": null,
       "accepted_question_count": null,
       "accepted_inventory_sha256": null,
@@ -135,6 +207,7 @@
   "recovery_evidence": {
     "membership_evidence_path": "content/xizong/system-scope-authority/evidence/hlk-first-pass-system-pools.evidence.json",
     "membership_evidence_sha256": "fe1056906c9f56f548b0921565dbf7562034d24d1168a3e65908eed3a404cbb5",
+    "historical_artifact_locator_evidence_path": "content/xizong/system-scope-authority/evidence/historical-hlk-library-locator.evidence.json",
     "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
     "source_commit": "208441bdc843d7e02d25a435acad0628ecafa56f",
     "source_workflow_run": 34640880517,
