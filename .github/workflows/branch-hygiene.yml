@@ -1,0 +1,75 @@
+name: Branch Hygiene
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: branch-hygiene
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Retire merged and explicitly superseded branches
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+
+          delete_branch() {
+            local branch="$1"
+            if [[ -z "$branch" || "$branch" == "main" || "$branch" == "HEAD" ]]; then
+              return 0
+            fi
+            if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+              echo "Retiring branch: $branch"
+              gh api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/heads/${branch}"
+            fi
+          }
+
+          # Explicitly retired branches are allowed to diverge because accepted work may
+          # have reached main by squash, cherry-pick, or later Current reimplementation.
+          if [[ -f .github/retired-branches.txt ]]; then
+            while IFS= read -r branch || [[ -n "$branch" ]]; do
+              branch="${branch%%#*}"
+              branch="$(echo "$branch" | xargs)"
+              [[ -z "$branch" ]] && continue
+              delete_branch "$branch"
+            done < .github/retired-branches.txt
+          fi
+
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+
+          # Any remaining branch whose head is already contained in main is safe to delete.
+          while IFS= read -r remote_ref; do
+            branch="${remote_ref#origin/}"
+            [[ "$branch" == "main" || "$branch" == "HEAD" ]] && continue
+            if git merge-base --is-ancestor "origin/$branch" origin/main; then
+              delete_branch "$branch"
+            fi
+          done < <(git for-each-ref --format='%(refname:short)' refs/remotes/origin/)
+
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          {
+            echo '## Branch Hygiene survivors'
+            echo
+            echo 'Unmerged branches left intentionally for active/review work:'
+            git for-each-ref --format='- `%(refname:short)`' refs/remotes/origin/ \
+              | sed 's#origin/##' \
+              | grep -v -- '- `main`' \
+              | grep -v -- '- `HEAD`' || true
+          } >> "$GITHUB_STEP_SUMMARY"
