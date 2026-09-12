@@ -20,7 +20,7 @@ Its purpose is not to maximize files, pages, automation, metadata, or governance
 
 - high learning quality;
 - low-friction continuation across replaceable Chats;
-- independent parallel progress across learning domains;
+- independent parallel progress across learning domains and independently continuable scopes at any depth;
 - clear ownership of current truth;
 - strict separation between product state, validation evidence, and Kian's real learner state;
 - bounded recovery cost as the repository grows;
@@ -28,7 +28,7 @@ Its purpose is not to maximize files, pages, automation, metadata, or governance
 
 Compact product statement:
 
-> **KianOS is a long-lived, restartable, federated, concurrent personal learning operating system with bounded context recovery, strict truth separation, and evidence-based learning quality.**
+> **KianOS is a long-lived, restartable, federated, concurrent personal learning operating system with bounded context recovery, strict truth separation, dependency-driven scheduling, and evidence-based learning quality.**
 
 ---
 
@@ -37,7 +37,7 @@ Compact product statement:
 The normal operating reality is:
 
 - Chat / Agent / worker instances are replaceable and may reach context limits;
-- multiple learning domains may be worked on in parallel;
+- multiple learning domains and independently continuable scopes may be worked on in parallel;
 - the repository is the durable shared product/learning-asset authority, not the Chat transcript;
 - Kian's private learner state is distinct from shared repository construction state;
 - learning assets may evolve through repeated design, implementation, acceptance, real use, and revision;
@@ -64,6 +64,8 @@ Failure modes include requiring prior-chat recall, broad repository archaeology,
 A learning scope that is important enough to be entered and continued independently must have enough local authority and routing to resume without loading unrelated domains.
 
 KianOS must support recursive autonomy where it reduces continuation cost, while avoiding hierarchy for hierarchy's sake.
+
+Local autonomy is recursive: a System under Xizong, a subject under Politics, or another justified nested scope may progress independently of siblings when no real dependency links their current work. Being contained by the same parent does not by itself create a work-order dependency.
 
 This requirement does not prescribe a specific Root/Lane/Sub-lane file structure; Architecture must choose the smallest structure that satisfies it.
 
@@ -107,16 +109,26 @@ Examples:
 
 Architecture may choose names/owners for these distinctions, but it may not collapse them.
 
-## R6｜Concurrency by default — parallel work is normal
+## R6｜Concurrency by default — independence, not hierarchy, governs parallel work
 
 Multiple Chats may work on different domains or independently continued scopes at the same time.
+
+Concurrency follows **real dependency**, not directory depth, parent/child naming, or which sibling was worked on most recently.
+
+Therefore:
+
+- independently continued scopes may progress concurrently at any justified depth;
+- sibling subjects under Politics may advance in parallel when they do not depend on one another;
+- sibling Systems under Xizong may advance in parallel when they do not depend on one another;
+- a parent router must not serialize independent children merely by naming one child as the lane's global active task;
+- one blocked scope must not freeze unrelated siblings unless the blocker is genuinely shared upstream authority/infrastructure.
 
 Normal local work should therefore:
 
 - avoid unnecessary writes to shared high-contention root owners;
 - minimize write-set overlap between sibling scopes;
 - remain valid when `main` advances for unrelated work;
-- require reconciliation because of actual authority/write-set conflicts, not merely because another branch moved first.
+- require reconciliation because of actual authority/write-set/dependency conflicts, not merely because another branch moved first.
 
 ## R7｜Scope containment — one task must not spread across the project by convenience
 
@@ -124,7 +136,7 @@ A worker authorized for one bounded scope should work only within that scope unl
 
 Discovering an issue in another scope permits reporting, blocking, or escalation; it does not automatically authorize opportunistic repair.
 
-For staged learning-asset work, downstream implementation must not outrun the earliest unresolved upstream learning question.
+For staged learning-asset work, downstream implementation must not outrun the earliest unresolved upstream learning question **on the same dependency chain**. This rule does not freeze independent sibling scopes or unrelated construction chains.
 
 ## R8｜Anti-entropy — long-term use must not make the project progressively harder to understand
 
@@ -239,9 +251,9 @@ If it requires broad search or history reconstruction, the design fails this tes
 
 ## T2｜Parallel Chat Test
 
-Several unrelated lanes/scopes should be able to advance concurrently with little or no ordinary write contention.
+Several independent scopes at any justified depth should be able to advance concurrently with little or no ordinary write contention.
 
-Unrelated `main` progress must not force workers to restart merely because the branch is behind.
+A parent/child or sibling relationship does not itself imply serialization. Unrelated `main` progress must not force workers to restart merely because the branch is behind.
 
 ## T3｜Truth Separation Test
 
