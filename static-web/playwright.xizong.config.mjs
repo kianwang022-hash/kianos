@@ -4,6 +4,7 @@ export default defineConfig({
   testDir: './tests/xizong-e2e',
   fullyParallel: false,
   workers: 1,
+  maxFailures: process.env.CI ? 1 : 0,
   timeout: 45_000,
   expect: { timeout: 7_500 },
   reporter: process.env.CI
