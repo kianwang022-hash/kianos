@@ -10,6 +10,7 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
 - `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-surface capabilities for both domain lanes and independently entered learner sub-lanes.
 - `LEARNING_ACCEPTANCE.md` defines the repository-wide S/K/L/P/R/E/U module acceptance gates and the final Global/Home acceptance layer. Read it before declaring a lane/sub-lane closed, Ready, or learner-ready.
+- `BRANCH_LIFECYCLE.md` defines temporary work-branch retirement and automatic branch hygiene. A branch-backed task is not fully closed until its branch is retired or explicitly justified as still ACTIVE.
 - `content/` owns shared learning assets.
 - `static-web/` owns the Astro learner-facing display and interaction runtime.
 - Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
@@ -79,6 +80,24 @@ When migration closes, the dual-read exception closes with it.
 ## GitHub writes
 
 GitHub is read-only by default. Before any mutation, present the concrete intended scope and obtain explicit user authorization. Authorization is bounded to the approved scope. Destructive cleanup, production deployment, and real private learner-state mutation require separate explicit authorization.
+
+## Branch lifecycle
+
+`main@HEAD` is the only durable shared Current branch. Every non-`main` work branch is temporary execution state and must follow `BRANCH_LIFECYCLE.md`.
+
+When branch-backed work is accepted, frozen, merged, superseded, or otherwise moved back to Current, the responsible Chat must complete branch retirement before reporting repository-level closure:
+
+1. verify the accepted result exists on current `main@HEAD`;
+2. verify no private learner state or still-needed unreviewed work exists only on the branch;
+3. delete a fully merged branch immediately;
+4. when accepted work reached `main` through squash/cherry-pick/reimplementation, explicitly add the superseded branch to `.github/retired-branches.txt` so Branch Hygiene deletes it;
+5. if unique work is genuinely still active, keep the branch and state why it remains ACTIVE.
+
+Do not keep closed branches merely "for backup". Git history is the recovery plane.
+
+The learner has explicitly authorized repository-wide automatic deletion of branches that are fully merged into `main` and diverged branches explicitly marked retired after Current verification. This standing authorization does not permit deleting an unmerged branch that has not been explicitly retired.
+
+`.github/workflows/branch-hygiene.yml` is the automatic execution layer. Branch cleanup is part of the task Definition of Done, not optional polish.
 
 ## Deferred work
 
