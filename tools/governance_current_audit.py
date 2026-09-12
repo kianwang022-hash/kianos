@@ -143,11 +143,11 @@ def audit_current(relative: str) -> None:
         if token in text:
             fail("CURRENT_NARRATIVE_STATUS_LOG_TOKEN", f"{relative}:{token}")
 
-    # Parent routers may own genuine parent-level integration work, but they may
-    # not serialize independent children by naming one global "active child".
+    # Parent routers may discuss why child serialization is forbidden, but they
+    # may not own a status field that selects one global "Active child".
     if relative in PARENT_ROUTER_PATHS:
         checks += 1
-        if re.search(r"(?i)active\s+child", text):
+        if re.search(r"(?im)^\s*\*\*Active\s+child(?:\s+scope)?\s*:\*\*", text):
             fail("PARENT_ROUTER_SERIALIZES_CHILD", relative)
 
     # A retired continuation may be mentioned as a non-read boundary, but it may
