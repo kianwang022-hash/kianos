@@ -40,9 +40,9 @@ K03 does not make the whole subject ready and does not prove Kian has studied or
 Scope: all Current Marxism chapters / **22 Natural Units / 396 unique formal-first-ready Xiao questions**
 
 ```text
-S  UNTESTED
-K  UNTESTED
-L  UNTESTED
+S  PASS
+K  PASS
+L  FAIL
 P  UNTESTED
 R  UNTESTED
 E  UNTESTED
@@ -51,22 +51,32 @@ U  UNTESTED
 
 Allowed conclusion:
 
-> **Whole Marxism has substantial Current implementation candidates, but no whole-subject S/K/L/P/R/E PASS claim is currently supported. An executable Marxism content-closure prerequisite has produced a real red result, so downstream whole-subject readiness must not advance. U remains UNTESTED.**
+> **Whole Marxism Source/Knowledge content closure is accepted. The earliest unresolved whole-subject gate is now L because the executable global first-ready parity assertion failed. P/R/E remain frozen downstream; U remains UNTESTED.**
 
-### Executed negative evidence
+### Accepted S/K evidence
 
-Politics QA run #304 executed these steps before stopping:
+The previous whole-subject content red was diagnosed to `content/politics/learning/marxism/ch02.json`:
+
+- `source_bindings.natural_unit_ids` still declared K03 as a top-level Natural Unit;
+- the Current learning projection had already embedded K03 inside `POL27-CF-MARX-C02-S01` via `embedded_natural_unit_ids`;
+- the content audit therefore produced `UNIT_DECLARATION_PROJECTION_MISMATCH` even though K03 content itself remained intact.
+
+Commit `e558a9951ef4e314c3eff87bd939df1e29d029ac` removed only the stale top-level K03 declaration. K03 remains embedded in S01 and its accepted pilot S–E state was not reopened.
+
+Politics QA run #348 (`34700709835`) then executed:
 
 - Politics canonical coverage — PASS
 - Xiao1000 semantic chapter routing — PASS
 - scoped Politics source loading — PASS
+- History acceptance assertions — PASS
 - K03 canonical knowledge closure — PASS
-- **Marxism batch content closure — FAIL**
-- Marxism global first-ready parity and later runtime/evidence assertions — SKIPPED
+- **Marxism batch content closure — PASS**
+- **Marxism global first-ready parity — FAIL**
+- later Marxism learning/runtime/evidence assertions — SKIPPED
 
-The content-closure audit exits non-zero when it finds concrete blockers. This establishes a real executable blocker for the whole-subject acceptance path.
+The dedicated content-closure audit checks canonical-region presence, Chengfeng/Suyi source resolution, Current learner representation/renderability, required `core_problem` / `closure_cue`, and declaration/projection consistency. Its successful execution is the accepted whole-subject S/K closure evidence.
 
-However, this governance task did not accept the exact failing semantic-owner classification. Therefore the negative gate evidence is preserved **without guessing which root S/K/L/P gate should be relabeled BLOCKED**. Whole-subject formal gates above remain UNTESTED until the exact red evidence is diagnosed and staged acceptance is rerun.
+The later first-ready failure is downstream evidence and does not reopen accepted S/K without a concrete contradiction.
 
 ---
 
@@ -75,26 +85,27 @@ However, this governance task did not accept the exact failing semantic-owner cl
 Current implementation includes:
 
 - completed manual Source/Suyi review candidate;
-- completed learner-facing semantic scan with the two accepted gaps repaired;
-- **22-unit / 396-question** global first-ready logic;
-- whole-subject zero-debt Unit Return / first-attempt Evidence behavior.
+- learner-facing semantic teaching projections across the whole subject;
+- **22-unit / 396-question** global first-ready candidate logic;
+- whole-subject zero-debt Unit Return / first-attempt Evidence candidates.
 
-Artifact completeness is not Acceptance PASS.
+Artifact completeness is not downstream Acceptance PASS.
 
 ---
 
 ## Acceptance sequence
 
 ```text
-inspect executed Marxism content-closure red
-→ repair only the exact failing owner / earliest responsible stage
-→ rerun content closure
-→ only then run downstream first-ready / runtime / evidence assertions
-→ promote S/K/L/P/R/E only from executed accepted evidence
+S/K content closure PASS + durable seal
+→ diagnose exact global first-ready parity red at L
+→ repair only the earliest responsible L owner
+→ rerun L
+→ only after L PASS may P unlock
+→ R and E remain staged downstream
 → U only from real named learner paths
 ```
 
-Do not use K03 success to promote the whole subject.
+Do not use K03 success to promote the whole subject, and do not reopen S/K from a downstream failure without concrete upstream contradiction evidence.
 
 ---
 
@@ -114,4 +125,4 @@ Do not use K03 success to promote the whole subject.
 
 Private browser / Return Packet / conversation evidence only.
 
-> **K03 S–E PASS does not mean Kian attempted K03; whole-subject implementation or executable failure does not manufacture learner progress.**
+> **K03 S–E PASS does not mean Kian attempted K03; whole-subject S/K PASS does not manufacture learner progress.**
