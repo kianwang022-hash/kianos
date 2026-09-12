@@ -10,7 +10,7 @@ It inherits the root surface invariant: **an interaction primitive does not own 
 
 The shared first-round loop is:
 
-`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → short closure/checkpoint → Xiao1000 verification on the explicitly approved answer surface → smallest sufficient repair when needed → continue`
+`Orientation → Chengfeng continuous learning on original iPad/MarginNote surface → short closure/checkpoint → Xiao1000 verification in Astro/KianOS web → smallest sufficient repair when needed → continue`
 
 Later phases may add Unit/Block compression, selective Memory, and Mock transfer.
 
@@ -23,7 +23,7 @@ During first-round learning, attention priority is:
 1. current cognitive question / Natural Unit position;
 2. current Chengfeng content **on its original iPad/MarginNote lecture surface**;
 3. only the minimum Astro/Chat orientation, boundary, checkpoint, or locator needed to understand/continue it;
-4. Xiao1000 verification after natural closure, on the answer surface approved by Learning Logic;
+4. Xiao1000 verification in Astro/KianOS web after natural closure;
 5. repair only when evidence shows a failure.
 
 Question counts, memory counts, scheduler labels, source metadata, engineering taxonomy, and a duplicate web lecture must not dominate the learning path.
@@ -50,9 +50,9 @@ A minimal source excerpt is allowed only when it serves a bounded repair/orienta
 Use one short reconstruction/checkpoint cue. Do not create a large recall workflow unless later evidence justifies it.
 
 ### Verification
-Show/launch the currently relevant Xiao1000 verification only after the owning content is learned and only after its primary answer surface has been explicitly bound by Learning Logic.
+Open the currently relevant Xiao1000 questions in the Astro/KianOS web question surface only after the owning content is learned.
 
-Existing Astro question components are implementation options, not the authority for that binding.
+The web owns the attempt interaction and evidence capture. Original question/options/official answer remain source-owned, and Xiao1000 still does not determine first-learning order.
 
 ### Stable correct
 `✓ → continue`
@@ -148,7 +148,7 @@ Xiao1000 validates learning; it does not organize learning.
 
 - release by owning Natural Unit / natural subsection;
 - preserve original question/options/answer;
-- primary answer surface must be explicitly bound in Learning Logic before downstream Projection/Runtime re-closes;
+- answer in the Astro/KianOS web Politics question surface after the owning content is learned;
 - wrong/uncertain should repair to Chengfeng rather than open a second explanation textbook;
 - stable correct should pass fast;
 - repeated questions are allowed later with a different cognitive task.
@@ -204,7 +204,7 @@ Useful Politics primitives include:
 - external-primary study checkpoint / return;
 - subject-specific map/strip;
 - short closure/reveal;
-- question attempt only after its answer surface is L-approved;
+- Xiao1000 question attempt;
 - uncertain marker;
 - minimal repair drawer;
 - minimal decisive source excerpt when necessary;
@@ -224,6 +224,7 @@ A Politics learner experience is good when:
 - Chengfeng remains the obvious single mainline **without requiring a duplicate Astro lecture**;
 - the original iPad/MarginNote source surface remains primary during continuous Chengfeng study;
 - Astro shows only useful orientation/checkpoint/verification/repair/return structure;
+- Xiao1000 questions enter Astro only after the owning Chengfeng content is learned;
 - switching between original source, Astro, and Chat is clear and low-friction;
 - a correct answer costs almost no extra time;
 - a failure sends the learner back to the smallest useful source/action;
