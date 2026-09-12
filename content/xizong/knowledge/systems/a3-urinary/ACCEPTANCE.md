@@ -14,7 +14,7 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 ## Gate status
 
 ```text
-S  BLOCKED
+S  PASS — CURRENT_RECONSTRUCTION
 K  UNTESTED at System level
 L  UNTESTED
 P  UNTESTED
@@ -25,73 +25,69 @@ U  UNTESTED by every real learner path
 
 Current allowed conclusion:
 
-> **A3 system-below Knowledge has accepted substrate: 14 Blocks / 257 stable KPs / 75 Logic Groups. A3 as a whole is not yet System-ready. Source closure is blocked because no accepted deterministic Current official-question System-scope owner exists yet. Exact historical recovery remains one high-value closure path, but it is no longer the only admissible path to Current Source authority.**
+> **A3 Source is accepted. Current official-question System scope is a deterministic 243-question owner reconciled against Current Question Truth, with inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`. The accepted system-below Knowledge substrate remains 14 Blocks / 257 stable KPs / 75 Logic Groups. A3 as a whole is not yet System-ready because System-level K and every downstream gate remain untested.**
 
 ---
 
 ## Current evidence boundary
 
-- The 14 canonical urinary Blocks have already completed the bounded system-below Knowledge upgrade and are consolidated in `content/xizong/knowledge/learner/a3-urinary-learning.json`.
-- Their accepted identity is **14 Blocks / 257 stable KPs / 75 Logic Groups**, with contiguous Logic Group coverage and no stable Block/KP renumbering.
-- The narrow B5 external source admission closes expected acid-base compensation / mixed-disorder diagnosis only; it does not replace the Project Lectures for 306 water/electrolyte content.
-- A working System-top `system.json` exists, but it is explicitly **not accepted System Knowledge** and cannot promote K while S is unresolved.
-- Historical reviewed evidence strongly establishes a 2026-09-01 urinary System scope of **243 questions** and remains valuable recovery/reconciliation evidence.
-- However, the historical artifact itself and Current Source authority are different claims. Failure to materialize/re-hash the old bytes does not by itself prove that a reliable Current A3 question scope cannot be reconstructed.
-- Count alone is insufficient. Neither `243`, subtraction from 978, nor model/medical intuition may recreate Current membership without explicit ownership criteria, Current Question Truth reconciliation and recorded provenance.
+- Current System question-scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`.
+- Owner authority → `CHAT_APPROVED_CURRENT_RECONSTRUCTION`; this is explicitly not a claim that the old historical bytes were recovered exactly.
+- Accepted Current membership → **243 unique official-question IDs, 2005–2026**.
+- Runtime-sorted membership inventory SHA256 → `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`.
+- Current Question Truth → **3750 immutable IDs**, inventory SHA256 `0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82`.
+- The Current owner preserves System membership only. It does **not** infer Question→Block, Question→LogicGroup or Question→KP relations.
+- The 14 canonical urinary Blocks remain the accepted System-below boundary: **14 Blocks / 257 stable KPs / 75 Logic Groups**.
+- Historical HLK evidence is retained as reconstruction/reconciliation provenance: reviewed urinary range count 243, reviewed one-primary-route / no-ownership-violation / no-source-gap guarantees, and recovered 243-question candidate membership.
+- `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` raw bytes were located but could not be materialized for a fresh re-hash because the source transport returned 403. The Current owner records that limitation and does not promote the locator into exact Current authority.
 
 ---
 
 ## Gate boundary
 
-### S — BLOCKED
+### S — PASS
 
-Earliest unresolved gate.
+Closure path used: **Path B — bounded Current reconstruction**.
 
-S closes when **one** of the following authority paths produces an accepted deterministic Current scope owner and the shared validation requirements below pass.
+Accepted owner:
 
-#### Path A｜Exact historical output → Current reconciliation
+`content/xizong/knowledge/learner/a3-urinary-question-scope.json`
 
-- authenticate the original historical HLK/System-scope output by its required exact evidence when raw bytes become available;
-- extract the urinary membership from that authenticated historical authority;
-- reconcile those identifiers to Current Question Truth;
-- record any identity/delta decisions explicitly;
-- write the deterministic Current A3 scope owner.
+Acceptance basis:
 
-This path proves historical fidelity strongly, but historical fidelity still must be reconciled into Current identifiers before Runtime consumption.
+1. the recovered reviewed HLK resolver candidate supplies the exact 243-question membership set rather than a count-only guess;
+2. historical urinary range/source authority covers the same 2005–2026 official-question window and all 14 accepted A3 Block identities;
+3. historical QA records one primary route per canonical ID, no ownership violation, no source-gap violation and unchanged canonical content;
+4. the recovered candidate is reconciled to the Current immutable `xizong-official-YYYY-nNNN` namespace;
+5. the Current owner defines explicit inclusion/exclusion rules and records zero unresolved membership ambiguities and zero delta from the recovered candidate;
+6. Current runtime validation expands the owner deterministically and resolves every selected ID from Current Question Truth.
 
-#### Path B｜Bounded Current reconstruction
+Validation evidence on branch commit `e5f3afc34844e3a168e98c2d0f4fd8f157ef99c2`, GitHub Actions run `34713324100`:
 
-If exact historical bytes/generator remain unavailable after bounded recovery, Current authority may be reconstructed without pretending the old artifact was recovered:
+- `Validate A1 learner contract` → PASS;
+- `Validate A3 owner and inventory` → PASS;
+- `Validate A3 Current Question Truth resolution` → PASS;
+- `Validate A3 boundary and provenance` → PASS;
+- `Validate A2 runtime contracts` → PASS;
+- `Build Astro` → PASS.
 
-- start from Current Question Truth and the accepted A3 System/Block domain boundary;
-- define explicit inclusion/exclusion criteria for System ownership before adjudicating membership;
-- use current first-party/canonical material and otherwise authoritative external evidence where a boundary decision genuinely needs support;
-- adjudicate ambiguous/cross-system questions explicitly rather than by count-fitting or intuition;
-- compare the result with recoverable historical replay/count evidence as a consistency check;
-- enumerate and justify every material delta from recoverable historical evidence;
-- record provenance as `CURRENT_RECONSTRUCTION` (or equivalent), never `RECOVERED_EXACT`;
-- write the deterministic Current A3 scope owner.
+Important gate-order invariant discovered during closure:
 
-#### Shared validation requirements
+> **S must not require accepted System-level K.** A3 `system.json` correctly remains `K_WORKING_SYSTEM_TOP / WORKING_A3_SYSTEM_K_NOT_ACCEPTED`; Source validation therefore uses the stable System identity from the S owner rather than requiring the K-level System owner to be `CHAT_APPROVED` first.
 
-Whichever path is used:
-
-- the Current owner must contain unique valid Current Question Truth IDs only;
-- membership identity/count/hash must be deterministic and fail closed on missing Current questions;
-- the authority path and provenance must be explicit;
-- unresolved ambiguous memberships remain explicit debt/blockers rather than being silently assigned;
-- Question→Block/KP relations must not be inferred merely from System membership;
-- the historical `243` is evidence/reconciliation context, not a magic target that can justify arbitrary membership.
-
-S remains BLOCKED until one path actually produces and validates the Current owner. This policy change removes false historical deadlock; it does **not** mark A3 Source as passed.
+This preserves the intended order `S → K → L → P → R → E → U` and prevents Source acceptance from silently depending on a later gate.
 
 ### K — UNTESTED at System level
 
-The 14 Blocks are accepted substrate, but the urinary mother model / failure modes / judgment axes / dependency route / System Recall skeleton have not yet received formal System-level K acceptance. The working `system.json` remains a draft until S closes and K is audited against the accepted Blocks.
+Earliest unresolved gate.
+
+The 14 Blocks are accepted substrate, but the urinary mother model / failure modes / judgment axes / dependency route / System Recall skeleton have not yet received formal System-level K acceptance. The working `system.json` remains a candidate until it is audited against the accepted Blocks and promoted deliberately.
+
+S closure does not itself authorize K promotion.
 
 ### L / P / R / E / U — UNTESTED
 
-Frozen downstream. Do not project or execute A3 as a learner-ready System yet.
+Frozen downstream. Do not treat A3 as learner-ready and do not infer that Kian has started Urinary.
 
 ---
 
@@ -99,6 +95,7 @@ Frozen downstream. Do not project or execute A3 as a learner-ready System yet.
 
 ### Artifact Truth
 
+- accepted Source scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`
 - transitional System substrate → `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
 - working System-top candidate → `content/xizong/knowledge/systems/a3-urinary/system.json`
 - canonical medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
@@ -108,4 +105,4 @@ Frozen downstream. Do not project or execute A3 as a learner-ready System yet.
 
 ### Learner Truth
 
-Private learner/browser/conversation evidence only. This scope does not mean Kian has started Urinary.
+Private learner/browser/conversation evidence only. This acceptance does not mean Kian has started Urinary.
