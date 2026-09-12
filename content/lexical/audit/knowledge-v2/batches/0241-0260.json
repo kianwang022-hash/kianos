@@ -1,0 +1,40 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 241, "end": 260},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 12, "REVISE": 8, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":241,"word":"apply","verdict":"REVISE","target_truth":"Preserve the high-value branches apply for=request, apply A to B=put/use on, apply to=be relevant, apply a substance, and apply oneself to. Collapse duplicate construction/collocation objects, especially duplicated apply for constructions, so each learner distinction has one authoritative object. Keep valid apply↔use and derivational application relations without multiplying the same semantic target."},
+    {"ordinal":242,"word":"appoint","verdict":"REVISE","target_truth":"Center appoint sb as/to a role = formally choose/assign someone to a position. Keep appoint a time/place only as lower-frequency formal recognition rather than an equal main learner branch."},
+    {"ordinal":243,"word":"appointment","verdict":"REVISE","target_truth":"Keep appointment=prearranged meeting/booking and appointment=act of appointing; appointed post may remain lower recognition. Fix the word-family binding that currently links the meeting sense of appointment to appoint=assign a job/position. Retain appointment↔date only with a non-categorical boundary: appointment is a prearranged meeting/booking, while the compared date sense is a romantic social meeting."},
+    {"ordinal":244,"word":"appraisal","verdict":"PASS","target_truth":"Keep general evaluation/assessment and formal valuation/estimate; both are coherent and useful."},
+    {"ordinal":245,"word":"appreciate","verdict":"REVISE","target_truth":"Preserve the strong Word Feel around recognizing value/significance and the four useful branches: understand significance, value/enjoy, feel grateful, and increase in value. Remove the duplicate gratitude secondary_sense because gratitude is already an Active sense; do not weaken the current mental model."},
+    {"ordinal":246,"word":"approach","verdict":"REVISE","target_truth":"Preserve method/way, come near, deal with a task/problem, approach/contact a person, and noun approach/coming-near where useful. Remove the duplicate approach-sb secondary_sense because the same meaning is already Active. Rebind approach→approachable to the semantically relevant accessible/easy-to-approach branch rather than noun 'method'."},
+    {"ordinal":247,"word":"appropriate","verdict":"PASS","target_truth":"Keep adjective appropriate=suitable/right for context plus formal verb branches appropriate=take for one's own use and appropriate funds=set aside money. Existing constructions are explicitly presentation-merged, and the appropriate↔suitable relation correctly states a probabilistic rather than categorical contrast."},
+    {"ordinal":248,"word":"approval","verdict":"PASS","target_truth":"Keep personal/social approval=positive opinion and official approval=permission/acceptance as two useful branches."},
+    {"ordinal":249,"word":"approve","verdict":"REVISE","target_truth":"Restore two independent learner branches: approve sth=officially sanction/accept, and approve of sb/sth=think well of/support. Current v4 merge incorrectly leaves only the official transitive sense Active while the ordinary approve-of meanings survive only as reference-backed constructions. Collapse duplicate approve-of constructions once the proper branch is restored."},
+    {"ordinal":250,"word":"approximate","verdict":"PASS","target_truth":"Keep adjective approximate=not exact but close, verb approximate=come close to, and verb approximate=estimate roughly; all are legitimate modern uses."},
+    {"ordinal":251,"word":"April","verdict":"PASS","target_truth":"Single case-sensitive month identity is correct; lowercase search alias is appropriate."},
+    {"ordinal":252,"word":"apt","verdict":"PASS","target_truth":"Keep apt to do=likely/tending to, apt=exactly suitable/appropriate, and lower-frequency apt=quick to learn/mentally able; current prioritization is acceptable."},
+    {"ordinal":253,"word":"arbitrary","verdict":"PASS","target_truth":"Keep arbitrary=determined by personal choice/whim rather than objective reason or system; current single learner center is accurate."},
+    {"ordinal":254,"word":"arch","verdict":"REVISE","target_truth":"Center noun arch=curved structure/shape (with foot arch as an ordinary application) and verb arch=curve/form an arch. Downgrade rare arch=mischievous/playful adjective to recognition/reference, and treat arch-=chief/principal primarily as a bound/formative recognition item rather than part of the ordinary free-word Core."},
+    {"ordinal":255,"word":"archeology","verdict":"PASS","target_truth":"Keep archaeology/archeology subject meaning and preserve the spelling relation stating that archaeology is the common/preferred modern spelling while archeology is accepted but less common."},
+    {"ordinal":256,"word":"architect","verdict":"REVISE","target_truth":"Center architect=building designer/planner and preserve the figurative 'architect of X'=planner/creator of an important outcome as one extension. Do not duplicate that figurative extension as both a collocation under the first sense and a separate equivalent second sense."},
+    {"ordinal":257,"word":"architecture","verdict":"PASS","target_truth":"Keep building design/architecture and extended system/design architecture (e.g. computer/network architecture); both are common and high-value."},
+    {"ordinal":258,"word":"archive","verdict":"PASS","target_truth":"Keep archive as repository/place, collection of stored records, and verb to archive/store; all three are ordinary modern uses and coherently connected."},
+    {"ordinal":259,"word":"area","verdict":"PASS","target_truth":"Keep geographic area, field/domain, measured surface area, and lower-level specialized functional region use; current hierarchy is acceptable."},
+    {"ordinal":260,"word":"arena","verdict":"PASS","target_truth":"Keep physical sports/entertainment arena and figurative field/sphere of public activity such as political arena; extension is high-value and clear."}
+  ],
+  "relation_truth": [
+    {"source_word":"appropriate","relation":"appropriate ↔ suitable","verdict":"PASS","target_truth":"Preserve the current probabilistic contrast: strong overlap, with suitable foregrounding fit and appropriate foregrounding contextual/right/fitting appropriateness."},
+    {"source_word":"archeology","relation":"archaeology ↔ archeology","verdict":"PASS","target_truth":"Preserve as spelling-variant knowledge; archaeology is common/preferred modern spelling and archeology is accepted but uncommon."},
+    {"source_word":"apply","relation":"apply ↔ use","verdict":"PASS","target_truth":"Preserve the contrast on the application/use sense: apply foregrounds putting a rule/method/etc. into use in a target context, while use is the general employ-for-purpose verb."},
+    {"source_word":"appointment","relation":"appointment ↔ date","verdict":"REVISE","target_truth":"Keep the contrast but replace the categorical 'appointment=formal' shorthand. Appointment is a prearranged meeting/booking; date in the compared sense is a romantic social meeting."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "PASS requires embedded owner facts/relations to be compatible with learner truth; explicit presentation-merge metadata is not treated as a duplicate semantic object by itself."
+  ]
+}
