@@ -70,17 +70,17 @@ const smokeNavigationTargets = [
       "  fs.writeFileSync(path.join(auditDir, `reading-a-probe-${name}.html`), readingAProbeHtml);",
       "  check(readingAProbeResponse.ok, `${name}_reading_a_http_ok`, JSON.stringify({ status: readingAProbeResponse.status, durationMs: Date.now() - readingAProbeStartedAt, bytes: Buffer.byteLength(readingAProbeHtml) }));",
       "  check(readingAProbeHtml.includes('data-local-port=\"reading\"'), `${name}_reading_a_http_has_root`, JSON.stringify({ status: readingAProbeResponse.status, durationMs: Date.now() - readingAProbeStartedAt, bytes: Buffer.byteLength(readingAProbeHtml) }));",
-      "  await page.goto(readingAProbeUrl, { waitUntil: 'domcontentloaded' });",
+      "  await page.goto(readingAProbeUrl, { waitUntil: 'commit' });",
       "  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
     ].join('\n')
   ],
   [
     "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`);",
-    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
+    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`, { waitUntil: 'commit' });\n  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
   ],
   [
     "  await page.goto(`${BASE}/reading-b/${encodeURIComponent(readingB.objectId)}/`);",
-    "  await page.goto(`${BASE}/reading-b/${encodeURIComponent(readingB.objectId)}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-objective-root]').waitFor({ state: 'visible' });"
+    "  await page.goto(`${BASE}/reading-b/${encodeURIComponent(readingB.objectId)}/`, { waitUntil: 'commit' });\n  await page.locator('[data-objective-root]').waitFor({ state: 'visible' });"
   ]
 ];
 for (const [navigationTarget, navigationReplacement] of smokeNavigationTargets) {
