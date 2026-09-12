@@ -8,7 +8,7 @@ on:
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
       - 'tools/lexical_historical_round_owner_surfaces.py'
-      - 'content/lexical/audit/migration-integrity/r20-authority.md'
+      - 'content/lexical/audit/migration-integrity/r21-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
 
@@ -16,42 +16,42 @@ permissions:
   contents: read
 
 jobs:
-  r20-bulk-triage:
+  r21-bulk-triage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read frozen R20 authority and bulk-triage Current
+      - name: Read frozen R21 authority and bulk-triage Current
         shell: bash
         run: |
           python tools/lexical_historical_round_owner_surfaces.py \
-            content/lexical/audit/migration-integrity/r20-authority.md \
+            content/lexical/audit/migration-integrity/r21-authority.md \
             --legacy-repo kianwang022-hash/kianos-legacy \
-            --comment-id 5583784440 \
-            --audit-id R20_4401_4700_CORE_EXPANSION_CONTRAST \
-            --expected-core 123 \
-            --expected-expansion 93 \
+            --comment-id 5584168646 \
+            --audit-id R21_4701_5000_CORE_EXPANSION_CONTRAST \
+            --expected-core 91 \
+            --expected-expansion 82 \
             --expected-contrast 63 \
-            --output /tmp/r20-bulk-triage.json \
-            --summary /tmp/r20-bulk-triage-summary.md
+            --output /tmp/r21-bulk-triage.json \
+            --summary /tmp/r21-bulk-triage-summary.md
 
       - name: Publish summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/r20-bulk-triage-summary.md ]; then
-            cat /tmp/r20-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/r21-bulk-triage-summary.md ]; then
+            cat /tmp/r21-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## R20 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo '## R21 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload triage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-r20-bulk-triage
+          name: lexical-r21-bulk-triage
           path: |
-            /tmp/r20-bulk-triage.json
-            /tmp/r20-bulk-triage-summary.md
+            /tmp/r21-bulk-triage.json
+            /tmp/r21-bulk-triage-summary.md
           if-no-files-found: error
           retention-days: 14
