@@ -1,0 +1,75 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_summary.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "batch": {"start": 1, "end": 200, "count": 200, "status": "TRUTH_DECISIONS_COMPLETE"},
+  "totals": {
+    "PASS": 110,
+    "REVISE": 90,
+    "SOURCE_CHECK": 0,
+    "reviewed": 200,
+    "coverage_pct": 100.0
+  },
+  "source_check_state": {
+    "unresolved": 0,
+    "policy": "Authoritative contemporary sources were used selectively only where register, licensing, rare-vs-ordinary status, or regional usage materially changed the Truth decision."
+  },
+  "decision_files": [
+    "content/lexical/audit/knowledge-v2/batches/0001-0040.json",
+    "content/lexical/audit/knowledge-v2/batches/0041-0080.json",
+    "content/lexical/audit/knowledge-v2/batches/0081-0100.json",
+    "content/lexical/audit/knowledge-v2/batches/0101-0120.json",
+    "content/lexical/audit/knowledge-v2/batches/0121-0160.json",
+    "content/lexical/audit/knowledge-v2/batches/0161-0200.json"
+  ],
+  "interpretation": [
+    "REVISE does not mean the whole word is unusable. It means Current differs materially from the target learner-worthy Truth in at least one semantic dimension.",
+    "Many REVISE decisions are organization/priority/ownership defects: duplicate Active+secondary objects, dictionary micro-senses promoted to main depth, structures attached to the wrong sense, or a weak Core/Word Feel that fails to organize otherwise valid meanings.",
+    "A meaningful minority are hard Knowledge defects: ordinary meanings missing while specialist senses survive, over-merges that erase distinct POS/meanings, factually invalid examples/definitions, wrong transitivity, zero Active senses under a meaningful Core, or cross-word relations pointing at the wrong sense/POS.",
+    "The 45% REVISE rate in this first full ordinal batch is high enough that prior Natural Owner cutover/build/runtime success cannot be treated as semantic Knowledge acceptance.",
+    "The audit method is calibrated: simple correct words are being passed quickly; complex words receive deeper review; external checking is selective rather than ritual."
+  ],
+  "hard_defect_examples": [
+    {"word":"abide","ordinal":4,"class":"HIGH_VALUE_ORDINARY_BRANCH_MISSING","finding":"Current Core includes 遵守 but Active Knowledge omits abide by sth."},
+    {"word":"act","ordinal":57,"class":"OVER_MERGE_ERASES_DISTINCT_POS_AND_MEANINGS","finding":"Distinct verb act/behave/perform and noun Act=law were collapsed into a noun action/deed survivor."},
+    {"word":"administer","ordinal":76,"class":"ORDINARY_CORE_MISSING_SPECIALIST_EDGE_SURVIVES","finding":"Manage/run and administer medicine/test/oath are absent while a rare/formal administer-to-the-sick sense is Active."},
+    {"word":"advantage","ordinal":87,"class":"MEANINGFUL_CORE_ZERO_ACTIVE_SENSES","finding":"Core says benefit/favorable condition while ordinary Active advantage meanings are absent."},
+    {"word":"affluent","ordinal":104,"class":"CORE_ACTIVE_CONTRADICTION","finding":"Core says wealthy but Active Knowledge lacks adjective affluent and instead promotes rare noun person/tributary senses."},
+    {"word":"alienate","ordinal":141,"class":"ORDINARY_CORE_DELETED_SPECIALIST_SENSE_SURVIVES","finding":"Core says estrangement but Active Knowledge only carries legal/property transfer."},
+    {"word":"alive","ordinal":144,"class":"FACTUALLY_INVALID_EXAMPLE","finding":"Current teaches 'an alive volcano'; normal English is active volcano."},
+    {"word":"alcohol","ordinal":137,"class":"FACTUALLY_INACCURATE_DOMAIN_DEFINITION","finding":"Current chemistry definition incorrectly characterizes the alcohol compound class."},
+    {"word":"alter","ordinal":163,"class":"ORDINARY_CORE_DELETED_SPECIALIST_SENSE_SURVIVES","finding":"Core says change but Active Knowledge only keeps veterinary neuter/spay."},
+    {"word":"anguish","ordinal":200,"class":"MEANINGFUL_CORE_ZERO_ACTIVE_SENSES","finding":"Core correctly states extreme suffering while Active senses are empty."}
+  ],
+  "recurring_defect_families": [
+    "HIGH_VALUE_ORDINARY_OR_FAMILIAR_NEW_SENSE_MISSING",
+    "OVER_MERGE_ERASES_DISTINCT_POS_OR_MEANINGS",
+    "ACTIVE_AND_SECONDARY_DUPLICATE_THE_SAME_SEMANTIC_OBJECT",
+    "DICTIONARY_MICROSENSE_OR_SPECIALIST_SENSE_OVERPROMOTED",
+    "PHRASE_OR_CONSTRUCTION_ATTACHED_TO_THE_WRONG_SENSE",
+    "DUPLICATE_OR_INCOMPLETE_CONSTRUCTION_OBJECTS",
+    "CORE_OR_WORD_FEEL_FAILS_TO_COMPRESS_VALID_POLYSEMY",
+    "DERIVED_FORM_OR_PARTICIPLE_MISOWNED_AS_HEADWORD_LOCAL_KNOWLEDGE",
+    "RELATION_TARGET_SENSE_OR_POS_MISALIGNED",
+    "DUPLICATE_CROSS_WORD_RELATION_OWNERS",
+    "FACTUAL_DEFINITION_OR_EXAMPLE_ERROR",
+    "TRANSITIVITY_OR_CONSTRUCTION_LICENSING_ERROR",
+    "REGIONAL_OR_MODERN_USAGE_MISSING_FROM_BOUNDARY",
+    "FUNCTION_WORD_OR_HEADWORD_POLLUTED_BY_UNRELATED_IDIOM_COMPLETENESS"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "construction_state": {
+    "Truth / Knowledge Boundary": "ACTIVE",
+    "Learning Logic": "FROZEN_PENDING_UPSTREAM",
+    "Content Realization / Optimization": "FROZEN_PENDING_UPSTREAM",
+    "Projection / Interaction": "FROZEN_PENDING_UPSTREAM",
+    "Runtime Loop": "FROZEN_PENDING_UPSTREAM",
+    "Evidence / Acceptance": "FROZEN_PENDING_UPSTREAM"
+  },
+  "next_batch": {"start": 201, "end": 400},
+  "stage_exit_progress": "200 / 7946 explicit Truth decisions complete. Full Truth stage remains open."
+}
