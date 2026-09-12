@@ -1,0 +1,77 @@
+{
+  "schema": "kianos.xizong.system_learning_support.v1",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_APPROVED_UPGRADE_WORK",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "block_id": "urinary-b05",
+  "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+  "external_source_contract": "content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json",
+  "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
+  "rule": "This sidecar organizes first-pass attention and Logic Group closure. It never overrides canonical medical Core. B3 remains the sole mechanism owner for tubular K+/H+ coupling; B5 owns the integrated clinical water/electrolyte/acid-base judgment layer.",
+  "identity": {
+    "stable_block_count": 1,
+    "stable_kp_count": 20,
+    "logic_group_count": 6,
+    "stable_block_or_kp_identity_change": false,
+    "logic_group_ranges_frozen": true,
+    "coverage": "CONTIGUOUS_NO_GAP_NO_OVERLAP"
+  },
+  "source_closure": {
+    "project_primary": [
+      "27 外科跟课合集改.pdf P191-P195 / corresponding AI-reading source",
+      "physiology renal acid-handling/K+-H+ source P276-P279 as Recall",
+      "respiratory PaCO2/acid-base entry as Recall"
+    ],
+    "narrow_external": [
+      "MSD Manual Professional: expected compensation and mixed-disorder diagnosis only",
+      "NCBI Bookshelf/StatPearls: albumin-corrected AG and delta-ratio interpretation only"
+    ],
+    "previous_gap": "The project Sources did not contain a complete expected-compensation + mixed-disorder algorithm.",
+    "resolution": "RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE_CONTRACT",
+    "stable_source_orphan_count": 0,
+    "guard": "External sources do not own Na correction rates, DKA/HHS treatment, bicarbonate treatment, ventilation/ICU management or broad nephrology."
+  },
+  "first_pass_focus": "先把容量、张力、Na、K/Ca和酸碱拆成五个变量；危险优先。水电解质沿原Lecture学习，K-H只调用B3；酸碱从primary process进入expected compensation，再用AG/白蛋白校正/delta识别混合过程。",
+  "stop_line": "不把补液、纠钠、DKA/HHS、碱治疗或呼吸机扩成现代治疗课；不恢复K-H无条件尿pH四格；external source只补诊断算法。",
+  "recall_spine": "五变量/脱水与水中毒 → 高钾急救任务 → 低钾/安全补钾 → B3 K-H情境应用 → Ca兴奋性 → 四层酸碱调节 → expected compensation → AG/delta mixed diagnosis",
+  "logic_groups": {
+    "urinary-b05-lg01": {
+      "kp": [1,6],
+      "label": "容量、张力、Na与三类脱水",
+      "goal": "区分容量和张力，用丢水/丢钠关系推导等渗、低渗、高渗脱水和水中毒，并建立休克优先于精细补液公式的顺序。",
+      "closure": "给出Na/渗透压/容量场景时能定位液体问题并选择处理层级，而不是把低钠等同于总Na少或把所有脱水混成同一模型。"
+    },
+    "urinary-b05-lg02": {
+      "kp": [7,10],
+      "label": "高钾：危险识别与抗/转/排/稀",
+      "goal": "从进多、排少、细胞外移三类病因进入膜电位和ECG，再把钙剂、胰岛素、排钾与Source NaHCO3接口按任务分开。",
+      "closure": "能解释为什么高钾要先保护心脏，以及各措施是保心、转移还是移除K，而不是背成等价药物列表。"
+    },
+    "urinary-b05-lg03": {
+      "kp": [11,15],
+      "label": "低钾、补钾与K-H情境门",
+      "goal": "掌握低钾病因/表现/安全补钾、低Mg-ROMK和Source DKA/幽门梗阻接口；K-H语义只调用B3并经过容量/醛固酮、远端Na/流量、NH4/肾功能context gate。",
+      "closure": "不会再背无条件尿pH四格；能把库存血K负荷与枸橼酸碱负荷拆成两条独立机制。"
+    },
+    "urinary-b05-lg04": {
+      "kp": [16,17],
+      "label": "Ca2+与神经肌肉/心电兴奋性",
+      "goal": "保留306高低钙阈值、病因方向和ST/神经肌肉识别，同时知道真正直接影响兴奋性的是离子化钙。",
+      "closure": "能从Ca变化解释ST和抽搐/麻木方向，且不把MM分期阈值与高钙定义混淆。"
+    },
+    "urinary-b05-lg05": {
+      "kp": [18,18],
+      "label": "酸碱四层调节底座",
+      "goal": "把缓冲、肺PaCO2、肾HCO3/H/NH4和细胞交换放在同一时间/任务框架，为诊断算法提供机制底座。",
+      "closure": "能说清每一层调什么，以及为什么补偿方向不等于最终病因诊断。"
+    },
+    "urinary-b05-lg06": {
+      "kp": [19,20],
+      "label": "Expected compensation、AG与混合酸碱算法",
+      "goal": "对四类primary disorder计算expected compensation；代谢性酸中毒进一步算AG、必要时白蛋白校正和delta，最后明确列出每个primary process并回扣病因。",
+      "closure": "面对未知ABG/电解质病例能完成pH→primary→expected compensation→AG/corrected AG→delta→全部原发过程；实测超出expected时不会写成‘过度/不足代偿’。"
+    }
+  },
+  "closure": "B5 PASS_BLOCK_LEVEL_K. 20 stable KPs are covered by 6 contiguous Logic Groups with no gap or overlap. The former acid-base Source Gap is durably resolved by the admitted narrow external source contract; stable ids are unchanged."
+}
