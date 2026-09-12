@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import WritingWorkspace from '../../components/WritingWorkspace.astro';
+import WritingEvidencePanel from '../../components/WritingEvidencePanel.astro';
 import { listWritingSyntheticTasks, loadWritingSyntheticTask } from '../../lib/englishWritingSynthetic.mjs';
 
 export function getStaticPaths() {
@@ -16,11 +17,12 @@ const task = loadWritingSyntheticTask(writingId);
 <Base
   title={task.title}
   kicker="English · Writing Current"
-  description="Whole-essay productive runtime: preserve first evidence, semantic PASS/repair through Chat, smallest learner re-generation, then repair check."
+  description="Whole-essay productive runtime with private later-fresh transfer evidence: preserve first evidence, semantic PASS/repair through Chat, smallest learner re-generation, then evidence-bound SUPPORT/CLOSE/REOPEN."
   sourcePath={task.sourcePath}
   sourceHash={task.sourceHash}
   objectId={task.id}
   active="home"
 >
   <WritingWorkspace task={task} />
+  <WritingEvidencePanel task={task} />
 </Base>
