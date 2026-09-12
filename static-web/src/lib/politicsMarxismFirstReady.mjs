@@ -10,6 +10,7 @@ const REGIONS = 'content/politics/source/politics_unified_regions.v1.jsonl';
 
 function absolute(relativePath) { return path.join(repoRoot, relativePath); }
 function asList(value) { return Array.isArray(value) ? value.map(String).filter(Boolean) : (value ? [String(value)] : []); }
+function objectList(value) { return Array.isArray(value) ? value.filter((row) => row && typeof row === 'object') : []; }
 function readJson(relativePath) { return JSON.parse(fs.readFileSync(absolute(relativePath), 'utf8')); }
 function readJsonl(relativePath) {
   return fs.readFileSync(absolute(relativePath), 'utf8')
@@ -28,8 +29,8 @@ function firstReadyDeferrals() {
   for (const name of sidecars) {
     const projection = readJson(`${LEARNING_ROOT}/${name}`);
     if (projection?.status !== 'CURRENT' && projection?.status !== 'CURRENT_PILOT') continue;
-    for (const checkpoint of asList(projection?.embedded_checkpoints)) {
-      for (const row of asList(checkpoint?.deferred_questions)) {
+    for (const checkpoint of objectList(projection?.embedded_checkpoints)) {
+      for (const row of objectList(checkpoint?.deferred_questions)) {
         const questionId = String(row?.question_id || '');
         const targetId = String(row?.first_ready_natural_unit_id || '');
         if (!questionId || !targetId) continue;
