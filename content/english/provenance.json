@@ -9,9 +9,9 @@
     "question_bank": {
       "original_source_path": "Study/英语资料库/EnglishOS/database/question_bank.v1.json",
       "owner_path": "content/english/source/question_bank.v1.json",
-      "sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
+      "sha256": "406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e",
       "role": "DURABLE_CURRENT_QUESTION_BANK",
-      "byte_identity": "EXACT_MATCH"
+      "byte_identity": "DERIVED_CURRENT_WITH_DOCUMENTED_TRANSLATION_REFERENCE_CLOSURE"
     },
     "reading_corpus": {
       "original_source_path": "Study/英语资料库/EnglishOS/database/reading_corpus.v1.json",
@@ -93,6 +93,20 @@
     "answer_unresolved_removed": true,
     "unrelated_english_semantic_diff": 0
   },
+  "translation_reference_closure": {
+    "before_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
+    "after_sha256": "406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e",
+    "scope_prompt_ids": [
+      "english1-2022-translation-main-q48",
+      "english1-2022-translation-main-q49",
+      "english1-2025-translation-main-q46"
+    ],
+    "verification_status": "cross_verified_public_reference",
+    "official": false,
+    "canonical_answer_field_preserved_null": true,
+    "normalized_reference_only": true,
+    "unrelated_english_semantic_diff": 0
+  },
   "historical_projection_reference": {
     "repository": "kianwang022-hash/kianos-site-v238-recovery",
     "ref": "a38444057dd46fbf1765052d17c5f6b6a018d2f7",
@@ -142,7 +156,7 @@
     "units": 235,
     "questions_mapped": 1364,
     "embedded_question_bank_sha256": "7b72eb2f621b421bb7561d492fc3fcd0f09f48fb60d1e8b7e55343929043be6d",
-    "current_question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
+    "current_question_bank_sha256": "406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e",
     "treatment": "PRESERVED_AS_PRE_REPAIR_BINDING; NOT_USED_AS_CURRENT_QUESTION_AUTHORITY"
   },
   "recovery_policy": {
