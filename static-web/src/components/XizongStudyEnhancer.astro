@@ -9,13 +9,13 @@ const kps = block?.kpRecords || [];
   </header>
 
   <div class="xv6DockLocator">
-    <span>讲义定位</span>
+    <span>iPad / MarginNote · 原讲义定位</span>
     <code data-source-locator>{kps[0]?.sourceLocator || 'Current 暂无精确定位'}</code>
   </div>
 
   <div class="xv6DockLecture">
-    <button type="button" data-lecture-read aria-pressed="false">讲义一轮 · 未确认</button>
-    <small>整块讲义完整读完一次后再确认；不是每个 KP 都点。</small>
+    <button type="button" data-lecture-read aria-pressed="false">原讲义一轮 · 未确认</button>
+    <small>在 iPad / MarginNote 连续完成本 Block 原讲义学习后再确认；网页 Core 只作需要时参考。</small>
   </div>
 
   <label class="xv6DockComment">
@@ -92,7 +92,7 @@ const kps = block?.kpRecords || [];
       const recalled = Object.keys(study.ratings || {}).length;
       const coreReady = kpRows.length > 0 && learned >= kpRows.length && recalled >= kpRows.length && Boolean(study.blockRecallDone);
       button.disabled = !personal.lectureRead || !coreReady || Boolean(study.completed);
-      button.title = personal.lectureRead ? '' : '先确认本 Block 讲义已完整读完一轮';
+      button.title = personal.lectureRead ? '' : '先在 iPad / MarginNote 确认本 Block 原讲义已完成一轮';
     };
 
     const syncReviewVisibility = () => {
@@ -113,7 +113,7 @@ const kps = block?.kpRecords || [];
       }
       if (lectureButton) {
         lectureButton.setAttribute('aria-pressed', String(Boolean(personal.lectureRead)));
-        lectureButton.textContent = personal.lectureRead ? '讲义一轮 · 已确认' : '讲义一轮 · 未确认';
+        lectureButton.textContent = personal.lectureRead ? '原讲义一轮 · 已确认' : '原讲义一轮 · 未确认';
         lectureButton.classList.toggle('active', Boolean(personal.lectureRead));
       }
       applyCompletionGate();
