@@ -62,7 +62,17 @@ instrumented = instrumented.replace(serverTarget, serverReplacement).replace(cle
 const smokeNavigationTargets = [
   [
     "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[0])}/`);",
-    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[0])}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
+    [
+      "  const readingAProbeUrl = `${BASE}/reading/${encodeURIComponent(readingIds[0])}/`;",
+      "  const readingAProbeStartedAt = Date.now();",
+      "  const readingAProbeResponse = await fetch(readingAProbeUrl, { signal: AbortSignal.timeout(10000) });",
+      "  const readingAProbeHtml = await readingAProbeResponse.text();",
+      "  fs.writeFileSync(path.join(auditDir, `reading-a-probe-${name}.html`), readingAProbeHtml);",
+      "  check(readingAProbeResponse.ok, `${name}_reading_a_http_ok`, JSON.stringify({ status: readingAProbeResponse.status, durationMs: Date.now() - readingAProbeStartedAt, bytes: Buffer.byteLength(readingAProbeHtml) }));",
+      "  check(readingAProbeHtml.includes('data-local-port=\"reading\"'), `${name}_reading_a_http_has_root`, JSON.stringify({ status: readingAProbeResponse.status, durationMs: Date.now() - readingAProbeStartedAt, bytes: Buffer.byteLength(readingAProbeHtml) }));",
+      "  await page.goto(readingAProbeUrl, { waitUntil: 'domcontentloaded' });",
+      "  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
+    ].join('\n')
   ],
   [
     "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`);",
