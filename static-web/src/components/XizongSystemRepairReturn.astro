@@ -101,9 +101,9 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
 
       byBlockKp.forEach((item) => {
         const objectId = `xizong:${item.blockId}`;
-        const key = `kianos-xizong-memory-review-v2:${objectId}`;
-        const ext = readJson(key, { memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0, reviewRatings: {}, evidenceHistory: [], lastRecallRatings: {} });
-        const existing = Array.isArray(ext.reviewPlan) ? ext.reviewPlan : [];
+        const inboxKey = `kianos-xizong-repair-inbox-v1:${objectId}`;
+        const inbox = readJson(inboxKey, { plans: [] });
+        const existing = Array.isArray(inbox?.plans) ? inbox.plans : [];
         const plan = {
           kpId: item.kpId,
           reason: [...new Set(item.reasons)].join('；') || `来自 ${item.questionIds.length} 道 W/U 题`,
@@ -112,9 +112,11 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
           sourceQuestionIds: item.questionIds
         };
         const withoutSameKp = existing.filter((row) => String(row?.kpId || row?.kp_id || row || '') !== item.kpId);
-        ext.reviewPlan = [...withoutSameKp, plan];
-        ext.reviewIndex = 0;
-        writeJson(key, ext);
+        writeJson(inboxKey, {
+          importedAt: new Date().toISOString(),
+          sourceSystemId: systemId,
+          plans: [...withoutSameKp, plan]
+        });
       });
     };
 
@@ -138,7 +140,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         article.append(head, body);
         if (route && relation?.primaryKpId) {
           const meta = document.createElement('small');
-          meta.textContent = `已送入 ${route.label} · ${relation.primaryKpId} 的 Review；新标签打开，不丢当前真题位置。`;
+          meta.textContent = `已送往 ${route.label} · ${relation.primaryKpId} 的 Repair Inbox；打开或已打开该 Block 时会接入 Review。`;
           const link = document.createElement('a');
           link.href = route.href;
           link.target = '_blank';
@@ -199,7 +201,7 @@ const routePayload = JSON.stringify(routes).replace(/</g, '\u003c');
         }
         deliverToBlock(rows);
         writeJson(repairKey, { importedAt: new Date().toISOString(), plan: rows });
-        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已送回对应 Block。`;
+        if (status) status.textContent = `已接收 ${rows.length} 个修补任务；有审核回链的已送往对应 Block Repair Inbox。`;
         render(rows);
       } catch {
         if (status) status.textContent = '返回计划无法解析；没有改动任何学习状态。';

@@ -77,7 +77,13 @@ const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boo
     const previousMeta = readJson(metaKey, null);
     if (previousMeta?.version && previousMeta.version !== version) {
       const staleBlockQuestionPlans = {};
+      const staleBlockRepairInboxes = {};
       blockIds.forEach((blockId) => {
+        const inboxKey = `kianos-xizong-repair-inbox-v1:xizong:${blockId}`;
+        const inbox = readJson(inboxKey, null);
+        if (inbox) staleBlockRepairInboxes[blockId] = inbox;
+        try { localStorage.removeItem(inboxKey); } catch {}
+
         const key = `kianos-xizong-memory-review-v2:xizong:${blockId}`;
         const ext = readJson(key, null);
         if (!ext || !Array.isArray(ext.reviewPlan)) return;
@@ -100,7 +106,8 @@ const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boo
         sweep: readJson(sweepKey, {}),
         repair: readJson(repairKey, {}),
         ledger: readJson(ledgerKey, {}),
-        stale_block_question_plans: staleBlockQuestionPlans
+        stale_block_question_plans: staleBlockQuestionPlans,
+        stale_block_repair_inboxes: staleBlockRepairInboxes
       });
       try {
         localStorage.removeItem(recallKey);

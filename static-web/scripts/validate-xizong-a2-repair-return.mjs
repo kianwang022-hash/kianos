@@ -50,16 +50,26 @@ assert(canonicalRelation.primaryKpId !== accepted[0].kp_id, 'chat-invented-kp-wa
 assert(system.blocks.some((block) => block.blockId === canonicalRelation.blockId), 'reviewed-block-not-in-a2');
 
 const component = read('static-web/src/components/XizongSystemRepairReturn.astro');
+const bridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const page = read('static-web/src/pages/xizong/[system]/index.astro');
+const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const memory = read('static-web/src/components/XizongMemoryReviewV6.astro');
 
 assert(component.includes("['wrong', 'uncertain'].includes(row.status)"), 'component-wu-filter-missing');
 assert(component.includes('const relation = question?.relation;'), 'component-does-not-derive-canonical-relation');
 assert(component.includes('reviewed relation'), 'component-safety-contract-missing');
-assert(component.includes('kianos-xizong-memory-review-v2:'), 'block-review-delivery-missing');
+assert(component.includes('kianos-xizong-repair-inbox-v1:'), 'block-repair-inbox-delivery-missing');
+assert(!component.includes('kianos-xizong-memory-review-v2:${objectId}'), 'system-page-still-writes-block-evidence-store');
 assert(component.includes("target = '_blank'"), 'repair-does-not-preserve-question-mainline');
 assert(component.includes('没有匹配到本轮真实 W/U 题号'), 'invalid-return-not-contained');
 assert(page.includes('<XizongSystemRepairReturn system={system} />'), 'repair-return-not-mounted');
+assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
+assert(bridge.includes('kianos-xizong-repair-inbox-v1:'), 'bridge-does-not-read-repair-inbox');
+assert(bridge.includes('kianos-xizong-memory-review-v2:'), 'bridge-does-not-merge-into-block-evidence-owner');
+assert(bridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'bridge-import-evidence-missing');
+assert(bridge.includes("evidence_role: 'REPAIR_ONLY'"), 'bridge-repair-role-missing');
+assert(bridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair-inbox');
+assert(bridge.includes('window.location.reload();'), 'repair-inbox-consumption-does-not-rebuild-memory-state');
 assert(memory.includes("evidence_role: 'REPAIR_ONLY'"), 'block-repair-evidence-role-regressed');
 assert(memory.includes('不覆盖最初 KP Recall'), 'repair-overwrites-original-recall');
 
@@ -72,5 +82,6 @@ console.log([
   'StableWorkDoesNotCreateRepairDebt=true',
   'ChatCannotInventQuestionToKnowledgeMapping=true',
   'ReturnKeepsQuestionMainline=true',
+  'CrossTabRepairInbox=true',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
 ].join(' | '));
