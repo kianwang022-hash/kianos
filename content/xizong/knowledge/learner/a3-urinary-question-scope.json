@@ -1,0 +1,185 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_CURRENT_RECONSTRUCTION",
+  "system": {
+    "system_id": "urinary",
+    "canonical_id": "A3",
+    "title": "泌尿系统"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "question_count": 243,
+  "question_id_inventory_sha256": "bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "question_number_spec_by_year": {
+      "2005": "14-15,74-76,117-118,131,144",
+      "2006": "5,16,47,74-76,126,144",
+      "2007": "14-16,46,49,73-74,84,146,149,170-171",
+      "2008": "15-17,50,69-70,102-104,137-138,172",
+      "2009": "14-15,51,69-70,105-107,153,166,172",
+      "2010": "15-17,52,69-70,81,102-104,172",
+      "2011": "14-15,69-70,81,105-107,123,125-126,153,164,168,172",
+      "2012": "14-15,69-70,104,137-138,154,172",
+      "2013": "14-15,53,69-70,102-104,154,172",
+      "2014": "15-17,69-70,81,102-104,111,168,172",
+      "2015": "15-17,69-70,87,102-104,164,172",
+      "2016": "15-17,53,69-70,91-92,102-104,172,175",
+      "2017": "10-11,37,53,63,82-84,157",
+      "2018": "10-11,37,53,60,82-84,101-102,157",
+      "2019": "9-10,34,40,53,59,82-84,140,157",
+      "2020": "11-12,37,53,82-84,93,140,153,157",
+      "2021": "10,38,52,82-84,96-97,139,157,160",
+      "2022": "9-10,53,64,82-84,93-94,118-119,126-127,157",
+      "2023": "10-11,33,52,82-84,140,157",
+      "2024": "10,36,53,71-72,82-84,118-119,126-127,157",
+      "2025": "12-13,42,53,82-84,126-127,139,157",
+      "2026": "11-12,52,82-84,126-127,140,157"
+    }
+  },
+  "year_counts": {
+    "2005": 9,
+    "2006": 8,
+    "2007": 12,
+    "2008": 12,
+    "2009": 11,
+    "2010": 11,
+    "2011": 15,
+    "2012": 9,
+    "2013": 10,
+    "2014": 12,
+    "2015": 11,
+    "2016": 13,
+    "2017": 9,
+    "2018": 11,
+    "2019": 11,
+    "2020": 11,
+    "2021": 11,
+    "2022": 14,
+    "2023": 9,
+    "2024": 13,
+    "2025": 11,
+    "2026": 10
+  },
+  "recovery": {
+    "mode": "CURRENT_RECONSTRUCTION",
+    "current_question_truth_identity_check": {
+      "manifest_path": "content/xizong/questions/manifest.json",
+      "question_count": 3750,
+      "immutable_question_ids": true,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82"
+    },
+    "accepted_a3_boundary": {
+      "learning_support_path": "content/xizong/knowledge/learner/a3-urinary-learning.json",
+      "status": "SYSTEM_BELOW_K_CLOSED",
+      "stable_block_count": 14,
+      "stable_kp_count": 257,
+      "logic_group_count": 75,
+      "block_ids": [
+        "urinary-b01",
+        "urinary-b02",
+        "urinary-b03",
+        "urinary-b04",
+        "urinary-b05",
+        "urinary-b06",
+        "urinary-b07",
+        "urinary-b08",
+        "urinary-b09",
+        "urinary-b10",
+        "urinary-b11",
+        "urinary-b12",
+        "urinary-b13",
+        "urinary-b14"
+      ]
+    },
+    "historical_membership_evidence": {
+      "role": "RECONCILIATION_CANDIDATE_NOT_RUNTIME_AUTHORITY",
+      "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "source_commit": "208441bdc843d7e02d25a435acad0628ecafa56f",
+      "source_workflow_run": 34640880517,
+      "source_artifact_id": 10279619403,
+      "source_artifact_file": "hlk-first-pass-system-pools.json",
+      "source_artifact_sha256": "03c8bb01306099cac0e258ef1e635307d0a46979925f94bee92665f23a8b61f5",
+      "candidate_question_count": 243,
+      "candidate_runtime_sorted_inventory_sha256": "bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e"
+    },
+    "historical_range_and_qa_evidence": {
+      "range_config": {
+        "filename": "HLK_SYSTEM_RANGE_CONFIG_v1.json",
+        "manifest_declared_sha256": "fbfb9123f5bb4dd02e6f7590d56fadbc1a9683a45cb6eb53262226c962b515db",
+        "manifest_declared_bytes": 41498,
+        "schema": "hlk_official_system_range_config_v1",
+        "system_id": "urinary",
+        "year_range": [2005, 2026],
+        "official_question_count": 243,
+        "all_14_current_block_ids_covered": true
+      },
+      "qa_receipt": {
+        "filename": "HLK_RELATION_LAYER_QA_RECEIPT_v1.json",
+        "manifest_declared_sha256": "89faab8601b265a7480dd9abda1a068869218893e5440bed95dd679f092978ed",
+        "manifest_declared_bytes": 2503,
+        "status": "HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY",
+        "required_true_checks": [
+          "INPUT_SHA_GATE",
+          "CANONICAL_3750_UNIQUE_2005_2026",
+          "SYSTEM_RANGE_COUNT_GATE",
+          "SYSTEM_RANGE_TOTAL_978",
+          "FIRST_PASS_ROUTE_COMPLETE",
+          "FIRST_PASS_ONE_ROUTE_PER_CANONICAL_ID",
+          "NO_OWNERSHIP_VIOLATION",
+          "NO_SOURCE_GAP_VIOLATION",
+          "CANONICAL_CONTENT_UNCHANGED"
+        ]
+      },
+      "historical_index_locator": {
+        "filename": "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl",
+        "manifest_declared_sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d",
+        "manifest_declared_bytes": 486228,
+        "manifest_declared_rows": 978,
+        "raw_byte_rehash_status": "UNAVAILABLE_SOURCE_TRANSPORT_403",
+        "used_as_exact_current_authority": false
+      }
+    },
+    "ownership_criteria": {
+      "include": [
+        "ID is present in the recovered 243-question urinary primary-owner candidate produced by the reviewed HLK resolver.",
+        "Historical range authority identifies the system as urinary and covers the same 2005-2026 official-question window and all 14 accepted urinary Block identities.",
+        "The candidate belongs within the accepted A3 renal/urinary System boundary represented by urinary-b01 through urinary-b14 and its admitted source coverage.",
+        "The ID resolves exactly in Current Question Truth under the immutable xizong-official-YYYY-nNNN identity."
+      ],
+      "exclude": [
+        "Do not add questions by keyword/title resemblance, model-only medical intuition, subtraction from 978, or count fitting to 243.",
+        "Do not use nullable Current classification fields as a substitute for reviewed primary ownership.",
+        "Do not import cross-system mechanism interfaces merely because A3 mentions them when the accepted Block stop-line keeps the complete disease/treatment model elsewhere.",
+        "Do not infer Question-to-Block, Question-to-LogicGroup, or Question-to-KP relations from System membership."
+      ]
+    },
+    "adjudication": {
+      "unresolved_membership_ambiguities": [],
+      "delta_vs_recovered_243_candidate": {
+        "added_ids": [],
+        "removed_ids": [],
+        "count_delta": 0
+      },
+      "decision": "ACCEPT_CANDIDATE_MEMBERSHIP_AS_CURRENT_A3_SYSTEM_SCOPE_AFTER_CURRENT_TRUTH_RECONCILIATION",
+      "basis": "The recovered membership set, range/source authority, QA ownership guarantees and Current accepted A3 Block boundary are mutually consistent; Current Question Truth preserves the same immutable ID namespace. Runtime validation remains fail-closed on every ID."
+    }
+  },
+  "runtime_validation": {
+    "expand_spec_deterministically": true,
+    "require_exact_question_count": 243,
+    "require_unique_ids": true,
+    "require_sorted_inventory_sha256": "bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e",
+    "require_current_question_truth_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+    "require_every_id_resolves_in_current_question_truth": true,
+    "fail_closed": true
+  },
+  "boundaries": {
+    "system_membership_only": true,
+    "question_block_mapping_asserted": false,
+    "question_logic_group_mapping_asserted": false,
+    "question_kp_mapping_asserted": false,
+    "learner_progress_asserted": false,
+    "historical_raw_bytes_claimed_rehashed": false
+  }
+}
