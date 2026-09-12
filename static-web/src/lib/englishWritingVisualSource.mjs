@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -47,6 +48,55 @@ function canonicalAssetPath(asset) {
   return String(asset?.asset_path || asset?.path || '').trim().replace(/^\/+/, '');
 }
 
+function expectedSha256(asset) {
+  return String(asset?.asset_sha256 || asset?.sha256 || '').trim().toLowerCase();
+}
+
+function expectedBytes(asset) {
+  const value = Number(asset?.bytes);
+  return Number.isInteger(value) && value >= 0 ? value : null;
+}
+
+function sha256(buffer) {
+  return crypto.createHash('sha256').update(buffer).digest('hex');
+}
+
+function inspectAsset(asset) {
+  const assetPath = canonicalAssetPath(asset);
+  const expectedSha = expectedSha256(asset);
+  const bytes = expectedBytes(asset);
+  const publicPath = assetPath ? path.join(repoRoot, 'static-web/public', assetPath) : '';
+  const exists = Boolean(publicPath) && fs.existsSync(publicPath);
+  let actualBytes = null;
+  let actualSha256 = '';
+
+  if (exists) {
+    const buffer = fs.readFileSync(publicPath);
+    actualBytes = buffer.length;
+    actualSha256 = sha256(buffer);
+  }
+
+  const metadataComplete = Boolean(assetPath)
+    && /^[a-f0-9]{64}$/.test(expectedSha)
+    && bytes !== null;
+  const exact = metadataComplete
+    && exists
+    && actualBytes === bytes
+    && actualSha256 === expectedSha;
+
+  return {
+    assetPath,
+    publicPath: assetPath ? `static-web/public/${assetPath}` : '',
+    expectedBytes: bytes,
+    expectedSha256: expectedSha,
+    exists,
+    actualBytes,
+    actualSha256,
+    metadataComplete,
+    exact
+  };
+}
+
 function learnerDescriptor(asset) {
   const assetPath = canonicalAssetPath(asset);
   if (!assetPath) return null;
@@ -62,23 +112,52 @@ function snapshot() {
   if (cache) return cache;
   const sourcePath = absolute(WRITING_VISUAL_SOURCE);
   if (!fs.existsSync(sourcePath)) {
-    cache = { status: 'missing', records: new Map(), issue: `WRITING_VISUAL_SOURCE_MISSING:${WRITING_VISUAL_SOURCE}` };
+    cache = {
+      status: 'missing',
+      mappingReady: false,
+      binaryReady: false,
+      records: new Map(),
+      assets: [],
+      issue: `WRITING_VISUAL_SOURCE_MISSING:${WRITING_VISUAL_SOURCE}`
+    };
     return cache;
   }
 
   try {
     const truth = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
     const records = collectWritingBTruth(truth);
-    cache = {
-      status: records.size === 27 ? 'ready' : 'invalid',
-      records,
-      issue: records.size === 27 ? '' : `WRITING_VISUAL_SOURCE_COUNT:${records.size}/27`
-    };
+    const assets = [];
+    let mappingReady = records.size === 27;
+
+    for (let year = 2000; year <= 2026; year += 1) {
+      const objectId = `english1-${year}-writing-b-main`;
+      const row = records.get(objectId);
+      const visuals = row ? canonicalVisualAssets(row) : [];
+      if (!row || !visuals.length) mappingReady = false;
+      for (const asset of visuals) {
+        const inspection = inspectAsset(asset);
+        if (!inspection.metadataComplete) mappingReady = false;
+        assets.push({ objectId, year, ...inspection });
+      }
+    }
+
+    const binaryReady = mappingReady && assets.length > 0 && assets.every((asset) => asset.exact);
+    const status = !mappingReady ? 'invalid' : binaryReady ? 'ready' : 'binary_blocked';
+    const issue = !mappingReady
+      ? `WRITING_VISUAL_MAPPING_CLOSURE:${records.size}/27`
+      : binaryReady
+        ? ''
+        : `WRITING_VISUAL_BINARY_CLOSURE:${assets.filter((asset) => asset.exact).length}/${assets.length}`;
+
+    cache = { status, mappingReady, binaryReady, records, assets, issue };
     return cache;
   } catch (error) {
     cache = {
       status: 'invalid',
+      mappingReady: false,
+      binaryReady: false,
       records: new Map(),
+      assets: [],
       issue: `WRITING_VISUAL_SOURCE_PARSE:${error instanceof Error ? error.message : String(error)}`
     };
     return cache;
@@ -108,7 +187,12 @@ export function inspectWritingVisualSource() {
   return {
     status: data.status,
     issue: data.issue,
+    mappingReady: data.mappingReady,
+    binaryReady: data.binaryReady,
     recordCount: data.records.size,
-    sourcePath: WRITING_VISUAL_SOURCE
+    assetCount: data.assets.length,
+    exactAssetCount: data.assets.filter((asset) => asset.exact).length,
+    sourcePath: WRITING_VISUAL_SOURCE,
+    assets: data.assets.map((asset) => ({ ...asset }))
   };
 }
