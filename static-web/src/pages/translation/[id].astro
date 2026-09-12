@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import TranslationWorkspace from '../../components/TranslationWorkspace.astro';
 import TranslationEvidenceGuard from '../../components/TranslationEvidenceGuard.astro';
+import TranslationPersistenceGuard from '../../components/TranslationPersistenceGuard.astro';
 import TranslationReferenceLoader from '../../components/TranslationReferenceLoader.astro';
 import {
   listTranslationSets,
@@ -35,6 +36,7 @@ const referenceUrl = `${base}translation-reference/${encodeURIComponent(translat
   objectId={translation.objectId}
   active="home"
 >
+  <TranslationPersistenceGuard />
   <TranslationWorkspace translation={translation} reference={reference} />
   <TranslationEvidenceGuard />
   <TranslationReferenceLoader referenceUrl={referenceUrl} />
