@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+
 import {
   listPoliticsSubjectsCurrent,
   loadPoliticsChapterCurrent,
@@ -77,6 +79,29 @@ const diagnostics = politicsRuntimeDiagnostics();
 if (diagnostics.sourceRegistryRows < 1000) fail(`source registry unexpectedly small: ${diagnostics.sourceRegistryRows}`);
 if (diagnostics.questionRows < 1000) fail(`question database unexpectedly small: ${diagnostics.questionRows}`);
 
+// Surface Ownership regression guard.
+// Chengfeng source text remains resolved in Current for provenance/repair, but first-round
+// Politics projection must not turn Astro into a competing continuous lecture reader.
+const chapterRuntimeUrl = new URL('../src/components/PoliticsChapterRuntime.astro', import.meta.url);
+const chapterRuntimeSource = fs.readFileSync(chapterRuntimeUrl, 'utf8');
+const forbiddenProjectionPatterns = [
+  ['continuous Chengfeng text render', /node\.text/],
+  ['legacy source-flow reader', /politicsSourceFlow/],
+  ['legacy learner copy', /直接学正文/]
+];
+for (const [label, pattern] of forbiddenProjectionPatterns) {
+  if (pattern.test(chapterRuntimeSource)) fail(`surface ownership regression: ${label}`);
+}
+if (!/去 iPad \/ MarginNote 学原讲义/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: missing external-primary Chengfeng handoff');
+}
+if (!/肖1000 · Astro 验证/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: missing Astro Xiao1000 verification ownership');
+}
+if (!/data-politics-external-source/.test(chapterRuntimeSource)) {
+  fail('surface ownership regression: missing stable external-source return anchor');
+}
+
 if (!process.exitCode) {
   console.log('POLITICS_RUNTIME_QA_PASS');
   console.log(JSON.stringify({
@@ -88,7 +113,9 @@ if (!process.exitCode) {
     unresolvedSources,
     unresolvedQuestions,
     sourceRegistryRows: diagnostics.sourceRegistryRows,
-    questionRows: diagnostics.questionRows
+    questionRows: diagnostics.questionRows,
+    chengfengPrimarySurface: 'IPAD_MARGINNOTE_ORIGINAL_LECTURE',
+    xiao1000PrimarySurface: 'ASTRO_KIANOS_WEB'
   }));
 }
 
