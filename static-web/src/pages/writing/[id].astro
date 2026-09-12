@@ -2,27 +2,40 @@
 import Base from '../../layouts/Base.astro';
 import WritingWorkspace from '../../components/WritingWorkspace.astro';
 import WritingEvidencePanel from '../../components/WritingEvidencePanel.astro';
-import { listWritingSyntheticTasks, loadWritingSyntheticTask } from '../../lib/englishWritingSynthetic.mjs';
+import WritingProtectedExamGate from '../../components/WritingProtectedExamGate.astro';
+import { listWritingSyntheticTasks } from '../../lib/englishWritingSynthetic.mjs';
+import { listWritingRuntimeTasks, loadWritingRuntimeTask } from '../../lib/englishWritingRuntimeTask.mjs';
 
 export function getStaticPaths() {
-  return listWritingSyntheticTasks().map((task) => ({
+  return listWritingRuntimeTasks().map((task) => ({
     params: { id: task.id },
     props: { writingId: task.id }
   }));
 }
 
 const { writingId } = Astro.props;
-const task = loadWritingSyntheticTask(writingId);
+const task = loadWritingRuntimeTask(writingId);
+const syntheticGateIds = listWritingSyntheticTasks().map((item) => item.id);
+const isExam = task.sourceKind === 'exam';
 ---
 <Base
   title={task.title}
   kicker="English · Writing Current"
-  description="Whole-essay productive runtime with private later-fresh transfer evidence: preserve first evidence, semantic PASS/repair through Chat, smallest learner re-generation, then evidence-bound SUPPORT/CLOSE/REOPEN."
+  description="Whole-essay productive runtime with protected true-exam entry and private later-fresh transfer evidence: preserve first evidence, semantic PASS/repair through Chat, smallest learner re-generation, then evidence-bound SUPPORT/CLOSE/REOPEN."
   sourcePath={task.sourcePath}
   sourceHash={task.sourceHash}
   objectId={task.id}
   active="home"
 >
-  <WritingWorkspace task={task} />
-  <WritingEvidencePanel task={task} />
+  {isExam ? (
+    <WritingProtectedExamGate task={task} syntheticGateIds={syntheticGateIds}>
+      <WritingWorkspace task={task} />
+      <WritingEvidencePanel task={task} />
+    </WritingProtectedExamGate>
+  ) : (
+    <>
+      <WritingWorkspace task={task} />
+      <WritingEvidencePanel task={task} />
+    </>
+  )}
 </Base>
