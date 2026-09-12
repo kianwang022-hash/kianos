@@ -46,7 +46,12 @@
     "History C04 repaired the October Revolution bridge from New Culture ideological liberation to a new revolutionary direction and Marxism spread; C05 stayed unchanged",
     "History C06 repaired S05 with the source-backed victory-cause hierarchy and Taiwan/Penghu return as an important complete-victory marker",
     "History C07 stayed unchanged; C08 promoted The Ten Major Relationships and the Eighth Party Congress into learner-facing anchors for independent socialist-construction exploration",
-    "History C09 restored rectification-of-disorder language and the 1992 Southern Talks as a later reform-breakthrough anchor; C10 stayed unchanged to avoid turning History into a second Xi/New Thought course"
+    "History C09 restored rectification-of-disorder language and the 1992 Southern Talks as a later reform-breakthrough anchor; C10 stayed unchanged to avoid turning History into a second Xi/New Thought course",
+    "History Source-root OCR and declared Suyi review closed in learning/history/source-review.json and bound to the Current source-node canonical digest so Source changes reopen review automatically",
+    "History content audit now consumes the durable Source/Suyi review snapshot instead of repeatedly re-queuing reviewed child OCR noise or frozen C04 pilot provenance",
+    "History global first-ready derivation added from full History learner order plus canonical Natural Unit ownership: each Xiao1000 question is assigned to its last necessary canonical owner without fragmenting continuous learner segments",
+    "History Current runtime cut over to the global last-necessary-owner projection while C04 K03-K07 remains one continuous learner segment",
+    "Dedicated History first-ready parity gate added: canonical question union must equal runtime question union, every question must appear exactly once at its last necessary owner, and C04 K03-K07 continuity is a hard regression constraint"
   ],
   "accepted_pilot": {
     "module": "POL27-CF-MARX-C02-K03",
@@ -54,9 +59,9 @@
     "gates": {"S":"PASS","K":"PASS","L":"PASS","P":"PASS","R":"PASS","E":"PASS","U":"UNTESTED"},
     "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Politics."
   },
-  "current_stage": "MARXISM_GATE_PENDING_AND_HISTORY_SOURCE_CLOSURE",
+  "current_stage": "MARXISM_GATE_PENDING_AND_HISTORY_FIRST_READY_GATE_PENDING",
   "current_subject": "MARXISM_AND_HISTORY",
-  "acceptance_target": "Keep Marxism implementation fixed while its already-built S/K/L/P/R/E gates await a real runner. For History, the ten-chapter learner-facing semantic mainline has now been scanned and five real gaps repaired. Do only compact Source-root OCR and declared Suyi-delta review next; if no further stable teaching value is missing, close History S/K and derive formal whole-subject first-ready Learning/Projection timing before any History Runtime/Evidence generalization.",
+  "acceptance_target": "Keep Marxism implementation fixed while its already-built S/K/L/P/R/E gates await an executable runner. History Source/Knowledge manual closure is complete and its whole-subject global first-ready Learning/Projection rule is now implemented in Current. Do not generalize History Runtime/Evidence yet: first require the History content gate and independent first-ready parity gate to execute and fix only concrete red evidence.",
   "batch_acceptance": {
     "scope": "MARXISM_CH00_TO_CH08_WITH_K03_ACCEPTED_PILOT",
     "S": "MANUAL_SOURCE_REVIEW_COMPLETE_AUTOMATED_GATE_PENDING",
@@ -69,14 +74,25 @@
   },
   "history_batch_acceptance": {
     "scope": "HISTORY_CH01_TO_CH10",
-    "S": "BATCH_GATE_IMPLEMENTED_COMPACT_SOURCE_ROOT_AND_SUYI_REVIEW_PENDING",
-    "K": "MAINLINE_SEMANTIC_SCAN_COMPLETE_FIVE_GAPS_FIXED_SOURCE_SUYI_DELTA_REVIEW_PENDING",
-    "L": "NOT_YET_WHOLE_SUBJECT_ACCEPTED",
-    "P": "NOT_YET_WHOLE_SUBJECT_ACCEPTED",
-    "R": "DEFER_UNTIL_HISTORY_LP_CLOSES",
-    "E": "DEFER_UNTIL_HISTORY_LP_CLOSES",
+    "S": "MANUAL_SOURCE_REVIEW_COMPLETE_AUTOMATED_GATE_PENDING",
+    "K": "MANUAL_SEMANTIC_AND_SUYI_DELTA_COMPLETE_FIVE_GAPS_FIXED_AUTOMATED_GATE_PENDING",
+    "L": "GLOBAL_LAST_NECESSARY_OWNER_RULE_IMPLEMENTED_PARITY_GATE_PENDING",
+    "P": "GLOBAL_FIRST_READY_RUNTIME_CUTOVER_IMPLEMENTED_PARITY_GATE_PENDING",
+    "R": "DEFER_UNTIL_HISTORY_LP_GATE_EXECUTES",
+    "E": "DEFER_UNTIL_HISTORY_LP_GATE_EXECUTES",
     "U": "UNTESTED",
     "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
+    "source_review": {
+      "status": "CURRENT_REVIEW_COMPLETE",
+      "snapshot_digest": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+      "rule": "If the Current source-node canonical digest changes, History Source/Suyi review reopens automatically."
+    },
+    "first_ready_rule": {
+      "authority": "CURRENT_CANONICAL_LAST_NECESSARY_OWNER",
+      "rule": "Walk canonical History Natural Units in learner order; every later owner overwrites earlier ownership for the same Xiao1000 question, so the surviving owner is the last required knowledge point before first exposure.",
+      "continuous_projection_boundary": "C04 K03-K07 remains one learner segment even though five canonical Natural Units contribute first-ready ownership inside it.",
+      "acceptance": "Expected canonical History question union must equal Current runtime question union; every question exactly once; runtime represented Natural Unit IDs must contain the expected last owner; no orphan canonical History region."
+    },
     "manual_batches": [
       {
         "chapters": ["ch01", "ch02", "ch03"],
@@ -104,6 +120,7 @@
   "evidence_precision_policy": {
     "k03": "CANONICAL_NODE_MAPPING",
     "other_marxism_units": "NATURAL_UNIT_SAFE_FALLBACK_UNTIL_FINER_SOURCE_VALIDATED",
+    "history": "R_E_NOT_YET_GENERALIZED; FIRST_READY_L_P_ONLY",
     "rule": "A coarse but truthful Current Natural Unit owner is preferable to a fabricated K-level edge. Legacy question_knowledge_links may seed candidates only; any finer edge must validate against the Current Natural Unit and Chengfeng source tree before becoming evidence authority.",
     "repair_behavior": "Wrong/Uncertain always returns to the current Chengfeng Natural Unit at minimum. Existing approved precise Repair projections override the fallback. Stable correct work never enters durable daily review debt."
   },
@@ -119,13 +136,13 @@
     ],
     "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Do not make the 1.2 MB legacy question_knowledge_links monolith a runtime API merely to obtain finer evidence labels."
   },
-  "current_blocking_infrastructure_note": "Static Web Politics QA continues to fail before runner allocation with no executable steps. Treat this as CI infrastructure/no-start, not as PASS or a Politics content/runtime failure. Marxism pending gates and History automated gates remain pending until their dedicated steps actually execute.",
-  "next": "Do not reopen broad Marxism work. For History, inspect only compact Source-root OCR exceptions and declared Suyi references across ch01-ch10, persist review dispositions, and let the History batch content gate consume them. If this closes S/K, derive formal first-ready timing from canonical Natural Unit ownership and Xiao1000 dependencies before adding History Unit Return or evidence behavior.",
+  "current_blocking_infrastructure_note": "Static Web Politics QA has recently failed before runner allocation with no executable steps. A no-start job is neither PASS nor a Politics content/runtime failure. Marxism and History automated gates remain pending until their dedicated steps actually execute.",
+  "next": "Keep both current implementations fixed unless executable gates expose concrete red evidence. Require History batch content closure and History global first-ready parity to execute before adding History Runtime/Evidence. If CI remains unavailable, do not reopen frozen formal-projection archaeology or add speculative History features; advance another subject only at Source/Knowledge semantic-audit level while preserving this History L/P boundary.",
   "validation_focus": [
     "Do executable Marxism gates confirm the manually closed Source/Suyi review, 22-unit/396-question first-ready parity and whole-subject Runtime/Evidence behavior?",
-    "Do any remaining History root OCR or Suyi exceptions add stable stage/turning-point/causal/evaluation value not already represented in Current?",
-    "When History first-ready timing is derived, does each Xiao1000 question appear only after the last Natural Unit required to answer it, including cross-unit and cross-chapter questions?",
-    "Does History preserve continuous learner Units such as C04 K03-K07 instead of fragmenting the learning flow for internal bookkeeping?",
+    "Does the History content gate accept the digest-bound Source/Suyi review with all ten chapter semantic repairs/keeps represented in Current?",
+    "Does the History first-ready gate prove canonical question union equals runtime union, every question appears exactly once, and the runtime unit contains its last necessary canonical owner?",
+    "Does History preserve the C04 K03-K07 continuous learner segment instead of fragmenting it for internal ownership bookkeeping?",
     "Does stable correct work remain zero-debt and does U remain reserved for real learner use?"
   ],
   "working_preferences": [
@@ -146,8 +163,9 @@
     "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
     "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
     "Do not make K03 real-user U a prerequisite for engineering progress on other units.",
-    "Do not call a whole subject learner-ready merely because chapter projections exist or a pilot passed.",
+    "Do not call a whole subject learner-ready merely because chapter projections exist, code is implemented, or a pilot passed.",
     "Do not interpret a no-run CI job as either PASS or a content/runtime failure.",
-    "Do not fabricate fine question-to-K evidence from weak title similarity or legacy provenance; fall back to the canonical Natural Unit until finer Source evidence is validated."
+    "Do not fabricate fine question-to-K evidence from weak title similarity or legacy provenance; fall back to the canonical Natural Unit until finer Source evidence is validated.",
+    "Do not keep retrying the old 1.2 MB minified frozen projection when Current canonical invariants can provide the acceptance oracle."
   ]
 }
