@@ -1,0 +1,85 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_REVIEWED_WITH_PROJECT_SOURCE_REVALIDATION_AND_ADMITTED_EXTERNAL_SOURCE",
+  "system_id": "urinary",
+  "block_id": "urinary-b05",
+  "scope_rule": "B5 owns the integrated clinical water/electrolyte/acid-base judgment layer. Existing project Lectures remain Primary for 306 content. Narrow external sources are admitted only to close the previously genuine expected-compensation/mixed-disorder diagnostic gap. B3 remains the sole tubular K+/H+ mechanism owner.",
+  "canonical_writeback": {
+    "commit": "486ad8cc8d64bcdcae653114f8f06f3fb7cb5f02",
+    "stable_kp_count": 20,
+    "stable_id_change": false,
+    "outline_primary_count": 25
+  },
+  "source_admission": {
+    "contract": "content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json",
+    "status": "ADMITTED_NARROW_SCOPE",
+    "msd_scope": "Expected compensation for the four simple acid-base disorders, Winter formula, AG/delta-gap and mixed-disorder inference from measured-vs-expected compensation.",
+    "ncbi_scope": "Albumin-corrected AG and delta-ratio interpretation only.",
+    "forbidden_scope": ["hyponatraemia/hypernatraemia correction rates", "DKA/HHS treatment", "bicarbonate-treatment indications", "ventilator/ICU management", "broad nephrology treatment"]
+  },
+  "findings": [
+    {
+      "id": "A3-B05-KG01",
+      "type": "GENUINE_SOURCE_GAP",
+      "historical_state": "Historical B5 promised a complete expected-compensation and mixed-acid-base algorithm, but the admitted project Lectures only provided mechanism and basic pH/PaCO2/HCO3/BE recognition.",
+      "adjudication": "Do not model-fill. Admit a narrow external diagnostic source contract before adding formulas.",
+      "resolution": "MSD Manual Professional admitted for expected compensation/mixed-disorder diagnosis; NCBI/StatPearls admitted only for corrected AG/delta ratio. KP19-KP20 now contain the complete bounded diagnostic algorithm.",
+      "status": "RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE"
+    },
+    {
+      "id": "A3-B05-SC01",
+      "type": "DUPLICATE_OVERGENERALIZED_KH_MODEL",
+      "historical_state": "B5 duplicated the old universal four-grid K+-H+/urine-pH model and stored-blood RBC-rupture shortcut already rejected upstream in B3.",
+      "adjudication": "B3 remains the sole mechanism owner. B5 must context-gate predictions using primary disturbance, ECF volume/aldosterone, distal Na delivery/flow, NH4 excretion and renal function. Stored-blood hyperkalaemia and citrate-related alkalosis are separate mechanisms.",
+      "resolution": "KP15 rewritten as B3 Recall/Apply. Universal urine-pH grid removed from learner-canonical text. Stored blood uses storage lesion/K+ accumulation in supernatant for K load and citrate metabolism for a separate alkali load.",
+      "status": "RESOLVED_APPLIED"
+    },
+    {
+      "id": "A3-B05-AB01",
+      "type": "EXPECTED_COMPENSATION_OWNER_CLOSED",
+      "resolution": {
+        "metabolic_acidosis": "Expected PaCO2 = 1.5 x HCO3- + 8 +/-2 mmHg.",
+        "metabolic_alkalosis": "Expected PaCO2 rises about 0.6-0.75 mmHg per 1 mmol/L HCO3- rise from the 24/40 anchor; simple compensation generally does not drive PaCO2 above about 55 mmHg.",
+        "respiratory_acidosis": "For each +10 mmHg PaCO2, HCO3- rises about 1-2 mmol/L acutely and 3-4 mmol/L chronically.",
+        "respiratory_alkalosis": "For each -10 mmHg PaCO2, HCO3- falls about 1-2 mmol/L acutely and 4-5 mmol/L chronically.",
+        "mixed_rule": "Measured compensation outside expected range implies another primary process or an incorrect acute/chronic assumption; do not label it over/under-compensation."
+      },
+      "status": "RESOLVED_APPLIED"
+    },
+    {
+      "id": "A3-B05-AB02",
+      "type": "AG_AND_MIXED_METABOLIC_ALGORITHM_CLOSED",
+      "resolution": {
+        "AG": "Na - (Cl + HCO3).",
+        "albumin_correction": "Corrected AG = measured AG + 2.5 x (4.0 - albumin[g/dL]) when albumin is substantially low.",
+        "delta_ratio": "(corrected AG - 12) / (24 - measured HCO3).",
+        "delta_interpretation": "<1 concurrent NAGMA direction; 1-2 uncomplicated HAGMA direction; >2 concurrent metabolic alkalosis or pre-existing high-HCO3 direction.",
+        "guard": "Local laboratory reference ranges and clinical context remain required; delta metrics are diagnostic aids, not standalone disease labels."
+      },
+      "status": "RESOLVED_APPLIED"
+    },
+    {
+      "id": "A3-B05-OWNERSHIP01",
+      "type": "SOURCE_AUTHORITY_BOUNDARY",
+      "resolution": "Project Lectures keep ownership of water/Na/K/Ca, supplementation/treatment Precision and renal acid-handling mechanisms. External source authority is diagnosis-only for the admitted gap. First-pass questions remain Lecture-attached, not external-source generated.",
+      "status": "RESOLVED_APPLIED"
+    }
+  ],
+  "post_repair_checks": {
+    "stable_kp_count": 20,
+    "outline_primary_count": 25,
+    "outline_mapped": 25,
+    "old_universal_four_grid_heading_present": false,
+    "old_SOURCE_GAP_marker_present": false,
+    "old_complete_compensation_gap_language_present": false,
+    "source_gap_state": "RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE",
+    "logic_group_count": 6,
+    "logic_group_coverage": "CONTIGUOUS_NO_GAP_NO_OVERLAP",
+    "stable_id_change": false,
+    "stable_source_orphan_count": 0
+  },
+  "learning_support": "content/xizong/knowledge/learner/a3-urinary-b05-learning.json",
+  "block_status": "PASS_BLOCK_LEVEL_K",
+  "whole_a3_effect": "B5 was the final system-below Block-level K blocker. All 14 numbered A3 Blocks can now be accepted at Block-level K, but A3 System-level K/S/L/P/R/E/U and learner readiness are still NOT promoted and require separate later acceptance work."
+}
