@@ -48,6 +48,20 @@ function ownerRoots(refs) {
   return values.filter((id) => !values.some((other) => other !== id && id.startsWith(`${other}-`)));
 }
 
+function representedIds(unit) {
+  return uniq([
+    String(unit?.natural_unit_id || ''),
+    ...asList(unit?.embedded_natural_unit_ids)
+  ]);
+}
+
+function highestPriority(regions) {
+  const rank = { P0: 0, P1: 1, P2: 2, UNKNOWN: 3 };
+  return regions
+    .map((row) => String(row?.chat_decision?.priority || 'UNKNOWN'))
+    .sort((a, b) => (rank[a] ?? 9) - (rank[b] ?? 9))[0] || 'UNKNOWN';
+}
+
 function stageSignals(unit) {
   const listSignals = [
     ...asList(unit?.cause_layers),
@@ -55,8 +69,10 @@ function stageSignals(unit) {
     ...asList(unit?.major_boundaries),
     ...asList(unit?.boundaries),
     ...asList(unit?.gains),
+    ...asList(unit?.historical_gain),
     ...asList(unit?.failure_causes),
-    ...asList(unit?.conditions)
+    ...asList(unit?.conditions),
+    ...asList(unit?.mechanism)
   ];
   const scalarSignals = [
     unit?.cause,
@@ -64,9 +80,13 @@ function stageSignals(unit) {
     unit?.turning_point,
     unit?.evaluation,
     unit?.historical_role,
+    unit?.historical_gain,
     unit?.stage_shift,
     unit?.program,
     unit?.relation,
+    unit?.core_contradiction,
+    unit?.boundary,
+    unit?.failure_lesson,
     unit?.next
   ];
   return [...listSignals, ...scalarSignals].filter(Boolean).length;
@@ -80,7 +100,7 @@ function chapterShapeProblems(raw) {
   if (!asList(orientation?.stage_story).length) problems.push('MISSING_CHAPTER_STAGE_STORY');
   const compressionSignal = asList(compression?.timeline).length
     + asList(compression?.reconstruction_chain).length
-    + Number(Boolean(String(compression?.causal_chain || compression?.historical_direction || '').trim()));
+    + Number(Boolean(String(compression?.causal_chain || compression?.historical_direction || compression?.stage_shift || '').trim()));
   if (!compressionSignal) problems.push('MISSING_CHAPTER_COMPRESSION_CHAIN');
   if (!String(compression?.review_prompt || '').trim()) problems.push('MISSING_CHAPTER_REVIEW_PROMPT');
   return problems;
@@ -96,11 +116,11 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
   const raw = readJson(path.join(LEARNING_ROOT, name));
   const current = loadPoliticsChapterCurrent('history', chapterCode);
   const declared = asList(raw?.source_bindings?.natural_unit_ids);
-  const projected = asList(raw?.units).map((unit) => String(unit?.natural_unit_id || '')).filter(Boolean);
+  const projected = uniq(asList(raw?.units).flatMap(representedIds));
   const chapterSuyi = new Set(asList(raw?.source_bindings?.suyi_refs));
   const currentRepresented = new Set(current.units.flatMap((unit) => asList(unit?.representedNaturalUnitIds)));
 
-  if (declared.length !== projected.length || declared.some((id) => !projected.includes(id))) {
+  if (declared.length !== projected.length || declared.some((id) => !projected.includes(id)) || projected.some((id) => !declared.includes(id))) {
     blockers.push({ chapter: chapterCode, code: 'UNIT_DECLARATION_PROJECTION_MISMATCH', declared, projected });
   }
   for (const code of chapterShapeProblems(raw)) blockers.push({ chapter: chapterCode, code });
@@ -108,7 +128,7 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
   const chapterReport = {
     chapter: chapterCode,
     title: raw?.teaching_title || current.title,
-    units: [],
+    learnerUnits: [],
     blockerCount: 0,
     reviewCount: 0
   };
@@ -116,11 +136,13 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
   for (const unit of asList(raw?.units)) {
     const unitId = String(unit?.natural_unit_id || '');
     if (!unitId) continue;
-    allUnitIds.add(unitId);
-    const region = regionByUnit.get(unitId) || null;
-    const priority = String(region?.chat_decision?.priority || 'UNKNOWN');
-    const sourceRefs = asList(region?.chengfeng_refs);
-    const suyiRefs = asList(region?.suyi_refs);
+    const unitIds = representedIds(unit);
+    for (const id of unitIds) allUnitIds.add(id);
+    const regions = unitIds.map((id) => regionByUnit.get(id)).filter(Boolean);
+    const missingRegionIds = unitIds.filter((id) => !regionByUnit.has(id));
+    const priority = highestPriority(regions);
+    const sourceRefs = uniq(regions.flatMap((row) => asList(row?.chengfeng_refs)));
+    const suyiRefs = uniq(regions.flatMap((row) => asList(row?.suyi_refs)));
     const sourceOwners = ownerRoots(sourceRefs);
     const sourceMissing = sourceRefs.filter((id) => !nodeRow(id));
     const suyiMissing = suyiRefs.filter((id) => !nodeRow(id));
@@ -128,15 +150,16 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
       .map((id) => ({ id, status: String(nodeRow(id)?.verification_status || '') }))
       .filter((row) => row.status && row.status !== 'source_bound_cross_engine_ocr');
     const currentUnit = current.units.find((candidate) => asList(candidate?.representedNaturalUnitIds).includes(unitId));
+    const missingCurrentIds = unitIds.filter((id) => !currentRepresented.has(id));
     const signals = stageSignals(unit);
     const localBlockers = [];
     const localReview = [];
 
-    if (!region) localBlockers.push('MISSING_CANONICAL_REGION');
+    if (missingRegionIds.length) localBlockers.push(`MISSING_CANONICAL_REGION:${missingRegionIds.join(',')}`);
     if (!sourceRefs.length) localBlockers.push('NO_CHENGFENG_SOURCE_REFS');
     if (sourceMissing.length) localBlockers.push(`UNRESOLVED_CHENGFENG:${sourceMissing.join(',')}`);
     if (suyiMissing.length) localBlockers.push(`UNRESOLVED_SUYI:${suyiMissing.join(',')}`);
-    if (!currentRepresented.has(unitId) || !currentUnit) localBlockers.push('NOT_REPRESENTED_IN_CURRENT_LEARNER_PROJECTION');
+    if (missingCurrentIds.length || !currentUnit) localBlockers.push(`NOT_REPRESENTED_IN_CURRENT_LEARNER_PROJECTION:${missingCurrentIds.join(',') || unitId}`);
     if (currentUnit && sourceRefs.length && !currentUnit.sourceNodes?.length) localBlockers.push('SOURCE_NOT_RENDERABLE');
     if (!String(unit?.stage_question || '').trim()) localBlockers.push('MISSING_STAGE_QUESTION');
     if (!signals) localBlockers.push('MISSING_STAGE_CAUSE_TURNING_POINT_EVALUATION_SIGNAL');
@@ -146,12 +169,13 @@ for (const name of fs.readdirSync(LEARNING_ROOT).filter((file) => /^ch\d+\.json$
     if (suyiRefs.length) localReview.push(`SUYI_DELTA_REVIEW:${suyiRefs.length}`);
     for (const ref of suyiRefs) if (!chapterSuyi.has(ref)) localReview.push(`SUYI_BINDING_DRIFT:${ref}`);
 
-    for (const code of localBlockers) blockers.push({ chapter: chapterCode, unit_id: unitId, priority, code });
-    for (const code of uniq(localReview)) reviewQueue.push({ chapter: chapterCode, unit_id: unitId, priority, code });
+    for (const code of localBlockers) blockers.push({ chapter: chapterCode, unit_id: unitId, represented_unit_ids: unitIds, priority, code });
+    for (const code of uniq(localReview)) reviewQueue.push({ chapter: chapterCode, unit_id: unitId, represented_unit_ids: unitIds, priority, code });
 
-    chapterReport.units.push({
+    chapterReport.learnerUnits.push({
       unit_id: unitId,
-      title: unit?.title || region?.title || '',
+      represented_unit_ids: unitIds,
+      title: unit?.title || regions[0]?.title || '',
       priority,
       source_ref_count: sourceRefs.length,
       source_owner_count: sourceOwners.length,
@@ -173,7 +197,7 @@ for (const unitId of orphanCanonicalRegions) {
     chapter: unitId.match(/-C(\d{2})/)?.[1] ? `ch${unitId.match(/-C(\d{2})/)[1]}` : 'unknown',
     unit_id: unitId,
     priority: regionByUnit.get(unitId)?.chat_decision?.priority || 'UNKNOWN',
-    code: 'CANONICAL_REGION_NOT_TOP_LEVEL_PROJECTION'
+    code: 'CANONICAL_REGION_NOT_REPRESENTED'
   });
 }
 
@@ -185,7 +209,8 @@ const compact = {
   scope: 'HISTORY_ALL_CHAPTERS_CONTENT',
   teaching_shape: 'CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION',
   chapter_count: chapters.length,
-  projected_unit_count: allUnitIds.size,
+  represented_natural_unit_count: allUnitIds.size,
+  learner_unit_count: chapters.reduce((sum, chapter) => sum + chapter.learnerUnits.length, 0),
   canonical_region_count: regionRows.length,
   blocker_count: blockers.length,
   review_count: reviewQueue.length,
@@ -194,7 +219,8 @@ const compact = {
   chapters: chapters.map((chapter) => ({
     chapter: chapter.chapter,
     title: chapter.title,
-    units: chapter.units.length,
+    learner_units: chapter.learnerUnits.length,
+    represented_natural_units: uniq(chapter.learnerUnits.flatMap((unit) => unit.represented_unit_ids)).length,
     blockers: chapter.blockerCount,
     reviews: chapter.reviewCount
   })),
