@@ -75,8 +75,12 @@ The central learner question for this Natural Unit.
 
 Must contain source evidence for the knowledge scope it summarizes.
 
-### `framework_map`
-A topology / hierarchy / multi-branch relation whose learner value comes from seeing how parts fit together.
+### `framework_maps`
+Zero or more topology / hierarchy / multi-branch relation models whose learner value comes from seeing how parts fit together.
+
+Use an **array** because one Natural Unit can contain more than one genuinely distinct map. Do not force unrelated structures into one mega-map merely to satisfy schema shape.
+
+Each map should contain a stable `id`, title, nodes and meaningful edges when relations exist.
 
 Each node should state:
 - stable id;
@@ -85,6 +89,8 @@ Each node should state:
 - source evidence.
 
 Edges describe semantic relations, not screen coordinates.
+
+Calibration note: the first S01 draft used singular `framework_map`. S02 exposed that this was overfit; Current calibration now uses `framework_maps[]`.
 
 ### `relation_chains`
 A causal, historical, reasoning, or process sequence.
@@ -195,15 +201,18 @@ Rollout order:
 3. encode `learning_semantics` additively without breaking existing runtime fields;
 4. run `audit-politics-learning-semantics.mjs` plus existing Politics QA/build;
 5. inspect whether the semantic model can support a good Mac-landscape projection without inventing missing knowledge;
-6. only then expand by subject-specific batches.
+6. test at least one materially different cognitive shape before freezing the schema for wider rollout;
+7. only then expand by subject-specific batches.
 
-The first calibration owner is:
+Calibration owners:
 
-`POL27-CF-MARX-C00-S01`
+1. `POL27-CF-MARX-C00-S01` — formation / causal / boundary shape;
+2. `POL27-CF-MARX-C00-S02` — feature hierarchy / organizing relation / contemporary-value shape.
 
-Its Suyi audit is:
+Suyi audits:
 
-`content/politics/learning/marxism/ch00.suyi-delta.md`
+- `content/politics/learning/marxism/ch00.suyi-delta.md`
+- `content/politics/learning/marxism/ch00.s02.suyi-delta.md`
 
 ---
 
