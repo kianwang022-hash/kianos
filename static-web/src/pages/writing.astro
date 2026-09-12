@@ -1,16 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import { inspectWritingSyntheticTasks, listWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
+import { inspectWritingTrueExamEntry } from '../lib/englishWritingRuntimeTask.mjs';
 
 const base = import.meta.env.BASE_URL;
 const state = inspectWritingSyntheticTasks();
 const tasks = listWritingSyntheticTasks();
-const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
+const trueExam = inspectWritingTrueExamEntry();
+const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(/</g, '\\u003c');
 ---
 <Base
   title="Writing"
   kicker="English · Productive Lane"
-  description="Cold-start whole-essay runtime: synthetic first, semantic review through Chat, explicit PASS, smallest repair, then private later-fresh transfer evidence."
+  description="Cold-start whole-essay runtime: synthetic first, then one protected clean true-exam entry, semantic review through Chat, explicit PASS, smallest repair, and private later-fresh transfer evidence."
   active="home"
 >
   <section class="writingHome" data-writing-home data-base={base}>
@@ -18,12 +20,12 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       <div>
         <span>Writing · Whole-Essay Runtime</span>
         <h2>Generate → Chat judge → PASS / Repair</h2>
-        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 会保存在本机；Chat 做语义判断，页面不做假评分，也不提前消耗受保护真题。</p>
+        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 会保存在本机；两篇 synthetic 都合格后，只释放第一篇 clean 真题，不提前展示真题目录、范文或解析。</p>
       </div>
       <aside>
         <strong>{state.status === 'ready' ? `${tasks.length} synthetic tasks` : state.status}</strong>
-        <span>S/K/L/P already passed</span>
-        <span>R · whole-essay runtime accepted</span>
+        <span>S/K/L · accepted</span>
+        <span>P/R · synthetic + gated true-exam entry</span>
         <span>E · later fresh transfer accepted</span>
         <span>U · learner validation untested</span>
       </aside>
@@ -53,14 +55,20 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       </section>
     )}
 
-    <section class="writingTrueExamShield">
-      <div><span>Protected true exam</span><strong>现在不展示真题目录</strong></div>
-      <p>Cold-start mechanics 和第一次完整输出先用 synthetic material。真题不是为了证明页面能跑而消耗；等 Synthetic Small + Big 满足退出条件后，再进入后续 exam-fit / fresh evidence 阶段。</p>
+    <section class="writingTrueExamShield" data-true-exam-shield>
+      <div>
+        <span>Protected true exam</span>
+        <strong data-true-exam-title>现在不展示真题目录</strong>
+      </div>
+      <p data-true-exam-copy>Cold-start mechanics 和第一次完整输出先用 synthetic material。真题不是为了证明页面能跑而消耗；Synthetic Small + Big 都到达终态后，只释放一篇 clean 真题来检查 synthetic skill 是否迁移到真实 prompt。</p>
+      <a class="writingTrueExamEntry" data-true-exam-entry hidden href={`${base}writing/${encodeURIComponent(trueExam.firstExam.id)}/`}>
+        开始第一篇 clean 真题 →
+      </a>
     </section>
 
     <section class="writingRuntimeBoundary">
-      <strong>R / E accepted boundary</strong>
-      <p>whole-essay runtime 负责 first evidence → Chat PASS/repair → learner re-generation → repair check；只有显式可复用高价值问题才进入 TRANSFER_PENDING。后续不同 Writing 的 fresh first draft 通过本机 private evidence ledger 提供 SUPPORT / KEEP_PENDING / CLOSE，已关闭 target 只有遇到矛盾 fresh evidence 才能 REOPEN。同题 repair 不等于 transfer closure。</p>
+      <strong>P / R / E boundary</strong>
+      <p>Projection 先保护真题，再由两篇 synthetic 的真实终态释放第一篇 official task；该真题继续使用同一个 whole-essay Runtime，保存 first evidence，并走 Chat PASS/repair → learner re-generation → repair check。只有显式可复用高价值问题才进入 TRANSFER_PENDING；同题 repair 不等于 transfer closure。</p>
     </section>
 
     <script type="application/json" data-writing-catalog set:html={payload}></script>
@@ -70,8 +78,9 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
 <script>
   const root = document.querySelector('[data-writing-home]');
   if (root instanceof HTMLElement) {
-    let tasks = [];
-    try { tasks = JSON.parse(root.querySelector('[data-writing-catalog]')?.textContent || '[]'); } catch {}
+    let catalog = { tasks: [], trueExam: null };
+    try { catalog = JSON.parse(root.querySelector('[data-writing-catalog]')?.textContent || '{}'); } catch {}
+    const tasks = Array.isArray(catalog?.tasks) ? catalog.tasks : [];
     const finalStates = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
     const stageText = (state) => ({
       ATTEMPT: '进行中 · Clean Attempt',
@@ -95,8 +104,17 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
       if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(state) ? 'true' : 'false';
     });
 
-    const shield = root.querySelector('.writingTrueExamShield');
-    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = completed === tasks.length && tasks.length > 0 ? 'true' : 'false';
+    const qualified = completed === tasks.length && tasks.length === 2;
+    const shield = root.querySelector('[data-true-exam-shield]');
+    const examEntry = root.querySelector('[data-true-exam-entry]');
+    const examTitle = root.querySelector('[data-true-exam-title]');
+    const examCopy = root.querySelector('[data-true-exam-copy]');
+    if (shield instanceof HTMLElement) shield.dataset.syntheticComplete = qualified ? 'true' : 'false';
+    if (examEntry instanceof HTMLElement) examEntry.hidden = !qualified;
+    if (qualified) {
+      if (examTitle) examTitle.textContent = '第一篇 clean 真题已解锁';
+      if (examCopy) examCopy.textContent = '只释放这一篇 official task；进入前仍不展示范文、解析、主题总结或针对该题的写作思路。第一次真题的 first draft 会成为比 synthetic 更强的迁移证据。';
+    }
   }
 </script>
 
@@ -104,6 +122,6 @@ const payload = JSON.stringify(tasks).replace(/</g, '\\u003c');
   .writingHome{max-width:78rem;margin:0 auto;display:grid;gap:12px}.writingHomeHero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:24px 26px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.writingHomeHero>div>span,.writingLearnLink span,.writingTaskCard>span,.writingTrueExamShield span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingHomeHero h2{margin:5px 0 8px;font-size:27px}.writingHomeHero p{max-width:76ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.7}.writingHomeHero aside{display:grid;gap:3px;padding-left:20px;border-left:1px solid var(--study-line)}.writingHomeHero aside strong{color:var(--study-green)}.writingHomeHero aside span{font-size:10px;color:var(--study-faint)}
   .writingLearnLink{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.3fr) auto;gap:18px;align-items:center;padding:14px 18px;border:1px solid #cfe2d8;border-radius:13px;background:var(--study-green-soft);color:inherit;text-decoration:none}.writingLearnLink>div{display:grid;gap:3px}.writingLearnLink strong{font-size:14px}.writingLearnLink p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.writingLearnLink b{font-size:11px;color:var(--study-green)}
   .writingTaskGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.writingTaskCard{display:grid;gap:7px;padding:20px;border:1px solid var(--study-line);border-radius:14px;background:#fff;color:inherit;text-decoration:none;box-shadow:var(--study-shadow)}.writingTaskCard[data-complete="true"]{border-color:#b8d7c8;background:#fbfdfc}.writingTaskCard strong{font-size:18px}.writingTaskCard p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.6}.writingTaskCard>div{display:flex;justify-content:space-between;gap:10px;padding-top:8px;border-top:1px solid var(--study-line)}.writingTaskCard small{font-size:9px;color:var(--study-faint)}.writingTaskCard b{font-size:9px;color:var(--study-green)}
-  .writingTrueExamShield,.writingRuntimeBoundary,.writingHomeGate{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.writingTrueExamShield{background:#fffdf8}.writingTrueExamShield[data-synthetic-complete="true"]{background:#fbfdfc;border-color:#cfe2d8}.writingTrueExamShield>div{display:grid;gap:3px}.writingTrueExamShield strong,.writingRuntimeBoundary strong,.writingHomeGate strong{font-size:12px}.writingTrueExamShield p,.writingRuntimeBoundary p,.writingHomeGate p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}
+  .writingTrueExamShield,.writingRuntimeBoundary,.writingHomeGate{padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.writingTrueExamShield{background:#fffdf8}.writingTrueExamShield[data-synthetic-complete="true"]{background:#fbfdfc;border-color:#cfe2d8}.writingTrueExamShield>div{display:grid;gap:3px}.writingTrueExamShield strong,.writingRuntimeBoundary strong,.writingHomeGate strong{font-size:12px}.writingTrueExamShield p,.writingRuntimeBoundary p,.writingHomeGate p{margin:7px 0 0;color:var(--study-muted);font-size:10px;line-height:1.6}.writingTrueExamEntry{display:inline-flex;margin-top:12px;padding:9px 12px;border-radius:9px;background:var(--study-green);color:#fff;text-decoration:none;font-size:10px;font-weight:850}.writingTrueExamEntry[hidden]{display:none}
   @media(max-width:820px){.writingHomeHero,.writingLearnLink,.writingTaskGrid{grid-template-columns:1fr}.writingHomeHero aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}}
 </style>
