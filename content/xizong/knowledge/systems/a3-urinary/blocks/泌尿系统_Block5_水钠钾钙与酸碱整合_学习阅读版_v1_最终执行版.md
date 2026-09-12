@@ -47,7 +47,7 @@ next_blocks:
 >
 > **第一轮流程**：Framework → 外科 Lecture连续学习 → Framework Reconstruction → KP Active Recall → Outline按需扫漏 → TTSX Lecture-attached Questions。
 >
-> **Study口径边界**：本文件保留当前讲义的Na⁺、K⁺、Ca²⁺阈值、补液 / 补钾规则、高钾处理分类与特殊口径，不静默升级为外部指南。当前 Source 能支持酸碱维持的四层机制和常见方向，但**没有集中提供完整四型代偿公式与混合型算法**；该缺口明确保留，不用一般医学常识补齐。
+> **Source口径边界**：水、Na⁺、K⁺、Ca²⁺阈值、补液 / 补钾规则、高钾处理分类与特殊题源口径继续由现有 Project Lecture 作为 Primary，不被外部资料静默替换。此前缺失的“完整四型 expected compensation + AG / 混合型酸碱算法”已通过 `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json` **窄范围准入**：MSD Manual Professional 只负责 expected compensation / mixed-disorder 诊断，NCBI/StatPearls 只负责低白蛋白 AG 校正与 delta-ratio 辅助判断。该外部 Source **无权**改写纠钠速度、DKA/HHS方案、碳酸氢钠治疗指征、呼吸机或 ICU 治疗。
 
 ---
 
@@ -69,7 +69,7 @@ K⁺ / Ca²⁺：跨膜兴奋性是否危险？
 先看是否休克 / 低灌注
 → 再看血Na⁺与血浆渗透压，判断张力
 → 再看K⁺ / Ca²⁺是否危及心肌或神经肌肉
-→ 再看酸碱的原发入口与肺 / 肾代偿
+→ 再看酸碱的原发入口、expected compensation与混合过程
 → 最后选择当前Study的补液、转移、排出或对抗措施
 ```
 
@@ -110,8 +110,10 @@ K⁺ / Ca²⁺：跨膜兴奋性是否危险？
    + 低Mg / DKA / 幽门梗阻
    [KP11–KP14]
         ↓
-⑦ K⁺与H⁺互相牵动
-   正常尿 / 反常尿 + 库存血 / 原醛特殊
+⑦ K⁺与H⁺耦联只做B3 Recall / Apply
+   原发扰动 + 容量/醛固酮 + 远端Na/流量
+   + NH₄⁺排泄 / 肾功能
+   → 再判断血K与尿pH方向
    [KP15]
         ↓
 ⑧ Ca²⁺先看总钙阈值与离子钙效应
@@ -122,9 +124,10 @@ K⁺ / Ca²⁺：跨膜兴奋性是否危险？
    缓冲 → 肺PaCO₂ → 肾HCO₃/H/NH₄ → 细胞交换
    [KP18]
         ↓
-⑩ 只做当前Source支持的酸碱入口
-   代谢 vs 呼吸；方向与时间尺度
-   完整代偿公式 / 混合算法保留缺口
+⑩ 完整酸碱诊断链
+   pH → 原发方向 → expected compensation
+   → AG / 白蛋白校正 → delta analysis
+   → 列出每一个原发过程 → 回病例语境
    [KP19–KP20]
 ```
 
@@ -145,6 +148,7 @@ H⁺负荷或PaCO₂改变
 → 肺改变CO₂
 → 肾重吸收HCO₃⁻、分泌H⁺与NH₄⁺
 → 细胞离子交换参与
+→ 实测代偿若偏离expected range，提示第二个原发酸碱过程
 ```
 
 ---
@@ -156,12 +160,13 @@ H⁺负荷或PaCO₂改变
 | 三类脱水、水中毒 | **Primary Learn** | 外科U047 |
 | 高钾、低钾、补钾、钙失衡 | **Primary Learn** | 外科U047–U048 |
 | ADH、醛固酮、ANP | **Recall / Apply** | K4 |
-| 小管HCO₃⁻、H⁺、NH₄⁺和K-H竞争 | **Recall / Integrate** | K3 |
+| 小管HCO₃⁻、H⁺、NH₄⁺和K-H耦联 | **Recall / Apply** | **B3唯一机制 owner**；B5不建第二套四格 |
 | PaCO₂与呼吸性酸碱 | **Recall / Integrate** | 呼吸系统 |
 | 休克与复苏 | **Recall / Apply** | 循环B12 |
 | DKA / HHS、原醛、甲旁疾病 | **Interface / Defer** | 内分泌 |
 | AKI / CKD导致的电解质酸碱异常 | **Interface / Defer** | K7 |
-| 完整四型代偿公式、AG / 混合算法 | **SOURCE_GAP** | 当前Source不集中支持，不静默补全 |
+| 四型expected compensation / AG / mixed algorithm | **Primary Integrate** | B5；由窄范围 external source contract 补齐原Source Gap |
+| 纠钠速度、碳酸氢钠治疗、完整DKA/HHS/ICU | **Defer / Forbidden expansion** | 不由此次external source扩写 |
 
 ---
 
@@ -556,8 +561,8 @@ Study把 5% NaHCO₃归入“稀K”并列出：
 
 ### 酸碱与尿
 
-- 代谢性碱中毒；
-- 反常性酸性尿，机制见 KP15。
+- 代谢性碱中毒方向；
+- Source常把低钾与“反常性酸性尿”配对；该配对必须通过 KP15 的 B3 context gate 使用，不能写成无条件规律。
 
 ### 兴奋性
 
@@ -630,41 +635,67 @@ Study模型：Mg²⁺平时限制 ROMK；低Mg时通道持续开放，K⁺不断
 
 <!-- kianos:kp id="urinary-b05-kp15" -->
 
-## KP15｜K⁺—H⁺整合：四格 + 两个特殊
+## KP15｜K⁺—H⁺整合：只 Recall B3 owner，先过情境门再判方向
 
-> **讲义回看 →** 生理 P279；外科 P191–192。  
-> **主提示**：酸碱为因2格｜K为因2格｜反常尿2｜库存血｜原醛尿是否酸｜因果先后。
+> **讲义回看 →** B3 KP11–KP14；生理 P279；外科 P191–192。  
+> **主提示**：B3唯一owner｜原发扰动｜容量/醛固酮｜远端Na/流量｜NH₄排泄/肾功能｜Source经典反常尿｜库存血双机制。
 
-### 酸碱为原因
+### 先钉 owner
 
-```text
-代谢性酸中毒
-→ 泌H⁺↑、泌K⁺↓
-→ 高钾 + 酸性尿
+K⁺—H⁺小管耦联的 Current 机制 **只由 B3 Primary**。B5 的任务是把它放进临床体液病例，不再建第二套“高钾/低钾四格 + 尿pH”真相。
 
-代谢性碱中毒
-→ 泌H⁺↓、泌K⁺↑
-→ 低钾 + 碱性尿
-```
-
-### K⁺为原因
+每次预测血K⁺或尿pH前先问：
 
 ```text
-高钾
-→ 泌K⁺↑、泌H⁺↓
-→ 代谢性酸中毒 + 反常性碱性尿
+1. 谁是原发扰动？
+   酸碱异常 / K异常 / 容量-醛固酮 / 肾功能？
 
-低钾
-→ 保K / 泌H⁺↑
-→ 代谢性碱中毒 + 反常性酸性尿
+2. ECF容量和醛固酮方向是什么？
+
+3. 远端Na⁺递送与小管液流量如何？
+
+4. NH₄⁺生成/排泄和整体肾功能是否完整？
+
+5. 当前药物、呕吐/腹泻、肾衰等背景是否改变远端处理？
 ```
 
-### Study特殊
+然后再从 B3 主细胞 / 闰细胞电路判断方向。
 
-- 大量库存血：高钾 + 枸橼酸转为HCO₃⁻所致碱中毒；
-- 原醛：低钾、代谢性碱中毒，但本节 Study 特别提示**尿不呈酸性**，不能机械套低钾反常酸性尿。
+### Source经典模式｜用于题源识别，不是无条件定律
 
-> 必须先问“谁是原发原因”，再判尿pH。
+- 代谢性酸中毒常与血K⁺升高方向相联，但程度取决于病因和肾功能；
+- 代谢性碱中毒常与低K⁺方向相联；
+- 低K⁺合并代谢性碱中毒时，特定容量/醛固酮背景可出现“反常性酸性尿”；
+- 高K⁺相关代谢性酸中毒时，尿pH与净排酸仍受NH₄⁺、肾功能和远端Na⁺递送影响，不能机械写成固定“反常碱性尿”。
+
+> **尿pH不是血K⁺的单变量函数。**
+
+### 两个 Source 特殊
+
+#### 1｜大量库存血：两条独立入口
+
+```text
+储存时间延长
+→ RBC storage lesion / K⁺从细胞向保存液上清累积
+→ 大量或快速输入时K⁺负荷↑
+→ 高钾方向
+```
+
+不是把默认机制写成“红细胞大量破裂”。
+
+另一条独立机制：
+
+```text
+库存血中的枸橼酸
+→ 体内代谢形成碱负荷 / HCO₃⁻方向
+→ 代谢性碱中毒方向
+```
+
+因此“高钾 + 碱中毒”来自**两条并行机制**，不是K-H四格的例外格。
+
+#### 2｜原醛
+
+原醛进入：容量 / 醛固酮↑ + ENaC/远端Na递送背景 → 排K、排H增强，产生低K + 代谢性碱中毒方向。尿pH仍不能只从“低K”单变量推断。
 
 ---
 
@@ -723,7 +754,7 @@ Study治疗接口：补充钙剂，可加服骨化三醇。
 
 ---
 
-# 7｜酸碱：只建立当前Source支持的统一底座
+# 7｜酸碱：四层调节 + expected compensation + mixed algorithm
 
 <!-- kianos:kp id="urinary-b05-kp18" -->
 
@@ -764,64 +795,165 @@ Study列 H⁺—K⁺等跨细胞交换接口，能改变血中离子分布。
 
 <!-- kianos:kp id="urinary-b05-kp19" -->
 
-## KP19｜酸碱第一定位：PaCO₂轴 vs HCO₃⁻ / 固定酸轴
+## KP19｜四类原发酸碱入口 + expected compensation
 
-> **讲义回看 →** 呼吸系统PaCO₂；生理小管排酸。  
-> **主提示**：原发轴2｜pH方向4入口｜肺代偿对象｜肾代偿对象｜时间尺度｜不做哪些公式。
+> **来源 →** Project Lecture：pH / PaCO₂ / HCO₃⁻基础与肾肺机制；窄范围 external source contract：expected compensation。  
+> **主提示**：4类｜基线40/24｜Winter｜代碱PaCO₂｜呼酸急/慢｜呼碱急/慢｜超出expected=混合。
 
-当前 Source 支持的最低可运行定位：
+### 1｜先找原发方向
+
+以常用基线 **PaCO₂≈40 mmHg、HCO₃⁻≈24 mmol/L** 作为计算锚点：
+
+| 原发过程 | 原发改变 | pH方向 | 主要代偿 |
+|---|---|---|---|
+| 代谢性酸中毒 | HCO₃⁻↓ / 固定酸↑ | 酸 | 肺降PaCO₂ |
+| 代谢性碱中毒 | HCO₃⁻↑ | 碱 | 肺升PaCO₂ |
+| 呼吸性酸中毒 | PaCO₂↑ | 酸 | 肾升HCO₃⁻ |
+| 呼吸性碱中毒 | PaCO₂↓ | 碱 | 肾降HCO₃⁻ |
+
+> 单纯代偿是把 pH 拉回正常方向，**不会把原发酸中毒“代偿成碱中毒”或反之**。接近正常 pH 也不能排除混合型。
+
+### 2｜代谢性酸中毒｜Winter formula
 
 ```text
-PaCO₂原发改变
-→ 呼吸性酸碱入口
-
-HCO₃⁻ / 固定酸负荷原发改变
-→ 代谢性酸碱入口
+expected PaCO₂
+= 1.5 × HCO₃⁻ + 8 ± 2 mmHg
 ```
 
-方向语言：
+解释：
 
-- PaCO₂↑：酸性方向；PaCO₂↓：碱性方向；
-- HCO₃⁻↓ / 固定酸↑：酸性方向；
-- HCO₃⁻↑ / 固定酸↓：碱性方向。
+```text
+实测PaCO₂在expected范围
+→ 呼吸代偿与单纯代酸相符
 
-代偿接口：
+实测PaCO₂ > expected上限
+→ 另有呼吸性酸中毒成分
 
-- 代谢性异常由肺改变 PaCO₂，较快；
-- 呼吸性异常由肾改变 HCO₃⁻保留与H⁺ / NH₄⁺排泄，较慢。
+实测PaCO₂ < expected下限
+→ 另有呼吸性碱中毒成分
+```
 
-（边界：这里不提供当前 Source 未集中支持的精确代偿公式、AG、Delta ratio或混合型算法。）
+### 3｜代谢性碱中毒｜expected PaCO₂
+
+```text
+ΔPaCO₂ ≈ 0.6–0.75 × ΔHCO₃⁻
+
+即：
+expected PaCO₂
+≈ 40 + 0.6–0.75 × (HCO₃⁻ - 24)
+```
+
+MSD Source 提示单纯代碱的代偿性 PaCO₂ 通常不会高到约 **55 mmHg以上**。实测明显偏离 expected 方向 / 范围，考虑第二个呼吸性原发过程。
+
+### 4｜呼吸性酸中毒｜急性 vs 慢性
+
+PaCO₂每升高 **10 mmHg**：
+
+```text
+急性：HCO₃⁻约升 1–2 mmol/L
+慢性：HCO₃⁻约升 3–4 mmol/L
+```
+
+实测 HCO₃⁻若明显不符 acute/chronic expected range：
+
+- 偏高 → 另有代谢性碱中毒方向；
+- 偏低 → 另有代谢性酸中毒方向；
+- 同时要重新检查“急/慢”分类是否判断错。
+
+### 5｜呼吸性碱中毒｜急性 vs 慢性
+
+PaCO₂每降低 **10 mmHg**：
+
+```text
+急性：HCO₃⁻约降 1–2 mmol/L
+慢性：HCO₃⁻约降 4–5 mmol/L
+```
+
+实测 HCO₃⁻明显高于 expected → 代谢性碱中毒方向；明显低于 expected → 代谢性酸中毒方向。
+
+> **规则只有一句**：先提出一个 primary disorder，再问身体“应该代偿到哪里”；**实测不在 expected range，不叫“代偿过度/不足”，而是要找第二个原发酸碱过程或重新检查急慢性假设。**
 
 ---
 
 <!-- kianos:kp id="urinary-b05-kp20" -->
 
-## KP20｜K5最终病例顺序 + Source Gap边界
+## KP20｜K5最终病例算法：危险优先 → expected compensation → AG / delta → 列出全部原发过程
 
-> **主提示**：病例7步｜先排立即危险｜容量/张力｜K/Ca｜酸碱原发轴｜肾功能
+> **来源 →** Project Lecture + admitted MSD / NCBI narrow source contract。  
+> **主提示**：危险优先｜pH｜原发轴｜代偿公式｜AG｜白蛋白校正｜delta ratio｜混合型｜临床回扣。
 
-面对病例依次问：
+### A｜先排立即危险
 
 ```text
-1. 是否休克 / 低灌注？
-2. 血Na⁺和渗透压：低、正常还是高张力？
-3. 是水钠丢失，还是水相对过多？
-4. K⁺是否已有ECG / 心肌危险？
-5. Ca²⁺是否造成神经肌肉或ST异常？
-6. 酸碱第一变化来自PaCO₂还是HCO₃⁻ / 固定酸？
-7. 肾脏是否有足够尿量完成排K、排酸和安全补钾？
+1. 休克 / 低灌注？
+2. 高钾是否已有ECG / 心肌危险？
+3. Ca²⁺是否造成严重神经肌肉或心电异常？
+4. 是否有严重呼吸 / 通气问题？
 ```
 
-### 当前 Source Gap
+生命支持优先于做漂亮的酸碱计算。
 
-本 Block**不静默补全**：
+### B｜酸碱诊断九步
 
-- 完整四类酸碱代偿数值公式；
-- 混合型酸碱系统算法；
-- 现代低钠 / 高钠纠正速度与重症指南；
-- 完整DKA / HHS方案。
+```text
+Step 1｜看 pH
+<7.35：acidemia方向
+>7.45：alkalemia方向
+接近正常：不能排除混合型
 
-这些缺口不影响当前 K5 的核心出口：容量—张力—电解质—酸碱的第一定位与 Study 考试口径。
+Step 2｜同时看 PaCO₂ 与 HCO₃⁻
+提出最可能的 primary metabolic / respiratory process
+
+Step 3｜按 KP19 算 expected compensation
+实测落在expected范围 → 暂支持simple disorder
+实测超出expected → 再加一个primary process或重查acute/chronic
+
+Step 4｜只要有代谢性酸中毒，就算AG
+AG = Na⁺ - (Cl⁻ + HCO₃⁻)
+
+Step 5｜低白蛋白时先校正AG
+corrected AG
+= measured AG + 2.5 × [4.0 - albumin(g/dL)]
+
+Step 6｜若为HAGMA，找第二个代谢过程
+ΔAG = corrected AG - 12
+corrected HCO₃⁻ = measured HCO₃⁻ + ΔAG
+
+也可用：
+delta ratio
+= (corrected AG - 12) / (24 - measured HCO₃⁻)
+
+Step 7｜解释delta
+<1 → 合并正常AG代谢性酸中毒方向
+1–2 → 多与单纯HAGMA相符
+>2 → 合并代谢性碱中毒 / 原先HCO₃⁻较高方向
+
+Step 8｜把每个原发过程逐条写出来
+不要写“代偿过度”
+要写：代酸 + 呼碱 / 呼酸 + 代碱 / HAGMA + NAGMA 等
+
+Step 9｜回病例语境
+呕吐？腹泻？乳酸？酮症？肾衰？COPD？过度通气？
+计算必须和真实病因链对得上
+```
+
+### C｜delta 不是孤立诊断机器
+
+- AG 的实验室正常值可因测定方法不同而不同；`12 / 24` 是本补充算法的常用计算锚点；
+- 低白蛋白可把真实 HAGMA“藏起来”，所以明显低白蛋白时先校正；
+- delta ratio 是筛查第二个代谢过程的辅助量，**不能脱离临床、expected compensation和病程单独下最终诊断**。
+
+### D｜这次 Source admission 没有授权什么
+
+本算法只补**诊断**，不因此扩写：
+
+- 现代低钠 / 高钠纠正速度；
+- DKA / HHS完整治疗；
+- NaHCO₃治疗指征；
+- 呼吸机 / ICU 通气方案；
+- 复杂肾替代治疗。
+
+这些仍归其正式 owner / 后续 Source。
 
 ---
 
@@ -837,10 +969,11 @@ Lecture完成后闭卷完成：
 5. 写出抗K—转K—排K—稀K四路及任务。
 6. 画低钾病因、表现与四道补钾门。
 7. 重建DKA补钾四格和幽门梗阻处理接口。
-8. 画K-H四格与两个特殊。
+8. 用B3 context gate解释K-H耦联；说明为什么尿pH不能由血K单变量决定；拆开库存血K负荷与枸橼酸碱负荷。
 9. 比较高钙/低钙阈值、ECG和神经肌肉方向。
 10. 画缓冲—肺—肾—细胞四层酸碱系统。
-11. 用PaCO₂ vs HCO₃⁻定位四类原发入口，但不写未提供的代偿公式。
+11. 闭卷写四类 expected compensation：Winter、代碱PaCO₂、急/慢呼酸、急/慢呼碱。
+12. 跑一遍完整酸碱算法：pH → primary → expected compensation → AG/albumin correction → delta → 列出全部primary process。
 ```
 
 ---
@@ -859,11 +992,14 @@ Lecture完成后闭卷完成：
 8. 低钾肌无力、肠麻痹、ECG与心律风险；
 9. 见尿补钾；
 10. 低Mg导致难纠正低钾；
-11. K-H四格与反常性尿；
-12. 高钙ST短、低钙ST长与神经肌肉兴奋；
-13. 酸碱四层系统；
-14. PaCO₂轴 vs HCO₃⁻ / 固定酸轴；
-15. 肾重吸收HCO₃⁻、分泌H⁺与NH₄⁺。
+11. K-H只调用B3 context-gated owner，尿pH不是血K单变量函数；
+12. 库存血高钾与枸橼酸碱负荷是两条机制；
+13. 高钙ST短、低钙ST长与神经肌肉兴奋；
+14. 酸碱四层系统；
+15. 四类原发酸碱方向；
+16. expected compensation超界 = 第二个原发过程 / 重查急慢，不是“过度代偿”；
+17. 代谢性酸中毒要算AG；低白蛋白时校正AG；
+18. HAGMA用delta分析筛第二个代谢过程。
 
 ## 9.2 MI-D｜进入 MarginNote 3
 
@@ -876,8 +1012,10 @@ Lecture完成后闭卷完成：
 - 多发性骨髓瘤D-S 2.65 mmol/L；
 - 10%制剂易混；
 - 具体液体名称和特殊场景；
-- 全部真题年份；
-- 后续补入的酸碱代偿公式（当前不生成）。
+- 四类expected compensation精确数字；
+- albumin-corrected AG公式；
+- delta ratio公式与 `<1 / 1–2 / >2` 解释；
+- 全部真题年份。
 
 ---
 
@@ -890,28 +1028,33 @@ Lecture完成后闭卷完成：
 3. P192高钾处理“抗/排/转/稀”图；
 4. P192低钾表现、兴奋性与ECG图；
 5. P193补钾规则、Ca²⁺与酸碱四层图；
-6. 生理 P279 K-H四格；
+6. 生理 P279 K-H经典图：**只作Source Pattern，解释时调用B3 context gate**；
 7. K3的主细胞 / 闰细胞图；
 8. 呼吸系统 PaCO₂—通气关系图。
 
+酸碱代偿公式 / AG / delta 为文本计算规则，不要求额外 Visual Gate；其 Source authority 由 external source contract 持久化。
+
 ---
 
-# 11｜Lecture Knowledge Routing Audit
+# 11｜Lecture / Source Knowledge Routing Audit
 
-| Lecture范围 | 路由 | 去向 |
+| Source范围 | 路由 | 去向 |
 |---|---|---|
 | P191三类脱水 | CORE / DISCRIMINATION / MI-G | KP01–KP04 |
 | P191水中毒 | CORE / CONFUSABLE | KP05 |
 | P191–192高钾 | CORE / RECOGNITION / DECISION | KP07–KP10 |
 | P192–193低钾与补钾 | CORE / RECOGNITION / MI-G / MI-D | KP11–KP14 |
-| 生理K-H与库存血/原醛特殊 | RECALL / SPECIAL / CONFUSABLE | KP15 |
+| 生理K-H与库存血/原醛特殊 | RECALL / SPECIAL / CONFUSABLE；B3 owner | KP15 |
 | P193钙失衡 | CORE / RECOGNITION / MI-D | KP16–KP17 |
-| P193酸碱四层 | CORE / CONNECTION | KP18–KP20 |
-| 完整酸碱公式、混合算法、现代纠钠指南 | SOURCE_GAP / DEFERRED_MODEL | 明确不补 |
+| P193酸碱四层 | CORE / CONNECTION | KP18 |
+| MSD expected-compensation / mixed-disorder diagnosis | ADMITTED_EXTERNAL_CURRENT / NARROW_SCOPE | KP19–KP20 |
+| NCBI albumin-corrected AG / delta ratio | ADMITTED_EXTERNAL_CURRENT / NARROW_SCOPE | KP20 / MI-D |
+| 现代纠钠指南、DKA/HHS治疗、碱治疗、通气治疗 | FORBIDDEN_EXTERNAL_EXPANSION / DEFERRED | 不在B5新增 |
 | 重复题旁解释 | REDUNDANT_EXPOSITION | 合并进对应KP |
 
 ```text
 unrouted_lecture_knowledge = 0
+source_gap_complete_compensation = RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE
 ```
 
 ---
@@ -945,7 +1088,8 @@ duplicate_primary = 0
 - 数字错但模型对：归MI-D，不重读整 Block；
 - 高钾处理顺序错：回 KP09；
 - 脱水分类错：回 Framework + KP02–KP05；
-- 酸碱复杂题超出当前 Source：标记 Source Gap，不用猜测补全。
+- K-H尿pH题：先回B3 context gate，不再背无条件四格；
+- 酸碱复杂题：按 KP20 算 expected compensation / AG / delta；若算法和临床语境冲突，重新检查 primary assumption，而不是猜“过度代偿”。
 
 ---
 
@@ -959,15 +1103,15 @@ Unit B｜KP07–KP10
 高钾病因、电生理和四路处理
 
 Unit C｜KP11–KP15
-低钾、补钾、特殊与K-H整合
+低钾、补钾、特殊与B3 K-H应用
 
 Unit D｜KP16–KP20
-Ca²⁺与酸碱底座、病例顺序和Source Gap
+Ca²⁺ → 酸碱四层 → expected compensation → AG/delta mixed algorithm
 ```
 
 ---
 
-# 14｜Block Exit｜闭卷 22 问
+# 14｜Block Exit｜闭卷 24 问
 
 1. 容量和张力分别回答什么？
 2. 三类脱水的丢水 / 丢钠关系是什么？
@@ -986,13 +1130,15 @@ Ca²⁺与酸碱底座、病例顺序和Source Gap
 15. 静脉补KCl四道门是什么？
 16. 低钾补不起来为什么查Mg²⁺？
 17. 幽门梗阻与DKA的补钾边界是什么？
-18. K-H四格和两种反常性尿是什么？
-19. 库存血与原醛分别有哪些特殊？
+18. 为什么K-H不能再背成无条件尿pH四格？预测前要过哪几个context gate？
+19. 库存血为什么可以同时带来高钾方向和碱中毒方向，这两条机制分别是什么？
 20. 高钙和低钙阈值、ECG方向是什么？
 21. 酸碱四层系统各调什么？
-22. 当前Source为什么不足以生成完整混合型酸碱算法？
+22. 四类原发酸碱失衡的 expected compensation 怎么算？
+23. 代谢性酸中毒时怎样用AG、白蛋白校正和delta ratio寻找第二个代谢过程？
+24. 为什么实测代偿超出expected range时应写“第二个原发过程”，而不是“代偿过度/不足”？
 
-**最低出口**：能在病例中先判灌注、张力和致命电解质风险，再说明当前处理属于补容量、改分布、排出、膜稳定还是酸碱支持。
+**最低出口**：能在病例中先判灌注、张力和致命电解质风险；再用 pH / PaCO₂ / HCO₃⁻ 提出 primary process，计算 expected compensation；代谢性酸中毒进一步算 AG / 必要时白蛋白校正 / delta，最后把每一个原发酸碱过程明确列出并与真实病因链核对。
 
 ---
 
@@ -1012,6 +1158,8 @@ LectureQuestionBinding 自动提供
 待绑定
 ```
 
+> external acid-base source只补诊断算法，不生成另一套题库；First-pass Question Probe仍以 Lecture-attached Questions 为主。
+
 ---
 
 # 16｜Block Complete 定义
@@ -1020,9 +1168,11 @@ LectureQuestionBinding 自动提供
 Framework已建立
 + 外科体液失衡Lecture已完整学习
 + K3/K4与呼吸PaCO₂接口已完成Recall
++ B3 K-H context owner已正确调用
++ expected compensation / AG / delta mixed-disorder算法可闭卷重建
 + KP Active Recall完成
 + Outline按需扫漏
 + TTSX Lecture-bound Question Probe完成或待绑定
 ```
 
-允许 `Block Complete + Weakness Open`。阈值、公式和完整药名进入 MI-D；只有“容量—张力—电解质危险—酸碱原发轴”仍无法区分时，才进行最小模型修复后进入 K6。
+允许 `Block Complete + Weakness Open`。水电解质阈值、补液/补钾公式、四型代偿数字和delta ratio进入 MI-D；只有“容量—张力—电解质危险—primary acid-base—expected compensation—mixed process”仍无法重建时，才进行最小模型修复后进入 K6。

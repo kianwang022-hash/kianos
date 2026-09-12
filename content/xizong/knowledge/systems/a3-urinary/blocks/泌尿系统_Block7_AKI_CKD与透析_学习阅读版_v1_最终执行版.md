@@ -28,15 +28,13 @@ next_blocks:
   - urinary-b10
   - urinary-b11
   - urinary-b12
-source_gap_ids:
-  - urinary-b07-sg01
-visual_gate_status: PENDING_ORIGINAL_SOURCE_PAGE
+visual_gate_status: ORIGINAL_SOURCE_TABLE_REVALIDATED
 ---
 
 # Block 7｜AKI、CKD与透析
 ## 学习阅读版 v1｜最终执行版
 
-> **中心问题**：肾功能突然下降和长期下降如何区分；AKI 的第一故障究竟在灌注、肾实质还是尿路出口；CKD 为什么会同时出现贫血、骨病、水电酸碱紊乱和心血管并发症；什么时候必须从保守处理升级到透析？
+> **中心问题**：肾功能突然下降和长期下降如何区分；AKI 的第一故障究竟在灌注、肾实质还是尿路出口；CKD 为什么会同时出现贫血、骨病、水电酸碱紊乱和心血管并发症；什么时候必须从保守处理升级到肾脏替代治疗？
 >
 > **文件性质**：泌尿系统第七个 canonical Block。K1–K6 已经建立肾血流、GFR、小管、浓缩、水电酸碱和尿液证据语言，本 Block 第一次把这些正常变量放进“功能失败的时间轴”。
 >
@@ -46,7 +44,7 @@ visual_gate_status: PENDING_ORIGINAL_SOURCE_PAGE
 >
 > **第一轮流程**：Framework → Lecture P151–154 连续学习 → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
 >
-> **Source boundary**：严格保留当前 Study 对 AKI / CKD 分期、ACEI / ARB、透析阈值和治疗的考试口径，不用外部指南静默更新。P153“CKD分期 + 血Cr”原页的机器可读布局无法安全恢复每个血Cr阈值与5个 CKD stage 的一一对应，已登记 `urinary-b07-sg01`，GFR 分期按正文可明确读取的 Study 值保留，血Cr行必须回原图后再冻结精确列对应。
+> **Source boundary**：Study 中的 CKD 分期、BP目标、ACEI/ARB数字、透析数值和 modality 选择继续作为 306 Source-specific Precision；但当这些旧口径与稳定的现代医学规则冲突时，不把旧绝对数字升级为 learner-canonical 临床规则。原 P153 CKD 表已回原 PDF 重新核对：正式分期以 GFR 为主轴，血Cr四档是旧阶段辅助口径，不制造五个 stage 的假一一对应。
 
 ---
 
@@ -80,7 +78,7 @@ K7 反过来问：
 → 为什么出现贫血、出血、骨病、心衰和神经症状？
 
 如果保守处理已经不够
-→ 哪些门槛必须透析？
+→ 哪些临床问题要求升级肾脏替代治疗？
 ```
 
 因此本 Block 的核心不是背两张“肾衰表”，而是建立：
@@ -128,21 +126,23 @@ K7 反过来问：
         ↓
 ⑦ 急慢性鉴别 + CKD分期
    肾大小 / 特殊不缩小疾病 / GFR stage
+   + 血Cr旧阶段辅助口径
    [KP13–KP14]
         ↓
 ⑧ 延缓进展 + 管理内环境
-   ACEI/ARB / BP目标
+   RAAS阻断的作用与安全监测
+   + Source-specific BP / 数字口径
    水Na/P/蛋白/药物限制
    [KP15–KP16]
         ↓
-⑨ 透析升级
-   K / pH / Cr-BUN / 严重尿毒症 / 肺水肿
-   → IHD / CRRT / PD边界
-   → 透析并发症
+⑨ 肾脏替代治疗升级
+   难治高K / 酸中毒 / 容量超负荷 / 尿毒症器官表现
+   + 临床状态 / GFR / 实验室综合判断
+   → IHD / CRRT / PD按患者与场景选择
    [KP17–KP19]
         ↓
 ⑩ 最终病例决策
-   急慢性 → 第一故障 → 危急值 → 可逆原因 → 透析门槛
+   急慢性 → 第一故障 → 致命变量 → 可逆原因 → 是否KRT
    [KP20]
 ```
 
@@ -162,7 +162,7 @@ K7 反过来问：
 → 毒素长期蓄积 + EPO不足 + 钙三醇不足
 → 消化、心血管、血液、神经、骨代谢多系统表现
 → 保护残余肾单位 + 控制水电酸碱和营养
-→ 超过保守治疗安全边界时进入透析
+→ 保守治疗已不能安全维持内环境或出现尿毒症器官损害时进入KRT
 ```
 
 ---
@@ -178,8 +178,9 @@ K7 反过来问：
 | CKD毒素与多系统表现 | **Primary Learn** | 各专科完整疾病后置对应 System |
 | 肾性贫血 / 出血 | **Learn / Integration** | 完整贫血与出血诊断树后置血液 |
 | CKD-MBD | **Learn / Integration** | PTH / VitD完整激素轴后置内分泌 |
-| CKD分期与治疗目标 | **Primary Learn** | 当前Study口径，不升级外部指南 |
-| 透析指征、方法、并发症 | **Primary Learn** | 完整血液净化 / ICU模式不扩写 |
+| CKD分期 | **Primary Learn** | GFR为正式主轴；血Cr旧阶段值为Source Precision |
+| ACEI/ARB、BP与CKD治疗数字 | **Mechanism Learn + Source-specific Precision** | 不把旧绝对阈值当现代通用禁忌/目标 |
+| KRT指征、方法、并发症 | **Primary Learn + Source-specific Precision** | 临床Core用综合评估；旧固定数字和旧modality断言降级 |
 | 肾小球病造成CKD | **Apply / Defer** | K9–K11建立LM / IF / EM与疾病模型 |
 | 尿路梗阻造成肾后AKI | **Interface / Apply** | K12完整学习 |
 | AKI / CKD伴贫血分度阈值 | **Coverage Supporting / MI-D** | 全局贫血模型后置血液，不在此重建 |
@@ -491,11 +492,11 @@ Study联系：肾性骨营养不良、软组织钙化。
 
 ### 最先出现
 
-- **消化系统表现**。
+- **消化系统表现**（当前 Study 口径）。
 
 ### 主要死因
 
-- **心衰**。
+- **心衰**（当前 Study 口径）。
 
 循环系统主链：
 
@@ -589,9 +590,9 @@ Study链：
 ```text
 肾衰
 → 1α-羟化酶 / 钙三醇生成↓
-→ 低钙
+→ 低钙 + 高磷等信号
 → 长期继发PTH↑
-→ 高转化性骨病（最常见）
+→ 高转化性骨病
 ```
 
 Study强调大剂量 / 长期升高的 PTH 使破骨活动增强，表现：
@@ -669,14 +670,14 @@ Ca / 钙三醇偏高
 
 <!-- kianos:kp id="urinary-b07-kp14" -->
 
-## KP14｜CKD GFR分期：90—60—45—30—15
+## KP14｜CKD分期：GFR 是正式主轴；血Cr四档是旧阶段辅助口径
 
-> **讲义定位 →** 内科 Lecture P153 原表。  
-> **主提示**：CKD G1–G5｜G3再分哪两级｜各GFR阈点｜透析落点｜Cr边界
+> **讲义定位 →** 内科 Lecture P153 原表（已回原 PDF 核对）。  
+> **主提示**：G1–G5｜G3a/G3b｜90-60-45-30-15｜Cr四档为何不能硬配5期｜透析落点
 
-按当前 Study 可明确读取的 GFR 分期：
+原表可安全恢复为：
 
-| CKD stage | GFR（mL/min/1.73m²） |
+| CKD G stage | GFR（mL/min/1.73m²） |
 |---|---:|
 | G1 | ≥90 |
 | G2 | 60–89 |
@@ -685,45 +686,64 @@ Ca / 钙三醇偏高
 | G4 | 15–29 |
 | G5 | <15 或透析 |
 
-### SOURCE GAP｜`urinary-b07-sg01`
+这条 GFR 轴与现代 CKD G 分类一致，也是 Current 的正式分期主干。
 
-P153 原页同时给出血Cr一行：`<177`、`<442`、`<707`、`≥707 μmol/L`，但当前 AI-readable 文本未可靠保留它们与5个 CKD stage 的列对应关系；机器化恢复会制造假映射。
+### 原表血Cr行怎么读
+
+原 PDF 另外给出：
+
+```text
+Scr <177
+Scr <442
+Scr <707
+Scr ≥707 μmol/L
+```
+
+它来自旧式“代偿期 / 氮质血症或失代偿期 / 肾衰竭期 / 尿毒症期”等阶段辅助口径，表格使用合并单元格，**不是五个 G stage 各配一个独立 Scr 阈值**。
 
 因此：
 
-- **GFR分期可冻结**；
-- **血Cr精确分期列必须回原表**；
-- Outline U064“GFR + 血Cr范围”已路由到本 KP，但 Cr 部分标记 `UNCERTAIN_SOURCE_READING / VISUAL_SOURCE_GAP`，不静默补全。
+- GFR分期进入 Core；
+- Scr 四档进入 Source-specific Precision；
+- 不再保留 `urinary-b07-sg01`，也不制造“G1=某Scr、G2=某Scr……”的假映射。
 
 ---
 
-# 9｜保住残余肾单位：降压、减蛋白尿、控制输入
+# 9｜保住残余肾单位：RAAS阻断、血压与输入端减负
 
 <!-- kianos:kp id="urinary-b07-kp15" -->
 
-## KP15｜ACEI / ARB：降压 + 减少蛋白滤过；Study禁忌按当前口径保留
+## KP15｜ACEI / ARB：先学为什么护肾，再把旧禁忌数字降为 Source Precision
 
 > **讲义定位 →** 内科 Lecture P153。  
-> **主提示**：治疗目标2｜出球方向｜BP两目标｜禁忌5｜其他目标MI-D。
+> **主提示**：作用2｜出球方向｜启动后监测什么｜何时查可逆原因/减停｜Study旧数字放哪里
 
-Study治疗主线：
+### 1｜稳定机制 Core
 
 ```text
-尿蛋白 / 高血压持续损伤肾单位
-→ ACEI / ARB
-→ 降压
-+ 选择性舒张出球小动脉
-→ 滤过压力下降
-→ 尿蛋白减少
-→ 保护残余肾单位
+高血压 / 肾小球内压 + 蛋白尿
+→ ACEI / ARB 阻断RAAS
+→ 出球小动脉相对舒张
+→ 肾小球内压下降
+→ 蛋白尿减少
++ 系统血压控制
+→ 减少持续肾单位损伤
 ```
 
-当前 Study BP 目标：
+### 2｜Current 安全边界：看变化和临床状态，不用一个绝对Scr切断
 
-- CKD1–5，尿白蛋白 / Cr ≥30 mg/g：**<130/80 mmHg**；
-- 尿白蛋白 / Cr <30 mg/g：**<140/90 mmHg**。
+启动或加量后要监测：
 
-当前 Study 列的 ACEI / ARB 禁忌 / 不宜条件：
+- Scr / eGFR 变化；
+- K⁺；
+- 血压与容量状态；
+- 合并 NSAID、利尿剂、脱水、肾动脉狭窄等可逆因素。
+
+Current KDIGO CKD 处理强调：若启动 / 加量后肾功能下降幅度显著（常以约30%变化触发评估），先查低容量、药物、肾动脉狭窄等可逆原因；症状性低血压或治疗后仍无法控制的高钾可考虑减量 / 停药。**eGFR <30 本身不是自动停 ACEI/ARB 的理由。**
+
+### 3｜Study-specific Precision｜考试旧口径
+
+原 Lecture列：
 
 - Scr >265 μmol/L；
 - K⁺ >5.5 mmol/L；
@@ -731,9 +751,18 @@ Study治疗主线：
 - 妊娠；
 - 低血压。
 
-> **边界**：以上为本 Lecture 的当前考试口径；不根据外部指南静默修改。
+其中双肾动脉狭窄、妊娠、低血压 / 高钾风险仍是重要临床边界；**`Scr >265` 仅作为本讲义旧考试数字保留，不再作为 Current 通用绝对禁忌。**
 
-//MI-D｜原页治疗目标还包括：糖尿病空腹血糖5.0–7.2、睡前6.1–8.3 mmol/L；HbA1c 6.5%–8.0%；蛋白尿<0.5 g/24h；GFR下降速度<4 mL/(min·1.73m²·年)；Scr升高速率<50 μmol/(L·年)。
+### 4｜BP目标也分两层
+
+原 Lecture 的考试数字：
+
+- UACR ≥30 mg/g：<130/80 mmHg；
+- UACR <30 mg/g：<140/90 mmHg。
+
+保留到 MI-D / Source Precision。Current KDIGO BP 指南对非透析成人 CKD 的主建议已转为：在标准化诊室测压且能耐受时，目标 SBP <120 mmHg，并强调个体化。B7 第一轮不需要重学完整高血压指南，只需知道**旧两档不是永恒临床真理**。
+
+//MI-D｜原页还列糖尿病血糖 / HbA1c、蛋白尿、GFR下降速度、Scr升高速率等旧治疗目标，均作为 Source-specific 数字归档，不占主链。
 
 ---
 
@@ -744,10 +773,12 @@ Study治疗主线：
 > **讲义定位 →** 内科 Lecture P154；Recall K5。  
 > **主提示**：水2公式｜P结合剂2｜限蛋白/脂/肾毒药｜保热量。
 
-### 水 / Na
+### 水 / Na｜Study Precision
 
 - 少尿期每日补液 = **前一日尿量 +500 mL**；
 - 多尿期每日补液 = **每日排出水量的 1/3–1/2**。
+
+这些是考试来源中的简化补液公式；真实临床补液仍需结合容量状态、额外丢失、输入和血流动力学，不把公式当自动处方。
 
 ### 磷
 
@@ -772,65 +803,83 @@ Lecture列需要警惕：
 - NSAIDs；
 - 含马兜铃酸中药等。
 
-（边界：本节只保留当前 Study 的饮食和药物减负方向，不扩写现代 CKD 营养处方。）
+（边界：本节只保留当前 Study 的输入端减负方向，不扩写现代 CKD 营养处方。）
 
 ---
 
-# 10｜透析：什么时候不能再等
+# 10｜KRT：什么时候不能再只看Cr
 
 <!-- kianos:kp id="urinary-b07-kp17" -->
 
-## KP17｜透析指征：K、pH、Cr/BUN、严重尿毒症、肺水肿
+## KP17｜KRT指征：先看难治的内环境 / 容量 / 尿毒症器官损害，再看Source数字
 
 > **讲义定位 →** 内科 Lecture P154；Recall K5高K / 酸中毒。  
-> **主提示**：K｜pH｜Cr2阈｜BUN｜严重尿毒症3｜肺水肿｜“保守无效”门槛。
+> **主提示**：高K｜酸中毒｜容量超负荷｜尿毒症器官表现｜综合评估｜Study数值Precision
 
-当前 Study 的考试口径：
+### 1｜第一轮 Current Core
+
+当肾脏已经无法安全维持内环境，尤其出现以下**难以通过保守治疗控制**的情况，要进入 KRT / 透析决策：
+
+- 高钾或其他危及生命的电解质紊乱；
+- 严重代谢性酸中毒；
+- 容量超负荷 / 肺水肿，利尿和其他措施不能控制；
+- 尿毒症心包炎、脑病、癫痫等器官表现；
+- 结合症状、体征、生活质量、GFR和实验室异常的综合临床恶化。
+
+> **不能把“Cr 到某个数字”当成单轴自动透析开关。**
+
+### 2｜Study-specific Precision
+
+原 Lecture 的高频考试数字：
 
 ```text
-K+ >6.5 mmol/L
-或严重心律失常
-
+K+ >6.5 mmol/L 或严重心律失常
 pH <7.2
-
 Cr >442 或 707 μmol/L
-
 BUN >21.4 mmol/L
-
-严重尿毒症：
-心包炎 / 脑病 / 癫痫
-
+严重尿毒症：心包炎 / 脑病 / 癫痫
 利尿无效的严重肺水肿
 ```
 
-决策本质：
-
-> 当高K、严重酸中毒、容量负荷或尿毒症器官损害已经超过保守纠正的安全边界，就不再只是“继续观察Cr”。
-
-（边界：Cr 的两个阈值按当前 Study 原样保留，不自行解释为所有病例的统一现代指南门槛。）
+这些数字用于识别本 Study / 真题口径；其中 Cr/BUN **不能提升为现代普适 KRT 指征**。KDIGO 2024 CKD 强调综合评估，KRT 开始常但并非必然发生在 GFR 5–10 mL/min/1.73m²范围。
 
 ---
 
 <!-- kianos:kp id="urinary-b07-kp18" -->
 
-## KP18｜三类透析：IHD、CRRT、PD；严重AKI的Study选择
+## KP18｜三类KRT modality：IHD、CRRT、PD；按患者与场景选，不做“严重AKI禁PD”绝对规则
 
 > **讲义定位 →** 内科 Lecture P154。  
-> **主提示**：3方法｜CRRT两路｜严重AKI谁不宜｜原因2｜本文件不扩哪些。
+> **主提示**：3方法｜血流动力学｜资源/经验｜Study旧结论｜为什么不能绝对排PD
+
+三类基础 modality：
+
+1. **间歇性血液透析 IHD / IRRT**；
+2. **连续肾脏替代治疗 CRRT**；
+3. **腹膜透析 PD**。
+
+选择要结合：
+
+- 血流动力学稳定性；
+- 需要多快清除溶质 / 脱水；
+- 腹腔条件与禁忌；
+- 血管通路；
+- 当地设备、团队经验和资源。
+
+CRRT 的优势之一是更缓慢、连续的溶质与容量调整，常用于血流动力学不稳者；IHD 清除快、效率高；**急性 PD 也是 AKI 可用的 KRT modality，并非因为“严重”二字就自动排除。**
+
+### Study旧口径边界
+
+原 Lecture 写“严重 AKI 不宜腹膜透析，效率低且易腹膜炎”。这个结论保留为 Source-specific / historical exam note，不作为 Current 一般临床规则。ISPD 有专门的 AKI-PD 指南，KDIGO 也将 PD 列为 AKI 的 RRT modality；具体选择取决于患者和资源。
+
+### CRRT名词 Precision
 
 Study列：
 
-1. **间歇性血液透析 IHD**；
-2. **连续肾脏替代治疗 CRRT**：
-   - 连续性静—静脉血液滤过；
-   - 连续性动—静脉血液滤过；
-3. **腹膜透析 PD**。
+- 连续性静—静脉血液滤过；
+- 连续性动—静脉血液滤过。
 
-当前 Lecture 明确：
-
-> 严重 AKI 不宜选腹膜透析，理由是效率低，且易并发腹膜炎。
-
-因此 Outline U064“重症AKI透析方式”按本 Study 口径回答 IHD / CRRT 分支，不静默替换为外部实践更新。
+后者属于历史技术命名，进入 MI-D；第一轮核心是**连续、缓慢、血流动力学更平稳的体外 KRT**。
 
 ---
 
@@ -869,9 +918,9 @@ Study列：
 
 <!-- kianos:kp id="urinary-b07-kp20" -->
 
-## KP20｜K7最终病例算法：时间→位置→危急值→可逆原因→透析
+## KP20｜K7最终病例算法：时间→位置→致命变量→可逆原因→KRT
 
-> **主提示**：5步｜急慢｜肾前/性/后｜高K/水/酸｜可逆病因｜透析5门。
+> **主提示**：5步｜急慢｜肾前/性/后｜高K/水/酸｜可逆病因｜KRT临床门槛
 
 ```text
 1. 急性还是慢性？
@@ -880,14 +929,14 @@ Study列：
 2. AKI第一故障在哪里？
    灌注不足 / 肾实质 / 尿路梗阻
 
-3. 当前最危险的不是“Cr高”而是什么？
-   K+ / 水负荷 / 酸中毒 / 尿毒症器官损害
+3. 当前最危险的不是“Cr高”本身，而是什么？
+   难治高K / 容量超负荷 / 严重酸中毒 / 尿毒症器官损害
 
 4. 是否有可逆原因必须先处理？
    低容量、缺血/肾毒物、感染、梗阻等
 
-5. 是否达到透析升级门槛？
-   K / pH / Cr-BUN / 严重尿毒症 / 利尿无效肺水肿
+5. 保守治疗还能安全维持内环境吗？
+   若不能 → 结合症状、体征、GFR、实验室与患者状态进入KRT
 ```
 
 病例中如果只会说“AKI / CKD”，但不能回答**第一故障层和当前致命变量**，就还没有完成 K7。
@@ -902,7 +951,7 @@ Lecture完成后闭卷完成：
 1. 画AKI三分：肾前—肾性—肾后，并标第一变量。
 2. 不看表写出肾前 vs ATN 的8项指标方向。
 3. 画起始→维持→恢复期，并写每期主要死因。
-4. 写出“3高3低2中毒”并解释纠酸后低钙抽搐。
+4. 写“3高3低2中毒”并解释纠酸后低钙抽搐。
 5. 写AKI三条诊断标准。
 6. 写GFR三种方法、最准/常用及肾图加总。
 7. 画CKD“清除失败 + 内分泌失败”总图。
@@ -910,10 +959,10 @@ Lecture完成后闭卷完成：
 9. 从EPO和血小板功能解释贫血 / 出血。
 10. 画CKD-MBD高转化 vs 低转化。
 11. 写急慢性鉴别与4个“小肾例外”。
-12. 写G1–G5 GFR分期；血Cr行标注待原图核对。
-13. 写ACEI/ARB作用、BP目标和Study禁忌。
+12. 写G1–G5 GFR分期，并说明血Cr四档只是旧阶段辅助口径。
+13. 写ACEI/ARB护肾机制、启动后监测与Study旧数字边界。
 14. 写少尿 / 多尿补液、磷结合剂和肾毒药物边界。
-15. 写透析5类指征、3类方法和核心并发症。
+15. 写KRT临床核心指征、Study数字Precision、3类modality与核心并发症。
 16. 用KP20跑一个未知肾衰病例。
 ```
 
@@ -931,14 +980,14 @@ Lecture完成后闭卷完成：
 - 多尿期主要死因：低K、感染；
 - AKI三条诊断标准的时间轴；
 - GFR定义与菊粉 / Ccr / 肾图定位；
-- CKD消化最先、心衰主要死因；
+- CKD消化最先、心衰主要死因（Study口径）；
 - EPO↓导致肾性贫血，尿毒素导致血小板功能低；
 - CKD高转化骨病主链；
 - 急慢性鉴别和“小肾不绝对”；
 - CKD GFR分期；
-- ACEI/ARB减蛋白尿主逻辑；
-- 高K、严重酸中毒、尿毒症器官损害、肺水肿等透析门槛；
-- IHD / CRRT / PD当前Study边界；
+- ACEI/ARB减蛋白尿主逻辑 + 看相对肾功能变化 / K / BP，不用Scr绝对值机械停药；
+- 难治高K、严重酸中毒、容量超负荷、尿毒症器官表现等KRT临床门槛；
+- IHD / CRRT / PD均是KRT modality，按患者 / 场景 / 资源选择；
 - 透析失衡综合征。
 
 ## 12.2 MI-D｜进入 MarginNote 3
@@ -949,13 +998,13 @@ Lecture完成后闭卷完成：
 - 贫血男女 / 妊娠阈值与四级分度；
 - 罗沙司他等药名；
 - CKD-MBD低频细节；
-- 血Cr分期原表（待视觉核对）；
-- ACEI / ARB禁忌精确数字；
-- CKD全部治疗目标数字；
+- 血Cr旧阶段四档；
+- ACEI / ARB旧禁忌数字；
+- CKD旧BP / 血糖 / 蛋白尿等治疗目标数字；
 - 少尿 / 多尿补液公式；
 - 司维拉姆、碳酸镧；
-- 透析所有数值阈值；
-- CRRT全称；
+- 透析Study数值阈值；
+- CRRT历史全称；
 - 透析并发症长表；
 - “脂溶性中毒”透析边界。
 
@@ -963,7 +1012,7 @@ Lecture完成后闭卷完成：
 
 # 13｜Study 原图 / 表格门禁
 
-## 必须回原图
+必须回原图 / 表：
 
 1. P151｜肾前性 AKI vs 缺血性 ATN 8项指标表；
 2. P151｜AKI阶段与“3高3低2中毒”组织图；
@@ -972,19 +1021,17 @@ Lecture完成后闭卷完成：
 5. P154｜血液透析体外循环示意图；
 6. P154｜血液透析并发症长表。
 
-### VISUAL_SOURCE_GAP
+### CKD表 Source revalidation
 
-当前正式主读取层 `内科学讲义_AI阅读版.md` 可安全恢复正文和多数表格关系，但本批环境中未找到可直接打开的原始 `内科精编版小合集2【胃食管反流病→肾衰竭】.pdf` 页面资产。
-
-因此：
+原始内科 PDF 已重新读取，P153表的布局缺口已解决：
 
 ```text
-visual_textual_reconstruction = available
-original_visual_truth = pending
-CKD_Cr_stage_column_mapping = unresolved
+formal_CKD_stage_axis = GFR
+Scr_old_phase_row = <177 / <442 / <707 / >=707 umol/L
+five_stage_one_to_one_Cr_mapping = false
 ```
 
-不假装已看过原图。后续原 PDF / Source Page 可访问时，仅定点核对上述视觉项，不重写已通过正文。
+不再保留 visual Source Gap，也不伪造五个 Cr 阈值。
 
 ---
 
@@ -1001,22 +1048,20 @@ CKD_Cr_stage_column_mapping = unresolved
 | P152 CKD毒素 | CORE / CONFUSABLE | MI-D | KP08 |
 | P152–153系统表现 | CORE / CONNECTION | MI-G | KP09 |
 | P152肾性贫血 / 出血 / 诊断学阈值 | CORE / CONNECTION / BOUNDARY | MI-G+MI-D | KP10 |
-| P153高转化骨病 | CORE / CONNECTION | MI-G | KP11 |
-| P153低转化骨病 | CONFUSABLE / SPECIAL | MI-G+MI-D | KP12 |
+| P153高/低转化骨病 | CORE / CONNECTION / CONFUSABLE | MI-G+MI-D | KP11–KP12 |
 | P153急慢鉴别 | CORE / RECOGNITION | MI-G | KP13 |
-| P153 CKD分期 | CORE / VISUAL_ONLY / BOUNDARY | MI-G+MI-D | KP14 + SG01 |
-| P153 ACEI/ARB与目标 | CORE / RECOGNITION / BOUNDARY | MI-G+MI-D | KP15 |
+| P153 CKD分期 | CORE / VISUAL_ONLY / SOURCE_PRECISION | MI-G+MI-D | KP14 |
+| P153 ACEI/ARB与目标 | CORE_MECHANISM + SOURCE_PRECISION + CURRENT_BOUNDARY | MI-G+MI-D | KP15 |
 | P154饮食、补液、磷结合剂、肾毒药 | CORE / SPECIAL | MI-G+MI-D | KP16 |
-| P154透析指征 | CORE / RECOGNITION | MI-G+MI-D | KP17 |
-| P154透析方法 | CORE / BOUNDARY | MI-G | KP18 |
+| P154透析指征 | CORE_CLINICAL + SOURCE_PRECISION | MI-G+MI-D | KP17 |
+| P154透析方法 | CORE / SOURCE_CONFLICT_BOUNDARY | MI-G+MI-D | KP18 |
 | P154透析并发症正文+表 | CORE / SPECIAL / VISUAL_ONLY | MI-G+MI-D | KP19 |
-| P155–156 Lecture-attached Questions | BOUNDARY | — | First-pass Question Probe待绑定，不自行抽题 |
+| P155–156 Lecture-attached Questions | BOUNDARY | — | First-pass Question Probe待绑定 |
 | 完整贫血 / PTH / 免疫 / 梗阻 / ICU模型 | DEFERRED_MODEL | — | 后续owner |
 | 题旁重复口诀和同义解释 | REDUNDANT_EXPOSITION | — | 合并到对应KP |
 
 ```text
 unrouted_lecture_knowledge = 0
-external_medical_expansion = 0
 silent_source_correction = 0
 ```
 
@@ -1044,12 +1089,12 @@ silent_source_correction = 0
 | U063 高转化性骨病 | 1 | KP11 |
 | U063 低转化性骨病 | 1 | KP12 |
 | U064 AKI vs CKD + 不缩小特殊 | 1 | KP13 |
-| U064 CKD分期GFR + 血Cr | 1 | KP14；Cr部分显式SG01 |
-| U064 ACEI/ARB + BP目标 | 1 | KP15 |
+| U064 CKD分期GFR + 血Cr | 1 | KP14（GFR Core + Scr旧阶段Precision） |
+| U064 ACEI/ARB + BP目标 | 1 | KP15（机制Core + Study Precision） |
 | U064 少尿/多尿补液 + 饮食 | 1 | KP16 |
 | U064 不含钙磷结合剂 | 1 | KP16 |
-| U064 透析指征 | 1 | KP17 |
-| U064 严重AKI透析方法 | 1 | KP18 |
+| U064 透析指征 | 1 | KP17（Clinical Core + Study数字Precision） |
+| U064 严重AKI透析方法 | 1 | KP18（Study旧选项 + Current modality边界） |
 | U064 透析并发症 | 1 | KP19 |
 | **合计** | **23** | **23 / 23** |
 
@@ -1060,18 +1105,6 @@ unmapped = 0
 missing = 0
 duplicate_primary = 0
 ```
-
-`U064 CKD分期` 已有明确路由，但血Cr列属于 `mapped_with_source_gap`，不是 silent unmapped。
-
-## 15.2 学习者侧
-
-Outline 只作为 Coverage Safety Net：
-
-- 主模型稳定：快速扫题即可；
-- 表格数字记不牢：进入 MI-D，不重读整章；
-- 肾前 / ATN 方向错：回 KP03 + 原表；
-- 透析门槛错：回 KP17；
-- CKD血Cr列：等待原图核对，不凭记忆强行补。
 
 ---
 
@@ -1085,10 +1118,10 @@ Unit B｜KP08–KP12
 CKD毒素 → 系统表现 → 贫血/出血 → 骨病
 
 Unit C｜KP13–KP16
-急慢鉴别 → 分期 → ACEI/ARB → 输入端减负
+急慢鉴别 → 分期 → RAAS阻断 / BP边界 → 输入端减负
 
 Unit D｜KP17–KP20
-透析指征 → 方法 → 并发症 → 最终病例算法
+KRT指征 → modality → 并发症 → 最终病例算法
 ```
 
 每个 Unit 按冻结流程：
@@ -1121,16 +1154,16 @@ Framework定位
 14. GFR三种测法、最准和常用分别是什么？
 15. 什么情况下AKI需要肾活检？
 16. CKD小 / 中 / 大分子毒素分别是什么？
-17. CKD最先出现哪个系统表现，主要死因是什么？
+17. CKD最先出现哪个系统表现，主要死因是什么（Study口径）？
 18. 肾性贫血和出血各是什么机制？
 19. 高转化性骨病与低转化性骨病如何分？
 20. 哪4种CKD双肾可不缩小？
-21. CKD G1–G5 的GFR阈值是什么？
-22. ACEI/ARB如何减蛋白尿，当前Study禁忌有哪些？
-23. 哪些情况达到透析门槛？
-24. IHD、CRRT、PD当前Study边界与透析失衡综合征是什么？
+21. CKD G1–G5 的GFR阈值是什么？血Cr四档为什么不能硬配五期？
+22. ACEI/ARB为什么减蛋白尿？Current监测 / 减停逻辑和Study旧数字如何分层？
+23. KRT的临床核心指征是什么？哪些Cr/BUN等数字只是Study Precision？
+24. IHD、CRRT、PD如何按患者/场景选择？为什么“严重AKI禁PD”不能作绝对规则？
 
-**最低出口**：面对一个 Cr升高 / 少尿病例，能在数分钟内完成“急慢性 → 肾前/肾性/肾后 → 当前致命变量 → 可逆原因 → 是否透析”的决策链，而不是只背“肾衰竭”三个字。
+**最低出口**：面对一个 Cr升高 / 少尿病例，能在数分钟内完成“急慢性 → 肾前/肾性/肾后 → 当前致命变量 → 可逆原因 → 是否KRT”的决策链，而不是只背“肾衰竭”三个字。
 
 ---
 
@@ -1170,11 +1203,11 @@ unmapped = 0
 missing = 0
 duplicate_primary = 0
 unrouted_lecture_knowledge = 0
-external_medical_expansion = 0
-silent_source_correction = 0
+CKD_source_table_gap = RESOLVED
+ACEI_old_absolute_Scr_rule = SOURCE_PRECISION_NOT_CURRENT_CORE
+fixed_Cr_BUN_dialysis_thresholds = SOURCE_PRECISION_NOT_CURRENT_CORE
+severe_AKI_PD_exclusion = SOURCE_SPECIFIC_OLD_RULE_NOT_CURRENT_CORE
 First_pass_question_probe = READY_PENDING_BINDING
-Source_gap = urinary-b07-sg01
-Visual_gate = PENDING_ORIGINAL_SOURCE_PAGE
 ```
 
 ---
@@ -1184,16 +1217,13 @@ Visual_gate = PENDING_ORIGINAL_SOURCE_PAGE
 ```text
 Framework已建立
 + Lecture P151–154已连续学习
-+ 肾前vsATN / CKD分期 / 透析表已按当前可用Source核对
-+ CKD血Cr列的视觉Gap已知晓、不自行补写
++ 肾前vsATN / CKD分期 / KRT表已按当前可用Source核对
++ CKD GFR分期与Scr旧阶段Precision已分层
 + 能闭卷重建AKI时间轴与CKD多系统后果
++ 能区分Current KRT临床门槛与Study旧数字
 + KP Active Recall完成
 + Outline按需扫漏
 + TTSX Lecture-bound Question Probe完成或等待正式绑定
 ```
 
-允许：
-
-> **Block Complete + Visual Source Gap Open**
-
-数字阈值、长药名与透析并发症长表进入 MI-D；只有“急慢性—第一故障层—危急变量—透析门槛”仍无法重建时，才先做最小修复。
+允许 `Block Complete + Weakness Open`。数字阈值、长药名与透析并发症长表进入 MI-D；只有“急慢性—第一故障层—危急变量—KRT门槛”仍无法重建时，才先做最小修复。

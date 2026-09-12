@@ -1,0 +1,65 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_REVIEWED_WITH_SOURCE_REVALIDATION_AND_EXTERNAL_MEDICAL_ADJUDICATION",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-04",
+  "scope": ["urinary-b12", "urinary-b13", "urinary-b14"],
+  "scope_rule": "Preserve 306 exam-recognition facts and stable spatial/mechanistic models while preventing source-local procedure tables, old tumour terminology, historical staging shortcuts and trauma operation tables from becoming unconditional Current clinical truth.",
+  "source_review": {
+    "primary": ["外科学讲义_AI阅读版.md｜泌外感染和肿瘤 / 泌外梗阻和外伤", "27 外科跟课合集改.pdf source-local asset routing", "27精编生理合集【带导图】.pdf voiding-reflex Recall"],
+    "source_routing": "Historical P129-P139 identifiers are source-local preprocessing/IMAGE_PAGES locators, not current merged-PDF physical page numbers. This was confirmed by direct physical-page reads landing in unrelated hand/orthopaedic material.",
+    "visual_note": "Source-local asset routes are verified, but current tools did not render every referenced image. No pixel-level visual audit is claimed; Visual Gates remain mandatory source contact.",
+    "external_adjudication": [
+      "EAU Urolithiasis 2026 for infected obstruction/decompression and context-dependent procedure selection.",
+      "EAU Male LUTS/BPO for size/technique context rather than one universal operation threshold.",
+      "EAU NMIBC/MIBC 2026 for Ta/Tis/T1 definitions, cystoscopy/TURBT diagnosis and MRI staging context.",
+      "EAU RCC 2026 for multiphasic CT and selective renal-tumour biopsy.",
+      "EAU UTUC 2026 for CTU/cytology core diagnosis and conditional ureteroscopy/biopsy.",
+      "EAU Prostate Cancer 2026 for PSA/DRE, pre-biopsy MRI, risk-adapted staging and multimodal treatment.",
+      "EAU Urological Trauma 2026 for RUG, bladder-injury management and haemodynamic-stability-driven renal-trauma care.",
+      "EAU Urological Infections/GUTB for standard six-month therapy and individualized surgery."
+    ],
+    "stable_source_orphan_count": 0
+  },
+  "canonical_writeback": {
+    "urinary-b12": "a88dd005a561228241a9b8f209143876aad5ae91",
+    "urinary-b13": "654e092b2521c58256b0080d5bc59a878138a6c2",
+    "urinary-b14": "4988110a22c29656edb8411fe84218d0b8935ca0",
+    "identity_change": false
+  },
+  "findings": [
+    {"id":"A3-B12-SC01","block_id":"urinary-b12","type":"SOURCE_SPECIFIC_PROCEDURE_MATRIX_OVERABSOLUTE","resolution":"Full <0.6 / 0.6-2 / >2 cm table preserved as 306 Precision/MI-D. Current Core is danger-first decompression followed by size+location+composition/density+anatomy+patient-factor selection; >2 cm renal stone -> PCNL retained as strong anchor.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B12-SC02","block_id":"urinary-b12","type":"OVERABSOLUTE_DRUG_PROHIBITION","resolution":"Lecture CCB禁用 retained only as historical exam Precision; alpha1-blocker/5ARI remain stable BPH drug Core.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B12-BOUNDARY01","block_id":"urinary-b12","type":"EXAM_TEST_AND_THRESHOLD_CONTEXT","resolution":"DRE/B-mode US, EEP >=80 mL and US->CT source labels retained but context-gated rather than projected as universal hierarchies.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B12-BOUNDARY02","block_id":"urinary-b12","type":"COMPLICATION_SEVERITY_EXAM_PHRASE","resolution":"癌变最严重 retained as Source wording only; infected obstruction/anuria/threatened renal function owns immediate danger priority.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B12-CHECK01","block_id":"urinary-b12","type":"CURRENT_CORE_CONFIRMED","resolution":"Infection+obstruction, bilateral/solitary-kidney obstruction, anuria and threatened renal function remain decompression-first Current Core.","status":"PRESERVED"},
+    {"id":"A3-B13-SR01","block_id":"urinary-b13","type":"SOURCE_LOCATOR_METADATA_BUG","resolution":"source_pdf_page 129-133 replaced by explicit source-local IMAGE_PAGES asset semantics; pixel review not claimed.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B13-SC01","block_id":"urinary-b13","type":"BLADDER_STAGE_FACTUAL_ERROR","resolution":"Ta corrected to non-invasive papillary carcinoma; Tis to CIS/flat high-grade lesion; T1 lamina propria/subepithelial connective tissue; Ta/T1/Tis remain NMIBC management group but Ta is not CIS.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B13-TERM01","block_id":"urinary-b13","type":"HISTORICAL_TERMINOLOGY_BOUNDARY","resolution":"Current terminology urothelial carcinoma/尿路上皮癌 added; 移行细胞癌 retained as historical 306 synonym only.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B13-SC02","block_id":"urinary-b13","type":"DIAGNOSTIC_TEST_HIERARCHY_OVERABSOLUTE","resolution":"RCC CT/ selective biopsy, UTUC CTU+cytology -> conditional URS, bladder cystoscopy/TURBT diagnosis, and prostate PSA/DRE -> MRI/biopsy are now task-gated; old first/best labels remain Precision.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B13-SC03","block_id":"urinary-b13","type":"PROSTATE_CANCER_LEGACY_BINARY_MODEL","resolution":"Old DRE/acid-phosphatase/bone-scan and localised-surgery/beyond-capsule-ADT table retained as exam Precision; Current treatment uses risk/stage/grade/life expectancy with surveillance, surgery, radiotherapy and systemic/ADT combinations.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B13-SC04","block_id":"urinary-b13","type":"GUTB_HISTORICAL_DURATION_AND_SURGERY_RULE","resolution":"Standard six-month medical therapy owns Current Core; historical 6-9 month failure and pre/post-operative duration values remain Precision; surgery individualized by damage, obstruction and function.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B14-SC01","block_id":"urinary-b14","type":"URETHRAL_TRAUMA_EVIDENCE_BOUNDARY","resolution":"RUG retained as standard early male test and no-blind-repeated-instrumentation safety rule; flexible cystoscopy alternative, RUG complete/partial uncertainty and high/floating-prostate Precision boundaries added.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B14-SC02","block_id":"urinary-b14","type":"EXTRAPERITONEAL_BLADDER_SURGERY_OVERABSOLUTE","resolution":"Cystography added; uncomplicated blunt extraperitoneal rupture corrected to continuous bladder drainage, complex extraperitoneal cases to surgery, blunt intraperitoneal rupture to repair.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B14-SC03","block_id":"urinary-b14","type":"RENAL_TRAUMA_STABILITY_GATE","resolution":"Haemodynamic stability now top gate; stable suspected renal trauma -> multiphasic CT and predominantly nonoperative/embolisation pathways; persistent instability from renal bleeding -> exploration; haematuria-severity dissociation preserved.","status":"RESOLVED_APPLIED"},
+    {"id":"A3-B14-SR01","block_id":"urinary-b14","type":"SOURCE_LOCAL_VISUAL_ROUTING_CLARIFICATION","resolution":"P136-P139 relabelled as source-local preprocessing routes and not current merged-PDF physical pages; pixel audit not claimed.","status":"RESOLVED_APPLIED"}
+  ],
+  "closure": {
+    "stable_block_count": 3,
+    "stable_kp_count": 49,
+    "logic_group_count": 16,
+    "logic_group_coverage": "CONTIGUOUS_NO_GAP_NO_OVERLAP",
+    "stable_id_change": false,
+    "source_orphan_count": 0,
+    "learning_support": "content/xizong/knowledge/learner/a3-urinary-batch04-learning.json"
+  },
+  "block_status": {
+    "urinary-b12": "PASS_BLOCK_LEVEL_K",
+    "urinary-b13": "PASS_BLOCK_LEVEL_K",
+    "urinary-b14": "PASS_BLOCK_LEVEL_K"
+  },
+  "batch_status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "whole_a3_guard": "A3 System-level Knowledge remains NOT_PROMOTED. urinary-b05 is now the only remaining system-below K blocker and must be resolved before whole-A3 K closure.",
+  "next": "Return explicitly to urinary-b05 acid-base Source/owner decision. Do not reopen B12-B14 without concrete new source conflict or later learner evidence."
+}

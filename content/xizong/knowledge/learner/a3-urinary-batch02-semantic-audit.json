@@ -1,0 +1,157 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_REVIEWED_WITH_SOURCE_REVALIDATION_AND_EXTERNAL_MEDICAL_ADJUDICATION",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-02",
+  "scope": ["urinary-b05", "urinary-b06", "urinary-b07", "urinary-b08"],
+  "scope_rule": "Block acceptance is independent inside the batch. Historical final-execution labels and outline counts are never acceptance evidence by themselves. B5 originally remained blocked by a genuine Source/owner decision and was later closed only after a narrow external acid-base source contract was explicitly admitted and the canonical owner repaired.",
+  "source_review": {
+    "urinary-b05": ["27 外科跟课合集改.pdf P191-P195", "27精编生理合集【带导图】.pdf P275-P292", "current respiratory/internal-medicine acid-base Lecture corpus", "content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json"],
+    "urinary-b06": ["内科学讲义 P143-P144", "外科学泌尿检查接口"],
+    "urinary-b07": ["内科学讲义 P151-P156", "内科_27内科精编版合集_带导图.pdf original P153 table"],
+    "urinary-b08": ["内科学讲义 P145-P150"]
+  },
+  "findings": [
+    {
+      "id": "A3-B05-KG01",
+      "block_id": "urinary-b05",
+      "type": "GENUINE_SOURCE_GAP",
+      "historical_state": "Project Lectures supported acid-base mechanisms/basic classification but did not contain the complete expected-compensation + mixed-disorder algorithm promised by B5.",
+      "adjudication": "Do not model-fill. Close only after explicit narrow Current Source admission.",
+      "resolution": "MSD Manual Professional admitted only for expected compensation/mixed-disorder diagnosis; NCBI/StatPearls admitted only for albumin-corrected AG/delta-ratio. Canonical B5 KP19-KP20 repaired in commit 486ad8cc8d64bcdcae653114f8f06f3fb7cb5f02.",
+      "status": "RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE"
+    },
+    {
+      "id": "A3-B05-SC01",
+      "block_id": "urinary-b05",
+      "kp_id": "urinary-b05-kp15",
+      "type": "DUPLICATE_OVERGENERALIZED_MODEL",
+      "historical_state": "B5 duplicated the old universal K+/H+/urine-pH four-grid and stored-blood RBC-rupture shortcut already rejected in B3.",
+      "adjudication": "B3 remains sole K+/H+ mechanism owner; B5 only recalls/applies it through context gates. Stored-blood K load uses storage-lesion/extracellular-supernatant K accumulation; citrate metabolism is a separate alkalosis route.",
+      "canonical_commit": "486ad8cc8d64bcdcae653114f8f06f3fb7cb5f02",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B05-META01",
+      "block_id": "urinary-b05",
+      "type": "STALE_AUDIT_KP_COUNT",
+      "historical_state": "The old Batch-02 audit incorrectly recorded B5 stable_kp_count=22 while the canonical Block frontmatter is kp_count=20.",
+      "adjudication": "Canonical owner identity wins. Correct durable audit count to 20; no KP split/merge occurred.",
+      "status": "CORRECTED"
+    },
+    {
+      "id": "A3-B06-SC01",
+      "block_id": "urinary-b06",
+      "kp_id": "urinary-b06-kp09",
+      "type": "DISEASE_TO_EVIDENCE_CATEGORY_MISCLASSIFICATION",
+      "adjudication": "Glomerular hematuria is evidence-defined rather than disease-name-defined; pyelonephritis/GU-TB are not glomerular-source diseases merely because they can cause hematuria.",
+      "canonical_commit": "9d2fcec838564f53b38f112e5046f510ace290cc",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B06-BOUNDARY01",
+      "block_id": "urinary-b06",
+      "kp_id": "urinary-b06-kp14",
+      "type": "SOURCE_SPECIFIC_TEST_LABEL_BOUNDARY",
+      "adjudication": "Preserve the Study three-test recognition list while separating capability: radionuclide renography is dedicated quantitative split-function; CTU/IVU mainly provide anatomic/excretory and side-to-side information.",
+      "canonical_commit": "9d2fcec838564f53b38f112e5046f510ace290cc",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B07-SG01",
+      "block_id": "urinary-b07",
+      "kp_id": "urinary-b07-kp14",
+      "type": "SOURCE_LAYOUT_GAP_RESOLVED",
+      "adjudication": "Original PDF resolves formal CKD G staging as the GFR axis; historical Scr values are an older merged-cell phase-adjunct row, not five independent thresholds.",
+      "canonical_commit": "4782a7c8feaa5c5eee67593d04a1122e625e2448",
+      "status": "APPLIED_SOURCE_GAP_CLOSED"
+    },
+    {
+      "id": "A3-B07-SC01",
+      "block_id": "urinary-b07",
+      "kp_id": "urinary-b07-kp15",
+      "type": "OBSOLETE_ABSOLUTE_CLINICAL_CUTOFF",
+      "adjudication": "Scr >265 remains Study Precision only, not a universal ACEi/ARB contraindication; Current Core uses indication plus post-start creatinine/eGFR, potassium, BP/volume and reversible-cause assessment.",
+      "canonical_commit": "4782a7c8feaa5c5eee67593d04a1122e625e2448",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B07-SC02",
+      "block_id": "urinary-b07",
+      "kp_ids": ["urinary-b07-kp17", "urinary-b07-kp18"],
+      "type": "OBSOLETE_FIXED_DIALYSIS_AND_MODALITY_RULES",
+      "adjudication": "Current Core uses clinical KRT indications; historical Cr/BUN numbers and severe-AKI-PD exclusion remain Source Precision only.",
+      "canonical_commit": "4782a7c8feaa5c5eee67593d04a1122e625e2448",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B07-BOUNDARY03",
+      "block_id": "urinary-b07",
+      "kp_id": "urinary-b07-kp15",
+      "type": "SOURCE_SPECIFIC_BP_TARGET_BOUNDARY",
+      "adjudication": "Historical CKD BP targets remain 306 Source Precision rather than immutable Current clinical targets.",
+      "canonical_commit": "4782a7c8feaa5c5eee67593d04a1122e625e2448",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B08-SC01",
+      "block_id": "urinary-b08",
+      "kp_ids": ["urinary-b08-kp05", "urinary-b08-kp07"],
+      "type": "BACTERIURIA_DEFINITION_CONTEXT_LOSS",
+      "adjudication": "Keep >=10^5 CFU/mL as the classic clean-voided ASB/source anchor with sex-specific persistence confirmation; do not turn it into a universal symptomatic-UTI gate.",
+      "canonical_commit": "3844c98fbe16396d63a42fb6d959365e42a8de80",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B08-CHECK01",
+      "block_id": "urinary-b08",
+      "kp_id": "urinary-b08-kp05",
+      "type": "MANAGEMENT_CORE_CONFIRMED_WITH_PRECISION_BOUNDARY",
+      "adjudication": "Preserve ASB management mainline: pregnancy and mucosa-traumatizing urologic procedures are treatment groups; routine treatment debt is not created for common nonbenefit groups.",
+      "status": "PRESERVED"
+    },
+    {
+      "id": "A3-B08-SC02",
+      "block_id": "urinary-b08",
+      "kp_id": "urinary-b08-kp13",
+      "type": "OVERABSOLUTE_ANTIBIOTIC_EXCLUSION",
+      "adjudication": "Aminoglycoside toxicity risk retained while blanket 'UTI never uses aminoglycosides' removed from Current Core.",
+      "canonical_commit": "3844c98fbe16396d63a42fb6d959365e42a8de80",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B08-BOUNDARY02",
+      "block_id": "urinary-b08",
+      "kp_ids": ["urinary-b08-kp08", "urinary-b08-kp09"],
+      "type": "EVIDENCE_NOT_ABSOLUTE",
+      "adjudication": "WBC casts are high-value support for renal involvement, not a required finding in every pyelonephritis case.",
+      "canonical_commit": "3844c98fbe16396d63a42fb6d959365e42a8de80",
+      "status": "APPLIED"
+    },
+    {
+      "id": "A3-B08-BOUNDARY03",
+      "block_id": "urinary-b08",
+      "kp_ids": ["urinary-b08-kp04", "urinary-b08-kp11", "urinary-b08-kp12", "urinary-b08-kp14"],
+      "type": "HISTORICAL_CLASSIFICATION_AND_DURATION_PRECISION",
+      "adjudication": "Male=complicated, 3d/7d/2w/6w/6mo regimens, chronic >6 months and IVU gold-standard labels remain explicit 306 Source Precision rather than timeless Current mechanism.",
+      "canonical_commit": "3844c98fbe16396d63a42fb6d959365e42a8de80",
+      "status": "APPLIED"
+    }
+  ],
+  "closure": {
+    "urinary-b05": {"status":"PASS_BLOCK_LEVEL_K","stable_kp_count":20,"logic_group_count":6,"source_orphan_count":0,"unresolved_medical_core_conflict":0,"identity_change":false,"source_gap":"RESOLVED_BY_ADMITTED_EXTERNAL_SOURCE"},
+    "urinary-b06": {"status":"PASS_BLOCK_LEVEL_K","stable_kp_count":16,"source_orphan_count":0,"unresolved_medical_core_conflict":0,"identity_change":false},
+    "urinary-b07": {"status":"PASS_BLOCK_LEVEL_K","stable_kp_count":20,"source_orphan_count":0,"unresolved_medical_core_conflict":0,"identity_change":false},
+    "urinary-b08": {"status":"PASS_BLOCK_LEVEL_K","stable_kp_count":17,"source_orphan_count":0,"unresolved_medical_core_conflict":0,"identity_change":false},
+    "batch_stable_kp_count": 73
+  },
+  "block_status": {
+    "urinary-b05": "PASS_BLOCK_LEVEL_K",
+    "urinary-b06": "PASS_BLOCK_LEVEL_K",
+    "urinary-b07": "PASS_BLOCK_LEVEL_K",
+    "urinary-b08": "PASS_BLOCK_LEVEL_K"
+  },
+  "batch_status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "next": "Batch-02 is fully closed. System-below A3 closure is now possible after global state consolidation; do not reopen B5-B8 without concrete new source conflict or later learner evidence."
+}
