@@ -70,7 +70,18 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-      - name: Validate Translation learning acceptance
-        run: npm run validate:translation
+      - name: Validate Translation Source gate
+        env:
+          KIANOS_TRANSLATION_SOURCE_GATE_OUT: ${{ runner.temp }}/translation-source-gate.json
+        run: npm run validate:translation-source
+      - name: Upload Translation Source gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-source-gate
+          path: ${{ runner.temp }}/translation-source-gate.json
+          if-no-files-found: error
+      - name: Validate Translation runtime and evidence candidate QA
+        run: node scripts/validate-translation-runtime.mjs && node scripts/validate-translation-evidence-guard.mjs
       - name: Build Astro
         run: npm run build
