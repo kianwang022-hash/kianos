@@ -9,6 +9,7 @@ import lexical_compile_consolidated_repair_inventory as compiler
 OVERRIDE_PATH = compiler.ROOT / "content" / "lexical" / "audit" / "knowledge-reacceptance" / "post-r31-ownership-overrides.json"
 OWNERSHIP_OVERRIDES = json.loads(OVERRIDE_PATH.read_text(encoding="utf-8"))
 OVERRIDE_BY_TARGET = {row["target"]: row for row in OWNERSHIP_OVERRIDES.get("overrides") or []}
+_WORD_OWNER_INDEX = None
 
 
 def legacy_source_comment_meta(checkpoint):
@@ -83,11 +84,34 @@ def parse_round_source_from_local_authority(checkpoint):
     return body, comment_id, core_rows, expansion_rows, contrast_rows
 
 
+def word_owner_index():
+    global _WORD_OWNER_INDEX
+    if _WORD_OWNER_INDEX is not None:
+        return _WORD_OWNER_INDEX
+
+    index = {}
+    paths = sorted((compiler.ROOT / "content" / "lexical" / "words" / "by-ordinal").glob("o*.json"))
+    if len(paths) != 7946:
+        raise RuntimeError(f"Natural Owner tree expected 7946 word files, found {len(paths)}")
+
+    for path in paths:
+        owner = json.loads(path.read_text(encoding="utf-8"))
+        rec = owner.get("record") or {}
+        word_id = owner.get("word_id") or rec.get("word_id")
+        ordinal = owner.get("ordinal")
+        word = owner.get("word") or rec.get("word")
+        if not word_id or not ordinal:
+            raise RuntimeError(f"Natural Owner missing word_id/ordinal: {path}")
+        if word_id in index:
+            raise RuntimeError(f"duplicate Natural Owner word_id: {word_id}")
+        index[word_id] = {"word_id": word_id, "ordinal": int(ordinal), "word": word}
+
+    _WORD_OWNER_INDEX = index
+    return index
+
+
 def resolve_owner(owner_id: str):
-    wid, ordinal, word = compiler.owner_identity(owner_id, None)
-    if not wid or ordinal is None:
-        return None
-    return {"word_id": wid, "ordinal": ordinal, "word": word}
+    return word_owner_index().get(owner_id)
 
 
 _original_finalize = compiler.InventoryBuilder.finalize
@@ -181,6 +205,7 @@ def finalize_with_audited_ownership(self):
         "override_count": len(OVERRIDE_BY_TARGET),
         "resolved_count": len(resolved_rows),
         "remaining_unresolved_count": len(remaining),
+        "natural_owner_files_validated": len(word_owner_index()),
         "semantic_mutation": 0,
         "learner_state_mutation": 0,
         "resolved": resolved_rows,
