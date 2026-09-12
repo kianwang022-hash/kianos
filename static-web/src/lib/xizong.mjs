@@ -53,6 +53,12 @@ function isChatApproved(system) {
   return String(system?.semantic_authority || '').startsWith('CHAT_APPROVED');
 }
 
+function systemProjectionAccepted(dirName) {
+  const acceptancePath = `${SYSTEMS_ROOT}/${dirName}/ACCEPTANCE.md`;
+  if (!fs.existsSync(absolute(acceptancePath))) return false;
+  return /^P\s+PASS(?:\s|$)/m.test(readText(acceptancePath));
+}
+
 function directBlockRoute(system) {
   const route = Array.isArray(system?.block_route) ? system.block_route : [];
   return route.filter((row) => row && !Array.isArray(row?.blocks) && row?.id);
@@ -74,7 +80,14 @@ function systemRecordFromDir(dirName) {
   const system = JSON.parse(text);
   const identity = systemIdentity(system);
   if (!identity.systemId || !identity.title || !isChatApproved(system)) return null;
-  return { dirName, systemPath, system, identity, sourceHash: sha256(text) };
+  return {
+    dirName,
+    systemPath,
+    system,
+    identity,
+    sourceHash: sha256(text),
+    projectionAccepted: systemProjectionAccepted(dirName)
+  };
 }
 
 function blockOrdinalFromFile(filename) {
@@ -329,6 +342,7 @@ export function listProjectableXizongSystems() {
   return systemDirectoryCandidates()
     .map(systemRecordFromDir)
     .filter(Boolean)
+    .filter((record) => record.projectionAccepted)
     .filter((record) => directBlockRoute(record.system).length > 0 && record.system?.logic_index)
     .map(normalizeSystem);
 }
@@ -340,6 +354,7 @@ export function loadXizongSystem(systemId) {
     .filter(Boolean)
     .find((candidate) => candidate.identity.systemId === systemId);
   if (!record) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_FOUND:${systemId}`);
+  if (!record.projectionAccepted) throw new Error(`CURRENT_XIZONG_PROJECTION_NOT_ACCEPTED:${systemId}`);
   if (!record.system?.logic_index) throw new Error(`CURRENT_XIZONG_SYSTEM_NOT_PROJECTABLE:${systemId}`);
   return normalizeSystem(record);
 }
