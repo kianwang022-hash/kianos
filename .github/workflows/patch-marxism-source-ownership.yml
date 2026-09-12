@@ -1,0 +1,72 @@
+name: Patch Marxism Source Ownership
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-marxism-source-ownership.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Repair exact missing Marxism question owners
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const file = 'content/politics/source/politics_unified_regions.v1.jsonl';
+          const additions = new Map([
+            ['POL27-CF-MARX-C03-S01', ['X1000-MARX-S-043']],
+            ['POL27-CF-MARX-C05-S02', ['X1000-MARX-M-135', 'X1000-MARX-S-135']]
+          ]);
+          const rows = fs.readFileSync(file, 'utf8').split(/\r?\n/).filter(Boolean).map(JSON.parse);
+          const seen = new Set();
+          for (const row of rows) {
+            const id = String(row.natural_unit_id || '');
+            if (!additions.has(id)) continue;
+            if (seen.has(id)) throw new Error(`duplicate target region: ${id}`);
+            seen.add(id);
+            const refs = new Set(Array.isArray(row.xiao_question_refs) ? row.xiao_question_refs : []);
+            for (const ref of additions.get(id)) refs.add(ref);
+            row.xiao_question_refs = [...refs].sort();
+          }
+          for (const id of additions.keys()) {
+            if (!seen.has(id)) throw new Error(`target region missing: ${id}`);
+          }
+          const owner = new Map();
+          for (const row of rows.filter((r) => r.status === 'canonical' && r.subject === 'MARX')) {
+            for (const ref of row.xiao_question_refs || []) {
+              if (!owner.has(ref)) owner.set(ref, []);
+              owner.get(ref).push(row.natural_unit_id);
+            }
+          }
+          const expected = new Map([
+            ['X1000-MARX-S-043', 'POL27-CF-MARX-C03-S01'],
+            ['X1000-MARX-M-135', 'POL27-CF-MARX-C05-S02'],
+            ['X1000-MARX-S-135', 'POL27-CF-MARX-C05-S02']
+          ]);
+          for (const [ref, id] of expected) {
+            const owners = owner.get(ref) || [];
+            if (!owners.includes(id)) throw new Error(`${ref} missing expected owner ${id}`);
+          }
+          fs.writeFileSync(file, rows.map((row) => JSON.stringify(row)).join('\n') + '\n');
+          NODE
+      - name: Commit repaired Source Truth
+        shell: bash
+        run: |
+          if git diff --quiet -- content/politics/source/politics_unified_regions.v1.jsonl; then
+            echo 'Source already repaired.'
+            exit 0
+          fi
+          git config user.name 'Kian'
+          git config user.email 'kianwang022@gmail.com'
+          git add content/politics/source/politics_unified_regions.v1.jsonl
+          git commit -m 'politics: repair Marxism Source question ownership'
+          git push origin HEAD:main
