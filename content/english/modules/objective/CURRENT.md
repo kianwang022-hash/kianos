@@ -10,12 +10,12 @@ This file does not own Objective cognition/content, acceptance evidence, or lear
 
 ## Work Cursor
 
-**Active / earliest unresolved stage:** `E — Evidence acceptance`  
-**P status:** PASS  
-**R status:** PASS  
-**Next action:** evaluate **E only** against `content/english/modules/objective-evidence-runtime.md` using the current successful shared-browser evidence; execute only a genuinely missing Evidence path if the contract is not already covered.
+**Active / earliest unresolved stage:** `U — Learner Validation`  
+**Engineering readiness:** `S/K/L/P/R/E PASS` → **Module ready for learner test**  
+**U status:** `UNTESTED`  
+**Next action:** no further Objective engineering work by default. When Kian naturally uses an Objective path, record only the learner evidence for the path actually exercised; reopen the earliest responsible upstream gate only if real use exposes a concrete defect.
 
-Do not promote U from engineering evidence. U remains real learner use only.
+Do not manufacture a synthetic learner test merely to make U green.
 
 ---
 
@@ -35,10 +35,10 @@ Reading A strict task-page execution and all four real Reading B forms are accep
 
 ## Durable R evidence
 
-The same current successful rerun produced:
+The same successful Runtime seal produced:
 
 - `journey-shared.json` → `pass: true`, Chromium full journey PASS, `15/15` checks;
-- safe clean attempt/submission without forced debt;
+- clean attempt/submission without forced debt;
 - whole-unit problem routing;
 - failed-return rollback without partial state corruption;
 - completed repair return;
@@ -47,54 +47,82 @@ The same current successful rerun produced:
 - continuation into later fresh material;
 - actual Reading A / Reading B task execution in Chromium + WebKit.
 
-These checks were compared against `objective-runtime.md`; R is now accepted.
+R is accepted.
 
 ---
 
-## Active E candidate evidence
+## Durable E evidence
 
-The shared journey already executed evidence-specific behaviors:
+Canonical E seal:
+
+- artifact head `3167ebaf6d6cb2402c728561ddb19a905be0dbda`;
+- workflow run `34696424413`;
+- successful job `103560584877`;
+- artifact id `10299280963`;
+- `journey-shared.json` → `pass: true`;
+- Evidence/runtime shared journey → **20/20 PASS**.
+
+The executed Evidence boundaries include:
 
 - clean PASS creates no debt;
-- diagnosis alone does not create a pending claim;
-- completed repair creates one justified pending claim;
+- diagnosis-only cannot create a task claim;
+- Lexical/Reading routed repairs cannot duplicate Objective task debt;
+- completed task repair can create one justified pending claim;
 - duplicate return is idempotent;
+- stale/same-object closure is rejected;
+- fresh context is carried for transfer judgment;
 - closure without fresh evidence is rejected;
-- fresh relevant evidence closes the claim;
-- a later problem packet can surface a closed claim as a reopen candidate;
-- fresh contradictory evidence reopens the closed claim.
+- fresh relevant evidence can close;
+- clean transfer cannot authorize reopening;
+- later contradictory fresh problem evidence can reopen;
+- persistence failure preserves pasted return and rolls back claim state.
 
-These are **candidate E evidence**, not automatic E PASS. They must now be checked against `objective-evidence-runtime.md`.
+E is accepted.
+
+---
+
+## U — what counts now
+
+U can only come from Kian's real learning use.
+
+Validation is path-specific. Useful learner evidence may come from:
+
+- a normal clean Cloze / Reading A / Reading B attempt;
+- a real problem → whole-unit review → repair path;
+- a later fresh transfer close/reopen path;
+- a specific Reading B form actually encountered in normal study.
+
+One successful path does not automatically validate every Objective path.
+
+Engineering state must not be rewritten as learner progress.
 
 ---
 
 ## Frozen / out of scope
 
-Unless new concrete evidence proves a defect:
+Unless new concrete evidence requires reopening:
 
-- S / K / L / P / R remain frozen as PASS;
-- U remains UNTESTED until real learner use;
+- S / K / L / P / R / E remain frozen as PASS;
+- do not add Objective features merely because U is still UNTESTED;
+- do not force Kian to test Objective before it naturally enters study;
 - do not expand Objective taxonomy or static Skill Content;
-- do not change accepted first-learning cognition;
-- do not add Objective features just to make Evidence look more complete;
 - do not modify Translation / Writing / Lexical sibling scopes;
-- do not infer or mutate Kian's Learner Truth.
-
-If an E assertion fails, trace the earliest responsible owner. Reopen R or earlier only if the failure concretely belongs there.
+- do not infer or mutate Kian's Learner Truth from GitHub/CI state.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into active E:
+For ordinary re-entry while U is pending:
 
 1. `content/english/modules/objective/ACCEPTANCE.md`
-2. `content/english/modules/objective-evidence-runtime.md`
-3. `.github/workflows/static-web-objective-journey.yml` only as the executable evidence owner
+2. this `CURRENT.md`
 
-Read task contracts, source owners, or implementation only if the active E comparison identifies a concrete missing/contradictory evidence path that requires that owner.
+No implementation/runtime owner is a default read now.
 
-Do not read English `continuation.json`, parent Acceptance, sibling scopes, historical Chat, or legacy repos for ordinary E continuation.
+Only if real learner evidence exposes a concrete defect should the next chat read the exact upstream owner implicated by that evidence.
+
+Do not read English `continuation.json`, parent Acceptance, sibling scopes, historical Chat, or legacy repos for ordinary Objective continuation.
 
 ---
 
@@ -102,7 +130,7 @@ Do not read English `continuation.json`, parent Acceptance, sibling scopes, hist
 
 ### Artifact Truth
 
-- learning cognition → `content/english/modules/objective-learning.md`
+- shared learning owner → `content/english/modules/objective-learning.md`
 - runtime semantics → `content/english/modules/objective-runtime.md`
 - evidence/transfer semantics → `content/english/modules/objective-evidence-runtime.md`
 - task contracts → `content/english/modules/reading-a.md`, `cloze.md`, `reading-b.md`
@@ -115,7 +143,7 @@ Do not read English `continuation.json`, parent Acceptance, sibling scopes, hist
 
 ### Learner Truth
 
-Private learner/runtime state only. Objective Artifact/Acceptance/Work state must not be interpreted as Kian's personal Objective progress.
+Private learner/runtime state only.
 
 ---
 
@@ -126,8 +154,7 @@ Known scope `English Objective` should normally recover as:
 ```text
 Objective CURRENT
 → Objective ACCEPTANCE
-→ objective-evidence-runtime.md
-→ E only
+→ U pending / no engineering work by default
 ```
 
-Implementation internals are diagnostic reads, not startup reads.
+If real learner evidence exists, follow that evidence to the earliest responsible gate rather than restarting the whole scope.
