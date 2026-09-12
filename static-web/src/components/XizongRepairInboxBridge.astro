@@ -36,8 +36,10 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
         }))
         .filter((row) => row.kpId && allowed.has(row.kpId) && !seen.has(row.kpId) && seen.add(row.kpId));
 
-      try { localStorage.removeItem(inboxKey); } catch {}
-      if (!incoming.length) return false;
+      if (!incoming.length) {
+        try { localStorage.removeItem(inboxKey); } catch {}
+        return false;
+      }
 
       const ext = readJson(extensionKey, {
         memory: {}, memoryIndex: 0, reviewPlan: [], reviewIndex: 0,
@@ -48,14 +50,21 @@ const allowedKpIds = (block?.kpRecords || []).map((kp) => kp.kpId).filter(Boolea
         .filter((row) => !incomingIds.has(String(row?.kpId || row?.kp_id || row || '')));
       ext.reviewPlan = [...existing, ...incoming];
       ext.reviewIndex = 0;
-      ext.evidenceHistory = [...(Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : []), {
-        at: new Date().toISOString(),
-        type: 'SYSTEM_WU_PLAN_IMPORTED',
-        evidence_role: 'REPAIR_ONLY',
-        kp_ids: incoming.map((row) => row.kpId),
-        source_question_ids: [...new Set(incoming.flatMap((row) => row.sourceQuestionIds || []))]
-      }].slice(-400);
+      const inboxId = `${String(inbox?.sourceSystemId || '')}:${String(inbox?.importedAt || '')}`;
+      const history = Array.isArray(ext.evidenceHistory) ? ext.evidenceHistory : [];
+      const alreadyRecorded = inboxId && history.some((row) => row?.type === 'SYSTEM_WU_PLAN_IMPORTED' && row?.inbox_id === inboxId);
+      if (!alreadyRecorded) {
+        ext.evidenceHistory = [...history, {
+          at: new Date().toISOString(),
+          type: 'SYSTEM_WU_PLAN_IMPORTED',
+          evidence_role: 'REPAIR_ONLY',
+          inbox_id: inboxId,
+          kp_ids: incoming.map((row) => row.kpId),
+          source_question_ids: [...new Set(incoming.flatMap((row) => row.sourceQuestionIds || []))]
+        }].slice(-400);
+      }
       if (!writeJson(extensionKey, ext)) return false;
+      try { localStorage.removeItem(inboxKey); } catch {}
       try { sessionStorage.setItem(`kianos-xizong-repair-inbox-consumed:${objectId}`, '1'); } catch {}
       return true;
     };
