@@ -1,0 +1,51 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch_summary.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 201, "end": 400},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {
+    "owners_reviewed": 200,
+    "PASS": 106,
+    "REVISE": 94,
+    "SOURCE_CHECK": 0,
+    "semantic_mutation_count": 0
+  },
+  "slices": [
+    {"file":"0201-0220.json","PASS":9,"REVISE":11,"SOURCE_CHECK":0},
+    {"file":"0221-0240.json","PASS":14,"REVISE":6,"SOURCE_CHECK":0},
+    {"file":"0241-0260.json","PASS":12,"REVISE":8,"SOURCE_CHECK":0},
+    {"file":"0261-0280.json","PASS":8,"REVISE":12,"SOURCE_CHECK":0},
+    {"file":"0281-0300.json","PASS":13,"REVISE":7,"SOURCE_CHECK":0},
+    {"file":"0301-0320.json","PASS":10,"REVISE":10,"SOURCE_CHECK":0},
+    {"file":"0321-0340.json","PASS":8,"REVISE":12,"SOURCE_CHECK":0},
+    {"file":"0341-0360.json","PASS":13,"REVISE":7,"SOURCE_CHECK":0},
+    {"file":"0361-0380.json","PASS":13,"REVISE":7,"SOURCE_CHECK":0},
+    {"file":"0381-0400.json","PASS":6,"REVISE":14,"SOURCE_CHECK":0}
+  ],
+  "cumulative_truth_progress": {
+    "completed_through_ordinal": 400,
+    "owners_reviewed": 400,
+    "PASS": 216,
+    "REVISE": 184,
+    "SOURCE_CHECK": 0,
+    "corpus_target": 7946,
+    "next_ordinal": 401
+  },
+  "observed_defect_families": [
+    "ordinary/high-value sense removed while Core still names it or obscure senses remain Active",
+    "same learner meaning duplicated across Active sense, secondary_sense, collocation, or construction",
+    "cross-POS or over-broad merges that erase real learner distinctions",
+    "specialist, archaic, or regional senses promoted above modern general-reading value",
+    "embedded word-family or semantic Relation anchored to the wrong source/target sense",
+    "duplicate Relation ownership for the same learner contrast",
+    "missing familiar-word extensions or high-value constructions",
+    "outdated, overly narrow, or factually incorrect definitions/examples",
+    "spelling-variant closure missing for common alternatives such as artifact/artefact and axe/ax"
+  ],
+  "guardrails": [
+    "PASS means Current owner truth is acceptable; it does not mean downstream Learning/UX is learner-validated.",
+    "REVISE records target truth only; no semantic repair has been applied during this stage.",
+    "A rich word may PASS Knowledge even if later Learning Logic chooses stronger compression for scanability.",
+    "No unresolved SOURCE_CHECK remains in ordinals 201-400."
+  ]
+}
