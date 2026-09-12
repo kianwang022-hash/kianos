@@ -9,18 +9,69 @@ import lexical_historical_round_from_file as base
 ORIGINAL_CONTRAST_TERMS = base.contrast_terms_compatible
 
 
-def parse_owner_group_expansion(body: str):
+def expand_ordinal_spec(spec: str) -> list[int]:
+    out: list[int] = []
+    for raw in spec.split(","):
+        part = raw.strip()
+        if not part:
+            continue
+        if "-" in part:
+            a_raw, b_raw = part.split("-", 1)
+            a, b = int(a_raw.strip()), int(b_raw.strip())
+            if b < a:
+                raise RuntimeError(f"invalid descending ordinal range: {part}")
+            out.extend(range(a, b + 1))
+        else:
+            out.append(int(part))
+    return list(dict.fromkeys(out))
+
+
+def expansion_targets_from_body(body: str) -> list[str] | None:
     m_targets = re.search(r"### Expansion Gate[^\n]*\n(?:.*\n)*?Targets:\s*`([^`]+)`\.", body)
-    m_surfaces = re.search(r"Mandatory high-value surfaces include:\s*(.+?)\n\nEquivalent existing objects", body, flags=re.S)
-    if not m_targets or not m_surfaces:
+    if m_targets:
+        return [w.strip().lower() for w in m_targets.group(1).split(",") if w.strip()]
+
+    m_ordinals = re.search(r"Approved target ordinals:\s*\n`([^`]+)`\.", body, flags=re.S)
+    if not m_ordinals:
         return None
 
-    base.EXPANSION_OWNER_TARGETS = [w.strip().lower() for w in m_targets.group(1).split(",") if w.strip()]
-    m_declared = re.search(r"declared\s+(\d+)\s+owner targets", body, flags=re.I)
+    start, end = triage.parse_round_range(body)
+    by_ord, _by_word, _by_id = triage.load_range_owners(start, end)
+    words: list[str] = []
+    for ordinal in expand_ordinal_spec(m_ordinals.group(1)):
+        owner = by_ord.get(ordinal)
+        if owner is None:
+            raise RuntimeError(f"Expansion target ordinal has no Current owner: {ordinal}")
+        word = triage.normalize(owner.get("word") or (owner.get("record") or {}).get("word") or "")
+        if not word:
+            raise RuntimeError(f"Expansion target owner missing word: {ordinal}")
+        words.append(word)
+    return words
+
+
+def parse_owner_group_expansion(body: str):
+    targets = expansion_targets_from_body(body)
+    m_surfaces = re.search(
+        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include):\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\n### Contrast Gate)",
+        body,
+        flags=re.S,
+    )
+    if not targets or not m_surfaces:
+        return None
+
+    base.EXPANSION_OWNER_TARGETS = targets
+    m_declared = re.search(r"(?:declared|Historical Expansion owner targets:)\s*`?(\d+)`?\s*(?:owner targets)?", body, flags=re.I)
+    if not m_declared:
+        m_declared = re.search(r"### Expansion Gate\s+—\s+(\d+)\s+target words", body, flags=re.I)
     base.EXPANSION_DECLARED_COUNT = int(m_declared.group(1)) if m_declared else None
     target_set = set(base.EXPANSION_OWNER_TARGETS)
 
-    surface_blob = m_surfaces.group(1)
+    surface_blob = m_surfaces.group(1).strip()
+    if surface_blob.startswith("`") and surface_blob.endswith("`."):
+        surface_blob = surface_blob[1:-2]
+    elif surface_blob.startswith("`") and surface_blob.endswith("`"):
+        surface_blob = surface_blob[1:-1]
+
     if "Surface grouping: comma-or-semicolon." in body:
         chunks = [c.strip().rstrip(".") for c in re.split(r"[;,]", surface_blob) if c.strip()]
     else:
@@ -57,9 +108,11 @@ def parse_owner_group_expansion(body: str):
             hints = ["ship"] if "ship" in target_set else []
         elif norm.startswith("select/elect"):
             hints = ["select"] if "select" in target_set else []
+        elif norm.startswith("and the major stick"):
+            hints = ["stick"] if "stick" in target_set else []
 
         if not hints:
-            raise RuntimeError(f"cannot map mandatory Expansion surface to owner target: {chunk}")
+            raise RuntimeError(f"cannot map named Expansion surface to owner target: {chunk}")
 
         base.EXPANSION_OWNER_HINTS[chunk] = hints
         rows.append({"index": i, "approved_target": chunk, "kind": "expansion"})
