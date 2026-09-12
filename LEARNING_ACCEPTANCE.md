@@ -13,7 +13,7 @@ The governing causal direction is:
 ```text
 Source Truth
 → Knowledge Audit
-→ Learning-Path Audit
+→ Learning-Path + Surface-Ownership Audit
 → Learner Calibration
 → Content Reconstruction / Optimization
 → Content Closure Audit
@@ -66,13 +66,13 @@ Once core modules are mature enough, KianOS must pass a separate system-level ac
 - private learner state;
 - Continue;
 - pending/repair/review routing;
-- cross-module handoff;
+- cross-module and cross-surface handoff;
 - fresh/holdout protection;
 - Chat bridges;
 - integration QA;
 - realistic whole-day learner journeys.
 
-Home must integrate mature modules without flattening their cognition into one shared workflow.
+Home must integrate mature modules without flattening their cognition into one shared workflow or assuming every learner action belongs inside the KianOS web surface.
 
 A parent/global integration gate becomes active only when its own prerequisites are actually satisfied. Parenthood alone does not create a serial queue among child modules.
 
@@ -123,7 +123,7 @@ Examples:
 
 ### BLOCKED
 
-A known defect can change learning semantics, prevent the intended action, leak protected evidence, manufacture debt/mastery, lose required evidence, or make the learner unable to complete the claimed path correctly.
+A known defect can change learning semantics, prevent the intended action, leak protected evidence, manufacture debt/mastery, lose required evidence, make the learner unable to complete the claimed path correctly, or assign a material learner action to the wrong primary surface.
 
 Examples:
 
@@ -132,7 +132,8 @@ Examples:
 - whole-set cognition is projected as isolated items;
 - diagnosis is recorded as mastery;
 - a repair/transfer state exists only on paper and cannot be executed;
-- return from Chat can mutate the wrong learner object.
+- return from Chat can mutate the wrong learner object;
+- a web reader replaces an approved external-primary lecture/reader surface without Learning-Logic authority.
 
 ### UNTESTED
 
@@ -243,7 +244,7 @@ The canonical content should still make sense if the webpage disappeared.
 
 ## L｜Learning — Does the path match how the learner should actually form the ability?
 
-Correct content can still be taught in the wrong order.
+Correct content can still be taught in the wrong order or on the wrong surface.
 
 Learning acceptance asks:
 
@@ -256,6 +257,9 @@ Learning acceptance asks:
 - When should official/fresh tasks enter?
 - What should static assets teach and what should Chat adapt?
 - What counts as real evidence of learning?
+- For each material learner action, has the primary surface been explicitly decided when surface choice changes cognition or friction?
+- Are companion/reference surfaces and forbidden substitutions clear where needed?
+- Is the learner path coherent across device/application boundaries rather than inferred from what the runtime happens to support?
 
 The path must be calibrated to the learner’s real state rather than inferred from engineering progress.
 
@@ -278,6 +282,20 @@ Examples of forbidden inference:
 - a module page exists → therefore its content should be shown now.
 
 The next learner action comes from conversation evidence and/or private learner state.
+
+### Hard rule: Source ownership ≠ Surface ownership
+
+A source being authoritative does not answer where the learner should consume or act on it.
+
+```text
+Source ownership ≠ Surface ownership.
+Content availability ≠ Render entitlement.
+Runtime capability ≠ Learning-surface authority.
+```
+
+When location materially changes continuity, attention, evidence, interaction, or switching cost, surface ownership is an L decision. A page/component cannot grant itself that role downstream.
+
+A Learning gate cannot PASS while the team is still inferring “where this is learned” from an existing Astro component or current implementation.
 
 ### Learning order must be causally sensible
 
@@ -308,11 +326,14 @@ Check:
 - answer/reference/model output is not revealed before the intended attempt;
 - density, typography, and interaction cost fit real study use;
 - projection does not change or invent domain semantics;
+- projection respects the L-approved primary/companion surface roles;
+- an external-primary source/task is not silently duplicated into a second primary web course/reader;
+- cross-surface cues make the next action clear without forcing duplicate attention;
 - different modules may look/behave differently when their cognition differs.
 
 The correct question is:
 
-> **At this moment in the learning path, what should the learner see and do next?**
+> **At this moment in the learning path, what should the learner see and do next on the surface that actually owns this action?**
 
 not:
 
@@ -337,9 +358,10 @@ Runtime may include, depending on the module:
 - Block/System closure;
 - Review;
 - Chat handoff and return;
+- cross-surface checkpoint/locator/return;
 - later Transfer.
 
-Check especially for forced debt.
+Check especially for forced debt and forced surface switching.
 
 > **Stable correct work should be able to pass without manufactured review or repair.**
 
@@ -349,7 +371,11 @@ Runtime fails when, for example:
 - a clean attempt is forced into diagnosis because PASS is absent;
 - a whole-set task can be completed from a partial entry;
 - Chat can receive a packet but return cannot be applied naturally;
+- an external-primary action has no executable checkpoint/return path when one is required;
+- the runtime makes the learner manually reconstruct where to resume after a cross-surface handoff;
 - transfer/closure exists only as prose and has no executable path.
+
+Runtime support for reading/rendering a source is not evidence that the runtime is authorized to become that source's primary learning surface.
 
 ---
 
@@ -417,6 +443,7 @@ Typical U paths may include:
 - first-learning / Fast Track;
 - stable clean PASS;
 - wrong/uncertain → diagnosis → repair → return;
+- cross-surface learn → checkpoint/verify → return;
 - later fresh transfer closure;
 - reopen after later contradictory evidence;
 - sustained multi-session use when relevant.
@@ -429,12 +456,14 @@ Real learner validation observes friction such as:
 - where reference/answer appears too early;
 - where Chat is invoked too early/late;
 - where next action is unclear;
+- whether the implementation is stealing a learner action that belongs on another surface;
+- whether switching between approved surfaces is natural or creates unnecessary duplication/reconstruction;
 - whether Core Blocks actually change ability;
 - whether return from repair is natural;
 - whether Skill Map explains real failures;
 - whether the module remains usable during sustained study.
 
-Real friction outranks speculative polish.
+Real friction outranks speculative polish. When U exposes a wrong surface assignment, reopen the earliest responsible L decision rather than treating it as CSS polish.
 
 ---
 
@@ -481,7 +510,8 @@ These are evidence, not acceptance by themselves:
 - a question bank is attached;
 - a taxonomy looks mature;
 - simulated QA succeeds;
-- current engineering stage is advanced.
+- current engineering stage is advanced;
+- a source can technically be rendered on the KianOS web surface.
 
 Acceptance targets the learner journey on **current `main@HEAD`**.
 
@@ -495,7 +525,7 @@ Default mainline for one dependency chain:
 
 ```text
 1. Source / Knowledge Audit
-2. Learning-Path Audit
+2. Learning-Path + Surface-Ownership Audit
 3. Learner Calibration where assumptions matter
 4. Content Reconstruction / Optimization
 5. Content Closure Audit
@@ -514,9 +544,11 @@ This lifecycle does not serialize independent modules. Different scopes may be a
 
 Determine what is true, complete, duplicated, missing, fragmented, or incorrectly organized. Do not start from UI.
 
-## 5.2 Learning-Path Audit
+## 5.2 Learning-Path + Surface-Ownership Audit
 
-Determine how this learner should form the capability from their real starting point. Do not assume teacher order is learner order.
+Determine how this learner should form the capability from their real starting point. Do not assume teacher order is learner order, and do not infer the learning surface from the current implementation.
+
+For material actions, explicitly resolve primary surface / surface-agnostic status, companion surfaces, forbidden substitutions, and handoff needs when they affect cognition or friction.
 
 ## 5.3 Learner Calibration
 
@@ -532,11 +564,11 @@ Audit missing core content, unnecessary expansion, duplication, first-learning c
 
 ## 5.6 Learning UX / Projection Design
 
-Design display/interaction from the learning path, not Markdown headings.
+Design display/interaction from the learning path and approved surface roles, not Markdown headings or the capabilities of the current component library.
 
 ## 5.7 Runtime Implementation
 
-Make attempt/recall/repair/review/return/transfer behavior executable.
+Make attempt/recall/repair/review/return/transfer behavior executable, including approved cross-surface handoffs when the learner journey spans surfaces.
 
 ## 5.8 Module E2E Acceptance
 
@@ -544,6 +576,7 @@ Simulate realistic journeys on current `main@HEAD`, including at least:
 
 - stable clean PASS with no manufactured debt;
 - failure/uncertainty → smallest useful repair → correct return;
+- cross-surface handoff/return when the Learning Contract requires it;
 - later verification/transfer when closure is claimed;
 - persistence/idempotency/error paths when they can mutate learner evidence.
 
@@ -551,7 +584,7 @@ This can prove S–E behavior for the tested scope. It cannot prove U.
 
 ## 5.9 Learner Test
 
-The learner uses the real product. Record U by path.
+The learner uses the real product in the real intended surface arrangement. Record U by path.
 
 ## 5.10 Evidence-based Revision
 
@@ -561,7 +594,7 @@ Revise only from concrete defects, friction, missing stable content, or repeated
 
 # 6｜Global / Home Acceptance
 
-Home is a final system-integration layer. It routes among already-mature modules; it does not own subject cognition.
+Home is a final system-integration layer. It routes among already-mature modules; it does not own subject cognition or automatically own the surfaces where subject learning occurs.
 
 ## 6.1 Home prerequisites
 
@@ -577,9 +610,10 @@ Home should make it easy to understand:
 - what is actually available now;
 - what the learner can continue;
 - what genuinely needs attention;
-- how to enter a module directly.
+- how to enter a module directly;
+- when the next learner action belongs on an external/original surface and how to get there/return without ambiguity.
 
-It may present a coherent map without exposing every internal file/skill/engineering stage.
+It may present a coherent map without exposing every internal file/skill/engineering stage or pretending every learning action happens inside Home/Astro.
 
 ## 6.3 Continue must come from private learner state
 
@@ -603,7 +637,7 @@ Do not create red badges merely because content exists, the learner hesitated on
 
 ## 6.5 Home unifies navigation/state, not cognition
 
-Shared Home shells are allowed; once the learner enters a module, that module’s cognition governs.
+Shared Home shells are allowed; once the learner enters a module, that module’s cognition and surface contract govern.
 
 Examples:
 
@@ -621,7 +655,7 @@ Objective English
 passage/set Attempt → whole-unit review → root-cause repair → later transfer
 ```
 
-Do not force these into one universal frontend card flow.
+Do not force these into one universal frontend card flow or one universal primary device/application.
 
 ## 6.6 Fresh / holdout protection must survive Home routing
 
@@ -656,6 +690,7 @@ Examples:
 ```text
 Open Home
 → Continue Xizong Block
+→ approved lecture/source surface when applicable
 → learning → Recall → official questions
 → W/U → Chat repair → close
 → Nightly Review → Home
@@ -681,7 +716,7 @@ Open Home
 → Home
 ```
 
-Global acceptance fails when Home guesses learner stage from engineering state, contaminates module state, leaks private state, consumes protected fresh material, manufactures review debt, loses the learning object across Chat return, or makes the learner reconstruct repository implementation details to know what to do.
+Global acceptance fails when Home guesses learner stage from engineering state, contaminates module state, leaks private state, consumes protected fresh material, manufactures review debt, loses the learning object across Chat/surface return, steals an action owned by another primary surface, or makes the learner reconstruct repository implementation details to know what to do.
 
 ---
 
@@ -752,6 +787,10 @@ Reports should identify concrete Current evidence rather than infer completion f
 20. **UNTESTED ≠ ACTIVE; the local Work Cursor activates only the earliest unresolved eligible gate on a dependency chain.**
 21. **Hierarchy ≠ scheduling; independent scopes at any depth may progress concurrently.**
 22. **Learner order ≠ construction dependency; one must not silently serialize the other.**
+23. **Source ownership ≠ Surface ownership.**
+24. **Content availability ≠ Render entitlement.**
+25. **Runtime capability ≠ Learning-surface authority.**
+26. **A wrong surface assignment is an L defect before it is a P/CSS defect.**
 
 ---
 
@@ -759,9 +798,10 @@ Reports should identify concrete Current evidence rather than infer completion f
 
 - `AGENTS.md` defines Current authority, read/write boundaries, content ownership, runtime boundaries, and repository operating rules.
 - `ARCHITECTURE.md` separates ownership hierarchy from dependency-driven scheduling.
-- `SYSTEM_CONTRACT.md` defines minimum platform capabilities every first-class learner surface should expose.
+- `SYSTEM_CONTRACT.md` defines minimum platform capabilities plus the cross-KianOS surface-ownership boundary for first-class learner surfaces.
+- `LEARNING_ASSET_STANDARD.md` makes material surface ownership a Learning-Logic decision before Projection/Runtime.
 - `LEARNING_ACCEPTANCE.md` defines the evidence required before those capabilities may be called learner-ready and defines final Global/Home acceptance.
 - `CURRENT.md` describes current system state; it must not become private learner progress.
 - Domain manifests/continuations are child Current objects and cannot override these root-level acceptance rules.
 
-When a lane-specific contract conflicts with this document on acceptance semantics, the lane may specialize cognition but may not weaken the distinction between source/content/build completion and real learner readiness without explicit repository-level revision.
+When a lane-specific contract conflicts with this document on acceptance semantics, the lane may specialize cognition and surface choice but may not weaken the distinction between source/content/build completion and real learner readiness without explicit repository-level revision.
