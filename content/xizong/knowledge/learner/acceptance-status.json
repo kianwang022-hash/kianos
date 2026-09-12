@@ -113,6 +113,7 @@
         "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
         "content/xizong/knowledge/learner/a2-respiratory-pathways.json",
         "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+        "content/xizong/knowledge/learner/a2-respiratory-k-audit.json",
         "content/xizong/knowledge/learner/study-policy.json"
       ],
       "gates": {
@@ -123,9 +124,13 @@
           ]
         },
         "K": {
-          "status": "UNTESTED",
+          "status": "PASS",
           "evidence": [
-            "A2 has a Current System model, 12 canonical Blocks and 236 stable KPs, but this repository-level acceptance sequence has not yet re-confirmed K from canonical content under the latest root standard."
+            "A2 System + all 12 canonical Block medical-Core owners / 236 stable KPs were read and re-audited under the latest root Knowledge criteria rather than inherited from historical maturity, structure counts or page existence.",
+            "R1-R12 collectively own a coherent respiratory failure model: normal ventilation/gas exchange -> airway/alveolar/membrane/vascular/pleural/structural failures -> ARDS or oxygenation/ventilation failure, with explicit cross-Block and cross-System boundaries rather than duplicate disease owners.",
+            "Three genuine semantic/source defects were resolved in canonical owners: R9-SC01 PDE5 second messenger uses PDE5-cGMP; R10-SC01 drug/hypersensitivity pleural inflammation is exudative; R11-SG01 uses official 2026 N129 only to close the narrower 'most common' carcinoid-syndrome single-choice boundary.",
+            "R12 modern ICU material is explicit EXTERNAL_SCOPE/DEFERRED_MODEL rather than an unresolved Source Gap; no stable A2 medical-Core question remains undefined.",
+            "Detailed closure evidence is durable in a2-respiratory-k-audit.json. The A2 structure guard remains supporting evidence only and cannot promote or revoke K by itself."
           ]
         },
         "L": {
@@ -145,12 +150,26 @@
         "System_Exit": "UNTESTED",
         "sustained_multi_session_use": "UNTESTED"
       },
-      "allowed_conclusion": "S PASS, L PASS; K/P/R/E and all U paths UNTESTED under the latest root acceptance pass."
+      "blocking_defects": [],
+      "non_blocking_debt": [
+        "R1 U015 canonical count 35 vs visible numbering 34; medical-Core coverage is not missing.",
+        "R2 U017 canonical count 22 vs visible numbering 23; medical-Core coverage is not missing.",
+        "R10 U029 canonical metadata 5 vs six visible numbered prompts; all visible prompts remain routed while coverage follows the canonical catalog."
+      ],
+      "engineering_evidence_debt": [
+        "PR #15 A2 guard runs 34662571783 / jobs 103467927698 and 103468553575 failed before any workflow step existed and produced no job log blob; multiple unrelated workflows showed the same no-step pattern. This is an Actions execution-layer problem, not evidence of a K semantic failure."
+      ],
+      "what_should_not_be_expanded": [
+        "A2 medical Core after K PASS without new source or learner evidence.",
+        "External modern ICU/PAH/VTE/oncology guideline material merely to make the Block encyclopedic.",
+        "Question-to-Block/KP relations for 2026 N129 or any other question unless a reviewed relation owner exists.",
+        "Source/catalog count cleanup into medical-Core rewrites when learner semantics are already closed."
+      ],
+      "allowed_conclusion": "S/K/L PASS; A2 is Knowledge-ready and Learning-design ready. P/R/E and all U paths remain UNTESTED under the latest root acceptance pass."
     }
   },
   "acceptance_work_queue": [
-    "FINAL_A1_PR_QA_AND_MERGE",
-    "A2_K_CONTENT_CLOSURE_RECONFIRM",
+    "A2_ACTIONS_EXECUTION_LAYER_NO_STEP_DIAGNOSTIC_NON_SEMANTIC",
     "A2_P_R_E_MODULE_E2E"
   ]
 }
