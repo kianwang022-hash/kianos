@@ -5,6 +5,7 @@ import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
+import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 
 const base = import.meta.env.BASE_URL;
 const xizongSystems = listProjectableXizongSystems();
@@ -13,10 +14,12 @@ const xizongKp = xizongSystems.reduce((sum, system) => sum + system.blocks.reduc
 const lexicalState = inspectLexicalSources();
 const readingState = inspectReadingSources();
 const readingReady = readingState.status === 'ready';
+const translationState = inspectTranslationSources();
 const politicsSubjects = listPoliticsSubjectsCurrent();
 const politicsHealth = politicsCurrentHealth();
 const politicsChapters = politicsSubjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
 const writingLearning = loadWritingLearningProjection();
+const englishReady = readingReady && translationState.status === 'ready' && writingLearning.status === 'ready';
 ---
 <Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 把它变成低摩擦学习动作。" active="home">
   <section class="homeCurrentStrip">
@@ -44,26 +47,17 @@ const writingLearning = loadWritingLearningProjection();
     <a class="homeLane" href={`${base}vocabulary/`}>
       <div><span>LexicalOS · Ready</span><h2>Vocabulary</h2></div>
       <p>{lexicalState.wordCount} 个 Current Word · {lexicalState.relationCount} 个 Relation Owner；Continue / Search / Repair Review → Depth Scan → Challenge。</p>
-      <footer><span>Natural Owners</span><b>进入 →</b></footer>
+      <footer><span>shared lexical supply</span><b>进入 →</b></footer>
     </a>
-    <a class="homeLane" href={`${base}reading/`}>
-      <div><span>English · {readingReady ? 'Ready' : 'Blocked'}</span><h2>Reading</h2></div>
-      <p>{readingReady
-        ? 'Reading A Workspace · Attempt / Uncertain / History / Problem Record / 二刷；内容只来自 Current Exam Source。'
-        : 'Current source 未通过读取条件；Runtime 保持 fail-closed，不回退 legacy 或历史版本。'}</p>
-      <footer><span>{readingReady ? 'ready' : 'source-gated'}</span><b>{readingReady ? '进入 →' : '查看 →'}</b></footer>
-    </a>
-    <a class="homeLane" href={`${base}writing-learn/`}>
-      <div><span>English · Writing First Learning</span><h2>Writing</h2></div>
-      <p>{writingLearning.status === 'ready'
-        ? 'Global Map → B1–B8 → Full Synthetic Gate；先建立主动生成能力，受保护真题不用于 cold start。'
-        : 'Writing canonical learning projection 当前存在结构 blocker；入口保持 fail-closed。'}</p>
-      <footer><span>{writingLearning.status === 'ready' ? 'synthetic-first' : 'projection-gated'}</span><b>{writingLearning.status === 'ready' ? '开始学习 →' : '查看 →'}</b></footer>
-    </a>
-    <a class="homeLane" href={`${base}writing/`}>
-      <div><span>English · Writing Synthetic Runtime</span><h2>Whole-Essay Practice</h2></div>
-      <p>完成 First Learning 主链后使用：完整 synthetic Small / Big → Chat whole-essay PASS / Repair → learner re-generation。这里不开放受保护真题。</p>
-      <footer><span>after first learning</span><b>进入 synthetic runtime →</b></footer>
+    <a class="homeLane" href={`${base}english/`}>
+      <div><span>English · {englishReady ? 'Ready' : 'Partial'}</span><h2>Capability Runtime</h2></div>
+      <p>Reading / Translation / Writing 三条任务能力 + Lexical shared supply；Cloze 与 Part B 作为专项 trainer，先继续真实能力，再按需回 First Learning。</p>
+      <footer><span>capability-first</span><b>进入 English →</b></footer>
     </a>
   </section>
 </Base>
+
+<style>
+  .homeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(max-width:760px){.homeGrid{grid-template-columns:1fr}}
+</style>
