@@ -21,6 +21,15 @@ STOPWORDS = {
     "toward","towards","your","their","his","her","its","this","that","these","those",
 }
 
+# Expansion matching needs to retain particles/prepositions because they are often
+# the lexical value being audited (sort out, stem from, stand up to, etc.).
+# Remove only grammatical filler/placeholders here; owner discovery still uses STOPWORDS.
+SURFACE_FILLER = {
+    "a","an","the","and","or","vs","sth","sb","someone","something","one","ones",
+    "doing","do","did","done","be","is","are","was","were","your","their","his","her",
+    "its","this","that","these","those",
+}
+
 def normalize(text: Any) -> str:
     if text is None:
         return ""
@@ -222,6 +231,11 @@ def content_tokens(text: str) -> list[str]:
     raw = re.findall(r"[a-z][a-z0-9'-]*", n)
     return [token for token in raw if token not in STOPWORDS and len(token) > 1]
 
+def surface_tokens(text: str) -> list[str]:
+    n = normalize(target_code_text(text))
+    raw = re.findall(r"[a-z][a-z0-9'-]*", n)
+    return [token for token in raw if token not in SURFACE_FILLER and len(token) > 1]
+
 def possible_forms(token: str) -> list[str]:
     forms = [token]
     if token.endswith("ies") and len(token) > 4: forms.append(token[:-3] + "y")
@@ -248,27 +262,64 @@ def expansion_owner_candidates(target: str, by_word: dict[str, dict[str, Any]]) 
     return out
 
 def expansion_match(target: str, owners: list[dict[str, Any]]) -> dict[str, Any]:
-    tokens = content_tokens(target); raw_norm = normalize(target_code_text(target))
-    candidates: list[dict[str, Any]] = []; best_score = 0; exact = False
+    discovery_tokens = content_tokens(target)
+    target_tokens = surface_tokens(target)
+    raw_norm = normalize(target_code_text(target))
+    candidates: list[dict[str, Any]] = []
+    best_score = 0
+    exact = False
+
     for owner in owners:
-        word = ((owner.get("record") or {}).get("word") or "").lower()
+        word = normalize((owner.get("record") or {}).get("word") or "")
+        owner_forms = set(possible_forms(word)) if word else set()
+        target_modifiers = [t for t in target_tokens if t not in owner_forms]
+
         for surface in collect_surfaces(owner):
             sn = surface["normalized"]
-            if not sn: continue
-            score = sum(1 for t in tokens if t in sn)
+            if not sn:
+                continue
+            stokens = set(surface_tokens(sn))
+            owner_hit = any(form in stokens for form in owner_forms)
+            modifier_hits = {t for t in target_modifiers if t in stokens}
+            score = (1 if owner_hit else 0) + len(modifier_hits)
+
             this_exact = bool(raw_norm and (raw_norm in sn or sn in raw_norm) and min(len(raw_norm), len(sn)) >= 5)
             if this_exact:
-                exact = True; score = max(score, len(tokens) + 2)
+                exact = True
+                score = max(score, len(set(target_tokens)) + 2)
+
             best_score = max(best_score, score)
-            if score >= 2 or this_exact:
-                candidates.append({"word": word, "ordinal": owner.get("ordinal"), "word_id": owner.get("word_id"), "kind": surface["kind"], "object_id": surface.get("object_id"), "text": surface["text"], "learner_visible": surface["learner_visible"], "score": score})
-    candidates = sorted(candidates, key=lambda r: (-r["score"], r["ordinal"] or 0))[:6]
+            # Phrase-aware candidate rule: an owner surface plus at least one
+            # meaningful target particle/content token is evidence worth Chat review.
+            if this_exact or (owner_hit and modifier_hits):
+                candidates.append({
+                    "word": word,
+                    "ordinal": owner.get("ordinal"),
+                    "word_id": owner.get("word_id"),
+                    "kind": surface["kind"],
+                    "object_id": surface.get("object_id"),
+                    "text": surface["text"],
+                    "learner_visible": surface["learner_visible"],
+                    "score": score,
+                    "matched_target_modifiers": sorted(modifier_hits),
+                })
+
+    candidates = sorted(candidates, key=lambda r: (-r["score"], r["ordinal"] or 0, r["kind"], r["text"]))[:10]
     visible = [r for r in candidates if r["learner_visible"]]
-    if exact and visible: label = "PRESENT_CANDIDATE"
-    elif best_score >= max(2, min(3, len(tokens))) and visible: label = "PARTIAL_OR_EQUIVALENT_CANDIDATE"
-    elif candidates and not visible: label = "REFERENCE_ONLY_CANDIDATE"
-    else: label = "NO_MATCH_CANDIDATE"
-    return {"mechanical_label": label, "content_tokens": tokens, "candidate_surfaces": candidates}
+    if exact and visible:
+        label = "PRESENT_CANDIDATE"
+    elif visible:
+        label = "PARTIAL_OR_EQUIVALENT_CANDIDATE"
+    elif candidates:
+        label = "REFERENCE_ONLY_CANDIDATE"
+    else:
+        label = "NO_MATCH_CANDIDATE"
+    return {
+        "mechanical_label": label,
+        "content_tokens": discovery_tokens,
+        "surface_tokens": target_tokens,
+        "candidate_surfaces": candidates,
+    }
 
 def load_relations() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
@@ -298,68 +349,72 @@ def contrast_readback(target: str, relations: list[dict[str, Any]], by_word: dic
         return {"mechanical_label": "SELF_FORM_REVIEW", "terms": terms, "owner": compact_owner(owner), "relation_candidates": []}
     termset = set(terms); rels: list[dict[str, Any]] = []
     for rel in relations:
-        endpoints = {normalize(rel["source"]), normalize(rel["target"])}
-        if len(endpoints & termset) >= 2: rels.append(rel)
-    return {"mechanical_label": "RELATION_PRESENT_CANDIDATE" if rels else "RELATION_MISSING_CANDIDATE", "terms": terms, "relation_candidates": rels[:8]}
+        if rel["source"] in termset and rel["target"] in termset:
+            rels.append(rel)
+    return {"mechanical_label": "RELATION_PRESENT_CANDIDATE" if rels else "RELATION_MISSING_CANDIDATE", "terms": terms, "relation_candidates": rels}
 
-def counts(rows: list[dict[str, Any]], key: str) -> dict[str, int]:
-    out: dict[str, int] = {}
-    for row in rows:
-        value = str(row.get(key) or "UNKNOWN"); out[value] = out.get(value, 0) + 1
-    return dict(sorted(out.items()))
-
-def render_summary(report: dict[str, Any]) -> str:
-    lines = [
-        f"# Lexical Historical Round Bulk Triage — {report['audit_id']}", "",
-        f"- Range: **{report['range']['start_ordinal']}–{report['range']['end_ordinal']}**",
-        f"- Core revisions: **{report['counts']['core']}**", f"- Expansion targets: **{report['counts']['expansion']}**", f"- Contrast targets: **{report['counts']['contrast']}**",
-        "- Semantic mutation: **0** · Learner-state mutation: **0**", "- Mechanical labels are triage only; Chat owns semantic acceptance.", "", "## Core owner health", "",
-    ]
-    core_health: dict[str, int] = {}
-    for row in report["core"]:
-        flags = row["owner"]["health"]["health_flags"]; label = ",".join(flags) if flags else "HEALTH_OK"; core_health[label] = core_health.get(label, 0) + 1
-    for k, v in sorted(core_health.items()): lines.append(f"- `{k}`: **{v}**")
-    lines += ["", "## Expansion mechanical labels", ""]
-    for k, v in report["expansion_label_counts"].items(): lines.append(f"- `{k}`: **{v}**")
-    lines += ["", "## Contrast mechanical labels", ""]
-    for k, v in report["contrast_label_counts"].items(): lines.append(f"- `{k}`: **{v}**")
-    lines += ["", "## Chat review queue", "", f"- Core: **{len(report['core'])} compact owner projections** in one packet; prioritize owner-health warnings and operation/binding ambiguity.", "- Expansion: manually inspect only present/partial/reference candidates; concrete no-match targets remain strong missing candidates.", "- Contrast: manually inspect present/self-form candidates; relation-missing targets are mechanically explicit.", ""]
-    return "\n".join(lines) + "\n"
+def validate_counts(core: list[Any], expansion: list[Any], contrast: list[Any], args: argparse.Namespace):
+    if args.expected_core is not None and len(core) != args.expected_core: raise RuntimeError(f"Core count mismatch: {len(core)} != {args.expected_core}")
+    if args.expected_expansion is not None and len(expansion) != args.expected_expansion: raise RuntimeError(f"Expansion count mismatch: {len(expansion)} != {args.expected_expansion}")
+    if args.expected_contrast is not None and len(contrast) != args.expected_contrast: raise RuntimeError(f"Contrast count mismatch: {len(contrast)} != {args.expected_contrast}")
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Bulk-triage one historical Lexical Owner review round.")
-    ap.add_argument("--legacy-repo", required=True); ap.add_argument("--comment-id", type=int, required=True); ap.add_argument("--audit-id", required=True)
-    ap.add_argument("--expected-core", type=int); ap.add_argument("--expected-expansion", type=int); ap.add_argument("--expected-contrast", type=int)
-    ap.add_argument("--output", type=Path, required=True); ap.add_argument("--summary", type=Path, required=True); args = ap.parse_args()
-    comment = fetch_comment(args.legacy_repo, args.comment_id); body = comment.get("body") or ""; start, end = parse_round_range(body)
+    p = argparse.ArgumentParser()
+    p.add_argument("--legacy-repo", required=True); p.add_argument("--comment-id", required=True, type=int); p.add_argument("--audit-id", required=True)
+    p.add_argument("--expected-core", type=int); p.add_argument("--expected-expansion", type=int); p.add_argument("--expected-contrast", type=int)
+    p.add_argument("--output", required=True); p.add_argument("--summary", required=True)
+    args = p.parse_args()
+    comment = fetch_comment(args.legacy_repo, args.comment_id); body = comment["body"]
+    start, end = parse_round_range(body); by_ord, by_word, by_id = load_range_owners(start, end)
     core = parse_core(body)
-    expansion = parse_simple_numbered_targets(body, "### Expansion Gate", ("### Contrast Gate",), "expansion")
-    contrast = parse_simple_numbered_targets(body, "### Contrast Gate", ("### Existing verified relations", "### Existing", "Canonical apply"), "contrast")
-    for expected, actual, label in ((args.expected_core, len(core), "core"), (args.expected_expansion, len(expansion), "expansion"), (args.expected_contrast, len(contrast), "contrast")):
-        if expected is not None and expected != actual: raise RuntimeError(f"{label} count mismatch: expected {expected}, got {actual}")
-    by_ord, by_word, by_id = load_range_owners(start, end)
-    core_rows: list[dict[str, Any]] = []
+    expansion = parse_simple_numbered_targets(body, "### Expansion Gate", ("### Contrast Gate", "### Existing"), "expansion")
+    contrast = parse_simple_numbered_targets(body, "### Contrast Gate", ("### Existing", "### Apply", "Canonical Apply:"), "contrast")
+    validate_counts(core, expansion, contrast, args)
+    core_out = []
     for row in core:
-        owner = by_ord.get(row["ordinal"]); current_wid = owner.get("word_id") or (owner.get("record") or {}).get("word_id") if owner else None
-        if not owner or current_wid != row["word_id"]: raise RuntimeError(f"core owner mismatch at {row['ordinal']}: {current_wid} != {row['word_id']}")
-        core_rows.append({**row, "owner": compact_owner(owner)})
-    expansion_rows: list[dict[str, Any]] = []
+        owner = by_ord.get(row["ordinal"])
+        core_out.append({**row, "owner": compact_owner(owner)})
+    expansion_out = []
+    expansion_counts: dict[str, int] = {}
     for row in expansion:
-        owners = expansion_owner_candidates(row["approved_target"], by_word); match = expansion_match(row["approved_target"], owners)
-        expansion_rows.append({**row, "owner_candidates": [{"ordinal": o.get("ordinal"), "word_id": o.get("word_id"), "word": (o.get("record") or {}).get("word"), "health_flags": owner_health(o)["health_flags"]} for o in owners], **match})
-    relations = load_relations(); contrast_rows = [{**row, **contrast_readback(row["approved_target"], relations, by_word)} for row in contrast]
+        owners = expansion_owner_candidates(row["approved_target"], by_word)
+        match = expansion_match(row["approved_target"], owners)
+        expansion_counts[match["mechanical_label"]] = expansion_counts.get(match["mechanical_label"], 0) + 1
+        expansion_out.append({**row, "owner_candidates": [{"ordinal": o.get("ordinal"), "word_id": o.get("word_id"), "word": (o.get("record") or {}).get("word"), "health_flags": owner_health(o)["health_flags"]} for o in owners], **match})
+    relations = load_relations(); contrast_out = []; contrast_counts: dict[str, int] = {}
+    for row in contrast:
+        rb = contrast_readback(row["approved_target"], relations, by_word)
+        contrast_counts[rb["mechanical_label"]] = contrast_counts.get(rb["mechanical_label"], 0) + 1
+        contrast_out.append({**row, **rb})
     report = {
         "schema": "kianos.lexical.historical_round_bulk_triage.v1", "audit_id": args.audit_id,
-        "semantic_authority": {"repo": args.legacy_repo, "issue_comment_id": args.comment_id, "comment_url": comment.get("html_url"), "status": "CHAT_APPROVED_CANONICAL_APPLY_PENDING"},
-        "range": {"start_ordinal": start, "end_ordinal": end}, "counts": {"core": len(core_rows), "expansion": len(expansion_rows), "contrast": len(contrast_rows)},
-        "semantic_mutation_performed": False, "learner_state_mutation_performed": False, "mechanical_semantic_judgment_performed": False,
-        "core": core_rows, "expansion": expansion_rows, "contrast": contrast_rows,
-        "expansion_label_counts": counts(expansion_rows, "mechanical_label"), "contrast_label_counts": counts(contrast_rows, "mechanical_label"),
-        "interpretation_rule": "This artifact bulk-recovers historical Chat authority and reads Current owners for triage. Mechanical labels are retrieval/health evidence only; Chat owns semantic acceptance and repair.",
+        "semantic_authority": {"repo": args.legacy_repo, "issue": 113, "comment_id": args.comment_id, "url": comment.get("html_url")},
+        "range": {"start_ordinal": start, "end_ordinal": end}, "counts": {"core": len(core), "expansion": len(expansion), "contrast": len(contrast)},
+        "semantic_mutation_performed": 0, "learner_state_mutation_performed": 0, "mechanical_semantic_judgment_performed": False,
+        "core": core_out, "expansion": expansion_out, "contrast": contrast_out,
+        "expansion_label_counts": dict(sorted(expansion_counts.items())), "contrast_label_counts": dict(sorted(contrast_counts.items())),
+        "interpretation_rule": "Mechanical labels identify candidate presence/absence only. Chat remains semantic authority and must review present/partial/self-form candidates before acceptance; no Natural Owner or learner-state mutation is performed by this triage.",
     }
-    args.output.parent.mkdir(parents=True, exist_ok=True); args.summary.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"); args.summary.write_text(render_summary(report), encoding="utf-8")
-    print(f"ROUND_TRIAGE_PASS audit={args.audit_id} core={len(core_rows)} expansion={len(expansion_rows)} contrast={len(contrast_rows)}", file=sys.stderr); return 0
+    Path(args.output).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    health_counts: dict[str, int] = {}
+    for row in core_out:
+        flags = ((row.get("owner") or {}).get("health") or {}).get("health_flags") or []
+        key = ",".join(flags) if flags else "HEALTH_OK"; health_counts[key] = health_counts.get(key, 0) + 1
+    summary = [
+        f"# Lexical Historical Round Bulk Triage — {args.audit_id}", "",
+        f"- Range: **{start}–{end}**", f"- Core revisions: **{len(core)}**", f"- Expansion targets: **{len(expansion)}**", f"- Contrast targets: **{len(contrast)}**",
+        "- Semantic mutation: **0** · Learner-state mutation: **0**", "- Mechanical labels are triage only; Chat owns semantic acceptance.", "",
+        "## Core owner health", "",
+    ]
+    for k,v in sorted(health_counts.items()): summary.append(f"- `{k}`: **{v}**")
+    summary += ["", "## Expansion mechanical labels", ""]
+    for k,v in sorted(expansion_counts.items()): summary.append(f"- `{k}`: **{v}**")
+    summary += ["", "## Contrast mechanical labels", ""]
+    for k,v in sorted(contrast_counts.items()): summary.append(f"- `{k}`: **{v}**")
+    summary += ["", "## Chat review queue", "", f"- Core: **{len(core)} compact owner projections** in one packet; prioritize owner-health warnings and operation/binding ambiguity.", "- Expansion: manually inspect only present/partial/reference candidates; concrete no-match targets remain strong missing candidates.", "- Contrast: manually inspect present/self-form candidates; relation-missing targets are mechanically explicit."]
+    Path(args.summary).write_text("\n".join(summary) + "\n", encoding="utf-8")
+    print(json.dumps({"status":"PASS","audit_id":args.audit_id,"range":[start,end],"counts":report["counts"],"expansion_labels":report["expansion_label_counts"],"contrast_labels":report["contrast_label_counts"],"output":args.output,"summary":args.summary}, ensure_ascii=False))
+    return 0
 
 if __name__ == "__main__":
     raise SystemExit(main())
