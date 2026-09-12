@@ -25,7 +25,7 @@ U  UNTESTED by every real learner path
 
 Current allowed conclusion:
 
-> **A3 system-below Knowledge has accepted substrate: 14 Blocks / 257 stable KPs / 75 Logic Groups. A3 as a whole is not yet System-ready. Source closure is blocked on recovery of the exact reviewed 243-question official System scope; downstream System-level gates remain untested.**
+> **A3 system-below Knowledge has accepted substrate: 14 Blocks / 257 stable KPs / 75 Logic Groups. A3 as a whole is not yet System-ready. Source closure is blocked because no accepted deterministic Current official-question System-scope owner exists yet. Exact historical recovery remains one high-value closure path, but it is no longer the only admissible path to Current Source authority.**
 
 ---
 
@@ -35,7 +35,9 @@ Current allowed conclusion:
 - Their accepted identity is **14 Blocks / 257 stable KPs / 75 Logic Groups**, with contiguous Logic Group coverage and no stable Block/KP renumbering.
 - The narrow B5 external source admission closes expected acid-base compensation / mixed-disorder diagnosis only; it does not replace the Project Lectures for 306 water/electrolyte content.
 - A working System-top `system.json` exists, but it is explicitly **not accepted System Knowledge** and cannot promote K while S is unresolved.
-- Historical reviewed recovery evidence establishes that the urinary official-question System scope should contain **243 questions**, but the exact Current identifier inventory has not yet been recovered into a durable A3 scope owner. Count alone is insufficient; Runtime/model inference must not recreate membership.
+- Historical reviewed evidence strongly establishes a 2026-09-01 urinary System scope of **243 questions** and remains valuable recovery/reconciliation evidence.
+- However, the historical artifact itself and Current Source authority are different claims. Failure to materialize/re-hash the old bytes does not by itself prove that a reliable Current A3 question scope cannot be reconstructed.
+- Count alone is insufficient. Neither `243`, subtraction from 978, nor model/medical intuition may recreate Current membership without explicit ownership criteria, Current Question Truth reconciliation and recorded provenance.
 
 ---
 
@@ -45,12 +47,43 @@ Current allowed conclusion:
 
 Earliest unresolved gate.
 
-Required closure:
+S closes when **one** of the following authority paths produces an accepted deterministic Current scope owner and the shared validation requirements below pass.
 
-- recover the exact reviewed urinary official-question ID set from bounded historical authority;
-- require exactly 243 unique Current Question Truth IDs;
-- record a deterministic inventory/hash and fail closed on any missing Current question;
-- do not infer Question→Block/KP relations from System membership.
+#### Path A｜Exact historical output → Current reconciliation
+
+- authenticate the original historical HLK/System-scope output by its required exact evidence when raw bytes become available;
+- extract the urinary membership from that authenticated historical authority;
+- reconcile those identifiers to Current Question Truth;
+- record any identity/delta decisions explicitly;
+- write the deterministic Current A3 scope owner.
+
+This path proves historical fidelity strongly, but historical fidelity still must be reconciled into Current identifiers before Runtime consumption.
+
+#### Path B｜Bounded Current reconstruction
+
+If exact historical bytes/generator remain unavailable after bounded recovery, Current authority may be reconstructed without pretending the old artifact was recovered:
+
+- start from Current Question Truth and the accepted A3 System/Block domain boundary;
+- define explicit inclusion/exclusion criteria for System ownership before adjudicating membership;
+- use current first-party/canonical material and otherwise authoritative external evidence where a boundary decision genuinely needs support;
+- adjudicate ambiguous/cross-system questions explicitly rather than by count-fitting or intuition;
+- compare the result with recoverable historical replay/count evidence as a consistency check;
+- enumerate and justify every material delta from recoverable historical evidence;
+- record provenance as `CURRENT_RECONSTRUCTION` (or equivalent), never `RECOVERED_EXACT`;
+- write the deterministic Current A3 scope owner.
+
+#### Shared validation requirements
+
+Whichever path is used:
+
+- the Current owner must contain unique valid Current Question Truth IDs only;
+- membership identity/count/hash must be deterministic and fail closed on missing Current questions;
+- the authority path and provenance must be explicit;
+- unresolved ambiguous memberships remain explicit debt/blockers rather than being silently assigned;
+- Question→Block/KP relations must not be inferred merely from System membership;
+- the historical `243` is evidence/reconciliation context, not a magic target that can justify arbitrary membership.
+
+S remains BLOCKED until one path actually produces and validates the Current owner. This policy change removes false historical deadlock; it does **not** mark A3 Source as passed.
 
 ### K — UNTESTED at System level
 
