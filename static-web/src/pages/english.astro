@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+import { inspectReadingSources } from '../lib/current.mjs';
+import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
+import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
+import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
+
+const base = import.meta.env.BASE_URL;
+const reading = inspectReadingSources();
+const translation = inspectTranslationSources();
+const writingLearning = loadWritingLearningProjection();
+const writingRuntime = inspectWritingSyntheticTasks();
+
+const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'invalid' ? 'Blocked' : 'Partial';
+---
+<Base
+  title="English"
+  kicker="English · Capability Runtime"
+  description="从能力继续，不从题型目录开始。Lexical 提供语言访问；Reading / Translation / Writing 形成三条主要任务能力；Cloze 与 Part B 是专项 trainer。"
+  objectId="english:capability-home"
+  active="english"
+>
+  <section class="englishHub" data-english-hub data-base={base}>
+    <header class="englishOverview">
+      <div>
+        <span>Target · English I 80–85+</span>
+        <h2>能力形成优先，材料和题型只是入口。</h2>
+        <p>默认先回答“现在继续什么、在训练哪种能力、卡住后去哪里最小修复”。完整目录、方法资产和系统证据都在需要时再展开。</p>
+      </div>
+      <aside>
+        <strong>Clean Attempt → Repair only when needed → Fresh validation</strong>
+        <span>stable work fast-passes</span>
+        <span>protected unseen material stays clean</span>
+      </aside>
+    </header>
+
+    <div class="englishHubLayout">
+      <main class="englishCapabilityMap">
+        <header>
+          <div><span>Capability Map</span><strong>四条能力线</strong></div>
+          <p>不是四个长得一样的页面；每条线保留自己的认知对象和证据。</p>
+        </header>
+
+        <a class="englishCapabilityRow" href={`${base}vocabulary/`}>
+          <div class="englishCapabilityIndex">01</div>
+          <div class="englishCapabilityCopy">
+            <span>LEXICAL · shared supply</span>
+            <strong>快速、正确地在语境中调用语言单位</strong>
+            <p>简单词 L0-first；多义、构式、搭配和 confusable 才增加深度。长期 review 必须挣到未来注意力。</p>
+          </div>
+          <div class="englishCapabilityAction"><small>Canonical owner · LexicalOS</small><b>进入 Vocabulary →</b></div>
+        </a>
+
+        <section class="englishCapabilityRow readingRow">
+          <div class="englishCapabilityIndex">02</div>
+          <div class="englishCapabilityCopy">
+            <span>READING · representation + judgment</span>
+            <strong>把输入转成足以支持正确判断的表示</strong>
+            <p>主线：understand → decisive evidence → option adjudication → execute。专项 trainer 在同一能力上下文中按需调用。</p>
+            <div class="englishTrainerLinks">
+              <a href={`${base}reading/`}>Reading A</a>
+              <a href={`${base}cloze/`}>Cloze trainer</a>
+              <a href={`${base}reading-b/`}>Part B trainer</a>
+            </div>
+          </div>
+          <div class="englishCapabilityAction"><small>{statusLabel(reading.status)} · Current source</small><a href={`${base}reading/`}>继续 Reading →</a></div>
+        </section>
+
+        <a class="englishCapabilityRow" href={`${base}translation/`}>
+          <div class="englishCapabilityIndex">03</div>
+          <div class="englishCapabilityCopy">
+            <span>TRANSLATION · reconstruction</span>
+            <strong>保住英文意义与关系，再重建成自然中文</strong>
+            <p>保留 first translation；先查 representation 和 relations，再查遗漏/歪曲，最后才是中文重建质量。</p>
+          </div>
+          <div class="englishCapabilityAction"><small>{statusLabel(translation.status)} · productive lane</small><b>进入 Translation →</b></div>
+        </a>
+
+        <a class="englishCapabilityRow" href={`${base}writing/`}>
+          <div class="englishCapabilityIndex">04</div>
+          <div class="englishCapabilityCopy">
+            <span>WRITING · active generation</span>
+            <strong>从任务约束主动生成可交付英语</strong>
+            <p>task → content → structure → realization → control → timed delivery。先 synthetic 建能力，再消耗受保护真题。</p>
+          </div>
+          <div class="englishCapabilityAction"><small>{statusLabel(writingRuntime.status)} · whole-essay runtime</small><b>进入 Writing →</b></div>
+        </a>
+      </main>
+
+      <aside class="englishContextRail">
+        <section>
+          <span>First Learning</span>
+          <strong>第一次系统进入时才用</strong>
+          <nav>
+            <a href={`${base}objective-learn/`}><b>Objective</b><small>Reading A / Cloze / Part B</small></a>
+            <a href={`${base}translation-learn/`}><b>Translation</b><small>Global Map → B1–B4</small></a>
+            <a href={`${base}writing-learn/`}><b>Writing</b><small>{writingLearning.status === 'ready' ? 'Global Map → B1–B8' : 'projection gated'}</small></a>
+          </nav>
+        </section>
+
+        <section>
+          <span>Runtime rule</span>
+          <strong>会的不要被系统拖住</strong>
+          <p>稳定正确直接过；真实 wrong / uncertain / fragile 才展开。Repair 只修最早足以解释表现的层，再回到执行。</p>
+        </section>
+
+        <section class="englishFreshRule">
+          <span>Evidence</span>
+          <strong>fresh success &gt; remembered correction</strong>
+          <p>同题改对不是 mastery。真正有价值的是后来在低记忆残留的新材料里仍能独立调用。</p>
+        </section>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .englishHub{max-width:80rem;margin:0 auto;display:grid;gap:12px}.englishOverview{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,.48fr);gap:22px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishOverview>div>span,.englishCapabilityMap header span,.englishCapabilityCopy>span,.englishContextRail section>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.englishOverview h2{margin:5px 0 7px;font-size:24px;line-height:1.22;letter-spacing:-.025em}.englishOverview p{max-width:72ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.65}.englishOverview aside{display:grid;gap:3px;padding-left:18px;border-left:1px solid var(--study-line)}.englishOverview aside strong{font-size:11px;line-height:1.45;color:#29483f}.englishOverview aside span{font-size:9px;color:var(--study-faint)}
+  .englishHubLayout{display:grid;grid-template-columns:minmax(0,1fr) 17rem;gap:12px;align-items:start}.englishCapabilityMap{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishCapabilityMap>header{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:16px 18px;border-bottom:1px solid var(--study-line);background:#fafbfa}.englishCapabilityMap>header>div{display:grid;gap:2px}.englishCapabilityMap>header strong{font-size:15px}.englishCapabilityMap>header p{max-width:32rem;margin:0;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}
+  .englishCapabilityRow{display:grid;grid-template-columns:42px minmax(0,1fr) 12rem;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}.englishCapabilityRow:last-child{border-bottom:0}.englishCapabilityRow:hover{background:#fbfdfc}.englishCapabilityIndex{font:700 12px/1 var(--study-mono);color:#91a099}.englishCapabilityCopy{min-width:0;display:grid;gap:4px}.englishCapabilityCopy strong{font-size:16px;line-height:1.35;letter-spacing:-.015em}.englishCapabilityCopy p{max-width:70ch;margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.englishCapabilityAction{display:grid;gap:5px;justify-items:end;text-align:right}.englishCapabilityAction small{color:var(--study-faint);font-size:9px}.englishCapabilityAction b,.englishCapabilityAction>a{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.englishTrainerLinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}.englishTrainerLinks a{padding:5px 8px;border:1px solid #d3dfda;border-radius:999px;background:#fbfdfc;color:#2e6254;font-size:9px;font-weight:800;text-decoration:none}.readingRow{cursor:default}
+  .englishContextRail{display:grid;gap:10px}.englishContextRail section{display:grid;gap:7px;padding:14px 15px;border:1px solid var(--study-line);border-radius:13px;background:#fff}.englishContextRail section>strong{font-size:13px;line-height:1.4}.englishContextRail section>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.englishContextRail nav{display:grid;gap:5px}.englishContextRail nav a{display:grid;gap:1px;padding:8px 9px;border-radius:9px;background:#f7f9f8;color:inherit;text-decoration:none}.englishContextRail nav a:hover{background:var(--study-green-soft)}.englishContextRail nav b{font-size:10px}.englishContextRail nav small{color:var(--study-muted);font-size:9px}.englishFreshRule{background:#fbfdfc!important}
+  @media(max-width:940px){.englishOverview,.englishHubLayout{grid-template-columns:1fr}.englishOverview aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.englishContextRail{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:700px){.englishCapabilityRow{grid-template-columns:32px minmax(0,1fr);padding:14px}.englishCapabilityAction{grid-column:2;justify-items:start;text-align:left}.englishCapabilityMap>header{align-items:flex-start;flex-direction:column}.englishCapabilityMap>header p{text-align:left}.englishContextRail{grid-template-columns:1fr}}
+</style>
