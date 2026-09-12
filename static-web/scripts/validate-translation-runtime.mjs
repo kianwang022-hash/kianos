@@ -186,6 +186,9 @@ function validateContractAndUi() {
   requireText('model', model, 'pendingTransferTargets');
   requireText('model', model, 'applyTransferUpdates');
   requireText('model', model, 'RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE');
+  requireText('model', model, 'RETURN_PACKET_TRANSFER_TARGET_UNKNOWN');
+  requireText('model', model, 'RETURN_PACKET_TRANSFER_UPDATE_DUPLICATE');
+  requireText('model', model, 'repairSignature');
   requireText('model', model, "task === clean(target.sourceTask)");
   requireText('model', model, 'priorIndex');
 
@@ -203,7 +206,8 @@ function validateContractAndUi() {
   forbidText('workspace', workspace, 'Priority 2 · Naturalness / structure');
   forbidText('workspace', workspace, 'data-first-draft');
 
-  requireText('evidence guard', evidenceGuard, "stage === 'attempt' || stage === 'decision'");
+  requireText('evidence guard', evidenceGuard, "stage === 'attempt' ? 'none' : ''");
+  forbidText('evidence guard', evidenceGuard, "stage === 'attempt' || stage === 'decision'");
   requireText('evidence guard', evidenceGuard, '发现问题 → 回 Review');
 
   requireText('reference loader', referenceLoader, 'fetch(referenceUrl');
@@ -211,6 +215,8 @@ function validateContractAndUi() {
   requireText('reference loader', referenceLoader, 'buildHandoffWithReference');
   requireText('reference endpoint', referenceEndpoint, 'loadTranslationReferencesById');
   requireText('reference endpoint', referenceEndpoint, 'application/json; charset=utf-8');
+  requireText('reference endpoint', referenceEndpoint, 'max-age=0, must-revalidate');
+  forbidText('reference endpoint', referenceEndpoint, 'immutable');
   requireText('task page', taskPage, 'TranslationReferenceLoader');
   requireText('task page', taskPage, 'references: []');
   requireText('task page', taskPage, 'translation-reference/');
@@ -218,6 +224,9 @@ function validateContractAndUi() {
 
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
+  requireText('home', home, '具体 Pending 已隐藏');
+  requireText('home', home, '第一版锁定后再揭示待验证点');
+  forbidText('home', home, 'target.underlyingDemand');
   requireText('learn page', learnPage, "['B1', 'B1 · Representation']");
   requireText('learn page', learnPage, 'Skill Map + Deep Skills');
   requireText('learn page', learnPage, '系统 / Chat 参考');
@@ -252,7 +261,7 @@ function validateLearnerJourneys() {
   state = routeAttemptToReview(frozen.state);
   check(state.stage === 'diagnosis', 'Need Review must enter whole-set diagnosis');
 
-  const repairPacket = packet({
+  const repairPayload = {
     task: 'task-a',
     decision: 'REPAIR_NEEDED',
     primary_failure: {
@@ -271,8 +280,8 @@ function validateLearnerJourneys() {
       underlying_demand: '在新句中正确处理否定 / modality 对命题强度的限制。'
     },
     transfer_updates: []
-  });
-  const parsedRepair = parseTranslationReturn(repairPacket, 'task-a');
+  };
+  const parsedRepair = parseTranslationReturn(packet(repairPayload), 'task-a');
   let ledger = blankTransferLedger();
   let applied = applyTranslationReturn(state, parsedRepair, prompts, ledger, { task: 'task-a', now: '2026-09-12T01:01:00.000Z' });
   state = applied.state;
@@ -280,6 +289,21 @@ function validateLearnerJourneys() {
   check(state.stage === 'reconstruct', 'REPAIR_NEEDED return must enter Reconstruction');
   check(state.affectedSegments.length === 1 && state.affectedSegments[0] === 's2', 'repair must preserve segment-bound evidence without splitting learner review flow');
   state.reconstructDrafts.s2 = '修复后的第二句';
+
+  const identicalRepair = applyTranslationReturn(state, parsedRepair, prompts, ledger, { task: 'task-a', now: '2026-09-12T01:01:30.000Z' });
+  check(identicalRepair.state.reconstructDrafts.s2 === '修复后的第二句', 're-importing identical repair must not erase reconstruction work');
+
+  const revisedRepair = parseTranslationReturn(packet({
+    ...repairPayload,
+    primary_failure: {
+      ...repairPayload.primary_failure,
+      minimal_repair: '先固定否定 scope，再检查 modality 强度，不要把部分否定译成全否定。'
+    }
+  }), 'task-a');
+  const revised = applyTranslationReturn(state, revisedRepair, prompts, ledger, { task: 'task-a', now: '2026-09-12T01:01:40.000Z' });
+  check(revised.state.reconstructDrafts.s2 === '', 'changed repair must clear stale reconstruction draft before re-execution');
+
+  state = identicalRepair.state;
   const repaired = saveReconstruction(state, ledger, { task: 'task-a', now: '2026-09-12T01:02:00.000Z' });
   check(repaired.ok === true && repaired.state.stage === 'transfer_pending', 'reusable repaired failure must become TRANSFER_PENDING');
   check(pendingTransferTargets(repaired.ledger).length === 1, 'admitted reusable target must exist in private transfer ledger');
@@ -292,13 +316,13 @@ function validateLearnerJourneys() {
       transfer_target: { admit: true, target_id: 'broken', label: 'Broken' }
     }), 'task-a'),
     'RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE',
-    'admitted transfer target must contain the durable demand before UI can claim TRANSFER_PENDING'
+    'admitted transfer target must contain durable demand before UI can claim TRANSFER_PENDING'
   );
 
   expectThrows(
     () => parseTranslationReturn(`${TRANSLATION_RETURN_SCHEMA}\n${JSON.stringify({ task: 'task-a', decision: 'PASS' })}`, 'task-a'),
     'RETURN_PACKET_SCHEMA_INVALID',
-    'Return schema marker in prose must not substitute for exact JSON schema identity'
+    'Return marker in prose must not substitute for exact JSON schema identity'
   );
 
   expectThrows(
@@ -321,7 +345,7 @@ function validateLearnerJourneys() {
   expectThrows(
     () => applyTranslationReturn(state, invalidSegment, prompts, repaired.ledger, { task: 'task-a' }),
     'RETURN_PACKET_AFFECTED_SEGMENT_INVALID',
-    'invalid segment address must be rejected rather than silently widening repair to the whole set'
+    'invalid segment address must be rejected rather than silently widening repair to whole set'
   );
 
   expectThrows(
@@ -334,7 +358,31 @@ function validateLearnerJourneys() {
     'irrelevant or contradictory material must not carry a close flag'
   );
 
+  expectThrows(
+    () => parseTranslationReturn(packet({
+      task: 'task-b',
+      decision: 'PASS',
+      transfer_updates: [
+        { target_id: 'translation:r4:scope-strength', relation: 'support', note: 'one', close: false },
+        { target_id: 'translation:r4:scope-strength', relation: 'support', note: 'two', close: false }
+      ]
+    }), 'task-b'),
+    'RETURN_PACKET_TRANSFER_UPDATE_DUPLICATE',
+    'one fresh task must not submit multiple updates for the same target'
+  );
+
   const freshState = freezeWholeAttempt(Object.assign(blankTranslationState(prompts), { drafts: { s1: '新译文一', s2: '新译文二' } }), prompts).state;
+
+  const unknownTarget = parseTranslationReturn(packet({
+    task: 'task-b',
+    decision: 'PASS',
+    transfer_updates: [{ target_id: 'translation:unknown', relation: 'support', note: 'typo', close: false }]
+  }), 'task-b');
+  expectThrows(
+    () => applyTranslationReturn(routeAttemptToReview(freshState), unknownTarget, prompts, repaired.ledger, { task: 'task-b' }),
+    'RETURN_PACKET_TRANSFER_TARGET_UNKNOWN',
+    'mistyped transfer target must fail closed instead of silently losing evidence'
+  );
 
   const sameTaskSupport = parseTranslationReturn(packet({
     task: 'task-a',
@@ -376,7 +424,7 @@ function validateLearnerJourneys() {
   applied = applyTranslationReturn(routeAttemptToReview(freshState), supportB, prompts, applied.ledger, { task: 'task-b', now: '2026-09-13T00:05:00.000Z' });
   const afterFirstSupportCount = applied.ledger.targets[0]?.evidence?.length || 0;
   applied = applyTranslationReturn(routeAttemptToReview(freshState), supportB, prompts, applied.ledger, { task: 'task-b', now: '2026-09-13T00:06:00.000Z' });
-  check((applied.ledger.targets[0]?.evidence?.length || 0) === afterFirstSupportCount, 're-importing the same later task must be idempotent evidence');
+  check((applied.ledger.targets[0]?.evidence?.length || 0) === afterFirstSupportCount, 're-importing same later task must be idempotent evidence');
 
   const supportPacket = parseTranslationReturn(packet({
     task: 'task-c',
