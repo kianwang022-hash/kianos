@@ -6,6 +6,7 @@ import re
 import lexical_historical_round_bulk_triage as triage
 import lexical_historical_round_from_file as base
 
+ORIGINAL_PARSE_CORE = base.parse_core_compatible
 ORIGINAL_CONTRAST_TERMS = base.contrast_terms_compatible
 ORIGINAL_PARSE_SIMPLE = base.parse_simple_targets_compatible
 
@@ -35,12 +36,39 @@ def expand_ordinal_spec(spec: str) -> list[int]:
     return list(dict.fromkeys(out))
 
 
+def parse_core_compatible(body: str):
+    rows = ORIGINAL_PARSE_CORE(body)
+    if rows:
+        return rows
+    m = re.search(r"Exact revision ordinals:\s*`([^`]+)`", body, flags=re.S)
+    if not m:
+        return rows
+    ordinals = expand_ordinal_spec(m.group(1))
+    start, end = triage.parse_round_range(body)
+    by_ord, _by_word, _by_id = triage.load_range_owners(start, end)
+    out = []
+    for i, ordinal in enumerate(ordinals, 1):
+        owner = by_ord.get(ordinal)
+        if owner is None:
+            raise RuntimeError(f"Core revision ordinal has no Current owner: {ordinal}")
+        word_id = owner.get("word_id") or (owner.get("record") or {}).get("word_id")
+        if not word_id:
+            raise RuntimeError(f"Core revision owner missing word_id: {ordinal}")
+        out.append({
+            "index": i,
+            "ordinal": ordinal,
+            "word_id": word_id,
+            "approved_revision": "historical approved revision; exact wording remains owned by the cited source comment",
+        })
+    return out
+
+
 def expansion_targets_from_body(body: str) -> list[str] | None:
     m_targets = re.search(r"### Expansion Gate[^\n]*\n(?:.*\n)*?Targets:\s*`([^`]+)`\.", body)
     if m_targets:
         return [w.strip().lower() for w in m_targets.group(1).split(",") if w.strip()]
 
-    m_ordinals = re.search(r"(?:Approved target ordinals|Exact target ordinal set):\s*\n`([^`]+)`\.", body, flags=re.S)
+    m_ordinals = re.search(r"(?:Approved target ordinals|Exact target ordinal set|Exact\s+\d+\s+target ordinals):\s*\n?`([^`]+)`\.?", body, flags=re.S)
     if not m_ordinals:
         return None
 
@@ -61,7 +89,7 @@ def expansion_targets_from_body(body: str) -> list[str] | None:
 def parse_owner_group_expansion(body: str):
     targets = expansion_targets_from_body(body)
     m_surfaces = re.search(
-        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include|Representative high-transfer surfaces include)\s*:?\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\nReuse rather than duplicate|\n\n### Contrast Gate)",
+        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include|Representative high-transfer surfaces include|Representative surfaces include)\s*:?\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\nReuse rather than duplicate|\n\n### Contrast Gate)",
         body,
         flags=re.S,
     )
@@ -72,6 +100,8 @@ def parse_owner_group_expansion(body: str):
     m_declared = re.search(r"(?:declared|Historical Expansion owner targets:)\s*`?(\d+)`?\s*(?:owner targets)?", body, flags=re.I)
     if not m_declared:
         m_declared = re.search(r"### Expansion Gate\s+—\s+(\d+)\s+target words", body, flags=re.I)
+    if not m_declared:
+        m_declared = re.search(r"Exact\s+(\d+)\s+target ordinals", body, flags=re.I)
     base.EXPANSION_DECLARED_COUNT = int(m_declared.group(1)) if m_declared else None
     target_set = set(base.EXPANSION_OWNER_TARGETS)
     start, end = triage.parse_round_range(body)
@@ -125,10 +155,6 @@ def parse_owner_group_expansion(body: str):
         elif norm.startswith("select/elect"):
             hints = ["select"] if "select" in round_by_word else []
 
-        # Historical owner enumerations are coverage metadata, not semantic
-        # vetoes. If an explicitly approved learner surface names a valid Word
-        # owner inside the same round but that owner was omitted from metadata,
-        # preserve the explicit surface.
         if not hints:
             round_candidates: list[tuple[int, str]] = []
             for pos, token in enumerate(tokens):
@@ -274,7 +300,6 @@ def contrast_terms_compatible(text: str) -> list[str]:
         return ["tire"]
     if norm.startswith("noun use ") or (norm.startswith("use ") and "/ju" in text):
         return ["use"]
-    # Same-word form/identity targets should stay on Word/Identity/Form owners.
     if norm.startswith("intern noun"):
         return ["intern"]
     if norm.startswith("proper pacific"):
@@ -283,9 +308,14 @@ def contrast_terms_compatible(text: str) -> list[str]:
         return ["outskirt"]
     if norm == "workout / work out":
         return ["workout"]
+    if norm.startswith("converse stress"):
+        return ["converse"]
+    if norm.startswith("incense noun/verb stress"):
+        return ["incense"]
     return ORIGINAL_CONTRAST_TERMS(text)
 
 
+base.parse_core_compatible = parse_core_compatible
 base.parse_owner_group_expansion = parse_owner_group_expansion
 base.parse_simple_targets_compatible = parse_simple_targets_compatible
 base.contrast_terms_compatible = contrast_terms_compatible
