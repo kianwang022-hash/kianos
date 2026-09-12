@@ -94,6 +94,17 @@ jobs:
           name: translation-runtime-gate
           path: ${{ runner.temp }}/translation-runtime-gate.json
           if-no-files-found: error
+      - name: Validate Translation Evidence gate
+        env:
+          KIANOS_TRANSLATION_EVIDENCE_GATE_OUT: ${{ runner.temp }}/translation-evidence-gate.json
+        run: node scripts/validate-translation-evidence-gate.mjs
+      - name: Upload Translation Evidence gate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-evidence-gate
+          path: ${{ runner.temp }}/translation-evidence-gate.json
+          if-no-files-found: error
       - name: Build Astro
         run: npm run build
       - name: Validate Translation Projection gate
