@@ -54,10 +54,12 @@ The learner can resume without reconstructing the product's execution position m
 
 Keep two states separate:
 
-- shared construction/work continuation → repository Current cursor;
+- shared construction/work position → repository Work Cursor / `CURRENT.md`;
 - personal learning position/progress → private learner state.
 
-Shared continuation must never be used as proof of personal learner progress.
+The shared Work Cursor must never be used as proof of personal learner progress.
+
+A retained machine-only `continuation.*` file, if one is ever genuinely required, is an implementation detail named by Current—not the cross-KianOS Continue contract and not a second Work Cursor.
 
 ### Navigate / Explore
 
@@ -95,7 +97,7 @@ Private learner evidence remains private and is not committed into shared Curren
 
 Intentionally postponed work with real future value uses the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
 
-Active continuation is not Deferred.
+Active work position is not Deferred.
 
 ### Validation
 
