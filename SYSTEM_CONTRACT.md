@@ -1,135 +1,155 @@
 # KianOS System Contract
 
-KianOS is one learning system with multiple domain lanes and learner-facing sub-lanes. They may have different cognition, content models, and UI, but every first-class learning surface inherits the same minimum platform capabilities.
+This document owns one question:
 
-## Learning-asset construction order
+> **What minimum platform capabilities should a mature first-class learner surface provide across KianOS?**
 
-`LEARNING_ASSET_STANDARD.md` governs how formal learning assets are designed, rebuilt, and reopened.
+It does not define domain cognition, formal learning-asset construction order, S/K/L/P/R/E/U acceptance criteria, branch workflow, or lane progress.
 
-The shared causal construction order is:
+- construction order → `LEARNING_ASSET_STANDARD.md`
+- acceptance/readiness → `LEARNING_ACCEPTANCE.md`
+- repository/lane routing → `AGENTS.md` + `CURRENT.md`
+- branch/concurrency → `BRANCH_LIFECYCLE.md`
 
-`Truth / Knowledge Boundary → Learning Logic → Content Realization / Optimization → Projection / Interaction → Runtime Loop → Evidence / Acceptance`
+## 1. Federated platform model
 
-This construction order is **not** the same thing as the S/K/L/P/R/E/U acceptance framework in `LEARNING_ACCEPTANCE.md`.
+KianOS is one system with multiple domain lanes and independently entered sub-lanes.
 
-Hard rule:
+```text
+root Current
+→ lane Current
+→ first-class sub-lane Current when useful
+→ natural owners
+→ learner surface
+```
 
-- work on the earliest unresolved construction stage;
-- keep affected downstream stages `FROZEN_PENDING_UPSTREAM` by default;
-- existing downstream assets may remain in Current, but they do not constrain upstream truth or learning logic;
-- downstream defects may reopen the earliest responsible upstream stage;
-- after reopening, repair that stage first, then re-walk downstream stages in order;
-- do not optimize Content, Projection, Runtime, or Evidence in parallel merely because the files already exist or the changes are causally related.
+Shared platform capability does not imply shared cognition or identical UI.
 
-The shared platform baseline below describes capabilities a mature learner surface should eventually provide. **It does not authorize implementing those capabilities before the active learning-asset construction stage reaches them.**
+A lane may differ in:
 
-## Global Current
+- natural learning unit;
+- first-learning order;
+- error taxonomy;
+- evidence granularity;
+- repair logic;
+- scheduler/review behavior;
+- transfer semantics;
+- UI layout.
 
-`CURRENT.md` at repository root is the system-wide Current overview.
+A mature implementation from one lane may be an engineering reference. It is never an upstream semantic requirement for another lane.
 
-- It describes the whole KianOS, not one subject.
-- Domain manifests and continuations are child Current objects under the root Current.
-- A lane manifest may define local ownership/readiness, but it must not become a parallel top-level Current authority.
-- A first-class sub-lane such as Reading, Translation, Writing, Cloze, or a future subject runtime remains beneath its domain lane and inherits the same platform baseline when it becomes learner-facing.
-- `main@HEAD` remains the only normal shared Current state.
-- Runtime readiness must be derived from real Current assets and validation rather than maintained as a second semantic truth.
+## 2. Shared learner-surface baseline
 
-The hierarchy is:
+A mature first-class learner lane or independently entered sub-lane should provide the capabilities below when they are genuinely needed by that surface.
 
-`KianOS Current → domain lane Current → first-class sub-lane/runtime → natural content owners → learner interaction`
+### Current
 
-## Shared learner-surface baseline
+The surface resolves from explicit Current owners and fails closed on missing/invalid dependencies.
 
-Every first-class learner lane or independently entered learner sub-lane should provide the following capabilities **when its staged learning-asset development has legitimately reached the relevant Projection / Runtime / Evidence work**. The learner-facing names and cognitive implementation may differ by subject or task.
+It must not silently use historical, legacy, stale, guessed, or compatibility content as semantic fallback.
 
-### 1. Current
+### Continue
 
-The surface has an explicit Current owner/readiness entry and fail-closed source boundary.
+The learner can resume without reconstructing the product's execution position manually.
 
-The learner should be able to tell that the runtime is using Current content rather than legacy, stale, or guessed material.
+Keep two states separate:
 
-### 2. Continue
+- shared construction/work continuation → repository Current cursor;
+- personal learning position/progress → private learner state.
 
-The surface supports continuation without requiring the learner to reconstruct where work stopped.
+Shared continuation must never be used as proof of personal learner progress.
 
-Two kinds of continuation remain separate:
+### Navigate / Explore
 
-- shared construction/work continuation: GitHub continuation cursor;
-- personal session position/progress: private local/device state.
+The learner can reach the relevant Current object with low friction using a domain-appropriate map, index, search, navigator, or equivalent.
 
-Do not put personal progress into shared Current merely to implement Continue.
+Do not force every lane into one navigation component.
 
-### 3. Navigate / Explore
+### Repair / Review
 
-The learner can reach the relevant current learning object with low friction.
+The surface can expose material that actually needs repair/review without manufacturing debt from stable correct work.
 
-This may be a System/Block map, chapter index, passage navigator, vocabulary search, task inventory, or another domain-appropriate navigation surface. Do not force every surface to expose a literal search box.
+Stable correct work should be able to pass quickly.
 
-### 4. Repair / Review
+### Verify / Challenge / Transfer
 
-The surface can expose only the evidence that actually needs repair or review.
+The surface has an appropriate way to test whether the intended capability works.
 
-Stable correct material should pass quickly. Do not turn the existence of content into automatic review debt.
+The mechanism may be official questions, generated challenges, closure tasks, reconstruction, fresh transfer, or another domain-appropriate form.
 
-### 5. Verify / Challenge / Transfer
+Verification follows the domain contract, not a shared card template.
 
-The surface has an appropriate way to test whether the target capability actually works.
+### Return / Handoff
 
-Examples include official questions, generated lexical Challenge, closure questions, translation re-generation, writing transfer, or later unseen material. Verification must follow the surface's own cognitive contract rather than a shared card template.
+Meaningful learner evidence can return to Chat in a compact form sufficient to change the next action.
 
-### 6. Return / Handoff
+A handoff should preserve enough identity/evidence to determine:
 
-Meaningful learner evidence can return to Chat in a compact form that is sufficient to change the next action.
-
-The packet/hand-off format may differ by lane or sub-lane. At minimum it should preserve enough identity and evidence to distinguish:
-
-- what object was being learned or tested;
-- what failed, was uncertain, or was explicitly marked for repair;
-- what kind of next repair or judgment is needed.
+- which learner object/task was involved;
+- what failed, remained uncertain, or was marked for repair;
+- what judgment/repair is now required.
 
 Private learner evidence remains private and is not committed into shared Current.
 
-### 7. Deferred
+### Deferred
 
-All lanes and sub-lanes use the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
+Intentionally postponed work with real future value uses the repository-wide Deferred Queue defined in `DEFERRED.md` and GitHub Issue #5.
 
-Do not create separate backlog systems for ordinary postponed work unless the learner explicitly asks for one.
+Active continuation is not Deferred.
 
-### 8. Validation
+### Validation
 
-The surface must fail closed on missing/invalid Current dependencies and should have an appropriate validation path.
+The surface has validation appropriate to the risks it can introduce.
 
-Validation may include source identity/hash checks, schema checks, deterministic hydration checks, runtime build checks, and real learner validation. A build passing is not the same thing as learning quality being proven.
+This may include source identity/hash checks, schema checks, deterministic hydration, targeted runtime tests, build checks, browser journeys, and real learner use.
 
-## Shared capability, different cognition
+A green build is evidence, not learning acceptance by itself.
 
-The baseline is intentionally non-isomorphic.
+## 3. Capability inheritance
+
+A domain-level home satisfying a capability does not automatically satisfy it for every independently entered child surface.
 
 Examples:
 
-- LexicalOS: Depth Scan → selective Repair → generated Challenge → Return Packet.
-- Xizong: System/Block/KP learning → official-question verification → Wrong/Uncertain repair → Study Packet / Chat return plan.
-- English Reading: clean passage attempt → passage-level review → root-cause repair → later transfer → session handoff.
-- English Translation: complete task attempt → representation/relation diagnosis → smallest repair → learner reconstruction → later fresh transfer.
-- Politics: orientation → Chengfeng continuous learning → short closure → Xiao1000 verification → minimal repair → learner handoff.
+- English Reading, Translation, Writing, Cloze, or Reading B may require their own executable Continue/Repair/Return paths.
+- Xizong Systems may share runtime infrastructure while retaining System/Block/KP cognition.
+- LexicalOS may use word/relation Natural Owners and generated Challenge without becoming a template for Politics.
+- Politics may use Natural Units and Xiao1000 verification without inheriting English evidence granularity.
 
-These surfaces should share platform capabilities without being forced into one error taxonomy, one scheduler, one review card, or one UI layout.
+When a sub-lane becomes independently entered and independently continued, give it its own Current entrypoint only when that reduces reads and ambiguity. Do not create hierarchy for hierarchy's sake.
 
-A mature runtime from one lane may be a useful implementation reference, but it is never an upstream content or learning-model requirement for another lane.
+## 4. Shared-runtime boundary
 
-## Basic-capability audit rule
+`static-web/` is the common learner-facing execution layer.
 
-When a first-class lane or learner-facing sub-lane is added or materially rebuilt, first identify its active construction stage under `LEARNING_ASSET_STANDARD.md`.
+Shared components/utilities are appropriate when the **learner decision** is genuinely shared, for example generic navigation primitives or handoff transport.
 
-Do not run the eight-capability audit as an excuse to jump forward into Projection / Runtime work while Truth, Learning Logic, or Content remains unresolved.
+Shared runtime must not:
 
-Once the scope legitimately reaches learner-surface/runtime maturity, check the eight baseline capabilities above.
+- invent domain semantics;
+- become a second content owner;
+- force one lane's error model onto another;
+- infer personal learner progress from repository state;
+- read historical/legacy material as fallback;
+- turn optional platform capability into mandatory learner ritual.
 
-If a capability is intentionally absent because that surface genuinely does not need it, state why. If it is genuinely missing, mark the surface Partial and either:
+## 5. Surface maturity rule
 
-- make it the active next task; or
-- park it in the global Deferred Queue when the learner explicitly postpones it.
+The shared baseline is a maturity contract, not permission to jump ahead in construction.
 
-A module contract existing on paper is not the same as a learner runtime being ready. Translation, Writing, Cloze, Reading B, or any future sub-lane becomes fully learner-ready only when its own cognition plus the shared platform baseline are both implemented and validated.
+Whether a surface is allowed to implement Projection/Runtime/Evidence yet is governed by `LEARNING_ASSET_STANDARD.md`.
 
-Do not call a lane or sub-lane fully learner-ready merely because its content exists or its page builds.
+Whether the implemented surface is ready to claim PASS is governed by `LEARNING_ACCEPTANCE.md`.
+
+This document only defines the cross-KianOS capabilities a mature surface should eventually expose when they are relevant.
+
+## 6. Design test
+
+Before adding a shared platform abstraction, ask:
+
+> **Is the learner making the same kind of decision across these lanes?**
+
+- yes → sharing may reduce friction;
+- no → keep the implementation/domain logic separate.
+
+KianOS should converge on common infrastructure only where cognition is actually common.
