@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 301, "end": 320},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 10, "REVISE": 10, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":301,"word":"assess","verdict":"REVISE","target_truth":"Center assess=evaluate/judge/estimate nature, quality, impact or value. Keep tax/property-assessment and levy-a-tax/fine uses only as specialized recognition; they must not compete with the general academic verb as separate main learner branches."},
+    {"ordinal":302,"word":"asset","verdict":"PASS","target_truth":"Keep asset=valuable person/quality/resource and financial/property asset; both are high-value modern uses and share a useful value center."},
+    {"ordinal":303,"word":"assign","verdict":"PASS","target_truth":"Keep assign task/work, assign a person to a role/task, assign a value/category/number, and lower legal transfer of rights. Current hierarchy is sufficiently coherent."},
+    {"ordinal":304,"word":"assignment","verdict":"PASS","target_truth":"Keep assigned task/work, act of assignment/allocation, and lower legal transfer; the assign family binding is semantically aligned."},
+    {"ordinal":305,"word":"assimilate","verdict":"REVISE","target_truth":"Center assimilate information/ideas=absorb and understand, and cultural/social assimilate=become integrated/similar to a group. Keep physical-science absorption and phonetic assimilation only as specialized recognition, not equal Active learner branches."},
+    {"ordinal":306,"word":"assist","verdict":"REVISE","target_truth":"Use one main verb center assist=help/support, with transitive and assist in/with structures represented as grammar/pattern differences rather than duplicate semantic senses. Keep noun assist, especially sports, at lower recognition."},
+    {"ordinal":307,"word":"assistance","verdict":"PASS","target_truth":"Single noun center help/support/aid is correct and sufficiently represented."},
+    {"ordinal":308,"word":"assistant","verdict":"PASS","target_truth":"Keep noun assistant=helper/role and adjective assistant=supporting/auxiliary job title; both are ordinary and correctly linked to assist."},
+    {"ordinal":309,"word":"associate","verdict":"REVISE","target_truth":"Restore Active associate A with B / be associated with=connect or link as the primary learner branch, preserve associate with sb=interact/keep company, and noun associate=colleague/partner. Keep subordinate/associate-member noun only as low recognition. Current v4 zero-Active state is not learnable."},
+    {"ordinal":310,"word":"association","verdict":"REVISE","target_truth":"Keep association=organization, association=connection/link, and mental association. Rebind 'association with sb/sth' to the connection/relationship branch rather than the organization sense; maintain 'in association with' under connection/cooperation."},
+    {"ordinal":311,"word":"assume","verdict":"REVISE","target_truth":"Preserve the current strong mental model 'take something on' and Active branches assume true, assume responsibility/role/control, assume a form/quality, and low literary assume a manner. Remove the duplicate secondary_sense for take-on-a-form because that meaning is already Active."},
+    {"ordinal":312,"word":"assumption","verdict":"REVISE","target_truth":"Center assumption=belief accepted without proof and preserve assumption of responsibility/power=act of taking on. Correct the false learner example/analysis 'assumption of innocence' as pretending innocence; in ordinary/legal use it means treating/presuming someone as innocent. Any pretending/putting-on sense must use genuine examples and remain low recognition."},
+    {"ordinal":313,"word":"assurance","verdict":"REVISE","target_truth":"Keep assurance=self-confidence/certainty and assurance=promise/guarantee as two main branches; British life assurance may remain lower recognition. Remove/rebind the duplicate 'with assurance' collocation from the promise branch because it expresses confidence, not a guarantee."},
+    {"ordinal":314,"word":"assure","verdict":"REVISE","target_truth":"Preserve assure sb (that)/assure sb of sth=make a person confident and assure sth=make certain as a secondary formal branch. Preserve the nuanced assure/ensure/insure distinctions and overlap, but consolidate Current Relation ownership: do not expose separate assure-insure, assure-ensure, three-way assure-ensure-insure, and another assure-ensure semantic-contrast object as four competing learner relations. One authoritative three-way boundary may reuse the valid sense-level evidence."},
+    {"ordinal":315,"word":"astonish","verdict":"PASS","target_truth":"Single verb center surprise/amaze greatly, with passive astonished patterns, is correct and sufficient."},
+    {"ordinal":316,"word":"astronaut","verdict":"PASS","target_truth":"Single ordinary noun meaning person trained for space travel is correct and sufficient."},
+    {"ordinal":317,"word":"astronomy","verdict":"PASS","target_truth":"Single scientific-field noun meaning study of celestial objects/the universe is correct and sufficient."},
+    {"ordinal":318,"word":"at","verdict":"PASS","target_truth":"Keep point in time/place, target/direction, and state/condition uses. High-value fixed expressions such as at ease/at risk are correctly represented, with at ease explicitly presentation-merged rather than duplicated."},
+    {"ordinal":319,"word":"athlete","verdict":"PASS","target_truth":"Single ordinary noun athlete is correct; athlete's foot is an appropriate lexicalized phrase under the word."},
+    {"ordinal":320,"word":"atmosphere","verdict":"REVISE","target_truth":"Use one physical branch atmosphere=gas envelope surrounding Earth/a planet/celestial body, rather than separate Earth vs other-body senses. Keep atmosphere=mood/ambience as the major figurative branch. Downgrade/remove 'atmosphere=weather/climate of a place' from ordinary Active learner content."}
+  ],
+  "relation_truth": [
+    {"source_word":"assure","relation":"assure ↔ ensure ↔ insure relation set","verdict":"REVISE","target_truth":"The semantic boundary is accurate and should explicitly preserve overlap: assure typically addresses someone's confidence, ensure makes an outcome certain, insure primarily means provide insurance, while assure can also mean make certain and American insure can overlap ensure. Consolidate the four current overlapping relation objects into one authoritative learner contrast rather than duplicating the same set."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "A correct semantic relation can still make an owner REVISE when Current ownership duplicates the same learner distinction across multiple relation objects."
+  ]
+}
