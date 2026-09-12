@@ -1,0 +1,265 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r21_round_checkpoint.v1",
+  "audit_id": "R21_4701_5000_CORE_EXPANSION_CONTRAST",
+  "range": [4701, 5000],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5584168646,
+    "created_at": "2026-09-08T11:06:12Z",
+    "updated_at": "2026-09-08T11:06:12Z",
+    "frozen_execution_authority": "content/lexical/audit/migration-integrity/r21-authority.md",
+    "counts": {
+      "reviewed": 300,
+      "core": 91,
+      "historical_core_direct_pass": 209,
+      "historical_expansion_owner_targets": 175,
+      "named_surface_groups": 82,
+      "contrast": 63
+    },
+    "metadata_note": "The 175 Expansion owner words are coverage metadata. Exact learner acceptance uses 82 explicitly named representative high-transfer surface/family groups from the same historical authority; owner existence alone is never an Expansion PASS."
+  },
+  "bulk_readback": {
+    "authority_freeze_commit": "bf8e57f731a8065d5e5141d8788722f41e9fe013",
+    "parser_commit": "9ca97c87a876cf1488a5e1ef7baa07330d097c88",
+    "workflow_run_id": 34710929054,
+    "job_id": 103599472172,
+    "artifact_id": 10303441806,
+    "artifact": "lexical-r21-bulk-triage",
+    "artifact_digest": "sha256:2ac98cee3dbe6289d5b48ac0926004a996452a6d26532b99cad75186e0f64ac7"
+  },
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; historical authority is evidence, not immutable truth",
+  "core": {
+    "current_correct": 6,
+    "defective_or_upgrade_required": 85,
+    "current_correct_indices": [12, 15, 17, 48, 64, 86],
+    "current_correct_words": ["strike", "stroke", "stumble", "table", "technical", "theoretical"],
+    "rule": "all other historical R21 Core targets are defective or require a latest-target upgrade at current evidence",
+    "p0_active_zero_count": 10,
+    "p0_word_ids": [
+      "word:stiff",
+      "word:stipulate",
+      "word:strip",
+      "word:strong",
+      "word:survival",
+      "word:taboo",
+      "word:tactic",
+      "word:teach",
+      "word:tear",
+      "word:think"
+    ],
+    "dead_anchor_count": 4,
+    "dead_anchor_word_ids": [
+      "word:stipulate",
+      "word:strip",
+      "word:teach",
+      "word:think"
+    ],
+    "severe_examples": {
+      "word:storm": "Current still defines ordinary storm with a fixed 64–72-knot threshold rather than a general violent atmospheric disturbance.",
+      "word:straight": "Current lacks the common neutral identity adjective straight = heterosexual.",
+      "word:stream": "Current lacks modern digital streaming noun/verb access for audio/video/data.",
+      "word:style": "Current still exposes style-guide and botanical style material as ordinary active competition instead of lower/domain material.",
+      "word:submerge": "Current owns only the transitive put-under branch and lacks the ordinary intransitive go/become submerged branch.",
+      "word:suicide": "Current still contains the dated/insensitive person-label noun a suicide; learner-facing wording needs usage control.",
+      "word:sweat": "Current foregrounds condensation on a cold surface ahead of bodily perspiration, inverting learner value.",
+      "word:switch": "Current learner Active centers the switch device while ordinary change/replace verb access is not properly owned.",
+      "word:take": "Current does not yet provide the controlled high-value polysemy and construction model needed for this exceptionally frequent verb.",
+      "word:technology": "Current still defines technology too narrowly through science applied to commerce/industry rather than practical tools, methods, systems and applied knowledge.",
+      "word:temperature": "Current secondary branch is generic body sensation of heat/cold rather than the high-value have/run a temperature = have a fever construction.",
+      "word:their": "Current learner meaning is plural-only and does not correctly own standard singular-they possession.",
+      "word:theirs": "Current learner meaning is plural-only and does not correctly own standard singular-they possession.",
+      "word:them": "Current object-pronoun model does not correctly own standard singular they/them use.",
+      "word:they": "Current lacks standard singular they for an unknown/unspecified person and for people who use they pronouns.",
+      "word:thought": "Past/past participle thought of think is still represented as lexical sense material instead of grammatical form identity."
+    }
+  },
+  "expansion": {
+    "historical_owner_target_count": 175,
+    "authority_unit": "82 explicitly named representative high-transfer learner surface/family groups",
+    "current_correct": 51,
+    "partial_or_presentation_or_wrong_anchor": 4,
+    "authority_missing_from_current": 27,
+    "current_correct_indices": [2,3,4,9,12,13,14,15,16,17,18,19,20,21,22,23,25,26,27,28,29,31,32,35,37,38,39,42,44,45,46,48,52,54,55,57,59,61,63,64,66,67,68,69,70,72,73,75,80,81,82],
+    "partial_indices": [1,11,33,41],
+    "missing_indices": [5,6,7,8,10,24,30,34,36,40,43,47,49,50,51,53,56,58,60,62,65,71,74,76,77,78,79],
+    "partial_notes": {
+      "1": "Current owns still timing semantics, but the still/yet timing boundary is not explicit enough to close the named group.",
+      "11": "strip sb of exists as a construction, but strip is Active=0 and the construction is anchored to a deprecated carrier.",
+      "33": "surface from is present; surface as is absent.",
+      "41": "swear at is present; swear by is absent."
+    },
+    "false_positive_or_false_negative_corrections": {
+      "18": "substitute A for B is exactly learner-owned despite a weaker mechanical label.",
+      "26": "summon up courage is exactly learner-owned.",
+      "29": "supply sb with is exactly learner-owned.",
+      "46": "UK/US table was mechanically missed, but the Word owner explicitly represents BrE submit-for-discussion versus AmE postpone.",
+      "48": "tailor A to B is represented by the equivalent high-value collocation tailor the program to the needs.",
+      "50": "talk sb into/out of was mechanically overmatched by unrelated talk-of material and remains missing.",
+      "51": "tank by was a wrong-anchor false match from literal tank storage wording and remains missing.",
+      "68": "terminate employment is explicitly learner-owned.",
+      "70": "testify to and testify that are both structurally owned.",
+      "73": "comparative the...the... is explicitly owned as a construction."
+    },
+    "mechanical_readback": {
+      "NO_MATCH_CANDIDATE": 26,
+      "PARTIAL_OR_EQUIVALENT_CANDIDATE": 10,
+      "PRESENT_CANDIDATE": 46
+    },
+    "note": "Mechanical labels are retrieval triage only. Chat classification corrects false positives/negatives, grouped-family incompleteness, reference/anchor health and semantic ownership."
+  },
+  "contrast": {
+    "latest_ownership": {
+      "relation_owned": 61,
+      "word_or_identity_or_form_owned": 2
+    },
+    "relation": {
+      "current_correct": 0,
+      "partial": 0,
+      "missing": 61
+    },
+    "word_or_identity_or_form": {
+      "current_correct": 1,
+      "current_correct_indices": [35],
+      "partial": 0,
+      "missing": 1,
+      "missing_indices": [42],
+      "notes": {
+        "35": "table already explicitly owns the regional BrE submit-for-discussion vs AmE postpone contronym in the Word owner.",
+        "42": "tear must be learner-owned as the /ter/ rip versus /tɪr/ eye-drop heteronym, but Current tear is Active=0 and the form boundary is not safely exposed."
+      }
+    },
+    "overall": {
+      "current_correct": 1,
+      "partial": 0,
+      "missing": 62
+    },
+    "ownership_upgrade": "Same-word regional contronyms and heteronyms stay with Word/Identity/Form owners. Genuine cross-word semantic/confusable targets remain Relation-owned.",
+    "mechanical_readback": {
+      "RELATION_MISSING_CANDIDATE": 61,
+      "SELF_FORM_REVIEW": 2
+    }
+  },
+  "fresh_semantic_judgments": [
+    {
+      "target": "strike",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current Core already cleanly covers hit/attack, work stoppage and sudden impression/thought; missing strike a balance/deal remains Expansion debt rather than a Core rewrite."
+    },
+    {
+      "target": "stroke",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current medical stroke, movement/mark in writing/sport/swimming and gentle-touch organization is learner-usable."
+    },
+    {
+      "target": "stumble",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current distinguishes physical trip/hesitation from chance discovery and already owns stumble across; no Core rewrite is required."
+    },
+    {
+      "target": "table",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Keep the explicit BrE table = submit for discussion versus AmE table = postpone distinction in the Word owner; do not create a fake cross-word Relation."
+    },
+    {
+      "target": "technical",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current broad specialized/practical-technical adjective model is already better than dictionary-style duplicate adjective rows."
+    },
+    {
+      "target": "theoretical",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current theory/hypothesis-based versus practical contrast is already adequately consolidated for learner use."
+    },
+    {
+      "target": "straight",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Preserve direct/uncurved/continuous/frank meanings and add the common neutral identity adjective straight = heterosexual with appropriate scope."
+    },
+    {
+      "target": "stream",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Add modern digital streaming noun/verb access for audio, video and data while preserving physical-flow and continuous-sequence models."
+    },
+    {
+      "target": "suicide",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Center the act/death by suicide and avoid learner-front labeling a person as a suicide; any historical person-label use must be clearly marked dated/insensitive."
+    },
+    {
+      "target": "sweat",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Bodily perspiration noun/verb is Core and first-line; condensation is a secondary physical extension."
+    },
+    {
+      "target": "switch",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Own both the switch device and ordinary change/replace verb as Core; railroad and dated senses stay lower/domain-marked."
+    },
+    {
+      "target": "take",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Use a controlled high-frequency polysemy model spanning obtain/receive, move/carry, accept/use/consume, perform/choose, require resources, and interpret/regard, with major constructions surfaced rather than arbitrary micro-sense proliferation."
+    },
+    {
+      "target": "tank",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Add the common informal verb for prices/sales/performance falling sharply or failing badly; retain container and armored-vehicle nouns."
+    },
+    {
+      "target": "tear",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Own tear as a first-class heteronym: /ter/ rip/split versus /tɪr/ eye-drop, with phrasal semantics such as tear down repaired under the correct branch."
+    },
+    {
+      "target": "temperature",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Preserve physical temperature and explicitly own have/run a temperature = have a fever, especially BrE; do not model this as generic bodily heat/cold sensation."
+    },
+    {
+      "target": "technology",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Define technology broadly as tools, methods, systems and applied knowledge used for practical purposes, not only science applied to commerce or industry."
+    },
+    {
+      "target": "television",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Own television both as the device and as a medium/programming domain; broadcasting-system language alone is insufficient."
+    },
+    {
+      "target": "their/theirs/them/they",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Preserve ordinary plural uses and explicitly own standard singular they/them for an unknown or unspecified person and for people who use they pronouns, with the correct possessive determiner/pronoun/object roles."
+    },
+    {
+      "target": "theory",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Organize theory as an explanatory framework or system of ideas; scientific theory is an important domain model, not the definition of every theory, and everyday proposed explanations remain a separate lower branch."
+    },
+    {
+      "target": "thought",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Past/past participle thought of think belongs to grammatical form identity, not an independent lexical sense; consolidate idea/thinking/consideration branches separately."
+    },
+    {
+      "target": "thoughtful",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Preserve two useful branches: careful/reflective or well-considered, and considerate/caring toward others."
+    },
+    {
+      "target": "terrific",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Modern Core is excellent or very great/intense; historical terrifying meaning is low/dated and must be explicitly contrasted with terrible."
+    }
+  ],
+  "direct_pass_calibration": {
+    "sample_size": 12,
+    "ordinals": [4704,4730,4755,4785,4810,4834,4858,4883,4917,4948,4977,5000],
+    "words": ["sting","strawberry","studio","such","sunshine","surpass","sweep","tag","telegraph","terror","thermometer","thread"],
+    "new_systematic_core_defects": 0,
+    "interpretation": "The calibrated historical Core-direct-pass sample did not expose a new systematic Core failure class. Existing Expansion/Contrast debt on sampled words remains separately governed."
+  },
+  "semantic_mutation_performed": 0,
+  "learner_state_mutation_performed": 0,
+  "stage_conclusion": "R21 audit/target coverage complete, not repaired. K remains BLOCKED. Natural Owner / Relation semantic mutation remains deferred until consolidated repair inventory closure."
+}
