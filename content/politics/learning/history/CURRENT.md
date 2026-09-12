@@ -10,53 +10,68 @@ This file does not own History Source Truth, teaching content, Politics learning
 ## Work Cursor
 
 **Scope:** History whole-subject acceptance  
-**Active / earliest unresolved stage:** `S/K → L/P executable acceptance gates`  
-**Blocker:** Source-root / Suyi review and learner-facing semantic scan are complete as Artifact candidates, and global last-necessary-owner first-ready projection is implemented, but dedicated History content and first-ready assertions have not yet produced accepted execution evidence for this scope  
-**Next action:** execute the History content gate and independent global first-ready parity gate. If they pass, update local `ACCEPTANCE.md` only from executed evidence; if they fail, inspect and repair only concrete red evidence. Keep History R/E frozen until L/P close.
+**Active / earliest unresolved stage:** `R/E executable acceptance`  
+**Closed upstream:** `S/K/L/P PASS` in local `ACCEPTANCE.md`, backed by executed History content + global first-ready gates  
+**Blocker:** no whole-subject History R/E PASS has been executed or recorded; do not infer it from the closed S/K/L/P gates, shared runtime code, file existence, or build status  
+**Next action:** inspect only the current History Runtime/Evidence owner needed to determine whether a dedicated R/E assertion already exists. Execute the smallest applicable R/E gate. If none exists, add only the minimal executable assertion at the real runtime/evidence owner; do not reopen S/K/L/P and do not touch sibling subjects.
 
 ---
 
-## Current candidate boundary
+## Closed upstream boundary
 
-Current Artifact includes:
+Current accepted upstream evidence includes:
 
-- `source-review.json` with Current Source digest binding;
-- completed History semantic scan with five evidence-backed repairs;
-- History content audit consuming the durable Source/Suyi review snapshot;
-- global first-ready derivation from canonical Natural Unit learner order using the last necessary owner for each Xiao1000 question;
-- independent first-ready parity audit;
-- Current runtime cut over to that History global first-ready projection;
-- C04 K03–K07 preserved as one continuous learner segment.
+- Source/Suyi review snapshot consumed by an executed History content gate;
+- whole-subject History semantic/content closure executed successfully;
+- global last-necessary-owner first-ready projection independently checked against canonical/runtime parity;
+- C04 K03–K07 continuity preserved by the executable first-ready gate.
 
-These are Artifact/evidence candidates, not Acceptance PASS by existence alone.
+The first-ready runner previously converted learner-unit objects into `"[object Object]"`; that runner defect was repaired without weakening the semantic rule, after which both History S/K and L/P gates passed on Current.
+
+Do not spend restart context re-reading these closed upstream artifacts unless a new concrete R/E failure points back to them.
+
+---
+
+## Context / execution discipline
+
+For History, audit scripts are **execution targets**, not default reading material.
+
+- run the relevant compact gate first;
+- default gate output must stay compact;
+- inspect a gate script only when that gate is the concrete red owner;
+- use `KIANOS_AUDIT_VERBOSE=1` only when full diagnostics are actually needed;
+- do not read full question-owner maps, full review queues, sibling subject output, or whole Politics CI logs merely to recover state;
+- a later Marxism failure in the shared Politics workflow does not invalidate already-completed History steps.
+
+This is specifically to prevent ordinary Politics continuation from saturating Chat context with diagnostic payload that is not part of the Work Cursor.
 
 ---
 
 ## Frozen / out of scope
 
-During the active History acceptance seal:
+During the active History R/E seal:
 
-- do not call whole History learner-ready from Artifact completeness;
-- do not add or optimize History Runtime/Evidence before L/P close;
+- do not reopen accepted S/K/L/P without new concrete evidence;
+- do not call History learner-ready from Artifact or Acceptance completeness;
 - do not create a second Suyi learner course;
 - do not let Xiao1000 determine first-round learning order;
 - preserve History's chronology / stage / turning-point / cause / evaluation teaching shape;
 - preserve continuous learner Units such as C04 K03–K07;
 - do not modify Marxism / Mao / Xi / Ethics-Law by convenience;
-- do not mutate private learner progress / Wrong-Uncertain / Return Packet state.
+- do not mutate private learner progress / Wrong-Uncertain / Return Packet state;
+- U remains UNTESTED until real named learner-path evidence exists.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active History acceptance seal:
+For ordinary re-entry into the active History R/E seal:
 
 1. `content/politics/learning/history/ACCEPTANCE.md`
-2. `content/politics/learning/history/source-review.json`
-3. `static-web/scripts/audit-politics-history-content.mjs`
-4. `static-web/scripts/audit-politics-history-first-ready.mjs`
 
-Then inspect only the exact failing owner if an executable gate is red.
+Then read only the exact History Runtime/Evidence owner required by the current R/E action or concrete red evidence.
+
+**Do not pre-read** `source-review.json`, History content audit, History first-ready audit, chapter files, question maps, or sibling subjects merely for context recovery; S/K/L/P are already accepted and frozen.
 
 ---
 
@@ -88,9 +103,8 @@ Known scope `Politics History acceptance` should normally recover as:
 ```text
 History CURRENT
 → History ACCEPTANCE
-→ History content / first-ready gate
-→ exact failing owner only if needed
+→ exact R/E owner or compact R/E gate only
 → work
 ```
 
-No Politics-wide Acceptance, retired continuation/history narrative, unrelated subject, legacy repository, or prior Chat is required for ordinary History continuation.
+No Politics-wide Acceptance, closed S/K/L/P audit script, retired continuation/history narrative, unrelated subject, legacy repository, or prior Chat is required for ordinary History continuation.
