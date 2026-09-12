@@ -1,0 +1,55 @@
+name: LexicalOS Historical Round Bulk Triage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tools/lexical_historical_round_bulk_triage.py'
+      - '.github/workflows/lexical-historical-round-triage.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r14-bulk-triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Recover R14 authority and bulk-triage Current
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/lexical_historical_round_bulk_triage.py \
+            --legacy-repo kianwang022-hash/kianos-legacy \
+            --comment-id 5581642619 \
+            --audit-id R14_2601_2900_BULK_TRIAGE \
+            --expected-core 58 \
+            --expected-expansion 140 \
+            --expected-contrast 42 \
+            --output /tmp/r14-bulk-triage.json \
+            --summary /tmp/r14-bulk-triage-summary.md
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/r14-bulk-triage-summary.md ]; then
+            cat /tmp/r14-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## R14 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload triage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-r14-bulk-triage
+          path: |
+            /tmp/r14-bulk-triage.json
+            /tmp/r14-bulk-triage-summary.md
+          if-no-files-found: error
+          retention-days: 14
