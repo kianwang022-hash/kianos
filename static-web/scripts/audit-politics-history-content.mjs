@@ -17,7 +17,7 @@ function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function readJsonl(file) {
   return fs.readFileSync(file, 'utf8').split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
 }
-function asList(value) { return Array.isArray(value) ? value.map(String).filter(Boolean) : (value ? [String(value)] : []); }
+function asList(value) { return Array.isArray(value) ? value.filter(Boolean) : (value ? [value] : []); }
 function uniq(values) { return [...new Set(values.filter(Boolean))]; }
 
 const regionRows = readJsonl(REGIONS).filter((row) => row?.status === 'canonical' && row?.subject === 'HISTORY');
