@@ -57,13 +57,21 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
     const root = document.querySelector('[data-xizong-system-exit]');
     root?.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target : null;
-      if (!target?.closest('[data-complete-recall]')) return;
+      if (!target) return;
+
+      const completingRecall = Boolean(target.closest('[data-complete-recall]'));
+      const startingSweep = Boolean(target.closest('[data-start-sweep]'));
+      if (!completingRecall && !startingSweep) return;
 
       const completed = blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
       if (completed.length < blockIds.length) {
         stop(event);
         const status = root.querySelector('[data-recall-status]');
-        if (status) status.textContent = `System Recall 完成证据需先完成整个系统（${completed.length}/${blockIds.length} Blocks）；此区仍可自由查看。`;
+        if (status) {
+          status.textContent = completingRecall
+            ? `System Recall 完成证据需先完成整个系统（${completed.length}/${blockIds.length} Blocks）；此区仍可自由查看。`
+            : `进入系统真题前需先完成整个系统（${completed.length}/${blockIds.length} Blocks），再做当前版本的 System Recall。`;
+        }
       }
     }, true);
   }
