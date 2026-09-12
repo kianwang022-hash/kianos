@@ -44,14 +44,12 @@ Runner/execution failure before product assertions is not permission to reopen s
 
 ## Required reads
 
-For ordinary continuation of the active seal:
+For ordinary re-entry into the active seal:
 
 1. `content/english/modules/objective/ACCEPTANCE.md`
 2. `.github/workflows/static-web-objective-journey.yml`
-3. `content/english/modules/objective-runtime.md`
-4. `content/english/modules/objective-evidence-runtime.md`
 
-Read task contracts / source owners / implementation only if an executed assertion identifies a concrete defect requiring inspection.
+These two owners are sufficient to know what must execute and what evidence must return. Read `objective-runtime.md`, `objective-evidence-runtime.md`, task contracts, source owners, or implementation only if an executed assertion identifies a concrete defect.
 
 English `continuation.json` is not required for normal Objective continuation under this migrated scope.
 
@@ -86,8 +84,10 @@ Known scope `English Objective` should normally recover as:
 ```text
 Objective CURRENT
 → Objective ACCEPTANCE
-→ current acceptance workflow / exact contract needed by the seal
+→ Objective acceptance workflow
 → work
 ```
+
+Implementation internals are diagnostic reads, not startup reads.
 
 No English-wide continuation/history read is required unless a concrete machine dependency is later proven.
