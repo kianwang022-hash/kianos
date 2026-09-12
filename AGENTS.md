@@ -1,175 +1,251 @@
-# KianOS Current Instructions
+# KianOS Worker Instructions
 
-This repository is the clean Current workspace. Do not reconstruct normal work from `kianos-legacy`, old Issues, old commits, retired releases, compatibility snapshots, or historical runtime code.
+This file owns **how a Chat / Agent / worker should enter and operate inside KianOS**.
 
-## Authority
+It does not own product requirements, architecture, domain cognition, acceptance evidence, or learner progress.
 
-- Source Truth is upstream evidence.
-- Chat owns semantic/content judgments and approves shared learning content.
-- GitHub `main@HEAD` is the single editable and readable shared Current repository state.
-- Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
-- `LEARNING_ASSET_STANDARD.md` defines the repository-wide construction order for formal learning assets. Read it before substantial content/UI/runtime work or when an upstream defect reopens a mature module.
-- `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-surface capabilities for both domain lanes and independently entered learner sub-lanes.
-- `LEARNING_ACCEPTANCE.md` defines the repository-wide S/K/L/P/R/E/U module acceptance gates and the final Global/Home acceptance layer. Read it before declaring a lane/sub-lane closed, Ready, or learner-ready.
-- `BRANCH_LIFECYCLE.md` defines temporary work-branch retirement and automatic branch hygiene. A branch-backed task is not fully closed until its branch is retired or explicitly justified as still ACTIVE.
-- `content/` owns shared learning assets.
-- `static-web/` owns the Astro learner-facing display and interaction runtime.
-- Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
-- `EXECUTION_AUTONOMY != SEMANTIC_AUTHORITY`.
+Authority order for governance questions:
 
-## Formal learning-asset stage discipline
+```text
+PROJECT_DEFINITION.md
+→ ARCHITECTURE.md
+→ repository-wide Standards / Contracts
+→ lane / sub-lane Contracts
+→ canonical Artifact / Acceptance / Learner owners
+→ CURRENT Work Cursor
+→ temporary worker / branch execution
+```
 
-For any formal learning asset, material rebuild, or reopened upstream learning defect, use the construction order in `LEARNING_ASSET_STANDARD.md`:
+For ordinary lane work, do not reread the whole hierarchy. Use the smallest deterministic read path that the task requires.
 
-`Truth / Knowledge Boundary → Learning Logic → Content Realization / Optimization → Projection / Interaction → Runtime Loop → Evidence / Acceptance`
+---
 
-This is a **work-order protocol**, not a substitute for S/K/L/P/R/E/U.
+# 1｜Core operating model
 
-Before substantial work, determine:
+KianOS is designed for replaceable Chats and concurrent lane work.
 
-- the declared learning scope;
-- the earliest unresolved construction stage;
-- the concrete exit condition for that stage;
-- which downstream stages are therefore `FROZEN_PENDING_UPSTREAM`.
+A worker is temporary execution capacity, not project memory.
 
-Hard rules:
+`main@HEAD` is the normal durable shared repository state after accepted work lands. Temporary branches are execution surfaces and do not become truth owners.
 
-- work only on the earliest unresolved stage by default;
-- do not optimize a downstream stage merely because its files/components already exist;
-- existing UI/runtime/evidence schemas must not constrain unresolved Knowledge or Learning Logic;
-- a downstream defect may reopen the earliest responsible upstream stage;
-- when a stage is reopened, freeze affected downstream development, repair upstream first, then re-walk downstream stages in order;
-- preserve mature downstream work provisionally rather than deleting it reflexively, but never use sunk engineering cost as evidence that the upstream model is correct;
-- batching controls review load; it never permits skipping the stage order.
+Normal operation uses current canonical authority only. Historical commits, old repositories, retired branches, migration records, prior implementations, and old Issues are outside the normal reasoning/read set unless the user explicitly authorizes a bounded recovery / rollback / historical comparison / migration task.
 
-Do not turn a causal connection into permission for parallel development. For example, if lexical Knowledge is wrong, do not simultaneously optimize the lexical UI because the future content will eventually project there.
+Missing Current authority fails closed. History is never a silent fallback.
 
-## Normal chain
+---
 
-`Source Truth → Chat semantic/learning judgment → GitHub Current content → Astro display/interaction → learner`
+# 2｜Three Truths + One Cursor
 
-Private browser or device state may support the final interaction step, but it is not a semantic owner and is not part of the shared Current chain.
+Keep these responsibilities separate:
 
-Astro may transform representation and provide interaction. It must not invent, merge, silently repair, or override domain semantics.
+## Artifact Truth
+What source/content/semantic/runtime/product asset actually exists.
 
-## Shared learner-surface baseline
+Read the real canonical owner or implementation. Do not rely on a status summary when the task needs the artifact itself.
 
-Every first-class learner lane and every independently entered learner sub-lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md` **once staged learning-asset development reaches the relevant learner-surface/runtime work**:
+## Acceptance Truth
+What readiness/quality claim is actually supported by evidence.
 
-1. Current;
-2. Continue;
-3. Navigate / Explore;
-4. Repair / Review;
-5. Verify / Challenge / Transfer;
-6. Return / Handoff;
-7. Deferred;
-8. Validation.
+`LEARNING_ACCEPTANCE.md` defines the S/K/L/P/R/E/U standard; it is not itself every module's current evidence ledger.
 
-The capability contract is shared, but domain cognition, error taxonomy, evidence unit, scheduler, and UI shape are not required to be identical.
+## Learner Truth
+What Kian has actually studied, attempted, repaired, transferred, forgotten, deferred, or demonstrated.
 
-Examples of independently entered sub-lanes include English Reading, Cloze, Reading B, Translation, Writing, or any later task/module that receives its own learner runtime. A domain-level home satisfying a capability does not automatically make every sub-lane Ready.
+Private learner state is not shared engineering Current and cannot be inferred from Artifact or Acceptance Truth.
 
-When a lane or independently entered sub-lane is added or materially rebuilt, first apply `LEARNING_ASSET_STANDARD.md`, then audit the relevant shared capabilities and the acceptance gates in `LEARNING_ACCEPTANCE.md` at the proper stage. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+## Work Cursor
+What this worker should do next in the current scope.
 
-Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject or task imitate another merely for frontend consistency.
+The human/Chat-facing Work Cursor is `CURRENT.md` at the relevant independently continued scope.
 
-## Current read boundary
+Hard rule:
 
-`NORMAL_READ_AUTHORITY = main@HEAD only`.
+> **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; CURRENT / Work Cursor cannot manufacture any of them.**
 
-During normal study, review, content editing, engineering, QA, and Astro operation:
+---
 
-- Read only the current `main@HEAD` state of this repository.
-- Do not consult, search, infer from, or use old commits, tags, branches, deleted prior versions, releases, compatibility snapshots, historical Issues, historical runtime, or `kianos-legacy`.
-- If a Current asset is missing, fail closed and surface the missing asset. Never fall back to history or legacy.
-- A historical asset remaining in Git does not participate in Current semantics.
+# 3｜Fresh-Chat entry protocol
 
-Normal study/review is 0 GitHub reads unless the user asks to work with GitHub-backed engineering/content state. When a GitHub read is needed, use the smallest exact Current path required.
+## 3.1 Target scope already known
 
-## Recovery plane
+If the target lane/sub-lane is known and repository governance is already understood in the Chat:
 
-Git history and `kianos-legacy` are recovery/reference only and are outside the normal read authority.
+```text
+target scope CURRENT
+→ exact required owner(s) named by Current
+→ work
+```
 
-Historical access is permitted only when the user explicitly requests recovery, rollback, historical comparison, or historical inspection. Access only the explicitly identified historical object, extract the needed evidence or asset, return any accepted result to Current, and then resume `main@HEAD`-only operation.
+Do not read root Current merely as ritual.
 
-Do not continue using historical material as semantic context after the explicit recovery task ends.
+## 3.2 Target lane known, governance not known
 
-## Migration exception
+Read:
 
-A user-approved migration may temporarily read both:
+1. this `AGENTS.md` only far enough to understand routing/boundaries;
+2. target lane/sub-lane `CURRENT.md`;
+3. only the exact Contract / Artifact / Acceptance / machine owner required by that Work Cursor;
+4. current branch/`main@HEAD` version of exact paths before mutation.
 
-- this repository at current `main@HEAD`; and
-- the explicitly designated legacy snapshot/source.
+## 3.3 Target scope unknown or root-level work
 
-Migration is a bounded exception, not a new normal authority. Knowledge assets may be transferred without semantic re-review when the migration scope says to preserve them. On a path/content conflict, existing/newer Current wins unless the user explicitly directs otherwise. Legacy runtime, private learner state, governance, caches, releases, generated infrastructure, and fallback mechanisms are excluded unless explicitly approved.
+Read root `CURRENT.md` to resolve the active root Work Cursor or lane entrypoint.
 
-When migration closes, the dual-read exception closes with it.
+For genuine governance / architecture work, also read:
 
-## GitHub writes
+- `PROJECT_DEFINITION.md`;
+- `ARCHITECTURE.md`;
+- only the root Standard / Contract relevant to the proposed change.
 
-GitHub is read-only by default. Before any mutation, present the concrete intended scope and obtain explicit user authorization. Authorization is bounded to the approved scope. Destructive cleanup, production deployment, and real private learner-state mutation require separate explicit authorization.
+## 3.4 Continuation is not a mandatory layer
 
-## Branch lifecycle
+Do **not** assume every lane continuation file must be read.
 
-`main@HEAD` is the only durable shared Current branch. Every non-`main` work branch is temporary execution state and must follow `BRANCH_LIFECYCLE.md`.
+A `continuation.*` file is read only when the scope Current names it as an exact required owner and it still has a proven narrow machine/process responsibility.
 
-When branch-backed work is accepted, frozen, merged, superseded, or otherwise moved back to Current, the responsible Chat must complete branch retirement before reporting repository-level closure:
+A continuation must not be treated as a historical narrative, second Work Cursor, Acceptance owner, Artifact owner, or learner-state owner.
 
-1. verify the accepted result exists on current `main@HEAD`;
-2. verify no private learner state or still-needed unreviewed work exists only on the branch;
-3. delete a fully merged branch immediately;
-4. when accepted work reached `main` through squash/cherry-pick/reimplementation, explicitly add the superseded branch to `.github/retired-branches.txt` so Branch Hygiene deletes it;
-5. if unique work is genuinely still active, keep the branch and state why it remains ACTIVE.
+Normal read target:
 
-Do not keep closed branches merely "for backup". Git history is the recovery plane.
+> **known scope → 2–4 precise reads → effective work**
 
-The learner has explicitly authorized repository-wide automatic deletion of branches that are fully merged into `main` and diverged branches explicitly marked retired after Current verification. This standing authorization does not permit deleting an unmerged branch that has not been explicitly retired.
+If routine continuation requires broad repository search or historical reconstruction, surface that as an architecture defect rather than normalizing it.
 
-`.github/workflows/branch-hygiene.yml` is the automatic execution layer. Branch cleanup is part of the task Definition of Done, not optional polish.
+---
 
-## Deferred work
+# 4｜Federated scope routing
 
-KianOS has one repository-wide lightweight parking lot for intentionally postponed work:
+First-class lanes have predictable local Work Cursor entrypoints:
 
-- `DEFERRED.md` defines the rule;
-- GitHub Issue #5, **KianOS Deferred Queue**, stores the live checklist.
+```text
+content/xizong/CURRENT.md
+content/english/CURRENT.md
+content/lexical/CURRENT.md
+content/politics/CURRENT.md
+```
 
-This applies to every current or future KianOS lane and sub-lane, including Xizong, English, Politics, LexicalOS, Astro/runtime, Reading, Cloze, Translation, Writing, and later modules.
+An independently entered/continued sub-lane may have its own `CURRENT.md` only when doing so materially reduces ambiguity/read cost.
 
-When the learner explicitly postpones a concrete item with real future value (`later`, `not now`, `after the mainline`, `keep for future`, or equivalent), record it briefly in Issue #5 so it cannot be lost. Group or prefix by lane when useful. Do not create separate backlog systems per lane unless the learner later asks for one.
+Do not create Current files for every directory.
 
-Do not put ordinary continuation steps, speculative ideas, implementation noise, or private learner state into the Deferred Queue. Active work remains in the relevant Current owner / continuation. When deferred work becomes active again, move it back into the active lane and check the queue item off.
+Root governance defines shared invariants; lanes and sub-lanes add only genuine local differences.
 
-The learner has explicitly authorized this lightweight queue behavior repository-wide. A clear postponement instruction is sufficient authorization to add or update the corresponding Issue #5 checklist entry; do not ask for a second confirmation just to record it. This standing authorization does not permit unrelated GitHub mutations.
+---
 
-Rule of thumb: **if postponing it could make us accidentally lose it later, park it in Issue #5.**
+# 5｜Single-owner and inheritance rules
 
-## Content rules
+Use one owner per responsibility.
 
-- Each semantic knowledge object has one canonical Current owner/path.
-- Update the canonical owner in place rather than keeping parallel `v1` / `v2` / `final2` Current copies merely as version history. Git history preserves prior states.
-- Preserve stable object identities and provenance where present.
-- Do not create a second semantic owner in UI, generated files, releases, caches, compatibility layers, or runtime status tables.
-- Runtime readiness should be derived from actual Current assets and validation, not duplicated manual migration-state declarations.
-- Deleting a Current owner removes it from Current authority; its continued existence in Git history does not authorize reuse.
-- Exam content must preserve supplied/original passage, questions, options, and official answers as factual authority.
-- LexicalOS uses L0-first governance for simple words while preserving true polysemy, familiar-new senses, high-value phrases/constructions/contrasts/confusables.
-- Different English modules have different learning objects; do not reduce every error to vocabulary.
-- Shared Current may define interaction semantics and learning contracts, but never store one learner's private answers, progress, notes, or history as shared content.
-- Content work must obey the active construction stage: unresolved Truth/Knowledge must not be shaped to fit existing page structure, runtime enums, test templates, or scheduler assumptions.
+Repository-wide owners include:
 
-## Runtime boundary
+- `PROJECT_DEFINITION.md` — project purpose, requirements, invariants, non-goals, success tests;
+- `ARCHITECTURE.md` — owner hierarchy, Three Truths + One Cursor, Current/continuation/concurrency structure;
+- `LEARNING_ASSET_STANDARD.md` — formal learning-asset construction order;
+- `LEARNING_ACCEPTANCE.md` — S/K/L/P/R/E/U readiness standard;
+- `SYSTEM_CONTRACT.md` — shared mature learner-surface capabilities;
+- `BRANCH_LIFECYCLE.md` — temporary branch landing/retirement mechanics;
+- `DEFERRED.md` — intentionally postponed repository work.
 
-Astro reads Current assets only. It may parse, validate, sort, project, render, and execute interaction flows defined by Current learning semantics, but it must not:
+Lane/sub-lane Contracts reference inherited root rules and contain only genuine cognition/behavior differences.
 
-- read Git history, tags, branches, or legacy;
-- silently substitute a historical/deleted asset;
-- maintain a second semantic truth;
-- invent or repair missing domain content;
-- promote private learner state into shared Current content.
+Do not copy root rules into every lane. Do not copy Artifact/Acceptance/Learner Truth into Current.
 
-Missing or invalid Current dependencies must fail closed.
+---
 
-## Legacy boundary
+# 6｜Learning-asset work
 
-`kianos-legacy` is frozen recovery/reference. It is not a dependency, continuation authority, semantic fallback, build input, or governance source for this repository.
+For substantial formal learning-asset work, first resolve the active construction stage under `LEARNING_ASSET_STANDARD.md`:
+
+```text
+Truth / Knowledge Boundary
+→ Learning Logic
+→ Content Realization / Optimization
+→ Projection / Interaction
+→ Runtime Loop
+→ Evidence / Acceptance
+```
+
+Only the earliest unresolved stage is ACTIVE by default. A downstream defect may reopen the earliest responsible upstream stage; affected downstream work then freezes.
+
+Construction order is not the S/K/L/P/R/E/U acceptance framework.
+
+Never use content volume, page existence, build success, or runtime maturity as a substitute for learning closure.
+
+---
+
+# 7｜Learner-state boundary
+
+Shared repository construction answers:
+
+> What exists / what is accepted / what are we building next?
+
+Learner Truth answers:
+
+> What has Kian actually learned or done?
+
+Never infer the second from the first.
+
+Examples:
+
+- Runtime supports System Recall ≠ Kian should perform System Recall now.
+- Module ready for learner test ≠ Kian has learned the module.
+- Work Cursor says `validate transfer` ≠ learner transfer has occurred.
+
+When real learner action is required, derive it from actual learner evidence/private learner state/conversation context, not engineering position.
+
+---
+
+# 8｜Minimal-write and concurrency rule
+
+Ordinary work writes only within the authorized scope.
+
+Lane/sub-lane work should normally modify only:
+
+- the active scope's canonical Artifact owner(s);
+- its local Acceptance owner when evidence changes;
+- its local Work Cursor when next action changes;
+- exact runtime paths inside the authorized scope.
+
+Do not update root governance or root `CURRENT.md` merely to record lane progress.
+
+`main` advancing for unrelated work does not invalidate another branch by itself. Reconcile when write-sets overlap, authority changed, or an inherited parent rule materially changed.
+
+Follow `BRANCH_LIFECYCLE.md` for branch landing/retirement.
+
+---
+
+# 9｜Scope containment
+
+A worker stays inside the authorized scope.
+
+A cross-scope defect may be:
+
+- reported;
+- recorded in the appropriate owner/Deferred mechanism when authorized;
+- used to block and escalate the current task.
+
+It is not automatic permission to repair unrelated siblings/downstream layers.
+
+For staged learning-asset work, continue to obey the earliest unresolved stage.
+
+---
+
+# 10｜Compact operating rule
+
+Before substantial GitHub-backed work, determine internally:
+
+```text
+scope
+CURRENT / Work Cursor entry
+active / earliest unresolved stage
+exact required reads
+Artifact owner(s)
+Acceptance owner when relevant
+Learner Truth boundary
+exact intended write-set
+branch base/current SHA
+```
+
+Then do the smallest correct work.
+
+KianOS should make each fresh Chat faster to restart, not require it to relearn how the repository became what it is.
