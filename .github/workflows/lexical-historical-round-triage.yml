@@ -8,6 +8,7 @@ on:
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
       - 'tools/lexical_historical_round_owner_surfaces.py'
+      - 'tools/lexical_historical_round_compound_surfaces.py'
       - 'content/lexical/audit/migration-integrity/r26-execution-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
@@ -25,7 +26,7 @@ jobs:
       - name: Read compact R26 authority and bulk-triage Current
         shell: bash
         run: |
-          python tools/lexical_historical_round_owner_surfaces.py \
+          python tools/lexical_historical_round_compound_surfaces.py \
             content/lexical/audit/migration-integrity/r26-execution-authority.md \
             --legacy-repo kianwang022-hash/kianos-legacy \
             --comment-id 5588514721 \
