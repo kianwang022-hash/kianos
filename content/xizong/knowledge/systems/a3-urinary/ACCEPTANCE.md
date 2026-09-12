@@ -18,14 +18,14 @@ S  PASS — CURRENT_RECONSTRUCTION
 K  PASS
 L  PASS
 P  PASS
-R  UNTESTED
+R  PASS
 E  UNTESTED
 U  UNTESTED by every real learner path
 ```
 
 Current allowed conclusion:
 
-> **A3 Source, System-level Knowledge, first-learning path and learner Projection are accepted for the recorded scope. A3 is now honestly projectable as a 14-Block learner surface while preserving original Lecture/MarginNote as the primary continuous source surface. Runtime semantics, evidence behavior and real User Validation remain unaccepted.**
+> **A3 Source, System-level Knowledge, first-learning path, learner Projection and executable Runtime are accepted for the recorded scope. The Runtime can carry the approved Lecture-first path from Block learning through Recall, System questions and reviewed-only repair without manufacturing progress or letting stale System evidence survive changed Current content. Evidence semantics and real User Validation remain unaccepted.**
 
 ---
 
@@ -41,7 +41,8 @@ Current allowed conclusion:
 - Detailed shared study policy → `content/xizong/knowledge/learner/study-policy.json`.
 - A3 first-pass attention / Logic-Group closure / Block Recall support → `content/xizong/knowledge/learner/a3-urinary-learning.json`.
 - B5 narrow supplemental Source boundary → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`.
-- Projection/runtime code → `static-web/`.
+- Projection / Runtime → `static-web/`.
+- A3 Runtime acceptance probe → `static-web/scripts/validate-xizong-a3-runtime.mjs`.
 - Historical System Guide is transitional/reference evidence only, not a competing Current owner.
 
 ---
@@ -60,7 +61,7 @@ Accepted invariants:
 - every selected ID resolves from Current Question Truth;
 - zero unresolved membership ambiguities and zero delta from the recovered reviewed candidate;
 - System membership does not invent Question→Block / Logic Group / KP relations;
-- no claim that unavailable historical HLK raw bytes were freshly re-hashed.
+- unavailable historical HLK raw bytes are not falsely claimed as freshly re-hashed.
 
 Validation evidence: GitHub Actions run `34713324100` passed A1 learner contract, A3 owner/inventory, A3 Current Question Truth resolution, A3 boundary/provenance, A2 runtime regressions and Astro build.
 
@@ -136,38 +137,80 @@ Accepted projection owners:
 - projection text filter → `static-web/src/lib/xizongProjection.mjs`;
 - System page → `static-web/src/pages/xizong/[system]/index.astro` + `XizongSystemV6.astro`;
 - Block page → `static-web/src/pages/xizong/[system]/[block].astro` + `XizongBlockV6.astro`;
-- explicit original-Lecture handoff / local companion state → `XizongStudyEnhancer.astro`;
+- original-Lecture handoff / local companion state → `XizongStudyEnhancer.astro`;
 - later official-question sweep → `static-web/src/lib/xizongQuestions.mjs` + System Exit components.
 
-Acceptance basis:
+Accepted behavior:
 
-1. **System projection foregrounds the accepted System model rather than a teacher-order textbook:** Mother Model, causal spine, parallel controls, core variables/relations, judgment axes, Failure Modes and the B1→B14 route are primary. First-pass compact System Recall is hidden; System Recall + official questions remain in a collapsed later-stage System Exit.
-2. **Block projection foregrounds attention and continuity:** current Block focus, stop-line and Logic Group goal/closure are primary. Full Block orientation, complete web Core and visual/reference material are subordinate/expand-on-demand rather than the default reading surface.
-3. **The primary Lecture surface is visible and honest:** the learner dock explicitly says `iPad / MarginNote · 原讲义定位`; the completion contact refers to the original Lecture, while web Core is described as need-based reference.
-4. **Lecture-attached questions stay external-primary:** the Block surface tells the learner to do companion questions in the original Lecture and does not fabricate bindings.
-5. **Recall does not leak answers by default:** KP Recall requires reveal before Core is shown; Block Recall asks for reconstruction before optional spine/group checks.
-6. **Later System questions remain downstream:** the System page labels them as a later stage after System learning + System Recall. The sweep loads the accepted 243-question scope directly from Current Question Truth. Missing/unreviewed fine-grained relations remain null; Projection does not require or fabricate Question→Block/KP mappings.
-7. **A3 filename shape is supported without asset duplication:** the shared loader resolves both `BlockN_...md` and prefixed `..._BlockN_...md` files, so canonical A3 medical assets do not need copied or renamed mirrors.
-8. **Acceptance Truth remains the projection gate:** scoped `P PASS` decides projectability. A System-specific learning-support lifecycle label is not a second P gate; the loader still requires Chat-approved learning-support identity and complete Block/Logic-Group coverage.
-9. **A1/A2 remain intact:** the shared fixes broaden accepted input handling but do not bypass their P gate, alter their medical Core or infer learner state.
-10. **P does not claim Runtime closure:** exact state transitions, stage ordering, persistence semantics, event evidence and completion guards remain R work. Existing KP-Recall timing is therefore not treated as accepted merely because the pages render.
+- System projection foregrounds Mother Model, variables/relations, judgment axes, Failure Modes and B1→B14 route rather than reproducing a second textbook;
+- Block projection foregrounds focus / stop-line / Logic Group continuity, while full web Core remains need-based reference;
+- the learner dock explicitly points to `iPad / MarginNote · 原讲义定位`;
+- Lecture-attached questions stay external-primary;
+- first-pass compact System Recall stays hidden and the later System Recall + official-question workspace stays downstream/collapsed;
+- the 243-question sweep loads Current Question Truth directly and does not fabricate missing Question→Block/KP relations;
+- the shared loader supports canonical A3 prefixed `..._BlockN_...md` files without duplicate assets;
+- scoped `P PASS` is the projectability gate; learning-support lifecycle labels do not become a second P gate.
 
-Validation evidence: PR #44 candidate head `e77ed7aaf60e685204baf144aa023b4d9ca55cf3`, GitHub Actions run `34717668942` (#172) completed successfully with:
+Validation evidence:
 
-- `Validate A1 learner contract` → PASS;
-- `Validate A3 owner and inventory` → PASS;
-- `Validate A3 Current Question Truth resolution` → PASS;
-- `Validate A3 boundary and provenance` → PASS;
-- `Validate A2 runtime contracts` → PASS;
-- `Build Astro` → PASS while A3 was actually in the projectable set.
-
-Because `getStaticPaths()` expands every projectable System into its complete Block route, that successful build verifies the A3 System projection and all 14 accepted A3 Block projections against the Current loader/parser contract.
+- run `34717668942` (#172) passed all A1/A2/A3 validators + Astro build while A3 was actually projectable;
+- final P head run `34717759514` (#174) passed again after formal `P PASS` and cursor move to R.
 
 ---
 
-## R / E / U — UNTESTED
+## R — PASS
 
-`R` is now the earliest unresolved eligible gate. E/U remain downstream-frozen.
+Accepted Runtime owners include:
+
+- `static-web/src/components/XizongBlockV6.astro`;
+- `static-web/src/components/XizongStudyEnhancer.astro`;
+- `static-web/src/components/XizongRuntimeStageGuard.astro`;
+- `static-web/src/components/XizongBlockEvidenceGuard.astro`;
+- `static-web/src/components/XizongSystemExitRuntime.astro`;
+- `static-web/src/components/XizongSystemRepairReturn.astro`;
+- `static-web/src/components/XizongSystemEvidenceGuard.astro`;
+- `static-web/src/components/XizongMemoryReviewV6.astro`;
+- `static-web/src/components/XizongLastLocation.astro`;
+- `static-web/scripts/validate-xizong-a3-runtime.mjs`.
+
+Runtime acceptance basis:
+
+1. **Local state is honest and resumable:** each Block persists its stage / Logic Group / KP / learned / Recall / Block Recall / completed state in browser-local state, while `XizongLastLocation` preserves the last learner location. No claim is made that this is cross-device or server-synced progress.
+2. **External Lecture contact remains explicit rather than inferred:** Runtime cannot observe MarginNote directly. The learner explicitly confirms the original Lecture round; final Block completion remains blocked until that confirmation and the accepted Core gates are present.
+3. **KP Recall cannot manufacture learning:** a KP rating is rejected unless that KP has already recorded formal learning contact. Free navigation remains available; only evidence-producing actions are gated.
+4. **Block completion preserves the accepted first-pass contract:** all KPs must have learning contact and first Recall, Block Recall must be completed, and original-Lecture contact must be confirmed before the Block can close.
+5. **System Recall cannot manufacture a learned System:** recording System Recall completion requires all 14 accepted Blocks to be completed. The System area may still be freely viewed before then.
+6. **System question entry has two independent prerequisite layers:** `XizongSystemExitRuntime` requires a completed System Recall + learner-selected whole-paper holdout, while `XizongRuntimeStageGuard` directly re-checks 14/14 Block completion when the sweep is started.
+7. **Stale System evidence is now version-safe:** the System evidence version includes the Current System hash, A3 learning-support hash, a deterministic hash of every projected Block id/path/source content, question scope/inventory hashes and question explanation/relation evidence. Any relevant Current content change archives and invalidates old System Recall, sweep, repair state and question-derived Block review plans before continuing.
+8. **Block evidence remains version-safe:** Block source / System source / learning-support changes archive stale local Block evidence rather than silently treating it as Current.
+9. **Stable correct question work has a clean path:** stable correct answers can continue without manufactured repair or review debt; W/U alone enter the repair handoff.
+10. **Repair return is executable and bounded:** imported Chat plans are restricted to actual current W/U question IDs; precise repair tasks are emitted only where reviewed relations provide Block + primary KP identity; missing mappings remain missing rather than guessed.
+11. **Repair evidence does not overwrite mastery:** returned Chat repair tasks are recorded as `CHAT_PLAN_REVIEW` / `REPAIR_ONLY`, preserving original first-pass Recall evidence.
+12. **Runtime state remains Learner Truth/evidence:** no browser action mutates medical Core, Acceptance Truth or Source ownership, and R PASS does not infer that Kian has actually started A3.
+
+A real R defect was closed during this audit:
+
+> Before R acceptance, a Block source update could reset the Block locally while an older System Recall/sweep remained current because System evidence versioning did not include Block contents. System evidence now versions all projected Block contents and the System learning-support owner, and the sweep action also directly re-checks whole-System completion.
+
+Durable validation was added to the normal Xizong QA:
+
+`static-web/scripts/validate-xizong-a3-runtime.mjs`
+
+It loads and validates the Current A3 Runtime surface as **14 Blocks / 257 KPs / 75 Logic Groups / 243 official questions** and asserts the Lecture, KP/Block/System Recall, sweep, version-invalidation, W/U repair and resume contracts above.
+
+Validation evidence: PR #45 branch head `f79957276c7682c424b880c419f3b53188e7bf12`, GitHub Actions run `34718165223` (#176) passed:
+
+- `Validate A1 learner contract` → PASS;
+- all three A3 Source validators → PASS;
+- `Validate A2 runtime contracts` → PASS;
+- **`Validate A3 runtime contracts` → PASS**;
+- `Build Astro` → PASS.
+
+---
+
+## E / U — UNTESTED
+
+`E` is now the earliest unresolved eligible gate. U remains real-learner-only and downstream-frozen.
 
 Do not infer that Kian has started Urinary.
 
@@ -184,7 +227,7 @@ Do not infer that Kian has started Urinary.
 - shared study policy → `content/xizong/knowledge/learner/study-policy.json`
 - A3 learning support → `content/xizong/knowledge/learner/a3-urinary-learning.json`
 - B5 external Source contract → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`
-- Projection/Runtime code → `static-web/`
+- Projection / Runtime / evidence mechanics → `static-web/`
 - Current Question Truth → `content/xizong/questions/`
 
 ### Acceptance Truth
