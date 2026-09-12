@@ -59,18 +59,46 @@ if (!instrumented.includes(serverTarget) || !instrumented.includes(cleanupTarget
 }
 instrumented = instrumented.replace(serverTarget, serverReplacement).replace(cleanupTarget, cleanupReplacement);
 
-const batch = String(process.env.OBJECTIVE_JOURNEY_BATCH || 'all').trim().toLowerCase();
-if (batch === 'shared') {
-  const allJourneyTarget = [
-    '  await chromiumJourney();',
-    "  await readingAAndBSmoke(chromium, 'chromium-smoke');",
-    "  await readingAAndBSmoke(webkit, 'webkit');"
-  ].join('\n');
-  if (!instrumented.includes(allJourneyTarget)) {
-    console.error('OBJECTIVE_ACCEPTANCE_SHARED_BATCH_TARGET_MISSING');
+const smokeNavigationTargets = [
+  [
+    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[0])}/`);",
+    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[0])}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
+  ],
+  [
+    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`);",
+    "  await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-local-port=\"reading\"]').waitFor({ state: 'visible' });"
+  ],
+  [
+    "  await page.goto(`${BASE}/reading-b/${encodeURIComponent(readingB.objectId)}/`);",
+    "  await page.goto(`${BASE}/reading-b/${encodeURIComponent(readingB.objectId)}/`, { waitUntil: 'domcontentloaded' });\n  await page.locator('[data-objective-root]').waitFor({ state: 'visible' });"
+  ]
+];
+for (const [navigationTarget, navigationReplacement] of smokeNavigationTargets) {
+  if (!instrumented.includes(navigationTarget)) {
+    console.error('OBJECTIVE_ACCEPTANCE_TASK_SMOKE_NAVIGATION_TARGET_MISSING');
     process.exit(1);
   }
-  instrumented = instrumented.replace(allJourneyTarget, '  await chromiumJourney();');
+  instrumented = instrumented.replace(navigationTarget, navigationReplacement);
+}
+
+const batch = String(process.env.OBJECTIVE_JOURNEY_BATCH || 'all').trim().toLowerCase();
+const allJourneyTarget = [
+  '  await chromiumJourney();',
+  "  await readingAAndBSmoke(chromium, 'chromium-smoke');",
+  "  await readingAAndBSmoke(webkit, 'webkit');"
+].join('\n');
+if (['shared', 'task-smoke'].includes(batch)) {
+  if (!instrumented.includes(allJourneyTarget)) {
+    console.error('OBJECTIVE_ACCEPTANCE_BATCH_TARGET_MISSING');
+    process.exit(1);
+  }
+  const batchReplacement = batch === 'shared'
+    ? '  await chromiumJourney();'
+    : [
+        "  await readingAAndBSmoke(chromium, 'chromium-smoke');",
+        "  await readingAAndBSmoke(webkit, 'webkit');"
+      ].join('\n');
+  instrumented = instrumented.replace(allJourneyTarget, batchReplacement);
 }
 
 fs.writeFileSync(instrumentedPath, instrumented);
