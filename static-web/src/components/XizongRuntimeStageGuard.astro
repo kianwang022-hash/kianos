@@ -1,0 +1,70 @@
+---
+const { system, block = null } = Astro.props;
+const blockId = block?.blockId || '';
+const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean);
+---
+<span data-xizong-runtime-stage-guard hidden></span>
+
+<script define:vars={{ blockId, blockIds }}>
+  const readBlockState = (id) => {
+    if (!id) return {};
+    try {
+      return JSON.parse(localStorage.getItem(`kianos-xizong-astro-v2:xizong:${id}`) || 'null') || {};
+    } catch {
+      return {};
+    }
+  };
+
+  const stop = (event) => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  };
+
+  // Free navigation is preserved. This guard only prevents a later-stage action
+  // from manufacturing evidence before its prerequisite learning actually exists.
+  if (blockId) {
+    const root = document.querySelector('[data-xizong-v6-block]');
+    root?.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+
+      const rating = target.closest('[data-rating]');
+      if (rating) {
+        const kpId = rating.closest('[data-kp-id]')?.getAttribute('data-kp-id') || '';
+        const state = readBlockState(blockId);
+        if (kpId && !state?.learned?.[kpId]) {
+          stop(event);
+          const status = root.querySelector('[data-study-local-status]');
+          if (status) status.textContent = '先完成这个 KP 的正式学习，再记录 Recall';
+          return;
+        }
+      }
+
+      const blockRecallDone = target.closest('[data-block-recall-complete]');
+      if (blockRecallDone) {
+        const state = readBlockState(blockId);
+        const total = root.querySelectorAll('[data-kp-recall-card]').length;
+        const learned = Object.values(state?.learned || {}).filter(Boolean).length;
+        const recalled = Object.keys(state?.ratings || {}).length;
+        if (!total || learned < total || recalled < total) {
+          stop(event);
+          const status = root.querySelector('[data-study-local-status]');
+          if (status) status.textContent = `Block Recall 完成证据需先走完 KP Learn + Recall（${learned}/${total} · ${recalled}/${total}）`;
+        }
+      }
+    }, true);
+  } else if (blockIds.length) {
+    const root = document.querySelector('[data-xizong-system-exit]');
+    root?.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target?.closest('[data-complete-recall]')) return;
+
+      const completed = blockIds.filter((id) => Boolean(readBlockState(id)?.completed));
+      if (completed.length < blockIds.length) {
+        stop(event);
+        const status = root.querySelector('[data-recall-status]');
+        if (status) status.textContent = `System Recall 完成证据需先完成整个系统（${completed.length}/${blockIds.length} Blocks）；此区仍可自由查看。`;
+      }
+    }, true);
+  }
+</script>
