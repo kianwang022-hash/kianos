@@ -15,12 +15,25 @@ def parse_owner_group_expansion_with_compounds(body: str):
     # grouped immediately after the list. That transport note is metadata, not
     # part of the last learner surface. Normalize it away before the generic
     # parser reads the semantic target block.
+    #
+    # Preserve the grouping signal separately: comma-grouped rounds (for
+    # example R28) must still tell the generic owner-surface parser to split on
+    # commas after the metadata line itself has been removed from the captured
+    # learner-surface blob.
+    grouping_match = re.search(
+        r"\n\n(Surface grouping:[^\n]*)\n(?=\n### Contrast Gate)",
+        body,
+        flags=re.I,
+    )
     body_for_expansion = re.sub(
         r"\n\nSurface grouping:[^\n]*\n(?=\n### Contrast Gate)",
         "\n\n",
         body,
         flags=re.I,
     )
+    if grouping_match and "comma-or-semicolon" in grouping_match.group(1).lower():
+        body_for_expansion = "Surface grouping: comma-or-semicolon.\n" + body_for_expansion
+
     rows = ORIGINAL_PARSE_OWNER_GROUP_EXPANSION(body_for_expansion)
     if not rows:
         return rows
