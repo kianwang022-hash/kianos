@@ -1,0 +1,185 @@
+{
+  "schema": "kianos.xizong.block_semantic_audit.v1",
+  "status": "IN_PROGRESS_NOT_PASSED",
+  "authority": "CHAT_REVIEWED_WITH_SOURCE_REVALIDATION_AND_EXTERNAL_MEDICAL_ADJUDICATION",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-04",
+  "scope": ["urinary-b12", "urinary-b13", "urinary-b14"],
+  "scope_rule": "Preserve 306 exam-recognition facts and stable spatial/mechanistic models, but do not promote source-local procedure tables, old tumour terminology, historical staging shortcuts or trauma operation tables into unconditional Current clinical truth. External guidelines adjudicate only concrete conflicts/overabsolute rules; they do not expand the first-pass Core into a urology textbook.",
+  "source_review": {
+    "primary": [
+      "外科学讲义_AI阅读版.md｜泌外感染和肿瘤 / 泌外梗阻和外伤",
+      "27 外科跟课合集改.pdf｜source-local assets referenced by the AI-reading layer",
+      "27精编生理合集【带导图】.pdf｜voiding reflex recall only"
+    ],
+    "source_routing_note": "Historical fields such as source_pdf_page_start=129 and visual labels surgery-p129 are source-local/IMAGE_PAGES identifiers from the source-preprocessing layer, not physical page numbers in the current merged PDF. Directly reading physical pages 129-139 of the merged PDF lands in unrelated hand/orthopaedic content. The canonical source route must therefore name source-local asset ids explicitly and must not claim those numbers are current merged-PDF physical pages.",
+    "external_adjudication": [
+      "EAU Urolithiasis 2026: infected obstructed system/anuria requires urgent decompression; definitive stone treatment follows after sepsis control; active procedure selection depends on location, size, composition and patient/anatomic factors rather than one universal size-only table.",
+      "EAU Male LUTS/BPO 2026: TURP is a standard option around 30-80 mL; enucleation is an alternative across gland sizes and large-gland options depend on technique/expertise. A single >=80 mL threshold is useful exam Precision, not a universal operation switch.",
+      "EAU NMIBC 2026: Ta = non-invasive papillary carcinoma; Tis = carcinoma in situ/flat HG lesion; T1 invades subepithelial connective tissue.",
+      "EAU bladder cancer 2026: cystoscopy/TURBT supplies diagnosis/pathology; MRI is a local-staging tool in selected pathways rather than a universal 'best diagnostic test'.",
+      "EAU RCC 2026: contrast-enhanced CT is central to diagnosis/staging; renal tumour biopsy is selective and is not necessary when surgery is planned regardless of biopsy result.",
+      "EAU UTUC 2026: CT urography + cytology form the main diagnostic layer; diagnostic ureteroscopy/biopsy is used when imaging/cytology are insufficient or for risk stratification, not as a universal standalone gold standard.",
+      "EAU Prostate Cancer 2026: suspicion uses PSA/DRE with pre-biopsy MRI and risk-adapted biopsy/staging; bone imaging is risk/symptom dependent and PSMA PET/CT may supersede classical bone scan in higher-risk staging. Treatment is risk/stage/fitness based rather than simply 'within capsule surgery / beyond capsule ADT'.",
+      "EAU Urological Trauma 2026: RUG is a standard early test for male urethral injury; uncomplicated blunt extraperitoneal bladder rupture is generally managed with continuous bladder drainage, while blunt intraperitoneal rupture requires surgical repair; haemodynamic stability drives renal-trauma CT/nonoperative management, and persistent instability drives exploration.",
+      "EAU Urological Infections/GUTB current guidance: six-month daily anti-TB regimen is standard for newly diagnosed GUTB; surgery is individualized by location, extent and damage rather than historical fixed-duration failure rules alone."
+    ]
+  },
+  "findings": [
+    {
+      "id": "A3-B12-SC01",
+      "block_id": "urinary-b12",
+      "kp_ids": ["urinary-b12-kp13", "urinary-b12-kp14", "urinary-b12-kp15"],
+      "type": "SOURCE_SPECIFIC_PROCEDURE_MATRIX_OVERABSOLUTE",
+      "severity": "K_BLOCKER_FOR_UNCONDITIONAL_CURRENT_RULE",
+      "historical_state": "The source maps <0.6 cm / 0.6-2 cm / >2 cm and location directly to medication, ESWL, URS, PCNL or laparoscopic/open extraction as a compact exam table.",
+      "adjudication": "Preserve the full matrix as 306 Precision/MI-D. Current Core is: first identify infected obstruction/anuria/renal-function threat and decompress when needed; for stable stones, procedure choice depends on size + location + composition/density + anatomy + patient factors. >2 cm renal stone -> PCNL remains a strong stable anchor, but the entire table is not a universal decision function.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B12-SC02",
+      "block_id": "urinary-b12",
+      "kp_id": "urinary-b12-kp06",
+      "type": "OVERABSOLUTE_DRUG_PROHIBITION",
+      "severity": "NONBLOCKING_IF_SOURCE_BOUNDED",
+      "historical_state": "The Lecture states CCB is contraindicated in BPH because detrusor contraction uses calcium.",
+      "adjudication": "Retain 'CCB禁用' only as a named historical exam-source item. Do not teach calcium-channel blockers as a general formal contraindication of BPH/LUTS in Current Core. The stable BPH drug owner remains alpha1-blockade and 5-alpha-reductase inhibition plus symptom/size/risk-based management.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B12-BOUNDARY01",
+      "block_id": "urinary-b12",
+      "kp_ids": ["urinary-b12-kp05", "urinary-b12-kp07", "urinary-b12-kp12"],
+      "type": "EXAM_TEST_AND_THRESHOLD_CONTEXT",
+      "severity": "NONBLOCKING_IF_BOUNDED",
+      "historical_state": "DRE/B-mode ultrasound 'first-choice' language, EEP >=80 mL and stone B-mode-US -> CT are presented as global fixed hierarchies.",
+      "adjudication": "Keep the 306 recognition hierarchy and numeric threshold as Precision. Current learner logic should distinguish bedside exam, symptom/volume assessment, acute-flank-pain imaging, anatomic imaging and procedure selection; no single old 'first/best' label should own every context.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B12-CHECK01",
+      "block_id": "urinary-b12",
+      "type": "CURRENT_CORE_CONFIRMED",
+      "severity": "NONE",
+      "historical_state": "Infection plus obstruction, bilateral/solitary-kidney obstruction, anuria or significant renal dysfunction are treated as decompression-first situations.",
+      "adjudication": "Preserve and foreground. This is the stable first-pass decision spine and is more durable than memorising the source procedure matrix.",
+      "status": "PRESERVE"
+    },
+    {
+      "id": "A3-B12-BOUNDARY02",
+      "block_id": "urinary-b12",
+      "kp_id": "urinary-b12-kp12",
+      "type": "COMPLICATION_SEVERITY_EXAM_PHRASE",
+      "severity": "NONBLOCKING_IF_BOUNDED",
+      "historical_state": "The source labels 'canceration' as the most severe stone complication.",
+      "adjudication": "Retain as source-specific exam wording if required by attached questions, but do not make it the Current universal emergency/severity hierarchy. Infected obstruction, anuria and threatened renal function are the immediate clinical danger axis.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-SR01",
+      "block_id": "urinary-b13",
+      "type": "SOURCE_LOCATOR_METADATA_BUG",
+      "severity": "SOURCE_INTEGRITY_BLOCKER_UNTIL_RELABELED",
+      "historical_state": "Frontmatter source_pdf_page_start/end and Visual Gate labels use 129-133 as if they were current merged-PDF physical pages.",
+      "adjudication": "Relabel these as source-local/IMAGE_PAGES asset identifiers. Do not claim physical-page review from those numbers. Visual truth remains available through the AI-source asset routing, but pixel-level verification must be stated only when images are actually rendered.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-SC01",
+      "block_id": "urinary-b13",
+      "kp_id": "urinary-b13-kp12",
+      "type": "BLADDER_STAGE_FACTUAL_ERROR",
+      "severity": "K_BLOCKER",
+      "historical_state": "Ta is described as non-invasive papillary carcinoma but then grouped as '原位癌'.",
+      "adjudication": "Correct: Ta = non-invasive papillary carcinoma; Tis = carcinoma in situ (flat high-grade lesion); T1 = lamina propria/subepithelial connective tissue invasion. Ta/T1/Tis are NMIBC for therapeutic grouping, but Ta is not CIS.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-TERM01",
+      "block_id": "urinary-b13",
+      "kp_ids": ["urinary-b13-kp10", "urinary-b13-kp11", "urinary-b13-kp12"],
+      "type": "HISTORICAL_TERMINOLOGY_BOUNDARY",
+      "severity": "NONBLOCKING_IF_BOUNDED",
+      "historical_state": "Upper-tract and bladder tumours are labelled '移行细胞癌'.",
+      "adjudication": "Preserve 移行细胞癌 as the 306 historical synonym, but Current terminology is urothelial carcinoma/尿路上皮癌. Do not make the old name a separate disease entity.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-SC02",
+      "block_id": "urinary-b13",
+      "kp_ids": ["urinary-b13-kp08", "urinary-b13-kp10", "urinary-b13-kp11", "urinary-b13-kp15", "urinary-b13-kp16"],
+      "type": "DIAGNOSTIC_TEST_HIERARCHY_OVERABSOLUTE",
+      "severity": "K_BLOCKER_FOR_CURRENT_DIAGNOSTIC_RULE",
+      "historical_state": "The Block encodes fixed 'first/best/gold standard' labels: renal cancer puncture, UTUC ureteroscopy biopsy, bladder/prostate MRI best, etc.",
+      "adjudication": "Context-gate the tests. RCC: multiphasic contrast CT is the main diagnosis/staging tool; biopsy is selective and not required when surgery is planned. UTUC: CTU + cytology are core; URS/biopsy is added when needed for diagnosis/risk stratification. Bladder: cystoscopy/TURBT/pathology is diagnostic; MRI is a local-staging tool. Prostate: PSA/DRE suspicion -> pre-biopsy MRI/risk-adapted biopsy; imaging for metastasis depends risk/symptoms.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-SC03",
+      "block_id": "urinary-b13",
+      "kp_ids": ["urinary-b13-kp13", "urinary-b13-kp14", "urinary-b13-kp15"],
+      "type": "PROSTATE_CANCER_LEGACY_BINARY_MODEL",
+      "severity": "K_BLOCKER_FOR_CURRENT_CLINICAL_RULE",
+      "historical_state": "The source compresses prostate cancer to DRE + PSA/acid phosphatase, bone-scan first, localised -> prostatectomy, outside prostate -> antiandrogen + castration.",
+      "adjudication": "Keep DRE, PSA, acid phosphatase and classical bone scan as 306 Precision where tested. Current Core must say risk/stage/grade, life expectancy and modern staging determine active surveillance, surgery, radiotherapy and systemic/ADT combinations; MRI is pre-biopsy/local staging and PSMA PET/CT is preferred when available for appropriate higher-risk staging. Do not teach capsule breach as the sole treatment switch.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B13-SC04",
+      "block_id": "urinary-b13",
+      "kp_ids": ["urinary-b13-kp04", "urinary-b13-kp05"],
+      "type": "GUTB_HISTORICAL_DURATION_AND_SURGERY_RULE",
+      "severity": "K_BLOCKER_FOR_CURRENT_TREATMENT_RULE",
+      "historical_state": "The source uses 6-9 months non-response plus fixed pre/post-operative treatment durations as main nephrectomy logic.",
+      "adjudication": "Preserve these numbers as historical 306 Precision. Current stable core: newly diagnosed GUTB is primarily treated medically with a standard six-month regimen; surgery is individualized by disease extent, obstruction, non-functioning/destroyed kidney and reconstructive need rather than a single fixed-duration failure switch.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B14-SC01",
+      "block_id": "urinary-b14",
+      "kp_ids": ["urinary-b14-kp03", "urinary-b14-kp05", "urinary-b14-kp06"],
+      "type": "URETHRAL_TRAUMA_EVIDENCE_BOUNDARY",
+      "severity": "NONBLOCKING_IF_BOUNDED",
+      "historical_state": "RUG is called the gold standard; high/floating prostate on DRE and failure of contrast to reach posterior urethra are treated as strong binary clues; 'do not catheterise' is stated absolutely.",
+      "adjudication": "Preserve RUG as the standard early test for suspected male urethral injury and preserve 'do not blindly instrument' as the safety rule. Add that flexible cystourethroscopy is an alternative and RUG may not reliably distinguish complete vs partial rupture. DRE high/floating prostate is only a historical supporting clue, not a required or sensitive diagnostic sign. Experienced gentle catheterisation/urinary diversion can be appropriate in selected trauma pathways after prioritising life-threatening injury.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B14-SC02",
+      "block_id": "urinary-b14",
+      "kp_ids": ["urinary-b14-kp07", "urinary-b14-kp08", "urinary-b14-kp09"],
+      "type": "EXTRAPERITONEAL_BLADDER_SURGERY_OVERABSOLUTE",
+      "severity": "K_BLOCKER",
+      "historical_state": "The source table presents abdominal incision/surgery for extraperitoneal bladder rupture as if routine.",
+      "adjudication": "Correct Current Core: retrograde cystography/CT cystography is the diagnostic test for suspected bladder injury. Uncomplicated blunt extraperitoneal rupture is generally managed conservatively with continuous bladder drainage; surgery is for bladder-neck/bone-fragment/rectal-vaginal/concomitant operative complexity. Blunt intraperitoneal rupture is repaired surgically.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B14-SC03",
+      "block_id": "urinary-b14",
+      "kp_ids": ["urinary-b14-kp01", "urinary-b14-kp10", "urinary-b14-kp12", "urinary-b14-kp13", "urinary-b14-kp14"],
+      "type": "RENAL_TRAUMA_STABILITY_GATE",
+      "severity": "K_BLOCKER_FOR_OVERBROAD_SURGERY_RULE",
+      "historical_state": "The Block says CT is first imaging and major bleeding/shock -> surgery + resuscitation, but does not make haemodynamic stability the explicit top gate or state that most stable blunt renal injuries are nonoperative.",
+      "adjudication": "Foreground haemodynamic stability. CT is the imaging modality of choice in suspected renal trauma when sufficiently stable for imaging. Most stable blunt renal injuries, including many high-grade injuries, are managed nonoperatively with monitoring/intervention as needed; active bleeding may use selective embolisation. Persistent haemodynamic instability from renal injury drives exploration. Preserve the source's key point that haematuria severity does not track injury severity.",
+      "status": "CANONICAL_REPAIR_PENDING"
+    },
+    {
+      "id": "A3-B14-SR01",
+      "block_id": "urinary-b14",
+      "type": "SOURCE_LOCAL_VISUAL_ROUTING_CLARIFICATION",
+      "severity": "NONBLOCKING_IF_EXPLICIT",
+      "historical_state": "Visual Review names P136-P139 without saying these are source-local/IMAGE_PAGES routes, risking the same physical-page confusion seen in B13.",
+      "adjudication": "Relabel the visual routes as source-local asset ids from the AI-reading source. Do not claim merged-PDF physical pages or pixel verification unless the image is actually rendered.",
+      "status": "BOUNDARY_REPAIR_PENDING"
+    }
+  ],
+  "block_status": {
+    "urinary-b12": "BLOCKED_PENDING_PROCEDURE_AND_SOURCE_PRECISION_BOUNDARIES",
+    "urinary-b13": "BLOCKED_PENDING_SOURCE_ROUTING_TA_STAGING_DIAGNOSTIC_AND_TREATMENT_REPAIRS",
+    "urinary-b14": "BLOCKED_PENDING_BLADDER_AND_RENAL_TRAUMA_CURRENT_REPAIRS"
+  },
+  "batch_status": "IN_PROGRESS_NOT_PASSED",
+  "whole_a3_guard": "Even if B12-B14 pass, whole-A3 Knowledge remains NOT_PROMOTED until urinary-b05 is resolved. B5 is a durable independent blocker.",
+  "next": "Freeze a narrow repair spec, then apply only the adjudicated B12-B14 changes to natural owners. Preserve all stable block/KP identities and 306 recognition value."
+}
