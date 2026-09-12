@@ -18,60 +18,57 @@ S  PASS
 K  PASS
 L  PASS
 P  PASS
-R  UNTESTED   ← earliest unresolved gate
-E  UNTESTED   ← frozen until R closes
+R  PASS
+E  UNTESTED   ← earliest unresolved gate
 U  UNTESTED   ← learner-only
 ```
 
 Allowed conclusion:
 
-> **History whole-subject S/K/L/P acceptance is closed. Runtime is the only active acceptance stage; Evidence remains frozen until Runtime passes, and U remains learner-only UNTESTED.**
+> **History whole-subject S/K/L/P/R acceptance is closed. Evidence is now the only active engineering acceptance stage; U remains learner-only UNTESTED.**
 
 Do not promote this to learner progress.
 
 ---
 
-## Executed upstream acceptance evidence
+## Executed acceptance evidence
 
-Accepted execution snapshot:
+### S/K/L/P — PASS
 
-- repo head containing the accepted History audit behavior: `1d71071cc8a0001b5eee381f24bacef25f137545`
-- GitHub Actions workflow: `Static Web Politics QA`
+Accepted History content + first-ready execution:
+
+- workflow: `Static Web Politics QA`
 - run: `34694179748`
 - `Audit History batch content closure` → **PASS**
 - `Audit History global first-ready parity` → **PASS**
-- later `Audit Marxism batch content closure` → FAIL; this is a sibling-scope failure and does not invalidate the already-executed History gate results.
 
-### S — PASS
+### R — PASS
 
-Executed History content closure confirms the current Source/Suyi review snapshot is valid against canonical Source digest `97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57`.
+Accepted Runtime execution:
 
-### K — PASS
+- repo head: `22c90b40558e9f37ee4ce82c45f9b217ad02bd58`
+- workflow: `Static Web Politics QA`
+- run: `34694972737`
+- `Audit History batch content closure` → **PASS**
+- `Audit History global first-ready parity` → **PASS**
+- `Audit History Runtime closure` → **PASS**
+- later `Audit Marxism batch content closure` → FAIL; this sibling failure occurs after the completed History gates and does not invalidate History R.
 
-Executed History content closure confirms the whole-subject learner projection passes the current semantic/content assertions for the History teaching shape:
-
-> chronology → stage → turning point → cause → evaluation
-
-### L/P — PASS
-
-Executed independent global first-ready parity confirms the Current History projection agrees with canonical last-necessary-owner semantics, preserves exact-once question placement, and keeps the C04 K03–K07 continuous learner segment intact.
-
-The first-ready audit previously failed because its runner converted learner-unit objects to `"[object Object]"`. That runner defect was repaired without weakening the acceptance rule; the unchanged semantic gate then passed on Current.
+The History Runtime gate verifies the accepted first-ready History units have an executable Unit Return path for units with questions, with clean-pass continuation and Wrong/Uncertain repair routing available without manufacturing mastery.
 
 ---
 
 ## Stage boundary
 
 ```text
-S/K/L/P  CLOSED
-R        ACTIVE / UNTESTED
-E        FROZEN / UNTESTED
-U        UNTESTED, learner-only
+S/K/L/P/R  CLOSED
+E          ACTIVE / UNTESTED
+U          UNTESTED, learner-only
 ```
 
-R must receive its own executed History evidence before E becomes active. Shared runtime implementation, file existence, build success, K03/Marxism evidence, or future E assertions cannot substitute for History R acceptance.
+E must now receive its own executed History evidence. Runtime PASS, localStorage code, file existence, build status, or sibling Evidence gates cannot substitute for History E acceptance.
 
-Once R passes, update this owner first; only then may the Work Cursor advance to E.
+U remains strictly learner-only and cannot be accepted from engineering evidence.
 
 ---
 
