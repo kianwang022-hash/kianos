@@ -54,6 +54,22 @@
       "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
     },
     {
+      "id": "A3-B03-SC02",
+      "block_id": "urinary-b03",
+      "kp_id": "urinary-b03-kp14",
+      "type": "OVERGENERALIZED_CAUSAL_MODEL",
+      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
+      "historical_state": "The historical K+-H+ four-grid presents high K+ -> metabolic acidosis -> paradoxically alkaline urine and low K+ -> metabolic alkalosis -> paradoxically acidic urine as nearly universal causal directions.",
+      "adjudication": "Do not preserve a universal four-grid. The Current Core should teach interaction tendencies and the renal mechanisms that couple K+ and acid-base, then require context before predicting urine pH. Hyperkalemic/type-4 RTA commonly has reduced ammonium excretion while urine pH can remain <5.5; paradoxical aciduria is classically maintained in specific hypokalemic/volume-contracted alkalosis settings rather than being an unconditional consequence of low serum K+. The causal entry must be named before a urine-pH prediction is made.",
+      "learning_boundary": "B3 owns normal cellular/tubular coupling and safe direction tendencies. Full clinical acid-base syndromes, compensation algorithms and RTA discrimination belong to B5 or later disease owners. This repair should simplify B3 rather than expand it.",
+      "sources": [
+        {"title": "Differential Diagnosis of Nongap Metabolic Acidosis: Value of a Systematic Approach", "source": "PMC3315347", "support": "Shows that low ammonium excretion in hypoaldosteronism/type IV RTA may coexist with urine pH <5.5 and that urine pH alone does not map directly to systemic acid-base state."},
+        {"title": "Renal Tubular Acidosis and Management Strategies: A Narrative Review", "source": "PMC7889554", "support": "Lists typical type IV RTA urine pH <5.5 and explains hyperkalemia-related suppression of ammonia generation."},
+        {"title": "Metabolic Alkalosis: A Brief Pathophysiologic Review", "source": "PMC7769018", "support": "Places paradoxical aciduria within the maintenance physiology of volume-contracted/hypokalemic alkalosis rather than a universal hypokalemia rule."}
+      ],
+      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+    },
+    {
       "id": "A3-B03-CHECK01",
       "block_id": "urinary-b03",
       "kp_id": "urinary-b03-kp14",
@@ -65,14 +81,30 @@
         {"title": "Mechanism of hypokalemia in magnesium deficiency", "pmid": "17804670", "doi": "10.1681/ASN.2007070792", "support": "Direct review of magnesium-mediated ROMK inhibition and potassium wasting."}
       ],
       "status": "PRESERVE"
+    },
+    {
+      "id": "A3-B04-SC01",
+      "block_id": "urinary-b04",
+      "kp_id": "urinary-b04-kp03",
+      "type": "CONTEXT_DEPENDENT_REGULATOR_LIST",
+      "severity": "TIMING_AND_SEMANTIC_BOUNDARY_REPAIR",
+      "historical_state": "The historical compressed Recall list teaches NO as a simple renin inhibitor and includes several autacoid/drug-direction items as if they were one stable context-free causal table.",
+      "adjudication": "The first-pass renin Core should be anchored to three stable controllers: renal perfusion/baroreceptor input, sympathetic beta1 input and macula-densa NaCl delivery, with AngII negative feedback and high-NaCl suppression. NO has context-dependent/permissive roles in JGA/macula-densa renin signaling and must not be encoded as an unconditional NO -> renin down arrow. Dopamine, bradykinin, endothelin, vasopressin and similar source-specific lists should not drive the causal spine when their net effects depend on experimental/physiologic context.",
+      "learning_boundary": "Keep source-specific regulator lists, if exam-relevant, as Precision/source notes after the stable three-input mechanism; they should not be required to understand B4 or interrupt the concentration-dilution chain.",
+      "sources": [
+        {"title": "Macula Densa Sensing and Signaling Mechanisms of Renin Release", "source": "PMC4577295", "support": "Describes PGE2 and nitric oxide in macula-densa/JGA renin-release signaling and highlights context-dependent regulatory pathways."},
+        {"title": "Classical Renin-Angiotensin System in Kidney Physiology", "source": "PMC4137912", "support": "Supports the stable macula-densa chloride control of renin and describes NO as permissive/context-dependent rather than a simple inhibitory rule."},
+        {"title": "Role of nitric oxide in the regulation of renin and vasopressin secretion", "pmid": "7534728", "support": "Reviews predominantly stimulatory/permissive NO effects on renin with condition-dependent exceptions."}
+      ],
+      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
     }
   ],
   "block_status": {
     "urinary-b01": "BLOCKED_PENDING_B01_KG01_AND_FIRST_PASS_RECONSTRUCTION",
     "urinary-b02": "BLOCKED_PENDING_B02_SC01_AND_FIRST_PASS_RECONSTRUCTION",
-    "urinary-b03": "PROMISING_NOT_ACCEPTED; SC01 wording repair + remaining full-line audit",
-    "urinary-b04": "PROMISING_NOT_ACCEPTED; remaining full-line semantic/source audit"
+    "urinary-b03": "BLOCKED_PENDING_B03_SC01_SC02_REPAIR_AND_REMAINING_AUDIT",
+    "urinary-b04": "PROMISING_NOT_ACCEPTED; B04-SC01 boundary repair + remaining full-line audit"
   },
   "batch_status": "NOT_PASSED",
-  "next": "Apply the three named canonical repairs narrowly, then finish B3/B4 full-line audit and verify that the proposed Logic Groups are lossless in canonical KP order before Batch-01 acceptance."
+  "next": "Apply the named canonical repairs narrowly, then finish the remaining B3/B4 full-line audit and verify that proposed Logic Groups are lossless in canonical KP order before Batch-01 acceptance."
 }
