@@ -1,0 +1,69 @@
+{
+  "schema": "kianos.xizong.external_source_contract.v1",
+  "status": "ADMITTED_NARROW_SCOPE",
+  "authority": "CHAT_APPROVED_SOURCE_ADMISSION",
+  "system_id": "urinary",
+  "block_id": "urinary-b05",
+  "admitted_on": "2026-09-12",
+  "purpose": "Close the one genuine Source Gap in B5: expected compensation and mixed acid-base disorder detection. Existing project Lectures remain Primary for water/Na/K/Ca, renal acid handling and 306 source-specific treatment Precision.",
+  "sources": [
+    {
+      "id": "msd-professional-acid-base-disorders",
+      "publisher": "MSD Manual Professional Edition",
+      "title": "Acid-Base Disorders",
+      "url": "https://www.msdmanuals.com/professional/nephrology/acid-base-regulation-and-disorders/acid-base-disorders",
+      "accessed": "2026-09-12",
+      "allowed_claims": [
+        "ABG/serum-electrolyte acid-base evaluation using pH, PaCO2 and HCO3-.",
+        "Mixed disorder suspicion when measured PaCO2/HCO3- does not match expected compensation.",
+        "Anion gap calculation in metabolic acidosis and delta-gap use for detecting an additional metabolic process.",
+        "Winter formula for expected respiratory compensation in metabolic acidosis.",
+        "Interpretation of measured PaCO2 above/below Winter expected range as additional respiratory acidosis/alkalosis."
+      ]
+    },
+    {
+      "id": "msd-professional-primary-compensation-table",
+      "publisher": "MSD Manual Professional Edition",
+      "title": "Primary Changes and Compensations in Simple Acid-Base Disorders",
+      "url": "https://www.msdmanuals.com/professional/multimedia/table/primary-changes-and-compensations-in-simple-acid-base-disorders",
+      "accessed": "2026-09-12",
+      "allowed_claims": [
+        "Metabolic acidosis expected PaCO2: 1.5 x HCO3- + 8 +/- 2 mmHg (Winter formula).",
+        "Metabolic alkalosis expected PaCO2: rise about 0.6-0.75 mmHg per 1 mmol/L HCO3- rise, with compensatory PaCO2 generally not above about 55 mmHg.",
+        "Respiratory acidosis: acute HCO3- rise about 1-2 mmol/L per 10 mmHg PaCO2 rise; chronic rise about 3-4 mmol/L per 10 mmHg.",
+        "Respiratory alkalosis: acute HCO3- fall about 1-2 mmol/L per 10 mmHg PaCO2 fall; chronic fall about 4-5 mmol/L per 10 mmHg."
+      ]
+    }
+  ],
+  "allowed_algorithm": [
+    "1. Assess pH/acidemia/alkalemia while remembering a mixed disorder may yield near-normal pH.",
+    "2. Identify the dominant metabolic (HCO3-) or respiratory (PaCO2) direction from pH/PaCO2/HCO3- and clinical context.",
+    "3. Calculate expected compensation for the proposed primary disorder.",
+    "4. If measured compensation falls outside the expected range, diagnose/suspect an additional primary acid-base process rather than calling it 'over/under compensation'.",
+    "5. In metabolic acidosis, calculate AG = Na - (Cl + HCO3-); elevated AG indicates a high-anion-gap metabolic-acidosis component.",
+    "6. In metabolic acidosis, use delta gap = measured AG - chosen normal AG; add delta gap to measured HCO3-. A corrected HCO3- above the normal range supports additional metabolic alkalosis. A normal-gap low-HCO3-/high-Cl pattern supports non-anion-gap metabolic acidosis.",
+    "7. Reconcile the acid-base calculation with the actual disease context before final diagnosis."
+  ],
+  "scope_limits": {
+    "may_change": [
+      "urinary-b05 KP19-KP20 acid-base diagnostic algorithm",
+      "B5 Framework/Recall/Exit statements that previously declared complete compensation/mixed-disorder logic unavailable"
+    ],
+    "may_not_change": [
+      "B5 water/Na/K/Ca source-specific thresholds or treatment formulas except where a separately reviewed conflict already exists",
+      "hyponatremia/hypernatremia correction-rate guidance",
+      "DKA/HHS treatment protocols",
+      "ventilator management or ICU treatment",
+      "bicarbonate-treatment indications",
+      "any broad nephrology/critical-care content beyond acid-base diagnosis"
+    ],
+    "source_priority": "Existing project Lecture remains Primary for 306 exam content; MSD is a narrowly admitted supplementary Current Source only for the missing compensation/mixed-disorder diagnostic layer."
+  },
+  "anti_drift": [
+    "Do not turn MSD into a general replacement for the user's Lecture.",
+    "Do not add every acid-base cause list or treatment recommendation from MSD.",
+    "Do not create a second acid-base owner outside B5 during this repair.",
+    "Do not modify stable KP ids merely because the Source Gap is now closed.",
+    "B3 remains the owner of K+/H+ tubular coupling semantics; B5 only recalls/applies that owner."
+  ]
+}
