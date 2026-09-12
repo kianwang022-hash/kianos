@@ -1,0 +1,64 @@
+---
+const { task, syntheticGateIds = [] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const payload = JSON.stringify({ taskId: task.id, taskKind: task.kind, syntheticGateIds }).replace(/</g, '\\u003c');
+---
+<section class="writingExamGate" data-writing-exam-gate>
+  <section class="writingExamLocked" data-exam-locked>
+    <span>Protected true exam · locked</span>
+    <h2>先完成 Synthetic Small + Big</h2>
+    <p>这篇真题只在两篇 synthetic 都到达终态后进入正常 learner flow。这里不提前展示题面、范文、解析或主题提示。</p>
+    <a href={`${base}writing/`}>← 返回 Writing</a>
+  </section>
+
+  <div data-exam-runtime hidden>
+    <slot />
+  </div>
+
+  <script type="application/json" data-exam-gate-payload set:html={payload}></script>
+</section>
+
+<script>
+  const gate = document.querySelector('[data-writing-exam-gate]');
+  if (gate instanceof HTMLElement) {
+    let payload = null;
+    try { payload = JSON.parse(gate.querySelector('[data-exam-gate-payload]')?.textContent || 'null'); } catch {}
+    const terminal = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
+    const gateIds = Array.isArray(payload?.syntheticGateIds) ? payload.syntheticGateIds : [];
+    const qualified = gateIds.length === 2 && gateIds.every((id) => {
+      try {
+        const saved = JSON.parse(localStorage.getItem(`kianos-writing-runtime-v1:${id}`) || 'null');
+        return terminal.has(saved?.state);
+      } catch {
+        return false;
+      }
+    });
+
+    const locked = gate.querySelector('[data-exam-locked]');
+    const runtimeShell = gate.querySelector('[data-exam-runtime]');
+    if (locked instanceof HTMLElement) locked.hidden = qualified;
+    if (runtimeShell instanceof HTMLElement) runtimeShell.hidden = !qualified;
+
+    if (qualified && runtimeShell instanceof HTMLElement) {
+      const runtime = runtimeShell.querySelector('[data-writing-runtime]');
+      if (runtime instanceof HTMLElement) {
+        const stageLabel = runtime.querySelector('[data-stage-label]');
+        const meta = runtime.querySelector('.writingRuntimeHeader small');
+        if (meta && stageLabel) {
+          meta.replaceChildren(
+            document.createTextNode(`${payload?.taskKind === 'small' ? 'Small Writing' : 'Big Writing'} · protected true exam · `),
+            stageLabel
+          );
+        }
+        const nav = runtime.querySelector('.writingRuntimeHeader nav');
+        if (nav) nav.setAttribute('aria-label', 'Writing protected true-exam navigation');
+        const promptMeta = runtime.querySelectorAll('.writingPromptMeta span');
+        if (promptMeta[2]) promptMeta[2].textContent = 'Clean true-exam first attempt';
+      }
+    }
+  }
+</script>
+
+<style>
+  .writingExamGate{display:grid;gap:12px}.writingExamLocked{max-width:54rem;margin:28px auto;padding:28px;border:1px solid var(--study-line);border-radius:16px;background:#fffdf8;box-shadow:var(--study-shadow)}.writingExamLocked span{font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--study-green)}.writingExamLocked h2{margin:6px 0 8px}.writingExamLocked p{margin:0 0 14px;color:var(--study-muted);font-size:12px;line-height:1.7}.writingExamLocked a{font-size:11px;font-weight:800;color:var(--study-green);text-decoration:none}
+</style>
