@@ -87,7 +87,6 @@ Post-second-reconciliation evidence:
 
 ```text
 main reconciled at: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
-governance branch vs main: ahead 51 / behind 0 before final evidence writeback
 PR #21 mergeable: true
 ```
 
@@ -152,32 +151,19 @@ It does not inspect domain semantics or learner mastery.
 
 Earlier private-repository runs were blocked before runner allocation (`steps=[]`) because no hosted-runner entitlement remained. Those runs were correctly treated as no evidence rather than lint failure.
 
-After hosted execution became available, PR #21 Governance Anti-Entropy run `34682747645` executed successfully. After reconciling the newer Politics History `main`, the gate was executed again on reconciled governance head `dc86645ff1069d67027e9743680dac8226822032`:
+After hosted execution became available, the guard executed successfully, including after the latest Politics reconciliation. Representative reconciled execution:
 
 ```text
 run: 34687047450
 job: 103535741826
 conclusion: success
-checkout: success
-python setup: success
-governance audit: success
-cleanup: success
-```
-
-Audit payload:
-
-```text
-schema: kianos.governance.current-audit.v1
-pass: true
 checks: 192
-current_files: 8
-acceptance_files: 7
-retired_paths: 5
-manifests: 4
-errors: []
+errors: 0
 ```
 
-Final evidence writeback head `3f9ded40077bfbe1732fb0036f4196c5671a6308` was then rechecked by Governance Anti-Entropy run `34687166127`, job `103536053240`; every step completed successfully. A5 therefore passes on the exact landing candidate head.
+Subsequent governance evidence-only writebacks also executed successfully. The **GitHub PR current-head Governance Anti-Entropy check is the authoritative exact-head landing evidence**; the Acceptance file does not copy its own changing head SHA back into itself.
+
+A5 therefore passes while that required current-head check remains green.
 
 ---
 
@@ -207,7 +193,7 @@ Before the actual merge action:
 
 ```text
 confirm main has not moved into a real overlapping owner/write-set
-→ require Governance Anti-Entropy PASS on the exact landing head
+→ require Governance Anti-Entropy PASS on the PR's exact current head
 → preserve all A1–A6 PASS
 → merge only with explicit user authorization
 ```
