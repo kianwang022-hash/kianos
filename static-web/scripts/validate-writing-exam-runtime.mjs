@@ -38,6 +38,115 @@ function forbiddenPaths(value, prefix = '') {
   return hits;
 }
 
+function scalarText(value) {
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+  return '';
+}
+
+function sourceLocatorMode(src, root) {
+  if (/^https?:\/\//i.test(src)) return { mode: 'external-url', supported: true, resolvedPath: null };
+  if (/^data:image\//i.test(src)) return { mode: 'data-image', supported: true, resolvedPath: null };
+
+  let relativePublicPath = '';
+  if (src.startsWith('static-web/public/')) relativePublicPath = src.slice('static-web/public/'.length);
+  else if (src.startsWith('public/')) relativePublicPath = src.slice('public/'.length);
+  else if (src.startsWith('/')) relativePublicPath = src.slice(1);
+
+  if (relativePublicPath) {
+    const resolvedPath = path.resolve(root, 'public', relativePublicPath);
+    return {
+      mode: fs.existsSync(resolvedPath) ? 'repo-public-asset' : 'missing-public-asset',
+      supported: fs.existsSync(resolvedPath),
+      resolvedPath: path.relative(root, resolvedPath)
+    };
+  }
+
+  return { mode: 'unresolved-relative-src', supported: false, resolvedPath: null };
+}
+
+function auditImageDescriptor(value, root) {
+  const rawType = Array.isArray(value) ? 'array' : typeof value;
+  if (typeof value === 'string') {
+    const text = value.trim();
+    const looksLikeSrc = /^(https?:\/\/|\/|\.\/|\.\.\/|data:image\/)|\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(text);
+    if (!looksLikeSrc) {
+      return {
+        rawType,
+        shapeKeys: ['string'],
+        mode: text ? 'textual-fallback' : 'empty-string',
+        supported: Boolean(text),
+        src: '',
+        textLength: text.length,
+        textPreview: text.slice(0, 240),
+        raw: value
+      };
+    }
+    const locator = sourceLocatorMode(text, root);
+    return {
+      rawType,
+      shapeKeys: ['string'],
+      ...locator,
+      src: text,
+      textLength: 0,
+      textPreview: '',
+      raw: value
+    };
+  }
+
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return {
+      rawType,
+      shapeKeys: [],
+      mode: 'unsupported-nonobject',
+      supported: false,
+      src: '',
+      textLength: 0,
+      textPreview: '',
+      raw: value
+    };
+  }
+
+  const srcKeys = ['src', 'url', 'path', 'asset_path', 'asset', 'file', 'href'];
+  const altKeys = ['alt', 'caption', 'description', 'title', 'text'];
+  const src = srcKeys.map((key) => scalarText(value[key])).find(Boolean) || '';
+  const text = altKeys.map((key) => scalarText(value[key])).find(Boolean) || '';
+  if (src) {
+    const locator = sourceLocatorMode(src, root);
+    return {
+      rawType,
+      shapeKeys: Object.keys(value).sort(),
+      ...locator,
+      src,
+      textLength: text.length,
+      textPreview: text.slice(0, 240),
+      raw: value
+    };
+  }
+  if (text) {
+    return {
+      rawType,
+      shapeKeys: Object.keys(value).sort(),
+      mode: 'textual-fallback',
+      supported: true,
+      src: '',
+      textLength: text.length,
+      textPreview: text.slice(0, 240),
+      raw: value
+    };
+  }
+  return {
+    rawType,
+    shapeKeys: Object.keys(value).sort(),
+    mode: 'unsupported-object-shape',
+    supported: false,
+    src: '',
+    textLength: 0,
+    textPreview: '',
+    raw: value
+  };
+}
+
 const source = inspectWritingExamRuntimeSources();
 const catalog = listWritingExamRuntimeTasks();
 const syntheticIds = listWritingSyntheticTasks().map((task) => task.id);
@@ -67,14 +176,25 @@ for (const task of loaded) {
   check(task.navigation?.previousId === null && task.navigation?.nextId === null, `EXAM_RUNTIME_BYPASSES_GATED_CATALOG:${task.id}`);
 }
 
-const imageTasks = loaded.filter((task) => {
+const root = process.cwd();
+const imageAuditRecords = loaded.flatMap((task) => {
   const images = task.learnerTask?.context?.images;
-  return Array.isArray(images) ? images.length > 0 : Boolean(images);
+  const values = Array.isArray(images) ? images : images ? [images] : [];
+  return values.map((value, imageIndex) => ({
+    taskId: task.id,
+    year: task.year,
+    kind: task.kind,
+    imageIndex,
+    ...auditImageDescriptor(value, root)
+  }));
 });
-const imageShapeKeys = [...new Set(imageTasks.flatMap((task) => {
-  const images = Array.isArray(task.learnerTask.context.images) ? task.learnerTask.context.images : [task.learnerTask.context.images];
-  return images.flatMap((value) => value && typeof value === 'object' && !Array.isArray(value) ? Object.keys(value) : [typeof value]);
-}))].sort();
+const unsupportedImages = imageAuditRecords.filter((row) => !row.supported);
+for (const row of unsupportedImages) check(false, `EXAM_IMAGE_UNSUPPORTED:${row.taskId}:${row.imageIndex}:${row.mode}`);
+const imageShapeKeys = [...new Set(imageAuditRecords.flatMap((row) => row.shapeKeys))].sort();
+const imageModes = imageAuditRecords.reduce((acc, row) => {
+  acc[row.mode] = (acc[row.mode] || 0) + 1;
+  return acc;
+}, {});
 
 const representative = loaded.find((task) => task.kind === 'big') || loaded[0];
 let record = createInitialWritingRecord(representative, [], '2026-09-12T13:00:00.000Z');
@@ -103,7 +223,6 @@ record = applyWritingReviewReturn(record, pass, '2026-09-12T13:10:00.000Z');
 check(record.state === WRITING_STATES.PASS_ACCEPTABLE, `EXAM_PASS_STATE:${record.state}`);
 check(record.transferCandidate === null, 'EXAM_PASS_CREATED_REPAIR_OR_TRANSFER_DEBT');
 
-const root = process.cwd();
 const files = {
   home: path.resolve(root, 'src/pages/writing.astro'),
   catalog: path.resolve(root, 'src/pages/writing/exam.astro'),
@@ -131,6 +250,15 @@ check(wrapper.includes('Official task prompt'), 'EXAM_PROMPT_PROJECTION_MISSING'
 check(wrapper.includes('context.images') && wrapper.includes('writingExamImages'), 'EXAM_IMAGE_PROJECTION_PATH_MISSING');
 check(!/model_answer|sample_answer|reference_answer/.test(wrapper), 'EXAM_WRAPPER_REFERENCES_FORBIDDEN_MODEL_FIELDS');
 
+const imageProjectionAudit = {
+  tasksWithImages: new Set(imageAuditRecords.map((row) => row.taskId)).size,
+  descriptorCount: imageAuditRecords.length,
+  observedImageShapeKeys: imageShapeKeys,
+  modes: imageModes,
+  unsupportedCount: unsupportedImages.length,
+  records: imageAuditRecords
+};
+
 const result = {
   schema: 'kianos.english.writing.exam-runtime-gate-validation.v1',
   gate: 'R',
@@ -142,10 +270,7 @@ const result = {
     big: source.kindCounts?.big,
     questionBankHash: source.sourceHash
   },
-  imageProjectionAudit: {
-    tasksWithImages: imageTasks.length,
-    observedImageShapeKeys: imageShapeKeys
-  },
+  imageProjectionAudit,
   semantics: {
     primaryColdStartEntryRemainsFirstLearning: true,
     syntheticCompletionGateUsesPrivateWholeEssayRuntimeState: true,
@@ -159,5 +284,12 @@ const result = {
   failures,
   note: 'This validates the post-synthetic true-exam Runtime path. It does not close Writing Evidence or User Validation.'
 };
+
+const auditPath = path.resolve(root, 'writing-exam-runtime-audit.json');
+fs.writeFileSync(auditPath, `${JSON.stringify({
+  schema: 'kianos.english.writing.exam-runtime-image-audit.v1',
+  source: result.source,
+  imageProjectionAudit
+}, null, 2)}\n`, 'utf8');
 console.log(`${JSON.stringify(result, null, 2)}\n`);
 if (failures.length) process.exitCode = 1;
