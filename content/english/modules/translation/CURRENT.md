@@ -10,9 +10,9 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ## Work Cursor
 
 **Scope:** English Translation  
-**Active / earliest unresolved gate:** `L — Learning acceptance`  
-**Blocker:** none from Knowledge. S remains accepted as `PASS_WITH_DEBT` with three explicit `pending_review` reference gaps; K is `PASS`; L has not yet received a formal bounded audit. P/R/E remain downstream-frozen and are not parallel TODOs.  
-**Next action:** run a bounded **L-only** audit of the approved Translation ability asset and parent English learning contract. If L passes, update `ACCEPTANCE.md` and this Work Cursor so P becomes active before any R/E work.
+**Active / earliest unresolved gate:** `P — Projection acceptance`  
+**Blocker:** none from Learning. S remains accepted as `PASS_WITH_DEBT` with three explicit `pending_review` reference gaps; K and L are `PASS`; P has not yet received a formal bounded audit. R/E remain downstream-frozen and are not parallel TODOs.  
+**Next action:** run a bounded **P-only** audit of the learner-facing Translation first-learning/task projection against accepted K/L semantics. If P passes, update `ACCEPTANCE.md` and this Work Cursor so R becomes active before any E work.
 
 ---
 
@@ -21,8 +21,8 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ```text
 S  PASS_WITH_DEBT  ← accepted; 3 explicit pending_review reference gaps
 K  PASS            ← accepted semantic ability asset
-L  UNTESTED        ← ACTIVE
-P  UNTESTED        ← downstream-frozen
+L  PASS            ← accepted learning path
+P  UNTESTED        ← ACTIVE
 R  UNTESTED        ← downstream-frozen
 E  UNTESTED        ← downstream-frozen
 U  UNTESTED        ← real learner use only; not yet eligible
@@ -30,7 +30,7 @@ U  UNTESTED        ← real learner use only; not yet eligible
 
 `UNTESTED` does not mean all gates should be audited together.
 
-The existing Projection, Runtime and Evidence implementation remains preserved Artifact/candidate evidence. It does not authorize leapfrogging L.
+Existing Runtime/Evidence implementation remains preserved Artifact/candidate evidence. It does not authorize leapfrogging P.
 
 ---
 
@@ -56,47 +56,68 @@ K is `PASS` from a bounded semantic audit of:
 - `content/english/modules/translation/learning.md` blob `69719c5d81fb577386bd4bc901b4d1c5aad0ce67`
 - `content/english/LEARNING_CONTRACT.md` blob `7ad75e87fcec18fd2dec29b4f5de5155b09aa9ec`
 
-Accepted K boundary:
+Accepted K boundary: capability-native Global Map + Representation / Preservation / Reconstruction / Exam Execution, substantive mechanisms and active checks, LexicalOS routing, teacher material as Repair Reservoir, protected unseen material and private learner evidence kept outside shared canonical semantics.
 
-- capability-native Global Map + four Core Learning Blocks;
-- stable high-value Representation / Preservation / Reconstruction / Exam Execution mechanisms are actually taught;
-- LexicalOS remains canonical lexical owner;
-- teacher material is a Repair Reservoir, not the curriculum;
-- protected unseen material and private learner evidence remain separate from shared canonical content;
-- active checks / integrated generation exist;
-- long-tail ambiguity and personalized drills remain Chat territory.
+### L — Learning
 
-The Frozen Runtime appendix inside the same file was not accepted by K and remains downstream Runtime/Evidence candidate semantics.
+L is `PASS` from a bounded audit of the approved learning owner and parent English learning philosophy.
+
+Accepted L boundary:
+
+```text
+Global Map
+→ four continuous Core Learning Blocks
+→ integrated use
+→ normal Translation task
+```
+
+with these constraints:
+
+- Skill Map/deep leaves are later repair/navigation, not compulsory first learning;
+- complete-but-skippable navigation does not create mastery/evidence;
+- synthetic/exposed material may teach mechanisms while protected unseen material remains diagnostic capital;
+- clean first output precedes diagnosis/reference use;
+- repair starts from the earliest meaningful failure;
+- smallest sufficient repair must be followed by learner reconstruction;
+- same-item correction is weaker than later fresh transfer;
+- long-tail ambiguity and personalized micro-drills remain Chat territory.
+
+No justified L debt was found.
 
 ---
 
 ## Frozen / out of scope
 
-During L acceptance:
+During P acceptance:
 
-- P/R/E remain downstream-frozen until their prerequisite gate becomes PASS or legitimate PASS_WITH_DEBT;
-- do not redesign Projection/UI or Runtime to make the learning path look correct;
-- do not add Translation Knowledge content unless L uncovers a real upstream K defect;
+- R/E remain downstream-frozen until P passes;
+- do not redesign Knowledge or Learning semantics merely to fit the current page;
+- do not add Runtime/Evidence behavior to compensate for a Projection defect;
 - do not reopen Source merely because its explicit reference debt remains;
 - do not change Objective / Writing / other English sibling scopes;
 - do not infer or mutate Kian's Learner Truth;
-- do not convert existing runtime-validator success into L acceptance.
+- do not convert existing runtime-validator success into P acceptance.
 
-If L execution exposes a real Knowledge defect, reopen K at the exact dependency. If it exposes a later Projection issue, record it without advancing into P before L closes.
+If P execution exposes a real upstream K/L defect, reopen the earliest responsible gate. If it exposes a Runtime defect, record it without advancing into R before P closes.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into active L acceptance:
+For ordinary re-entry into active P acceptance:
 
 1. `content/english/modules/translation/ACCEPTANCE.md`
-2. `content/english/modules/translation/learning.md` — first-learning / Skill Map / material-routing / HOW YOU LEARN IT / exit semantics only as needed for L
-3. `content/english/LEARNING_CONTRACT.md` — Translation path, shared learning philosophy, progressive disclosure, evidence/mastery, complete-but-skippable boundary
+2. accepted projection-relevant semantics from `content/english/modules/translation/learning.md` and `content/english/LEARNING_CONTRACT.md`
+3. `static-web/src/components/TranslationWorkspace.astro`
+4. `static-web/src/pages/translation.astro`
+5. `static-web/src/pages/translation/[id].astro`
+6. `static-web/src/pages/translation-learn.astro`
+7. exact Translation-specific styles/components required to judge density, disclosure and navigation
+8. `static-web/src/lib/englishTranslation.mjs` only if the rendered Source/reference boundary requires tracing
 
-Do not default-read Translation Projection, Runtime, Evidence implementation, English continuation/history, legacy repo, or sibling scopes while L is active.
+Do not default-read `translationRuntimeModel.mjs`, Evidence/Persistence guards, Runtime validators, English continuation/history, legacy repo, or sibling scopes while P is active.
 
-The Frozen Runtime appendix may be read only if the L audit identifies a concrete learning-path dependency that requires tracing; it is not automatic L evidence.
+Read a downstream Runtime owner only if P execution exposes a concrete behavior whose projection/runtime ownership cannot otherwise be determined.
 
 ---
 
@@ -107,13 +128,13 @@ The Frozen Runtime appendix may be read only if the L audit identifies a concret
 - canonical learning owner → `content/english/modules/translation/learning.md`
 - source routing → `content/english/manifest.json` + `content/english/source/question_bank.v1.json`
 - source scanner → `static-web/src/lib/englishTranslation.mjs`
-- runtime model → `static-web/src/lib/translationRuntimeModel.mjs`
 - learner workspace → `static-web/src/components/TranslationWorkspace.astro`
-- evidence/persistence guards → Translation components under `static-web/src/components/`
 - Translation learner pages → `static-web/src/pages/translation*`
+- runtime model → `static-web/src/lib/translationRuntimeModel.mjs`
+- evidence/persistence guards → Translation components under `static-web/src/components/`
 - validators → `static-web/scripts/validate-translation-source.mjs`, `validate-translation-runtime.mjs`, `validate-translation-evidence-guard.mjs`
 
-Only the approved learning owner and minimal parent contract are startup reads while L is active.
+Only the accepted learning boundary plus exact learner-facing projection owners are startup reads while P is active.
 
 ### Acceptance Truth
 
@@ -132,13 +153,13 @@ Known scope `English Translation` should normally recover as:
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ approved Translation learning owner
-→ minimal English learning-contract boundary
-→ L only
+→ accepted K/L projection boundary
+→ exact Translation learner-facing page/component owners
+→ P only
 ```
 
-When L becomes PASS or legitimate PASS_WITH_DEBT, write the local durable transition first; the next fresh Chat should recover at P automatically.
+When P becomes PASS or legitimate PASS_WITH_DEBT, write the local durable transition first; the next fresh Chat should recover at R automatically.
 
-Projection/Runtime/Evidence internals are diagnostic/later-stage reads, not startup reads for L.
+Runtime/Evidence internals are diagnostic/later-stage reads, not startup reads for P.
 
 No English-wide continuation/history read is required unless a concrete machine dependency is later proven.
