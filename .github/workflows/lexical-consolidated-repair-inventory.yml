@@ -17,6 +17,25 @@ on:
       - 'content/lexical/audit/knowledge-reacceptance/post-r31-ownership-overrides.json'
       - 'content/lexical/audit/migration-integrity/**'
       - '.github/workflows/lexical-consolidated-repair-inventory.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'tools/lexical_compile_consolidated_repair_inventory.py'
+      - 'tools/lexical_compile_consolidated_repair_inventory_entry.py'
+      - 'tools/lexical_audit_consolidated_repair_inventory.py'
+      - 'tools/lexical_historical_round_bulk_triage.py'
+      - 'tools/lexical_historical_round_from_file.py'
+      - 'tools/lexical_historical_round_owner_surfaces.py'
+      - 'tools/lexical_historical_round_compound_surfaces.py'
+      - 'tools/lexical_historical_round_from_source_lock.py'
+      - 'content/lexical/audit/knowledge-reacceptance/batches/**'
+      - 'content/lexical/audit/knowledge-reacceptance/post-r31-ownership-overrides.json'
+      - 'content/lexical/audit/migration-integrity/**'
+      - 'content/lexical/LEARNING_CONTRACT.md'
+      - 'content/lexical/CONTENT_ASSET_CONTRACT.md'
+      - 'content/lexical/CURRENT.md'
+      - '.github/workflows/lexical-consolidated-repair-inventory.yml'
   workflow_dispatch:
 
 permissions:
