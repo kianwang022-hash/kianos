@@ -10,6 +10,7 @@ It does not define domain cognition, formal learning-asset construction order, S
 
 - construction order → `LEARNING_ASSET_STANDARD.md`
 - acceptance/readiness → `LEARNING_ACCEPTANCE.md`
+- shared static-web projection grammar → `static-web/PRESENTATION_CONTRACT.md`
 - repository/lane routing → `AGENTS.md` + `CURRENT.md`
 - branch/concurrency → `BRANCH_LIFECYCLE.md`
 
@@ -177,6 +178,23 @@ Shared runtime must not:
 
 When an external surface is primary, `static-web/` may still provide the approved companion behavior—orientation, locator, checkpoint, attempt, evidence capture, repair routing, Continue, Return/Handoff, or another bounded action—without becoming a substitute course/reader.
 
+### 4.1 Shared projection grammar
+
+`static-web/PRESENTATION_CONTRACT.md` owns the shared **representation and interaction grammar** for the KianOS web surface after cognition and surface ownership have already been approved upstream.
+
+It defines the default Mac / wide-landscape workspace model, cognitive-state foregrounding, semantic presentation roles, progressive disclosure, and Dense Calm interaction baseline.
+
+It must not decide domain semantics or override a domain Learning Contract. A Politics `Map`, Xizong mechanism `Chain`, English Reading task surface, and Lexical contrast may use different concrete representations while inheriting the same rule:
+
+```text
+current cognitive state
++ semantic role
++ approved surface ownership
+→ learner-facing representation
+```
+
+The primary KianOS web design origin is the learner's real Mac landscape workspace. Narrower-window responsive behavior is a required fallback, not permission to design the main surface as a vertically stretched mobile/document page.
+
 ## 5. Surface maturity rule
 
 The shared baseline is a maturity contract, not permission to jump ahead in construction.
@@ -199,5 +217,9 @@ Before adding a shared platform abstraction, ask:
 Before moving a learner action onto a different surface, also ask:
 
 > **Did the Learning Contract authorize this surface to own that cognitive action, or is implementation capability being mistaken for learner need?**
+
+Before choosing a learner-facing component/layout, also ask:
+
+> **What cognitive state and semantic role is being represented, and would the representation still be correct if the current component library did not exist?**
 
 KianOS should converge on common infrastructure only where cognition is actually common, and should centralize learner actions only where surface ownership is actually justified.
