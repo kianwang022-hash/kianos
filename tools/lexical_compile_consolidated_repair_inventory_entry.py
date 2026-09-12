@@ -7,7 +7,6 @@ import lexical_compile_consolidated_repair_inventory as compiler
 
 
 def legacy_source_comment_meta(checkpoint):
-    """Return only the legacy locator; never reinterpret Current-repo metadata."""
     containers = [
         checkpoint.get("historical_authority") or {},
         checkpoint.get("semantic_authority") or {},
@@ -23,7 +22,6 @@ def legacy_source_comment_meta(checkpoint):
             m = re.search(r"comment\s+(\d+)", historical)
             if m:
                 return "kianwang022-hash/kianos-legacy", int(m.group(1))
-
     historical = checkpoint.get("historical_authority") or {}
     value = historical.get("comment_id")
     if isinstance(value, int):
@@ -31,21 +29,35 @@ def legacy_source_comment_meta(checkpoint):
     return None
 
 
-def parse_round_source_from_local_authority(checkpoint):
-    """
-    Compile from durable authority already checked into Current.
-
-    R14-R26 frozen authorities carry exact historical semantic wording.
-    R27-R31 compact execution authorities carry deterministic owner/surface
-    structure and the legacy source locator. Their Core parser emits a source
-    locator placeholder when exact wording remains in the private legacy
-    comment; repair must resolve that locator before mutation rather than
-    inventing wording.
-    """
+def local_authority_path(checkpoint):
     ap = compiler.authority_path(checkpoint)
-    if not ap:
-        raise RuntimeError("round checkpoint missing durable local authority path")
-    body = (compiler.ROOT / ap).read_text(encoding="utf-8")
+    if ap:
+        return ap
+    historical = checkpoint.get("historical_authority") or {}
+    normalized = historical.get("normalized_execution_comment") or {}
+    lock_path = normalized.get("lock_path")
+    if isinstance(lock_path, str) and lock_path:
+        return lock_path
+    return None
+
+
+def parse_round_source_from_local_authority(checkpoint):
+    historical = checkpoint.get("historical_authority") or {}
+    normalized = historical.get("normalized_execution_comment") or {}
+
+    # R18's durable lock points to a normalized execution comment in the
+    # current public repo. Use that exact transport instead of touching the
+    # private legacy repo from CI.
+    if isinstance(normalized.get("comment_id"), int):
+        body = compiler.triage.fetch_comment(
+            normalized.get("repo") or "kianwang022-hash/kianos",
+            normalized["comment_id"],
+        )["body"]
+    else:
+        ap = local_authority_path(checkpoint)
+        if not ap:
+            raise RuntimeError(f"{checkpoint.get('audit_id')}: missing durable local authority path")
+        body = (compiler.ROOT / ap).read_text(encoding="utf-8")
 
     compiler.base.EXPANSION_OWNER_HINTS = {}
     compiler.base.EXPANSION_OWNER_TARGETS = []
