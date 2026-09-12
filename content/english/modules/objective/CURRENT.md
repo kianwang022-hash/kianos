@@ -1,7 +1,7 @@
 # English Objective Current
 
-Role: independent Objective Work Cursor + restart entry
-Parent: `content/english/CURRENT.md`
+Role: independent Objective Work Cursor + restart entry  
+Parent: `content/english/CURRENT.md`  
 Scope: Reading A / Cloze / Reading B shared Objective runtime
 
 This file does not own Objective cognition/content, acceptance evidence, or learner progress.
@@ -10,119 +10,156 @@ This file does not own Objective cognition/content, acceptance evidence, or lear
 
 ## Work Cursor
 
-**Active / earliest unresolved stage:** `U — Learner Validation`  
-**Engineering readiness:** `S/K/L/P/R/E PASS` → **Module ready for learner test**  
-**U status:** `UNTESTED`  
-**Next action:** no further Objective engineering work by default. When Kian naturally uses an Objective path, record only the learner evidence for the path actually exercised; reopen the earliest responsible upstream gate only if real use exposes a concrete defect.
+**Active / earliest unresolved stage:** `R — Runtime`  
+**Current acceptance:** `S/K/L/P PASS · R UNTESTED · E UNTESTED · U UNTESTED`  
+**R scope:** bounded Reading A + Reading B closure only; Cloze already has strong deep executed Runtime evidence.  
+**E state:** downstream-frozen until R closes for Reading A and Reading B.  
+**U state:** real learner use only; do not manufacture learner testing for engineering closure.
 
-Do not manufacture a synthetic learner test merely to make U green.
-
----
-
-## Durable P evidence
-
-Canonical P seal:
-
-- artifact head `addb1c74cbe6ca756fd613bff7e634a3741c0995`;
-- workflow run `34695962533`;
-- successful rerun job `103559543188`;
-- `journey-task-smoke.json` → `pass: true` in Chromium + WebKit;
-- `reading-b-forms.json` → `pass: true`, `88` checks.
-
-Reading A strict task-page execution and all four real Reading B forms are accepted under P.
+**Next action:** extend / execute browser acceptance only far enough to close the missing Reading A and Reading B Runtime paths on Current artifacts. If execution exposes a real product defect, reopen the earliest responsible upstream object. If it passes, update Acceptance R first, then activate E.
 
 ---
 
-## Durable R evidence
+## Why R reopened
 
-The same successful Runtime seal produced:
+Independent re-acceptance under the parent English anti-cocoon directive decomposed the prior aggregate seals instead of inheriting their PASS labels.
 
-- `journey-shared.json` → `pass: true`, Chromium full journey PASS, `15/15` checks;
-- clean attempt/submission without forced debt;
-- whole-unit problem routing;
-- failed-return rollback without partial state corruption;
-- completed repair return;
-- duplicate-return idempotence;
-- persisted attempt/trajectory/results state;
-- continuation into later fresh material;
-- actual Reading A / Reading B task execution in Chromium + WebKit.
+The prior evidence is real but uneven by task:
 
-R is accepted.
+```text
+Cloze
+→ deep clean / problem / return / persistence / fresh close / reopen journey
 
----
+Reading A
+→ Chromium + WebKit clean/problem passage-first task smoke
 
-## Durable E evidence
+Reading B
+→ Chromium + WebKit all-four-form projection + clean maps + whole-set ordering handoff
+```
 
-Canonical E seal:
+The previous Objective Acceptance generalized the deep shared/Cloze journey into aggregate Reading A / Cloze / Reading B R/E PASS.
 
-- artifact head `3167ebaf6d6cb2402c728561ddb19a905be0dbda`;
-- workflow run `34696424413`;
-- successful job `103560584877`;
-- artifact id `10299280963`;
-- `journey-shared.json` → `pass: true`;
-- Evidence/runtime shared journey → **20/20 PASS**.
+Under current English acceptance semantics, that inference is too strong:
 
-The executed Evidence boundaries include:
+> **shared runtime capability / shared executed evidence ≠ automatic child-task gate PASS**
 
-- clean PASS creates no debt;
-- diagnosis-only cannot create a task claim;
-- Lexical/Reading routed repairs cannot duplicate Objective task debt;
-- completed task repair can create one justified pending claim;
-- duplicate return is idempotent;
-- stale/same-object closure is rejected;
-- fresh context is carried for transfer judgment;
-- closure without fresh evidence is rejected;
-- fresh relevant evidence can close;
-- clean transfer cannot authorize reopening;
-- later contradictory fresh problem evidence can reopen;
-- persistence failure preserves pasted return and rolls back claim state.
-
-E is accepted.
+No current product defect has yet been demonstrated. The reopened object is the missing **task-specific executed acceptance evidence**.
 
 ---
 
-## U — what counts now
+## Frozen upstream result from fresh audit
 
-U can only come from Kian's real learning use.
+Do not restart S/K/L/P unless new Runtime execution gives concrete upstream evidence.
 
-Validation is path-specific. Useful learner evidence may come from:
+### S — PASS
 
-- a normal clean Cloze / Reading A / Reading B attempt;
-- a real problem → whole-unit review → repair path;
-- a later fresh transfer close/reopen path;
-- a specific Reading B form actually encountered in normal study.
+Fresh auditor sampled actual Current source/provenance and negative space rather than accepting manifest counts alone. No material Objective source blocker was found.
 
-One successful path does not automatically validate every Objective path.
+### K — PASS
 
-Engineering state must not be rewritten as learner progress.
+Reading A, Cloze and Reading B preserve distinct cognitive objects and canonical Lexical/Reading routing. No taxonomy-driven or duplicate-owner Knowledge defect was found.
 
----
+### L — PASS
 
-## Frozen / out of scope
+Whole passage/set clean attempt → whole-unit diagnosis → smallest useful repair → later fresh transfer remains stronger than the challenged alternatives of question-type curriculum or per-question immediate review.
 
-Unless new concrete evidence requires reopening:
+### P — PASS
 
-- S / K / L / P / R / E remain frozen as PASS;
-- do not add Objective features merely because U is still UNTESTED;
-- do not force Kian to test Objective before it naturally enters study;
-- do not expand Objective taxonomy or static Skill Content;
-- do not modify Translation / Writing / Lexical sibling scopes;
-- do not infer or mutate Kian's Learner Truth from GitHub/CI state.
+Fresh adversarial inspection did not reproduce answer leakage or Reading B global-constraint loss. Existing Chromium/WebKit form evidence remains materially relevant.
 
 ---
 
-## Required reads
+# R closure target
 
-For ordinary re-entry while U is pending:
+Do not broaden this into a redesign project.
 
-1. `content/english/modules/objective/ACCEPTANCE.md`
-2. this `CURRENT.md`
+## Reading A
 
-No implementation/runtime owner is a default read now.
+Execute a bounded Current browser journey covering:
 
-Only if real learner evidence exposes a concrete defect should the next chat read the exact upstream owner implicated by that evidence.
+1. clean whole-passage PASS with no forced Chat/debt;
+2. wrong whole-passage review entry;
+3. uncertain-even-if-correct review entry;
+4. passage-level handoff rather than per-question Chat review;
+5. repair return import with persistence safety and idempotence;
+6. continuous sealed mode where enabled: interim submissions do not reveal score/formal answer/diagnosis;
+7. exit/resume returns only passages that actually need review and preserves place/state;
+8. a distinct fresh Reading A object can carry a justified task-specific pending claim without same-item mastery leakage.
 
-Do not read English `continuation.json`, parent Acceptance, sibling scopes, historical Chat, or legacy repos for ordinary Objective continuation.
+Do not require a learner-visible second pass merely because the runtime can store one.
+
+## Reading B
+
+Execute a bounded Current browser journey covering:
+
+1. clean whole-set PASS with no forced Chat/debt;
+2. whole-set problem handoff;
+3. at least one genuinely local repair-thread shape;
+4. at least one coupled or structure-level thread shape for a swap/cascade-compatible form;
+5. return import persistence safety and idempotence;
+6. later distinct Reading B set continuation for a justified task-specific pending claim;
+7. source `single_use`, fixed-given and complete-map constraints remain intact through the journey.
+
+Existing all-four-form projection coverage should be reused. Do not rerun redundant form checks merely for ritual unless a modified path makes them relevant.
+
+---
+
+# E activation boundary
+
+E remains `UNTESTED` / downstream-frozen while R is unresolved.
+
+When R closes, activate E and use the smallest additional executed set necessary to prove Reading A and Reading B task-specific evidence semantics, especially:
+
+- item evidence does not redefine the passage/set review unit;
+- diagnosis-only does not become repair/debt;
+- Lexical/Reading routes do not create duplicate Objective claims;
+- multi-item/cascade evidence may belong to one repair thread;
+- completed task repair is required before a task-specific transfer claim;
+- same-object correction cannot close transfer;
+- fresh evidence is required for close;
+- later contradictory fresh evidence is required for reopen;
+- persistence failure cannot leave partial mutation.
+
+The existing Cloze/shared importer adversarial journey remains valid reusable evidence for genuinely shared mechanics. Do not duplicate shared tests if a task-specific execution can prove the remaining integration boundary directly.
+
+---
+
+## Learner boundary
+
+Kian does **not** need to test Objective now merely because engineering acceptance reopened.
+
+```text
+Engineering Current
+≠ Learner Truth
+```
+
+U remains real-use-only. Fresh exam material must not be consumed as a substitute for missing software acceptance evidence.
+
+---
+
+## Scope containment
+
+Until R/E closure:
+
+- do not modify Objective learning semantics unless execution reveals a concrete L/K defect;
+- do not expand Objective Skill taxonomy/content;
+- do not modify Translation / Writing / Lexical siblings;
+- do not infer Kian's progress from browser tests;
+- do not reopen Cloze deep runtime evidence without a concrete reason;
+- do not treat old Acceptance PASS wording as the answer key.
+
+---
+
+## Required reads for next continuation
+
+```text
+content/english/modules/objective/CURRENT.md
+→ content/english/modules/objective/ACCEPTANCE.md
+→ exact Reading A / Reading B runtime + acceptance-test owners needed for R
+→ execute bounded closure
+```
+
+Do not read English `continuation.json`, unrelated modules, legacy repositories, or historical Chats by default.
 
 ---
 
@@ -149,12 +186,12 @@ Private learner/runtime state only.
 
 ## Fresh-Chat target
 
-Known scope `English Objective` should normally recover as:
+Known scope `English Objective` should now recover as:
 
 ```text
 Objective CURRENT
 → Objective ACCEPTANCE
-→ U pending / no engineering work by default
+→ R active: bounded Reading A / Reading B executed closure
+→ E only after R passes
+→ U later from natural Kian use
 ```
-
-If real learner evidence exists, follow that evidence to the earliest responsible gate rather than restarting the whole scope.
