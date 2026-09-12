@@ -6,7 +6,9 @@ export default defineConfig({
   workers: 1,
   timeout: 45_000,
   expect: { timeout: 7_500 },
-  reporter: process.env.CI ? [['line']] : [['list']],
+  reporter: process.env.CI
+    ? [['line'], ['json', { outputFile: 'test-results/xizong-results.json' }]]
+    : [['list']],
   use: {
     baseURL: 'http://127.0.0.1:4321',
     headless: true,
