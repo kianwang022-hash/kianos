@@ -9,9 +9,10 @@ This file does not duplicate English content, acceptance evidence, or learner pr
 
 ## Lane Work Cursor
 
-**Active governance task:** validate the new Current/Truth ownership model through the Writing pilot.  
-**Next governance action:** run Fresh Chat + Truth Separation checks for Writing before migrating other English scopes.  
-**Global English product work:** remains owned by each product/sub-lane Work Cursor; this governance pilot does not authorize sibling semantic/runtime changes.
+**Active governance task:** migrate independently continued English scopes under the new Current / Three Truths ownership model.  
+**Writing pilot:** structural routing complete; Writing no longer requires English `continuation.json` for normal continuation.  
+**Next governance action:** migrate Translation as the second independently continued productive scope, then re-run Fresh Chat + Truth Separation checks.  
+**Global English product work:** remains owned by each product/sub-lane Work Cursor; this governance migration does not authorize sibling semantic/runtime changes.
 
 ---
 
@@ -23,15 +24,52 @@ Entry:
 
 `content/english/modules/writing/CURRENT.md`
 
-Writing now owns its local Work Cursor and Acceptance reference. A fresh Chat continuing Writing should route there directly and does **not** need English `continuation.json` by default.
+Writing owns its local Work Cursor and Acceptance reference.
 
-### Other English scopes
+Normal Writing re-entry:
 
-Objective / Translation / other English work has not yet been migrated under this governance pilot.
+```text
+Writing CURRENT
+→ exact required owner(s)
+→ work
+```
 
-`content/english/continuation.json` remains a **transitional owner for non-migrated English work only** until each responsibility is audited.
+English `continuation.json` is not required for Writing.
 
-Do not expand that continuation with new historical narrative during this pilot. Do not delete it until machine/process dependencies have been checked.
+### Translation
+
+Not yet migrated. It is the next governance pilot scope.
+
+### Objective / other English scopes
+
+Not yet migrated under this governance branch.
+
+---
+
+## Transitional continuation boundary
+
+`content/english/continuation.json` remains temporarily present only because non-migrated English scopes still need their current work position extracted before retirement.
+
+Current repo-contained dependency audit checked:
+
+- English Writing / Translation / Objective CI workflows;
+- root and `static-web` package scripts;
+- `static-web/src/lib/current.mjs`;
+- English Writing validator/runtime entrypoints;
+- repository `tools/` machine entrypoints.
+
+**No current repo-contained machine/runtime/validator consumer of `content/english/continuation.json` was discovered in those audited entrypoints.**
+
+This is a bounded finding, not proof that an external/manual consumer can never exist.
+
+Therefore the continuation is **not retained because of a proven machine requirement**. During migration it acts only as a temporary extraction source for non-migrated Work Cursor / Acceptance facts.
+
+Rules during transition:
+
+- do not add new historical narrative;
+- do not add new acceptance summaries that belong in scoped Acceptance owners;
+- do not make it a required read for migrated scopes;
+- do not delete it until Objective / Translation / other remaining responsibilities have been extracted and final dependency review is complete.
 
 ---
 
