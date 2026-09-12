@@ -32,3 +32,10 @@ jobs:
         run: npm run validate:writing
       - name: Build Astro
         run: npm run build
+      - name: Upload Writing true-exam image audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: writing-exam-runtime-audit
+          path: static-web/writing-exam-runtime-audit.json
+          if-no-files-found: warn
