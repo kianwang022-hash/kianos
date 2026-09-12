@@ -1,0 +1,45 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 101, "end": 120, "count": 20},
+  "status_counts": {"PASS": 12, "REVISE": 8, "SOURCE_CHECK": 0},
+  "relation_decisions": [],
+  "decisions": [
+    {"ordinal":101,"word":"affection","decision":"PASS"},
+    {"ordinal":102,"word":"affiliate","decision":"PASS"},
+    {"ordinal":103,"word":"affirm","decision":"REVISE","target_truth":"Keep affirm=state/assert/confirm as true as the main academic/formal meaning, including affirm that... . Keep legal/formal affirm a judgment/decision=uphold/confirm at lower depth, but do not gloss that branch as generic 'say yes / agree / approve', which overgeneralizes the legal sense."},
+    {"ordinal":104,"word":"affluent","decision":"REVISE","target_truth":"Restore adjective affluent=wealthy/prosperous/having abundant money or resources as the main Active meaning. Rare noun 'an affluent person' and technical/obsolete noun 'tributary stream' belong outside the main learner map. Current Core already names the adjective while Active Knowledge omits it, so Core and senses are contradictory."},
+    {"ordinal":105,"word":"afford","decision":"PASS"},
+    {"ordinal":106,"word":"afraid","decision":"REVISE","target_truth":"Keep afraid of sth / afraid to do sth for fear. Restore high-value discourse use 'I'm afraid (that)... / I'm afraid so/not' for polite regret, bad news, or concern. Fear-based reluctance can be organized as a nuance/pattern rather than a separate dictionary-completeness sense."},
+    {"ordinal":107,"word":"after","decision":"PASS"},
+    {"ordinal":108,"word":"aftermath","decision":"PASS"},
+    {"ordinal":109,"word":"afternoon","decision":"PASS"},
+    {"ordinal":110,"word":"afterward","decision":"PASS"},
+    {"ordinal":111,"word":"again","decision":"PASS"},
+    {"ordinal":112,"word":"against","decision":"REVISE","target_truth":"Preserve opposition and physical contact as main branches. Represent protection/prevention and contrast/reference uses explicitly where learner-worthy (e.g. protect/insure against; against a background/expectation/reference). Do not teach unnatural or misleading 'save money against a rainy day' as the model for preparation; normal learner English is 'save for a rainy day'."},
+    {"ordinal":113,"word":"age","decision":"REVISE","target_truth":"Preserve noun age=years existed, noun age=historical era, and verb age=(cause to) become older. Remove the duplicate same sense_id in the verb Core cluster and keep transitive/intransitive aging as one coherent verb branch rather than duplicate semantic ownership. Ensure examples such as underage/minor are represented naturally rather than treating 'under age' as a central fixed expression."},
+    {"ordinal":114,"word":"agency","decision":"PASS"},
+    {"ordinal":115,"word":"agenda","decision":"REVISE","target_truth":"Keep meeting agenda=list of matters to discuss. Distinguish the familiar-new abstract branch agenda=set of aims, priorities, or intended program (political agenda, hidden agenda) from a mere temporally organized to-do list; current second definition does not explain its most important abstract uses."},
+    {"ordinal":116,"word":"agent","decision":"REVISE","target_truth":"Organize around a person/organization that acts on behalf of another; a person/thing/substance that causes an effect; and high-value agent of change/cause uses. Collapse broker/commission examples such as travel agent into the representative/intermediary branch instead of a redundant separate L3 sense. Replace gendered/outdated 'businessman' wording and incorrect/awkward Chinese '动原' with neutral, accurate language."},
+    {"ordinal":117,"word":"aggravate","decision":"PASS"},
+    {"ordinal":118,"word":"aggregate","decision":"REVISE","target_truth":"Center the general/academic family on aggregate=total/combined whole, aggregate data/results, and amount to a total across noun/verb/adjective uses. Construction-material 'aggregate' (sand/gravel) is a valid specialist noun but should be reference/recognition rather than equal main learner depth. Ensure 'aggregate data' is owned by the intended verb/adjective use rather than an ambiguous POS example."},
+    {"ordinal":119,"word":"aggressive","decision":"PASS"},
+    {"ordinal":120,"word":"agitate","decision":"PASS"}
+  ],
+  "defect_classes_added": [
+    "CORE_ACTIVE_CONTRADICTION_MAIN_SENSE_MISSING",
+    "COMMON_DISCOURSE_FORMULA_MERGED_OUT",
+    "ABSTRACT_GOAL_PRIORITY_SENSE_REDUCED_TO_LITERAL_TASK_LIST",
+    "REDUNDANT_OCCUPATION_SUBSENSE_WITH_GENDERED_OR_OUTDATED_GLOSS",
+    "SPECIALIST_MATERIAL_SENSE_OVERPROMOTED_AGAINST_ACADEMIC_GENERAL_USE"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Continue Truth-stage review from ordinal 121 through 200; do not repair Current owners yet."
+}
