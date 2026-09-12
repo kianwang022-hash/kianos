@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 341, "end": 360},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 13, "REVISE": 7, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":341,"word":"aunt","verdict":"PASS","target_truth":"Single kinship noun center is correct and sufficiently represented."},
+    {"ordinal":342,"word":"aural","verdict":"REVISE","target_truth":"Center aural=relating to hearing/the ear. Keep the dictionary-attested aura-related homograph only as very low reference, not learner-main content. Remove the misleading example 'aural symptoms'=aura warning symptoms, because medical usage commonly uses aural symptoms for ear/hearing symptoms. Preserve the accurate aural↔oral confusable relation."},
+    {"ordinal":343,"word":"authentic","verdict":"REVISE","target_truth":"Use one learner center authentic=genuine/real/not false or counterfeit, with credibility/trustworthiness as the resulting application rather than a separate equal sense."},
+    {"ordinal":344,"word":"author","verdict":"PASS","target_truth":"Keep noun author=writer, extended author=creator/originator, and verb author=write/create; all are useful and coherent."},
+    {"ordinal":345,"word":"authority","verdict":"PASS","target_truth":"Keep authority=power/right, the authorities=official bodies, an authority on=expert, and official authorization/permission; these are distinct high-value reading branches."},
+    {"ordinal":346,"word":"automatic","verdict":"PASS","target_truth":"Keep automatic=self-operating and figurative automatic=unconscious/mechanical. Deprecated firearm noun stays outside the active learner center."},
+    {"ordinal":347,"word":"automation","verdict":"PASS","target_truth":"Single learner center automation=use/process/state of automatic technological control is sufficient; merged equipment/state residues do not require separate learner senses."},
+    {"ordinal":348,"word":"automobile","verdict":"REVISE","target_truth":"Keep automobile=car/road motor vehicle, but remove the outdated restriction that it must be powered by an internal-combustion engine; the definition must include electric automobiles."},
+    {"ordinal":349,"word":"autonomy","verdict":"PASS","target_truth":"Keep organizational/political self-government and personal autonomy/independence as two high-value contexts under one self-governance center."},
+    {"ordinal":350,"word":"autumn","verdict":"REVISE","target_truth":"Define autumn as the season between summer and winter. Do not define it by leaves falling from trees, which is not universally true across climates or vegetation."},
+    {"ordinal":351,"word":"auxiliary","verdict":"PASS","target_truth":"Keep supporting/backup adjective, supporting person/thing noun, and grammatical auxiliary verb noun; current hierarchy is acceptable."},
+    {"ordinal":352,"word":"avail","verdict":"REVISE","target_truth":"Center lexicalized to/of no avail=no use/no effect and formal avail oneself of=make use of. Downgrade rare intransitive avail against sth. Treat avail→available only as low-value morphology/history, not a semantic-neighbor shortcut."},
+    {"ordinal":353,"word":"available","verdict":"PASS","target_truth":"Keep available=obtainable/usable and available=free/not busy; both are common familiar-word branches and correctly connected to availability."},
+    {"ordinal":354,"word":"avenue","verdict":"PASS","target_truth":"Keep literal street/avenue and figurative avenue=route/means/channel; the spatial-to-abstract extension is high-value and clear."},
+    {"ordinal":355,"word":"average","verdict":"PASS","target_truth":"Keep noun average, adjective average=mean/typical/ordinary, transitive calculate an average, and intransitive average at/amount to; current POS distinctions are useful."},
+    {"ordinal":356,"word":"avert","verdict":"PASS","target_truth":"Keep avert=prevent a bad event and avert eyes/face=turn away; both are common and distinct."},
+    {"ordinal":357,"word":"aviation","verdict":"REVISE","target_truth":"Compress current transport-operation and art/science-of-flying senses into one learner center aviation=activity, industry, technology or practice of flying aircraft. Keep military-aviation collective residue outside main Active content."},
+    {"ordinal":358,"word":"avoid","verdict":"PASS","target_truth":"Keep avoid sb/sth=stay away from and avoid doing/prevent an outcome; the high-value construction is explicitly presentation-merged and not a competing semantic object."},
+    {"ordinal":359,"word":"await","verdict":"PASS","target_truth":"Keep await=wait for while taking a direct object. Current deprecation of the obsolete/nonstandard await-for analysis is correct."},
+    {"ordinal":360,"word":"awake","verdict":"REVISE","target_truth":"Center adjective awake=not asleep and preserve awake to sth=become/be aware of as a high-value familiar-word extension in Core/Word Feel. Keep literal verb wake/awaken and transitive awake sb/memories only at lower priority because they are less central in modern usage."}
+  ],
+  "relation_truth": [
+    {"source_word":"aural","relation":"aural ↔ oral","verdict":"PASS","target_truth":"Preserve: aural relates to hearing/the ear; oral is spoken or relates to the mouth. The similar form/sound makes this a genuine learner confusable."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "The aural decision used contemporary learner-dictionary and medical-usage checks because the current example created a genuine factual ambiguity."
+  ]
+}
