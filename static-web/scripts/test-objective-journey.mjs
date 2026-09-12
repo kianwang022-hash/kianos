@@ -146,6 +146,35 @@ async function chromiumJourney() {
   check(handoff?.objectId === repairId, 'cloze_handoff_snapshot_saved');
 
   const repairQuestionId = qid(repairItem.questions[0], 0);
+
+  // Evidence admission boundaries: diagnosis alone and ability-owned repairs must not create Objective task debt.
+  await importReturn(page, {
+    schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+    threads: [{
+      threadId: 'diagnosis-only', scope: 'local', itemIds: [repairQuestionId], route: 'cloze',
+      summary: 'diagnosed but not yet repaired', repairCompleted: false, repairEvidence: ''
+    }],
+    newClaims: [{ sourceThreadId: 'diagnosis-only', statement: 'should not be admitted before repair' }],
+    claimUpdates: []
+  }, { expectSuccess: false });
+  await sleep(100);
+  check((await storeClaims(page, 'cloze')).length === 0, 'diagnosis_only_cannot_create_claim');
+
+  for (const route of ['lexical', 'reading']) {
+    await importReturn(page, {
+      schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+      threads: [{
+        threadId: `ability-${route}`, scope: 'local', itemIds: [repairQuestionId], route,
+        summary: `${route} ability owner should receive this repair`, repairCompleted: true,
+        repairEvidence: 'learner completed the routed ability repair'
+      }],
+      newClaims: [{ sourceThreadId: `ability-${route}`, statement: 'must not duplicate ability-owned debt inside Objective' }],
+      claimUpdates: []
+    }, { expectSuccess: false });
+    await sleep(100);
+    check((await storeClaims(page, 'cloze')).length === 0, `${route}_route_cannot_create_objective_claim`);
+  }
+
   const completedReturn = {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
     threads: [{
@@ -184,6 +213,16 @@ async function chromiumJourney() {
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.length === 1, 'duplicate_return_is_idempotent');
 
+  // The repair handoff did not authorize this newly-created claim for closure. A stale/same-object return cannot close it.
+  await importReturn(page, {
+    schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
+    threads: [], newClaims: [],
+    claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'same historical repair object is not fresh transfer evidence' }]
+  }, { expectSuccess: false });
+  await sleep(100);
+  clozeClaims = await storeClaims(page, 'cloze');
+  check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'unauthorized_same_object_closure_rejected');
+
   // Fresh clean set: pending claim packet must include enough item context; unsupported closure rejected, valid closure accepted.
   const closeItem = loadClozeById(closeId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(closeId)}/`);
@@ -202,6 +241,16 @@ async function chromiumJourney() {
   });
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'CLOSED', 'fresh_relevant_evidence_closes_claim');
+
+  // A clean transfer handoff supplied the claim for closure, not as a reopen candidate. It cannot authorize REOPENED.
+  await importReturn(page, {
+    schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
+    threads: [], newClaims: [],
+    claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'clean transfer packet is not contradictory problem evidence' }]
+  }, { expectSuccess: false });
+  await sleep(100);
+  clozeClaims = await storeClaims(page, 'cloze');
+  check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'CLOSED', 'unauthorized_clean_reopen_rejected');
 
   // Later contradictory fresh problem can conservatively reopen the exact closed claim.
   const reopenItem = loadClozeById(reopenId);
