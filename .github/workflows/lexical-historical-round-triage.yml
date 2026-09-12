@@ -10,7 +10,7 @@ on:
       - 'tools/lexical_historical_round_owner_surfaces.py'
       - 'tools/lexical_historical_round_compound_surfaces.py'
       - 'tools/lexical_historical_round_enrich_owner_packet.py'
-      - 'content/lexical/audit/migration-integrity/r27-execution-authority.md'
+      - 'content/lexical/audit/migration-integrity/r28-execution-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
 
@@ -18,49 +18,49 @@ permissions:
   contents: read
 
 jobs:
-  r27-bulk-triage:
+  r28-bulk-triage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read compact R27 authority and bulk-triage Current
+      - name: Read compact R28 authority and bulk-triage Current
         shell: bash
         run: |
           python tools/lexical_historical_round_compound_surfaces.py \
-            content/lexical/audit/migration-integrity/r27-execution-authority.md \
+            content/lexical/audit/migration-integrity/r28-execution-authority.md \
             --legacy-repo kianwang022-hash/kianos-legacy \
-            --comment-id 5588727025 \
-            --audit-id R27_6501_6800_CORE_EXPANSION_CONTRAST \
-            --expected-core 83 \
-            --expected-expansion 116 \
+            --comment-id 5588941028 \
+            --audit-id R28_6801_7100_CORE_EXPANSION_CONTRAST \
+            --expected-core 86 \
+            --expected-expansion 88 \
             --expected-contrast 80 \
-            --output /tmp/r27-bulk-triage.json \
-            --summary /tmp/r27-bulk-triage-summary.md
+            --output /tmp/r28-bulk-triage.json \
+            --summary /tmp/r28-bulk-triage-summary.md
 
       - name: Enrich Expansion candidates with compact Current owner projections
         shell: bash
         run: |
           python tools/lexical_historical_round_enrich_owner_packet.py \
-            /tmp/r27-bulk-triage.json \
-            --output /tmp/r27-bulk-triage.json
+            /tmp/r28-bulk-triage.json \
+            --output /tmp/r28-bulk-triage.json
 
       - name: Publish summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/r27-bulk-triage-summary.md ]; then
-            cat /tmp/r27-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/r28-bulk-triage-summary.md ]; then
+            cat /tmp/r28-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## R27 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo '## R28 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload triage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-r27-bulk-triage
+          name: lexical-r28-bulk-triage
           path: |
-            /tmp/r27-bulk-triage.json
-            /tmp/r27-bulk-triage-summary.md
+            /tmp/r28-bulk-triage.json
+            /tmp/r28-bulk-triage-summary.md
           if-no-files-found: error
           retention-days: 14
