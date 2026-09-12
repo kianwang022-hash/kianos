@@ -11,7 +11,17 @@ ORIGINAL_PARSE_OWNER_GROUP_EXPANSION = owner.parse_owner_group_expansion
 
 
 def parse_owner_group_expansion_with_compounds(body: str):
-    rows = ORIGINAL_PARSE_OWNER_GROUP_EXPANSION(body)
+    # Compact execution manifests may document how their surface list is
+    # grouped immediately after the list. That transport note is metadata, not
+    # part of the last learner surface. Normalize it away before the generic
+    # parser reads the semantic target block.
+    body_for_expansion = re.sub(
+        r"\n\nSurface grouping:[^\n]*\n(?=\n### Contrast Gate)",
+        "\n\n",
+        body,
+        flags=re.I,
+    )
+    rows = ORIGINAL_PARSE_OWNER_GROUP_EXPANSION(body_for_expansion)
     if not rows:
         return rows
 
