@@ -10,8 +10,8 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ## Work Cursor
 
 **Scope:** English Translation  
-**Active / earliest unresolved stage:** Acceptance re-establishment under the new Truth ownership model  
-**Blocker:** formal S/K/L/P/R/E acceptance has not yet been migrated/re-established; Artifact implementation exists but must not be mistaken for PASS  
+**Active / earliest unresolved stage:** scoped Acceptance establishment — S/K/L/P/R/E formalization  
+**Blocker:** formal S/K/L/P/R/E acceptance has not yet been re-established from current Artifact evidence; implementation exists but must not be mistaken for PASS  
 **Next action:** run a bounded Translation acceptance audit from current Source + canonical learning owner + existing `qa:translation`; update `ACCEPTANCE.md` only from evidence.
 
 ---
@@ -41,7 +41,7 @@ For ordinary re-entry into the active acceptance audit:
 
 Do **not** read validator/runtime implementation code up front. Read the exact failing validator/owner only if execution or the S/K/L audit exposes a concrete issue.
 
-English `continuation.json` is not required for normal Translation continuation under this migrated scope.
+English `continuation.json` is not required for normal Translation continuation.
 
 ---
 

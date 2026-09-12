@@ -1,6 +1,6 @@
 # English Objective Acceptance
 
-Status: CURRENT on governance pilot branch
+Status: CURRENT
 Scope: English Objective tasks — Reading A / Cloze / Reading B
 Standard: root `LEARNING_ACCEPTANCE.md`
 
@@ -14,8 +14,8 @@ It does not own Objective cognition/content, runtime implementation, Work Cursor
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | PASS | Prior root-acceptance work established Current source ownership/coverage for Objective; current Artifact owners remain `content/english/source/*` + task contracts. Governance branch has not modified Objective Artifact files relative to the compared `main` tip. |
-| K — Knowledge | PASS | Canonical shared Objective learning owner `content/english/modules/objective-learning.md` and task contracts for Reading A / Cloze / Reading B were previously accepted; no current Knowledge blocker is recorded and governance work has not changed those Artifact owners. |
+| S — Source | PASS | Prior root-acceptance work established Current source ownership/coverage for Objective; current Artifact owners remain `content/english/source/*` + task contracts. No current Source blocker is recorded. |
+| K — Knowledge | PASS | Canonical shared Objective learning owner `content/english/modules/objective-learning.md` and task contracts for Reading A / Cloze / Reading B were previously accepted; no current Knowledge blocker is recorded. |
 | L — Learning | PASS | Accepted learner-facing unit remains one complete passage/set; item-level evidence stays internal; first learning is complete-but-skippable and direct practice remains available. No current Learning blocker is recorded. |
 | P — Projection | UNTESTED | Static/source projection evidence is strong and previously passed; final task-browser seal is still not executed in the current acceptance harness because the latest hosted job failed before step assignment. Overall P cannot be called PASS until the intended task-browser path is observed. |
 | R — Runtime | UNTESTED | Shared Objective browser closure has prior direct PASS evidence; task-page Chromium/WebKit seal remains unexecuted due runner-layer failure before steps. No product assertion failure is currently known, but missing execution evidence remains UNTESTED rather than PASS. |
@@ -81,7 +81,7 @@ Current workflow owner:
 
 `.github/workflows/static-web-objective-journey.yml`
 
-The latest recorded attempt in the migrated acceptance evidence was:
+The latest recorded attempt was:
 
 - workflow run: `34663161373`
 - result: failure before any step assignment;
@@ -130,11 +130,3 @@ Reopen an upstream gate only when:
 Private learner/runtime state only.
 
 This Acceptance file does not mean Kian has attempted Objective tasks, repaired any error, or reached transfer closure.
-
----
-
-## Migration note
-
-This scoped Acceptance owner extracts concrete prior evidence from the previously combined English `continuation.json` and preserves only evidence that has an identifiable commit/run/check boundary.
-
-Narrative completion history is not promoted into acceptance truth.

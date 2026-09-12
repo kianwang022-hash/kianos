@@ -1,93 +1,97 @@
 # Xizong Current
 
-Role: Xizong lane Work Cursor + restart entry
+Role: Xizong lane Work Cursor + independently continued System router  
 Parent: root `CURRENT.md`
 
-This file does not own medical Core, lane learning semantics, Acceptance Truth, or Kian's learner progress.
+This file does not own medical Core, lane learning semantics, scoped Acceptance Truth, or Kian's learner progress.
 
 ---
 
-## Work Cursor
+## Lane Work Cursor
 
-**Active scope:** A2 Respiratory  
-**Active / earliest unresolved stage:** `K — Knowledge content-closure reconfirm`  
-**Blocker:** A2 has substantial Current Artifact content, but K has not yet been re-accepted from canonical System + Block medical Core under the current root acceptance sequence  
-**Next action:** perform a bounded A2 K audit from current canonical System + Blocks; update `content/xizong/ACCEPTANCE.md` only from evidence. Do not proceed to A2 P/R/E until K is accepted.
+**Active child scope:** A2 Respiratory  
+**Blocker:** none at lane-routing level; A2 owns its own unresolved K blocker  
+**Next action:** route current work directly to `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md`.
 
-### A1 boundary
+Current independently continued Systems:
 
-A1 Circulation is **Module ready for learner test** at S–E, with all real U paths still UNTESTED.
+| Scope | Work Cursor | Acceptance Truth |
+| --- | --- | --- |
+| A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/CURRENT.md` | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` |
+| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md` | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
 
-This is a product/acceptance statement only.
-
-> **Do not infer that Kian has started Circulation, reached System Recall, or should perform System Exit.**
-
-Learner next action must come from real learner/conversation/private state, never this engineering Work Cursor.
+A1/A2 current stages and gate claims belong only to those local owners. Do not copy their detailed state back into this lane router.
 
 ---
 
-## Frozen / out of scope
+## Systems that are not first-class governance scopes yet
 
-During A2 K audit:
+The medical hierarchy contains additional Systems, Blocks and KPs, but hierarchy alone does not justify a local `CURRENT / ACCEPTANCE` pair.
 
-- A1 S–E remain frozen unless new concrete evidence reopens them;
-- A2 P/R/E remain downstream/frozen until K PASS;
-- do not rebuild A1 376 or A2 359 question scopes by model inference;
-- do not infer Question→Block/KP mappings without reviewed authority;
-- do not modify English / Politics / Lexical sibling lanes;
-- do not mutate private learner progress, Recall, W/U, holdout, notes or review state;
-- do not add medical Core merely for symmetry or content volume.
+Create a future System sub-lane only when:
 
----
+- workers routinely enter/continue it independently;
+- it owns a distinct Work Cursor or acceptance boundary;
+- local routing materially lowers normal read cost or ambiguity;
+- the new owner replaces duplication rather than adding another summary.
 
-## Required reads
+Until then, those Systems remain canonical medical/learning objects under the lane without extra governance files.
 
-For normal re-entry into the active A2 K audit:
-
-1. `content/xizong/ACCEPTANCE.md`
-2. `content/xizong/knowledge/systems/a2-respiratory/system.json`
-3. exact A2 Block owner(s) required by the current audit slice
-
-Read `content/xizong/LEARNING_CONTRACT.md` only if the K audit exposes a lane-level cognition / learner-order boundary question. Read `content/xizong/knowledge/learner/study-policy.json` or A2 learning projection only when the exact detailed learning policy is material.
-
-Runtime/validators are downstream diagnostic reads, not startup reads for K.
-
-No Xizong continuation/history read is required for normal work.
+Do not create System-level `LEARNING_CONTRACT.md` files merely for symmetry. Lane cognition remains owned by `content/xizong/LEARNING_CONTRACT.md`; System-specific learner order/closure remains in justified `*-learning.json` support.
 
 ---
 
-## Truth references
+## Stable lane owners
 
-### Artifact Truth
+### Artifact / learning owners
 
 - knowledge owner map → `content/xizong/knowledge/manifest.json`
-- A2 System owner → `content/xizong/knowledge/systems/a2-respiratory/system.json`
-- A2 medical Core → `content/xizong/knowledge/systems/a2-respiratory/blocks/`
-- lane learning semantics → `content/xizong/LEARNING_CONTRACT.md`
+- canonical medical Core → `content/xizong/knowledge/systems/**`
+- lane learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - detailed shared learning policy → `content/xizong/knowledge/learner/study-policy.json`
 - System-specific learning support → `content/xizong/knowledge/learner/`
-- official questions / explanations / reviewed relations → Xizong content roots
+- official questions / explanations / reviewed relations → dedicated Xizong roots
 - learner runtime → Xizong surfaces under `static-web/`
 
-### Acceptance Truth
+### Lane Acceptance
 
-`content/xizong/ACCEPTANCE.md`
+`content/xizong/ACCEPTANCE.md` owns only genuine Xizong-wide integration/readiness claims. A1/A2 readiness belongs to their local Acceptance owners.
 
 ### Learner Truth
 
-Private learner/browser/conversation state only. Shared Artifact / Acceptance / Work state cannot manufacture learner progress.
+Private learner/browser/conversation evidence only. System readiness or lane Work state cannot manufacture Kian's study progress or next learner action.
 
 ---
 
-## Fresh-Chat target
+## Fresh-Chat routing
 
-Known scope `Xizong A2` should normally recover as:
+Known A1:
 
 ```text
-Xizong CURRENT
-→ Xizong ACCEPTANCE
-→ A2 system owner / exact Block under audit
+A1 CURRENT
+→ A1 ACCEPTANCE
+→ exact owner only if needed
 → work
 ```
 
-Do not read the lane Learning Contract unless the task actually touches cognition/learning rules. Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.
+Known A2:
+
+```text
+A2 CURRENT
+→ A2 ACCEPTANCE
+→ A2 System / exact Block
+→ work
+```
+
+Xizong lane known but exact System not yet resolved:
+
+```text
+Xizong CURRENT
+→ choose independently continued System when applicable
+→ local CURRENT
+→ exact required owner(s)
+```
+
+Read the lane Learning Contract only when the task actually concerns Xizong cognition, learner order, phase linkage or System/Block/KP learning boundaries.
+
+Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.

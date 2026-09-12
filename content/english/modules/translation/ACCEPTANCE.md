@@ -1,6 +1,6 @@
 # English Translation Acceptance
 
-Status: CURRENT on governance pilot branch
+Status: CURRENT
 Scope: English Translation learner-facing module
 Standard: root `LEARNING_ACCEPTANCE.md`
 
@@ -14,9 +14,9 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | UNTESTED | Artifact candidates exist: `content/english/manifest.json`, `content/english/source/question_bank.v1.json`, and source scanner `static-web/src/lib/englishTranslation.mjs`. Current validator is designed to fail closed on unresolved source/reference gaps, but no formal Translation S acceptance record has been migrated into this owner yet. |
+| S — Source | UNTESTED | Artifact candidates exist: `content/english/manifest.json`, `content/english/source/question_bank.v1.json`, and source scanner `static-web/src/lib/englishTranslation.mjs`. Current validator is designed to fail closed on unresolved source/reference gaps, but formal Translation S acceptance has not yet been established in this scoped owner. |
 | K — Knowledge | UNTESTED | Canonical learner-facing ability asset exists at `content/english/modules/translation/learning.md`, with Representation / Preservation / Reconstruction / Exam Execution structure. Existence/content richness is not itself K acceptance. |
-| L — Learning | UNTESTED | The asset explicitly defines whole-map → four Core Learning Blocks → later Skill Map/repair, and whole-set Productive learning semantics. Formal L acceptance under root standard has not yet been re-established in this owner. |
+| L — Learning | UNTESTED | The asset explicitly defines whole-map → four Core Learning Blocks → later Skill Map/repair, and whole-set Productive learning semantics. Formal L acceptance under root standard has not yet been established in this owner. |
 | P — Projection | UNTESTED | Current Translation learner pages/components exist and validators inspect pre-attempt evidence protection and navigation. Formal P acceptance remains to be audited. |
 | R — Runtime | UNTESTED | Runtime implementation and deterministic journey validator exist, including whole-attempt lock, clean PASS, whole-set diagnosis, smallest repair, reconstruction, persistence fail-closed behavior, and return import. Implementation is Artifact Truth until acceptance is executed/audited. |
 | E — Evidence | UNTESTED | Runtime model/validator encode private transfer targets, same-task non-closure, later fresh SUPPORT/CLOSE, irrelevant evidence protection, idempotency, and fail-closed target identity. Formal E acceptance remains to be established. |
@@ -28,7 +28,7 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 
 Allowed statement:
 
-> **Translation has substantial Current Artifact implementation and acceptance-oriented validators, but formal S/K/L/P/R/E acceptance has not yet been migrated/re-established under the new Truth ownership model; U is UNTESTED.**
+> **Translation has substantial Current Artifact implementation and acceptance-oriented validators, but formal S/K/L/P/R/E acceptance has not yet been established from current scoped evidence; U is UNTESTED.**
 
 Do not say `Module ready for learner test` until S–E meet the root acceptance standard.
 
@@ -93,7 +93,7 @@ These checks must still be executed/audited before R/E are called PASS.
 
 ## Acceptance next action
 
-Run a bounded Translation reacceptance against current branch Artifact owners without changing Translation semantics unless a concrete blocker is found:
+Run a bounded Translation reacceptance against current Artifact owners without changing Translation semantics unless a concrete blocker is found:
 
 1. audit S/K/L from current Source + canonical learning owner;
 2. execute/review `npm run validate:translation` and current build in an available environment;
@@ -112,11 +112,3 @@ Actual Translation source/content/runtime owners listed above.
 
 ### Learner Truth
 Private learner/runtime state only. This file does not claim Kian has started Translation, attempted a task, repaired an error, or closed a transfer target.
-
----
-
-## Migration note
-
-The previous English continuation described Translation as an independent Productive runtime and listed its learning owner, but did not provide a clean scoped S/K/L/P/R/E acceptance ledger.
-
-Under the new architecture, that legacy summary is not promoted into PASS claims. Translation is explicitly reaccepted from current Artifact evidence instead.

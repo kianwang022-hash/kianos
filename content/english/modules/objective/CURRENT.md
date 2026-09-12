@@ -51,7 +51,7 @@ For ordinary re-entry into the active seal:
 
 These two owners are sufficient to know what must execute and what evidence must return. Read `objective-runtime.md`, `objective-evidence-runtime.md`, task contracts, source owners, or implementation only if an executed assertion identifies a concrete defect.
 
-English `continuation.json` is not required for normal Objective continuation under this migrated scope.
+English `continuation.json` is not required for normal Objective continuation.
 
 ---
 
