@@ -1,0 +1,207 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance_batch.v1",
+  "batch_id": "P0-01",
+  "gate": "K",
+  "priority": "P0",
+  "status": "SEMANTIC_TARGETS_FROZEN_REPAIR_PENDING",
+  "current_main_basis": "3721460828220ad44a3aca01b5a6004fd3671b62",
+  "legacy_pre_apply_baseline": "e29306d8461efe37598839a47e75c9ef8e9a285e",
+  "legacy_final_landing": "06dcc58ea28098c7d17e79e6fb3eaf559048faf2",
+  "selection_rule": "first 25 Current Natural Owners flagged NONEMPTY_CORE_ZERO_ACTIVE_SENSES by lexical_knowledge_reacceptance_audit.py",
+  "semantic_mutation_in_this_commit": 0,
+  "repair_rule": "reconstruct from pre-apply baseline and apply only the frozen realization authority below; KEEP/PRESERVE/MAIN ACTIVE clauses are exclusions from DEMOTE/REMOVE source binding",
+  "authority_sources": [
+    "kianos-legacy@c3c00e0136abb1b62e124cbc36516d779b283930:content/lexical/apply-plane/OWNER_REALIZATION_0001_0100_v1.md",
+    "kianos-legacy@c3c00e0136abb1b62e124cbc36516d779b283930:content/lexical/apply-plane/OWNER_REALIZATION_0101_0300_v1.md",
+    "kianos-legacy@c3c00e0136abb1b62e124cbc36516d779b283930:content/lexical/apply-plane/OWNER_REALIZATION_0301_0500_v1.md",
+    "kianos-legacy@c3c00e0136abb1b62e124cbc36516d779b283930:content/lexical/apply-plane/OWNER_REALIZATION_0501_0700_v1.md"
+  ],
+  "items": [
+    {
+      "ordinal": 2,
+      "word": "abandon",
+      "current_blocker": "zero_active_senses",
+      "target": "restore both ordinary verb branches; demote standalone noun abandon; preserve with abandon construction",
+      "keep_active_sense_ids": ["sense:abandon:237479b583c9599b", "sense:abandon:7318523e97f85e71"],
+      "demote_sense_ids": ["sense:abandon:87c58c73293a5bd3"]
+    },
+    {
+      "ordinal": 17,
+      "word": "absolute",
+      "current_blocker": "zero_active_senses",
+      "target": "preserve ordinary adjective complete/unqualified/not-relative including unrestricted-power use; demote philosophical noun the absolute",
+      "binding": "authority POS/gloss filter"
+    },
+    {
+      "ordinal": 20,
+      "word": "absurd",
+      "current_blocker": "zero_active_senses",
+      "target": "canonical-merge adjective variants of wildly unreasonable/illogical/ridiculous; demote philosophical noun the absurd",
+      "binding": "authority adjective participant set; survivor lowest pre-apply sort_order"
+    },
+    {
+      "ordinal": 28,
+      "word": "acceptance",
+      "current_blocker": "zero_active_senses",
+      "target": "preserve ordinary acceptance branches; demote banking/time-draft acceptance",
+      "keep_active_sense_ids": ["sense:acceptance:36d6ec9867445964", "sense:acceptance:90cafc9ec9555ecc"],
+      "demote_sense_ids": ["sense:acceptance:fb11ed57a25354cd"]
+    },
+    {
+      "ordinal": 49,
+      "word": "acid",
+      "current_blocker": "zero_active_senses",
+      "target": "preserve chemical acid noun and acid/sour/sharp adjective; demote slang LSD",
+      "keep_active_sense_ids": ["sense:acid:2b721ced406c52e9", "sense:acid:4c1db00a02ff5246"],
+      "demote_sense_ids": ["sense:acid:4618914e2071585b"]
+    },
+    {
+      "ordinal": 67,
+      "word": "addict",
+      "current_blocker": "zero_active_senses",
+      "target": "restore dependent-person noun as primary learner sense; preserve be addicted to + n/doing construction; demote formal/rare causative verb addict sb/oneself to",
+      "binding": "authority noun vs causative-verb/pattern filter"
+    },
+    {
+      "ordinal": 74,
+      "word": "adjective",
+      "current_blocker": "zero_active_senses",
+      "target": "canonical-merge two grammatical noun participants; survivor badac...; demote legal/archaic adjective-law branch",
+      "merge_participants": ["sense:adjective:badac54723a45485", "sense:adjective:8d8bdf9af207566f"],
+      "merge_survivor": "sense:adjective:badac54723a45485",
+      "demote_sense_ids": ["sense:adjective:2f2bde73e4415f0a"]
+    },
+    {
+      "ordinal": 87,
+      "word": "advantage",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary benefit/favorable-condition branch with presentation consolidation; demote tennis technical sense and rare verb; preserve take advantage of construction",
+      "binding": "authority domain/POS exclusion filter"
+    },
+    {
+      "ordinal": 93,
+      "word": "advice",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary recommendation/guidance noun; demote formal/commercial plural advices notice-report use",
+      "binding": "authority plural/commercial-gloss filter"
+    },
+    {
+      "ordinal": 96,
+      "word": "advocate",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary public-support verb and supporter/proponent noun under one learner center; demote legal/regional lawyer-counsel sense",
+      "binding": "authority legal-domain exclusion filter"
+    },
+    {
+      "ordinal": 200,
+      "word": "anguish",
+      "current_blocker": "zero_active_senses",
+      "target": "restore extreme mental/physical suffering core; demote rare transitive anguish sb; retain anguish over only as lower-frequency construction/recognition if present",
+      "binding": "OWNER_REALIZATION_0101_0300 item 25"
+    },
+    {
+      "ordinal": 213,
+      "word": "antique",
+      "current_blocker": "zero_active_senses",
+      "target": "restore noun antique and adjective old-and-valuable; demote rare verbs shop for antiques / give antique appearance",
+      "binding": "OWNER_REALIZATION_0101_0300 item 27"
+    },
+    {
+      "ordinal": 268,
+      "word": "arouse",
+      "current_blocker": "zero_active_senses",
+      "target": "merge sexual-arousal application into broader elicit emotion/reaction branch; keep transitive wake branch; retire competing intransitive waking formulation",
+      "binding": "OWNER_REALIZATION_0101_0300 item 31"
+    },
+    {
+      "ordinal": 296,
+      "word": "assassinate",
+      "current_blocker": "zero_active_senses",
+      "target": "restore literal assassinate important/political person as main Active; demote figurative damage-reputation verb",
+      "binding": "OWNER_REALIZATION_0101_0300 item 35"
+    },
+    {
+      "ordinal": 309,
+      "word": "associate",
+      "current_blocker": "zero_active_senses",
+      "target": "restore relational verb core with associate A with B / associate with sb constructions; keep noun colleague/partner; demote narrow subordinate-member noun",
+      "binding": "OWNER_REALIZATION_0301_0500 item 2"
+    },
+    {
+      "ordinal": 408,
+      "word": "barn",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary farm-building barn; demote nuclear-physics unit barn",
+      "binding": "OWNER_REALIZATION_0301_0500 item 28"
+    },
+    {
+      "ordinal": 469,
+      "word": "beside",
+      "current_blocker": "zero_active_senses",
+      "target": "restore at-the-side-of/next-to sense and beside/besides contrast; demote archaic/nonstandard beside=in addition",
+      "binding": "OWNER_REALIZATION_0301_0500 item 39"
+    },
+    {
+      "ordinal": 492,
+      "word": "bird",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary bird noun; if verb is retained, define only low-recognition birdwatching/watch-or-study-birds and remove unsupported 打鸟 wording",
+      "binding": "OWNER_REALIZATION_0301_0500 item 41"
+    },
+    {
+      "ordinal": 539,
+      "word": "book",
+      "current_blocker": "zero_active_senses",
+      "target": "restore written-work and reserve/record core; demote card-game specialist sense",
+      "binding": "OWNER_REALIZATION_0501_0700 item 15"
+    },
+    {
+      "ordinal": 572,
+      "word": "brave",
+      "current_blocker": "zero_active_senses",
+      "target": "restore courageous adjective and brave danger/difficulty verb; demote showy adjective, collective the brave, and dated ethnographic warrior",
+      "binding": "OWNER_REALIZATION_0501_0700 item 33"
+    },
+    {
+      "ordinal": 599,
+      "word": "broom",
+      "current_blocker": "zero_active_senses",
+      "target": "restore cleaning-tool broom; demote botanical plant",
+      "binding": "OWNER_REALIZATION_0501_0700 item 46"
+    },
+    {
+      "ordinal": 609,
+      "word": "bud",
+      "current_blocker": "zero_active_senses",
+      "target": "restore noun bud and ordinary intransitive budding; demote rare causative make-bud",
+      "binding": "OWNER_REALIZATION_0501_0700 item 50"
+    },
+    {
+      "ordinal": 614,
+      "word": "build",
+      "current_blocker": "zero_active_senses",
+      "target": "restore build/create/develop core and phrasals; demote subtype order/supervise/finance-construction rows when duplicate of build",
+      "binding": "OWNER_REALIZATION_0501_0700 item 55"
+    },
+    {
+      "ordinal": 666,
+      "word": "cancel",
+      "current_blocker": "zero_active_senses",
+      "target": "restore ordinary cancel/invalidate meanings; consolidate cancel out transitivity-only realizations as one construction; demote stamp-cancellation specialist sense",
+      "binding": "OWNER_REALIZATION_0501_0700 item 74"
+    },
+    {
+      "ordinal": 674,
+      "word": "canvas",
+      "current_blocker": "zero_active_senses",
+      "target": "restore canvas material/painting-surface; demote boxing-floor sense; preserve canvas/canvass contrast",
+      "binding": "OWNER_REALIZATION_0501_0700 item 78"
+    }
+  ],
+  "batch_exit": {
+    "audit_target_frozen": true,
+    "repair_applied": false,
+    "readback_passed": false,
+    "knowledge_gate_effect": "NONE_UNTIL_REPAIR_AND_READBACK"
+  }
+}
