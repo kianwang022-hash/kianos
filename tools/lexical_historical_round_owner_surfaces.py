@@ -40,7 +40,7 @@ def expansion_targets_from_body(body: str) -> list[str] | None:
     if m_targets:
         return [w.strip().lower() for w in m_targets.group(1).split(",") if w.strip()]
 
-    m_ordinals = re.search(r"Approved target ordinals:\s*\n`([^`]+)`\.", body, flags=re.S)
+    m_ordinals = re.search(r"(?:Approved target ordinals|Exact target ordinal set):\s*\n`([^`]+)`\.", body, flags=re.S)
     if not m_ordinals:
         return None
 
@@ -61,7 +61,7 @@ def expansion_targets_from_body(body: str) -> list[str] | None:
 def parse_owner_group_expansion(body: str):
     targets = expansion_targets_from_body(body)
     m_surfaces = re.search(
-        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include|Representative high-transfer surfaces include):\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\nReuse rather than duplicate|\n\n### Contrast Gate)",
+        r"(?:Mandatory high-value surfaces include|Named high-transfer learner surface/family groups compiled from the historical representative approvals include|Representative high-transfer surfaces include)\s*:?\s*(.+?)(?:\n\nThese\s+\d+|\n\nEquivalent existing objects|\n\nReuse rather than duplicate|\n\n### Contrast Gate)",
         body,
         flags=re.S,
     )
@@ -127,8 +127,8 @@ def parse_owner_group_expansion(body: str):
 
         # Historical owner enumerations are coverage metadata, not semantic
         # vetoes. If an explicitly approved learner surface names a valid Word
-        # owner inside the same round but that owner was omitted from the
-        # metadata list (R22: BrE dessert trifle), preserve the explicit surface.
+        # owner inside the same round but that owner was omitted from metadata,
+        # preserve the explicit surface.
         if not hints:
             round_candidates: list[tuple[int, str]] = []
             for pos, token in enumerate(tokens):
@@ -274,6 +274,15 @@ def contrast_terms_compatible(text: str) -> list[str]:
         return ["tire"]
     if norm.startswith("noun use ") or (norm.startswith("use ") and "/ju" in text):
         return ["use"]
+    # Same-word form/identity targets should stay on Word/Identity/Form owners.
+    if norm.startswith("intern noun"):
+        return ["intern"]
+    if norm.startswith("proper pacific"):
+        return ["pacific"]
+    if norm == "outskirt / outskirts":
+        return ["outskirt"]
+    if norm == "workout / work out":
+        return ["workout"]
     return ORIGINAL_CONTRAST_TERMS(text)
 
 
