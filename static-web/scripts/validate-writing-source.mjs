@@ -15,6 +15,21 @@ function requireCheck(condition, code) {
   if (!condition) failures.push(code);
 }
 
+function preview(value, max = 320) {
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value).trim().slice(0, max);
+  if (Array.isArray(value)) return value.map((item) => preview(item, max)).filter(Boolean).join(' | ').slice(0, max);
+  if (typeof value === 'object') {
+    for (const key of ['text', 'content', 'raw_text', 'description', 'alt', 'title', 'caption']) {
+      if (value[key] !== undefined) {
+        const text = preview(value[key], max);
+        if (text) return text;
+      }
+    }
+  }
+  return '';
+}
+
 requireCheck(report.status === 'ready', `SOURCE_STATUS:${report.status}`);
 requireCheck(report.sourceGate === 'S_PASS', `SOURCE_GATE:${report.sourceGate}`);
 requireCheck(report.setCount === 49, `WRITING_SET_COUNT:${report.setCount}`);
@@ -37,6 +52,7 @@ const learnerProjectionKeys = new Set([
   'material', 'prompts', 'sourceReady', 'context', 'navigation', 'sourcePaths',
   'sourceHashes', 'manifestStatus'
 ]);
+const visualAudit = [];
 
 for (const task of tasks) {
   requireCheck(!setIds.has(task.id), `DUPLICATE_TASK_ID:${task.id}`);
@@ -55,10 +71,45 @@ for (const task of tasks) {
   requireCheck(task.kind === spec?.kind, `WRITING_KIND_DRIFT:${task.id}:${task.kind}`);
   requireCheck(task.id === spec?.setIdForYear(Number(task.year)), `WRITING_SET_ID_PATTERN:${task.id}`);
   requireCheck(prompt.id === spec?.promptIdForYear(Number(task.year)), `WRITING_PROMPT_ID_PATTERN:${prompt.id}`);
+
+  if (task.kind === 'big') {
+    const rawImages = loaded.context?.images;
+    const images = Array.isArray(rawImages) ? rawImages : rawImages ? [rawImages] : [];
+    const directionText = `${prompt.instruction || ''}\n${prompt.promptText || ''}\n${loaded.context?.directions || ''}`.trim();
+    const visualLanguage = /\b(drawing|picture|pictures|cartoon|chart|charts|graph|graphs|table|tables|diagram|illustration)\b/i.test(directionText);
+    const row = {
+      taskId: task.id,
+      year: Number(task.year),
+      section: task.section,
+      visualRequiredByLane: true,
+      visualLanguageDetected: visualLanguage,
+      imageDescriptorCount: images.length,
+      contextKeys: Object.keys(loaded.context || {}).sort(),
+      materialBlockCount: Array.isArray(loaded.material) ? loaded.material.length : 0,
+      directionPreview: preview(directionText),
+      materialPreview: preview(loaded.material),
+      imageDescriptors: images
+    };
+    visualAudit.push(row);
+    requireCheck(images.length > 0, `WRITING_BIG_VISUAL_MISSING:${task.id}`);
+  }
 }
 
+const missingBigVisuals = visualAudit.filter((row) => row.imageDescriptorCount === 0);
+const visualClosure = {
+  expectedBigWritingTasks: 27,
+  auditedBigWritingTasks: visualAudit.length,
+  tasksWithImageDescriptors: visualAudit.filter((row) => row.imageDescriptorCount > 0).length,
+  tasksMissingImageDescriptors: missingBigVisuals.length,
+  missingTaskIds: missingBigVisuals.map((row) => row.taskId),
+  policy: 'Writing Part B is a visual-observation task lane. Clean source projection must preserve the original learner-visible drawing/chart rather than replace Observation with a textual description.',
+  records: visualAudit
+};
+requireCheck(visualAudit.length === 27, `WRITING_BIG_VISUAL_AUDIT_COUNT:${visualAudit.length}`);
+requireCheck(missingBigVisuals.length === 0, `WRITING_BIG_VISUAL_CLOSURE:${27 - missingBigVisuals.length}/27`);
+
 const validation = {
-  schema: 'kianos.english.writing.source-gate-validation.v1',
+  schema: 'kianos.english.writing.source-gate-validation.v2',
   gate: 'S',
   pass: failures.length === 0,
   sourceHash: report.sourceHash,
@@ -76,6 +127,7 @@ const validation = {
     uniquePromptIds: promptIds.size
   },
   checks: report.checks,
+  visualClosure,
   failures,
   learnerProjectionPolicy: {
     completeEssayTaskObject: true,
@@ -83,9 +135,10 @@ const validation = {
     formalAnswerExcluded: true,
     analysisExcluded: true,
     taxonomyExcluded: true,
-    requiredSetContextPreserved: true
+    requiredSetContextPreserved: true,
+    originalVisualObservationPreservedForBigWriting: missingBigVisuals.length === 0
   },
-  note: 'A green validation is evidence for the Writing Source gate only. It does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
+  note: 'A green validation is evidence for the Writing Source gate only. Visual closure is required because Big Writing explicitly trains Observation before Interpretation. This does not imply Projection, Runtime, Evidence, or Learner Validation acceptance.'
 };
 
 const rendered = `${JSON.stringify(validation, null, 2)}\n`;
@@ -94,6 +147,12 @@ if (outPath) {
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, rendered, 'utf8');
 }
+fs.writeFileSync(path.resolve(process.cwd(), 'writing-source-visual-audit.json'), `${JSON.stringify({
+  schema: 'kianos.english.writing.visual-source-audit.v1',
+  gate: 'S',
+  sourceHash: report.sourceHash,
+  visualClosure
+}, null, 2)}\n`, 'utf8');
 console.log(rendered);
 
 if (failures.length) process.exitCode = 1;
