@@ -1,12 +1,12 @@
 # Politics Acceptance
 
-Status: CURRENT on governance redesign branch  
+Status: CURRENT  
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Politics lane Acceptance Truth
 
 This file owns current Politics S/K/L/P/R/E/U readiness claims.
 
-It does not own political Source Truth, teaching projection, runtime code, Work Cursor, or Kian's private learner progress.
+It does not own political Source Truth, lane learning semantics, interaction semantics, teaching projection, runtime code, Work Cursor, or Kian's private learner progress.
 
 ---
 
@@ -74,7 +74,7 @@ Allowed conclusion:
 
 > **History now has complete manual Source/Suyi + semantic review and an implemented global first-ready candidate, but formal whole-subject S/K/L/P gates still require executable assertions; R/E remain downstream and U remains UNTESTED.**
 
-### Current candidate evidence from reconciled latest `main`
+### Current candidate evidence
 
 History's subject-specific teaching shape remains:
 
@@ -139,7 +139,7 @@ Historical `steps=[]` no-start runs are neither PASS nor product failure. Future
 
 - owner map → `content/politics/manifest.json`
 - source owners → `content/politics/source/`
-- learning semantics → `content/politics/LEARNING_CONTRACT.md`
+- lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
 - Chat-approved teaching projections / durable review dispositions → `content/politics/learning/`
 - learner runtime → Politics surfaces under `static-web/`
@@ -150,9 +150,3 @@ Historical `steps=[]` no-start runs are neither PASS nor product failure. Future
 Private browser / Return Packet / conversation evidence only.
 
 > **Politics content projection COMPLETE does not mean Kian has learned those chapters. K03 S–E PASS does not mean Kian has attempted K03. Whole-subject gate implementation does not mean the gate passed.**
-
----
-
-## Governance reconciliation note
-
-Latest `main` advanced Politics while this governance branch remained open. The reconciliation keeps latest-main Politics Artifact blobs exact, preserves the governance `CURRENT / ACCEPTANCE` ownership split, and does not restore `content/politics/continuation.json` as an authority.
