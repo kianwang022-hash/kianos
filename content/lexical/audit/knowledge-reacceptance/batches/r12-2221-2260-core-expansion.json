@@ -1,0 +1,42 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R12 ordinals 2221-2260",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5580856200",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2234,"word_id":"word:guy","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"ordinary informal person/man sense sense:guy:9d4a4f75f34852a5 is deprecated/reference-only; guy-wire noun plus support-with-guy-wire and tease verbs remain Active and Core foregrounds them","approved_target":"ordinary informal person/man is L0; guy-wire engineering noun/verb and mock/tease verb lower recognition"},
+    {"ordinal":2236,"word_id":"word:habit","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"ordinary usual/repeated behavior sense sense:habit:281ed7c8ef265e95 is deprecated; only narrower tendency/inclination sense remains Active L2; religious clothing is correctly deprecated","approved_target":"keep repeated behavior/tendency as ordinary learner core; demote religious clothing"},
+    {"ordinal":2238,"word_id":"word:hail","classification":"WRONG_SENSE_ANCHOR","current":"hail a taxi exists only as a collocation attached to greet/acclaim sense sense:hail:ce1775e9726d54d1; there is no separate call/signal-a-taxi semantic carrier even though Core wording mentions 招呼/call out","approved_target":"add common verb hail a taxi/cab=signal/call it to stop; keep hail from, hail sb/sth as and ice/hail"},
+    {"ordinal":2242,"word_id":"word:halt","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"rare limp/hesitate sense is correctly deprecated/reference-only, but stale Core cluster still says 蹒跚；踌躇 / walk with a limp or hesitate","approved_target":"ordinary stop/bring to a stop core; archaic limp/hesitate demoted"},
+    {"ordinal":2243,"word_id":"word:ham","classification":"CORE_LANDING_INCOMPLETE","current":"food noun is Active L1, but amateur-radio noun, overacting performer noun, overact verb and overacted adjective all remain normal Active and Core includes them","approved_target":"food noun ordinary main; amateur-radio and overacting uses recognition; do not keep adjective/verb micro-senses as normal Active; preserve ham it up"},
+    {"ordinal":2247,"word_id":"word:hand","classification":"CURRENT_CORRECT","current":"Core clusters and Active branches explicitly cover body part, clock pointer, help/assistance, human labor/worker and transfer/hand verb; these extensions are learner-visible without carrier loss","approved_target":"L0 supports body part plus transfer/help/human labor/clock pointer main extensions without over-splitting"},
+    {"ordinal":2250,"word_id":"word:handicap","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"ordinary noun disadvantage/hindrance and sport-handicap noun are both deprecated/reference-only; niche betting/odds verb is also deprecated, leaving only verb handicap=make difficult Active while Core still claims disadvantage/hindrance","approved_target":"keep disadvantage/hindrance plus sport handicap where relevant; demote niche betting/odds verb"},
+    {"ordinal":2253,"word_id":"word:handsome","classification":"CORE_LANDING_INCOMPLETE","current":"appearance sense is correct; second Active sense remains broad 'generous or ample' with handsome reward, and Core still centers 慷慨的 rather than the approved high-value sizeable-money meaning","approved_target":"rewrite second sense to 可观的/相当大的 especially money/profit/amount; generous becomes secondary/older; promote handsome profit/sum"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:gut","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"gut reaction / gut instinct","current":"gut feeling is present, but approved gut reaction and gut instinct collocation family is absent"},
+    {"word_id":"word:habit","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"get into/out of the habit of doing sth","current":"approved habit construction family is absent"},
+    {"word_id":"word:hail","classification":"WRONG_SENSE_ANCHOR","approved_target":"hail a taxi/cab","current":"exact phrase hail a taxi exists, but is attached to greet/acclaim rather than a call/signal-to-stop carrier"},
+    {"word_id":"word:hammer","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"hammer home + point/message","current":"hammer out a deal and physical hammer patterns exist, but hammer home is absent"},
+    {"word_id":"word:hand","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"on the one hand ... on the other hand; at hand; hand over; give/lend sb a hand","current":"give/lend a hand is present, but the contrast frame, at hand and hand over are absent; hand in is present instead"},
+    {"word_id":"word:handsome","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"handsome profit/sum","current":"handsome reward is present, but approved profit/sum family is absent"},
+    {"word_id":"word:handy","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"come in handy","current":"ordinary handy senses exist, but come in handy is absent"},
+    {"word_id":"word:hang","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"hang on; hang out; hang up; hang over","current":"Current contains only literal hanging patterns and kill-by-hanging plus garment-hang noun; all four approved phrasal targets are absent"},
+    {"word_id":"word:harbor","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"harbor doubts / fears / resentment","current":"maintain/entertain a thought or feeling carrier exists and harbor a grudge is present, but approved doubts/fears/resentment family is absent"}
+  ],
+  "summary": {
+    "core_decisions_checked": 8,
+    "core_current_correct": 1,
+    "core_defective": 7,
+    "expansion_owner_groups_checked": 9,
+    "expansion_current_correct": 0,
+    "expansion_wrong_sense_anchor": 1,
+    "expansion_phrase_landing_gap": 8,
+    "severe_carrier_loss": ["word:guy", "word:habit", "word:handicap"]
+  },
+  "next": "Continue R12 Core + Expansion reconciliation from ordinal 2261 through 2300; do not mutate Natural Owners until R12/following audit coverage is sufficient for the consolidated exact repair inventory."
+}
