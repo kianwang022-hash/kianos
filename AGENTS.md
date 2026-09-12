@@ -8,6 +8,7 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - Chat owns semantic/content judgments and approves shared learning content.
 - GitHub `main@HEAD` is the single editable and readable shared Current repository state.
 - Root `CURRENT.md` is the Current overview for the entire KianOS learning system. Lane manifests/continuations are child Current objects, not parallel top-level Current systems.
+- `LEARNING_ASSET_STANDARD.md` defines the repository-wide construction order for formal learning assets. Read it before substantial content/UI/runtime work or when an upstream defect reopens a mature module.
 - `SYSTEM_CONTRACT.md` defines the KianOS-wide minimum learner-surface capabilities for both domain lanes and independently entered learner sub-lanes.
 - `LEARNING_ACCEPTANCE.md` defines the repository-wide S/K/L/P/R/E/U module acceptance gates and the final Global/Home acceptance layer. Read it before declaring a lane/sub-lane closed, Ready, or learner-ready.
 - `BRANCH_LIFECYCLE.md` defines temporary work-branch retirement and automatic branch hygiene. A branch-backed task is not fully closed until its branch is retired or explicitly justified as still ACTIVE.
@@ -15,6 +16,33 @@ This repository is the clean Current workspace. Do not reconstruct normal work f
 - `static-web/` owns the Astro learner-facing display and interaction runtime.
 - Private interaction state such as answers, progress, wrong/uncertain, comments, timing, scheduler/history, and temporary browser session state is an implementation detail of learning interaction. It is not shared Current authority and must not be written into shared Current content.
 - `EXECUTION_AUTONOMY != SEMANTIC_AUTHORITY`.
+
+## Formal learning-asset stage discipline
+
+For any formal learning asset, material rebuild, or reopened upstream learning defect, use the construction order in `LEARNING_ASSET_STANDARD.md`:
+
+`Truth / Knowledge Boundary → Learning Logic → Content Realization / Optimization → Projection / Interaction → Runtime Loop → Evidence / Acceptance`
+
+This is a **work-order protocol**, not a substitute for S/K/L/P/R/E/U.
+
+Before substantial work, determine:
+
+- the declared learning scope;
+- the earliest unresolved construction stage;
+- the concrete exit condition for that stage;
+- which downstream stages are therefore `FROZEN_PENDING_UPSTREAM`.
+
+Hard rules:
+
+- work only on the earliest unresolved stage by default;
+- do not optimize a downstream stage merely because its files/components already exist;
+- existing UI/runtime/evidence schemas must not constrain unresolved Knowledge or Learning Logic;
+- a downstream defect may reopen the earliest responsible upstream stage;
+- when a stage is reopened, freeze affected downstream development, repair upstream first, then re-walk downstream stages in order;
+- preserve mature downstream work provisionally rather than deleting it reflexively, but never use sunk engineering cost as evidence that the upstream model is correct;
+- batching controls review load; it never permits skipping the stage order.
+
+Do not turn a causal connection into permission for parallel development. For example, if lexical Knowledge is wrong, do not simultaneously optimize the lexical UI because the future content will eventually project there.
 
 ## Normal chain
 
@@ -26,7 +54,7 @@ Astro may transform representation and provide interaction. It must not invent, 
 
 ## Shared learner-surface baseline
 
-Every first-class learner lane and every independently entered learner sub-lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md`:
+Every first-class learner lane and every independently entered learner sub-lane inherits the KianOS-wide capability baseline in `SYSTEM_CONTRACT.md` **once staged learning-asset development reaches the relevant learner-surface/runtime work**:
 
 1. Current;
 2. Continue;
@@ -41,7 +69,7 @@ The capability contract is shared, but domain cognition, error taxonomy, evidenc
 
 Examples of independently entered sub-lanes include English Reading, Cloze, Reading B, Translation, Writing, or any later task/module that receives its own learner runtime. A domain-level home satisfying a capability does not automatically make every sub-lane Ready.
 
-When a lane or independently entered sub-lane is added or materially rebuilt, audit these capabilities and the acceptance gates in `LEARNING_ACCEPTANCE.md`. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
+When a lane or independently entered sub-lane is added or materially rebuilt, first apply `LEARNING_ASSET_STANDARD.md`, then audit the relevant shared capabilities and the acceptance gates in `LEARNING_ACCEPTANCE.md` at the proper stage. If a genuinely necessary capability is absent, do not call the surface fully learner-ready merely because its content exists or its page builds. Either make the gap active work or, when the learner explicitly postpones it, park it in the global Deferred Queue.
 
 Shared runtime helpers/components are appropriate only when the learner decision is genuinely shared. Do not make one subject or task imitate another merely for frontend consistency.
 
@@ -128,6 +156,7 @@ Rule of thumb: **if postponing it could make us accidentally lose it later, park
 - LexicalOS uses L0-first governance for simple words while preserving true polysemy, familiar-new senses, high-value phrases/constructions/contrasts/confusables.
 - Different English modules have different learning objects; do not reduce every error to vocabulary.
 - Shared Current may define interaction semantics and learning contracts, but never store one learner's private answers, progress, notes, or history as shared content.
+- Content work must obey the active construction stage: unresolved Truth/Knowledge must not be shaped to fit existing page structure, runtime enums, test templates, or scheduler assumptions.
 
 ## Runtime boundary
 
