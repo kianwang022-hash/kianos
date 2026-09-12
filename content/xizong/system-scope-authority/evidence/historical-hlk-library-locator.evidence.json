@@ -1,0 +1,82 @@
+{
+  "schema": "kianos.xizong.historical_hlk_library_locator_evidence.v1",
+  "status": "HISTORICAL_ARTIFACT_LOCATED_RAW_BYTES_REHASH_PENDING",
+  "observed_at": "2026-09-12",
+  "source_surface": "user_owned_saved_file_library",
+  "package_batch": {
+    "created_at_window_utc": "2026-09-01T04:57:24Z/2026-09-01T04:57:26Z",
+    "artifacts": [
+      {
+        "filename": "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl",
+        "observed_bytes": 486228,
+        "created_at_utc": "2026-09-01T04:57:26Z",
+        "manifest_declared_sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d",
+        "manifest_declared_bytes": 486228,
+        "report_declared_rows": 978,
+        "raw_byte_rehash_status": "BLOCKED_BY_SOURCE_TRANSPORT_PERMISSION"
+      },
+      {
+        "filename": "HLK_SYSTEM_RANGE_CONFIG_v1.json",
+        "observed_bytes": 41498,
+        "created_at_utc": "2026-09-01T04:57:24Z",
+        "manifest_declared_sha256": "fbfb9123f5bb4dd02e6f7590d56fadbc1a9683a45cb6eb53262226c962b515db",
+        "manifest_declared_bytes": 41498,
+        "raw_byte_rehash_status": "BLOCKED_BY_SOURCE_TRANSPORT_PERMISSION"
+      },
+      {
+        "filename": "MANIFEST.json",
+        "observed_bytes": 3129,
+        "created_at_utc": "2026-09-01T04:57:25Z",
+        "schema": "hlk_question_relation_layer_manifest_v1"
+      },
+      {
+        "filename": "HLK_RELATION_LAYER_QA_RECEIPT_v1.json",
+        "observed_bytes": 2503,
+        "created_at_utc": "2026-09-01T04:57:25Z",
+        "schema": "hlk_question_relation_layer_qa_v1"
+      },
+      {
+        "filename": "HLK_FIRST_PASS_COVERAGE_LEDGER_v1.jsonl",
+        "observed_bytes": 424371,
+        "created_at_utc": "2026-09-01T04:57:25Z"
+      },
+      {
+        "filename": "HLK_CROSS_SYSTEM_CANDIDATE_POOL_v1.jsonl",
+        "observed_bytes": 118306,
+        "created_at_utc": "2026-09-01T04:57:25Z"
+      },
+      {
+        "filename": "HLK_PRO_SEMANTIC_AUDIT_LEDGER_v1.jsonl",
+        "observed_bytes": 142321,
+        "created_at_utc": "2026-09-01T04:57:26Z"
+      }
+    ]
+  },
+  "historical_package_evidence": {
+    "manifest_status": "HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY",
+    "qa_status": "HEART_LUNG_KIDNEY_QUESTION_RELATION_LAYER_READY_FOR_APPLY",
+    "qa_generated_at": "2026-09-01T03:46:41.943163+00:00",
+    "canonical_official_total": 3750,
+    "hlk_primary_owner_total": 978,
+    "system_owner_counts": {
+      "circulation": 376,
+      "respiratory": 359,
+      "urinary": 243
+    },
+    "system_question_index_semantics": "978 identifier-only rows"
+  },
+  "producer_input_identity_from_manifest": {
+    "canonical_questions_sha256": "5d557c0011651f51ce2f45e4f137a3fa870b6a30f5269e3744380fd34814c584",
+    "practice_taxonomy_sha256": "838f1aadfba7ee0f8484e433de4b448f9595fa503c957846d94363228c3bead0",
+    "system_official_scope_local_sha256": "be76c1f303e077007e4baf75ecf6c232147783924519ea8de86edbc5e6b3c96f",
+    "system_source_routing_local_sha256": "7b691ea0a7f1e197054d61a9cfc03971db6cfb11a1b394119c578921d5b12366",
+    "mechanism_axis_registry_zip_sha256": "00c02ac1cea4bd4b23a52120d43cfba165d67d72ae3a159c4049ec5aadb969ae"
+  },
+  "boundary": {
+    "this_receipt_does_not_claim_raw_bytes_were_rehashed": true,
+    "same_filename_and_byte_count_are_not_sha256_equivalence": true,
+    "a3_promotion_allowed": false,
+    "recovery_membership_may_not_be_promoted_from_this_receipt": true,
+    "next_required_check": "Obtain raw bytes of the located historical index and run the locked SHA256/bytes/rows verifier."
+  }
+}
