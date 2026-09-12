@@ -1008,7 +1008,7 @@ MI-D
 全部数字、呼吸机参数、兴奋剂、并发症与酸碱阈值
 
 DEFERRED_MODEL
-肾性代偿与水电酸碱→泌尿K5；神经肌肉病→神经；中毒→F模块；现代ICU→Source Gap
+肾性代偿与水电酸碱→泌尿K5；神经肌肉病→神经；中毒→F模块；现代ICU→EXTERNAL_SCOPE
 
 REDUNDANT_EXPOSITION
 口诀与重复病理过程已合并，独立知识身份未删除
