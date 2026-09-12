@@ -1,0 +1,32 @@
+<aside data-translation-persistence-warning hidden style="max-width:90rem;margin:0 auto 10px;padding:12px 14px;border:1px solid #d9a7a7;border-radius:10px;background:#fff7f7;color:#7a2e2e;font-size:12px;line-height:1.55">
+  <strong>本机学习状态无法保存。</strong>
+  <span> 当前页可以查看，但刷新 / 离开会丢失 Attempt、Reconstruction 与 Transfer evidence。请先恢复浏览器本机存储后再开始正式 Translation。</span>
+</aside>
+
+<script>
+  const root = document.querySelector('[data-translation-runtime]');
+  const warning = document.querySelector('[data-translation-persistence-warning]');
+
+  if (root instanceof HTMLElement && warning instanceof HTMLElement) {
+    let available = false;
+    const probeKey = '__kianos_translation_storage_probe__';
+    try {
+      localStorage.setItem(probeKey, '1');
+      available = localStorage.getItem(probeKey) === '1';
+      localStorage.removeItem(probeKey);
+    } catch {
+      available = false;
+    }
+
+    if (!available) {
+      warning.hidden = false;
+      root.dataset.persistenceAvailable = 'false';
+      const freeze = root.querySelector('[data-freeze-first]');
+      if (freeze instanceof HTMLButtonElement) freeze.disabled = true;
+      const firstStatus = root.querySelector('[data-first-status]');
+      if (firstStatus) firstStatus.textContent = '本机存储不可用，不能锁定正式第一版；否则刷新后学习证据会丢失。';
+    } else {
+      root.dataset.persistenceAvailable = 'true';
+    }
+  }
+</script>
