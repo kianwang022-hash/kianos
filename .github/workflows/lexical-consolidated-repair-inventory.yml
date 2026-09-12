@@ -1,0 +1,56 @@
+name: LexicalOS Consolidated Repair Inventory
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tools/lexical_compile_consolidated_repair_inventory.py'
+      - 'tools/lexical_historical_round_bulk_triage.py'
+      - 'tools/lexical_historical_round_from_file.py'
+      - 'tools/lexical_historical_round_owner_surfaces.py'
+      - 'tools/lexical_historical_round_compound_surfaces.py'
+      - 'content/lexical/audit/knowledge-reacceptance/batches/**'
+      - 'content/lexical/audit/migration-integrity/**'
+      - '.github/workflows/lexical-consolidated-repair-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile deduplicated repair inventory
+        shell: bash
+        run: |
+          python tools/lexical_compile_consolidated_repair_inventory.py \
+            --output /tmp/consolidated-repair-inventory.json \
+            --summary /tmp/consolidated-repair-inventory-summary.md
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/consolidated-repair-inventory-summary.md ]; then
+            cat /tmp/consolidated-repair-inventory-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo '## Consolidated repair inventory summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload inventory artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-consolidated-repair-inventory
+          path: |
+            /tmp/consolidated-repair-inventory.json
+            /tmp/consolidated-repair-inventory-summary.md
+          if-no-files-found: error
+          retention-days: 14
