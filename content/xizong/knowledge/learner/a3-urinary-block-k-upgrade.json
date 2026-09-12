@@ -24,19 +24,47 @@
     "runtime_boundary": "Do not redesign Projection/Runtime during Block Knowledge upgrade."
   },
   "batch_plan": [
-    {"id":"A3-K-BATCH-01","scope":["urinary-b01","urinary-b02","urinary-b03","urinary-b04"],"status":"PASS_BLOCK_LEVEL_K_SCOPE_ONLY","stable_kp_count":67,"logic_group_count":20},
-    {"id":"A3-K-BATCH-02","scope":["urinary-b05","urinary-b06","urinary-b07","urinary-b08"],"status":"PARTIAL_B6_B8_PASS_B05_BLOCKED","accepted":["urinary-b06","urinary-b07","urinary-b08"],"blocked":["urinary-b05"],"accepted_stable_kp_count":53,"accepted_logic_group_count":16,"blocker":"B5 claims a complete acid-base algorithm that current project Sources do not actually contain; B5 also must inherit the repaired B3 K+/acid-base semantics."},
-    {"id":"A3-K-BATCH-03","scope":["urinary-b09","urinary-b10","urinary-b11"],"theme":"glomerular immune mechanism -> nephritic branch -> nephrotic branch","status":"ACTIVE_NEXT"},
-    {"id":"A3-K-BATCH-04","scope":["urinary-b12","urinary-b13","urinary-b14"],"theme":"outflow/obstruction/stones/BPH/incontinence -> TB/tumors -> urinary trauma","status":"NOT_STARTED"}
+    {
+      "id":"A3-K-BATCH-01",
+      "scope":["urinary-b01","urinary-b02","urinary-b03","urinary-b04"],
+      "status":"PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+      "stable_kp_count":67,
+      "logic_group_count":20
+    },
+    {
+      "id":"A3-K-BATCH-02",
+      "scope":["urinary-b05","urinary-b06","urinary-b07","urinary-b08"],
+      "status":"PARTIAL_B6_B8_PASS_B05_BLOCKED",
+      "accepted":["urinary-b06","urinary-b07","urinary-b08"],
+      "blocked":["urinary-b05"],
+      "accepted_stable_kp_count":53,
+      "accepted_logic_group_count":16,
+      "blocker":"B5 claims a complete acid-base algorithm that current project Sources do not actually contain; B5 also must inherit the repaired B3 K+/acid-base semantics."
+    },
+    {
+      "id":"A3-K-BATCH-03",
+      "scope":["urinary-b09","urinary-b10","urinary-b11"],
+      "theme":"glomerular immune mechanism -> nephritic branch -> nephrotic branch",
+      "status":"PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+      "stable_kp_count":68,
+      "logic_group_count":17,
+      "closure":"Source re-read against original PDF routes; pathology pattern vs etiologic entity boundaries repaired; no stable source orphans in audited scope; stable IDs unchanged."
+    },
+    {
+      "id":"A3-K-BATCH-04",
+      "scope":["urinary-b12","urinary-b13","urinary-b14"],
+      "theme":"outflow/obstruction/stones/BPH/incontinence -> TB/tumors -> urinary trauma",
+      "status":"ACTIVE_NEXT"
+    }
   ],
   "accepted_current_scope": {
-    "blocks": ["urinary-b01","urinary-b02","urinary-b03","urinary-b04","urinary-b06","urinary-b07","urinary-b08"],
-    "accepted_block_count": 7,
-    "accepted_stable_kp_count": 120,
+    "blocks": ["urinary-b01","urinary-b02","urinary-b03","urinary-b04","urinary-b06","urinary-b07","urinary-b08","urinary-b09","urinary-b10","urinary-b11"],
+    "accepted_block_count": 10,
+    "accepted_stable_kp_count": 188,
     "block_level_k": "PASS_FOR_NAMED_BLOCKS_ONLY",
     "blocked_blocks": ["urinary-b05"],
     "a3_system_level_k": "NOT_PROMOTED",
     "learner_readiness": "NOT_CLAIMED"
   },
-  "next": "Proceed to B9-B11 source-first while keeping B5 as a durable blocker that must be resolved before whole-A3 Knowledge closure."
+  "next": "Proceed to B12-B14 source-first. Keep B5 as a durable blocker that must be resolved before whole-A3 Knowledge closure; do not reopen accepted B9-B11 without concrete new source conflict or learner evidence."
 }
