@@ -1,10 +1,10 @@
 # KianOS Governance Acceptance
 
-Status: CURRENT on `governance/federated-current-v2-20260912`  
-Scope: Project Definition / Architecture / routing-governance redesign  
+Status: ACCEPTED — top-level governance baseline  
+Scope: Project Definition / Architecture / routing-governance  
 Standards: `PROJECT_DEFINITION.md` §6 + `ARCHITECTURE.md` §12
 
-This file owns **governance acceptance evidence and merge-readiness claims** for the redesign.
+This file owns **governance acceptance evidence** for the top-level architecture.
 
 It does not own project requirements, architecture, lane Artifact Truth, lane Acceptance Truth, learner state, or the root Work Cursor.
 
@@ -20,11 +20,10 @@ A4 Owner Uniqueness      PASS
 A5 Three-month Entropy   PASS
 A6 Learning Closure      PASS
 
-GOVERNANCE MERGE-READY   YES
-MERGE ACTION             AWAITS EXPLICIT USER AUTHORIZATION
+GOVERNANCE ACCEPTED      YES
 ```
 
-This means the **top-level governance architecture is accepted as a landing candidate**. It does not mean any lane's unresolved learning/content/runtime work has been completed, and it does not create learner progress.
+This means the **top-level governance architecture is accepted**. It does not mean any lane's unresolved learning/content/runtime work has been completed, and it does not create learner progress.
 
 ---
 
@@ -78,19 +77,12 @@ No shared repository Work Cursor owns private learner progress.
 
 The redesign treats concurrent `main` movement as normal and reconciles only real authority/write-set overlap.
 
-Two real concurrency rounds were exercised during this branch:
+Two real concurrency rounds were exercised during governance construction:
 
 1. `main` first advanced by 18 commits while governance work continued. Politics was the true overlap. Governance routing/owners were preserved, 13 exact newer Politics Artifact blobs were retained, and the old Politics continuation narrative was not restored. Merge commit: `2e4b7b978bc87a6514e472bed6684af73ba44909`.
 2. While the execution blocker was being resolved, `main` advanced again by 8 Politics History commits to `eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8`. The bounded reconciliation retained the newer History Source review, content/first-ready audits and runtime projection while preserving the governance `CURRENT / ACCEPTANCE` split and retired continuation boundary. Reconciliation commit: `dc86645ff1069d67027e9743680dac8226822032`.
 
-Post-second-reconciliation evidence:
-
-```text
-main reconciled at: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
-PR #21 mergeable: true
-```
-
-Therefore unrelated or bounded parallel progress does not force project-wide restart.
+This demonstrates that unrelated or bounded parallel progress does not force project-wide restart.
 
 ---
 
@@ -161,9 +153,9 @@ checks: 192
 errors: 0
 ```
 
-Subsequent governance evidence-only writebacks also executed successfully. The **GitHub PR current-head Governance Anti-Entropy check is the authoritative exact-head landing evidence**; the Acceptance file does not copy its own changing head SHA back into itself.
+Subsequent top-level writebacks also executed successfully. The **GitHub check surface on the current commit/PR** is the authoritative exact-head execution evidence; this Acceptance file does not copy its own changing head SHA back into itself.
 
-A5 therefore passes while that required current-head check remains green.
+A5 remains PASS while the required governance check remains green.
 
 ---
 
@@ -185,19 +177,12 @@ Therefore governance routing does not convert engineering completion into learni
 
 ---
 
-# Landing rule
+# Post-acceptance boundary
 
-The governance redesign is **merge-ready as an architecture/governance change**.
+Top-level governance is now a stable baseline, not an active feature project.
 
-Before the actual merge action:
+Lower-level lane/content/runtime upgrades proceed independently from their own local `CURRENT` and earliest unresolved stage. Do not reopen root governance merely to record ordinary lane progress.
 
-```text
-confirm main has not moved into a real overlapping owner/write-set
-→ require Governance Anti-Entropy PASS on the PR's exact current head
-→ preserve all A1–A6 PASS
-→ merge only with explicit user authorization
-```
+Future root changes require a demonstrated Project Requirement / Invariant that the current simpler architecture cannot satisfy reliably enough. New complexity without such an owner is rejected by default.
 
-No lane content/runtime upgrade should be pulled into this governance landing merely because its local Current remains unresolved. After governance lands, lane upgrades proceed as separate bounded work from their own local `CURRENT` and earliest unresolved stage.
-
-`main@HEAD` becomes the durable shared Current only after accepted landing. This branch remains an execution surface until then.
+`main@HEAD` is the durable shared repository Current after accepted work lands; temporary branches remain execution surfaces only.
