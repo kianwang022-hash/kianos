@@ -18,20 +18,20 @@ S  PASS
 K  PASS
 L  PASS
 P  PASS
-R  UNTESTED
-E  UNTESTED
-U  UNTESTED
+R  UNTESTED   ← earliest unresolved gate
+E  UNTESTED   ← frozen until R closes
+U  UNTESTED   ← learner-only
 ```
 
 Allowed conclusion:
 
-> **History whole-subject S/K/L/P acceptance is closed by executed History content and global first-ready gates. R/E remain untested, and U remains learner-only UNTESTED.**
+> **History whole-subject S/K/L/P acceptance is closed. Runtime is the only active acceptance stage; Evidence remains frozen until Runtime passes, and U remains learner-only UNTESTED.**
 
 Do not promote this to learner progress.
 
 ---
 
-## Executed acceptance evidence
+## Executed upstream acceptance evidence
 
 Accepted execution snapshot:
 
@@ -42,39 +42,36 @@ Accepted execution snapshot:
 - `Audit History global first-ready parity` → **PASS**
 - later `Audit Marxism batch content closure` → FAIL; this is a sibling-scope failure and does not invalidate the already-executed History gate results.
 
-The same History S/K/L/P pair also passed on the immediately preceding executable run at head `af40cd62e881e8fa096546b1125b6c965ebc6143`, after the first-ready runner object-array defect was repaired.
-
 ### S — PASS
 
-Executed History content closure confirms the current Source/Suyi review snapshot is valid against canonical Source digest `97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57`, with the declared source-root OCR and Suyi-delta review dispositions consumed by the gate.
+Executed History content closure confirms the current Source/Suyi review snapshot is valid against canonical Source digest `97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57`.
 
 ### K — PASS
 
-Executed History content closure confirms the whole-subject learner projection passes the current semantic/content assertions for the subject teaching shape:
+Executed History content closure confirms the whole-subject learner projection passes the current semantic/content assertions for the History teaching shape:
 
 > chronology → stage → turning point → cause → evaluation
 
-The five evidence-backed repairs remain C03 Qing New Policies/preparatory constitutionalism failure bridge, C04 October Revolution bridge, C06 victory-cause hierarchy + Taiwan/Penghu complete-victory marker, C08 Ten Major Relationships + Eighth Party Congress anchors, and C09 rectification-of-disorder + 1992 Southern Talks. C01/C02/C05/C07/C10 remain intentionally unchanged.
-
 ### L/P — PASS
 
-Executed independent global first-ready parity confirms the Current History projection agrees with canonical last-necessary-owner semantics: later necessary Natural Units overwrite earlier ownership, each expected Xiao1000 question is represented exactly once at an acceptable canonical owner, canonical/runtime question unions agree, and the C04 K03–K07 continuous learner segment remains intact.
+Executed independent global first-ready parity confirms the Current History projection agrees with canonical last-necessary-owner semantics, preserves exact-once question placement, and keeps the C04 K03–K07 continuous learner segment intact.
 
-The first-ready audit previously failed because its runner converted learner-unit objects to `"[object Object]"` before constructing the independent oracle. That runner defect was repaired without weakening the acceptance rule, then the unchanged semantic gate passed on Current.
+The first-ready audit previously failed because its runner converted learner-unit objects to `"[object Object]"`. That runner defect was repaired without weakening the acceptance rule; the unchanged semantic gate then passed on Current.
 
 ---
 
-## Remaining gates
+## Stage boundary
 
 ```text
 S/K/L/P  CLOSED
-R/E      earliest unresolved acceptance layer
-U        only from real named learner paths
+R        ACTIVE / UNTESTED
+E        FROZEN / UNTESTED
+U        UNTESTED, learner-only
 ```
 
-R/E may now be tested because L/P is closed, but no R/E PASS may be inferred from S/K/L/P, file existence, shared runtime code, or build status.
+R must receive its own executed History evidence before E becomes active. Shared runtime implementation, file existence, build success, K03/Marxism evidence, or future E assertions cannot substitute for History R acceptance.
 
-U remains strictly learner-only: private browser / Return Packet / conversation evidence.
+Once R passes, update this owner first; only then may the Work Cursor advance to E.
 
 ---
 
@@ -82,13 +79,9 @@ U remains strictly learner-only: private browser / Return Packet / conversation 
 
 ### Artifact Truth
 
-- owner map → `content/politics/manifest.json`
-- source owners → `content/politics/source/`
-- lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
-- interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
 - History teaching projection / durable review dispositions → `content/politics/learning/history/`
 - learner runtime → Politics surfaces under `static-web/`
-- acceptance harness → Politics QA workflow + History audit scripts
+- acceptance harness → History-specific executable gates under `static-web/scripts/` / Politics QA
 
 ### Learner Truth
 
