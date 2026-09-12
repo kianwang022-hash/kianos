@@ -19,5 +19,33 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
 <Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
   <XizongLastLocation system={system} />
   <XizongSystemV6 system={system} pathways={pathways} />
-  {questionSweep && <XizongSystemExitRuntime system={system} sweep={questionSweep} />}
+  {questionSweep && (
+    <details class="xizongLaterStage" data-xizong-later-stage="system-exit">
+      <summary>
+        <span>后面阶段 · System Exit</span>
+        <strong>学完整个系统后，再做 System Recall + 系统真题</strong>
+        <small>{questionSweep.questionCount} 道系统真题已准备好；现在不用占注意力。</small>
+      </summary>
+      <XizongSystemExitRuntime system={system} sweep={questionSweep} />
+    </details>
+  )}
 </Base>
+
+<style is:global>
+  /* System Recall belongs after the System has actually been learned. The full
+     recall surface remains available inside the later System Exit workspace. */
+  .xv6SystemContext .xv6RecallCompact{display:none}
+  .xv6SystemContext .xv6SystemKeys p:last-child{display:none}
+
+  .xizongLaterStage{margin-top:14px;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff;overflow:hidden}
+  .xizongLaterStage>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:12px 15px;cursor:pointer;list-style:none}
+  .xizongLaterStage>summary::-webkit-details-marker{display:none}
+  .xizongLaterStage>summary::before{content:'›';grid-row:1 / span 2;color:var(--study-green,#286c57);font-size:18px;font-weight:900;transition:transform .15s ease}
+  .xizongLaterStage[open]>summary::before{transform:rotate(90deg)}
+  .xizongLaterStage>summary span{color:var(--study-green,#286c57);font-size:9px;font-weight:850;letter-spacing:.07em}
+  .xizongLaterStage>summary strong{font-size:13px}
+  .xizongLaterStage>summary small{grid-column:3;color:var(--study-muted,#6d7873);font-size:9px}
+  .xizongLaterStage[open]>summary{border-bottom:1px solid var(--study-line,#d9dde5);background:#f7faf8}
+  .xizongLaterStage>.xse{margin:12px}
+  @media(max-width:760px){.xizongLaterStage>summary{grid-template-columns:auto minmax(0,1fr)}.xizongLaterStage>summary small{grid-column:2}}
+</style>
