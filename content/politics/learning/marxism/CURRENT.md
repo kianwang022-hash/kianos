@@ -10,9 +10,24 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 ## Work Cursor
 
 **Scope:** whole-subject Marxism acceptance  
-**Active / earliest unresolved stage:** whole-subject content-closure executable blocker before downstream acceptance seal  
-**Blocker:** the dedicated `Audit Marxism batch content closure` step executed on Politics QA run #304 and failed; later Marxism first-ready / runtime / evidence assertions were skipped. The exact failing semantic owner has not been accepted/classified in this governance task.  
-**Next action:** when Marxism content work is explicitly resumed, inspect only the failed content-closure output and exact failing owner, repair the concrete red evidence, then rerun the staged assertions. Do not infer a broader rewrite from the existence of the red gate.
+**Accepted upstream:** whole-subject S PASS / K PASS  
+**Active / earliest unresolved stage:** L — whole-subject global first-ready parity  
+**Blocker:** Politics QA run #348 (`34700709835`) passed `Audit Marxism batch content closure` and then failed `Audit Marxism global first-ready parity`. P/R/E remain frozen downstream.  
+**Next action:** inspect only the global first-ready parity audit and its exact failing L owner; repair the concrete parity red, rerun L, and write L PASS durably before unlocking P.
+
+The repaired S/K blocker was a stale top-level declaration in `ch02.json`: K03 had already become an embedded Natural Unit inside S01 but was still listed in top-level `source_bindings.natural_unit_ids`. Commit `e558a9951ef4e314c3eff87bd939df1e29d029ac` aligned the declaration without changing K03 content. The same content gate then passed.
+
+### Whole-subject acceptance cursor
+
+```text
+S  PASS
+K  PASS
+L  FAIL
+P  UNTESTED
+R  UNTESTED
+E  UNTESTED
+U  UNTESTED
+```
 
 ### Accepted pilot boundary
 
@@ -34,11 +49,11 @@ K03 is ready for a learner test path; it does **not** make whole Marxism learner
 
 ## Frozen / out of scope
 
-Until the exact whole-subject content blocker is diagnosed in an authorized content task:
+While L is red:
 
-- do not promote whole-subject S/K/L/P/R/E from Artifact completeness;
+- keep whole-subject S/K frozen PASS unless concrete contradiction evidence reopens them;
+- do not promote P/R/E from Artifact completeness or from the automatically skipped downstream assertions;
 - do not reopen K03 S–E without concrete new evidence;
-- do not run downstream first-ready/runtime/evidence work as a substitute for content closure;
 - do not create a second Suyi learner course;
 - do not let Xiao1000 determine first-round learning order;
 - do not modify History / Mao / Xi / Ethics-Law by convenience;
@@ -48,13 +63,13 @@ Until the exact whole-subject content blocker is diagnosed in an authorized cont
 
 ## Required reads
 
-For ordinary re-entry into the blocked whole-Marxism acceptance path:
+For ordinary re-entry:
 
 1. `content/politics/learning/marxism/ACCEPTANCE.md`
-2. `static-web/scripts/audit-politics-marxism-content.mjs`
-3. exact failing owner only after executable failure evidence identifies it
+2. the workflow/script owning `Audit Marxism global first-ready parity`
+3. exact failing L owner only after the executable assertion identifies it
 
-Read lane learning/interaction contracts only if the failure genuinely raises a cognition/interaction boundary question.
+Do not reread the content-closure owner by default; S/K are now accepted and frozen.
 
 ---
 
@@ -86,8 +101,8 @@ Known scope `Politics Marxism acceptance` should normally recover as:
 ```text
 Marxism CURRENT
 → Marxism ACCEPTANCE
-→ failed Marxism content gate
-→ exact failing owner only when identified
+→ L: failed global first-ready parity assertion
+→ exact failing L owner only
 → work
 ```
 
