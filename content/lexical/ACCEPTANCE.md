@@ -1,12 +1,12 @@
 # LexicalOS Acceptance
 
-Status: CURRENT on governance redesign branch  
+Status: CURRENT  
 Standard: root `LEARNING_ACCEPTANCE.md`  
-Role: LexicalOS Acceptance Truth
+Role: LexicalOS lane Acceptance Truth
 
 This file owns current learner-readiness claims for LexicalOS.
 
-It does not own lexical semantics, the K re-acceptance audit procedure, Work Cursor, or Kian's private learner evidence.
+It does not own lexical semantics, lane learning semantics, the K re-acceptance audit procedure, Work Cursor, or Kian's private learner evidence.
 
 ---
 
@@ -73,19 +73,19 @@ Current K exit rule remains:
 - rich-word learner-value selection is trustworthy rather than dictionary accumulation;
 - a documented stop rule has been reached.
 
-Latest main evidence includes:
+Current acceptance evidence includes:
 
 - commit `3721460828220ad44a3aca01b5a6004fd3671b62` — reopened Knowledge with fidelity-first reacceptance;
 - commit `3f3aef9a677cfe64e855898b613fe0349ee7e5c2` — repaired P0 calibration batch 0001 and reduced P0 from **368 → 361**; K remained BLOCKED;
 - current Issue #6 — migration semantic-integrity audit / R12+ authority reconciliation.
 
-This governance branch must not reapply or infer lexical semantics. Semantic repair stays with the active Lexical K authority/work lane and is reconciled with latest `main` before governance landing.
+Rule-layer maintenance must not reapply, infer, or rewrite lexical semantics. Semantic repair remains with the active Lexical K owner/work lane and must read latest Current authority before mutation.
 
 ---
 
 ## L｜Learning — PASS
 
-The current learning contract remains the accepted learning model for the lane:
+The current `content/lexical/LEARNING_CONTRACT.md` remains the accepted learning model for the lane:
 
 - goal = fast, correct contextual lexical access rather than dictionary completion;
 - rich Depth Scan / Recall Map before Reveal;
@@ -154,7 +154,7 @@ Do not jump to real full-catalog validation while K remains BLOCKED.
 - Word owners → `content/lexical/words/by-ordinal/`
 - Relation owners → `content/lexical/relations/by-id/`
 - owner schema → `content/lexical/schema.json`
-- learning semantics → `content/lexical/LEARNING_CONTRACT.md`
+- lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
 - knowledge reacceptance evidence/procedure → `content/lexical/audit/knowledge-reacceptance/`
 - current migration-integrity work evidence → GitHub Issue #6
 - learner runtime → Vocabulary surfaces under `static-web/`

@@ -1,9 +1,9 @@
 # LexicalOS Current
 
-Role: LexicalOS lane Work Cursor + restart entry
+Role: LexicalOS lane Work Cursor + restart entry  
 Parent: root `CURRENT.md`
 
-This file does not own lexical semantics, Acceptance Truth, or Kian's private learner progress.
+This file does not own lexical semantics, lane learning semantics, Acceptance Truth, or Kian's private learner progress.
 
 ---
 
@@ -14,13 +14,7 @@ This file does not own lexical semantics, Acceptance Truth, or Kian's private le
 **Current work owner:** GitHub Issue #6 + `content/lexical/audit/knowledge-reacceptance/`  
 **Next action:** continue the bounded K re-acceptance / migration-integrity audit from current Issue #6 and the latest main evidence. Classify and close P0/P1 defects before unrestricted learner-runtime validation. Do not restart a 7,946-word review and do not infer new semantic authority mechanically.
 
-Latest main evidence includes:
-
-- Knowledge reopen commit `3721460828220ad44a3aca01b5a6004fd3671b62`;
-- P0 calibration repair commit `3f3aef9a677cfe64e855898b613fe0349ee7e5c2`, reducing P0 **368 → 361** while K remains BLOCKED;
-- Issue #6 migration-integrity lane with R12+ authority reconciliation.
-
-This governance branch does not own lexical semantic mutation. Any later governance landing must reconcile with latest `main` rather than replaying stale Natural Owners.
+Rule-layer work does not own lexical semantic mutation. Natural Owner / Relation repair remains inside the active Lexical K authority and must always use the latest Current owner before mutation.
 
 ---
 
@@ -63,6 +57,7 @@ Do not read the full 7,946-word corpus or retired continuation/history by defaul
 - owner schema → `content/lexical/schema.json`
 - Natural Word owners → `content/lexical/words/by-ordinal/`
 - Relation owners → `content/lexical/relations/by-id/`
+- lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
 - knowledge audit evidence → `content/lexical/audit/knowledge-reacceptance/`
 - learner runtime → Vocabulary surfaces under `static-web/`
 
@@ -88,4 +83,4 @@ Lexical CURRENT
 → work
 ```
 
-The audit README and implementation/runtime files are diagnostic/method reads, not startup reads for K.
+The learning contract, audit README and implementation/runtime files are conditional diagnostic/method reads, not routine startup reads for K.

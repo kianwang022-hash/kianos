@@ -1,87 +1,50 @@
 # English Current
 
-Role: English lane Work Cursor + independently continued scope router
+Role: English lane Work Cursor + independently continued scope router  
 Parent: root `CURRENT.md`
 
-This file does not duplicate English content, acceptance evidence, or learner progress.
+This file does not duplicate English content, learning semantics, scoped acceptance evidence, or learner progress.
 
 ---
 
 ## Lane Work Cursor
 
-**Governance migration state:** Objective / Translation / Writing now have independent Work Cursor + scoped Acceptance owners.  
-**Continuation state:** retired from normal authority; no discovered repo-contained machine/runtime/validator dependency remains.  
-**Next governance action:** run/inspect Fresh Chat + Truth Separation behavior for the three migrated scopes, then move the governance pilot to another lane.  
-**Product semantics:** unchanged by this routing migration.
+**Active lane-level scope:** none — router-only baseline  
+**Blocker:** none at lane-rule level  
+**Next action:** route work to the narrowest independently continued English scope.
 
----
+English currently has three independently continued learner-facing scopes with their own Work Cursor and Acceptance Truth:
 
-## Independently continued scopes
+| Scope | Work Cursor | Acceptance Truth |
+| --- | --- | --- |
+| Objective — Reading A / Cloze / Reading B | `content/english/modules/objective/CURRENT.md` | `content/english/modules/objective/ACCEPTANCE.md` |
+| Translation | `content/english/modules/translation/CURRENT.md` | `content/english/modules/translation/ACCEPTANCE.md` |
+| Writing | `content/english/modules/writing/CURRENT.md` | `content/english/modules/writing/ACCEPTANCE.md` |
 
-### Objective — Reading A / Cloze / Reading B
+Their current stages belong only to those local `CURRENT.md` owners. Do not copy them into this lane router.
 
-Entry:
-
-`content/english/modules/objective/CURRENT.md`
-
-Current work: acceptance seal only; S/K/L frozen unless new evidence proves a defect.
-
-### Translation
-
-Entry:
-
-`content/english/modules/translation/CURRENT.md`
-
-Current work: re-establish formal S/K/L/P/R/E Acceptance Truth from current Artifact evidence; do not convert validator existence into PASS.
-
-### Writing
-
-Entry:
-
-`content/english/modules/writing/CURRENT.md`
-
-Current work: Evidence / later-fresh-transfer semantics on top of accepted S/K/L/P/R scope; U remains separate.
+English has no lane-level `ACCEPTANCE.md` at present: current Acceptance Truth already belongs to the three independently continued scopes above. Do not add an aggregate Acceptance owner unless a future English-wide claim has its own distinct evidence responsibility.
 
 ---
 
 ## Retired continuation boundary
 
-`content/english/continuation.json` is **not a Current owner and not a normal read**.
+`content/english/continuation.json` remains a retired tombstone with `status=RETIRED`, `authority=NONE`, `normal_read=false`.
 
-Governance audit found no repo-contained consumer in the checked machine/runtime entrypoints:
-
-- English Objective / Translation / Writing CI workflows;
-- root and `static-web` package scripts;
-- `static-web/src/lib/current.mjs`;
-- inspected English validators/runtime entrypoints;
-- repository `tools/` entrypoints.
-
-The old continuation's active Objective / Translation / Writing responsibilities have now been extracted into local `CURRENT` / `ACCEPTANCE` owners.
-
-The file remains only as a small retired compatibility/tombstone path on this draft branch so any stale manual link fails visibly into the new routing rather than silently reviving the old 20KB narrative.
-
-Do not add new progress/history to it.
+It is not a Work Cursor, Acceptance owner, Artifact owner, learner-state store, or normal startup read. Do not add new progress/history to it.
 
 ---
 
-## Stable English Artifact owners
+## Stable English owners
 
 - source / content owner map → `content/english/manifest.json`
-- lane learning rules → `content/english/LEARNING_CONTRACT.md`
+- lane learning semantics → `content/english/LEARNING_CONTRACT.md`
 - canonical source root → `content/english/source/`
 - provenance → `content/english/provenance.json`
 - module Artifact owners → `content/english/modules/`
 - learner-facing runtime → English surfaces under `static-web/`
 
-Repository-wide inherited owners:
-
-- project requirements → root `PROJECT_DEFINITION.md`
-- architecture → root `ARCHITECTURE.md`
-- learning-asset construction → root `LEARNING_ASSET_STANDARD.md`
-- S/K/L/P/R/E/U acceptance standard → root `LEARNING_ACCEPTANCE.md`
-- shared mature learner-surface capabilities → root `SYSTEM_CONTRACT.md`
-
-These are referenced, not copied into English sub-lane owners.
+Repository-wide requirements, architecture, construction order, acceptance semantics and shared mature platform capability remain inherited from root owners rather than copied here.
 
 ---
 
@@ -90,9 +53,9 @@ These are referenced, not copied into English sub-lane owners.
 For any English scope distinguish:
 
 - **Artifact Truth** → actual source/content/module/runtime owners;
-- **Acceptance Truth** → scoped `ACCEPTANCE.md` / exact evidence owner;
+- **Acceptance Truth** → the narrowest scoped `ACCEPTANCE.md` / exact evidence owner;
 - **Learner Truth** → private learner/runtime state, never inferred from shared repository work;
-- **Work Cursor** → scoped `CURRENT.md`.
+- **Work Cursor** → the relevant scoped `CURRENT.md`.
 
 A module being implemented/accepted does not mean Kian has studied it.
 
@@ -116,5 +79,7 @@ English CURRENT
 → local CURRENT
 → exact required owner(s)
 ```
+
+Read `content/english/LEARNING_CONTRACT.md` only when the task actually concerns English-wide cognition, capability ownership or learning/evidence relationships.
 
 Do not read retired English continuation, unrelated modules, history, legacy repositories, or prior Chats by default.

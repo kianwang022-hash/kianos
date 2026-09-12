@@ -3,7 +3,7 @@
 Role: Xizong lane Work Cursor + restart entry
 Parent: root `CURRENT.md`
 
-This file does not own medical Core, Acceptance Truth, or Kian's learner progress.
+This file does not own medical Core, lane learning semantics, Acceptance Truth, or Kian's learner progress.
 
 ---
 
@@ -48,7 +48,9 @@ For normal re-entry into the active A2 K audit:
 2. `content/xizong/knowledge/systems/a2-respiratory/system.json`
 3. exact A2 Block owner(s) required by the current audit slice
 
-Read shared study policy / A2 learning projection only if the K audit exposes a Knowledge/Learning boundary question. Runtime/validators are downstream diagnostic reads, not startup reads for K.
+Read `content/xizong/LEARNING_CONTRACT.md` only if the K audit exposes a lane-level cognition / learner-order boundary question. Read `content/xizong/knowledge/learner/study-policy.json` or A2 learning projection only when the exact detailed learning policy is material.
+
+Runtime/validators are downstream diagnostic reads, not startup reads for K.
 
 No Xizong continuation/history read is required for normal work.
 
@@ -61,7 +63,9 @@ No Xizong continuation/history read is required for normal work.
 - knowledge owner map → `content/xizong/knowledge/manifest.json`
 - A2 System owner → `content/xizong/knowledge/systems/a2-respiratory/system.json`
 - A2 medical Core → `content/xizong/knowledge/systems/a2-respiratory/blocks/`
-- shared learning support → `content/xizong/knowledge/learner/`
+- lane learning semantics → `content/xizong/LEARNING_CONTRACT.md`
+- detailed shared learning policy → `content/xizong/knowledge/learner/study-policy.json`
+- System-specific learning support → `content/xizong/knowledge/learner/`
 - official questions / explanations / reviewed relations → Xizong content roots
 - learner runtime → Xizong surfaces under `static-web/`
 
@@ -86,4 +90,4 @@ Xizong CURRENT
 → work
 ```
 
-Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.
+Do not read the lane Learning Contract unless the task actually touches cognition/learning rules. Do not read retired continuation/acceptance snapshots, unrelated Systems, history, legacy repositories or prior Chats by default.
