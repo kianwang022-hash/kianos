@@ -19,7 +19,10 @@
       "POL27-SY-MARX-P008-B033-Y2021",
       "POL27-SY-MARX-P008-B070"
     ],
-    "suyi_consumption_policy": "BACKGROUND_FRAMEWORK_REFERENCE_ONLY_NO_SEPARATE_LEARNER_MAINLINE"
+    "suyi_consumption_policy": "BACKGROUND_FRAMEWORK_REFERENCE_ONLY_NO_SEPARATE_LEARNER_MAINLINE",
+    "suyi_delta_audits": [
+      "content/politics/learning/marxism/ch00.suyi-delta.md"
+    ]
   },
   "chapter_orientation": {
     "core_problem": "在进入哲学、政治经济学和科学社会主义之前，先要回答：马克思主义究竟是什么、为什么会产生，又为什么能够不断发展而不是停在19世纪？",
@@ -56,6 +59,284 @@
           "relation": "理论来自实践，也必须回应新的实践和时代问题；发展不是抛弃基本立场，而是在新的历史条件中丰富和推进。"
         }
       ],
+      "learning_semantics": {
+        "schema": "kianos.politics.learning_semantics.v1",
+        "status": "CURRENT_CALIBRATION",
+        "content_stage_only": true,
+        "problem": {
+          "id": "MARX-C00-S01-PROBLEM-01",
+          "text": "马克思主义为什么会在特定历史条件下产生，又为什么不能把它理解成一次写完、以后不再变化的理论？",
+          "source_evidence": [
+            "POL27-CF-MARX-C00-K03",
+            "POL27-CF-MARX-C00-K04"
+          ]
+        },
+        "framework_map": {
+          "id": "MARX-C00-S01-MAP-01",
+          "title": "从为什么产生，到形成什么，再到为什么继续发展",
+          "nodes": [
+            {
+              "id": "social_root",
+              "label": "社会根源",
+              "meaning": "资本主义生产方式的发展提供经济、社会历史条件。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K03-N02-I01",
+                "POL27-SY-MARX-P008-B017"
+              ]
+            },
+            {
+              "id": "class_basis",
+              "label": "阶级基础 / 实践需求",
+              "meaning": "无产阶级斗争发展、逐步走向自觉，并产生科学理论指导的现实需要。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K03-N02-I02",
+                "POL27-SY-MARX-P008-B020",
+                "POL27-SY-MARX-P008-B022",
+                "POL27-SY-MARX-P008-B023",
+                "POL27-SY-MARX-P008-B026"
+              ]
+            },
+            {
+              "id": "thought_source",
+              "label": "思想来源",
+              "meaning": "对既有人类思想成果进行继承、批判和创新，为理论创立提供思想材料。",
+              "detail": "苏一将直接理论来源进一步组织为德国古典哲学、英国古典政治经济学和英法空想社会主义；第一轮主舞台只需先认清‘思想来源’在三类条件中的角色。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K03-N02-I03",
+                "POL27-SY-MARX-P008-B027",
+                "POL27-SY-MARX-P008-B028"
+              ]
+            },
+            {
+              "id": "creation",
+              "label": "理论创立 / 公开问世",
+              "meaning": "现实条件、实践需求和思想材料不是三张孤立清单，而是共同进入马克思主义的创立。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K03-N01",
+                "POL27-CF-MARX-C00-K03-N01-I02"
+              ]
+            },
+            {
+              "id": "theory_system",
+              "label": "形成完整理论体系",
+              "meaning": "马克思主义不是单一学科观点，而是包含马克思主义哲学、马克思主义政治经济学和科学社会主义的相互联系理论体系。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K01-N02"
+              ]
+            },
+            {
+              "id": "development",
+              "label": "在新的实践和时代中继续发展",
+              "meaning": "创立不是终点；新的历史条件和现实问题要求理论继续丰富和推进。",
+              "source_evidence": [
+                "POL27-CF-MARX-C00-K04",
+                "POL27-CF-MARX-C00-K04-N01",
+                "POL27-CF-MARX-C00-K04-N02"
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "from": "social_root",
+              "to": "creation",
+              "relation": "提供现实社会条件"
+            },
+            {
+              "from": "class_basis",
+              "to": "creation",
+              "relation": "提出实践中的理论需求"
+            },
+            {
+              "from": "thought_source",
+              "to": "creation",
+              "relation": "提供可批判继承和创新的思想材料"
+            },
+            {
+              "from": "creation",
+              "to": "theory_system",
+              "relation": "形成相互联系的理论体系"
+            },
+            {
+              "from": "theory_system",
+              "to": "development",
+              "relation": "理论体系不是封闭终点"
+            }
+          ]
+        },
+        "relation_chains": [
+          {
+            "id": "MARX-C00-S01-CHAIN-CLASS-01",
+            "title": "为什么阶级基础不是一个空标签",
+            "steps": [
+              {
+                "id": "worker_struggle",
+                "text": "无产阶级反抗资产阶级剥削和压迫的斗争发展"
+              },
+              {
+                "id": "political_independence",
+                "text": "无产阶级作为独立政治力量登上历史舞台，并逐步走向自觉"
+              },
+              {
+                "id": "theory_need",
+                "text": "现实斗争需要总结、升华经验并形成科学理论指导"
+              },
+              {
+                "id": "practical_basis",
+                "text": "因此马克思主义的创立具有阶级基础 / 实践基础 / 现实需求"
+              }
+            ],
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K03-N02-I02",
+              "POL27-SY-MARX-P008-B020",
+              "POL27-SY-MARX-P008-B022",
+              "POL27-SY-MARX-P008-B023",
+              "POL27-SY-MARX-P008-B025",
+              "POL27-SY-MARX-P008-B026"
+            ]
+          }
+        ],
+        "boundaries": [
+          {
+            "id": "MARX-C00-S01-BOUNDARY-CONDITIONS-01",
+            "left": "社会根源",
+            "right": "阶级基础",
+            "distinction": "前者回答理论产生的经济社会历史条件；后者回答现实斗争为什么提出科学理论指导的实践需要。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K03-N02-I01",
+              "POL27-CF-MARX-C00-K03-N02-I02",
+              "POL27-CF-MARX-C00-K03-N02-TIP01"
+            ]
+          },
+          {
+            "id": "MARX-C00-S01-BOUNDARY-DEVELOPMENT-01",
+            "left": "理论发展",
+            "right": "抛弃基本立场",
+            "distinction": "马克思主义的发展是在新的实践和历史条件中丰富、推进理论，不等于任意否定其基本立场。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K04"
+            ]
+          }
+        ],
+        "anchors": [
+          {
+            "id": "MARX-C00-S01-ANCHOR-01",
+            "text": "马克思主义不是凭空产生的思想设计：现实社会条件、阶级实践需求和思想来源共同进入它的创立。"
+          },
+          {
+            "id": "MARX-C00-S01-ANCHOR-02",
+            "text": "创立不是终点：理论必须继续回应变化的实践和时代问题。"
+          }
+        ],
+        "precision_objects": [
+          {
+            "id": "MARX-C00-S01-EXACT-1848",
+            "learning_priority": "PRECISION_NOT_ORIENTATION",
+            "fact": "1848年2月《共产党宣言》发表，标志着马克思主义公开问世。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K03-N01-I02"
+            ]
+          },
+          {
+            "id": "MARX-C00-S01-EXACT-DIE-DEUTSCHE-IDEOLOGIE",
+            "learning_priority": "REFERENCE_OR_QUESTION_TRIGGERED",
+            "fact": "《德意志意识形态》是本页苏一明确标出过往真题信号的著作点。",
+            "source_evidence": [
+              "POL27-SY-MARX-P008-B033",
+              "POL27-SY-MARX-P008-B033-Y2021"
+            ]
+          }
+        ],
+        "source_handoff": {
+          "target_surface": "IPAD_MARGINNOTE_ORIGINAL_CHENGFENG",
+          "locator": "乘风 · 导论 · 第一节 马克思主义的创立和发展",
+          "source_owner_ids": [
+            "POL27-CF-MARX-C00-K01",
+            "POL27-CF-MARX-C00-K02",
+            "POL27-CF-MARX-C00-K03",
+            "POL27-CF-MARX-C00-K04"
+          ],
+          "look_for": [
+            "马克思主义作为理论体系到底由什么构成",
+            "社会根源、阶级基础、思想来源分别在回答什么",
+            "阶级斗争怎样转化成对科学理论的现实需要",
+            "马克思主义创立后为什么还要继续发展"
+          ]
+        },
+        "recall_seed": {
+          "id": "MARX-C00-S01-RECALL-01",
+          "prompt": "不看讲义，重建：马克思主义为什么不是凭空产生的，又为什么不是创立后就静止不变的？",
+          "expected_relations": [
+            "社会根源 → 创立",
+            "阶级基础 / 实践需求 → 创立",
+            "思想来源 → 创立",
+            "创立 → 完整理论体系",
+            "理论体系 → 在新的实践和时代中继续发展"
+          ]
+        },
+        "suyi_dispositions": [
+          {
+            "source_id": "POL27-SY-MARX-P008-B017",
+            "disposition": "DUPLICATE",
+            "reason": "社会根源已由乘风 K03.N02.I01 清楚拥有；保留为跨源支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B020",
+            "disposition": "ABSORBED",
+            "reason": "进入阶级基础的因果链。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B022",
+            "disposition": "ABSORBED",
+            "reason": "补出‘独立政治力量’这一有助理解实践需要的中间桥。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B023",
+            "disposition": "ABSORBED",
+            "reason": "进入‘逐步自觉 → 需要科学理论’关系链。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B025",
+            "disposition": "DUPLICATE",
+            "reason": "阶级基础 / 现实需求的语义已由乘风拥有。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B026",
+            "disposition": "ABSORBED",
+            "reason": "明确斗争经验需要被总结升华为科学理论。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B027",
+            "disposition": "ABSORBED",
+            "reason": "作为思想来源节点的次级 detail，不进入默认主舞台。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B028",
+            "disposition": "ABSORBED",
+            "reason": "把思想来源理解为对人类文明成果的继承与创新。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B029",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "自然科学前提不为本次 S01 默认结构增加足够首轮价值，暂不扩张主线。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B030",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "著作与两个转变属于后续 Exact / question-triggered precision。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B031",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "著作身份属于后续 Exact / question-triggered precision。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B033-Y2021",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "真题年份信号保留用于 precision/verification，不主导首次 Orientation。"
+          }
+        ],
+        "audit": "content/politics/learning/marxism/ch00.suyi-delta.md"
+      },
       "closure_cue": "闭卷说清：马克思主义为什么不是凭空产生的思想体系，又为什么不是创立后就静止不变的教条。",
       "after_this": "知道它怎样产生和发展后，下一节再判断这套理论整体具有什么鲜明特征、今天为什么仍有价值。"
     },
@@ -94,8 +375,9 @@
     "review_prompt": "闭卷回答：如果不列人物和著作，能否用‘产生条件—理论体系—持续发展—基本特征—当代价值’解释马克思主义导论在整科中的作用？"
   },
   "projection_notes": {
-    "learner_default": "SHOW_ORIENTATION_THEN_CHENGFENG_CONTINUOUS_SOURCE",
-    "suyi_default": "HIDDEN_BACKGROUND_REFERENCE",
+    "learner_default": "SHOW_ORIENTATION_THEN_IPAD_MARGINNOTE_CHENGFENG_HANDOFF",
+    "astro_default": "COGNITIVE_COMPANION_NOT_LECTURE_READER",
+    "suyi_default": "ABSORBED_SEMANTICS_NO_SEPARATE_LEARNER_MAINLINE",
     "xiao1000_default": "INLINE_VERIFICATION_AFTER_RELEVANT_UNIT",
     "memory_default": "NOT_PRIMARY_FIRST_ROUND_SURFACE"
   }
