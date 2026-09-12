@@ -17,7 +17,7 @@ Current independently continued Systems own their own readiness evidence:
 | Scope | Acceptance owner | Current headline |
 | --- | --- | --- |
 | A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` | S–E PASS; U UNTESTED by real learner path |
-| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` | S/K/L/P PASS; R/E/U UNTESTED |
+| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` | S–E PASS; Module ready for learner test; U UNTESTED by real learner path |
 
 The table is routing only. The local files are the canonical evidence ledgers and must not be synchronized by copying their detailed evidence here.
 
