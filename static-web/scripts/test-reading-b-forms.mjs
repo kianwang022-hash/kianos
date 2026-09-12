@@ -118,13 +118,13 @@ async function runBrowser(browserType, name, itemsByForm, { handoff = false } = 
       const item = orderingItems[1] || orderingItems[0];
       const answerPayload = loadReadingBAnswersById(item.objectId);
       const formal = item.questions.map((question, index) => firstAnswer(answerPayload.answers[qid(question, index)]));
-      const used = new Set([...formal, ...(item.context.fixedGivens || [])]);
-      const extra = item.candidates.map((candidate) => String(candidate.label)).find((label) => !used.has(label));
-      check(Boolean(extra), 'chromium_ordering_has_safe_wrong_extra');
+      check(formal.length >= 2 && formal[0] && formal[1] && formal[0] !== formal[1], 'chromium_ordering_has_swappable_formal_pair');
       const firstId = qid(item.questions[0], 0);
+      const secondId = qid(item.questions[1], 1);
+      const swapped = { [firstId]: formal[1], [secondId]: formal[0] };
 
       await page.goto(`${BASE}/reading-b/${encodeURIComponent(item.objectId)}/`);
-      await answerMap(page, item, answerPayload, { [firstId]: extra });
+      await answerMap(page, item, answerPayload, swapped);
       await page.locator('[data-objective-copy-chat]').waitFor({ state: 'visible' });
       await page.locator('[data-objective-copy-chat]').click();
       const packet = await page.evaluate(() => navigator.clipboard.readText());
