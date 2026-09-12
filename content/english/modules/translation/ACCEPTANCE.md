@@ -16,10 +16,10 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 | --- | --- | --- |
 | S — Source | PASS_WITH_DEBT | Current Source boundary is machine-validated from the Current manifest/question bank/scanner. Translation resolves from 1 section, 27 sets and 135 stable prompts. 25 sets have complete reference coverage; 2 are partial with exactly 3 explicit `pending_review` reference debts and zero validator failures. Missing references remain fail-closed and may not be fabricated. |
 | K — Knowledge | PASS | Bounded semantic audit of canonical `content/english/modules/translation/learning.md` and the minimal Translation boundary in `content/english/LEARNING_CONTRACT.md` found a capability-native hierarchy, substantive high-value mechanisms, correct LexicalOS routing, active checks/integrated generation, proper material/evidence ownership, and no justified K blocker or debt. Runtime semantics appended later in the file are not accepted by K. |
-| L — Learning | PASS | Bounded learning-path audit confirms that first learning is Global Map → four continuous Core Learning Blocks → normal Translation task; Skill Map/deep leaves remain later repair/navigation rather than compulsory curriculum; learning is complete-but-skippable without manufacturing mastery; synthetic/exposed material teaches mechanisms while protected unseen material is preserved; clean first output precedes diagnosis/reference use; repair follows the earliest meaningful failure, uses the smallest sufficient repair, then requires learner reconstruction; same-item correction is weaker than later fresh transfer. No justified L blocker or debt was found. |
-| P — Projection | UNTESTED | Learner-facing Translation pages/components exist, but they have not yet been formally audited against the accepted K/L semantics. **P is the current active gate under local `CURRENT.md`.** |
-| R — Runtime | UNTESTED | Runtime implementation and deterministic journey validators exist. Implementation remains Artifact Truth until R acceptance is executed/audited. **Downstream-frozen until P passes.** |
-| E — Evidence | UNTESTED | Evidence/transfer/persistence semantics exist in candidate implementation. Formal E acceptance remains to be established. **Downstream-frozen until R passes.** |
+| L — Learning | PASS | Bounded learning-path audit confirms that first learning is Global Map → four continuous Core Learning Blocks → integrated use → normal Translation task; Skill Map/deep leaves remain later repair/navigation rather than compulsory curriculum; learning is complete-but-skippable without manufacturing mastery; synthetic/exposed material teaches mechanisms while protected unseen material is preserved; repair follows the earliest meaningful failure and requires learner reconstruction; later fresh transfer outranks same-item correction. No justified L blocker or debt was found. |
+| P — Projection | PASS | Bounded Projection audit found and repaired two real learner-flow defects before acceptance: concrete Transfer Pending cues could appear during Clean Attempt, contaminating fresh evidence; and `F｜HOW YOU LEARN IT` was folded while `G｜第一次学习出口` tested its concepts. The repaired projection now hides pending-target detail through the clean attempt, renders F on the first-learning main path before G, keeps Skill Map/deep/runtime reference progressively disclosed, and delays canonical references until explicit post-attempt reveal. Post-build gate evidence on PR head `e7ee7602f40ecfaaec439660b23aa723b8aa6afb`: `PASS`, 161 checks, 27/27 task pages inspected, 132 available reference rows checked, 0 leaked reference rows, 0 issues. |
+| R — Runtime | UNTESTED | Runtime implementation and deterministic journey validators exist, but P acceptance does not accept their execution semantics. **R is the current active gate under local `CURRENT.md`.** |
+| E — Evidence | UNTESTED | Evidence/transfer/persistence semantics exist in candidate implementation. Formal E acceptance remains downstream-frozen until R passes. |
 | U — User Validation | UNTESTED | No repository engineering evidence may substitute for real Kian use. U is not eligible until S–E support `Module ready for learner test`. |
 
 `UNTESTED` above is evidence status, not a parallel work queue. Gate activation is controlled by `content/english/modules/translation/CURRENT.md`.
@@ -30,15 +30,15 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 
 Allowed statement:
 
-> **Translation has accepted Source, Knowledge and Learning boundaries: S is PASS_WITH_DEBT with three explicit fail-closed reference gaps; K and L are PASS; P is now the active gate; R/E remain downstream-frozen; U remains UNTESTED.**
+> **Translation has accepted Source, Knowledge, Learning and Projection boundaries: S is PASS_WITH_DEBT with three explicit fail-closed reference gaps; K/L/P are PASS; R is now the active gate; E remains downstream-frozen; U remains UNTESTED.**
 
-Do not say `Module ready for learner test` until S–E meet the root acceptance standard.
+Do not say `Module ready for learner test` until R and E also meet the root acceptance standard.
 
 ---
 
 ## Accepted Source evidence
 
-The bounded Source validator is `static-web/scripts/validate-translation-source.mjs` and its CI evidence is persisted by `.github/workflows/static-web-translation-qa.yml`.
+The bounded Source validator is `static-web/scripts/validate-translation-source.mjs`; CI persists `translation-source-gate` evidence.
 
 Accepted S evidence:
 
@@ -69,7 +69,7 @@ K was audited semantically against:
 - `content/english/modules/translation/learning.md` blob `69719c5d81fb577386bd4bc901b4d1c5aad0ce67`
 - `content/english/LEARNING_CONTRACT.md` blob `7ad75e87fcec18fd2dec29b4f5de5155b09aa9ec`
 
-Accepted K boundary:
+Accepted K hierarchy:
 
 ```text
 Global Map
@@ -81,9 +81,7 @@ Global Map
 → later Skill Map / selective Skill Content
 ```
 
-The asset actually teaches high-value mechanisms rather than only naming them: proposition hierarchy, attachment, reference, scope/modality/degree, logical relation, contextual lexical access, information/relationship fidelity, omission/addition/distortion control, information order, modifier unloading, split/merge, nominalization, voice, explicit/implicit expression, uncertainty triage, high-risk checking and stop rules.
-
-Ownership is clean enough for K: lexical knowledge routes to LexicalOS; teacher material is a Repair Reservoir; synthetic/exposed/protected materials have distinct roles; private first translations and later learner evidence remain outside shared canonical content; long-tail ambiguity/personalized drill is deferred to Chat. No justified K debt was found.
+The asset teaches the high-value mechanisms rather than merely naming them; lexical ownership routes to LexicalOS; teacher material remains a Repair Reservoir; synthetic/exposed/protected material and private learner evidence are separated; long-tail ambiguity/personalized drill remains adaptive Chat territory. No justified K debt was found.
 
 The later Frozen Runtime appendix was not used to grant K and remains downstream candidate semantics.
 
@@ -91,11 +89,9 @@ The later Frozen Runtime appendix was not used to grant K and remains downstream
 
 ## Accepted Learning evidence
 
-L was audited against the same approved learning owner and parent English contract, but judged **how the ability is formed**, not whether the content is merely correct.
+L judges **how the ability is formed**, not merely whether the content is correct.
 
-### First-learning order is causally sensible
-
-The learner-facing first-learning design is:
+Accepted learner path:
 
 ```text
 Global Map
@@ -107,100 +103,145 @@ Global Map
 → normal Translation task
 ```
 
-This preserves the dependency chain: understand the proposition first, then preserve it, then reconstruct Chinese, then optimize execution. It does not start from teacher chapter order or a taxonomy of isolated errors.
+Accepted constraints:
 
-### Skill Map is not compulsory curriculum
+- Skill Map/deep leaves are later repair/navigation, not compulsory first learning;
+- complete-but-skippable navigation does not create mastery/evidence;
+- synthetic/exposed material may teach mechanisms while protected unseen material remains diagnostic capital;
+- clean first output precedes diagnosis/reference use;
+- repair starts at the earliest meaningful failure;
+- smallest sufficient repair must be followed by learner reconstruction;
+- same-item correction is weaker than later fresh transfer;
+- long-tail ambiguity and personalized micro-drills remain Chat territory.
 
-The Skill Map exists to give later failures stable addresses and to route repair/evidence. Deep leaf content is selective. The first-learning path does not require traversing every R/P/C/E node.
+L decision: **PASS**. No justified L debt was found.
 
-### Complete-but-skippable does not manufacture mastery
+---
 
-The parent English contract allows a proficient learner to skim or skip already-familiar learning content for navigation efficiency, but self-report, a skim, an explanation or software success does not create learner mastery or close transfer evidence. This is compatible with the Translation asset and does not require burning a real exam merely to prove familiarity.
+## Accepted Projection evidence
 
-### Active output is built into learning
+P was not inferred from “the page exists” or from Runtime validators. It combined a bounded learner-facing audit with a dedicated post-build Projection gate.
 
-Core Blocks include active checks, synthetic examples and integrated generation. Learning does not end at passive explanation. The first Translation output remains valuable evidence, and repair requires the learner to generate again.
+### Projection defects found and repaired
 
-### Fresh material is treated as diagnostic capital
+#### 1. Transfer Pending cue leak before clean attempt
 
-Synthetic or already-exposed material may teach the framework and probe a mechanism. Protected unseen material is reserved for clean attempt/transfer value rather than consumed merely to demonstrate the system.
+Before P closure, `TranslationWorkspace` rendered concrete pending-target labels and `underlyingDemand` during the `attempt` stage whenever an old transfer target existed. That violated the Home promise that specific pending weaknesses stay hidden until the complete first version is locked and could cue the demand that a fresh task is supposed to test.
 
-### Repair order follows the first meaningful failure
+Repair:
 
-The approved learning philosophy is:
+- task projection now applies `protectCleanAttempt` to keep `[data-pending-panel]` hidden whenever the Clean Attempt stage is visible;
+- the guard observes both attempt-stage visibility and pending-panel visibility, so ordinary render/reset operations cannot re-expose the cues during a fresh attempt;
+- after the first attempt is frozen and the attempt stage ends, relevant pending detail can become visible for later review/verification.
 
-```text
-Clean Attempt
-→ preserve first output
-→ locate earliest meaningful failure
-→ smallest sufficient repair
-→ learner reconstructs
-→ later fresh transfer
-```
+This was a real P blocker and is now repaired, not recorded as debt.
 
-If English representation is wrong, do not polish Chinese first. Explanation read-through is not repair; same-item correction is weaker than later independent handling of the same underlying demand.
+#### 2. First-learning teach/test inversion
 
-### Static asset vs Chat boundary is appropriate
+Before P closure, `F｜HOW YOU LEARN IT` was grouped inside the folded `Material Routing + HOW YOU LEARN IT + Runtime v1` reference while `G｜第一次学习出口` remained on the visible main path and asked why first translation must be preserved and why same-item correction is not mastery.
 
-Stable, high-frequency capability formation lives in the asset. Competing parses, rare structures, multiple interacting mechanisms, real-sentence ambiguity and personalized micro-drills are expanded in Chat only when evidence makes them useful.
+Repair:
 
-L decision: **PASS**. No learning-order, calibration, material-timing, repair-order or evidence-strength defect was found that justifies `PASS_WITH_DEBT` or `BLOCKED`.
+- F is now visible on the first-learning main path after the integrated walkthrough and before G;
+- navigation exposes `How You Learn It` as a natural bridge to real Translation;
+- E Material Routing and H Runtime v1 remain folded system/reference material;
+- C/D Skill Map + Deep Skills remain folded, preserving progressive disclosure and preventing taxonomy from becoming first-learning curriculum.
+
+This restores “teach before exit check” without adding a new knowledge block.
+
+### Reference / protected-evidence projection
+
+The task page projects `references: []` initially and uses `TranslationReferenceLoader` for delayed reference retrieval. Canonical reference rows are not server-rendered into the clean-attempt task HTML. Reference loading remains behind explicit reveal/open behavior, except restoration of a reference panel that the same local attempt had already opened.
+
+### Learner-facing structure
+
+The accepted projection now preserves the intended cognitive units:
+
+- Home foregrounds First Learning before catalog browsing while retaining free navigation;
+- First Learning shows the continuous capability trunk, with long diagnostic/runtime material folded;
+- task view keeps source visible and projects one whole task/set as the review unit;
+- Segment inputs preserve finer first-evidence granularity without turning review into isolated-item workflow;
+- PASS / Review / Reconstruction / Reference controls are progressively revealed by stage;
+- provenance and history are secondary/folded rather than competing with the immediate learning action;
+- responsive layouts collapse the two-column task view on narrower screens without changing semantics.
+
+### Executed Projection gate
+
+Validator: `static-web/scripts/validate-translation-projection.mjs`  
+Workflow: `.github/workflows/static-web-translation-qa.yml`  
+PR-head run: `34698611076` on `e7ee7602f40ecfaaec439660b23aa723b8aa6afb`
+
+Machine evidence:
+
+- schema: `kianos.english.translation.projection-gate-validation.v1`
+- gate: `P`
+- decision: `PASS`
+- checks: `161`
+- Current Translation sets: `27`
+- built task pages inspected: `27`
+- available reference rows checked: `132`
+- leaked reference rows in clean-attempt task HTML: `0`
+- issues: `0`
+- first-learning bridge before exit: `true`
+- Skill/Runtime progressive disclosure: `true`
+- clean-attempt reference payload empty: `true`
+- pending-cue guard: `true`
+
+P decision: **PASS**. No remaining Projection defect justifies `PASS_WITH_DEBT`.
 
 ---
 
 ## Candidate evidence for staged acceptance
 
-### Projection candidates — active now
+### Runtime candidates — active now
 
-- `static-web/src/components/TranslationWorkspace.astro`
-- `static-web/src/pages/translation.astro`
-- `static-web/src/pages/translation/[id].astro`
-- `static-web/src/pages/translation-learn.astro`
-- Translation-specific styles/components needed to judge learner-facing density and progressive disclosure
-- `static-web/src/lib/englishTranslation.mjs` only where exact rendered Source/reference projection must be traced
-- accepted K/L semantics in `content/english/modules/translation/learning.md` and `content/english/LEARNING_CONTRACT.md`
-
-P must test whether the learner actually sees the accepted path, whether clean attempts remain protected, whether reference/model output is delayed appropriately, whether first learning is complete-but-skippable rather than overwhelming, and whether page structure serves Translation cognition rather than mirroring Markdown headings.
-
-### Runtime / Evidence candidates — preserved, downstream-frozen
-
+- `content/english/modules/translation/learning.md` — Frozen Runtime v1 appendix only as the accepted intended Runtime contract candidate
 - `static-web/src/lib/translationRuntimeModel.mjs`
-- `static-web/src/components/TranslationEvidenceGuard.astro`
+- `static-web/src/components/TranslationWorkspace.astro`
 - `static-web/src/components/TranslationPersistenceGuard.astro`
+- `static-web/src/components/TranslationReferenceLoader.astro` only where runtime reveal/load behavior must be traced
 - `static-web/scripts/validate-translation-runtime.mjs`
-- `static-web/scripts/validate-translation-evidence-guard.mjs`
-- `.github/workflows/static-web-translation-qa.yml`
+- Translation task pages only where runtime wiring must be verified
 
-These remain candidate downstream evidence and must not be used to leapfrog P/R/E ordering.
+Existing runtime-validator success is candidate evidence, not R acceptance. R must establish that the intended state transitions can actually be executed without forced debt or broken handoff/return behavior.
+
+### Evidence candidates — preserved, downstream-frozen
+
+- `static-web/src/components/TranslationEvidenceGuard.astro`
+- `static-web/scripts/validate-translation-evidence-guard.mjs`
+- transfer/persistence portions of `translationRuntimeModel.mjs`
+
+Do not use them to leapfrog R.
 
 ---
 
 ## Acceptance next action
 
-Run a bounded **P-only** Translation Projection audit:
+Run a bounded **R-only** Translation Runtime audit:
 
-1. inspect the learner-facing first-learning and task pages against accepted K/L semantics;
-2. verify the first view foregrounds the right action rather than exposing the whole backend content structure;
-3. verify complete-but-skippable first learning can be navigated without manufacturing learner progress;
-4. verify clean attempt surfaces do not leak references, canonical analysis or repair cues prematurely;
-5. verify learner-facing task/review granularity and navigation fit Translation cognition;
-6. verify density/typography/disclosure do not make the accepted learning path materially harder to execute;
-7. classify concrete Projection defects as blocker, bounded debt, or absent;
-8. write P PASS / PASS_WITH_DEBT / BLOCKED only from that evidence;
-9. if P passes, advance local `CURRENT.md` to R without auditing R/E in the same step;
-10. keep U `UNTESTED` until real learner use.
+1. recover the intended Runtime contract from the Frozen Runtime appendix and accepted K/L/P boundary;
+2. verify a complete clean attempt can freeze and choose PASS without manufactured review/repair debt;
+3. verify Need Review enters whole-set diagnosis and Chat handoff preserves immutable first output without prematurely adding Reference;
+4. verify valid Chat return can produce PASS or one primary failure + smallest repair and route to learner Reconstruction;
+5. verify incomplete/malformed/wrong-task return fails closed rather than mutating another task;
+6. verify Reconstruction can save and naturally exit to repaired / transfer-pending paths without treating same-item success as mastery;
+7. verify local persistence/re-entry/reset/history behavior does not lose or overwrite required runtime state;
+8. classify concrete Runtime defects as blocker, bounded debt, or absent;
+9. write R PASS / PASS_WITH_DEBT / BLOCKED only from executed evidence;
+10. if R passes, advance local `CURRENT.md` to E without auditing E in the same step;
+11. keep U `UNTESTED` until real learner use.
 
-If P exposes a real upstream Knowledge/Learning defect, reopen the earliest responsible gate rather than compensating in UI.
+If R exposes a real Projection or upstream defect, reopen the earliest responsible gate rather than compensating in evidence logic.
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-Actual Translation source/content/runtime owners listed above.
+Actual Translation source/content/projection/runtime owners listed above.
 
 ### Acceptance Truth
-This file records S as `PASS_WITH_DEBT`, K as `PASS`, and L as `PASS`. P/R/E/U remain unaccepted unless explicitly stated otherwise.
+This file records S as `PASS_WITH_DEBT`, K as `PASS`, L as `PASS`, and P as `PASS`. R/E/U remain unaccepted unless explicitly stated otherwise.
 
 ### Learner Truth
 Private learner/runtime state only. This file does not claim Kian has started Translation, completed first learning, attempted a task, repaired an error, or closed a transfer target.
