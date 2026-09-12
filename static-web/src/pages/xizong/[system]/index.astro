@@ -3,6 +3,7 @@ import Base from '../../../layouts/Base.astro';
 import XizongSystemV6 from '../../../components/XizongSystemV6.astro';
 import XizongSystemExitRuntime from '../../../components/XizongSystemExitRuntime.astro';
 import XizongSystemRepairReturn from '../../../components/XizongSystemRepairReturn.astro';
+import XizongSystemEvidenceGuard from '../../../components/XizongSystemEvidenceGuard.astro';
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongSystem } from '../../../lib/xizong.mjs';
@@ -30,6 +31,7 @@ const questionSweep = loadXizongSystemQuestionSweep(system);
       </summary>
       <XizongSystemExitRuntime system={system} sweep={questionSweep} />
       <XizongSystemRepairReturn system={system} />
+      <XizongSystemEvidenceGuard system={system} sweep={questionSweep} />
     </details>
   )}
   <XizongRuntimeStageGuard system={system} />
