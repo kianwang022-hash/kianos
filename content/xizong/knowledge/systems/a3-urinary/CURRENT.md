@@ -10,51 +10,72 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A3 Urinary  
-**Active / earliest unresolved stage:** `S — Source / official-question System scope closure`  
-**Blocker:** A3 still lacks an accepted deterministic Current official-question System-scope owner. Historical evidence strongly supports a 2026-09-01 urinary scope of 243 questions, but exact historical-byte authentication is not the only admissible way to establish reliable Current authority.  
-**Next action:** close A3 Source by the smallest valid path: either (A) authenticate the exact historical HLK output and extract/reconcile urinary membership to Current Question Truth, or (B) perform a bounded Current reconstruction from Current Question Truth + explicit A3 ownership criteria + authoritative source evidence, recording provenance and every material ambiguity/delta. Then write the deterministic A3 scope owner and validate it. Do not advance System-level K before S closes.
+**Active / earliest unresolved stage:** `K — System-level Knowledge acceptance`  
+**S status:** PASS by bounded Current reconstruction. Current owner = `content/xizong/knowledge/learner/a3-urinary-question-scope.json`, 243 questions, inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`.  
+**Blocker:** no Source blocker remains. The working System-top `system.json` is intentionally still `K_WORKING_SYSTEM_TOP / WORKING_A3_SYSTEM_K_NOT_ACCEPTED`, so K has not been accepted merely because S closed.  
+**Next action:** perform the bounded System-level K audit of the existing working `system.json` against the accepted 14-Block / 257-KP / 75-Logic-Group substrate and the transitional System Guide. Do not reopen S or historical archaeology unless concrete contradictory Source evidence appears. Do not begin L/P/R/E/U until K passes.
 
 ---
 
-## Source closure paths
+## Accepted Source closure
 
-### Path A｜Exact historical recovery
-
-Use when exact historical fidelity is available and useful:
+Closure path used: **Path B — bounded Current reconstruction**.
 
 ```text
-authenticate historical HLK output
-→ extract historical urinary membership
-→ reconcile identifiers to Current Question Truth
-→ record deterministic Current owner + provenance/deltas
+recovered reviewed 243-question candidate
++ historical urinary range/source ownership evidence
++ historical no-ownership/no-source-gap QA
++ accepted Current A3 14-Block boundary
++ Current immutable Question Truth
+→ explicit Current reconstruction / zero unresolved membership ambiguity
+→ deterministic 243-ID owner
+→ Current runtime reconciliation
+→ S PASS
 ```
 
-Historical count/hash/bytes are evidence about the old artifact. They do not by themselves substitute for the Current owner.
+Accepted owner:
 
-### Path B｜Bounded Current reconstruction
+`content/xizong/knowledge/learner/a3-urinary-question-scope.json`
 
-Use when exact historical bytes/generator remain unavailable after bounded recovery and the Current System scope can be re-established independently:
+Current invariants:
 
-```text
-Current Question Truth
-+ accepted A3 System/Block boundary
-+ explicit inclusion/exclusion ownership criteria
-+ authoritative first-party/current sources
-→ candidate Current scope
-→ adjudicate ambiguous/cross-system cases explicitly
-→ compare against available historical replay/count evidence as a consistency check
-→ record provenance + deterministic inventory/hash
-→ validate Current owner
-```
+- 243 unique official-question IDs across 2005–2026;
+- runtime-sorted inventory SHA256 `bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e`;
+- Current Question Truth remains 3750 immutable IDs, inventory SHA256 `0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82`;
+- every selected ID resolves through the shared Current question loader;
+- zero unresolved membership ambiguities and zero delta from the recovered reviewed candidate;
+- System membership does not create Question→Block/KP relations;
+- historical raw `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` was not freshly re-hashed because source transport returned 403, and no exact-byte claim is made.
 
-The historical `243` is strong evidence and a reconciliation target, **not a magic count that may be recreated by subtraction or intuition**. If a Current reconstruction materially differs from recoverable historical evidence, the delta must be enumerated and justified before S can pass.
+Validation proof before acceptance:
+
+- branch commit `e5f3afc34844e3a168e98c2d0f4fd8f157ef99c2`;
+- GitHub Actions run `34713324100`;
+- A3 owner/inventory PASS;
+- A3 Current Question Truth resolution PASS;
+- A3 boundary/provenance PASS;
+- A1 learner contract PASS;
+- A2 runtime contracts PASS;
+- Astro build PASS.
+
+### Gate-order correction retained
+
+During closure, Source validation initially attempted to use `loadXizongSystem('urinary')`. That loader intentionally rejects the still-unaccepted K-level `system.json`, which exposed a gate inversion: S was accidentally depending on K.
+
+The accepted rule is now explicit:
+
+> **S validates stable System identity + Source owner + Current Question Truth. S must not require accepted System-level K.**
+
+This preserves `S → K → L → P → R → E → U`.
 
 ---
 
 ## Frozen accepted substrate
 
-The completed system-below upgrade is frozen unless concrete evidence reopens a specific Block:
+Unless concrete evidence reopens a specific item, the following are frozen inputs to the K audit:
 
+- Source gate S = PASS;
+- 243-question Current System scope owner above;
 - 14 canonical Blocks;
 - 257 stable KPs;
 - 75 Logic Groups;
@@ -62,22 +83,26 @@ The completed system-below upgrade is frozen unless concrete evidence reopens a 
 - no stable source orphan recorded in the consolidated system-below support;
 - B5 acid-base Source gap closed by a narrow admitted external-source contract.
 
-Owner:
+System-below owner:
 
 `content/xizong/knowledge/learner/a3-urinary-learning.json`
 
-A working System-top `system.json` exists, but it is a candidate only. It must not be treated as accepted K or learner-facing Current while S remains blocked.
+Working K candidate:
+
+`content/xizong/knowledge/systems/a3-urinary/system.json`
+
+The working System-top candidate may be audited next, but it is not yet accepted and must not be projected as learner-ready Current.
 
 ---
 
-## Frozen / out of scope during S
+## Frozen / out of scope during K
 
+- do not reopen the accepted 243-question S scope without concrete contradictory evidence;
+- do not resume historical artifact archaeology merely because raw old bytes remain unavailable;
 - do not re-audit accepted A3 Blocks without concrete evidence;
-- do not recreate question membership from count, subtraction, titles, loose medical intuition or model-only reasoning;
-- do not treat a failed historical transport/hash path as proof that Current scope is unknowable;
 - do not infer Question→Block/KP relations from System membership;
-- do not promote the working System mother model to K PASS;
-- do not start L/P/R/E/U work;
+- do not promote `system.json` by status change alone without a bounded System-level semantic audit;
+- do not start L/P/R/E/U work before K passes;
 - do not build the cardio-pulmonary-renal SuperSystem here;
 - do not infer any learner progress.
 
@@ -85,14 +110,15 @@ A working System-top `system.json` exists, but it is a candidate only. It must n
 
 ## Required reads
 
-For ordinary re-entry into A3 S:
+For ordinary re-entry into A3 K:
 
 1. `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md`
-2. Current Question Truth + provenance needed for the selected closure path
-3. only the bounded historical authority/evidence relevant to Path A or reconciliation under Path B
-4. the accepted A3 System/Block boundary only as needed to define explicit ownership criteria; do not reopen all Block medical content by default
+2. `content/xizong/knowledge/systems/a3-urinary/system.json`
+3. `content/xizong/knowledge/learner/a3-urinary-learning.json`
+4. transitional System Guide only where needed to audit System-level organization/learning route
+5. accepted Block/Core material only when a specific System-level claim needs verification
 
-If historical recovery repeats without material evidence progress, stop archaeology and revalidate Path B rather than cycling through additional legacy locations.
+Do not reread the full historical Source package during routine K work. S is closed unless new contradictory evidence appears.
 
 ---
 
@@ -100,6 +126,7 @@ If historical recovery repeats without material evidence progress, stop archaeol
 
 ### Artifact Truth
 
+- accepted Source scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`
 - transitional System guide → `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
 - working System-top candidate → `content/xizong/knowledge/systems/a3-urinary/system.json`
 - medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
