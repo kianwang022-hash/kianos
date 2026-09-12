@@ -10,70 +10,58 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 ## Work Cursor
 
 **Scope:** whole-subject Marxism acceptance  
-**Accepted upstream:** whole-subject S PASS / K PASS  
-**Active / earliest unresolved stage:** L — whole-subject global first-ready parity  
-**Blocker:** Politics QA run #348 (`34700709835`) passed `Audit Marxism batch content closure` and then failed `Audit Marxism global first-ready parity`. P/R/E remain frozen downstream.  
-**Next action:** inspect only the global first-ready parity audit and its exact failing L owner; repair the concrete parity red, rerun L, and write L PASS durably before unlocking P.
-
-The repaired S/K blocker was a stale top-level declaration in `ch02.json`: K03 had already become an embedded Natural Unit inside S01 but was still listed in top-level `source_bindings.natural_unit_ids`. Commit `e558a9951ef4e314c3eff87bd939df1e29d029ac` aligned the declaration without changing K03 content. The same content gate then passed.
-
-### Whole-subject acceptance cursor
-
-```text
-S  PASS
-K  PASS
-L  FAIL
-P  UNTESTED
-R  UNTESTED
-E  UNTESTED
-U  UNTESTED
-```
-
-### Accepted pilot boundary
-
-`POL27-CF-MARX-C02-K03` remains:
-
-```text
-S  PASS
-K  PASS
-L  PASS
-P  PASS
-R  PASS
-E  PASS
-U  UNTESTED
-```
-
-K03 is ready for a learner test path; it does **not** make whole Marxism learner-ready and does not mean Kian has studied K03.
+**Engineering acceptance:** `S/K/L/P/R/E PASS`  
+**Earliest unresolved stage:** `U｜User Validation` — learner-only, not an engineering task  
+**Blocker:** none at the engineering layer. `Static Web Politics QA` run #362 (`34706407418`) passed the complete Politics chain through Marxism first-ready, K03 learning/projection, K03 Runtime/Evidence, whole-subject Marxism Runtime/Evidence, Current bindings, and production Astro build.  
+**Next action:** stop engineering this scope. When Kian actually studies Marxism, record only the real learner path used and reopen the responsible earlier gate only if concrete learner friction exposes a defect.
 
 ---
 
-## Frozen / out of scope
+## Stage discipline
 
-While L is red:
+```text
+S PASS
+→ K PASS
+→ L PASS
+→ P PASS
+→ R PASS
+→ E PASS
+→ U UNTESTED (real learner use only)
+```
 
-- keep whole-subject S/K frozen PASS unless concrete contradiction evidence reopens them;
-- do not promote P/R/E from Artifact completeness or from the automatically skipped downstream assertions;
-- do not reopen K03 S–E without concrete new evidence;
-- do not create a second Suyi learner course;
-- do not let Xiao1000 determine first-round learning order;
-- do not modify History / Mao / Xi / Ethics-Law by convenience;
-- do not mutate private learner progress / Wrong-Uncertain / Return Packet state.
+There is no synthetic next engineering stage after E.
+
+The accepted whole-subject boundary remains **22 Natural Units / 396 unique formal-first-ready Xiao questions**. K03 remains the one unit with accepted canonical node-level Evidence precision; the other Marxism units use the accepted Natural-Unit-safe fallback rather than inventing finer evidence precision.
+
+---
+
+## Closed boundary
+
+Marxism is **module ready for learner test**, not learner-validated.
+
+Do not:
+
+- keep polishing merely because more architecture can be imagined;
+- pre-run or simulate U;
+- infer learner progress from CI/repository state;
+- reopen S/K/L/P/R/E without new concrete evidence;
+- reintroduce the old `projectionMode + global first-ready mode` conflation;
+- treat the three valid `ch02` Unit Return configs (`S01`, embedded `K03`, `S02`) as duplicate K03 configs;
+- modify History / Mao / Xi / Ethics-Law as part of this closed Marxism scope.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry:
+For ordinary re-entry before real learner use:
 
 1. `content/politics/learning/marxism/ACCEPTANCE.md`
-2. the workflow/script owning `Audit Marxism global first-ready parity`
-3. exact failing L owner only after the executable assertion identifies it
 
-Do not reread the content-closure owner by default; S/K are now accepted and frozen.
+Nothing else is required unless a real learner path or concrete defect gives a narrower owner to inspect.
 
 ---
 
-## Truth references
+## Truth boundaries
 
 ### Artifact Truth
 
@@ -82,7 +70,7 @@ Do not reread the content-closure owner by default; S/K are now accepted and fro
 - lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
 - Marxism teaching projection → `content/politics/learning/marxism/`
-- learner runtime → Politics surfaces under `static-web/`
+- learner runtime/evidence implementation → Politics surfaces under `static-web/`
 
 ### Acceptance Truth
 
@@ -96,14 +84,11 @@ Private browser / Return Packet / conversation evidence only. Shared Artifact / 
 
 ## Fresh-Chat target
 
-Known scope `Politics Marxism acceptance` should normally recover as:
-
 ```text
 Marxism CURRENT
 → Marxism ACCEPTANCE
-→ L: failed global first-ready parity assertion
-→ exact failing L owner only
-→ work
+→ if no real U evidence: stop
+→ if real learner evidence exists: inspect only that named path
 ```
 
-No Politics-wide Acceptance, retired continuation/history, unrelated subject, legacy repository, or prior Chat is required for ordinary Marxism continuation.
+No closed gate, sibling subject, legacy repository, or prior Chat is required by default.
