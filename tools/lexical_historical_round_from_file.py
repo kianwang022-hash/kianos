@@ -36,6 +36,22 @@ def parse_core_compatible(body: str) -> list[dict[str, Any]]:
     return rows
 
 
+def contrast_terms_compatible(text: str) -> list[str]:
+    codes = [triage.normalize(c) for c in re.findall(r"`([^`]+)`", text) if triage.normalize(c)]
+    if len(codes) >= 2:
+        return list(dict.fromkeys(codes))
+    if not codes:
+        return []
+    expr = codes[0]
+    if "/" in expr:
+        parts = [triage.normalize(p) for p in expr.split("/") if triage.normalize(p)]
+        if len(parts) >= 2:
+            return list(dict.fromkeys(parts))
+    if " vs " in expr.lower():
+        return [triage.normalize(p) for p in re.split(r"\s+vs\s+", expr, flags=re.I) if p.strip()]
+    return [expr]
+
+
 def main() -> int:
     if len(sys.argv) < 2:
         raise SystemExit("usage: lexical_historical_round_from_file.py AUTHORITY_FILE [bulk-triage args...]")
@@ -52,6 +68,7 @@ def main() -> int:
 
     triage.fetch_comment = frozen_fetch_comment
     triage.parse_core = parse_core_compatible
+    triage.contrast_terms = contrast_terms_compatible
     sys.argv = [sys.argv[0], *sys.argv[2:]]
     return triage.main()
 
