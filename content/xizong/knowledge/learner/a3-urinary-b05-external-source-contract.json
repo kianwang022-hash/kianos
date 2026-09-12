@@ -33,6 +33,19 @@
         "Respiratory acidosis: acute HCO3- rise about 1-2 mmol/L per 10 mmHg PaCO2 rise; chronic rise about 3-4 mmol/L per 10 mmHg.",
         "Respiratory alkalosis: acute HCO3- fall about 1-2 mmol/L per 10 mmHg PaCO2 fall; chronic fall about 4-5 mmol/L per 10 mmHg."
       ]
+    },
+    {
+      "id": "ncbi-statpearls-anion-gap-metabolic-acidosis",
+      "publisher": "NCBI Bookshelf / StatPearls",
+      "title": "Anion Gap and Non-Anion Gap Metabolic Acidosis",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK448090/",
+      "accessed": "2026-09-12",
+      "allowed_claims": [
+        "Albumin-corrected anion gap: corrected AG = measured AG + 2.5 x (4.0 - albumin[g/dL]).",
+        "Delta ratio for HAGMA: (corrected AG - 12) / (24 - measured HCO3-).",
+        "Delta ratio <1 suggests concurrent normal-anion-gap metabolic acidosis; 1-2 is generally compatible with uncomplicated HAGMA; >2 suggests additional metabolic alkalosis or pre-existing elevated bicarbonate.",
+        "Delta-ratio interpretation must be reconciled with clinical context and should not be treated as a standalone diagnosis."
+      ]
     }
   ],
   "allowed_algorithm": [
@@ -40,14 +53,17 @@
     "2. Identify the dominant metabolic (HCO3-) or respiratory (PaCO2) direction from pH/PaCO2/HCO3- and clinical context.",
     "3. Calculate expected compensation for the proposed primary disorder.",
     "4. If measured compensation falls outside the expected range, diagnose/suspect an additional primary acid-base process rather than calling it 'over/under compensation'.",
-    "5. In metabolic acidosis, calculate AG = Na - (Cl + HCO3-); elevated AG indicates a high-anion-gap metabolic-acidosis component.",
-    "6. In metabolic acidosis, use delta gap = measured AG - chosen normal AG; add delta gap to measured HCO3-. A corrected HCO3- above the normal range supports additional metabolic alkalosis. A normal-gap low-HCO3-/high-Cl pattern supports non-anion-gap metabolic acidosis.",
-    "7. Reconcile the acid-base calculation with the actual disease context before final diagnosis."
+    "5. In metabolic acidosis, calculate AG = Na - (Cl + HCO3-). If albumin is substantially reduced, calculate albumin-corrected AG before deciding that the gap is normal.",
+    "6. If HAGMA is present, use delta-gap/corrected-HCO3 logic and optionally the admitted delta ratio to screen for a second metabolic process: delta ratio <1 -> concurrent NAGMA direction; 1-2 -> uncomplicated HAGMA direction; >2 -> additional metabolic alkalosis/pre-existing high-HCO3 direction.",
+    "7. In metabolic acidosis, compare measured PaCO2 with Winter expected PaCO2: above expected -> respiratory-acidosis component; below expected -> respiratory-alkalosis component.",
+    "8. For metabolic alkalosis and respiratory disorders, compare measured values with the admitted expected-compensation ranges; values outside the expected range imply a second primary process or an incorrect acute/chronic assumption.",
+    "9. Reconcile the acid-base calculation with the actual disease context before final diagnosis."
   ],
   "scope_limits": {
     "may_change": [
       "urinary-b05 KP19-KP20 acid-base diagnostic algorithm",
-      "B5 Framework/Recall/Exit statements that previously declared complete compensation/mixed-disorder logic unavailable"
+      "B5 Framework/Recall/Exit statements that previously declared complete compensation/mixed-disorder logic unavailable",
+      "B5 MI-D for albumin-corrected AG/delta-ratio precision"
     ],
     "may_not_change": [
       "B5 water/Na/K/Ca source-specific thresholds or treatment formulas except where a separately reviewed conflict already exists",
@@ -57,13 +73,14 @@
       "bicarbonate-treatment indications",
       "any broad nephrology/critical-care content beyond acid-base diagnosis"
     ],
-    "source_priority": "Existing project Lecture remains Primary for 306 exam content; MSD is a narrowly admitted supplementary Current Source only for the missing compensation/mixed-disorder diagnostic layer."
+    "source_priority": "Existing project Lecture remains Primary for 306 exam content; MSD is the supplementary Current Source for expected compensation/mixed-disorder diagnosis, and NCBI/StatPearls is admitted only for albumin-corrected AG and delta-ratio interpretation."
   },
   "anti_drift": [
-    "Do not turn MSD into a general replacement for the user's Lecture.",
-    "Do not add every acid-base cause list or treatment recommendation from MSD.",
+    "Do not turn the external sources into general replacements for the user's Lecture.",
+    "Do not add broad cause lists or treatment recommendations from the external sources.",
     "Do not create a second acid-base owner outside B5 during this repair.",
     "Do not modify stable KP ids merely because the Source Gap is now closed.",
-    "B3 remains the owner of K+/H+ tubular coupling semantics; B5 only recalls/applies that owner."
+    "B3 remains the owner of K+/H+ tubular coupling semantics; B5 only recalls/applies that owner.",
+    "Delta-ratio thresholds are diagnostic aids, not absolute disease labels; clinical context remains required."
   ]
 }
