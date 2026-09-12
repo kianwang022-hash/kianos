@@ -116,6 +116,19 @@
   font-size: 19px;
 }
 
+/* Acceptance/source diagnostics stay in Current and acceptance surfaces.
+   Learner home surfaces keep only next-action state. */
+.englishCanvas .writingHomeHero aside span,
+.englishCanvas .translationHero aside span:not([data-translation-pending-count]) {
+  display: none;
+}
+
+.englishCanvas .writingRuntimeBoundary,
+.englishCanvas .translationContractNote,
+.englishCanvas .translationSourceGaps {
+  display: none;
+}
+
 /* First-learning surfaces: readable, bounded, information-dense. */
 .englishCanvas .objectiveLearnShell,
 .englishCanvas .translationLearnShell,
