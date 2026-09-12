@@ -1,0 +1,71 @@
+{
+  "schema": "kianos.lexical.knowledge_audit_v2.batch_decisions.v1",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY",
+  "stage_rule": "TARGET_TRUTH_ONLY_NO_OWNER_REPAIR",
+  "authority": "CURRENT_MAIN_NATURAL_OWNERS_ONLY",
+  "range": {"start": 81, "end": 100, "count": 20},
+  "status_counts": {"PASS": 9, "REVISE": 11, "SOURCE_CHECK": 0},
+  "relation_decisions": [
+    {
+      "relation_id": "confusable:horizontal:bcd5e086d23d76794896",
+      "decision": "PASS",
+      "target_truth": "Keep adopt vs adapt: adopt = take up/accept or legally take as one's child; adapt = adjust/change to fit."
+    },
+    {
+      "relation_id": "confusable:horizontal:0401fe1e68179c25bc22",
+      "decision": "PASS",
+      "target_truth": "Keep adverse vs averse: adverse = unfavorable/harmful; averse = opposed/unwilling, normally averse to."
+    },
+    {
+      "relation_id": "deep:confusables:advice:5b2ad712a3268539",
+      "decision": "PASS_AS_CANONICAL_RELATION_TARGET",
+      "target_truth": "The advice/advise noun-vs-verb spelling/pronunciation boundary is high-value and correct. Only one canonical Relation owner should survive for this semantic relationship."
+    },
+    {
+      "relation_id": "confusable:horizontal:d4fd93a2e6ea262bf29a",
+      "decision": "REVISE",
+      "target_truth": "Semantic content is correct but duplicates the advice↔advise relationship already owned by deep:confusables:advice:5b2ad712a3268539. Consolidate to one canonical Relation owner rather than two parallel semantic owners."
+    },
+    {
+      "relation_id": "deep:confusables:affect:6976333ca4ed4d47",
+      "decision": "PASS",
+      "target_truth": "Keep the non-absolute default boundary: affect is usually the verb 'influence'; effect is usually the noun 'result/effect', while specialist affect-noun and effect-verb exceptions exist."
+    }
+  ],
+  "decisions": [
+    {"ordinal":81,"word":"adolescent","decision":"PASS"},
+    {"ordinal":82,"word":"adopt","decision":"PASS"},
+    {"ordinal":83,"word":"adore","decision":"PASS"},
+    {"ordinal":84,"word":"adult","decision":"REVISE","target_truth":"Keep noun adult=grown person and adjective adult=relating/intended for grown people as the main branches. Biology mature animal/insect may remain recognition-level. Fix POS/example coherence: 'adult insect' is adjectival use and should not serve as the example for a noun mature-animal sense. The adjective should cover adult education/content/ticket etc., not only 'fully grown'."},
+    {"ordinal":85,"word":"advance","decision":"REVISE","target_truth":"Undo over-merge. Preserve verb advance=move/progress/further/promote development; noun advance=progress/forward movement; adjective advance=prior/beforehand; phrase in advance. Academic/formal advance a proposal/theory is learner-worthy. Prepay/advance money may be lower secondary recognition. Romantic advances and specialist price/rate uses should not be forced into the main map merely for completeness."},
+    {"ordinal":86,"word":"advanced","decision":"REVISE","target_truth":"Distinguish high-level/sophisticated/technologically developed from late/far-progressed stage (advanced age, advanced disease/cancer). Current second definition 'farther along in physical or mental development' does not correctly explain advanced age and its Chinese gloss is misleading."},
+    {"ordinal":87,"word":"advantage","decision":"REVISE","target_truth":"Restore ordinary noun advantage=benefit/favorable condition as Active Knowledge, including advantage over and high-value take advantage of. Benefit and favorable-position nuances may be organized under one learner center. Tennis technical sense and rare verb do not belong in the main learner map."},
+    {"ordinal":88,"word":"advent","decision":"REVISE","target_truth":"Keep the high-value academic phrase the advent of / with the advent of = arrival/coming of an important development. Christian-calendar Advent is valid but should be reference/recognition rather than equal main Active Knowledge for the general exam-English lane."},
+    {"ordinal":89,"word":"adventure","decision":"REVISE","target_truth":"Center on noun adventure=exciting/unusual experience or undertaking often involving risk. The verb adventure/adventure into is uncommon/literary and should be low recognition rather than an equal L2 learner branch. Remove the odd 'not necessarily lawful' flavor from the core learner definition."},
+    {"ordinal":90,"word":"adverb","decision":"PASS"},
+    {"ordinal":91,"word":"adverse","decision":"REVISE","target_truth":"Use one main semantic center unfavorable/harmful/working against a desired outcome. 'Adverse wind' is a contextual opposing/unfavorable application, not a learner-important independent sense. Preserve the high-value adverse↔averse boundary."},
+    {"ordinal":92,"word":"advertise","decision":"PASS"},
+    {"ordinal":93,"word":"advice","decision":"REVISE","target_truth":"Restore ordinary uncountable noun advice as Active Knowledge. Include high-value structures advice on/about sth, give/take/follow advice, and a piece of advice where useful. Formal commercial plural 'advices' notice/report use stays outside the main learner map. Preserve one canonical advice↔advise confusable relation."},
+    {"ordinal":94,"word":"advisable","decision":"PASS"},
+    {"ordinal":95,"word":"advise","decision":"REVISE","target_truth":"Keep advise sb to do sth, advise against sth/doing, and formal advise sb of sth. Explicitly include common complement patterns advise doing sth and advise that... where learner-worthy. Keep one canonical advice↔advise relation rather than a duplicate second Relation owner."},
+    {"ordinal":96,"word":"advocate","decision":"REVISE","target_truth":"Restore both high-value ordinary branches: verb advocate sth/doing/that... = publicly support/recommend; noun advocate (for/of sth) = supporter/proponent. Lawyer/counsel sense is regional/legal and should be lower recognition/reference rather than displacing the ordinary branches."},
+    {"ordinal":97,"word":"aerial","decision":"PASS"},
+    {"ordinal":98,"word":"aeroplane","decision":"PASS"},
+    {"ordinal":99,"word":"affair","decision":"PASS"},
+    {"ordinal":100,"word":"affect","decision":"REVISE","target_truth":"Keep main verb affect=influence and emotional affect=move/produce strong feeling. Keep formal/literary affect=pretend only at low recognition. Specialist psychology noun affect belongs in reference/recognition, not equal main learner depth. Remove exact duplication of the pretend sense between Active and secondary_senses. Preserve the high-value affect↔effect boundary with its stated exceptions."}
+  ],
+  "defect_classes_added": [
+    "DUPLICATE_CROSS_WORD_RELATION_OWNERS",
+    "VALID_SPECIALIST_OR_CULTURAL_SENSE_OVERPROMOTED_TO_MAIN",
+    "POS_EXAMPLE_MISMATCH_WITHIN_SENSE",
+    "HIGH_VALUE_HEADWORD_EMPTIED_WHILE_CORE_REMAINS",
+    "COMMON_COMPLEMENT_PATTERN_MISSING"
+  ],
+  "mutation_check": {
+    "word_owner_semantic_mutations": 0,
+    "relation_owner_semantic_mutations": 0,
+    "learning_contract_mutations": 0,
+    "projection_runtime_mutations": 0
+  },
+  "next": "Continue Truth-stage review from ordinal 101 through 200; do not repair Current owners yet."
+}
