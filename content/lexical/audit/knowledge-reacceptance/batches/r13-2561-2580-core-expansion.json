@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R13 ordinals 2561-2580",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5581086274",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2563,"word_id":"word:inspiration","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"Core says 灵感；激励, but the ordinary creative-idea/inspiration sense is deprecated while technical inhalation remains Active L3; encouraging-source noun remains Active","approved_target":"demote technical inhalation; keep creative idea/inspiration and encouraging source"},
+    {"ordinal":2564,"word_id":"word:inspire","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"motivate and arouse-feeling senses are Active, but give-creative-idea/inspiration is deprecated while rare technical inhale remains Active L3","approved_target":"demote rare technical inhale; keep motivate, give creative idea/inspiration, and arouse feeling"},
+    {"ordinal":2567,"word_id":"word:instalment","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"payment instalment and serial episode are both deprecated/reference-only while installation is the sole Active sense; no visible spelling alias/relation to installment is present on this Natural Owner","approved_target":"keep payment instalment and serial episode; demote installation sense; preserve British spelling relation to installment if available"},
+    {"ordinal":2568,"word_id":"word:instance","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"SEVERE","current":"rare verb instance=cite as example is correctly deprecated, but the ordinary noun example/single occurrence is also deprecated; only situation/occasion remains Active, while for instance survives as a construction","approved_target":"noun instance/example and fixed phrases primary; demote rare verb instance=cite as example"},
+    {"ordinal":2572,"word_id":"word:instinct","classification":"CURRENT_CORRECT","current":"noun instinct and intuition are Active; archaic/literary adjective instinct with is deprecated/reference-only","approved_target":"demote archaic/literary adjective instinct with; noun instinct/intuition primary"},
+    {"ordinal":2575,"word_id":"word:instruct","classification":"WRONG_SENSE_ANCHOR","current":"Core already says teach or direct and construction instruct sb in sth exists, but it is anchored to an Active sense defined 告知/通知 / make aware of rather than an explicit teach/train carrier; other Active sense is direct/order","approved_target":"add or rewrite explicit common teach/train sense and bind instruct sb in sth there; preserve direct/order and inform boundaries"},
+    {"ordinal":2576,"word_id":"word:instruction","classification":"AUTHORITY_MISSING_FROM_CURRENT","current":"only computing instruction and directions/how-to senses are Active; Core says 指令；教导 but no Active teaching/education sense exists","approved_target":"add common 教学；指导 / teaching or education sense; preserve instructions=directions and computing instruction separately"},
+    {"ordinal":2577,"word_id":"word:instrument","classification":"CORE_LANDING_INCOMPLETE","current":"generic device sense is Active and musical instrument exists only as a collocation/example; learner-facing Core/definition says 仪器，器械 rather than explicitly including 乐器 as approved","approved_target":"generic device learner wording explicitly includes 仪器；器械；乐器 without inventing a redundant musical-instrument sense"},
+    {"ordinal":2580,"word_id":"word:insult","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"ordinary insult noun/verb are Active, but generic damage/harm remains a separate Active L2 noun sense and Core still lists 损害，伤害 separately","approved_target":"merge/rewrite generic damage/harm noun into the figurative insult/offense core; examples such as an insult to intelligence belong there"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:insist","classification":"PRESENTATION_ONLY_GAP","approved_target":"distinguish insist on + noun/-ing; insist that + indicative; insist that sb (should) do","current":"insist on + sth/doing and insist that + indicative/assertion are both explicit; the demand construction insist that sb (should) do is absent, so the three-way learner presentation is incomplete"},
+    {"word_id":"word:instrumental","classification":"CURRENT_CORRECT","approved_target":"be instrumental in + sth/doing","current":"exact construction be instrumental in sth/doing sth exists at L1 and exact example instrumental in achieving success is Active"}
+  ],
+  "summary": {
+    "core_decisions_checked": 9,
+    "core_current_correct": 1,
+    "core_defective": 8,
+    "expansion_owner_groups_checked": 2,
+    "expansion_current_correct": 1,
+    "expansion_partial_or_presentation_gap": 1,
+    "expansion_full_landing_gap": 0,
+    "new_p0_reproduced": [],
+    "severe_carrier_inversion": ["word:inspiration", "word:inspire", "word:instalment", "word:instance"]
+  },
+  "next": "Continue R13 Core + Expansion reconciliation from ordinal 2581 onward against legacy Issue #113 comment 5581086274. Do not mutate Natural Owners yet."
+}
