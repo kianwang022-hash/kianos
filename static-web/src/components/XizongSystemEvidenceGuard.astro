@@ -1,8 +1,31 @@
 ---
 const { system, sweep } = Astro.props;
-const evidenceVersion = [system?.sourceHash || '', sweep?.scopeHash || '', sweep?.questionInventoryHash || ''].join(':');
+const evidenceRows = (sweep?.questions || []).map((question) => [
+  question.questionId,
+  question.correctAnswer,
+  question.relation?.blockId || '',
+  question.relation?.primaryKpId || '',
+  ...(question.relation?.supportingKpIds || []),
+  question.explanation?.decisionAxis || '',
+  question.explanation?.correctOptionReason || '',
+  question.explanation?.commonFailureNode || '',
+  question.explanation?.transferRule || ''
+].join('~')).join('|');
+let questionEvidenceHash = 2166136261;
+for (let index = 0; index < evidenceRows.length; index += 1) {
+  questionEvidenceHash ^= evidenceRows.charCodeAt(index);
+  questionEvidenceHash = Math.imul(questionEvidenceHash, 16777619) >>> 0;
+}
+const evidenceVersion = [
+  system?.sourceHash || '',
+  sweep?.scopeHash || '',
+  sweep?.questionInventoryHash || '',
+  questionEvidenceHash.toString(16)
+].join(':');
+const blockIds = (system?.blocks || []).map((block) => block.blockId).filter(Boolean);
 ---
 <span data-xizong-system-evidence-guard data-system-id={system.systemId} data-evidence-version={evidenceVersion} hidden></span>
+<script type="application/json" data-evidence-block-ids set:html={JSON.stringify(blockIds)}></script>
 
 <script>
   const marker = document.querySelector('[data-xizong-system-evidence-guard]');
@@ -16,6 +39,8 @@ const evidenceVersion = [system?.sourceHash || '', sweep?.scopeHash || '', sweep
     const ledgerKey = `kianos:xizong:system-evidence:${systemId}:v1`;
     const metaKey = `kianos:xizong:system-evidence-meta:${systemId}:v1`;
     const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+    let blockIds = [];
+    try { blockIds = JSON.parse(document.querySelector('[data-evidence-block-ids]')?.textContent || '[]'); } catch {}
 
     const readJson = (key, fallback = null) => {
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
@@ -26,6 +51,21 @@ const evidenceVersion = [system?.sourceHash || '', sweep?.scopeHash || '', sweep
 
     const previousMeta = readJson(metaKey, null);
     if (previousMeta?.version && previousMeta.version !== version) {
+      const staleBlockQuestionPlans = {};
+      blockIds.forEach((blockId) => {
+        const key = `kianos-xizong-memory-review-v2:xizong:${blockId}`;
+        const ext = readJson(key, null);
+        if (!ext || !Array.isArray(ext.reviewPlan)) return;
+        const stale = ext.reviewPlan.filter((row) => Array.isArray(row?.sourceQuestionIds) && row.sourceQuestionIds.length > 0);
+        if (stale.length) staleBlockQuestionPlans[blockId] = stale;
+        const kept = ext.reviewPlan.filter((row) => !(Array.isArray(row?.sourceQuestionIds) && row.sourceQuestionIds.length > 0));
+        if (kept.length !== ext.reviewPlan.length) {
+          ext.reviewPlan = kept;
+          ext.reviewIndex = 0;
+          writeJson(key, ext);
+        }
+      });
+
       const archiveKey = `kianos-xizong-stale-system-evidence:${systemId}:${Date.now()}`;
       writeJson(archiveKey, {
         archived_at: new Date().toISOString(),
@@ -34,7 +74,8 @@ const evidenceVersion = [system?.sourceHash || '', sweep?.scopeHash || '', sweep
         recall: readJson(recallKey, {}),
         sweep: readJson(sweepKey, {}),
         repair: readJson(repairKey, {}),
-        ledger: readJson(ledgerKey, {})
+        ledger: readJson(ledgerKey, {}),
+        stale_block_question_plans: staleBlockQuestionPlans
       });
       try {
         localStorage.removeItem(recallKey);
