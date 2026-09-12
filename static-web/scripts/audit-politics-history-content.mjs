@@ -19,6 +19,13 @@ function readJsonl(file) {
 }
 function asList(value) { return Array.isArray(value) ? value.filter(Boolean) : (value ? [value] : []); }
 function uniq(values) { return [...new Set(values.filter(Boolean))]; }
+function countCodes(rows) {
+  return rows.reduce((counts, row) => {
+    const code = String(row?.code || 'UNKNOWN').split(':')[0];
+    counts[code] = (counts[code] || 0) + 1;
+    return counts;
+  }, {});
+}
 
 const regionRows = readJsonl(REGIONS).filter((row) => row?.status === 'canonical' && row?.subject === 'HISTORY');
 const regionByUnit = new Map(regionRows.map((row) => [String(row.natural_unit_id), row]));
@@ -222,7 +229,7 @@ for (const unitId of orphanCanonicalRegions) {
 const severity = { P0: 0, P1: 1, P2: 2, UNKNOWN: 3 };
 reviewQueue.sort((a, b) => (severity[a.priority] ?? 9) - (severity[b.priority] ?? 9) || a.chapter.localeCompare(b.chapter) || a.unit_id.localeCompare(b.unit_id));
 
-const compact = {
+const fullReport = {
   status: blockers.length ? 'BLOCKED' : reviewQueue.length ? 'PASS_WITH_REVIEW_QUEUE' : 'PASS',
   scope: 'HISTORY_ALL_CHAPTERS_CONTENT',
   teaching_shape: 'CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION',
@@ -249,6 +256,27 @@ const compact = {
   review_queue: reviewQueue
 };
 
+const compact = {
+  status: fullReport.status,
+  scope: fullReport.scope,
+  teaching_shape: fullReport.teaching_shape,
+  source_review_snapshot_valid: fullReport.source_review_snapshot_valid,
+  semantic_review_complete: fullReport.semantic_review_complete,
+  source_node_digest: fullReport.source_node_digest,
+  chapter_count: fullReport.chapter_count,
+  represented_natural_unit_count: fullReport.represented_natural_unit_count,
+  learner_unit_count: fullReport.learner_unit_count,
+  canonical_region_count: fullReport.canonical_region_count,
+  blocker_count: fullReport.blocker_count,
+  review_count: fullReport.review_count,
+  p0_review_count: fullReport.p0_review_count,
+  p1_review_count: fullReport.p1_review_count,
+  blocker_codes: countCodes(blockers),
+  review_codes: countCodes(reviewQueue),
+  blocker_sample: blockers.slice(0, 8),
+  review_sample: reviewQueue.slice(0, 8)
+};
+
 console.log('POLITICS_HISTORY_CONTENT_AUDIT');
-console.log(JSON.stringify(compact, null, 2));
+console.log(JSON.stringify(process.env.KIANOS_AUDIT_VERBOSE === '1' ? fullReport : compact, null, 2));
 if (blockers.length) process.exit(2);
