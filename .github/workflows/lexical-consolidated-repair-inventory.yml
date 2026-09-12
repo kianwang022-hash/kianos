@@ -22,8 +22,6 @@ permissions:
 jobs:
   compile:
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,6 +29,7 @@ jobs:
       - name: Compile deduplicated repair inventory
         shell: bash
         run: |
+          unset GITHUB_TOKEN GH_TOKEN
           python tools/lexical_compile_consolidated_repair_inventory_entry.py \
             --output /tmp/consolidated-repair-inventory.json \
             --summary /tmp/consolidated-repair-inventory-summary.md
