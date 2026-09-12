@@ -29,32 +29,54 @@
     "C01-S01 genuine P0 Knowledge gap repaired: dialectics vs metaphysics restored as the third judgment axis beside materialism/idealism and knowability",
     "C06-S01 genuine P0 Knowledge gap repaired: monopoly profit restored as a mechanism linking monopoly position, surplus-value source, monopoly-price realization and the continuing validity of the law of value",
     "C03/C04/C05/C07/C08 and the non-K03 C02 semantic mainline showed no same-level missing relation/boundary in this pass and were left unchanged rather than stylistically rewritten",
+    "Marxism root Source/OCR and Suyi review dispositions are now durable in learning/marxism/source-review.json; reviewed child OCR noise remains source metadata rather than manufactured whole-subject debt",
+    "Marxism Suyi review is closed manually: only the C01-S01 and C06-S01 teaching deltas were admitted and both are already fixed in Current",
+    "Marxism content audit now consumes approved Source review dispositions instead of re-queuing already-reviewed root OCR boundaries forever",
     "Marxism global formal-first-ready derivation added from Current Natural Unit order plus canonical region question ownership, eliminating chapter-local early leakage as the intended Current runtime rule",
     "Marxism first-ready acceptance gate added against the frozen formal projection: 22 Natural Units, 396 unique questions, exact per-unit counts, exact K03 11-question set and named cross-unit/cross-chapter deferrals",
     "Whole-Marxism Unit Return baseline implemented without 21 hand-coded sidecars: K03 keeps its approved four-node canonical mapping while every other rendered Marxism Natural Unit gets a generated Natural-Unit-safe evidence owner",
     "Whole-Marxism first-attempt semantics now reuse the K03 contract: first evidence is immutable, STABLE remains this-pass evidence only, Wrong produces REPAIR, Uncertain remains UNCERTAIN, and mastery_claim remains NONE",
     "Unit Return learner UI generalized beyond K03: node counts and continuation copy are dynamic, and Natural-Unit fallback explicitly tells the learner that unsupported finer evidence is not being manufactured",
     "Dedicated whole-Marxism Runtime/Evidence behavior gate added for all 22 Unit Return configs and all 396 first-ready questions, including clean/wrong/uncertain paths, duplicate-first-attempt rejection and out-of-scope rejection",
-    "Legacy question_knowledge_links remains provenance-only and is not reintroduced as a Current runtime monolith; finer K-owner precision may be added later only through scoped provenance plus Current Chengfeng validation"
+    "Legacy question_knowledge_links remains provenance-only and is not reintroduced as a Current runtime monolith; finer K-owner precision may be added later only through scoped provenance plus Current Chengfeng validation",
+    "History whole-subject content acceptance gate added with History-specific chronology/stage/turning-point/cause/evaluation requirements rather than reusing Marxism semantic heuristics",
+    "History C01-C03 first manual semantic batch compared against canonical regions and Chengfeng source owners; C01 and C02 required no broad rewrite",
+    "History C03-S01 genuine causal gap repaired: Qing New Policies and preparatory constitutionalism failure now explains why reform space narrowed and the revolutionary option gained force"
   ],
   "accepted_pilot": {
     "module": "POL27-CF-MARX-C02-K03",
     "status": "MODULE_READY_FOR_LEARNER_TEST",
     "gates": {"S":"PASS","K":"PASS","L":"PASS","P":"PASS","R":"PASS","E":"PASS","U":"UNTESTED"},
-    "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Marxism."
+    "rule": "Keep K03 accepted while the engineering mainline advances elsewhere. U may wait for real learner use and is not a prerequisite for batch-closing the rest of Politics."
   },
-  "current_stage": "MARXISM_BATCH_ACCEPTANCE",
-  "current_subject": "MARXISM_ALL_CHAPTERS",
-  "acceptance_target": "Close Marxism as the first whole Politics subject. Existing teaching assets are the baseline, not a rewrite target. S/K still require the named Source review debt and batch content gate to execute; L/P require the 22-unit/396-question global first-ready parity gate to execute; R/E now have a whole-subject implementation and dedicated behavior gate but remain pending until that gate actually runs. Fine-grained K-owner evidence is an accuracy upgrade, not permission to invent unsupported precision.",
+  "current_stage": "MARXISM_GATE_PENDING_AND_HISTORY_BATCH_ACCEPTANCE",
+  "current_subject": "MARXISM_AND_HISTORY",
+  "acceptance_target": "Do not add more Marxism features while its existing S/K/L/P/R/E gates await executable CI. Manual Marxism Source/Suyi review debt is closed. In parallel, close History as the second Politics subject: first establish Source/Knowledge and learner-facing chronology/causality across all 10 chapters, then derive formal first-ready Learning/Projection timing, and only after that generalize Runtime/Evidence if the subject evidence supports it.",
   "batch_acceptance": {
     "scope": "MARXISM_CH00_TO_CH08_WITH_K03_ACCEPTED_PILOT",
-    "S": "IN_PROGRESS_NAMED_SOURCE_REVIEW_DEBT_REMAINS",
+    "S": "MANUAL_SOURCE_REVIEW_COMPLETE_AUTOMATED_GATE_PENDING",
     "K": "MANUAL_SEMANTIC_SCAN_COMPLETE_TWO_GAPS_FIXED_AUTOMATED_GATE_PENDING",
     "L": "GLOBAL_FIRST_READY_RULE_IMPLEMENTED_PARITY_GATE_PENDING",
     "P": "GLOBAL_FIRST_READY_RUNTIME_CUTOVER_IMPLEMENTED_PARITY_GATE_PENDING",
     "R": "WHOLE_SUBJECT_ZERO_DEBT_UNIT_RETURN_IMPLEMENTED_BEHAVIOR_GATE_PENDING",
     "E": "WHOLE_SUBJECT_FIRST_ATTEMPT_EVIDENCE_IMPLEMENTED_BEHAVIOR_GATE_PENDING",
     "U": "NOT_REQUIRED_FOR_ENGINEERING_BATCH_PROGRESS"
+  },
+  "history_batch_acceptance": {
+    "scope": "HISTORY_CH01_TO_CH10",
+    "S": "BATCH_GATE_IMPLEMENTED_MANUAL_REVIEW_IN_PROGRESS",
+    "K": "C01_C03_MANUAL_SEMANTIC_BATCH_COMPLETE_ONE_CAUSAL_GAP_FIXED",
+    "L": "NOT_YET_WHOLE_SUBJECT_ACCEPTED",
+    "P": "NOT_YET_WHOLE_SUBJECT_ACCEPTED",
+    "R": "DEFER_UNTIL_HISTORY_LP_CLOSES",
+    "E": "DEFER_UNTIL_HISTORY_LP_CLOSES",
+    "U": "UNTESTED",
+    "teaching_shape": "CHRONOLOGY_STAGE_TURNING_POINT_CAUSE_EVALUATION",
+    "manual_batch_1": {
+      "chapters": ["ch01", "ch02", "ch03"],
+      "decision": "C01_C02_KEEP_C03_ONE_REAL_CAUSAL_REPAIR",
+      "repair": "POL27-CF-HISTORY-C03-S01 now includes failure of Qing New Policies/preparatory constitutionalism as a causal bridge from reform exhaustion to revolutionary ascendancy."
+    }
   },
   "evidence_precision_policy": {
     "k03": "CANONICAL_NODE_MAPPING",
@@ -74,16 +96,14 @@
     ],
     "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Do not make the 1.2 MB legacy question_knowledge_links monolith a runtime API merely to obtain finer evidence labels."
   },
-  "current_blocking_infrastructure_note": "Recent Static Web Politics QA runs still fail before runner allocation; the latest whole-Marxism R/E gate run returned no executable steps. Treat this as CI infrastructure/no-start, not as a Politics PASS or failure. Do not advance pending gates until their dedicated steps execute.",
-  "next": "Keep the whole-Marxism implementation fixed while CI is unavailable. Continue only compact Source/Knowledge exception review or lossless provenance-shard preparation. When a runner executes, require Marxism batch content, global first-ready parity, K03 regression, whole-Marxism Runtime/Evidence behavior and final integration all to pass. Fix only concrete red evidence. If whole-subject R/E passes at Natural-Unit-safe precision, do not block learner readiness on speculative finer K mapping; improve K precision later only where real Repair friction or source-backed evidence justifies it.",
+  "current_blocking_infrastructure_note": "Recent Static Web Politics QA runs have failed before runner allocation. A no-start job is neither PASS nor a Politics code/content failure. Marxism pending gates and the new History batch gate remain pending until their dedicated steps actually execute.",
+  "next": "Keep Marxism implementation fixed unless executable gates expose a concrete red item. Continue History manual semantic batches with C04-C06 next, then C07-C10; admit only real missing stage/turning-point/causal/evaluation relations. After History Source/Knowledge closes, derive whole-subject formal first-ready timing from canonical Natural Unit ownership before touching History Runtime/Evidence generalization.",
   "validation_focus": [
-    "Do any remaining P0/P1 Marxism source/Suyi exceptions add stable teaching value not already represented in Current?",
-    "Does the global last-necessary-owner rule reproduce all 22 frozen formal first-ready counts totaling 396 unique Marxism questions?",
-    "Do known deferrals such as M029/M035/M046/M074 and cross-chapter M054/M011 remain withheld until their sufficient later Unit?",
-    "Does K03 remain exactly 11 first-ready questions and retain its four canonical node edges after whole-subject generalization?",
-    "Do the other 21 Natural Units produce exactly one safe Unit Return config each without claiming unsupported K-level precision?",
-    "Across all 396 questions, do clean/wrong/uncertain first-attempt paths close correctly while duplicate or out-of-scope evidence cannot mutate learner state?",
-    "Does stable correct work remain absent from durable daily review debt?"
+    "Do executable Marxism gates confirm the manually closed Source/Suyi review, 22-unit/396-question first-ready parity and whole-subject Runtime/Evidence behavior?",
+    "Do History C04-C10 learner projections preserve the correct historical stage, decisive turning points, causal links and double-sided evaluations without becoming a second textbook?",
+    "Do History Suyi references add any stable high-value relation or boundary absent from Current, rather than only high-frequency fact emphasis?",
+    "When History first-ready timing is derived, does each Xiao1000 question appear only after the last Natural Unit required to answer it, including cross-unit and cross-chapter questions?",
+    "Does stable correct work remain zero-debt and does U remain reserved for real learner use?"
   ],
   "working_preferences": [
     "Content quality has priority over UI polish.",
@@ -102,8 +122,8 @@
     "Do not let Astro component convenience reshape canonical content semantics.",
     "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
     "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
-    "Do not make K03 real-user U a prerequisite for engineering progress on other Marxism units.",
-    "Do not call the whole Marxism learner-ready merely because K03 passed or chapter projections exist.",
+    "Do not make K03 real-user U a prerequisite for engineering progress on other units.",
+    "Do not call a whole subject learner-ready merely because chapter projections exist or a pilot passed.",
     "Do not interpret a no-run CI job as either PASS or a content/runtime failure.",
     "Do not fabricate fine question-to-K evidence from weak title similarity or legacy provenance; fall back to the canonical Natural Unit until finer Source evidence is validated."
   ]
