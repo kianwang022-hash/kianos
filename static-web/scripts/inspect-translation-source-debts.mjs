@@ -3,7 +3,8 @@ import path from 'node:path';
 
 const repoRoot = path.resolve(process.cwd(), '..');
 const bankPath = path.join(repoRoot, 'content/english/source/question_bank.v1.json');
-const bank = JSON.parse(fs.readFileSync(bankPath, 'utf8'));
+const raw = fs.readFileSync(bankPath, 'utf8');
+const bank = JSON.parse(raw);
 
 const ids = new Set([
   'english1-2022-translation-main-q47',
@@ -24,7 +25,14 @@ if (rows.length !== ids.size) {
   throw new Error(`INSPECTION_ROWS_MISSING:${missing.join('|')}`);
 }
 
+const rawSnippets = Object.fromEntries([...ids].map((id) => {
+  const needle = `\"id\": \"${id}\"`;
+  const index = raw.indexOf(needle);
+  if (index < 0) throw new Error(`RAW_ID_NOT_FOUND:${id}`);
+  return [id, raw.slice(Math.max(0, index - 120), Math.min(raw.length, index + 2200))];
+}));
+
 const out = process.env.KIANOS_TRANSLATION_SOURCE_INSPECTION_OUT
   || path.join(process.cwd(), 'translation-source-inspection.json');
-fs.writeFileSync(out, `${JSON.stringify({ schema: 'kianos.translation.source-debt-inspection.v1', rows }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(out, `${JSON.stringify({ schema: 'kianos.translation.source-debt-inspection.v2', rows, rawSnippets }, null, 2)}\n`, 'utf8');
 console.log(`Wrote ${rows.length} inspected rows to ${out}`);
