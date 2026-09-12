@@ -1,0 +1,124 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r29_round_checkpoint.v1",
+  "audit_id": "R29_7101_7400_CORE_EXPANSION_CONTRAST",
+  "range": [7101, 7400],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5589250414,
+    "updated_at": "2026-09-08T17:33:01Z",
+    "execution_authority": "content/lexical/audit/migration-integrity/r29-execution-authority.md",
+    "counts": {
+      "reviewed": 300,
+      "core": 85,
+      "historical_core_direct_pass": 215,
+      "historical_expansion_owner_targets": 155,
+      "mandatory_surface_groups": 114,
+      "contrast": 80
+    },
+    "transport_note": "The 155 historical Expansion target words remain coverage metadata; the 114 representative high-transfer learner surfaces/families are the exact acceptance units for this round."
+  },
+  "bulk_readback": {
+    "authority_commit": "e2820e708ee09dbc60a5a475071e0c451bde4bc3",
+    "workflow_commit": "7b98d8513a139b8208a6c70e5f186f3d5c7bac0e",
+    "workflow_run_id": 34720957189,
+    "artifact": "lexical-r29-bulk-triage",
+    "artifact_digest": "sha256:ad8221f69dfe5d8af6729d6349b3292e34a097f52eb2ccd8c4c0f4cff2c34988",
+    "transport_note": "R29 parsed cleanly as 85 Core / 114 Expansion / 80 Contrast with owner-enriched Expansion evidence. No semantic or learner-state mutation occurred."
+  },
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; machine labels are evidence only and historical authority is not immutable ontology",
+  "core": {
+    "current_correct": 1,
+    "defective_or_upgrade_required": 84,
+    "current_correct_indices": [58],
+    "current_correct_words": ["potent"],
+    "p0_active_zero_count": 0,
+    "p0_word_ids": [],
+    "dead_anchor_count": 0,
+    "dead_anchor_word_ids": [],
+    "structural_health_observation": "All 85 historical Core-revision owners are mechanically health-clean in this round, yet 84 still fail latest semantic acceptance. Owner health therefore remains a lifecycle/structure signal, not a substitute for semantic K acceptance.",
+    "rule": "Every R29 historical Core revision except potent still requires semantic correction, bilingual cleanup, learner-value reprioritization, identity separation, missing branch restoration, or construction/register repair at Current evidence.",
+    "severe_examples": {
+      "word:limpid": "Current is language-only and omits the ordinary clear/transparent liquid branch.",
+      "word:lodging": "Current keeps only the act of lodging and omits temporary accommodation/rooms.",
+      "word:lug": "Current foregrounds a technical projecting piece and a Celtic-god entity while the carry/drag-with-effort verb is lower.",
+      "word:manifold": "Current has copying/pipe/math material but omits the high-value adjective many and varied.",
+      "word:mete": "Current is boundary-stone only and omits productive mete out punishment/justice.",
+      "word:moron": "Current English Core is an Argentina city; the modern common word is an offensive insult and requires explicit register handling.",
+      "word:muddle": "Current centers make into a puddle and omits confuse/mix up and the confused-state noun.",
+      "word:panacea": "Current foregrounds the Greek goddess and keeps the cure-all meaning lower instead of separating identity and learner Core.",
+      "word:oversight": "Current has only omission/error and misses the equally high-frequency supervision/monitoring meaning.",
+      "word:provocation": "Current English definition needed encouragement is wrong for the act/stimulus that provokes anger/action/response.",
+      "word:psyche": "Current foregrounds mythological Psyche and omits mind/mental-emotional makeup.",
+      "word:retract": "Current exposes only a surgical retract application and omits pull back / withdraw a statement or claim."
+    }
+  },
+  "expansion": {
+    "historical_owner_target_count": 155,
+    "authority_unit": "114 representative high-transfer learner surface/family groups",
+    "current_correct": 67,
+    "partial_or_presentation_or_wrong_anchor": 23,
+    "authority_missing_from_current": 24,
+    "current_correct_indices": [1,4,9,11,13,14,17,18,20,23,27,28,31,34,35,37,38,40,42,43,45,46,50,51,52,54,55,57,61,63,64,65,66,68,70,71,72,74,75,77,78,79,82,84,85,86,87,88,89,90,93,94,95,97,99,100,101,102,103,104,105,106,108,110,111,113,114],
+    "partial_indices": [2,3,5,6,8,16,25,30,36,44,47,48,49,56,58,59,62,67,69,73,91,98,107],
+    "missing_indices": [7,10,12,15,19,21,22,24,26,29,32,33,39,41,53,60,76,80,81,83,92,96,109,112],
+    "mechanical_readback": {
+      "NO_MATCH_CANDIDATE": 110,
+      "PARTIAL_OR_EQUIVALENT_CANDIDATE": 3,
+      "PRESENT_CANDIDATE": 1
+    },
+    "review_notes": {
+      "machine_false_negative_boundary": "Mechanical phrase absence is not semantic absence. Owner projection supports many exact learner surfaces such as liaison between/with, lug around, mangle a quote/name, meddle in/with, mellow out, mitigate risk/damage, gross negligence, oblivious to, standing ovation, pending approval, perennial problem, precarious position, weather-vs-chemistry precipitation, propensity to/for, purport to be, in a quandary, run rampant, ratify a treaty, raze to the ground, reconstruct events, repudiate a claim/debt, reside in and revert to.",
+      "partial_examples": "be loath to remains too narrowly framed; lucid explanation/dream has only mental clarity; lull targets have only weather/deception fragments; not mince words is inferable but not first-class; navigate a system is only weakly licensed by direct carefully; carve out a niche/niche market lacks the market/application layer; planned obsolescence is not explicit; oversight has only one of its two senses; paramount importance, partake in/of and political/art patronage are only partly represented; plumb the depths and poise under pressure need the figurative/composure branch; the major practice family is incomplete; preponderance of evidence and prodigal son remain presentation/semantic-family gaps; ration out, redress grievances and good/ill repute are only partially represented.",
+      "missing_examples": "leave sb in the lurch/lurch from A to B, maneuver into/out of, meander through, mete out, mollify concerns, muddle through/up, munch on, figurative muzzle criticism/press, negate an effect, nibble away at, null hypothesis/value, oblique reference, ooze confidence/charm, oscillate between options, petrified of, poise under pressure, prop up, prune back/costs, national psyche, purge A of B/cache, ravaged by, recoil from/at, resonant with and retract a statement require a missing learner-value branch or wrong-POS/anchor repair."
+    }
+  },
+  "contrast": {
+    "latest_ownership": {
+      "relation_owned": 79,
+      "word_owner_internal_polysemy_owned": 1,
+      "word_owner_internal_indices": [35]
+    },
+    "relation": {
+      "current_correct": 0,
+      "partial": 0,
+      "missing": 79
+    },
+    "word_owner_internal_polysemy": {
+      "current_correct": 0,
+      "partial": 1,
+      "missing": 0,
+      "indices": [35],
+      "notes": {
+        "35": "oversight supervision vs omission/error is a same-word polysemy/contronym boundary. It belongs inside the Natural Word Owner's learner-facing semantic organization, not as a duplicate cross-word Relation. Current has omission/error but not supervision, so the boundary is partial."
+      }
+    },
+    "overall": {"current_correct": 0, "partial": 1, "missing": 79},
+    "mechanical_readback": {
+      "RELATION_MISSING_CANDIDATE": 79,
+      "SELF_FORM_REVIEW": 1
+    }
+  },
+  "direct_pass_calibration": {
+    "sample_size": 12,
+    "sample_ordinals": [7101,7138,7167,7196,7219,7244,7269,7297,7324,7350,7377,7400],
+    "new_systematic_core_defect_classes": 0,
+    "new_isolated_upgrade_targets": [],
+    "covered_existing_debt": [
+      {"ordinal": 7219, "word": "ooze", "note": "The sample confirms that figurative ooze confidence/charm is absent, but this debt is already captured by R29 Expansion #39 rather than added as a duplicate direct-pass defect."}
+    ],
+    "rule": "The stratified direct-pass sample reveals no additional repair item outside debt already captured by this round's exact Expansion authority."
+  },
+  "fresh_semantic_judgments": [
+    {"target":"potent","decision":"CURRENT_ALREADY_SUFFICIENT","latest":"Current already centers great influence/force and keeps sexual potency lower; this satisfies the powerful/effective/influential learner target without needing a new Core branch."},
+    {"target":"oversight","decision":"REOWN_TO_WORD_INTERNAL_POLYSEMY","latest":"Supervision and inadvertent omission/error are two high-frequency meanings of the same lexical item; organize their contrast in the Word owner rather than creating a cross-word Relation."},
+    {"target":"ooze confidence/charm","decision":"HISTORICAL_STILL_VALID","latest":"Current ooze is literal seep/viscous matter only; the productive figurative emit/display quality branch remains real learner debt and is already tracked by Expansion #39."}
+  ],
+  "mutation_boundary": {
+    "natural_owner_semantic_mutation": 0,
+    "relation_semantic_mutation": 0,
+    "learner_state_mutation": 0,
+    "runtime_or_site_mutation": 0,
+    "next_step": "Advance audit coverage to R30 (7401–7700). Do not repair Natural Owners yet; finish bounded historical-round audit coverage first, then compile one consolidated exact repair inventory against the latest Chat-approved target for every retained debt item."
+  }
+}
