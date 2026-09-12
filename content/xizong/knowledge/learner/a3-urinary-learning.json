@@ -1,0 +1,63 @@
+{
+  "schema": "kianos.xizong.system_learning_support.v1",
+  "status": "UPGRADE_IN_PROGRESS",
+  "authority": "CHAT_APPROVED_UPGRADE_WORK",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "scope": "BATCH_01_ONLY_SYSTEM_BELOW",
+  "study_policy": "content/xizong/knowledge/learner/study-policy.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
+  "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
+  "rule": "This file may organize first-pass attention, Logic Group closure and Block compression. It must not restate or override canonical medical Core, and its existence does not promote A3 System Knowledge or learner readiness.",
+  "blocks": {
+    "urinary-b01": {
+      "first_pass_focus": "先建立肾脏的共同语言：血怎么进、原尿怎么来、终尿怎么形成、这些过程怎样被清除率和肾血流变量测出来。",
+      "stop_line": "这里只完成正常肾脏地图、测量语言、局部调节和正常排尿；滤过屏障细节进 B2，小管分段进 B3，浓缩稀释进 B4，疾病模型后置。",
+      "recall_spine": "肾脏任务/空间 → 肾单位与血管 → 清除率测量 → 肾血流自身调节/TGF → 正常排尿",
+      "logic_groups": {
+        "urinary-b01-lg01": {"kp": [1,1], "label": "肾脏任务与总地图", "goal": "先建立血液→滤过→小管处理→终尿的总方向，并知道皮质/髓质/尿路分别承担什么。", "closure": "不看正文也能画出肾脏处理血液并形成终尿的最小总图。"},
+        "urinary-b01-lg02": {"kp": [2,3], "label": "肾脏内分泌与球旁传感器", "goal": "把肾素、EPO、活化 VitD 和球旁器放回各自来源/传感位置，只建立后续系统会调用的接口。", "closure": "能从低灌注/远端 NaCl 信号定位到球旁器，并说清三个主要内分泌出口归谁产生、后面去哪里正式展开。"},
+        "urinary-b01-lg03": {"kp": [4,5], "label": "肾单位与血管空间结构", "goal": "把滤过、重吸收、分泌真正放到肾单位和两类肾单位的空间结构上。", "closure": "能画出入球→肾小球→出球→管周/直小血管与小管并行关系，并解释皮质/近髓肾单位为什么分工不同。"},
+        "urinary-b01-lg04": {"kp": [6,9], "label": "清除率与肾功能测量语言", "goal": "把物质处理方向转成清除率、GFR、RPF、RBF、FF 等可测信号；自由水清除率此处只建立测量含义。", "closure": "给出一个物质的清除率关系时，能判断它经历了净重吸收还是净分泌，并能区分 GFR/RPF/RBF/FF。"},
+        "urinary-b01-lg05": {"kp": [10,13], "label": "肾血流自身调节与管球反馈", "goal": "建立肌源性调节和完整双向 TGF：远端 NaCl 高/低怎样反向调入球张力、肾素与 GFR。", "closure": "能把灌注压或致密斑 NaCl 改变沿反馈链推回肾血流/GFR，而不是只背肾素方向。"},
+        "urinary-b01-lg06": {"kp": [14,15], "label": "正常排尿与神经层级", "goal": "完成正常排尿反射初见，并按传入/传出/骶髓/高位脊髓定位损伤方向。", "closure": "能解释正常排尿反射和不同神经层损伤后的尿潴留/失禁方向；疾病应用留给 B12。"}
+      }
+    },
+    "urinary-b02": {
+      "first_pass_focus": "把肾小球拆成两个独立问题：筛网决定‘漏什么’，压力/流量/Kf 决定‘滤多少’。",
+      "stop_line": "蛋白尿/血尿只做屏障机制接口；完整尿液定位在 B6，免疫性肾小球病及 LM/IF/EM 在 B9–B11。",
+      "recall_spine": "屏障选择性 → 有效滤过压 → RPF/Kf → 入出球/梗阻等修饰 → 滤得少 vs 筛网漏",
+      "logic_groups": {
+        "urinary-b02-lg01": {"kp": [1,2], "label": "滤过屏障与选择性", "goal": "区分三层结构、大小选择性与经典电荷选择性，并把 nephrin 正确放回足细胞裂隙膜结构/通透选择性。", "closure": "能解释为什么蛋白尿首先是选择性异常，而不等于 GFR 整体增大。"},
+        "urinary-b02-lg02": {"kp": [3,6], "label": "有效滤过压与 GFR 总模型", "goal": "从原尿/GFR开始，沿 Starling 力、滤过平衡、RPF 与 Kf 建立‘滤多少’的统一模型。", "closure": "任何一个压力、RPF 或 Kf 改变时，都能指出它通过哪一层改变 GFR。"},
+        "urinary-b02-lg03": {"kp": [7,11], "label": "血管与滤过阻力修饰", "goal": "定位入球/出球、囊内压、血浆胶渗压、RPF、系膜/Kf 对滤过的不同作用。", "closure": "遇到 ACEI/ARB、梗阻、蛋白变化或血流变化时，先找被改的是哪一个滤过变量。"},
+        "urinary-b02-lg04": {"kp": [12,14], "label": "整合性滤过故障定位", "goal": "用容量改变、失血/强交感和最终病例算法把多个变量压成第一故障层。", "closure": "面对病例先能分清‘滤得少’和‘筛网漏’，再定位压力、流量、Kf 或选择性。"}
+      }
+    },
+    "urinary-b03": {
+      "first_pass_focus": "把小管看成沿程分段处理器：每一段拿回/分泌什么，再用同一地图理解利尿剂。",
+      "stop_line": "完整浓缩稀释/ADH 留 B4；完整水电解质和临床酸碱处理留 B5；不把当前 Source 未支持的 RTA/现代药物适应证扩成百科。",
+      "recall_spine": "膜方向/球管平衡 → 近端大批量回收 → 酸排泄 → 集合管 Na-K-H 精调 → 利尿剂靶点",
+      "logic_groups": {
+        "urinary-b03-lg01": {"kp": [1,2], "label": "小管方向与球管平衡", "goal": "固定顶端/基底侧和滤过/重吸收/分泌/排泄方向，并理解近端为什么随滤过量按比例回收。", "closure": "能把球管平衡与管球反馈分开，不再被名字相似误导。"},
+        "urinary-b03-lg02": {"kp": [3,8], "label": "近端大批量回收与渗透性利尿", "goal": "把 Na 泵、NaCl/水、葡萄糖/Tm/SGLT2 和渗透性利尿串成一台近端处理器。", "closure": "能从转运被饱和/抑制推到尿糖、管腔溶质与水排出，而不是背孤立结果。"},
+        "urinary-b03-lg03": {"kp": [9,10], "label": "HCO3- 回收与氨排酸", "goal": "建立肾脏保碱排酸的正常生理链，只为 B5 的临床酸碱提供机制底座。", "closure": "能说明 HCO3- 为什么不是整颗直接跨膜以及 NH3/NH4+ 如何帮助净排酸。"},
+        "urinary-b03-lg04": {"kp": [11,14], "label": "集合管 Na-K-H 末端精调", "goal": "把主细胞/闰细胞、ENaC/ROMK 与 K-H 耦联放在同一末端电路。", "closure": "改变醛固酮、流量、肾功能或 K/H 状态时，能从细胞电路预测方向。"},
+        "urinary-b03-lg05": {"kp": [15,19], "label": "利尿剂靶点地图", "goal": "用 PCT/TAL/DCT/集合管的真实转运靶点理解主要利尿剂和电解质后果。", "closure": "看到药物先定位段位和转运体，再推尿量/Na/K/酸碱方向。"}
+      }
+    },
+    "urinary-b04": {
+      "first_pass_focus": "把循环已学的容量激素落到肾端，再建立尿液浓缩所需的三件事：髓质梯度、集合管水通透性、梯度维持。",
+      "stop_line": "不重新完整学习循环 B2 的激素身份；尿崩/SIADH/原醛等只做到机制识别，完整诊疗按正式 owner 后置；临床水钠钾酸碱处理在 B5。",
+      "recall_spine": "容量/灌注输入 → RAAS/ADH/ANP 肾端 → 建立/维持髓质梯度 → 小管液渗透压电影 → 浓缩失败/多尿鉴别",
+      "logic_groups": {
+        "urinary-b04-lg01": {"kp": [1,5], "label": "容量/灌注感知与 RAAS 肾端", "goal": "把交感、肾素/AngII、醛固酮从循环 owner 调入肾端，只学习它们怎样改变入出球、小管 Na 水和 K。", "closure": "能从低灌注/低 NaCl 推到肾端保压保盐反应，并知道哪些只是 Recall、哪些是泌尿新学内容。"},
+        "urinary-b04-lg02": {"kp": [6,9], "label": "ADH 与 ANP 控制轴", "goal": "把 ADH 的直接水通透调节与 ANP 的容量卸载分开，再与醛固酮比较输入、靶点和输出。", "closure": "不再把‘都能改尿量’当成同一机制，能从渗透压/容量状态选出第一控制轴。"},
+        "urinary-b04-lg03": {"kp": [10,14], "label": "髓质梯度的建立、维持与水通道", "goal": "解释 NaCl/尿素怎样建立梯度、直小血管怎样不把它冲走、AQP 怎样决定水能否利用该梯度。", "closure": "任意缺失梯度/水通道/维持器时，都能预测浓缩功能为什么下降。"},
+        "urinary-b04-lg04": {"kp": [15,17], "label": "小管液渗透压电影", "goal": "连续追踪降支→升支/远曲→集合管的小管液变化，而不是分段背高低渗。", "closure": "能闭卷讲出管液先浓后稀、最终由 ADH 状态决定的完整电影。"},
+        "urinary-b04-lg05": {"kp": [18,19], "label": "浓缩失败与多尿鉴别", "goal": "按梯度形成/维持/水通透三层定位浓缩失败，并区分水利尿与渗透性利尿。", "closure": "面对多尿/低比重尿先找第一故障，不直接跳疾病名称。"}
+      }
+    }
+  },
+  "batch_exit": "NOT_ACCEPTED_UNTIL_MEDICAL_CORE_SEMANTIC_AUDIT_AND_REQUIRED_CANONICAL_REPAIRS_COMPLETE"
+}
