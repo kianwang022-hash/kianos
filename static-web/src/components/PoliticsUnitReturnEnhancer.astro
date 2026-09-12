@@ -1,0 +1,203 @@
+---
+import { buildPoliticsUnitReturnConfigs } from '../lib/politicsUnitReturn.mjs';
+
+const { chapter } = Astro.props;
+const configs = buildPoliticsUnitReturnConfigs(chapter);
+---
+{configs.map((config) => (
+  <span
+    hidden
+    data-politics-unit-return-config
+    data-config={JSON.stringify(config)}
+  ></span>
+))}
+
+<script>
+  import { evaluatePoliticsUnitReturn, recordPoliticsFirstAttempt } from '../lib/politicsUnitReturn.mjs';
+
+  const attemptKey = 'kianos-politics-attempts-v1';
+  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+  const readJson = (key, fallback) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+  };
+  const saveJson = (key, value) => {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  };
+
+  let attemptSnapshot = readJson(attemptKey, { schema: 'kianos.politics.attempt_snapshot.v1', units: {} });
+
+  const configRows = [...document.querySelectorAll('[data-politics-unit-return-config]')]
+    .map((row) => {
+      try { return JSON.parse(row.getAttribute('data-config') || 'null'); } catch { return null; }
+    })
+    .filter(Boolean);
+
+  const questionCard = (config, questionId) => [...document.querySelectorAll('[data-politics-question]')]
+    .find((card) => card.getAttribute('data-question-id') === questionId && card.getAttribute('data-unit-id') === config.runtime_unit_id);
+
+  const unitSectionFor = (config) => {
+    const first = questionCard(config, config.expected_question_ids?.[0]);
+    return first?.closest('[data-politics-unit]') || null;
+  };
+
+  const make = (tag, className, text = '') => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  };
+
+  const returnIdFor = (config) => `politics-unit-return-${String(config.natural_unit_id || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+
+  const ensureReturnUi = (config) => {
+    const unitSection = unitSectionFor(config);
+    if (!unitSection) return null;
+    const id = returnIdFor(config);
+    const existing = document.getElementById(id);
+    if (existing) return existing;
+    const quiz = unitSection.querySelector('[data-politics-quiz]');
+    if (!quiz) return null;
+
+    const section = make('section', 'politicsUnitReturn');
+    section.id = id;
+    section.hidden = true;
+    section.setAttribute('data-politics-unit-return', '');
+
+    const micro = make('p', 'politicsMicro', 'Unit Return · 本轮证据');
+    const title = make('h3', '', `${config.title} · 本轮收口`);
+    const summary = make('p', 'politicsUnitReturnSummary');
+    summary.setAttribute('data-unit-return-summary', '');
+    const nodeList = make('div', 'politicsUnitReturnNodes');
+
+    for (const nodeConfig of config.nodes || []) {
+      const row = make('article', 'politicsUnitReturnNode');
+      row.setAttribute('data-unit-return-node', nodeConfig.node_id);
+      const copy = make('div', 'politicsUnitReturnNodeCopy');
+      copy.append(make('strong', '', nodeConfig.label));
+      const meta = nodeConfig.deferred_question_count > 0
+        ? `当前 ${nodeConfig.current_question_count} 题 · 后续另有 ${nodeConfig.deferred_question_count} 题延后证据`
+        : `当前 ${nodeConfig.current_question_count} 题`;
+      copy.append(make('small', '', meta));
+      const state = make('span', 'politicsUnitReturnState', '等待');
+      state.setAttribute('data-unit-return-state', '');
+      const repair = make('a', 'politicsUnitReturnRepair', '回乘风修这一点 ↑');
+      repair.setAttribute('data-unit-return-repair', '');
+      repair.href = `#${config.source_anchor}`;
+      repair.hidden = true;
+      row.append(copy, state, repair);
+      nodeList.append(row);
+    }
+
+    const guard = make('p', 'politicsUnitReturnGuard', 'STABLE 只表示这轮首次作答没有暴露缺口，不等于长期掌握；后续延后题和新材料仍可更新证据。');
+    const continueButton = make('button', 'politicsUnitReturnContinue', '继续第一节 →');
+    continueButton.type = 'button';
+    continueButton.setAttribute('data-unit-return-continue', '');
+    continueButton.addEventListener('click', () => {
+      const allUnits = [...document.querySelectorAll('[data-politics-unit]')];
+      const currentIndex = allUnits.indexOf(unitSection);
+      const target = currentIndex >= 0 && currentIndex < allUnits.length - 1
+        ? allUnits[currentIndex + 1]
+        : document.getElementById('chapter-close');
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    section.append(micro, title, summary, nodeList, guard, continueButton);
+    quiz.insertAdjacentElement('afterend', section);
+    return section;
+  };
+
+  const syncRepairReturnLink = (config, evaluation, section) => {
+    const source = document.getElementById(config.source_anchor);
+    if (!source) return;
+    let link = source.querySelector('[data-politics-return-after-repair]');
+    const needsReturn = evaluation.ready && evaluation.unit_state !== 'STABLE';
+    if (!needsReturn) {
+      link?.remove();
+      return;
+    }
+    if (!link) {
+      link = make('a', 'politicsReturnAfterRepair', '修完后回本轮收口 ↓');
+      link.setAttribute('data-politics-return-after-repair', '');
+      source.append(link);
+    }
+    link.href = `#${section.id}`;
+  };
+
+  const renderUnitReturn = (config) => {
+    const section = ensureReturnUi(config);
+    if (!section) return;
+    const evaluation = evaluatePoliticsUnitReturn(config, attemptSnapshot);
+    section.hidden = !evaluation.ready;
+    if (!evaluation.ready) return;
+
+    const repairCount = evaluation.nodes.filter((node) => node.state === 'REPAIR').length;
+    const uncertainCount = evaluation.nodes.filter((node) => node.state === 'UNCERTAIN').length;
+    const summary = section.querySelector('[data-unit-return-summary]');
+    if (summary) {
+      summary.textContent = evaluation.unit_state === 'STABLE'
+        ? `11 / 11 首次作答证据已齐；4 个节点本轮都没有暴露缺口。`
+        : `11 / 11 首次作答证据已齐；${repairCount} 个节点需要修复，${uncertainCount} 个节点仍不确定。`;
+    }
+
+    const stateLabels = { STABLE: '本轮稳定', UNCERTAIN: '不确定', REPAIR: '需要修复' };
+    for (const node of evaluation.nodes) {
+      const row = [...section.querySelectorAll('[data-unit-return-node]')]
+        .find((candidate) => candidate.getAttribute('data-unit-return-node') === node.node_id);
+      if (!row) continue;
+      row.setAttribute('data-state', node.state);
+      const state = row.querySelector('[data-unit-return-state]');
+      if (state) state.textContent = stateLabels[node.state] || node.state;
+      const repair = row.querySelector('[data-unit-return-repair]');
+      if (repair) repair.hidden = node.state === 'STABLE';
+    }
+
+    const continueButton = section.querySelector('[data-unit-return-continue]');
+    if (continueButton) {
+      continueButton.textContent = evaluation.unit_state === 'STABLE' ? '继续第一节 →' : '修完后继续第一节 →';
+    }
+    syncRepairReturnLink(config, evaluation, section);
+  };
+
+  const captureFirstAttempt = (config, card, submit) => {
+    queueMicrotask(() => {
+      if (!submit.disabled) return;
+      const selected = [...card.querySelectorAll('[data-politics-option].selected')]
+        .map((button) => String(button.getAttribute('data-politics-option') || ''))
+        .filter(Boolean)
+        .sort()
+        .join('');
+      if (!selected) return;
+      const answer = String(card.getAttribute('data-answer') || '').split('').sort().join('');
+      const uncertain = Boolean(card.querySelector('[data-politics-uncertain]')?.classList.contains('active'));
+      const correct = selected === answer;
+      const outcome = correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG';
+      const recorded = recordPoliticsFirstAttempt(attemptSnapshot, config, {
+        question_id: card.getAttribute('data-question-id') || '',
+        outcome,
+        selected,
+        correct_answer: answer,
+        study_day: localStudyDay(),
+        observed_at: new Date().toISOString()
+      });
+      attemptSnapshot = recorded.store;
+      if (recorded.recorded) saveJson(attemptKey, attemptSnapshot);
+      renderUnitReturn(config);
+    });
+  };
+
+  for (const config of configRows) {
+    ensureReturnUi(config);
+    for (const questionId of config.expected_question_ids || []) {
+      const card = questionCard(config, questionId);
+      const submit = card?.querySelector('[data-politics-submit]');
+      if (!card || !(submit instanceof HTMLButtonElement)) continue;
+      submit.addEventListener('click', () => captureFirstAttempt(config, card, submit));
+    }
+    renderUnitReturn(config);
+  }
+</script>
+
+<style>
+  .politicsUnitReturn{margin-top:14px;padding:18px;border:1px solid var(--study-line);border-radius:13px;background:#fbfcfb}.politicsUnitReturn[hidden]{display:none}.politicsUnitReturn h3{margin:4px 0 6px;font-size:18px}.politicsUnitReturnSummary{margin:0 0 12px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsUnitReturnNodes{display:grid;gap:7px}.politicsUnitReturnNode{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.politicsUnitReturnNodeCopy{display:grid;gap:2px}.politicsUnitReturnNodeCopy strong{font-size:12px}.politicsUnitReturnNodeCopy small{color:var(--study-faint);font-size:9px}.politicsUnitReturnState{font-size:10px;font-weight:820;white-space:nowrap}.politicsUnitReturnNode[data-state="STABLE"] .politicsUnitReturnState{color:var(--study-green)}.politicsUnitReturnNode[data-state="UNCERTAIN"] .politicsUnitReturnState,.politicsUnitReturnNode[data-state="REPAIR"] .politicsUnitReturnState{color:#8a5d16}.politicsUnitReturnRepair,.politicsReturnAfterRepair{font-size:10px;font-weight:760;color:var(--study-green);text-decoration:none}.politicsUnitReturnGuard{margin:12px 0 0;color:var(--study-faint);font-size:10px;line-height:1.55}.politicsUnitReturnContinue{margin-top:12px;padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:var(--study-green);font:inherit;font-size:11px;font-weight:800;cursor:pointer}.politicsReturnAfterRepair{display:inline-block;margin:12px 0 0}.politicsReturnAfterRepair::before{content:'↳ ';color:var(--study-faint)}
+  @media(max-width:680px){.politicsUnitReturnNode{grid-template-columns:1fr auto}.politicsUnitReturnRepair{grid-column:1/-1}.politicsUnitReturnContinue{width:100%}}
+</style>
