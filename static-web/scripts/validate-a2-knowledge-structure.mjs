@@ -19,6 +19,8 @@ assert(system.status === 'CURRENT', `status:${system.status}`);
 assert(system.blocks.length === 12, `block-count:${system.blocks.length}`);
 assert(system.learningSupport, 'learning-support-owner-missing');
 
+const unresolvedPattern = /SOURCE[_ ]?GAP|待补(?:充|齐|完)?|内容待定|未决(?:内容|知识|来源)|待核对|待确认|未核对|待裁决/i;
+
 const formalSourceGaps = systemRaw?.source_refs?.formal_source_gaps ?? [];
 assert(Array.isArray(formalSourceGaps), 'system-formal-source-gaps-not-array');
 assert(formalSourceGaps.length === 0, `system-formal-source-gaps:${formalSourceGaps.join(',')}`);
@@ -26,7 +28,7 @@ assert(formalSourceGaps.length === 0, `system-formal-source-gaps:${formalSourceG
 const logicLabels = Object.values(systemRaw?.logic_index ?? {})
   .flat()
   .map((group) => String(group?.label ?? ''));
-const unresolvedSystemLabels = logicLabels.filter((label) => /SOURCE[_ ]?GAP|待补(?:充|齐|完)?|内容待定|未决(?:内容|知识|来源)/i.test(label));
+const unresolvedSystemLabels = logicLabels.filter((label) => unresolvedPattern.test(label));
 assert(unresolvedSystemLabels.length === 0, `system-unresolved-logic-label:${unresolvedSystemLabels.join('|')}`);
 
 let totalKp = 0;
@@ -62,7 +64,11 @@ for (const meta of system.blocks) {
     /SOURCE[_ ]?GAP/i,
     /待补(?:充|齐|完)?/,
     /内容待定/,
-    /未决(?:内容|知识|来源)/
+    /未决(?:内容|知识|来源)/,
+    /待核对/,
+    /待确认/,
+    /未核对/,
+    /待裁决/
   ].filter((pattern) => pattern.test(raw));
   assert(unresolvedMarkers.length === 0, `${block.blockId}:unresolved-stable-content-marker:${unresolvedMarkers.map(String).join('|')}`);
 
