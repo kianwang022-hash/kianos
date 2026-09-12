@@ -28,6 +28,30 @@ async function waitForServer() {
   throw new Error('READING_B_PREVIEW_SERVER_NOT_READY');
 }
 
+async function stopServer(server) {
+  if (!server) return;
+  if (server.exitCode === null) {
+    if (process.platform !== 'win32' && server.pid) {
+      try { process.kill(-server.pid, 'SIGTERM'); } catch {}
+    } else {
+      try { server.kill('SIGTERM'); } catch {}
+    }
+    await Promise.race([
+      new Promise((resolve) => server.once('exit', resolve)),
+      sleep(1000)
+    ]);
+  }
+  if (server.exitCode === null) {
+    if (process.platform !== 'win32' && server.pid) {
+      try { process.kill(-server.pid, 'SIGKILL'); } catch {}
+    } else {
+      try { server.kill('SIGKILL'); } catch {}
+    }
+  }
+  server.stdout?.destroy();
+  server.stderr?.destroy();
+}
+
 async function answerMap(page, item, answerPayload, overrides = {}) {
   for (let index = 0; index < item.questions.length; index += 1) {
     const id = qid(item.questions[index], index);
@@ -82,35 +106,37 @@ async function validateForm(page, item, browserName) {
 
 async function runBrowser(browserType, name, itemsByForm, { handoff = false } = {}) {
   const browser = await browserType.launch({ headless: true });
-  const context = await browser.newContext({ permissions: handoff ? ['clipboard-read', 'clipboard-write'] : [] });
-  const page = await context.newPage();
-  for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) {
-    await validateForm(page, itemsByForm.get(form), name);
+  try {
+    const context = await browser.newContext({ permissions: handoff ? ['clipboard-read', 'clipboard-write'] : [] });
+    const page = await context.newPage();
+    for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) {
+      await validateForm(page, itemsByForm.get(form), name);
+    }
+
+    if (handoff) {
+      const orderingItems = listReadingBSets().map((entry) => loadReadingBById(entry.id)).filter((item) => item.context.taskForm === 'ordering');
+      const item = orderingItems[1] || orderingItems[0];
+      const answerPayload = loadReadingBAnswersById(item.objectId);
+      const formal = item.questions.map((question, index) => firstAnswer(answerPayload.answers[qid(question, index)]));
+      const used = new Set([...formal, ...(item.context.fixedGivens || [])]);
+      const extra = item.candidates.map((candidate) => String(candidate.label)).find((label) => !used.has(label));
+      check(Boolean(extra), 'chromium_ordering_has_safe_wrong_extra');
+      const firstId = qid(item.questions[0], 0);
+
+      await page.goto(`${BASE}/reading-b/${encodeURIComponent(item.objectId)}/`);
+      await answerMap(page, item, answerPayload, { [firstId]: extra });
+      await page.locator('[data-objective-copy-chat]').waitFor({ state: 'visible' });
+      await page.locator('[data-objective-copy-chat]').click();
+      const packet = await page.evaluate(() => navigator.clipboard.readText());
+      check(packet.includes('Reading B set review packet v1'), 'chromium_ordering_handoff_whole_set');
+      check(packet.includes('Task form: ordering'), 'chromium_ordering_handoff_form');
+      check(packet.includes('ORDERING SKELETON'), 'chromium_ordering_handoff_skeleton');
+      check(packet.includes('CANDIDATE INVENTORY'), 'chromium_ordering_handoff_candidates');
+      check(packet.includes('Slot 41'), 'chromium_ordering_handoff_exam_slot');
+    }
+  } finally {
+    await browser.close().catch(() => {});
   }
-
-  if (handoff) {
-    const orderingItems = listReadingBSets().map((entry) => loadReadingBById(entry.id)).filter((item) => item.context.taskForm === 'ordering');
-    const item = orderingItems[1] || orderingItems[0];
-    const answerPayload = loadReadingBAnswersById(item.objectId);
-    const formal = item.questions.map((question, index) => firstAnswer(answerPayload.answers[qid(question, index)]));
-    const used = new Set([...formal, ...(item.context.fixedGivens || [])]);
-    const extra = item.candidates.map((candidate) => String(candidate.label)).find((label) => !used.has(label));
-    check(Boolean(extra), 'chromium_ordering_has_safe_wrong_extra');
-    const firstId = qid(item.questions[0], 0);
-
-    await page.goto(`${BASE}/reading-b/${encodeURIComponent(item.objectId)}/`);
-    await answerMap(page, item, answerPayload, { [firstId]: extra });
-    await page.locator('[data-objective-copy-chat]').waitFor({ state: 'visible' });
-    await page.locator('[data-objective-copy-chat]').click();
-    const packet = await page.evaluate(() => navigator.clipboard.readText());
-    check(packet.includes('Reading B set review packet v1'), 'chromium_ordering_handoff_whole_set');
-    check(packet.includes('Task form: ordering'), 'chromium_ordering_handoff_form');
-    check(packet.includes('ORDERING SKELETON'), 'chromium_ordering_handoff_skeleton');
-    check(packet.includes('CANDIDATE INVENTORY'), 'chromium_ordering_handoff_candidates');
-    check(packet.includes('Slot 41'), 'chromium_ordering_handoff_exam_slot');
-  }
-
-  await browser.close();
 }
 
 const allItems = listReadingBSets().map((entry) => loadReadingBById(entry.id));
@@ -119,7 +145,9 @@ for (const item of allItems) if (!itemsByForm.has(item.context.taskForm)) itemsB
 for (const form of ['gap_match', 'heading_match', 'ordering', 'comment_match']) check(Boolean(itemsByForm.get(form)), `source_has_${form}`);
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4321'], {
-  cwd: process.cwd(), stdio: ['ignore', 'pipe', 'pipe']
+  cwd: process.cwd(),
+  stdio: ['ignore', 'pipe', 'pipe'],
+  detached: process.platform !== 'win32'
 });
 let serverLog = '';
 server.stdout.on('data', (chunk) => { serverLog += chunk.toString(); });
@@ -142,5 +170,5 @@ try {
   console.error(report.error);
   process.exitCode = 1;
 } finally {
-  server.kill('SIGTERM');
+  await stopServer(server);
 }
