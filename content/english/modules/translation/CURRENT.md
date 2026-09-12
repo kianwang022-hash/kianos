@@ -12,7 +12,7 @@ This file does not own Translation content, acceptance evidence, or learner prog
 **Scope:** English Translation  
 **Active / earliest unresolved stage:** Acceptance re-establishment under the new Truth ownership model  
 **Blocker:** formal S/K/L/P/R/E acceptance has not yet been migrated/re-established; Artifact implementation exists but must not be mistaken for PASS  
-**Next action:** run a bounded Translation acceptance audit from current Source + canonical learning owner + current validators/runtime; update `ACCEPTANCE.md` only from evidence.
+**Next action:** run a bounded Translation acceptance audit from current Source + canonical learning owner + existing `qa:translation`; update `ACCEPTANCE.md` only from evidence.
 
 ---
 
@@ -33,14 +33,13 @@ If acceptance discovers a real upstream defect, reopen only the earliest respons
 
 ## Required reads
 
-For ordinary continuation of the active acceptance audit:
+For ordinary re-entry into the active acceptance audit:
 
 1. `content/english/modules/translation/ACCEPTANCE.md`
 2. `content/english/modules/translation/learning.md`
-3. `static-web/scripts/validate-translation-runtime.mjs`
-4. `static-web/scripts/validate-translation-evidence-guard.mjs`
+3. `static-web/package.json` — only to resolve the existing `qa:translation` / `validate:translation` execution entry
 
-Read the concrete runtime/source owners named by Acceptance only when a reported gate or validator requires direct inspection.
+Do **not** read validator/runtime implementation code up front. Read the exact failing validator/owner only if execution or the S/K/L audit exposes a concrete issue.
 
 English `continuation.json` is not required for normal Translation continuation under this migrated scope.
 
@@ -76,8 +75,10 @@ Known scope `English Translation` should normally recover as:
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ canonical learning owner + validator(s) needed by active audit
+→ canonical learning owner / existing QA entry
 → work
 ```
+
+Implementation internals are diagnostic reads, not startup reads.
 
 No English-wide continuation/history read is required unless a concrete machine dependency is later proven.
