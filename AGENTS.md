@@ -30,7 +30,22 @@ A worker is temporary execution capacity, not project memory.
 
 Normal operation uses current canonical authority only. Historical commits, old repositories, retired branches, migration records, prior implementations, and old Issues are outside the normal reasoning/read set unless the user explicitly authorizes a bounded recovery / rollback / historical comparison / migration task.
 
-Missing Current authority fails closed. History is never a silent fallback.
+Missing Current authority fails closed against silent guessing, but it must not create indefinite historical archaeology.
+
+For a reconstruction task where the needed Current truth can be re-established, use this bounded recovery rule:
+
+```text
+Current / canonical evidence
+→ one bounded search of explicitly relevant historical assets when they have a concrete chance of resolving the gap
+→ if unavailable or insufficient, stop historical search
+→ reconstruct from current first-party or otherwise authoritative external sources
+→ record provenance and mark reconstructed evidence as reconstructed, not recovered historical original
+→ continue the active dependency chain
+```
+
+Do not block Current construction solely because a historical asset cannot be found. Historical material is evidence, not a mandatory fallback dependency.
+
+The exception is a genuinely historical claim whose object is the old artifact itself, such as “what exactly did version X say then?”. In that case the original historical evidence is required; if it is unavailable, report the historical claim as unavailable / unverified rather than silently replacing it with a reconstruction.
 
 Hard scheduling rule:
 
