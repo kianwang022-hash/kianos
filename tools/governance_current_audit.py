@@ -30,6 +30,12 @@ CURRENT_PATHS = [
     "content/politics/learning/history/CURRENT.md",
 ]
 
+PARENT_ROUTER_PATHS = {
+    "content/english/CURRENT.md",
+    "content/xizong/CURRENT.md",
+    "content/politics/CURRENT.md",
+}
+
 ACCEPTANCE_PATHS = [
     "GOVERNANCE_ACCEPTANCE.md",
     "content/english/modules/objective/ACCEPTANCE.md",
@@ -136,6 +142,13 @@ def audit_current(relative: str) -> None:
         checks += 1
         if token in text:
             fail("CURRENT_NARRATIVE_STATUS_LOG_TOKEN", f"{relative}:{token}")
+
+    # Parent routers may discuss why child serialization is forbidden, but they
+    # may not own a status field that selects one global "Active child".
+    if relative in PARENT_ROUTER_PATHS:
+        checks += 1
+        if re.search(r"(?im)^\s*\*\*Active\s+child(?:\s+scope)?\s*:\*\*", text):
+            fail("PARENT_ROUTER_SERIALIZES_CHILD", relative)
 
     # A retired continuation may be mentioned as a non-read boundary, but it may
     # not re-enter a numbered Required-reads list.

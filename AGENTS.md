@@ -22,7 +22,7 @@ For ordinary lane work, do not reread the whole hierarchy. Use the smallest dete
 
 # 1｜Core operating model
 
-KianOS is designed for replaceable Chats and concurrent lane work.
+KianOS is designed for replaceable Chats and concurrent work across independent scopes at any justified depth.
 
 A worker is temporary execution capacity, not project memory.
 
@@ -31,6 +31,12 @@ A worker is temporary execution capacity, not project memory.
 Normal operation uses current canonical authority only. Historical commits, old repositories, retired branches, migration records, prior implementations, and old Issues are outside the normal reasoning/read set unless the user explicitly authorizes a bounded recovery / rollback / historical comparison / migration task.
 
 Missing Current authority fails closed. History is never a silent fallback.
+
+Hard scheduling rule:
+
+> **Hierarchy is ownership/routing. Dependency is scheduling.**
+
+A parent/child or sibling relationship does not itself mean one scope must wait for another.
 
 ---
 
@@ -130,6 +136,33 @@ Do not create Current files for every directory.
 
 Root governance defines shared invariants; lanes and sub-lanes add only genuine local differences.
 
+## 4.1 Router semantics
+
+A parent lane Current is an ownership/routing surface unless genuine parent-level integration work is active.
+
+Do **not** infer this pattern:
+
+```text
+parent
+→ child A must finish
+→ child B may start
+```
+
+merely from hierarchy.
+
+Instead:
+
+```text
+parent router
+├─ independent child A → its own CURRENT / dependency chain
+├─ independent child B → its own CURRENT / dependency chain
+└─ parent integration scope → only when a real cross-child claim exists
+```
+
+Independent children may be active concurrently. A parent router must not appoint one child as the lane's single global active task merely because it was worked on most recently.
+
+If a parent-level task genuinely depends on child outputs, state that dependency explicitly and freeze only the affected parent/downstream chain.
+
 ---
 
 # 5｜Single-owner and inheritance rules
@@ -139,7 +172,7 @@ Use one owner per responsibility.
 Repository-wide owners include:
 
 - `PROJECT_DEFINITION.md` — project purpose, requirements, invariants, non-goals, success tests;
-- `ARCHITECTURE.md` — owner hierarchy, Three Truths + One Cursor, Current/continuation/concurrency structure;
+- `ARCHITECTURE.md` — owner hierarchy, Three Truths + One Cursor, Current/continuation/dependency/concurrency structure;
 - `LEARNING_ASSET_STANDARD.md` — formal learning-asset construction order;
 - `LEARNING_ACCEPTANCE.md` — S/K/L/P/R/E/U readiness standard;
 - `SYSTEM_CONTRACT.md` — shared mature learner-surface capabilities;
@@ -149,6 +182,8 @@ Repository-wide owners include:
 Lane/sub-lane Contracts reference inherited root rules and contain only genuine cognition/behavior differences.
 
 Do not copy root rules into every lane. Do not copy Artifact/Acceptance/Learner Truth into Current.
+
+Learner order in a domain contract is not automatically a construction dependency. Construction dependency must be justified by what one scope actually needs from another.
 
 ---
 
@@ -165,11 +200,13 @@ Truth / Knowledge Boundary
 → Evidence / Acceptance
 ```
 
-Only the earliest unresolved stage is ACTIVE by default. A downstream defect may reopen the earliest responsible upstream stage; affected downstream work then freezes.
+Within the current scope's real dependency chain, only the earliest unresolved stage is ACTIVE by default. A downstream defect may reopen the earliest responsible upstream stage; affected downstream work then freezes.
+
+This is **not** a repository-wide waterfall and not a parent-lane queue. Independent scopes may each have their own active stage concurrently, even when they are siblings or nested under the same lane.
 
 Construction order is not the S/K/L/P/R/E/U acceptance framework.
 
-Never use content volume, page existence, build success, or runtime maturity as a substitute for learning closure.
+Never use content volume, page existence, build success, runtime maturity, or progress in a sibling scope as a substitute for learning closure in the current scope.
 
 ---
 
@@ -193,9 +230,11 @@ Examples:
 
 When real learner action is required, derive it from actual learner evidence/private learner state/conversation context, not engineering position.
 
+Learner sequence and artifact-construction sequence are separate responsibilities. A System may need to be learned after another System while their independent construction work still proceeds in parallel.
+
 ---
 
-# 8｜Minimal-write and concurrency rule
+# 8｜Minimal-write and dependency-aware concurrency rule
 
 Ordinary work writes only within the authorized scope.
 
@@ -206,9 +245,14 @@ Lane/sub-lane work should normally modify only:
 - its local Work Cursor when next action changes;
 - exact runtime paths inside the authorized scope.
 
-Do not update root governance or root `CURRENT.md` merely to record lane progress.
+Do not update root governance or a parent router merely to record child progress.
 
-`main` advancing for unrelated work does not invalidate another branch by itself. Reconcile when write-sets overlap, authority changed, or an inherited parent rule materially changed.
+Before coordinating or blocking another scope, ask whether the current work actually depends on an unresolved artifact/decision/evidence from that scope.
+
+- no real dependency → continue independently;
+- real dependency → name it, escalate to its narrow owner, and freeze only the affected chain.
+
+`main` advancing for unrelated work does not invalidate another branch by itself. Reconcile when write-sets overlap, authority changed, an inherited parent rule materially changed, or a real dependency was discovered.
 
 Follow `BRANCH_LIFECYCLE.md` for branch landing/retirement.
 
@@ -222,11 +266,11 @@ A cross-scope defect may be:
 
 - reported;
 - recorded in the appropriate owner/Deferred mechanism when authorized;
-- used to block and escalate the current task.
+- used to block and escalate the current task when it is a real dependency.
 
 It is not automatic permission to repair unrelated siblings/downstream layers.
 
-For staged learning-asset work, continue to obey the earliest unresolved stage.
+For staged learning-asset work, continue to obey the earliest unresolved stage **on the active dependency chain**. Do not use that rule to freeze independent siblings.
 
 ---
 
@@ -238,14 +282,21 @@ Before substantial GitHub-backed work, determine internally:
 scope
 CURRENT / Work Cursor entry
 active / earliest unresolved stage
+real dependency chain
+independent sibling scopes that must remain untouched
 exact required reads
 Artifact owner(s)
 Acceptance owner when relevant
 Learner Truth boundary
+learner order vs construction dependency when relevant
 exact intended write-set
 branch base/current SHA
 ```
 
 Then do the smallest correct work.
+
+Compact scheduler:
+
+> **Scope 按依赖并行；Gate / Stage 沿真实依赖串行。**
 
 KianOS should make each fresh Chat faster to restart, not require it to relearn how the repository became what it is.

@@ -11,7 +11,7 @@ This file does not duplicate English content, learning semantics, scoped accepta
 
 **Active lane-level scope:** none — router-only baseline  
 **Blocker:** none at lane-rule level  
-**Next action:** route work to the narrowest independently continued English scope.
+**Next action:** route work to the narrowest independently continued English scope. Do not appoint one module as English's global active child merely because it was worked on most recently.
 
 English currently has three independently continued learner-facing scopes with their own Work Cursor and Acceptance Truth:
 
@@ -23,7 +23,24 @@ English currently has three independently continued learner-facing scopes with t
 
 Their current stages belong only to those local `CURRENT.md` owners. Do not copy them into this lane router.
 
+Objective, Translation and Writing may progress concurrently when their current work is independent. A blocker in one module does not freeze the others unless a genuine shared English/runtime/integration dependency links them.
+
 English has no lane-level `ACCEPTANCE.md` at present: current Acceptance Truth already belongs to the three independently continued scopes above. Do not add an aggregate Acceptance owner unless a future English-wide claim has its own distinct evidence responsibility.
+
+Hard scheduling boundary:
+
+```text
+English capability hierarchy
+= ownership / routing
+
+Construction dependency
+= what one module actually needs from another to proceed correctly
+
+Kian learner order
+= the sequence Kian should actually study/use
+```
+
+These are not automatically the same.
 
 ---
 
@@ -45,6 +62,8 @@ It is not a Work Cursor, Acceptance owner, Artifact owner, learner-state store, 
 - learner-facing runtime → English surfaces under `static-web/`
 
 Repository-wide requirements, architecture, construction order, acceptance semantics and shared mature platform capability remain inherited from root owners rather than copied here.
+
+Learner sequence defined by English cognition does not automatically serialize independent module construction.
 
 ---
 
@@ -79,6 +98,8 @@ English CURRENT
 → local CURRENT
 → exact required owner(s)
 ```
+
+Multiple English module Chats may use these local paths concurrently. Each scope advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
 
 Read `content/english/LEARNING_CONTRACT.md` only when the task actually concerns English-wide cognition, capability ownership or learning/evidence relationships.
 

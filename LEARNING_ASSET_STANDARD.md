@@ -44,15 +44,17 @@ The governing question is always:
 
 Tools, files, page layouts, question banks, taxonomies, and runtime components are selected only after the relevant upstream learning need is understood.
 
+This causal order applies **within the dependency chain of the declared learning scope**. It is not a repository-wide queue and does not serialize independent sibling scopes.
+
 ---
 
 # 2｜Hard stage-gate rule
 
-## 2.1 One active construction stage by default
+## 2.1 One active construction stage per dependency chain by default
 
-For a formal learning-asset rebuild, only the earliest unresolved construction stage is ACTIVE by default.
+For a formal learning-asset rebuild, only the earliest unresolved construction stage **on that scope's current dependency chain** is ACTIVE by default.
 
-Downstream stages are **FROZEN_PENDING_UPSTREAM**.
+Affected downstream stages are **FROZEN_PENDING_UPSTREAM**.
 
 Example:
 
@@ -65,13 +67,24 @@ Runtime Loop                FROZEN_PENDING_UPSTREAM
 Evidence / Acceptance       FROZEN_PENDING_UPSTREAM
 ```
 
-This is a work-order rule, not a claim that downstream files do not exist.
+This is a work-order rule for one dependency chain, not a claim that downstream files do not exist and not a parent-level single-thread scheduler.
+
+Independent scopes may each have their own active stage concurrently:
+
+```text
+Politics / Marxism   K-or-Content chain ACTIVE
+Politics / History   P-or-Acceptance chain ACTIVE
+Xizong / A2          K chain ACTIVE
+English / Writing    E chain ACTIVE
+```
+
+Those scopes sharing a parent does not make them one chain.
 
 Existing downstream assets may remain in Current while upstream work is reopened, but they must not be treated as requirements that force the upstream answer.
 
 ## 2.2 No downstream-by-convenience
 
-While an upstream stage is unresolved, do not “also” optimize the next stage merely because:
+While an upstream stage is unresolved **for the same dependency chain**, do not “also” optimize the next dependent stage merely because:
 
 - the page already exists;
 - a component is easy to edit;
@@ -81,6 +94,8 @@ While an upstream stage is unresolved, do not “also” optimize the next stage
 - the UI would look cleaner if the content conformed to it.
 
 A broken Knowledge asset is not repaired by better Projection. A wrong Learning Logic is not repaired by more Runtime.
+
+This prohibition does not block unrelated sibling work with no dependency on the unresolved decision.
 
 ## 2.3 Existing downstream implementation does not constrain upstream truth
 
@@ -93,21 +108,23 @@ When Knowledge or Learning is reopened:
 - review schedulers do not determine what deserves learning;
 - current implementation effort is a sunk cost, not evidence that the model is correct.
 
-If correct upstream work requires later P/R/E changes, those changes happen **after** the upstream stage is accepted.
+If correct upstream work requires later P/R/E changes, those changes happen **after** the upstream stage is accepted for that dependency chain.
 
-## 2.4 Downstream defects cause upstream rollback, not parallel development
+## 2.4 Downstream defects cause bounded upstream rollback, not parallel layer repair
 
 A Projection, Runtime, Evidence, or learner-use defect may reveal an upstream problem.
 
 When that happens:
 
 1. identify the earliest stage that actually explains the defect;
-2. mark that stage REOPENED;
-3. freeze affected downstream development;
+2. mark that stage REOPENED for the affected scope/chain;
+3. freeze only affected downstream development;
 4. repair and accept the reopened stage;
-5. then re-walk the downstream stages in order.
+5. then re-walk the affected downstream stages in order.
 
 Do not repair all touched layers at once merely because they are causally connected.
+
+Do not freeze independent sibling scopes unless the same upstream owner/decision actually governs them.
 
 ---
 
@@ -180,6 +197,14 @@ A teacher/source order must not be inherited automatically when learner cognitio
 A domain-specific learning contract or equivalent durable learning-path decision.
 
 The learning logic must be able to stand independently of a particular UI implementation.
+
+### Learner order is not construction scheduling
+
+An approved learner sequence such as `A → B → C` means the learner path should consume those assets in that order when relevant.
+
+It does **not** automatically mean the artifacts for B and C cannot be built in parallel with A.
+
+Construction is serialized only when B's correct construction actually depends on an unresolved artifact/decision from A.
 
 ---
 
@@ -325,15 +350,15 @@ User Validation remains real-user evidence and cannot be simulated by Chat, CI, 
 
 # 9｜Stage transition protocol
 
-A stage may advance only when all of the following are true for the current scope:
+A stage may advance only when all of the following are true for the current scope and dependency chain:
 
 1. the current-stage question is explicitly answered;
 2. known blockers at that stage are resolved or explicitly fail-closed;
 3. the durable owner/output for that stage exists in Current when one is required;
 4. the result has been audited against the stage's actual goal;
-5. the next stage will not need to guess an unresolved upstream decision.
+5. the next dependent stage will not need to guess an unresolved upstream decision.
 
-Then record the next stage as ACTIVE and keep later stages frozen.
+Then record the next stage as ACTIVE for that chain and keep later dependent stages frozen.
 
 Do not advance because:
 
@@ -343,6 +368,8 @@ Do not advance because:
 - a build is green;
 - the learner is waiting to test;
 - downstream rework would be inconvenient.
+
+Do not use another scope's unresolved stage as a reason to block this transition unless this scope actually depends on it.
 
 ---
 
@@ -359,7 +386,7 @@ reopen earliest responsible stage
 → freeze affected downstream stages
 → preserve downstream implementation as provisional
 → repair upstream
-→ revalidate each downstream stage in order
+→ revalidate each affected downstream stage in order
 → retain, modify, or retire downstream pieces based on the accepted upstream result
 ```
 
@@ -367,25 +394,55 @@ This prevents both sunk-cost lock-in and needless rewrites.
 
 A frozen downstream asset may be perfectly reusable later. It simply has no authority to decide the active upstream question.
 
+The freeze is dependency-bounded. Unaffected sibling scopes remain eligible to continue.
+
 ---
 
-# 11｜Scope and batching
+# 11｜Scope, dependency and batching
 
 Stage gates apply to the **declared learning scope**, not necessarily an entire subject at once.
 
 A scope may be:
 
 - one Xizong System;
-- one Politics Natural Unit;
+- one Politics Natural Unit or independently continued subject;
 - one Reading passage path;
 - one Translation task model;
 - one Writing cold-start mechanism;
 - one bounded Lexical semantic batch;
 - an entire lane when the evidence truly supports it.
 
-Batching exists to control review load, not to bypass stage order.
+## 11.1 Three orders must stay separate
 
-Within a batch, finish the active stage before beginning downstream work for that batch.
+Always distinguish:
+
+```text
+Governance hierarchy
+= who owns / routes / inherits
+
+Construction dependency
+= what must be settled before this artifact can be built correctly
+
+Learner order
+= what sequence Kian should actually experience
+```
+
+These may coincide, but they must never be assumed identical.
+
+Examples:
+
+- Politics subjects can be constructed in parallel while remaining separate learner tracks;
+- Xizong Systems can be independently accepted in parallel even if the eventual learner plan schedules them sequentially;
+- two Blocks can be built concurrently while one remains a learner prerequisite for the other;
+- a shared runtime migration may create a temporary real dependency across several children and therefore require bounded coordination.
+
+## 11.2 Batching
+
+Batching exists to control review load, not to bypass dependency order.
+
+Within one dependent batch, finish the active stage before beginning its downstream work.
+
+Independent batches may progress concurrently when their semantic decisions and write sets do not depend on one another.
 
 Do not use tiny batches when the actual work is deterministic and bulk-safe; do not use giant batches when semantic judgment is still being calibrated.
 
@@ -402,7 +459,7 @@ Examples:
 - Xizong may keep System / Block / KP logic;
 - Reading, Translation, Writing, and Cloze may retain their own natural learner units and failure loops.
 
-The standard governs **construction order**.
+The standard governs **construction order along real dependencies**.
 
 The domain contract governs **domain cognition and learner behavior**.
 
@@ -419,16 +476,21 @@ These layers should reinforce one another without becoming substitutes for one a
 Before doing substantial work on any formal learning asset, state internally:
 
 ```text
+Declared scope: <scope>
 Active construction stage: <stage>
-Upstream accepted for this scope: <yes/no>
-Downstream state: FROZEN / eligible
+Real upstream dependency for this stage: <owner/decision or none>
+Upstream accepted for this dependency chain: <yes/no>
+Affected downstream state: FROZEN / eligible
+Independent sibling scopes: untouched / may continue concurrently
 Current-stage exit condition: <concrete condition>
 ```
 
-Then work only on the active stage unless new evidence forces an upstream rollback.
+Then work only on the active stage of that dependency chain unless new evidence forces an upstream rollback.
 
-The durable KianOS principle is:
+The durable KianOS principles are:
 
 > **Start from the learning need, not from the available tool.**
 
 > **Resolve the upstream learning question before optimizing its downstream representation.**
+
+> **Independent scopes may progress in parallel; dependent stages progress in causal order.**

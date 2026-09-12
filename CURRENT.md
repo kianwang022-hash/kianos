@@ -12,7 +12,7 @@
 **Active scope:** none — router-only baseline  
 **Current stage:** accepted top-level governance baseline  
 **Blocker:** none  
-**Next action:** route future work to the narrowest known lane / sub-lane `CURRENT.md`. Open a root integration/governance scope only when a real cross-lane requirement, owner conflict, or architecture failure requires it.
+**Next action:** route future work to the narrowest known lane / sub-lane `CURRENT.md`. Open a root integration/governance scope only when a real cross-lane requirement, owner conflict, dependency conflict, or architecture failure requires it.
 
 ### Accepted top-level baseline
 
@@ -24,8 +24,10 @@ KianOS now uses:
 - single-owner + inherited-rule boundaries;
 - current-only restart paths with roughly 2–4 precise reads after scope resolution;
 - continuation only when a proven narrow machine/process responsibility exists;
-- concurrency-first bounded reconciliation;
-- earliest-unresolved-stage containment for learning-asset work;
+- dependency-driven concurrency at any justified scope depth;
+- hierarchy for ownership/routing, not scheduling;
+- earliest-unresolved-stage containment only along the affected dependency chain;
+- explicit separation of governance hierarchy, construction dependency, and learner order;
 - lightweight anti-entropy protection;
 - strict separation between engineering readiness and Kian's real learner progress.
 
@@ -39,9 +41,12 @@ Lower-level work proceeds as separate bounded scopes:
 known lane / sub-lane
 → local CURRENT
 → local ACCEPTANCE + exact Artifact owner(s)
-→ earliest unresolved construction / acceptance stage
+→ identify real dependency chain
+→ advance only the earliest unresolved eligible construction / acceptance stage on that chain
 → implement / accept / real learner use
 ```
+
+Independent scopes may run this sequence concurrently, including siblings under the same parent lane.
 
 Do not aggregate all lane upgrades into a root mega-migration. Shared infrastructure changes only when multiple real lane-level needs prove a common requirement.
 
@@ -51,6 +56,7 @@ Do not aggregate all lane upgrades into a root mega-migration. Shared infrastruc
 - no domain content/source semantic rewrite under root governance authority;
 - no private learner-state mutation from engineering state;
 - no broad sibling-lane repair by convenience;
+- no serialization of independent child scopes by parent routing;
 - no reopening accepted domain cognition merely to simplify governance;
 - no CI/runner/platform expansion without a demonstrated execution need.
 
@@ -87,6 +93,31 @@ These owners are referenced, not copied into lane Current files.
 | Politics | `content/politics/CURRENT.md` |
 
 Known target scope may go directly to its local Current once governance is understood. Root Current is not a mandatory ritual read for ordinary lane continuation.
+
+Parent lanes are routers/owners, not global child queues. Independent child scopes may progress concurrently unless a real dependency links them.
+
+---
+
+## Scheduling boundary
+
+Use this distinction everywhere:
+
+```text
+Governance hierarchy
+= ownership / routing / inheritance
+
+Construction dependency
+= what must be settled before this work can proceed correctly
+
+Learner order
+= what sequence Kian should actually experience
+```
+
+Compact rule:
+
+> **Scope 按依赖并行；Stage / Gate 沿真实依赖串行。**
+
+`UNTESTED` does not mean every unresolved gate is active. The local `CURRENT.md` identifies the earliest unresolved eligible gate; later dependent gates remain frozen until eligible.
 
 ---
 
