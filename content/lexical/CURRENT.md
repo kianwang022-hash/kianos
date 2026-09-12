@@ -12,9 +12,9 @@ This file does not own lexical semantics, lane learning semantics, Acceptance Tr
 **Active / earliest unresolved stage:** `K — Knowledge re-acceptance / migration semantic-integrity closure`  
 **Blocker:** known Current semantic-fidelity defects remain; full-catalog K is BLOCKED  
 **Current work owner:** GitHub Issue #6 + `content/lexical/audit/knowledge-reacceptance/`  
-**Latest exact checkpoint:** `content/lexical/audit/knowledge-reacceptance/batches/r13-contrast-reconciliation.json` — **R13 audit coverage is complete, not repaired**. R13 Core decisions are **86/86 reconciled = 18 Current-correct / 68 defective**. Its **81 Expansion targets** are reconciled across **54 owner-groups = 15 Current-correct / 17 partial-or-presentation gaps / 22 full landing gaps**. Its **45 Contrast targets** are now reconciled as **1 Current-correct / 1 presentation-only gap / 39 authority-missing relation gaps / 4 form-pronunciation gaps**. Natural Owner / Relation semantic mutation remained **0**. The Contrast slice was completed through bulk authority manifest + Relation/Word Owner readback: GitHub Actions run `34698350670` scanned all 45 targets at once and reduced manual review to **6 exceptional/self-view candidates**, rather than one-word/one-pair reads.  
-**Current R13 authority:** kianos-legacy Issue #113 comment `5581086274` — ordinals **2301–2600**, with 86 approved Core revisions, 81 Expansion targets and 45 new Contrast targets; canonical apply was PENDING.  
-**Next action:** continue **R14+ historical-authority recovery using manifest-first bulk readback**. For each recovered authority batch, bulk-read all affected Current Word / Relation Owners, mechanically prioritize P0/P1 anomalies, and let Chat review only anomalies plus calibrated green samples. **Do not return to one-word GitHub reads by default**; exact single-owner reads are reserved for P0/P1 anomalies, ambiguous carrier/binding cases, or spot-check calibration. Do not repair Natural Owners yet; later build one consolidated exact repair inventory before semantic mutation.
+**Latest exact checkpoint:** `content/lexical/audit/knowledge-reacceptance/batches/r14-2601-2900-core-expansion-contrast.json` — **R14 audit coverage is complete, not repaired**. Historical authority = kianos-legacy Issue #113 comment `5581642619`, frozen for deterministic readback at `content/lexical/audit/migration-integrity/r14-authority.md`. One bulk run (`34700021176`) processed the full 2601–2900 round: **58 Core decisions = 10 Current-correct / 48 defective**, including six reproduced `Active=0` P0 states (`invalid / isle / job / kiss / leading / limited`); **140 Expansion targets = 32 Current-correct / 3 partial / 105 full landing gaps**; **42 Contrast targets = 2 Current-correct + 1 authority-condition satisfied / 36 missing relation gaps / 3 form-pronunciation gaps**. Natural Owner / Relation semantic mutation remained **0**. The first bulk attempt (`34699852615`) failed only because the current-repo Actions token could not read the private legacy repo; authority was then frozen into Current and the rerun passed.  
+**Next historical authority:** R15 = ordinals **2901–3200**, kianos-legacy Issue #113 comment `5581974895`: **120 Core revisions / 145 Expansion targets / 45 Contrast targets**, canonical Apply pending.  
+**Next action:** freeze R15 historical authority into Current, then run it as **one manifest-first bulk readback round**. Machine triage must read all affected Current Word / Relation Owners first; Chat reviews only P0/P1 anomalies, ambiguous carrier/binding cases, and calibrated green samples. **Do not return to one-word GitHub reads by default.** Do not repair Natural Owners yet; after R14+ coverage and R1–R11 non-pass reconciliation, build one consolidated exact repair inventory before semantic mutation.
 
 Rule-layer work does not own lexical semantic mutation. Natural Owner / Relation repair remains inside the active Lexical K authority and must always use the latest Current owner before mutation.
 
@@ -81,7 +81,7 @@ Known scope `LexicalOS semantic re-acceptance` should normally recover as:
 Lexical CURRENT
 → Lexical ACCEPTANCE
 → current Issue #6 checkpoint
-→ exact owner(s) under audit
+→ exact bulk authority / anomaly packet
 → work
 ```
 
