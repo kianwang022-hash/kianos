@@ -78,13 +78,10 @@ if (shouldRun('owner')) {
 }
 
 if (shouldRun('truth')) {
-  // S must not depend on K acceptance. The System-level semantic owner remains
-  // intentionally WORKING_A3_SYSTEM_K_NOT_ACCEPTED until the later K gate.
-  // Question-scope loading only needs stable System identity from the S owner.
-  const workingSystem = readJson(SYSTEM_PATH);
-  assert(workingSystem?.system_id === 'urinary' && workingSystem?.canonical_id === 'A3', 'working-system-identity');
-  assert(workingSystem?.status === 'K_WORKING_SYSTEM_TOP', `working-system-status:${workingSystem?.status}`);
-  assert(workingSystem?.semantic_authority === 'WORKING_A3_SYSTEM_K_NOT_ACCEPTED', `working-system-authority:${workingSystem?.semantic_authority}`);
+  // S must not depend on K acceptance. Confirm only stable A3 identity here;
+  // whether System-level K is working or later CHAT_APPROVED is irrelevant to S.
+  const systemRecord = readJson(SYSTEM_PATH);
+  assert(systemRecord?.system_id === 'urinary' && systemRecord?.canonical_id === 'A3', 'system-identity');
 
   const sourceIdentity = {
     systemId: owner.system.system_id,
@@ -103,7 +100,6 @@ if (shouldRun('truth')) {
 
 if (shouldRun('boundary')) {
   const learning = readJson(LEARNING_PATH);
-  assert(learning.status === 'SYSTEM_BELOW_K_CLOSED', `learning-status:${learning.status}`);
   assert(learning.system_id === 'urinary' && learning.canonical_id === 'A3', 'learning-identity');
   assert(Number(learning?.identity?.stable_block_count) === 14, `block-count:${learning?.identity?.stable_block_count}`);
   assert(Number(learning?.identity?.stable_kp_count) === 257, `kp-count:${learning?.identity?.stable_kp_count}`);
