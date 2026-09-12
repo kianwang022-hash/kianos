@@ -1,91 +1,102 @@
-# KianOS Current Registry
+# KianOS Root Current
 
 **Repository:** `kianwang022-hash/kianos`  
-**Durable shared branch:** `main`
+**Branch:** `governance/federated-current-v2-20260912`  
+**Role:** root Work Cursor + scope router
 
-`main@HEAD` is the only normal shared Current repository state.
+`CURRENT.md` is a navigation/control surface, not a Truth owner and not a project history.
 
-KianOS is intentionally federated:
+---
 
-```text
-root CURRENT.md
-→ content/<lane>/CURRENT.md
-→ lane continuation / rules / owner map
-→ first-class sub-lane Current when needed
-→ natural semantic/content owner
-→ learner runtime
-```
+## Root Work Cursor
 
-Root Current answers **where to enter**. Lane Current answers **where that lane's live state and rules are owned**. Private learner state answers **what the learner personally should do next**.
+**Active scope:** KianOS governance redesign  
+**Current stage:** root governance integration after Project Definition / Architecture draft  
+**Blocker:** none at root; lane migration intentionally not started globally  
+**Next action:** select one pilot scope, audit its `CURRENT` / continuation / Artifact / Acceptance / Learner boundaries, then run Fresh Chat + Truth Separation tests before wider migration.
 
-## Current-only boundary
+### Frozen / out of scope for this root task
 
-Normal KianOS work is Current-only.
+- no bulk continuation retirement yet;
+- no mass rewrite of lane/sub-lane Current files yet;
+- no learning-content/source semantic rewrite;
+- no private learner-state mutation;
+- no merge to `main` before governance acceptance.
 
-Old repositories, old commits, retired branches, historical Issues, migration records, prior runtime implementations, compatibility snapshots, and other historical artifacts are outside the normal reasoning/read set even when they remain accessible.
+---
 
-They may be opened only when the learner explicitly requests a bounded recovery, rollback, historical comparison, or migration task. Historical material has no authority merely because it looks more complete or familiar.
+## Authority
 
-When a bounded recovery task ends, accepted results must be represented in Current and normal operation immediately returns to `main@HEAD` only.
+Highest-level owners:
 
-## Root standards
+- project requirements / invariants → `PROJECT_DEFINITION.md`
+- project architecture → `ARCHITECTURE.md`
+- worker routing / operating rules → `AGENTS.md`
 
-| Concern | Canonical owner |
-| --- | --- |
-| Repository bootstrap / read routing | `AGENTS.md` |
-| Formal learning-asset construction order | `LEARNING_ASSET_STANDARD.md` |
-| S/K/L/P/R/E/U readiness | `LEARNING_ACCEPTANCE.md` |
-| Shared learner-surface capabilities | `SYSTEM_CONTRACT.md` |
-| Concurrent branch landing / retirement | `BRANCH_LIFECYCLE.md` |
-| Intentionally postponed work | `DEFERRED.md` + GitHub Issue #5 |
+Repository-wide learning/platform standards:
 
-These are single owners. Lane files reference them rather than copy them.
+- formal learning-asset construction order → `LEARNING_ASSET_STANDARD.md`
+- S/K/L/P/R/E/U readiness → `LEARNING_ACCEPTANCE.md`
+- shared mature learner-surface capabilities → `SYSTEM_CONTRACT.md`
+- temporary branch lifecycle → `BRANCH_LIFECYCLE.md`
+- intentionally postponed work → `DEFERRED.md`
+
+These owners are referenced, not copied into lane Current files.
+
+---
 
 ## Lane entrypoints
 
-| Lane | Current entrypoint |
+| Scope | Work Cursor entry |
 | --- | --- |
 | Xizong | `content/xizong/CURRENT.md` |
 | English | `content/english/CURRENT.md` |
 | LexicalOS | `content/lexical/CURRENT.md` |
 | Politics | `content/politics/CURRENT.md` |
-| Shared learner runtime | `static-web/` |
 
-Fresh Chat rule:
+Known target scope may go directly to its local Current once governance is understood. Root Current is not a mandatory ritual read for ordinary lane continuation.
+
+---
+
+## Three Truths boundary
+
+For any scope, keep separate:
+
+- **Artifact Truth** — what canonical source/content/runtime/product assets actually exist;
+- **Acceptance Truth** — what quality/readiness has actually been demonstrated;
+- **Learner Truth** — what Kian has actually learned/done;
+- **Work Cursor** — what the worker should do next.
+
+Hard rule:
+
+> **Artifact Truth ≠ Acceptance Truth ≠ Learner Truth; this Current cannot manufacture any of them.**
+
+The relevant local Current should point to their owners/boundaries when the active work needs them.
+
+---
+
+## Fresh-Chat routing
+
+When the target scope is known:
 
 ```text
-root CURRENT
-→ target lane CURRENT
-→ lane/sub-lane continuation
-→ exact files named by that continuation
+target scope CURRENT
+→ exact required owner(s)
+→ work
 ```
 
-Do not scan unrelated lanes.
+A `continuation.*` file is not a mandatory layer. Read it only when the local Current names it as a required owner and it still has a proven narrow machine/process responsibility.
 
-## Lane-Current contract
+Normal target: **roughly 2–4 precise reads after scope resolution**.
 
-A lane `CURRENT.md` is deliberately small. It should identify:
+Do not search repository history, legacy repositories, retired branches, migration records, or unrelated lanes as normal fallback.
 
-- canonical owner map / manifest;
-- stable lane rules / learning contract;
-- continuation cursor;
-- formal acceptance owner when one exists;
-- source/provenance root when relevant;
-- learner runtime entry;
-- independently continued sub-lanes when they have their own Current entrypoint.
+---
 
-It must not duplicate detailed progress, semantic content, acceptance evidence, or historical narrative.
+## Current-only boundary
 
-Normal progress updates belong in the lane/sub-lane continuation or canonical owner, not in root `CURRENT.md`.
+Normal work uses current canonical authority.
 
-## Shared runtime boundary
+History may be inspected only for an explicit bounded recovery / rollback / historical comparison / migration task. Once an accepted recovery result exists in Current authority, normal operation returns to current-only reasoning.
 
-`static-web/` is the shared learner-facing execution layer. It may project Current semantics and provide genuinely shared interaction utilities, but it is not a parallel semantic owner.
-
-A lane may use a different cognitive model, natural unit, error taxonomy, evidence model, scheduler, or UI. Shared platform code does not require semantic uniformity.
-
-## Read-friction target
-
-For ordinary continuation of one lane, a fresh Chat should normally recover enough state in roughly 2–4 targeted reads after repository routing is known.
-
-If continuation repeatedly requires broad repository search or rereading large root documents, the routing/state ownership is too diffuse and should be simplified rather than normalized as routine.
+This file should remain small. Root progress history belongs in Git history / explicit evidence owners, not here.
