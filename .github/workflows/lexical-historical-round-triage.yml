@@ -8,7 +8,7 @@ on:
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
       - 'tools/lexical_historical_round_owner_surfaces.py'
-      - 'content/lexical/audit/migration-integrity/r23-authority.md'
+      - 'content/lexical/audit/migration-integrity/r24-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
 
@@ -16,42 +16,42 @@ permissions:
   contents: read
 
 jobs:
-  r23-bulk-triage:
+  r24-bulk-triage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read frozen R23 authority and bulk-triage Current
+      - name: Read frozen R24 authority and bulk-triage Current
         shell: bash
         run: |
           python tools/lexical_historical_round_owner_surfaces.py \
-            content/lexical/audit/migration-integrity/r23-authority.md \
+            content/lexical/audit/migration-integrity/r24-authority.md \
             --legacy-repo kianwang022-hash/kianos-legacy \
-            --comment-id 5584917387 \
-            --audit-id R23_5301_5600_CORE_EXPANSION_CONTRAST \
-            --expected-core 84 \
-            --expected-expansion 101 \
-            --expected-contrast 69 \
-            --output /tmp/r23-bulk-triage.json \
-            --summary /tmp/r23-bulk-triage-summary.md
+            --comment-id 5585553250 \
+            --audit-id R24_5601_5900_CORE_EXPANSION_CONTRAST \
+            --expected-core 91 \
+            --expected-expansion 61 \
+            --expected-contrast 80 \
+            --output /tmp/r24-bulk-triage.json \
+            --summary /tmp/r24-bulk-triage-summary.md
 
       - name: Publish summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/r23-bulk-triage-summary.md ]; then
-            cat /tmp/r23-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/r24-bulk-triage-summary.md ]; then
+            cat /tmp/r24-bulk-triage-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## R23 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo '## R24 bulk triage summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload triage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-r23-bulk-triage
+          name: lexical-r24-bulk-triage
           path: |
-            /tmp/r23-bulk-triage.json
-            /tmp/r23-bulk-triage-summary.md
+            /tmp/r24-bulk-triage.json
+            /tmp/r24-bulk-triage-summary.md
           if-no-files-found: error
           retention-days: 14
