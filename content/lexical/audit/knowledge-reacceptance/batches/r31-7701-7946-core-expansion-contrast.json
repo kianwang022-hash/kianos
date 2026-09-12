@@ -1,0 +1,122 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r31_round_checkpoint.v1",
+  "audit_id": "R31_7701_7946_CORE_EXPANSION_CONTRAST",
+  "range": [7701, 7946],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5589834920,
+    "updated_at": "2026-09-08T18:21:30Z",
+    "execution_authority": "content/lexical/audit/migration-integrity/r31-execution-authority.md",
+    "counts": {
+      "reviewed": 246,
+      "core": 49,
+      "historical_core_direct_pass": 197,
+      "historical_expansion_target_ordinals": 143,
+      "mandatory_surface_groups": 99,
+      "contrast": 65
+    },
+    "coverage_terminal": true,
+    "coverage_statement": "The cited historical authority explicitly states that this final batch completes the bounded Owner semantic first-pass through corpus end, 1–7946.",
+    "transport_note": "The 143 historical Expansion target ordinals remain coverage metadata; the 99 representative high-transfer learner surfaces/families are the exact acceptance units for this round."
+  },
+  "bulk_readback": {
+    "authority_commit": "e86f74dd37358ea0b19e2eb296e865f7af661d83",
+    "workflow_commit": "2f826d529ec3a4645e1871f6cfe327575470dff0",
+    "workflow_run_id": 34721495033,
+    "artifact": "lexical-r31-bulk-triage",
+    "artifact_digest": "sha256:51db3085b33236e4d8775a8ba6ca2831eba05ca7ed4181fc91dc82a7e2e95801",
+    "transport_note": "R31 parsed cleanly as 49 Core / 99 Expansion / 65 Contrast with owner-enriched Expansion evidence. No semantic or learner-state mutation occurred."
+  },
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; machine labels and owner-health flags are evidence only",
+  "core": {
+    "current_correct": 0,
+    "defective_or_upgrade_required": 49,
+    "current_correct_indices": [],
+    "current_correct_words": [],
+    "p0_active_zero_count": 2,
+    "p0_word_ids": ["word:academia", "word:assessment"],
+    "dead_anchor_count": 0,
+    "dead_anchor_word_ids": [],
+    "rule": "All 49 final-batch historical Core revisions still require at least one semantic, branch-organization, bilingual-cleanup, learner-value, domain, identity, or lifecycle correction at Current evidence. A surface may nevertheless be accepted when the exact requested construction is already licensed by an adequate Current branch; Core and Expansion acceptance are intentionally not collapsed into one score.",
+    "severe_examples": {
+      "word:academia": "Current has no Active sense; Core text still mixes the academic world with academic career.",
+      "word:assessment": "Current has no Active sense despite an otherwise usable evaluation Core string.",
+      "word:adaptation": "Current keeps adjustment to conditions but lacks adapted work/version such as film adaptation.",
+      "word:attachment": "Current has accessory/attached part but lacks emotional attachment and explicit modern file attachment organization.",
+      "word:deduction": "Current is logical inference only and lacks subtraction/amount deducted such as tax deduction.",
+      "word:demonstration": "Current is proof/showing only and lacks public protest/demonstration.",
+      "word:derivative": "Current is adjective-only and lacks mathematical/financial derivative nouns.",
+      "word:ethnicity": "Current still ties ethnicity definitionally to racial ties; the latest target requires neutral ethnic/cultural/ancestral identity or affiliation distinct from race.",
+      "word:founder": "Current has only the person-who-establishes noun and lacks founder = fail/collapse/sink.",
+      "word:induction": "Current is inductive reasoning only and lacks initiation/introduction plus medical/electromagnetic branches.",
+      "word:liberalism": "Current definition encodes one reform-centered political program instead of a neutral liberty/rights-centered political-philosophical core with contextual traditions.",
+      "word:projection": "Current is forecast-only and lacks image/geometric and psychological projection.",
+      "word:sexism": "Current restricts discrimination to the opposite sex and learner Chinese still narrows toward women.",
+      "word:sexuality": "Current reproductive-role definition is the wrong learner center for sexual feelings, attraction, identity, behavior, or expression.",
+      "word:validity": "Current `valid and rigorous` is too vague; logical/factual/legal/methodological soundness and research validity need explicit organization."
+    }
+  },
+  "expansion": {
+    "historical_target_ordinal_count": 143,
+    "authority_unit": "99 representative high-transfer learner surface/family groups",
+    "current_correct": 64,
+    "partial_or_presentation_or_wrong_anchor": 21,
+    "authority_missing_from_current": 14,
+    "current_correct_indices": [2,4,5,6,7,8,9,13,14,15,16,17,18,20,21,22,23,24,25,26,27,28,29,32,35,36,37,38,39,41,42,43,45,46,47,50,51,56,57,58,59,60,63,64,65,66,68,69,70,71,73,74,75,76,78,80,82,84,85,88,93,96,98,99],
+    "partial_indices": [3,10,12,30,34,40,44,48,49,54,61,67,77,79,81,90,91,92,94,95,97],
+    "missing_indices": [1,11,19,31,33,52,53,55,62,72,83,86,87,89],
+    "mechanical_readback": {"NO_MATCH_CANDIDATE": 99},
+    "review_notes": {
+      "machine_false_negative_boundary": "Every exact phrase was a mechanical NO_MATCH, but owner projection showed that 64 are already semantically licensed. Phrase-object absence is therefore not semantic absence. Accepted examples include accessibility features, advocacy for/on behalf of, affective response, allocation of resources, ambiguity in/about, amendment to, in anticipation of, attribution to, awareness of, capability to/for, seek clarification, by coincidence, compatibility with, both compensation applications, code/collection compilation, conceptual framework, conformity with, consistency with/across, electoral constituency, constitutional rights, constructive criticism, consultation with, deregulation, differentiation between, forced displacement, data distortion, diversification, documentation, emergence of, law enforcement, environmental impact, resource/labor exploitation, data extraction, formulation of, immigration to/from, implementation of, systems integration, internalize norms, interpretive framework, intervention in, liberalization/deregulation, mediation, research methodology, data migration, misinterpret A as B, normalize data, occupancy rate, participation in, participatory approach, persistent symptoms, prioritize A over B, procedural fairness, prohibition on, rationalism vs empiricism, reassess risk, reinforcement, responsive to, restructuring, simulation, sustainability, model validation, violation of rights, and data visualization.",
+      "partial_examples": "adaptation to/film adaptation, appreciation plus currency appreciation, email/emotional attachment, logical/tax deduction, standard deviation, market/genetic dominance, ethnicity vs race, noun/verb founder, hypothesize that, logical/medical/electromagnetic induction, data manipulation, intrinsic/extrinsic motivation, forecast/image/psychological projection, rationalize/rationalization branches, regulatory framework, statistic vs statistics, submission branches, suspension branches, technological change, undefined behavior, and research validity/reliability retain one useful branch or semantic family but not the whole approved learner target.",
+      "missing_examples": "abstraction layer/level, risk assessment P0, AmE commencement ceremony, public demonstration, mathematical/financial derivative, physical inclination, company incorporation, food insecurity, financial maturity, periodic table, transplant rejection, BrE exam revision, sexism/sexuality boundaries, and diagnostic sensitivity/specificity require a missing high-value branch, domain meaning, or P0 repair."
+    }
+  },
+  "contrast": {
+    "latest_ownership": {
+      "relation_owned": 63,
+      "word_or_identity_or_form_owned": 2,
+      "word_or_identity_or_form_indices": [29, 54]
+    },
+    "relation": {
+      "current_correct": 0,
+      "partial": 0,
+      "missing": 63
+    },
+    "word_identity_form": {
+      "current_correct": 0,
+      "partial": 0,
+      "missing": 2,
+      "missing_indices": [29, 54],
+      "notes": {
+        "29": "finalize/finalise is a spelling-variant boundary of the same lexical item and belongs to Word/Identity/Form rather than a cross-word Relation.",
+        "54": "statistic/statistics is a lexicalized singular/plural-form boundary: statistic = a numerical datum/measure while statistics can name the discipline or body of data. Keep the boundary in Word/Identity/Form rather than duplicating it as a cross-word Relation."
+      }
+    },
+    "overall": {"current_correct": 0, "partial": 0, "missing": 65},
+    "mechanical_readback": {"RELATION_MISSING_CANDIDATE": 65}
+  },
+  "direct_pass_calibration": {
+    "sample_size": 12,
+    "sample_ordinals": [7701,7726,7747,7771,7792,7815,7835,7857,7878,7900,7925,7946],
+    "new_systematic_core_defect_classes": 0,
+    "new_isolated_upgrade_targets": [],
+    "sample_summary": "abstraction, attainment, conformity, diversity, formulation, inflexibility, isolationism, objectivity, rationalism, restructure, symbolic, and visualization remain acceptable at the current calibration level.",
+    "rule": "The final stratified direct-pass sample reveals no additional repair item outside debt already captured by the bounded historical authority."
+  },
+  "fresh_semantic_judgments": [
+    {"target":"finalize/finalise","decision":"REOWN_TO_IDENTITY_FORM","latest":"American/British spelling variation is a same-word form boundary, not a cross-word semantic Relation."},
+    {"target":"statistic/statistics","decision":"REOWN_TO_IDENTITY_FORM","latest":"The singular datum/measure and lexicalized plural discipline/body-of-data boundary is a Word/Identity/Form concern rather than a duplicate cross-word Relation."},
+    {"target":"ethnicity vs race","decision":"UPGRADE_TARGET","latest":"Ethnicity must remain a neutral ethnic/cultural/ancestral identity or affiliation concept and not be defined as race; the learner boundary is only partial in Current."},
+    {"target":"diagnostic sensitivity/specificity","decision":"HISTORICAL_STILL_VALID","latest":"Generic specificity does not substitute for the diagnostic-test true-negative/sensitivity-specificity concepts; the medical branch remains explicit learner debt."}
+  ],
+  "mutation_boundary": {
+    "natural_owner_semantic_mutation": 0,
+    "relation_semantic_mutation": 0,
+    "learner_state_mutation": 0,
+    "runtime_or_site_mutation": 0,
+    "historical_round_coverage_complete": true,
+    "next_step": "Historical first-pass audit coverage is now closed through 1–7946. Stop opening new historical rounds. Compile one consolidated exact repair inventory from R12–R31 using each item's latest Chat-approved target, deduplicate overlapping Core/Expansion/Contrast debt by Natural Owner or Relation/Form owner, then execute bounded semantic repair with deterministic regeneration/readback."
+  }
+}
