@@ -26,12 +26,13 @@ if (rows.length !== ids.size) {
 }
 
 const rawSnippets = Object.fromEntries([...ids].map((id) => {
-  const index = raw.indexOf(id);
+  const needle = `\"id\":\"${id}\"`;
+  const index = raw.indexOf(needle);
   if (index < 0) throw new Error(`RAW_ID_NOT_FOUND:${id}`);
-  return [id, raw.slice(Math.max(0, index - 120), Math.min(raw.length, index + 2200))];
+  return [id, raw.slice(Math.max(0, index - 80), Math.min(raw.length, index + 2400))];
 }));
 
 const out = process.env.KIANOS_TRANSLATION_SOURCE_INSPECTION_OUT
   || path.join(process.cwd(), 'translation-source-inspection.json');
-fs.writeFileSync(out, `${JSON.stringify({ schema: 'kianos.translation.source-debt-inspection.v2', rows, rawSnippets }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(out, `${JSON.stringify({ schema: 'kianos.translation.source-debt-inspection.v3', rows, rawSnippets }, null, 2)}\n`, 'utf8');
 console.log(`Wrote ${rows.length} inspected rows to ${out}`);
