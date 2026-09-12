@@ -32,15 +32,27 @@ function preview(value, max = 320) {
   return '';
 }
 
+function canonicalVisualAssets(value) {
+  if (Array.isArray(value?.images)) return value.images;
+  if (Array.isArray(value?.visual_assets)) return value.visual_assets;
+  return [];
+}
+
+function canonicalVisualField(value) {
+  if (Array.isArray(value?.images)) return 'images';
+  if (Array.isArray(value?.visual_assets)) return 'visual_assets';
+  return null;
+}
+
 function collectWritingBTruth(value, out = new Map(), seen = new Set()) {
   if (!value || typeof value !== 'object' || seen.has(value)) return out;
   seen.add(value);
   if (!Array.isArray(value)) {
-    const unitId = String(value.unit_id || value.set_id || value.id || '');
+    const unitId = String(value.unit_id || value.set_id || value.id || value.fixture_id || '');
     if (/^english1-\d{4}-writing-b-main$/.test(unitId)) {
       const current = out.get(unitId);
-      const currentVisuals = Array.isArray(current?.visual_assets) ? current.visual_assets.length : 0;
-      const candidateVisuals = Array.isArray(value.visual_assets) ? value.visual_assets.length : 0;
+      const currentVisuals = canonicalVisualAssets(current).length;
+      const candidateVisuals = canonicalVisualAssets(value).length;
       if (!current || candidateVisuals > currentVisuals) out.set(unitId, value);
     }
   }
@@ -116,7 +128,8 @@ for (const task of tasks) {
     const directionText = `${prompt.instruction || ''}\n${prompt.promptText || ''}\n${loaded.context?.directions || ''}`.trim();
     const visualLanguage = /\b(drawing|picture|pictures|photo|photos|cartoon|chart|charts|graph|graphs|table|tables|diagram|illustration)\b/i.test(directionText);
     const truthRow = globalWritingB.get(task.id) || null;
-    const truthVisuals = Array.isArray(truthRow?.visual_assets) ? truthRow.visual_assets : [];
+    const truthVisuals = canonicalVisualAssets(truthRow);
+    const truthVisualField = canonicalVisualField(truthRow);
     const normalizedTruthVisuals = truthVisuals.map((asset) => ({
       ...asset,
       asset_path: String(asset?.asset_path || asset?.path || ''),
@@ -140,8 +153,9 @@ for (const task of tasks) {
         runtime_status: truthRow.runtime_status || null,
         source_file: truthRow.source_file || null,
         source_file_sha256: truthRow.source_file_sha256 || null,
+        canonical_visual_field: truthVisualField,
         visual_assets: normalizedTruthVisuals
-      } : { found: false, visual_assets: [] }
+      } : { found: false, canonical_visual_field: null, visual_assets: [] }
     };
     visualAudit.push(row);
     requireCheck(images.length > 0, `WRITING_BIG_VISUAL_MISSING:${task.id}`);
