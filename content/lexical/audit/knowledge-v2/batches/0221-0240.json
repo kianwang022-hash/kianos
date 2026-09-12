@@ -1,0 +1,34 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 221, "end": 240},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 14, "REVISE": 6, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":221,"word":"anywhere","verdict":"PASS","target_truth":"Keep anywhere = at/in/to any place; current owner is simple and coherent."},
+    {"ordinal":222,"word":"apart","verdict":"PASS","target_truth":"Keep spatial/separation core plus high-value apart from construction; current target truth is coherent."},
+    {"ordinal":223,"word":"apartment","verdict":"REVISE","target_truth":"Keep ordinary apartment = self-contained set of rooms/home. Remove or sharply downgrade the embedded A-priority word-family fact 'apartment = apart + ment'; it is not a useful learner semantic relation and overstates transparent compositionality."},
+    {"ordinal":224,"word":"ape","verdict":"PASS","target_truth":"Keep noun ape and verb ape=imitate/mimic; both are ordinary modern meanings."},
+    {"ordinal":225,"word":"apologise","verdict":"PASS","target_truth":"Keep apologise = express regret, with apologise to sb for sth / apologise for sth; owner is coherent."},
+    {"ordinal":226,"word":"apology","verdict":"REVISE","target_truth":"Center ordinary apology = expression of regret, including apology to sb / apology for sth. Do not let the rare formal-defense sense own the generic pattern 'an apology for sth'; demote formal defense and 'a poor example/an apology for a...' to lower recognition/reference."},
+    {"ordinal":227,"word":"appal","verdict":"PASS","target_truth":"Keep appal/appalled = shock or horrify greatly; current active pattern is coherent."},
+    {"ordinal":228,"word":"apparatus","verdict":"REVISE","target_truth":"Keep equipment/device-system sense as core. Add high-value institutional/organizational system use such as state/government apparatus for academic reading. Downgrade specialized biological 'group of body parts' application from equal main prominence."},
+    {"ordinal":229,"word":"apparent","verdict":"PASS","target_truth":"Preserve the important contrast: apparent=clearly evident/obvious vs apparent=seeming but not necessarily true."},
+    {"ordinal":230,"word":"appeal","verdict":"REVISE","target_truth":"Preserve request/plea, attractiveness, legal appeal, and their noun counterparts, but collapse redundant learner objects: legal appeal must not appear simultaneously as active sense plus secondary_sense, and appeal-to patterns already represented by fixed-pattern collocations must not create competing semantic objects."},
+    {"ordinal":231,"word":"appear","verdict":"REVISE","target_truth":"Keep three learner centers: come into view/occur, seem, and appear in an official/publication/performance context where useful. Reorganize current overlap between 'come into sight' and 'come into being/on the scene'; do not place appear in court/at a meeting under a mismatched come-into-being definition."},
+    {"ordinal":232,"word":"appearance","verdict":"REVISE","target_truth":"Center appearance=the way something looks and appearance=act/occasion of appearing, including court/public appearance as an application. Demote/remove the weak 'mental representation or impression' branch from main Active learner content and avoid unnecessary dictionary-style splitting."},
+    {"ordinal":233,"word":"appendix","verdict":"PASS","target_truth":"Keep document appendix and anatomical appendix; both are common, distinct, and useful meanings."},
+    {"ordinal":234,"word":"appetite","verdict":"PASS","target_truth":"Keep literal desire for food and figurative appetite for knowledge/power/etc.; extension is natural and high value."},
+    {"ordinal":235,"word":"applaud","verdict":"PASS","target_truth":"Keep intransitive clap to show approval and transitive approve/praise; distinction is useful and coherent."},
+    {"ordinal":236,"word":"applause","verdict":"PASS","target_truth":"Single ordinary noun meaning approval shown by clapping is correct and sufficient."},
+    {"ordinal":237,"word":"apple","verdict":"PASS","target_truth":"Single ordinary fruit noun is correct and sufficient."},
+    {"ordinal":238,"word":"appliance","verdict":"PASS","target_truth":"Keep household appliance and broader specialized device/instrument use; both are ordinary enough and semantically aligned."},
+    {"ordinal":239,"word":"applicable","verdict":"PASS","target_truth":"Keep applicable = relevant/able to be applied, especially applicable to. The construction is explicitly presentation-merged into its fixed-pattern collocation, so it does not establish a competing learner meaning."},
+    {"ordinal":240,"word":"application","verdict":"PASS","target_truth":"Keep application=putting something to use, formal request, and software/application program; all three are common high-value branches. Existing apply/applicable family links are semantically aligned."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "Owner-level verdict includes embedded word-family/deep facts; a correct headword sense does not earn PASS when its owner contains a misleading learner fact."
+  ]
+}
