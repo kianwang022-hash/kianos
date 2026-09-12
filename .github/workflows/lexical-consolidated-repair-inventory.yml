@@ -7,11 +7,14 @@ on:
     paths:
       - 'tools/lexical_compile_consolidated_repair_inventory.py'
       - 'tools/lexical_compile_consolidated_repair_inventory_entry.py'
+      - 'tools/lexical_audit_consolidated_repair_inventory.py'
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
       - 'tools/lexical_historical_round_owner_surfaces.py'
       - 'tools/lexical_historical_round_compound_surfaces.py'
+      - 'tools/lexical_historical_round_from_source_lock.py'
       - 'content/lexical/audit/knowledge-reacceptance/batches/**'
+      - 'content/lexical/audit/knowledge-reacceptance/post-r31-ownership-overrides.json'
       - 'content/lexical/audit/migration-integrity/**'
       - '.github/workflows/lexical-consolidated-repair-inventory.yml'
   workflow_dispatch:
@@ -32,6 +35,13 @@ jobs:
           unset GITHUB_TOKEN GH_TOKEN
           python tools/lexical_compile_consolidated_repair_inventory_entry.py \
             --output /tmp/consolidated-repair-inventory.json \
+            --summary /tmp/consolidated-repair-inventory-summary.md
+
+      - name: Audit post-R31 inventory acceptance
+        shell: bash
+        run: |
+          python tools/lexical_audit_consolidated_repair_inventory.py \
+            /tmp/consolidated-repair-inventory.json \
             --summary /tmp/consolidated-repair-inventory-summary.md
 
       - name: Publish summary
