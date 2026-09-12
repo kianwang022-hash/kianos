@@ -5,39 +5,40 @@
   "canonical_id": "A3",
   "scope": "SYSTEM_BELOW_ONLY",
   "branch": "chat/a3-urinary-block-k-upgrade-20260912",
-  "current_batch": "A3-K-BATCH-02",
-  "current_stage": "BATCH_01_ACCEPTED_NEXT_B5_B8_SOURCE_K_AUDIT",
+  "current_batch": "A3-K-BATCH-03",
+  "current_stage": "B1_B4_AND_B6_B8_ACCEPTED_B5_BLOCKED_NEXT_B9_B11",
   "durable_owners": [
     "content/xizong/knowledge/learner/a3-urinary-block-k-upgrade.json",
     "content/xizong/knowledge/learner/a3-urinary-learning.json",
     "content/xizong/knowledge/learner/a3-urinary-batch01-semantic-audit.json",
-    "content/xizong/knowledge/learner/a3-urinary-batch01-repair-spec.json"
+    "content/xizong/knowledge/learner/a3-urinary-batch01-repair-spec.json",
+    "content/xizong/knowledge/learner/a3-urinary-batch02-semantic-audit.json",
+    "content/xizong/knowledge/learner/a3-urinary-batch02-learning.json"
   ],
   "completed": [
-    "B1-B4 were treated as historical substrate rather than inherited Current Knowledge.",
-    "Original physiology source P257-P296 was re-read against the four canonical Blocks; stable source orphan count is 0 for Batch-01 scope.",
-    "B1-B4 first-pass attention and 20 Logic Groups now cover 67 stable KPs contiguously without identity change.",
-    "B1 canonical owner repaired to Lecture-first and bidirectional TGF: high distal NaCl -> afferent constriction/GFR down; low NaCl -> reduced TGF constriction plus renin handoff.",
-    "B2 canonical owner repaired: classical exam size/charge selectivity retained while nephrin is correctly owned by podocyte slit-diaphragm structural/permselectivity semantics.",
-    "B3 canonical owner repaired: universal K-H urine-pH four-grid removed; context-gated mechanism used instead; stored-RBC potassium mechanism corrected; low-Mg/ROMK preserved.",
-    "B4 canonical owner repaired: first-pass renin Core is perfusion pressure, beta1 sympathetic input and macula-densa NaCl plus AngII negative feedback; context-sensitive low-frequency lists are Precision.",
-    "Batch-01 B1-B4 Block-level Knowledge is PASS for its audited scope only."
+    "B1-B4 Block-level K PASS: 67 KPs / 20 Logic Groups with source revalidation and four named canonical repair areas.",
+    "B6 Block-level K PASS after evidence-first hematuria localization and split-function capability repair.",
+    "B7 Block-level K PASS after original CKD table recovery and separation of stable clinical mechanisms from old ACEi/BP/KRT/PD Source Precision.",
+    "B8 Block-level K PASS after ASB/bacteriuria context, WBC-cast evidence, antibiotic and historical duration/classification boundaries were repaired.",
+    "Accepted A3 scope now covers 7 Blocks / 120 stable KPs."
+  ],
+  "durable_blockers": [
+    "B5 remains BLOCKED: current project Sources do not contain the complete compensation-formula/mixed-acid-base algorithm that the historical B5 owner promises.",
+    "B5 must also inherit the repaired B3 K+/acid-base context model instead of restoring the old universal urine-pH four-grid."
   ],
   "not_done": [
-    "B5-B14 remain historical substrate until their own batches pass.",
+    "B9-B14 remain historical substrate until their batches pass.",
+    "B5 has not been resolved and therefore whole-A3 K cannot close.",
     "A3 system.json has not been created or accepted.",
     "A3 System-level S/K/L/P/R/E/U have not been promoted.",
-    "A3 learner-facing Projection/Runtime has not been accepted.",
-    "SuperSystem design remains intentionally out of scope until the separate line-design discussion resumes."
+    "SuperSystem design remains out of scope until the separate line-design decision resumes."
   ],
-  "source_evidence_note": "The original PDF was located in the Project Library and P257-P296 text/source structure was reviewed. Rendered page-image pixels were unavailable in the current tool surface; canonical Visual Gates therefore preserve exact original-source page routing rather than duplicating or pretending to pixel-audit the figures.",
-  "next_action": "Start A3-K-BATCH-02 with B5-B8. Re-read the actual bound Source first, then audit each historical Block for natural cognition, Logic Group structure, KP lossless coverage, Primary/Recall/Hook/Deferred timing, source conflicts and duplicated owners. Preserve stable identities unless a real semantic defect requires reviewed change. Do not redesign Runtime during this pass.",
+  "next_action": "Audit B9-B11 source-first: glomerular immune mechanism and LM/IF/EM dual-coordinate map, then nephritic and nephrotic branches. Re-read the bound internal-medicine source rather than inheriting historical final-execution labels. Preserve stable identities unless a real semantic defect requires reviewed change. Do not let B5's unresolved acid-base blocker disappear from final A3 closure.",
   "anti_drift": [
     "Historical '最终执行版' labels are not acceptance evidence.",
-    "B1-B4 are accepted Block-level K and should not be reopened without concrete new source or learner evidence.",
-    "Do not replace Lecture-first with pre-Lecture KP testing.",
-    "Do not let B5 clinical acid-base ownership leak backward into B3.",
-    "Do not promote A3 System-level K from partial Block batches.",
+    "Accepted B1-B4/B6-B8 should not be reopened without concrete new source or learner evidence.",
+    "Do not model-fill B5's missing complete acid-base algorithm.",
+    "Do not promote A3 System-level K from partial Block acceptance.",
     "Do not implement SuperSystem before the separate line-design decision is resumed."
   ]
 }
