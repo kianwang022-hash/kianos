@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL;
 const state = inspectTranslationSources();
 const sets = listTranslationSets();
 const first = sets[0] || null;
-const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
+const payload = JSON.stringify(sets).replace(/</g, '\u003c');
 ---
 <Base
   title="Translation"
@@ -62,9 +62,9 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
     )}
 
     <section class="translationPendingHome" data-translation-pending-home hidden>
-      <header><div><span>Verify / Transfer</span><strong>真正等待新材料验证的能力点</strong></div><b data-translation-pending-total>0</b></header>
+      <header><div><span>Verify / Transfer</span><strong>有能力点等待新材料验证</strong></div><b data-translation-pending-total>0</b></header>
       <div data-translation-pending-list></div>
-      <p>下一套材料只有在真正测试到某个 target 时才算 evidence；不相关材料不会为了“刷次数”自动支持或关闭它。</p>
+      <p>为避免提示效应，这里只显示数量，不展示具体弱点。下一套完整 first attempt 锁定后，题内才会显示具体 Pending，再决定是否需要 Chat 判定相关性。</p>
     </section>
 
     {state.status === 'ready' && state.referenceGaps?.length > 0 && (
@@ -114,7 +114,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
       try {
         taskState = JSON.parse(localStorage.getItem(`kianos-translation-attempt-v2:${last.id}`) || 'null');
       } catch {}
-      continueLink.href = last.href || hrefFor(last.id);
+      continueLink.href = hrefFor(last.id);
       const title = root.querySelector('[data-translation-continue-title]');
       const meta = root.querySelector('[data-translation-continue-meta]');
       if (title) title.textContent = last.title || last.id;
@@ -138,13 +138,13 @@ const payload = JSON.stringify(sets).replace(/</g, '\\u003c');
     if (pendingTotal) pendingTotal.textContent = String(pending.length);
     if (pendingList) {
       pendingList.replaceChildren();
-      pending.slice(0, 8).forEach((target) => {
+      if (pending.length) {
         const item = document.createElement('div');
-        const strong = document.createElement('strong'); strong.textContent = target.label || target.id || 'Pending target';
-        const p = document.createElement('p'); p.textContent = target.underlyingDemand || '';
+        const strong = document.createElement('strong'); strong.textContent = '具体 Pending 已隐藏';
+        const p = document.createElement('p'); p.textContent = '先独立完成下一套；第一版锁定后再揭示待验证点。';
         item.append(strong, p);
         pendingList.appendChild(item);
-      });
+      }
     }
 
     const results = root.querySelector('[data-translation-results]');
