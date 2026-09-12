@@ -87,7 +87,7 @@ Post-second-reconciliation evidence:
 
 ```text
 main reconciled at: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
-governance branch vs main: ahead 51 / behind 0
+governance branch vs main: ahead 51 / behind 0 before final evidence writeback
 PR #21 mergeable: true
 ```
 
@@ -177,7 +177,7 @@ manifests: 4
 errors: []
 ```
 
-A5 therefore passes from real execution evidence.
+Final evidence writeback head `3f9ded40077bfbe1732fb0036f4196c5671a6308` was then rechecked by Governance Anti-Entropy run `34687166127`, job `103536053240`; every step completed successfully. A5 therefore passes on the exact landing candidate head.
 
 ---
 
