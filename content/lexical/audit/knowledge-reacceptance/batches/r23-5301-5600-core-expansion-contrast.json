@@ -1,0 +1,257 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.r23_round_checkpoint.v1",
+  "audit_id": "R23_5301_5600_CORE_EXPANSION_CONTRAST",
+  "range": [5301, 5600],
+  "historical_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5584917387,
+    "created_at": "2026-09-08T12:10:56Z",
+    "updated_at": "2026-09-08T12:10:56Z",
+    "frozen_execution_authority": "content/lexical/audit/migration-integrity/r23-authority.md",
+    "counts": {
+      "reviewed": 300,
+      "core": 84,
+      "historical_core_direct_pass": 216,
+      "historical_expansion_owner_targets": 126,
+      "named_surface_groups": 101,
+      "contrast": 69
+    },
+    "metadata_note": "The 126 Expansion target ordinals/owners are coverage metadata. Exact learner acceptance uses 101 explicitly named representative high-transfer surface/family groups."
+  },
+  "bulk_readback": {
+    "authority_freeze_commit": "dc304d7859f48013a4b8115bd435a843f44aacb7",
+    "parser_commit": "239aa750c548da470285cb519c8b6244c7e8f4f3",
+    "workflow_commit": "5e091878a19edd931ae76088fee7e3ebc69e5c04",
+    "workflow_run_id": 34712042885,
+    "job_id": 103602431713,
+    "artifact_id": 10303662426,
+    "artifact": "lexical-r23-bulk-triage",
+    "artifact_digest": "sha256:9635558d62bf6034a9dfd058d1b2a7352f15c5b34d1b2d83bc7920daf353b7c4",
+    "parser_note": "R23 generalized owner metadata recognition to `Exact target ordinal set` and kept same-word form/identity targets (`workout/work out`, intern stress, outskirt/outskirts, Pacific/pacific) out of fake Relation ownership. No semantic mutation is performed by the parser."
+  },
+  "review_model": "dual-track: migration fidelity + latest semantic target under current LEARNING_CONTRACT; historical authority is evidence, not immutable truth",
+  "core": {
+    "current_correct": 18,
+    "defective_or_upgrade_required": 66,
+    "current_correct_indices": [6,7,8,9,21,27,35,66,67,70,72,74,75,76,77,79,82,83],
+    "current_correct_words": ["vocation","voice","void","volume","way","well","while","brood","brook","grocery","honeymoon","materialism","optics","ought","outskirt","pipeline","realize","recognize"],
+    "rule": "all other historical R23 Core targets are defective or require a latest-target upgrade at current evidence",
+    "p0_active_zero_count": 7,
+    "p0_word_ids": ["word:virus","word:visible","word:weed","word:wind","word:woman","word:yawn","word:pluck"],
+    "dead_anchor_count": 0,
+    "severe_examples": {
+      "word:vision": "Current still retains a supernatural apparition branch and rare verb as ordinary Active competition; learner value should center eyesight and strategic/future vision.",
+      "word:vocal": "Current lacks the common outspoken/strongly-expressing-opinions adjective and keeps a musical noun as ordinary Active.",
+      "word:voluntary": "Specialist musical noun remains learner-active instead of lower/domain-marked material.",
+      "word:vulgar": "Historical common-people/vernacular sense remains ordinary Active rather than marked historical/register-lower.",
+      "word:wait": "Rare/dated serve-tables verb remains Active and competes with ordinary waiting.",
+      "word:watt": "Proper-name James Watt remains an ordinary learner sense even though the lexical item should be the electrical-power unit.",
+      "word:weak": "Technical grammatical weak-verb material remains ordinary Active.",
+      "word:web": "Current lacks explicit modern World Wide Web / online-network learner access.",
+      "word:weird": "Archaic fate/destiny noun remains Active alongside the modern strange/uncanny adjective.",
+      "word:what": "Current still fragments a function-word network by POS/context instead of a controlled interrogative/relative/exclamative model.",
+      "word:which": "Current splits selection function into pronoun/adjective rows; latest learner target should avoid POS-only semantic inflation.",
+      "word:whereas": "Legal recital `whereas = considering that` remains ordinary Active instead of domain/register-lower.",
+      "word:whether": "Archaic pronoun-like `which of two` material remains Active.",
+      "word:white": "Human racial/social use is presented as a broad unrestricted taxonomy rather than context-sensitive, neutral identity wording.",
+      "word:widow": "Current still defines widow through husband only instead of a woman whose spouse has died.",
+      "word:will": "Modal `will` is reduced to a simple future marker and does not own intention/willingness or characteristic tendency.",
+      "word:window": "Current lacks the high-value time/opportunity window branch and retains a rare furnishing-with-windows verb.",
+      "word:with": "Current is still split into multiple prepositional micro-senses; target is one broad relation marker with contextual realizations.",
+      "word:witness": "Religious witness material and an awkward time/setting branch remain ordinary Active competition.",
+      "word:wood": "Rare collect/plant-with-wood verbs remain Active.",
+      "word:word": "Computing word remains ordinary Active while the high-value promise/message phraseology needs structural ownership.",
+      "word:worm": "Insult, screw-thread and low-value verb material remain Active and overcompete with animal/computer-worm branches.",
+      "word:would": "Current lacks the modal network for conditionality, polite requests/offers, repeated past habit, preference and polite desire.",
+      "word:zip": "Current overpromotes slang zero/energy and does not cleanly center zipper/fasten, archive/compress, move quickly and ZIP recognition.",
+      "word:bosom": "Chest/breast and inner-feelings uses lack the required old-fashioned/literary/figurative register control.",
+      "word:Englishman": "Current correctly means a man from England but lacks neutral English person guidance where gender is irrelevant.",
+      "word:Fahrenheit": "Current treats Fahrenheit too narrowly as adjectival instead of a temperature-scale name with noun/adjectival use.",
+      "word:haircut": "Current lacks the common finance haircut = reduction in asset value branch.",
+      "word:intern": "Meaning branches exist, but noun-trainee versus verb-detain stress identity is not first-class.",
+      "word:Pacific": "Proper Pacific and lowercase pacific are silently merged under one capitalized owner rather than case-sensitive identities.",
+      "word:railroad": "Current lacks the common figurative verb force/rush through a process unfairly.",
+      "word:seaman": "Gender-specific identity lacks neutral sailor/seafarer guidance."
+    }
+  },
+  "expansion": {
+    "historical_owner_target_count": 126,
+    "authority_unit": "101 explicitly named representative high-transfer learner surface/family groups",
+    "current_correct": 49,
+    "partial_or_presentation_or_wrong_anchor": 15,
+    "authority_missing_from_current": 37,
+    "current_correct_indices": [1,2,3,4,7,8,10,11,12,13,16,17,19,20,21,22,24,25,26,27,29,30,31,32,33,34,36,39,40,42,47,48,51,52,53,54,55,59,60,62,63,64,66,67,68,73,74,77,79],
+    "partial_indices": [6,9,14,23,28,35,37,57,69,70,75,76,87,95,99],
+    "missing_indices": [5,15,18,38,41,43,44,45,46,49,50,56,58,61,65,71,72,78,80,81,82,83,84,85,86,88,89,90,91,92,93,94,96,97,98,100,101],
+    "partial_notes": {
+      "6": "voice concerns is learner-owned; voice opposition is not explicit.",
+      "9": "turn the volume up is present; volume down is not closed.",
+      "14": "wait for is present; wait until is not explicit.",
+      "23": "warm up is present; warm to is absent.",
+      "28": "watch out and watch for are present; watch over is missing.",
+      "35": "World Wide Web exists only as collocation evidence while the modern Web branch is missing from Active learner senses.",
+      "37": "weed out construction exists but word:weed is Active=0, so learner presentation is not healthy.",
+      "57": "wind up exists but word:wind is Active=0; the surface is not accepted as healthy Current presentation.",
+      "69": "Current owns have a word and word for word, but lacks the full historically named high-value word phraseology such as keep one's word / spread the word.",
+      "70": "work on is present; work out and work through are not closed as this family.",
+      "75": "would like and would rather exist, but the broader high-value would modal/construction family is incomplete.",
+      "76": "write down/about/to/back exist; write off/up are missing.",
+      "87": "The honeymoon-period meaning exists as an Active sense, but the lexicalized phrase `honeymoon period` is not first-class surface ownership.",
+      "95": "Current definition says `outskirt` is usually plural `outskirts`, but `on/in the outskirts of` is not first-class construction/form ownership.",
+      "99": "Current realize = achieve/make real supports the meaning, but `realize a goal` is not explicit surface ownership."
+    },
+    "mechanical_readback": {
+      "NO_MATCH_CANDIDATE": 39,
+      "PARTIAL_OR_EQUIVALENT_CANDIDATE": 15,
+      "PRESENT_CANDIDATE": 47
+    },
+    "note": "Mechanical labels are retrieval triage only. Chat classification corrects half-family matches, false lexical overlap, Active=0 presentation, and meaning-present-but-surface-not-owned cases."
+  },
+  "contrast": {
+    "latest_ownership": {
+      "relation_owned": 65,
+      "word_or_identity_or_form_owned": 4
+    },
+    "relation": {
+      "current_correct": 2,
+      "current_correct_indices": [11,26],
+      "partial": 0,
+      "missing": 63,
+      "notes": {
+        "11": "wander/wonder already has a published Current confusable boundary: wander = roam/mind wander, wonder = want to know/be amazed.",
+        "26": "weigh/weight already has a published Current confusable boundary: weigh = verb measure weight, weight = noun heaviness/mass."
+      }
+    },
+    "word_or_identity_or_form": {
+      "current_correct": 0,
+      "partial": 1,
+      "partial_indices": [64],
+      "missing": 3,
+      "missing_indices": [49,62,65],
+      "notes": {
+        "49": "workout/work out is an open/closed form boundary and is not first-class Word/Form identity.",
+        "62": "intern noun/verb stress contrast is not first-class Word/Form identity.",
+        "64": "Current outskirt definition explicitly says the ordinary form is usually plural `outskirts`, but the form/construction boundary is not first-class; therefore partial.",
+        "65": "Proper Pacific and lowercase pacific are merged inside one capitalized Word owner rather than case-sensitive identities."
+      }
+    },
+    "overall": {
+      "current_correct": 2,
+      "partial": 1,
+      "missing": 66
+    },
+    "mechanical_readback": {
+      "RELATION_MISSING_CANDIDATE": 63,
+      "RELATION_PRESENT_CANDIDATE": 2,
+      "SELF_FORM_REVIEW": 4
+    }
+  },
+  "fresh_semantic_judgments": [
+    {
+      "target": "vocation",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current already owns occupation/career plus calling/strong-suitability without malformed prepositional clutter."
+    },
+    {
+      "target": "voice",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current cleanly owns human voice, right/opportunity to express an opinion, and verb voice = express concerns/opinions."
+    },
+    {
+      "target": "void",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current empty-space, empty, cancel/nullify and legally-invalid branches are learner-usable and do not expose specialist excretion as an ordinary competing sense."
+    },
+    {
+      "target": "volume",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current already separates physical capacity, loudness, book volume and quantity without low-value cruft."
+    },
+    {
+      "target": "way",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current method, route, aspect and degree/distance model is compact and learner-usable; additional high-value expressions remain Expansion work."
+    },
+    {
+      "target": "well",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current satisfactory manner, good health, water well, well up and functional interjection are genuine polysemy/functions rather than dictionary micro-sense clutter."
+    },
+    {
+      "target": "while",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current noun period, temporal conjunction and contrast conjunction already match the productive learner branches; while away remains separate Expansion."
+    },
+    {
+      "target": "brood / brook",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current owns both semantic branches for each word; the fixed surfaces brood over and brook no ... remain separate Expansion debt."
+    },
+    {
+      "target": "grocery / honeymoon / materialism / optics / pipeline",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current already includes the intended modern semantic branches for these words without the historical low-value clutter; missing fixed phrases remain Expansion-level only."
+    },
+    {
+      "target": "ought",
+      "decision": "CURRENT_ALREADY_BETTER",
+      "latest": "Current distinguishes duty/advice from expectation/probability; the main remaining debt is modal-auxiliary structural presentation (`ought to`, `ought to have`) rather than Core meaning."
+    },
+    {
+      "target": "outskirt/outskirts",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Keep the ordinary learner identity plural `outskirts`; singular `outskirt` is uncommon recognition. Current meaning is right but needs first-class form/construction ownership."
+    },
+    {
+      "target": "which / with",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Do not split learner semantics solely by pronoun/adjective or prepositional context. Model a selection-function network for which and a broad relation-marker network for with."
+    },
+    {
+      "target": "white / widow",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Use context-sensitive neutral race/social wording for white and define widow through spouse rather than husband-only wording."
+    },
+    {
+      "target": "will / would / wish",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Treat modal/function networks structurally: will = prediction/intention/tendency; would = past-future/conditional/polite/habit/preference/desire; wish = desire plus counterfactual/regret constructions."
+    },
+    {
+      "target": "woman / Englishman / seaman",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Keep accurate sex/gender-specific lexical identity while removing partner-role conflation and supplying neutral alternatives when gender is irrelevant."
+    },
+    {
+      "target": "intern",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Own noun trainee with initial stress versus verb detain/confine with final stress as first-class Word/Form identity; medical intern is a domain application of trainee."
+    },
+    {
+      "target": "Pacific/pacific",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Separate proper Pacific ocean/region from lowercase pacific = peaceful/peace-making as case-sensitive identities rather than merging them under one headword presentation."
+    },
+    {
+      "target": "Fahrenheit",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Own Fahrenheit as a scale name with noun/adjectival use and the ordinary degrees Fahrenheit / Fahrenheit scale patterns."
+    },
+    {
+      "target": "railroad",
+      "decision": "UPGRADE_TARGET",
+      "latest": "Add the common figurative verb meaning force or rush someone/something through a process without fair choice or deliberation, alongside AmE railway noun."
+    }
+  ],
+  "direct_pass_calibration": {
+    "sample_size": 12,
+    "ordinals": [5301,5333,5359,5386,5416,5442,5476,5502,5524,5549,5570,5599],
+    "words": ["violet","wage","waterfall","welcome","whole","witch","wrist","advertisement","conserve","immigrate","midday","rotary"],
+    "new_systematic_core_defects": 0,
+    "interpretation": "The calibrated historical Core-direct-pass sample did not expose a new systematic lifecycle/Core failure class. Existing Expansion/Contrast debt on sampled words remains separately governed."
+  },
+  "semantic_mutation_performed": 0,
+  "learner_state_mutation_performed": 0,
+  "stage_conclusion": "R23 audit/target coverage complete, not repaired. K remains BLOCKED. Natural Owner / Relation semantic mutation remains deferred until consolidated repair inventory closure."
+}
