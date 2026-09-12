@@ -11,17 +11,28 @@
 ## Root Work Cursor
 
 **Active scope:** KianOS governance redesign  
-**Current stage:** root governance integration after Project Definition / Architecture draft  
-**Blocker:** none at root; lane migration intentionally not started globally  
-**Next action:** select one pilot scope, audit its `CURRENT` / continuation / Artifact / Acceptance / Learner boundaries, then run Fresh Chat + Truth Separation tests before wider migration.
+**Current stage:** final governance acceptance before latest-main reconciliation / landing  
+**Blocker:** governance A5 anti-entropy lint has been implemented but still needs real execution evidence; A3 has one known latest-main Politics overlap requiring explicit reconciliation before merge  
+**Next action:** execute the governance anti-entropy audit in a real PR/CI context, update `GOVERNANCE_ACCEPTANCE.md` from that evidence, then reconcile the governance ownership changes against latest `main` without overwriting newer Politics Artifact work. Rerun A1–A6 on the reconciled candidate before any merge.
+
+### Completed migration boundary
+
+The governance redesign has already migrated the normal Current / Acceptance ownership model for:
+
+- English Objective / Translation / Writing;
+- Xizong;
+- LexicalOS;
+- Politics.
+
+Narrative continuation files in those audited paths are retired from normal authority. This line is a migration boundary only, not a lane-progress summary.
 
 ### Frozen / out of scope for this root task
 
-- no bulk continuation retirement yet;
-- no mass rewrite of lane/sub-lane Current files yet;
-- no learning-content/source semantic rewrite;
+- no learning-content/source semantic rewrite under governance authority;
 - no private learner-state mutation;
-- no merge to `main` before governance acceptance.
+- no broad lane feature work;
+- no reopening of accepted domain cognition merely to simplify governance;
+- no merge to `main` before `GOVERNANCE_ACCEPTANCE.md` is merge-ready on a latest-main-reconciled candidate.
 
 ---
 
@@ -32,6 +43,7 @@ Highest-level owners:
 - project requirements / invariants → `PROJECT_DEFINITION.md`
 - project architecture → `ARCHITECTURE.md`
 - worker routing / operating rules → `AGENTS.md`
+- governance acceptance / merge-readiness evidence → `GOVERNANCE_ACCEPTANCE.md`
 
 Repository-wide learning/platform standards:
 
