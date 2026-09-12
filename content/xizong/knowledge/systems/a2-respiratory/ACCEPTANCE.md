@@ -15,7 +15,7 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ```text
 S  PASS
-K  UNTESTED
+K  PASS
 L  PASS
 P  UNTESTED
 R  UNTESTED
@@ -25,16 +25,21 @@ U  UNTESTED by every real learner path
 
 Allowed conclusion:
 
-> **A2 Source and Learning gates are accepted for the recorded scope; Knowledge, Projection, Runtime, Evidence and all User Validation paths remain UNTESTED under the current acceptance sequence.**
+> **A2 Source, Knowledge and Learning gates are accepted for the recorded scope. Projection, Runtime, Evidence and every real User Validation path remain UNTESTED. This does not mean Kian has started or completed Respiratory.**
 
 ---
 
 ## Current evidence boundary
 
 - **S PASS** — Current owner model exists and A2 official System scope is exactly **359** Current Question Truth IDs with fail-closed identity/count/hash validation in the accepted source boundary.
-- **K UNTESTED** — Current Artifact includes one A2 System owner + **12 canonical Blocks / 236 stable KPs**, but latest-root K content closure has not yet been re-established from actual canonical content. File presence / prior reputation cannot promote K.
+- **K PASS** — the current System owner and all **12 canonical Blocks / 236 stable KPs** were boundedly re-audited against the current canonical content boundary. Stable Block/KP identity was preserved. The audit found real semantic conflicts and closed them at their owning layer rather than suppressing the gate:
+  - **R9** — the Lecture's sildenafil `cAMP↑` statement is retained only as provenance; learner-canonical mechanism is **PDE5 inhibition → cGMP↑ → pulmonary vascular smooth-muscle relaxation**.
+  - **R10** — drug/hypersensitivity-related pleural inflammation is learner-canonical **exudative** pleural effusion; the conflicting transudate table entry is retained only as provenance.
+  - **R11** — the previous 2026 carcinoid-syndrome Source Gap is closed by repo Question Truth `xizong-official-2026-n129`, whose verified reference answer is **C｜小细胞癌**; the narrower single-choice answer does not erase the broader Lecture pairing.
+  - **R12** — complete modern ICU/ventilator expansion is explicitly **EXTERNAL_SCOPE**, not a promised but missing stable Knowledge unit.
+  - The System owner now records no formal source gap and stores the three resolved source-closure records. No unresolved stable-content marker remains in the audited R9–R12 repairs; earlier R1–R8 bounded anomaly scan produced no concrete reopen evidence.
 - **L PASS** — the accepted Xizong learning constitution, detailed shared study policy and `a2-respiratory-learning.json` define the direct **12-Block / 62-Logic-Group** first-learning route, Lecture-first contact, KP Recall, Block Recall, System Recall before questions, W/U repair and post-question Recall. These are acceptance evidence; the rules themselves remain owned by their learning owners.
-- **P/R/E UNTESTED** — these gates wait for K content-closure reconfirmation and subsequent bounded Module E2E acceptance.
+- **P/R/E UNTESTED** — implementation existence is not acceptance evidence. The next gate is P; R and E remain downstream until their turn.
 - **U UNTESTED** — no engineering state can promote learner progress.
 
 ---
@@ -42,14 +47,16 @@ Allowed conclusion:
 ## Current acceptance sequence
 
 ```text
-A2 K — content-closure reconfirm from canonical System + Block medical Core
-↓ only after K PASS
-A2 P / R / E — bounded Module E2E acceptance
+A2 P — learner-facing Projection / attention-timing acceptance
+↓ only after P PASS
+A2 R — Runtime transition / repair-return acceptance
+↓ only after R PASS
+A2 E — private Evidence persistence / closure acceptance
 ↓
 real U only when Kian actually uses the named learner path
 ```
 
-Do not advance downstream because implementation already exists.
+Do not advance a downstream gate because implementation already exists.
 
 ---
 
