@@ -1,0 +1,58 @@
+{
+  "schema": "kianos.politics.marxism_source_review.v1",
+  "status": "CURRENT_REVIEW_COMPLETE",
+  "scope": "MARXISM_CH00_TO_CH08",
+  "review_rule": "This file records human-reviewed Source/Knowledge dispositions only. It does not rewrite canonical OCR truth and it does not convert child-node OCR noise into learner content.",
+  "root_ocr_dispositions": {
+    "POL27-CF-MARX-C00-K06": {
+      "status": "APPROVED_OCR_BOUNDARY",
+      "normalized_label": "考点6 马克思主义的当代价值",
+      "reason": "The owner id, section placement, page boundary and semantic subtree are stable; the root OCR contains only a trailing stray glyph (风)."
+    },
+    "POL27-CF-MARX-C01-K02": {
+      "status": "APPROVED_OCR_BOUNDARY",
+      "normalized_label": "考点2 物质范畴及其理论意义",
+      "reason": "The owner id, page boundary and semantic subtree are stable; the root OCR contains only trailing X glyph noise."
+    },
+    "POL27-CF-MARX-C02-K03": {
+      "status": "COVERED_BY_ACCEPTED_K03_SOURCE_GATE",
+      "normalized_label": "考点3 对立统一规律",
+      "reason": "K03 already passed its dedicated Source gate with canonical node and question evidence; do not reopen it in the batch root-review queue."
+    },
+    "POL27-CF-MARX-C02-K09": {
+      "status": "APPROVED_OCR_BOUNDARY",
+      "normalized_label": "考点9 必然和偶然",
+      "reason": "The root title, owner boundary and descendant semantic material are readable and stable; review status reflects local OCR/segmentation uncertainty rather than a missing source owner."
+    },
+    "POL27-CF-MARX-C05-K10": {
+      "status": "APPROVED_OCR_BOUNDARY",
+      "normalized_label": "考点10 资本积累",
+      "reason": "The root title and page boundary are stable and the descendant source material supports the Current capital-accumulation teaching chain; local OCR review remains metadata only."
+    },
+    "POL27-CF-MARX-C07-K05": {
+      "status": "APPROVED_OCR_BOUNDARY",
+      "normalized_label": "考点5 20世纪社会主义制度对人类历史发展的巨大贡献",
+      "reason": "The root title and source boundary are stable; the earlier whole-subject semantic scan found no missing same-level teaching relation here."
+    }
+  },
+  "suyi_delta_review": {
+    "status": "COMPLETE",
+    "scope": "ALL_SUYI_REFS_DECLARED_BY_CURRENT_MARXISM_CHAPTERS",
+    "decision": "NO_SECOND_COURSE",
+    "rule": "Suyi is a background cross-check. Only stable teaching value missing from the Chengfeng-first Current projection is admitted.",
+    "admitted_deltas": [
+      {
+        "natural_unit_id": "POL27-CF-MARX-C01-S01",
+        "delta": "Restore dialectics versus metaphysics as the third judgment axis beside materialism/idealism and knowability.",
+        "status": "FIXED_IN_CURRENT"
+      },
+      {
+        "natural_unit_id": "POL27-CF-MARX-C06-S01",
+        "delta": "Restore monopoly profit as the mechanism linking monopoly position, surplus-value source, monopoly-price realization and the continuing validity of the law of value.",
+        "status": "FIXED_IN_CURRENT"
+      }
+    ],
+    "remaining_units": "REVIEWED_NO_ADDITIONAL_STABLE_TEACHING_DELTA"
+  },
+  "acceptance_boundary": "Child table/example/tip nodes may retain source_bound_ocr_needs_review without blocking whole-subject Source acceptance when the Natural Unit owner remains resolvable and learner semantics do not depend on the corrupt fragment."
+}

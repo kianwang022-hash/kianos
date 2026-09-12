@@ -19,7 +19,7 @@ function questionIdSet(unit) {
   return new Set(asList(unit?.questions).map((question) => String(question?.id || '')).filter(Boolean));
 }
 
-export function buildPoliticsUnitReturnConfigs(chapter) {
+function manualUnitReturnConfigs(chapter) {
   const repairProjection = chapter?.repairProjection || {};
   const evidenceBlocks = Object.values(repairProjection)
     .filter((value) => value && typeof value === 'object')
@@ -81,9 +81,70 @@ export function buildPoliticsUnitReturnConfigs(chapter) {
       nodes,
       learner_state: 'PENDING_ATTEMPT_EVIDENCE',
       mastery_claim: 'NONE',
+      evidence_precision: 'CANONICAL_NODE_MAPPING',
+      evidence_basis: 'APPROVED_REPAIR_PROJECTION',
       interpretation: 'STABLE means clean first-attempt evidence in this pass only; it is not long-term mastery.'
     });
   }
+  return configs;
+}
+
+function safeNaturalUnitConfig(chapter, unit) {
+  const expectedQuestionIds = asList(unit?.questions)
+    .map((question) => String(question?.id || ''))
+    .filter(Boolean);
+  if (!expectedQuestionIds.length) return null;
+
+  const naturalUnitId = String(unit?.unitId || asList(unit?.representedNaturalUnitIds)[0] || '');
+  if (!naturalUnitId) return null;
+  const linkedCount = Number(unit?.linkedQuestionRefCount || expectedQuestionIds.length);
+  const deferredCount = Math.max(0, linkedCount - expectedQuestionIds.length);
+
+  return {
+    schema: 'kianos.politics.unit_return_projection.v1',
+    unit_key: `${String(chapter?.subject || '')}/${String(chapter?.code || chapter?.chapter || '')}/${naturalUnitId}`,
+    subject: String(chapter?.subject || ''),
+    chapter: String(chapter?.code || chapter?.chapter || ''),
+    natural_unit_id: naturalUnitId,
+    runtime_unit_id: String(unit?.unitId || naturalUnitId),
+    title: String(unit?.title || naturalUnitId),
+    source_anchor: `source-${String(unit?.unitId || naturalUnitId)}`,
+    expected_question_ids: expectedQuestionIds,
+    expected_question_count: expectedQuestionIds.length,
+    current_node_edge_count: expectedQuestionIds.length,
+    nodes: [{
+      node_id: naturalUnitId,
+      label: String(unit?.title || naturalUnitId),
+      question_ids: expectedQuestionIds,
+      current_question_count: expectedQuestionIds.length,
+      owner_question_count: expectedQuestionIds.length + deferredCount,
+      deferred_question_count: deferredCount
+    }],
+    learner_state: 'PENDING_ATTEMPT_EVIDENCE',
+    mastery_claim: 'NONE',
+    evidence_precision: 'NATURAL_UNIT_SAFE_FALLBACK',
+    evidence_basis: 'CURRENT_NATURAL_UNIT_OWNERSHIP+FORMAL_FIRST_READY',
+    interpretation: 'STABLE means clean first-attempt evidence in this pass only; it is not long-term mastery. Natural-Unit precision is used when finer question-to-node evidence has not been source-validated.'
+  };
+}
+
+export function buildPoliticsUnitReturnConfigs(chapter) {
+  const manual = manualUnitReturnConfigs(chapter);
+  if (String(chapter?.subject || '') !== 'marxism') return manual;
+
+  const manuallyOwnedUnitIds = new Set(manual.flatMap((config) => [
+    String(config?.natural_unit_id || ''),
+    String(config?.runtime_unit_id || '')
+  ]).filter(Boolean));
+  const configs = [...manual];
+
+  for (const unit of asList(chapter?.units)) {
+    const ids = representedUnitIds(unit);
+    if ([...ids].some((id) => manuallyOwnedUnitIds.has(id))) continue;
+    const config = safeNaturalUnitConfig(chapter, unit);
+    if (config) configs.push(config);
+  }
+
   return configs;
 }
 
@@ -194,6 +255,7 @@ export function evaluatePoliticsUnitReturn(config, snapshot) {
     pending_question_ids: pendingQuestionIds,
     nodes,
     mastery_claim: 'NONE',
+    evidence_precision: String(config?.evidence_precision || ''),
     interpretation: String(config?.interpretation || 'This-pass evidence only; not long-term mastery.')
   };
 }

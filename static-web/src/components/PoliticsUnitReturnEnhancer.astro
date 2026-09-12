@@ -114,8 +114,11 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       nodeList.append(row);
     }
 
-    const guard = make('p', 'politicsUnitReturnGuard', 'STABLE 只表示这轮首次作答没有暴露缺口，不等于长期掌握；后续延后题和新材料仍可更新证据。');
-    const continueButton = make('button', 'politicsUnitReturnContinue', '继续第一节 →');
+    const precisionCopy = config.evidence_precision === 'NATURAL_UNIT_SAFE_FALLBACK'
+      ? '当前按 Natural Unit 做安全收口；没有经过 Source 验证的更细节点不会被系统假装出来。'
+      : '当前按已验证的 canonical node 做收口。';
+    const guard = make('p', 'politicsUnitReturnGuard', `STABLE 只表示这轮首次作答没有暴露缺口，不等于长期掌握。${precisionCopy}`);
+    const continueButton = make('button', 'politicsUnitReturnContinue', '继续学习 →');
     continueButton.type = 'button';
     continueButton.setAttribute('data-unit-return-continue', '');
     continueButton.addEventListener('click', () => {
@@ -161,8 +164,9 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     const summary = section.querySelector('[data-unit-return-summary]');
     if (summary) {
       const completed = `${evaluation.completed_question_count} / ${evaluation.expected_question_count}`;
+      const nodeCount = evaluation.nodes.length;
       summary.textContent = evaluation.unit_state === 'STABLE'
-        ? `${completed} 首次作答证据已齐；4 个节点本轮都没有暴露缺口。`
+        ? `${completed} 首次作答证据已齐；${nodeCount} 个证据节点本轮都没有暴露缺口。`
         : `${completed} 首次作答证据已齐；${repairCount} 个节点需要修复，${uncertainCount} 个节点仍不确定。`;
     }
 
@@ -179,9 +183,7 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     }
 
     const continueButton = section.querySelector('[data-unit-return-continue]');
-    if (continueButton) {
-      continueButton.textContent = evaluation.unit_state === 'STABLE' ? '继续第一节 →' : '修完后继续第一节 →';
-    }
+    if (continueButton) continueButton.textContent = evaluation.unit_state === 'STABLE' ? '继续学习 →' : '修完后继续 →';
     syncRepairReturnLink(config, evaluation, section);
   };
 
