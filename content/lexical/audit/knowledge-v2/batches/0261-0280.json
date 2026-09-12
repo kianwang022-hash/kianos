@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 261, "end": 280},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 8, "REVISE": 12, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":261,"word":"argue","verdict":"REVISE","target_truth":"Preserve three useful centers: argue with/about/over=disagree or quarrel; argue that/for/against=present reasons or maintain a position; and evidence/results argue for/against/that=provide evidence suggesting a conclusion. Collapse duplicate constructions for argue with and argue that. Replace low-value/unnatural learner prominence of 'argue sb/sth to be...' with natural evidence/claim patterns. Keep the valid argue↔indicate contrast on the evidential sense."},
+    {"ordinal":262,"word":"argument","verdict":"REVISE","target_truth":"Center argument=reason/case offered in support of a position and argument=disagreement/quarrel. Keep computing argument as lower specialized recognition where useful. Downgrade literary 'summary/plot argument'. Fix the word-family binding: argument=reason must not point to argue=quarrel; bind derivation to the reasoning/claim sense of argue."},
+    {"ordinal":263,"word":"arise","verdict":"REVISE","target_truth":"Center arise=happen/emerge/start to exist and arise from=result from. Keep arise=get up only as formal/older recognition rather than an equal main branch."},
+    {"ordinal":264,"word":"arithmetic","verdict":"PASS","target_truth":"Single ordinary noun meaning basic number calculation/arithmetic is correct and sufficient."},
+    {"ordinal":265,"word":"arm","verdict":"REVISE","target_truth":"Keep body arm, chair/supporting arm application, arms=weapons, and arm=provide with weapons/equipment. Add the common abstract branch arm=branch/division of an organization (e.g. research/commercial arm), which is a high-value familiar-word extension currently missing."},
+    {"ordinal":266,"word":"army","verdict":"PASS","target_truth":"Keep military land force and figurative an army of people=large organized/collective group; both are ordinary and coherent."},
+    {"ordinal":267,"word":"around","verdict":"REVISE","target_truth":"Build a compact learner map around spatial surrounding/circularity, nearby/distributed movement, and high-value around≈approximately/about. Ensure the L1 approximate sense participates in Core/Recall rather than sitting outside it. Do not turn phrasal-verb meanings such as come around into independent lexical senses of around, and demote circumference-only residue."},
+    {"ordinal":268,"word":"arouse","verdict":"REVISE","target_truth":"Restore Active arouse=evoke/cause a feeling, reaction, interest, suspicion, etc. as the primary branch; preserve transitive wake/rouse someone as another branch. Treat sexual arousal as a specific application of physiological/emotional stimulation rather than deleting all ordinary senses or elevating it as an isolated center. Intransitive 'wake up' is lower/rare recognition."},
+    {"ordinal":269,"word":"arrange","verdict":"REVISE","target_truth":"Center two ordinary axes: arrange objects=put in order and arrange an event/action=make plans. Include high-value arrange for sth / arrange for sb to do sth within the planning branch. Keep musical arrange/adapt at lower recognition. Fold organize-thoughts/events examples back into the appropriate order/planning centers rather than maintaining a redundant fourth sense."},
+    {"ordinal":270,"word":"array","verdict":"REVISE","target_truth":"Separate array=ordered arrangement/technical array from an array of X=a wide/impressive range or collection. Current 'an array of options' is attached to both branches, creating duplicate ownership. Keep verb array=arrange/deploy at lower recognition."},
+    {"ordinal":271,"word":"arrest","verdict":"REVISE","target_truth":"Keep legal arrest verb/noun, figurative arrest=stop/check progress, and arrest attention=catch/hold attention. Remove the duplicate secondary_sense for arrest attention because that meaning is already Active."},
+    {"ordinal":272,"word":"arrival","verdict":"PASS","target_truth":"Keep arrival=act of arriving and arrival=person/thing newly arrived; current hierarchy and patterns are coherent."},
+    {"ordinal":273,"word":"arrive","verdict":"REVISE","target_truth":"Keep physical arrive at/in a place and abstract arrive at a decision/conclusion/answer=reach or form a result. Do not define the abstract arrive-at pattern as 'achieve success or fame'; that is a different, less central use. Collapse overlapping arrive at/in construction objects into one clear grammar boundary plus the abstract reach-result construction."},
+    {"ordinal":274,"word":"arrogant","verdict":"PASS","target_truth":"Single ordinary adjective meaning excessively self-important/haughty is correct and sufficiently represented."},
+    {"ordinal":275,"word":"arrow","verdict":"PASS","target_truth":"Keep projectile arrow and arrow-shaped directional symbol; both are common and clearly distinguished."},
+    {"ordinal":276,"word":"art","verdict":"PASS","target_truth":"Keep creative art and art=skill/craft (the art of doing sth); both are high-value and coherent."},
+    {"ordinal":277,"word":"artefact","verdict":"REVISE","target_truth":"Keep human-made historical/cultural object and scientific artefact=artificial result/phenomenon. Add explicit artifact↔artefact spelling knowledge and make the common American spelling artifact searchable/recognizable; Current catalog search found no separate word:artifact owner or spelling relation."},
+    {"ordinal":278,"word":"artery","verdict":"PASS","target_truth":"Keep anatomical artery and figurative major route/traffic artery; metaphorical extension is clear and useful."},
+    {"ordinal":279,"word":"article","verdict":"PASS","target_truth":"Keep article=piece of writing, individual item/object, provision/section of a formal document, and grammatical article. These are distinct but all common enough to merit recognition; no forced false semantic merge is required."},
+    {"ordinal":280,"word":"articulate","verdict":"REVISE","target_truth":"Center adjective articulate=able to express ideas clearly and verb articulate=express clearly. Keep anatomical articulate/connect by joints only as specialized recognition. Remove the duplicate joint sense_id in Core and do not let anatomy compete with the ordinary communication Word Feel."}
+  ],
+  "relation_truth": [
+    {"source_word":"argue","relation":"argue ↔ indicate","verdict":"PASS","target_truth":"Preserve on the evidential sense: argue can mean that evidence/reasoning supports or suggests a conclusion, whereas indicate is a more neutral show/suggest verb."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "A search for an independent word:artifact owner or an existing artifact/artefact spelling relation returned no Current match, so spelling closure is part of artefact target truth."
+  ]
+}
