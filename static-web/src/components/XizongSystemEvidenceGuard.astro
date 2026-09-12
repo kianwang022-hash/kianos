@@ -1,5 +1,28 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
+
 const { system, sweep } = Astro.props;
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
+
+const blockEvidenceRows = (system?.blocks || []).map((block) => {
+  const sourcePath = String(block?.sourcePath || '');
+  let source = '';
+  try {
+    source = sourcePath ? fs.readFileSync(path.join(repoRoot, sourcePath), 'utf8') : '';
+  } catch {
+    source = `MISSING:${sourcePath}`;
+  }
+  return [block?.blockId || '', sourcePath, source].join('~');
+}).join('|');
+let blockEvidenceHash = 2166136261;
+for (let index = 0; index < blockEvidenceRows.length; index += 1) {
+  blockEvidenceHash ^= blockEvidenceRows.charCodeAt(index);
+  blockEvidenceHash = Math.imul(blockEvidenceHash, 16777619) >>> 0;
+}
+
 const evidenceRows = (sweep?.questions || []).map((question) => [
   question.questionId,
   question.correctAnswer,
@@ -18,6 +41,8 @@ for (let index = 0; index < evidenceRows.length; index += 1) {
 }
 const evidenceVersion = [
   system?.sourceHash || '',
+  system?.learningSupport?.sourceHash || '',
+  blockEvidenceHash.toString(16),
   sweep?.scopeHash || '',
   sweep?.questionInventoryHash || '',
   questionEvidenceHash.toString(16)
