@@ -26,8 +26,7 @@ if (rows.length !== ids.size) {
 }
 
 const rawSnippets = Object.fromEntries([...ids].map((id) => {
-  const needle = `\"id\": \"${id}\"`;
-  const index = raw.indexOf(needle);
+  const index = raw.indexOf(id);
   if (index < 0) throw new Error(`RAW_ID_NOT_FOUND:${id}`);
   return [id, raw.slice(Math.max(0, index - 120), Math.min(raw.length, index + 2200))];
 }));
