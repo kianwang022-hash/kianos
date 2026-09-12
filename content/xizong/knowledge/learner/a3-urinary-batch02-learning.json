@@ -1,0 +1,54 @@
+{
+  "schema": "kianos.xizong.system_learning_support.v1",
+  "status": "PARTIAL_BATCH_ACCEPTED",
+  "authority": "CHAT_APPROVED_UPGRADE_WORK",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "batch": "A3-K-BATCH-02",
+  "scope": ["urinary-b06", "urinary-b07", "urinary-b08"],
+  "excluded_block": {"id":"urinary-b05","status":"BLOCKED_SOURCE_OWNER_DECISION_REQUIRED","rule":"B5 is not represented as accepted learning support until its acid-base Source/owner blocker is resolved."},
+  "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
+  "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
+  "rule": "This sidecar is a temporary batch support object. It may organize first-pass attention, Logic Group closure and Block compression but cannot override medical Core. It must be consolidated into the eventual A3 learning owner after all A3 Block batches close; it is not a permanent parallel semantic owner.",
+  "identity": {"stable_block_count":3,"stable_kp_count":53,"logic_group_count":16,"stable_block_or_kp_identity_change":false,"logic_group_ranges_frozen":true},
+  "blocks": {
+    "urinary-b06": {
+      "first_pass_focus": "把尿液当成从肾小球到尿道留下的证据：先认蛋白/RBC/WBC/管型是什么，再定位结构，最后才进疾病名。",
+      "stop_line": "这里只学证据—位置—功能语言；AKI/CKD、UTI、肾小球病和泌外疾病的完整诊疗留给各自后续 Block。",
+      "recall_spine": "蛋白尿机制 → 血尿来源证据 → WBC/管型 → 总功能/分侧功能 → 尿三杯 → 病因分支",
+      "logic_groups": {
+        "urinary-b06-lg01": {"kp":[1,6],"label":"尿液证据地图与蛋白尿","goal":"把肾小球漏、小管回收失败、溢出负荷和分泌/组织性蛋白尿放回各自第一故障层。","closure":"看到尿蛋白谱时先能判断来源机制，而不是直接跳疾病名。"},
+        "urinary-b06-lg02": {"kp":[7,9],"label":"血尿来源证据","goal":"用RBC形态、RBC管型和伴随蛋白/肾炎证据判断是否支持肾小球来源，并取消疾病名直接定来源的捷径。","closure":"能说明为什么肾盂肾炎/TB可血尿但不自动等于肾小球源性血尿。"},
+        "urinary-b06-lg03": {"kp":[10,12],"label":"脓尿与管型定位","goal":"区分尿中有细胞与细胞在肾小管内形成管型，并掌握五类管型的结构提示。","closure":"看到RBC/WBC和管型组合时，能判断证据来自尿路还是更支持肾实质。"},
+        "urinary-b06-lg04": {"kp":[13,15],"label":"总功能、分侧功能与尿三杯","goal":"分开总肾功能、定量分肾功能、解剖/排泄侧别和出血时间定位四类问题。","closure":"能说清Cr/BUN、肾图、CTU/IVU和尿三杯各自真正回答什么。"},
+        "urinary-b06-lg05": {"kp":[16,16],"label":"证据到疾病分支算法","goal":"把前面证据压成位置和功能判断，再路由到AKI/CKD、感染、肾小球病或泌外分支。","closure":"面对未知尿检病例能先缩小结构搜索空间，而不是靠疾病名称记忆。"}
+      }
+    },
+    "urinary-b07": {
+      "first_pass_focus": "把肾功能失败放到时间轴和第一故障层：急性先找肾前/肾性/肾后，慢性再看清除与内分泌双重失败，最后判断何时需要KRT。",
+      "stop_line": "不在这里重学完整肾小球病、梗阻病因、贫血/PTH系统或现代透析指南；旧Study数字保留为Precision，不抢稳定机制主线。",
+      "recall_spine": "急慢性 → AKI三层 → 肾前vsATN → AKI时间轴/诊断 → CKD系统失败 → 分期/保护 → KRT决策",
+      "logic_groups": {
+        "urinary-b07-lg01": {"kp":[1,3],"label":"急慢性与AKI第一故障","goal":"先判时间，再把AKI定位到灌注、肾实质或尿路出口，并用保Na/浓缩能力区分肾前与ATN。","closure":"能从少尿/Cr升高病例指出第一故障层，而不是只说AKI。"},
+        "urinary-b07-lg02": {"kp":[4,7],"label":"AKI时间轴与确认","goal":"理解少尿/维持和多尿恢复阶段为什么危险不同，并掌握诊断时间窗、GFR评估与活检边界。","closure":"能解释危险如何从高K/水中毒切换到低K/感染，并知道如何确认AKI。"},
+        "urinary-b07-lg03": {"kp":[8,12],"label":"CKD清除失败与内分泌失败","goal":"把毒素累积、贫血/出血和CKD-MBD压回肾单位长期丢失的两类功能失败。","closure":"面对贫血、骨病、心衰等CKD表现时能回到肾脏第一机制，而不是背并发症名单。"},
+        "urinary-b07-lg04": {"kp":[13,16],"label":"慢性证据、分期与残余肾保护","goal":"用病程/肾大小/慢性后果判断CKD，以GFR正式分期，并区分RAAS保护机制与Study旧数字。","closure":"能恢复G1-G5主轴，并知道Scr旧四档、旧BP和ACEI禁忌数字只是Source Precision。"},
+        "urinary-b07-lg05": {"kp":[17,20],"label":"KRT升级决策","goal":"从难治内环境/容量/尿毒症器官损害决定是否进入KRT，再按患者与场景选择IHD/CRRT/PD。","closure":"不会把单个Cr/BUN或‘严重AKI禁PD’当作现代通用开关，能完成完整KRT决策链。"}
+      }
+    },
+    "urinary-b08": {
+      "first_pass_focus": "先定位感染在膀胱还是已到肾实质，再判断为什么会复杂化/复发；菌落数、疗程和药名只服务于这个位置—风险模型。",
+      "stop_line": "肾结核留K13，结石/BPH/梗阻留K12，脓毒症完整复苏留感染系统；旧分类/疗程/影像金标准作为306 Precision，不写成永恒临床规则。",
+      "recall_spine": "上行感染/病原 → 复杂化条件 → ASB/菌尿证据 → 膀胱vs肾实质 → 治疗/复发 → 慢性小管损害",
+      "logic_groups": {
+        "urinary-b08-lg01": {"kp":[1,4],"label":"感染入口、病原与复杂化","goal":"建立上行感染主链和病原—场景挂钩，并把复杂化归因于尿流/结构/反流/器械/宿主风险。","closure":"能解释为什么某些尿感更容易持续、上行或复发，而不是只背‘男性=复杂性’。"},
+        "urinary-b08-lg02": {"kp":[5,7],"label":"ASB与细菌尿证据","goal":"分开无症状菌尿、炎症证据和培养证据，给10^5与女性2次/男性1次正确适用情境。","closure":"不会用10^5作为所有有症状UTI的绝对排除阈值，也知道ASB何时值得治疗。"},
+        "urinary-b08-lg03": {"kp":[8,10],"label":"膀胱还是肾实质","goal":"用全身反应、肾区体征和肾实质支持证据定位上/下尿路，并完成先留标本后立即治疗的动作顺序。","closure":"能把WBC管型当支持证据而非必需条件，完成膀胱炎与肾盂肾炎定位。"},
+        "urinary-b08-lg04": {"kp":[11,13],"label":"疗程、复发与抗菌药边界","goal":"掌握Study的3d/7d/2w/6w/6mo与药名考点，同时知道它们属于Source Precision和情境化选择。","closure":"能按位置、宿主和复发模式解释为什么疗程升级，并知道氨基糖苷不是所有UTI绝对禁用。"},
+        "urinary-b08-lg05": {"kp":[14,15],"label":"慢性肾盂肾炎与小管损害","goal":"从反复上尿路感染推到瘢痕/不对称/集合系统变形，再解释为何小管浓缩和酸化先受损。","closure":"能把慢性肾盂肾炎首先定位成小管—间质病，不拿>6个月或IVU金标准替代机制。"},
+        "urinary-b08-lg06": {"kp":[16,17],"label":"尿道综合征与最终感染算法","goal":"区分普通细菌性尿感与尿道综合征，并把并发症、梗阻/源控制风险纳入最终定位。","closure":"面对尿路刺激征能完成位置→证据→复杂化→治疗/源控制风险，而不是止于‘尿感’。"}
+      }
+    }
+  },
+  "closure": "B6-B8 PASS_BLOCK_LEVEL_K; B5 remains excluded and BLOCKED. This sidecar must be consolidated when the A3 natural System learning owner is later created."
+}
