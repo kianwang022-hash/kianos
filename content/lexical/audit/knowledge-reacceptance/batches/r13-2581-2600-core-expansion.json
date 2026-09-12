@@ -1,0 +1,34 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R13 ordinals 2581-2600",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5581086274",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2581,"word_id":"word:insurance","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"P0","current":"Core correctly says insurance, but arrangement/insurance-business/insurance-premium rows are all deprecated/reference-only and senses array is empty","approved_target":"preserve insurance arrangement and business senses; insurance premium is a phrase/price paid for insurance rather than an independent insurance sense"},
+    {"ordinal":2587,"word_id":"word:intellectual","classification":"CORE_LANDING_INCOMPLETE","current":"adjective and noun are Active, but learner noun remains narrowly defined as a person who uses the mind creatively","approved_target":"noun = 知识分子; a person whose main interests/work involve ideas, scholarship, or cultural activity"},
+    {"ordinal":2597,"word_id":"word:intercourse","classification":"CORE_LANDING_INCOMPLETE","current":"sexual-activity sense is now Active L1 and general social dealings is correctly marked old-fashioned formal L2, but Core still defines the word as communication/interaction between people and social sense remains sort_order 0 ahead of sexual sense","approved_target":"modern ordinary English foregrounds sexual intercourse; general interaction must be explicitly formal/old-fashioned and secondary"},
+    {"ordinal":2600,"word_id":"word:interface","classification":"AUTHORITY_MISSING_FROM_CURRENT","current":"noun boundary/computer/interaction senses are Active, but no verb or construction interface with exists","approved_target":"add common verb/construction interface with = connect, interact, or coordinate with a system/team, especially technical/organizational use"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:integrity","classification":"PRESENTATION_ONLY_GAP","approved_target":"data integrity; structural integrity","current":"data integrity exists exactly; structural integrity is absent"},
+    {"word_id":"word:intellectual","classification":"CURRENT_CORRECT","approved_target":"intellectual property","current":"exact Active collocation intellectual property exists"},
+    {"word_id":"word:intend","classification":"PRESENTATION_ONLY_GAP","approved_target":"be intended for + sb/sth; be intended to do","current":"be intended for sb/sth exists exactly; intend to do exists, but passive be intended to do is not explicitly represented"},
+    {"word_id":"word:interest","classification":"PRESENTATION_ONLY_GAP","approved_target":"of interest; in the interest(s) of + sth","current":"exact construction in the interest(s) of sth exists; no of interest entry is present"},
+    {"word_id":"word:interface","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"interface with + system/team","current":"no interface-with verb/construction is present"}
+  ],
+  "summary": {
+    "core_decisions_checked": 4,
+    "core_current_correct": 0,
+    "core_defective": 4,
+    "expansion_owner_groups_checked": 5,
+    "expansion_current_correct": 1,
+    "expansion_partial_or_presentation_gap": 3,
+    "expansion_full_landing_gap": 1,
+    "new_p0_reproduced": ["word:insurance"]
+  },
+  "next": "R13 Core + Expansion reconciliation coverage is complete through ordinal 2600. Build/record the aggregate R13 Core+Expansion summary, then reconcile the 45 R13 Contrast targets separately. Do not mutate Natural Owners yet."
+}
