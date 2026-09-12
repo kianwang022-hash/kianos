@@ -1,0 +1,30 @@
+name: Static Web A2 Knowledge Structure QA
+
+on:
+  pull_request:
+    paths:
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-k-audit.json'
+      - 'static-web/src/lib/xizong.mjs'
+      - 'static-web/scripts/validate-a2-knowledge-structure.mjs'
+      - '.github/workflows/static-web-a2-k-structure-qa.yml'
+
+jobs:
+  a2-k-structure:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout current synthetic merge
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate A2 Knowledge structural evidence
+        run: node scripts/validate-a2-knowledge-structure.mjs
