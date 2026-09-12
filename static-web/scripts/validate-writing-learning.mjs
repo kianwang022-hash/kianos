@@ -7,8 +7,10 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 const pagePath = path.join(repoRoot, 'static-web/src/pages/writing-learn.astro');
 const homePath = path.join(repoRoot, 'static-web/src/pages/index.astro');
+const englishHubPath = path.join(repoRoot, 'static-web/src/pages/english.astro');
 const page = fs.readFileSync(pagePath, 'utf8');
 const home = fs.readFileSync(homePath, 'utf8');
+const englishHub = fs.readFileSync(englishHubPath, 'utf8');
 const projection = loadWritingLearningProjection();
 const failures = [];
 
@@ -76,18 +78,22 @@ requireCheck(page.includes("kianos:writing:first-learning:position:v1"), 'PRIVAT
 requireCheck(page.includes("kianos:writing:first-learning:synthetic-gate:v1"), 'PRIVATE_SYNTHETIC_GATE_STATE_MISSING');
 requireCheck(page.includes('它们不是 mastery evidence，也不会自动开放真题'), 'SYNTHETIC_CHECKBOX_EVIDENCE_WARNING_MISSING');
 
-// The learner must be able to find First Learning without the home surface pretending the whole Writing module is Ready.
-requireCheck(home.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'HOME_NOT_BOUND_TO_WRITING_PROJECTION');
-requireCheck(home.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
-requireCheck(home.includes('English · Writing First Learning'), 'HOME_WRITING_LABEL_MISSING');
-requireCheck(home.includes('synthetic-first') && !home.includes('Writing · Ready'), 'HOME_FALSE_WRITING_READINESS_CLAIM');
+// Capability-first discoverability: the global home enters English, then English exposes Writing + First Learning.
+// Do not couple Writing acceptance to a specific global-home card layout.
+requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_CAPABILITY_ENTRY_MISSING');
+requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
+requireCheck(englishHub.includes('href={`${base}writing/`}') && englishHub.includes('WRITING · active generation'), 'WRITING_CAPABILITY_NOT_DISCOVERABLE');
+requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
+requireCheck(englishHub.includes('Global Map → B1–B8'), 'WRITING_FIRST_LEARNING_LABEL_MISSING');
+requireCheck(home.includes("inspectWritingSyntheticTasks") && home.includes("writingRuntime.status === 'ready'"), 'HOME_FALSE_WRITING_READINESS_CLAIM');
+requireCheck(!englishHub.includes('S/K/L · accepted') && !englishHub.includes('U · learner validation'), 'ACCEPTANCE_DASHBOARD_LEAKED_TO_ENGLISH_HUB');
 
 // P should expose the owner material needed to learn, but must not falsely claim Runtime/Evidence closure.
 requireCheck(page.includes('Whole-Essay Productive Runtime'), 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
 requireCheck(!page.includes('PASS/ACCEPTABLE') && !page.includes('TRANSFER_PENDING'), 'RUNTIME_STATE_MACHINE_LEAKED_INTO_FIRST_LEARNING_UI');
 
 const report = {
-  schema: 'kianos.english.writing.projection-gate-validation.v1',
+  schema: 'kianos.english.writing.projection-gate-validation.v2',
   gate: 'P',
   pass: failures.length === 0,
   sourcePath: projection.sourcePath,
@@ -108,6 +114,7 @@ const report = {
     skillMapLaterDiagnostic: true,
     trueExamCatalogProtected: true,
     answerTextEphemeral: true,
+    capabilityFirstDiscoverability: true,
     discoverableWithoutFalseReadiness: true,
     runtimeNotClaimed: true
   },
