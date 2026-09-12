@@ -4,13 +4,37 @@ on:
   push:
     branches: [main]
     paths:
+      - 'LEARNING_ACCEPTANCE.md'
       - 'content/politics/**'
-      - 'static-web/**'
+      - 'static-web/package.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/global.css'
+      - 'static-web/src/styles/runtime.css'
+      - 'static-web/src/styles/politics*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-qa.yml'
   pull_request:
     paths:
+      - 'LEARNING_ACCEPTANCE.md'
       - 'content/politics/**'
-      - 'static-web/**'
+      - 'static-web/package.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/global.css'
+      - 'static-web/src/styles/runtime.css'
+      - 'static-web/src/styles/politics*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
       - '.github/workflows/static-web-politics-qa.yml'
 
 jobs:
