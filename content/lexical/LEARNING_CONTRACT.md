@@ -34,6 +34,22 @@ Lexical learning must project from Current Natural Owners:
 
 If interaction exposes a semantic gap or error, repair the Natural Owner. If a generated question is bad, repair or discard the question rather than changing lexical truth to fit the question.
 
+## Content completeness vs review selectivity
+
+LexicalOS must keep **learning completeness** separate from **review admission**.
+
+The durable rule is:
+
+`complete learning object != permanent review burden`
+
+For a learner-worthy word, the first-pass Depth object may be rich. It should preserve the full high-value semantic/use-space needed for real comprehension and production: Core / Word Feel, important senses, familiar-new senses, genuine polysemy, constructions, phrase skeletons, useful collocations/phraseology, material contrast boundaries, and learner-relevant form/register distinctions.
+
+**Core is a compression layer, not the whole word. Expansion is a first-class semantic/use-space layer, not optional decoration.** Do not reduce cognitive load by deleting learner-worthy Expansion. Control load through hierarchy, scanability, selective Reveal structure, and evidence-driven Repair.
+
+Review remains selective: only the smallest unstable lexical objects should enter active Repair / Challenge / Memory. A learner may therefore inspect a rich word once while only one missed familiar-new sense, one construction, or one contrast becomes future review debt.
+
+Detailed content-asset quality and semantic-upgrade acceptance are governed by `content/lexical/CONTENT_ASSET_CONTRACT.md`.
+
 ## Main learner loop: Depth Scan
 
 The default vocabulary action is **one rich word card, one fast deep scan**. Do not turn every sense, construction, or relation into a separate mandatory card.
@@ -69,7 +85,9 @@ Default order:
 1. Core / Word Feel — a compact mental model that helps compress the word;
 2. high-value learner meanings matching the Recall Map;
 3. important constructions / phrase skeletons attached to the relevant meaning where possible;
-4. necessary confusable or contrast boundary only when it materially improves recognition or selection.
+4. useful collocations / phraseology when they materially improve access or production;
+5. necessary confusable or contrast boundary only when it materially improves recognition or selection;
+6. learner-relevant form / register / usage notes when they change interpretation or use.
 
 A genuinely rich familiar word may be deep. Do **not** impose an arbitrary small sense cap merely to keep every card visually identical. The constraint is learning value and scanability, not dictionary completeness.
 
