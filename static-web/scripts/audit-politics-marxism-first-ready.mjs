@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
 import { listPoliticsChapterPathsCurrent } from '../src/lib/politicsRuntimeFirstReady.mjs';
 import { loadPoliticsChapterCurrent as loadBase } from '../src/lib/politicsRuntimeFirstReady.mjs';
 import {
@@ -42,6 +45,25 @@ function fail(message) {
   process.exitCode = 1;
 }
 
+function objectiveQuestionIds() {
+  const repoRoot = process.env.KIANOS_REPO_ROOT
+    ? path.resolve(process.env.KIANOS_REPO_ROOT)
+    : path.resolve(process.cwd(), '..');
+  const root = path.join(repoRoot, 'content/politics/source/questions/shards/marx');
+  const ids = [];
+  for (const [kind, code] of [['single', 'S'], ['multiple', 'M']]) {
+    const dir = path.join(root, kind);
+    for (const name of fs.readdirSync(dir).filter((entry) => entry.endsWith('.json')).sort()) {
+      const shard = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'));
+      for (const row of Object.values(shard)) {
+        const number = Number(row?.number || 0);
+        if (number > 0) ids.push(`X1000-MARX-${code}-${String(number).padStart(3, '0')}`);
+      }
+    }
+  }
+  return [...new Set(ids)].sort();
+}
+
 const diagnostics = marxismFirstReadyDiagnostics();
 if (diagnostics.missingRegions.length) fail(`missing regions: ${diagnostics.missingRegions.join(', ')}`);
 if (diagnostics.orderedUnitIds.length !== Object.keys(EXPECTED_COUNTS).length) {
@@ -52,6 +74,9 @@ for (const [unitId, expected] of Object.entries(EXPECTED_COUNTS)) {
   const actual = Number(diagnostics.counts[unitId] || 0);
   if (actual !== expected) fail(`${unitId} first-ready count ${actual}/${expected}`);
 }
+
+const unownedObjective = objectiveQuestionIds().filter((id) => !marxismFirstReadyOwnerForQuestion(id));
+if (unownedObjective.length) fail(`unowned objective questions: ${unownedObjective.join(',')}`);
 
 const seen = new Map();
 const runtimeByUnit = new Map();
