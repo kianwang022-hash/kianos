@@ -20,13 +20,11 @@
 ```text
 latest reconciled main: eebdffe30b94b178b1f65d14f35dd2e6c29dbdb8
 latest bounded reconciliation: dc86645ff1069d67027e9743680dac8226822032
-branch vs reconciled main: ahead 51 / behind 0 before final evidence writeback
+exact landing candidate head: 3e9546ea557aaa473f83a9edd9f77af91daa0adf
 PR #21: mergeable = true
-Governance Anti-Entropy run: 34687047450
-Governance job: 103535741826
+Governance Anti-Entropy final run: 34687195678
+Governance final job: 103536135147
 result: PASS
-checks: 192
-errors: 0
 ```
 
 The reconciliation retained newer Politics History Artifact work while preserving the governance Current / Acceptance ownership split and retired continuation boundary.
@@ -69,7 +67,7 @@ Do not aggregate all lane upgrades into a second root mega-migration. Shared inf
 - no broad lane feature work;
 - no reopening accepted domain cognition merely to simplify governance;
 - no CI optimization project merely because public hosted runners are now available;
-- no merge to `main` before exact landing-head governance PASS and explicit merge authorization.
+- no merge to `main` before explicit merge authorization.
 
 ---
 
