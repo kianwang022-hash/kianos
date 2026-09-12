@@ -15,19 +15,19 @@ It does not own project requirements, architecture, lane Artifact Truth, lane Ac
 ```text
 A1 Fresh Chat            PASS
 A2 Truth Separation      PASS
-A3 Parallel Chat         PASS_WITH_DEBT
+A3 Parallel Chat         PASS
 A4 Owner Uniqueness      PASS
-A5 Three-month Entropy   BLOCKED
+A5 Three-month Entropy   BLOCKED_BY_EXECUTION_ENVIRONMENT
 A6 Learning Closure      PASS
 
 MERGE TO MAIN            NOT_READY
 ```
 
-Current blockers to governance landing:
+Current blocker to governance landing:
 
-1. add the smallest anti-entropy lint justified by the observed continuation / duplicate-owner failures;
-2. reconcile the governance branch against latest `main`, with a real overlapping Politics write-set;
-3. rerun this acceptance after reconciliation before any merge.
+> the minimal anti-entropy gate exists, but GitHub-hosted execution has twice failed before runner allocation (`steps=[]`), and the current container cannot resolve GitHub DNS for an exact local checkout. No lint assertion has executed yet.
+
+Do not convert this environment blocker into either PASS or a governance defect.
 
 ---
 
@@ -86,42 +86,40 @@ No shared repository Work Cursor owns private learner progress.
 
 ---
 
-# A3｜Parallel Chat Test — PASS_WITH_DEBT
-
-Structural result: **PASS**.
+# A3｜Parallel Chat Test — PASS
 
 The redesign permits lane-local work and does not require root status writes for ordinary lane progress. A branch being behind `main` is not itself a defect.
 
-Observed real concurrency case during this migration:
+## Real concurrency case exercised
 
-```text
-governance branch: ahead 38 / behind 18 relative to main
-```
-
-Reverse compare of governance branch → latest `main` shows the new main-side file set is concentrated in Politics:
+While governance work continued, `main` advanced by 18 commits. The true main-side overlap was concentrated in Politics:
 
 - Politics QA workflow;
 - Politics continuation;
 - Marxism/History audit and learning evidence;
 - Politics Unit Return runtime/evidence implementation.
 
-English / Xizong / Lexical do not appear in that current main-side overlap set.
+English / Xizong / Lexical were not in that latest-main overlap set.
+
+The conflict was reconciled without restarting the governance work:
+
+1. governance routing/owner tree remained the base;
+2. 13 exact Politics Artifact blobs from main commit `3409db7acfe74fdd8205927f6d39c285970811a7` were overlaid unchanged;
+3. `content/politics/continuation.json` was intentionally not restored because its latest current facts had already been extracted into `content/politics/CURRENT.md` and `content/politics/ACCEPTANCE.md`;
+4. merge commit `2e4b7b978bc87a6514e472bed6684af73ba44909` has both the governance head and latest-main head as parents.
+
+Post-reconciliation evidence:
+
+```text
+governance branch vs main: ahead 46 / behind 0
+PR #21 mergeable: true
+```
 
 This demonstrates the intended rule:
 
-> unrelated main progress does not invalidate the whole governance branch; reconcile only real overlapping owners/write-sets.
+> unrelated main progress does not invalidate the whole branch; reconcile only actual overlapping owners/write-sets while preserving newer parallel Artifact work.
 
-### Remaining debt before merge
-
-Politics is a **real overlap** because governance also changes Politics Current/Acceptance/manifest/continuation ownership while latest `main` advanced Politics implementation and continuation state.
-
-The governance owners have already been refreshed from latest-main Politics state without copying its implementation into this branch. Final landing still requires an explicit conflict/reconciliation step so that:
-
-- latest-main Politics Artifact work survives unchanged;
-- governance `CURRENT / ACCEPTANCE` ownership survives;
-- the old narrative continuation retires only after its latest-main current facts are represented in the new owners.
-
-Therefore A3 is `PASS_WITH_DEBT`, not merge-ready PASS.
+A3 therefore passes.
 
 ---
 
@@ -165,13 +163,13 @@ Current owner model after migration:
 - Work Cursor → `content/politics/CURRENT.md`
 - Acceptance Truth → `content/politics/ACCEPTANCE.md`
 - source/learning/runtime remain natural Artifact owners
-- old continuation → retired tombstone and removed from manifest owner map on the governance branch
+- old continuation → retired tombstone and removed from manifest owner map
 
 Retired compatibility paths are pointers only and are not competing owners.
 
 ---
 
-# A5｜Three-month Entropy Test — BLOCKED
+# A5｜Three-month Entropy Test — BLOCKED_BY_EXECUTION_ENVIRONMENT
 
 The structural redesign directly removes the observed entropy mechanisms:
 
@@ -183,19 +181,51 @@ The structural redesign directly removes the observed entropy mechanisms:
 - rules inherit from root rather than being copied into each lane;
 - Git history preserves retired narrative without keeping it hot in normal reasoning.
 
-However Architecture migration step 9 explicitly requires the **smallest anti-entropy lint justified by observed failures** before final governance acceptance.
+## Minimal anti-entropy guard now implemented
 
-That lint does not yet exist on this branch.
+- script → `tools/governance_current_audit.py`
+- workflow → `.github/workflows/governance-anti-entropy.yml`
 
-Minimum justified checks should defend only observed failure classes, such as:
+The guard deliberately checks only observed failure classes:
 
-1. lane/root `CURRENT.md` growing into a historical/completed-work narrative;
-2. a `continuation.*` returning as a normal owner / mandatory Fresh-Chat hop without explicit narrow machine responsibility;
-3. a retired continuation being listed again by a Current manifest;
-4. required Current/Acceptance target paths being missing;
-5. obvious engineering→learner-state wording leakage in Current owners.
+1. required Current / Acceptance owners exist;
+2. Current files remain bounded and do not regain known narrative-status-log structures;
+3. retired continuation / legacy acceptance paths remain `RETIRED`, `authority=NONE`, `normal_read=false`;
+4. Current manifests do not point back to retired continuation / acceptance paths;
+5. numbered Required-reads lists do not make continuation a mandatory hop.
 
-Do not build a governance platform or schema registry merely to pass A5.
+It does not inspect domain semantics or learner mastery.
+
+## Execution evidence
+
+PR #21 head initially triggered Governance Anti-Entropy run `34678774566`.
+
+First job:
+
+```text
+job 103513328146
+conclusion: failure
+steps: []
+logs: unavailable
+```
+
+One bounded rerun was requested. Rerun job:
+
+```text
+job 103513462017
+conclusion: failure
+steps: []
+```
+
+No checkout, Python setup, or audit assertion executed in either attempt.
+
+A local exact-head fallback was also attempted, but the current container could not resolve `github.com`, so the branch could not be checked out for truthful local execution.
+
+Therefore:
+
+> **A5 is not a lint failure. A5 is also not PASS. It is blocked because no execution environment has actually run the gate.**
+
+Do not weaken the acceptance rule merely to finish governance.
 
 ---
 
@@ -219,17 +249,18 @@ Therefore governance routing did not convert engineering completion into learnin
 
 # Merge rule
 
-Do **not** merge this governance branch merely because A1/A2/A4/A6 pass.
+PR #21 remains draft and mergeable, but **not merge-ready**.
 
-Required sequence:
+Required remaining evidence:
 
 ```text
-implement smallest A5 anti-entropy lint
-→ rerun static governance audit
-→ reconcile latest main (Politics overlap is real)
-→ reread exact conflict owners
-→ rerun A1–A6 on reconciled candidate
-→ only then consider merge
+an execution environment actually runs Governance Anti-Entropy
+→ audit assertions PASS
+→ reread exact governance owners at that head
+→ confirm A1–A6 still hold
+→ only then mark governance merge-ready
 ```
+
+If `main` advances again before that point, repeat only the bounded overlap reconciliation required by changed owner/write-sets; do not restart unrelated lane governance.
 
 `main@HEAD` remains the durable shared Current after accepted landing. This draft branch is an execution surface only.
