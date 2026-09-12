@@ -1,6 +1,6 @@
 # KianOS Project Definition
 
-Status: DRAFT — governance redesign branch
+Status: CURRENT — accepted top-level project definition
 
 This document is the highest-level product-definition owner for KianOS.
 
