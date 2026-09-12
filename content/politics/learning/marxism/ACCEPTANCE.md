@@ -5,9 +5,71 @@ Scope: Marxism whole subject + accepted K03 pilot
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Marxism scoped Acceptance Truth
 
-This file owns current readiness claims for Marxism.
+This file owns current S/K/L/P/R/E/U readiness claims for Marxism.
 
 It does not own political Source Truth, teaching content, Politics learning/interaction semantics, Work Cursor, or Kian's private learner progress.
+
+---
+
+## Whole-subject gate status
+
+Scope: all Current Marxism chapters / **22 Natural Units / 396 unique formal-first-ready Xiao questions**
+
+```text
+S  PASS
+K  PASS
+L  PASS
+P  PASS
+R  PASS
+E  PASS
+U  UNTESTED   ← learner-only
+```
+
+Allowed conclusion:
+
+> **Marxism is module-ready for learner test: S/K/L/P/R/E are accepted. U remains UNTESTED until Kian actually uses a named learner path.**
+
+Do not promote this to learner-validated and do not infer that Kian has studied Marxism from repository state.
+
+---
+
+## Executed acceptance evidence
+
+### S/K/L/P — PASS
+
+Accepted content + formal first-ready projection execution:
+
+- workflow: `Static Web Politics QA`
+- run: #362 (`34706407418`)
+- accepted evidence head: `22f72a3fc741e45d1776d6e5ebdf008e18914705`
+- `Audit Politics canonical coverage` → **PASS**
+- `Audit Xiao1000 semantic chapter routing` → **PASS**
+- `Prove scoped Politics source loading without monoliths` → **PASS**
+- `Audit K03 canonical knowledge closure` → **PASS**
+- `Audit Marxism batch content closure` → **PASS**
+- `Audit Marxism global first-ready parity` → **PASS**
+- `Audit K03 learning and projection closure` → **PASS**
+
+The accepted projection keeps chapter projection protocol and whole-subject first-ready ownership as separate facts: `projectionMode` remains the chapter protocol, while Marxism global first-ready uses its own metadata. The 396 formal questions have a unique accepted first-ready location; sidecar deferrals remain explicit rather than being hidden by runtime reassignment.
+
+### R/E — PASS
+
+The same accepted run executed:
+
+- `Audit K03 runtime and evidence closure` → **PASS**
+- `Audit Marxism runtime and evidence closure` → **PASS**
+- `Validate Politics Current bindings` → **PASS**
+- `Build Astro` → **PASS**
+
+Whole-subject Runtime/Evidence acceptance covers **22 Unit Return configs / 396 unique emitted evidence questions**. K03 retains canonical node-level precision; the remaining Marxism Natural Units use the accepted Natural-Unit-safe fallback rather than inventing unsupported fine-grained mappings.
+
+Runtime/Evidence preserves the first meaningful attempt, rejects duplicate overwrite and out-of-scope evidence, keeps STABLE / UNCERTAIN / REPAIR distinct, does not manufacture mastery, and keeps durable Wrong/Uncertain review debt separate from private clean-attempt snapshots.
+
+### Final K03 compatibility repair
+
+The final red was not a learner-runtime defect. Whole-subject Runtime correctly exposes three `ch02` Unit Return configs (`S01`, embedded `K03`, `S02`), while the older K03 pilot audit still asserted that the entire chapter could expose only one config.
+
+Commit `22f72a3fc741e45d1776d6e5ebdf008e18914705` narrowed that assertion to the real invariant: **exactly one K03 config**. It did not delete the valid S01/S02 configs or weaken the whole-subject 22-config acceptance rule. The complete Politics QA then passed through production build.
 
 ---
 
@@ -25,87 +87,22 @@ E  PASS
 U  UNTESTED
 ```
 
-Allowed conclusion:
+K03 preserves Chengfeng mainline, Suyi reference role, Xiao1000 validation role, formal first-ready timing, stable-correct zero debt, smallest repair, and Unit Return without manufacturing mastery.
 
-> **Marxism K03 is Module ready for learner test; U remains UNTESTED.**
-
-Accepted path preserves Chengfeng mainline, Suyi reference role, Xiao1000 validation role, formal first-ready timing, stable-correct zero debt, smallest repair, and Unit Return without manufacturing mastery.
-
-K03 does not make the whole subject ready and does not prove Kian has studied or attempted it.
+Its accepted pilot state is now a strict subset of the accepted whole-subject Marxism boundary; it still does not prove Kian has studied or attempted K03.
 
 ---
 
-## Whole-subject gate status
-
-Scope: all Current Marxism chapters / **22 Natural Units / 396 unique formal-first-ready Xiao questions**
+## Stage boundary
 
 ```text
-S  PASS
-K  PASS
-L  FAIL
-P  UNTESTED
-R  UNTESTED
-E  UNTESTED
-U  UNTESTED
+S/K/L/P/R/E  CLOSED
+U            UNTESTED, learner-only
 ```
 
-Allowed conclusion:
+No engineering stage remains active for whole-subject Marxism. New engineering work requires new concrete evidence that reopens the responsible gate.
 
-> **Whole Marxism Source/Knowledge content closure is accepted. The earliest unresolved whole-subject gate is now L because the executable global first-ready parity assertion failed. P/R/E remain frozen downstream; U remains UNTESTED.**
-
-### Accepted S/K evidence
-
-The previous whole-subject content red was diagnosed to `content/politics/learning/marxism/ch02.json`:
-
-- `source_bindings.natural_unit_ids` still declared K03 as a top-level Natural Unit;
-- the Current learning projection had already embedded K03 inside `POL27-CF-MARX-C02-S01` via `embedded_natural_unit_ids`;
-- the content audit therefore produced `UNIT_DECLARATION_PROJECTION_MISMATCH` even though K03 content itself remained intact.
-
-Commit `e558a9951ef4e314c3eff87bd939df1e29d029ac` removed only the stale top-level K03 declaration. K03 remains embedded in S01 and its accepted pilot S–E state was not reopened.
-
-Politics QA run #348 (`34700709835`) then executed:
-
-- Politics canonical coverage — PASS
-- Xiao1000 semantic chapter routing — PASS
-- scoped Politics source loading — PASS
-- History acceptance assertions — PASS
-- K03 canonical knowledge closure — PASS
-- **Marxism batch content closure — PASS**
-- **Marxism global first-ready parity — FAIL**
-- later Marxism learning/runtime/evidence assertions — SKIPPED
-
-The dedicated content-closure audit checks canonical-region presence, Chengfeng/Suyi source resolution, Current learner representation/renderability, required `core_problem` / `closure_cue`, and declaration/projection consistency. Its successful execution is the accepted whole-subject S/K closure evidence.
-
-The later first-ready failure is downstream evidence and does not reopen accepted S/K without a concrete contradiction.
-
----
-
-## Current Artifact candidate boundary
-
-Current implementation includes:
-
-- completed manual Source/Suyi review candidate;
-- learner-facing semantic teaching projections across the whole subject;
-- **22-unit / 396-question** global first-ready candidate logic;
-- whole-subject zero-debt Unit Return / first-attempt Evidence candidates.
-
-Artifact completeness is not downstream Acceptance PASS.
-
----
-
-## Acceptance sequence
-
-```text
-S/K content closure PASS + durable seal
-→ diagnose exact global first-ready parity red at L
-→ repair only the earliest responsible L owner
-→ rerun L
-→ only after L PASS may P unlock
-→ R and E remain staged downstream
-→ U only from real named learner paths
-```
-
-Do not use K03 success to promote the whole subject, and do not reopen S/K from a downstream failure without concrete upstream contradiction evidence.
+U cannot be accepted from CI, code, simulated attempts, screenshots, architecture discussion, or repository state.
 
 ---
 
@@ -118,11 +115,11 @@ Do not use K03 success to promote the whole subject, and do not reopen S/K from 
 - lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
 - Marxism teaching projection / source review → `content/politics/learning/marxism/`
-- learner runtime → Politics surfaces under `static-web/`
+- learner runtime/evidence implementation → Politics surfaces under `static-web/`
 - acceptance harness → Politics QA workflow + Marxism audit scripts
 
 ### Learner Truth
 
 Private browser / Return Packet / conversation evidence only.
 
-> **K03 S–E PASS does not mean Kian attempted K03; whole-subject S/K PASS does not manufacture learner progress.**
+> **Marxism is ready for learner test; it is not yet learner-validated.**
