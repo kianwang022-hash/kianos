@@ -136,9 +136,7 @@ export function applyMarxismGlobalFirstReady(chapter, subject) {
   return {
     ...chapter,
     units,
-    projectionMode: chapter?.projectionMode
-      ? `${chapter.projectionMode}+MARXISM_GLOBAL_LAST_NECESSARY_OWNER`
-      : 'MARXISM_GLOBAL_LAST_NECESSARY_OWNER'
+    marxismGlobalFirstReadyMode: 'LAST_NECESSARY_OWNER_WITH_SIDECAR_DEFERRALS'
   };
 }
 
