@@ -1,110 +1,100 @@
 {
   "schema": "kianos.xizong.block_semantic_audit.v1",
-  "status": "IN_PROGRESS",
-  "authority": "CHAT_REVIEWED_WITH_EXTERNAL_MEDICAL_ADJUDICATION",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_REVIEWED_WITH_SOURCE_REVALIDATION_AND_EXTERNAL_MEDICAL_ADJUDICATION",
   "system_id": "urinary",
   "batch": "A3-K-BATCH-01",
   "scope": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
-  "rule": "Historical Study-bound content is useful substrate but is not automatically Current medical truth. Only named conflicts/gaps are changed; stable source-aligned Core is preserved. External references adjudicate conflicts and do not authorize encyclopedic expansion beyond the exam-learning owner.",
+  "scope_boundary": "This PASS closes Block-level Knowledge for B1-B4 only. It does not promote A3 System-level S/K/L/P/R/E/U, does not create system.json, and does not settle SuperSystem design.",
+  "rule": "Historical Study-bound content was treated as substrate rather than inherited Current truth. Stable source-aligned Core was preserved; named source conflicts or missing mechanism halves were adjudicated narrowly before Current closure.",
+  "source_revalidation": {
+    "source_title": "27精编生理合集【带导图】.pdf",
+    "ai_readable_source": "生理学讲义_AI阅读版.md",
+    "reviewed_pdf_pages": [257, 296],
+    "block_bindings": {
+      "urinary-b01": "P257-P266",
+      "urinary-b02": "P267-P274",
+      "urinary-b03": "P275-P279 + P293-P296",
+      "urinary-b04": "P280-P292"
+    },
+    "stable_source_orphan_count": 0,
+    "unrouted_stable_learning_value_count": 0,
+    "visual_gate_rule": "Original figures/tables remain source-owned and are routed by exact lecture-page gates in the canonical Blocks. The audit verified the source page ranges and required visual-route ownership; rendered page-image pixels were unavailable in the current Project tool surface, so this audit does not claim pixel-level figure inspection.",
+    "lossless_meaning": "Lossless means the union of KP Core + timing/routing + required original-source visual gates preserves the stable learning value of the bound Lecture. It does not mean copying source errors or reproducing the Lecture as a second textbook."
+  },
   "findings": [
     {
       "id": "A3-B01-KG01",
       "block_id": "urinary-b01",
       "kp_id": "urinary-b01-kp12",
       "type": "MISSING_STABLE_MECHANISM_HALF",
-      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
-      "historical_state": "The historical TGF section teaches the low distal NaCl -> renin/AngII preservation side in detail, but does not explicitly close the reciprocal high distal NaCl -> afferent constriction -> lower single-nephron GFR feedback side; searches for high-NaCl direction in the canonical historical Block returned no match.",
-      "adjudication": "Current B1 must teach TGF as a two-direction negative-feedback loop. Increased NaCl delivery at the macula densa increases afferent arteriolar resistance and reduces single-nephron GFR, with renin suppressed; decreased NaCl delivery relaxes the afferent response and stimulates renin release through macula-densa/JGA signaling. The renin/AngII axis is related but must not replace the acute afferent TGF mechanism.",
-      "learning_boundary": "Do not expand into full purinergic/prostaglandin signaling in first pass. The stable first-pass model is sensor -> afferent tone/GFR plus low-NaCl renin handoff.",
-      "sources": [
-        {"title": "Macula Densa Sensing and Signaling Mechanisms of Renin Release", "source": "PMC4577295", "support": "Names high distal NaCl-induced afferent vasoconstriction as TGF and low NaCl-induced renin release as two major JGA functions."},
-        {"title": "Renal blood flow and oxygenation", "source": "PMC9338895", "support": "States high macula-densa NaCl triggers afferent contraction and reduced filtration, while low NaCl leads to afferent dilation."}
-      ],
-      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+      "adjudication": "Teach bidirectional TGF: macula-densa NaCl increase -> afferent constriction -> single-nephron GFR down with renin suppression; NaCl decrease -> reduced afferent TGF constriction/support of GFR plus renin/RAAS handoff. Keep TGF distinct from glomerulotubular balance.",
+      "canonical_commit": "d8ccf7d9256c2da86708b969e876a643ae75e627",
+      "status": "APPLIED"
     },
     {
       "id": "A3-B02-SC01",
       "block_id": "urinary-b02",
       "kp_id": "urinary-b02-kp02",
       "type": "SOURCE_CLASSIFICATION_CONFLICT",
-      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
-      "historical_state": "The historical Block explicitly preserves a Study placement of nephrin reduction inside an electrostatic/charge-barrier explanation rather than adjudicating the molecular role.",
-      "adjudication": "Nephrin is learner-canonical as a core structural/signaling component of the podocyte slit diaphragm whose disruption impairs glomerular permselectivity/protein restriction. Do not teach nephrin loss itself as the mechanism of losing a negative charge barrier. The exam-source size/charge-selectivity model may remain, but the anatomic/molecular basis of charge selectivity is more nuanced and is not reduced to nephrin or a single GBM charge layer.",
-      "learning_boundary": "First pass keeps three layers + size/selectivity + classical charge-selectivity language needed for the exam, but uses nephrin only on the slit-diaphragm structural axis. No modern filtration-barrier literature review belongs in the learner Core.",
-      "sources": [
-        {"title": "Nephrin--a unique structural and signaling protein of the kidney filter", "pmid": "17766183", "doi": "10.1016/j.molmed.2007.06.006", "support": "Nephrin is a central slit-diaphragm component forming part of a porous molecular sieve."},
-        {"title": "Molecular basis of glomerular permselectivity", "pmid": "11458036", "support": "Describes nephrin/slit diaphragm as central to size-selective filtration."},
-        {"title": "Revisiting the glomerular charge barrier in the molecular era", "pmid": "18660676", "doi": "10.1097/MNH.0b013e32830464de", "support": "Supports that charge-selectivity biology is not adequately represented by a simplistic single-layer negative-charge account."}
-      ],
-      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+      "adjudication": "Keep exam-useful classical size/charge selectivity, but place nephrin on the podocyte slit-diaphragm structural/permselectivity axis rather than teaching nephrin loss itself as loss of a negative-charge barrier.",
+      "canonical_commit": "abcf6efcc365bce33ab2edc8268a5aa0f0a7ec56",
+      "status": "APPLIED"
     },
     {
       "id": "A3-B03-SC01",
       "block_id": "urinary-b03",
       "kp_id": "urinary-b03-kp14",
       "type": "PRECISION_MECHANISM_WORDING",
-      "severity": "NON_STRUCTURAL_K_REPAIR",
-      "historical_state": "The historical special case explains transfusion-associated hyperkalemia primarily as red-cell destruction releasing potassium and pairs it with citrate-derived bicarbonate/alkalosis.",
-      "adjudication": "For Current wording, stored RBC products accumulate extracellular potassium during storage because potassium leaks from RBCs and cellular pump/reuptake is impaired; rapid/high-volume infusion, especially of older units, can therefore cause hyperkalemia. Citrate can be metabolized by the liver to bicarbonate and contribute to metabolic alkalosis when citrate metabolism is intact. Hemolysis may add potassium in some settings but should not be the default storage-lesion explanation.",
-      "learning_boundary": "This remains a low-frequency precision/special case under the K-H mechanism; it must not interrupt the normal principal/intercalated-cell chain.",
-      "sources": [
-        {"title": "Massive Transfusion", "source": "NCBI Bookshelf NBK499929", "support": "Notes elevated extracellular potassium in stored RBC units and hyperkalemia risk with rapid/high-volume older blood."},
-        {"title": "Red Blood Cell Transfusion Risks in Patients with End-Stage Renal Disease", "source": "PMC3676886", "support": "Describes storage-related potassium leakage into supernatant and citrate metabolism to bicarbonate."}
-      ],
-      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+      "adjudication": "Stored-RBC hyperkalemia is taught from storage-lesion extracellular K accumulation/K leakage; citrate-to-bicarbonate is a separate alkalosis route. Hemolysis is not the default sole explanation.",
+      "canonical_commit": "5db51c2f3b30f7c25b058d872c457af15ed86191",
+      "status": "APPLIED"
     },
     {
       "id": "A3-B03-SC02",
       "block_id": "urinary-b03",
       "kp_id": "urinary-b03-kp14",
       "type": "OVERGENERALIZED_CAUSAL_MODEL",
-      "severity": "K_BLOCKER_FOR_CURRENT_PROMOTION",
-      "historical_state": "The historical K+-H+ four-grid presents high K+ -> metabolic acidosis -> paradoxically alkaline urine and low K+ -> metabolic alkalosis -> paradoxically acidic urine as nearly universal causal directions.",
-      "adjudication": "Do not preserve a universal four-grid. The Current Core should teach interaction tendencies and the renal mechanisms that couple K+ and acid-base, then require context before predicting urine pH. Hyperkalemic/type-4 RTA commonly has reduced ammonium excretion while urine pH can remain <5.5; paradoxical aciduria is classically maintained in specific hypokalemic/volume-contracted alkalosis settings rather than being an unconditional consequence of low serum K+. The causal entry must be named before a urine-pH prediction is made.",
-      "learning_boundary": "B3 owns normal cellular/tubular coupling and safe direction tendencies. Full clinical acid-base syndromes, compensation algorithms and RTA discrimination belong to B5 or later disease owners. This repair should simplify B3 rather than expand it.",
-      "sources": [
-        {"title": "Differential Diagnosis of Nongap Metabolic Acidosis: Value of a Systematic Approach", "source": "PMC3315347", "support": "Shows that low ammonium excretion in hypoaldosteronism/type IV RTA may coexist with urine pH <5.5 and that urine pH alone does not map directly to systemic acid-base state."},
-        {"title": "Renal Tubular Acidosis and Management Strategies: A Narrative Review", "source": "PMC7889554", "support": "Lists typical type IV RTA urine pH <5.5 and explains hyperkalemia-related suppression of ammonia generation."},
-        {"title": "Metabolic Alkalosis: A Brief Pathophysiologic Review", "source": "PMC7769018", "support": "Places paradoxical aciduria within the maintenance physiology of volume-contracted/hypokalemic alkalosis rather than a universal hypokalemia rule."}
-      ],
-      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+      "adjudication": "Reject a universal K-H four-grid. Teach normal K/H coupling and require context before urine-pH prediction; type-IV RTA may have urine pH below 5.5 despite reduced net acid excretion, and paradoxical aciduria is context-dependent. Full clinical acid-base/RTA discrimination remains B5 territory.",
+      "canonical_commit": "5db51c2f3b30f7c25b058d872c457af15ed86191",
+      "status": "APPLIED"
     },
     {
       "id": "A3-B03-CHECK01",
       "block_id": "urinary-b03",
       "kp_id": "urinary-b03-kp14",
       "type": "MECHANISM_CONFIRMED",
-      "severity": "NONE",
-      "historical_state": "Low magnesium is used to explain refractory hypokalemia through loss of magnesium-mediated ROMK inhibition.",
-      "adjudication": "Preserve. Reduced intracellular magnesium relieves inhibition of ROMK and increases distal potassium secretion; concurrent distal sodium delivery/aldosterone context can amplify potassium wasting.",
-      "sources": [
-        {"title": "Mechanism of hypokalemia in magnesium deficiency", "pmid": "17804670", "doi": "10.1681/ASN.2007070792", "support": "Direct review of magnesium-mediated ROMK inhibition and potassium wasting."}
-      ],
-      "status": "PRESERVE"
+      "adjudication": "Preserve low-Mg -> reduced ROMK inhibition -> distal renal K wasting as a useful precision mechanism.",
+      "status": "PRESERVED"
     },
     {
       "id": "A3-B04-SC01",
       "block_id": "urinary-b04",
       "kp_id": "urinary-b04-kp03",
       "type": "CONTEXT_DEPENDENT_REGULATOR_LIST",
-      "severity": "TIMING_AND_SEMANTIC_BOUNDARY_REPAIR",
-      "historical_state": "The historical compressed Recall list teaches NO as a simple renin inhibitor and includes several autacoid/drug-direction items as if they were one stable context-free causal table.",
-      "adjudication": "The first-pass renin Core should be anchored to three stable controllers: renal perfusion/baroreceptor input, sympathetic beta1 input and macula-densa NaCl delivery, with AngII negative feedback and high-NaCl suppression. NO has context-dependent/permissive roles in JGA/macula-densa renin signaling and must not be encoded as an unconditional NO -> renin down arrow. Dopamine, bradykinin, endothelin, vasopressin and similar source-specific lists should not drive the causal spine when their net effects depend on experimental/physiologic context.",
-      "learning_boundary": "Keep source-specific regulator lists, if exam-relevant, as Precision/source notes after the stable three-input mechanism; they should not be required to understand B4 or interrupt the concentration-dilution chain.",
-      "sources": [
-        {"title": "Macula Densa Sensing and Signaling Mechanisms of Renin Release", "source": "PMC4577295", "support": "Describes PGE2 and nitric oxide in macula-densa/JGA renin-release signaling and highlights context-dependent regulatory pathways."},
-        {"title": "Classical Renin-Angiotensin System in Kidney Physiology", "source": "PMC4137912", "support": "Supports the stable macula-densa chloride control of renin and describes NO as permissive/context-dependent rather than a simple inhibitory rule."},
-        {"title": "Role of nitric oxide in the regulation of renin and vasopressin secretion", "pmid": "7534728", "support": "Reviews predominantly stimulatory/permissive NO effects on renin with condition-dependent exceptions."}
-      ],
-      "status": "ADJUDICATED_CANONICAL_REPAIR_PENDING"
+      "adjudication": "First-pass renin Core is perfusion pressure, beta1 sympathetic input and macula-densa NaCl, plus AngII negative feedback. NO and other context-sensitive low-frequency regulator lists are Source-specific Precision rather than unconditional causal arrows.",
+      "canonical_commit": "d361e5a607f5c9d7332cfc9d37ed383b678a9539",
+      "status": "APPLIED"
     }
   ],
-  "block_status": {
-    "urinary-b01": "BLOCKED_PENDING_B01_KG01_AND_FIRST_PASS_RECONSTRUCTION",
-    "urinary-b02": "BLOCKED_PENDING_B02_SC01_AND_FIRST_PASS_RECONSTRUCTION",
-    "urinary-b03": "BLOCKED_PENDING_B03_SC01_SC02_REPAIR_AND_REMAINING_AUDIT",
-    "urinary-b04": "PROMISING_NOT_ACCEPTED; B04-SC01 boundary repair + remaining full-line audit"
+  "closure": {
+    "stable_block_count": 4,
+    "stable_kp_count": 67,
+    "logic_group_count": 20,
+    "logic_group_kp_coverage": "67/67 contiguous in canonical KP order; no gap or overlap",
+    "lecture_first": "PASS",
+    "timing_boundaries": "PASS",
+    "source_conflict_closure": "PASS",
+    "stable_medical_core_orphan": 0,
+    "duplicate_primary_known": 0,
+    "identity_change": false
   },
-  "batch_status": "NOT_PASSED",
-  "next": "Apply the named canonical repairs narrowly, then finish the remaining B3/B4 full-line audit and verify that proposed Logic Groups are lossless in canonical KP order before Batch-01 acceptance."
+  "block_status": {
+    "urinary-b01": "PASS_BLOCK_LEVEL_K",
+    "urinary-b02": "PASS_BLOCK_LEVEL_K",
+    "urinary-b03": "PASS_BLOCK_LEVEL_K",
+    "urinary-b04": "PASS_BLOCK_LEVEL_K"
+  },
+  "batch_status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "next": "Begin A3-K-BATCH-02 at B5-B8 using the same source-first upgrade contract. Do not reopen B1-B4 without a concrete new source conflict, missing stable learning value, or later learner evidence."
 }
