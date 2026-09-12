@@ -10,37 +10,35 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A2 Respiratory  
-**Active / earliest unresolved stage:** `P — learner-facing Projection acceptance`  
-**Blocker:** no accepted K blocker remains. P has not yet been accepted from the actual learner-facing projection under the current S/K/L truth.  
-**Next action:** perform a bounded A2 P audit: verify that accepted System / Block / Logic Group / KP learning semantics are projected with the correct first-learning attention hierarchy and timing. Do not run R/E acceptance or infer learner use while P is unresolved.
+**Active / earliest unresolved stage:** `R — Runtime transition / repair-return acceptance`  
+**Blocker:** no accepted S/K/L/P blocker remains. R has not yet been accepted from actual transition/state behavior under the accepted learner projection.  
+**Next action:** perform a bounded A2 R audit across System selection/entry, Block stage progression, Continue/return, System Exit prerequisites, Wrong/Uncertain repair handoff and safe return to the mainline. Do not promote E or infer learner use while R is unresolved.
 
 ---
 
 ## Frozen / out of scope
 
-During A2 P work:
+During A2 R work:
 
-- S, K and L remain frozen unless concrete new evidence reopens the responsible upstream gate;
-- R/E remain downstream/frozen until P PASS;
+- S, K, L and P remain frozen unless concrete new evidence reopens the responsible upstream gate;
+- E remains downstream/frozen until R PASS;
 - do not rebuild or reinterpret the 359-question System scope;
 - do not infer Question→Block/KP mappings without reviewed authority;
-- do not expand medical Core for display symmetry;
-- do not redesign the accepted learning constitution merely to fit current UI;
-- do not mutate private learner Recall, Wrong/Uncertain, holdout, notes, review state, or mastery;
+- do not expand medical Core or redesign the accepted learning constitution for runtime convenience;
+- do not manufacture private learner Recall, Wrong/Uncertain, holdout, notes, review state or mastery;
 - do not modify A1 or unrelated sibling Systems by convenience.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active A2 P audit:
+For ordinary re-entry into the active A2 R audit:
 
 1. `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md`
-2. `content/xizong/knowledge/systems/a2-respiratory/system.json`
-3. `content/xizong/knowledge/learner/a2-respiratory-learning.json`
-4. only the exact `static-web/` projection owner(s) required by the learner surface currently under audit
+2. exact `static-web/` runtime owner(s) for the transition under audit
+3. learner policy / question owner only when that transition needs its exact contract
 
-Read runtime/evidence persistence owners only when P itself requires a concrete boundary check. Do not advance to R/E acceptance from their mere existence.
+Do not reopen medical Core or broad lane history unless Runtime evidence identifies a concrete upstream defect.
 
 ---
 
