@@ -155,8 +155,8 @@ const packetMeta = {
       const ratings = readStudy().ratings || {};
       ext.lastRecallRatings ||= {};
       Object.entries(ratings).forEach(([kpId, rating]) => {
-        if (!byId.has(kpId) || ext.lastRecallRatings[kpId] === rating) return;
-        addEvidence({ type: 'KP_RECALL', kp_id: kpId, rating });
+        if (!byId.has(kpId) || ext.lastRecallRatings[kpId]) return;
+        addEvidence({ type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: 'BOOTSTRAP_EXISTING_STATE' });
         ext.lastRecallRatings[kpId] = rating;
       });
       saveExt();
@@ -171,6 +171,25 @@ const packetMeta = {
       const weak = rows.filter((row) => ['HOT', 'WARM'].includes(row.memoryState));
       return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
     };
+
+    // MemoryReview owns normal writes to the Block evidence extension. The evidence
+    // guard owns only content-version archival/reset. This avoids two components
+    // racing on the same localStorage document and preserves every real Recall attempt.
+    const blockRoot = document.querySelector('[data-xizong-v6-block]');
+    blockRoot?.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const ratingButton = target?.closest('[data-rating]');
+      if (!ratingButton) return;
+      const card = ratingButton.closest('[data-kp-id]');
+      const kpId = card?.getAttribute('data-kp-id') || '';
+      const rating = ratingButton.getAttribute('data-rating') || '';
+      if (!kpId || !rating || !byId.has(kpId)) return;
+      const study = readStudy();
+      if (!study?.learned?.[kpId]) return;
+      addEvidence({ type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: 'USER_RECALL_ATTEMPT' });
+      ext.lastRecallRatings = { ...(ext.lastRecallRatings || {}), [kpId]: rating };
+      saveExt();
+    });
 
     syncRecallEvidence();
 
@@ -295,7 +314,12 @@ const packetMeta = {
       const value = button.getAttribute('data-review-rating') || '';
       ext.reviewRatings = { ...(ext.reviewRatings || {}), [current.kpId]: value };
       addEvidence({ type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY', kp_id: current.kpId, rating: value });
-      ext.reviewIndex = Math.min(ext.reviewIndex + 1, Math.max(0, items.length - 1));
+      if (['known', 'mastered'].includes(value)) {
+        ext.reviewPlan = (Array.isArray(ext.reviewPlan) ? ext.reviewPlan : []).filter((row) => String(row?.kpId || row?.kp_id || row || '') !== current.kpId);
+        ext.reviewIndex = Math.min(ext.reviewIndex, Math.max(0, activeReview().length - 1));
+      } else {
+        ext.reviewIndex = Math.min(ext.reviewIndex + 1, Math.max(0, items.length - 1));
+      }
       saveExt();
       renderReview();
       renderMemory();
@@ -386,9 +410,9 @@ const packetMeta = {
         imported_chat_plan: planRows(),
         chat_plan_ratings: ext.reviewRatings || {},
         evidence_semantics: {
-          kp_recall: 'primary same-session recall evidence',
+          kp_recall: 'primary same-session recall evidence; each actual Recall attempt is appended, including repeated identical ratings',
           memory: 'local repair evidence; STABLE may clear the local weak queue but does not rewrite the original Recall rating',
-          chat_plan_review: 'repair-only evidence; never promoted into original Recall or mastery automatically',
+          chat_plan_review: 'repair-only evidence; known/mastered may close the active repair task but never rewrite original Recall or mastery automatically',
           mastery: 'requires later meaningful fresh Recall/transfer evidence when the learning contract calls for it'
         },
         request_to_chat: [
