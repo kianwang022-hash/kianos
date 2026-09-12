@@ -309,7 +309,12 @@ export function applyTranslationReturn(state, payload, prompts = [], ledger = nu
   const affectedSegments = payload?.decision === 'REPAIR_NEEDED'
     ? normalizedAffectedSegments(payload, prompts)
     : [];
-  const nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], context);
+  const evidenceContext = {
+    ...context,
+    taskHistoryCount: context.taskHistoryCount ?? (Array.isArray(state?.history) ? state.history.length : 0),
+    attemptFirstSubmittedAt: context.attemptFirstSubmittedAt || clean(state?.firstSubmittedAt)
+  };
+  const nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], evidenceContext);
   const next = structuredClone(state);
   const previousRepairSignature = repairSignature(next.chatReturn);
   next.chatReturn = payload;
