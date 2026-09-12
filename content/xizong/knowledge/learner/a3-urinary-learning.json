@@ -1,14 +1,22 @@
 {
   "schema": "kianos.xizong.system_learning_support.v1",
-  "status": "UPGRADE_IN_PROGRESS",
+  "status": "BATCH_01_ACCEPTED_SYSTEM_BELOW",
   "authority": "CHAT_APPROVED_UPGRADE_WORK",
   "system_id": "urinary",
   "canonical_id": "A3",
-  "scope": "BATCH_01_ONLY_SYSTEM_BELOW",
+  "scope": "BATCH_01_B1_B4_SYSTEM_BELOW_ONLY",
   "study_policy": "content/xizong/knowledge/learner/study-policy.json",
   "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
   "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
-  "rule": "This file may organize first-pass attention, Logic Group closure and Block compression. It must not restate or override canonical medical Core, and its existence does not promote A3 System Knowledge or learner readiness.",
+  "rule": "This file organizes first-pass attention, Logic Group closure and Block compression. It does not restate or override canonical medical Core. Batch-01 acceptance does not promote A3 System-level Knowledge or learner readiness.",
+  "batch_01_status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "batch_01_identity": {
+    "block_count": 4,
+    "stable_kp_count": 67,
+    "logic_group_count": 20,
+    "logic_group_ranges_frozen": true,
+    "stable_block_or_kp_identity_change": false
+  },
   "blocks": {
     "urinary-b01": {
       "first_pass_focus": "先建立肾脏的共同语言：血怎么进、原尿怎么来、终尿怎么形成、这些过程怎样被清除率和肾血流变量测出来。",
@@ -42,7 +50,7 @@
         "urinary-b03-lg01": {"kp": [1,2], "label": "小管方向与球管平衡", "goal": "固定顶端/基底侧和滤过/重吸收/分泌/排泄方向，并理解近端为什么随滤过量按比例回收。", "closure": "能把球管平衡与管球反馈分开，不再被名字相似误导。"},
         "urinary-b03-lg02": {"kp": [3,8], "label": "近端大批量回收与渗透性利尿", "goal": "把 Na 泵、NaCl/水、葡萄糖/Tm/SGLT2 和渗透性利尿串成一台近端处理器。", "closure": "能从转运被饱和/抑制推到尿糖、管腔溶质与水排出，而不是背孤立结果。"},
         "urinary-b03-lg03": {"kp": [9,10], "label": "HCO3- 回收与氨排酸", "goal": "建立肾脏保碱排酸的正常生理链，只为 B5 的临床酸碱提供机制底座。", "closure": "能说明 HCO3- 为什么不是整颗直接跨膜以及 NH3/NH4+ 如何帮助净排酸。"},
-        "urinary-b03-lg04": {"kp": [11,14], "label": "集合管 Na-K-H 末端精调", "goal": "把主细胞/闰细胞、ENaC/ROMK 与 K-H 耦联放在同一末端电路。", "closure": "改变醛固酮、流量、肾功能或 K/H 状态时，能从细胞电路预测方向。"},
+        "urinary-b03-lg04": {"kp": [11,14], "label": "集合管 Na-K-H 末端精调", "goal": "把主细胞/闰细胞、ENaC/ROMK 与 K-H 耦联放在同一末端电路。", "closure": "改变醛固酮、流量、肾功能或 K/H 状态时，先定位第一故障与容量/醛固酮/NH4+等背景，再从细胞电路判断方向；不背无条件尿pH四格。"},
         "urinary-b03-lg05": {"kp": [15,19], "label": "利尿剂靶点地图", "goal": "用 PCT/TAL/DCT/集合管的真实转运靶点理解主要利尿剂和电解质后果。", "closure": "看到药物先定位段位和转运体，再推尿量/Na/K/酸碱方向。"}
       }
     },
@@ -51,7 +59,7 @@
       "stop_line": "不重新完整学习循环 B2 的激素身份；尿崩/SIADH/原醛等只做到机制识别，完整诊疗按正式 owner 后置；临床水钠钾酸碱处理在 B5。",
       "recall_spine": "容量/灌注输入 → RAAS/ADH/ANP 肾端 → 建立/维持髓质梯度 → 小管液渗透压电影 → 浓缩失败/多尿鉴别",
       "logic_groups": {
-        "urinary-b04-lg01": {"kp": [1,5], "label": "容量/灌注感知与 RAAS 肾端", "goal": "把交感、肾素/AngII、醛固酮从循环 owner 调入肾端，只学习它们怎样改变入出球、小管 Na 水和 K。", "closure": "能从低灌注/低 NaCl 推到肾端保压保盐反应，并知道哪些只是 Recall、哪些是泌尿新学内容。"},
+        "urinary-b04-lg01": {"kp": [1,5], "label": "容量/灌注感知与 RAAS 肾端", "goal": "把交感、肾素/AngII、醛固酮从循环 owner 调入肾端，只学习它们怎样改变入出球、小管 Na 水和 K；肾素先抓灌注压、β1、致密斑NaCl三输入与AngII负反馈。", "closure": "能从低灌注/低NaCl推到肾端保压保盐反应；知道哪些是泌尿新学 Core，哪些低频促/抑名单只是 Source-specific Precision。"},
         "urinary-b04-lg02": {"kp": [6,9], "label": "ADH 与 ANP 控制轴", "goal": "把 ADH 的直接水通透调节与 ANP 的容量卸载分开，再与醛固酮比较输入、靶点和输出。", "closure": "不再把‘都能改尿量’当成同一机制，能从渗透压/容量状态选出第一控制轴。"},
         "urinary-b04-lg03": {"kp": [10,14], "label": "髓质梯度的建立、维持与水通道", "goal": "解释 NaCl/尿素怎样建立梯度、直小血管怎样不把它冲走、AQP 怎样决定水能否利用该梯度。", "closure": "任意缺失梯度/水通道/维持器时，都能预测浓缩功能为什么下降。"},
         "urinary-b04-lg04": {"kp": [15,17], "label": "小管液渗透压电影", "goal": "连续追踪降支→升支/远曲→集合管的小管液变化，而不是分段背高低渗。", "closure": "能闭卷讲出管液先浓后稀、最终由 ADH 状态决定的完整电影。"},
@@ -59,5 +67,5 @@
       }
     }
   },
-  "batch_exit": "NOT_ACCEPTED_UNTIL_MEDICAL_CORE_SEMANTIC_AUDIT_AND_REQUIRED_CANONICAL_REPAIRS_COMPLETE"
+  "batch_exit": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY; B1-B4 Logic Groups frozen until concrete new source or learner evidence requires reopening."
 }
