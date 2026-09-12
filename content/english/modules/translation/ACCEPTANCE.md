@@ -14,12 +14,12 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | UNTESTED | Artifact candidates exist: `content/english/manifest.json`, `content/english/source/question_bank.v1.json`, and source scanner `static-web/src/lib/englishTranslation.mjs`. Current validator is designed to fail closed on unresolved source/reference gaps, but formal Translation S acceptance has not yet been established in this scoped owner. **S is the current active gate under local `CURRENT.md`.** |
-| K — Knowledge | UNTESTED | Canonical learner-facing ability asset exists at `content/english/modules/translation/learning.md`, with Representation / Preservation / Reconstruction / Exam Execution structure. Existence/content richness is not itself K acceptance. **Downstream-frozen until S PASS.** |
-| L — Learning | UNTESTED | The asset explicitly defines whole-map → four Core Learning Blocks → later Skill Map/repair, and whole-set Productive learning semantics. Formal L acceptance under root standard has not yet been established in this owner. **Downstream-frozen until K PASS.** |
-| P — Projection | UNTESTED | Current Translation learner pages/components exist and validators inspect pre-attempt evidence protection and navigation. Formal P acceptance remains to be audited. **Downstream-frozen until L PASS.** |
-| R — Runtime | UNTESTED | Runtime implementation and deterministic journey validator exist, including whole-attempt lock, clean PASS, whole-set diagnosis, smallest repair, reconstruction, persistence fail-closed behavior, and return import. Implementation is Artifact Truth until acceptance is executed/audited. **Downstream-frozen until P PASS.** |
-| E — Evidence | UNTESTED | Runtime model/validator encode private transfer targets, same-task non-closure, later fresh SUPPORT/CLOSE, irrelevant evidence protection, idempotency, and fail-closed target identity. Formal E acceptance remains to be established. **Downstream-frozen until R PASS.** |
+| S — Source | PASS_WITH_DEBT | Current Source boundary is machine-validated against `content/english/manifest.json`, canonical `content/english/source/question_bank.v1.json`, and `static-web/src/lib/englishTranslation.mjs`. Validation decision: `PASS_WITH_DEBT`; Translation resolves from one current-evidence section, 27 sets and 135 stable prompts; question-owner SHA-256 is `c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986`; 25 sets have complete reference coverage, 2 are partial, with exactly 3 explicit `pending_review` reference debts and `failures=[]`. Missing references remain unavailable to the learner/runtime and may not be fabricated. |
+| K — Knowledge | UNTESTED | Canonical learner-facing ability asset exists at `content/english/modules/translation/learning.md`, with Representation / Preservation / Reconstruction / Exam Execution structure. Existence/content richness is not itself K acceptance. **K is now the current active gate under local `CURRENT.md`.** |
+| L — Learning | UNTESTED | The asset explicitly defines whole-map → four Core Learning Blocks → later Skill Map/repair, and whole-set Productive learning semantics. Formal L acceptance under root standard has not yet been established. **Downstream-frozen until K passes.** |
+| P — Projection | UNTESTED | Current Translation learner pages/components exist and validators inspect pre-attempt evidence protection and navigation. Formal P acceptance remains to be audited. **Downstream-frozen until L passes.** |
+| R — Runtime | UNTESTED | Runtime implementation and deterministic journey validator exist, including whole-attempt lock, clean PASS, whole-set diagnosis, smallest repair, reconstruction, persistence fail-closed behavior, and return import. Implementation is Artifact Truth until acceptance is executed/audited. **Downstream-frozen until P passes.** |
+| E — Evidence | UNTESTED | Runtime model/validator encode private transfer targets, same-task non-closure, later fresh SUPPORT/CLOSE, irrelevant evidence protection, idempotency, and fail-closed target identity. Formal E acceptance remains to be established. **Downstream-frozen until R passes.** |
 | U — User Validation | UNTESTED | No repository engineering evidence may substitute for real Kian use. U is not eligible until S–E support `Module ready for learner test`. |
 
 `UNTESTED` above is evidence status, not a parallel work queue. Gate activation is controlled by `content/english/modules/translation/CURRENT.md`.
@@ -30,30 +30,63 @@ It does not own Translation learning content, runtime code, Work Cursor, or priv
 
 Allowed statement:
 
-> **Translation has substantial Current Artifact implementation and acceptance-oriented validators, but formal acceptance has not yet begun beyond candidate evidence; S is the active gate, K/L/P/R/E are downstream-frozen, and U is UNTESTED.**
+> **Translation is Source-ready with bounded explicit reference debt. S is PASS_WITH_DEBT; K is the active gate; L/P/R/E remain downstream-frozen; U remains UNTESTED.**
 
 Do not say `Module ready for learner test` until S–E meet the root acceptance standard.
 
 ---
 
+## Accepted Source evidence
+
+The bounded Source validator is `static-web/scripts/validate-translation-source.mjs`, executed in `.github/workflows/static-web-translation-qa.yml` against the current PR head before this acceptance transition.
+
+Machine evidence:
+
+- schema: `kianos.english.translation.source-gate-validation.v1`
+- gate: `S`
+- decision: `PASS_WITH_DEBT`
+- section resolution: `translation` via `current-evidence`
+- sets: `27`
+- prompts: `135`
+- complete reference sets: `25`
+- partial reference sets: `2`
+- explicit pending reference debts: `3`
+- failures: `0`
+- canonical question owner SHA-256: `c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986`
+
+The three bounded debts are:
+
+1. `english1-2022-translation-main-q48` — `pending_review`
+2. `english1-2022-translation-main-q49` — `pending_review`
+3. `english1-2025-translation-main-q46` — `pending_review`
+
+These debts are non-blocking at S because they are explicit, stable, fail-closed source gaps. They do **not** authorize generated/fabricated reference translations and do not imply any downstream gate acceptance.
+
+Source policy validated by the gate:
+
+- Current manifest required;
+- canonical question bank required;
+- canonical Translation learning owner required;
+- legacy fallback forbidden;
+- stable prompt identity required;
+- clean-attempt projection must exclude answer/reference fields;
+- missing reference is acceptable only as explicit `pending_review` debt;
+- fabricated reference is forbidden.
+
+---
+
 ## Candidate evidence for staged acceptance
 
-### Source / Artifact candidates — active now
-
-- `content/english/manifest.json`
-- `content/english/source/question_bank.v1.json`
-- `static-web/src/lib/englishTranslation.mjs`
-
-`englishTranslation.mjs` resolves Translation from Current manifest/question-bank plus the canonical learning owner; it does not read English continuation state.
-
-These are the current S candidates to audit. Do not widen the active task into K/L/P/R/E while S is unresolved.
-
-### Knowledge / Learning candidates — preserved, not active yet
+### Knowledge candidates — active now
 
 - `content/english/modules/translation/learning.md`
 - `content/english/LEARNING_CONTRACT.md`
 
-The canonical learning asset states:
+K must determine whether the canonical Translation ability asset is correct, complete enough for first learning, structurally faithful to the real capability, and free of duplicate/borrowed semantic ownership. Existing richness or runtime implementation cannot substitute for that audit.
+
+### Learning candidates — preserved, downstream-frozen
+
+The canonical learning asset currently states, among other things:
 
 - first learning begins with the global ability map;
 - four Core Learning Blocks are learned continuously rather than as isolated skill cards;
@@ -61,7 +94,7 @@ The canonical learning asset states:
 - real-task repair follows the earliest meaningful failure;
 - independent generation and later fresh transfer are stronger evidence than same-item polishing.
 
-These are candidate semantics to audit **after the prerequisite gate becomes eligible**, not automatic PASS claims and not current startup reads for S.
+These are candidate semantics to audit **after K passes**, not automatic L acceptance.
 
 ### Projection / Runtime / Evidence candidates — preserved, downstream-frozen
 
@@ -77,36 +110,24 @@ These are candidate semantics to audit **after the prerequisite gate becomes eli
 - `static-web/scripts/validate-translation-evidence-guard.mjs`
 - `.github/workflows/static-web-translation-qa.yml`
 
-The current validators are designed to check, among other things:
-
-- complete whole-set attempt before decision;
-- executable clean PASS with no manufactured transfer debt;
-- whole-set diagnosis while evidence may stay segment-bound internally;
-- smallest useful repair and learner reconstruction;
-- only completed reusable repair may become `TRANSFER_PENDING`;
-- source task cannot close its own transfer target;
-- irrelevant later material cannot close a target;
-- later fresh SUPPORT may close when semantics justify it;
-- duplicate later-task import is idempotent;
-- unknown/malformed transfer evidence fails closed;
-- private persistence failure blocks formal attempt lock rather than silently losing evidence.
-
-These checks remain candidate downstream evidence. They must not be used to leapfrog S/K/L/P ordering.
+These remain candidate downstream evidence and must not be used to leapfrog K/L/P/R/E ordering.
 
 ---
 
 ## Acceptance next action
 
-Run a bounded **S-only** Translation acceptance audit against current Source owners without changing Translation semantics unless a concrete Source blocker is found:
+Run a bounded **K-only** Translation knowledge audit:
 
-1. verify the current manifest/question-bank/source-scanner boundary and fail-closed source/reference behavior;
-2. classify any Source gap as blocker, bounded non-blocking debt, or absent;
-3. write S PASS / PASS_WITH_DEBT / BLOCKED only from that evidence;
-4. if S passes, update local `CURRENT.md` so K becomes the next active gate;
-5. do not audit K/L/P/R/E in the same step merely because their artifacts already exist;
-6. keep U `UNTESTED` until real learner use.
+1. read the canonical owner `content/english/modules/translation/learning.md` and only the parent English learning contract needed to judge ownership/boundary;
+2. test whether the Translation ability hierarchy teaches the stable high-value concepts, relations, boundaries, and execution rules needed for first learning;
+3. check that Translation does not duplicate semantics owned elsewhere and routes cross-ability dependencies appropriately;
+4. classify concrete Knowledge defects as blockers or bounded non-blocking debt;
+5. write K PASS / PASS_WITH_DEBT / BLOCKED only from that evidence;
+6. if K passes, update local `CURRENT.md` so L becomes the next active gate;
+7. do not audit L/P/R/E in the same step merely because their artifacts already exist;
+8. keep U `UNTESTED` until real learner use.
 
-If a concrete upstream defect appears, keep work at the earliest responsible dependency under `LEARNING_ASSET_STANDARD.md`.
+If a concrete upstream Source defect appears, reopen S at the exact dependency rather than compensating downstream.
 
 ---
 
@@ -114,6 +135,9 @@ If a concrete upstream defect appears, keep work at the earliest responsible dep
 
 ### Artifact Truth
 Actual Translation source/content/runtime owners listed above.
+
+### Acceptance Truth
+This file records S as `PASS_WITH_DEBT` from executed Source evidence and leaves K/L/P/R/E/U unaccepted unless explicitly stated otherwise.
 
 ### Learner Truth
 Private learner/runtime state only. This file does not claim Kian has started Translation, attempted a task, repaired an error, or closed a transfer target.
