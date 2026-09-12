@@ -76,6 +76,8 @@ jobs:
         run: node scripts/audit-politics-marxism-runtime-evidence.mjs
       - name: Audit History batch content closure
         run: node scripts/audit-politics-history-content.mjs
+      - name: Audit History global first-ready parity
+        run: node scripts/audit-politics-history-first-ready.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
       - name: Build Astro
