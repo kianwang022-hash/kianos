@@ -22,7 +22,32 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f5fe3af142236f64269e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:addict:5bea133841d55e16:collocation:0"
+            ],
+            "meaning_cn": "吸毒成瘾者",
+            "phrase": "drug addict"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "上瘾者；入迷的人",
+        "definition_en": "a person who is addicted to a substance or activity",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:addict:5bea133841d55e16",
+        "sense_label_en": "a person who is addicted to a substance or activity",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,31 +69,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:addict:5bea133841d55e16",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "上瘾者；入迷的人",
-      "definition_en": "a person who is addicted to a substance or activity",
-      "semantic_key": "0edb8b3b3147e3ccf141cda3cf21b82352056f6c2642f900525b9ef8da8d85e4",
-      "semantic_key_history": [
-        "83e3af9e92a91be96d60117f00d2867582dccffb6f38bd9620e3858df09bb622"
-      ],
-      "legacy_aliases": [
-        "addict:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "addict:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 185,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:addict:ec753b049bb65e6f",
       "status": "deprecated",
@@ -99,7 +99,7 @@
     "senses": [
       {
         "sense_id": "sense:addict:5bea133841d55e16",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 185,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -112,7 +112,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:f5fe3af142236f64269e"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -168,7 +170,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0065-0072.json",
     "source_content_hash": "ca86b68bf1bf82be360e91a026e40e322a10d4fb367790004ec9389200e3f30f",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

@@ -22,7 +22,74 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:32dd557610cb0674a4c9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acid:2b721ced406c52e9:collocation:0"
+            ],
+            "meaning_cn": "硫酸",
+            "phrase": "sulfuric acid"
+          },
+          {
+            "collocation_id": "collocation:b1d29317e080e93e9c53",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acid:2b721ced406c52e9:collocation:1"
+            ],
+            "meaning_cn": "酸雨",
+            "phrase": "acid rain"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "酸，酸性物质",
+        "definition_en": "a chemical substance that has a sour taste and can react with bases to form salts",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:acid:2b721ced406c52e9",
+        "sense_label_en": "a chemical substance that has a sour taste and can react with bases to f",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0e17ebde8f187a640017",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acid:4c1db00a02ff5246:collocation:0"
+            ],
+            "meaning_cn": "酸味",
+            "phrase": "acid taste"
+          },
+          {
+            "collocation_id": "collocation:06112520123fe09858c8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:acid:4c1db00a02ff5246:collocation:1"
+            ],
+            "meaning_cn": "尖刻的话",
+            "phrase": "acid remark"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "酸的，酸性的；尖刻的",
+        "definition_en": "having the properties of an acid; sour or sharp",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:acid:4c1db00a02ff5246",
+        "sense_label_en": "having the properties of an acid; sour or sharp",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -44,31 +111,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:acid:2b721ced406c52e9",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "酸，酸性物质",
-      "definition_en": "a chemical substance that has a sour taste and can react with bases to form salts",
-      "semantic_key": "bc44b87150502bb92e80bdfb7a7ac5e35761a9972a324d8d20788f43997a8d4a",
-      "semantic_key_history": [
-        "1fe4fafa6c8b7c11db298ae75dcb38c2da10ab694aa5f5762af8bc04d7576c52"
-      ],
-      "legacy_aliases": [
-        "acid:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "acid:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 131,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:acid:4618914e2071585b",
       "status": "deprecated",
@@ -93,38 +135,13 @@
       "source_row": 132,
       "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:acid:4c1db00a02ff5246",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "酸的，酸性的；尖刻的",
-      "definition_en": "having the properties of an acid; sour or sharp",
-      "semantic_key": "3a96e02a92343d362c1858b588bb402f7b98a3c16a28dc1499b299f01b76bfac",
-      "semantic_key_history": [
-        "975b9247c363cc8dc1325d879fbaa4a46bfeff386c9e2eb0c603b3b003a5a5a2"
-      ],
-      "legacy_aliases": [
-        "acid:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "acid:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 133,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:acid:2b721ced406c52e9",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 131,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
@@ -138,13 +155,18 @@
       },
       {
         "sense_id": "sense:acid:4c1db00a02ff5246",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 133,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:06112520123fe09858c8",
+      "collocation:0e17ebde8f187a640017",
+      "collocation:32dd557610cb0674a4c9",
+      "collocation:b1d29317e080e93e9c53"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -210,7 +232,7 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "60272b2fedc82e49cab0f955bd3a29999d7f83b651704b1c4549db3cc97a27ca",
-    "semantic_delta": 0,
+    "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }
