@@ -2,6 +2,27 @@
 
 KianOS is one learning system with multiple domain lanes and learner-facing sub-lanes. They may have different cognition, content models, and UI, but every first-class learning surface inherits the same minimum platform capabilities.
 
+## Learning-asset construction order
+
+`LEARNING_ASSET_STANDARD.md` governs how formal learning assets are designed, rebuilt, and reopened.
+
+The shared causal construction order is:
+
+`Truth / Knowledge Boundary → Learning Logic → Content Realization / Optimization → Projection / Interaction → Runtime Loop → Evidence / Acceptance`
+
+This construction order is **not** the same thing as the S/K/L/P/R/E/U acceptance framework in `LEARNING_ACCEPTANCE.md`.
+
+Hard rule:
+
+- work on the earliest unresolved construction stage;
+- keep affected downstream stages `FROZEN_PENDING_UPSTREAM` by default;
+- existing downstream assets may remain in Current, but they do not constrain upstream truth or learning logic;
+- downstream defects may reopen the earliest responsible upstream stage;
+- after reopening, repair that stage first, then re-walk downstream stages in order;
+- do not optimize Content, Projection, Runtime, or Evidence in parallel merely because the files already exist or the changes are causally related.
+
+The shared platform baseline below describes capabilities a mature learner surface should eventually provide. **It does not authorize implementing those capabilities before the active learning-asset construction stage reaches them.**
+
 ## Global Current
 
 `CURRENT.md` at repository root is the system-wide Current overview.
@@ -19,7 +40,7 @@ The hierarchy is:
 
 ## Shared learner-surface baseline
 
-Every first-class learner lane or independently entered learner sub-lane should provide the following capabilities. The learner-facing names and cognitive implementation may differ by subject or task.
+Every first-class learner lane or independently entered learner sub-lane should provide the following capabilities **when its staged learning-asset development has legitimately reached the relevant Projection / Runtime / Evidence work**. The learner-facing names and cognitive implementation may differ by subject or task.
 
 ### 1. Current
 
@@ -94,9 +115,15 @@ Examples:
 
 These surfaces should share platform capabilities without being forced into one error taxonomy, one scheduler, one review card, or one UI layout.
 
+A mature runtime from one lane may be a useful implementation reference, but it is never an upstream content or learning-model requirement for another lane.
+
 ## Basic-capability audit rule
 
-When a first-class lane or learner-facing sub-lane is added or materially rebuilt, check the eight baseline capabilities above.
+When a first-class lane or learner-facing sub-lane is added or materially rebuilt, first identify its active construction stage under `LEARNING_ASSET_STANDARD.md`.
+
+Do not run the eight-capability audit as an excuse to jump forward into Projection / Runtime work while Truth, Learning Logic, or Content remains unresolved.
+
+Once the scope legitimately reaches learner-surface/runtime maturity, check the eight baseline capabilities above.
 
 If a capability is intentionally absent because that surface genuinely does not need it, state why. If it is genuinely missing, mark the surface Partial and either:
 
