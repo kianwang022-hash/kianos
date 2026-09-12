@@ -8,7 +8,7 @@ It answers one question:
 
 This is not a UI checklist and not an engineering-completion checklist. A content file existing, a page rendering, a build passing, a source inventory being complete, or a simulated journey succeeding may all be useful evidence, but none of them alone proves a learning system is closed.
 
-The governing direction is:
+The governing causal direction is:
 
 ```text
 Source Truth
@@ -24,7 +24,9 @@ Source Truth
 → Evidence-based Revision
 ```
 
-This is a **causal direction, not a one-way waterfall**. Projection or Runtime may expose a real Knowledge/Learning defect and send the module back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
+This is a **causal direction, not a repository-wide one-way waterfall**. Within one audited scope, Projection or Runtime may expose a real Knowledge/Learning defect and send that dependency chain back upstream. What must not happen is using downstream engineering progress to pretend an upstream learning question was settled.
+
+Independent scopes may be audited and advanced concurrently at any justified hierarchy depth. A blocked gate in one Politics subject, Xizong System, English module, or other independent scope does not freeze unrelated siblings merely because they share a parent.
 
 After core modules are individually ready, KianOS enters a separate final layer:
 
@@ -54,6 +56,8 @@ Examples include:
 
 A domain-level page or global Home satisfying a capability does **not** automatically make every child module ready.
 
+Module acceptance is local. Independently continued children under the same parent may each own a different current active gate and may progress concurrently when no real dependency links them.
+
 ## 1.2 Global / Home Acceptance
 
 Once core modules are mature enough, KianOS must pass a separate system-level acceptance focused on:
@@ -69,6 +73,8 @@ Once core modules are mature enough, KianOS must pass a separate system-level ac
 - realistic whole-day learner journeys.
 
 Home must integrate mature modules without flattening their cognition into one shared workflow.
+
+A parent/global integration gate becomes active only when its own prerequisites are actually satisfied. Parenthood alone does not create a serial queue among child modules.
 
 ---
 
@@ -132,7 +138,53 @@ Examples:
 
 The gate/path has not received enough evidence to judge. `UNTESTED` is not failure, but it cannot be described as PASS.
 
-## 2.2 Blocker vs improvement
+`UNTESTED` is also **not a scheduling status**. Several downstream gates may be UNTESTED while only one gate is currently eligible for work.
+
+## 2.2 Gate activation is dependency-scoped
+
+For one audited scope, the local `CURRENT.md` identifies the **earliest unresolved acceptance gate that is eligible on the current dependency chain**.
+
+That gate is the current active acceptance work. Later dependent gates remain downstream-frozen even if their status vocabulary is still `UNTESTED`.
+
+Example:
+
+```text
+S  PASS
+K  PASS
+L  PASS
+P  UNTESTED   ← ACTIVE / earliest unresolved eligible gate
+R  UNTESTED   ← downstream-frozen
+E  UNTESTED   ← downstream-frozen
+U  UNTESTED   ← real learner use not yet eligible
+```
+
+Do not reinterpret this as four parallel TODOs.
+
+When P passes, R may become active if no other dependency blocks it. If P fails and reopens K/L, the affected downstream chain freezes again.
+
+This rule is local to the scope. Independent siblings may simultaneously have different active gates:
+
+```text
+Xizong A2        K active
+Politics History P active
+English Writing  E active
+```
+
+Hierarchy does not serialize those scopes.
+
+Hard distinction:
+
+```text
+Gate status
+= what evidence supports
+
+Gate activation
+= what the local Work Cursor is allowed to advance now
+```
+
+Do not add a second acceptance-status enum merely to encode scheduling. Use the existing status vocabulary plus the local Current's active/frozen dependency state.
+
+## 2.3 Blocker vs improvement
 
 Acceptance should be strict about **learning blockers**, not perfectionistic about every possible improvement.
 
@@ -235,6 +287,8 @@ Examples:
 - Translation should not force Diagnosis when a clean attempt is stable and confident;
 - Writing should not burn protected true exams merely to teach cold-start mechanics when synthetic material can teach the mechanism;
 - Objective English review should remain passage/set-level even if internal evidence is item-level.
+
+Learner order is not automatically construction order. Two independently owned assets may be constructed/accepted concurrently even when the approved learner path later consumes them sequentially, provided neither construction depends on an unresolved decision in the other.
 
 ---
 
@@ -410,6 +464,8 @@ U  clean path: PASS
 
 Do not call a module “basically closed” when a missing gate changes real learner behavior.
 
+Do not describe downstream `UNTESTED` gates as simultaneously active when an earlier dependent gate has not closed.
+
 ---
 
 # 4｜What must NOT substitute for acceptance
@@ -429,11 +485,13 @@ These are evidence, not acceptance by themselves:
 
 Acceptance targets the learner journey on **current `main@HEAD`**.
 
+Progress or failure in an independent sibling scope is also not acceptance evidence for the current scope.
+
 ---
 
 # 5｜Module development lifecycle
 
-Default mainline:
+Default mainline for one dependency chain:
 
 ```text
 1. Source / Knowledge Audit
@@ -449,6 +507,8 @@ Default mainline:
 ```
 
 This sequence is iterative: a concrete downstream defect may reopen the earliest upstream gate that actually explains it. Do not reopen mature gates merely because more features can be imagined.
+
+This lifecycle does not serialize independent modules. Different scopes may be at different lifecycle steps at the same time.
 
 ## 5.1 Source / Knowledge Audit
 
@@ -506,6 +566,8 @@ Home is a final system-integration layer. It routes among already-mature modules
 ## 6.1 Home prerequisites
 
 Core modules must have passed enough of S–E that Home is not hiding missing domain behavior. Any unresolved blocker remains visible as BLOCKED rather than being disguised by navigation.
+
+Global/Home integration depends only on the child capabilities it actually claims. It must not create an artificial requirement that every sibling module finish before any integration work can begin unless the claimed journey truly spans all of them.
 
 ## 6.2 Home must reflect the learner’s real study world
 
@@ -630,6 +692,9 @@ Use this default report skeleton:
 ```text
 MODULE: <name>
 CURRENT OWNER(S): <canonical Current paths>
+ACTIVE GATE: <earliest unresolved eligible gate>
+DEPENDENCY: <exact unresolved prerequisite or none>
+DOWNSTREAM: <frozen gates, if any>
 
 S Source:      PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
 K Knowledge:   PASS / PASS_WITH_DEBT / BLOCKED / UNTESTED
@@ -659,7 +724,7 @@ Allowed conclusion:
   Module ready for learner test / Learner-validated for <path> / Blocked
 ```
 
-Reports should identify concrete Current evidence rather than infer completion from reputation, prior chats, or historical green builds.
+Reports should identify concrete Current evidence rather than infer completion from reputation, prior chats, historical green builds, or sibling progress.
 
 ---
 
@@ -684,12 +749,16 @@ Reports should identify concrete Current evidence rather than infer completion f
 17. **U is path-scoped and requires real learner use.**
 18. **Home unifies routing/state, not domain cognition.**
 19. **Home is a final integration layer, not a substitute for unfinished modules.**
+20. **UNTESTED ≠ ACTIVE; the local Work Cursor activates only the earliest unresolved eligible gate on a dependency chain.**
+21. **Hierarchy ≠ scheduling; independent scopes at any depth may progress concurrently.**
+22. **Learner order ≠ construction dependency; one must not silently serialize the other.**
 
 ---
 
 # 10｜Relationship to other root governance
 
 - `AGENTS.md` defines Current authority, read/write boundaries, content ownership, runtime boundaries, and repository operating rules.
+- `ARCHITECTURE.md` separates ownership hierarchy from dependency-driven scheduling.
 - `SYSTEM_CONTRACT.md` defines minimum platform capabilities every first-class learner surface should expose.
 - `LEARNING_ACCEPTANCE.md` defines the evidence required before those capabilities may be called learner-ready and defines final Global/Home acceptance.
 - `CURRENT.md` describes current system state; it must not become private learner progress.

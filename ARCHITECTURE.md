@@ -1,7 +1,7 @@
 # KianOS Architecture
 
 Status: CURRENT — accepted top-level architecture
-Version: 1.0
+Version: 1.1
 
 This document defines **how KianOS is structurally organized to satisfy the project requirements**.
 
@@ -25,7 +25,7 @@ Architecture is downstream of Project Definition. If this structure fails Fresh 
 
 KianOS is a **federated, restartable, concurrent learning workspace** with recursive local autonomy.
 
-Default hierarchy:
+Default ownership hierarchy:
 
 ```text
 KianOS Root
@@ -41,6 +41,35 @@ A sub-lane becomes first-class only when independent entry/continuation is commo
 
 Do **not** create hierarchy merely because a directory exists.
 
+## 1.1 Hierarchy is ownership, not scheduling
+
+The hierarchy answers:
+
+> **Who owns this scope, which rules does it inherit, and where should a worker enter?**
+
+It does **not** answer:
+
+> **Which scope must wait for which other scope?**
+
+Scheduling follows real dependency.
+
+```text
+ownership / routing hierarchy ≠ construction dependency ≠ learner order
+```
+
+Examples:
+
+- Politics Marxism and History may both be nested under Politics and still progress concurrently;
+- Xizong A1/A2/A3 may be sibling Systems and progress concurrently when their current construction work is independent;
+- two Blocks may be constructed concurrently even when the approved learner path later consumes them in sequence;
+- a parent integration task may depend on several child results, but that dependency must be explicit rather than inferred from parenthood.
+
+Hard rule:
+
+> **Independent scopes may progress concurrently at any justified depth. Within a real dependency chain, downstream work waits for the earliest unresolved dependency.**
+
+A containment edge creates inheritance/routing. It does not create a work-order edge by itself.
+
 ---
 
 # 2｜Project Definition, Architecture, and Operating Cycle
@@ -52,15 +81,15 @@ Project Definition
 what / why / requirements / invariants
         ↓
 Architecture
-owners / hierarchy / boundaries / inheritance
+owners / hierarchy / boundaries / inheritance / dependency scheduling
         ↓
 Operating Cycle
 Design → Implement → Accept → Use → Observe → Revise
 ```
 
-The Operating Cycle runs repeatedly inside the Architecture.
+The Operating Cycle runs repeatedly inside the Architecture and may run concurrently in multiple independent scopes.
 
-A downstream defect may reopen the earliest responsible upstream layer, but ordinary implementation work does not rewrite Project Definition or Architecture.
+A downstream defect may reopen the earliest responsible upstream layer on its own dependency chain, but ordinary implementation work does not rewrite Project Definition or Architecture.
 
 ---
 
@@ -122,11 +151,13 @@ Work Cursor is not a fourth Truth.
 
 It answers:
 
-> **For this scope, what is the active / earliest unresolved stage, blocker, and next action?**
+> **For this scope, what is the active / earliest unresolved point on the current dependency chain, blocker, and next action?**
 
 The canonical human/Chat-facing Work Cursor is `CURRENT.md` at the relevant independent scope.
 
 `CURRENT` is a navigation/control surface, not a historical log and not a second Truth owner.
+
+A local Current controls only its own scope. It must not serialize independent sibling scopes merely because they share a parent.
 
 ---
 
@@ -155,7 +186,7 @@ A lane Current should contain only enough to restart current work:
 
 ```text
 scope
-active / earliest unresolved stage
+active / earliest unresolved stage when genuine lane-level work exists
 blocker
 next action
 frozen / out-of-scope
@@ -163,7 +194,11 @@ required reads
 references to relevant Artifact / Acceptance / Learner boundaries
 ```
 
-It must not contain:
+When the lane is acting only as a router, it should **not** appoint one independent child as the lane's globally active child. Each child owns its own Work Cursor and may progress concurrently with independent siblings.
+
+A parent lane may have its own active integration Work Cursor at the same time as child scopes only when that parent work is itself a genuine independent scope and does not depend on unresolved child results. If it does depend on them, the dependency must be stated explicitly.
+
+A lane Current must not contain:
 
 - historical narrative;
 - large completed-work logs;
@@ -185,6 +220,8 @@ Qualification test:
 - creating the Current removes ambiguity rather than duplicating parent state.
 
 If these are false, keep the work under the parent lane Current.
+
+A justified sub-lane may be active concurrently with other justified sub-lanes at the same or different hierarchy depth when no real dependency links their current work.
 
 ## 4.4 Current is not history
 
@@ -259,6 +296,8 @@ Lane contracts contain only cognition/rules genuinely different from root standa
 
 They reference inherited root rules rather than copying them.
 
+Learner order defined by a lane contract is a learner-path fact. It does not automatically serialize artifact construction unless a real construction dependency also exists.
+
 ## 6.3 Sub-lane contracts
 
 A sub-lane gets a durable local contract only when its cognition or execution semantics genuinely differ enough to require one.
@@ -282,13 +321,17 @@ Truth / Knowledge Boundary
 → Evidence / Acceptance
 ```
 
-Only the earliest unresolved construction stage is ACTIVE by default; affected downstream stages remain frozen.
+Within one declared dependency chain, only the earliest unresolved construction stage is ACTIVE by default; affected downstream stages remain frozen.
+
+This does **not** create a repository-wide or parent-lane waterfall. Independent scopes may each have their own active stage concurrently, including nested sibling subjects, Systems, modules, or bounded batches when their work does not depend on one another.
 
 Readiness is then judged independently through `LEARNING_ACCEPTANCE.md`:
 
 ```text
 S / K / L / P / R / E / U
 ```
+
+Acceptance gate state is local to the audited scope. An unresolved gate in one scope does not freeze an independent sibling scope.
 
 Construction stage and acceptance gate must not substitute for each other.
 
@@ -302,11 +345,20 @@ Artifact exists
 
 ---
 
-# 8｜Concurrency and write boundaries
+# 8｜Dependency-driven concurrency and write boundaries
 
 Concurrency is normal.
 
-## 8.1 Lane-local default
+The scheduler asks first:
+
+> **Does this work depend on an unresolved decision/artifact/evidence owned elsewhere?**
+
+- **No** → the scope may progress concurrently.
+- **Yes** → state the dependency and freeze only the affected downstream chain.
+
+Hierarchy depth, sibling status, parent ownership, or learner-facing sequence is not enough by itself to answer that question.
+
+## 8.1 Scope-local default
 
 Ordinary lane/sub-lane work writes only:
 
@@ -316,6 +368,8 @@ Ordinary lane/sub-lane work writes only:
 - exact runtime files in the authorized scope.
 
 It does not update root governance merely to record ordinary progress.
+
+Independent sibling scopes should avoid writing parent routers merely to announce local progress; that would recreate false serialization and write contention.
 
 ## 8.2 Branch semantics
 
@@ -329,7 +383,8 @@ Reconcile only when:
 
 - intended write-sets overlap;
 - authority/owner definitions changed;
-- inherited parent rules materially changed for the child scope.
+- inherited parent rules materially changed for the child scope;
+- a newly discovered real dependency makes the previous independent assumption invalid.
 
 Branch landing / retirement follows `BRANCH_LIFECYCLE.md`.
 
@@ -338,6 +393,8 @@ Branch landing / retirement follows `BRANCH_LIFECYCLE.md`.
 A worker acts only within the authorized scope.
 
 Cross-scope defects may be reported or may block the current task. They are not permission for opportunistic unrelated repair.
+
+When a cross-scope issue is a genuine dependency, escalate only to the narrow owner of that dependency. Do not freeze or repair unrelated siblings.
 
 ---
 
@@ -379,13 +436,14 @@ Every durable architecture choice must map to at least one real Project Requirem
 | --- | --- |
 | Predictable scope Current entry | R1 Restartability, R3 Bounded context |
 | Lane/sub-lane federation | R2 Local autonomy, R6 Concurrency |
+| Hierarchy separated from dependency scheduling | R2 Local autonomy, R6 Concurrency, R7 Scope containment |
 | Single canonical owner | R4 Single authority, R8 Anti-entropy |
 | Artifact / Acceptance / Learner separation | R5 Truth separation, R9 Learning quality |
 | CURRENT as Work Cursor only | R1, R3, R5, R8 |
 | continuation not mandatory | R3, R4, R8 |
 | inherited rules instead of copies | R4, R8 |
-| lane-local write sets | R6, R7 |
-| earliest unresolved learning stage | R7, R9 |
+| scope-local write sets | R6, R7 |
+| earliest unresolved stage per dependency chain | R7, R9 |
 | history excluded from normal fallback | R3, R8 |
 | lightweight entropy lint | R8 |
 | temporary branches not truth owners | R4, R6, R8 |
@@ -415,7 +473,9 @@ No answer may be manufactured from another.
 
 ## A3｜Parallel Chat Test
 
-Unrelated lane/sub-lane work can proceed concurrently with minimal ordinary write contention.
+Independent scopes at any justified hierarchy depth can proceed concurrently with minimal ordinary write contention.
+
+A parent/sibling relationship alone must not serialize them. Only real dependency, authority, or write-set overlap should require coordination.
 
 ## A4｜Owner Uniqueness Test
 
@@ -423,11 +483,11 @@ Important current facts/rules have one canonical owner.
 
 ## A5｜Three-month Entropy Test
 
-Continued use should not recreate ballooning Current/continuation files, duplicate rules/status, broad searches, root-contention, or learner/product state leakage.
+Continued use should not recreate ballooning Current/continuation files, duplicate rules/status, broad searches, root-contention, false parent-level child serialization, or learner/product state leakage.
 
 ## A6｜Learning Closure Test
 
-Learner-facing readiness claims still require the learning construction and acceptance standards; governance simplification must not weaken learning evidence.
+Learner-facing readiness claims still require the learning construction and acceptance standards; governance simplification and concurrency must not weaken learning evidence or allow downstream stages to outrun unresolved dependencies.
 
 ---
 
@@ -435,7 +495,7 @@ Learner-facing readiness claims still require the learning construction and acce
 
 The accepted architecture is a baseline, not a license to keep expanding governance.
 
-Normal lower-level upgrades proceed from their own local `CURRENT` and earliest unresolved stage. Root Architecture changes only when real use demonstrates that an existing Project Requirement is not being satisfied reliably enough.
+Normal lower-level upgrades proceed from their own local `CURRENT` and earliest unresolved dependency. Root Architecture changes only when real use demonstrates that an existing Project Requirement is not being satisfied reliably enough.
 
 When a new abstraction, registry, automation, status owner, runner layer, dashboard, or shared platform feature is proposed, require this chain:
 
