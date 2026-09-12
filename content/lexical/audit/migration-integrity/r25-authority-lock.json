@@ -1,0 +1,20 @@
+{
+  "schema": "kianos.lexical.historical_authority_lock.v1",
+  "round": "R25",
+  "range": [5901, 6200],
+  "legacy_repo": "kianwang022-hash/kianos-legacy",
+  "issue": 113,
+  "comment_id": 5585869440,
+  "expected_updated_at": "2026-09-08T13:26:07Z",
+  "expected_counts": {
+    "reviewed": 300,
+    "core_revisions": 101,
+    "core_direct_pass": 199,
+    "expansion_owner_targets": 151,
+    "contrast_targets": 80
+  },
+  "apply_status": "pending_deferred",
+  "semantic_mutation_authorized": false,
+  "learner_state_mutation_authorized": false,
+  "interpretation": "This lock freezes the historical authority by immutable comment id plus exact updated_at. The workflow fetches the exact historical comment and fails closed if it has changed. Historical authority remains evidence, not immutable Current ontology."
+}
