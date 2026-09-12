@@ -6,19 +6,28 @@ This file owns durable Politics learning semantics. It defines how Current Polit
 
 ## 1. Product model
 
-Politics follows the repository-wide chain:
+Politics follows the repository-wide causal chain:
 
-`Source Truth → Chat semantic/learning judgment → GitHub Current content → Astro display/interaction → learner`
+`Source Truth → Chat semantic/learning judgment → GitHub Current content → approved learner surfaces → learner`
 
-Politics should optimize the learner's actual study path, not maximize visible metadata, governance, or page count.
+Politics should optimize the learner's actual study path, not maximize visible metadata, governance, page count, or the amount of source material rendered inside Astro.
+
+Hard Politics surface rule:
+
+```text
+Source ownership ≠ Surface ownership.
+Chengfeng mainline ownership ≠ Astro lecture-reader ownership.
+```
+
+The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture surface. The fact that Astro can load source text does not authorize Astro to replace the original continuous-learning surface.
 
 ## 2. Active first-round learning chain
 
 The active first-round chain is:
 
-`Chat Orientation → Chengfeng Natural Unit continuous learning → Xiao1000 verification → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
+`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure → Xiao1000 verification on its explicitly approved answer surface → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
 
-This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses.
+This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
 
 ### Source roles
 
@@ -26,6 +35,23 @@ This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as
 - **Suyi** is a framework/reference source for Chat. Its useful mind-map structure should be semantically absorbed into Chat-approved Orientation / Bridge / Compression assets. The learner is not required to read Suyi separately, and Politics must not create a second Suyi learning mainline merely to preserve its original presentation.
 - **Xiao1000** is validation and transfer evidence. It may bind to one or more Natural Units/KPs but must not determine first-round learning order.
 - Different teachers may use different frameworks. Distinguish factual conflict, wording difference, and method preference. Chat decides the learner-facing result; do not hard-merge teachers into a false unified framework.
+
+### Surface roles
+
+Politics first-round learning uses explicit surface ownership rather than inferring it from implementation capability.
+
+| Learner action | Primary surface | Companion / boundary |
+| --- | --- | --- |
+| Chapter / Unit Orientation | Chat and/or Astro | Short map / WHY NOW only; not a second lecture |
+| Chengfeng continuous first study | **iPad / MarginNote original lecture surface** | Astro may hold position/checkpoint/bridge/locator, but must not substitute a continuous lecture reader |
+| Natural Unit position / checkpoint / closure cue | Astro | May tell the learner where they are and what to do next without duplicating the lecture |
+| Xiao1000 verification | **Must be explicitly bound before L re-closes** | Existing Astro question components do not decide this by themselves |
+| Wrong / Uncertain evidence capture | Astro when the attempt surface supports/returns that evidence | Preserve only evidence needed for repair/return |
+| Exact Chengfeng source repair | Original Chengfeng lecture surface by default | Astro may show a locator or minimal decisive excerpt; it must not expand into a second full lecture |
+| Deep semantic / relation repair | Chat | Adaptive diagnosis/repair; return to the owning learner path afterward |
+| Unit Return / handoff | Astro ↔ Chat as approved | Preserve Natural Unit / question identity and next action |
+
+The unresolved Xiao1000 answer-surface decision is a **Learning Logic item**, not permission for Projection to guess from current code. Until it is explicitly bound, affected downstream P/R/E claims must be revalidated after L closes.
 
 ## 3. Teaching projection
 
@@ -42,7 +68,7 @@ That layer may contain high-value teaching semantics such as:
 - Unit / Block / Chapter compression;
 - source-repair guidance for wrong or uncertain questions.
 
-It must not duplicate the Chengfeng source into a second AI textbook.
+It must not duplicate the Chengfeng source into a second AI textbook or a second continuous reader.
 
 ### Default teaching asset types
 
@@ -55,19 +81,22 @@ Only create an asset when it improves learning. Do not materialize empty module 
 
 ## 4. First-round interaction principles
 
-- **One mainline only:** the learner should feel that they are continuously learning Chengfeng, not switching among three teachers.
+- **One mainline only:** the learner should feel that they are continuously learning Chengfeng, not switching among three teachers or maintaining two lecture readers.
+- **Original-surface continuity:** continuous Chengfeng reading/study belongs to the original iPad/MarginNote lecture surface. Astro surrounds that action; it does not absorb it.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
-- **Content-rich, display-precise:** backend source/learning assets may be rich; the learner surface should show only the current cognitive action.
+- **Content-rich, display-precise:** backend source/learning assets may be rich; each learner surface should show only the current cognitive action it actually owns.
 - **Progressive disclosure:** explanation, boundary, source evidence, and repair depth expand only when needed.
 - **Smallest sufficient repair:** wrong/uncertain evidence should trigger the shallowest repair that resolves the real failure.
-- **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the owning Chengfeng unit.
+- **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the owning Chengfeng unit on its original source surface.
 - **Question-bank subordination:** question counts, unlock counts, and coverage must not dominate first-round attention hierarchy.
 - **Memory later:** first-round display should not make static memory counts a primary task. Precision/Memory becomes prominent when the learning phase actually requires it.
 - **No learner-facing scheduler internals:** fixed labels such as D1/D3/D7/D14 are not an active Politics learner contract. Review should present useful tasks and reasons, not scheduler implementation details.
 
 ## 5. Xiao1000 verification and repair
 
-Xiao1000 appears as an inline verification checkpoint after the relevant Natural Unit / natural subsection has been learned.
+Xiao1000 appears as a verification checkpoint after the relevant Natural Unit / natural subsection has been learned.
+
+Its **semantic role is frozen; its primary answer surface must be explicitly bound before the reopened Politics Learning gate may close**. Do not use current page/component existence as that decision.
 
 For a stable correct answer:
 
@@ -81,7 +110,7 @@ Default repair hierarchy:
 
 1. wording / hat / fixed-boundary confusion → show the decisive distinction and minimal source evidence;
 2. concept relation unclear → reopen the relevant Teaching Bridge / boundary;
-3. Natural Unit model broken → reopen the owning Chengfeng segment;
+3. Natural Unit model broken → return to the owning Chengfeng segment on the original source surface;
 4. persistent cross-unit confusion → use Unit/Block compression or targeted review.
 
 Do not replace this with a second full AI explanation textbook.
@@ -149,16 +178,21 @@ Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded
 
 ## 7. Astro boundary
 
-Astro renders and interacts with Current assets. It should provide reusable interaction primitives such as:
+Astro renders and interacts with Current assets **only for learner actions assigned to the Astro surface by this Learning Contract**.
+
+For Politics first-round learning, appropriate reusable primitives may include:
 
 - orientation;
-- continuous source reading;
-- checkpoint;
-- recall / reveal;
-- question attempt;
+- current Natural Unit / source locator;
+- external-primary study checkpoint / return;
+- short closure cue;
+- recall / reveal when approved;
+- question attempt only after the Xiao1000 answer surface is explicitly bound;
 - wrong / uncertain marking;
-- source repair;
-- highlight / note / next.
+- minimal source-repair excerpt / exact source jump;
+- highlight / note / next when they serve an approved Astro-owned action.
+
+A generic `continuous source reader` capability is **not** a Politics first-round primitive for Chengfeng. If shared runtime contains such a component for another lane or reference mode, Politics must not use it to replace Chengfeng continuous study on iPad/MarginNote.
 
 Astro must not hard-code political knowledge that belongs in `content/politics/`.
 
@@ -166,4 +200,4 @@ If a better explanation, orientation, bridge, boundary, or compression can be ex
 
 ## 8. Private interaction state
 
-Current content is learner-independent. Answers, progress, wrong/uncertain history, timing, notes, highlights, and similar private state may exist in browser/session/device storage only when it materially improves learning. It is not shared Current authority.
+Current content is learner-independent. Answers, progress, wrong/uncertain history, timing, notes, highlights, last external-source position, and similar private state may exist in browser/session/device storage only when it materially improves learning. It is not shared Current authority.
