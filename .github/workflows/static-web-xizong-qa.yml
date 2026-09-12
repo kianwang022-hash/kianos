@@ -7,6 +7,8 @@ on:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/xizong/**'
       - 'static-web/package.json'
+      - 'static-web/playwright.xizong.config.mjs'
+      - 'static-web/tests/xizong-e2e/**'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/global.css'
@@ -25,6 +27,8 @@ on:
       - 'LEARNING_ACCEPTANCE.md'
       - 'content/xizong/**'
       - 'static-web/package.json'
+      - 'static-web/playwright.xizong.config.mjs'
+      - 'static-web/tests/xizong-e2e/**'
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/global.css'
@@ -58,6 +62,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Install Chromium for browser QA
+        run: npx playwright install --with-deps chromium
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
       - name: Validate A3 owner and inventory
@@ -76,3 +82,5 @@ jobs:
         run: node scripts/validate-xizong-a3-evidence.mjs
       - name: Build Astro
         run: npm run build
+      - name: Run Xizong browser adversarial QA
+        run: npm run test:xizong:e2e
