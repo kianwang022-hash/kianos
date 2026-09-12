@@ -1,11 +1,12 @@
-name: LexicalOS Knowledge Re-acceptance Audit
+name: LexicalOS Knowledge Audit v2
 
 on:
   pull_request:
     paths:
       - 'content/lexical/words/by-ordinal/**'
-      - 'content/lexical/audit/knowledge-reacceptance/**'
-      - 'tools/lexical_knowledge_reacceptance_audit.py'
+      - 'content/lexical/relations/by-id/**'
+      - 'content/lexical/audit/knowledge-v2/**'
+      - 'tools/lexical_knowledge_audit_v2.py'
       - '.github/workflows/lexical-knowledge-reacceptance.yml'
   workflow_dispatch:
 
@@ -13,36 +14,43 @@ permissions:
   contents: read
 
 jobs:
-  knowledge-reacceptance:
+  knowledge-audit-v2:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Current branch
         uses: actions/checkout@v4
 
-      - name: Scan Current lexical Knowledge
+      - name: Scan Current Natural Owners only
         shell: bash
         run: |
-          python tools/lexical_knowledge_reacceptance_audit.py \
-            --output /tmp/lexical-knowledge-reacceptance.json \
-            --summary /tmp/lexical-knowledge-reacceptance.md
+          python tools/lexical_knowledge_audit_v2.py \
+            --output /tmp/lexical-knowledge-v2-inventory.json \
+            --summary /tmp/lexical-knowledge-v2-summary.md \
+            --batch-output /tmp/lexical-knowledge-v2-batch-0001-0200.json \
+            --batch-start 1 \
+            --batch-end 200 \
+            --emit-batch-jsonl \
+            | tee /tmp/lexical-knowledge-v2.log
 
-      - name: Publish summary
+      - name: Publish compact summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/lexical-knowledge-reacceptance.md ]; then
-            cat /tmp/lexical-knowledge-reacceptance.md >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/lexical-knowledge-v2-summary.md ]; then
+            cat /tmp/lexical-knowledge-v2-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## Lexical Knowledge re-acceptance summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo '## Lexical Knowledge v2 summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upload evidence
+      - name: Upload Current-only audit evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-knowledge-reacceptance
+          name: lexical-knowledge-audit-v2
           path: |
-            /tmp/lexical-knowledge-reacceptance.json
-            /tmp/lexical-knowledge-reacceptance.md
-          if-no-files-found: warn
+            /tmp/lexical-knowledge-v2-inventory.json
+            /tmp/lexical-knowledge-v2-summary.md
+            /tmp/lexical-knowledge-v2-batch-0001-0200.json
+            /tmp/lexical-knowledge-v2.log
+          if-no-files-found: error
           retention-days: 14
