@@ -5,39 +5,47 @@
   "canonical_id": "A3",
   "scope": "SYSTEM_BELOW_ONLY",
   "branch": "chat/a3-urinary-block-k-upgrade-20260912",
-  "current_batch": "A3-K-BATCH-03",
-  "current_stage": "B1_B4_AND_B6_B8_ACCEPTED_B5_BLOCKED_NEXT_B9_B11",
+  "current_batch": "A3-K-BATCH-04",
+  "current_stage": "BATCH_03_ACCEPTED_NEXT_B12_B14_SOURCE_K_AUDIT",
   "durable_owners": [
     "content/xizong/knowledge/learner/a3-urinary-block-k-upgrade.json",
     "content/xizong/knowledge/learner/a3-urinary-learning.json",
     "content/xizong/knowledge/learner/a3-urinary-batch01-semantic-audit.json",
     "content/xizong/knowledge/learner/a3-urinary-batch01-repair-spec.json",
     "content/xizong/knowledge/learner/a3-urinary-batch02-semantic-audit.json",
-    "content/xizong/knowledge/learner/a3-urinary-batch02-learning.json"
+    "content/xizong/knowledge/learner/a3-urinary-batch02-learning.json",
+    "content/xizong/knowledge/learner/a3-urinary-batch03-semantic-audit.json",
+    "content/xizong/knowledge/learner/a3-urinary-batch03-repair-spec.json",
+    "content/xizong/knowledge/learner/a3-urinary-batch03-learning.json"
   ],
   "completed": [
-    "B1-B4 Block-level K PASS: 67 KPs / 20 Logic Groups with source revalidation and four named canonical repair areas.",
-    "B6 Block-level K PASS after evidence-first hematuria localization and split-function capability repair.",
-    "B7 Block-level K PASS after original CKD table recovery and separation of stable clinical mechanisms from old ACEi/BP/KRT/PD Source Precision.",
-    "B8 Block-level K PASS after ASB/bacteriuria context, WBC-cast evidence, antibiotic and historical duration/classification boundaries were repaired.",
-    "Accepted A3 scope now covers 7 Blocks / 120 stable KPs."
+    "B1-B4 Block-level K PASS: 67 KPs / 20 Logic Groups.",
+    "B6-B8 Block-level K PASS: 53 KPs / 16 Logic Groups; B5 intentionally excluded.",
+    "B9-B11 Block-level K PASS: 68 KPs / 17 Logic Groups after original-source re-read and morphology-pattern/etiology repairs.",
+    "B9 now separates clinical syndrome, LM/IF/EM damage pattern and final etiologic disease; deposit location is a tendency rather than a deterministic syndrome lookup.",
+    "B10 now defines RPGN III by pauci-immune morphology rather than required ANCA positivity, anchors IgA nephropathy on mesangial IgA IF rather than one fixed LM pattern, and inherits B7 RAS-blockade Current truth.",
+    "B11 preserves the traditional 306 five-pattern table while marking MsPGN/MPGN/FSGS as pattern-first; steroid/cyclophosphamide tables are Source Precision rather than universal treatment; MCD filter-barrier Current truth inherits B2.",
+    "Accepted A3 scope now covers 10 Blocks / 188 stable KPs."
   ],
   "durable_blockers": [
     "B5 remains BLOCKED: current project Sources do not contain the complete compensation-formula/mixed-acid-base algorithm that the historical B5 owner promises.",
     "B5 must also inherit the repaired B3 K+/acid-base context model instead of restoring the old universal urine-pH four-grid."
   ],
   "not_done": [
-    "B9-B14 remain historical substrate until their batches pass.",
-    "B5 has not been resolved and therefore whole-A3 K cannot close.",
+    "B12-B14 remain historical substrate until Batch-04 passes.",
+    "B5 has not been resolved and therefore whole-A3 K cannot close even if B12-B14 later pass.",
     "A3 system.json has not been created or accepted.",
     "A3 System-level S/K/L/P/R/E/U have not been promoted.",
+    "A3 learner-facing Projection/Runtime has not been accepted.",
     "SuperSystem design remains out of scope until the separate line-design decision resumes."
   ],
-  "next_action": "Audit B9-B11 source-first: glomerular immune mechanism and LM/IF/EM dual-coordinate map, then nephritic and nephrotic branches. Re-read the bound internal-medicine source rather than inheriting historical final-execution labels. Preserve stable identities unless a real semantic defect requires reviewed change. Do not let B5's unresolved acid-base blocker disappear from final A3 closure.",
+  "source_evidence_note": "Batch-03 exact original PDF page routes were re-read. The current file surface did not render every requested page image, so Batch-03 does not claim pixel-level visual audit; Visual Gates preserve exact original-source contact. No stable source orphan remained in B9-B11 text/source scope.",
+  "next_action": "Start A3-K-BATCH-04 with B12-B14. Re-read the bound surgery/internal-medicine source first, then audit obstruction/stones/BPH/incontinence, renal TB/tumors and urinary trauma for mechanism continuity, stable KP lossless coverage, imaging/operation thresholds, old absolute clinical rules, duplicated owners and Visual Gates. Preserve stable identities unless a real semantic defect requires reviewed change.",
   "anti_drift": [
     "Historical '最终执行版' labels are not acceptance evidence.",
-    "Accepted B1-B4/B6-B8 should not be reopened without concrete new source or learner evidence.",
+    "Accepted B1-B4/B6-B11 should not be reopened without concrete new source or learner evidence.",
     "Do not model-fill B5's missing complete acid-base algorithm.",
+    "Do not let B12-B14 completion erase the B5 blocker.",
     "Do not promote A3 System-level K from partial Block acceptance.",
     "Do not implement SuperSystem before the separate line-design decision is resumed."
   ]
