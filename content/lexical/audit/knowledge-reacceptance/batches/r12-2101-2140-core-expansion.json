@@ -1,0 +1,51 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R12 ordinals 2101-2140",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5580856200",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {"ordinal":2103,"word_id":"word:gasp","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"rare want-very-much sense sense:gasp:931d955604a45e09 is deprecated/reference-only, but Core cluster label still says 渴望 / want something very much","approved_target":"demote rare standalone longing; Core stays sudden/effortful breath plus gasp-out speech"},
+    {"ordinal":2104,"word_id":"word:gate","classification":"CORE_LANDING_INCOMPLETE","current":"gate receipts remains Active L2; rare furnish-with-a-gate verb remains Active L3; logic-gate sense is reference-only but stale Core label still includes logic gate and gate receipts","approved_target":"ordinary physical/boarding gate Active; ticket-receipts and rare verb demoted; logic gate technical recognition only"},
+    {"ordinal":2105,"word_id":"word:gather","classification":"OVERMERGE_OR_CARRIER_LOSS","current":"infer/conclude sense sense:gather:3dc534077b1c5fb0 is deprecated while two constructions still anchor to it; garment-fold noun remains Active L3; Core text still mentions inference","approved_target":"collect/come together plus high-value infer/conclude Active; preserve gather that; garment-fold noun demoted"},
+    {"ordinal":2106,"word_id":"word:gauge","classification":"CURRENT_CORRECT","current":"Active verb explicitly covers measure precisely or estimate; Core centers measurement/standard; rail/wire details are lower L3","approved_target":"L0 covers measuring and judging/estimating degree/extent; rail/wire technical lower"},
+    {"ordinal":2107,"word_id":"word:gay","classification":"CORE_LANDING_INCOMPLETE","current":"modern homosexual adjective is Active but sort_order 3; cheerful is still L1 first; dissipated and older cheerful senses remain co-equal Active","approved_target":"modern ordinary gay/homosexual first; cheerful/bright/dissipated historical/literary/lower recognition"},
+    {"ordinal":2110,"word_id":"word:gender","classification":"CURRENT_CORRECT","current":"rare produce-offspring verb sense:gender:d0384c90043657a8 is deprecated/reference-only; noun social/cultural gender and grammatical gender remain Active","approved_target":"demote rare verb; keep social/cultural and grammatical gender"},
+    {"ordinal":2112,"word_id":"word:general","classification":"CORE_LANDING_INCOMPLETE","current":"religious-order-head noun sense:general:4c95246d8807519b remains Active L3 and remains in Core cluster","approved_target":"demote religious-order-head; keep general/not-specific plus military general"},
+    {"ordinal":2113,"word_id":"word:generalise","classification":"OVERMERGE_OR_CARRIER_LOSS","current":"medical generalized-disease sense is correctly deprecated, but approved make-widespread sense sense:generalise:22fd322331c85220 is also deprecated; only infer/generalize remains Active","approved_target":"keep infer/generalize plus make widespread; demote specialized medical use"},
+    {"ordinal":2114,"word_id":"word:generate","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"broad produce/bring-into-existence is Active L1 but produce-energy remains a separate Active L2 learner sense","approved_target":"merge energy production into broad produce/bring-about core rather than object-type micro-sense"},
+    {"ordinal":2116,"word_id":"word:generator","classification":"CORE_LANDING_INCOMPLETE","current":"electric generator L1; gas/vapor generator also L1; person/originator L2; signal generator L3","approved_target":"organize around general producing device/person plus electric generator; gas/vapor and signal-generator details specialized recognition"},
+    {"ordinal":2118,"word_id":"word:genetic","classification":"DUPLICATE_OR_STALE_REPRESENTATION","current":"two separate Active adjective senses remain: genes/heredity and relating to genetics science","approved_target":"merge overlapping genetic/genetics-related adjective rows into one genes/heredity learner core"},
+    {"ordinal":2121,"word_id":"word:gentle","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"P0","current":"Core remains correct but Active senses array is empty; ordinary adjective sense sense:gentle:b9bfe7ccd20552c9 is deprecated, while kind adjective and rare soothing-stroke verb are merged into that deprecated carrier","approved_target":"one Active mild/kind/soft adjective core; rare verb demoted"},
+    {"ordinal":2123,"word_id":"word:gently","classification":"CORE_LANDING_INCOMPLETE","current":"second Active sense is still generic 逐渐地 / in a gradual way","approved_target":"rewrite to 缓缓地/平缓地: mild, gradual, or gently sloping manner, not generic gradually"},
+    {"ordinal":2128,"word_id":"word:germ","classification":"CORE_LANDING_INCOMPLETE","current":"embryonic/germ-cell sense is Active L1 sort 0 and Core says 细菌，胚芽; microorganism is L1 sort 1; metaphor source/origin is L2","approved_target":"prioritize 病菌/微生物 plus productive 萌芽/根源 metaphor; germ-cell/embryonic technical lower"},
+    {"ordinal":2130,"word_id":"word:get","classification":"CORE_LANDING_INCOMPLETE","current":"Active senses do cover obtain, arrive, become, cause, understand, but Core meaning still only 得到；变得 / obtain, receive, or become","approved_target":"L0 explicitly supports obtain/arrive/become/cause/understand"},
+    {"ordinal":2131,"word_id":"word:ghost","classification":"OVERMERGE_OR_CARRIER_LOSS","severity":"P0/P1","current":"ordinary ghost/幽灵 sense sense:ghost:04473f0cc7765ab9 is deprecated/reference-only; trace noun is Active; archaic quiet-movement verb and ghostwriting remain Active; approved modern ghost sb=stop replying/contacting is absent","approved_target":"restore ordinary ghost noun; add common modern ghost sb sense; demote archaic quiet-movement verb; ghostwriting lower recognition"},
+    {"ordinal":2137,"word_id":"word:give","classification":"CURRENT_CORRECT","current":"Core clusters cover transfer, provide/supply, yield/surrender and noun give=elasticity","approved_target":"rewrite beyond simple 给 to transfer/provide/yield while retaining noun elasticity"},
+    {"ordinal":2140,"word_id":"word:glamor","classification":"FORM_PRONUNCIATION_CASE_REGIONAL_GAP","current":"glamor noun is correct; rare bewitch verb sense is deprecated but published construction glamor sb into doing still points to it; separate full Active word:glamour exists at ordinal 5840 instead of approved spelling-variant/search-alias treatment","approved_target":"keep charm/allure noun; demote archaic verb and glamor-sb-into-doing; treat glamour as spelling variant/search alias rather than competing learner semantic owner"}
+  ],
+  "expansion_reconciliation": [
+    {"word_id":"word:gauge","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"gauge the extent/impact/mood","current":"broad gauge verb exists and gauge public opinion is present, but approved high-value extent/impact/mood family is absent"},
+    {"word_id":"word:gear","classification":"PRESENTATION_ONLY_GAP","approved_target":"be geared to/towards sth","current":"same semantic carrier exists as gear sth to/towards sth in Active sense/collocation/construction, but approved passive learner pattern is absent"},
+    {"word_id":"word:generate","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"generate interest / revenue / data","current":"broad generate + sth exists, but approved high-value object-family targets are absent"},
+    {"word_id":"word:genetic","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"genetic makeup; genetic predisposition","current":"neither approved collocation is present"},
+    {"word_id":"word:gesture","classification":"CURRENT_CORRECT","approved_target":"a gesture of goodwill","current":"exact collocation a gesture of goodwill is Active under sense:gesture:ca4139eb3ce750e9"},
+    {"word_id":"word:get","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"get rid of; get over; get through; get across; get to do sth (= chance/permission)","current":"none of the five approved Expansion targets is present; other constructions get sb to do and get sth done survive"},
+    {"word_id":"word:give","classification":"CONSTRUCTION_OR_PHRASE_LANDING_GAP","approved_target":"give off; give away; give out","current":"none of the three approved phrasal targets is present; give in/up and constructions give rise to/give way to are present instead"}
+  ],
+  "summary": {
+    "core_decisions_checked": 18,
+    "core_current_correct": 3,
+    "core_defective": 15,
+    "expansion_owner_groups_checked": 7,
+    "expansion_current_correct": 1,
+    "expansion_presentation_only_gap": 1,
+    "expansion_phrase_landing_gap": 5,
+    "new_p0_reproduced": ["word:gentle"],
+    "other_severe_carrier_loss": ["word:ghost"]
+  },
+  "next": "Continue R12 Core + Expansion reconciliation from ordinal 2141 onward; do not mutate Natural Owners until R12/following audit coverage is sufficient for the consolidated exact repair inventory."
+}
