@@ -1,0 +1,105 @@
+{
+  "schema": "kianos.lexical.knowledge_reacceptance.audit_checkpoint.v1",
+  "audit_id": "R13_CONTRAST_RECONCILIATION",
+  "status": "AUDITED_NOT_REPAIRED",
+  "range": {"start_ordinal": 2301, "end_ordinal": 2600},
+  "semantic_authority": {
+    "repo": "kianwang022-hash/kianos-legacy",
+    "issue": 113,
+    "comment_id": 5581086274,
+    "authority_manifest": "content/lexical/audit/migration-integrity/r13-contrast-authority.json"
+  },
+  "bulk_readback": {
+    "script": "tools/lexical_migration_contrast_readback.py",
+    "workflow": ".github/workflows/lexical-migration-integrity.yml",
+    "workflow_commit": "aa8eb6d7555eb78834f09c1cc97a1af6f8c8e648",
+    "workflow_run_id": 34698350670,
+    "workflow_conclusion": "success",
+    "artifact_name": "lexical-r13-contrast-readback",
+    "artifact_id": 10299138848,
+    "artifact_digest": "sha256:3ef1a2494a93877628f5a3408127cd0af63869426b1c3c7b4a9e8dfbf1dbdea5",
+    "mechanical_result": {
+      "target_count": 45,
+      "source_owner_count": 42,
+      "no_source_view": 39,
+      "self_contrast_owner_review": 5,
+      "source_view_present_candidate": 1,
+      "reverse_only": 0,
+      "partial_source_view": 0
+    },
+    "semantic_mutation_performed": false,
+    "learner_state_mutation_performed": false,
+    "mechanical_semantic_judgment_performed": false
+  },
+  "chat_reconciliation": {
+    "target_count": 45,
+    "current_correct": 1,
+    "presentation_only_gap": 1,
+    "authority_missing_from_current": 39,
+    "form_pronunciation_case_regional_gap": 4,
+    "semantic_mutation_performed": false,
+    "results": {
+      "CURRENT_CORRECT": [
+        {
+          "target_id": "R13-C38",
+          "approved_target": "innovation / invention",
+          "current_relation_id": "deep:semantic_contrast:innovation:671bc518f92f4377",
+          "current_boundary": "innovation强调引入新事物，invention强调发明成果",
+          "anchor_status": "active/active",
+          "reason": "Source-facing Current relation exists and preserves the approved learner boundary at sufficient semantic granularity."
+        }
+      ],
+      "PRESENTATION_ONLY_GAP": [
+        {
+          "target_id": "R13-C11",
+          "approved_target": "hundred / hundreds of — exact two hundred without plural -s vs indefinite hundreds of",
+          "owner": "word:hundred",
+          "owner_ordinal": 2407,
+          "evidence": "Current has both `hundreds of + sth` and `one/a hundred`, but no learner-facing contrast explaining exact-number grammar versus indefinite plural usage."
+        }
+      ],
+      "FORM_PRONUNCIATION_CASE_REGIONAL_GAP": [
+        {
+          "target_id": "R13-C10",
+          "owner": "word:house",
+          "approved_target": "house noun /haʊs/ vs verb /haʊz/",
+          "evidence": "Current owner distinguishes noun and verb senses but contains no learner-facing pronunciation contrast."
+        },
+        {
+          "target_id": "R13-C24",
+          "owner": "word:import",
+          "approved_target": "import noun vs verb stress",
+          "evidence": "Current owner distinguishes noun and verb senses but contains no learner-facing stress contrast."
+        },
+        {
+          "target_id": "R13-C30",
+          "owner": "word:increase",
+          "approved_target": "increase noun vs verb stress",
+          "evidence": "Current owner distinguishes noun and verb senses but contains no learner-facing stress contrast."
+        },
+        {
+          "target_id": "R13-C40",
+          "owner": "word:insult",
+          "approved_target": "insult noun vs verb stress",
+          "evidence": "Current owner distinguishes noun and verb senses but contains no learner-facing stress contrast."
+        }
+      ],
+      "AUTHORITY_MISSING_FROM_CURRENT": [
+        "R13-C01","R13-C02","R13-C03","R13-C04","R13-C05","R13-C06","R13-C07","R13-C08","R13-C09",
+        "R13-C12","R13-C13","R13-C14","R13-C15","R13-C16","R13-C17","R13-C18","R13-C19","R13-C20","R13-C21","R13-C22","R13-C23",
+        "R13-C25","R13-C26","R13-C27","R13-C28","R13-C29","R13-C31","R13-C32","R13-C33","R13-C34","R13-C35","R13-C36","R13-C37",
+        "R13-C39","R13-C41","R13-C42","R13-C43","R13-C44","R13-C45"
+      ]
+    },
+    "missing_relation_precision": "For all 39 relation-gap targets, bulk readback found neither the approved source-facing relation view nor a reverse Current relation view. These are global Current relation absences for the approved pair/group at this audit boundary, not merely source-side projection gaps."
+  },
+  "manual_owner_evidence": [
+    {"word_id":"word:house","ordinal":2387,"blob_sha":"cd72bb8c8f4b642eae232fb208554a510ddc1196"},
+    {"word_id":"word:hundred","ordinal":2407,"blob_sha":"00b4f019d538ac84e56a10cc9174a02f5c789fa9"},
+    {"word_id":"word:import","ordinal":2473,"blob_sha":"efe1443ae174af7f4f9724a1814e61b7d55878b3"},
+    {"word_id":"word:increase","ordinal":2495,"blob_sha":"9f03221ce7382f9eb075643a0594b5c7191d9b0c"},
+    {"word_id":"word:insult","ordinal":2580,"blob_sha":"17cbb6f66ee466eaac1e39eeedd48c97a059d1d6"}
+  ],
+  "conclusion": "R13 Contrast coverage is complete and not repaired. Together with the already completed R13 Core + Expansion coverage, R13 audit coverage is now complete. K remains BLOCKED because the audited defects are unresolved.",
+  "next_action": "Continue R14+ historical-authority recovery using bulk manifests/readback first. Do not return to one-word GitHub reads except for P0/P1 anomalies or calibrated spot checks. Do not mutate Natural Owners until consolidated repair inventory coverage is sufficient."
+}
