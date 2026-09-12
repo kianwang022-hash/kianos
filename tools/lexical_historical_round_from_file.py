@@ -18,7 +18,9 @@ EXPANSION_DECLARED_COUNT: int | None = None
 def parse_core_compatible(body: str) -> list[dict[str, Any]]:
     lines = triage.section_lines(body, "### Core Gate", ("All other ordinals", "### Expansion Gate"))
     numbered_owner = re.compile(r"^\s*(\d+)\.\s+`(\d+)\s+(word:[^`]+)`\s+—\s+(.+)$")
+    numbered_ordinal_word = re.compile(r"^\s*(\d+)\.\s+`(\d+)\s+([^`]+)`\s+—\s+(.+)$")
     bulleted_owner = re.compile(r"^\s*-\s+`(\d+)\s+(word:[^`]+)`\s+—\s+(.+)$")
+    bulleted_ordinal_word = re.compile(r"^\s*-\s+`(\d+)\s+([^`]+)`\s+—\s+(.+)$")
     numbered_word = re.compile(r"^\s*(\d+)\.\s+`([^`]+)`\s+—\s+(.+)$")
     bulleted_word = re.compile(r"^\s*-\s+`([^`]+)`\s+—\s+(.+)$")
     rows: list[dict[str, Any]] = []
@@ -30,9 +32,17 @@ def parse_core_compatible(body: str) -> list[dict[str, Any]]:
         if m:
             rows.append({"index": int(m.group(1)), "ordinal": int(m.group(2)), "word_id": m.group(3), "approved_revision": m.group(4).strip()})
             continue
+        m = numbered_ordinal_word.match(stripped)
+        if m:
+            rows.append({"index": int(m.group(1)), "ordinal": int(m.group(2)), "word_id": f"word:{m.group(3).strip().lower()}", "approved_revision": m.group(4).strip()})
+            continue
         m = bulleted_owner.match(stripped)
         if m:
             rows.append({"index": len(rows) + 1, "ordinal": int(m.group(1)), "word_id": m.group(2), "approved_revision": m.group(3).strip()})
+            continue
+        m = bulleted_ordinal_word.match(stripped)
+        if m:
+            rows.append({"index": len(rows) + 1, "ordinal": int(m.group(1)), "word_id": f"word:{m.group(2).strip().lower()}", "approved_revision": m.group(3).strip()})
             continue
         m = numbered_word.match(stripped)
         if m:
@@ -66,7 +76,7 @@ def parse_owner_group_expansion(body: str) -> list[dict[str, Any]] | None:
         return None
 
     EXPANSION_OWNER_TARGETS = [w.strip().lower() for w in m_targets.group(1).split(",") if w.strip()]
-    m_declared = re.search(r"Expansion Gate[^\n]*(?:declared\s+)?(\d+)", body, flags=re.I)
+    m_declared = re.search(r"declared\s+(\d+)", body, flags=re.I)
     EXPANSION_DECLARED_COUNT = int(m_declared.group(1)) if m_declared else None
     target_set = set(EXPANSION_OWNER_TARGETS)
     chunks = [c.strip().rstrip(".") for c in m_surfaces.group(1).split(";") if c.strip()]
@@ -90,7 +100,6 @@ def parse_owner_group_expansion(body: str) -> list[dict[str, Any]] | None:
             first = [word for pos, word in candidates if pos == first_pos]
             hints = list(dict.fromkeys(first))
 
-        # Explicit slash-led owner families intentionally span multiple owner targets.
         lead = norm.split()[0] if norm.split() else ""
         slash_parts = [p for p in lead.split("/") if p]
         slash_hits = [p for p in slash_parts if p in target_set]
@@ -132,7 +141,6 @@ def contrast_terms_compatible(text: str) -> list[str]:
     if len(codes) >= 2:
         return list(dict.fromkeys(codes))
     if not codes:
-        # Historical rounds may use plain `a / b` wording without code spans.
         plain = re.sub(r"^\s*\d+\.\s*", "", text)
         expr = plain.split("—", 1)[0].strip()
         if "/" in expr:
