@@ -62,6 +62,10 @@ jobs:
         run: node scripts/audit-politics-question-routing.mjs
       - name: Prove scoped Politics source loading without monoliths
         run: node scripts/audit-politics-scoped-source.mjs
+      - name: Audit History batch content closure
+        run: node scripts/audit-politics-history-content.mjs
+      - name: Audit History global first-ready parity
+        run: node scripts/audit-politics-history-first-ready.mjs
       - name: Audit K03 canonical knowledge closure
         run: node scripts/audit-politics-k03-knowledge.mjs
       - name: Audit Marxism batch content closure
@@ -74,10 +78,6 @@ jobs:
         run: node scripts/audit-politics-k03-runtime-evidence.mjs
       - name: Audit Marxism runtime and evidence closure
         run: node scripts/audit-politics-marxism-runtime-evidence.mjs
-      - name: Audit History batch content closure
-        run: node scripts/audit-politics-history-content.mjs
-      - name: Audit History global first-ready parity
-        run: node scripts/audit-politics-history-first-ready.mjs
       - name: Validate Politics Current bindings
         run: npm run validate:politics
       - name: Build Astro
