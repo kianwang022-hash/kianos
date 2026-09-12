@@ -1,12 +1,12 @@
 # Xizong Acceptance
 
-Status: CURRENT on governance redesign branch  
+Status: CURRENT  
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Xizong lane Acceptance Truth
 
 This file owns current Xizong S/K/L/P/R/E/U readiness claims.
 
-It does not own medical Core, learner-support semantics, Work Cursor, or Kian's private learner state.
+It does not own medical Core, lane learning semantics, learner-support execution detail, Work Cursor, or Kian's private learner state.
 
 ---
 
@@ -68,7 +68,7 @@ Allowed conclusion:
 
 - **S PASS** — Current owner model exists and A2 official System scope is exactly **359** Current Question Truth IDs with fail-closed identity/count/hash validation in the accepted source boundary.
 - **K UNTESTED** — Current Artifact includes one A2 System owner + **12 canonical Blocks / 236 stable KPs**, but latest-root K content closure has not yet been re-established from actual canonical content. File presence / prior reputation cannot promote K.
-- **L PASS** — shared study policy plus `a2-respiratory-learning.json` define the direct **12-Block / 62-Logic-Group** first-learning route, Lecture-first learning, KP Recall, Block Recall, System Recall before questions, W/U repair and post-question Recall.
+- **L PASS** — the accepted Xizong learning constitution plus detailed shared study policy and `a2-respiratory-learning.json` define the current first-learning route, including continuous Block/Logic-Group learning, Lecture-first contact, active Recall, Block/System closure, question verification and W/U repair. Exact executable detail remains in its learning owners rather than this Acceptance ledger.
 - **P/R/E UNTESTED** — these gates wait for K content-closure reconfirmation and subsequent bounded Module E2E acceptance.
 - **U UNTESTED** — no engineering state can promote learner progress.
 
@@ -86,8 +86,6 @@ A2 P / R / E — bounded Module E2E acceptance
 real U only when Kian actually uses the named learner path
 ```
 
-`FINAL_A1_PR_QA_AND_MERGE` is historical: PR #12 was merged on 2026-09-12 with merge commit `61e2c1b32aeadeedd1b3bf4f6f6a43a7734509f2`. It is not a current work item.
-
 ---
 
 ## Truth boundaries
@@ -96,7 +94,8 @@ real U only when Kian actually uses the named learner path
 
 - owner map → `content/xizong/knowledge/manifest.json`
 - canonical medical Core → `content/xizong/knowledge/systems/**` + canonical Block Markdown
-- shared learning support → `content/xizong/knowledge/learner/`
+- lane learning semantics → `content/xizong/LEARNING_CONTRACT.md`
+- detailed shared learning policy / System support → `content/xizong/knowledge/learner/`
 - official questions / explanations / reviewed relations → Xizong content roots
 - learner-facing implementation → Xizong surfaces under `static-web/`
 
@@ -107,11 +106,3 @@ Private learner/browser/conversation evidence only.
 In particular:
 
 > **A1 S–E PASS does not authorize a worker to ask Kian for Circulation System Recall when Kian has not actually reached that learner stage.**
-
----
-
-## Migration note
-
-This owner preserves the current readiness claims and decisive evidence from the prior `knowledge/learner/acceptance-status.json`, while removing stale Work Cursor / acceptance-queue responsibility from the Acceptance Truth layer.
-
-The detailed predecessor remains recoverable through Git history if an explicitly bounded historical audit is required; normal Current work uses this file.
