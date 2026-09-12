@@ -58,91 +58,100 @@ U  UNTESTED
 
 Allowed conclusion:
 
-> **Marxism has substantial Current Artifact implementation and an accepted K03 pilot, but whole-subject S/K/L/P/R/E acceptance is not yet established; U is UNTESTED.**
+> **Marxism has a complete current implementation candidate for whole-subject S/K/L/P/R/E acceptance plus an accepted K03 pilot, but the whole-subject gates have not yet executed successfully; U is UNTESTED.**
 
-Do not translate “all chapter teaching projections exist” into subject-level acceptance.
+Do not translate implementation completeness or manual review completion into subject-level PASS.
 
-### S｜UNTESTED — named source/Suyi review debt remains
+### Current candidate evidence from latest `main`
 
-Current Artifact evidence includes:
+- **S candidate** — root Source/OCR and Suyi review dispositions are durable; the manual Suyi review is closed and only C01-S01 / C06-S01 deltas were admitted, both already repaired.
+- **K candidate** — whole-Marxism semantic scan is complete; C01-S01 and C06-S01 were the two accepted P0 gaps; no broad stylistic rewrite was justified elsewhere.
+- **L/P candidate** — global formal-first-ready derivation covers 22 Natural Units / 396 unique questions, including K03 exact 11 first-ready questions and named deferrals.
+- **R/E candidate** — whole-subject Unit Return / first-attempt behavior is implemented without 21 hand-coded sidecars; K03 keeps canonical node precision while other units fail safely to Natural-Unit precision rather than inventing K-level evidence.
 
-- deterministic Current source owners / scoped shards;
-- 1172 Xiao source records preserved across 56 shards with canonical digest parity;
-- 19528 source-node records preserved across 302 scoped shards with canonical digest parity;
-- Current runtime no longer requires the 5.97 MB / 21.4 MB monoliths for normal exact-ID consumption.
-
-However whole-Marxism Source acceptance still waits for the remaining named P0/P1 source-root / Suyi exception review.
-
-`audit-politics-marxism-content.mjs` deliberately distinguishes:
-
-- true blockers such as missing canonical region/source/renderable owner;
-- P0/P1 review queue items such as source-root review and Suyi delta review.
-
-Until the named review queue has been adjudicated for the claimed scope, S remains UNTESTED rather than being promoted from source materialization alone.
-
-### K｜UNTESTED
-
-Manual Marxism semantic comparison is substantially complete and two genuine P0 Knowledge gaps were repaired:
-
-- C01-S01 — dialectics vs metaphysics restored as the third judgment axis;
-- C06-S01 — monopoly-profit mechanism restored.
-
-Other scanned chapters were not rewritten merely for style.
-
-Nevertheless K awaits the bounded whole-subject content audit after the remaining source/review exceptions are resolved. Manual scan completion + file presence do not by themselves establish formal K PASS.
-
-### L / P｜UNTESTED
-
-Artifact implementation includes the global formal-first-ready derivation:
-
-- 22 Natural Units;
-- 396 unique Marxism questions;
-- K03 exact 11-question first-ready set;
-- named cross-unit/cross-chapter deferrals.
-
-Whole-subject L/P remain UNTESTED until the current parity gate actually executes against Current owners.
-
-### R / E｜UNTESTED
-
-K03 provides an accepted runtime/evidence model, and a common Politics runtime exists.
-
-The whole-subject claim remains UNTESTED until the K03 zero-debt first-attempt → Wrong/Uncertain repair → Unit Return semantics are proven across generated Marxism ownership without per-unit hard-coding or learner-state inference.
+These remain candidate Artifact/evidence inputs until the dedicated current gates execute. Recent Politics QA no-start jobs do not promote or refute them.
 
 ### U｜UNTESTED
 
-Real learner use is separate.
+Real learner use is separate. No engineering or CI state may be rewritten as Kian's personal Politics progress.
 
-K03 U may wait while engineering acceptance proceeds elsewhere, but no engineering progress may be rewritten as Kian's personal Politics progress.
+---
+
+## Whole-subject History acceptance
+
+Scope: History ch01–ch10
+
+```text
+S  UNTESTED
+K  UNTESTED
+L  UNTESTED
+P  UNTESTED
+R  UNTESTED
+E  UNTESTED
+U  UNTESTED
+```
+
+Allowed conclusion:
+
+> **History has a completed learner-facing semantic mainline scan with five evidence-backed repairs, but Source/Suyi closure and all formal whole-subject acceptance gates remain incomplete; U is UNTESTED.**
+
+### Current candidate evidence from latest `main`
+
+The History semantic scan is complete and its subject-specific teaching shape remains:
+
+> chronology → stage → turning point → cause → evaluation
+
+Five real gaps were repaired:
+
+- C03 — Qing New Policies / preparatory constitutionalism failure restored as the bridge from reform exhaustion to revolutionary ascendancy;
+- C04 — October Revolution restored as the bridge from New Culture ideological liberation toward a new revolutionary direction and Marxism spread;
+- C06 — victory-cause hierarchy plus Taiwan/Penghu return restored as an important complete-victory marker;
+- C08 — *The Ten Major Relationships* and the Eighth Party Congress promoted as anchors for independent socialist-construction exploration;
+- C09 — rectification-of-disorder language and the 1992 Southern Talks restored as stage anchors in the reform-opening trajectory.
+
+C01/C02/C05/C07/C10 were intentionally kept rather than rewritten for symmetry.
+
+History S/K are **not yet PASS** because compact Source-root OCR and declared Suyi-delta review remain to be closed and consumed by the History content gate.
+
+L/P must wait for formal first-ready timing from canonical Natural Unit ownership and Xiao1000 dependencies. R/E stay downstream of L/P. Continuous learner Units such as History C04 K03–K07 must remain coherent rather than being split for internal counting.
 
 ---
 
 ## Current acceptance sequence
 
-Earliest unresolved whole-Marxism acceptance work:
+### Marxism
 
 ```text
-S — close named source-root / Suyi review exceptions
+existing whole-subject S/K/L/P/R/E candidate implementation
 ↓
-K — execute / review whole-subject content-closure gate
+actual executable Politics acceptance gates
 ↓
-L / P — execute 22-unit / 396-question global first-ready parity gate
+PASS only from executed assertions
 ↓
-R / E — prove generic K03-style runtime/evidence behavior across Marxism ownership
+U only from real named learner paths
+```
+
+### History
+
+```text
+S — compact Source-root OCR + declared Suyi review
+↓
+K — History batch content closure
+↓
+L / P — derive and accept formal whole-subject first-ready timing
+↓
+R / E — only after L/P close
 ↓
 U — only from real named learner paths
 ```
 
-Do not jump downstream merely because the runtime/code already exists.
+Do not jump downstream merely because code or teaching projections already exist.
 
 ---
 
 ## CI boundary
 
-Current Politics QA workflow:
-
-`.github/workflows/static-web-politics-qa.yml`
-
-It contains dedicated steps for:
+Current Politics QA workflow on latest `main` includes dedicated checks for:
 
 - canonical coverage;
 - Xiao semantic routing;
@@ -150,10 +159,12 @@ It contains dedicated steps for:
 - K03 K/L/P/R/E audits;
 - Marxism batch content closure;
 - Marxism global first-ready parity;
+- whole-Marxism runtime/evidence behavior;
+- History whole-subject content closure;
 - Current runtime validation;
 - Astro build.
 
-Recent recorded Politics QA jobs with `steps=[]` / `runner_id=0` failed before runner allocation.
+Recent recorded Politics QA jobs failed before runner allocation with no executable steps.
 
 Hard rule:
 
@@ -171,9 +182,9 @@ Do not promote pending gates until their actual assertions execute.
 - source owners → `content/politics/source/`
 - learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
-- Chat-approved teaching projections → `content/politics/learning/`
+- Chat-approved teaching projections / durable review dispositions → `content/politics/learning/`
 - learner runtime → Politics surfaces under `static-web/`
-- acceptance harness → `.github/workflows/static-web-politics-qa.yml` + Politics audit scripts
+- acceptance harness → latest-main `.github/workflows/static-web-politics-qa.yml` + Politics audit scripts
 
 ### Learner Truth
 
@@ -181,10 +192,12 @@ Private browser / Return Packet / conversation evidence only.
 
 In particular:
 
-> **Politics content projection COMPLETE does not mean Kian has learned those chapters. K03 S–E PASS does not mean Kian has attempted K03.**
+> **Politics content projection COMPLETE does not mean Kian has learned those chapters. K03 S–E PASS does not mean Kian has attempted K03. Whole-subject gate implementation does not mean the gate passed.**
 
 ---
 
-## Migration note
+## Governance reconciliation note
 
-This file extracts scoped acceptance claims from the previous Politics continuation while refusing to promote completion lists, code presence, or no-start CI jobs into whole-subject PASS claims.
+Latest `main` advanced Politics while this governance branch was open. This Acceptance owner therefore records the latest-main readiness boundary without copying or replaying the new Politics Artifact implementation into the governance branch.
+
+Before governance landing, Politics file conflicts must be reconciled against latest `main`; governance routing/Truth ownership should survive, while main's newer Politics content/runtime/audit work remains authoritative.
