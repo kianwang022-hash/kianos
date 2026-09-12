@@ -16,8 +16,15 @@ function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function readJsonl(file) {
   return fs.readFileSync(file, 'utf8').split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
 }
-function asList(value) { return Array.isArray(value) ? value.map(String).filter(Boolean) : (value ? [String(value)] : []); }
+function asList(value) { return Array.isArray(value) ? value.filter(Boolean) : (value ? [value] : []); }
 function uniq(values) { return [...new Set(values.filter(Boolean))]; }
+function countByCode(rows) {
+  return rows.reduce((counts, row) => {
+    const code = String(row?.code || 'UNKNOWN');
+    counts[code] = (counts[code] || 0) + 1;
+    return counts;
+  }, {});
+}
 
 const nodeManifest = readJson(NODE_MANIFEST);
 const sourceReview = readJson(SOURCE_REVIEW);
@@ -51,7 +58,7 @@ for (const name of chapterNames) {
   for (const unit of asList(raw?.units)) {
     const represented = uniq([
       String(unit?.natural_unit_id || ''),
-      ...asList(unit?.embedded_natural_unit_ids)
+      ...asList(unit?.embedded_natural_unit_ids).map(String)
     ]);
     if (!represented.length) continue;
     const learnerKey = `${chapterCode}::${represented[0]}`;
@@ -80,7 +87,7 @@ if (unrepresentedRegions.length) failures.push({ code: 'HISTORY_CANONICAL_REGION
 const expectedOwnerByQuestion = new Map();
 const allQuestionRefsByUnit = new Map();
 for (const unitId of orderedCanonicalUnitIds) {
-  const refs = asList(regionByUnit.get(unitId)?.xiao_question_refs);
+  const refs = asList(regionByUnit.get(unitId)?.xiao_question_refs).map(String);
   allQuestionRefsByUnit.set(unitId, refs);
   for (const questionId of refs) expectedOwnerByQuestion.set(questionId, unitId);
 }
@@ -97,7 +104,7 @@ for (const name of chapterNames) {
   for (const unit of current?.units || []) {
     const represented = uniq([
       String(unit?.unitId || ''),
-      ...asList(unit?.representedNaturalUnitIds)
+      ...asList(unit?.representedNaturalUnitIds).map(String)
     ]);
     for (const question of unit?.questions || []) {
       const id = String(question?.id || '');
@@ -152,13 +159,13 @@ const c04Cluster = [
 ];
 const c04 = currentChapters.get('ch04');
 const c04CarrierUnits = (c04?.units || []).filter((unit) => {
-  const represented = new Set(asList(unit?.representedNaturalUnitIds));
+  const represented = new Set(asList(unit?.representedNaturalUnitIds).map(String));
   return c04Cluster.some((id) => represented.has(id));
 });
 if (c04CarrierUnits.length !== 1) {
   failures.push({ code: 'HISTORY_C04_CONTINUOUS_SEGMENT_FRAGMENTED', carrier_count: c04CarrierUnits.length });
 } else {
-  const represented = new Set(asList(c04CarrierUnits[0]?.representedNaturalUnitIds));
+  const represented = new Set(asList(c04CarrierUnits[0]?.representedNaturalUnitIds).map(String));
   const missing = c04Cluster.filter((id) => !represented.has(id));
   if (missing.length) failures.push({ code: 'HISTORY_C04_CONTINUOUS_SEGMENT_INCOMPLETE', missing });
 }
@@ -187,6 +194,21 @@ const report = {
   failures
 };
 
+const compact = {
+  status: report.status,
+  scope: report.scope,
+  rule: report.rule,
+  canonical_natural_units: report.canonical_natural_units,
+  learner_units: report.learner_units,
+  canonical_regions: report.canonical_regions,
+  expected_unique_questions: report.expected_unique_questions,
+  runtime_unique_questions: report.runtime_unique_questions,
+  c04_continuous_cluster_size: report.c04_continuous_cluster_size,
+  failure_count: report.failure_count,
+  failure_codes: countByCode(failures),
+  failure_sample: failures.slice(0, 8)
+};
+
 console.log('POLITICS_HISTORY_FIRST_READY_AUDIT');
-console.log(JSON.stringify(report, null, 2));
+console.log(JSON.stringify(process.env.KIANOS_AUDIT_VERBOSE === '1' ? report : compact, null, 2));
 if (failures.length) process.exit(2);
