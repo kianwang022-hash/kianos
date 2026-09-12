@@ -1,0 +1,38 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 321, "end": 340},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 8, "REVISE": 12, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":321,"word":"atom","verdict":"PASS","target_truth":"Keep physical/chemical atom and nontechnical tiny-particle/trace use; both are coherent and useful."},
+    {"ordinal":322,"word":"attach","verdict":"REVISE","target_truth":"Keep attach/join/add one thing to another as the primary center, plus attach importance/value to, emotional be attached to, and lower affiliation/belonging use. Remove the duplicate secondary_sense for importance/value and collapse duplicate construction objects already representing the same attach-to patterns."},
+    {"ordinal":323,"word":"attack","verdict":"REVISE","target_truth":"Keep broad verb/noun attack as the ordinary center, covering physical attack and extended criticism where licensed. Retain attack↔assault only with a corrected boundary: assault is typically stronger and especially physical/legal, while attack is broader. Do not claim a shared speech/writing sense while anchoring assault to a violent-attack sense."},
+    {"ordinal":324,"word":"attain","verdict":"PASS","target_truth":"Keep attain=achieve after effort and attain=reach an age/level/state; the collocational distinction is learner-useful."},
+    {"ordinal":325,"word":"attempt","verdict":"REVISE","target_truth":"Keep verb attempt and noun attempt. Represent attempt to do / attempt sth once as the verb's governing pattern rather than duplicating the same learner object as an extra construction."},
+    {"ordinal":326,"word":"attend","verdict":"REVISE","target_truth":"Center attend=be present at and attend to=give attention/deal with/care for. Fold formal attend a patient into the care branch and downgrade attended by=accompanied by as lower recognition. Do not duplicate attend to as both an Active sense pattern and a separate equivalent construction."},
+    {"ordinal":327,"word":"attendant","verdict":"REVISE","target_truth":"Keep attendant=person whose job is to help/serve, and lower attendee/present-person or present adjective where useful. Remove deprecated accompanying/consequent meaning from Core/Word Feel; it must not define the active learner center after deprecation."},
+    {"ordinal":328,"word":"attention","verdict":"REVISE","target_truth":"Center attention=focused notice/mental concentration and general public notice/interest as one compact family. Preserve pay attention to and draw/call attention to as high-value structures without multiplying the same object. Downgrade courteous/affectionate attentions to recognition."},
+    {"ordinal":329,"word":"attitude","verdict":"REVISE","target_truth":"Restore attitude toward/to=way of thinking/feeling/viewpoint as the primary Active sense. Keep aerospace attitude=orientation as specialized recognition and theatrical pose only as lower recognition. Current v4 state incorrectly deprecates the ordinary sense while leaving peripheral senses Active."},
+    {"ordinal":330,"word":"attorney","verdict":"PASS","target_truth":"Keep attorney=lawyer/legal representative, with defense attorney and Attorney General as useful lexicalized contexts."},
+    {"ordinal":331,"word":"attract","verdict":"PASS","target_truth":"Keep figurative attract interest/people and physical attract/pull by force as two coherent branches."},
+    {"ordinal":332,"word":"attractive","verdict":"REVISE","target_truth":"Use one ordinary evaluative center attractive=appealing/interesting/desirable rather than splitting beauty/charm from ability to arouse interest. Keep physical attractive force only as specialized recognition; retain the valid attract family relation."},
+    {"ordinal":333,"word":"attribute","verdict":"REVISE","target_truth":"Keep noun attribute=quality/feature and verb attribute A to B=regard A as caused by or belonging to B. Collapse duplicate attribute-to constructions. Rebind attributable to the verb attribution sense, not noun 'quality'. Re-anchor the attribute↔ascribe relation to the verb sense."},
+    {"ordinal":334,"word":"auction","verdict":"PASS","target_truth":"Keep noun auction and verb auction/auction off; both are ordinary and coherent."},
+    {"ordinal":335,"word":"audience","verdict":"REVISE","target_truth":"Center audience as the people who watch, listen to, read, or otherwise receive content, including target audience. Avoid unnecessary separate reader-only sense; readership is a neighboring lexical item, not a collocation of audience."},
+    {"ordinal":336,"word":"audio","verdict":"PASS","target_truth":"Keep noun audio and adjective audio; both share the recorded/transmitted sound center and are ordinary modern uses."},
+    {"ordinal":337,"word":"audit","verdict":"REVISE","target_truth":"Restore noun audit=systematic examination/review and verb audit=perform such an examination as separate noun/verb learner branches. Keep American audit a course=attend without credit as a distinct lower branch. Do not merge verb senses across POS into the noun sense."},
+    {"ordinal":338,"word":"auditorium","verdict":"PASS","target_truth":"Single ordinary noun for the audience seating area/large hall is correct and sufficient."},
+    {"ordinal":339,"word":"augment","verdict":"REVISE","target_truth":"Use one semantic center augment=increase/enlarge/strengthen; represent transitive make larger and rarer intransitive become larger as argument-structure differences rather than separate equal senses."},
+    {"ordinal":340,"word":"august","verdict":"PASS","target_truth":"Preserve case-sensitive August=month and lower-frequency august=majestic/dignified. Current lexical-identity overlay adequately marks the month identity."}
+  ],
+  "relation_truth": [
+    {"source_word":"attack","relation":"attack ↔ assault","verdict":"REVISE","target_truth":"Preserve the useful broad-vs-stronger contrast, but align source/target sense evidence and wording. Attack is broad and can be physical or verbal/critical; assault is especially violent physical/legal attack, with figurative uses only where genuinely licensed."},
+    {"source_word":"attribute","relation":"attribute ↔ ascribe","verdict":"REVISE","target_truth":"The lexical contrast is useful, but the source must be verb attribute A to B, not noun attribute=quality. Re-anchor source_sense_id to the verb attribution sense before publication."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "Cross-POS merges and relation sense-anchor errors are hard Knowledge defects even when surface boundary prose sounds plausible."
+  ]
+}
