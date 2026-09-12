@@ -1,0 +1,171 @@
+{
+  "schema": "kianos.xizong.system_scope_authority_lock.v1",
+  "status": "RECOVERY_INCOMPLETE_FAIL_CLOSED",
+  "fail_closed": true,
+  "authority_model": {
+    "authority_truth_is_independent_of_ci_execution": true,
+    "recovery_evidence_is_not_accepted_membership": true,
+    "count_only_closure_forbidden": true,
+    "semantic_membership_inference_forbidden": true
+  },
+  "historical_authority_bundle": {
+    "recovery_repository": "kianwang022-hash/kianos-legacy",
+    "immutable_backup_path": "04_HQ/Backups/File_Consolidation_v2_Unresolved_20260904/FILE_CONSOLIDATION_V2_UNRESOLVED_EXACT_BACKUP_v1.zip",
+    "recovery_workflow_ref": "recovery/hlk-route-extract-20260912",
+    "verified_inputs": {
+      "canonical_questions": {
+        "filename": "canonical_questions.v2.candidate.json",
+        "sha256": "5d557c0011651f51ce2f45e4f137a3fa870b6a30f5269e3744380fd34814c584",
+        "bytes": 5474336
+      },
+      "practice_taxonomy": {
+        "filename": "XIZONG_FINAL_PRACTICE_TAXONOMY_WITH_CHAPTER_v1.candidate.json",
+        "sha256": "838f1aadfba7ee0f8484e433de4b448f9595fa503c957846d94363228c3bead0",
+        "bytes": 6367511
+      },
+      "system_source_coverage": {
+        "filename": "XIZONG_SYSTEM_SOURCE_COVERAGE_v1.candidate.json",
+        "sha256": "bab25c74abefa4f3b262cb50334f963cb2e8ea9d1467e169d903c4a70cc4c4dc",
+        "bytes": 122171
+      },
+      "system_official_scope": {
+        "filename": "XIZONG_SYSTEM_OFFICIAL_SCOPE_v2.candidate.json",
+        "sha256": "6970c6faa1ff2427199bc7c02789a43873a8ddfefec405584db361736f0453fa",
+        "bytes": 23741
+      }
+    },
+    "resolver": {
+      "filename": "XIZONG_SYSTEM_SCOPE_CHAT_SEMANTIC_DECISIONS_v1.json",
+      "sha256": "3e117f57ab629a17eb874a4fa8ee6be2c104276af1bb9a5fd09e16e320452246",
+      "bytes": null,
+      "source_bytes_status": "UNRECOVERED",
+      "decision_ids": [
+        "SYSCOPE-COLLISION-01",
+        "SYSCOPE-COLLISION-02",
+        "SYSCOPE-COLLISION-03",
+        "SYSCOPE-COLLISION-04",
+        "SYSCOPE-COLLISION-05",
+        "SYSCOPE-COLLISION-06",
+        "SYSCOPE-COLLISION-07",
+        "SYSCOPE-COLLISION-08",
+        "SYSCOPE-COLLISION-09"
+      ],
+      "decision_count": 9,
+      "partial_boundary_exception_count": 3,
+      "question_membership_persisted": false
+    },
+    "hlk_output": {
+      "filename": "HLK_SYSTEM_QUESTION_INDEX_v1.jsonl",
+      "sha256": "ed45634d7ff0ac4622e2d873bfeba89ccec4d040af0b179c0acabd40f0801a2d",
+      "bytes": 486228,
+      "rows": 978,
+      "exact_output_status": "UNRECOVERED"
+    },
+    "generator": {
+      "status": "UNRESOLVED",
+      "version": null,
+      "script_path": null,
+      "sha256": null,
+      "deterministic_rebuild_enabled": false,
+      "block_reason": "Exact HLK generator identity/version has not yet been recovered; rebuild must fail closed."
+    }
+  },
+  "current_question_truth_identity": {
+    "question_count": 3750,
+    "question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+    "provenance_path": "content/xizong/questions/provenance.json"
+  },
+  "systems": {
+    "circulation": {
+      "canonical_id": "A1",
+      "status": "CURRENT",
+      "accepted_owner_path": "content/xizong/knowledge/learner/a1-circulation-question-scope.json",
+      "accepted_question_count": 376,
+      "accepted_inventory_sha256": "ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be",
+      "recovery_evidence": {
+        "status": "EVIDENCE_ONLY_EXACT_WITH_CURRENT_OWNER",
+        "count": 376,
+        "runtime_inventory_sha256": "ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be"
+      }
+    },
+    "respiratory": {
+      "canonical_id": "A2",
+      "status": "CURRENT",
+      "accepted_owner_path": "content/xizong/knowledge/learner/a2-respiratory-question-scope.json",
+      "accepted_question_count": 359,
+      "accepted_inventory_sha256": "b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0",
+      "recovery_evidence": {
+        "status": "EVIDENCE_ONLY_DIVERGES_FROM_CURRENT_OWNER",
+        "count": 359,
+        "runtime_inventory_sha256": "b3fd33b7c90bf536dad3d0f1f15cc5b20f7f7b330de9387239624bbdc89f7652",
+        "accepted_minus_evidence": [
+          "xizong-official-2007-n126",
+          "xizong-official-2011-n145",
+          "xizong-official-2014-n084",
+          "xizong-official-2015-n175",
+          "xizong-official-2018-n061",
+          "xizong-official-2020-n063",
+          "xizong-official-2022-n062"
+        ],
+        "evidence_minus_accepted": [
+          "xizong-official-2007-n125",
+          "xizong-official-2010-n084",
+          "xizong-official-2010-n114",
+          "xizong-official-2011-n146",
+          "xizong-official-2012-n175",
+          "xizong-official-2026-n061",
+          "xizong-official-2026-n162"
+        ]
+      }
+    },
+    "urinary": {
+      "canonical_id": "A3",
+      "status": "BLOCKED_EXACT_HLK_NOT_REPRODUCED",
+      "accepted_owner_path": null,
+      "accepted_question_count": null,
+      "accepted_inventory_sha256": null,
+      "historical_expected_count": 243,
+      "recovery_evidence": {
+        "status": "EVIDENCE_ONLY_NOT_ACCEPTED",
+        "count": 243,
+        "runtime_inventory_sha256": "bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e"
+      }
+    }
+  },
+  "recovery_evidence": {
+    "hlk_first_pass_pool_path": "content/xizong/system-scope-authority/evidence/hlk-first-pass-system-pools.recovered.json",
+    "hlk_first_pass_pool_sha256": "03c8bb01306099cac0e258ef1e635307d0a46979925f94bee92665f23a8b61f5",
+    "source_repository": "kianwang022-hash/kianos-site-v238-recovery",
+    "source_commit": "208441bdc843d7e02d25a435acad0628ecafa56f",
+    "source_workflow_run": 34640880517,
+    "source_artifact_id": 10279619403,
+    "artifact_semantics": "EVIDENCE_ONLY_NEVER_RUNTIME_AUTHORITY"
+  },
+  "execution_evidence": {
+    "successful_resolver_replay": {
+      "repository": "kianwang022-hash/kianos-site-v238-recovery",
+      "run_id": 34640880517,
+      "job_id": 103399937748,
+      "runner_id": 1000000650,
+      "conclusion": "success"
+    },
+    "ci_unavailable_examples": [
+      {
+        "repository": "kianwang022-hash/kianos-legacy",
+        "run_id": 34701399326,
+        "job_id": 103573694663,
+        "runner_id": 0,
+        "steps": 0,
+        "classification": "CI_EXECUTION_UNAVAILABLE"
+      },
+      {
+        "repository": "kianwang022-hash/kianos-legacy",
+        "run_id": 34702997307,
+        "job_id": 103577942247,
+        "runner_id": 0,
+        "steps": 0,
+        "classification": "CI_EXECUTION_UNAVAILABLE"
+      }
+    ]
+  }
+}
