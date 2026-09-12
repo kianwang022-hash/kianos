@@ -173,7 +173,9 @@ export function normalizeTransferLedger(saved = null) {
     targets: saved.targets.map((target) => ({
       ...target,
       status: target?.status === 'closed' ? 'closed' : 'pending',
-      evidence: Array.isArray(target?.evidence) ? target.evidence : []
+      evidence: Array.isArray(target?.evidence)
+        ? target.evidence.map((item) => ({ ...item }))
+        : []
     }))
   };
 }
@@ -204,6 +206,10 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
     if (!failure || !VALID_FAILURE_LAYERS.has(clean(failure.layer)) || !clean(failure.minimal_repair)) {
       throw new Error('RETURN_PACKET_PRIMARY_FAILURE_INCOMPLETE');
     }
+    const affectedSegments = Array.isArray(failure.affected_segments)
+      ? failure.affected_segments.map(clean).filter(Boolean)
+      : [];
+    if (!affectedSegments.length) throw new Error('RETURN_PACKET_AFFECTED_SEGMENTS_MISSING');
     const candidate = payload?.transfer_target;
     if (candidate?.admit === true && (!clean(candidate.target_id) || !clean(candidate.label) || !clean(candidate.underlying_demand))) {
       throw new Error('RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE');
@@ -268,14 +274,17 @@ function normalizedAffectedSegments(payload, prompts) {
   const supplied = Array.isArray(payload?.primary_failure?.affected_segments)
     ? payload.primary_failure.affected_segments.map(clean).filter(Boolean)
     : [];
-  if (!supplied.length) return ids;
+  if (!supplied.length) throw new Error('RETURN_PACKET_AFFECTED_SEGMENTS_MISSING');
   const invalid = supplied.filter((id) => !valid.has(id));
   if (invalid.length) throw new Error(`RETURN_PACKET_AFFECTED_SEGMENT_INVALID:${invalid.join('|')}`);
   return [...new Set(supplied)];
 }
 
 export function applyTranslationReturn(state, payload, prompts = [], ledger = null, context = {}) {
-  let nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], context);
+  const affectedSegments = payload?.decision === 'REPAIR_NEEDED'
+    ? normalizedAffectedSegments(payload, prompts)
+    : [];
+  const nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], context);
   const next = structuredClone(state);
   const previousRepairSignature = repairSignature(next.chatReturn);
   next.chatReturn = payload;
@@ -293,7 +302,7 @@ export function applyTranslationReturn(state, payload, prompts = [], ledger = nu
 
   next.stage = 'reconstruct';
   next.decision = 'REPAIR_NEEDED';
-  next.affectedSegments = normalizedAffectedSegments(payload, prompts);
+  next.affectedSegments = affectedSegments;
   next.pendingTransferCandidate = payload?.transfer_target?.admit === true ? payload.transfer_target : null;
   const repairChanged = previousRepairSignature !== repairSignature(payload);
   for (const id of next.affectedSegments) {
@@ -350,7 +359,7 @@ export function saveReconstruction(state, ledger = null, context = {}) {
   next.reconstructDrafts = { ...next.reconstructDrafts };
   for (const id of next.affectedSegments) next.reconstructDrafts[id] = '';
   const candidateId = clean(next.pendingTransferCandidate?.target_id);
-  let nextLedger = admitTransferTarget(ledger, next.pendingTransferCandidate, context);
+  const nextLedger = admitTransferTarget(ledger, next.pendingTransferCandidate, context);
   const admitted = Boolean(candidateId && pendingTransferTargets(nextLedger).some((target) => target.id === candidateId));
   next.stage = admitted ? 'transfer_pending' : 'repaired';
   next.referenceRevealed = false;
