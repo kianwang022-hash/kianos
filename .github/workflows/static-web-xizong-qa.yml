@@ -58,7 +58,11 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
-      - name: Validate Xizong learner contract
-        run: npm run validate:xizong
+      - name: Validate A1 learner contract
+        run: node scripts/validate-xizong-learning.mjs
+      - name: Validate A3 Source scope
+        run: node scripts/validate-xizong-a3-source.mjs
+      - name: Validate A2 runtime contracts
+        run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Build Astro
         run: npm run build
