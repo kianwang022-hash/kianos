@@ -1,71 +1,203 @@
 {
   "schema": "kianos.xizong.system_learning_support.v1",
-  "status": "BATCH_01_ACCEPTED_SYSTEM_BELOW",
+  "status": "SYSTEM_BELOW_K_CLOSED",
   "authority": "CHAT_APPROVED_UPGRADE_WORK",
   "system_id": "urinary",
   "canonical_id": "A3",
-  "scope": "BATCH_01_B1_B4_SYSTEM_BELOW_ONLY",
+  "scope": "ALL_14_NUMBERED_BLOCKS_SYSTEM_BELOW_ONLY",
   "study_policy": "content/xizong/knowledge/learner/study-policy.json",
   "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
   "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
-  "rule": "This file organizes first-pass attention, Logic Group closure and Block compression. It does not restate or override canonical medical Core. Batch-01 acceptance does not promote A3 System-level Knowledge or learner readiness.",
-  "batch_01_status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
-  "batch_01_identity": {
-    "block_count": 4,
-    "stable_kp_count": 67,
-    "logic_group_count": 20,
+  "rule": "This is the sole A3 learner-support owner for Block -> Logic Group -> KP attention and compression. It never restates or overrides canonical medical Core. Historical batch learning sidecars are superseded and removable after consolidation verification. System-level K/S/L/P/R/E/U and learner readiness are not promoted by this file.",
+  "identity": {
+    "stable_block_count": 14,
+    "stable_kp_count": 257,
+    "logic_group_count": 75,
     "logic_group_ranges_frozen": true,
+    "logic_group_coverage": "CONTIGUOUS_WITHIN_EACH_BLOCK_NO_GAP_NO_OVERLAP",
     "stable_block_or_kp_identity_change": false
+  },
+  "source_state": {
+    "project_source_first": true,
+    "stable_source_orphan_count": 0,
+    "b05_external_source_contract": "content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json",
+    "b05_external_scope": "Expected compensation + mixed-disorder diagnosis only; project Lectures remain Primary for 306 water/electrolyte content.",
+    "visual_rule": "Exact original/source-local routes are retained where figures/tables matter. No pixel-level audit is claimed unless the image was actually rendered."
   },
   "blocks": {
     "urinary-b01": {
-      "first_pass_focus": "先建立肾脏的共同语言：血怎么进、原尿怎么来、终尿怎么形成、这些过程怎样被清除率和肾血流变量测出来。",
-      "stop_line": "这里只完成正常肾脏地图、测量语言、局部调节和正常排尿；滤过屏障细节进 B2，小管分段进 B3，浓缩稀释进 B4，疾病模型后置。",
-      "recall_spine": "肾脏任务/空间 → 肾单位与血管 → 清除率测量 → 肾血流自身调节/TGF → 正常排尿",
+      "first_pass_focus": "先建立肾脏共同语言：血怎么进、原尿怎么来、终尿怎么形成，以及清除率和肾血流变量怎样测量它。",
+      "stop_line": "只完成正常总地图、测量语言、局部调节与正常排尿；屏障进B2，小管进B3，浓缩进B4，疾病后置。",
+      "recall_spine": "任务/空间 → 内分泌/球旁器 → 肾单位血管 → 清除率 → 自身调节/TGF → 排尿",
       "logic_groups": {
-        "urinary-b01-lg01": {"kp": [1,1], "label": "肾脏任务与总地图", "goal": "先建立血液→滤过→小管处理→终尿的总方向，并知道皮质/髓质/尿路分别承担什么。", "closure": "不看正文也能画出肾脏处理血液并形成终尿的最小总图。"},
-        "urinary-b01-lg02": {"kp": [2,3], "label": "肾脏内分泌与球旁传感器", "goal": "把肾素、EPO、活化 VitD 和球旁器放回各自来源/传感位置，只建立后续系统会调用的接口。", "closure": "能从低灌注/远端 NaCl 信号定位到球旁器，并说清三个主要内分泌出口归谁产生、后面去哪里正式展开。"},
-        "urinary-b01-lg03": {"kp": [4,5], "label": "肾单位与血管空间结构", "goal": "把滤过、重吸收、分泌真正放到肾单位和两类肾单位的空间结构上。", "closure": "能画出入球→肾小球→出球→管周/直小血管与小管并行关系，并解释皮质/近髓肾单位为什么分工不同。"},
-        "urinary-b01-lg04": {"kp": [6,9], "label": "清除率与肾功能测量语言", "goal": "把物质处理方向转成清除率、GFR、RPF、RBF、FF 等可测信号；自由水清除率此处只建立测量含义。", "closure": "给出一个物质的清除率关系时，能判断它经历了净重吸收还是净分泌，并能区分 GFR/RPF/RBF/FF。"},
-        "urinary-b01-lg05": {"kp": [10,13], "label": "肾血流自身调节与管球反馈", "goal": "建立肌源性调节和完整双向 TGF：远端 NaCl 高/低怎样反向调入球张力、肾素与 GFR。", "closure": "能把灌注压或致密斑 NaCl 改变沿反馈链推回肾血流/GFR，而不是只背肾素方向。"},
-        "urinary-b01-lg06": {"kp": [14,15], "label": "正常排尿与神经层级", "goal": "完成正常排尿反射初见，并按传入/传出/骶髓/高位脊髓定位损伤方向。", "closure": "能解释正常排尿反射和不同神经层损伤后的尿潴留/失禁方向；疾病应用留给 B12。"}
+        "urinary-b01-lg01": {"kp":[1,1],"label":"肾脏任务与总地图","goal":"先建立血液→滤过→小管处理→终尿总方向。","closure":"能闭卷画出最小肾脏处理总图。"},
+        "urinary-b01-lg02": {"kp":[2,3],"label":"肾脏内分泌与球旁传感器","goal":"定位肾素、EPO、活化VitD与球旁器。","closure":"能从灌注/NaCl信号定位球旁器并说明三个内分泌出口。"},
+        "urinary-b01-lg03": {"kp":[4,5],"label":"肾单位与血管空间","goal":"把滤过、重吸收、分泌放回肾单位与血管结构。","closure":"能画入球→肾小球→出球→管周/直小血管与小管关系。"},
+        "urinary-b01-lg04": {"kp":[6,9],"label":"清除率与肾功能测量","goal":"把物质处理方向转成C、GFR、RPF、RBF、FF等信号。","closure":"能由清除率关系判断净重吸收/分泌并区分主要流量指标。"},
+        "urinary-b01-lg05": {"kp":[10,13],"label":"自身调节与双向TGF","goal":"建立肌源性调节和高/低远端NaCl的双向TGF。","closure":"能把灌注压/致密斑NaCl沿反馈链推回RBF/GFR/肾素。"},
+        "urinary-b01-lg06": {"kp":[14,15],"label":"正常排尿与神经层级","goal":"完成正常排尿反射及神经层级初见。","closure":"能解释正常排尿与不同神经层损伤后的方向。"}
       }
     },
     "urinary-b02": {
-      "first_pass_focus": "把肾小球拆成两个独立问题：筛网决定‘漏什么’，压力/流量/Kf 决定‘滤多少’。",
-      "stop_line": "蛋白尿/血尿只做屏障机制接口；完整尿液定位在 B6，免疫性肾小球病及 LM/IF/EM 在 B9–B11。",
-      "recall_spine": "屏障选择性 → 有效滤过压 → RPF/Kf → 入出球/梗阻等修饰 → 滤得少 vs 筛网漏",
+      "first_pass_focus": "把肾小球拆成两个问题：筛网决定漏什么，压力/流量/Kf决定滤多少。",
+      "stop_line": "蛋白尿/血尿只做屏障接口；完整尿证据进B6，肾小球病进B9-B11。",
+      "recall_spine": "屏障选择性 → 有效滤过压 → RPF/Kf → 阻力修饰 → 滤得少vs筛网漏",
       "logic_groups": {
-        "urinary-b02-lg01": {"kp": [1,2], "label": "滤过屏障与选择性", "goal": "区分三层结构、大小选择性与经典电荷选择性，并把 nephrin 正确放回足细胞裂隙膜结构/通透选择性。", "closure": "能解释为什么蛋白尿首先是选择性异常，而不等于 GFR 整体增大。"},
-        "urinary-b02-lg02": {"kp": [3,6], "label": "有效滤过压与 GFR 总模型", "goal": "从原尿/GFR开始，沿 Starling 力、滤过平衡、RPF 与 Kf 建立‘滤多少’的统一模型。", "closure": "任何一个压力、RPF 或 Kf 改变时，都能指出它通过哪一层改变 GFR。"},
-        "urinary-b02-lg03": {"kp": [7,11], "label": "血管与滤过阻力修饰", "goal": "定位入球/出球、囊内压、血浆胶渗压、RPF、系膜/Kf 对滤过的不同作用。", "closure": "遇到 ACEI/ARB、梗阻、蛋白变化或血流变化时，先找被改的是哪一个滤过变量。"},
-        "urinary-b02-lg04": {"kp": [12,14], "label": "整合性滤过故障定位", "goal": "用容量改变、失血/强交感和最终病例算法把多个变量压成第一故障层。", "closure": "面对病例先能分清‘滤得少’和‘筛网漏’，再定位压力、流量、Kf 或选择性。"}
+        "urinary-b02-lg01": {"kp":[1,2],"label":"滤过屏障与选择性","goal":"区分三层结构、大小/经典电荷选择性并把nephrin放回裂隙膜。","closure":"能解释蛋白尿是选择性异常而非GFR整体增大。"},
+        "urinary-b02-lg02": {"kp":[3,6],"label":"有效滤过压与GFR总模型","goal":"沿Starling力、滤过平衡、RPF与Kf建立滤多少模型。","closure":"任一压力/流量/Kf改变时能定位其GFR通路。"},
+        "urinary-b02-lg03": {"kp":[7,11],"label":"血管与滤过阻力修饰","goal":"区分入球/出球、囊内压、胶渗压、RPF、系膜/Kf。","closure":"遇ACEI/ARB、梗阻、蛋白或血流变化时先找被改的变量。"},
+        "urinary-b02-lg04": {"kp":[12,14],"label":"整合性滤过故障定位","goal":"把多个变量压成第一故障层。","closure":"病例先分滤得少/筛网漏，再定位压力、流量、Kf或选择性。"}
       }
     },
     "urinary-b03": {
-      "first_pass_focus": "把小管看成沿程分段处理器：每一段拿回/分泌什么，再用同一地图理解利尿剂。",
-      "stop_line": "完整浓缩稀释/ADH 留 B4；完整水电解质和临床酸碱处理留 B5；不把当前 Source 未支持的 RTA/现代药物适应证扩成百科。",
-      "recall_spine": "膜方向/球管平衡 → 近端大批量回收 → 酸排泄 → 集合管 Na-K-H 精调 → 利尿剂靶点",
+      "first_pass_focus": "把小管看成沿程分段处理器，再用同一地图理解利尿剂。",
+      "stop_line": "浓缩/ADH留B4；临床水电酸碱留B5；不扩Source未支持的RTA/现代适应证。",
+      "recall_spine": "膜方向/球管平衡 → 近端回收 → 排酸 → 集合管Na-K-H → 利尿剂靶点",
       "logic_groups": {
-        "urinary-b03-lg01": {"kp": [1,2], "label": "小管方向与球管平衡", "goal": "固定顶端/基底侧和滤过/重吸收/分泌/排泄方向，并理解近端为什么随滤过量按比例回收。", "closure": "能把球管平衡与管球反馈分开，不再被名字相似误导。"},
-        "urinary-b03-lg02": {"kp": [3,8], "label": "近端大批量回收与渗透性利尿", "goal": "把 Na 泵、NaCl/水、葡萄糖/Tm/SGLT2 和渗透性利尿串成一台近端处理器。", "closure": "能从转运被饱和/抑制推到尿糖、管腔溶质与水排出，而不是背孤立结果。"},
-        "urinary-b03-lg03": {"kp": [9,10], "label": "HCO3- 回收与氨排酸", "goal": "建立肾脏保碱排酸的正常生理链，只为 B5 的临床酸碱提供机制底座。", "closure": "能说明 HCO3- 为什么不是整颗直接跨膜以及 NH3/NH4+ 如何帮助净排酸。"},
-        "urinary-b03-lg04": {"kp": [11,14], "label": "集合管 Na-K-H 末端精调", "goal": "把主细胞/闰细胞、ENaC/ROMK 与 K-H 耦联放在同一末端电路。", "closure": "改变醛固酮、流量、肾功能或 K/H 状态时，先定位第一故障与容量/醛固酮/NH4+等背景，再从细胞电路判断方向；不背无条件尿pH四格。"},
-        "urinary-b03-lg05": {"kp": [15,19], "label": "利尿剂靶点地图", "goal": "用 PCT/TAL/DCT/集合管的真实转运靶点理解主要利尿剂和电解质后果。", "closure": "看到药物先定位段位和转运体，再推尿量/Na/K/酸碱方向。"}
+        "urinary-b03-lg01": {"kp":[1,2],"label":"小管方向与球管平衡","goal":"固定膜侧与滤过/重吸收/分泌/排泄方向。","closure":"能把球管平衡与管球反馈分开。"},
+        "urinary-b03-lg02": {"kp":[3,8],"label":"近端回收与渗透性利尿","goal":"把Na泵、NaCl/水、葡萄糖/Tm/SGLT2和渗透利尿串成一台处理器。","closure":"能从转运饱和/抑制推到尿糖与水排出。"},
+        "urinary-b03-lg03": {"kp":[9,10],"label":"HCO3回收与氨排酸","goal":"建立正常保碱排酸链。","closure":"能解释HCO3回收和NH3/NH4净排酸。"},
+        "urinary-b03-lg04": {"kp":[11,14],"label":"集合管Na-K-H末端精调","goal":"把主/闰细胞、ENaC/ROMK与K-H放在同一末端电路。","closure":"改变醛固酮、流量、肾功能或K/H时先过context gate，不背尿pH四格。"},
+        "urinary-b03-lg05": {"kp":[15,19],"label":"利尿剂靶点地图","goal":"用真实段位/转运体理解主要利尿剂和电解质后果。","closure":"看到药物先定位段位和靶点，再推尿量/Na/K/酸碱。"}
       }
     },
     "urinary-b04": {
-      "first_pass_focus": "把循环已学的容量激素落到肾端，再建立尿液浓缩所需的三件事：髓质梯度、集合管水通透性、梯度维持。",
-      "stop_line": "不重新完整学习循环 B2 的激素身份；尿崩/SIADH/原醛等只做到机制识别，完整诊疗按正式 owner 后置；临床水钠钾酸碱处理在 B5。",
-      "recall_spine": "容量/灌注输入 → RAAS/ADH/ANP 肾端 → 建立/维持髓质梯度 → 小管液渗透压电影 → 浓缩失败/多尿鉴别",
+      "first_pass_focus": "把容量激素落到肾端，再建立浓缩所需的髓质梯度、水通透性和梯度维持。",
+      "stop_line": "不重复循环激素身份；尿崩/SIADH/原醛只做机制识别；临床水钠钾酸碱进B5。",
+      "recall_spine": "容量/灌注 → RAAS/ADH/ANP肾端 → 梯度建立/维持 → 管液电影 → 浓缩失败/多尿",
       "logic_groups": {
-        "urinary-b04-lg01": {"kp": [1,5], "label": "容量/灌注感知与 RAAS 肾端", "goal": "把交感、肾素/AngII、醛固酮从循环 owner 调入肾端，只学习它们怎样改变入出球、小管 Na 水和 K；肾素先抓灌注压、β1、致密斑NaCl三输入与AngII负反馈。", "closure": "能从低灌注/低NaCl推到肾端保压保盐反应；知道哪些是泌尿新学 Core，哪些低频促/抑名单只是 Source-specific Precision。"},
-        "urinary-b04-lg02": {"kp": [6,9], "label": "ADH 与 ANP 控制轴", "goal": "把 ADH 的直接水通透调节与 ANP 的容量卸载分开，再与醛固酮比较输入、靶点和输出。", "closure": "不再把‘都能改尿量’当成同一机制，能从渗透压/容量状态选出第一控制轴。"},
-        "urinary-b04-lg03": {"kp": [10,14], "label": "髓质梯度的建立、维持与水通道", "goal": "解释 NaCl/尿素怎样建立梯度、直小血管怎样不把它冲走、AQP 怎样决定水能否利用该梯度。", "closure": "任意缺失梯度/水通道/维持器时，都能预测浓缩功能为什么下降。"},
-        "urinary-b04-lg04": {"kp": [15,17], "label": "小管液渗透压电影", "goal": "连续追踪降支→升支/远曲→集合管的小管液变化，而不是分段背高低渗。", "closure": "能闭卷讲出管液先浓后稀、最终由 ADH 状态决定的完整电影。"},
-        "urinary-b04-lg05": {"kp": [18,19], "label": "浓缩失败与多尿鉴别", "goal": "按梯度形成/维持/水通透三层定位浓缩失败，并区分水利尿与渗透性利尿。", "closure": "面对多尿/低比重尿先找第一故障，不直接跳疾病名称。"}
+        "urinary-b04-lg01": {"kp":[1,5],"label":"容量感知与RAAS肾端","goal":"调用交感/RAAS并学习其肾端血管和小管作用。","closure":"能从低灌注/低NaCl推到保压保盐反应，三输入和AngII反馈稳定。"},
+        "urinary-b04-lg02": {"kp":[6,9],"label":"ADH与ANP控制轴","goal":"分开ADH水通透和ANP容量卸载，并与醛固酮比较。","closure":"能按渗透压/容量状态选第一控制轴。"},
+        "urinary-b04-lg03": {"kp":[10,14],"label":"髓质梯度与水通道","goal":"解释NaCl/尿素建梯度、直小血管保梯度、AQP利用梯度。","closure":"缺任一环节时能预测浓缩失败。"},
+        "urinary-b04-lg04": {"kp":[15,17],"label":"小管液渗透压电影","goal":"连续追踪降支→升支/远曲→集合管。","closure":"能讲出先浓后稀、最终由ADH决定的完整电影。"},
+        "urinary-b04-lg05": {"kp":[18,19],"label":"浓缩失败与多尿鉴别","goal":"按梯度形成/维持/水通透三层定位并区分水利尿/渗透性利尿。","closure":"面对多尿低比重先找第一故障。"}
+      }
+    },
+    "urinary-b05": {
+      "first_pass_focus": "把容量、张力、Na、K/Ca和酸碱拆成五变量；危险优先。水电解质沿Lecture，K-H只调B3，酸碱用expected compensation+AG/delta。",
+      "stop_line": "不扩纠钠、DKA/HHS、碱治疗或呼吸机；不恢复尿pH四格；external source只补诊断算法。",
+      "recall_spine": "五变量/脱水 → 高钾 → 低钾/补钾 → B3 K-H → Ca → 四层酸碱 → expected compensation → AG/delta",
+      "logic_groups": {
+        "urinary-b05-lg01": {"kp":[1,6],"label":"容量、张力、Na与三类脱水","goal":"区分容量/张力并推导三类脱水、水中毒和补液优先级。","closure":"能由Na/渗透压/容量定位问题而不把低钠等同总Na少。"},
+        "urinary-b05-lg02": {"kp":[7,10],"label":"高钾危险与抗/转/排/稀","goal":"从病因、电生理到四类处理任务。","closure":"能解释为什么先保心以及每种措施改变哪一层。"},
+        "urinary-b05-lg03": {"kp":[11,15],"label":"低钾、补钾与K-H情境门","goal":"掌握低钾/安全补钾/低Mg并只调用B3 K-H owner。","closure":"不会背尿pH四格，并能拆开库存血K负荷与枸橼酸碱负荷。"},
+        "urinary-b05-lg04": {"kp":[16,17],"label":"Ca与神经肌肉/心电兴奋性","goal":"稳定高低钙阈值和兴奋性/ECG方向。","closure":"能区分高低钙与MM分期特殊阈值。"},
+        "urinary-b05-lg05": {"kp":[18,18],"label":"酸碱四层调节底座","goal":"把缓冲、肺、肾、细胞放在同一机制框架。","closure":"能说明每层调什么及补偿为何不等于病因。"},
+        "urinary-b05-lg06": {"kp":[19,20],"label":"Expected compensation、AG与混合算法","goal":"四型代偿→AG/白蛋白校正→delta→列出全部primary process。","closure":"实测偏离expected时能识别第二原发过程而非写过度/不足代偿。"}
+      }
+    },
+    "urinary-b06": {
+      "first_pass_focus": "把尿液当系统日志：先判证据身份，再定位肾小球/小管/尿路，再看总功能与分肾功能。",
+      "stop_line": "只建证据—位置—功能语言；AKI/CKD、UTI、肾小球病、泌外完整模型后置。",
+      "recall_spine": "蛋白尿机制 → 血尿来源 → 脓尿/管型 → 总/分肾功能 → 尿三杯 → 分支",
+      "logic_groups": {
+        "urinary-b06-lg01": {"kp":[1,6],"label":"证据地图与蛋白尿五路","goal":"把漏、吸不回、负荷过大、分泌/组织性和小分子名单定位。","closure":"能区分肾小球性、小管性、溢出性而不靠疾病名猜位置。"},
+        "urinary-b06-lg02": {"kp":[7,9],"label":"血尿阈值与肾小球来源","goal":"用RBC形态/分布/管型/蛋白建立肾小球来源证据。","closure":"知道正常形态RBC不能绝对排除肾小球来源，也不把肾盂肾炎/TB按病名归成肾小球血尿。"},
+        "urinary-b06-lg03": {"kp":[10,12],"label":"脓尿与五类管型","goal":"区分细胞出现和肾内管型形成。","closure":"能用红/白/蜡/上皮/脂肪管型做位置证据而不直接当最终病因。"},
+        "urinary-b06-lg04": {"kp":[13,14],"label":"总肾功能与分肾功能","goal":"区分Cr/BUN总体功能与核素/CTU/IVU能力层级。","closure":"知道核素肾图是定量分肾功能主工具，CTU/IVU更多提供解剖/排泄/侧别。"},
+        "urinary-b06-lg05": {"kp":[15,16],"label":"尿三杯与最终证据算法","goal":"用初始/终末/全程血尿粗定位并完成证据→位置→功能→病因分支。","closure":"面对未知尿检先压缩到正确结构层再进入后续疾病Block。"}
+      }
+    },
+    "urinary-b07": {
+      "first_pass_focus": "用时间轴×第一故障层理解AKI/CKD，再以危急变量而不是单一Cr决定升级治疗。",
+      "stop_line": "完整贫血/PTH/免疫/梗阻/ICU后置；旧Scr/BP/透析数字保留306 Precision，不变成Current绝对规则。",
+      "recall_spine": "急慢 → 肾前/性/后 → 肾前vsATN → AKI时间轴 → CKD系统失败 → 分期/保护 → KRT",
+      "logic_groups": {
+        "urinary-b07-lg01": {"kp":[1,3],"label":"急慢与AKI第一故障","goal":"分急慢并定位肾前/肾性/肾后及肾前vsATN保存能力。","closure":"能由灌注、小管处理、尿路压力定位AKI而不是只看Cr。"},
+        "urinary-b07-lg02": {"kp":[4,7],"label":"AKI时间轴与确认","goal":"掌握少尿/恢复期危险换挡、诊断标准和GFR/活检边界。","closure":"能从当前相位判断高K水中毒或低K感染风险并选择确认层。"},
+        "urinary-b07-lg03": {"kp":[8,10],"label":"CKD毒素与系统表现","goal":"把毒素、心衰、EPO/血小板功能挂回长期清除/内分泌失败。","closure":"能解释消化先、心衰致命、贫血/出血机制。"},
+        "urinary-b07-lg04": {"kp":[11,14],"label":"CKD-MBD、急慢鉴别与GFR分期","goal":"从VitD/PTH骨病到小肾例外和正式GFR分期。","closure":"能用病程+肾大小+长期并发症判断慢性并按GFR分期，不伪造5个Cr一一对应。"},
+        "urinary-b07-lg05": {"kp":[15,16],"label":"残余肾单位保护与输入减负","goal":"稳定RAS减蛋白尿主逻辑和水/Na/P/蛋白/肾毒物减负。","closure":"旧Scr禁忌/BP数字只作Precision，Current按监测和临床状态决策。"},
+        "urinary-b07-lg06": {"kp":[17,20],"label":"KRT指征、方式与最终算法","goal":"把难治高K/酸中毒/容量/尿毒症器官损害放在固定Cr/BUN前，并区分IHD/CRRT/PD。","closure":"能从急慢→第一故障→危急值→可逆原因→KRT完成病例链。"}
+      }
+    },
+    "urinary-b08": {
+      "first_pass_focus": "把尿感学成感染途径→位置→证据→复杂化→疗程/复发→慢性小管损害。",
+      "stop_line": "肾结核后置B13；结石/BPH后置B12；现代抗菌药细节不扩写，旧疗程/阈值显式Source Precision。",
+      "recall_spine": "上行病原 → 复杂化/ASB → 菌尿/脓尿 → 膀胱vs肾盂 → 治疗/复发 → 慢性小管 → 最终定位",
+      "logic_groups": {
+        "urinary-b08-lg01": {"kp":[1,5],"label":"上行感染、复杂化与ASB","goal":"建立女性/E.coli/特殊病原、结构风险和ASB管理边界。","closure":"能识别何时只是有菌、何时有复杂化风险；两次同菌和10^5只在正确情境使用。"},
+        "urinary-b08-lg02": {"kp":[6,9],"label":"感染证据与上/下尿路定位","goal":"区分亚硝酸盐、脓尿、菌尿和肾实质证据。","closure":"WBC管型是支持而非必需，能用发热/肾区/小管证据区分膀胱炎与肾盂肾炎。"},
+        "urinary-b08-lg03": {"kp":[10,13],"label":"留标本、疗程、复发与药物边界","goal":"掌握先留标本→经验治疗→药敏调整以及Source疗程/药物Precision。","closure":"能保留306 3/7/14天、2/6周/6月等口径又不把氨基糖苷写成所有UTI绝对禁用。"},
+        "urinary-b08-lg04": {"kp":[14,16],"label":"慢性肾盂肾炎与尿道综合征","goal":"建立反复感染→瘢痕/不对称→小管浓缩/分泌先坏以及无真性菌尿的尿道综合征。","closure":"不会把慢性肾盂肾炎当原发肾小球病或把刺激征等同细菌性膀胱炎。"},
+        "urinary-b08-lg05": {"kp":[17,17],"label":"UTI最终病例算法","goal":"把刺激征、全身/肾区、小管证据、复杂化和慢性化压成一条算法。","closure":"面对未知UTI能继续问位置、复杂化、梗阻和脓毒症风险而不只说‘尿路感染’。"}
+      }
+    },
+    "urinary-b09": {
+      "first_pass_focus": "建立临床综合征、LM/IF/EM损伤模式、最终病因三层，不让传统306病理表变成单病因ontology。",
+      "stop_line": "总论不提前学B10/B11完整治疗，也不扩现代全部肾病病因。",
+      "recall_spine": "病因身份 → 免疫入口 → 沉积空间 → LM/IF/EM → 临床综合征 → 病理模式 → 回病因",
+      "logic_groups": {
+        "urinary-b09-lg01": {"kp":[1,2],"label":"病因身份与肾活检角色","goal":"区分原发/继发/遗传并定位活检为病理模式证据。","closure":"能说明临床、病理和最终病因分别需要什么证据。"},
+        "urinary-b09-lg02": {"kp":[3,6],"label":"免疫损伤入口","goal":"从复合物效应到MCD、原位/循环、anti-GBM/immune-complex/pauci-immune。","closure":"能区分linear/granular/pauci-immune且知道ANCA非定义必需。"},
+        "urinary-b09-lg03": {"kp":[7,9],"label":"沉积空间与LM/IF/EM","goal":"放对系膜/内皮下/上皮下/致密层并理解三种病理方法职责。","closure":"能解释位置倾向但不写成唯一综合征/病因函数。"},
+        "urinary-b09-lg04": {"kp":[10,15],"label":"五类临床综合征","goal":"稳定急性/急进/慢性/隐匿/肾病临床入口。","closure":"病例先做临床综合征定位而不把病理名字塞进临床分型。"},
+        "urinary-b09-lg05": {"kp":[16,18],"label":"命名边界与双坐标算法","goal":"把炎/病、局灶/弥漫、节段/球性降回识别语言并路由到病因。","closure":"能解释FSGS/MsPGN/MPGN形态为何不能单独规定唯一病因。"}
+      }
+    },
+    "urinary-b10": {
+      "first_pass_focus": "沿时间和肾功能速度建立急性、急进、IgA、慢性四条肾炎电影，再用C3/IF/EM/肾大小分开。",
+      "stop_line": "系统性血管炎/SLE/紫癜完整模型后置免疫；旧治疗数字留306 Precision并继承B7 RAS owner。",
+      "recall_spine": "急性GN → 补体/对症 → RPGN三型 → IgA IF身份 → 慢性终末路径 → 病例算法",
+      "logic_groups": {
+        "urinary-b10-lg01": {"kp":[1,4],"label":"急性GN身份与病理电影","goal":"把感染后时间、内皮/系膜增生、驼峰/颗粒和漏+滤不过串起来。","closure":"能由1-3周前驱感染恢复典型病理和功能后果。"},
+        "urinary-b10-lg02": {"kp":[5,8],"label":"补体、活检与重症出口","goal":"掌握C3一过性、活检触发、对症和容量性重症出口。","closure":"能区分典型自限和需活检/升级病例。"},
+        "urinary-b10-lg03": {"kp":[9,16],"label":"RPGN新月体与三种免疫模式","goal":"从新月体形成到anti-GBM/immune-complex/pauci-immune及Source强化治疗。","closure":"能把临床速度、新月体和免疫病因分层并知道ANCA不是定义必要条件。"},
+        "urinary-b10-lg04": {"kp":[17,20],"label":"IgA身份与鉴别","goal":"用1-3天入口和系膜IgA优势/共优势IF钉身份并保留LM可变性。","closure":"能同时说出系膜增生常见和IgA不等于固定LM病型。"},
+        "urinary-b10-lg05": {"kp":[21,25],"label":"慢性GN终末路径与保护","goal":"理解长期硬化/缩小/高压并让RAS规则继承B7。","closure":"不再用旧Scr数字建第二套ACEI真相并能做慢性GN鉴别。"},
+        "urinary-b10-lg06": {"kp":[26,26],"label":"肾炎最终病例算法","goal":"把感染时间、Cr速度、C3、LM/IF/EM、肾大小压成未知病例链。","closure":"能从临床综合征进入病理模式再回病因/治疗owner。"}
+      }
+    },
+    "urinary-b11": {
+      "first_pass_focus": "先学肾病综合征四联和并发症，再把传统五型当306病理索引；MsPGN/MPGN/FSGS先认pattern再问病因。",
+      "stop_line": "传统统一激素表不扩成现代通用治疗；继发/遗传完整病因后置；MCD电荷模型只作经典模型。",
+      "recall_spine": "四联 → 并发症 → 治疗Precision → MCD/MN → MsPGN/MPGN/FSGS pattern → 病因 → 算法",
+      "logic_groups": {
+        "urinary-b11-lg01": {"kp":[1,4],"label":"肾病综合征共同模型","goal":"从大量蛋白尿和低白蛋白推出水肿、高脂和系统后果。","closure":"能把四联归回同一屏障故障。"},
+        "urinary-b11-lg02": {"kp":[5,9],"label":"血栓、感染与AKI","goal":"把并发症接回高凝、免疫/营养和肾间质/管型机制。","closure":"能识别膜性-RVT、感染与MCD-AKI，不用白蛋白单阈值代替决策。"},
+        "urinary-b11-lg03": {"kp":[10,12],"label":"治疗Precision与病因owner","goal":"保留传统泼尼松/环磷酰胺配对同时要求先定疾病实体。","closure":"不会从MsPGN/MPGN/FSGS单一形态直接推出通用免疫抑制。"},
+        "urinary-b11-lg04": {"kp":[13,16],"label":"MCD与膜性经典模型","goal":"用LM/IF/EM、年龄、足突和沉积分开MCD与膜性，并继承B2屏障Core。","closure":"能保留选择性蛋白尿经典电荷模型而不把它当唯一分子解释。"},
+        "urinary-b11-lg05": {"kp":[17,21],"label":"MsPGN、MPGN、FSGS模式","goal":"分别识别系膜增生、双轨、局灶节段硬化并建立pattern≠etiology。","closure":"看到形态先描述pattern再查IF/EM/补体/遗传/继发背景。"},
+        "urinary-b11-lg06": {"kp":[22,24],"label":"传统五型索引到最终算法","goal":"用五型表快速识别，再以继发病因和病例算法完成综合征→模式→病因→治疗。","closure":"使用306总表而不被总表锁死。"}
+      }
+    },
+    "urinary-b12": {
+      "first_pass_focus": "把BPH、结石、尿失禁压回尿流模型；先判断感染梗阻/无尿/肾功能威胁，再调用术式Precision。",
+      "stop_line": "0.6/2cm、80mL、CCB禁用和固定首选词只作Precision。",
+      "recall_spine": "排尿Recall → 梗阻后果 → BPH → 结石成分/位置 → 高危减压 → 术式Precision → 尿失禁",
+      "logic_groups": {
+        "urinary-b12-lg01": {"kp":[1,2],"label":"排尿控制与梗阻底座","goal":"从正常排尿进入出口阻力、残余尿、上游压力和GFR下降。","closure":"能画排不净→感染/结石/肾后损害并识别高危。"},
+        "urinary-b12-lg02": {"kp":[3,5],"label":"BPH身份、症状与评估","goal":"用移行带和膀胱代偿解释尿频到进行性困难，并分开DRE/超声任务。","closure":"能区分BPH与癌带区，不把前列腺增大当最终诊断。"},
+        "urinary-b12-lg03": {"kp":[6,8],"label":"BPH治疗与并发症","goal":"稳定alpha1/5ARI、潴留先导尿和残余尿并发症。","closure":"先保护排空/肾功能，旧CCB/80mL只作Precision。"},
+        "urinary-b12-lg04": {"kp":[9,12],"label":"结石成分、位置与危险","goal":"把成分显影、部位症状和感染/梗阻后果连成空间链。","closure":"能定位结石并把感染梗阻/无尿/肾功能威胁放在即时危险轴。"},
+        "urinary-b12-lg05": {"kp":[13,15],"label":"结石减压与术式Precision","goal":"高危先减压，再按多变量选方案；完整Source矩阵留MI-D。","closure":"能背306矩阵又知道>2cm肾结石PCNL只是强锚点而非所有格子机械规则。"},
+        "urinary-b12-lg06": {"kp":[16,17],"label":"四类尿失禁与最终算法","goal":"按持续/充溢/急迫/压力定位故障并连接排尿困难/绞痛/漏尿。","closure":"未知病例能先定位和危险分层再决定导尿/引流/影像/根治。"}
+      }
+    },
+    "urinary-b13": {
+      "first_pass_focus": "先分慢性结核破坏还是肿块出血，再按肾实质、上尿路、膀胱、前列腺定位；检查先问任务。",
+      "stop_line": "source-local页号不冒充物理页；Ta≠CIS；旧最佳检查/固定疗程/前列腺二分只作Precision。",
+      "recall_spine": "结核器官链 → 血尿定位 → RCC/UTUC/膀胱/前列腺 → 检查任务 → 确证 → 鉴别",
+      "logic_groups": {
+        "urinary-b13-lg01": {"kp":[1,5],"label":"肾结核器官链与治疗边界","goal":"从结核Recall进入肾→输尿管→膀胱、慢性刺激症和医疗为主处理。","closure":"能解释病在肾却症状先在膀胱，旧疗程数字只作Precision。"},
+        "urinary-b13-lg02": {"kp":[6,7],"label":"血尿与器官定位","goal":"用无痛全程血尿、血块、喷血、癌栓和DRE硬结建立器官入口。","closure":"能从症状先压缩到器官而非直接跳肿瘤名。"},
+        "urinary-b13-lg03": {"kp":[8,10],"label":"肾癌与上尿路UC","goal":"建立RCC增强CT/选择性活检和UTUC CTU+细胞学→必要时URS。","closure":"不会把肾癌穿刺或UTUC输尿管镜写成所有病例唯一金标准。"},
+        "urinary-b13-lg04": {"kp":[11,12],"label":"膀胱UC与Ta/Tis/T1/T2","goal":"用膀胱镜/TURBT诊断并正确分层。","closure":"Ta≠CIS，能以肌层是否受侵形成NMIBC/MIBC大边界。"},
+        "urinary-b13-lg05": {"kp":[13,16],"label":"前列腺癌与检查任务层","goal":"从PSA/DRE→MRI/活检→风险/分期，并降级旧酸性磷酸酶/ECT/包膜二分。","closure":"能区分诊断、局部分期、转移分期、确证，不让一个最佳检查统治全部。"},
+        "urinary-b13-lg06": {"kp":[17,18],"label":"血尿Recall与反向算法","goal":"调用K6尿三杯，把血尿时相、刺激症、血块、器官和检查任务压成最终流程。","closure":"未知血尿病例能完成结核/肿瘤分流和器官定位。"}
+      }
+    },
+    "urinary-b14": {
+      "first_pass_focus": "泌尿外伤第一问是稳定性；随后才用尿生殖膈和腹膜空间定位并决定影像、引流、介入、修补或探查。",
+      "stop_line": "RUG complete/partial、浮动前列腺、腹膜外一律手术和有休克=固定肾手术都不是绝对规则。",
+      "recall_spine": "稳定性 → 机制/RUG → 前后尿道 → 膀胱造影 → 肾CT/非手术/栓塞/探查 → 算法",
+      "logic_groups": {
+        "urinary-b14-lg01": {"kp":[1,3],"label":"稳定性、机制与尿道入口","goal":"稳定性置顶，由机制选择RUG/膀胱造影/CT。","closure":"能解释尿道伤不盲目反复插管，RUG也不能总判完全/部分。"},
+        "urinary-b14-lg02": {"kp":[4,6],"label":"前后尿道空间模型","goal":"按尿生殖膈、球部/PFUI和外渗空间区分前后尿道。","closure":"能画会阴阴囊阴茎下腹壁 vs 膀胱周围/耻骨后两套空间。"},
+        "urinary-b14-lg03": {"kp":[7,9],"label":"膀胱造影与内外处理","goal":"造影分型并修正uncomplicated腹膜外持续引流、blunt腹膜内手术。","closure":"不会把腹膜外破裂等同一律手术。"},
+        "urinary-b14-lg04": {"kp":[10,14],"label":"肾外伤稳定性与最终算法","goal":"稳定CT/非手术±栓塞，不稳定肾出血探查，保留血尿-伤情脱钩。","closure":"能跑稳定性→机制→空间→影像→引流/介入/修补/探查完整病例。"}
       }
     }
   },
-  "batch_exit": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY; B1-B4 Logic Groups frozen until concrete new source or learner evidence requires reopening."
+  "system_below_exit": "PASS_ALL_14_BLOCKS; 257 stable KPs / 75 Logic Groups accepted at Block-level K. This is not A3 System-level K PASS, not learner readiness, and not U evidence."
 }
