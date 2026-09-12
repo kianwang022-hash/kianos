@@ -1,33 +1,91 @@
 # English Current
 
-This file is the stable entrypoint for fresh Chats working on the English lane. It routes to Current owners; it does not duplicate their content or progress.
+Role: English lane Work Cursor + sub-lane router
+Parent: root `CURRENT.md`
 
-## Owners
+This file does not duplicate English content, acceptance evidence, or learner progress.
 
-- owner/readiness map: `content/english/manifest.json`
-- stable lane learning rules: `content/english/LEARNING_CONTRACT.md`
-- shared-work continuation: `content/english/continuation.json`
-- canonical source: `content/english/source/`
-- provenance: `content/english/provenance.json`
-- module owners: `content/english/modules/`
-- learner runtime: English surfaces under `static-web/`
+---
 
-## Fresh-Chat read order
+## Lane Work Cursor
 
-1. `content/english/continuation.json`
-2. resolve the active module/sub-lane
-3. read only the exact module/rule/source/evidence owners named by the continuation or required by the task
+**Active governance task:** validate the new Current/Truth ownership model through the Writing pilot.  
+**Next governance action:** run Fresh Chat + Truth Separation checks for Writing before migrating other English scopes.  
+**Global English product work:** remains owned by each product/sub-lane Work Cursor; this governance pilot does not authorize sibling semantic/runtime changes.
 
-Do not reread all English modules by default.
+---
 
-## Sub-lane rule
+## Independently continued scopes
 
-Reading, Cloze, Reading B, Translation, Writing, or another first-class English module may receive its own `CURRENT.md` only when it is independently continued often enough that a dedicated entrypoint reduces reads. Parent English Current should then route to it rather than duplicate its state.
+### Writing
 
-## Boundaries
+Entry:
 
-- Repository-wide construction order is owned by root `LEARNING_ASSET_STANDARD.md`.
-- S/K/L/P/R/E/U acceptance semantics are owned by root `LEARNING_ACCEPTANCE.md`.
-- Shared learner-surface capabilities are owned by root `SYSTEM_CONTRACT.md`.
-- Detailed active status belongs in the continuation/module acceptance owner, not here.
-- Historical repositories/commits/issues/migration artifacts are not normal English inputs.
+`content/english/modules/writing/CURRENT.md`
+
+Writing now owns its local Work Cursor and Acceptance reference. A fresh Chat continuing Writing should route there directly and does **not** need English `continuation.json` by default.
+
+### Other English scopes
+
+Objective / Translation / other English work has not yet been migrated under this governance pilot.
+
+`content/english/continuation.json` remains a **transitional owner for non-migrated English work only** until each responsibility is audited.
+
+Do not expand that continuation with new historical narrative during this pilot. Do not delete it until machine/process dependencies have been checked.
+
+---
+
+## Stable English owners
+
+- source / owner map → `content/english/manifest.json`
+- lane learning rules → `content/english/LEARNING_CONTRACT.md`
+- canonical source root → `content/english/source/`
+- provenance → `content/english/provenance.json`
+- module Artifact owners → `content/english/modules/`
+- learner-facing runtime → English surfaces under `static-web/`
+
+Repository-wide inherited rules:
+
+- project requirements → root `PROJECT_DEFINITION.md`
+- architecture → root `ARCHITECTURE.md`
+- learning-asset construction → root `LEARNING_ASSET_STANDARD.md`
+- S/K/L/P/R/E/U acceptance → root `LEARNING_ACCEPTANCE.md`
+- shared mature learner-surface capabilities → root `SYSTEM_CONTRACT.md`
+
+These are referenced, not copied into English module owners.
+
+---
+
+## Truth boundary
+
+For any English scope distinguish:
+
+- **Artifact Truth** → actual source/content/module/runtime owners;
+- **Acceptance Truth** → scope-specific acceptance owner when one exists;
+- **Learner Truth** → private learner/runtime state, never inferred from shared repository work;
+- **Work Cursor** → scope `CURRENT.md`.
+
+A module being built/accepted does not mean Kian has studied it.
+
+---
+
+## Fresh-Chat routing
+
+Known independently continued scope:
+
+```text
+scope CURRENT
+→ exact required owner(s)
+→ work
+```
+
+Known English lane but sub-scope unresolved:
+
+```text
+English CURRENT
+→ resolve sub-scope
+→ local CURRENT when present
+→ otherwise transitional exact owner(s)
+```
+
+Do not scan unrelated English modules, history, legacy repositories, or prior Chats by default.
