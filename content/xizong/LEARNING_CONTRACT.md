@@ -132,6 +132,24 @@ Hard rule:
 
 The Lecture remains the first-pass teaching material: its explanation sequence, figures/tables, examples, source context and attached teaching value must not be replaced by a second KianOS textbook.
 
+### First-pass surface ownership
+
+For Kian's Current Xizong workflow, **continuous first-pass Lecture consumption is external-primary on iPad / MarginNote using the original Lecture/source material**. This is a Learning decision, not a Runtime convenience.
+
+Surface roles are therefore:
+
+- **iPad / MarginNote — primary Lecture surface:** continuous original-source reading, figures/tables, annotation, source-local examples and Lecture-attached questions;
+- **KianOS — primary orientation / retrieval / compression surface:** System and Block orientation, current causal target, attention boundary, selective visual/precision cues, active Recall, Logic Group closure, Block/System compression, Wrong/Uncertain routing and later review;
+- **Chat — adaptive companion / repair surface:** explanation when the current model is unclear, mechanism linking, smallest-sufficient repair, personalized clarification and cross-System reasoning when needed.
+
+Hard rules:
+
+- KianOS must not silently become a second primary Lecture reader merely because it can render source text or KP detail.
+- A normal first-pass handoff is **KianOS orientation/cue → original Lecture in MarginNote → return to KianOS for retrieval/closure**. Projection/Runtime should make this handoff low-friction rather than duplicate the Lecture.
+- Lecture-attached companion questions stay on the original Lecture/MarginNote surface and are completed there; KianOS only needs durable evidence when they create a meaningful Wrong / Uncertain / repair need.
+- The later official System question sweep is a different learning action from Lecture-attached questions and belongs after the System model and pre-question System Recall exist.
+- If the user's primary original-source reader/device changes in the future, that is an L-level surface-ownership change. P/Runtime must not infer a replacement from whatever component already exists.
+
 KianOS adds what the Lecture alone does not reliably provide at scale:
 
 - System / Block orientation;
