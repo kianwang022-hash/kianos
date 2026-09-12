@@ -10,7 +10,7 @@
     "score_target": "80–85+",
     "objective_training_target": "60/60"
   },
-  "current_stage": "OBJECTIVE_ACCEPTANCE_REMEDIATION__S_K_L_PASS__P_R_E_ACTIVE__U_UNTESTED__WRITING_S_K_L_P_R_PASS__E_ACTIVE__U_UNTESTED",
+  "current_stage": "OBJECTIVE_ACCEPTANCE_REMEDIATION__S_K_L_PASS__P_R_E_ACTIVE__U_UNTESTED__WRITING_S_REOPENED_VISUAL_SOURCE__K_L_P_PASS__R_BLOCKED_BY_S__E_NOT_STARTED__U_UNTESTED",
   "objective_v1": {
     "status": "ACCEPTANCE_REMEDIATION",
     "development_mode": "BLOCKER_ONLY",
@@ -57,20 +57,24 @@
     ]
   },
   "writing_v1": {
-    "status": "IN_PROGRESS",
-    "active_phase": "E_REPAIR_TRANSFER_LOOP",
+    "status": "SOURCE_REMEDIATION",
+    "active_phase": "S_VISUAL_SOURCE_REMEDIATION",
     "canonical_learning_owner": "content/english/modules/writing/learning.md",
     "source_owner": "content/english/source/question_bank.v1.json",
+    "visual_source_owner": "content/english/source/global_source_truth.v1.json",
     "learner_page": "/writing-learn/",
     "source_gate": {
-      "status": "PASS",
+      "status": "REOPENED",
+      "reason": "Big Writing is a visual-observation lane. A strict audit found that question-bank learner context carried only 2/27 image descriptors and the referenced binaries were not migrated. OCR fragments or prose descriptions cannot replace the original visual source.",
       "question_bank_sha256": "c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986",
       "boundary": {
         "writing_part_a": "22 sets / 22 prompts / 2005-2026 / Small Writing",
         "writing_part_b": "27 sets / 27 prompts / 2000-2026 / Big Writing",
         "total": "49 sets / 49 prompts / 49 unique set IDs / 49 unique prompt IDs / 0 unknown kinds"
       },
-      "learner_projection_protection": "Clean attempt objects exclude formal answer, analysis, taxonomy, QA/seal state, and model/reference fields while preserving required task background, directions, and images.",
+      "visual_truth_rule": "Global Source Truth field images is the canonical visual mapping; visual_assets is compatibility-only. Big Writing true-exam learner descriptors must be joined from this canonical owner instead of duplicated by hand into question_bank.v1.json.",
+      "binary_closure_rule": "Every canonical asset must exist under static-web/public at its canonical asset_path and match the canonical byte count plus SHA256 exactly before S may return to PASS.",
+      "learner_projection_protection": "Clean attempt objects exclude formal answer, analysis, taxonomy, QA/seal state, and model/reference fields while preserving required task background and directions. For Big Writing, learner-visible images are derived from canonical Global Source Truth and cannot be replaced by OCR/prose.",
       "validator": "static-web/scripts/validate-writing-source.mjs"
     },
     "projection_gate": {
@@ -83,7 +87,8 @@
       "validator": "static-web/scripts/validate-writing-learning.mjs"
     },
     "runtime_gate": {
-      "status": "PASS",
+      "status": "BLOCKED_BY_S",
+      "previously_accepted_mechanics": "Whole-essay synthetic Runtime mechanics remain accepted for the audited scope, but R cannot remain PASS while the source dependency required by protected Big Writing true-exam execution is reopened.",
       "learner_unit": "one complete essay",
       "synthetic_owner": "content/english/modules/writing/synthetic-tasks.v1.json",
       "runtime_home": "/writing/",
@@ -94,24 +99,24 @@
       "repair_rule": "Use the earliest meaningful failure sufficient to explain important downstream effects, apply the smallest useful repair, and require learner re-generation.",
       "cascade_rule": "If the upstream repair succeeds, a later problem may become the next first failure only when it remains independently evidenced.",
       "transfer_rule": "Same-prompt repair success is repair evidence, not transfer closure. Successful repair creates TRANSFER_PENDING only when a reusable high-value target is explicitly admitted; otherwise it ends REPAIR_COMPLETE without manufactured durable debt.",
-      "true_exam_policy": "The runtime cold-start owner contains one synthetic Small and one synthetic Big task and consumes no protected true-exam task.",
+      "true_exam_policy": "Protected true-exam Runtime is hard-blocked while visual Source closure is not exact. The adapter may project canonical descriptors for validation, but learner task catalog/load remains unavailable until S closes.",
       "private_state": "First evidence, Chat returns, repair evidence, transfer candidates, and attempt history persist only in the learner browser and are not written to GitHub Current.",
       "validator": "static-web/scripts/validate-writing-runtime.mjs"
     },
     "acceptance": {
-      "S_source": "PASS",
+      "S_source": "REOPENED",
       "K_knowledge": "PASS",
       "L_learning": "PASS",
       "P_projection": "PASS",
-      "R_runtime": "PASS",
-      "E_evidence": "ACTIVE",
+      "R_runtime": "BLOCKED_BY_S",
+      "E_evidence": "NOT_STARTED",
       "U_user_validation": "UNTESTED"
     },
     "runtime_target": "Prompt -> first meaningful plan/content -> first draft -> PASS/ACCEPTABLE or earliest meaningful failure -> smallest sufficient repair -> learner re-generation -> later fresh Writing transfer.",
-    "protected_exam_rule": "Cold-start mechanics and first integrated output use synthetic material. Protected true-exam tasks are not consumed merely to teach the mechanism.",
+    "protected_exam_rule": "Cold-start mechanics and first integrated output use synthetic material. Protected true-exam tasks are not consumed merely to teach the mechanism. Big Writing true-exam access additionally requires exact original visual-source closure.",
     "next_action": {
-      "stage": "WRITING_E_REPAIR_TRANSFER_LOOP",
-      "instruction": "Implement private Evidence/Transfer semantics on top of the accepted whole-essay Runtime. A reusable target may exist only after completed repair/re-generation evidence. Preserve the original root diagnosis and repair evidence, keep same-prompt success as repair evidence only, make later relevant fresh/new Writing the stronger transfer test, and support evidence-bound SUPPORT/CLOSE plus conservative REOPEN when later contradictory fresh evidence appears. Transfer state remains private learner state and must not be written to GitHub Current. Do not consume protected true-exam tasks merely to manufacture engineering evidence."
+      "stage": "WRITING_S_VISUAL_SOURCE_REMEDIATION",
+      "instruction": "Finish Source before touching R/E/U: keep the 27/27 canonical Global Source Truth visual join, restore the original 2000-2026 Writing B binaries into static-web/public in batches, verify every asset by canonical bytes + SHA256, rerun the Source visual validator, and only then reopen true-exam Runtime acceptance. Do not use OCR, prose descriptions, screenshots, or redraws as source substitutes."
     }
   },
   "completed_shared_work": [
@@ -126,9 +131,9 @@
     "Objective Evidence/Transfer v1 tracks repair threads and task-specific reusable claims rather than historical questions; Lexical and Reading roots route to their canonical ability owners.",
     "Reading A legacy per-question WATCH transfer is no longer loaded in Current.",
     "Translation has an independent Productive runtime and canonical learning owner at content/english/modules/translation/learning.md; it remains semantically separate from Objective.",
-    "Writing Source gate passes against exact Current writing_part_a / writing_part_b boundaries: 49 stable complete-essay task objects, Current owner/hash closure, no learner answer/analysis leakage, and required task context preserved.",
+    "Writing textual Source boundary and answer-leak protection remain closed for 49 complete-essay task objects, but S is currently REOPENED because Big Writing visual-source closure is incomplete. Canonical visual mappings are owned by Global Source Truth and runtime-public original binaries must close exactly before S may pass again.",
     "Writing Projection gate passes: Global Map is first, B1-B8 form one continuous skippable route, all six Active Checks require a first response before their post-action, Skill Map is later diagnostic navigation, synthetic output precedes protected true exams, and the learner page is discoverable without claiming Runtime/Evidence/User closure.",
-    "Writing Runtime gate passes: the learner-facing unit is one complete essay; first meaningful planning/content evidence and first draft are preserved; direct generation is allowed without fake planning; whole-essay judgment is Chat-mediated with an explicit PASS/ACCEPTABLE exit; repair uses the earliest sufficient failure and smallest repair with learner re-generation; same-prompt success does not close transfer; successful low-value repairs can end without durable review debt; independently evidenced downstream failures may continue after an upstream repair; cold-start runtime uses only synthetic Small/Big tasks and does not consume protected true exams."
+    "Writing whole-essay synthetic Runtime mechanics were previously accepted for their audited scope, but formal R acceptance is now BLOCKED_BY_S. Protected true-exam Runtime must remain inaccessible until canonical visual descriptors and exact original binaries close Source."
   ],
   "current_owners_to_read": [
     "LEARNING_ACCEPTANCE.md",
@@ -141,6 +146,7 @@
     "content/english/modules/reading-b.md",
     "content/english/modules/writing/learning.md",
     "content/english/modules/writing/synthetic-tasks.v1.json",
+    "content/english/source/global_source_truth.v1.json",
     "content/english/manifest.json"
   ],
   "module_entry_rules": {
@@ -166,23 +172,23 @@
         "LEARNING_ACCEPTANCE.md",
         "content/english/LEARNING_CONTRACT.md",
         "content/english/modules/writing/learning.md",
-        "content/english/modules/writing/synthetic-tasks.v1.json"
+        "content/english/modules/writing/synthetic-tasks.v1.json",
+        "content/english/source/global_source_truth.v1.json"
       ],
-      "inheritance": "Writing is an independent Productive lane. Preserve first meaningful planning/content evidence and the first draft, diagnose the first meaningful failure, apply the smallest repair, require learner re-generation, and use later fresh Writing transfer as stronger evidence than same-prompt rewriting.",
-      "current_owner_status": "S/K/L/P/R PASS. Evidence/Transfer is the active phase. User Validation remains untested."
+      "inheritance": "Writing is an independent Productive lane. Preserve first meaningful planning/content evidence and the first draft, diagnose the first meaningful failure, apply the smallest repair, require learner re-generation, and use later fresh Writing transfer as stronger evidence than same-prompt rewriting. Big Writing additionally requires the original learner-visible visual so Observation precedes Interpretation.",
+      "current_owner_status": "S REOPENED for visual-source remediation; K/L/P PASS; R BLOCKED_BY_S; E NOT_STARTED; U UNTESTED. Do not resume true-exam Runtime work until all 27 canonical visual mappings and exact runtime-public binaries close S."
     }
   },
   "next_action": {
-    "stage": "OBJECTIVE_P_R_E_BLOCKER_REMEDIATION",
-    "instruction": "Fix only the concrete acceptance blockers already found. Preserve S/K/L semantics. Then run current-main module E2E for clean PASS, wrong/uncertain -> whole-unit diagnosis -> completed repair/return, later relevant fresh transfer -> CLOSED, and later contradictory fresh evidence -> REOPENED. If S-E pass, relabel Objective as MODULE_READY_FOR_LEARNER_TEST with U still UNTESTED. Real learner use is required for any learner-validated claim.",
+    "stage": "WRITING_S_VISUAL_SOURCE_REMEDIATION",
+    "instruction": "Continue Writing upstream remediation only: canonical visual projection must stay derived from Global Source Truth; restore original Writing B image binaries in batches and verify canonical byte count + SHA256 in static-web/public. Only after Source validation is fully green may Writing R resume, followed by E and then real U.",
     "remediation_order": [
-      "Reading B task-form/direction projection and candidate constraints",
-      "Reading A whole-passage diagnosis before local repair",
-      "repair-completed evidence before new TRANSFER_PENDING claims",
-      "self-contained transfer-check packets",
-      "idempotent and evidence-bound return import including conservative reopen",
-      "isolated browser E2E acceptance on current main@HEAD",
-      "update Current acceptance language from actual evidence"
+      "canonical 27/27 Global Source Truth -> learner visual projection reconciliation",
+      "restore 2000-2004 original binaries and verify bytes + SHA256",
+      "continue remaining Writing B binary batches through 2026",
+      "rerun Source visual audit for descriptor, canonical projection, and exact binary closure",
+      "only after S PASS, re-run protected true-exam Runtime acceptance",
+      "then begin Evidence/Transfer acceptance; U remains real learner use only"
     ]
   },
   "do_not_reopen_without_new_evidence": [
@@ -197,8 +203,9 @@
     "Do not expose formal answers or diagnostic assets before a clean attempt.",
     "Do not merge Translation or Writing cognition into Objective merely for UI consistency.",
     "Do not treat QA/build success as a substitute for S/K/L/P/R/E/U acceptance evidence.",
-    "Do not treat Writing S/P/R closure as Evidence or User Validation closure.",
-    "Do not consume protected Writing true-exam tasks merely to teach cold-start mechanics when synthetic material can teach the same mechanism."
+    "Do not treat Writing historical S/P/R closure as current closure after a concrete upstream visual-source defect has reopened S.",
+    "Do not consume protected Writing true-exam tasks merely to teach cold-start mechanics when synthetic material can teach the same mechanism.",
+    "Do not substitute OCR, prose descriptions, screenshots, or redraws for the canonical original Big Writing visual source."
   ],
   "continuation_policy": {
     "update_when": "Update at each meaningful module acceptance transition or when an active module's stage target changes; do not use this as a per-commit construction log.",
