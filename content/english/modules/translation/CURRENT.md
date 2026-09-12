@@ -10,9 +10,9 @@ This file does not own Translation content, acceptance evidence, or learner prog
 ## Work Cursor
 
 **Scope:** English Translation  
-**Active / earliest unresolved gate:** `E — Evidence acceptance`  
-**Blocker:** none from Runtime. S is `PASS_WITH_DEBT`; K/L/P/R are `PASS`; E is `UNTESTED`; U remains real learner use only.  
-**Next action:** run a bounded **E-only** audit of Translation evidence / transfer / closure semantics. If E passes, write the durable transition first; Translation then becomes `Module ready for learner test` with U still `UNTESTED`.
+**Active / earliest unresolved gate:** `U — Learner Validation`  
+**Blocker:** no engineering blocker. S is `PASS_WITH_DEBT`; K/L/P/R/E are `PASS`; U is `UNTESTED`.  
+**Next action:** do **not** create a special Translation task merely to close U. Keep S–E frozen. When normal English study naturally uses Translation, treat that real path as U evidence; if a real-use defect appears, reopen the exact responsible gate.
 
 ---
 
@@ -23,116 +23,113 @@ S  PASS_WITH_DEBT  ← accepted; 3 explicit pending_review Source reference gaps
 K  PASS            ← accepted
 L  PASS            ← accepted
 P  PASS            ← accepted
-R  PASS            ← accepted after two fail-closed Runtime blockers were repaired
-E  UNTESTED        ← ACTIVE
-U  UNTESTED        ← real learner use only
+R  PASS            ← accepted
+E  PASS            ← accepted after fresh-evidence / lexical-ownership blockers were repaired
+U  UNTESTED        ← ACTIVE only through real learner use
 ```
 
-`UNTESTED` is evidence status, not a parallel TODO list.
+Translation is now **Module ready for learner test**, not learner-validated.
 
 ---
 
-## Accepted upstream boundary
+## Accepted engineering boundary
 
-### S
+### Source
 
-27 sets / 135 stable prompts. Three reference rows remain explicit `pending_review` Source debt; missing references stay fail-closed and may not be fabricated.
+27 Current sets / 135 stable prompts. Three reference rows remain explicit `pending_review` Source debt. Missing references stay unavailable and may not be fabricated.
 
-### K / L
+### Knowledge / Learning
 
-Translation uses a capability-native first-learning path: Representation → Preservation → Reconstruction → Execution → integrated use, then real whole-set Translation. Skill Map/deep leaves are later repair/navigation; clean first output precedes diagnosis/reference; smallest repair requires learner Reconstruction; later fresh transfer outranks same-item correction.
-
-### P
-
-Projection is accepted: pending-target cues stay hidden through Clean Attempt; `HOW YOU LEARN IT` appears before the first-learning exit; Skill/Runtime reference stays progressively disclosed; canonical references do not leak into clean-attempt HTML.
-
-P machine evidence: 161 checks, 27/27 built task pages, 132 available canonical reference rows checked, 0 leaks, 0 issues.
-
-### R
-
-Runtime is accepted after repairing two blockers:
-
-- `REPAIR_NEEDED` may no longer omit `affected_segments` and silently widen repair to the whole set;
-- failed Chat-return application is atomic and cannot leave hidden transfer-ledger mutations behind.
-
-R machine evidence from run `34699948489`:
-
-- decision `PASS`
-- 40 checks
-- 0 issues
-- whole-set freeze, clean PASS, immutable first evidence, wrong-task fail-close, required repair slice, atomic failed import, Reconstruction, same-task non-closure, persistence fail-close, and reference non-fabrication all passed.
-
-Full acceptance evidence belongs in `content/english/modules/translation/ACCEPTANCE.md`.
-
----
-
-## E acceptance target
-
-Judge evidence semantics, not Runtime executability.
-
-Required checks:
-
-- learner-facing review remains whole-set while internal evidence may be segment/clause level;
-- first translation remains immutable diagnostic evidence;
-- earliest primary failure absorbs explainable cascade effects;
-- Reconstruction proves repair execution, not mastery;
-- source/same task cannot count as fresh transfer evidence;
-- irrelevant later material cannot support or contradict a pending target;
-- repeated import from one later task is idempotent, not extra evidence;
-- contradictory fresh evidence can reopen an appropriate closed target;
-- closure depends on semantically meaningful fresh evidence, not counters;
-- only reusable/high-value failures become durable transfer debt;
-- private learner evidence stays private/local;
-- lexical knowledge debt routes to LexicalOS rather than creating duplicate Translation ownership.
-
-If E passes, readiness becomes:
+Capability-native path:
 
 ```text
-S  PASS_WITH_DEBT
-K  PASS
-L  PASS
-P  PASS
-R  PASS
-E  PASS
-U  UNTESTED
+Representation
+→ Preservation
+→ Reconstruction
+→ Execution
+→ integrated use
+→ real whole-set Translation
 ```
 
-Allowed readiness wording then becomes **Module ready for learner test**.
+Skill Map/deep content is later repair/navigation. Clean first output precedes diagnosis/reference. Repair follows the earliest meaningful failure and requires learner Reconstruction.
+
+### Projection
+
+Accepted after removing fresh-attempt cue leakage and restoring `HOW YOU LEARN IT` before the first-learning exit. P gate: 161 checks, 27/27 task pages, 0 reference leaks, 0 issues.
+
+### Runtime
+
+Accepted after requiring explicit repair slices and making failed return application atomic. R gate: 40 checks, 0 issues.
+
+### Evidence
+
+Accepted after:
+
+- stale/repeated tasks were prevented from masquerading as fresh transfer closure;
+- closure freshness was grounded in the task's own first-submission time + zero prior history;
+- LexicalOS-owned durable knowledge was prevented from duplicating into Translation transfer debt.
+
+E gate from run `34700382509`: `PASS`, 27 checks, 0 issues. Old/repeated non-closure, irrelevant non-confirmation, idempotent later evidence, fresh semantic closure, contradiction reopen, non-reusable no-debt, lexical canonical routing, and private-evidence locality all passed.
+
+Full evidence belongs in `content/english/modules/translation/ACCEPTANCE.md`.
+
+---
+
+## U boundary
+
+U can only come from Kian actually using a Translation path.
+
+Do not infer U from:
+
+- CI/build success;
+- synthetic validators;
+- screenshots;
+- repository state;
+- Chat/model review;
+- self-report that the framework looks familiar.
+
+Useful future real-use paths may include:
+
+- First Learning → real task;
+- clean attempt → PASS;
+- Need Review → Chat diagnosis → smallest repair → Reconstruction;
+- later genuinely fresh transfer closure;
+- reopen after contradictory later evidence.
+
+If real use reveals friction or semantic failure, reopen the earliest responsible S/K/L/P/R/E dependency rather than re-auditing everything.
 
 ---
 
 ## Required reads
 
-1. `content/english/modules/translation/ACCEPTANCE.md`
-2. Evidence hierarchy / memory admission / Frozen Runtime evidence boundary in `content/english/modules/translation/learning.md`
-3. transfer/evidence portions of `static-web/src/lib/translationRuntimeModel.mjs`
-4. `static-web/src/components/TranslationEvidenceGuard.astro`
-5. `static-web/scripts/validate-translation-evidence-guard.mjs`
-6. exact Workspace/Storage wiring only when needed to trace evidence ownership or privacy
+For ordinary engineering re-entry while U is the only unresolved gate:
 
-Do not default-read unrelated Runtime internals, English history, legacy repo, or sibling scopes while E is active.
+1. `content/english/modules/translation/ACCEPTANCE.md`
+2. this `CURRENT.md`
+
+Do not default-read Runtime/Evidence internals or restart engineering work without a concrete learner-use defect.
+
+For a real learner-use issue, read only the exact owner needed to diagnose that path.
 
 ---
 
 ## Frozen / out of scope
 
-During E acceptance:
+While waiting for U:
 
-- U remains real learner use only;
-- do not redesign accepted K/L/P/R merely to make Evidence tests pass;
-- do not reopen S merely because its explicit reference debt remains;
-- do not touch Objective / Writing / other English sibling scopes;
-- do not infer or mutate Kian's Learner Truth.
-
-If E exposes a real upstream defect, reopen the earliest responsible gate.
+- S–E are frozen by default;
+- do not fill the 3 Source reference gaps with generated answers;
+- do not manufacture engineering work merely because U is still `UNTESTED`;
+- do not touch Objective / Writing / sibling scopes from this cursor;
+- do not infer or mutate Kian's Learner Truth from repository acceptance.
 
 ---
 
 ## Truth references
 
-**Artifact Truth:** Translation evidence/transfer owners and exact supporting Runtime wiring.  
+**Artifact Truth:** canonical Translation content/source/projection/runtime/evidence owners.  
 **Acceptance Truth:** `content/english/modules/translation/ACCEPTANCE.md`.  
-**Learner Truth:** private learner/runtime state only; repository state is not Kian's learning progress.
+**Learner Truth:** private learner/runtime state only.
 
 ---
 
@@ -141,9 +138,8 @@ If E exposes a real upstream defect, reopen the earliest responsible gate.
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ Evidence hierarchy / memory-admission boundary
-→ exact Evidence owners
-→ E only
+→ S–E frozen / Module ready for learner test
+→ wait for real Translation use
 ```
 
-When E passes, write the local durable transition first; the next fresh Chat should recover Translation as learner-test-ready with U still unresolved.
+A future real-use defect reopens only the exact responsible gate.

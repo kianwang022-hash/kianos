@@ -23,6 +23,11 @@ function clean(value) {
   return String(value ?? '').trim();
 }
 
+function isoMillis(value) {
+  const ms = Date.parse(clean(value));
+  return Number.isFinite(ms) ? ms : NaN;
+}
+
 function repairSignature(payload) {
   const failure = payload?.primary_failure || {};
   const target = payload?.transfer_target || {};
@@ -40,6 +45,15 @@ function repairSignature(payload) {
     transferSkill: clean(target?.skill),
     transferDemand: clean(target?.underlying_demand)
   });
+}
+
+function freshTransferClosureEligible(target, context = {}) {
+  const historyCount = Number(context.taskHistoryCount);
+  if (!Number.isFinite(historyCount) || historyCount !== 0) return false;
+  const attemptAt = isoMillis(context.attemptFirstSubmittedAt);
+  const targetCreatedAt = isoMillis(target?.createdAt);
+  if (!Number.isFinite(attemptAt) || !Number.isFinite(targetCreatedAt)) return false;
+  return attemptAt > targetCreatedAt;
 }
 
 export function translationPromptIds(prompts = []) {
@@ -214,6 +228,9 @@ export function parseTranslationReturn(text, expectedTaskId = '') {
     if (candidate?.admit === true && (!clean(candidate.target_id) || !clean(candidate.label) || !clean(candidate.underlying_demand))) {
       throw new Error('RETURN_PACKET_TRANSFER_TARGET_INCOMPLETE');
     }
+    if (clean(failure.layer) === 'Lexical' && candidate?.admit === true) {
+      throw new Error('RETURN_PACKET_TRANSFER_TARGET_LEXICAL_OWNER');
+    }
   }
   const updates = Array.isArray(payload?.transfer_updates) ? payload.transfer_updates : [];
   const seenUpdateTargets = new Set();
@@ -244,11 +261,19 @@ export function applyTransferUpdates(ledger, updates = [], context = {}) {
     if (!VALID_TRANSFER_RELATIONS.has(relation)) continue;
     if (!task || task === clean(target.sourceTask) || task === clean(target.lastSourceTask)) continue;
 
+    const freshForClosure = freshTransferClosureEligible(target, context);
+    if (update?.close === true && !freshForClosure) {
+      throw new Error(`RETURN_PACKET_TRANSFER_CLOSE_REQUIRES_FRESH_TASK:${targetId}`);
+    }
+
     const evidence = {
       task,
       relation,
       note: clean(update.note),
       close: relation === 'support' && update.close === true,
+      freshForClosure,
+      firstSubmittedAt: clean(context.attemptFirstSubmittedAt),
+      taskHistoryCount: Number.isFinite(Number(context.taskHistoryCount)) ? Number(context.taskHistoryCount) : null,
       at: nowIso(context.now)
     };
     const priorIndex = target.evidence.findIndex((item) => clean(item?.task) === task);
@@ -284,7 +309,12 @@ export function applyTranslationReturn(state, payload, prompts = [], ledger = nu
   const affectedSegments = payload?.decision === 'REPAIR_NEEDED'
     ? normalizedAffectedSegments(payload, prompts)
     : [];
-  const nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], context);
+  const evidenceContext = {
+    ...context,
+    taskHistoryCount: context.taskHistoryCount ?? (Array.isArray(state?.history) ? state.history.length : 0),
+    attemptFirstSubmittedAt: context.attemptFirstSubmittedAt || clean(state?.firstSubmittedAt)
+  };
+  const nextLedger = applyTransferUpdates(ledger, payload?.transfer_updates || [], evidenceContext);
   const next = structuredClone(state);
   const previousRepairSignature = repairSignature(next.chatReturn);
   next.chatReturn = payload;

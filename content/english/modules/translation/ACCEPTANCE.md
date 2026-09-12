@@ -6,7 +6,7 @@ Standard: root `LEARNING_ACCEPTANCE.md`
 
 This file owns current **Acceptance Truth** for Translation.
 
-It does not own Translation learning content, Runtime code, Work Cursor, or private learner state.
+It does not own Translation content, Work Cursor, or private learner state.
 
 ---
 
@@ -14,13 +14,13 @@ It does not own Translation learning content, Runtime code, Work Cursor, or priv
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | PASS_WITH_DEBT | Current Translation resolves from the canonical Current question owner: 27 sets / 135 stable prompts. 25 sets have complete reference coverage; 2 are partial with exactly 3 explicit `pending_review` reference gaps and zero Source-validator failures. Missing references remain unavailable and may not be fabricated. |
-| K — Knowledge | PASS | Canonical `learning.md` defines a capability-native Translation model: Representation → Preservation → Reconstruction → Exam Execution, with substantive mechanisms, active checks, LexicalOS routing, teacher material as repair reservoir, protected-unseen separation, and adaptive Chat for long-tail cases. No justified K debt. |
-| L — Learning | PASS | Approved path is Global Map → four continuous Core Learning Blocks → integrated use → normal whole-set Translation. Skill Map/deep leaves are later repair/navigation; clean first output precedes diagnosis/reference; earliest meaningful failure receives smallest sufficient repair + learner reconstruction; later fresh transfer outranks same-item correction. No justified L debt. |
-| P — Projection | PASS | Two learner-flow blockers were found and repaired before acceptance: pending-target details leaked during Clean Attempt, and `F｜HOW YOU LEARN IT` was folded while G tested its concepts. Dedicated post-build P gate passed: 161 checks, 27/27 task pages, 132 available canonical reference rows checked, 0 clean-attempt reference leaks, 0 issues. |
-| R — Runtime | PASS | Two Runtime blockers were found and repaired before acceptance: missing `affected_segments` silently widened repair to the whole set, and failed return application could mutate the original transfer ledger through shared nested evidence arrays / pre-validation updates. Dedicated R gate passed: 40 checks, 0 issues; whole-attempt, clean PASS, immutable first evidence, wrong-task fail-close, required repair slice, atomic failed import, Reconstruction, same-task non-closure, persistence fail-close, and reference non-fabrication all passed. |
-| E — Evidence | UNTESTED | Evidence / transfer / closure semantics have candidate implementation and regression tests, but formal E acceptance has not yet been executed. **E is the current active gate under local `CURRENT.md`.** |
-| U — User Validation | UNTESTED | Real learner use only. Engineering/synthetic QA cannot supply U. |
+| S — Source | PASS_WITH_DEBT | Canonical Current source resolves to 27 sets / 135 stable prompts. 25 sets have complete reference coverage; 2 are partial with exactly 3 explicit `pending_review` reference gaps. Missing references remain fail-closed and may not be fabricated. |
+| K — Knowledge | PASS | Canonical learning asset uses a capability-native Translation model: Representation → Preservation → Reconstruction → Exam Execution, with substantive mechanisms, active checks, LexicalOS routing, protected-unseen separation, and adaptive Chat for long-tail cases. |
+| L — Learning | PASS | Approved path is Global Map → four continuous Core Learning Blocks → integrated use → normal whole-set Translation. Clean first output precedes diagnosis/reference; smallest repair requires learner Reconstruction; later fresh transfer outranks same-item correction. |
+| P — Projection | PASS | Two Projection blockers were repaired before acceptance: pending-target cues leaking during Clean Attempt, and `HOW YOU LEARN IT` being folded while the first-learning exit tested its concepts. Dedicated P gate: 161 checks, 27/27 built task pages, 132 canonical reference rows checked, 0 clean-attempt reference leaks, 0 issues. |
+| R — Runtime | PASS | Two Runtime blockers were repaired before acceptance: missing `affected_segments` silently widening repair to the whole set, and failed return application risking partial ledger mutation. Dedicated R gate: 40 checks, 0 issues. |
+| E — Evidence | PASS | Two Evidence blockers were repaired before acceptance: old/repeated tasks could masquerade as fresh transfer closure, and LexicalOS-owned durable knowledge could be duplicated into the Translation transfer ledger. Dedicated E gate: 27 checks, 0 issues; old/repeated task non-closure, irrelevant non-confirmation, same-task idempotency, fresh semantic closure, contradiction reopen, non-reusable no-debt, lexical canonical routing, and private-evidence locality all passed. |
+| U — User Validation | UNTESTED | Real Kian use only. Engineering, synthetic QA, build success, and model review cannot supply U. |
 
 ---
 
@@ -28,9 +28,9 @@ It does not own Translation learning content, Runtime code, Work Cursor, or priv
 
 Allowed statement:
 
-> **Translation has accepted S/K/L/P/R: S is PASS_WITH_DEBT; K/L/P/R are PASS; E is now active; U remains UNTESTED.**
+> **Translation is Module ready for learner test. S is PASS_WITH_DEBT; K/L/P/R/E are PASS; U remains UNTESTED.**
 
-Do not say `Module ready for learner test` until E also passes.
+Do **not** call Translation learner-validated until Kian actually uses the relevant path.
 
 ---
 
@@ -38,16 +38,16 @@ Do not say `Module ready for learner test` until E also passes.
 
 Validator: `static-web/scripts/validate-translation-source.mjs`
 
-Accepted Source boundary:
+Accepted boundary:
 
 - decision: `PASS_WITH_DEBT`
-- Translation section: `translation`
+- section: `translation`
 - sets: `27`
 - stable prompts: `135`
 - complete-reference sets: `25`
 - partial-reference sets: `2`
 - explicit pending reference debts: `3`
-- failures: `0`
+- Source failures: `0`
 - canonical question owner SHA-256: `c82b8daa93962cc39a9a4f09a0ba16057914edb6f96a2888c3be455928784986`
 
 Bounded Source debts:
@@ -56,13 +56,13 @@ Bounded Source debts:
 2. `english1-2022-translation-main-q49` — `pending_review`
 3. `english1-2025-translation-main-q46` — `pending_review`
 
-These are Source gaps, not learner debt. Runtime/reference projection must remain fail-closed.
+These are Source gaps, not learner debt. They do not block normal Translation use and do not authorize generated reference translations.
 
 ---
 
 ## K — Accepted Knowledge boundary
 
-Audited owners:
+Canonical owners:
 
 - `content/english/modules/translation/learning.md`
 - `content/english/LEARNING_CONTRACT.md`
@@ -79,14 +79,14 @@ Global Map
 → later Skill Map / selective deep content
 ```
 
-Key ownership rules accepted at K:
+Key ownership rules:
 
-- stable Translation mechanisms are taught rather than only named;
-- lexical sense / phrase / construction knowledge routes to LexicalOS;
-- teacher material is a Repair Reservoir, not default curriculum;
+- stable Translation mechanisms are taught rather than merely named;
+- lexical sense / phrase / construction / collocation / contrast / confusable knowledge routes to LexicalOS;
+- teacher material is a Repair Reservoir, not the default curriculum;
 - protected unseen material remains diagnostic capital;
-- private first translations / repair / transfer evidence are not shared semantic content;
-- rare ambiguity and personalized drill remain Chat territory.
+- private learner evidence is not shared canonical content;
+- rare ambiguity and personalized drill remain adaptive Chat territory.
 
 K decision: **PASS**.
 
@@ -94,7 +94,7 @@ K decision: **PASS**.
 
 ## L — Accepted Learning boundary
 
-Accepted first-learning / practice path:
+Accepted learner path:
 
 ```text
 Global Map
@@ -104,18 +104,17 @@ Global Map
 → B4 Execution
 → integrated walkthrough
 → HOW YOU LEARN IT
-→ normal Translation task
+→ normal whole-set Translation
 ```
 
-Accepted learning semantics:
+Accepted semantics:
 
 - Skill Map/deep leaves are later repair/navigation, not compulsory first learning;
-- proficient learners may skip familiar explanation without manufacturing mastery;
+- complete-but-skippable navigation does not manufacture mastery;
 - synthetic/exposed material may teach mechanisms without spending protected unseen material;
-- clean first output comes before diagnosis/reference;
+- clean first output precedes diagnosis/reference;
 - repair begins at the earliest meaningful failure;
-- repair stops at the smallest amount needed for learner re-execution;
-- learner Reconstruction is required after repair;
+- smallest sufficient repair is followed by learner Reconstruction;
 - same-item correction is weaker than later fresh transfer.
 
 L decision: **PASS**.
@@ -124,21 +123,12 @@ L decision: **PASS**.
 
 ## P — Accepted Projection evidence
 
-### Blocker 1 — pending-target cue leak
+Two real blockers were found and repaired:
 
-Before P acceptance, old Transfer Pending labels / underlying demand could become visible while the current task was still in Clean Attempt, potentially cueing the demand that later fresh evidence was supposed to test.
+1. **Fresh-transfer cue leak** — concrete pending-target labels / underlying demand could appear during Clean Attempt. The task projection now keeps those details hidden until the immutable first attempt has been locked.
+2. **First-learning teach/test inversion** — `F｜HOW YOU LEARN IT` was folded while `G｜第一次学习出口` tested its concepts. F is now on the visible first-learning path before G; Skill Map/deep/system/runtime reference remains progressively disclosed.
 
-Repair: task projection now keeps concrete pending-target detail hidden whenever the Clean Attempt stage is visible.
-
-### Blocker 2 — first-learning teach/test inversion
-
-Before P acceptance, `F｜HOW YOU LEARN IT` was folded inside system/runtime reference while `G｜第一次学习出口` tested why first translation must be preserved and why same-item correction is not mastery.
-
-Repair: F is now on the visible first-learning main path before G; C/D Skill Map/deep content and E/H system/runtime reference remain progressively disclosed.
-
-### Executed P gate
-
-Validator: `static-web/scripts/validate-translation-projection.mjs`
+Dedicated validator: `static-web/scripts/validate-translation-projection.mjs`
 
 Machine evidence:
 
@@ -160,51 +150,18 @@ P decision: **PASS**.
 
 ## R — Accepted Runtime evidence
 
-R was audited against the Frozen Runtime v1 contract, the accepted K/L/P boundary, the executable Runtime model/workspace, persistence/reference guards, and a dedicated Runtime gate.
+Two real blockers were found and repaired:
 
-### Blocker 1 — missing repair slice silently widened to whole set
+1. **Missing repair slice widened silently** — `REPAIR_NEEDED` without `affected_segments` used to expand to all prompts. Missing slices now fail closed with `RETURN_PACKET_AFFECTED_SEGMENTS_MISSING`; invalid ids fail closed with `RETURN_PACKET_AFFECTED_SEGMENT_INVALID`.
+2. **Failed return application was not guaranteed atomic** — nested evidence arrays were reused and transfer updates could precede repair-address validation. Evidence rows are now independently cloned and repair addresses are validated before any transfer update.
 
-Previous behavior:
-
-```text
-REPAIR_NEEDED
-+ no affected_segments
-→ normalizedAffectedSegments()
-→ all prompt ids
-```
-
-That violates smallest-repair semantics and can turn one local failure into unnecessary whole-set rework.
-
-Repair:
-
-- every `REPAIR_NEEDED` return must contain a non-empty `affected_segments` list;
-- missing slices fail closed with `RETURN_PACKET_AFFECTED_SEGMENTS_MISSING`;
-- invalid ids fail closed with `RETURN_PACKET_AFFECTED_SEGMENT_INVALID`.
-
-### Blocker 2 — failed return application was not guaranteed atomic
-
-Previous risk:
-
-- `normalizeTransferLedger()` copied targets but reused nested `evidence` arrays;
-- `applyTranslationReturn()` could apply transfer updates before validating repair segment addresses;
-- a later repair-address failure could therefore leave mutated evidence behind even though import reported failure.
-
-Repair:
-
-- transfer evidence rows are independently cloned during ledger normalization;
-- `REPAIR_NEEDED` segment addresses are validated before transfer updates are applied;
-- failed return application leaves the original ledger unchanged.
-
-### Executed R gate
-
-Validator: `static-web/scripts/validate-translation-runtime-gate.mjs`  
-Workflow run: `34699948489`  
+Dedicated validator: `static-web/scripts/validate-translation-runtime-gate.mjs`  
+Accepted run: `34699948489`  
 Audited head: `8c74389283f67183310f6b329c2d4a0f57f3146a`
 
 Machine evidence:
 
 - schema: `kianos.english.translation.runtime-gate-validation.v1`
-- gate: `R`
 - decision: `PASS`
 - checks: `40`
 - issues: `0`
@@ -217,55 +174,107 @@ Machine evidence:
 - Reconstruction required: `true`
 - same-task repair cannot close mastery: `true`
 - persistence failure fails closed: `true`
-- missing/mismatched Reference remains non-fabricated: `true`
+- Reference non-fabrication: `true`
 
-The same PR head also kept the existing Translation regression QA, Astro build, and accepted Projection gate green.
-
-R decision: **PASS**. No justified R debt remains.
+R decision: **PASS**.
 
 ---
 
-## E — Active acceptance target
+## E — Accepted Evidence evidence
 
-E must now judge whether the system preserves and uses **learning evidence correctly**, not whether the Runtime transitions merely execute.
+E was audited separately from Runtime executability. It judges whether the system preserves and uses learning evidence without creating false mastery or false debt.
 
-Candidate owners:
+### Blocker 1 — old/repeated task could masquerade as fresh closure
 
-- `static-web/src/lib/translationRuntimeModel.mjs` — transfer/evidence semantics
-- `static-web/src/components/TranslationEvidenceGuard.astro`
-- `static-web/scripts/validate-translation-evidence-guard.mjs`
-- accepted Frozen Runtime evidence hierarchy / memory-admission semantics in `learning.md`
+Previous behavior treated a different task id as enough to permit `support + close=true`. That did not prove the task was genuinely fresh relative to target creation.
 
-E must verify at minimum:
+Repair:
 
-1. whole-set learner review can coexist with finer segment/clause evidence;
-2. immutable first translation remains the diagnostic baseline;
-3. earliest primary failure absorbs cascade effects rather than manufacturing multiple debts;
-4. Reconstruction is repair evidence, not mastery;
-5. source task / same task cannot count as fresh transfer evidence;
-6. irrelevant later material cannot confirm/refute a pending target;
-7. one later task cannot stack duplicate evidence by repeated import;
-8. contradictory evidence can reopen a previously closed target when appropriate;
-9. closure depends on semantically meaningful fresh evidence, not counters;
-10. only reusable/high-value failures enter durable transfer debt;
-11. private learner evidence stays local/private;
-12. no lexical duplicate debt is created when LexicalOS owns the knowledge object.
+- closure eligibility requires `taskHistoryCount === 0`;
+- the current task's immutable `firstSubmittedAt` must be later than the target's `createdAt`;
+- `applyTranslationReturn()` derives these facts from private task state rather than trusting Chat/UI self-report;
+- stale/repeated closure attempts fail closed with `RETURN_PACKET_TRANSFER_CLOSE_REQUIRES_FRESH_TASK`;
+- evidence rows persist `freshForClosure`, `firstSubmittedAt`, and `taskHistoryCount`.
 
-Write E `PASS / PASS_WITH_DEBT / BLOCKED` only from bounded executed evidence.
-
-If E passes, Translation reaches:
+This preserves the hierarchy:
 
 ```text
-S  PASS_WITH_DEBT
-K  PASS
-L  PASS
-P  PASS
-R  PASS
-E  PASS
-U  UNTESTED
+same-item repair
+<
+old / exposed task success
+<
+genuinely fresh independent transfer
 ```
 
-and may then be called **Module ready for learner test**, not learner-validated.
+### Blocker 2 — Lexical durable debt could duplicate into Translation
+
+Translation may diagnose a `Lexical` primary failure for the current task, but durable lexical knowledge belongs to LexicalOS.
+
+Repair:
+
+- `Lexical` primary failure + `transfer_target.admit=true` now fails closed with `RETURN_PACKET_TRANSFER_TARGET_LEXICAL_OWNER`;
+- Translation may still repair the current lexical failure, but it cannot create a second canonical long-term lexical ledger.
+
+### Other accepted Evidence semantics
+
+- whole-set learner-facing review coexists with finer segment/clause evidence;
+- immutable first translation remains the diagnostic baseline;
+- earliest primary failure absorbs explainable cascade effects;
+- Reconstruction proves repair execution, not mastery;
+- source task / same task cannot count as fresh transfer closure;
+- irrelevant later material remains explicit but cannot confirm/refute a target;
+- repeated import from the same later task replaces its evidence instead of stacking counts;
+- a genuinely fresh first attempt after target creation may close only when Chat semantically returns `support + close=true`;
+- contradictory later evidence reopens a closed target and clears stale closure provenance;
+- `admit=false` repair creates no durable transfer debt;
+- private learner evidence remains browser-local and is not written into shared Current.
+
+Dedicated validator: `static-web/scripts/validate-translation-evidence-gate.mjs`  
+Workflow run: `34700382509`  
+Audited head: `6c13655607ca29f8757bca950b383f79f84c27b0`
+
+Machine evidence:
+
+- schema: `kianos.english.translation.evidence-gate-validation.v1`
+- gate: `E`
+- decision: `PASS`
+- checks: `27`
+- issues: `0`
+- whole-set review / fine evidence: `true`
+- immutable first evidence: `true`
+- cascade collapse: `true`
+- Reconstruction not mastery: `true`
+- old task cannot close: `true`
+- repeated task cannot close: `true`
+- irrelevant does not confirm: `true`
+- same-task evidence idempotent: `true`
+- fresh semantic closure: `true`
+- contradiction reopens: `true`
+- non-reusable repair creates no debt: `true`
+- lexical routes to canonical owner: `true`
+- private evidence local: `true`
+
+The same audited head also kept Source QA, prior Runtime gate, Astro build, and prior Projection gate green.
+
+E decision: **PASS**. No justified E debt remains.
+
+---
+
+## U — Learner Validation boundary
+
+U remains **UNTESTED**.
+
+Do not manufacture a special Translation exercise merely to close U. When Kian's normal English study naturally reaches Translation, that real path becomes U evidence.
+
+Typical U paths may later include:
+
+- First Learning → real Translation;
+- clean attempt → PASS;
+- Need Review → Chat diagnosis → smallest repair → Reconstruction;
+- later genuinely fresh transfer closure;
+- reopen after later contradictory evidence.
+
+A real-use defect should reopen the exact responsible gate, not trigger a full Translation re-audit by default.
 
 ---
 
@@ -277,8 +286,8 @@ Canonical Translation learning/source/projection/runtime/evidence owners.
 
 ### Acceptance Truth
 
-This file: S `PASS_WITH_DEBT`; K/L/P/R `PASS`; E/U `UNTESTED` until explicitly accepted.
+This file: S `PASS_WITH_DEBT`; K/L/P/R/E `PASS`; U `UNTESTED`.
 
 ### Learner Truth
 
-Private learner/runtime state only. Nothing in repository acceptance implies Kian has studied, attempted, repaired, transferred, or validated Translation.
+Private learner/runtime state only. Repository acceptance does not imply Kian has studied, attempted, repaired, transferred, or validated Translation.
