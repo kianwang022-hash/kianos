@@ -10,76 +10,74 @@ This file does not own Objective cognition/content, acceptance evidence, or lear
 
 ## Work Cursor
 
-**Active / earliest unresolved stage:** `P — Projection task-browser acceptance`  
-**Blocker:** the current acceptance harness is encoded, but hosted jobs still fail before runner assignment / before any workflow step executes; no current Projection product assertion failure is known  
-**Next action:** when an executable runner is available, re-run the existing Objective Learner Journey without changing Objective semantics; evaluate **P only** from the relevant task-browser evidence under `ACCEPTANCE.md`.
+**Active / earliest unresolved stage:** `R — Runtime acceptance`  
+**P status:** PASS — strict Chromium/WebKit task-page seal and all four Reading B forms now execute successfully  
+**Next action:** evaluate **R only** against the current Runtime contract using the preserved shared-browser closure plus the newly accepted task-page execution evidence; execute only a missing Runtime path if the current evidence does not actually cover it.
 
-Active P evidence outputs:
+Do not promote E together with R. E remains frozen until R PASS is written locally.
 
-1. `journey-task-smoke.json`
-2. `reading-b-forms.json`
+---
 
-`journey-shared.json` remains preserved downstream candidate evidence for later R/E evaluation. It must not be used to leapfrog unresolved P.
+## Durable P evidence
 
-If the P assertions execute and pass:
+Canonical P seal:
 
-1. write **P PASS** into `content/english/modules/objective/ACCEPTANCE.md`;
-2. update this Work Cursor so **R — Runtime** becomes the new earliest unresolved stage;
-3. only then evaluate R using preserved shared-browser evidence plus the current executed task paths.
+- artifact head `addb1c74cbe6ca756fd613bff7e634a3741c0995`;
+- workflow run `34695962533`;
+- successful rerun job `103559543188`;
+- `journey-task-smoke.json` → `pass: true` in Chromium + WebKit;
+- `reading-b-forms.json` → `pass: true`, `88` checks;
+- Reading B all four real forms pass;
+- wrong ordering still produces a whole-set Chat packet carrying form + skeleton + candidate inventory + exam slot context.
 
-Do not promote P/R/E together from one run.
+Reading A P acceptance also found and fixed a real browser initialization loop in `ReadingDeferredReviewShield.astro` before the strict seal passed.
+
+Acceptance Truth for this stage lives in `content/english/modules/objective/ACCEPTANCE.md`.
+
+---
+
+## Active R evidence candidates
+
+Preserved shared Objective browser closure:
+
+- commit `d1fd9e53238320678bd86b08146e3c8805249313`;
+- workflow run `34661647477`;
+- `15/15 PASS` on clean → whole-unit problem → completed repair → transfer → later fresh close → later reopen.
+
+Current P execution additionally proves real Reading A / Reading B pages submit and route correctly in Chromium and WebKit.
+
+These are **candidate Runtime evidence**, not automatic R PASS. They must be checked against `objective-runtime.md` now that R is active.
 
 ---
 
 ## Frozen / out of scope
 
-Unless new evidence proves a defect:
+Unless new concrete evidence proves a defect:
 
-- S / K / L remain frozen as PASS;
-- R remains `UNTESTED — FROZEN` until P PASS;
+- S / K / L / P remain frozen as PASS;
 - E remains `UNTESTED — FROZEN` until R PASS;
 - U remains UNTESTED until real learner use;
 - do not expand Objective taxonomy or static Skill Content;
-- do not change frozen first-learning cognition;
-- do not add new Objective product features during P acceptance;
-- do not turn Reading A / Cloze / Reading B into question-by-question learner-facing Chat review;
-- do not restore per-question WATCH as durable Reading A transfer truth;
-- do not close claims through arbitrary pass counters;
+- do not change accepted first-learning cognition;
+- do not add Objective features just to make Runtime look more complete;
 - do not modify Translation / Writing / Lexical sibling scopes;
 - do not infer or mutate Kian's Learner Truth.
 
-Runner/execution failure before product assertions is not permission to reopen semantics or mark P FAIL.
+If an R assertion fails, trace the earliest responsible owner. Reopen P or earlier only if the failure concretely belongs there.
 
 ---
 
 ## Required reads
 
-For ordinary re-entry into the active P gate:
+For ordinary re-entry into active R:
 
 1. `content/english/modules/objective/ACCEPTANCE.md`
-2. `.github/workflows/static-web-objective-journey.yml`
+2. `content/english/modules/objective-runtime.md`
+3. `.github/workflows/static-web-objective-journey.yml` only as the executable evidence owner
 
-These two owners are sufficient to know the active acceptance question, what must execute, and what evidence must return.
+Read `objective-evidence-runtime.md`, task contracts, source owners, or implementation only if the active R comparison identifies a concrete missing/contradictory runtime path that requires that owner.
 
-Read `objective-runtime.md`, `objective-evidence-runtime.md`, task contracts, source owners, or implementation **only if an executed P assertion identifies a concrete defect and ownership tracing requires that exact owner**.
-
-English `continuation.json`, parent Acceptance files, sibling scopes, historical Chat, and legacy repos are not required for ordinary Objective continuation.
-
----
-
-## Preserved downstream evidence
-
-The prior shared Objective browser closure remains durable evidence:
-
-- commit `d1fd9e53238320678bd86b08146e3c8805249313`;
-- workflow run `34661647477`;
-- `15/15 PASS` on the shared clean → repair → transfer → close/reopen path.
-
-Current interpretation:
-
-> **Preserved candidate R/E evidence only.**
-
-Do not discard it, but do not treat it as current R/E Acceptance Truth while P is unresolved.
+Do not read English `continuation.json`, parent Acceptance, sibling scopes, historical Chat, or legacy repos for ordinary R continuation.
 
 ---
 
@@ -93,7 +91,6 @@ Do not discard it, but do not treat it as current R/E Acceptance Truth while P i
 - task contracts → `content/english/modules/reading-a.md`, `cloze.md`, `reading-b.md`
 - Current source → `content/english/source/`
 - learner runtime → Objective / Reading / Cloze surfaces under `static-web/`
-- acceptance harness → `.github/workflows/static-web-objective-journey.yml`
 
 ### Acceptance Truth
 
@@ -112,12 +109,8 @@ Known scope `English Objective` should normally recover as:
 ```text
 Objective CURRENT
 → Objective ACCEPTANCE
-→ Objective acceptance workflow
-→ P only
+→ objective-runtime.md
+→ R only
 ```
 
-When P becomes PASS, write the local durable transition first; the next fresh chat then recovers at R automatically.
-
 Implementation internals are diagnostic reads, not startup reads.
-
-No English-wide continuation/history read is required unless a concrete machine dependency is later proven.
