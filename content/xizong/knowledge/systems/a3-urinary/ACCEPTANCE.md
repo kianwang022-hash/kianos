@@ -16,7 +16,7 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 ```text
 S  PASS — CURRENT_RECONSTRUCTION
 K  PASS
-L  UNTESTED
+L  PASS
 P  UNTESTED
 R  UNTESTED
 E  UNTESTED
@@ -25,7 +25,7 @@ U  UNTESTED by every real learner path
 
 Current allowed conclusion:
 
-> **A3 Source and System-level Knowledge are accepted. Current official-question System scope is a deterministic 243-question owner reconciled against Current Question Truth, and the Current System owner organizes the accepted 14 Blocks / 257 stable KPs / 75 Logic Groups into one coherent urinary mother model without changing Block/KP medical truth. A3 is not yet learner-ready because L/P/R/E remain untested and real User Validation has not occurred.**
+> **A3 Source, System-level Knowledge and first-learning path are accepted for the recorded scope. The accepted path is Lecture-first with continuous original-source learning external-primary on iPad / MarginNote, while KianOS owns orientation, active retrieval, closure, compression and repair. A3 is not yet learner-ready because P/R/E remain untested and real User Validation has not occurred.**
 
 ---
 
@@ -40,7 +40,10 @@ Current allowed conclusion:
 - Current System-level Knowledge owner → `content/xizong/knowledge/systems/a3-urinary/system.json`, authority `CHAT_APPROVED`.
 - The accepted System boundary remains **14 canonical Blocks / 257 stable KPs / 75 Logic Groups** with no Block/KP split, merge or renumbering.
 - Block/KP medical truth remains owned by `content/xizong/knowledge/systems/a3-urinary/blocks/`; `system.json` only organizes/compresses it at System level.
-- `system.json.logic_index` is a structural System index. First-pass attention, Logic-Group closure and KP compression remain owned by `content/xizong/knowledge/learner/a3-urinary-learning.json`; neither owner restates Block/KP medical Core.
+- Xizong lane-level learning semantics and first-pass surface ownership → `content/xizong/LEARNING_CONTRACT.md` plus detailed shared execution policy in `content/xizong/knowledge/learner/study-policy.json`.
+- A3 System-below attention / Logic-Group closure / Block Recall support → `content/xizong/knowledge/learner/a3-urinary-learning.json`. Its own lifecycle text does not self-promote System-level L; scoped Acceptance Truth here owns the L PASS claim.
+- `system.json.logic_index` is a structural System index. The learning-support owner controls first-pass attention and compression but does not restate Block/KP medical Core.
+- B5 expected-compensation / mixed-disorder Source gap is closed by the narrow admitted external-source contract; existing project Lectures remain Primary for the rest of B5 306 content.
 - The historical System Guide is retained as transitional/reference evidence and no longer competes with `system.json` for Current System-level semantics.
 - Historical HLK evidence remains reconstruction/reconciliation provenance only. `HLK_SYSTEM_QUESTION_INDEX_v1.jsonl` raw bytes could not be freshly re-hashed because source transport returned 403; no exact-byte claim is made.
 
@@ -99,11 +102,38 @@ Bounded System-level audit basis:
 
 The historical System Guide therefore remains reference/provenance only. It is not a second Current System owner.
 
-K PASS does **not** establish the learner-facing learning path, projection, runtime, evidence semantics or real learner validation.
+The K branch also exposed and closed a shared gate inversion: Chat-approved System ownership no longer implies Astro projectability. Shared runtime now requires scoped `P PASS` before a System is projected. GitHub Actions run `34716982717` passed A1/A2 regressions, all A3 Source validators and Astro build after that correction.
 
-### L / P / R / E / U — UNTESTED
+K PASS does **not** establish projection, runtime, evidence semantics or real learner validation.
 
-`L` is now the earliest unresolved eligible gate. `P/R/E/U` remain downstream-frozen until their actual dependencies pass.
+### L — PASS
+
+Accepted learning owners/evidence:
+
+- lane constitution → `content/xizong/LEARNING_CONTRACT.md`;
+- detailed shared policy → `content/xizong/knowledge/learner/study-policy.json`;
+- A3 attention / closure / compression support → `content/xizong/knowledge/learner/a3-urinary-learning.json`;
+- accepted System organization and default Block route → `content/xizong/knowledge/systems/a3-urinary/system.json`;
+- narrow B5 supplemental Source boundary → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`.
+
+Bounded Learning audit basis:
+
+1. **Natural first-pass units are explicit:** System orientation → direct canonical Block route B1→B14 → ordered Logic Groups → stable KPs. Block is the main continuous learning unit; Logic Group protects local continuity; KP identity does not force isolated-card learning or page order.
+2. **First-pass surface ownership is explicit:** continuous original Lecture/source learning is external-primary on iPad / MarginNote. KianOS owns orientation, attention boundaries, selective cues, active Recall, closure, compression, repair and later review. Chat is adaptive explanation/repair, not the default continuous Lecture reader.
+3. **Lecture continuity is protected:** KianOS cues what to solve and where to stop, then the learner returns to the original Lecture for full explanation/figures/tables/source context. Lecture-attached companion questions remain on the original Lecture/MarginNote surface; KianOS does not re-host them as a second primary course.
+4. **A3 first-pass order is causally sensible:** B1–B6 establish normal renal processing, homeostasis and evidence language before AKI/CKD and disease branches; B9 establishes the glomerular clinical/pathology dual-coordinate model before B10/B11; outlet/obstruction knowledge precedes later urologic tumor/trauma integration. The accepted direct B1→B14 route is the default first-pass traversal even where the dependency DAG contains parallel-ready branches, reducing avoidable switching.
+5. **Every Block has a bounded learner contract:** `first_pass_focus` tells what problem matters now; `stop_line` prevents future owners from invading working memory; ordered Logic Group goals/closures preserve continuity; `recall_spine` compresses the Block after local learning.
+6. **Recall timing does not outrun source contact:** active KP retrieval occurs only after the relevant material has been formally learned; each canonical KP must receive at least one first-pass active Recall before Block completion, without requiring one imperfect first Recall to freeze the mainline indefinitely. Logic Group closure follows the learned local model; Block Recall follows the Block; System Recall occurs only after the 14-Block System has actually been learned.
+7. **Question entry is explicit and later than learning:** the official A3 System sweep enters only after pre-question System Recall. It uses the accepted 243-question System scope while preserving learner-selected whole-paper holdout material. Stable correct/reasoned work may pass quickly; Wrong / Uncertain evidence is retained and routed only through reviewed relations; no Question→Block/KP relation may be guessed from membership or intuition.
+8. **Repair returns to the mainline:** Wrong / Uncertain → first meaningful failure → smallest sufficient repair → reconstruction when needed → return to the interrupted System path. A short post-question System reconstruction confirms that question exposure did not replace the learner's own model.
+9. **B5 has a bounded external exception rather than a source substitution:** project Lectures remain Primary for 306 water/Na/K/Ca, renal acid handling and source-specific treatment Precision; admitted external sources only close expected compensation / mixed-disorder diagnosis and may not expand into general nephrology/ICU treatment.
+10. **Learning evidence stays separate from engineering state:** this L PASS establishes an approved path only. It does not mean Kian has opened B1, contacted any Lecture, completed Recall, attempted A3 questions or generated any private learner evidence.
+
+No material learner action remains without a primary surface decision at L. Projection must now implement this path rather than infer a different one from existing Astro capabilities.
+
+### P / R / E / U — UNTESTED
+
+`P` is now the earliest unresolved eligible gate. `R/E/U` remain downstream-frozen until their actual dependencies pass.
 
 Do not treat A3 as learner-ready and do not infer that Kian has started Urinary.
 
@@ -115,10 +145,12 @@ Do not treat A3 as learner-ready and do not infer that Kian has started Urinary.
 
 - accepted Source scope owner → `content/xizong/knowledge/learner/a3-urinary-question-scope.json`
 - Current System-level Knowledge owner → `content/xizong/knowledge/systems/a3-urinary/system.json`
+- Xizong lane learning constitution / surface ownership → `content/xizong/LEARNING_CONTRACT.md`
+- detailed shared study policy → `content/xizong/knowledge/learner/study-policy.json`
+- A3 first-pass attention / closure / compression support → `content/xizong/knowledge/learner/a3-urinary-learning.json`
+- B5 admitted external source boundary → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`
 - transitional/reference System guide → `content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md`
 - canonical medical Core → `content/xizong/knowledge/systems/a3-urinary/blocks/`
-- consolidated system-below learning support → `content/xizong/knowledge/learner/a3-urinary-learning.json`
-- B5 admitted external source boundary → `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json`
 - Current Question Truth → `content/xizong/questions/`
 
 ### Learner Truth
