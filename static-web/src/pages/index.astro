@@ -5,6 +5,7 @@ import { inspectLexicalSources } from '../lib/lexical.mjs';
 import { listProjectableXizongSystems } from '../lib/xizong.mjs';
 import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../lib/politicsCurrent.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
+import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
 import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 
 const base = import.meta.env.BASE_URL;
@@ -19,7 +20,11 @@ const politicsSubjects = listPoliticsSubjectsCurrent();
 const politicsHealth = politicsCurrentHealth();
 const politicsChapters = politicsSubjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
 const writingLearning = loadWritingLearningProjection();
-const englishReady = readingReady && translationState.status === 'ready' && writingLearning.status === 'ready';
+const writingRuntime = inspectWritingSyntheticTasks();
+const englishReady = readingReady
+  && translationState.status === 'ready'
+  && writingLearning.status === 'ready'
+  && writingRuntime.status === 'ready';
 ---
 <Base title="学习工作台" kicker="KianOS · Current learner runtime" description="Chat 维护 GitHub Current 内容；Astro 把它变成低摩擦学习动作。" active="home">
   <section class="homeCurrentStrip">
