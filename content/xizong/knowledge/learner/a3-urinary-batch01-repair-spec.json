@@ -1,0 +1,79 @@
+{
+  "schema": "kianos.xizong.canonical_repair_spec.v1",
+  "status": "READY_TO_APPLY",
+  "authority": "CHAT_APPROVED_REPAIR_SPEC",
+  "system_id": "urinary",
+  "batch": "A3-K-BATCH-01",
+  "rule": "Apply these repairs narrowly to the existing natural Block/KP owners. Preserve stable block_id, KP id and all unaffected source-bound Core. This file is a repair specification/evidence object, not a parallel medical-Core owner.",
+  "repairs": [
+    {
+      "id": "A3-B01-KG01",
+      "target": "urinary-b01-kp12",
+      "replace_semantic_core_with": {
+        "title": "管球反馈：致密斑用 NaCl 把单肾单位 GFR 拉回合适范围",
+        "prompt": "致密斑读什么｜NaCl高/低两条链｜入球张力｜GFR方向｜低NaCl何时接肾素",
+        "core": [
+          "先把管球反馈和肾素释放分成两个相连但不等价的动作：TGF 的快速执行端主要是入球小动脉张力；低 NaCl 还会通过球旁器接入肾素/RAAS。",
+          "远端到达致密斑的 NaCl 增多 -> TGF 增强 -> 入球小动脉收缩 -> 单肾单位肾血流/GFR下降；同时肾素释放受抑。这是把过高滤过负荷往回压的负反馈侧。",
+          "远端 NaCl 减少 -> 入球侧 TGF 收缩信号减弱、入球相对舒张 -> 支持恢复单肾单位 GFR；同时致密斑/JGA 促进肾素释放 -> AngII 等进入较慢的保灌注/保容量调节。",
+          "第一轮不要求背 ATP/腺苷/PGE2/NO 的完整旁分泌细节；必须掌握的是 NaCl 传感 -> 入球张力/GFR 的双向反馈，以及低 NaCl -> 肾素这一 handoff。",
+          "与球管平衡区分：球管平衡问近端重吸收怎样随滤过负荷按比例变化；管球反馈问远端 NaCl 怎样反过来调肾小球滤过。"
+        ]
+      }
+    },
+    {
+      "id": "A3-B02-SC01",
+      "target": "urinary-b02-kp02",
+      "replace_semantic_core_with": {
+        "title": "大小选择性 + 经典电荷选择性：白蛋白为什么正常很难进入原尿",
+        "prompt": "三层屏障｜大小选择性｜经典电荷选择性｜白蛋白双重受限｜nephrin归哪一层",
+        "core": [
+          "正常肾小球滤过屏障由有窗内皮、肾小球基底膜和足细胞裂隙膜共同形成；血细胞和大分子受到结构/大小选择性的强限制。",
+          "考试来源还使用经典电荷选择性模型：带负电的大分子（尤其白蛋白）比相近大小的中性/正电分子更难滤过。这个模型用于理解白蛋白为什么同时受大小与电荷因素限制。",
+          "nephrin 放在足细胞裂隙膜的结构/通透选择性轴：它是裂隙膜核心结构与信号蛋白，nephrin/裂隙膜受损会破坏蛋白限制并导致蛋白尿。不要把 nephrin 减少本身写成‘负电荷屏障丢失’的分子机制。",
+          "现代研究对‘电荷屏障究竟由哪一层、贡献多大’比经典教材模型更复杂；306 第一轮不需要展开争议，只要不把经典考试模型和 nephrin 的真实结构角色错误绑死。",
+          "继续保持关键鉴别：GFR 增加讲的是原尿体积；蛋白尿讲的是滤过选择性异常，两条轴可以独立变化。"
+        ]
+      }
+    },
+    {
+      "id": "A3-B03-SC02_SC01",
+      "target": "urinary-b03-kp14",
+      "replace_semantic_core_with": {
+        "title": "K+ 与酸碱互相影响：先找第一故障，不背无条件四格",
+        "prompt": "K/H正常耦联｜高/低K怎样改肾排酸｜为什么尿pH不能机械推｜低Mg-ROMK｜库存血特殊",
+        "core": [
+          "正常生理底座：集合管主细胞负责受调节的 K+ 分泌，A 型闰细胞等参与 H+ 分泌；醛固酮、远端 Na+ 递送、管腔流量、肾功能和细胞内 K/Mg 状态会共同改变末端 K/H 处理。",
+          "K+ 与酸碱存在双向影响，但不能用‘酸中毒必高钾/碱中毒必低钾’或‘高钾必碱性尿/低钾必酸性尿’作为通用规则。先明确原发问题是酸碱负荷、醛固酮/集合管电压、肾功能、容量状态还是 K+ 本身，再沿具体机制判断。",
+          "高钾可抑制肾脏氨生成/铵排泄并参与高钾型代谢性酸中毒；但典型低醛固酮/IV 型 RTA 即使净排酸不足，尿 pH 仍可低于 5.5，所以尿 pH 不能替代 NH4+ 排泄和病因判断。",
+          "低钾会促进肾脏 H+ 分泌、HCO3- 回收和氨生成，从而维持代谢性碱中毒；‘反常性酸性尿’最典型要结合容量收缩/低氯/醛固酮等维持背景，不把它写成所有低钾的必然结果。完整临床酸碱与 RTA 鉴别留 B5。",
+          "低 Mg 特殊：细胞内 Mg 减少会解除对 ROMK 外向 K+ 流的抑制，增加肾性失 K，因此低 Mg 合并低钾时单补 K 可能难纠正。",
+          "库存血特殊：储存 RBC 单位的细胞外 K+ 会随 storage lesion 增高，快速大量输入尤其较旧血可致高钾；枸橼酸在肝代谢为 HCO3- 时又可促进代谢性碱中毒。不要把‘红细胞破坏’当作库存血高钾的默认唯一机制。"
+        ]
+      }
+    },
+    {
+      "id": "A3-B04-SC01",
+      "target": "urinary-b04-kp03",
+      "replace_semantic_core_with": {
+        "title": "肾素释放：先抓三大稳定输入，再处理 Source-specific 调节因子",
+        "prompt": "灌注压｜β1交感｜致密斑NaCl｜各自方向｜AngII负反馈｜低频名单怎样放",
+        "core": [
+          "第一轮 Core 只先抓三条稳定输入：肾灌注压下降、肾交感/β1增强、致密斑 NaCl 递送下降都会促进球旁颗粒细胞肾素释放；反方向信号总体抑制肾素。",
+          "致密斑轴与 B1 TGF 对齐：低 NaCl 促进肾素；高 NaCl 通过 ATP/腺苷等抑制肾素并增强入球 TGF 收缩。",
+          "AngII 对肾素具有重要短反馈抑制；它同时在下游帮助维持血压、出球张力和 Na+ 回收，因此‘促进肾素的输入’与‘RAAS 下游效应’不要混成一张名单。",
+          "PG/PGE2 等参与低 NaCl 条件下的肾素促进；NO 在 JGA/macula densa 中是情境依赖、常具有允许/促进作用的调节因子，不做成无条件‘NO抑制肾素’箭头。",
+          "历史 Study 中的儿茶酚胺、缓激肽、多巴胺、ET、VP、ANP 等细项若被真题直接要求，可作为 Source-specific Precision 单独记；不让上下文敏感的低频名单成为理解 RAAS 的必经主链。"
+        ]
+      }
+    }
+  ],
+  "post_repair_checks": [
+    "B1 Logic Group 5 must close both high- and low-NaCl TGF directions and distinguish TGF from glomerulotubular balance.",
+    "B2 Logic Group 1 must retain exam-useful classical size/charge language without attributing nephrin to the charge-barrier mechanism.",
+    "B3 Logic Group 4 must be simpler after repair: normal Na-K-H circuit first; context-gated clinical tendencies second; B5 owns full acid-base/RTA algorithms.",
+    "B4 Logic Group 1 must use the stable three-input renin model as Core; context-sensitive regulator lists are Precision/source notes only.",
+    "No stable Block/KP ids are changed by these repairs."
+  ],
+  "after_apply": "Re-run Batch-01 semantic/learning closure. If no other mechanism-level defect remains, freeze B1-B4 Logic Groups and mark Batch-01 Block-level Knowledge upgrade PASS for this scope only; do not promote A3 System-level K."
+}
