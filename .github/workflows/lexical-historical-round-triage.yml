@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'tools/lexical_historical_round_bulk_triage.py'
+      - 'tools/lexical_historical_round_from_file.py'
+      - 'content/lexical/audit/migration-integrity/r14-authority.md'
       - '.github/workflows/lexical-historical-round-triage.yml'
   workflow_dispatch:
 
@@ -19,12 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Recover R14 authority and bulk-triage Current
+      - name: Read frozen R14 authority and bulk-triage Current
         shell: bash
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python tools/lexical_historical_round_bulk_triage.py \
+          python tools/lexical_historical_round_from_file.py \
+            content/lexical/audit/migration-integrity/r14-authority.md \
             --legacy-repo kianwang022-hash/kianos-legacy \
             --comment-id 5581642619 \
             --audit-id R14_2601_2900_BULK_TRIAGE \
