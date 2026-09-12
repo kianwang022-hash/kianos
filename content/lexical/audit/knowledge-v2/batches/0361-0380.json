@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.lexical.knowledge_truth_batch.v2",
+  "stage": "TRUTH_KNOWLEDGE_BOUNDARY_V2",
+  "range": {"start": 361, "end": 380},
+  "status": "CLOSED_TARGET_TRUTH_ONLY",
+  "summary": {"PASS": 13, "REVISE": 7, "SOURCE_CHECK": 0},
+  "semantic_mutation_count": 0,
+  "decisions": [
+    {"ordinal":361,"word":"award","verdict":"PASS","target_truth":"Keep noun award=prize/recognition, verb award=grant as judged due, and legal/arbitration award. Preserve award↔grant as a useful sense-aligned contrast: award foregrounds conferral on merit/judgment or damages, while grant is broader formal giving/permission."},
+    {"ordinal":362,"word":"aware","verdict":"PASS","target_truth":"Single awareness/knowledge center is correct; be aware of is explicitly presentation-merged into its fixed collocation and does not create a competing meaning."},
+    {"ordinal":363,"word":"away","verdict":"REVISE","target_truth":"Center away as movement/state away from a reference point, including removal/disappearance as a particle contribution. Keep continuous-action away in work/chat away as a lower construction/particle use. Do not attribute the full lexical meanings of phrasal verbs such as put away or give away to separate standalone senses of away."},
+    {"ordinal":364,"word":"awe","verdict":"PASS","target_truth":"Keep noun awe=profound respect/wonder often with fear and verb awe=fill with awe; current distinction is coherent."},
+    {"ordinal":365,"word":"awful","verdict":"REVISE","target_truth":"Restore very bad/extremely unpleasant as the ordinary L1 meaning. Keep frightening/terrible as a closely related branch. Downgrade archaic/literary awe-inspiring/solemn 'awful' to reference recognition rather than Active learner prominence."},
+    {"ordinal":366,"word":"awkward","verdict":"PASS","target_truth":"Keep clumsy/unskilful in movement or manner, socially/situationally difficult or embarrassing, and physically difficult to handle because of shape/design; these are distinct modern high-value uses."},
+    {"ordinal":367,"word":"ax","verdict":"REVISE","target_truth":"Keep noun ax, verb chop with an ax, and figurative ax=cut/eliminate jobs/costs/programs. Add explicit axe↔ax spelling closure and make axe searchable/recognizable; Current search found no separate word:axe owner or existing spelling relation."},
+    {"ordinal":368,"word":"axis","verdict":"PASS","target_truth":"Keep rotational/geometric axis, coordinate/reference axis, and capitalized historical Axis identity. The case-sensitive proper-lexeme overlay cleanly separates Axis powers from common noun axis."},
+    {"ordinal":369,"word":"baby","verdict":"REVISE","target_truth":"Center baby=very young child and ordinary extension to a very young animal; avoid a rigid birth-to-one-year/not-yet-walking-or-talking boundary. Keep youngest member of a family/group as an extension and unborn child/fetus only as lower contextual recognition."},
+    {"ordinal":370,"word":"bachelor","verdict":"PASS","target_truth":"Keep bachelor=unmarried man and bachelor/bachelor's degree academic meaning; both are high-frequency and clearly distinguished."},
+    {"ordinal":371,"word":"back","verdict":"PASS","target_truth":"Preserve the genuinely rich map: body/rear noun, back/rear adjective, return/reply adverb, support/back verb, move backward, earlier/overdue adjective, and lower bet-on sense. Truth is rich here; scanability belongs to later Learning review rather than forced semantic deletion."},
+    {"ordinal":372,"word":"background","verdict":"PASS","target_truth":"Keep personal/social background, visual/background layer, background information/context, and background noise/interference. These are ordinary modern branches with a coherent setting/context center."},
+    {"ordinal":373,"word":"backward","verdict":"PASS","target_truth":"Keep backward=directed toward rear, figurative underdeveloped/less advanced, and adverb toward the rear; current hierarchy is coherent."},
+    {"ordinal":374,"word":"bacon","verdict":"REVISE","target_truth":"Define bacon broadly as cured pork, often sliced and often smoked, with cuts varying by region/type. Do not restrict the truth definition to meat from the pig's back/sides that must be both salted and smoked."},
+    {"ordinal":375,"word":"bacteria","verdict":"PASS","target_truth":"Keep bacteria as plural of bacterium / microscopic single-celled prokaryotic organisms. Current main semantic center is adequate for learner use."},
+    {"ordinal":376,"word":"bad","verdict":"REVISE","target_truth":"Keep bad=poor/unpleasant, severe/serious, harmful/bad for, bad at, and nominal the bad at lower level. Expand feel bad to include the very common emotional meaning feel sorry/guilty/upset, not only feel physically ill or in pain."},
+    {"ordinal":377,"word":"badge","verdict":"PASS","target_truth":"Keep physical badge/insignia and figurative badge/sign of a quality or status; deprecated verb badge remains outside the active map."},
+    {"ordinal":378,"word":"badly","verdict":"PASS","target_truth":"Keep badly=to a severe/serious degree and badly=poorly/in an unsatisfactory way; badly needed already captures the strong-degree use."},
+    {"ordinal":379,"word":"badminton","verdict":"PASS","target_truth":"Single sport noun meaning badminton is correct and sufficient."},
+    {"ordinal":380,"word":"bag","verdict":"REVISE","target_truth":"Restore ordinary noun bag=flexible container as the primary Active sense. Keep quantity contained by a bag and verb bag=put into a bag as secondary branches. Downgrade hunting bag/bag game to recognition. Core must not reference a deprecated main container sense while Active starts from derived quantity."}
+  ],
+  "relation_truth": [
+    {"source_word":"award","relation":"award ↔ grant","verdict":"PASS","target_truth":"Preserve the sense-aligned contrast: both can formally give something, but award often follows merit/judgment or a legal decision, while grant is broader formal giving or permission."}
+  ],
+  "notes": [
+    "Truth-stage artifact only: no Word or Relation semantics were mutated.",
+    "Truth richness and later learner scanability are kept separate: a genuinely polyfunctional word such as back can PASS Knowledge even if Learning later chooses stronger compression."
+  ]
+}
