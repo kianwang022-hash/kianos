@@ -21,7 +21,12 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
   };
   const saveJson = (key, value) => {
-    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return true;
+    } catch {
+      return false;
+    }
   };
 
   let attemptSnapshot = readJson(attemptKey, { schema: 'kianos.politics.attempt_snapshot.v1', units: {} });
@@ -48,6 +53,27 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
   };
 
   const returnIdFor = (config) => `politics-unit-return-${String(config.natural_unit_id || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+
+  const showPersistenceFailure = (config) => {
+    const unitSection = unitSectionFor(config);
+    const quiz = unitSection?.querySelector('[data-politics-quiz]');
+    if (!unitSection || !quiz) return;
+    let warning = unitSection.querySelector('[data-politics-attempt-persistence-error]');
+    if (!warning) {
+      warning = make('div', 'politicsAttemptPersistenceError');
+      warning.setAttribute('data-politics-attempt-persistence-error', '');
+      const strong = make('strong', '', '本轮证据没有保存下来。');
+      const copy = make('p', '', '为保护 first attempt，Unit Return 暂不推进。恢复浏览器本地存储后刷新，再重新作答这一题；系统不会用未持久化的结果假装闭合。');
+      warning.append(strong, copy);
+      quiz.insertAdjacentElement('afterend', warning);
+    }
+    warning.hidden = false;
+  };
+
+  const clearPersistenceFailure = (config) => {
+    const unitSection = unitSectionFor(config);
+    unitSection?.querySelector('[data-politics-attempt-persistence-error]')?.remove();
+  };
 
   const ensureReturnUi = (config) => {
     const unitSection = unitSectionFor(config);
@@ -134,9 +160,10 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     const uncertainCount = evaluation.nodes.filter((node) => node.state === 'UNCERTAIN').length;
     const summary = section.querySelector('[data-unit-return-summary]');
     if (summary) {
+      const completed = `${evaluation.completed_question_count} / ${evaluation.expected_question_count}`;
       summary.textContent = evaluation.unit_state === 'STABLE'
-        ? `11 / 11 首次作答证据已齐；4 个节点本轮都没有暴露缺口。`
-        : `11 / 11 首次作答证据已齐；${repairCount} 个节点需要修复，${uncertainCount} 个节点仍不确定。`;
+        ? `${completed} 首次作答证据已齐；4 个节点本轮都没有暴露缺口。`
+        : `${completed} 首次作答证据已齐；${repairCount} 个节点需要修复，${uncertainCount} 个节点仍不确定。`;
     }
 
     const stateLabels = { STABLE: '本轮稳定', UNCERTAIN: '不确定', REPAIR: '需要修复' };
@@ -179,8 +206,17 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
         study_day: localStudyDay(),
         observed_at: new Date().toISOString()
       });
-      attemptSnapshot = recorded.store;
-      if (recorded.recorded) saveJson(attemptKey, attemptSnapshot);
+
+      if (recorded.recorded) {
+        if (!saveJson(attemptKey, recorded.store)) {
+          showPersistenceFailure(config);
+          return;
+        }
+        attemptSnapshot = recorded.store;
+        clearPersistenceFailure(config);
+      } else {
+        attemptSnapshot = recorded.store;
+      }
       renderUnitReturn(config);
     });
   };
@@ -198,6 +234,6 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
 </script>
 
 <style>
-  .politicsUnitReturn{margin-top:14px;padding:18px;border:1px solid var(--study-line);border-radius:13px;background:#fbfcfb}.politicsUnitReturn[hidden]{display:none}.politicsUnitReturn h3{margin:4px 0 6px;font-size:18px}.politicsUnitReturnSummary{margin:0 0 12px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsUnitReturnNodes{display:grid;gap:7px}.politicsUnitReturnNode{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.politicsUnitReturnNodeCopy{display:grid;gap:2px}.politicsUnitReturnNodeCopy strong{font-size:12px}.politicsUnitReturnNodeCopy small{color:var(--study-faint);font-size:9px}.politicsUnitReturnState{font-size:10px;font-weight:820;white-space:nowrap}.politicsUnitReturnNode[data-state="STABLE"] .politicsUnitReturnState{color:var(--study-green)}.politicsUnitReturnNode[data-state="UNCERTAIN"] .politicsUnitReturnState,.politicsUnitReturnNode[data-state="REPAIR"] .politicsUnitReturnState{color:#8a5d16}.politicsUnitReturnRepair,.politicsReturnAfterRepair{font-size:10px;font-weight:760;color:var(--study-green);text-decoration:none}.politicsUnitReturnGuard{margin:12px 0 0;color:var(--study-faint);font-size:10px;line-height:1.55}.politicsUnitReturnContinue{margin-top:12px;padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:var(--study-green);font:inherit;font-size:11px;font-weight:800;cursor:pointer}.politicsReturnAfterRepair{display:inline-block;margin:12px 0 0}.politicsReturnAfterRepair::before{content:'↳ ';color:var(--study-faint)}
+  .politicsUnitReturn{margin-top:14px;padding:18px;border:1px solid var(--study-line);border-radius:13px;background:#fbfcfb}.politicsUnitReturn[hidden]{display:none}.politicsUnitReturn h3{margin:4px 0 6px;font-size:18px}.politicsUnitReturnSummary{margin:0 0 12px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsUnitReturnNodes{display:grid;gap:7px}.politicsUnitReturnNode{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.politicsUnitReturnNodeCopy{display:grid;gap:2px}.politicsUnitReturnNodeCopy strong{font-size:12px}.politicsUnitReturnNodeCopy small{color:var(--study-faint);font-size:9px}.politicsUnitReturnState{font-size:10px;font-weight:820;white-space:nowrap}.politicsUnitReturnNode[data-state="STABLE"] .politicsUnitReturnState{color:var(--study-green)}.politicsUnitReturnNode[data-state="UNCERTAIN"] .politicsUnitReturnState,.politicsUnitReturnNode[data-state="REPAIR"] .politicsUnitReturnState{color:#8a5d16}.politicsUnitReturnRepair,.politicsReturnAfterRepair{font-size:10px;font-weight:760;color:var(--study-green);text-decoration:none}.politicsUnitReturnGuard{margin:12px 0 0;color:var(--study-faint);font-size:10px;line-height:1.55}.politicsUnitReturnContinue{margin-top:12px;padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:var(--study-green);font:inherit;font-size:11px;font-weight:800;cursor:pointer}.politicsReturnAfterRepair{display:inline-block;margin:12px 0 0}.politicsReturnAfterRepair::before{content:'↳ ';color:var(--study-faint)}.politicsAttemptPersistenceError{margin-top:10px;padding:11px 12px;border:1px solid #d5b26f;border-radius:10px;background:#fffaf0}.politicsAttemptPersistenceError strong{font-size:11px;color:#7a5010}.politicsAttemptPersistenceError p{margin:3px 0 0;color:#7d6b4e;font-size:10px;line-height:1.55}
   @media(max-width:680px){.politicsUnitReturnNode{grid-template-columns:1fr auto}.politicsUnitReturnRepair{grid-column:1/-1}.politicsUnitReturnContinue{width:100%}}
 </style>

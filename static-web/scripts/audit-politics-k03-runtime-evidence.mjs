@@ -69,7 +69,13 @@ assert.deepEqual(nodeBySuffix('N03')?.question_ids, ['X1000-MARX-M-030','X1000-M
 assert.equal(nodeBySuffix('N03')?.deferred_question_count, 1);
 assert.deepEqual(nodeBySuffix('N04')?.question_ids, ['X1000-MARX-M-048','X1000-MARX-M-049']);
 
-let partialStore = { schema: 'kianos.politics.attempt_snapshot.v1', units: {} };
+const emptySnapshot = { schema: 'kianos.politics.attempt_snapshot.v1', units: {} };
+const persistenceCandidate = recordPoliticsFirstAttempt(emptySnapshot, config, attempt(EXPECTED[0]));
+assert.equal(persistenceCandidate.recorded, true);
+assert.equal(evaluatePoliticsUnitReturn(config, emptySnapshot).completed_question_count, 0, 'record helper must not mutate the accepted snapshot before persistence succeeds');
+assert.equal(evaluatePoliticsUnitReturn(config, persistenceCandidate.store).completed_question_count, 1, 'persistable candidate may advance only after caller accepts it');
+
+let partialStore = emptySnapshot;
 for (const questionId of EXPECTED.slice(0, -1)) {
   partialStore = recordPoliticsFirstAttempt(partialStore, config, attempt(questionId)).store;
 }
@@ -117,6 +123,8 @@ const homeToolsSource = fs.readFileSync(path.join(repoRoot, 'static-web/src/comp
 assert.ok(chapterRuntimeSource.includes("if (needsRepair) recordPoliticsEvidence"), 'durable daily evidence must remain Wrong/Uncertain-only');
 assert.ok(enhancerSource.includes("kianos-politics-attempts-v1"), 'Unit Return must use a distinct private attempt snapshot');
 assert.ok(!enhancerSource.includes("kianos-politics-evidence-v1"), 'Unit Return enhancer must not manufacture durable review debt');
+assert.ok(enhancerSource.includes("if (!saveJson(attemptKey, recorded.store))"), 'private attempt persistence failure must fail closed before Unit Return advances');
+assert.ok(enhancerSource.includes("data-politics-attempt-persistence-error"), 'persistence failure must be visible rather than silently discarded');
 assert.ok(homeToolsSource.includes("kianos-politics-evidence-v1"), 'daily handoff must continue reading durable Wrong/Uncertain evidence');
 assert.ok(!homeToolsSource.includes("kianos-politics-attempts-v1"), 'private clean-attempt snapshot must not leak into the daily Chat handoff');
 
@@ -136,7 +144,8 @@ console.log(JSON.stringify({
     uncertain_s028: uncertain.unit_state,
     wrong_m048_multi_node: wrong.unit_state,
     duplicate_first_attempt: duplicate.reason,
-    deferred_question_guard: outOfScope.reason
+    deferred_question_guard: outOfScope.reason,
+    persistence_failure_policy: 'FAIL_CLOSED_BEFORE_SNAPSHOT_ADVANCES'
   },
   durable_handoff_policy: 'WRONG_UNCERTAIN_ONLY',
   mastery_claim: clean.mastery_claim
