@@ -1,0 +1,84 @@
+{
+  "schema": "kianos.lexical.migration_integrity_checkpoint.v1",
+  "scope": "R13 ordinals 2421-2440",
+  "authority": {
+    "historical_comment": "kianos-legacy issue #113 comment 5581086274",
+    "current_issue": "kianos issue #6"
+  },
+  "status": "AUDITED_NOT_REPAIRED",
+  "semantic_mutation_count": 0,
+  "core_reconciliation": [
+    {
+      "ordinal": 2423,
+      "word_id": "word:i",
+      "classification": "OVERMERGE_OR_CARRIER_LOSS",
+      "severity": "P0",
+      "current": "Core correctly says first person singular pronoun, but both the ordinary pronoun I and the letter-I noun are deprecated/reference-only; senses array is empty.",
+      "approved_target": "demote letter I from normal learner Active; first-person pronoun remains the lexeme target"
+    },
+    {
+      "ordinal": 2424,
+      "word_id": "word:ice",
+      "classification": "DUPLICATE_OR_STALE_REPRESENTATION",
+      "current": "slang diamonds/jewelry is correctly deprecated and frozen-water, icing and ice-over/up uses remain Active, but the Core noun cluster still includes 钻石；珠宝 / diamonds; jewelry as if learner-active.",
+      "approved_target": "demote slang diamonds/jewelry; keep frozen-water core and useful icing/ice-over uses"
+    },
+    {
+      "ordinal": 2432,
+      "word_id": "word:ideology",
+      "classification": "CURRENT_CORRECT",
+      "current": "ordinary ideology/system-of-ideas noun is Active and rare/obsolete imaginary or visionary theorization is deprecated/reference-only; Core is clean.",
+      "approved_target": "demote rare/obsolete imaginary or visionary theorization sense"
+    },
+    {
+      "ordinal": 2434,
+      "word_id": "word:idiot",
+      "classification": "CORE_LANDING_INCOMPLETE",
+      "current": "Active learner definition is already close to modern usage (a person considered extremely stupid or foolish), but Core still says 智力极低的人 / a person of very low intelligence and does not mark the term as insulting.",
+      "approved_target": "傻瓜；蠢人（侮辱性称呼） / an insulting term for someone regarded as very foolish"
+    }
+  ],
+  "expansion_reconciliation": [
+    {
+      "word_id": "word:hypothesis",
+      "classification": "PARTIAL_PHRASE_LANDING",
+      "approved_target": "test/support/reject a hypothesis",
+      "current": "test a hypothesis exists, but support a hypothesis and reject a hypothesis are absent"
+    },
+    {
+      "word_id": "word:ice",
+      "classification": "CURRENT_CORRECT",
+      "approved_target": "break the ice",
+      "current": "exact break the ice usage is Active under the ordinary ice noun carrier"
+    },
+    {
+      "word_id": "word:idea",
+      "classification": "CONSTRUCTION_OR_PHRASE_LANDING_GAP",
+      "approved_target": "have no idea; the idea is to do",
+      "current": "have an idea, idea of sth/doing and have one's own ideas exist, but both approved targets are absent"
+    },
+    {
+      "word_id": "word:if",
+      "classification": "CONSTRUCTION_OR_PHRASE_LANDING_GAP",
+      "approved_target": "even if; if anything; if only; if any",
+      "current": "ordinary conditional if and indirect whether-if senses exist, but all four approved discourse/construction targets are absent"
+    },
+    {
+      "word_id": "word:ignite",
+      "classification": "PARTIAL_PHRASE_LANDING",
+      "approved_target": "ignite debate/interest/controversy",
+      "current": "ignite interest exists under the figurative arouse/excite sense, but ignite debate and ignite controversy are absent"
+    }
+  ],
+  "summary": {
+    "core_decisions_checked": 4,
+    "core_current_correct": 1,
+    "core_defective": 3,
+    "expansion_owner_groups_checked": 5,
+    "expansion_current_correct": 1,
+    "expansion_partial_landing_gap": 2,
+    "expansion_phrase_or_construction_landing_gap": 2,
+    "new_p0_reproduced": ["word:i"]
+  },
+  "next": "Continue R13 Core + Expansion reconciliation from ordinal 2441. R13 Contrast targets remain separate; do not mutate Natural Owners yet."
+}
