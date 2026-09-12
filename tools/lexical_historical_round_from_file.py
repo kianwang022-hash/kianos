@@ -1,10 +1,39 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
+from typing import Any
 
 import lexical_historical_round_bulk_triage as triage
+
+
+def parse_core_compatible(body: str) -> list[dict[str, Any]]:
+    lines = triage.section_lines(body, "### Core Gate", ("All other ordinals", "### Expansion Gate"))
+    numbered = re.compile(r"^\s*(\d+)\.\s+`(\d+)\s+(word:[^`]+)`\s+—\s+(.+)$")
+    bulleted = re.compile(r"^\s*-\s+`(\d+)\s+(word:[^`]+)`\s+—\s+(.+)$")
+    rows: list[dict[str, Any]] = []
+    for line in lines:
+        stripped = line.strip()
+        m = numbered.match(stripped)
+        if m:
+            rows.append({
+                "index": int(m.group(1)),
+                "ordinal": int(m.group(2)),
+                "word_id": m.group(3),
+                "approved_revision": m.group(4).strip(),
+            })
+            continue
+        m = bulleted.match(stripped)
+        if m:
+            rows.append({
+                "index": len(rows) + 1,
+                "ordinal": int(m.group(1)),
+                "word_id": m.group(2),
+                "approved_revision": m.group(3).strip(),
+            })
+    return rows
 
 
 def main() -> int:
@@ -22,6 +51,7 @@ def main() -> int:
         }
 
     triage.fetch_comment = frozen_fetch_comment
+    triage.parse_core = parse_core_compatible
     sys.argv = [sys.argv[0], *sys.argv[2:]]
     return triage.main()
 
