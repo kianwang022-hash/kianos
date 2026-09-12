@@ -1,0 +1,67 @@
+{
+  "schema": "kianos.xizong.system_learning_support.v1",
+  "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+  "authority": "CHAT_APPROVED_UPGRADE_WORK",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "batch": "A3-K-BATCH-04",
+  "scope": ["urinary-b12", "urinary-b13", "urinary-b14"],
+  "medical_core_owner": "content/xizong/knowledge/systems/a3-urinary/blocks/",
+  "role": "FIRST_PASS_ATTENTION_AND_RECALL_SUPPORT_ONLY",
+  "rule": "Temporary batch learning support only. It organizes attention, Logic Group closure and compression but never overrides canonical medical Core. It must later be consolidated into the natural A3 learning owner rather than persist as a parallel semantic owner.",
+  "identity": {
+    "stable_block_count": 3,
+    "stable_kp_count": 49,
+    "logic_group_count": 16,
+    "stable_block_or_kp_identity_change": false,
+    "logic_group_ranges_frozen": true,
+    "coverage": "CONTIGUOUS_NO_GAP_NO_OVERLAP"
+  },
+  "source_closure": {
+    "primary_sources": ["外科学讲义_AI阅读版.md｜泌外感染和肿瘤 / 泌外梗阻和外伤", "27 外科跟课合集改.pdf source-local asset routing", "生理学排尿反射 recall source"],
+    "source_routing": "Historical P129-P139 labels are source-local preprocessing/IMAGE_PAGES locators and are not current merged-PDF physical page numbers.",
+    "stable_source_orphan_count": 0,
+    "visual_truth": "Source-local visual routes were verified from the AI-reading source. Current tools did not render every referenced source-local image, so this closure does not claim pixel-level visual audit; mandatory Visual Gates remain learner source contact.",
+    "rule": "Stable mechanism/space/priority models are Current Core; old first/best/gold-standard, fixed duration and size-to-procedure tables remain exam Precision when they are not universally valid."
+  },
+  "blocks": {
+    "urinary-b12": {
+      "first_pass_focus": "把BPH、结石和尿失禁压回同一尿流模型：出口阻力/膀胱动力→残余尿→感染/结石→上游压力→肾损害；先判断是否需紧急减压，再调用Source术式Precision。",
+      "stop_line": "不把0.6/2cm表、EEP 80mL、CCB禁用和固定首选检查扩成现代通用规则；这些只在完成危险分层后调用。",
+      "recall_spine": "正常排尿Recall → 梗阻共同后果 → BPH代偿/失代偿 → 结石成分/位置 → 高危减压 → 术式Precision → 四类尿失禁",
+      "logic_groups": {
+        "urinary-b12-lg01": {"kp":[1,2],"label":"排尿控制与梗阻共同底座","goal":"从正常排尿最小链进入出口阻力、残余尿、上游压力和GFR下降。","closure":"能画出排不净如何同时造成感染/结石和肾后性损害，并识别双侧/孤立肾/感染/无尿高危。"},
+        "urinary-b12-lg02": {"kp":[3,5],"label":"BPH身份、症状与评估","goal":"用移行带、老龄+功能睾丸和膀胱代偿解释尿频到进行性排尿困难，并把DRE/超声放回各自任务。","closure":"能区分BPH与前列腺癌带区，不把前列腺增大或单一检查名直接当最终诊断。"},
+        "urinary-b12-lg03": {"kp":[6,8],"label":"BPH治疗与并发症","goal":"稳定alpha1/5ARI、急性潴留先导尿和残余尿并发症主链；旧CCB/80mL只进Precision。","closure":"能先保护排空和肾功能，再谈长期药物/手术；不会用旧数字建立第二套绝对治疗规则。"},
+        "urinary-b12-lg04": {"kp":[9,12],"label":"结石成分、位置与危险","goal":"把成分显影、尿路vs胆系、部位症状和感染/梗阻后果连成一条空间链。","closure":"能由疼痛/血尿/位置定位结石，并知道感染梗阻、无尿和肾功能威胁比‘癌变最严重’更决定即时优先级。"},
+        "urinary-b12-lg05": {"kp":[13,15],"label":"结石减压优先与术式Precision","goal":"先处理高危梗阻，再按位置+大小+成分/密度+解剖/患者条件选方案；完整Source矩阵保留MI-D。","closure":"能背306矩阵，同时解释为什么>2cm肾结石PCNL是强锚点而不是所有格子都能脱离情境机械套用。"},
+        "urinary-b12-lg06": {"kp":[16,17],"label":"四类尿失禁与最终算法","goal":"按持续/充溢/急迫/压力定位故障层，再用最终算法连接排尿困难、绞痛和漏尿。","closure":"面对未知病例能先定位和危险分层，再决定导尿、引流、影像或根治。"}
+      }
+    },
+    "urinary-b13": {
+      "first_pass_focus": "先分慢性结核破坏还是肿块出血，再按肾实质、上尿路、膀胱、前列腺定位；检查必须先问任务——诊断、分期、取材还是功能。",
+      "stop_line": "不把source-local页号冒充合并PDF物理页，不把Ta叫CIS，不把MRI/穿刺/URS/ECT等旧‘最佳’标签写成万能规则，也不把前列腺癌压成一个包膜开关。",
+      "recall_spine": "结核器官链 → 血尿器官定位 → RCC/UTUC/膀胱/前列腺四模型 → 检查任务层 → 确证 → 最终鉴别",
+      "logic_groups": {
+        "urinary-b13-lg01": {"kp":[1,5],"label":"肾结核器官链与治疗边界","goal":"从结核共同病理Recall进入肾→输尿管→膀胱、慢性刺激症、微生物学/影像和医疗为主的处理。","closure":"能解释病在肾为何症状先在膀胱，并把旧6-9月/术前后疗程放回306 Precision。"},
+        "urinary-b13-lg02": {"kp":[6,7],"label":"血尿与器官定位","goal":"用无痛全程肉眼血尿、血块、输尿管口喷血、癌栓和DRE硬结建立四器官入口。","closure":"能从症状先压缩到器官，而不是一见血尿就跳到一个肿瘤名。"},
+        "urinary-b13-lg03": {"kp":[8,10],"label":"肾癌与上尿路UC","goal":"建立RCC增强CT/选择性活检/肾单位保留，以及UTUC的CTU+细胞学→必要时URS与尿路上皮癌新旧术语。","closure":"不会把肾癌穿刺或UTUC输尿管镜写成所有病例唯一金标准。"},
+        "urinary-b13-lg04": {"kp":[11,12],"label":"膀胱尿路上皮癌与Ta/Tis/T1/T2","goal":"用膀胱镜/TURBT获得病理并正确区分Ta非浸润乳头状、Tis原位、T1固有层、T2肌层。","closure":"Ta≠CIS；能以肌层是否受侵作为NMIBC/MIBC大边界。"},
+        "urinary-b13-lg05": {"kp":[13,16],"label":"前列腺癌与检查任务层","goal":"从PSA/DRE→MRI/活检→风险/分期进入治疗，同时把旧酸性磷酸酶、ECT、MRI最佳和包膜二分降为Precision。","closure":"能区分诊断、局部分期、转移分期和组织学确证，不用一个‘最佳检查’统治所有临床任务。"},
+        "urinary-b13-lg06": {"kp":[17,18],"label":"血尿Recall与最终反向算法","goal":"调用K6尿三杯并把血尿时相、刺激症、血块、器官和检查任务压成最终病例流程。","closure":"能从一个未知血尿病例完成结核/肿瘤分流和器官定位，而不重复建立K6 owner。"}
+      }
+    },
+    "urinary-b14": {
+      "first_pass_focus": "泌尿外伤第一问不是‘哪根管裂了’，而是患者是否稳定；稳定性决定影像/非手术/介入还是立即止血探查，随后才用尿生殖膈和腹膜空间定位。",
+      "stop_line": "不把RUG complete/partial、浮动前列腺、腹膜外膀胱手术和‘有休克=固定肾手术’当绝对规则；复杂重建和AAST全表后置。",
+      "recall_spine": "稳定性门 → 受伤机制/RUG → 前后尿道空间 → 膀胱造影内外分型 → 肾CT/非手术/栓塞/探查 → 最终算法",
+      "logic_groups": {
+        "urinary-b14-lg01": {"kp":[1,3],"label":"稳定性、受伤机制与尿道评估入口","goal":"把血流动力学稳定性放到最顶层，再由骑跨/骨盆/下腹/腰腹机制选择RUG、膀胱造影或CT。","closure":"能解释为什么高度怀疑尿道伤时不盲目反复插管，同时知道RUG不能总可靠判完全/部分断裂。"},
+        "urinary-b14-lg02": {"kp":[4,6],"label":"前后尿道空间模型","goal":"按尿生殖膈、球部/PFUI和尿外渗空间区分前后尿道；浮动前列腺只作旧支持线索。","closure":"不看图也能画出会阴阴囊阴茎下腹壁 vs 膀胱周围/耻骨后两套外渗空间。"},
+        "urinary-b14-lg03": {"kp":[7,9],"label":"膀胱造影与腹膜内外处理","goal":"用逆行膀胱造影/CT膀胱造影分型，并修正uncomplicated腹膜外持续引流、blunt腹膜内手术修补。","closure":"不会再把腹膜外膀胱破裂等同于一律手术，能说出复杂型升级手术的触发方向。"},
+        "urinary-b14-lg04": {"kp":[10,14],"label":"肾外伤稳定性门与最终创伤算法","goal":"稳定患者CT并以非手术/选择性栓塞为主，不稳定肾出血进入探查；保留血尿与伤情脱钩。","closure":"能用稳定性→机制→空间→影像→引流/介入/修补/探查跑完未知泌尿外伤病例。"}
+      }
+    }
+  },
+  "closure": "B12-B14 PASS_BLOCK_LEVEL_K. Stable IDs are unchanged; 49 KPs are covered by 16 contiguous Logic Groups with no overlap or gap. Whole-A3 Knowledge remains NOT_PROMOTED because B5 is still blocked by its acid-base Source/owner decision."
+}
