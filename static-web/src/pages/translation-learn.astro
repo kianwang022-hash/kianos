@@ -25,11 +25,12 @@ const nav = [
   ['B3', 'B3 · Reconstruction'],
   ['B4', 'B4 · Execution'],
   ['B5', 'Integrated Walkthrough'],
+  ['F', 'How You Learn It'],
   ['G', '第一次学习出口']
 ];
-const coreKeys = ['A', 'B', 'B1', 'B2', 'B3', 'B4', 'B5', 'G'];
+const coreKeys = ['A', 'B', 'B1', 'B2', 'B3', 'B4', 'B5', 'F', 'G'];
 const diagnosticKeys = ['C', 'D'];
-const runtimeKeys = ['E', 'F', 'H'];
+const runtimeKeys = ['E', 'H'];
 
 async function renderChunk(key) {
   const source = chunkMap.get(key) || '';
@@ -86,8 +87,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <details class="translationReferenceSection runtimeReference">
         <summary>
-          <div><span>系统 / Chat 参考</span><strong>Material Routing + HOW YOU LEARN IT + Runtime v1</strong></div>
-          <small>这些规则完整保留，但不需要第一次学习时背。</small>
+          <div><span>系统 / Chat 参考</span><strong>Material Routing + Runtime v1</strong></div>
+          <small>这些系统规则完整保留，但不需要第一次学习时背。</small>
         </summary>
         <div class="translationReferenceBody">
           {runtimeSections.map((section) => section.html && (
