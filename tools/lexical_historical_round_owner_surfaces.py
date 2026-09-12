@@ -7,6 +7,7 @@ import lexical_historical_round_bulk_triage as triage
 import lexical_historical_round_from_file as base
 
 ORIGINAL_CONTRAST_TERMS = base.contrast_terms_compatible
+ORIGINAL_PARSE_SIMPLE = base.parse_simple_targets_compatible
 
 # These are filler for phrase matching only. Deliberately retain structurally
 # meaningful words such as that/do/done/doing and particles/prepositions.
@@ -110,14 +111,17 @@ def parse_owner_group_expansion(body: str):
         if len(slash_hits) >= 2:
             hints = slash_hits
 
-        if norm == "set sail":
-            hints = [w for w in ("sail", "set") if w in target_set]
+        special_owner_hints = {
+            "set sail": ["sail", "set"],
+            "and the major stick phrasal family": ["stick"],
+            "noun/verb use pronunciation": ["use"],
+        }
+        if norm in special_owner_hints:
+            hints = [w for w in special_owner_hints[norm] if w in target_set]
         elif "shipping/product-release" in norm:
             hints = ["ship"] if "ship" in target_set else []
         elif norm.startswith("select/elect"):
             hints = ["select"] if "select" in target_set else []
-        elif norm.startswith("and the major stick"):
-            hints = ["stick"] if "stick" in target_set else []
 
         if not hints:
             raise RuntimeError(f"cannot map named Expansion surface to owner target: {chunk}")
@@ -125,6 +129,37 @@ def parse_owner_group_expansion(body: str):
         base.EXPANSION_OWNER_HINTS[chunk] = hints
         rows.append({"index": i, "approved_target": chunk, "kind": "expansion"})
 
+    return rows
+
+
+def parse_inline_contrast(body: str) -> list[dict] | None:
+    m = re.search(
+        r"### Contrast Gate[^\n]*\n(.+?)(?:\n\n### Existing|\n\n### Mechanical|\n\n### Apply|\n\nReuse rather than duplicate|\n\nCanonical Apply:)",
+        body,
+        flags=re.S,
+    )
+    if not m:
+        return None
+    blob = m.group(1).strip()
+    # Numbered lists remain owned by the existing parser.
+    if re.search(r"^\s*\d+\.\s+", blob, flags=re.M):
+        return None
+    codes = [c.strip() for c in re.findall(r"`([^`]+)`", blob) if c.strip()]
+    if not codes:
+        return None
+    return [{"index": i, "approved_target": target} for i, target in enumerate(codes, 1)]
+
+
+def parse_simple_targets_compatible(body: str, heading_prefix: str, end_prefixes: tuple[str, ...], kind: str):
+    if kind == "expansion":
+        grouped = parse_owner_group_expansion(body)
+        if grouped is not None:
+            return grouped
+    rows = ORIGINAL_PARSE_SIMPLE(body, heading_prefix, end_prefixes, kind)
+    if kind == "contrast" and not rows:
+        inline = parse_inline_contrast(body)
+        if inline is not None:
+            return inline
     return rows
 
 
@@ -168,8 +203,6 @@ def expansion_match_compatible(target: str, owners: list[dict]):
                 continue
             surface_raw_forms = expanded_forms(raw_tokens(sn))
             surface_forms = expanded_forms(phrase_tokens(sn))
-            # Owner identity must survive even when the headword itself is a
-            # grammatical function word such as `the`.
             owner_hit = bool(owner_forms & surface_raw_forms)
             modifier_hits = [
                 token for token in target_modifier_tokens
@@ -222,10 +255,15 @@ def contrast_terms_compatible(text: str) -> list[str]:
     if "pronunciation-identity" in norm or "heteronym" in norm or "contronym" in norm or "past of" in norm:
         m = re.match(r"\s*(?:regional\s+)?([A-Za-z][A-Za-z'-]*)", text)
         return [triage.normalize(m.group(1))] if m else []
+    if norm.startswith("regional tire/tyre"):
+        return ["tire"]
+    if norm.startswith("noun use ") or (norm.startswith("use ") and "/ju" in text):
+        return ["use"]
     return ORIGINAL_CONTRAST_TERMS(text)
 
 
 base.parse_owner_group_expansion = parse_owner_group_expansion
+base.parse_simple_targets_compatible = parse_simple_targets_compatible
 base.contrast_terms_compatible = contrast_terms_compatible
 triage.expansion_match = expansion_match_compatible
 
