@@ -61,28 +61,66 @@ Required behavior:
 
 ### C. Learning optimization — P2
 
-Only after P0/P1 are controlled do we optimize learner value:
+P2 asks whether the learner-facing lexical model is worth learning **now**, under the latest `LEARNING_CONTRACT.md`, rather than merely whether an older approved operation survived migration.
+
+Optimize for:
 - familiar-new senses;
 - real polysemy boundaries;
 - Word Feel / mental compression;
 - constructions and phrase skeletons;
 - collocation families;
 - confusable/contrast boundaries;
-- demotion of obsolete or low-value dictionary noise.
+- demotion of obsolete or low-value dictionary noise;
+- fast contextual recognition and selection rather than dictionary completion.
 
 Simple L0/monosemous words should direct-pass quickly. Model attention belongs on high-information words.
+
+### D. Dual-judgment rule — R15+ default
+
+From R15 onward, re-acceptance must not be only a historical migration audit. Every high-information or historically affected target carries **two separate judgments**:
+
+1. **Migration fidelity:** did Current correctly realize the historical Chat-approved decision?
+2. **Latest semantic target:** under the current Learning Contract, what should the learner-facing Natural Owner / Relation actually be now?
+
+The second judgment may explicitly supersede the first. Typical outcomes:
+- `HISTORICAL_STILL_VALID` — old approved target remains the right Current target;
+- `CURRENT_ALREADY_BETTER` — Current should be preserved even if it differs from history;
+- `UPGRADE_TARGET` — keep the historical intent but improve compression, boundary, register, construction landing, or learner priority;
+- `DEMOTE_OR_DROP_NOW` — old target was defensible historically but no longer earns main Depth space;
+- `NEEDS_FRESH_CHAT_SEMANTIC_JUDGMENT` — history and Current do not provide enough trustworthy evidence.
+
+Important boundaries:
+- bulk/mechanical tooling may detect existence, lifecycle, relation direction, anchors, and candidate matches; it **must not** make the latest semantic judgment;
+- P2 target judgment may be recorded during the same bulk audit so the corpus does not require a second word-by-word pass later;
+- semantic mutation still waits for the consolidated repair phase. Audit first records the latest target state; repair later applies that target state;
+- the repair inventory must therefore encode the **latest approved target**, not blindly reproduce historical wording;
+- simple/direct-pass regions do not receive gratuitous fresh rewriting. Use calibrated samples plus high-information/risk signals to focus Chat attention.
+
+### Latest learner-facing target shape
+
+When fresh judgment is needed, use `LEARNING_CONTRACT.md` as the optimization boundary:
+
+- Core / Word Feel should compress the word into a useful mental model, not restate a dictionary list;
+- Active meanings should be the minimal sufficient set of learner-worthy boundaries;
+- high-value familiar-new senses should stay visible even when the base word is familiar;
+- constructions / phrase skeletons should attach to the relevant meaning when possible rather than becoming fake standalone senses;
+- genuine cross-word competition belongs in Relation Owners; within-word form, pronunciation, morphology, or grammatical realization should not be forced into fake semantic relations;
+- low-value historical, technical, regional, or completeness-only senses belong in reference/Explore unless they materially affect recognition;
+- no per-word richness quota and no forced one-card-per-sense model.
 
 ## Review cadence
 
 Do not return to one-word GitHub reads.
 
-1. Bulk-read Current owners and generate compact risk packets.
-2. Chat reviews a bounded high-risk calibration batch.
-3. Apply one consolidated repair batch.
-4. Exact Current readback.
-5. Increase batch size only when error classes stabilize.
+1. Recover/freeze one historical authority round.
+2. Bulk-read all affected Current Word / Relation Owners and generate compact risk packets.
+3. Chat reviews P0/P1 anomalies, high-information words, and calibrated green samples; when material, record the latest P2 target in the same pass.
+4. Produce one consolidated exact repair inventory using latest approved targets.
+5. Apply one consolidated repair batch.
+6. Exact Current readback.
+7. Increase batch size when error classes stabilize; reduce only when semantic density genuinely requires it.
 
-Suggested progression is evidence-driven rather than fixed by ordinal count: deep/small for unstable polysemy, medium for recurring defect classes, large/light for simple direct-pass regions.
+The progression is evidence-driven rather than fixed by ordinal count: deep/small for unstable polysemy, medium for recurring defect classes, large/light for simple direct-pass regions. Historical rounds of roughly 300 ordinals may be processed in one bulk readback when the risk packet keeps Chat review bounded.
 
 ## K acceptance conditions
 
@@ -92,6 +130,7 @@ Lexical K remains BLOCKED until all of the following hold:
 - known approved semantic debt has been classified and closed;
 - repeated stratified samples stop finding systematic lifecycle/binding defects;
 - rich-word samples show trustworthy learner-value selection rather than dictionary accumulation;
+- latest-target P2 samples stop exposing systematic under-modeling, over-splitting, stale register, or low-value Active noise;
 - a documented stop rule has been reached.
 
 Passing storage roundtrip, lookup closure, build, UI rendering, or exact reconstruction is supporting evidence only. None substitutes for K.
