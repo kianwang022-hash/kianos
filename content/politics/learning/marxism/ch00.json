@@ -17,11 +17,13 @@
     ],
     "suyi_refs": [
       "POL27-SY-MARX-P008-B033-Y2021",
-      "POL27-SY-MARX-P008-B070"
+      "POL27-SY-MARX-P008-B070",
+      "POL27-SY-MARX-P008-B088"
     ],
     "suyi_consumption_policy": "BACKGROUND_FRAMEWORK_REFERENCE_ONLY_NO_SEPARATE_LEARNER_MAINLINE",
     "suyi_delta_audits": [
-      "content/politics/learning/marxism/ch00.suyi-delta.md"
+      "content/politics/learning/marxism/ch00.suyi-delta.md",
+      "content/politics/learning/marxism/ch00.s02.suyi-delta.md"
     ]
   },
   "chapter_orientation": {
@@ -71,98 +73,100 @@
             "POL27-CF-MARX-C00-K04"
           ]
         },
-        "framework_map": {
-          "id": "MARX-C00-S01-MAP-01",
-          "title": "从为什么产生，到形成什么，再到为什么继续发展",
-          "nodes": [
-            {
-              "id": "social_root",
-              "label": "社会根源",
-              "meaning": "资本主义生产方式的发展提供经济、社会历史条件。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K03-N02-I01",
-                "POL27-SY-MARX-P008-B017"
-              ]
-            },
-            {
-              "id": "class_basis",
-              "label": "阶级基础 / 实践需求",
-              "meaning": "无产阶级斗争发展、逐步走向自觉，并产生科学理论指导的现实需要。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K03-N02-I02",
-                "POL27-SY-MARX-P008-B020",
-                "POL27-SY-MARX-P008-B022",
-                "POL27-SY-MARX-P008-B023",
-                "POL27-SY-MARX-P008-B026"
-              ]
-            },
-            {
-              "id": "thought_source",
-              "label": "思想来源",
-              "meaning": "对既有人类思想成果进行继承、批判和创新，为理论创立提供思想材料。",
-              "detail": "苏一将直接理论来源进一步组织为德国古典哲学、英国古典政治经济学和英法空想社会主义；第一轮主舞台只需先认清‘思想来源’在三类条件中的角色。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K03-N02-I03",
-                "POL27-SY-MARX-P008-B027",
-                "POL27-SY-MARX-P008-B028"
-              ]
-            },
-            {
-              "id": "creation",
-              "label": "理论创立 / 公开问世",
-              "meaning": "现实条件、实践需求和思想材料不是三张孤立清单，而是共同进入马克思主义的创立。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K03-N01",
-                "POL27-CF-MARX-C00-K03-N01-I02"
-              ]
-            },
-            {
-              "id": "theory_system",
-              "label": "形成完整理论体系",
-              "meaning": "马克思主义不是单一学科观点，而是包含马克思主义哲学、马克思主义政治经济学和科学社会主义的相互联系理论体系。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K01-N02"
-              ]
-            },
-            {
-              "id": "development",
-              "label": "在新的实践和时代中继续发展",
-              "meaning": "创立不是终点；新的历史条件和现实问题要求理论继续丰富和推进。",
-              "source_evidence": [
-                "POL27-CF-MARX-C00-K04",
-                "POL27-CF-MARX-C00-K04-N01",
-                "POL27-CF-MARX-C00-K04-N02"
-              ]
-            }
-          ],
-          "edges": [
-            {
-              "from": "social_root",
-              "to": "creation",
-              "relation": "提供现实社会条件"
-            },
-            {
-              "from": "class_basis",
-              "to": "creation",
-              "relation": "提出实践中的理论需求"
-            },
-            {
-              "from": "thought_source",
-              "to": "creation",
-              "relation": "提供可批判继承和创新的思想材料"
-            },
-            {
-              "from": "creation",
-              "to": "theory_system",
-              "relation": "形成相互联系的理论体系"
-            },
-            {
-              "from": "theory_system",
-              "to": "development",
-              "relation": "理论体系不是封闭终点"
-            }
-          ]
-        },
+        "framework_maps": [
+          {
+            "id": "MARX-C00-S01-MAP-01",
+            "title": "从为什么产生，到形成什么，再到为什么继续发展",
+            "nodes": [
+              {
+                "id": "social_root",
+                "label": "社会根源",
+                "meaning": "资本主义生产方式的发展提供经济、社会历史条件。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K03-N02-I01",
+                  "POL27-SY-MARX-P008-B017"
+                ]
+              },
+              {
+                "id": "class_basis",
+                "label": "阶级基础 / 实践需求",
+                "meaning": "无产阶级斗争发展、逐步走向自觉，并产生科学理论指导的现实需要。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K03-N02-I02",
+                  "POL27-SY-MARX-P008-B020",
+                  "POL27-SY-MARX-P008-B022",
+                  "POL27-SY-MARX-P008-B023",
+                  "POL27-SY-MARX-P008-B026"
+                ]
+              },
+              {
+                "id": "thought_source",
+                "label": "思想来源",
+                "meaning": "对既有人类思想成果进行继承、批判和创新，为理论创立提供思想材料。",
+                "detail": "苏一将直接理论来源进一步组织为德国古典哲学、英国古典政治经济学和英法空想社会主义；第一轮主舞台只需先认清‘思想来源’在三类条件中的角色。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K03-N02-I03",
+                  "POL27-SY-MARX-P008-B027",
+                  "POL27-SY-MARX-P008-B028"
+                ]
+              },
+              {
+                "id": "creation",
+                "label": "理论创立 / 公开问世",
+                "meaning": "现实条件、实践需求和思想材料不是三张孤立清单，而是共同进入马克思主义的创立。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K03-N01",
+                  "POL27-CF-MARX-C00-K03-N01-I02"
+                ]
+              },
+              {
+                "id": "theory_system",
+                "label": "形成完整理论体系",
+                "meaning": "马克思主义不是单一学科观点，而是包含马克思主义哲学、马克思主义政治经济学和科学社会主义的相互联系理论体系。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K01-N02"
+                ]
+              },
+              {
+                "id": "development",
+                "label": "在新的实践和时代中继续发展",
+                "meaning": "创立不是终点；新的历史条件和现实问题要求理论继续丰富和推进。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K04",
+                  "POL27-CF-MARX-C00-K04-N01",
+                  "POL27-CF-MARX-C00-K04-N02"
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "social_root",
+                "to": "creation",
+                "relation": "提供现实社会条件"
+              },
+              {
+                "from": "class_basis",
+                "to": "creation",
+                "relation": "提出实践中的理论需求"
+              },
+              {
+                "from": "thought_source",
+                "to": "creation",
+                "relation": "提供可批判继承和创新的思想材料"
+              },
+              {
+                "from": "creation",
+                "to": "theory_system",
+                "relation": "形成相互联系的理论体系"
+              },
+              {
+                "from": "theory_system",
+                "to": "development",
+                "relation": "理论体系不是封闭终点"
+              }
+            ]
+          }
+        ],
         "relation_chains": [
           {
             "id": "MARX-C00-S01-CHAIN-CLASS-01",
@@ -363,6 +367,381 @@
           "relation": "关键不在于把旧结论机械套用到今天，而在于其基本立场、观点和方法仍能帮助分析现实矛盾与社会发展。"
         }
       ],
+      "learning_semantics": {
+        "schema": "kianos.politics.learning_semantics.v1",
+        "status": "CURRENT_CALIBRATION",
+        "content_stage_only": true,
+        "problem": {
+          "id": "MARX-C00-S02-PROBLEM-01",
+          "text": "马克思主义的基本特征为什么必须作为一组有关系的理论品格来理解，它的当代价值又为什么不等于提供现成方案？",
+          "source_evidence": [
+            "POL27-CF-MARX-C00-K05",
+            "POL27-CF-MARX-C00-K06",
+            "POL27-CF-MARX-C00-K06-TIP01"
+          ]
+        },
+        "framework_maps": [
+          {
+            "id": "MARX-C00-S02-MAP-CHARACTER-01",
+            "title": "四个基本特征怎样收束为科学性与革命性的统一",
+            "nodes": [
+              {
+                "id": "scientificity",
+                "label": "科学性",
+                "meaning": "马克思主义正确反映自然、社会和人类思维发展的本质和规律，并以辩证唯物主义和历史唯物主义作为科学世界观和方法论基础。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B062",
+                  "POL27-SY-MARX-P008-B063"
+                ]
+              },
+              {
+                "id": "people_nature",
+                "label": "人民性",
+                "meaning": "人民性是马克思主义的本质属性，人民至上是其政治立场；这种人民性以阶级性为深刻基础。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B065",
+                  "POL27-SY-MARX-P008-B067"
+                ]
+              },
+              {
+                "id": "practicality",
+                "label": "实践性",
+                "meaning": "马克思主义从实践中来、到实践中去，在实践中接受检验，并随实践不断发展。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B070",
+                  "POL27-SY-MARX-P008-B075",
+                  "POL27-SY-MARX-P008-B076"
+                ]
+              },
+              {
+                "id": "development_quality",
+                "label": "发展性",
+                "meaning": "马克思主义是不断发展的学说，具有与时俱进的理论品质，并能吸收新的文明成果来充实和发展自己。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B079",
+                  "POL27-SY-MARX-P008-B082"
+                ]
+              },
+              {
+                "id": "revolutionary_character",
+                "label": "革命性",
+                "meaning": "人民性、实践性和发展性集中体现为革命性；革命性是马克思主义的内在品质。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B073",
+                  "POL27-SY-MARX-P008-B085"
+                ]
+              },
+              {
+                "id": "science_revolution_unity",
+                "label": "科学性与革命性的统一",
+                "meaning": "革命性建立在科学性基础上并与科学性高度统一，这是四个基本特征的总括关系。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K05",
+                  "POL27-SY-MARX-P008-B085",
+                  "POL27-SY-MARX-P008-B086"
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "people_nature",
+                "to": "revolutionary_character",
+                "relation": "集中体现为革命性"
+              },
+              {
+                "from": "practicality",
+                "to": "revolutionary_character",
+                "relation": "集中体现为革命性"
+              },
+              {
+                "from": "development_quality",
+                "to": "revolutionary_character",
+                "relation": "集中体现为革命性"
+              },
+              {
+                "from": "scientificity",
+                "to": "science_revolution_unity",
+                "relation": "为革命性提供科学基础"
+              },
+              {
+                "from": "revolutionary_character",
+                "to": "science_revolution_unity",
+                "relation": "与科学性高度统一"
+              }
+            ]
+          },
+          {
+            "id": "MARX-C00-S02-MAP-VALUE-01",
+            "title": "马克思主义的当代价值不是一个口号，而是三个作用位置",
+            "nodes": [
+              {
+                "id": "contemporary_value",
+                "label": "当代价值",
+                "meaning": "马克思主义今天仍作为认识、行动与社会进步的理论资源发挥作用。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K06",
+                  "POL27-SY-MARX-P008-B088"
+                ]
+              },
+              {
+                "id": "world_tool",
+                "label": "认识工具",
+                "meaning": "用于观察当代世界变化。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K06",
+                  "POL27-SY-MARX-P008-B088"
+                ]
+              },
+              {
+                "id": "china_guide",
+                "label": "行动指南",
+                "meaning": "用于指引当代中国发展，但不是一套可直接照搬的现成具体方案。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K06",
+                  "POL27-CF-MARX-C00-K06-TIP01",
+                  "POL27-SY-MARX-P008-B088",
+                  "POL27-SY-MARX-P008-B089"
+                ]
+              },
+              {
+                "id": "human_progress",
+                "label": "科学真理",
+                "meaning": "作为引领人类社会进步的科学真理发挥价值。",
+                "source_evidence": [
+                  "POL27-CF-MARX-C00-K06",
+                  "POL27-SY-MARX-P008-B088"
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "from": "contemporary_value",
+                "to": "world_tool",
+                "relation": "观察当代世界变化"
+              },
+              {
+                "from": "contemporary_value",
+                "to": "china_guide",
+                "relation": "指引当代中国发展"
+              },
+              {
+                "from": "contemporary_value",
+                "to": "human_progress",
+                "relation": "引领人类社会进步"
+              }
+            ]
+          }
+        ],
+        "relation_chains": [
+          {
+            "id": "MARX-C00-S02-CHAIN-PRACTICE-01",
+            "title": "实践性不是一个标签，而是一条双向回路",
+            "steps": [
+              {
+                "id": "from_practice",
+                "text": "从实践中来"
+              },
+              {
+                "id": "to_practice",
+                "text": "到实践中去"
+              },
+              {
+                "id": "tested_by_practice",
+                "text": "在实践中接受检验"
+              },
+              {
+                "id": "develop_with_practice",
+                "text": "随实践不断发展"
+              }
+            ],
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K05",
+              "POL27-SY-MARX-P008-B070"
+            ]
+          }
+        ],
+        "boundaries": [
+          {
+            "id": "MARX-C00-S02-BOUNDARY-PEOPLE-CLASS-01",
+            "left": "人民性",
+            "right": "阶级性",
+            "distinction": "这里不是人民性与阶级性的二选一；马克思主义的人民性以阶级性为深刻基础，是无产阶级先进性的体现。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K05",
+              "POL27-SY-MARX-P008-B065",
+              "POL27-SY-MARX-P008-B067"
+            ]
+          },
+          {
+            "id": "MARX-C00-S02-BOUNDARY-SCIENCE-REVOLUTION-01",
+            "left": "科学性",
+            "right": "革命性",
+            "distinction": "二者不是互相排斥：革命性建立在科学性基础上，并与科学性高度统一。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K05",
+              "POL27-SY-MARX-P008-B085",
+              "POL27-SY-MARX-P008-B086"
+            ]
+          },
+          {
+            "id": "MARX-C00-S02-BOUNDARY-METHOD-SOLUTION-01",
+            "left": "科学的方法 / 行动指南",
+            "right": "现成具体方案、道路或模式",
+            "distinction": "马克思主义提供立场、观点和方法上的指导，不等于给出现成的具体方案、道路或模式；具体运用必须结合现实条件。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K06-TIP01",
+              "POL27-SY-MARX-P008-B088",
+              "POL27-SY-MARX-P008-B089"
+            ]
+          }
+        ],
+        "anchors": [
+          {
+            "id": "MARX-C00-S02-ANCHOR-01",
+            "text": "四个基本特征不是平铺清单：人民性、实践性、发展性集中体现为革命性，革命性以科学性为基础，最终收束为科学性与革命性的统一。"
+          },
+          {
+            "id": "MARX-C00-S02-ANCHOR-02",
+            "text": "马克思主义的当代价值体现在认识世界、指引中国发展和引领人类社会进步，但它不提供可直接照搬的现成方案。"
+          }
+        ],
+        "precision_objects": [
+          {
+            "id": "MARX-C00-S02-EXACT-PEOPLE-01",
+            "learning_priority": "FIRST_ROUND_EXACT",
+            "fact": "人民性是马克思主义的本质属性，人民至上是马克思主义的政治立场。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K05",
+              "POL27-SY-MARX-P008-B065"
+            ]
+          },
+          {
+            "id": "MARX-C00-S02-EXACT-PRACTICE-01",
+            "learning_priority": "PRECISION_NOT_ORIENTATION",
+            "fact": "实践观点是马克思主义首要的和基本的观点；实践性是马克思主义区别于其他理论的显著/根本特征。",
+            "source_evidence": [
+              "POL27-CF-MARX-C00-K05",
+              "POL27-SY-MARX-P008-B075",
+              "POL27-SY-MARX-P008-B076"
+            ]
+          }
+        ],
+        "source_handoff": {
+          "target_surface": "IPAD_MARGINNOTE_ORIGINAL_CHENGFENG",
+          "locator": "乘风 · 导论 · 第二节 马克思主义的基本特征和当代价值",
+          "source_owner_ids": [
+            "POL27-CF-MARX-C00-K05",
+            "POL27-CF-MARX-C00-K06"
+          ],
+          "look_for": [
+            "科学性、人民性、实践性、发展性分别在说明理论的哪一面",
+            "人民性为什么不等于否定阶级性",
+            "人民性、实践性、发展性怎样与革命性发生关系",
+            "科学性与革命性为什么是统一关系",
+            "当代价值的三个作用位置，以及为什么它不等于现成具体方案"
+          ]
+        },
+        "recall_seed": {
+          "id": "MARX-C00-S02-RECALL-01",
+          "prompt": "不背四个词的清单，重建：四个基本特征怎样组成一套关系，并说明马克思主义今天为什么仍有价值、但又不能被当成现成方案？",
+          "expected_relations": [
+            "人民性 + 实践性 + 发展性 → 革命性",
+            "科学性 → 革命性的科学基础",
+            "科学性 + 革命性 → 高度统一",
+            "实践性 → 从实践中来 → 到实践中去 → 接受实践检验 → 随实践发展",
+            "当代价值 → 认识工具 / 行动指南 / 科学真理",
+            "行动指南 ≠ 现成具体方案、道路或模式"
+          ]
+        },
+        "suyi_dispositions": [
+          {
+            "source_id": "POL27-SY-MARX-P008-B062",
+            "disposition": "DUPLICATE",
+            "reason": "科学性标签与主干已由乘风 K05 拥有；保留为跨源支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B063",
+            "disposition": "DUPLICATE",
+            "reason": "科学世界观和方法论基础已由乘风 K05 拥有；保留为跨源支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B065",
+            "disposition": "DUPLICATE",
+            "reason": "人民性/人民至上固定关系已由乘风 K05 拥有；保留为边界与精确表述的跨源支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B067",
+            "disposition": "DUPLICATE",
+            "reason": "人民性以阶级性为深刻基础已由乘风 K05 拥有；保留为边界支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B070",
+            "disposition": "DUPLICATE",
+            "reason": "实践性的完整方向链已由乘风 K05 拥有；保留为跨源结构支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B073",
+            "disposition": "ABSORBED",
+            "reason": "用于把人民性、实践性、发展性收束到革命性的结构关系。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B075",
+            "disposition": "DUPLICATE",
+            "reason": "实践观点的精确地位由乘风 K05 拥有；保留为 precision 支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B076",
+            "disposition": "DUPLICATE",
+            "reason": "实践性作为区别其他理论的重要特征由乘风 K05 拥有；保留为 precision 支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B079",
+            "disposition": "DUPLICATE",
+            "reason": "发展性和与时俱进的理论品质由乘风 K05 拥有。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B082",
+            "disposition": "ABSORBED",
+            "reason": "作为发展性节点的解释性 delta：通过吸收新的文明成果充实和发展理论。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B085",
+            "disposition": "ABSORBED",
+            "reason": "用于基本特征到革命性、以及科学性与革命性统一的组织关系。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B086",
+            "disposition": "ABSORBED",
+            "reason": "用于明确革命性建立在科学性基础上并与之高度统一。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B088",
+            "disposition": "ABSORBED",
+            "reason": "提供当代价值的三角色结构，并参与方法与现成方案的边界。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B089",
+            "disposition": "DUPLICATE",
+            "reason": "不能照搬现成方案的边界已由乘风 K06-TIP01 拥有；保留为跨源支持。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B091",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "2022 相关命题信号属于后续 question-triggered precision，不进入首次 Orientation。"
+          },
+          {
+            "source_id": "POL27-SY-MARX-P008-B091-Y2022",
+            "disposition": "REFERENCE_ONLY",
+            "reason": "真题年份信号保留用于 verification / precision，不主导首次学习。"
+          }
+        ],
+        "audit": "content/politics/learning/marxism/ch00.s02.suyi-delta.md"
+      },
       "key_boundary": "坚持马克思主义不等于把经典结论教条化；理论的科学性与发展性要求在实践中理解和运用。",
       "closure_cue": "不要背清单，先回答：马克思主义为什么既有稳定的基本立场，又必须随实践和时代发展？",
       "after_this": "导论完成后，第一章进入马克思主义哲学的起点：物质与意识、运动以及世界的物质统一性。"
