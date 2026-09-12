@@ -1,0 +1,79 @@
+name: Governance Anti-Entropy
+
+on:
+  push:
+    paths:
+      - 'PROJECT_DEFINITION.md'
+      - 'ARCHITECTURE.md'
+      - 'AGENTS.md'
+      - 'CURRENT.md'
+      - 'GOVERNANCE_ACCEPTANCE.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'content/english/CURRENT.md'
+      - 'content/english/manifest.json'
+      - 'content/english/continuation.json'
+      - 'content/english/modules/*/CURRENT.md'
+      - 'content/english/modules/*/ACCEPTANCE.md'
+      - 'content/xizong/CURRENT.md'
+      - 'content/xizong/ACCEPTANCE.md'
+      - 'content/xizong/knowledge/manifest.json'
+      - 'content/xizong/knowledge/learner/continuation.json'
+      - 'content/xizong/knowledge/learner/acceptance-status.json'
+      - 'content/lexical/CURRENT.md'
+      - 'content/lexical/ACCEPTANCE.md'
+      - 'content/lexical/manifest.json'
+      - 'content/lexical/continuation.json'
+      - 'content/politics/CURRENT.md'
+      - 'content/politics/ACCEPTANCE.md'
+      - 'content/politics/manifest.json'
+      - 'content/politics/continuation.json'
+      - 'tools/governance_current_audit.py'
+      - '.github/workflows/governance-anti-entropy.yml'
+  pull_request:
+    paths:
+      - 'PROJECT_DEFINITION.md'
+      - 'ARCHITECTURE.md'
+      - 'AGENTS.md'
+      - 'CURRENT.md'
+      - 'GOVERNANCE_ACCEPTANCE.md'
+      - 'SYSTEM_CONTRACT.md'
+      - 'content/english/CURRENT.md'
+      - 'content/english/manifest.json'
+      - 'content/english/continuation.json'
+      - 'content/english/modules/*/CURRENT.md'
+      - 'content/english/modules/*/ACCEPTANCE.md'
+      - 'content/xizong/CURRENT.md'
+      - 'content/xizong/ACCEPTANCE.md'
+      - 'content/xizong/knowledge/manifest.json'
+      - 'content/xizong/knowledge/learner/continuation.json'
+      - 'content/xizong/knowledge/learner/acceptance-status.json'
+      - 'content/lexical/CURRENT.md'
+      - 'content/lexical/ACCEPTANCE.md'
+      - 'content/lexical/manifest.json'
+      - 'content/lexical/continuation.json'
+      - 'content/politics/CURRENT.md'
+      - 'content/politics/ACCEPTANCE.md'
+      - 'content/politics/manifest.json'
+      - 'content/politics/continuation.json'
+      - 'tools/governance_current_audit.py'
+      - '.github/workflows/governance-anti-entropy.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: governance-anti-entropy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  current-ownership-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit Current ownership and retirement boundaries
+        run: python tools/governance_current_audit.py
