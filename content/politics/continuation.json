@@ -28,11 +28,13 @@
     "K03 Knowledge closure audit proved the four canonical nodes, critical source relations, 15/15 question projection, adaptive Repair boundary and candidate-only Memory boundary",
     "K03 Suyi delta audit closed with zero mandatory new teaching owners; useful Suyi boundaries remain support/Repair and cross-unit content is not inflated into K03",
     "Formal continuous-coverage evidence separated K03 semantic ownership from learner first-ready timing: 11 questions are ready immediately after K03 and 4 are deferred to later sufficient Natural Units",
-    "K03 learner projection now keeps Chengfeng continuous through K01 → K02 → K03, performs the 20-second K03 closure at the natural boundary, validates with exactly the 11 formal first-ready Xiao1000 questions, then continues S01 without duplication or premature later-unit testing"
+    "K03 learner projection now keeps Chengfeng continuous through K01 → K02 → K03, performs the 20-second K03 closure at the natural boundary, validates with exactly the 11 formal first-ready Xiao1000 questions, then continues S01 without duplication or premature later-unit testing",
+    "K03 Runtime/Evidence now preserves all 11 real first attempts in a separate private attempt snapshot, emits Unit Return only when the current first-ready evidence is complete, and projects outcomes to N01-N04 as this-pass STABLE/UNCERTAIN/REPAIR without claiming long-term mastery",
+    "Stable correct K03 work remains zero durable review debt; Wrong/Uncertain alone continue into the daily Chat handoff, duplicate same-item submissions cannot overwrite first evidence, deferred questions cannot mutate the K03 snapshot, and private persistence failure fails closed before Unit Return advances"
   ],
-  "current_stage": "MODULE_ACCEPTANCE_BEFORE_LEARNER_TEST",
+  "current_stage": "MODULE_READY_FOR_LEARNER_TEST",
   "current_subject": "MARX_C02_K03_PILOT",
-  "acceptance_target": "Apply repository-root LEARNING_ACCEPTANCE.md literally. Politics K03 reaches Module ready for learner test only when S/K/L/P/R/E pass on current main@HEAD. U remains pending until real learner use; build success, content volume, page existence, routing counts or simulated QA may not substitute for a gate.",
+  "acceptance_target": "Repository-root LEARNING_ACCEPTANCE.md has been applied literally to the K03 pilot. S/K/L/P/R/E pass on current main@HEAD, so the strongest truthful status is Module ready for learner test. U remains UNTESTED until the learner uses the real path; no CI/build/simulation result may substitute for U.",
   "acceptance_gates": {
     "S": {
       "status": "PASS",
@@ -48,19 +50,19 @@
     },
     "P": {
       "status": "PASS",
-      "reason": "Current learner projection now exposes K03 as an embedded Natural Unit checkpoint inside S01 without changing canonical semantic ownership. The learner sees the prerequisite source, K03 source, closure and 11 ready questions at one natural point, then continues the remaining S01 content. The checkpoint questions do not duplicate later and deferred questions do not leak early."
+      "reason": "Current learner projection exposes K03 as an embedded Natural Unit checkpoint inside S01 without changing canonical semantic ownership. The learner sees prerequisite source, K03 source, closure and the 11 ready questions at one natural point, then continues the remaining S01 content. Checkpoint questions do not duplicate later and deferred questions do not leak early."
     },
     "R": {
-      "status": "PARTIAL",
-      "reason": "First learning, formal first-ready question timing, submission and Wrong/Uncertain repair are executable, but K03 still lacks a complete evidence-driven Unit Return/exit that can consume all real first-attempt outcomes without turning stable correct work into review debt."
+      "status": "PASS",
+      "reason": "The executable path now supports continuous first learning, clean question attempts, zero-debt stable pass, Wrong/Uncertain smallest-source repair, return to the Unit Return, and continuation into the remaining S01. Unit Return waits for all 11 real first attempts; persistence failure fails closed instead of silently advancing evidence."
     },
     "E": {
-      "status": "PARTIAL",
-      "reason": "The 15/15 semantic map and 11-question first-ready runtime are ready, but learner evidence still needs a separate attempt/session layer so stable correct outcomes can support Unit Return while the durable daily handoff remains Wrong/Uncertain-only. Node closure semantics must distinguish clean pass, uncertainty and repair without equating one correct answer with long-term mastery."
+      "status": "PASS",
+      "reason": "A private kianos.politics.attempt_snapshot.v1 preserves each K03 first attempt exactly once and is distinct from durable Wrong/Uncertain review debt. The existing 15/15 semantic map projects the 11 currently first-ready attempts to four nodes, including M048 multi-node evidence; duplicate resubmission cannot rewrite first evidence, deferred questions are out of scope, stable means this-pass clean evidence only, mastery_claim remains NONE, and failed persistence cannot manufacture closure."
     },
     "U": {
-      "status": "PENDING",
-      "reason": "May only be advanced by real learner use of the accepted path after S/K/L/P/R/E pass."
+      "status": "UNTESTED",
+      "reason": "Architecture, dedicated S-E behavior audits and integration QA cannot substitute for real learner use. Record U separately for the real clean path and Wrong/Uncertain → repair → return path after the learner actually uses them."
     }
   },
   "source_architecture_target": {
@@ -75,16 +77,14 @@
     ],
     "migration_rule": "Any future source change must preserve exact count/ID/content parity in generated shards before Current runtime consumption changes. Monolith archival/removal is a separate cleanup decision and is not required for K03 learner acceptance once normal runtime dependency is zero."
   },
-  "next": "Close K03 Runtime and Evidence acceptance with the smallest executable Unit Return: capture all real first-attempt outcomes in a private session/attempt layer, keep durable daily handoff debt limited to Wrong/Uncertain, project attempts through the existing K03 question-to-node evidence, and produce a learner-facing Unit Return/exit only after the 11 first-ready questions have real outcomes. Do not infer long-term mastery from one clean pass and do not precompute learner state.",
+  "next": "Stop speculative K03 engineering and run the real learner test. Enter Marxism C02 normally, learn through the K03 Natural Unit, perform the 20-second closure and the 11 first-ready Xiao1000 questions, then observe U separately for the stable clean path and any Wrong/Uncertain → smallest repair → Unit Return path. Revise K03 only from concrete learner friction or incorrect evidence behavior; do not expand features merely because more polish is imaginable.",
   "validation_focus": [
-    "Can clean stable work support the current Unit Return while remaining zero durable review debt?",
-    "Can Wrong/Uncertain evidence route to the smallest useful K03 node repair and then return naturally?",
-    "Are all 11 real first attempts represented exactly once in the Unit Return evidence snapshot?",
-    "Does the 15/15 question-to-node map remain semantic authority while first-ready timing controls only when questions enter?",
-    "Can node-level evidence distinguish clean pass, uncertainty and repair without mistaking one correct answer for permanent mastery?",
-    "Does Unit Return appear only after actual attempts rather than from simulated or precomputed state?",
-    "Can the learner exit K03 and continue S01 with no dashboard or extra bookkeeping friction?",
-    "Are shared Current engineering state and private learner state kept strictly separate?"
+    "U clean path: does continuous learning → 20-second closure → 11-question validation → Unit Return feel natural, and can stable work continue with zero manufactured debt?",
+    "U repair path: when a real Wrong/Uncertain occurs, is the smallest useful repair obvious and is return to the Unit Return/continuation natural?",
+    "Does learner-facing STABLE read as this-pass evidence rather than a claim of permanent mastery?",
+    "Does the learner naturally want to skip, expand or move any content at a different point than the current projection assumes?",
+    "Does any reference, answer or backend structure appear earlier than useful during real study?",
+    "Are shared Current engineering state and private learner state kept strictly separate during real use?"
   ],
   "working_preferences": [
     "Content quality has priority over UI polish.",
@@ -102,6 +102,6 @@
     "Do not let Astro component convenience reshape canonical content semantics.",
     "Do not add dashboards, scheduler taxonomies or memory machinery before acceptance evidence shows a need.",
     "Do not log stable correct Xiao1000 answers into the Politics daily handoff merely because the runtime can store them.",
-    "Do not call Politics learner-ready because CI/build is green, content exists, question coverage is complete or a page renders."
+    "Do not call Politics learner-validated because CI/build is green, content exists, question coverage is complete or simulated paths pass; only real U can make that claim."
   ]
 }
