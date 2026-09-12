@@ -2,7 +2,6 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -15,6 +14,7 @@ const pad3 = (value) => String(value).padStart(3, '0');
 
 const OWNER_PATH = 'content/xizong/knowledge/learner/a3-urinary-question-scope.json';
 const LEARNING_PATH = 'content/xizong/knowledge/learner/a3-urinary-learning.json';
+const SYSTEM_PATH = 'content/xizong/knowledge/systems/a3-urinary/system.json';
 const EXPECTED_QUESTION_TRUTH_HASH = '0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82';
 const EXPECTED_A3_HASH = 'bd8082bf9b82d00411f5d3dcaa09f56626c0c08b688e108f728f7da6e2f9b84e';
 const PHASE = String(process.env.A3_SOURCE_PHASE || 'all').trim().toLowerCase();
@@ -78,18 +78,27 @@ if (shouldRun('owner')) {
 }
 
 if (shouldRun('truth')) {
-  // Same deterministic Current loader used by accepted A1/A2. This checks the
-  // Current 3750-question identity, scope count/hash and every selected ID.
-  const system = loadXizongSystem('urinary');
-  assert(system.canonicalId === 'A3', `runtime-canonical-id:${system.canonicalId}`);
-  const sweep = loadXizongSystemQuestionSweep(system);
+  // S must not depend on K acceptance. The System-level semantic owner remains
+  // intentionally WORKING_A3_SYSTEM_K_NOT_ACCEPTED until the later K gate.
+  // Question-scope loading only needs stable System identity from the S owner.
+  const workingSystem = readJson(SYSTEM_PATH);
+  assert(workingSystem?.system_id === 'urinary' && workingSystem?.canonical_id === 'A3', 'working-system-identity');
+  assert(workingSystem?.status === 'K_WORKING_SYSTEM_TOP', `working-system-status:${workingSystem?.status}`);
+  assert(workingSystem?.semantic_authority === 'WORKING_A3_SYSTEM_K_NOT_ACCEPTED', `working-system-authority:${workingSystem?.semantic_authority}`);
+
+  const sourceIdentity = {
+    systemId: owner.system.system_id,
+    canonicalId: owner.system.canonical_id,
+    title: owner.system.title
+  };
+  const sweep = loadXizongSystemQuestionSweep(sourceIdentity);
   assert(sweep, 'runtime-sweep-missing');
   assert(sweep.questionCount === 243, `runtime-count:${sweep.questionCount}`);
   assert(sweep.questions.length === 243, `runtime-loaded-count:${sweep.questions.length}`);
   assert(new Set(sweep.questions.map((question) => question.questionId)).size === 243, 'runtime-question-id-duplicate');
   assert(sweep.questionInventoryHash === EXPECTED_A3_HASH, `runtime-inventory-hash:${sweep.questionInventoryHash}`);
   assert(sweep.scopePath === OWNER_PATH, `runtime-owner-path:${sweep.scopePath}`);
-  console.log(`A3 Current Question Truth PASS | Questions=${sweep.questionCount} | Scope=${sweep.scopePath}`);
+  console.log(`A3 Current Question Truth PASS | Questions=${sweep.questionCount} | Scope=${sweep.scopePath} | KGateDependency=0`);
 }
 
 if (shouldRun('boundary')) {
