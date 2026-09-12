@@ -1,0 +1,269 @@
+{
+  "schema": "kianos.xizong.system.v1",
+  "status": "K_WORKING_SYSTEM_TOP",
+  "semantic_authority": "WORKING_A3_SYSTEM_K_NOT_ACCEPTED",
+  "system_id": "urinary",
+  "canonical_id": "A3",
+  "title": "泌尿系统",
+  "identity": {
+    "block_count": 14,
+    "canonical_kp_count": 257,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "ownership": {
+    "system_level_owner": "system.json after System-level K acceptance",
+    "transition_owner": "content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
+    "medical_core_owner": "blocks/",
+    "logic_index_role": "STRUCTURAL_LEARNING_INDEX_ONLY",
+    "rule": "This working System owner may organize and compress the accepted 14-Block medical Core, but it may not override Block/KP medical truth. Until System-level K is accepted and semantic_authority is promoted, the historical System Guide remains the transitional System-level authority."
+  },
+  "scope_boundary": {
+    "current": "A3 urinary System only",
+    "not_owned_here": [
+      "cardio-pulmonary-renal SuperSystem",
+      "complete endocrine PTH/VitD/aldosterone disease models",
+      "complete systemic immune disease models",
+      "complete tumor-general overlay",
+      "complete ICU/fluid-resuscitation model"
+    ],
+    "rule": "Cross-System relations may be explicit inputs/outputs, but this owner must not pre-build the higher SuperSystem layer."
+  },
+  "mission": "在排出代谢废物和异物的同时，持续维持细胞外液容量、渗透压、电解质、酸碱及肾脏内分泌稳态，并把形成的终尿安全排出体外。面对异常时，先沿灌注—滤过—分段小管处理—浓缩/末端调节—尿液证据—尿路出口定位第一故障，再进入具体疾病模型。",
+  "mental_model": {
+    "mother_model": "血液进入肾脏 → 灌注器把血送到肾小球 → 滤过器决定滤多少/漏什么 → 分段小管选择性回收与分泌 → 髓质梯度和激素决定终尿水盐酸碱 → 尿液成为系统日志 → 尿路完成运送、储存与排空。",
+    "spine": [
+      "肾灌注与肾单位血管空间",
+      "肾小球滤过量与滤过选择性",
+      "小管分段重吸收/分泌",
+      "髓质梯度、ADH与终尿浓缩稀释",
+      "容量/Na/K/Ca/酸碱稳态",
+      "尿液证据与总/分肾功能",
+      "AKI/CKD、感染、肾小球疾病的实质故障定位",
+      "尿路梗阻、结石、肿瘤、外伤的出口/结构故障定位"
+    ],
+    "parallel_controls": [
+      "球旁器/交感/RAAS持续根据灌注与远端NaCl调整肾血流、GFR与保钠",
+      "ADH与髓质梯度持续根据水状态调整终尿水通透性",
+      "醛固酮/ENaC/ROMK与酸排泄共同完成Na-K-H末端精调",
+      "EPO与1α-羟化酶把肾功能连接到造血与骨矿代谢",
+      "尿液、Cr/eGFR、影像与LM/IF/EM从结果端反向定位第一故障"
+    ]
+  },
+  "core_variables": [
+    "RBF",
+    "RPF",
+    "GFR",
+    "FF",
+    "Kf",
+    "effective filtration pressure",
+    "clearance",
+    "filtered load",
+    "Tm",
+    "renal threshold",
+    "urine flow",
+    "urine osmolality",
+    "ECF volume",
+    "effective arterial blood volume",
+    "Na+",
+    "K+",
+    "Ca2+",
+    "HCO3-",
+    "H+",
+    "NH4+",
+    "pH",
+    "PaCO2",
+    "proteinuria",
+    "hematuria",
+    "pyuria",
+    "casts",
+    "Cr",
+    "BUN",
+    "eGFR",
+    "residual urine",
+    "urinary obstruction"
+  ],
+  "core_relations": [
+    "Clearance C = U × V / P",
+    "FF = GFR / RPF",
+    "Excretion = filtered load - reabsorption + secretion",
+    "GFR depends on filtration pressure, RPF and Kf; filtration amount and filtration selectivity are different problems",
+    "distal NaCl and renal perfusion participate in bidirectional tubuloglomerular/JGA feedback rather than a one-way renin story",
+    "Na balance primarily organizes ECF volume while water balance organizes tonicity; serum Na is not total-body Na",
+    "urine findings are evidence of location/function, not a disease name by themselves",
+    "AKI localization begins with perfusion vs intrinsic renal process vs urinary obstruction",
+    "glomerular diagnosis requires clinical syndrome + LM/IF/EM injury pattern + etiologic context rather than pattern = etiology",
+    "dangerous hyperkalemia/acidosis/volume overload/uremic organ injury outrank a single Cr/BUN number when considering kidney replacement therapy"
+  ],
+  "failure_modes": [
+    ["FM1", "肾灌注不足", "血到不了肾或有效动脉血容量不足 → GFR下降；持续时可进入实质损伤"],
+    ["FM2", "滤过动力或Kf异常", "入/出球阻力、囊内压、胶体渗透压或滤过面积改变 → 滤得少"],
+    ["FM3", "滤过屏障选择性破坏", "屏障结构/选择性异常 → 蛋白或血细胞异常漏入尿液"],
+    ["FM4", "小管分段转运失败", "重吸收/分泌异常 → 糖、电解质、酸碱或小分子处理异常"],
+    ["FM5", "浓缩/稀释失败", "梯度建立、梯度维持或水通透性任一环节失败 → 多尿/低比重或水稳态异常"],
+    ["FM6", "免疫性肾小球损伤", "immune-complex、anti-GBM或pauci-immune等机制 → 肾炎/肾病综合征及不同病理模式"],
+    ["FM7", "小管-间质/尿路感染炎症", "上行感染、慢性瘢痕或结核等 → 尿路症状、小管功能和结构损害"],
+    ["FM8", "尿流通路受阻", "BPH、结石、狭窄、肿瘤或排空障碍 → 上游压力升高、积水和肾后性功能下降"],
+    ["FM9", "结构破坏、肿块或外伤", "肾/尿路肿瘤或创伤破坏器官与尿路连续性，需先按稳定性、空间和器官任务定位"]
+  ],
+  "judgment_axes": [
+    "肾前/灌注不足 vs 肾实质 vs 肾后/梗阻",
+    "滤得少 vs 屏障漏",
+    "肾小球 vs 小管-间质 vs 尿路出口",
+    "容量异常 vs 张力异常 vs 电解质异常 vs 酸碱异常",
+    "急性 vs 慢性",
+    "肾炎综合征 vs 肾病综合征 vs 其他临床综合征",
+    "临床综合征 vs LM/IF/EM损伤模式 vs 最终病因",
+    "总肾功能 vs 分肾功能",
+    "感染/炎症 vs 梗阻/结石 vs 肿瘤 vs 外伤",
+    "血流动力学稳定 vs 不稳定",
+    "当前危险处理 vs 306 Source Precision/后续根治"
+  ],
+  "block_route": [
+    {"id":"urinary-b01","label":"B1","title":"肾脏总地图、清除率、肾血流与内分泌","kp":15},
+    {"id":"urinary-b02","label":"B2","title":"肾小球滤过屏障与GFR","kp":14},
+    {"id":"urinary-b03","label":"B3","title":"分段小管转运与利尿剂","kp":19},
+    {"id":"urinary-b04","label":"B4","title":"容量激素与尿液浓缩稀释","kp":19},
+    {"id":"urinary-b05","label":"B5","title":"水钠钾钙与酸碱整合","kp":20},
+    {"id":"urinary-b06","label":"B6","title":"尿液证据与肾功能诊断语言","kp":16},
+    {"id":"urinary-b07","label":"B7","title":"AKI、CKD与透析","kp":20},
+    {"id":"urinary-b08","label":"B8","title":"细菌性尿路感染","kp":17},
+    {"id":"urinary-b09","label":"B9","title":"肾小球免疫机制与双坐标地图","kp":18},
+    {"id":"urinary-b10","label":"B10","title":"肾炎分支：急性、急进、IgA与慢性肾炎","kp":26},
+    {"id":"urinary-b11","label":"B11","title":"肾病综合征分支：大量蛋白漏出与病理类型","kp":24},
+    {"id":"urinary-b12","label":"B12","title":"排尿梗阻、结石、BPH与尿失禁","kp":17},
+    {"id":"urinary-b13","label":"B13","title":"肾结核与泌尿系统肿瘤","kp":18},
+    {"id":"urinary-b14","label":"B14","title":"泌尿系外伤","kp":14}
+  ],
+  "logic_index": {
+    "urinary-b01": [
+      {"id":"urinary-b01-lg01","label":"肾脏任务与总地图","kp":[1,1]},
+      {"id":"urinary-b01-lg02","label":"肾脏内分泌与球旁传感器","kp":[2,3]},
+      {"id":"urinary-b01-lg03","label":"肾单位与血管空间","kp":[4,5]},
+      {"id":"urinary-b01-lg04","label":"清除率与肾功能测量","kp":[6,9]},
+      {"id":"urinary-b01-lg05","label":"自身调节与双向TGF","kp":[10,13]},
+      {"id":"urinary-b01-lg06","label":"正常排尿与神经层级","kp":[14,15]}
+    ],
+    "urinary-b02": [
+      {"id":"urinary-b02-lg01","label":"滤过屏障与选择性","kp":[1,2]},
+      {"id":"urinary-b02-lg02","label":"有效滤过压与GFR总模型","kp":[3,6]},
+      {"id":"urinary-b02-lg03","label":"血管与滤过阻力修饰","kp":[7,11]},
+      {"id":"urinary-b02-lg04","label":"整合性滤过故障定位","kp":[12,14]}
+    ],
+    "urinary-b03": [
+      {"id":"urinary-b03-lg01","label":"小管方向与球管平衡","kp":[1,2]},
+      {"id":"urinary-b03-lg02","label":"近端回收与渗透性利尿","kp":[3,8]},
+      {"id":"urinary-b03-lg03","label":"HCO3回收与氨排酸","kp":[9,10]},
+      {"id":"urinary-b03-lg04","label":"集合管Na-K-H末端精调","kp":[11,14]},
+      {"id":"urinary-b03-lg05","label":"利尿剂靶点地图","kp":[15,19]}
+    ],
+    "urinary-b04": [
+      {"id":"urinary-b04-lg01","label":"容量感知与RAAS肾端","kp":[1,5]},
+      {"id":"urinary-b04-lg02","label":"ADH与ANP控制轴","kp":[6,9]},
+      {"id":"urinary-b04-lg03","label":"髓质梯度与水通道","kp":[10,14]},
+      {"id":"urinary-b04-lg04","label":"小管液渗透压电影","kp":[15,17]},
+      {"id":"urinary-b04-lg05","label":"浓缩失败与多尿鉴别","kp":[18,19]}
+    ],
+    "urinary-b05": [
+      {"id":"urinary-b05-lg01","label":"容量、张力、Na与三类脱水","kp":[1,6]},
+      {"id":"urinary-b05-lg02","label":"高钾危险与抗/转/排/稀","kp":[7,10]},
+      {"id":"urinary-b05-lg03","label":"低钾、补钾与K-H情境门","kp":[11,15]},
+      {"id":"urinary-b05-lg04","label":"Ca与神经肌肉/心电兴奋性","kp":[16,17]},
+      {"id":"urinary-b05-lg05","label":"酸碱四层调节底座","kp":[18,18]},
+      {"id":"urinary-b05-lg06","label":"Expected compensation、AG与混合算法","kp":[19,20]}
+    ],
+    "urinary-b06": [
+      {"id":"urinary-b06-lg01","label":"证据地图与蛋白尿五路","kp":[1,6]},
+      {"id":"urinary-b06-lg02","label":"血尿阈值与肾小球来源","kp":[7,9]},
+      {"id":"urinary-b06-lg03","label":"脓尿与五类管型","kp":[10,12]},
+      {"id":"urinary-b06-lg04","label":"总肾功能与分肾功能","kp":[13,14]},
+      {"id":"urinary-b06-lg05","label":"尿三杯与最终证据算法","kp":[15,16]}
+    ],
+    "urinary-b07": [
+      {"id":"urinary-b07-lg01","label":"急慢与AKI第一故障","kp":[1,3]},
+      {"id":"urinary-b07-lg02","label":"AKI时间轴与确认","kp":[4,7]},
+      {"id":"urinary-b07-lg03","label":"CKD毒素与系统表现","kp":[8,10]},
+      {"id":"urinary-b07-lg04","label":"CKD-MBD、急慢鉴别与GFR分期","kp":[11,14]},
+      {"id":"urinary-b07-lg05","label":"残余肾单位保护与输入减负","kp":[15,16]},
+      {"id":"urinary-b07-lg06","label":"KRT指征、方式与最终算法","kp":[17,20]}
+    ],
+    "urinary-b08": [
+      {"id":"urinary-b08-lg01","label":"上行感染、复杂化与ASB","kp":[1,5]},
+      {"id":"urinary-b08-lg02","label":"感染证据与上/下尿路定位","kp":[6,9]},
+      {"id":"urinary-b08-lg03","label":"留标本、疗程、复发与药物边界","kp":[10,13]},
+      {"id":"urinary-b08-lg04","label":"慢性肾盂肾炎与尿道综合征","kp":[14,16]},
+      {"id":"urinary-b08-lg05","label":"UTI最终病例算法","kp":[17,17]}
+    ],
+    "urinary-b09": [
+      {"id":"urinary-b09-lg01","label":"病因身份与肾活检角色","kp":[1,2]},
+      {"id":"urinary-b09-lg02","label":"免疫损伤入口","kp":[3,6]},
+      {"id":"urinary-b09-lg03","label":"沉积空间与LM/IF/EM","kp":[7,9]},
+      {"id":"urinary-b09-lg04","label":"五类临床综合征","kp":[10,15]},
+      {"id":"urinary-b09-lg05","label":"命名边界与双坐标算法","kp":[16,18]}
+    ],
+    "urinary-b10": [
+      {"id":"urinary-b10-lg01","label":"急性GN身份与病理电影","kp":[1,4]},
+      {"id":"urinary-b10-lg02","label":"补体、活检与重症出口","kp":[5,8]},
+      {"id":"urinary-b10-lg03","label":"RPGN新月体与三种免疫模式","kp":[9,16]},
+      {"id":"urinary-b10-lg04","label":"IgA身份与鉴别","kp":[17,20]},
+      {"id":"urinary-b10-lg05","label":"慢性GN终末路径与保护","kp":[21,25]},
+      {"id":"urinary-b10-lg06","label":"肾炎最终病例算法","kp":[26,26]}
+    ],
+    "urinary-b11": [
+      {"id":"urinary-b11-lg01","label":"肾病综合征共同模型","kp":[1,4]},
+      {"id":"urinary-b11-lg02","label":"血栓、感染与AKI","kp":[5,9]},
+      {"id":"urinary-b11-lg03","label":"治疗Precision与病因owner","kp":[10,12]},
+      {"id":"urinary-b11-lg04","label":"MCD与膜性经典模型","kp":[13,16]},
+      {"id":"urinary-b11-lg05","label":"MsPGN、MPGN、FSGS模式","kp":[17,21]},
+      {"id":"urinary-b11-lg06","label":"传统五型索引到最终算法","kp":[22,24]}
+    ],
+    "urinary-b12": [
+      {"id":"urinary-b12-lg01","label":"排尿控制与梗阻底座","kp":[1,2]},
+      {"id":"urinary-b12-lg02","label":"BPH身份、症状与评估","kp":[3,5]},
+      {"id":"urinary-b12-lg03","label":"BPH治疗与并发症","kp":[6,8]},
+      {"id":"urinary-b12-lg04","label":"结石成分、位置与危险","kp":[9,12]},
+      {"id":"urinary-b12-lg05","label":"结石减压与术式Precision","kp":[13,15]},
+      {"id":"urinary-b12-lg06","label":"四类尿失禁与最终算法","kp":[16,17]}
+    ],
+    "urinary-b13": [
+      {"id":"urinary-b13-lg01","label":"肾结核器官链与治疗边界","kp":[1,5]},
+      {"id":"urinary-b13-lg02","label":"血尿与器官定位","kp":[6,7]},
+      {"id":"urinary-b13-lg03","label":"肾癌与上尿路UC","kp":[8,10]},
+      {"id":"urinary-b13-lg04","label":"膀胱UC与Ta/Tis/T1/T2","kp":[11,12]},
+      {"id":"urinary-b13-lg05","label":"前列腺癌与检查任务层","kp":[13,16]},
+      {"id":"urinary-b13-lg06","label":"血尿Recall与反向算法","kp":[17,18]}
+    ],
+    "urinary-b14": [
+      {"id":"urinary-b14-lg01","label":"稳定性、机制与尿道入口","kp":[1,3]},
+      {"id":"urinary-b14-lg02","label":"前后尿道空间模型","kp":[4,6]},
+      {"id":"urinary-b14-lg03","label":"膀胱造影与内外处理","kp":[7,9]},
+      {"id":"urinary-b14-lg04","label":"肾外伤稳定性与最终算法","kp":[10,14]}
+    ]
+  },
+  "dependency_dag": [
+    "B1→B2",
+    "B2→B3",
+    "B3→B4",
+    "B3+B4→B5",
+    "B5→B6",
+    "B1-B6→B7",
+    "B6→B8",
+    "B2+B6→B9",
+    "B9→B10/B11",
+    "B1+B5+B6→B12",
+    "B6+B8+B12→B13",
+    "B1+B6+B12→B14"
+  ],
+  "system_recall": {
+    "neutral_front": "闭卷从‘血进入肾脏’开始，完整恢复灌注→滤过→小管处理→浓缩/激素→终尿→尿液证据→尿路出口。随后再回答：当尿量、Cr/eGFR、Na/K/pH、蛋白尿、血尿、脓尿或影像异常时，第一故障更像发生在哪一层？",
+    "reverse_case_algorithm": [
+      "先判是否存在立即危险：休克/无尿、严重高钾、严重酸碱、容量超负荷、脓毒症或外伤不稳定",
+      "再判急性还是慢性，并把功能下降先分肾前/肾性/肾后",
+      "用尿液证据判断肾小球、小管-间质还是尿路来源",
+      "若以蛋白尿/血尿为主，先定临床综合征，再用LM/IF/EM损伤模式回到病因",
+      "若以感染/梗阻/结石/血尿/外伤为主，按尿路空间、器官和影像任务定位",
+      "最后才调用药物、阈值、术式和306 Source Precision，不让它们替代第一故障模型"
+    ]
+  }
+}
