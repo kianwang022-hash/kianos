@@ -1,0 +1,99 @@
+{
+  "schema": "kianos.xizong.gate_evidence.v1",
+  "status": "CURRENT",
+  "role": "A2_K_GATE_EVIDENCE_ONLY",
+  "authority": "LEARNING_ACCEPTANCE_REAUDIT",
+  "module": {
+    "canonical_id": "A2",
+    "system_id": "respiratory"
+  },
+  "standard": {
+    "path": "LEARNING_ACCEPTANCE.md",
+    "sha": "a174880fc6777df118ef408b5a5ad1f0afe77213",
+    "gate": "K"
+  },
+  "audited_shape": {
+    "canonical_blocks": 12,
+    "stable_kp": 236,
+    "logic_groups": 62,
+    "official_system_question_scope": 359
+  },
+  "semantic_gate": {
+    "status": "PASS",
+    "decision": "The canonical System plus all 12 Block medical-Core owners are complete enough for first learning: each owns a real center question, mechanism/evidence chain, execution or case-routing rules, explicit boundaries, and a unique role in the respiratory failure model. No stable medical-Core question remains undefined after the source-conflict closures below.",
+    "mechanical_guard_role": "SUPPORTING_EVIDENCE_ONLY",
+    "mechanical_guard_expected_output": "K_STRUCTURE_EVIDENCE_PASS / semantic_gate: UNTESTED",
+    "pr_synthetic_merge_validation": "PENDING"
+  },
+  "criteria": {
+    "canonical_owner_and_path": "PASS",
+    "hierarchy_is_real_knowledge_not_teacher_or_question_order": "PASS",
+    "stable_high_value_concepts_are_actually_taught": "PASS",
+    "mechanisms_relations_boundaries_and_execution_rules": "PASS",
+    "duplicate_semantic_owner_avoided": "PASS",
+    "cross_owner_routing_explicit": "PASS",
+    "examples_and_cases_support_the_intended_concept": "PASS",
+    "complete_enough_for_first_learning_without_encyclopedia_expansion": "PASS",
+    "no_unresolved_stable_source_gap_or_pending_semantic_marker": "PASS"
+  },
+  "block_closure": {
+    "R1": "PASS — measurement language, ventilation mechanics, compliance/resistance and pulmonary-function direction form the normal ventilation owner.",
+    "R2": "PASS — diffusion, VA/Q, gas transport and respiratory control provide the shared gas-exchange variables used downstream.",
+    "R3": "PASS — smoking/small-airway injury to emphysema, obstruction, ABG and stable/AECOPD treatment is one coherent COPD model.",
+    "R4": "PASS — inflammation/hyperresponsiveness to variable obstruction, reversibility evidence, acute relief and long-term control is closed with COPD/cardiac boundaries.",
+    "R5": "PASS — environment, lesion space, pathogen evidence, severity and pneumonia-specific morphology/treatment route cleanly into complications and downstream owners.",
+    "R6": "PASS — bronchiectatic structural destruction and lung-abscess cavitation remain distinct while sharing sputum/hemoptysis/cavity reasoning; TB/cancer are comparison interfaces only.",
+    "R7": "PASS — TB transmission/immune pathology, primary-secondary-host states, six forms, activity/infectivity evidence and treatment form one stable owner.",
+    "R8": "PASS — restriction-diffusion-hypoxemia is the common ILD spine; IPF, sarcoid, PAP, hypersensitivity/eosinophilic disease and silicosis stay separately identifiable.",
+    "R9": "PASS — chronic PVR rise/right-ventricular hypertrophy and acute PTE/right-ventricular dilation are separated by time scale; the PDE5 second-messenger conflict is explicitly resolved as R9-SC01.",
+    "R10": "PASS — pleural content, pressure, mediastinal shift, chest-wall stability and hemodynamics unify effusion/hemothorax/empyema/pneumothorax/trauma; drug-effusion classification conflict is resolved as R10-SC01.",
+    "R11": "PASS — location, histology, extension, evidence, TNM and treatment form a single lung-cancer chain; official 2026 N129 closes the narrower carcinoid-syndrome 'most common' choice without inventing a question relation.",
+    "R12": "PASS — upstream failure modes converge into oxygenation vs ventilation failure; ARDS, type I/II respiratory failure and lung-protective support are integrated while full modern ICU models remain explicit external scope rather than a Source Gap."
+  },
+  "system_level_closure": {
+    "failure_mode_spine": "PASS — airway, pump/chest wall, alveolar filling/collapse, membrane, VA/Q, pulmonary vascular, controller and structural/occupying failures cover the 12 Blocks without needing a second owner.",
+    "dependency_dag": "PASS — R1/R2 supply common physiology; R3-R11 own disease/location-specific failures; R12 is the shared severe endpoint.",
+    "cross_block_boundaries": "PASS — adjacent Blocks compare or Recall each other but do not duplicate the complete disease model.",
+    "cross_system_boundaries": "PASS — circulation, hematology, renal acid-base, neuromuscular and global tumor/inflammation models remain explicitly routed to their owners."
+  },
+  "resolved_source_conflicts": [
+    {
+      "id": "R9-SC01",
+      "legacy_claim": "Sildenafil/PDE branch cAMP↑",
+      "canonical_resolution": "PDE5 degrades cGMP; sildenafil inhibits PDE5, increases pulmonary vascular smooth-muscle cGMP and produces relaxation.",
+      "authority": "FDA REVATIO Prescribing Information §12.1 Mechanism of Action",
+      "verified_on": "2026-09-12"
+    },
+    {
+      "id": "R10-SC01",
+      "legacy_claim": "Drug allergy listed as transudative pleural effusion",
+      "canonical_resolution": "Drug/hypersensitivity-related pleural inflammation is exudative; transudates are systemic hydrostatic/oncotic imbalance.",
+      "authority": "AAFP Pleural Effusion: Diagnostic Approach in Adults (2023); Merck Manual Professional Pleural Effusion",
+      "verified_on": "2026-09-12"
+    },
+    {
+      "id": "R11-SG01",
+      "legacy_claim": "2026 'most common lung-cancer type causing carcinoid syndrome' answer unresolved",
+      "canonical_resolution": "Official 2026 N129 answer C | 小细胞癌; broader Lecture pairing 小细胞癌 + 腺癌 remains valid for the non-exclusive question.",
+      "authority": "content/xizong/questions/shards/2026/q126-150.json / xizong-official-2026-n129"
+    }
+  ],
+  "non_blocking_source_catalog_debt": [
+    "R1 U015 canonical count 35 vs visible numbering 34.",
+    "R2 U017 canonical count 22 vs visible numbering 23.",
+    "R10 U029 canonical metadata 5 vs six visible numbered prompts; all visible prompts are routed while coverage follows canonical catalog 31 across U026-U030."
+  ],
+  "guard_repairs": [
+    "Guard reads System formal_source_gaps in addition to Block Markdown.",
+    "Guard scans System Logic labels and Block text for standalone Source Gap/TODO plus pending semantic-review markers including 待核对/待确认/未核对/待裁决.",
+    "Source-gap token matching is boundary-safe so `source_gap_boundary = PASS` cannot create a false blocker."
+  ],
+  "stage_boundary": {
+    "P": "UNTESTED",
+    "R": "UNTESTED",
+    "E": "UNTESTED",
+    "U": "UNTESTED_BY_REAL_LEARNER_PATH_ONLY",
+    "rule": "Do not promote P/R/E from K or from CI/build. U cannot be promoted by synthetic evidence."
+  },
+  "next_action_after_green_pr_validation": "Persist A2 K PASS into acceptance-status.json and continuation.json, merge the K-stage PR safely against latest main, then start A2 P/R/E as a separate acceptance stage."
+}
