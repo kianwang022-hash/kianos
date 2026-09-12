@@ -12,7 +12,8 @@ This file does not own lexical semantics, lane learning semantics, Acceptance Tr
 **Active / earliest unresolved stage:** `K — Knowledge re-acceptance / migration semantic-integrity closure`  
 **Blocker:** known Current semantic-fidelity defects remain; full-catalog K is BLOCKED  
 **Current work owner:** GitHub Issue #6 + `content/lexical/audit/knowledge-reacceptance/`  
-**Next action:** continue the bounded K re-acceptance / migration-integrity audit from current Issue #6 and the latest main evidence. Classify and close P0/P1 defects before unrestricted learner-runtime validation. Do not restart a 7,946-word review and do not infer new semantic authority mechanically.
+**Latest exact checkpoint:** `content/lexical/audit/knowledge-reacceptance/batches/r12-2101-2140-core-expansion.json` — R12 ordinals 2101–2140 Core + Expansion reconciliation complete for all historically approved affected owners in that range; 18 Core decisions checked (3 Current-correct / 15 defective) and 7 Expansion owner-groups checked (1 Current-correct / 1 presentation-only gap / 5 phrase-landing gaps). No Natural Owner semantic mutation was performed. A real P0 carrier-loss state was reproduced at `word:gentle`; severe carrier/authority loss was also reproduced at `word:ghost`.  
+**Next action:** continue the bounded R12 Core + Expansion reconciliation from ordinal 2141 onward against the historical approved authority already named by Issue #6. Keep Contrast checkpoint A as existing evidence; do not restart a 7,946-word review. After R12 coverage is complete, continue R13+ and later build one consolidated exact repair inventory before semantic mutation.
 
 Rule-layer work does not own lexical semantic mutation. Natural Owner / Relation repair remains inside the active Lexical K authority and must always use the latest Current owner before mutation.
 
