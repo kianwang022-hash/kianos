@@ -4,7 +4,7 @@ Status: CURRENT
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: LexicalOS lane Acceptance Truth
 
-This file owns current learner-readiness claims for LexicalOS. It does not own lexical semantics, lane learning semantics, the K audit procedure, Work Cursor, or Kian's private learner evidence.
+This file owns current learner-readiness claims for LexicalOS. It does not own lexical semantics, lane learning semantics, the K repair procedure, Work Cursor, or Kian's private learner evidence.
 
 ---
 
@@ -22,15 +22,15 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Current Natural Owner/source boundary and a mature accepted learning model, but full-catalog Knowledge is reopened and BLOCKED by migration semantic-integrity defects. Downstream full-catalog P/R/E readiness cannot be claimed until K closes; unrestricted learner U remains UNTESTED.**
+> **LexicalOS has a stable Current Natural Owner/source boundary and a mature accepted learning model. The bounded historical semantic first-pass is now complete through all 7,946 ordinals, but full-catalog Knowledge remains BLOCKED because the discovered semantic debt has not yet been repaired. Downstream full-catalog P/R/E readiness cannot be claimed until the consolidated repair inventory is closed; unrestricted learner U remains UNTESTED.**
 
-The blocker is upstream semantic fidelity, not absence of runtime code.
+The blocker is upstream semantic fidelity, not absence of runtime code and no longer absence of audit coverage.
 
 ---
 
 ## S｜Source / authority boundary — PASS
 
-Current owner architecture is explicit:
+Current owner architecture remains explicit:
 
 - **7,946 Word Natural Owners**;
 - **369 Relation Owners**;
@@ -41,42 +41,59 @@ Current owner architecture is explicit:
 
 `semantic_delta = 0` proves faithful reconstruction of the then-current canonical representation. It does **not** prove that every earlier Chat-approved semantic operation had been correctly realized before cutover.
 
-Historical semantic authority may be used only in the bounded migration-integrity audit. It is evidence, not a runtime fallback and not immutable ontology.
+Historical semantic authority was used only as bounded migration-integrity evidence. With R31 complete, routine K work must not resume open-ended legacy archaeology: the durable checkpoints plus latest Chat judgments now feed one consolidated Current repair inventory.
 
 ---
 
-## K｜Knowledge — BLOCKED
+## K｜Knowledge — BLOCKED, audit coverage complete
 
-Known defect classes include P0 owner-health failures, stale/misbound carriers, missing approved senses/constructions/phrases, relation gaps, operation-target vs KEEP/PRESERVE binding errors, overmerge/carrier loss, wrong anchors, stale duplicate representation, and ownership mistakes between Word/Identity/Form and Relation layers.
+Known defect classes include P0 owner-health failures, stale/misbound carriers, missing approved senses/constructions/phrases, relation gaps, operation-target vs KEEP/PRESERVE binding errors, overmerge/carrier loss, wrong anchors, stale duplicate representation, bilingual contamination, learner-value priority errors, and ownership mistakes between Word/Identity/Form and Relation layers.
 
 Current K exit rule remains:
 
 - P0 = 0;
 - known P1 authority-fidelity defects = 0;
-- known approved semantic debt classified and closed;
+- known approved semantic debt classified, repaired and read back;
 - repeated stratified samples stop exposing systematic lifecycle/binding defects;
 - rich-word samples show trustworthy learner-value selection rather than dictionary accumulation;
 - a documented stop rule has been reached.
 
-### Current exact acceptance evidence
+### Historical audit coverage — CLOSED
 
-- Issue #6 is the active migration semantic-integrity work owner.
-- Detailed round evidence is durable under `content/lexical/audit/knowledge-reacceptance/batches/`; this file intentionally keeps only current acceptance truth rather than duplicating every historical packet.
-- **R23 — 5301–5600**, checkpoint commit `05c7a4ee16209dcb5692643d9a95580c30e9bf60`: 84 Core = **18 Current-correct / 66 defective-or-upgrade-required**, including **7 Active=0 P0** and **0 dead anchors**; 101 exact Expansion surface/family groups = **49 correct / 15 partial / 37 missing**; Contrast = **2 complete / 1 partial / 66 missing**. Semantic and learner-state mutation remained **0**.
-- **R24 — 5601–5900**, checkpoint commit `7f0c47779a229147f3bf3840c4ed05caecff3a97`: 91 Core = **51 Current-correct / 40 defective-or-upgrade-required**, with **0 Active=0 P0** and **0 dead anchors**; 61 exact Expansion surface/family groups = **7 correct / 24 partial / 30 missing**, including explicit `hassle-free` **OWNER_ABSENT** debt; Contrast = **0 complete / 1 partial / 79 missing**. Semantic and learner-state mutation remained **0**.
-- **R25 — 5901–6200**, checkpoint commit `e332d7b25fedc2279f93ffda5eb4ead2a6003de1`: 101 Core = **22 Current-correct / 79 defective-or-upgrade-required**, including **33 Active=0 P0** and **0 dead anchors**; 92 exact Expansion surface/family groups = **3 correct / 13 partial / 76 missing**; 80 Contrast targets = **70 genuine Relation targets all missing + 10 Word/Identity/Form targets all missing**. Overall Contrast = **0 complete / 80 missing**. A 12-owner historical Core-direct-pass calibration sample found **0 new systematic Core defects**. Semantic and learner-state mutation remained **0**.
-- **R26 — 6201–6500**, checkpoint commit `9bd98ae0524f4dcf6457166a83afb24ec6b51ff7`: 97 Core = **13 Current-correct / 84 defective-or-upgrade-required**, including **26 Active=0 P0** and **0 dead anchors**; 87 exact Expansion surface/family groups = **13 correct / 35 partial / 39 missing**; 86 Contrast targets were re-owned as **80 genuine Relation targets = 0 correct / 1 partial / 79 missing** plus **6 Word/Identity/Form targets = 6 missing**. Overall Contrast = **0 complete / 1 partial / 85 missing**. A 12-owner historical Core-direct-pass calibration sample found **0 new systematic Core defects**. R26 also hardened compound-surface owner resolution (`high-caliber` → `caliber`) without changing approved surface text. Semantic and learner-state mutation remained **0**.
-- **R27 — 6501–6800**, checkpoint commit `e3fdb557f5c7738563a0c528389aa29ae7b1d384`: 83 Core = **5 Current-correct / 78 defective-or-upgrade-required**, including **16 Active=0 P0** and **0 dead anchors**; historical Expansion coverage enumerates 144 target words while exact learner acceptance uses 116 surface/family groups = **33 correct / 50 partial-or-presentation-or-wrong-anchor / 33 missing**; all **80 Contrast targets are Relation-owned and missing**. A 12-owner historical Core-direct-pass calibration sample found **0 new systematic defect classes**, while retaining two isolated latest-target upgrades (`enervate`, `exterminate`) for the consolidated repair inventory. R27 also strengthened evidence readback so Expansion rows carry compact Current owner projections, allowing Chat to distinguish semantic-family presence from phrase/construction presentation absence. Semantic and learner-state mutation remained **0**.
-- **R28 — 6801–7100**, checkpoint commit `0937f9f45568cb4503085feac31abccf9b82c3ad`: 86 Core = **7 Current-correct / 79 defective-or-upgrade-required**, including **14 Active=0 P0** and **0 dead anchors**; historical Expansion coverage enumerates 152 target words while exact learner acceptance uses 88 high-transfer surface/family groups = **35 correct / 27 partial-or-presentation-or-wrong-anchor / 26 missing**; 80 Contrast targets were re-owned as **79 genuine Relation targets all missing + 1 Word/Identity/Form target (`hamlet/Hamlet`) missing**. Overall Contrast = **0 complete / 80 missing**. A 12-owner historical Core-direct-pass calibration sample found **0 new systematic defect classes** and retained isolated latest-target upgrades for `gainsay` and `intercept`. R28 also fixed generic comma-grouped surface transport after a fail-closed first run and explicitly classified transparent morphology/derivation misses (`fortified`→`fortify`, `iterative`→`iterate`) from Current owner evidence rather than treating transport misses as semantic absence. Semantic and learner-state mutation remained **0**.
-- **R29 — 7101–7400**, checkpoint commit `517256c66e885230725825021ba17c08cfae576d`: 85 Core = **1 Current-correct / 84 defective-or-upgrade-required**, with **0 Active=0 P0** and **0 dead anchors**; all 85 Core owners are structurally health-clean, proving owner health is not semantic acceptance. Historical Expansion coverage enumerates 155 target words while exact learner acceptance uses 114 high-transfer surface/family groups = **67 correct / 23 partial-or-presentation-or-wrong-anchor / 24 missing**; Contrast is **79 cross-word Relation targets missing + 1 same-word Natural-Owner polysemy boundary (`oversight`) partial**, for overall **0 complete / 1 partial / 79 missing**. A 12-owner historical Core-direct-pass calibration sample found **0 new systematic defect classes and no new isolated repair target outside debt already captured by R29 Expansion**. Semantic and learner-state mutation remained **0**.
+- Durable semantic re-acceptance checkpoints now cover **R12–R31**, terminating at **7701–7946**.
+- The R31 historical source explicitly states that the bounded Owner semantic first-pass is complete through corpus end **1–7946**.
+- Coverage completion means **discovery/target coverage only**. It does not mean K PASS and it does not authorize unrestricted learner use.
+- Natural Word owners, Relation owners and private learner state were **not** semantically mutated by R12–R31 audit checkpoints.
 
-R12–R29 completion means **audit/target coverage only**, not K PASS and not semantic repair. Earlier exact round evidence remains in the durable batch checkpoints and repository history; Current Natural Owners / Relation Owners have not been mutated by these audit checkpoints.
+### Recent exact acceptance evidence
 
-### Latest-target rule
+- **R23 — 5301–5600**, checkpoint `05c7a4ee16209dcb5692643d9a95580c30e9bf60`: Core **18 correct / 66 defective**, including 7 P0; Expansion **49 / 15 / 37**; Contrast **2 complete / 1 partial / 66 missing**.
+- **R24 — 5601–5900**, checkpoint `7f0c47779a229147f3bf3840c4ed05caecff3a97`: Core **51 / 40**, P0=0; Expansion **7 / 24 / 30**; Contrast **0 complete / 1 partial / 79 missing**, including `hassle-free` owner-absent debt.
+- **R25 — 5901–6200**, checkpoint `e332d7b25fedc2279f93ffda5eb4ead2a6003de1`: Core **22 / 79**, including 33 P0; Expansion **3 / 13 / 76**; Contrast **0 complete / 80 missing**, re-owned as 70 Relation + 10 Word/Identity/Form targets.
+- **R26 — 6201–6500**, checkpoint `9bd98ae0524f4dcf6457166a83afb24ec6b51ff7`: Core **13 / 84**, including 26 P0; Expansion **13 / 35 / 39**; Contrast **0 complete / 1 partial / 85 missing** across 80 Relation + 6 Form targets.
+- **R27 — 6501–6800**, checkpoint `e3fdb557f5c7738563a0c528389aa29ae7b1d384`: Core **5 / 78**, including 16 P0; 116 exact Expansion groups **33 / 50 / 33**; all 80 Contrast targets Relation-owned and missing. Direct-pass calibration retained isolated upgrades `enervate`, `exterminate`.
+- **R28 — 6801–7100**, checkpoint `0937f9f45568cb4503085feac31abccf9b82c3ad`: Core **7 / 79**, including 14 P0; 88 exact Expansion groups **35 / 27 / 26**; Contrast **0 complete / 80 missing**, re-owned as 79 Relation + `hamlet/Hamlet` Form. Calibration retained `gainsay`, `intercept`.
+- **R29 — 7101–7400**, checkpoint `517256c66e885230725825021ba17c08cfae576d`: Core **1 / 84**, P0=0 and all 85 structurally health-clean, proving lifecycle health does not equal semantic K; 114 Expansion groups **67 / 23 / 24**; Contrast **0 complete / 1 partial / 79 missing**, with `oversight` re-owned to same-word Natural-Owner polysemy.
+- **R30 — 7401–7700**, checkpoint `73bacc682bd2499d374fdd5bcf1f96cdbdc6a15e`: Core **5 / 99**, including 7 P0; 102 Expansion groups **42 / 25 / 35**; Contrast **0 complete / 1 partial / 79 missing**, re-owned as 78 Relation + 2 Word/Identity/Form (`titanic/Titanic`, `vandal/Vandal`). Direct-pass calibration found no new debt.
+- **R31 — 7701–7946**, final checkpoint `4f173f7b0484f2f00e3f32e61ecefef60e542c41`: Core **0 / 49**, including 2 P0; 99 Expansion groups **64 / 21 / 14**; Contrast **0 complete / 65 missing**, re-owned as 63 Relation + 2 Word/Identity/Form (`finalize/finalise`, `statistic/statistics`). Direct-pass calibration found no new systematic or isolated debt. Historical coverage is terminal at corpus end.
 
-From R15 onward every high-information audit may explicitly supersede historical wording under the current `LEARNING_CONTRACT.md`. The repair inventory must use the **latest Chat-approved target**, not mechanically restore old text. Fresh outcomes may include `HISTORICAL_STILL_VALID`, `CURRENT_ALREADY_BETTER`, `UPGRADE_TARGET`, `DEMOTE_OR_DROP_NOW`, or fresh semantic judgment.
+All ratios above are `Current-correct / defective` for Core and `correct / partial / missing` for Expansion unless otherwise stated. Exact per-item evidence stays in the durable batch checkpoints; this file records acceptance truth rather than duplicating each repair target.
 
-Direct-pass regions are checked with small calibrated samples instead of a second full-corpus rereview. A calibration round may find no new repeated defect class while still exposing isolated learner-value defects; those defects remain explicit repair debt rather than being hidden to preserve a clean systematic-defect count. Historical Expansion owner lists are coverage metadata; explicit learner-value surfaces/families determine acceptance. Expansion evidence should carry enough Current owner projection to distinguish semantic-family coverage from first-class construction/presentation coverage. Mechanical owner health is a lifecycle/structure signal only and cannot close semantic K. Transparent morphology/derivation transport misses may be overridden only from exact Current owner evidence and must not be converted into invented semantics. Same-word pronunciation, spelling, capitalization, inflection and lexicalized compound/form boundaries belong to Word/Identity/Form ownership rather than being forced into cross-word Relations; genuine same-word polysemy remains inside the Natural Word Owner. Explicit historical learner surfaces without a Current owner remain auditable repair debt rather than parser failures. Compound learner surfaces may resolve to valid component owners without changing the semantic target text.
+### Latest-target / repair rule
+
+The consolidated repair inventory must use the **latest Chat-approved target**, not mechanically restore old text. Historical authority is evidence, not immutable ontology.
+
+Inventory and repair must obey these ownership rules:
+
+- deduplicate Core + Expansion debt onto the same Natural Word owner where one semantic repair can satisfy both;
+- keep genuine cross-word distinctions Relation-owned;
+- keep spelling, capitalization, pronunciation, inflection and lexicalized-form boundaries Word/Identity/Form-owned;
+- keep genuine same-word polysemy inside the Natural Word owner;
+- preserve construction/presentation-only debt separately when the underlying semantic family is already correct;
+- keep isolated calibration upgrades such as `enervate`, `exterminate`, `gainsay`, and `intercept` explicit;
+- fail closed when ownership or latest target is ambiguous.
+
+Mechanical owner health remains a lifecycle/structure signal only. Mechanical phrase absence is not semantic absence; Current owner projection and Chat semantic judgment are required before repair classification.
 
 ---
 
@@ -93,15 +110,15 @@ Direct-pass regions are checked with small calibrated samples instead of a secon
 - evidence strength rises toward later real/unseen-context transfer;
 - Memory admission is selective and fading is evidence-driven.
 
-K being BLOCKED does not imply the learning model is wrong. It means the semantic objects supplied to it are not trustworthy enough yet for unrestricted full-catalog use.
+K being BLOCKED does not imply the learning model is wrong. It means semantic objects supplied to it are not trustworthy enough yet for unrestricted full-catalog use.
 
 ---
 
 ## P / R / E｜BLOCKED for unrestricted full-catalog use
 
-Learner-facing runtime, routing, search, selective Repair, Challenge and Return Packet implementations exist. A known upstream Knowledge defect that can change learner-facing semantics prevents a full-catalog P/R/E PASS claim.
+Learner-facing runtime, routing, search, selective Repair, Challenge and Return Packet implementations exist. Known upstream Knowledge defects can change learner-facing semantics, so full-catalog P/R/E cannot be accepted yet.
 
-Controlled smoke tests may use semantically accepted subsets; full build, route existence, roundtrip, UI rendering, Challenge mechanics, or packet mechanics cannot substitute for K closure.
+Controlled smoke tests may use semantically accepted subsets. Full build, route existence, roundtrip, UI rendering, Challenge mechanics, or packet mechanics cannot substitute for K closure.
 
 ---
 
@@ -114,9 +131,15 @@ Private learner evidence remains separate. Until K passes, unrestricted full-cat
 ## Current acceptance sequence
 
 ```text
-K re-acceptance / migration-integrity + latest-target closure
+historical K audit coverage 1–7946
+✅ CLOSED
 ↓
-consolidated exact repair against latest approved targets
+consolidated exact repair inventory
+← CURRENT
+↓
+bounded Natural Owner / Relation / Form repair + deterministic readback
+↓
+K re-acceptance / stop-rule sampling
 ↓
 re-evaluate full-catalog P / R / E
 ↓
@@ -134,7 +157,7 @@ real learner U on named paths
 - Relation owners → `content/lexical/relations/by-id/`
 - owner schema → `content/lexical/schema.json`
 - lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- knowledge reacceptance evidence → `content/lexical/audit/knowledge-reacceptance/`
+- knowledge reacceptance / repair evidence → `content/lexical/audit/knowledge-reacceptance/`
 - migration authority/readback → `content/lexical/audit/migration-integrity/`
 - active migration work owner → GitHub Issue #6
 - learner runtime → Vocabulary surfaces under `static-web/`
