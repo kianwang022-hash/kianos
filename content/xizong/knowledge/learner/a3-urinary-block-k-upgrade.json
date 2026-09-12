@@ -10,31 +10,44 @@
   "historical_substrate": {
     "system_guide": "content/xizong/knowledge/system-guides/西综泌尿系统_System_Guide_v1_完整导学_认知依赖与学习顺序.md",
     "blocks": "content/xizong/knowledge/systems/a3-urinary/blocks/",
-    "status": "HISTORICAL_SUBSTRATE_NOT_CURRENT_UPGRADED_KNOWLEDGE",
-    "rule": "Existing A3 files preserve useful medical/source work and stable identities, but their historical '最终执行版' labels are not acceptance evidence under the Current learning philosophy. Each Block must be re-read and explicitly upgraded before it may be treated as Current learner-facing Knowledge."
+    "status": "HISTORICAL_SUBSTRATE_PARTIALLY_UPGRADED",
+    "rule": "Only explicitly accepted Block batches are Current-upgraded Knowledge. Historical labels such as '最终执行版' do not grant acceptance to untouched A3 Blocks."
   },
   "upgrade_contract": {
     "identity": "Preserve stable block_id and KP identity unless an explicit semantic defect requires a reviewed split/merge/renumber. Reordering for causal learner order does not itself authorize identity replacement.",
-    "lecture_first": "First learning is Framework orientation -> continuous Lecture/source contact -> Logic Group/KP active Recall -> Block compression. Historical instructions that ask an unlearned learner to recall KP content before Lecture must be removed or superseded.",
+    "lecture_first": "First learning is Framework orientation -> continuous Lecture/source contact -> Logic Group/KP active Recall -> Block compression.",
     "logic_group": "A Logic Group is one continuous mechanism/judgment chain that can be learned and closed as a unit; it is not an arbitrary equal-sized slice or a second medical-Core owner.",
-    "kp_lossless": "The union of canonical KPs must preserve the learning value of the bound Lecture/source without turning KianOS into a second textbook. Stable mechanisms, relations, boundaries, high-value precision and necessary examples must not silently disappear.",
-    "timing": "Current Core, Recall, Reserve, Connection Hook and Deferred content must be separated by learning timing. Future-owner material may orient or connect but must not seize first-pass working memory.",
+    "kp_lossless": "The union of canonical KPs plus required original-source visual gates must preserve stable Lecture learning value without turning KianOS into a second textbook.",
+    "timing": "Current Core, Recall, Reserve, Connection Hook and Deferred content must be separated by learning timing.",
     "precision": "Precision is an accuracy attribute, not a demand that every number/drug/threshold become stable on first exposure.",
-    "source_safety": "Source conflicts, uncertain claims and unsupported expansions must be explicit and adjudicated before the affected medical Core can pass. A historical Study wording is not automatically learner-canonical when it conflicts with reliable medical truth.",
-    "runtime_boundary": "Do not redesign Projection/Runtime per Block during this content pass. A1/A2 provide the runtime reference; A3 may expose genuine system-specific needs later."
+    "source_safety": "Source conflicts, uncertain claims and unsupported expansions must be explicit and adjudicated before the affected medical Core can pass.",
+    "runtime_boundary": "Projection/Runtime is not redesigned per Block during this content pass. A1/A2 provide the platform reference; A3 may expose genuine system-specific needs later."
   },
   "batch_plan": [
     {
       "id": "A3-K-BATCH-01",
       "scope": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
       "theme": "normal renal physiology foundation: map/clearance -> filtration -> segmental transport/diuretics -> hormonal control/concentration",
-      "status": "AUDIT_COMPLETE_RECONSTRUCTION_PENDING"
+      "status": "PASS_BLOCK_LEVEL_K_SCOPE_ONLY",
+      "closure": {
+        "stable_block_count": 4,
+        "stable_kp_count": 67,
+        "logic_group_count": 20,
+        "source_revalidation": "Original physiology source P257-P296 re-read; stable source orphan count 0; named source conflicts adjudicated rather than copied.",
+        "canonical_repairs": [
+          "B1 bidirectional TGF + Lecture-first",
+          "B2 nephrin/slit-diaphragm vs classical charge-selectivity boundary + Lecture-first",
+          "B3 K-H context gate + stored-RBC potassium mechanism",
+          "B4 stable three-input renin Core + low-frequency regulator Precision boundary"
+        ],
+        "identity_change": false
+      }
     },
     {
       "id": "A3-K-BATCH-02",
       "scope": ["urinary-b05", "urinary-b06", "urinary-b07", "urinary-b08"],
       "theme": "water-electrolyte-acid-base -> urine evidence -> AKI/CKD/dialysis -> bacterial UTI",
-      "status": "NOT_STARTED"
+      "status": "ACTIVE_NEXT"
     },
     {
       "id": "A3-K-BATCH-03",
@@ -49,114 +62,11 @@
       "status": "NOT_STARTED"
     }
   ],
-  "batch_01": {
-    "shared_findings": [
-      "The four historical Blocks already carry stable block_id/KP identities and substantial source-bound medical Core; the upgrade should preserve good Core rather than rewrite for style.",
-      "B1/B2 still encode the older first-pass behavior 'Framework -> KP prompt/closed-book recovery' before continuous Lecture learning. This conflicts with Current Lecture-first policy and must be reconstructed.",
-      "B3/B4 already state a Lecture-first sequence and have much clearer Primary/Recall/Defer boundaries, so their likely upgrade path is semantic verification plus Logic Group reconstruction rather than wholesale prose replacement.",
-      "All four Blocks currently mix learner guidance, backend/audit language and long detailed Core in one Markdown. Learner-facing projection concerns will be handled later; this batch judges whether the canonical medical/learning asset itself is sound."
-    ],
-    "blocks": {
-      "urinary-b01": {
-        "stable_kp_count": 15,
-        "historical_outline_claim": "PHY-U024 46/46",
-        "current_disposition": "RECONSTRUCT_LEARNING_ORDER_AND_BOUNDARIES_KEEP_IDENTITY",
-        "first_pass_defect": "Historical usage asks the learner to enter KP closed-book recovery immediately after Framework instead of completing the bound Lecture first.",
-        "strengths_to_preserve": [
-          "renal task/space/direction/measurement language",
-          "renal endocrine and juxtaglomerular apparatus interfaces",
-          "nephron/vascular architecture",
-          "clearance/GFR-RPF-RBF-FF measurement language",
-          "renal blood-flow regulation/TGF interfaces",
-          "micturition reflex as a later urologic-surgery prerequisite"
-        ],
-        "timing_risks": [
-          "Free-water clearance is introduced before the concentration/dilution engine is formally learned; keep it as measurement language only and prevent premature mechanism expansion.",
-          "SGLT2/high-protein hyperfiltration and ACEI/ARB cases must remain mechanism calibration, not expand into full diabetes/CKD/cardiovascular treatment owners.",
-          "Micturition is valid Primary here only as normal physiology; B12 owns disease application."
-        ],
-        "logic_group_candidate": [
-          {"id": "urinary-b01-lg01", "label": "renal task and global map", "kp": [1, 1], "goal": "Establish what the kidney does and the blood -> filtrate -> urine directional map before adding regulators."},
-          {"id": "urinary-b01-lg02", "label": "endocrine and juxtaglomerular sensor", "kp": [2, 3], "goal": "Connect renal perfusion/tubular NaCl sensing to renin, EPO and vitamin-D activation without relearning the whole downstream endocrine systems."},
-          {"id": "urinary-b01-lg03", "label": "nephron and vascular architecture", "kp": [4, 5], "goal": "Make filtration, reabsorption, secretion and cortical/juxtamedullary specialization spatially concrete."},
-          {"id": "urinary-b01-lg04", "label": "clearance measurement language", "kp": [6, 9], "goal": "Turn renal handling into measurable clearance/GFR/RPF/RBF/FF signals while leaving full concentration physiology to B4."},
-          {"id": "urinary-b01-lg05", "label": "renal blood-flow autoregulation and TGF", "kp": [10, 13], "goal": "Close the feedback loop from perfusion/distal NaCl to vascular tone, renin and GFR."},
-          {"id": "urinary-b01-lg06", "label": "normal micturition control", "kp": [14, 15], "goal": "Build the normal reflex and lesion-level direction needed for later obstruction/incontinence application."}
-        ]
-      },
-      "urinary-b02": {
-        "stable_kp_count": 14,
-        "historical_outline_claim": "PHY-U025 23/23",
-        "current_disposition": "RECONSTRUCT_FIRST_PASS_AND_SEMANTICALLY_ADJUDICATE_BARRIER_LANGUAGE",
-        "first_pass_defect": "Same pre-Lecture KP-recall instruction as B1.",
-        "strengths_to_preserve": [
-          "separation of filtration amount from filtration selectivity",
-          "three-layer filtration barrier",
-          "effective filtration pressure and filtration equilibrium",
-          "RPF/Kf/afferent-efferent control of GFR",
-          "obstruction/oncotic-pressure/integrated stress cases"
-        ],
-        "semantic_review_required": [
-          "The historical text explicitly preserves a Study placement of nephrin loss inside an 'electrostatic barrier' explanation. Before Current promotion, distinguish slit-diaphragm structural selectivity from any exam-source charge-selectivity wording rather than silently treating the historical classification as medical truth.",
-          "Any exact afferent/efferent direction matrix beyond the source-supported boundaries must remain bounded instead of being model-completed from intuition."
-        ],
-        "logic_group_candidate": [
-          {"id": "urinary-b02-lg01", "label": "filtration barrier and selectivity", "kp": [1, 2], "goal": "Separate structural/size/charge selectivity from GFR volume."},
-          {"id": "urinary-b02-lg02", "label": "effective filtration pressure and GFR model", "kp": [3, 6], "goal": "Derive filtrate volume from Starling forces, protein concentration along the capillary, RPF and Kf."},
-          {"id": "urinary-b02-lg03", "label": "vascular/resistance modifiers", "kp": [7, 11], "goal": "Localize how afferent/efferent tone, obstruction, plasma oncotic pressure, RPF and mesangial/Kf changes alter filtration."},
-          {"id": "urinary-b02-lg04", "label": "integrated filtration failure", "kp": [12, 14], "goal": "Use volume loading, hemorrhage/sympathetic response and the final algorithm to identify the first failed filtration layer."}
-        ]
-      },
-      "urinary-b03": {
-        "stable_kp_count": 19,
-        "historical_outline_claim": "PHY-U026 28 questions assigned to this Block",
-        "current_disposition": "KEEP_CORE_PENDING_FULL_SEMANTIC_AUDIT_ADD_LOGIC_GROUPS",
-        "strengths_to_preserve": [
-          "explicit Lecture-first sequence",
-          "apical/basolateral transport direction",
-          "proximal bulk reabsorption/glucose/osmotic diuresis",
-          "HCO3-/H+/NH4+ handling",
-          "principal/intercalated cell Na-K-H coupling",
-          "diuretics mapped back to real nephron transport"
-        ],
-        "logic_group_candidate": [
-          {"id": "urinary-b03-lg01", "label": "tubular directions and glomerulotubular balance", "kp": [1, 2], "goal": "Fix the membrane directions and why proximal reabsorption scales with filtered load."},
-          {"id": "urinary-b03-lg02", "label": "proximal bulk reabsorption and glucose/osmotic diuresis", "kp": [3, 8], "goal": "Run the proximal tubule as one bulk-processing machine, including glucose threshold/Tm and solute-driven water loss."},
-          {"id": "urinary-b03-lg03", "label": "acid-base handling", "kp": [9, 10], "goal": "Connect bicarbonate reclamation and ammonium/ammonia acid excretion without yet turning B3 into the full clinical acid-base Block."},
-          {"id": "urinary-b03-lg04", "label": "collecting-duct Na-K-H fine control", "kp": [11, 14], "goal": "Close the principal/intercalated-cell circuit and the coupled K+/H+ directions."},
-          {"id": "urinary-b03-lg05", "label": "diuretic target map", "kp": [15, 19], "goal": "Predict diuretic effects from nephron segment and transport target rather than memorize a detached drug table."}
-        ]
-      },
-      "urinary-b04": {
-        "stable_kp_count": 19,
-        "historical_outline_claim": "PHY-U026 36 questions assigned to this Block",
-        "current_disposition": "KEEP_CORE_PENDING_FULL_SEMANTIC_AUDIT_ADD_LOGIC_GROUPS",
-        "strengths_to_preserve": [
-          "explicit Lecture-first sequence",
-          "Recall vs renal-end Primary ownership for RAAS/aldosterone/ADH/ANP",
-          "medullary gradient + vasa recta + ADH/AQP2 three-condition concentration model",
-          "countercurrent multiplication/exchange and urea recycling",
-          "segment-by-segment tubular-fluid osmolality movie",
-          "water diuresis vs osmotic diuresis discrimination"
-        ],
-        "logic_group_candidate": [
-          {"id": "urinary-b04-lg01", "label": "volume/perfusion sensing and RAAS renal end", "kp": [1, 5], "goal": "Read perfusion/NaCl/volume signals and translate them into sympathetic/RAAS/aldosterone renal actions without relearning the circulation owner."},
-          {"id": "urinary-b04-lg02", "label": "ADH and ANP control axes", "kp": [6, 9], "goal": "Separate direct water control from sodium/volume unloading and compare ADH, aldosterone and ANP by input, target and output."},
-          {"id": "urinary-b04-lg03", "label": "build and preserve the medullary gradient", "kp": [10, 14], "goal": "Explain why concentration requires a gradient, water permeability and gradient preservation, then assign loop/vasa recta/urea/AQP roles."},
-          {"id": "urinary-b04-lg04", "label": "tubular-fluid osmolality movie", "kp": [15, 17], "goal": "Track tubular fluid from descending limb through diluting segments to the final ADH-dependent collecting duct."},
-          {"id": "urinary-b04-lg05", "label": "concentration failure and polyuria discrimination", "kp": [18, 19], "goal": "Localize concentration failure and distinguish water diuresis from osmotic diuresis by first mechanism."}
-        ]
-      }
-    },
-    "batch_01_exit": {
-      "status": "NOT_PASSED",
-      "why": [
-        "B1/B2 require first-pass reconstruction before Current promotion.",
-        "B2 has a named filtration-barrier semantic/source adjudication before medical-Core closure.",
-        "B3/B4 still require full-line semantic/source audit; their historical completeness and Lecture-first wording are promising evidence, not a PASS substitute.",
-        "Logic Group candidates are working structure until checked against full canonical KP order and source continuity."
-      ],
-      "next": "Reconstruct B1/B2 first-pass contract and adjudicate B2 barrier language; then finish B3/B4 semantic audit and freeze Batch-01 Logic Groups without changing stable identities unless a real semantic defect requires it."
-    }
-  }
+  "accepted_current_scope": {
+    "blocks": ["urinary-b01", "urinary-b02", "urinary-b03", "urinary-b04"],
+    "block_level_k": "PASS",
+    "a3_system_level_k": "NOT_PROMOTED",
+    "learner_readiness": "NOT_CLAIMED"
+  },
+  "next": "Audit and upgrade B5-B8 source-first. B1-B4 should not be reopened without concrete new source conflict, missing stable learning value, or later learner evidence."
 }
