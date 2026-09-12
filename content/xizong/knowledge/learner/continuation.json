@@ -1,60 +1,12 @@
 {
-  "schema": "kianos.xizong.learning_continuation.v1",
-  "status": "CURRENT",
-  "authority": "CHAT_APPROVED",
-  "lane": "xizong_learning_runtime",
-  "role": "CURRENT_WORK_CURSOR_ONLY",
-  "rule": "This file records shared Xizong engineering/acceptance work only. It is not medical Core, not learner state, and must never be used to infer what the learner has studied or should study next.",
-  "current_system": {
-    "canonical_id": "A1",
-    "system_id": "circulation",
-    "reason": "A1 S/K/L/P/R/E are accepted on the PR #12 synthetic-merge learner-contract journey. Every learner U path remains UNTESTED because the learner has not started circulation. The immediate stage is final PR QA/merge; after merge the next domain acceptance target is A2 Knowledge."
+  "schema": "kianos.xizong.continuation.retired.v1",
+  "status": "RETIRED",
+  "authority": "NONE",
+  "reason": "Xizong Work Cursor moved to content/xizong/CURRENT.md and Acceptance Truth moved to content/xizong/ACCEPTANCE.md. The predecessor continuation still pointed to pre-merge PR #12 work after PR #12 had already merged.",
+  "normal_read": false,
+  "replacements": {
+    "work_cursor": "content/xizong/CURRENT.md",
+    "acceptance_truth": "content/xizong/ACCEPTANCE.md"
   },
-  "current_stage": "A1_S_E_ACCEPTED_FINAL_PR_QA_THEN_A2_K",
-  "durable_acceptance_owner": "content/xizong/knowledge/learner/acceptance-status.json",
-  "root_acceptance_sha": "a174880fc6777df118ef408b5a5ad1f0afe77213",
-  "completed_shared_work": [
-    "A1 Source PASS: canonical owners + exactly 376 Current official Question Truth IDs; inventory SHA256 ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be.",
-    "A1 Knowledge PASS: System + 12 canonical Blocks / 312 stable KPs were content-closure re-audited; no further stable medical-Core expansion was justified.",
-    "A1 Learning PASS: direct 12-Block route + 87 Logic Groups + separate first-pass focus/stop/recall and goal/closure support. Medical Core and Question-to-KP authority were not duplicated.",
-    "Acceptance red-light #1 was substantive: run 34659476134 exposed the false assumption that stable KP ordinal equals learner reading order. B5 canonical order is KP01-03 -> KP07-12 -> KP04-06. Loader identity checking and B5 Logic Group order were repaired to preserve stable IDs while following canonical learner order.",
-    "Acceptance red-light #2 was test-only: run 34659942142 showed a validator helper-name assumption; Runtime already normalized malformed/duplicate/ineligible private holdout years. Validator was changed to assert behavior rather than helper naming.",
-    "A1 Projection PASS: canonical Block opening projection is generic; YAML frontmatter cannot leak; unavailable Outline metadata is omitted; exact holdout years are never seeded by shared runtime.",
-    "A1 Runtime PASS: PR #12 synthetic-merge run 34660072688 passed the Xizong learner-contract validator across clean, weak, Chat-return, private holdout, W/U, persistence, idempotency and error journeys, then passed Astro build.",
-    "A1 Evidence PASS: Chat repair is REPAIR_ONLY and cannot overwrite first Recall/mastery; stable clean work creates no weak debt; W/U is wrong/uncertain only; Question-to-Knowledge precise back-links remain REVIEWED-only and otherwise fail safe without guessing.",
-    "A1 U remains path-scoped UNTESTED: first learning, weak repair/Chat return, System Exit, and sustained multi-session real use all await the learner. Synthetic QA cannot promote U."
-  ],
-  "current_owners_to_read": [
-    "LEARNING_ACCEPTANCE.md",
-    "content/xizong/knowledge/learner/acceptance-status.json",
-    "content/xizong/knowledge/learner/study-policy.json",
-    "content/xizong/knowledge/systems/a2-respiratory/system.json",
-    "content/xizong/knowledge/systems/a2-respiratory/blocks/",
-    "content/xizong/knowledge/learner/a2-respiratory-learning.json"
-  ],
-  "next_action": {
-    "stage": "FINAL_A1_PR_QA_AND_MERGE",
-    "instruction": "Let the acceptance-status/continuation-only commits retrigger PR #12. Confirm Static Web Xizong QA still passes validate:xizong and Astro build on the current synthetic merge; re-check latest main for parallel conflicts. If green and safe, squash-merge PR #12, then confirm the post-merge main Xizong QA push run. After that, create a fresh acceptance branch for A2 and start A2_K_CONTENT_CLOSURE_RECONFIRM from canonical System + 12 Block medical Core under the latest root LEARNING_ACCEPTANCE standard. Do not inherit A2 K from file presence or prior reputation.",
-    "success_condition": "PR #12 and post-merge main retain A1 S/K/L/P/R/E accepted behavior, parallel English/Politics/Translation/Writing work is untouched, every A1 U path remains UNTESTED, and shared continuation advances to A2 K rather than asking the learner to perform circulation System Exit.",
-    "validation_note": "The learner has not started circulation. 'Module ready for learner test' means the product path is ready when study reaches it; it does not mean the learner should test System Exit now."
-  },
-  "do_not_reopen_without_new_evidence": [
-    "Do not add more A1 medical Core after K PASS without new source or learner evidence.",
-    "Do not add more A1 learning taxonomy after L PASS without runtime/learner evidence.",
-    "Do not rebuild A1 376 or A2 359 System question scopes by model inference.",
-    "Do not infer Question-to-Block/KP mappings from title, page, System membership, source section or model intuition.",
-    "Do not persist learner-specific holdout years, progress, Recall ratings, W/U, comments, session position, timers or browser history in shared Current.",
-    "Do not equate stable KP numeric ID with canonical learner reading order.",
-    "Do not promote U from CI, build, validator, screenshots, architecture discussion or simulated QA.",
-    "Do not infer learner progress from this continuation file or acceptance-status.json."
-  ],
-  "after_validation": [
-    "A2 K content-closure reconfirm from canonical Current owners.",
-    "A2 P/R/E Module E2E under the same persistence/idempotency/error/evidence standard.",
-    "A1/A2 U only advances from real learner use of the named path; real friction outranks speculative polish."
-  ],
-  "continuation_policy": {
-    "update_when": "Update only at meaningful shared-work stage transitions or when the next shared Xizong action changes materially.",
-    "fresh_chat_rule": "Read main@HEAD LEARNING_ACCEPTANCE.md, CURRENT.md, acceptance-status.json, this continuation file, study-policy.json and only next-action owners. Continue engineering acceptance from next_action; derive learner study action only from current conversation/private learner state."
-  }
+  "rule": "Do not use this file for normal Xizong continuation, acceptance, product truth, or learner state. Git history preserves the retired narrative if an explicitly bounded historical recovery is required."
 }
