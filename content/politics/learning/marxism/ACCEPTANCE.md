@@ -1,7 +1,7 @@
 # Politics Marxism Acceptance
 
 Status: CURRENT  
-Scope: Marxism whole subject + accepted K03 pilot  
+Scope: Marxism whole subject + accepted K03 pilot + C00 Cognitive Workspace reference calibration  
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Marxism scoped Acceptance Truth
 
@@ -27,7 +27,7 @@ U  UNTESTED   ← current surface path still requires real learner use
 
 Allowed conclusion:
 
-> **Marxism is module-ready for learner test under the corrected Surface Ownership contract: S/K/L/P/R/E are accepted. The current iPad/MarginNote Chengfeng → Astro Xiao1000 path remains U UNTESTED until Kian uses it.**
+> **Marxism is module-ready for learner test under the corrected Surface Ownership contract: S/K/L/P/R/E are accepted. Marxism C00 now has the accepted Mac-landscape Cognitive Workspace reference implementation, but the current Mac Astro + iPad/MarginNote Chengfeng path remains U UNTESTED until Kian uses it.**
 
 Do not promote this to learner-validated and do not infer that Kian has studied Marxism from repository state.
 
@@ -92,9 +92,9 @@ Executed reacceptance evidence:
 - `Validate Politics Current bindings` → **PASS**
 - `Build Astro` → **PASS**
 
-The current `PoliticsChapterRuntime.astro` no longer renders Chengfeng continuous `node.text`. It projects the original iPad/MarginNote lecture as primary, keeps source-owner locators/checkpoints in Astro, preserves Xiao1000 web attempts and Wrong/Uncertain evidence, and retains the same stable source anchor for Repair / Unit Return.
+The corrected Politics runtime no longer renders Chengfeng continuous `node.text`. It projects the original iPad/MarginNote lecture as primary, keeps source-owner locators/checkpoints in Astro, preserves Xiao1000 web attempts and Wrong/Uncertain evidence, and retains stable source anchors for Repair / Unit Return.
 
-`validate-politics-runtime.mjs` now contains a regression guard that fails if Politics reintroduces `node.text`, the old `politicsSourceFlow`, or `直接学正文`, and also requires the explicit iPad/MarginNote handoff plus Astro Xiao1000 ownership.
+`validate-politics-runtime.mjs` contains a regression guard that fails if Politics reintroduces `node.text`, the old `politicsSourceFlow`, or `直接学正文`, and also requires the explicit iPad/MarginNote handoff plus Astro Xiao1000 ownership.
 
 ### Current U boundary
 
@@ -104,6 +104,95 @@ current corrected first-learning path: UNTESTED
 ```
 
 A new learner use is required before the corrected surface arrangement can be called learner-validated.
+
+---
+
+## 2026-09-13 C00 Cognitive Workspace reference reacceptance
+
+### Why this bounded re-walk existed
+
+After Surface Ownership was corrected, a second architecture gap became explicit: correct content and correct surface ownership were still insufficient if learner cognition was rendered as generic document sections/cards.
+
+The missing layer was formalized as:
+
+```text
+Learning Logic
+→ Content Semantics
+→ Cognitive State
+→ Presentation Grammar
+→ Astro interaction/runtime
+→ Evidence
+```
+
+The shared Presentation Contract now treats Mac landscape as the primary Astro learner environment, with a central **Cognitive Stage** and a contextual **Inspector**. Space expresses simultaneous relations; state transitions express learning sequence. Content owns cognition, not pixels/components.
+
+Politics Content Semantics were then calibrated on C00 rather than bulk-converted:
+
+- S01 proves `Problem + Map + causal Chain + Boundary + Anchor + Exact + iPad Handoff + Recall`, including bounded Suyi structural delta consumption;
+- S02 proves that one Natural Unit may require multiple semantic maps (`framework_maps[]`) rather than being forced into one display shape;
+- Suyi material is dispositioned as `ABSORBED / DUPLICATE / REFERENCE_ONLY / ...` and only useful structural delta enters learner-facing cognition;
+- Chengfeng remains the only continuous first-learning mainline on iPad/MarginNote.
+
+### C00 P/R/E — PASS
+
+Reference implementation:
+
+- PR: #59 `UI calibration: Politics Marx C00 cognitive workspace`
+- merged main commit: `33c17bc643b2b3fe8b8f6b8d92c9000f44a6416d`
+- post-merge workflow: `Static Web Politics QA`
+- run: #414 (`34745611706`)
+
+Executed checks on merged Current:
+
+- `Audit Politics canonical coverage` → **PASS**
+- `Audit Xiao1000 semantic chapter routing` → **PASS**
+- `Prove scoped Politics source loading without monoliths` → **PASS**
+- `Audit History batch content closure` → **PASS**
+- `Audit History global first-ready parity` → **PASS**
+- `Audit History Runtime closure` → **PASS**
+- `Audit History Evidence closure` → **PASS**
+- `Audit K03 canonical knowledge closure` → **PASS**
+- `Audit Marxism batch content closure` → **PASS**
+- `Audit Politics learning semantics content contract` → **PASS**
+- `Validate Marxism C00 cognitive workspace` → **PASS**
+- `Audit Marxism global first-ready parity` → **PASS**
+- `Audit K03 learning and projection closure` → **PASS**
+- `Audit K03 runtime and evidence closure` → **PASS**
+- `Audit Marxism runtime and evidence closure` → **PASS**
+- `Validate Politics Current bindings` → **PASS**
+- `Build Astro` → **PASS**
+
+The accepted C00 reference interaction is:
+
+```text
+ORIENT
+→ EXTERNAL_LEARN   Chengfeng on iPad / MarginNote
+→ RECALL
+→ VERIFY           first-ready Xiao1000 in Astro
+→ REPAIR           only if Wrong / Uncertain
+→ CLOSE
+```
+
+Key projection/runtime invariants proven by the new guard:
+
+- the Cognitive Workspace consumes semantic objects rather than raw Chengfeng lecture text;
+- Mac landscape uses Cognitive Stage + Contextual Inspector rather than a document-first long page;
+- C00 S02 preserves its two distinct Maps;
+- clean verification does not pre-reveal framework/exact answers;
+- Wrong/Uncertain preserves existing Xiao1000 evidence contracts;
+- Repair can transition back to a visible `EXTERNAL_LEARN` source handoff rather than linking to a hidden locator;
+- all other Politics chapters keep the prior corrected runtime during this calibration; C00 does not authorize bulk rollout.
+
+A shared `Objective Learner Journey` failure observed during PR validation was explicitly compared against the PR base `main@8d853ea4...`: both artifacts fail at the same pre-existing Reading A continuous-mode `page.waitForURL` timeout after the same preceding checks pass. It is therefore not evidence of a Politics regression and is outside this scoped acceptance.
+
+### C00 U boundary
+
+```text
+C00 engineering reference path: P/R/E PASS
+C00 real learner validation:    U UNTESTED
+```
+
+Do **not** mass-roll this workspace across Marxism or sibling Politics subjects merely because CI passes. The reference must first survive Kian's real Mac + iPad use; concrete friction reopens the earliest responsible layer.
 
 ---
 
@@ -173,10 +262,11 @@ Its accepted pilot state is now a strict subset of the accepted whole-subject Ma
 
 ```text
 S/K/L/P/R/E  CLOSED under corrected Surface Ownership
-U            current path UNTESTED, learner-only
+C00 P/R/E     reaccepted under Cognitive Workspace reference implementation
+U             current path UNTESTED, learner-only
 ```
 
-No engineering stage remains active for whole-subject Marxism after the bounded L→P→R→E reacceptance. New engineering work requires new concrete evidence that reopens the responsible gate.
+No engineering stage remains active for the C00 reference path after the bounded Logic → Content → UI reacceptance. New engineering work requires real learner evidence or another concrete defect that reopens the responsible gate.
 
 U cannot be accepted from CI, code, simulated attempts, screenshots, architecture discussion, or repository state.
 
@@ -190,12 +280,14 @@ U cannot be accepted from CI, code, simulated attempts, screenshots, architectur
 - source owners → `content/politics/source/`
 - lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
+- Politics content semantics → `content/politics/CONTENT_SEMANTICS_CONTRACT.md`
+- shared presentation grammar → `static-web/PRESENTATION_CONTRACT.md`
 - Marxism teaching projection / source review → `content/politics/learning/marxism/`
 - learner runtime/evidence implementation → Politics surfaces under `static-web/`
-- acceptance harness → Politics QA workflow + Marxism audit scripts
+- acceptance harness → Politics QA workflow + Marxism / Cognitive Workspace audit scripts
 
 ### Learner Truth
 
 Private browser / Return Packet / conversation evidence only.
 
-> **Marxism is ready for learner test on the corrected surface arrangement; it is not yet learner-validated for that current path.**
+> **Marxism is ready for learner test on the corrected surface arrangement; C00 is the current presentation reference, but it is not yet learner-validated.**
