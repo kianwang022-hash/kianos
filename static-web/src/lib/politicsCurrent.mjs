@@ -15,6 +15,7 @@ import {
 } from './politicsHistoryFirstReady.mjs';
 import { applyMaoProjection } from './politicsMaoProjection.mjs';
 import { applyXiProjection } from './politicsXiProjection.mjs';
+import { applyEthicsProjection } from './politicsEthicsProjection.mjs';
 
 export { listPoliticsSubjectsCurrent, listPoliticsChapterPathsCurrent };
 
@@ -23,7 +24,8 @@ export function loadPoliticsChapterCurrent(subject, chapter) {
   const marxism = applyMarxismGlobalFirstReady(firstReady, subject);
   const history = applyHistoryGlobalFirstReady(marxism, subject);
   const mao = applyMaoProjection(history, subject);
-  return applyXiProjection(mao, subject);
+  const xi = applyXiProjection(mao, subject);
+  return applyEthicsProjection(xi, subject);
 }
 
 export function politicsCurrentHealth() {

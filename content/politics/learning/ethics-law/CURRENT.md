@@ -9,12 +9,12 @@ This file does not own Ethics Source Truth, Politics-wide learning/interaction s
 
 ## Work Cursor
 
-**Scope:** Ethics-Law whole-module continuation after fresh Learning Logic re-acceptance  
-**Accepted upstream state:** `S PASS / K PASS / L PASS`  
+**Scope:** Ethics-Law whole-module continuation after fresh Projection re-acceptance  
+**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS`  
 **Content closure:** `PASS` — supplemental content conclusion under K  
-**Earliest unresolved gate:** `P｜Projection`  
-**Blocker:** none in Source/Knowledge/Content/Learning Logic.  
-**Next action:** fresh Ethics-Law Projection acceptance. Attack whether the learner-facing Politics page preserves `concept identity → nearest boundary → normative judgment → situational application`, keeps dense lists/source detail progressively disclosed, and leaves Chengfeng external-primary.
+**Earliest unresolved gate:** `R｜Runtime`  
+**Blocker:** none in Source/Knowledge/Content/Learning Logic/Projection.  
+**Next action:** execute Ethics-specific Runtime journeys. Prove the accepted concept/boundary/application path can actually move through external Chengfeng study → Xiao1000 → repair-return → continuation/resume. Shared Politics or sibling-subject journeys are regression evidence only.
 
 ---
 
@@ -24,108 +24,127 @@ This file does not own Ethics Source Truth, Politics-wide learning/interaction s
 S  PASS
 → K  PASS
 → L  PASS
-→ P  UNTESTED   ← current gate
-→ R  UNTESTED   ← downstream-frozen
+→ P  PASS
+→ R  UNTESTED   ← current gate
 → E  UNTESTED   ← downstream-frozen
 → U  UNTESTED   ← learner-only
 ```
 
-Fresh L owner:
+Fresh review owners:
 
-- `content/politics/learning/ethics-law/learning-review.json`
+- L → `content/politics/learning/ethics-law/learning-review.json`
+- P → `content/politics/learning/ethics-law/projection-review.json`
+- P adapter → `static-web/src/lib/politicsEthicsProjection.mjs`
+- P guard → `static-web/scripts/audit-politics-ethics-projection.mjs`
 
-Fresh L disposition:
+Fresh dispositions:
 
 ```text
-C00–C06 = 7 KEEP / 0 REPAIR / 0 BLOCKED
-material delta = NO_CHAPTER_LOGIC_REWRITE_REQUIRED
+L: C00–C06 = 7 KEEP / 0 REPAIR / 0 BLOCKED
+P: C01 REPAIR / C00,C02–C06 KEEP / 0 BLOCKED
 ```
 
 ---
 
-## Accepted Ethics-Law Learning shape
-
-Subject rule:
+## Accepted learner shape
 
 > **先判断概念/规范处在哪一层，再分清最近边界，最后放回具体关系或情境做判断。**
-
-Whole-subject path:
 
 ```text
 moral vs legal regulation
 → person-society / life-value judgment
-→ ideal-belief / ideal-reality relation
+→ ideal-belief / ideal-reality
 → Chinese spirit / patriotism / innovation identities
 → common core-value scale
 → morality origin/core/principle + scenario practice
 → law operation / rule-of-law governance / constitution / legal thinking + rights-obligations
 ```
 
-Strongest fresh attacks:
+Learner-facing Projection now preserves the smallest useful semantic object:
 
-- C03: Four Great spirits, patriotism and reform-innovation identities could become hat matching; Current fixes level/object first.
-- C04: twelve core-value words could become a recitation wall; Current first assigns country/society/citizen roles and keeps core-values vs core-value-system boundary explicit.
-- C05: morality origin/functions, `为人民服务` core, `集体主义` principle and four life scenarios could mix into one list; Current separates semantic roles and explicitly refuses to invent unsupported exact function names.
-- C06: rule-of-law thought/road/system/goal/work pattern/constitution/legal-thinking items create the highest legal hat density; Current maps each to a different governance-level question before precision.
+```text
+chapter problem
+→ Natural Unit problem + answer
+→ optional boundary / relation / evaluation scale / application
+→ external-primary Chengfeng
+→ optional short closure
+→ Xiao1000 verification
+```
 
-No chapter rewrite would reduce learner operations without sacrificing useful discrimination.
+Dense `content_support` stays backend-only. Chengfeng remains the only continuous first-study surface on iPad/MarginNote.
 
 ---
 
-## Frozen upstream boundary
+## P｜Projection closure
+
+Fresh P attack covered **7 chapters / 21 Units / 164 Current Xiao1000 questions**.
+
+First real defect:
+
+```text
+C01/POL27-CF-ETHICS-C01-K03 owns evaluation_anchor
+→ accepted Learning uses it as the root scale for judging life value
+→ generic unitTeaching() did not project that field
+→ learner page silently lost the decisive evaluation scale
+```
+
+This was a Projection defect, not a reason to rewrite C01 Content/Learning.
+
+Narrow repair:
+
+```text
+Ethics-only Projection adapter
+→ preserve evaluation_anchor as evaluationAnchor
+→ surface it as a progressive-disclosure “评价尺度” beat
+→ keep accepted chapter owner unchanged
+```
+
+The repaired audit proves:
+
+- Orientation and Unit problem/answer survive C00–C06;
+- high-value boundaries survive;
+- evaluation-anchor parity is `1/1`;
+- backend `content_support` does not leak into the learner component;
+- Chengfeng stays external-primary;
+- guide and closure remain progressive disclosure.
+
+---
+
+## Frozen boundary
 
 ```text
 Chengfeng  continuous first-round mainline on iPad / MarginNote
 Suyi       compact framework / exactness cross-check only
 KianOS     concept / boundary / situational-judgment companion
-Xiao1000   verification and transfer evidence
+Xiao1000   verification and evidence
 ```
 
-Do not:
-
-- turn Ethics JSON/Astro into a second Chengfeng textbook;
-- promote every exact list/classification into mandatory first-round recall or Memory debt;
-- fill unsupported exact wording from model memory;
-- treat P2/provisional units as mandatory independent recall tasks;
-- infer P/R/E from generic Politics runtime/build success;
-- infer learner progress or mastery from repository state;
-- reopen S/K/L without new source truth, question evidence, real learner friction or a concrete responsible defect.
+Do not reopen S/K/L/P for polish, promote dense fixed lists into mandatory first-round recall, invent unsupported wording, or infer mastery/U from engineering state.
 
 ---
 
-## P target
-
-Projection must prove the accepted Learning shape survives the page:
+## R target
 
 ```text
-chapter problem / normative question is foregrounded
-→ Natural Unit concept/question + answer are clear
-→ boundary/application are available without competing with the primary action
-→ dense content_support stays backend-only
-→ Chengfeng remains external-primary
-→ closure is optional and compact
-→ Xiao1000 stays downstream of owning learning
+enter chapter / Natural Unit
+→ know current concept/boundary problem
+→ hand off to Chengfeng original surface
+→ return / optional closure
+→ owning Xiao1000 verification
+→ stable correct continues quickly
+   OR Wrong/Uncertain → smallest repair → owning source → return
+→ next question / Unit
+→ refresh / Politics Continue restores meaningful Ethics position/action
 ```
 
-The main P question is not “can every accepted field render?” but “does the page show the smallest useful semantic object at the right moment?”
-
----
-
-## Current owners
-
-- chapter teaching assets → `content/politics/learning/ethics-law/ch00.json` … `ch06.json`
-- subject map → `content/politics/learning/ethics-law/subject-map.json`
-- semantic/source reviews → `semantic-review.json` + `source-review.json`
-- Learning review → `learning-review.json`
-- scoped Acceptance Truth → `content/politics/learning/ethics-law/ACCEPTANCE.md`
-- shared Politics semantics → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
+R must be Ethics-specific executed evidence.
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-Current Ethics teaching/review assets under `content/politics/learning/ethics-law/`.
+Current Ethics teaching/review assets plus the narrow Ethics Projection adapter.
 
 ### Acceptance Truth
 `content/politics/learning/ethics-law/ACCEPTANCE.md`
@@ -140,7 +159,7 @@ Private browser / Return Packet / conversation evidence only.
 ```text
 Ethics CURRENT
 → Ethics ACCEPTANCE
-→ learning-review.json
-→ begin at P
-→ do not reopen accepted S/K/L without concrete evidence
+→ projection-review.json
+→ begin at R
+→ do not reopen accepted S/K/L/P without concrete evidence
 ```

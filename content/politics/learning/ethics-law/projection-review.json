@@ -1,0 +1,43 @@
+{
+  "schema": "kianos.politics.learning.ethics_projection_review.v1",
+  "status": "ACCEPTED",
+  "scope": "ETHICS_C00_C06_PROJECTION",
+  "disposition": {
+    "C00": "KEEP",
+    "C01": "REPAIR",
+    "C02": "KEEP",
+    "C03": "KEEP",
+    "C04": "KEEP",
+    "C05": "KEEP",
+    "C06": "KEEP"
+  },
+  "summary": {
+    "chapters": 7,
+    "units": 21,
+    "questions": 164,
+    "repairs": 1,
+    "blocked": 0
+  },
+  "first_real_failure": {
+    "code": "ETHICS_EVALUATION_ANCHOR_DROPPED",
+    "owner": "ch01/POL27-CF-ETHICS-C01-K03",
+    "meaning": "The accepted root scale for evaluating life value existed in Learning as evaluation_anchor but the generic learner projection silently dropped it."
+  },
+  "repair": {
+    "owner": "static-web/src/lib/politicsEthicsProjection.mjs",
+    "rule": "Preserve Ethics evaluation_anchor at Projection and surface it as a progressive-disclosure 评价尺度 beat without rewriting the accepted chapter owner.",
+    "upstream_rewrite": false
+  },
+  "accepted_projection": [
+    "chapter orientation and Natural Unit problem/answer survive",
+    "concept boundaries survive",
+    "evaluation_anchor parity is 1/1",
+    "backend content_support stays off the learner-facing generic component",
+    "Chengfeng remains external-primary on iPad/MarginNote",
+    "guide and closure remain progressively disclosed"
+  ],
+  "negative_space": [
+    "Projection PASS does not make dense fixed lists first-round recall debt.",
+    "Projection PASS does not accept Runtime, Evidence, mastery, or learner progress."
+  ]
+}
