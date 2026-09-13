@@ -2,372 +2,308 @@
 
 Role: highest learner-facing learning logic for the **English** domain.
 
-LexicalOS is a separate top-level domain. English may consume and return lexical evidence, but it does not own LexicalOS and must not count Vocabulary as one of its internal capability lanes.
+LexicalOS is a separate top-level domain. English may consume and return lexical evidence, but it does not own LexicalOS.
 
-## 0. Exam objective and optimization target
+## 0. Exam objective
 
 English I target: **80–85+**.
 
-Paper-level score architecture:
-
-- Reading family: **60 points** — Cloze 10 + Reading A 40 + Part B 10;
-- Translation: **10 points**;
-- Writing: **30 points**.
-
-Objective-section training target remains **60/60**. This is a training ceiling, not permission to spend unlimited time pursuing cosmetic perfection.
-
-The learner-facing optimization target is:
+Score channels:
 
 ```text
-expected exam points gained or protected
-+ expected reduction in execution variance / latency
-----------------------------------------------------
+Objective tasks = 60
+  Cloze = 10
+  Reading A = 40
+  Part B = 10
+
+Translation = 10
+Writing = 30
+```
+
+The optimization target is:
+
+```text
+expected exam points gained / protected
++ reduced execution variance / latency
+-------------------------------------
 learner time
 + future review debt
 + fresh-material opportunity cost
 + switching / interaction friction
 ```
 
-English therefore optimizes **future exam performance on new material**, not explanation volume, taxonomy coverage, course completion, source consumption, review completion, or the number of preserved evidence objects.
+English therefore optimizes **future performance on new material**, not explanation volume, framework completion, review completion, or the number of stored evidence objects.
 
-An action earns learner-facing time only when it is expected to improve at least one of:
+## 1. Knowledge truth versus learner burden
 
-1. answer / output accuracy;
-2. retrieval, reading, judgment, translation, or generation speed;
-3. reliability under uncertainty, fatigue, or time pressure;
-4. transfer to later unseen material;
-5. diagnosis or repair efficiency for a meaningful recurring failure.
-
-If a page, review step, claim, stored state, or interaction cannot plausibly improve one of these enough to justify its cost, it must be removed, collapsed, made optional, or kept backend-only.
-
-### Fresh material is scarce capital
-
-Unseen true-exam, TPO, IELTS, and other intentionally held-out material has opportunity cost. Do not consume a fresh item merely to prove that a framework, repair, or feature works when synthetic or already-exposed material is sufficient.
-
-### Hard stop / anti-overengineering
-
-For learner value:
+Two rules are both hard constraints:
 
 ```text
-real performance practice
-> high-value repair
-> reusable learning asset
-> additional evidence machinery
-> UI / taxonomy polish
+Minimize learner burden, not knowledge truth.
+Projection may be selective; canonical knowledge may not silently become lossy.
 ```
 
-A more complete cognitive model is not automatically a better learning system.
+A learner-facing path may omit, defer, collapse, or hide valid content when it is low-value for the current action. The underlying valid semantics must remain owned somewhere explicit: current task owner, LexicalOS, shared English logic, backend-only reference, repair-only content, or later-phase content.
 
-## 1. Governing principle
+Deleting a page or interaction is not semantic deletion.
 
-> **Performance formation first; materials, diagnosis, and UI serve it.**
+## 2. English architecture: score channels are not automatically semantic parents
 
-Ask how the ability is formed and how it produces exam points before reorganizing materials.
+English has three learner-facing score channels:
 
-Having exam papers does not imply “keep doing papers” is a learning path. Having a translation course or writing book does not imply the teacher’s chapter order is the learner’s cognitive order. Having a rich diagnostic taxonomy does not imply the learner should interact with every diagnostic layer.
+1. **Objective 60** — Cloze / Reading A / Part B;
+2. **Translation 10**;
+3. **Writing 30**.
 
-Materials are inputs, calibration sets, repair reservoirs, and transfer tests. **Future performance is the organizing authority.**
+`Objective` is a scoring/runtime family. It owns the thin shared decision kernel and shared attempt/evidence mechanics; it does **not** own every child task's knowledge.
 
-For every English capability, design in this order:
+Cloze, Reading A, and Part B remain distinct task owners because their decision objects differ.
 
-1. define the exam performance to be produced;
-2. define the fastest reliable way to expose current performance;
-3. define what evidence is actually needed to decide the next action;
-4. define the smallest repair that could change future performance;
-5. define when deeper learning / future validation is worth its cost;
-6. design the learner interaction last.
+Do not force a semantic parent merely because three tasks share a page family or score channel.
 
-Do not design a page first and then invent a learning rationale for it.
-
-## 2. Domain boundary: English and LexicalOS are two top-level systems
-
-English has **three primary scoring capability lanes**:
-
-1. **Reading family** — Reading A as the main reading-performance task, with Cloze and Part B as distinct trainers inside the same input/judgment family;
-2. **Translation** — English representation → relation preservation → Chinese reconstruction;
-3. **Writing** — task constraints → content / structure → English generation → timed delivery.
-
-LexicalOS is an **independent top-level system** whose job is fast, correct contextual lexical access. It supplies Reading, Translation, Writing, Cloze, and Part B, and receives precise lexical failures back from them.
-
-Boundary rule:
+### Objective shared decision kernel
 
 ```text
-English owns task performance evidence.
-LexicalOS owns lexical semantics and lexical repair.
+represent the relevant input
+→ identify the current demand
+→ form the real candidate space
+→ test candidates against decisive evidence / constraints
+→ adjudicate
+→ execute and leave
 ```
 
-If a Reading / Cloze / Part B / Translation / Writing failure is fundamentally a lexical sense, phrase, construction, or confusable problem, route the smallest lexical target to LexicalOS and then return to the English task. Do not build duplicate local vocabulary systems.
+Task specialization:
 
-## 3. Phase responsibilities
+- Cloze: slot demand + lexical / syntactic / discourse constraints → best fit;
+- Reading A: question demand + decisive passage evidence + option propositions → adjudication;
+- Part B: discourse skeleton + required role + candidate role + global reconciliation.
 
-English is not one perpetual workflow. Different phases optimize different score problems.
+The kernel is a composition aid, not a compulsory learner checklist.
 
-### Phase A — Calibration / targeted first learning
+## 3. Shared English Representation primitive
 
-Purpose: establish only the frameworks the learner does not already execute reliably.
+English has one genuine cross-task primitive that must not disappear merely because there is no separate learner course:
 
-- use synthetic or exposed material freely;
-- use diagnostic clean attempts to decide which learning asset is needed;
-- first-learning pages are rescue / calibration assets, not a curriculum checklist;
-- skip stable material without manufacturing a mastery claim.
+> **Representation = recover the proposition / relation structure needed for the current task.**
 
-### Phase B — Performance building
+Its reusable sub-primitives include, when relevant:
 
-Purpose: make correct execution on new material the mainline.
+- clause / proposition hierarchy;
+- attachment;
+- reference;
+- negation / quantifier / modality / degree scope;
+- logical relation;
+- paragraph / discourse relation and progression.
 
-- clean task attempts dominate learner time;
-- capture score, timing, uncertainty, first draft / answer trajectory only when useful;
-- stable performance exits quickly;
-- isolated errors receive fast triage, not automatic deep review.
+This contract owns the **shared semantic role and boundary** of Representation. Task owners own their task-specific use and examples.
 
-### Phase C — Consolidation / recurring-failure repair
+Representation is not a new top-level learner lane and does not require a permanent page. It becomes visible only when a real task failure shows that the input model is unstable.
 
-Purpose: spend extra time only where repeated or high-cost evidence justifies it.
+Current runtime route labels that say `reading` may be treated as an implementation alias for shared Representation repair until runtime naming is reconciled; they must not imply a mandatory second Reading course.
 
-- cluster recurring failures across different material;
-- call teacher methods / learning assets only for the observed layer;
-- admit only reusable, recurring, expensive, or still-unstable failures into future review;
-- let strong later real-context success cancel weaker artificial review debt.
+Lexical sense / phrase / word-local construction / collocation / confusable failures remain owned by LexicalOS.
 
-### Phase D — Exam execution / mock phase
+## 4. Phase responsibilities
 
-Purpose: convert component ability into paper-level score under 180-minute conditions.
+### A. Calibration / targeted first learning
 
-- full-paper pacing, task order, switching, fatigue, and time allocation become first-class evidence;
-- a method that is elegant in isolated practice but too slow in a paper must be compressed or abandoned;
-- final review favors compact execution rules and recurring high-cost failures, not reopening the whole learning system.
+Use synthetic or already-exposed material to discover which frameworks are actually needed.
 
-## 4. Default learner loop: performance first, review conditional
+First-learning assets are **complete-but-skippable repair reservoirs**, not a checklist that every proficient learner must finish.
 
-The default loop is:
+### B. Performance building
+
+Clean tasks dominate learner time.
+
+Stable performance exits quickly. Evidence capture stays small and automatic where possible.
+
+### C. Consolidation / recurring-failure repair
+
+Spend extra time only where evidence supports a reusable, recurring, expensive, or still-unstable failure.
+
+Collapse dependent/cascading errors into their root cause. Do not collapse genuinely independent high-cost errors merely to preserve a one-thread aesthetic.
+
+### D. Whole-paper execution / mock
+
+Later preparation must train the full 180-minute paper: task order, pacing, switching, fatigue, completion, answer-sheet / delivery risk, and time-allocation tradeoffs.
+
+This is a later phase, not a new permanent course. Per-task skill is necessary but does not prove whole-paper execution.
+
+## 5. Default learner loop: performance first, review conditional
 
 ```text
 Perform cleanly
 → Fast triage
-→ EXIT / smallest repair / LexicalOS handoff
+→ EXIT / quick local correction / smallest repair / LexicalOS handoff
 → continue performance
-→ later fresh validation only when a justified claim exists
 ```
 
-This replaces any interpretation that every task must complete a full ritual of diagnosis → repair → re-execution → transfer validation.
+Later fresh validation is created only when a justified reusable target exists. It is not a mandatory final node after every repair.
 
 ### Fast triage outcomes
 
-**A. Stable / clean**
+**Stable / clean** → exit.
 
-Leave immediately. Do not create review debt because the system has review features.
+**One-off error that becomes clear quickly** → understand the decisive evidence / contrast / correction and move on. No mandatory taxonomy, Chat packet, repair thread, or transfer claim.
 
-**B. Isolated, quickly understood error**
+**Meaningful recurring / ambiguous / high-cost failure** → deep review; find the smallest sufficient repair and re-execute when that adds useful evidence.
 
-Expose the decisive evidence / contrast / correction needed to understand the miss. If the learner can now explain the decision and no recurring pattern is supported, move on. Do not require taxonomy completion, a permanent claim, or a later fresh test.
+**Lexical failure** → send the smallest lexical target to LexicalOS, then return to the originating task.
 
-**C. Meaningful or recurring failure**
+**Representation failure** → repair only the minimum proposition / relation structure needed, not an entire grammar course.
 
-Locate the first meaningful failure, apply the smallest sufficient repair, then re-execute only the affected behavior when that adds useful evidence.
+**Execution failure** → derive a compact behavior / pacing rule only when observable evidence supports it.
 
-**D. Lexical failure**
+## 6. Wrong / Uncertain are signals, not automatic debt
 
-Route the exact lexical object to LexicalOS, repair it there, and return to the task. The English task keeps the performance evidence; LexicalOS keeps the lexical repair state.
+`Wrong`, `Unanswered`, and `Uncertain` preserve evidence. They do not by themselves determine review depth.
 
-**E. Execution / timing failure**
+- wrong / unanswered usually deserves at least quick triage;
+- uncertain-correct is useful fragility evidence but may still fast-pass after a cheap check;
+- repeated or high-cost uncertainty deserves deeper repair;
+- stable correct / confident work should not expand.
 
-Create a compact behavioral rule or pacing adjustment and validate it in later performance. Do not pretend an execution problem is a knowledge gap.
+Do not use `Uncertain` as a hidden rule that every fragile-correct item must become a full review session.
 
-### Review budget rule
+## 7. Attempt unit, diagnostic context, and repair scope are different things
 
-Review is a means, not a completion target.
+For objective tasks, keep the **clean attempt unit** whole:
 
-- A one-off wrong answer should normally require much less time than the original task.
-- Deep review is justified when a failure is ambiguous, recurring, high-value, high-cost, or likely to generalize.
-- Backend diagnosis may be rich; learner interaction should expose only the next useful decision.
-- “Mark reviewed”, taxonomy selection, evidence reveal, repair check, or transfer claim are never goals in themselves.
+- Cloze: complete passage/set;
+- Reading A: complete passage + its questions;
+- Part B: complete material/set.
 
-## 5. Evidence hierarchy and stopping rules
+When deep Chat review is justified, the complete passage/set is the **diagnostic context envelope** because local errors may share causes or dependencies.
 
-`correct once ≠ mastery`, but “not mastery” does not mean “must schedule another test.”
+That does **not** mean every wrong / uncertain item requires a Chat handoff, nor that learner repair must remain whole-unit.
 
-Evidence strength generally rises as memory residue falls and independent transfer rises:
+After diagnosis, repair scope may be local, coupled, shared, or structure-level.
+
+## 8. Root-cause compression without false singularity
+
+Prefer the smallest set of independent failures that explains the meaningful score loss.
+
+```text
+many dependent errors
+→ one upstream repair
+```
+
+but also:
+
+```text
+two genuinely independent high-value failures
+→ two repairs
+```
+
+“first meaningful failure” is a useful causal heuristic, not a ritual requiring repeated Chat loops until every later layer is rediscovered one at a time.
+
+## 9. Evidence and transfer
+
+Evidence strength generally rises as memory residue falls:
 
 ```text
 same-item correction
 < later clean success
-< later success on a fresh task with the same underlying demand
-< stable performance across multiple fresh contexts under time pressure
+< fresh task success on the same demand
+< repeated stable performance under normal time pressure
 ```
 
-Use this hierarchy to make decisions, not to manufacture an evidence ladder every time.
+`correct once ≠ mastery`, but `not mastery` does not mean `must schedule another test`.
 
-A repair creates a future transfer target only when the target is:
+A transfer target is justified only when future evidence could realistically change study allocation or confidence in a reusable behavior.
 
-- reusable across material;
-- recurring or supported by more than one weak event;
-- high-cost / high-score-risk;
-- still uncertain after repair;
-- important enough that future confirmation could change study allocation.
+Pending targets are **backend observation state**. Their existence must not summon a learner task, panel, or fresh-material consumption by itself. Later normal work may validate them opportunistically when it genuinely tests the same demand.
 
-Fresh validation should occur opportunistically when later real work genuinely tests that target. Do not hunt for a new item merely to close a database state unless the expected score value justifies consuming that material and time.
+## 10. Translation logic
 
-## 6. First meaningful failure
-
-Repair begins at the earliest layer sufficient to explain the observed performance.
-
-Examples:
-
-- Reading: if the sentence was misunderstood, do not start with option taxonomy;
-- Translation: if the English proposition / relation was wrong, do not start by polishing Chinese;
-- Writing: if usable content / task fulfillment failed, do not start with sentence decoration;
-- Cloze: if the slot demand was misread, do not build a vocabulary lecture around the chosen distractor;
-- Part B: if the discourse role was wrong, do not analyze every candidate independently.
-
-Expansion stops when the learner can perform the next relevant action. Repeated cross-material evidence, not system completeness, is what earns a deeper intervention.
-
-## 7. Capability-specific logic
-
-### Reading family
-
-Reading A operational path:
+Minimal Translation model:
 
 ```text
-understand → locate decisive evidence → adjudicate options → execute
+Represent the English meaning / relations
+→ Reconstruct the same meaning in natural Chinese
+→ Deliver under exam constraints
 ```
 
-Cloze cognitive object:
+**Fidelity / preservation is an invariant across reconstruction**, not necessarily a separate sequential cognitive stage the learner must visit.
+
+Useful diagnostic dimensions include omitted / added / distorted information, attachment, reference, scope, relation, degree/modality, and Chinese reconstruction quality.
+
+Preserve the first translation because it exposes process failure. Stable calibrated work may PASS without full Chat review. Reference translations are optional post-attempt tools.
+
+## 11. Writing logic
+
+Minimal Writing primitives:
 
 ```text
-slot demand → lexical / syntactic / discourse constraints → candidate best fit
+1. Task / genre fulfillment
+2. Content generation
+3. Organization / development
+4. English realization
+5. Register + high-value error control
+6. Timed delivery
 ```
 
-Part B cognitive object:
+Small Writing and Big Writing are **task-mode specializations**, not additional base primitives.
 
-```text
-discourse structure → required role → cohesion constraints → candidate fit
-```
+An integrated walkthrough is practice, not a primitive.
 
-User-facing review unit remains a complete passage / set because local errors depend on global context. Internal diagnosis may use a smaller slice.
+Therefore no exact number of teaching Blocks, checkpoints, or Active Checks is canonical merely because a current learning asset uses that decomposition.
 
-**Interaction rule:** after a wrong / uncertain item, the default repair surface should first make the decisive evidence and the real competing choice understandable. A learner who understands the miss may leave. Cause taxonomy, span capture, canonical diagnosis, detailed coach steps, or transfer claims are optional escalation tools, not mandatory closure steps.
+Writing feedback should choose the smallest set of high-value independent failures, weighted by score impact and reuse. Do not repair cosmetic sophistication while more important task/content/control problems remain.
 
-Continuous practice may defer detailed review until the batch ends. Do not interrupt every passage merely because it contains one problem.
+Chat review may be frequent during calibration because self-scoring is noisy and Writing is 30 points, but every future essay does not owe every internal review / repair-check state.
 
-### Translation
+## 12. Teacher material and first-learning assets
 
-Primary path:
+Teacher / framework content is a repair reservoir.
 
-```text
-local context → English representation → relation preservation → Chinese reconstruction → self-check
-```
+- use it when performance exposes a real need;
+- keep validated rules compact and executable;
+- do not preserve chapter order as learner order by default;
+- do not create a second course merely because rich material exists;
+- do not delete valid knowledge when a learner-facing route is shortened.
 
-Preserve the learner’s first translation because it contains useful process evidence.
+## 13. Fresh material
 
-Default behavior:
+Unseen true-exam, TPO, IELTS, and other held-out material is limited diagnostic capital.
 
-- complete a clean translation;
-- if stable and the learner is already calibrated, PASS is a real exit;
-- if uncertain or diagnostically valuable, use Chat / reference selectively;
-- repair only the affected relation / segment / reconstruction;
-- a same-sentence corrected translation proves repair efficacy, not transfer mastery.
+Use synthetic / exposed material for teaching and software validation when sufficient. Consume fresh material for real performance, calibration, or high-value transfer — not to close a database state.
 
-Early calibration may justify frequent Chat review. Later phases should not require a full Chat review of every stable set if periodic calibration and real performance show that self-triage is reliable.
+## 14. Interaction quality rule
 
-Reference translations are post-attempt comparison tools, not answers to imitate and not mandatory viewing.
+A learner-facing action earns its place only if it materially improves:
 
-### Writing
+- expected score;
+- speed / reliability;
+- repair quality;
+- future transfer judgment;
+- or return speed from failure to real performance.
 
-Primary path:
+No mandatory ritual unless it earns its place.
 
-```text
-task constraints → content → structure → English realization → control → timed delivery
-```
+Recall, Orientation, Closure, Handoff, Memory, Framework, Active Check, repair check, and UI transitions are tools, not ceremonies.
 
-Preserve first meaningful planning and first draft evidence. Direct mode is valid when planning is already automatic; do not force a planning ritual.
+## 15. Resume rule
 
-Writing feedback has high potential value because self-scoring is noisy and Writing is 30 points. Therefore Chat review may be frequent in calibration / skill-building phases, but the contract does **not** require every future essay to execute every internal state transition.
+Resume means **highest-value unfinished learner action**, not the most recently opened page.
 
-- PASS / acceptable is a real exit;
-- repair only the highest-value failed layer;
-- re-generation should target the affected scope;
-- a second Chat “repair check” is justified when it can change the learner’s next action, not merely because the state machine has that node;
-- reusable recurring failures may become future targets;
-- later timed complete essays are stronger evidence than polishing one remembered prompt.
-
-### Lexical handoff
-
-English must display LexicalOS as an external supply / repair lane, not as “English capability 01”. A lexical failure should be small enough to repair quickly and return to the originating task.
-
-## 8. Memory admission / future review
-
-Not every problem deserves future attention.
-
-Admit a failure only when at least one is true:
-
-- reusable language / procedure is involved;
-- failure recurs across distinct material;
-- repeated score loss is observed;
-- failure is expensive or likely to recur;
-- later real-context evidence remains weak or contradictory.
-
-Prefer a compact observation target over a permanent weakness label.
-
-Stable later unseen-context success may retire weaker planned artificial review. A new real failure may reactivate the smallest affected target.
-
-## 9. Teacher / learning material
-
-Teacher methods and first-learning assets are a **repair reservoir**.
-
-- Start from real performance where possible.
-- Pull only the method that addresses the observed failure.
-- Keep validated personal rules few, compact, and executable.
-- Do not preserve a teacher’s chapter order as the learner path by default.
-- Do not turn method labels into substitutes for text / task evidence.
-
-## 10. Progressive disclosure and interaction quality
-
-Before a clean attempt, protect answer and diagnostic capital.
-
-After the attempt:
-
-- stable work should collapse;
-- problems may expand only as far as needed for the next action;
-- reconstruction / re-execution outranks passive explanation when it adds useful evidence;
-- internal S/K/L/P/R/E status, hashes, claim IDs, taxonomy codes, and ledger state remain backend unless they alter the learner’s next decision.
-
-A learner-facing element earns its place only if it materially improves score reliability, speed, transfer, repair efficiency, or the quality of the next decision.
-
-### Resume rule
-
-“Resume” must mean **highest-value unfinished learner action**, not merely “most recently opened page”.
-
-Priority should normally be:
+Priority normally favors:
 
 1. unfinished clean attempt;
-2. unresolved meaningful repair that is already active;
-3. high-value scheduled / naturally encountered validation;
-4. otherwise a new high-value clean task.
+2. already-active meaningful repair;
+3. naturally relevant high-value validation;
+4. otherwise a new high-value performance task.
 
-Passed work must not drag the learner backward just because it was the most recent page.
+Passed work and dormant pending claims must not drag the learner backward.
 
-### No dashboard theater
+## 16. Acceptance boundary
 
-The learner should not maintain backend evidence taxonomy manually. Evidence collection should be automatic where possible, and visible state should be plain next-action language.
+Structural presence is not learner success.
 
-## 11. UI non-isomorphism
+```text
+STRUCTURAL ≠ EXECUTED ≠ ADVERSARIAL ≠ REAL learner evidence
+```
 
-The three English capability lanes must not become copies of one generic interface.
+A validator may protect invariants, but it must not define a decomposition as correct merely because it can count exact Blocks, pages, strings, or state-machine nodes.
 
-- Reading: passage / set + decision evidence;
-- Translation: source + first translation + affected reconstruction;
-- Writing: prompt + first generation + targeted re-generation.
-
-LexicalOS keeps its own independent runtime.
-
-Shared chrome is acceptable; shared learner interaction is not required.
-
-## 12. Complete-but-skippable learning and acceptance boundary
-
-Static first-learning assets remain substantive, but they are not a course-completion obligation. Skipping changes navigation only; it does not create a false mastery claim.
-
-A proficient learner may enter through calibration / clean performance and call the learning asset only when evidence justifies it.
-
-Engineering continuation is not private learner progress. Software QA may validate runtime semantics without consuming fresh learner material. U requires actual learner use.
-
-Root `LEARNING_ACCEPTANCE.md` governs S/K/L/P/R/E/U and readiness language. Reading A, Cloze, Part B, Translation, and Writing must be judged on their own cognitive objects. A shared runtime or green build does not grant learner mastery.
+When a simpler implementation preserves knowledge truth and the same learning value with lower learner burden, the simpler implementation wins.
