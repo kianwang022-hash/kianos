@@ -56,6 +56,16 @@ Kian dislikes:
 
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, or any named product.
 
+### Preserve semantic density in intrinsically dense learning surfaces
+
+- Do **not** simplify, thin out, or split apart a high-density learning asset merely to make a Guide, mockup, diagram, or one-screen composition look cleaner.
+- Presentation compression is not semantic compression. Reorganization may change hierarchy, spatial placement, typography, grouping, or navigation; it must not silently reduce the accepted terminology, relations, distinctions, claims, or first-round useful detail of the source/Current learning asset.
+- A diagram, role matrix, summary strip, or card is an orientation device, not a substitute for the complete useful content when that content is part of the learner-facing Guide.
+- A Guide is allowed to be information-dense and may extend beyond one viewport. `Fits on one screen` is never a goal when achieving it requires deleting or flattening meaningful content.
+- Use Mac width, strong hierarchy, nested structure, local scrolling, stable context, and selective emphasis to organize dense information before considering omission.
+- Content may be deferred or hidden only when the domain Learning/Projection authority says it is genuinely secondary, later-phase, reference-only, or not needed for the current cognitive action — never merely for visual cleanliness.
+- This applies especially to English Task Guides / First Learning assets and Xizong System / Block Guides, where the underlying information density is itself part of the learning value.
+
 ---
 
 ## 3｜Explicit interaction preferences
@@ -78,7 +88,7 @@ These are taste constraints, not instructions to clone Apple, Raycast, Arc, or a
 ### Structure should be visible
 
 - Important relations, maps, hierarchy, causal chains and task structure should be visually apparent rather than requiring the learner to reconstruct them from prose or repeated clicks.
-- Rich backend content may exist, but the default surface should expose only the structure needed for the current cognitive action.
+- Rich backend content may exist, but the default surface should expose the structure needed for the current cognitive action without visually flattening the full useful content of that object.
 - Do not flatten distinct cognitive objects into one generic card template.
 
 ### Failure may increase interface weight
@@ -136,7 +146,7 @@ When discussing a KianOS UI surface with Kian:
 2. Do not start from generic UX taste or from a single current component.
 3. Discuss **one surface / task type at a time** rather than dumping the whole system at once.
 4. Before proposing changes, clearly explain the **important existing functions** so Kian can judge what would be preserved or lost.
-5. Use simple, visual, Mac-wide ASCII sketches when useful.
+5. Use simple, visual, Mac-wide ASCII sketches when useful, but never treat a simplified sketch as permission to reduce the source asset's information density or detail level.
 6. Keep explanations concrete and colloquial; do not bury the decision under architecture language.
 7. Once a decision is accepted, write it to GitHub so later Chats/Codex do not reconstruct it from conversation history.
 8. Finish the relevant family / subject product discussion before handing implementation to Codex.
@@ -179,13 +189,13 @@ The following are **assistant inferences**, useful for proposing options but not
 Kian appears to work better when the system/relationship is visible first and he can then move quickly through details, rather than being guided through many small mandatory steps.
 
 ### H2｜High information tolerance, low disorder tolerance
-Kian appears comfortable with substantial information density when hierarchy is strong, but dislikes having to reconstruct structure from scattered cards/prose.
+Kian appears comfortable with substantial information density when hierarchy is strong, but dislikes having to reconstruct structure from scattered cards/prose. The explicit preference in §2 now additionally establishes that dense learner assets must not be semantically thinned merely for cleaner presentation.
 
 ### H3｜Low ceremony tolerance
 Kian appears particularly sensitive to operations that exist for system completeness rather than learner value: repeated confirmations, duplicate Chat→web imports, mandatory checkpoints, exposed backend states, etc.
 
 ### H4｜Backend richness should disappear into front-end simplicity
-Kian appears to value sophisticated underlying evidence/runtime behavior while preferring the learner-facing UI to remain simple, direct and low-friction.
+Kian appears to value sophisticated underlying evidence/runtime behavior while preferring the learner-facing UI to remain simple, direct and low-friction. `Simplicity` here means interaction/chrome simplicity, not deletion of intrinsically dense learner content.
 
 ### H5｜Spatial relationships are high leverage
 On Mac, Kian likely benefits from simultaneous side-by-side context when two objects must be compared or used together, rather than repeated page switching.
