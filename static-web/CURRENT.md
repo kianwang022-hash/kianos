@@ -29,29 +29,24 @@ This lifecycle applies to every major learner-facing UI/productization task unle
    Chat/Sol owns all legacy archaeology, reconciliation and migration.
    Codex does NOT discover project history or decide what old assets mean.
 
-   For legacy interaction:
-   legacy implementation / tests
-   → Chat extracts the proven behavior
+   Legacy interaction:
+   exact old implementation/tests
+   → Chat extracts proven behavior
    → reconcile against Current contracts
-   → write a clean Current-facing interaction brief
+   → Current-facing interaction brief
 
-   For legacy content / data:
+   Legacy content/data:
    exact old asset
    → Chat recovers identity / bytes / provenance
    → reconcile against Current canonical owner
-   → deliberately promote/materialize into Current through the correct domain owner
+   → deliberately promote/materialize into Current
    → only then may UI consume it
 
-   If this gate is unresolved, the UI task is BLOCKED before Codex.
-   Never ask Codex to solve ambiguity by browsing old repos or reviving old runtime authority.
+   If unresolved, the UI task is BLOCKED before Codex.
 
 2. CODEX HANDOFF
    Codex becomes the sole production implementation owner.
-   Codex starts from current main and receives only:
-   - Current contracts / runtime owners;
-   - the clean Product Brief;
-   - any already-reconciled Current migration output.
-
+   It receives only Current contracts/runtime + the clean Product Brief + already-reconciled migration output.
    Codex opens ONE short-lived implementation branch / Draft PR,
    implements Astro/CSS/interaction, runs build/browser checks,
    and returns real screenshots + a compact receipt.
@@ -63,67 +58,43 @@ This lifecycle applies to every major learner-facing UI/productization task unle
 
 4. ITERATION
    Codex iterates on the SAME active implementation PR unless the direction is explicitly abandoned.
-   Do not spawn parallel UI branches merely to try tiny visual differences.
 
 5. ACCEPTANCE GATE
-   A surface can move forward only when:
+   Move forward only when:
    - real browser behavior is usable;
    - Kian accepts the structural direction;
-   - Chat verifies zero semantic diff against the owning contracts;
-   - every required legacy migration was already reconciled into Current;
-   - no hidden legacy/runtime fallback was introduced.
+   - Chat verifies zero semantic diff;
+   - required legacy migration is already reconciled into Current;
+   - no hidden legacy/runtime fallback exists.
 
 6. MERGE + CLOSURE
    Merge only the accepted implementation.
-   In the same work session:
-   - advance `static-web/CURRENT.md` to the next exact step/surface;
-   - close the implementation PR;
-   - retire/delete the merged or abandoned short-lived branch;
-   - record only the small acceptance receipt needed for restart.
+   Same session: advance Current → close PR → retire/delete branch → retain only minimal restart receipt.
 
 7. FRESH-CHAT RESUME
-   New Chat reads Current first and continues the exact current stage.
-   It must not reconstruct the UI program from old branches, old Issues or previous Chat prose.
+   New Chat reads Current first and continues the exact stage.
 ```
 
 ### Role boundary
 
-**Chat / Sol owns:**
+**Chat / Sol owns:** current logic reading, Product Brief, all legacy discovery/archaeology/migration/authority reconciliation, interaction intent, screenshot/journey review, acceptance and Current reconciliation.
 
-- reading current learning logic and product constraints;
-- defining the product question;
-- all legacy discovery / archaeology / migration / authority reconciliation;
-- deciding what must be visible / quiet / interactive;
-- protecting semantic authority and the Legacy firewall;
-- reviewing screenshots and learner journeys;
-- acceptance / rejection and Current reconciliation.
+**Codex owns:** production Astro/CSS/JS, components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
 
-**Codex owns:**
+**Codex is not the project historian.** It must not infer what an old owner meant, choose between Legacy and Current truth, recover historical data, or decide which old behavior survives.
 
-- production Astro/CSS/JS implementation;
-- layout/components/tokens/responsiveness;
-- browser iteration and screenshot production;
-- build/tests and implementation cleanup;
-- implementation branch / PR lifecycle.
+**Kian owns:** final learner preference between structurally valid directions, real-use `U`, explicit workflow override.
 
-Codex is **not** the project historian. It should not be expected to infer old owner meaning, choose between legacy/current truth, recover historical data, or decide which historical behavior should survive.
+### Hard hygiene
 
-**Kian owns:**
-
-- final learner preference when two structurally valid directions remain;
-- real-use `U` evidence;
-- explicit override of the frozen workflow.
-
-### Hard hygiene rules
-
-1. Default maximum = **one active UI implementation PR**. Parallel UI implementation requires an explicit reason recorded in Current.
-2. Do not open an implementation branch before Product Brief and any required Migration Gate are complete.
-3. Chat-authored code sketches are disposable references only; they are never promoted merely because they exist.
-4. Codex may not change Learning Logic, evidence/mastery semantics, Repair admission, Resume priority, owner boundaries or canonical content to make UI easier.
-5. Codex must not use raw Legacy as a second source of truth. It consumes only Current or an explicit Chat-produced migration brief/output.
-6. A screenshot is not acceptance; real interaction/build behavior must be checked.
-7. A merged UI branch should not remain as long-lived task state. Current is the restart surface.
-8. If implementation reveals upstream semantic ambiguity, stop implementation and return the question to Chat / the owning contract instead of patching around it in UI.
+1. Default maximum = **one active UI implementation PR**.
+2. No implementation branch before Product Brief + required Migration Gate are complete.
+3. Chat-authored code sketches are disposable references only.
+4. Codex may not change learning/evidence/Repair/Resume/content semantics for UI convenience.
+5. Codex consumes Current or an explicit Chat-produced migration output — never raw Legacy as a second authority.
+6. Screenshot ≠ acceptance; browser interaction/build must work.
+7. Merged/abandoned UI branches are not durable task state; Current is.
+8. Upstream ambiguity returns to Chat/domain owner instead of being patched around in UI.
 
 ---
 
@@ -133,7 +104,7 @@ Codex is **not** the project historian. It should not be expected to infer old o
 **Active stage:** `2 · CODEX HANDOFF`  
 **Active Gold surface:** English Writing — task-first workbook  
 **Implementation owner:** Codex  
-**Chat/Sol role:** product direction + acceptance; legacy migration owner when relevant  
+**Chat/Sol role:** product direction + acceptance; migration owner when relevant  
 **Active implementation PR:** none  
 **Blocker:** no browser-tested Codex implementation yet.
 
@@ -141,85 +112,65 @@ Codex is **not** the project historian. It should not be expected to infer old o
 
 English is a **Digital Workbook + Adaptive Coach**, not a knowledge-course renderer.
 
-For Writing:
-
 ```text
-Task / Prompt
-+ learner Plan / Draft
-= dominant workspace
-
-six Writing primitives
-= quiet, complete-but-skippable coaching / repair reservoir
+Task / Prompt + learner Plan / Draft = dominant workspace
+six Writing primitives = quiet, complete-but-skippable coaching / repair reservoir
 ```
 
-The formal learner unit remains **one complete essay**. Clean performance should dominate. Stable work exits quickly. Only meaningful failure should make the surface heavier and expose the smallest useful coaching/repair layer.
+Formal learner unit = one complete essay. Clean performance dominates. Stable work exits quickly. Meaningful failure alone makes the surface heavier.
 
-**Migration Gate for this Writing Gold slice:** no raw Legacy dependency is required. Current English/Writing Logic + Current `WritingWorkspace.astro` are sufficient authority. Closed PR #93 is disposable thought-experiment reference only and is not implementation input.
+**Migration Gate for this Writing slice:** none required. Current English/Writing Logic + Current `WritingWorkspace.astro` are sufficient authority. Closed PR #93 is disposable thought-experiment reference only.
 
-Codex should start from current `main@HEAD` and read only what is needed:
+Codex reads:
 
 ```text
 static-web/CURRENT.md
 → static-web/PRESENTATION_CONTRACT.md
 → content/english/LEARNING_CONTRACT.md
 → content/english/modules/writing/CURRENT.md
-→ current Writing runtime (`WritingWorkspace.astro` and exact task/runtime owners)
+→ Current Writing runtime
 ```
 
-Then build **2–3 genuinely different Mac-landscape task-first workbook compositions**. Structural comparison only — not palette/radius variants.
+Then build **2–3 genuinely different Mac-landscape task-first workbook compositions** — structural alternatives, not palette/radius variants.
 
-Candidate directions may include, but Codex is not required to copy literally:
+Candidate directions only:
 
 - split workbook: Prompt + work surface + bounded Coach;
-- writing desk: large paper/work surface, Prompt collapsible, Coach docked quietly;
-- focus + drawer: writing dominates, Task/Coach appear on demand.
+- writing desk: large work surface, Prompt collapsible, Coach quiet;
+- focus + drawer: writing dominates, Task/Coach on demand.
 
-The six primitives must not become six compulsory chapters or the permanent visual mainline.
+Six primitives must never become six compulsory chapters or the permanent visual mainline.
 
 ### What Kian should judge
 
-- Is the task obviously the main object?
-- Is there enough comfortable space to write for 20–30 minutes?
+- Is Task obviously the main object?
+- Is there comfortable room to write for 20–30 minutes?
 - Is Prompt always reachable without dominating?
 - Does Coach stay quiet until useful?
-- Which structural direction feels most natural for repeated English use?
+- Which structure feels most natural for repeated English use?
 
 ---
 
 ## Frozen product basis
 
-1. `static-web/PRESENTATION_CONTRACT.md` — shared Projection grammar, Dense Calm, high-frequency input grammar, Legacy firewall.
-2. `SYSTEM_CONTRACT.md` — surface ownership.
-3. applicable domain Learning / Interaction contract.
-4. Current content/runtime owner for the projected task.
+`PRESENTATION_CONTRACT.md` + `SYSTEM_CONTRACT.md` + applicable domain contract + Current content/runtime owner.
 
-Hard product principles:
+Hard principles: Dense Calm; Mac landscape first; cognition before components; `Content structure ≠ page structure`; stable/correct paths stay low-friction; Wrong/Uncertain reveals smallest useful Repair; UI cannot mutate Current semantics.
 
-- Dense Calm: comfortable readable type, useful density, strong hierarchy, low noise;
-- Mac / wide landscape first;
-- cognition before components;
-- `Content structure ≠ page structure`;
-- do not default to heading → card/panel;
-- stable/correct paths stay extremely low-friction;
-- Wrong / meaningful Uncertain may reveal the smallest useful Repair / explanation;
-- presentation work may not mutate learning semantics, evidence/mastery meaning, Repair admission, Resume priority, surface ownership or canonical truth.
-
-Shared semantic roles:
-
-`Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
+Shared roles: `Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
 
 ---
 
 ## Protected legacy reference｜Politics Question Workbench
 
-Politics has a **mandatory Migration Gate before Codex implementation**.
+Politics has a **mandatory Chat-owned Migration Gate before Codex implementation**.
 
-Chat/Sol must first recover and reconcile the useful prior Workbench interaction against Current Politics truth. The target behavior includes:
+Chat/Sol must recover and reconcile the prior Workbench interaction against Current Politics truth, including:
 
 ```text
 Normal / Fast
-1–4 / Enter keyboard grammar
-fast single choice correct → near-immediate next
+1–4 / Enter
+fast single-choice correct → near-immediate next
 wrong → stay
 一句话带走
 answer delta
@@ -231,68 +182,38 @@ fixed low-friction Next
 optional original-question image check
 ```
 
-Historical evidence also pins a 1,148-record refined explanation artifact. **Chat/Sol, not Codex, owns locating/recovering/reconciling that payload.** If it is promoted, it must land through the correct Current Politics owner before UI consumes it.
+Historical evidence also pins a 1,148-record refined explanation artifact. **Chat/Sol owns locating, recovering, reconciling and promoting it through the correct Current Politics owner.** Codex receives only the reconciled Current result / clean implementation brief.
 
-Only after that migration is closed should Codex receive a clean Politics implementation brief. Codex must never wire learner runtime directly to recovery repos, old localhost assets, historical schedulers, or stale owners.
+Codex must never wire learner runtime directly to recovery repos, old localhost assets, historical schedulers, or stale owners.
 
 ---
 
 ## Gold acceptance
 
-A Gold surface is not accepted because it builds or looks polished.
-
 ```text
-Current logic + Current content/runtime
-→ required Migration Gate closed by Chat (if any)
-→ Codex structural implementations
-→ real browser screenshots + interaction review
-→ Kian accepts / rejects
+Current logic/content/runtime
+→ Chat closes Migration Gate if needed
+→ Codex implementations
+→ browser screenshots + interaction review
+→ Kian accepts/rejects
 → accepted composition
-→ only then extract reusable tokens / primitives
+→ then reusable tokens/primitives
 ```
 
-After Writing acceptance:
-
-```text
-Translation
-→ Objective (Reading A / Cloze / Part B)
-→ English shell / Resume
-→ Politics
-→ Xizong
-→ LexicalOS when its Current bounded runtime is ready
-→ global home / identity last
-```
-
----
-
-## Domain maturity boundary
-
-- **English:** Objective / Translation / Writing are mature Functional First slices; full UI productization is allowed under frozen semantics.
-- **Politics:** content maturity differs by subject; do not invent unaccepted downstream interactions. Legacy Workbench migration is Chat-owned.
-- **Xizong:** A2/A3 are mature learner-test-ready slices; other Systems follow their own Current maturity.
-- **LexicalOS:** vNext logic is accepted, but catalog/runtime maturity remains bounded; UI must not outrun Lexical Current.
-
----
-
-## Historical / superseded UI routes
-
-Issue #38 and branch `visual-language-v01` are superseded reference only.
-Closed PR #93 / `ui-writing-gold-lab-v2` is disposable reference only and is not the active implementation.
+After Writing: Translation → Objective → English shell/Resume → Politics → Xizong → LexicalOS when ready → global home/identity last.
 
 ---
 
 ## Fresh-Chat restart
 
-When Kian says **“继续 KianOS 总 UI”**, **“读取 GitHub 最新 UI 任务”**, or equivalent:
-
 ```text
 main@HEAD
 → static-web/CURRENT.md
 → identify lifecycle stage
-→ if a Legacy/Migration Gate exists, Chat closes it first
-→ only then CODEX HANDOFF
-→ if active Codex PR exists, inspect that exact PR/browser receipt
+→ if Migration Gate exists, Chat closes it
+→ only then Codex Handoff
+→ active Codex PR/browser receipt
 → continue exact acceptance step
 ```
 
-Do not reconstruct the UI program from old Issues, previous Chats, historical branches or legacy screenshots when this Current resolves the active task.
+Do not reconstruct UI work from old Issues, previous Chats, historical branches or legacy screenshots when Current resolves the task.
