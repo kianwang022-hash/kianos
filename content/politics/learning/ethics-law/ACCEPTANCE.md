@@ -16,8 +16,8 @@ S  PASS
 K  PASS
 L  PASS
 P  PASS
-R  UNTESTED   ← earliest unresolved
-E  UNTESTED   ← downstream-frozen
+R  PASS
+E  UNTESTED   ← earliest unresolved
 U  UNTESTED   ← learner-only
 ```
 
@@ -25,29 +25,17 @@ Supplemental content conclusion: `C00–C06 Current content closure PASS`.
 
 Allowed conclusion:
 
-> **Ethics-Law has accepted Current Source/Knowledge, complete first-round content, whole-book Learning Logic and learner-facing Projection. Subject-specific Runtime/Evidence and real learner validation remain unaccepted.**
+> **Ethics-Law now has accepted Current Source/Knowledge, first-round content, whole-book Learning Logic, learner-facing Projection and Ethics-specific executed Runtime. Evidence semantics and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated before R/E are independently accepted and U comes from real Kian use.
-
----
-
-## Accepted upstream｜S/K + Content
-
-All seven chapters were freshly source-grounded against canonical Natural Unit intent and readable Chengfeng source semantics, with Suyi only as a compact cross-check.
-
-```text
-C00–C06 REPAIRED
-7 reviewed / 7 repaired / 0 blocked
-Content closure PASS
-```
-
-High-value identities, relations, boundaries and fixed structures are represented without duplicating the Chengfeng lecture. Unsupported exact wording remains source-primary/deferred; C05 deliberately does not invent morality-function names that Current source does not expose cleanly.
+Do not promote this to learner-validated or mastered before E is independently accepted and U comes from real Kian use.
 
 ---
 
-## L｜Fresh Learning Logic — PASS
+## Accepted upstream｜S/K/L/P
 
-Review owner: `learning-review.json`.
+Fresh S/K closure repaired all seven chapter assets while keeping Chengfeng as the continuous mainline and unsupported exact wording source-primary/deferred.
+
+Fresh L review:
 
 ```text
 C00–C06 = 7 KEEP / 0 REPAIR / 0 BLOCKED
@@ -57,77 +45,91 @@ Accepted learner rule:
 
 > **先判断概念/规范处在哪一层，再分清最近边界，最后放回具体关系或情境做判断。**
 
-The accepted chain moves from moral/legal regulation through life-value judgment, ideals/beliefs, Chinese spirit, common values, morality practice and finally legal governance/personal legal practice. Dense fixed structures remain subordinate to semantic role and situational discrimination.
-
----
-
-## P｜Fresh Projection re-acceptance — PASS after one repair
-
-Review owner: `projection-review.json`.  
-Executable guard: `static-web/scripts/audit-politics-ethics-projection.mjs`.
-
-Fresh scope:
+Fresh P review:
 
 ```text
-7 chapters
-21 learner Units
-164 Current Xiao1000 questions
+7 chapters / 21 Units / 164 questions
 C01 REPAIR
 C00,C02–C06 KEEP
 0 BLOCKED
 ```
 
-### First real P defect
-
-Accepted C01 Unit `POL27-CF-ETHICS-C01-K03` owns `evaluation_anchor`:
-
-> 人生价值不能只按主观感受或个人收益评价，而要回到社会历史实践尺度。
-
-The generic Politics adapter did not map that field, so the learner-facing page preserved the Unit problem/answer and boundary but silently lost the decisive evaluation scale.
-
-This was a **Projection defect**, not a Content/Learning defect.
-
-### Narrow repair
-
-`static-web/src/lib/politicsEthicsProjection.mjs` now:
-
-- preserves `evaluation_anchor` as learner Projection data;
-- surfaces it as a progressive-disclosure `评价尺度` teaching beat;
-- leaves accepted C01 teaching content unchanged;
-- changes no sibling subject semantics.
-
-### Executed P evidence
-
-First fresh Ethics Projection audit failed only on:
-
-```text
-ETHICS_EVALUATION_ANCHOR_DROPPED
-ETHICS_EVALUATION_ANCHOR_PARITY 0/1
-```
-
-After the narrow repair, the same audit passed with evaluation-anchor parity `1/1`, and its runtime validation/build also passed.
-
-The accepted Projection guard covers:
-
-1. C00–C06 Orientation survives;
-2. Natural Unit problem + answer survive;
-3. high-value boundaries survive;
-4. accepted evaluation scale survives;
-5. backend `content_support` does not enter the generic learner component;
-6. Chengfeng remains external-primary on iPad/MarginNote;
-7. guide/closure remain progressive disclosure.
+P found one real defect: C01's accepted `evaluation_anchor` was silently dropped by the generic Projection adapter. `politicsEthicsProjection.mjs` now preserves it as a progressive-disclosure `评价尺度` beat without rewriting accepted Content/Learning. The repaired Projection audit confirms parity `1/1`, no backend `content_support` leakage and explicit external Chengfeng handoff.
 
 ---
 
-## P boundary / negative space
+## R｜Fresh Runtime re-acceptance — PASS after one repair
 
-S/K/L/P PASS does **not** mean:
+Mode: `EXECUTED + ADVERSARIAL`  
+Subject-specific journey: `static-web/scripts/test-politics-ethics-runtime.mjs`  
+Review owner: `runtime-review.json`
 
-- every fixed list is visible at once;
-- the eleven rule-of-law items or other dense structures become mandatory round-one recall;
-- unsupported exact wording may be model-filled;
-- Chengfeng becomes a second web lecture;
-- shared Politics or Xi/Mao journeys count as Ethics Runtime/Evidence acceptance;
+### First real R failure
+
+The first Ethics-specific browser run passed **28/28 smoke checks** across C00–C06:
+
+- subject/chapter identity;
+- Natural Unit presence;
+- external-primary Chengfeng handoff;
+- intended generic Politics runtime.
+
+It then failed at:
+
+```text
+ethics_config_with_1_questions_exists
+```
+
+Root cause:
+
+```text
+buildPoliticsUnitReturnConfigs
+→ conservative NATURAL_UNIT_SAFE_FALLBACK already existed
+→ allowlist included Marxism / History / Mao / Xi only
+→ Ethics rendered valid Current Xiao1000 questions
+→ Ethics received zero executable Unit Return config
+```
+
+This was classified as a **Runtime defect**, not a reason to reopen S/K/L/P.
+
+### Narrow repair
+
+`static-web/src/lib/politicsUnitReturn.mjs` now permits `ethics_law` to use the same conservative fallback:
+
+```text
+NATURAL_UNIT_SAFE_FALLBACK
+mastery_claim = NONE
+```
+
+The repair does not invent finer question→node mappings and does not change Ethics teaching/projection assets.
+
+### Executed R evidence
+
+Repair head: `24a3592903734e36cdded84e35951decdba37f9c`
+
+Ethics Runtime artifact: **45/45 checks PASS**.
+
+The journey proves:
+
+1. **C00–C06 runtime identity** — all seven chapters preserve Natural Units and external Chengfeng handoff.
+2. **Clean verification** — real Xiao1000 clean attempts record `STABLE`, create no Wrong/Uncertain debt, expose Unit Return, and the UI keeps `不等于长期掌握` explicit.
+3. **Meaningful resume** — a real pending question is stored as `VERIFY` and restored active after refresh with subject/chapter/unit identity intact.
+4. **Repair route** — a real first attempt (`X1000-ETHICS-M-010`, WRONG, selected A vs correct BCD) routes to owning source and stores `REPAIR_SOURCE`.
+5. **Repair return** — original result and repair panel reappear on return to the interrupted question.
+6. **First-attempt immutability** — the stored first-attempt object remains unchanged through repair-return.
+
+Shared Politics and sibling-subject journeys remain regression evidence only. Ethics R PASS is owned by the Ethics-specific execution.
+
+---
+
+## R boundary / negative space
+
+R PASS does **not** mean:
+
+- every Ethics question was exhaustively exercised;
+- STABLE means mastery;
+- repair converts historical Wrong/Uncertain into first-attempt success;
+- Return Packet provenance or persistence failure semantics are independently accepted;
+- later fresh/holdout transfer has run;
 - Kian has studied or mastered Ethics-Law.
 
 ---
@@ -135,13 +137,14 @@ S/K/L/P PASS does **not** mean:
 ## Stage boundary
 
 ```text
-S/K/L/P  PASS
-R        UNTESTED / earliest unresolved
-E        downstream-frozen
-U        UNTESTED / learner-only
+S/K/L/P/R  PASS
+E          UNTESTED / earliest unresolved
+U          UNTESTED / learner-only
 ```
 
-Next legitimate whole-module work is **R｜Runtime** using Ethics-specific executed learner journeys. Do not reopen accepted S/K/L/P without new source truth, question evidence, real learner friction, or a concrete responsible defect.
+Next legitimate whole-module work is **E｜Evidence**. R execution is strong prior evidence, but E must independently attack first-attempt durability, repair provenance, Return Packet meaning, fail-closed persistence and no-mastery boundaries.
+
+Do not reopen accepted S/K/L/P/R without new source truth, question evidence, real learner friction, or a concrete responsible defect.
 
 ---
 
@@ -150,7 +153,8 @@ Next legitimate whole-module work is **R｜Runtime** using Ethics-specific execu
 ### Artifact Truth
 - teaching/review assets → `content/politics/learning/ethics-law/`
 - Ethics Projection adapter → `static-web/src/lib/politicsEthicsProjection.mjs`
-- P guard → `static-web/scripts/audit-politics-ethics-projection.mjs`
+- Unit Return runtime → `static-web/src/lib/politicsUnitReturn.mjs`
+- Ethics Runtime journey → `static-web/scripts/test-politics-ethics-runtime.mjs`
 - shared contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -159,4 +163,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Accepted Projection is not Ethics-Law Runtime/Evidence acceptance, mastery, or U evidence.**
+> **Accepted Runtime is not Ethics-Law Evidence acceptance, mastery, or U evidence.**
