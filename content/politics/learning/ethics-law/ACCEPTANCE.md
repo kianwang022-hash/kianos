@@ -15,8 +15,8 @@ This file owns current acceptance claims for the independently continued Ethics-
 S  PASS
 K  PASS
 L  PASS
-P  UNTESTED   ← earliest unresolved
-R  UNTESTED   ← downstream-frozen
+P  PASS
+R  UNTESTED   ← earliest unresolved
 E  UNTESTED   ← downstream-frozen
 U  UNTESTED   ← learner-only
 ```
@@ -25,125 +25,109 @@ Supplemental content conclusion: `C00–C06 Current content closure PASS`.
 
 Allowed conclusion:
 
-> **Ethics-Law has accepted Current Source/Knowledge content and a freshly re-accepted whole-book Learning Logic for C00–C06. Projection, subject-specific Runtime/Evidence and real learner validation remain unaccepted.**
+> **Ethics-Law has accepted Current Source/Knowledge, complete first-round content, whole-book Learning Logic and learner-facing Projection. Subject-specific Runtime/Evidence and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated before P/R/E are independently accepted and U comes from real Kian use.
+Do not promote this to module-ready or learner-validated before R/E are independently accepted and U comes from real Kian use.
 
 ---
 
-## S/K + Content closure｜accepted upstream
+## Accepted upstream｜S/K + Content
 
-The fresh Source/Knowledge pass reviewed all seven chapters against canonical Ethics Natural Unit intent and readable Chengfeng source semantics, with Suyi only as a compact framework cross-check.
+All seven chapters were freshly source-grounded against canonical Natural Unit intent and readable Chengfeng source semantics, with Suyi only as a compact cross-check.
 
 ```text
-C00–C06  REPAIRED
+C00–C06 REPAIRED
 7 reviewed / 7 repaired / 0 blocked
 Content closure PASS
 ```
 
-High-value identities, relations, boundaries and fixed structures were restored without duplicating Chengfeng. Long examples, low-value lists and unsupported exact wording remain source-primary/deferred.
-
-Important source boundary:
-
-```text
-Chengfeng  continuous first-round mainline + primary semantic source
-Suyi       compact framework / exactness cross-check only
-Xiao1000   verification / transfer evidence, not first-learning order
-KianOS     concept / boundary / situational-judgment companion
-```
-
-C05 deliberately does not invent the exact names of morality's basic functions where Current source evidence does not expose them cleanly.
-
-Executed S/K evidence:
-
-- Static Web Politics QA #498 (`34756165723`) → PASS;
-- Ethics content closure → PASS;
-- canonical coverage, Xiao1000 routing, scoped source loading, Current bindings and Astro build → PASS.
+High-value identities, relations, boundaries and fixed structures are represented without duplicating the Chengfeng lecture. Unsupported exact wording remains source-primary/deferred; C05 deliberately does not invent morality-function names that Current source does not expose cleanly.
 
 ---
 
-## L｜Fresh Learning Logic re-acceptance — PASS
+## L｜Fresh Learning Logic — PASS
 
-Review owner: `content/politics/learning/ethics-law/learning-review.json`.
-
-Fresh disposition:
+Review owner: `learning-review.json`.
 
 ```text
-C00 KEEP
-C01 KEEP
-C02 KEEP
-C03 KEEP
-C04 KEEP
-C05 KEEP
-C06 KEEP
-
-7 reviewed
-7 keep
-0 repair
-0 blocked
+C00–C06 = 7 KEEP / 0 REPAIR / 0 BLOCKED
 ```
 
-No chapter was rewritten merely to manufacture delta.
-
-### Accepted learner rule
+Accepted learner rule:
 
 > **先判断概念/规范处在哪一层，再分清最近边界，最后放回具体关系或情境做判断。**
 
-Whole-subject learner chain:
-
-```text
-moral vs legal regulation
-→ person-society / life-value judgment
-→ ideal-belief / ideal-reality relation
-→ Chinese spirit / patriotism / innovation identities
-→ common core-value scale
-→ morality origin/core/principle + scenario practice
-→ law operation / rule-of-law governance / constitution / legal thinking + rights-obligations
-```
-
-### Learning acceptance criteria
-
-1. **Concept identity first** — the learner knows what kind of object/norm is being judged before exact wording.
-2. **Nearest boundary** — high-risk concepts are separated from their closest confusable neighbor.
-3. **Situational application** — abstract norms are applied to actor/relationship/action judgments rather than left as definitions.
-4. **Cross-chapter continuity** — the subject moves from individual life/value judgment to shared norms and finally legal governance/personal legal practice.
-5. **Source negative space** — dense examples and unsupported exact lists remain Chengfeng/source-primary.
-6. **Minimality** — no extra Recall workflow is created for symmetry.
-
-### Strongest fresh attacks
-
-**C03 — identity-layer collision**  
-Four Great spirits, patriotism and reform-innovation could become hat matching. Current first fixes rich-connotation / national-spirit core / era-spirit core / China-spirit relation before precision.
-
-**C04 — twelve-word recitation-wall risk**  
-The twelve core-value words could dominate learning. Current first assigns country/society/citizen levels and explicitly separates core values from the broader core-value system.
-
-**C05 — morality mixed-list risk**  
-Origin/functions, `为人民服务` core, `集体主义` principle and four scenario norms could collapse into one queue. Current separates semantic roles, organizes scenarios by relationship, and defers unsupported exact function names instead of guessing.
-
-**C06 — legal hat-density risk**  
-Rule-of-law thought / road / system / goal / work pattern / constitution / legal-thinking contents create the densest fixed identities. Current assigns each to a distinct governance-level question before precision and ends in situational discrimination among legality, power constraint, fairness, rights and procedure.
-
-### Material delta
-
-```text
-NO_CHAPTER_LOGIC_REWRITE_REQUIRED
-```
-
-A rewrite would add learner operations without a demonstrated gain in discrimination or application.
+The accepted chain moves from moral/legal regulation through life-value judgment, ideals/beliefs, Chinese spirit, common values, morality practice and finally legal governance/personal legal practice. Dense fixed structures remain subordinate to semantic role and situational discrimination.
 
 ---
 
-## L boundary / negative space
+## P｜Fresh Projection re-acceptance — PASS after one repair
 
-L PASS does **not** mean:
+Review owner: `projection-review.json`.  
+Executable guard: `static-web/scripts/audit-politics-ethics-projection.mjs`.
 
-- every morality/legal list should appear at once;
-- every exact identity becomes active recall or Memory debt;
-- unsupported source wording may be filled from model memory;
-- chapter review prompts are mandatory rituals;
-- Chengfeng moves into Astro as a continuous reader;
-- shared Politics runtime success counts as Ethics P/R/E acceptance;
+Fresh scope:
+
+```text
+7 chapters
+21 learner Units
+164 Current Xiao1000 questions
+C01 REPAIR
+C00,C02–C06 KEEP
+0 BLOCKED
+```
+
+### First real P defect
+
+Accepted C01 Unit `POL27-CF-ETHICS-C01-K03` owns `evaluation_anchor`:
+
+> 人生价值不能只按主观感受或个人收益评价，而要回到社会历史实践尺度。
+
+The generic Politics adapter did not map that field, so the learner-facing page preserved the Unit problem/answer and boundary but silently lost the decisive evaluation scale.
+
+This was a **Projection defect**, not a Content/Learning defect.
+
+### Narrow repair
+
+`static-web/src/lib/politicsEthicsProjection.mjs` now:
+
+- preserves `evaluation_anchor` as learner Projection data;
+- surfaces it as a progressive-disclosure `评价尺度` teaching beat;
+- leaves accepted C01 teaching content unchanged;
+- changes no sibling subject semantics.
+
+### Executed P evidence
+
+First fresh Ethics Projection audit failed only on:
+
+```text
+ETHICS_EVALUATION_ANCHOR_DROPPED
+ETHICS_EVALUATION_ANCHOR_PARITY 0/1
+```
+
+After the narrow repair, the same audit passed with evaluation-anchor parity `1/1`, and its runtime validation/build also passed.
+
+The accepted Projection guard covers:
+
+1. C00–C06 Orientation survives;
+2. Natural Unit problem + answer survive;
+3. high-value boundaries survive;
+4. accepted evaluation scale survives;
+5. backend `content_support` does not enter the generic learner component;
+6. Chengfeng remains external-primary on iPad/MarginNote;
+7. guide/closure remain progressive disclosure.
+
+---
+
+## P boundary / negative space
+
+S/K/L/P PASS does **not** mean:
+
+- every fixed list is visible at once;
+- the eleven rule-of-law items or other dense structures become mandatory round-one recall;
+- unsupported exact wording may be model-filled;
+- Chengfeng becomes a second web lecture;
+- shared Politics or Xi/Mao journeys count as Ethics Runtime/Evidence acceptance;
 - Kian has studied or mastered Ethics-Law.
 
 ---
@@ -151,13 +135,13 @@ L PASS does **not** mean:
 ## Stage boundary
 
 ```text
-S/K/L  PASS
-P      UNTESTED / earliest unresolved
-R/E    downstream-frozen
-U      UNTESTED / learner-only
+S/K/L/P  PASS
+R        UNTESTED / earliest unresolved
+E        downstream-frozen
+U        UNTESTED / learner-only
 ```
 
-Next legitimate whole-module work is **P｜Projection**. Do not reopen accepted S/K/L without new source truth, question evidence, real learner friction or a concrete upstream defect.
+Next legitimate whole-module work is **R｜Runtime** using Ethics-specific executed learner journeys. Do not reopen accepted S/K/L/P without new source truth, question evidence, real learner friction, or a concrete responsible defect.
 
 ---
 
@@ -165,7 +149,8 @@ Next legitimate whole-module work is **P｜Projection**. Do not reopen accepted 
 
 ### Artifact Truth
 - teaching/review assets → `content/politics/learning/ethics-law/`
-- Learning review → `content/politics/learning/ethics-law/learning-review.json`
+- Ethics Projection adapter → `static-web/src/lib/politicsEthicsProjection.mjs`
+- P guard → `static-web/scripts/audit-politics-ethics-projection.mjs`
 - shared contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -174,4 +159,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Accepted Learning Logic is not Ethics-Law Projection/Runtime/Evidence acceptance, mastery, or U evidence.**
+> **Accepted Projection is not Ethics-Law Runtime/Evidence acceptance, mastery, or U evidence.**
