@@ -1,6 +1,50 @@
 <script is:inline>
   const workspace = document.querySelector('[data-politics-cognitive-workspace]');
+
+  const setWorkspaceState = (unit, state) => {
+    if (!workspace || !unit) return;
+    const visibleStage = state === 'REPAIR' ? 'VERIFY' : state;
+    unit.dataset.state = state;
+    unit.querySelectorAll('[data-stage]').forEach((scene) => {
+      scene.hidden = scene.getAttribute('data-stage') !== visibleStage;
+    });
+    unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
+      panel.hidden = panel.getAttribute('data-inspector-state') !== state;
+    });
+
+    const stateLabel = workspace.querySelector('[data-workspace-state-label]');
+    if (stateLabel && !unit.hidden) stateLabel.textContent = state;
+
+    try {
+      const key = `kianos-politics-workspace-v1:${workspace.dataset.subject || ''}:${workspace.dataset.chapter || ''}`;
+      const saved = JSON.parse(localStorage.getItem(key) || '{}');
+      const states = { ...(saved.states || {}), [unit.dataset.unitId || '']: state };
+      localStorage.setItem(key, JSON.stringify({ ...saved, states, observed_at: new Date().toISOString() }));
+    } catch {}
+  };
+
   if (workspace) {
+    // Score-first fast path: Recall is useful, but it is not a compulsory ritual.
+    // The core workspace listener reads data-workspace-action at click time, so
+    // renaming the original action disables the old mandatory LEARN → RECALL hop.
+    workspace.querySelectorAll('[data-workspace-action="learn-done"]').forEach((button) => {
+      const unit = button.closest('[data-workspace-unit]');
+      if (!unit) return;
+
+      button.setAttribute('data-workspace-action', 'learn-fastpath');
+      button.textContent = '直接进入肖1000 →';
+
+      const recallButton = document.createElement('button');
+      recallButton.type = 'button';
+      recallButton.className = 'secondaryAction';
+      recallButton.setAttribute('data-workspace-score-recall', 'optional');
+      recallButton.textContent = '20 秒闭卷收口（可选）';
+      button.before(recallButton);
+
+      recallButton.addEventListener('click', () => setWorkspaceState(unit, 'RECALL'));
+      button.addEventListener('click', () => setWorkspaceState(unit, 'VERIFY'));
+    });
+
     workspace.addEventListener('click', (event) => {
       const link = event.target?.closest?.('a[href^="#source-"]');
       if (!link || !workspace.contains(link)) return;
@@ -8,22 +52,7 @@
       if (!unit) return;
 
       event.preventDefault();
-      unit.dataset.state = 'EXTERNAL_LEARN';
-      unit.querySelectorAll('[data-stage]').forEach((scene) => {
-        scene.hidden = scene.getAttribute('data-stage') !== 'EXTERNAL_LEARN';
-      });
-      unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
-        panel.hidden = panel.getAttribute('data-inspector-state') !== 'EXTERNAL_LEARN';
-      });
-      const stateLabel = workspace.querySelector('[data-workspace-state-label]');
-      if (stateLabel) stateLabel.textContent = 'EXTERNAL_LEARN';
-
-      try {
-        const key = `kianos-politics-workspace-v1:${workspace.dataset.subject || ''}:${workspace.dataset.chapter || ''}`;
-        const saved = JSON.parse(localStorage.getItem(key) || '{}');
-        const states = { ...(saved.states || {}), [unit.dataset.unitId || '']: 'EXTERNAL_LEARN' };
-        localStorage.setItem(key, JSON.stringify({ ...saved, states, observed_at: new Date().toISOString() }));
-      } catch {}
+      setWorkspaceState(unit, 'EXTERNAL_LEARN');
 
       const target = document.querySelector(link.getAttribute('href'));
       requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));

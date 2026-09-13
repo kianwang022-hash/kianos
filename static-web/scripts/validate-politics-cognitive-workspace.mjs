@@ -13,8 +13,10 @@ const requireText = (text, needle, label) => {
 };
 
 const component = read('src/components/PoliticsCognitiveWorkspace.astro');
+const bridge = read('src/components/PoliticsCognitiveWorkspaceBridge.astro');
 const page = read('src/pages/politics/[subject]/[chapter].astro');
 const presentation = read('PRESENTATION_CONTRACT.md');
+const learning = read('../content/politics/LEARNING_CONTRACT.md');
 
 for (const marker of [
   'data-politics-cognitive-workspace',
@@ -47,6 +49,20 @@ for (const semanticKey of [
 if (component.includes('node.text') || component.includes('sourceNodes.map((node) => node.text')) {
   fail('workspace reintroduced continuous Chengfeng source text');
 }
+
+for (const scoreRule of [
+  'Help Kian reach a reliable 70+ Politics score',
+  'expected exam points gained or protected',
+  'No mandatory ritual'
+]) requireText(learning, scoreRule, 'Politics score-first learning contract');
+
+for (const fastPath of [
+  'learn-fastpath',
+  '直接进入肖1000 →',
+  '20 秒闭卷收口（可选）',
+  "setWorkspaceState(unit, 'RECALL')",
+  "setWorkspaceState(unit, 'VERIFY')"
+]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
@@ -89,5 +105,6 @@ console.log(JSON.stringify({
   chapter: chapter.title,
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
+  scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
 }, null, 2));
