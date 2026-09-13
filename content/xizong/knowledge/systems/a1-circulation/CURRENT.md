@@ -10,136 +10,122 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A1 Circulation  
-**Active engineering stage:** fresh **Content Realization / Closure** after S/K/L re-acceptance  
-**Blocker:** none at S/K/L  
-**Next action:** audit the actual 12 Block / 312 KP medical Content bottom-up against the current Study Lecture Source + Outline/Coverage owner. Do not treat stable counts, old Acceptance, validators, the prior System Guide, or Block `FINAL` labels as the answer key. Only write where a concrete medical, ownership, boundary, confusable, provenance, or learner-burden defect is demonstrated.
+**Active engineering stage:** fresh **Projection / Interaction** re-acceptance  
+**Blocker:** none at S/K/L or Content Closure  
+**Next action:** attack the actual learner-facing A1 projection against the freshly accepted learner path and surface ownership. Verify that KianOS projects orientation / selective cues / retrieval / Logic Group closure without becoming a second continuous Lecture reader, leaking governance fields, or changing medical ownership.
 
 Current fresh progress:
 
-- S re-accepted PASS under Source-boundary attack;
-- K re-accepted PASS after repairing the A1 System failure decomposition;
+- S re-accepted PASS;
+- K re-accepted PASS after System-model repair;
 - L re-accepted PASS after learner-route and surface-ownership attack;
-- Content Realization / Closure is now the earliest unresolved construction stage;
-- P/R/E retain their previously accepted gate claims but have not yet received fresh attacks;
-- U remains real learner use only.
+- **Content Realization / Closure COMPLETE** across all 12 Blocks / 312 stable KPs;
+- P prior accepted claim remains PASS but **fresh P attack is now ACTIVE**;
+- R/E retain prior accepted claims and remain downstream-frozen until fresh P closes;
+- U remains real learner use only and is out of scope for this Chat.
 
-Important Source boundary:
-
-- A1 has 850 unique Primary Outline items in the frozen coverage map;
-- the retained first-pass source pack records 312 KP with 158 `SOURCE_EXACT` and 154 `SOURCE_PENDING` locator records;
-- `SOURCE_PENDING` must not be described as exact page-level provenance;
-- it is not automatically a medical Source gap because first learning is continuous Lecture-section learning and known Block/Outline ownership may still be sufficient;
-- if fresh Content audit cannot resolve one pending item to the current formal Lecture/Outline owner, reopen the smallest affected S object.
-
-> **Fresh engineering acceptance still does not mean Kian has studied A1 or should perform any learner action now.**
+> **Fresh engineering acceptance still does not mean Kian has studied A1. Stop before U; another learner-validation path owns that work.**
 
 ---
 
-## Why Content is active only now
+## Fresh Content Closure receipt
 
-Repository construction stages and S/K/L/P/R/E/U gates are different systems.
-
-```text
-Construction:
-Truth / Knowledge Boundary
-→ Learning Logic
-→ Content Realization / Optimization
-→ Projection / Interaction
-→ Runtime Loop
-→ Evidence / Acceptance
-
-Acceptance:
-S / K / L / P / R / E / U
-```
-
-The previous cursor incorrectly jumped from fresh S/K directly into Content while fresh L was still pending. That scheduling defect is closed: fresh L is now accepted, so Content is legitimately active.
-
----
-
-## Active Content audit contract
-
-For each A1 Block, read and reconcile in this order:
+Authority order used for fresh Content attack:
 
 ```text
 current formal Study Lecture Source
-→ corresponding Outline / Coverage owner
-→ canonical Block / KP owner
-→ only then prior System/Block summaries when useful
+→ current Outline / Coverage ownership
+→ canonical Block / KP medical asset
+→ learner burden / cross-owner boundary
 ```
 
-Attack both directions:
+The audit was bounded into three semantic batches rather than treating 312 KPs as 312 equal rewrite tasks.
+
+### Batch C1｜B1–B4 normal substrate
 
 ```text
-Completeness
-→ missing mechanism / boundary / exception / confusable / transfer support?
-→ Source or Outline negative space hidden by current taxonomy?
-→ required visual/source-local teaching value lost from the canonical learning object?
-
-Minimality
-→ unsupported expansion / duplicate explanation / pseudo-KP / wrong owner / unnecessary learner burden?
-→ can content be merged, routed, deferred or repair-only without losing Knowledge Truth?
+B1  FRESH_PASS_AFTER_EXISTING_REPAIR
+B2  FRESH_PASS_NO_CHANGE
+B3  FRESH_PASS_NO_CHANGE
+B4  FRESH_PASS_NO_CHANGE
 ```
 
-Hard rules:
+- B1's existing fresh repair (`5c4ddba…`) corrected transfer/boundary overstatements without changing stable identity: 75/25 filling as an approximate Study convention rather than universal law; E/A<1 bounded to the impaired-relaxation pattern; PV/BP direction claims tightened; coronary-flow and anti-anginal drug transfer boundaries tightened.
+- Fresh Source re-grounding found those repairs compatible with the current Physiology Lecture rather than external replacement.
+- B2 RAAS / ADH / natriuretic-peptide / local vascular control, B3 fast/slow response + pacemaker/refractory/propagation model, and B4 hemostasis/anticoagulation/fibrinolysis + thrombosis/embolism/infarction all retained their current Source/Outline owners with no material missing or unsupported Primary.
 
-- minimize learner burden, not Knowledge Truth;
-- Lecture is current exam-content Source Truth; external references may challenge but cannot silently overwrite explicit Study convention;
-- Outline is Coverage Safety Net, not answer authority;
-- do not add content merely because it is clinically interesting;
-- current canonical Source boundary controls what A1 must own;
-- cross-System relation does not automatically transfer Primary ownership;
-- Block/KP identity changes require a demonstrated semantic reason, not symmetry;
-- a stable count is evidence of identity, not proof of completeness;
-- question mappings may support attacks but cannot define negative space by themselves;
-- no Block may receive `fresh Content closed` merely from self-consistency of its current Markdown.
-
-Only a concrete fresh defect may reopen/downgrade the earliest responsible accepted S/K/L gate.
-
----
-
-## Current Block-level progress
-
-B1 has one existing fresh repair commit (`5c4ddba…`) that corrected transfer/boundary overstatements. Under the stricter Source-first closure contract, that repair is useful evidence but **not by itself a final Batch receipt**.
-
-Therefore normal Content continuation begins with:
+### Batch C2｜B5–B9 structural / vascular disease
 
 ```text
-B1 Source + Outline reconciliation receipt
-→ if no remaining material delta, close B1 fresh Content
-→ then B2
-→ continue Block by Block / bounded batches through B12
+B5  FRESH_PASS_NO_CHANGE
+B6  FRESH_PASS_NO_CHANGE
+B7  FRESH_PASS_NO_CHANGE
+B8  FRESH_PASS_NO_CHANGE
+B9  FRESH_PASS_NO_CHANGE + locator debt retained
 ```
 
-Do not reopen B1 medical prose unless Source/Outline reconciliation reveals a concrete remaining defect.
+Strongest attacks included:
+
+- B5 high-pressure variable model versus current Internal Medicine thresholds/risk language and Pathology HTN/atherosclerosis sequence;
+- B6 stable ischemia / UA-NSTEMI / STEMI, infarct timing, biomarkers, complications and reperfusion boundaries;
+- B7 IE blood-culture / echo evidence, rheumatic-vs-infective lesion ownership, and four-valve pressure/volume-load unification;
+- B8 DCM/HCM/RCM versus pericardial restriction/tamponade/constriction discrimination;
+- B9 arterial downstream ischemia versus venous upstream stasis, acute arterial occlusion, chronic AS/TAO and DVT/PE handoff.
+
+B9's historical page-coordinate mismatch reflects a Source locator/version-coordinate debt: the current `外科学讲义_AI阅读版.md` section is resolvable by current source-local section anchors, so this is not treated as a medical Content defect or as proof of an exact old page coordinate.
+
+### Batch C3｜B10–B12 functional collapse
+
+```text
+B10 FRESH_PASS_NO_CHANGE
+B11 FRESH_PASS_NO_CHANGE
+B12 FRESH_PASS_NO_CHANGE
+```
+
+Strongest attacks included:
+
+- B10 `pulse/stability before rhythm name`, AF >48 h anticoagulation/cardioversion boundary, synchronized versus unsynchronized electrical treatment, pre-excitation and block/escape/reentry distinctions;
+- B11 HFrEF/HFmrEF/HFpEF/HFimpEF, forward hypoperfusion + backward congestion, wet/cold acute state, chronic treatment targets, CRT versus ICD and HFpEF boundary;
+- B12 shock versus cardiac arrest, four Failure Layers, microcirculation `constrict → dilate → coagulate`, DIC as A1 shock interface rather than a second Hematology owner, cold/warm septic-shock Study convention, source control, and VF/pVT versus PEA/asystole boundary.
+
+### Content closure conclusion
+
+- **KEEP 12 canonical Blocks / 312 stable KPs.**
+- No new Block, KP split/merge/renumber, or broad medical rewrite is justified.
+- No new material Source/Outline hole was found after the B1 repair.
+- Stable counts are not the reason for closure; closure rests on Source + Outline + negative-space attacks.
+- The retained first-pass source pack still records **158 `SOURCE_EXACT` + 154 `SOURCE_PENDING`** locator records. Pending locators remain explicit debt and are not converted into fictitious page-level provenance.
+- A concrete future contradiction may reopen the smallest responsible S/K/L/Content object; Content closure is not immunity from later evidence.
 
 ---
 
-## Frozen / out of scope during Content audit
+## Active P fresh-audit contract
 
-Until a concrete defect requires otherwise:
+Fresh P must inspect actual learner-facing A1 behavior, not only canonical strings.
 
-- do not alter A1 question scope by model inference;
-- do not infer Question→Block/KP relations without reviewed authority;
-- do not mutate A2/A3 or C merely because A1 discovered a cross-System debt;
-- do not change learner Runtime/UI before Content closure or a Content defect proves downstream work depends on it;
-- do not mutate private learner Recall, Wrong/Uncertain, holdout, notes, review state, or mastery;
-- do not create a permanent audit subsystem;
-- do not resume broad historical archaeology.
+Must prove:
+
+1. System / Block orientation is visible before learner actions that depend on it.
+2. A1 learner-facing order follows approved Logic Groups / learning support rather than raw file or question order.
+3. KianOS does **not** render the full original Lecture as the normal continuous first-learning surface.
+4. The primary flow supports `orientation/cue → external original Lecture contact → retrieval/closure` with low friction.
+5. Recall fronts do not leak formal answers before a clean attempt.
+6. governance/backend terms such as owner / audit / routing / migration / canonical status are absent from the primary learning surface.
+7. Content projection does not change stable Block/KP identity or silently infer Question→KP relations.
+8. Current content/version boundaries fail closed rather than showing stale semantic owners as Current.
+
+If a Projection defect exposes an upstream L/Content defect, reopen only the smallest responsible owner. Otherwise close fresh P and activate R.
 
 ---
 
-## Required reads for the current stage
+## Frozen while P is active
 
-Normal re-entry:
-
-1. this `CURRENT.md`;
-2. `ACCEPTANCE.md` for current gate truth;
-3. exact Block owner currently under Content attack;
-4. actual current Study Lecture section(s) for that Block;
-5. corresponding Outline / Coverage owner or mapped items;
-6. only the minimum System/learning owner needed to settle a concrete boundary.
-
-Do not reread all history or unrelated Systems as ritual.
+- do not rewrite medical Content for visual symmetry;
+- do not reopen Source archaeology without a concrete provenance contradiction;
+- do not change official question scope or infer Question→Knowledge relations;
+- do not manufacture learner progress;
+- do not begin fresh R/E merely because prior validators are green;
+- do not perform U in this Chat.
 
 ---
 
@@ -152,7 +138,7 @@ Do not reread all history or unrelated Systems as ritual.
 - lane learning semantics → `content/xizong/LEARNING_CONTRACT.md`
 - detailed shared policy → `content/xizong/knowledge/learner/study-policy.json`
 - A1 learning support → `content/xizong/knowledge/learner/a1-circulation-learning.json`
-- learner runtime → Xizong surfaces under `static-web/`
+- learner runtime / projection → Xizong surfaces under `static-web/`
 
 ### Acceptance Truth
 
@@ -160,7 +146,7 @@ Do not reread all history or unrelated Systems as ritual.
 
 ### Learner Truth
 
-Private learner/browser/conversation evidence only. Shared Artifact / Acceptance / Work state cannot manufacture learner progress.
+Private learner/browser/conversation evidence only.
 
 ---
 
@@ -169,10 +155,7 @@ Private learner/browser/conversation evidence only. Shared Artifact / Acceptance
 ```text
 A1 CURRENT
 → A1 ACCEPTANCE
-→ current Block
-→ its actual Study Lecture Source
-→ its Outline / Coverage owner
+→ actual learner-facing Xizong/A1 projection owner(s)
+→ inspect behavior against L + Content Closure
 → work
 ```
-
-No parent-lane Acceptance, retired continuation, history, legacy repository, or prior Chat is required for ordinary A1 continuation.
