@@ -1,0 +1,49 @@
+name: Lexical Semantic Audit Router Work
+
+on:
+  push:
+    branches:
+      - audit/semantic-router-v1
+
+permissions:
+  contents: write
+
+jobs:
+  route:
+    if: ${{ !contains(github.event.head_commit.message, '[router-output]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: audit/semantic-router-v1
+          fetch-depth: 1
+      - name: Router self-test
+        run: node content/lexical/tools/semantic-audit-risk-router.mjs --self-test
+      - name: Generate full current semantic-review backlog routing
+        run: |
+          node content/lexical/tools/semantic-audit-risk-router.mjs \
+            --start 25 \
+            --end 1124 \
+            --source-head "$GITHUB_SHA" \
+            --handoff content/lexical/semantic-review/o0025-o0124.md \
+            --handoff content/lexical/semantic-review/o0125-o0224.md \
+            --handoff content/lexical/semantic-review/o0225-o0324.md \
+            --handoff content/lexical/semantic-review/o0325-o0474.md \
+            --handoff content/lexical/semantic-review/o0475-o0674.md \
+            --handoff content/lexical/semantic-review/o0675-o0874.md \
+            --handoff content/lexical/semantic-review/o0875-o1124.md \
+            --output content/lexical/semantic-audit/manifests/o0025-o1124.risk.json \
+            --audit-view-output tmp/lexical-audit/o0025-o1124.blind.jsonl
+      - name: Summarize routing
+        run: |
+          node - <<'NODE'
+          const m = JSON.parse(require('fs').readFileSync('content/lexical/semantic-audit/manifests/o0025-o1124.risk.json','utf8'));
+          console.log(JSON.stringify({owner_count:m.owner_count,unique_mandatory_owner_count:m.unique_mandatory_owner_count,simple_candidate_count:m.simple_candidate_count,simple_deep_sample_count:m.simple_deep_sample_count,mandatory_strata_counts:m.mandatory_strata_counts,flag_counts:m.flag_counts},null,2));
+          NODE
+      - name: Commit generated work products to audit branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/lexical/semantic-audit/manifests/o0025-o1124.risk.json tmp/lexical-audit/o0025-o1124.blind.jsonl
+          git commit -m "chore(lexical): generate audit router backlog [router-output]"
+          git push origin HEAD:audit/semantic-router-v1

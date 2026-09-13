@@ -1,6 +1,9 @@
 # LexicalOS Semantic Audit Risk Router Spec
 
-Status: **canonical routing specification / implementation pending**
+Status: **canonical routing specification / v1 implementation active**
+
+Implementation: `content/lexical/tools/semantic-audit-risk-router.mjs`  
+Router version: `1.0.0`
 
 Parent audit authority: `INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md`  
 Semantic quality authority: `CONTENT_ASSET_CONTRACT.md`
@@ -10,6 +13,8 @@ This spec defines the deterministic machine projection used to set the **minimum
 The router is not a semantic judge. It must never decide that a sense is correct, that Core is sufficient, that an identity split is valid, or that an owner passes.
 
 > **The router may raise the minimum audit depth. It may never lower semantic responsibility.**
+
+The v1 implementation is deliberately conservative. It may over-route an owner to `AUDIT_COMPLEX`; it may not use a missing machine flag to downgrade a fresh model judgment. Its optional JSONL blind-audit view contains Current owner semantics and resolved dependency summaries while withholding Production's detailed rationale.
 
 ## 1. Output
 
@@ -56,7 +61,7 @@ router_spec_blob_sha
 
 ## 3. Initial deterministic flags
 
-The first implementation should support at least:
+The implementation supports at least:
 
 - `PRODUCTION_UPGRADE`
 - `MULTI_ACTIVE_SENSE`
@@ -95,7 +100,7 @@ The router may read the production handoff only to determine operation metadata 
 
 It must not copy Production's semantic rationale into the blind-first audit view.
 
-The preferred audit-facing projection therefore contains:
+The preferred audit-facing projection contains Current owner semantic content plus:
 
 ```text
 ordinal
@@ -109,7 +114,7 @@ and withholds detailed Production reasoning until Audit Pass B.
 
 ## 6. Deterministic simple sample support
 
-The router should optionally produce the deterministic deep-sample owner list for `AUDIT_SIMPLE_CANDIDATE` after mandatory complex routing is complete.
+The router produces the deterministic deep-sample owner list for `AUDIT_SIMPLE_CANDIDATE` after mandatory complex routing is complete.
 
 Target rule is owned by `INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md`:
 
@@ -132,6 +137,8 @@ A valid manifest must prove:
 - source owner/dependency hashes correspond to `source_head`;
 - contract/spec blob SHAs are recorded;
 - output is byte-stable for identical inputs and router version.
+
+The implementation must pass `node content/lexical/tools/semantic-audit-risk-router.mjs --self-test` before a generated manifest is accepted. Real-package generation is additionally required before v1 is treated as operational evidence.
 
 ## 8. Non-goals
 
