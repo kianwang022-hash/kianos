@@ -1,0 +1,40 @@
+{
+  "schema": "kianos.lexical.audit_risk_router_validation_receipt.v1",
+  "status": "PASS",
+  "router": "tools/lexical_audit_risk_router.py",
+  "router_version": "v1",
+  "scope": [
+    875,
+    1124
+  ],
+  "source_head": "262ba0755b212215efa0a3840ff0664430157fd2",
+  "owner_count": 250,
+  "unique_mandatory_owner_count": 224,
+  "machine_complex_count": 224,
+  "simple_candidate_count": 26,
+  "simple_deep_sample_count": 10,
+  "artifacts": {
+    "content/lexical/semantic-audit/risk-manifests/o0875-o1124.json": "3b165782c63cc7dfd33f1d07029d23fda3dc071adf8642346f8633a500bf766a",
+    "content/lexical/semantic-audit/risk-manifests/o0875-o1124.blind.json": "ac24d56dc5cbf0b012dbe1ecbed42f7957ca3faade2d89c7b698ca8acdc2e5ae",
+    "content/lexical/semantic-audit/risk-manifests/o0875-o1124.simple-sample.json": "8538c213b1908b5d1082f0bbf1739e13f48b132e8f925a9af3a5fe74c4d84ee8"
+  },
+  "assertions": {
+    "exact_ordinal_coverage": "PASS: 250/250 exactly once",
+    "byte_stable_repeat": "PASS",
+    "machine_floor_monotonicity": "PASS",
+    "production_upgrade_mandatory": "PASS: 94/94",
+    "mandatory_strata_overlap_deduplicated": "PASS",
+    "simple_sample_deterministic": "PASS",
+    "contract_blob_sha": "PASS",
+    "malformed_input_fail_closed": "PASS",
+    "semantic_content_mutation": 0,
+    "learner_state_mutation": 0,
+    "catalog_activation": 0,
+    "lexical_implementation_o0475_plus": 0
+  },
+  "coverage_limitations": [
+    "The router emits structural risk floors and explicit handoff operation/Form/Relation target signals; it does not judge semantic correctness.",
+    "Core omission and ordinary-branch status cannot be proven from structure alone, so only provable orphan/duplicate or empty-active/reference patterns are flagged.",
+    "Production rationale is not included in the blind projection."
+  ]
+}
