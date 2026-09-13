@@ -2,11 +2,14 @@
 
 Status: ACTIVE DISCUSSION / SHARED VISUAL OWNER  
 Scope: all learner-facing `static-web/` surfaces  
-Parent: `static-web/PRESENTATION_CONTRACT.md` + `static-web/CURRENT.md`
+Parent: `static-web/PRESENTATION_CONTRACT.md` + `static-web/CURRENT.md`  
+Preference owner: `static-web/KIAN_UI_PREFERENCES.md`
 
 This file owns the shared visual-language and aesthetic constraints for KianOS learner-facing UI. It does **not** own domain learning logic, task geometry, evidence/mastery semantics, source truth, or learner progress.
 
 The purpose is to prevent each lane / Codex implementation from inventing its own visual language while still allowing task-native layouts to differ.
+
+Before substantial learner-facing UI design or Codex implementation, read `KIAN_UI_PREFERENCES.md` together with this file. The preference owner distinguishes **explicit Kian preferences** from **assistant design hypotheses**; do not silently promote a hypothesis into a hard visual requirement.
 
 ---
 
@@ -221,16 +224,18 @@ Navigation should be thin, stable and predictable.
 
 ## 11｜Reference taste boundary
 
-General taste direction from Kian's prior feedback:
+General taste direction from Kian's prior feedback is now owned explicitly by `KIAN_UI_PREFERENCES.md`.
 
-- likes restrained / simple / logical interfaces;
-- prefers larger readable type and stronger contrast;
-- values Apple-like low-friction interaction quality;
-- Raycast-level restraint is acceptable;
-- dislikes visually loud, overly colorful, flashy Arc-like treatment;
-- dislikes interfaces that are either too empty or too tiny/dense to read comfortably.
+Current shared visual consequences include:
 
-These are taste constraints, not instructions to clone any named product.
+- restrained / simple / logical interfaces;
+- larger readable type and stronger contrast;
+- Apple-like low-friction interaction quality without cloning Apple;
+- Raycast-level restraint is broadly acceptable;
+- avoid visually loud, overly colorful, flashy Arc-like treatment;
+- avoid interfaces that are either too empty or too tiny/dense to read comfortably.
+
+When this summary and the preference owner differ, the **latest explicit preference in `KIAN_UI_PREFERENCES.md` wins** unless a domain semantic contract requires otherwise.
 
 ---
 
@@ -263,7 +268,7 @@ For each bounded UI PR, require:
 - clean-attempt screenshot;
 - problem/review screenshot where applicable;
 - narrow fallback screenshot;
-- comparison against this Style Brief + the lane Product Brief;
+- comparison against `KIAN_UI_PREFERENCES.md` + this Style Brief + the lane Product Brief;
 - Sol/Kian product review before merge.
 
 Aesthetics are part of product acceptance, but never permission to alter learning semantics.
