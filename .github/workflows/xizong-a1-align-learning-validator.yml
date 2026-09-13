@@ -1,0 +1,66 @@
+name: Xizong A1 Align Learning Validator
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-a1-align-learning-validator.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Align validator to current Runtime contract
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('static-web/scripts/validate-xizong-learning.mjs')
+          s = p.read_text(encoding='utf-8')
+          reps = [
+            (
+              "function canCloseBlock({ totalKp, learned, ratings, blockRecallDone, lectureRead }) {\n  const coreReady = totalKp > 0\n    && Object.values(learned).filter(Boolean).length >= totalKp\n    && Object.keys(ratings).length >= totalKp\n    && Boolean(blockRecallDone);\n  return coreReady && Boolean(lectureRead);\n}",
+              "function canCloseBlock({ totalKp, learned, ratings, blockRecallDone }) {\n  return totalKp > 0\n    && Object.values(learned).filter(Boolean).length >= totalKp\n    && Object.keys(ratings).length >= totalKp\n    && Boolean(blockRecallDone);\n}"
+            ),
+            (
+              "assert(!canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: false }), 'close-without-lecture');\nassert(canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: true }), 'clean-path-cannot-close');",
+              "assert(!canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: false }), 'close-without-block-recall');\nassert(canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true }), 'clean-path-cannot-close');"
+            ),
+            (
+              "matches(enhancerUi, /!personal\\.lectureRead\\s*\\|\\|\\s*!coreReady/, 'lecture-one-pass-close-gate');",
+              "has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');\nassert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');"
+            )
+          ]
+          for old, new in reps:
+              if s.count(old) != 1:
+                  raise SystemExit(f'replacement-count={s.count(old)} for {old[:60]!r}')
+              s = s.replace(old, new, 1)
+          if 'lectureRead' in s:
+              raise SystemExit('legacy lectureRead still present in A1 learner validator')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Remove one-off workflow and verify write set
+        shell: bash
+        run: |
+          rm .github/workflows/xizong-a1-align-learning-validator.yml
+          git config core.quotePath false
+          mapfile -t changed < <(git diff --name-only)
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/validate-xizong-learning.mjs'
+          printf '%s\n' "${changed[@]}" | grep -Fx '.github/workflows/xizong-a1-align-learning-validator.yml'
+      - name: Commit bounded alignment
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static-web/scripts/validate-xizong-learning.mjs .github/workflows/xizong-a1-align-learning-validator.yml
+          git commit -m 'xizong: align A1 learner validator with Logic Group contact'
+          git pull --rebase origin main
+          git push origin HEAD:main
