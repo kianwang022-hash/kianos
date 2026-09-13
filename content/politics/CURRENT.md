@@ -9,20 +9,60 @@ This file does not own political Source Truth, lane learning/interaction semanti
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — router-only baseline  
-**Blocker:** none at lane-routing level  
-**Next action:** route work directly to the requested independently continued subject `CURRENT.md`. Do not appoint one subject as Politics' global active child merely because it was worked on most recently.
+**Active lane-level scope:** Functional First Version integration — shared Politics learner journey across the existing generic Runtime plus the Marxism C00 reference path  
+**Blocker:** no source/content blocker. The active work is functional closure: canonical state transitions, private learner cursor/resume, Wrong/Uncertain repair-return, evidence ownership, and executed learner journeys must agree across the real Runtime surfaces before Politics is called functionally ready.  
+**Next action:** finish Phase 1 Functional Truth Map, then repair only material functional defects in Phase 2. Do not expand visual architecture or redesign subject teaching semantics.
 
-Current independently continued subject scopes:
+This is a genuine parent integration scope because it tests behavior shared across subject implementations. It does **not** reopen already accepted subject S/K/L claims merely because the lane integration is active.
+
+### Functional First phases
+
+```text
+Phase 1  Functional Truth Map
+         canonical flow ↔ actual Runtime ↔ state/evidence owners
+
+Phase 2  State / Resume / Repair-Return Closure
+         fix only material learner-journey defects
+
+Phase 3  Executed Learner Journeys
+         clean + Wrong/Uncertain + interruption/resume
+         across generic Politics Runtime + Marxism C00 reference
+         plus one materially different teaching shape
+
+Phase 4  Functional First Freeze
+         minimum usability fixes only → lane integration acceptance → STOP
+```
+
+Functional First target journey:
+
+```text
+enter chapter
+→ locate Natural Unit / current learner action
+→ Chengfeng handoff on original iPad/MarginNote surface
+→ return / close when useful
+→ Xiao1000 clean attempt
+→ stable correct fast continuation
+   OR Wrong/Uncertain → smallest sufficient repair
+→ return to interrupted Unit/question path
+→ continue next question / next Unit
+→ interrupt
+→ resume the real learner position/action
+```
+
+Hard stop:
+
+> Once the journey above is semantically correct, executable, resumable, and usable without a functional blocker, stop engineering expansion. Later visual/layout/interaction polish belongs to Codex and may not change canonical learning semantics, state meaning, source ownership, evidence semantics, repair/return rules, or canonical contracts.
+
+Current independently continued subject scopes remain:
 
 | Scope | Work Cursor | Acceptance Truth |
 | --- | --- | --- |
 | Marxism | `content/politics/learning/marxism/CURRENT.md` | `content/politics/learning/marxism/ACCEPTANCE.md` |
 | History | `content/politics/learning/history/CURRENT.md` | `content/politics/learning/history/ACCEPTANCE.md` |
 
-Their current stages, blockers and gate evidence belong only to those local owners. Do not copy detailed subject status back into this router.
+Their subject-local readiness remains owned locally. The active lane integration may inspect them as representative paths without copying their detailed gate evidence into this router.
 
-Marxism and History may progress concurrently when their current tasks are independent. A blocker in one subject does not freeze the other unless both genuinely depend on the same unresolved Politics-wide owner/runtime/integration decision.
+Marxism and History may otherwise progress concurrently when their tasks are independent. A blocker in one subject does not freeze the other unless both genuinely depend on the same unresolved Politics-wide owner/runtime/integration decision.
 
 Hard scheduling boundary:
 
@@ -129,6 +169,15 @@ Private browser / Return Packet / conversation evidence only. Subject readiness 
 
 ## Fresh-Chat routing
 
+Active Functional First lane integration:
+
+```text
+Politics CURRENT
+→ Politics ACCEPTANCE
+→ LEARNING_CONTRACT + INTERACTION_CONTRACT only as needed
+→ exact runtime/evidence owners implicated by the current learner-journey defect
+```
+
 Known History — ordinary continuation:
 
 ```text
@@ -156,15 +205,6 @@ Politics CURRENT anti-cocoon directive
 → only then old scoped ACCEPTANCE for reconciliation
 ```
 
-Politics lane known but exact independently continued subject not yet resolved:
-
-```text
-Politics CURRENT
-→ choose requested subject when applicable
-→ local CURRENT
-→ exact required owner(s)
-```
-
-Multiple Politics subject Chats may use these local paths concurrently. Each subject advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
+Multiple Politics subject Chats may use local paths concurrently. The lane Functional First scope advances only shared integration behavior and must not use itself as permission to redesign closed subject semantics.
 
 Do not read all Politics subjects, retired continuation/history narrative, legacy repositories, source monolith history, or prior Chats by default.
