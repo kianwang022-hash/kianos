@@ -59,14 +59,13 @@ After submit, Wrong/Uncertain review expands in place while passage + full quest
 
 ---
 
-## Cloze — accepted direction so far
+## Cloze — accepted direction
 
 ### Preserve existing functions
 
 Keep the existing Cloze semantics/runtime:
 - complete passage remains visible;
-- one active blank owns the immediate A–D decision surface;
-- 20-blank navigation remains useful;
+- all 20 blanks belong to one clean-attempt unit;
 - each blank supports Uncertain;
 - selections may be changed and trajectory stays recorded;
 - no correctness reveal before whole-passage submit;
@@ -75,40 +74,84 @@ Keep the existing Cloze semantics/runtime:
 - submitted result keeps whole-passage score/formal answers;
 - optional `整篇给 Chat` deep review remains problem-only and retains passage, time, Wrong/Uncertain, all-blank outcome map and answer trajectories.
 
-### Mac landscape projection
+### Projection correction: full exam-paper layout on Mac
 
-Do **not** stack A/B/C/D vertically by default on Mac. Use the wide screen like an exam paper: the active blank's four candidates are laid out horizontally in one row whenever text length allows.
+The previous projection assumption `complete passage + one visible active blank decision surface` is intentionally replaced for learner presentation. This is a Projection change only; Cloze learning/evidence logic stays unchanged.
+
+Kian's required Mac-wide model is the natural **exam-paper typesetting**:
+
+```text
+complete Cloze passage left
+|
+ALL 20 blank rows right, visible in natural order inside one scrollable question sheet
+```
+
+Each blank row keeps its four candidates horizontally arranged like the printed paper, not four stacked full-width cards.
 
 Target shape:
 
 ```text
-┌──────────────────────────────────────────┬────────────────────────────────────────────┐
-│ Complete Passage                         │ Blank 08                                   │
-│                                          │                                            │
-│ ... ____7____ ...                        │  A despite   B although   C therefore   D however │
-│ ... 【____8____】 ...                     │                            ──────────── ✓    │
-│ ... ____9____ ...                        │                                            │
-│                                          │                              ○ Uncertain   │
-│                                          │ 01 02 03 04 05 06 07 08 ... 20            │
-└──────────────────────────────────────────┴────────────────────────────────────────────┘
+┌────────────────────────────────────────┬──────────────────────────────────────────────────┐
+│ Complete Passage                       │ 01  A ...      B ...      C ...      D ...       │
+│                                        │                                                  │
+│ ... ____1____ ...                      │ 02  A ...      B ...      C ...      D ...       │
+│ ... ____2____ ...                      │                                                  │
+│ ... ____3____ ...                      │ 03  A ...      B ...      C ...      D ...       │
+│                                        │                                                  │
+│ ... ____8____ ...                      │ 04  A ...      B ...      C ...      D ...       │
+│                                        │                                                  │
+│ ... ____9____ ...                      │ ...                                              │
+│                                        │                                                  │
+│                                        │ 08  A despite  B although  ╭──────────────╮ D ...│
+│                                        │                            │ C therefore ✓│      │
+│                                        │                            ╰──────────────╯      │
+│                                        │                                                  │
+│                                        │ 09  A ...      B ...      C ...      D ...       │
+│                                        │ ...                                              │
+│                                        │ 20  A ...      B ...      C ...      D ...       │
+│             passage scroll ↓           │                         question sheet scroll ↓   │
+└────────────────────────────────────────┴──────────────────────────────────────────────────┘
 ```
 
-The exact visual selection treatment should remain restrained and exam-like. A selected candidate may use a quiet outline/underline/check treatment; submit-time correctness colors remain separate.
+### Exam-paper behavior
 
-If an option label is too long for a usable four-column row, the fallback may wrap within its own horizontal cell or degrade to a 2×2 grid. Do not default back to four full-width vertical cards merely because the component is easier.
+- all 20 rows remain visible in the right question sheet; no blank is hidden merely because it is not active;
+- passage and 20-row question sheet scroll independently;
+- question number is the natural navigation; do not require a separate 01–20 navigator merely to reveal a hidden blank;
+- clicking `____8____` in the passage scrolls/focuses row 08 on the right;
+- clicking/focusing row 08 may lightly locate/highlight `____8____` in the passage;
+- local `active blank` may still exist only for keyboard targeting / focus state, never for visibility gating;
+- `1–4 = A/B/C/D` for the focused blank;
+- answer selection never scores locally and must preserve easy backtracking;
+- auto-focus to the next row after selection may be used as an accelerator if it does not force scroll jumps or wizard behavior.
 
-### Passage ↔ blank linkage
+### Option layout
 
-- clicking/selecting a blank in the passage activates that blank's decision surface;
-- changing active blank should visually locate/highlight the corresponding blank in the passage;
-- passage context stays visible and is never replaced by an isolated question card;
-- 01–20 navigator remains a compact fast jump surface because Cloze has twenty slots.
+Mac default = one row of four candidates:
 
-### Input
+```text
+08    A despite      B although      C therefore      D however
+```
 
-- `1–4 = A/B/C/D` for the active blank;
-- answer selection does not score locally;
-- moving focus to the next blank after a selection is allowed as a low-friction accelerator, but must preserve easy backtracking and must not submit/reveal the blank.
+Selected candidate uses a restrained exam-like treatment; it means only `my current choice` before submit.
+
+```text
+08    A despite      B although      ╭────────────────╮      D however
+                                     │ C therefore  ✓ │
+                                     ╰────────────────╯
+```
+
+If one candidate is long, its own cell may wrap to two lines. A 2×2 fallback is acceptable only when four columns become genuinely unreadable. Do not default to four vertically stacked cards.
+
+### Submit / review
+
+Whole-passage Submit remains one action. Before submit, no formal answers appear.
+
+After submit:
+- keep the same passage + full 20-row sheet;
+- Wrong/Uncertain rows gain restrained in-place result/triage treatment;
+- do not switch into a one-blank review wizard;
+- optional whole-passage Chat escalation remains secondary after quick understanding fails or problems appear coupled/recurring.
 
 ### Lexical
 
