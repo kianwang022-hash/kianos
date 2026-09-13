@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
+import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
 import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../../../lib/politicsCurrent.mjs';
@@ -14,6 +15,9 @@ export function getStaticPaths() {
 const { subject, chapter } = Astro.props;
 const data = enrichPoliticsChapterCurrent(loadPoliticsChapterCurrent(subject, chapter));
 const base = import.meta.env.BASE_URL;
+const useCognitiveWorkspace = subject === 'marxism'
+  && chapter === 'ch00'
+  && data.units.some((unit) => unit?.raw?.learning_semantics?.schema === 'kianos.politics.learning_semantics.v1');
 ---
 <Base
   title={data.title}
@@ -23,8 +27,11 @@ const base = import.meta.env.BASE_URL;
   sourceHash={data.sourceHash}
   objectId={data.objectId}
   active="politics"
+  showLead={!useCognitiveWorkspace}
 >
-  <PoliticsChapterRuntime chapter={data} base={base} />
+  {useCognitiveWorkspace
+    ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
+    : <PoliticsChapterRuntime chapter={data} base={base} />}
   <PoliticsRepairEnhancer chapter={data} />
   <PoliticsUnitReturnEnhancer chapter={data} />
 </Base>
