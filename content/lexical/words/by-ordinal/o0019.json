@@ -6,29 +6,58 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:19ab57ac7e31c4d9b201",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "抽象概念/模型/思想",
+        "pattern": "abstract + concept/model/idea"
+      },
+      {
+        "construction_id": "construction:19ab57ac7e31c4d9b202",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "论文/文章的摘要",
+        "pattern": "an abstract of/from a paper/article"
+      },
+      {
+        "construction_id": "construction:19ab57ac7e31c4d9b203",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "撰写/提交摘要",
+        "pattern": "write/submit/read an abstract"
+      },
+      {
+        "construction_id": "construction:19ab57ac7e31c4d9b204",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "从 B 中抽取/抽象出 A",
+        "pattern": "abstract + A + from + B"
+      }
+    ],
     "content_hash": "6210c69d4a31be04785f3f9edcac0f6bc76777f62766ba7c4c398af87500a7f3",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "抽象的",
-          "label_en": "existing only in the mind; separated from embodiment",
+          "label_cn": "抽象的；非具体的",
+          "label_en": "existing as an idea rather than a concrete physical instance",
           "pos": "adjective",
           "sense_ids": [
             "sense:abstract:b7b8b05117f3527c"
           ]
         },
         {
-          "label_cn": "摘要，梗概",
-          "label_en": "a summary of the contents of a book, article, or formal speech",
+          "label_cn": "摘要；论文摘要",
+          "label_en": "a short summary of the main facts or ideas in a paper, article, or speech",
           "pos": "noun",
           "sense_ids": [
             "sense:abstract:77cac107d5a45df4"
           ]
         },
         {
-          "label_cn": "使抽象化，抽象出；做…的摘要",
-          "label_en": "consider a concept without thinking of a specific example; consider abstractly or theoretically; give an abstract (of)",
+          "label_cn": "抽取/抽象出；做摘要",
+          "label_en": "extract or generalize something from a source; less commonly, summarize it",
           "pos": "verb",
           "sense_ids": [
             "sense:abstract:d665d4c15aae5ea2",
@@ -36,13 +65,13 @@
           ]
         }
       ],
-      "core_meaning_cn": "抽象的",
-      "core_meaning_en": "existing in thought or as an idea but not having a physical or concrete existence",
-      "mental_model_cn": "抽象的",
-      "mental_model_en": ""
+      "core_meaning_cn": "把具体细节拿开，只保留概念或关键信息；名词还表示论文/文章的摘要",
+      "core_meaning_en": "remove concrete detail to retain a concept or essential information; as a noun, a concise summary of a paper or article",
+      "mental_model_cn": "adj = 从具体实例抽离；noun = 把论文压成摘要；verb = 从材料中抽取/抽象出。",
+      "mental_model_en": "adjective: away from concrete instances; noun: compressed summary; verb: extract or generalize from a source"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -73,17 +102,18 @@
             "phrase": "abstract art"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "抽象的",
-        "definition_en": "existing only in the mind; separated from embodiment",
+        "confidence": "high",
+        "definition_cn": "抽象的；作为概念存在而非具体物体/实例的",
+        "definition_en": "existing as an idea, quality, or general concept rather than a concrete physical instance",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:abstract:b7b8b05117f3527c",
-        "sense_label_en": "existing only in the mind; separated from embodiment",
+        "sense_label_en": "conceptual rather than concrete",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "As adjective/noun, stress is normally on the first syllable: AB-stract."
       },
       {
         "collocations": [
@@ -106,17 +136,18 @@
             "phrase": "write an abstract"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "摘要，梗概",
-        "definition_en": "a summary of the contents of a book, article, or formal speech",
+        "confidence": "high",
+        "definition_cn": "摘要；尤指论文、文章或报告的简短概要",
+        "definition_en": "a short summary giving the main facts or ideas of a paper, article, book, or speech",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:abstract:77cac107d5a45df4",
-        "sense_label_en": "a summary of the contents of a book, article, or formal speech",
+        "sense_label_en": "summary of a paper or article",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "High-value academic noun: read/write/submit an abstract."
       },
       {
         "collocations": [
@@ -130,17 +161,18 @@
             "phrase": "abstract + sth from + sth"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "使抽象化，抽象出",
-        "definition_en": "consider a concept without thinking of a specific example; consider abstractly or theoretically",
-        "governing_pattern": "vt. + object",
+        "confidence": "high",
+        "definition_cn": "从具体材料中抽取、抽象出概念或特征",
+        "definition_en": "to extract or generalize an idea, feature, or information from a more concrete source",
+        "governing_pattern": "abstract + A + from + B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abstract:d665d4c15aae5ea2",
-        "sense_label_en": "consider a concept without thinking of a specific example; consider abst",
+        "sense_label_en": "extract or generalize from a source",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "As a verb, stress normally shifts to the second syllable: ab-STRACT."
       },
       {
         "collocations": [
@@ -154,17 +186,18 @@
             "phrase": "abstract a paper"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "做…的摘要",
-        "definition_en": "give an abstract (of)",
+        "confidence": "high",
+        "definition_cn": "（较少见）为……作摘要；概述",
+        "definition_en": "less commonly, to make a summary or abstract of something",
         "governing_pattern": "vt. + object",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abstract:101ad1c99ab15f03",
-        "sense_label_en": "give an abstract (of)",
+        "sense_label_en": "make a summary of",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Lower-frequency verb use; do not confuse it with the much more common noun abstract."
       }
     ],
     "verification_summary": {
@@ -352,7 +385,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0017-0024.json",
     "source_content_hash": "6210c69d4a31be04785f3f9edcac0f6bc76777f62766ba7c4c398af87500a7f3",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }
