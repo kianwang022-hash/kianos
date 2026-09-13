@@ -180,9 +180,12 @@ function validateEvidenceRuntimeWiring() {
       'allowedActive',
       'allowedReopen',
       'persistPair',
-      'REOPENED'
+      'REOPENED',
+      'node.hidden = !attempt?.submitted || problems === 0'
     ].forEach((needle) => requireText('ObjectiveTransferClaims', component, needle));
     forbidText('ObjectiveTransferClaims', component, 'kianos-reading-watch-signals-v1');
+    forbidText('ObjectiveTransferClaims', component, '待迁移能力验证');
+    forbidText('ObjectiveTransferClaims', component, 'clean attempt，但有');
   } catch (error) {
     uiIssues.push(`ObjectiveTransferClaims: ${error instanceof Error ? error.message : String(error)}`);
   }
@@ -216,16 +219,45 @@ function validateEvidenceRuntimeWiring() {
 
   try {
     const objectiveHandoff = read('../src/components/ObjectiveHandoff.astro');
-    ['ACTIVE TRANSFER CLAIMS', 'TRANSFER_CHECK', 'KIANOS_OBJECTIVE_RETURN_V1', 'RECENT CLOSED CLAIMS', 'repairCompleted', 'reopenCandidateIds', 'data-objective-instruction'].forEach((needle) => requireText('ObjectiveHandoff', objectiveHandoff, needle));
+    [
+      'OPTIONAL_ESCALATION',
+      'ACTIVE TRANSFER CLAIMS · opportunistic only',
+      'KIANOS_OBJECTIVE_RETURN_V1',
+      'RECENT CLOSED CLAIMS · reopen only with direct contradiction',
+      'repairCompleted',
+      'repairEvidence',
+      'reopenCandidateIds',
+      'data-objective-instruction',
+      'node.hidden = !attempt.submitted || problems === 0'
+    ].forEach((needle) => requireText('ObjectiveHandoff', objectiveHandoff, needle));
+    forbidText('ObjectiveHandoff', objectiveHandoff, 'TRANSFER_CHECK');
   } catch (error) {
     uiIssues.push(`ObjectiveHandoff: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
     const readingHandoff = read('../src/components/ReadingPassageHandoff.astro');
-    ['ACTIVE TRANSFER CLAIMS', 'TRANSFER_CHECK', 'KIANOS_OBJECTIVE_RETURN_V1', 'RECENT CLOSED CLAIMS', 'repairCompleted', 'reopenCandidateIds', 'QUESTION CONTEXT FOR DIAGNOSIS / TRANSFER'].forEach((needle) => requireText('ReadingPassageHandoff', readingHandoff, needle));
+    [
+      'OPTIONAL_ESCALATION',
+      'ACTIVE TRANSFER CLAIMS · opportunistic only',
+      'KIANOS_OBJECTIVE_RETURN_V1',
+      'RECENT CLOSED CLAIMS · reopen only with direct contradiction',
+      'newClaims require',
+      'reopenCandidateIds',
+      'problems === 0'
+    ].forEach((needle) => requireText('ReadingPassageHandoff', readingHandoff, needle));
+    forbidText('ReadingPassageHandoff', readingHandoff, 'TRANSFER_CHECK');
+    forbidText('ReadingPassageHandoff', readingHandoff, '用这篇验证迁移');
   } catch (error) {
     uiIssues.push(`ReadingPassageHandoff: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  try {
+    const sessionHandoff = read('../src/components/ReadingSessionHandoff.astro');
+    ['reviewIds.length >= 2', 'Compare only where evidence supports a recurring pattern', 'one-off error stays local'].forEach((needle) => requireText('ReadingSessionHandoff', sessionHandoff, needle));
+    forbidText('ReadingSessionHandoff', sessionHandoff, 'kianos-reading-watch-signals-v1');
+  } catch (error) {
+    uiIssues.push(`ReadingSessionHandoff: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   try {
