@@ -2,6 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import PoliticsChapterRuntime from '../../../components/PoliticsChapterRuntime.astro';
 import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWorkspace.astro';
+import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
 import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../../../lib/politicsCurrent.mjs';
@@ -32,6 +33,7 @@ const useCognitiveWorkspace = subject === 'marxism'
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} />}
+  {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge />}
   <PoliticsRepairEnhancer chapter={data} />
   <PoliticsUnitReturnEnhancer chapter={data} />
 </Base>
