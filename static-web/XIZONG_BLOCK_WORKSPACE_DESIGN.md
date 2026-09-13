@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **ACTIVE SURFACE DESIGN — BASE WORKSPACE + LOGIC/HANDOFF + KP RECALL + CLOSURE/BLOCK RECALL ACCEPTED, AFTER-LEARN STILL UNDER DISCUSSION**
+Status: **BLOCK WORKSPACE PRODUCT LOGIC ACCEPTED — RESPONSIVE / FINAL VISUAL STYLING STILL OPEN**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -20,6 +20,7 @@ Block orientation
 → next Logic Group
 → Block Recall
 → Block Complete
+→ After Learn when useful
 ```
 
 The shared Block UI is a Projection optimization of this accepted loop, not a new learner flow.
@@ -72,6 +73,7 @@ Preserve semantically:
 - the Logic Group's KP coverage / return roadmap should not require an extra reveal click when it is useful for the current handoff;
 - replace the permanent right-side Learning Chain with a thin state line;
 - make the right context region dynamic rather than permanent;
+- keep After-Learn processing from competing with unfinished first-pass mainline;
 - improve Mac-wide typography, density, hierarchy and spatial use without changing content semantics.
 
 ### DEMOTE
@@ -79,7 +81,8 @@ Preserve semantically:
 - duplicate Outline mode when the Logic Group Map already provides the needed local map;
 - permanent keyboard/help chrome;
 - engineering/provenance/source-hash chrome;
-- learner-irrelevant KP/Outline counts as primary navigation information.
+- learner-irrelevant KP/Outline counts as primary navigation information;
+- persistent empty After-Learn panels before they are useful.
 
 ### RESTORE FROM CURRENT
 
@@ -104,7 +107,7 @@ A shared Block change must not silently lose A2's Current Visual / Precision / C
 
 > **把点击用在切换认知对象，不要用在获得本来就该看到的信息。**
 
-Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Closure, or Block Recall.
+Legitimate clicks/state changes include switching Logic Group, entering external Lecture, returning for Recall, moving through KP Recall, Closure, Block Recall, or an actually useful After-Learn task.
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
@@ -325,15 +328,6 @@ Block Recall Reveal= compressed reconstruction / verification
 
 Do not author a second, independent Recall summary. The Recall view must be a state-specific projection of the same Current Block cognition.
 
-Examples already pressure-tested:
-
-- A1 B1 may reconstruct as a mechanical circulation spine;
-- A1 B7 may reconstruct through the valve inference spine plus its Logic Group closures;
-- A1 B10 may reconstruct through pulse/stability → rate → width → regularity → P-QRS → mechanism → treatment;
-- A1 B11 may reconstruct through pump/filling failure → low perfusion + congestion → compensation/remodeling → downstream coordinates.
-
-These examples illustrate geometry variation; they do not authorize content invention.
-
 ### 11.3 Recovery when blocked
 
 If reconstruction exposes a local gap, the learner may navigate back to the responsible Logic Group through the persistent Logic Map.
@@ -371,12 +365,143 @@ all owned KP formal Lecture contact
 
 The final completion action may be visually lightweight, but its accepted evidence meaning remains intact.
 
-## 12｜Still open
+## 12｜After Learn — ACCEPTED
 
-Not yet frozen here:
+After-Learn responsibilities are preserved but should not compete with an unfinished first-pass mainline.
 
-- After-Learn Memory / Reserve / Chat-repair product composition and timing;
+Hard product rule:
+
+> **Evidence may be recorded immediately; deferred processing UI does not need to become the next mandatory action immediately.**
+
+A weak KP Recall may therefore be admitted to Memory in learner state while the learner continues the current Logic Group / Block. Do not interrupt the mainline after every weak rating with a Memory or repair ceremony.
+
+The mature responsibilities remain distinct:
+
+```text
+Memory      = formally learned but still unstable material worth future retrieval
+Reserve     = future-important relation intentionally seen early, not ordinary Recall/Memory debt
+Chat Repair = explicit adaptive / specialist repair task, not the default queue for every weak KP
+```
+
+### 12.1 First-pass timing
+
+During unfinished `kp_recall`, Logic Group Closure and Block Recall:
+
+- preserve weak Recall evidence and any legitimate Memory admission in state;
+- do not automatically open the full `Memory / 储备 / 回 Chat` workspace after each rating;
+- at most use a quiet local indication such as `已留到 Memory` when helpful;
+- do not require the learner to resolve Memory before continuing the first-pass mainline;
+- immediate Chat remains available for a real current understanding failure, but that is an adaptive repair escape, not automatic After-Learn processing.
+
+The full After-Learn surface becomes first-class after Block completion or when the learner explicitly chooses to open it.
+
+### 12.2 Block-complete After-Learn composition
+
+After Block completion, show only meaningful follow-up objects:
+
+```text
+After Learn
+├─ Memory      — unstable formally learned items, if any
+├─ Reserve     — future reactivation relations, if any
+├─ Chat Repair — explicit imported / chosen specialist tasks, if any
+└─ Return      — continue to the owning System
+```
+
+Empty categories may disappear rather than permanently showing empty-state cards.
+
+This is not a progress dashboard and should not turn counts into the main learner object.
+
+### 12.3 Memory
+
+Preserve the current selective Memory model and evidence separation.
+
+Memory uses the familiar retrieval grammar:
+
+```text
+neutral prompt
+→ Recall
+→ Reveal canonical Core
+→ 不稳 / 勉强 / 稳定
+```
+
+Rules:
+
+- only formally learned material may enter ordinary Memory;
+- stable content exits the active weak queue when appropriate;
+- Memory evidence does not rewrite the original KP Recall attempt;
+- Precision is an exactness attribute, not identical to the Memory queue;
+- Memory is selective future retrieval, not every KP seen today.
+
+Mac-wide Memory may use a weak-item rail + dominant Recall card, but it must remain recognizably the same evidence role rather than a second first-pass course.
+
+### 12.4 Reserve
+
+Reserve stays intentionally lightweight:
+
+- show the Current relation / cue and where it will be formally reactivated;
+- no rating;
+- no ordinary Memory admission;
+- no completion percentage or debt;
+- no extra learning queue merely because the relation is visible;
+- if the Block has no Reserve, the Reserve entry may disappear rather than showing a permanent empty panel.
+
+### 12.5 Chat roles
+
+Keep two Chat use cases distinct:
+
+```text
+Immediate adaptive Chat
+= current model is genuinely unclear during learning
+→ carry current Block / Logic Group / KP context
+→ smallest sufficient clarification
+→ return to the interrupted mainline
+
+After-Learn Chat Repair
+= explicit specialist repair / imported Chat plan
+→ scoped real KP/task identities only
+→ REPAIR_ONLY evidence
+→ does not overwrite original Recall
+```
+
+Do not convert every fuzzy Recall into a Chat task.
+
+### 12.6 Existing mature evidence semantics remain protected
+
+Preserve:
+
+- single-writer Block evidence behavior;
+- Memory vs repair evidence distinction;
+- `REPAIR_ONLY` imported repair semantics;
+- reviewed-relation-only System→Block repair delivery;
+- repair inbox / bridge safety;
+- stale-evidence invalidation;
+- natural return to the interrupted learner path.
+
+UI productization may change timing / prominence / spatial composition but does not rewrite those contracts.
+
+## 13｜Block Workspace completion state
+
+The Block family product logic is now accepted at responsibility / interaction level:
+
+```text
+Block Guide
+→ Logic Group orientation
+→ MarginNote handoff
+→ one return
+→ KP Recall Front / Reveal
+→ Logic Group Closure
+→ next Logic Group
+→ Block Recall Front / Reconstruction
+→ Block Complete
+→ selective After Learn
+→ return to System
+```
+
+Still open before implementation:
+
 - responsive fallback details;
-- final visual styling.
+- final typography / spacing / exact visual polish;
+- screenshot-level acceptance;
+- later Projection asset schema / compilation details.
 
-These must be discussed against the whole accepted learner loop before implementation.
+These visual/implementation details must preserve the accepted Block logic above.
