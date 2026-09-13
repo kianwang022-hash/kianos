@@ -197,12 +197,10 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false };
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
 
-    const personalKey = `kianos-xizong-personal-v1:${objectId}`;
     const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
     const learnedCount = () => Object.values(state.learned || {}).filter(Boolean).length;
     const recallCount = () => Object.keys(state.ratings || {}).length;
-    const lectureRead = () => { try { return Boolean(JSON.parse(localStorage.getItem(personalKey) || 'null')?.lectureRead); } catch { return false; } };
-    const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone) && lectureRead();
+    const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
     const groupIndexForKp = (index) => {
       const groupId = kpData[index]?.groupId || '';
@@ -406,7 +404,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       try { sessionStorage.setItem(`kianos-xizong-layout:${objectId}:${kind}`, String(collapsed)); } catch {}
     };
     ['outline', 'chain'].forEach((kind) => {
-      let collapsed = false; try { collapsed = sessionStorage.getItem(`kianos-xizong-layout:${objectId}:${kind}`) === 'true'; } catch {}
+      let collapsed = false; try { collapsed = sessionStorage.getItem(`kianos-xizong-layout:${objectId}:${kind}-collapsed`) === 'true'; } catch {}
       setCollapsed(kind, collapsed);
       root.querySelector(kind === 'outline' ? '[data-toggle-outline]' : '[data-toggle-chain]')?.addEventListener('click', () => setCollapsed(kind, !layout?.classList.contains(`${kind}-collapsed`)));
     });
