@@ -1,0 +1,61 @@
+name: Xizong A1 Completion Gate Repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-a1-r-completion-repair.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Make Block completion gate single-source and fail closed
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('static-web/src/components/XizongBlockV6.astro')
+          text = path.read_text(encoding='utf-8')
+          old = "\n".join([
+              "    const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };",
+              "    const learnedCount = () => Object.values(state.learned || {}).filter(Boolean).length;",
+              "    const recallCount = () => Object.keys(state.ratings || {}).length;",
+              "    const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);",
+          ])
+          new = "\n".join([
+              "    const personalKey = `kianos-xizong-personal-v1:${objectId}`;",
+              "    const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };",
+              "    const learnedCount = () => Object.values(state.learned || {}).filter(Boolean).length;",
+              "    const recallCount = () => Object.keys(state.ratings || {}).length;",
+              "    const lectureRead = () => { try { return Boolean(JSON.parse(localStorage.getItem(personalKey) || 'null')?.lectureRead); } catch { return false; } };",
+              "    const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone) && lectureRead();",
+          ])
+          if text.count(old) != 1:
+              raise SystemExit(f'Replacement count={text.count(old)}')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          git config core.quotePath false
+          mapfile -t changed < <(git diff --name-only)
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 1
+          test "${changed[0]}" = 'static-web/src/components/XizongBlockV6.astro'
+      - name: Commit bounded repair
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static-web/src/components/XizongBlockV6.astro
+          git commit -m 'xizong: unify Block completion prerequisite gate'
+          git pull --rebase origin main
+          git push origin HEAD:main
