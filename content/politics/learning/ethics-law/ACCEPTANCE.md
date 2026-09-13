@@ -17,17 +17,15 @@ K  PASS
 L  PASS
 P  PASS
 R  PASS
-E  UNTESTED   ← earliest unresolved
-U  UNTESTED   ← learner-only
+E  PASS
+U  UNTESTED   ← real learner only
 ```
 
 Supplemental content conclusion: `C00–C06 Current content closure PASS`.
 
 Allowed conclusion:
 
-> **Ethics-Law now has accepted Current Source/Knowledge, first-round content, whole-book Learning Logic, learner-facing Projection and Ethics-specific executed Runtime. Evidence semantics and real learner validation remain unaccepted.**
-
-Do not promote this to learner-validated or mastered before E is independently accepted and U comes from real Kian use.
+> **Ethics-Law is engineering-accepted through Source / Knowledge / Learning / Projection / Runtime / Evidence for the Current first-round path. Real learner validation, mastery and later transfer are not claimed.**
 
 ---
 
@@ -48,103 +46,138 @@ Accepted learner rule:
 Fresh P review:
 
 ```text
-7 chapters / 21 Units / 164 questions
+7 chapters / 21 Units / 164 Current Xiao1000 questions
 C01 REPAIR
 C00,C02–C06 KEEP
 0 BLOCKED
 ```
 
-P found one real defect: C01's accepted `evaluation_anchor` was silently dropped by the generic Projection adapter. `politicsEthicsProjection.mjs` now preserves it as a progressive-disclosure `评价尺度` beat without rewriting accepted Content/Learning. The repaired Projection audit confirms parity `1/1`, no backend `content_support` leakage and explicit external Chengfeng handoff.
+One real P defect was repaired: C01's accepted life-value `evaluation_anchor` was dropped by the generic Projection adapter. `politicsEthicsProjection.mjs` now preserves it as a progressive-disclosure `评价尺度` beat without rewriting accepted chapter Content/Learning.
 
 ---
 
 ## R｜Fresh Runtime re-acceptance — PASS after one repair
 
-Mode: `EXECUTED + ADVERSARIAL`  
-Subject-specific journey: `static-web/scripts/test-politics-ethics-runtime.mjs`  
-Review owner: `runtime-review.json`
+Review owner: `runtime-review.json`.  
+Journey: `static-web/scripts/test-politics-ethics-runtime.mjs`.
 
-### First real R failure
-
-The first Ethics-specific browser run passed **28/28 smoke checks** across C00–C06:
-
-- subject/chapter identity;
-- Natural Unit presence;
-- external-primary Chengfeng handoff;
-- intended generic Politics runtime.
-
-It then failed at:
+First Ethics-specific browser execution passed **28/28 C00–C06 smoke checks** and then failed at:
 
 ```text
 ethics_config_with_1_questions_exists
 ```
 
-Root cause:
-
-```text
-buildPoliticsUnitReturnConfigs
-→ conservative NATURAL_UNIT_SAFE_FALLBACK already existed
-→ allowlist included Marxism / History / Mao / Xi only
-→ Ethics rendered valid Current Xiao1000 questions
-→ Ethics received zero executable Unit Return config
-```
-
-This was classified as a **Runtime defect**, not a reason to reopen S/K/L/P.
-
-### Narrow repair
-
-`static-web/src/lib/politicsUnitReturn.mjs` now permits `ethics_law` to use the same conservative fallback:
+Root cause was the existing Unit Return safe-fallback allowlist excluding `ethics_law`. The narrow Runtime repair added Ethics-Law to the existing:
 
 ```text
 NATURAL_UNIT_SAFE_FALLBACK
 mastery_claim = NONE
 ```
 
-The repair does not invent finer question→node mappings and does not change Ethics teaching/projection assets.
+No finer question→node mapping was invented and no teaching/projection asset was changed.
 
-### Executed R evidence
+Final Ethics Runtime artifact: **45/45 checks PASS**. It independently proves clean verification, no false repair debt, no-mastery UI, real pending-question resume, Wrong/Uncertain → owning-source repair-return, and first-attempt immutability.
 
-Repair head: `24a3592903734e36cdded84e35951decdba37f9c`
-
-Ethics Runtime artifact: **45/45 checks PASS**.
-
-The journey proves:
-
-1. **C00–C06 runtime identity** — all seven chapters preserve Natural Units and external Chengfeng handoff.
-2. **Clean verification** — real Xiao1000 clean attempts record `STABLE`, create no Wrong/Uncertain debt, expose Unit Return, and the UI keeps `不等于长期掌握` explicit.
-3. **Meaningful resume** — a real pending question is stored as `VERIFY` and restored active after refresh with subject/chapter/unit identity intact.
-4. **Repair route** — a real first attempt (`X1000-ETHICS-M-010`, WRONG, selected A vs correct BCD) routes to owning source and stores `REPAIR_SOURCE`.
-5. **Repair return** — original result and repair panel reappear on return to the interrupted question.
-6. **First-attempt immutability** — the stored first-attempt object remains unchanged through repair-return.
-
-Shared Politics and sibling-subject journeys remain regression evidence only. Ethics R PASS is owned by the Ethics-specific execution.
-
----
-
-## R boundary / negative space
-
-R PASS does **not** mean:
-
-- every Ethics question was exhaustively exercised;
-- STABLE means mastery;
-- repair converts historical Wrong/Uncertain into first-attempt success;
-- Return Packet provenance or persistence failure semantics are independently accepted;
-- later fresh/holdout transfer has run;
-- Kian has studied or mastered Ethics-Law.
-
----
-
-## Stage boundary
+A concrete exercised first attempt was:
 
 ```text
-S/K/L/P/R  PASS
-E          UNTESTED / earliest unresolved
-U          UNTESTED / learner-only
+X1000-ETHICS-M-010
+outcome = WRONG
+selected = A
+correct = BCD
 ```
 
-Next legitimate whole-module work is **E｜Evidence**. R execution is strong prior evidence, but E must independently attack first-attempt durability, repair provenance, Return Packet meaning, fail-closed persistence and no-mastery boundaries.
+Repair-return does not rewrite that historical object.
 
-Do not reopen accepted S/K/L/P/R without new source truth, question evidence, real learner friction, or a concrete responsible defect.
+---
+
+## E｜Fresh Evidence re-acceptance — PASS after one repair
+
+Review owner: `evidence-review.json`.  
+Model audit: `static-web/scripts/audit-politics-ethics-evidence.mjs`.  
+Browser journey: `static-web/scripts/test-politics-ethics-evidence.mjs`.
+
+### Model layer — PASS before E implementation repair
+
+```text
+7 / 7 chapters
+20 executable Unit Return configs
+164 question evidence slots
+209 model checks
+0 failures
+```
+
+The model audit independently proves:
+
+- first attempt is recorded once and cannot be overwritten by later STABLE;
+- WRONG survives to `REPAIR` Unit evidence;
+- UNCERTAIN remains distinct from WRONG and STABLE;
+- all-STABLE closure still carries `mastery_claim = NONE`;
+- evidence precision stays bounded;
+- out-of-scope evidence is rejected.
+
+### First real browser E defect
+
+The first browser Evidence run preserved subject/chapter/unit/question/outcome/choice/answer but failed at:
+
+```text
+ethics_e_event_repair_source_anchor
+```
+
+Root cause:
+
+```text
+PoliticsEvidenceEnhancer already existed as generic logic
+→ Current page mounted it for Mao / Xi only
+→ Ethics W/U events lacked independent repair-source provenance
+```
+
+Immediate Runtime repair-return could still work, but a later Return Packet could not independently prove the original repair source after `last_location` changed.
+
+### Narrow Evidence repair
+
+The Politics chapter page now mounts the existing generic `PoliticsEvidenceEnhancer` for:
+
+```text
+Mao / Xi / Ethics-Law
+```
+
+No evidence schema, first-attempt storage, learning order, source truth or repair semantics were duplicated or rewritten.
+
+### Final browser E evidence
+
+Final Ethics Evidence journey: **28/28 checks PASS**.
+
+It proves:
+
+1. clean STABLE creates no repair debt and the UI keeps no-mastery semantics explicit;
+2. a real Ethics Wrong event retains subject/chapter/unit/question plus original selected/correct answer meaning;
+3. the event stores `repair_source_anchor` and stable source-owner IDs;
+4. repair does not rewrite the first-attempt object or erase debt;
+5. after later navigation moves `last_location` to ch06, exported Return Packet still preserves the original ch01 event and repair provenance;
+6. UNCERTAIN remains distinct even when the selected answer is correct;
+7. forced persistence failure fails closed: visible warning, no manufactured first attempt, no Unit Return, and no fake `UNIT_RETURN` cursor.
+
+---
+
+## Engineering closure boundary
+
+```text
+S/K/L/P/R/E  PASS
+U            UNTESTED / real learner only
+```
+
+This does **not** mean:
+
+- every question has been exhaustively browser-tested;
+- STABLE means mastery;
+- repair converts prior Wrong/Uncertain into success history;
+- later fresh/holdout transfer has been executed;
+- Kian has studied or mastered Ethics-Law.
+
+Later transfer evidence may strengthen or challenge earlier evidence but must append rather than overwrite first-attempt truth.
+
+Next legitimate Ethics work is real learner use. Reopen only the earliest responsible owner when concrete source change, question evidence, or real learner friction appears.
 
 ---
 
@@ -154,8 +187,8 @@ Do not reopen accepted S/K/L/P/R without new source truth, question evidence, re
 - teaching/review assets → `content/politics/learning/ethics-law/`
 - Ethics Projection adapter → `static-web/src/lib/politicsEthicsProjection.mjs`
 - Unit Return runtime → `static-web/src/lib/politicsUnitReturn.mjs`
-- Ethics Runtime journey → `static-web/scripts/test-politics-ethics-runtime.mjs`
-- shared contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
+- Evidence enhancer → `static-web/src/components/PoliticsEvidenceEnhancer.astro`
+- Ethics R/E executable tests → `static-web/scripts/test-politics-ethics-runtime.mjs`, `audit-politics-ethics-evidence.mjs`, `test-politics-ethics-evidence.mjs`
 
 ### Acceptance Truth
 This file.
@@ -163,4 +196,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Accepted Runtime is not Ethics-Law Evidence acceptance, mastery, or U evidence.**
+> **Engineering acceptance through E is not mastery or U evidence.**

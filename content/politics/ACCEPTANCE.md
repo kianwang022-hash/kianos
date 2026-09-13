@@ -4,7 +4,7 @@ Status: CURRENT
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Politics lane-wide integration Acceptance Truth
 
-This file owns only genuine **Politics-wide integration/readiness claims** broader than one independently continued subject. It does not own Source Truth, lane learning semantics, subject-scoped readiness, teaching content, runtime code, Work Cursor, or private learner progress.
+This file owns only genuine **Politics-wide integration/reconciliation claims** broader than one independently continued subject. Subject-specific evidence remains authoritative in each local `ACCEPTANCE.md`.
 
 ---
 
@@ -12,128 +12,105 @@ This file owns only genuine **Politics-wide integration/readiness claims** broad
 
 | Scope | Acceptance owner | Current headline |
 | --- | --- | --- |
-| Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; current path `U UNTESTED`; C00 remains the presentation reference path |
-| History | `content/politics/learning/history/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; `U UNTESTED` |
-| Mao | `content/politics/learning/mao/ACCEPTANCE.md` | fresh C00–C08 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
-| Xi | `content/politics/learning/xi/ACCEPTANCE.md` | fresh C00–C17 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
-| Ethics-Law | `content/politics/learning/ethics-law/ACCEPTANCE.md` | fresh C00–C06 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
+| Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| History | `content/politics/learning/history/ACCEPTANCE.md` | `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| Mao | `content/politics/learning/mao/ACCEPTANCE.md` | `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| Xi | `content/politics/learning/xi/ACCEPTANCE.md` | `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| Ethics-Law | `content/politics/learning/ethics-law/ACCEPTANCE.md` | `S/K/L/P/R/E PASS`; `U UNTESTED` |
 
-The table is routing only. Subject evidence remains in the local owner. Politics-wide Functional First integration does not manufacture a subject gate PASS that the subject owner has not accepted.
+The table is routing/reconciliation only. Local owners contain the actual Source/Knowledge, Learning, Projection, Runtime and Evidence proofs.
 
-### Book-by-book Source/Knowledge status
+---
 
-All five Politics subjects now have a canonical Source/Knowledge content closure under their local owners. This is a reconciliation of subject Acceptance Truth into the lane router, **not** a new Politics-wide gate and not a claim that all five subjects share the same downstream readiness.
+## Politics engineering closure
+
+**Status: PASS — all five subject engineering paths are accepted through E.**
 
 ```text
-Marxism    S/K content closed; whole-subject L/P/R/E also PASS; U UNTESTED
-History    S/K content closed; whole-subject L/P/R/E also PASS; U UNTESTED
-Mao        S/K content closed; L/P/R/E/U UNTESTED
-Xi         S/K content closed; L/P/R/E/U UNTESTED
-Ethics-Law S/K content closed; L/P/R/E/U UNTESTED
+Marxism    S/K/L/P/R/E PASS → U UNTESTED
+History    S/K/L/P/R/E PASS → U UNTESTED
+Mao        S/K/L/P/R/E PASS → U UNTESTED
+Xi         S/K/L/P/R/E PASS → U UNTESTED
+Ethics-Law S/K/L/P/R/E PASS → U UNTESTED
 ```
 
----
-
-## Politics-wide integration｜Functional First Version
-
-**Status: PASS — technically ready for real learner use; U is not claimed.**
-
-Accepted canonical journey:
+Accepted shared journey:
 
 ```text
-enter chapter → locate Natural Unit / current action
-→ Chengfeng on original iPad/MarginNote surface
-→ return / close when useful → Xiao1000 clean attempt
-→ stable correct fast continuation
-   OR Wrong/Uncertain → smallest repair → owning source
-   → return to interrupted question / Unit
-→ next question / Unit → interrupt → resume real position/action
+enter chapter / locate current Natural Unit
+→ Chengfeng continuous study on original iPad / MarginNote surface
+→ return / optional close
+→ Xiao1000 verification in Astro
+→ stable correct → continue
+   OR Wrong/Uncertain → smallest repair → owning source → return
+→ next question / Unit
+→ interrupt / resume meaningful position/action
 ```
 
-This acceptance is intentionally functional, not visual. It does not require a unified Politics page appearance and does not authorize a second Chengfeng reader.
-
-### Executed evidence
-
-Tested runtime head: `42f8501ab5f59d23aeff157cecf959d5879e2909`
-
-**Static Web Politics QA**
-- run #485 (`34752661629`) → **PASS**
-- canonical coverage, Xiao routing, scoped source loading, History content/runtime/evidence, Marxism content/semantics/C00 workspace, K03/Marxism R/E, Current bindings and production Astro build all passed.
-
-**Politics Functional First Journey**
-- run #3 (`34752661632`) → **PASS**
-- artifact: `politics-functional-journey-bbfc412ee29730ae9028da1bc862688f8ea2a784`
-- Evidence mode: **EXECUTED + ADVERSARIAL**
-- Independence: **SELF**
-
-Executed browser checks prove:
-
-1. **Clean path / no false debt** — History C01 completed an eight-question first-ready Unit cleanly; first attempts persisted as `STABLE`, Unit Return appeared, `STABLE` remained this-pass evidence rather than mastery, and no Wrong/Uncertain handoff event was manufactured.
-2. **Meaningful resume** — after one completed question and advancement to the next, refresh restored the real pending question; first-attempt truth remained intact; Politics Home Continue targeted that question anchor rather than reopening only the chapter shell.
-3. **Wrong/Uncertain repair-return** — a real Wrong first attempt persisted, source repair saved `REPAIR_SOURCE`, the source surface exposed an explicit return to the interrupted question, and refresh restored the result + repair without overwriting the immutable first attempt.
-4. **C00 canonical state path** — C00 moved `EXTERNAL_LEARN → VERIFY` without forced Recall; Wrong entered `REPAIR`; repair moved into the Inspector; source repair entered `EXTERNAL_LEARN`; return restored `REPAIR`; refresh restored both repair state and repair content.
-5. **Teaching-shape non-overfit smoke** — Xi C00 still used the generic Politics Runtime with Natural Units and external-primary Chengfeng handoff.
-
-### Functional ownership closure
-
-- `kianos-politics-attempts-v1` owns immutable first-attempt snapshot evidence used for Unit Return and resume rehydration.
-- `kianos-politics-evidence-v1` remains Wrong/Uncertain handoff evidence; clean stable work does not enter it by default.
-- `kianos-politics-last-location-v1` now carries private learner cursor information sufficient to resume meaningful Unit/action/question position.
-- Source/repair metadata remains attached to the repair/evidence path and does not create new learning order or mastery.
-- Generic Politics Runtime and Marxism C00 may present differently while preserving the same canonical learner semantics.
-
-### Strongest falsification encountered
-
-The first browser run failed after C00 correctly moved repair DOM from the question card into the Inspector. The harness incorrectly searched the old card location. That failure was diagnosed as a **test assumption defect**, so only the harness was corrected; Runtime semantics were not weakened to satisfy the test. The full journey then passed.
+This closure is functional/semantic, not a claim that all Politics pages must look identical or that Astro becomes a second Chengfeng reader.
 
 ---
 
-## Mao scoped content compatibility evidence
+## Shared accepted invariants
 
-The independent Mao owner records its own upstream closure. On content head `e36d51fb76c40d320210518ccbf3e0eb70d2a814`, `Static Web Politics QA` run #510 (`34758627084`) passed `Audit Mao fresh content closure`: 9/9 chapters, 18/18 canonical P0 Natural Units, source snapshot current, 0 blocker. Canonical coverage, Xiao routing, scoped source loading, existing subject checks, Current bindings and production Astro build also passed.
+Across the subject-local engineering closures:
 
-This is accepted here only as **Politics-wide compatibility evidence** for the Mao S/K content assets. The Mao subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
-
----
-
-## Xi scoped content compatibility evidence
-
-The independent Xi owner records its own fresh upstream closure. On tested content head `6c235b38c4cb096b72c51a6055c476d1cdd361af`, `Static Web Politics QA` run #521 (`34763032552`) passed `Audit Xi fresh content closure`: 18/18 chapters, 60/60 canonical Xi Natural Units represented, accepted ownership distribution of 6 P0 / 36 P1 / 12 P2 plus 6 pre-existing frozen-pilot regions, source snapshot current, and 0 blocker. Canonical coverage, Xiao routing, scoped source loading, existing subject checks, Current bindings and the production Astro build also passed. The shared `Politics Functional First Journey` run #34 (`34763032553`) passed as integration evidence.
-
-This is accepted here only as **Politics-wide compatibility evidence** for the Xi S/K content assets. The Xi subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
-
----
-
-## Ethics-Law scoped content compatibility evidence
-
-The independent Ethics-Law owner records its own upstream closure. On content head `e3de7ad301ca8064c7edb162c375e9c46777ad44`, `Static Web Politics QA` run #498 (`34756165723`) passed `Audit Ethics content closure`, canonical coverage, Xiao routing, scoped source loading, Current bindings and the production Astro build.
-
-This is accepted here only as **Politics-wide compatibility evidence** for the Ethics S/K content artifacts. The Ethics subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
+1. **Surface ownership** — Chengfeng remains the only continuous first-round lecture surface; KianOS provides orientation, selective structure, verification and repair.
+2. **First-attempt truth** — first-attempt evidence is durable and immutable once recorded.
+3. **Evidence states** — `WRONG`, `UNCERTAIN`, and `STABLE` remain distinct; `STABLE` is this-pass evidence only.
+4. **No mastery manufacture** — engineering/runtime closure keeps `mastery_claim = NONE`; synthetic execution cannot create mastery or U.
+5. **Repair semantics** — repair never rewrites historical Wrong/Uncertain into first-attempt success.
+6. **Repair provenance** — meaningful W/U evidence can carry the owning source locator independently of mutable last-location state.
+7. **Return Packet semantics** — later navigation does not erase the original evidence event or its repair provenance.
+8. **Fail-closed persistence** — failed first-attempt persistence cannot silently manufacture Unit Return/completion.
+9. **Transfer boundary** — later fresh/holdout evidence may append, strengthen, or challenge earlier evidence but cannot overwrite first-attempt truth.
 
 ---
 
-## U boundary
+## Ethics-Law final subject closure reconciliation
+
+The final unresolved Politics subject closed through three independent downstream gates after its existing S/K content closure:
 
 ```text
-Functional First technical integration: PASS
-Real Kian learner validation:             UNTESTED on this frozen FFFV
+L  7/7 chapters KEEP; 0 repair / 0 blocked
+P  7 chapters / 21 Units / 164 questions
+   one real C01 evaluation-anchor Projection defect repaired
+R  first run 28/28 smoke checks then exposed Unit Return allowlist gap
+   final Ethics Runtime journey 45/45 PASS
+E  7 chapters / 20 configs / 164 evidence slots
+   209 model checks / 0 failures
+   one real learner-facing repair-provenance mount defect repaired
+   final Ethics Evidence journey 28/28 PASS
 ```
 
-Synthetic browser execution proves technical readiness for real study, not User Validation. Real use may reopen only the earliest responsible semantic/functional layer when concrete friction appears.
+The final E repair reused the generic `PoliticsEvidenceEnhancer` for Ethics-Law rather than duplicating evidence logic or changing the event schema.
 
 ---
 
-## Functional First stop rule
+## Politics-wide Functional First integration
 
-Functional First is now technically sufficient for real use:
+Politics-wide Functional First remains **PASS**. Shared integration evidence proves the common runtime can execute clean work, resume meaningful pending state, route Wrong/Uncertain to repair, return to interrupted work, and preserve private learner cursor semantics across heterogeneous subject teaching shapes.
+
+Subject-local Runtime/Evidence PASS is not inferred from that shared journey; each independently continued subject owns its own acceptance history. The parent closure above reconciles those local truths after they were independently accepted.
+
+---
+
+## U boundary / stop rule
 
 ```text
-PASS → STOP lane-level engineering expansion → real learner use / U evidence
+Politics engineering through E: PASS
+Real Kian learner validation U: UNTESTED
 ```
 
-The book-by-book Source/Knowledge content program is also closed across all five local subject owners. Further subject content work now requires source change, question evidence, concrete semantic defect, or learner evidence; “more detail exists” is not sufficient reason to reopen a closed content scope.
+Therefore:
 
-Later pure visual/layout/interaction implementation belongs to Codex. Codex may change presentation, CSS, component implementation and reduce UI friction, but **must not** change canonical learning semantics, learning order, state meaning, source ownership, evidence semantics, repair/return rules, or canonical contracts. If implementation requires such a semantic change, it must return to the responsible canonical owner.
+```text
+PASS → STOP default Politics engineering expansion → real learner use
+```
+
+New Politics engineering requires concrete evidence: source change, question evidence, real learner friction, or another reproducible defect with an owning layer. “More can be built” or “more Chengfeng detail exists” is not sufficient reason to reopen closed gates.
+
+Pure visual/layout implementation may continue only if it preserves canonical learning semantics, learning order, evidence meaning, source ownership and repair/return rules.
 
 ---
 
@@ -142,9 +119,8 @@ Later pure visual/layout/interaction implementation belongs to Codex. Codex may 
 ### Artifact Truth
 - owner map → `content/politics/manifest.json`
 - source owners → `content/politics/source/`
-- lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
-- interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
-- teaching projections → `content/politics/learning/`
+- lane semantics → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
+- teaching/review assets → `content/politics/learning/`
 - learner runtime → Politics surfaces under `static-web/`
 
 ### Scoped Acceptance Truth
@@ -157,4 +133,4 @@ Later pure visual/layout/interaction implementation belongs to Codex. Codex may 
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Functional readiness, subject Acceptance, and synthetic journeys cannot manufacture Kian's learner progress or U evidence.**
+> **Engineering acceptance through E cannot manufacture Kian's learner progress, mastery, later transfer, or U evidence.**

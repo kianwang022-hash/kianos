@@ -3,18 +3,18 @@
 Role: independently continued Ethics-Law subject Work Cursor + restart entry  
 Parent: `content/politics/CURRENT.md`
 
-This file does not own Ethics Source Truth, Politics-wide learning/interaction semantics, Acceptance Truth, learner progress, or chapter teaching assets themselves.
+This file does not own Ethics Source Truth, Politics-wide semantics, Acceptance Truth, learner progress, or chapter teaching assets themselves.
 
 ---
 
 ## Work Cursor
 
-**Scope:** Ethics-Law whole-module continuation after fresh Runtime re-acceptance  
-**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS / R PASS`  
-**Content closure:** `PASS` — supplemental conclusion under K  
-**Earliest unresolved gate:** `E｜Evidence`  
-**Blocker:** none in Source/Knowledge/Content/Learning Logic/Projection/Runtime.  
-**Next action:** fresh Ethics-specific Evidence acceptance. Attack first-attempt durability, Wrong/Uncertain provenance, repair≠mastery, Return Packet meaning and fail-closed persistence. R execution is prior evidence only, not automatic E PASS.
+**Scope:** Ethics-Law after fresh Evidence re-acceptance  
+**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS / R PASS / E PASS`  
+**Content closure:** `PASS`  
+**Earliest unresolved gate:** none at engineering layers  
+**Blocker:** none.  
+**Next action:** real Kian learner use only. `U` remains untested until actual study produces learner evidence. Do not invent another engineering gate merely because more can be tested.
 
 ---
 
@@ -26,25 +26,27 @@ S  PASS
 → L  PASS
 → P  PASS
 → R  PASS
-→ E  UNTESTED   ← current gate
-→ U  UNTESTED   ← learner-only
+→ E  PASS
+→ U  UNTESTED   ← real learner only
 ```
 
-Fresh owners:
+Fresh review owners:
 
 - L → `learning-review.json`
 - P → `projection-review.json`
 - R → `runtime-review.json`
-- P adapter → `static-web/src/lib/politicsEthicsProjection.mjs`
-- R runtime → `static-web/src/lib/politicsUnitReturn.mjs`
-- R journey → `static-web/scripts/test-politics-ethics-runtime.mjs`
+- E → `evidence-review.json`
 
 Fresh dispositions:
 
 ```text
 L: C00–C06 = 7 KEEP / 0 REPAIR / 0 BLOCKED
 P: C01 REPAIR / C00,C02–C06 KEEP / 0 BLOCKED
-R: 1 Runtime allowlist defect repaired / 45 checks PASS
+R: 1 Unit Return allowlist defect repaired / 45 checks PASS
+E: 1 repair-provenance mount defect repaired
+   7 chapters / 20 configs / 164 evidence slots
+   209 model checks / 0 failures
+   28 browser checks PASS
 ```
 
 ---
@@ -54,10 +56,10 @@ R: 1 Runtime allowlist defect repaired / 45 checks PASS
 > **先判断概念/规范处在哪一层，再分清最近边界，最后放回具体关系或情境做判断。**
 
 ```text
-chapter problem / current identity
+chapter problem / identity
 → Natural Unit problem + answer
 → optional boundary / relation / evaluation scale / application
-→ Chengfeng original surface
+→ Chengfeng original surface on iPad / MarginNote
 → optional short closure
 → Xiao1000 verification
 → stable fast continuation
@@ -66,93 +68,79 @@ chapter problem / current identity
 → interrupt / refresh / Continue restores meaningful position
 ```
 
-Dense `content_support` remains backend-only. Chengfeng remains the only continuous first-study surface on iPad/MarginNote.
+Dense `content_support` remains backend-only. Chengfeng remains the only continuous first-study surface.
 
 ---
 
-## P｜Projection closure
+## P / R / E closure
 
-Fresh P attack covered **7 chapters / 21 Units / 164 Current Xiao1000 questions**.
+### P｜Projection
 
-One real defect was repaired: C01's accepted `evaluation_anchor` was dropped by the generic adapter. The Ethics-only Projection adapter now preserves it as a progressive-disclosure `评价尺度` beat without rewriting accepted chapter Content/Learning.
+Fresh audit covered **7 chapters / 21 Units / 164 Current Xiao1000 questions**. One real defect was repaired: C01's accepted life-value `evaluation_anchor` had been dropped by the generic adapter. The Ethics-only Projection adapter now preserves it as a progressive-disclosure `评价尺度` beat without rewriting accepted Content/Learning.
 
-Projection audit now proves Orientation, Unit problem/answer, boundaries and the evaluation scale survive; `content_support` does not leak; Chengfeng stays external-primary.
+### R｜Runtime
 
----
+The first Ethics browser run passed **28/28 smoke checks** and then failed because Ethics had no executable Unit Return config. `ethics_law` was added to the existing conservative `NATURAL_UNIT_SAFE_FALLBACK`; `mastery_claim = NONE`, no finer mapping was invented. Final Ethics Runtime artifact: **45/45 PASS**.
 
-## R｜Runtime closure — PASS after one repair
+### E｜Evidence
 
-First Ethics-specific browser run passed **28/28 C00–C06 smoke checks** and then failed at:
-
-```text
-ethics_config_with_1_questions_exists
-```
-
-Root cause:
+The whole-subject Evidence model passed before any E repair:
 
 ```text
-buildPoliticsUnitReturnConfigs
-→ existing NATURAL_UNIT_SAFE_FALLBACK
-→ allowlist had Marxism / History / Mao / Xi
-→ Ethics had valid Current Xiao1000 questions
-→ Ethics received zero executable Unit Return configs
+7 / 7 chapters
+20 Unit Return configs
+164 question evidence slots
+209 model checks
+0 failures
 ```
 
-Narrow repair:
+The first browser E failure was real and narrow:
 
 ```text
-add ethics_law to the existing safe-fallback allowlist
-mastery_claim = NONE
-precision = NATURAL_UNIT_SAFE_FALLBACK
-no finer question→node mapping invented
+Wrong/Uncertain event preserved attempt meaning
+→ but Ethics did not mount the generic PoliticsEvidenceEnhancer
+→ repair_source_anchor / stable source-owner IDs were missing
 ```
 
-Final Ethics Runtime artifact: **45/45 checks PASS**.
+The page now mounts the existing generic Evidence enhancer for Ethics-Law as well as Mao/Xi. No event schema or first-attempt semantics changed.
 
-It independently proves:
+Final browser Evidence journey: **28/28 PASS**. It proves:
 
-1. C00–C06 identity / Natural Units / external Chengfeng handoff / generic runtime;
-2. clean Xiao1000 attempts record `STABLE`, create no repair debt and expose Unit Return with `不等于长期掌握`;
-3. real pending question resume survives refresh as `VERIFY`;
-4. real Wrong/Uncertain enters owning source with `REPAIR_SOURCE`;
-5. return restores interrupted question/result + repair panel;
-6. first-attempt evidence is immutable through repair-return.
-
----
-
-## E target
-
-```text
-first attempt stays durable and immutable
-→ repair never rewrites history into success
-→ Wrong/Uncertain event independently owns source provenance
-→ STABLE remains this-pass evidence only
-→ Return Packet preserves event meaning after later navigation
-→ persistence failure fails closed
-→ later transfer may append/challenge but never overwrite first attempt
-```
-
-R PASS is prior evidence for E, not a substitute for it.
+- clean STABLE creates no repair debt and never claims mastery;
+- WRONG / UNCERTAIN stay distinct;
+- first attempt remains immutable through repair;
+- event stores `repair_source_anchor` + stable source-owner IDs;
+- after navigation to ch06, Return Packet still preserves the original ch01 repair provenance independently of `last_location`;
+- forced attempt persistence failure is visible and fail-closed: no fake first attempt, Unit Return, or UNIT_RETURN cursor.
 
 ---
 
 ## Frozen boundary
 
 ```text
-Chengfeng  continuous first-round mainline on iPad / MarginNote
-Suyi       compact framework / exactness cross-check only
-KianOS     concept / boundary / situational-judgment / verification / repair companion
-Xiao1000   verification and evidence
+Suyi       framework / orientation / exactness cross-check input
+Chengfeng  continuous first-round mainline on original iPad/MarginNote surface
+Xiao1000   verification / later transfer evidence
+KianOS     concept / boundary / selective projection / verification / repair companion
 ```
 
-Do not reopen S/K/L/P/R for polish, manufacture unsupported exact wording, promote dense fixed lists into mandatory first-round recall, or infer U/mastery from engineering state.
+Do not:
+
+- reopen S/K/L/P/R/E merely for polish;
+- promote dense fixed lists into mandatory first-round recall;
+- fill unsupported exact wording from model memory;
+- interpret `STABLE` as mastery;
+- rewrite historical Wrong/Uncertain into success after repair;
+- infer later transfer or U from CI/repository state.
+
+Later fresh/holdout transfer belongs to later review/mock phases and may append/challenge earlier evidence, never overwrite first-attempt truth.
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-Current Ethics teaching/review assets plus accepted Projection and Runtime owners.
+Current Ethics teaching/review assets plus accepted Projection, Runtime and Evidence owners.
 
 ### Acceptance Truth
 `content/politics/learning/ethics-law/ACCEPTANCE.md`
@@ -166,8 +154,7 @@ Private browser / Return Packet / conversation evidence only.
 
 ```text
 Ethics CURRENT
-→ Ethics ACCEPTANCE
-→ runtime-review.json
-→ begin at E
-→ do not reopen accepted S/K/L/P/R without concrete evidence
+→ S/K/L/P/R/E already accepted
+→ prefer real learner use / U
+→ reopen only the earliest responsible owner when concrete learner/source/question evidence appears
 ```

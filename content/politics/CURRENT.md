@@ -9,14 +9,14 @@ This file does not own Source Truth, subject Acceptance detail, lane learning/in
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — Politics-wide Functional First integration is closed.  
-**Blocker:** none at the lane engineering layer.  
-**Next action:** continue only a named subject's local Current. Marxism / History / Mao / Xi are engineering-closed through E and should move to real learner use; Ethics-Law is the only Politics subject with unresolved engineering gates.
+**Active engineering scope:** none — Politics Functional First and all five subject engineering paths are closed through Evidence.  
+**Blocker:** none at the engineering layer.  
+**Next action:** real Kian learner use. Do not manufacture more lane/subject engineering merely because more can be tested or more Chengfeng detail exists.
 
 Frozen shared learner journey:
 
 ```text
-Orientation
+Orientation / current Natural Unit
 → Chengfeng continuous study on iPad / MarginNote
 → optional close / checkpoint
 → Xiao1000 verification in Astro
@@ -27,7 +27,7 @@ Orientation
 
 Hard stop:
 
-> Do not reopen lane-level Politics architecture merely because more can be built. New work must belong to a concrete subject owner or real learner evidence.
+> Politics engineering is closed through E. New work now requires real learner friction, source change, question evidence, or another concrete defect with a responsible owner.
 
 ---
 
@@ -48,10 +48,10 @@ Marxism    S/K/L/P/R/E PASS; U UNTESTED
 History    S/K/L/P/R/E PASS; U UNTESTED
 Mao        S/K/L/P/R/E PASS; U UNTESTED
 Xi         S/K/L/P/R/E PASS; U UNTESTED
-Ethics-Law S/K + content closure PASS; L/P/R/E/U UNTESTED
+Ethics-Law S/K/L/P/R/E PASS; U UNTESTED
 ```
 
-All five subjects have Source/Knowledge content closure. Downstream readiness remains subject-local and intentionally asymmetric.
+All five subjects have accepted Current Source/Knowledge content closure, subject learning logic, learner-facing projection, executed Runtime and independently challenged Evidence semantics. `U` is intentionally not manufactured by repository state.
 
 ---
 
@@ -62,7 +62,7 @@ Politics invariant:
 ```text
 Suyi       framework / orientation / exactness cross-check input
 Chengfeng  continuous first-round mainline on original iPad/MarginNote surface
-Xiao1000   verification / transfer evidence
+Xiao1000   verification / later transfer evidence
 KianOS     orientation / selective projection / verification / repair companion
 ```
 
@@ -77,33 +77,40 @@ Shared semantics remain in:
 
 ---
 
+## Accepted evidence boundary
+
+Across the closed subject paths, engineering acceptance preserves these invariants:
+
+- first-attempt evidence is durable and cannot be rewritten by repair;
+- `WRONG`, `UNCERTAIN`, and `STABLE` remain distinct;
+- `STABLE` means current-pass evidence only, never mastery;
+- Wrong/Uncertain repair provenance is attributable to the owning source;
+- Return Packet meaning survives later navigation;
+- persistence failure fails closed rather than manufacturing completion;
+- later transfer may append/challenge but cannot overwrite historical first-attempt truth.
+
+Subject-specific proof remains in each local `ACCEPTANCE.md`; this parent is routing/reconciliation only.
+
+---
+
 ## Independent re-acceptance directive
 
 For **fresh acceptance / independent audit**, old Current/Acceptance/PR/validator claims are prior evidence, not the first-pass answer key.
 
 ```text
-actual current owners + inherited contracts
-→ fresh S–E judgment / strongest failure challenge
-→ reconcile old Acceptance only afterward
+actual Current owners + inherited contracts
+→ fresh strongest-failure challenge
+→ reconcile old Acceptance afterward
 ```
 
-Minimum challenge floor:
-
-- S/K → provenance, source roles, negative space;
-- L → learner route and surface allocation;
-- P → current cognitive action and information hierarchy;
-- R → executed clean / W-U repair-return / resume;
-- E → first-attempt durability, repair≠mastery, provenance, persistence, private state;
-- U → real Kian use only.
-
-If a real defect appears, reopen only the earliest responsible owner/gate.
+If a real defect appears, reopen only the earliest responsible owner/gate. `U` is real Kian use only.
 
 ---
 
 ## Truth boundaries
 
 ### Acceptance Truth
-`content/politics/ACCEPTANCE.md` owns Politics-wide integration claims. Each subject's readiness is owned by its local `ACCEPTANCE.md`.
+`content/politics/ACCEPTANCE.md` owns Politics-wide integration/reconciliation claims. Each subject's readiness is owned by its local `ACCEPTANCE.md`.
 
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only. Repository state cannot manufacture study, mastery, transfer, or U.
@@ -114,7 +121,7 @@ Private browser / Return Packet / conversation evidence only. Repository state c
 
 ```text
 Politics CURRENT
-→ named subject local CURRENT
-→ Marxism / History / Mao / Xi: prefer real learner use
-→ Ethics-Law: continue its earliest unresolved local gate
+→ all five subject engineering paths already closed through E
+→ prefer real learner use
+→ if concrete friction/evidence appears, route to the earliest responsible local owner
 ```
