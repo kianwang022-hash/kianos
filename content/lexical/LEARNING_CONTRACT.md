@@ -1,46 +1,117 @@
 # LexicalOS Learning Contract
 
-## Goal
+Role: highest learner-facing learning logic for the **LexicalOS** domain.
 
-LexicalOS exists to build **fast, correct contextual lexical access**.
+LexicalOS is a top-level system beside English, not an internal English capability lane. It supplies lexical access to English tasks and receives precise lexical failures back from them.
 
-The learner already has broad repeated exposure to CET-4/CET-6, TOEFL, and postgraduate-exam vocabulary. The main problem is therefore not basic word-list coverage. The system should prioritize depth where it matters:
+## 0. Purpose and optimization target
+
+LexicalOS exists to build **fast, correct contextual lexical access** that improves real English exam performance.
+
+The learner already has broad repeated exposure to CET-4/CET-6, TOEFL, and postgraduate-exam vocabulary. The main problem is therefore not basic word-list coverage. The system should prioritize:
 
 - familiar-new senses;
 - high-value polysemy;
 - word feel / mental compression;
 - constructions and phrase skeletons;
 - confusable boundaries;
+- productive expressions that matter for Translation / Writing;
 - fast recognition and selection in real context.
 
-Do not optimize for dictionary completion, sense-count completion, or total review-card count.
+Do not optimize for dictionary completion, sense-count completion, total words “finished”, or review-card count.
 
-## Product principle
+Lexical learner-facing ROI is:
 
-`Natural Owner semantics → Depth Scan → selective Repair → Challenge → Return Packet → next learning day → real transfer`
+```text
+expected exam-point benefit from faster / more accurate lexical access
++ expected reduction in hesitation / lexical bottlenecks
+---------------------------------------------------------------------
+learner time
++ future review debt
++ Challenge load
++ interaction / switching friction
+```
 
-Shared Current owns durable lexical semantics and durable learning rules. Astro turns them into low-friction learner actions. Chat owns semantic and learning judgment and may update both content and interaction design from real learner feedback.
+A lexical action earns learner time only if it is expected to improve future access, discrimination, production, task performance, or repair efficiency enough to justify its cost.
 
-Private learner answers, progress, repair state, timing, and session history are not shared lexical semantic owners. They may live in local/private interaction state or learner packets, but must not become a parallel lexical truth.
+### Hard stop
 
-## Natural semantic authority
+LexicalOS must yield time to English task performance when marginal lexical work becomes lower-value than Reading / Translation / Writing practice.
 
-Lexical learning must project from Current Natural Owners:
+```text
+real task lexical failure
+> explicit learner-detected gap
+> repeated Challenge failure
+> high-value hidden-risk branch
+> completeness-driven scan
+```
+
+The system may be deep in semantic content while remaining light in learner interaction.
+
+## 1. Domain boundary with English
+
+```text
+LexicalOS owns lexical semantics and lexical repair.
+English owns task performance evidence.
+```
+
+Typical route:
+
+```text
+English task failure
+→ identify exact lexical object when lexical
+→ smallest LexicalOS repair
+→ return to the originating English task
+```
+
+Reading / Cloze / Part B / Translation / Writing must not create duplicate local vocabulary systems.
+
+Likewise, LexicalOS must not turn every English error into lexical debt. Only route a failure here when the lexical object actually explains the performance problem.
+
+Real English use is stronger evidence than an artificial isolated word test. Strong later real-context success may cancel weaker planned Challenge work.
+
+## 2. Product principle
+
+```text
+Natural Owner semantics
+→ fast Depth Scan
+→ selective Repair
+→ bounded Challenge
+→ evidence return
+→ real-context transfer
+```
+
+Shared Current owns durable lexical truth and learning rules. Astro projects low-friction learner actions. Chat owns semantic / learning judgment and may update content or interaction from actual learner evidence.
+
+Private progress, repair state, timing, and Challenge history are evidence, not a second lexical truth.
+
+## 3. Natural semantic authority
+
+Lexical learning projects from Current Natural Owners:
 
 - Word Natural Owner owns word-local semantics;
 - Relation Natural Owner owns genuine cross-word semantic relationships;
-- generated tests, learner notes, and interaction state do not become semantic owners;
-- Astro must not invent a sense, construction, phrase, or contrast merely because a learning template expects one.
+- generated questions and learner notes are not semantic owners;
+- Astro must not invent a sense, construction, phrase, or contrast merely because a learning template wants one.
 
-If interaction exposes a semantic gap or error, repair the Natural Owner. If a generated question is bad, repair or discard the question rather than changing lexical truth to fit the question.
+If interaction exposes a semantic error, repair the Natural Owner. If a generated question is bad, repair / discard the question rather than deform lexical truth.
 
-## Main learner loop: Depth Scan
+## 4. Main learner loop: bounded Depth Scan
 
-The default vocabulary action is **one rich word card, one fast deep scan**. Do not turn every sense, construction, or relation into a separate mandatory card.
+The default study action is **one rich word card, one fast deep scan**.
+
+The sequential word order is an inventory traversal convenience, not a priority authority and not a promise that all 7,946 words deserve equal learner time.
+
+A session may stop because:
+
+- the planned lexical time budget is reached;
+- English performance work has higher current ROI;
+- repair / Challenge load is already high;
+- new Depth volume would create more future debt than value.
 
 ### Recall side
 
-Before Reveal, show a compact **Recall Map** that tells the learner how deeply to search memory without giving the answers.
+Before Reveal, show a compact Recall Map that tells the learner how deeply to search memory without giving answers.
 
 Examples:
 
@@ -48,187 +119,152 @@ Examples:
 - `2N + 1V`
 - `by ~`
 - `~ A from B`
-- `from ~ to ~`
 
 Rules:
 
-- counts describe **learner-worthy active meanings**, not dictionary sense counts;
-- `(2+1)A`, `(1+1)V`, etc. indicate that one high-value branch is especially easy to miss behind familiarity; the Recall side should not reveal what that branch is;
-- phrase/construction skeletons may appear when the skeleton itself is worth active retrieval;
-- do not list trivial or already-automatic preposition patterns merely for completeness;
-- the purpose is to interrupt familiarity illusion: `this word looks familiar` must not automatically mean `all important uses are accessible`.
+- counts describe learner-worthy active meanings, not dictionary sense counts;
+- `+` in a count may signal a high-value hidden branch behind familiarity;
+- construction skeletons appear only when active retrieval is valuable;
+- no typing is required;
+- stable simple L0/Core words should pass very quickly.
 
-No typing is required on the Recall side. The learner retrieves mentally, then Reveals.
+The purpose is to interrupt familiarity illusion, not to make every word a memory exercise.
 
 ### Reveal side
 
-Reveal is not a dictionary dump. It is a **high-value learner map**.
+Reveal is a high-value learner map, not a dictionary dump.
 
 Default order:
 
-1. Core / Word Feel — a compact mental model that helps compress the word;
-2. high-value learner meanings matching the Recall Map;
-3. important constructions / phrase skeletons attached to the relevant meaning where possible;
-4. necessary confusable or contrast boundary only when it materially improves recognition or selection.
+1. Core / Word Feel;
+2. high-value learner meanings;
+3. important constructions / phrase skeletons;
+4. material confusable / contrast boundaries.
 
-A genuinely rich familiar word may be deep. Do **not** impose an arbitrary small sense cap merely to keep every card visually identical. The constraint is learning value and scanability, not dictionary completeness.
+Reference-only, historical, technical micro-senses, and completeness material belong in Explore / Search.
 
-Use short anchors only when the anchor materially improves later recognition. Do not force one example sentence per meaning.
+A genuinely rich word may remain deep. The constraint is learner value and scanability, not visual uniformity.
 
-Reference-only, historical, technical micro-senses, or low-value completeness material belongs in Explore/Search, not the main Depth Scan.
-
-## The `+` repair action
-
-Every high-value expansion that may need repair can expose a `+` action.
+## 5. The `+` action: repair admission, not rating theater
 
 `+` means:
 
-> **This specific lexical object is not yet fast, stable, or automatic enough.**
+> **This specific lexical object is not fast, stable, or available enough to justify trusting it in later performance.**
 
-It does **not** mean only `I have never seen this before`.
+It may represent genuinely new, familiar-new, slow/fuzzy, passively recognized but not retrievable, unstable construction/collocation, confusable hesitation, or productive need.
 
-The learner may press `+` when an item is:
+Do not force whole-word UNKNOWN / FUZZY / KNOW / PASS ratings when the real problem is one local branch.
 
-- genuinely new;
-- recognized only after Reveal;
-- slow or fuzzy;
-- understood passively but not self-retrievable;
-- a familiar-new sense that was missed;
-- a construction, phrase, or collocation that is not automatic;
-- a confusable boundary that would still cause hesitation;
-- a productive expression the learner wants available for writing/translation.
+A clean word should be able to:
 
-The main Depth Card should not require whole-word `UNKNOWN / FUZZY / KNOW / PASS` ratings. The important state is often local: Core may be fully known while one sense, construction, phrase, or relation needs repair.
+```text
+Recall → Reveal → fast scan → Next
+```
 
-A learner with no detected problem should be able to `Reveal → scan → Next` with no extra interaction.
+with no extra interaction.
 
-## Repair targets, not permanent cards
+## 6. Repair targets, not permanent cards
 
-A `+` or observed lexical failure creates a **repair target**, not a permanent fixed flashcard.
+A `+` or real lexical failure creates a **repair target**, not a permanent flashcard obligation.
 
 One lexical object may generate different Challenge surfaces over time without multiplying into many permanent cards.
 
-Examples:
+Possible repair forms include:
 
-- familiar-new sense → contextual meaning / paraphrase discrimination;
-- construction → slot completion / constrained selection;
-- phrase → phrase completion or contextual interpretation;
-- confusable relation → forced contrast;
-- word feel → cross-context discrimination;
-- productive need → selection / mini-translation / constrained production.
+- contextual meaning / paraphrase discrimination;
+- construction slot completion;
+- phrase completion / interpretation;
+- forced confusable contrast;
+- cross-context word-feel discrimination;
+- constrained production for Translation / Writing.
 
-The system should preserve the target and evidence, not require one pre-authored question for every active meaning in the lexicon.
+Preserve the target and evidence, not one eternal question.
 
-## Challenge generation
+## 7. Challenge: bounded test layer
 
-Challenge is a **test layer**, not a semantic layer and not a prebuilt one-question-per-sense bank.
+Challenge is a test layer, not semantic truth and not a one-question-per-sense bank.
 
-Questions may be generated freely from the valid Current lexical object and its relations. The test layer may improve incrementally over time: useful questions and patterns may be retained, weak or ambiguous ones may be repaired or discarded, and new challenge forms may be added later.
+### Admission
 
-### Challenge admission
+Strong admission signals:
 
-Only a small subset of possible lexical objects should be tested proactively. Strong admission signals include:
+1. real lexical failure from English;
+2. previous Challenge wrong / unstable / slow;
+3. learner pressed `+`;
+4. repeated evidence on the same object;
+5. a small selective blind probe of a high-value hidden-risk branch.
 
-- learner pressed `+`;
-- Reading / Cloze / Translation / Writing exposed a real lexical failure or uncertainty;
-- a prior Challenge was wrong, slow, or unstable;
-- the same object has recurring evidence of weakness;
-- a small, selective blind probe of a high-value hidden-risk branch.
-
-Do not generate a test simply because a Word Owner contains a sense or because the corpus contains a lexical object.
+Do not test an object merely because it exists in Current.
 
 ### Blind probes
 
-Blind probes exist specifically to catch familiarity illusion: the learner may believe a familiar word is fully known while a high-value branch is missing.
+Blind probes catch familiarity illusion. They remain a minority.
 
-They must remain selective. A high-value unmarked branch may occasionally be tested; a correct result should normally disappear without creating review debt. A failure activates only that specific repair target.
+- correct blind probe normally disappears without debt;
+- failure activates only the affected target;
+- blind probes never displace real repair obligations just to satisfy a quota.
 
-## Protect unseen exam evidence
+### Interaction
 
-Lexical Challenges should **not** use unattempted true-exam, TPO, or other intentionally held-out unseen source sentences merely because they are available in English source assets.
+Challenge must stay fast.
 
-Default Challenge material may be freely generated. Real unseen Reading/Cloze/Translation material is more valuable as later transfer evidence and should remain clean until its first real attempt.
+- up to four choices may map directly to arrow keys;
+- ordinary selection submits immediately;
+- correct feedback is minimal;
+- wrong feedback exposes only the smallest sufficient repair;
+- at most one same-session reconstruction is used when it adds value;
+- repeated failure changes repair method rather than repeating near-identical questions.
 
-Once material has already been legitimately exposed, it may be reused when useful, but generated Challenge remains the normal default.
+## 8. Scheduling without backlog theater
 
-## Challenge interaction
+Daily Challenge is compiled from current evidence, not an ever-growing due-card queue.
 
-Challenge interaction should be fast enough to support many high-value judgments without turning lexical repair into UI work.
+Priority normally follows:
 
-For selection tasks with up to four choices, place choices spatially and use the four arrow keys as direct answers:
+1. previous real / Challenge WRONG or repeated failure;
+2. explicit `+` targets;
+3. slow / fuzzy targets;
+4. older unresolved targets only if evidence remains meaningful;
+5. selective blind probes.
 
-- `← / ↑ / ↓ / →` selects the option in that position and submits immediately;
-- do not require a second Enter confirmation for ordinary low-risk Challenge choices;
-- two-choice tasks naturally use left/right;
-- three- and four-choice tasks use the same spatial muscle memory;
-- `Space` may serve Reveal / Next according to state.
+A `+` usually gets its first real Challenge on the next learning day rather than immediately after Reveal. Immediate same-card retesting is weak evidence.
 
-After a correct answer, feedback should normally be minimal and movement fast.
+Missed calendar days must not manufacture an overdue pile.
 
-After a wrong answer, show only the smallest sufficient repair, then reconstruct with a fresh or altered context when needed. Do not turn every wrong choice into a full lexical lecture.
+If repair load is high:
 
-Keyboard and mouse actions should represent the same learner decision; keyboard is the preferred high-speed path.
-
-## Daily Challenge scheduling
-
-Daily Challenge is **compiled from current evidence**, not treated as an ever-growing `due cards` queue.
-
-### Next-day carry rules
-
-- A learner-added `+` should normally receive its first real Challenge on the **next learning day**, not immediately after Reveal. Immediate same-card retesting is weak evidence and should not be the default.
-- `WRONG` / `Again` during Challenge receives the smallest sufficient repair plus at most one same-session reconstruction when useful, and the target must return in the next learning day's compiled Challenge.
-- Slow / hesitant / fuzzy performance should normally receive a targeted next-day probe without forcing a large same-session review chain.
-- A defective or ambiguous generated question does not create learner repair debt.
-- Repeated failure remains a next-day obligation, but the repair method must change rather than repeating near-identical questions.
-
-### Daily priority order
-
-When compiling the next Challenge, prioritize:
-
-1. previous-day `WRONG` / `Again` and repeated failures;
-2. previous-day explicit `+` targets;
-3. previous-day slow / fuzzy targets;
-4. older unresolved repair targets only when they still have meaningful evidence value;
-5. a small minority of blind probes, only after real repair obligations are covered.
-
-Blind probes must never displace explicit repair evidence merely to satisfy a sampling quota.
-
-If repair load is unusually high, reduce or remove blind probes and reduce new Depth volume before creating a large automatic review backlog.
+- reduce blind probes first;
+- reduce new Depth volume second;
+- do not inflate tomorrow’s session into punishment for today’s evidence.
 
 ### Fading
 
-- A clean next-day Challenge after a prior `+` or failure may move the target out of immediate obligation; it does not need another next-day test merely to satisfy a fixed interval.
-- Later fresh Challenge success or successful real-context use is stronger evidence and may move the target to dormant.
-- Strong later unseen-context success may cancel weaker planned artificial review when there is no contradictory recent evidence.
-- A new real failure immediately reactivates the smallest affected target.
-- Missed calendar days must not manufacture an `overdue` pile. The next session is recompiled from unresolved evidence rather than from elapsed-card debt.
+- a clean next-day Challenge may remove immediate obligation;
+- later real-context success is stronger and may move the target dormant;
+- strong unseen-context success may cancel weaker artificial review;
+- new real failure reactivates only the smallest affected target.
 
-The exact numerical spacing and sampling knobs remain tunable runtime parameters. The durable rule is **evidence-driven carry, bounded Challenge, fast fading, and no mechanical review debt**.
+## 9. Evidence strength
 
-## Evidence strength
+Useful default ordering:
 
-Evidence is not equal.
+```text
+isolated word recall
+< targeted sentence recall
+< construction / contrast discrimination
+< successful real Reading / Cloze / Translation / Writing use
+< later unseen-context success under normal task pressure
+```
 
-A useful default ordering is:
+Correct once is not mastery. But repeated isolated button presses are not a good substitute for stronger transfer evidence.
 
-`isolated word recall`
-`< targeted sentence recall`
-`< construction / contrast discrimination`
-`< successful Reading / Cloze / Translation use`
-`< later unseen-context success`
+Real-context evidence may both activate and retire lexical work.
 
-Rules:
-
-- correct once is not mastery;
-- repeated button presses are weaker than later successful transfer;
-- real-context success may reduce or eliminate planned artificial review;
-- a new real-context failure may reactivate a previously dormant repair target immediately.
-
-## Memory admission and fading
+## 10. Memory admission and review debt
 
 The 7,946 Main Words must **not** become 7,946 permanent review obligations, and active senses must not become one-card-per-sense debt.
 
-Enter active repair/review when there is meaningful evidence such as:
+Enter active repair / review when there is meaningful evidence such as:
 
 - `+`;
 - wrong / uncertain / slow real use;
@@ -240,94 +276,86 @@ Enter active repair/review when there is meaningful evidence such as:
 Default to no persistent review for:
 
 - stable simple L0/Core knowledge;
-- later real-context natural success;
+- later natural real-context success;
 - low-value specialized micro-senses;
-- historical/reference-only content;
+- reference-only material;
 - completeness-only evidence;
 - already automatic basics.
 
-Stable knowledge should fade to dormant rather than demand ritual re-proving. Future counterevidence may reactivate the smallest affected lexical object.
+Stable knowledge fades to dormant rather than demanding ritual re-proving.
 
-## Return Packet is a mandatory next-day input
+## 11. Return evidence, not Return Packet ritual
 
-The learner's daily Return Packet is **not merely a history log**. It is a mandatory input to the next learning day's generation.
+Meaningful learner evidence must affect the next compilation. **The packet is a transport format, not a daily ritual.**
 
-`Day N learning / Challenge → Return Packet → Chat judgment → Day N+1 content`
+If there are meaningful events:
 
-When Chat receives a Return Packet, meaningful problems must be incorporated into the next day's learner packet or repair plan. Do not ignore them in favor of a pre-existing mechanical schedule.
+```text
+Day N evidence
+→ Return Packet / automatic handoff
+→ Chat judgment
+→ Day N+1 compilation
+```
 
-At minimum, distinguish these observable outcomes:
+If there are no meaningful events, the learner should not have to perform an empty export ceremony.
 
-- learner-added `+` → enter Repair;
-- `WRONG` / `Again` / clearly unknown → high-priority repair and later re-test in a changed context;
-- slow / hesitant / fuzzy → lighter reinforcement or targeted probe;
-- stable repeated success → lower priority / fade;
-- ambiguous or defective generated question → repair/discard the question and do not count it as learner failure;
-- explanation or semantic content appears wrong → inspect and, if necessary, repair the Natural Owner;
-- repeated failure of the same target → change the repair method, not merely repeat near-identical questions.
+At minimum, meaningful evidence distinguishes:
 
-### Minimum packet evidence
+- learner-added `+`;
+- wrong / Again / clearly unknown;
+- slow / fuzzy;
+- stable success;
+- defective question;
+- semantic-content issue;
+- repeated failure.
 
-The runtime should capture the minimum evidence Chat needs without asking the learner to maintain backend taxonomy manually.
-
-For a meaningful lexical event, preserve when available:
-
-- session / study-day identity;
-- `word_id` and ordinal;
-- target kind such as Core, sense, construction, collocation/phrase, relation/confusable, word feel, or productive need;
-- stable target identity such as `sense_id`, `collocation_id`, `relation_id`, or another Current owner-local stable locator when available;
-- source of evidence: Depth `+`, Challenge, Reading, Cloze, Translation, Writing, or blind probe;
-- observable outcome: added, correct, wrong, slow/fuzzy, Again, question issue, or semantic issue;
-- the generated question/answer trace only when needed to diagnose a wrong judgment or defective question.
-
-Do not copy whole lexical definitions into the packet when a stable Natural Owner identity is sufficient. The packet points back to lexical truth; it does not duplicate it.
-
-### Feedback outranks mechanical scheduling
-
-Fresh evidence has priority over a stale scheduler.
+Fresh evidence outranks stale scheduling.
 
 Examples:
 
-- a target nominally scheduled much later but failed today should return sooner;
-- a target nominally due tomorrow but was just handled successfully in strong real context may be delayed or removed;
-- repeated failure should trigger stronger reconstruction or boundary repair rather than simple repetition.
+- failed today → returns sooner even if nominally scheduled later;
+- succeeded today in strong real context → may be delayed / removed even if nominally due;
+- repeated failure → stronger reconstruction, not simple repetition.
 
-Every meaningful problem in the Return Packet must affect the next-day compilation. Explicit `+`, `WRONG`, `Again`, and repeated-failure evidence must not disappear silently. The next-day response may change form — Challenge, focused repair, boundary reconstruction, or semantic repair — but the evidence must be consumed.
+The learner should not maintain backend taxonomy manually. Capture stable target identity automatically where possible.
 
-## Module feedback into LexicalOS
+## 12. English → LexicalOS → English handoff
 
-English modules should send precise lexical failures back to the canonical lexical object instead of creating separate module-specific vocabulary systems.
+Typical routes:
 
-Typical routing:
+- Reading lexical failure → exact sense / phrase / construction → repair → return to Reading;
+- Cloze candidate contrast → lexical / relation boundary → repair → return to slot;
+- Translation proposition recovery → sense / construction → repair → retranslate only the affected part;
+- Writing expression need → productive lexical target → repair / later Challenge → return to generation.
 
-- Reading lexical failure → exact sense / phrase / construction → smallest lexical repair → return to Reading;
-- Cloze candidate-contrast failure → lexical/relation boundary → repair → return to slot;
-- Translation proposition-recovery failure → familiar-new sense / construction → repair → retranslate;
-- Writing expression need → productive lexical object → repair / later Challenge.
+The handoff should be small. A task failure must not send the learner into a long vocabulary detour unless repeated evidence justifies it.
 
-The module keeps its task evidence; LexicalOS keeps lexical semantics and repair targeting.
+## 13. Protect unseen exam evidence
 
-## Explore / Search
+Lexical Challenges should not consume unattempted true-exam, TPO, or other intentionally held-out source sentences merely because they are available.
 
-Depth Study and full lexical exploration are different goals.
+Generated material is the normal Challenge default. Exposed material may be reused when useful. Unseen task material remains diagnostic capital for English.
+
+## 14. Explore / Search versus Study
 
 - **Study / Depth**: fast retrieval, high-value expansion, selective repair;
-- **Explore / Search**: complete inspection of Current lexical knowledge, including richer reference/evidence material when useful.
+- **Explore / Search**: complete inspection of Current lexical knowledge when needed.
 
-Do not force Explore completeness into the Study card.
+Do not force Explore completeness into Study.
 
-## Interaction quality bar
+## 15. Interaction quality and stop rule
 
-Any learner-facing element must earn its place by doing at least one of the following:
+Any learner-facing element must materially do at least one of:
 
 1. deepen active retrieval without leaking the answer;
 2. expose a high-value hidden lexical gap;
-3. reduce friction in selecting a repair target;
+3. reduce friction in selecting / repairing a target;
 4. create a cleaner Challenge judgment;
-5. preserve evidence that changes the next learning action.
+5. preserve evidence that changes the next action;
+6. return the learner to English performance faster.
 
-If it does none of these, remove it.
+Otherwise remove, collapse, automate, or keep backend-only.
 
 The intended direction is:
 
-**deep content, light interaction, selective repair, strong transfer evidence, and no review debt for knowledge that is already automatic.**
+> **deep semantic content, very light interaction, selective repair, bounded Challenge, strong real-context evidence, and no review debt for automatic knowledge.**
