@@ -80,6 +80,8 @@ jobs:
           name: mao-content-diagnostics-${{ github.run_id }}
           path: static-web/_diagnostics/mao-content.log
           if-no-files-found: ignore
+      - name: Audit Mao projection closure
+        run: node scripts/audit-politics-mao-projection.mjs
       - name: Audit Xi fresh content closure
         id: xi_content
         shell: bash
