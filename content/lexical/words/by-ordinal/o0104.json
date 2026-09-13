@@ -6,24 +6,54 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:104affluent0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "富裕的社会/地区/家庭",
+        "pattern": "affluent + society/area/family"
+      },
+      {
+        "construction_id": "construction:104affluent0002",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "富裕人群",
+        "pattern": "the affluent"
+      }
+    ],
     "content_hash": "99dcc10e0190a97ea745a068f5895f1b66eb183c3b07245b82e00e7190cd2f90",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "富人；支流",
-          "label_en": "an affluent person; a person who is financially well off; a stream that flows into a larger body of water",
+          "label_cn": "富裕的",
+          "label_en": "wealthy or prosperous",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:affluent:2c108df63e585417"
+          ]
+        },
+        {
+          "label_cn": "富裕人群",
+          "label_en": "wealthy people",
           "pos": "noun",
           "sense_ids": [
-            "sense:affluent:911c08bed91c5211",
+            "sense:affluent:911c08bed91c5211"
+          ]
+        },
+        {
+          "label_cn": "支流（低优先）",
+          "label_en": "tributary stream",
+          "pos": "noun",
+          "sense_ids": [
             "sense:affluent:3a89ecaa5e4a572d"
           ]
         }
       ],
-      "core_meaning_cn": "富裕的",
-      "core_meaning_en": "having wealth or abundance",
-      "mental_model_cn": "富裕的",
-      "mental_model_en": ""
+      "core_meaning_cn": "现代主干是形容词“富裕的”；the affluent 可指富裕人群。河流“支流”是低优先技术/旧义。",
+      "core_meaning_en": "modern core is the adjective wealthy/prosperous; the affluent can mean wealthy people, while tributary is low-priority",
+      "mental_model_cn": "affluent society/area/family＝富裕；the affluent＝富裕人群；tributary sense 不应抢主干。",
+      "mental_model_en": "put the wealthy adjective first, then the affluent as people, with tributary last"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -35,8 +65,8 @@
     "senses": [
       {
         "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "富人",
+        "confidence": "high",
+        "definition_cn": "富裕人群；富人（较少单独作普通可数名词）",
         "definition_en": "an affluent person; a person who is financially well off",
         "governing_pattern": "",
         "level": "L2",
@@ -45,11 +75,12 @@
         "sense_id": "sense:affluent:911c08bed91c5211",
         "sense_label_en": "an affluent person; a person who is financially well off",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "More natural in many contexts as the affluent = wealthy people."
       },
       {
         "collocations": [],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "支流",
         "definition_en": "a stream that flows into a larger body of water",
         "governing_pattern": "",
@@ -59,6 +90,20 @@
         "sense_id": "sense:affluent:3a89ecaa5e4a572d",
         "sense_label_en": "a stream that flows into a larger body of water",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "富裕的；富有的",
+        "definition_en": "having a great deal of money, property, or material wealth",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:affluent:2c108df63e585417",
+        "sense_label_en": "wealthy or prosperous",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -82,38 +127,12 @@
     "word_id": "word:affluent"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:affluent:2c108df63e585417",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "富裕的；富有的",
-      "definition_en": "having an abundant supply of money or possessions of value",
-      "semantic_key": "7524b4ae4487d1a5bb115197b1fb08fc96dc44c308fb08bf754174e7af8ccccc",
-      "semantic_key_history": [
-        "3d9745f243a05339d64ff897cb698d4040613892926b6915ac1f1ec2eedcf638"
-      ],
-      "legacy_aliases": [
-        "affluent:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "affluent:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 283,
-      "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:affluent:2c108df63e585417",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 283,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
@@ -179,7 +198,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0097-0104.json",
     "source_content_hash": "99dcc10e0190a97ea745a068f5895f1b66eb183c3b07245b82e00e7190cd2f90",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

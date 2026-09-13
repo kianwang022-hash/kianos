@@ -8,51 +8,43 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "afraid of + sth/to do",
-        "codex_reviewed": false,
-        "definition_cn": "害怕的",
-        "definition_en": "feeling fear or anxiety",
-        "dimensions": {},
+        "construction_id": "construction:106afraid0001",
         "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:afraid:a70af032dfdf",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "afraid:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:afraid:19446cc79a2f9fa4",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "",
-        "module": "constructions",
-        "pattern": "a. + of + sth / to do",
-        "pos": "adjective",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:afraid:fdc504a287a15879",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
+        "level": "L1",
+        "meaning_cn": "害怕某人/某事",
+        "pattern": "be afraid of + sb/sth"
+      },
+      {
+        "construction_id": "construction:106afraid0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "因害怕而不敢做",
+        "pattern": "be afraid to do"
+      },
+      {
+        "construction_id": "construction:106afraid0003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "恐怕……；很遗憾……（礼貌表达）",
+        "pattern": "I’m afraid (that) + clause"
       }
     ],
     "content_hash": "61f037f2a74ba67a54afe629fb7f46a350212916c7a039d43ebe121bd9846975",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "害怕的",
-      "core_meaning_en": "feeling fear or worry",
-      "mental_model_cn": "害怕的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "害怕；担心",
+          "label_en": "fear or anxiety",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:afraid:fdc504a287a15879"
+          ]
+        }
+      ],
+      "core_meaning_cn": "既表示真实恐惧，也常用来礼貌地表达坏消息、担忧或不同意。",
+      "core_meaning_en": "expresses fear, and also a very common polite discourse stance for regret, concern, or disagreement",
+      "mental_model_cn": "afraid of + n＝害怕对象；afraid to do＝因害怕不敢；I’m afraid (that)…＝恐怕/很遗憾。",
+      "mental_model_en": "separate literal fear from the polite discourse frame"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -86,7 +78,7 @@
             "phrase": "afraid to do sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "害怕的",
         "definition_en": "feeling fear or anxiety",
         "governing_pattern": "a. + of + sth / to do",
@@ -96,7 +88,8 @@
         "sense_id": "sense:afraid:fdc504a287a15879",
         "sense_label_en": "feeling fear or anxiety",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "I’m afraid (that)… is a high-frequency polite stance marker and often does not describe literal fear."
       }
     ],
     "verification_summary": {
@@ -255,7 +248,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0105-0112.json",
     "source_content_hash": "61f037f2a74ba67a54afe629fb7f46a350212916c7a039d43ebe121bd9846975",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

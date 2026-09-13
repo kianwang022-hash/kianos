@@ -8,65 +8,47 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "affirm + that 从句",
-        "codex_reviewed": false,
-        "definition_cn": "郑重地宣称或确认为真",
-        "definition_en": "to declare or affirm solemnly and formally as true",
-        "dimensions": {},
+        "construction_id": "construction:103affirm0001",
         "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:affirm:7ec52d1345c4",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "affirm:l1:1",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:affirm:9dfcf4cae2976720",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "确认...（从句）",
-        "module": "constructions",
-        "pattern": "affirm + that clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:ba5b813ff68f366e41f5",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:bbb6d7f2535f295f5bd7"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:affirm:b310040632da5dad",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
+        "level": "L1",
+        "meaning_cn": "确认/郑重声明……",
+        "pattern": "affirm + noun / affirm that + clause"
+      },
+      {
+        "construction_id": "construction:103affirm0002",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "确认或维持决定/判决",
+        "pattern": "affirm + decision/judgment/ruling"
       }
     ],
     "content_hash": "56090bdee9b26650d04ae7bb251b6a643908babcf3e4aa8983c45529117fb7a5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "肯定地陈述或确认为真",
-      "core_meaning_en": "to state positively or assert as true",
-      "mental_model_cn": "肯定地陈述或确认为真",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "郑重确认/声明",
+          "label_en": "state or confirm as true",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:affirm:b310040632da5dad"
+          ]
+        },
+        {
+          "label_cn": "正式确认/维持决定",
+          "label_en": "formally uphold or confirm",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:affirm:5514dd5ba891533a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "核心是“明确确认某事成立”：可以郑重声明为真，也可以正式确认/维持一个决定或裁决。",
+      "core_meaning_en": "explicitly confirm something as valid or true: state it firmly, or formally uphold/confirm a decision",
+      "mental_model_cn": "affirm that＝确认/声明；affirm a judgment/decision＝确认并维持；不是普通口语 agree 的同义词。",
+      "mental_model_en": "formal confirmation is the shared model; distinguish assertion from institutional upholding"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -97,7 +79,7 @@
             "phrase": "affirm + that clause"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "郑重地宣称或确认为真",
         "definition_en": "to declare or affirm solemnly and formally as true",
         "governing_pattern": "vt. + object",
@@ -121,15 +103,15 @@
             "phrase": "affirm a decision"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "同意，赞成",
-        "definition_en": "to say yes to; to agree to or approve",
+        "confidence": "high",
+        "definition_cn": "正式确认；维持（决定、判决等）",
+        "definition_en": "to formally confirm, uphold, or ratify a decision, judgment, or position",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:affirm:5514dd5ba891533a",
-        "sense_label_en": "to say yes to; to agree to or approve",
+        "sense_label_en": "formally confirm or uphold",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -233,7 +215,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0097-0104.json",
     "source_content_hash": "56090bdee9b26650d04ae7bb251b6a643908babcf3e4aa8983c45529117fb7a5",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

@@ -6,14 +6,61 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:68addition0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "另外；此外",
+        "pattern": "in addition"
+      },
+      {
+        "construction_id": "construction:68addition0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "除……之外还……",
+        "pattern": "in addition to + noun/doing"
+      },
+      {
+        "construction_id": "construction:68addition0003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "新增的人或物",
+        "pattern": "a new addition to + group/place"
+      }
+    ],
     "content_hash": "f7bcd19fe15cce49e4b91879a3863f0d49f01e58f502f5f607177d7511419697",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "增加；加法",
-      "core_meaning_en": "the act or result of adding something",
-      "mental_model_cn": "增加；加法",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "增加；补充",
+          "label_en": "act of adding",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:addition:022e1d82cd4c557c"
+          ]
+        },
+        {
+          "label_cn": "新增的人或物",
+          "label_en": "added person or thing",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:addition:cb2b7cb05a3d5c22"
+          ]
+        },
+        {
+          "label_cn": "加法",
+          "label_en": "mathematical addition",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:addition:398c0c1954025495"
+          ]
+        }
+      ],
+      "core_meaning_cn": "“加进来”的名词结果：增加这一动作、后来加进来的部分，以及数学加法。",
+      "core_meaning_en": "the noun space of adding: the act of adding, an added item, or mathematical addition",
+      "mental_model_cn": "in addition＝另外；in addition to＝除了……还；a new addition＝新增的人/物；数学 addition 后置。",
+      "mental_model_en": "route additive discourse first, then added item, then math"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +91,7 @@
             "phrase": "in addition to + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "增加；添加",
         "definition_en": "the act of adding something to something else",
         "governing_pattern": "",
@@ -77,7 +124,7 @@
             "phrase": "the addition of + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "增加的人或物",
         "definition_en": "a person or thing that is added",
         "governing_pattern": "",
@@ -101,7 +148,7 @@
             "phrase": "do addition"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "加法",
         "definition_en": "the mathematical operation of adding numbers",
         "governing_pattern": "",
@@ -231,7 +278,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0065-0072.json",
     "source_content_hash": "f7bcd19fe15cce49e4b91879a3863f0d49f01e58f502f5f607177d7511419697",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

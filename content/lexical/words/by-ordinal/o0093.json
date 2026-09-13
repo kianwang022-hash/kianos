@@ -6,14 +6,45 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:93advice0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "关于……的建议",
+        "pattern": "advice on/about + sth"
+      },
+      {
+        "construction_id": "construction:93advice0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一条建议",
+        "pattern": "a piece of advice"
+      },
+      {
+        "construction_id": "construction:93advice0003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "听取/遵循建议",
+        "pattern": "take/follow + advice"
+      }
+    ],
     "content_hash": "7bda17679b905a981d12fc363ec2cd77f6fdaccc24896c94f858b9210b95b77c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "建议；忠告",
-      "core_meaning_en": "a recommendation or suggestion about what to do",
-      "mental_model_cn": "建议；忠告",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "建议；忠告",
+          "label_en": "guidance or recommendation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:advice:ad506be70a1a5a4f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不可数名词：给别人关于“应该怎么做”的建议或指导。",
+      "core_meaning_en": "uncountable guidance or recommendation about what someone should do",
+      "mental_model_cn": "advice 不数：some advice / a piece of advice；advice on/about；take/follow advice。",
+      "mental_model_en": "treat advice as uncountable guidance, distinct from the verb advise"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -24,7 +55,22 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "建议；忠告",
+        "definition_en": "guidance or a recommendation about what someone should do",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advice:ad506be70a1a5a4f",
+        "sense_label_en": "guidance or recommendation",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -77,31 +123,6 @@
       "source_row": 258,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:advice:ad506be70a1a5a4f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "建议；忠告",
-      "definition_en": "a proposal for an appropriate course of action",
-      "semantic_key": "a6b020f625b6268b937b339ab4f26202d8ffef319ad184dc94828d1976d6645b",
-      "semantic_key_history": [
-        "16eebeabdc783dc8b2be56ab341202e2fbefae295f9d8abf526083d3461362f7"
-      ],
-      "legacy_aliases": [
-        "advice:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advice:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 259,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -115,7 +136,7 @@
       },
       {
         "sense_id": "sense:advice:ad506be70a1a5a4f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 259,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -188,7 +209,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
     "source_content_hash": "7bda17679b905a981d12fc363ec2cd77f6fdaccc24896c94f858b9210b95b77c",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:86advanced0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "先进技术/高阶课程",
+        "pattern": "advanced + technology/course/method"
+      },
+      {
+        "construction_id": "construction:86advanced0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "高龄/晚期疾病",
+        "pattern": "advanced + age/disease/cancer/stage"
+      }
+    ],
     "content_hash": "816e430d0c747f843f9bbaadf2fbfdebf9156e2c074e4660bd7deab7e6528824",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "高级的；先进的",
-      "core_meaning_en": "at a higher level or more developed",
-      "mental_model_cn": "高级的；先进的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "高级的；先进的",
+          "label_en": "high-level or sophisticated",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:advanced:6910a7a3ec9858f4"
+          ]
+        },
+        {
+          "label_cn": "进展到较后阶段的",
+          "label_en": "far along in stage or development",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:advanced:9e10a473b8b153c4"
+          ]
+        }
+      ],
+      "core_meaning_cn": "表示已经推进到较高层级或较后阶段：可以是技术/课程水平高，也可以是年龄、疾病、发展进程已进入后期。",
+      "core_meaning_en": "far along in level, sophistication, or stage: high-level technology/course, or a late stage of age, disease, or development",
+      "mental_model_cn": "advanced technology/course＝高阶先进；advanced age/disease＝进入较后阶段，不是“更聪明”。",
+      "mental_model_en": "choose high-level sophistication versus far-along stage"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -66,17 +98,24 @@
             ],
             "meaning_cn": "高龄",
             "phrase": "advanced age"
+          },
+          {
+            "collocation_id": "vnext:advanced:disease",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [],
+            "meaning_cn": "晚期疾病",
+            "phrase": "advanced disease"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "发展较快的；先进的",
-        "definition_en": "farther along in physical or mental development",
+        "confidence": "high",
+        "definition_cn": "进展到较后阶段的；高龄的；晚期的",
+        "definition_en": "far along in age, disease, development, or another process",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:advanced:9e10a473b8b153c4",
-        "sense_label_en": "farther along in physical or mental development",
+        "sense_label_en": "far along in a stage or process",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -207,7 +246,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0081-0088.json",
     "source_content_hash": "816e430d0c747f843f9bbaadf2fbfdebf9156e2c074e4660bd7deab7e6528824",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

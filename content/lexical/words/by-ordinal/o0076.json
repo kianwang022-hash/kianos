@@ -6,14 +6,54 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:76administer0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "管理/执行制度、项目、事务",
+        "pattern": "administer + program/system/estate/policy"
+      },
+      {
+        "construction_id": "construction:76administer0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "给药/施用疫苗或治疗",
+        "pattern": "administer + drug/vaccine/treatment + to + patient"
+      }
+    ],
     "content_hash": "a2f18b2cd4258fdbc42b63362944ad38c08a2f0b7fe15caad83632c62e31c9ca",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "管理或给予",
-      "core_meaning_en": "to manage or give",
-      "mental_model_cn": "管理或给予",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "管理；执行",
+          "label_en": "manage or carry out",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:administer:4acf2e95a78c540b"
+          ]
+        },
+        {
+          "label_cn": "给予；施用",
+          "label_en": "give or apply treatment",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:administer:6ff758553e4d5aca"
+          ]
+        },
+        {
+          "label_cn": "给予帮助（低频）",
+          "label_en": "render aid or service",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:administer:698f942426ae5f66"
+          ]
+        }
+      ],
+      "core_meaning_cn": "两条现代主干都是“按规则把某事实施出去”：管理/执行一个系统，或给人施用药物、治疗、测验等。",
+      "core_meaning_en": "carry something out under an organized procedure: manage/execute a system or give/apply a medicine, treatment, or test",
+      "mental_model_cn": "administer a program/estate＝管理执行；administer a drug/vaccine＝给药/施用；administer to the sick 是低优先旧式分支。",
+      "mental_model_en": "route by object: organization/program versus drug/treatment"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +84,7 @@
             "phrase": "administer to the sick"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "给予帮助",
         "definition_en": "to give help",
         "governing_pattern": "vi. + to",
@@ -54,7 +94,36 @@
         "sense_id": "sense:administer:698f942426ae5f66",
         "sense_label_en": "to give help",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "The older administer to = give aid/service frame is much less central than manage or give medication."
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "管理；执行；负责运作",
+        "definition_en": "to manage, organize, or carry out the operation of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:administer:4acf2e95a78c540b",
+        "sense_label_en": "manage or carry out",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "给予；施用（药物、疫苗、治疗等）",
+        "definition_en": "to give or apply a drug, vaccine, treatment, or test",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:administer:6ff758553e4d5aca",
+        "sense_label_en": "give or apply a treatment",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -77,63 +146,12 @@
     "word_id": "word:administer"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:administer:4acf2e95a78c540b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "管理；执行",
-      "definition_en": "to manage or supervise",
-      "semantic_key": "8b67643664b18842e65e9eb1bb646d68f058a1e7af48f50c8e6653b6017a4f3d",
-      "semantic_key_history": [
-        "152cd6d5e919f96a285bec5a7ede316ad219d9355e599194e2fd0d7ff445f8f7"
-      ],
-      "legacy_aliases": [
-        "administer:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "administer:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 206,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:administer:6ff758553e4d5aca",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "给予（药物）",
-      "definition_en": "to give or apply (medication)",
-      "semantic_key": "504231e435bee2059ac0e384d050dcd04ecffdc3a306c67626b2ed814d35faa4",
-      "semantic_key_history": [
-        "d042e8da650b62bca6fbdd660eff2da98e627094e06e8f2af9253c40e4d27b04"
-      ],
-      "legacy_aliases": [
-        "administer:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "administer:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 208,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:administer:4acf2e95a78c540b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 206,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -147,7 +165,7 @@
       },
       {
         "sense_id": "sense:administer:6ff758553e4d5aca",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 208,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -207,7 +225,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0073-0080.json",
     "source_content_hash": "a2f18b2cd4258fdbc42b63362944ad38c08a2f0b7fe15caad83632c62e31c9ca",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard02-o0065-o0124",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }
