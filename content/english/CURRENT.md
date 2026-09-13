@@ -3,152 +3,155 @@
 Role: English lane Work Cursor + independently continued scope router  
 Parent: root `CURRENT.md`
 
-This file does not duplicate English content, learning semantics, scoped acceptance evidence, or learner progress.
+This file does not duplicate English content, scoped Acceptance Truth, or learner progress.
 
 ---
 
 ## Lane Work Cursor
 
-**Active lane-level scope:** none — router-only baseline  
-**Blocker:** none at lane-rule level  
-**Next action:** route work to the narrowest independently continued English scope. Do not appoint one module as English's global active child merely because it was worked on most recently.
+**Active lane-level scope:** none — Functional First integration is closed.  
+**Module engineering state:** Objective / Translation / Writing each have `S/K/L/P/R/E PASS`.  
+**Learner state:** each module `U` remains real-use-only / `UNTESTED`.  
+**Blocker:** none known for English Functional First use.  
+**Next action:** stop engineering expansion. Normal learner use may begin when scheduled. A real learner-use defect may reopen only the earliest responsible existing owner.
 
-English currently has three independently continued learner-facing scopes with their own Work Cursor and Acceptance Truth:
-
-| Scope | Work Cursor | Acceptance Truth |
-| --- | --- | --- |
-| Objective — Reading A / Cloze / Reading B | `content/english/modules/objective/CURRENT.md` | `content/english/modules/objective/ACCEPTANCE.md` |
-| Translation | `content/english/modules/translation/CURRENT.md` | `content/english/modules/translation/ACCEPTANCE.md` |
-| Writing | `content/english/modules/writing/CURRENT.md` | `content/english/modules/writing/ACCEPTANCE.md` |
-
-Their current stages belong only to those local `CURRENT.md` owners. Do not copy them into this lane router.
-
-Objective, Translation and Writing may progress concurrently when their current work is independent. A blocker in one module does not freeze the others unless a genuine shared English/runtime/integration dependency links them.
-
-English has no lane-level `ACCEPTANCE.md` at present: current Acceptance Truth already belongs to the three independently continued scopes above. Do not add an aggregate Acceptance owner unless a future English-wide claim has its own distinct evidence responsibility.
-
-Hard scheduling boundary:
-
-```text
-English capability hierarchy
-= ownership / routing
-
-Construction dependency
-= what one module actually needs from another to proceed correctly
-
-Kian learner order
-= the sequence Kian should actually study/use
-```
-
-These are not automatically the same.
+English is back to router-only baseline.
 
 ---
 
-## Independent re-acceptance directive｜anti-cocoon
+## Functional First closure｜2026-09-13
 
-When Kian asks to **重新验收 / fresh acceptance / independent audit**, use this directive for the requested English module. It does not add an eighth gate or automatically revoke existing PASS claims.
-
-**Anti-anchoring:** old scoped `CURRENT.md` / `ACCEPTANCE.md` / PR summaries / green validators are claims and prior evidence, not the first-pass answer key. A fresh auditor should first inspect actual Source/module/learning/runtime owners plus inherited contracts, form a provisional S–E verdict, expected ability/route, negative-space check and strongest failure hypotheses, and only then read the old Acceptance to reconcile deltas. A builder Chat remains `SELF` evidence even if it later reviews its own work critically.
-
-For every re-accepted gate, name the evidence rather than reporting a naked PASS:
+FFV stop line:
 
 ```text
-Evidence mode: STRUCTURAL / EXECUTED / ADVERSARIAL / REAL_USE / TRANSFER
-Independence:  SELF / FRESH_AUDITOR / AUTHORITATIVE_EXTERNAL / REAL_USER
+English entry
+→ highest-value Resume OR new productive task
+→ clean attempt
+→ PASS / EXIT
+
+problem
+→ triage / optional semantic Chat
+→ smallest repair
+→ learner re-execution when useful
+→ return to performance
+
+leave / refresh
+→ Resume to highest-value unfinished action
 ```
 
-`REAL_USE` / `TRANSFER` cannot be simulated and remain U / later real-evidence territory. If a material R/E claim has only `SELF + STRUCTURAL` evidence, independent re-acceptance is incomplete.
+Fresh module reconciliation before composed execution:
 
-Minimum falsification floor:
+- **Objective:** whole passage/set performance first; pending claims opportunistic only; Runtime/Evidence executed and frozen.
+- **Translation:** Representation → Reconstruction under Fidelity → Delivery; Fidelity is invariant, not a fourth course; pending backend state stays silent on home/clean work.
+- **Writing:** six true primitives; Small/Big specializations; whole-essay Runtime; transfer UI stays silent unless completed current work naturally supplies eligible evidence.
 
-- **S/K:** independently sample source/provenance and inspect **negative space**; current taxonomy/inventory cannot be its own completeness proof.
-- **L:** generate at least one plausible alternative learner route/review unit and challenge why the accepted unit/timing is better for Kian.
-- **P:** inspect material rendered behavior for answer/model/reference leakage, density/friction and whole-unit continuity; source-string presence alone is structural evidence.
-- **R:** execute clean PASS, wrong/uncertain, repair/return, resume and holdout/fresh paths where applicable.
-- **E:** adversarially test first-attempt preservation, item/segment evidence versus learner-facing unit, diagnosis≠repair, repair≠mastery, cascade/root-cause routing, durable-debt admission and fresh/unseen semantics; critical validators should prove detection power with targeted negative/mutation cases.
-- **U:** real Kian use only.
+### Executed composed evidence
 
-English-specific challenge focus: protect true/fresh exams from leakage; keep Objective review passage/set-level even with per-question evidence; preserve Translation clean attempt before diagnosis/reference; ensure Writing teaches reusable mechanisms without model-output takeover or unnecessary use of protected prompts; stable correct/confident work must fast-pass without manufactured debt.
+PR #52 head `4db901c73d80dc25589c99bcc801a4760f4a0966`  
+`Static Web Writing QA` run `34752705880`  
+artifact `writing-ffv-3d99953d8c0ac628a304eec659bd8925187208b7`  
+`writing-ffv-journey.json` → **24/24 PASS**.
 
-Required re-audit output per gate:
+Synthetic/browser execution proved:
 
-```text
-previous claim → independent provisional verdict
-Evidence mode + Independence
-strongest falsification attempted
-material delta / blocker / debt
-```
+- clean Writing opens with no transfer attention;
+- direct mode does not manufacture a plan;
+- first draft persists through semantic review;
+- PASS is a real exit, creates no transfer debt, survives refresh, and leaves Resume;
+- problem → smallest repair preserves the first meaningful failure;
+- English Resume returns to the exact active Writing repair;
+- learner re-generation → repair return can end `REPAIR_COMPLETE` with no durable debt;
+- completed repair survives refresh and leaves Resume;
+- dormant Writing / Translation pending states do not summon Resume;
+- Translation `RECONSTRUCT` outranks lower-value Writing review;
+- unfinished clean Writing attempt receives the highest Resume priority.
 
-If a real defect appears, reopen only the earliest responsible gate/object and freeze only its dependent chain. Do not create a second permanent acceptance system.
+Protected true-exam material was not consumed. Objective retains its accepted deep browser journey; Translation retains dedicated Source/Runtime/Evidence/Projection execution, so FFV did not duplicate child tests just for symmetry.
 
 ---
 
-## Retired continuation boundary
+## Functional First stop rule
 
-`content/english/continuation.json` remains a retired tombstone with `status=RETIRED`, `authority=NONE`, `normal_read=false`.
+A defect blocks FFV only if it materially breaks:
 
-It is not a Work Cursor, Acceptance owner, Artifact owner, learner-state store, or normal startup read. Do not add new progress/history to it.
+- semantic correctness / next-action comprehension;
+- task completion or state transition;
+- repair / return;
+- evidence ownership / integrity;
+- Resume correctness;
+- protected-material boundary.
+
+Non-blocking polish unless real learner use proves otherwise:
+
+- typography / spacing / card refinement;
+- animation / hover / decorative hierarchy;
+- richer desktop composition;
+- rare-state bespoke UI;
+- exposing backend information merely because it exists.
+
+Post-FFV visual / interaction implementation belongs to Codex and must have **zero semantic diff** against current canonical contracts.
+
+Codex does **not** own learning flow/review unit, repair admission, evidence/mastery/transfer semantics, owner boundaries, Resume priority, state meaning, or canonical knowledge truth. If implementation seems to require changing one of those, Codex returns the blocker to the canonical owner.
 
 ---
 
-## Stable English owners
+## Current module router
 
-- source / content owner map → `content/english/manifest.json`
+| Scope | Work Cursor | Acceptance Truth | Engineering state |
+| --- | --- | --- | --- |
+| Objective — Reading A / Cloze / Reading B | `content/english/modules/objective/CURRENT.md` | `content/english/modules/objective/ACCEPTANCE.md` | `S/K/L/P/R/E PASS · U UNTESTED` |
+| Translation | `content/english/modules/translation/CURRENT.md` | `content/english/modules/translation/ACCEPTANCE.md` | `S/K/L/P/R/E PASS · U UNTESTED` |
+| Writing | `content/english/modules/writing/CURRENT.md` | `content/english/modules/writing/ACCEPTANCE.md` | `S/K/L/P/R/E PASS · U UNTESTED` |
+
+A blocker in one child does not freeze siblings without a real shared dependency. LexicalOS remains a separate top-level domain; English routes lexical failures there but does not duplicate its durable knowledge truth.
+
+---
+
+## Re-acceptance boundary
+
+When Kian explicitly asks for fresh re-acceptance, old PASS labels / validators / UI are prior evidence, not the answer key. Inspect real owners first, attack completeness + minimality, test the strongest realistic failure, then reconcile previous evidence.
+
+```text
+STRUCTURAL ≠ EXECUTED ≠ ADVERSARIAL ≠ REAL_USE
+```
+
+Real learner `U` cannot be simulated. Do not restart a fresh audit merely because visual polish remains.
+
+---
+
+## Stable boundaries
+
+`content/english/continuation.json` remains retired (`status=RETIRED`, `authority=NONE`, `normal_read=false`).
+
+Stable owners:
+
 - lane learning semantics → `content/english/LEARNING_CONTRACT.md`
-- canonical source root → `content/english/source/`
-- provenance → `content/english/provenance.json`
-- module Artifact owners → `content/english/modules/`
-- learner-facing runtime → English surfaces under `static-web/`
+- source/content map → `content/english/manifest.json`
+- Objective → `content/english/modules/objective/`
+- Translation → `content/english/modules/translation/`
+- Writing → `content/english/modules/writing/`
+- learner-facing runtime / Resume integration → English surfaces under `static-web/`
 
-Repository-wide requirements, architecture, construction order, acceptance semantics and shared mature platform capability remain inherited from root owners rather than copied here.
+No English-wide `ACCEPTANCE.md` is created merely for FFV; child Acceptance Truth stays with the narrowest scoped owner.
 
-Learner sequence defined by English cognition does not automatically serialize independent module construction.
-
----
-
-## Truth boundary
-
-For any English scope distinguish:
+Truth boundary:
 
 - **Artifact Truth** → actual source/content/module/runtime owners;
-- **Acceptance Truth** → the narrowest scoped `ACCEPTANCE.md` / exact evidence owner;
-- **Learner Truth** → private learner/runtime state, never inferred from shared repository work;
-- **Work Cursor** → the relevant scoped `CURRENT.md`.
+- **Acceptance Truth** → narrowest scoped `ACCEPTANCE.md`;
+- **Learner Truth** → private learner/runtime state only;
+- **Work Cursor** → relevant scoped `CURRENT.md`; this English file is router-only.
 
-A module being implemented/accepted does not mean Kian has studied it.
+Engineering readiness never implies Kian has studied or attempted a module.
 
 ---
 
 ## Fresh-Chat routing
 
-Known independently continued scope — ordinary continuation:
-
-```text
-scope CURRENT
-→ scoped ACCEPTANCE / exact required owner(s)
-→ work
-```
-
-Known independently continued scope — independent re-acceptance:
-
-```text
-English CURRENT anti-cocoon directive
-→ target actual owners + inherited contracts
-→ provisional S–E challenge verdict
-→ only then old scoped ACCEPTANCE for reconciliation
-```
-
-English lane known but sub-scope not yet named:
-
 ```text
 English CURRENT
 → choose Objective / Translation / Writing
-→ local CURRENT
-→ exact required owner(s)
+→ scoped CURRENT
+→ scoped ACCEPTANCE / exact owner only when needed
 ```
 
-Multiple English module Chats may use these local paths concurrently. Each scope advances only its own earliest unresolved eligible stage/gate along its real dependency chain.
-
-Read `content/english/LEARNING_CONTRACT.md` only when the task actually concerns English-wide cognition, capability ownership or learning/evidence relationships.
-
-Do not read retired English continuation, unrelated modules, history, legacy repositories, or prior Chats by default.
+Visual/interactions after FFV route to Codex under the frozen semantic boundary rather than reopening English learning architecture.

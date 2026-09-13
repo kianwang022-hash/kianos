@@ -7,112 +7,102 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 const pagePath = path.join(repoRoot, 'static-web/src/pages/writing-learn.astro');
 const homePath = path.join(repoRoot, 'static-web/src/pages/index.astro');
+const englishHubPath = path.join(repoRoot, 'static-web/src/pages/english.astro');
+const referencePath = path.join(repoRoot, 'content/english/modules/writing/learning.reference.md');
 const page = fs.readFileSync(pagePath, 'utf8');
 const home = fs.readFileSync(homePath, 'utf8');
+const englishHub = fs.readFileSync(englishHubPath, 'utf8');
 const projection = loadWritingLearningProjection();
 const failures = [];
 
 function requireCheck(condition, code) {
   if (!condition) failures.push(code);
 }
+function requireAny(text, needles, code) {
+  requireCheck(needles.some((needle) => text.includes(needle)), code);
+}
 
+const projectionText = JSON.stringify(projection);
 const blockIds = projection.blocks.map((block) => block.id);
 const activeChecks = projection.blocks.flatMap((block) => block.segments.filter((segment) => segment.type === 'active_check'));
 const gatedSegments = projection.blocks.flatMap((block) => block.segments.filter((segment) => segment.requires));
-const terminalChecks = projection.blocks.flatMap((block) => block.terminalCheckId ? [block.terminalCheckId] : []);
-const postActionCoverage = new Set([
-  ...gatedSegments.map((segment) => segment.requires).filter(Boolean),
-  ...terminalChecks
-]);
-const uncoveredChecks = activeChecks.map((check) => check.id).filter((checkId) => !postActionCoverage.has(checkId));
-const perBlockCheckCoverage = projection.blocks.map((block) => ({
-  block: block.id,
-  checks: block.segments.filter((segment) => segment.type === 'active_check').map((segment) => segment.id),
-  gatedContentAfter: block.segments.filter((segment) => segment.requires).map((segment) => segment.requires),
-  terminalProgressionGate: block.terminalCheckId || null
-}));
 
 requireCheck(projection.status === 'ready', `PROJECTION_STATUS:${projection.status}:${projection.issues.join('|')}`);
 requireCheck(projection.sourcePath === WRITING_LEARNING_SOURCE, `WRITING_OWNER:${projection.sourcePath}`);
 requireCheck(projection.sourcePath === 'content/english/modules/writing/learning.md', `WRITING_OWNER_PATH:${projection.sourcePath}`);
-requireCheck(projection.globalMap.includes('TASK') && projection.globalMap.includes('GENERATE') && projection.globalMap.includes('ORGANIZE') && projection.globalMap.includes('REALIZE') && projection.globalMap.includes('CONTROL') && projection.globalMap.includes('DELIVER'), 'GLOBAL_MAP_CHAIN');
-requireCheck(JSON.stringify(blockIds) === JSON.stringify(['b1','b2','b3','b4','b5','b6','b7','b8']), `CORE_ROUTE:${blockIds.join('|')}`);
-requireCheck(activeChecks.length === 6, `ACTIVE_CHECK_COUNT:${activeChecks.length}`);
-requireCheck(uncoveredChecks.length === 0, `ACTIVE_CHECK_POST_ACTION_UNCOVERED:${uncoveredChecks.join('|')}`);
-requireCheck(projection.syntheticFullGate.includes('one synthetic Small Writing'), 'SYNTHETIC_SMALL_GATE');
-requireCheck(projection.syntheticFullGate.includes('one synthetic Big Writing'), 'SYNTHETIC_BIG_GATE');
-requireCheck(/Skill Map/.test(projection.skillMap), 'SKILL_MAP_OWNER_SECTION');
-requireCheck(/True-Exam Entry Gate/.test(projection.trueExamEntryGate), 'TRUE_EXAM_GATE_OWNER_SECTION');
-requireCheck(projection.route[0] === 'global-map', `FIRST_ROUTE:${projection.route[0]}`);
-requireCheck(projection.route.at(-1) === 'synthetic-gate', `LAST_ROUTE:${projection.route.at(-1)}`);
+requireCheck(fs.existsSync(referencePath), 'WRITING_REFERENCE_RESERVOIR_MISSING');
 
-// Projection semantics: do not accept a full-Markdown dump or a copied task runtime.
+// Coverage floor: protect the six canonical writing primitives.
+requireAny(projectionText, ['Task / Genre', 'TASK'], 'TASK_FULFILLMENT_MISSING');
+requireAny(projectionText, ['Content Generation', 'GENERATE'], 'CONTENT_GENERATION_MISSING');
+requireAny(projectionText, ['Organization / Development', 'ORGANIZE'], 'ORGANIZATION_DEVELOPMENT_MISSING');
+requireAny(projectionText, ['English Realization', 'REALIZE'], 'ENGLISH_REALIZATION_MISSING');
+requireAny(projectionText, ['Register + High-Value Error Control', 'REGISTER'], 'REGISTER_ERROR_CONTROL_MISSING');
+requireAny(projectionText, ['Timed Delivery', 'DELIVER'], 'TIMED_DELIVERY_MISSING');
+requireCheck(blockIds.join('|') === 'b1|b2|b3|b4|b5|b6', `CANONICAL_PRIMITIVE_ROUTE:${blockIds.join('|')}`);
+
+// Task modes and practice remain discoverable without being promoted to base primitives.
+requireAny(projection.modeSpecializations, ['Small Writing'], 'SMALL_WRITING_MODE_MISSING');
+requireAny(projection.modeSpecializations, ['Big Writing'], 'BIG_WRITING_MODE_MISSING');
+requireCheck(/Skill Map/.test(projection.skillMap), 'SKILL_MAP_OWNER_SECTION');
+requireCheck(/Synthetic Practice/.test(projection.syntheticPractice), 'SYNTHETIC_PRACTICE_OWNER_SECTION');
+requireCheck(/True-Exam Entry/.test(projection.trueExamEntryGate), 'TRUE_EXAM_GATE_OWNER_SECTION');
+
+// Projection must stay skippable and must not turn teaching tools into mandatory progress gates.
 requireCheck(page.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'PAGE_NOT_BOUND_TO_SEMANTIC_PROJECTION');
-requireCheck(!page.includes("readFileSync") && !page.includes("content/english/modules/writing/learning.md'"), 'PAGE_READS_CANONICAL_MARKDOWN_DIRECTLY');
-requireCheck(!page.includes("englishWriting.mjs"), 'FIRST_LEARNING_IMPORTS_TRUE_EXAM_CATALOG');
+requireCheck(!page.includes('readFileSync') && !page.includes("content/english/modules/writing/learning.md'"), 'PAGE_READS_CANONICAL_MARKDOWN_DIRECTLY');
+requireCheck(!page.includes('englishWriting.mjs'), 'FIRST_LEARNING_IMPORTS_TRUE_EXAM_CATALOG');
 requireCheck(page.includes('data-writing-panel="global-map"'), 'GLOBAL_MAP_PANEL_MISSING');
 requireCheck(page.indexOf('data-writing-panel="global-map"') < page.indexOf('data-writing-panel={block.id}'), 'GLOBAL_MAP_NOT_FIRST_PANEL');
-requireCheck(page.includes("const layerCards = [") && page.includes("['TASK'") && page.includes("['DELIVER'"), 'GLOBAL_MAP_VISUAL_CHAIN_MISSING');
-requireCheck(page.includes('data-writing-route={block.id}') && page.includes('data-writing-route="synthetic-gate"'), 'CONTINUOUS_ROUTE_WIRING_MISSING');
 requireCheck(!page.includes('data-writing-route="skill-map"'), 'SKILL_MAP_PROMOTED_TO_FIRST_ROUTE');
-requireCheck(page.includes('<details class="writingLaterAsset">') && page.includes('Skill Map · 后续卡住时再用'), 'SKILL_MAP_NOT_DEMOTED');
-requireCheck(page.includes('True-Exam Entry Gate · 只看入口标准，不打开真题'), 'TRUE_EXAM_PROTECTION_COPY_MISSING');
-requireCheck(!/href=\{?[^\n]*writing\//.test(page), 'TRUE_EXAM_RUNTIME_LINK_EXPOSED_DURING_COLD_START');
+requireCheck(page.includes('<details class="writingLaterAsset">'), 'LATER_ASSETS_NOT_PROGRESSIVELY_DISCLOSED');
+requireAny(page, ['Skill Map · 后续卡住时再用', 'Skill Map'], 'SKILL_MAP_NOT_DISCOVERABLE');
+requireAny(page, ['True-Exam Entry', '保护 fresh material'], 'TRUE_EXAM_PROTECTION_COPY_MISSING');
+requireCheck(page.includes('href={`${base}writing/`}'), 'PRODUCTIVE_RUNTIME_RETURN_MISSING');
+requireCheck(!page.includes('data-check-required-action') && !page.includes('data-unlock-check'), 'MANDATORY_ACTIVE_CHECK_GATE_PRESENT');
+requireCheck(!page.includes('data-synthetic-gate'), 'MANUAL_SYNTHETIC_MASTERY_CHECKBOX_PRESENT');
+requireAny(page, ['真实 synthetic completion / exam-entry 状态由 Productive Runtime evidence 决定', 'Productive Runtime evidence'], 'RUNTIME_EVIDENCE_OWNER_NOT_EXPLICIT');
 
-// Active Check must require an actual first response before post-check content or terminal progression becomes available.
-requireCheck(page.includes('data-check-response'), 'ACTIVE_CHECK_RESPONSE_INPUT_MISSING');
-requireCheck(page.includes('data-unlock-check disabled'), 'ACTIVE_CHECK_UNLOCK_NOT_DISABLED_FIRST');
-requireCheck(page.includes("unlockButton.disabled = response.value.trim().length === 0"), 'ACTIVE_CHECK_NONEMPTY_GATE_MISSING');
-requireCheck(page.includes("unlocked.add(checkId)"), 'ACTIVE_CHECK_UNLOCK_STATE_MISSING');
-requireCheck(page.includes("node.hidden = Boolean(required) && !unlocked.has(required)"), 'POST_CHECK_CONTENT_NOT_HIDDEN');
-requireCheck(page.includes('data-check-required-action={block.terminalCheckId || undefined}'), 'TERMINAL_CHECK_ACTION_BINDING_MISSING');
-requireCheck(page.includes('disabled={Boolean(block.terminalCheckId)}'), 'TERMINAL_CHECK_ACTION_NOT_DISABLED_FIRST');
-requireCheck(page.includes("node.disabled = Boolean(required) && !unlocked.has(required)"), 'TERMINAL_CHECK_ACTION_NOT_UNLOCKED');
-requireCheck(page.includes('response.readOnly = true'), 'FIRST_TRY_NOT_LOCKED_IN_SESSION');
-
-// First-try text must remain ephemeral in this P-only projection; navigation booleans may be private browser state.
+// First-learning state is only private navigation, never answer/mastery evidence.
 requireCheck(!/localStorage\.setItem\([^\n]*(response\.value|textarea|first.?try|answer)/i.test(page), 'ACTIVE_CHECK_TEXT_PERSISTED');
-requireCheck(page.includes("kianos:writing:first-learning:position:v1"), 'PRIVATE_ROUTE_CONTINUATION_MISSING');
-requireCheck(page.includes("kianos:writing:first-learning:synthetic-gate:v1"), 'PRIVATE_SYNTHETIC_GATE_STATE_MISSING');
-requireCheck(page.includes('它们不是 mastery evidence，也不会自动开放真题'), 'SYNTHETIC_CHECKBOX_EVIDENCE_WARNING_MISSING');
+requireCheck(page.includes('kianos:writing:first-learning:position:v2'), 'PRIVATE_ROUTE_CONTINUATION_MISSING');
 
-// The learner must be able to find First Learning without the home surface pretending the whole Writing module is Ready.
-requireCheck(home.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'HOME_NOT_BOUND_TO_WRITING_PROJECTION');
-requireCheck(home.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
-requireCheck(home.includes('English · Writing First Learning'), 'HOME_WRITING_LABEL_MISSING');
-requireCheck(home.includes('synthetic-first') && !home.includes('Writing · Ready'), 'HOME_FALSE_WRITING_READINESS_CLAIM');
+// Discoverability: English exposes the 30-point Writing lane and targeted first-learning route.
+requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_ENTRY_MISSING');
+requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
+requireCheck(englishHub.includes('data-capability="writing"') && englishHub.includes('href={`${base}writing/`}') && englishHub.includes('Writing · 30 pts'), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
+requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
+requireAny(englishHub, ['First Learning / targeted intervention', 'First Learning'], 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');
+requireCheck(!englishHub.includes('S/K/L · accepted') && !englishHub.includes('U · learner validation'), 'ACCEPTANCE_DASHBOARD_LEAKED_TO_ENGLISH_HUB');
 
-// P should expose the owner material needed to learn, but must not falsely claim Runtime/Evidence closure.
-requireCheck(page.includes('Whole-Essay Productive Runtime'), 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
+// First-learning UI must not pretend to own Runtime/Evidence state semantics.
+requireAny(page, ['Writing Runtime', 'Productive Runtime'], 'RUNTIME_BOUNDARY_NOT_EXPLICIT');
 requireCheck(!page.includes('PASS/ACCEPTABLE') && !page.includes('TRANSFER_PENDING'), 'RUNTIME_STATE_MACHINE_LEAKED_INTO_FIRST_LEARNING_UI');
 
 const report = {
-  schema: 'kianos.english.writing.projection-gate-validation.v1',
+  schema: 'kianos.english.writing.projection-gate-validation.v4',
   gate: 'P',
   pass: failures.length === 0,
   sourcePath: projection.sourcePath,
   sourceHash: projection.sourceHash,
-  route: projection.route,
-  blockCount: projection.blocks.length,
-  activeCheckCount: activeChecks.length,
-  gatedSegmentCount: gatedSegments.length,
-  terminalCheckCount: terminalChecks.length,
-  activeCheckPostActionCoverage: activeChecks.length - uncoveredChecks.length,
-  perBlockCheckCoverage,
+  currentRoute: projection.route,
+  currentBlockCount: projection.blocks.length,
+  currentActiveCheckCount: activeChecks.length,
+  currentGatedSegmentCount: gatedSegments.length,
   semantics: {
-    globalMapFirst: true,
-    continuousB1B8: true,
-    activeCheckBeforeRevealOrProgression: true,
-    blockRouteSkippableByLearnerChoice: true,
-    syntheticFirst: true,
-    skillMapLaterDiagnostic: true,
-    trueExamCatalogProtected: true,
-    answerTextEphemeral: true,
-    discoverableWithoutFalseReadiness: true,
-    runtimeNotClaimed: true
+    sixPrimitiveCoverageProtected: true,
+    exactHistoricalBlockCountCanonical: false,
+    mandatoryActiveCheckCountCanonical: false,
+    taskModesNotBasePrimitives: true,
+    integratedWalkthroughIsPractice: true,
+    firstLearningSkippableRepairReservoir: true,
+    semanticReferenceReservoirPreserved: true,
+    syntheticAndTrueExamBoundaryProtected: true,
+    runtimeEvidenceOwnsCompletion: true,
+    scoreLaneDiscoverability: true
   },
   failures,
-  note: 'This validator supplies Projection-gate evidence only. Build success remains engineering evidence, and R/E/U must be accepted separately.'
+  note: 'This validator protects semantic coverage and learner burden boundaries. It intentionally rejects B1–B8 and mandatory Active Check gates as canonical learning truth.'
 };
 
 const rendered = `${JSON.stringify(report, null, 2)}\n`;

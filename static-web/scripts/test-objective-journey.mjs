@@ -19,7 +19,7 @@ import {
 const BASE = 'http://127.0.0.1:4321';
 const auditDir = path.resolve(process.cwd(), '../objective-audit');
 fs.mkdirSync(auditDir, { recursive: true });
-const report = { schema: 'kianos.objective.acceptance_e2e.v1', startedAt: new Date().toISOString(), browsers: {}, checks: [] };
+const report = { schema: 'kianos.objective.acceptance_e2e.v2', startedAt: new Date().toISOString(), browsers: {}, checks: [] };
 
 const check = (condition, name, detail = '') => {
   if (!condition) throw new Error(`ACCEPTANCE_FAIL:${name}${detail ? `:${detail}` : ''}`);
@@ -125,29 +125,31 @@ async function chromiumJourney() {
   const context = await browser.newContext({ permissions: ['clipboard-read', 'clipboard-write'] });
   const page = await context.newPage();
 
-  // Cloze clean PASS.
   const clozeIds = listClozeSets().slice(0, 5).map((item) => item.id);
-  check(clozeIds.length >= 4, 'cloze_has_multiple_fresh_sets');
-  const [cleanId, repairId, closeId, reopenId] = clozeIds;
+  check(clozeIds.length >= 5, 'cloze_has_multiple_fresh_sets');
+  const [cleanId, repairId, dormantId, closeId, reopenId] = clozeIds;
+
+  // Clean work has no Chat task and no debt.
   const cleanItem = loadClozeById(cleanId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(cleanId)}/`);
   await answerCloze(page, cleanItem, loadClozeAnswersById(cleanId));
   check((await page.locator('[data-objective-score]').textContent())?.trim() === `${cleanItem.questions.length} / ${cleanItem.questions.length}`, 'cloze_clean_score');
   check(await page.locator('.objectiveHandoff').isHidden(), 'cloze_clean_pass_has_no_forced_chat');
+  check(await page.locator('.objectiveTransferPanel').isHidden(), 'cloze_clean_pass_has_no_transfer_panel');
   check((await storeClaims(page, 'cloze')).length === 0, 'cloze_clean_pass_creates_no_debt');
 
-  // Cloze problem -> handoff -> persistence failure must preserve return -> completed repair creates exactly one claim.
+  // A real problem may escalate to one whole-context deep-review packet.
   const repairItem = loadClozeById(repairId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(repairId)}/`);
   await answerCloze(page, repairItem, loadClozeAnswersById(repairId), 0);
   const repairPacket = await copyHandoff(page, '[data-objective-copy-chat]');
-  check(repairPacket.includes('Cloze passage review packet v1') && repairPacket.includes('REPAIR / RETURN PROTOCOL'), 'cloze_problem_packet_is_whole_unit');
+  check(repairPacket.includes('Cloze deep review packet v2') && repairPacket.includes('OPTIONAL_ESCALATION') && repairPacket.includes('REPAIR / RETURN PROTOCOL'), 'cloze_problem_packet_is_optional_whole_context');
   const handoff = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), `kianos-english-objective-handoff-v1:cloze:${repairId}`);
-  check(handoff?.objectId === repairId, 'cloze_handoff_snapshot_saved');
+  check(handoff?.objectId === repairId && handoff?.mode === 'OPTIONAL_ESCALATION', 'cloze_handoff_snapshot_saved');
 
   const repairQuestionId = qid(repairItem.questions[0], 0);
 
-  // Evidence admission boundaries: diagnosis alone and ability-owned repairs must not create Objective task debt.
+  // Diagnosis alone and shared-owner repairs cannot manufacture Objective task debt.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
     threads: [{
@@ -165,10 +167,10 @@ async function chromiumJourney() {
       schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
       threads: [{
         threadId: `ability-${route}`, scope: 'local', itemIds: [repairQuestionId], route,
-        summary: `${route} ability owner should receive this repair`, repairCompleted: true,
-        repairEvidence: 'learner completed the routed ability repair'
+        summary: `${route} shared owner should receive this repair`, repairCompleted: true,
+        repairEvidence: 'learner completed the routed repair'
       }],
-      newClaims: [{ sourceThreadId: `ability-${route}`, statement: 'must not duplicate ability-owned debt inside Objective' }],
+      newClaims: [{ sourceThreadId: `ability-${route}`, statement: 'must not duplicate shared-owner debt inside Objective' }],
       claimUpdates: []
     }, { expectSuccess: false });
     await sleep(100);
@@ -186,6 +188,7 @@ async function chromiumJourney() {
     claimUpdates: []
   };
 
+  // Persistence failure remains atomic and preserves the pasted return.
   await openImporter(page);
   const failedText = returnText(completedReturn);
   await page.locator('[data-transfer-input]').fill(failedText);
@@ -213,7 +216,7 @@ async function chromiumJourney() {
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.length === 1, 'duplicate_return_is_idempotent');
 
-  // The repair handoff did not authorize this newly-created claim for closure. A stale/same-object return cannot close it.
+  // Same historical object cannot close its own transfer target.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: repairId,
     threads: [], newClaims: [],
@@ -223,41 +226,52 @@ async function chromiumJourney() {
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'unauthorized_same_object_closure_rejected');
 
-  // Fresh clean set: pending claim packet must include enough item context; unsupported closure rejected, valid closure accepted.
+  // Strongest minimality invariant: a pending backend claim must stay dormant on a clean later task.
+  const dormantItem = loadClozeById(dormantId);
+  await page.goto(`${BASE}/cloze/${encodeURIComponent(dormantId)}/`);
+  await answerCloze(page, dormantItem, loadClozeAnswersById(dormantId));
+  check(await page.locator('.objectiveHandoff').isHidden(), 'clean_pending_claim_does_not_create_learner_task');
+  check(await page.locator('.objectiveTransferPanel').isHidden(), 'clean_pending_claim_does_not_surface_transfer_panel');
+  clozeClaims = await storeClaims(page, 'cloze');
+  check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'clean_task_leaves_dormant_claim_unchanged');
+
+  // Later normal work can update a claim opportunistically when an actual problem already justifies deep review.
   const closeItem = loadClozeById(closeId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(closeId)}/`);
-  await answerCloze(page, closeItem, loadClozeAnswersById(closeId));
-  const transferPacket = await copyHandoff(page, '[data-objective-copy-chat]');
-  check(transferPacket.includes('ITEM CONTEXT FOR DIAGNOSIS / TRANSFER') && transferPacket.includes(claimId), 'clean_transfer_packet_has_claim_and_item_context');
+  await answerCloze(page, closeItem, loadClozeAnswersById(closeId), 0);
+  const supportPacket = await copyHandoff(page, '[data-objective-copy-chat]');
+  check(supportPacket.includes('ACTIVE TRANSFER CLAIMS · opportunistic only') && supportPacket.includes(claimId), 'problem_review_may_carry_relevant_pending_claim');
+
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: '' }]
   });
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'TRANSFER_PENDING', 'closure_without_fresh_evidence_rejected');
+
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
-    threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'fresh set directly tested the same best-fit comparison and execution was stable' }]
+    threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'CLOSED', evidence: 'fresh problem set also directly tested the same best-fit procedure and the relevant execution was stable' }]
   });
   clozeClaims = await storeClaims(page, 'cloze');
   check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'CLOSED', 'fresh_relevant_evidence_closes_claim');
 
-  // A clean transfer handoff supplied the claim for closure, not as a reopen candidate. It cannot authorize REOPENED.
+  // The current handoff authorized the pending claim for possible close, not reopen.
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: closeId,
     threads: [], newClaims: [],
-    claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'clean transfer packet is not contradictory problem evidence' }]
+    claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'same packet is not a closed-claim reopen candidate' }]
   }, { expectSuccess: false });
   await sleep(100);
   clozeClaims = await storeClaims(page, 'cloze');
-  check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'CLOSED', 'unauthorized_clean_reopen_rejected');
+  check(clozeClaims.find((claim) => claim.claimId === claimId)?.status === 'CLOSED', 'unauthorized_reopen_rejected');
 
-  // Later contradictory fresh problem can conservatively reopen the exact closed claim.
+  // A later contradictory fresh problem can conservatively reopen the exact closed claim.
   const reopenItem = loadClozeById(reopenId);
   await page.goto(`${BASE}/cloze/${encodeURIComponent(reopenId)}/`);
   await answerCloze(page, reopenItem, loadClozeAnswersById(reopenId), 0);
   const reopenPacket = await copyHandoff(page, '[data-objective-copy-chat]');
-  check(reopenPacket.includes('RECENT CLOSED CLAIMS · REOPEN CANDIDATES') && reopenPacket.includes(claimId), 'problem_packet_can_surface_closed_reopen_candidate');
+  check(reopenPacket.includes('RECENT CLOSED CLAIMS · reopen only with direct contradiction') && reopenPacket.includes(claimId), 'problem_packet_can_surface_closed_reopen_candidate');
   await importReturn(page, {
     schema: 'kianos.english.objective_review_return.v1', task: 'cloze', objectId: reopenId,
     threads: [], newClaims: [], claimUpdates: [{ claimId, status: 'REOPENED', evidence: 'fresh problem reproduced the same premature rough-meaning choice despite a decisive competing constraint' }]
@@ -274,7 +288,7 @@ async function readingAAndBSmoke(browserType, name) {
   const context = await browser.newContext({ permissions: name === 'chromium' ? ['clipboard-read', 'clipboard-write'] : [] });
   const page = await context.newPage();
 
-  // Reading A clean and problem paths stay whole-passage.
+  // Reading A clean and problem paths preserve whole-passage attempt continuity; deep review is optional escalation.
   const readingIds = listReadingSets().slice(0, 3).map((item) => item.id);
   check(readingIds.length >= 2, `${name}_reading_a_has_sets`);
   const cleanReading = loadReadingById(readingIds[0]);
@@ -287,7 +301,8 @@ async function readingAAndBSmoke(browserType, name) {
   await page.goto(`${BASE}/reading/${encodeURIComponent(readingIds[1])}/`);
   await answerReadingA(page, problemReading, loadReadingAnswersById(readingIds[1]), 0);
   await page.locator('[data-reading-passage-copy-chat]').waitFor({ state: 'visible' });
-  check((await page.locator('[data-reading-passage-copy-status]').textContent())?.includes('整篇'), `${name}_reading_a_problem_is_passage_first`);
+  const repairStatus = (await page.locator('[data-reading-passage-copy-status]').textContent()) || '';
+  check(repairStatus.includes('problem') && repairStatus.includes('快速'), `${name}_reading_a_problem_offers_optional_escalation`);
   check(await page.locator('[data-reading-coach]').count() === 0, `${name}_reading_a_old_local_semantic_coach_not_loaded`);
 
   // Reading B preserves real directions/form and can execute a formal clean map.

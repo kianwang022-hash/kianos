@@ -5,9 +5,11 @@ const issues = [];
 function read(relativeUrl) {
   return fs.readFileSync(new URL(relativeUrl, import.meta.url), 'utf8');
 }
-
 function requireText(label, text, needle) {
   if (!text.includes(needle)) issues.push(`${label}: missing ${needle}`);
+}
+function requireAny(label, text, needles) {
+  if (!needles.some((needle) => text.includes(needle))) issues.push(`${label}: missing any of ${needles.join(' | ')}`);
 }
 
 try {
@@ -24,65 +26,41 @@ try {
 
 try {
   const asset = read('../../content/english/modules/objective-learning.md');
-  const required = [
-    'Objective Global Map',
-    '<a id="reading-a"></a>',
-    '<a id="cloze"></a>',
-    '<a id="reading-b"></a>',
-    '<a id="ra-core-1"></a>',
-    '<a id="ra-core-2"></a>',
-    '<a id="ra-core-3"></a>',
-    '<a id="ra-core-4"></a>',
-    '<a id="ra-skill-map"></a>',
-    '<a id="ra-skill-boundary"></a>',
-    '<a id="ra-skill-cause"></a>',
-    '<a id="ra-skill-attribution"></a>',
-    '<a id="ra-skill-local-global"></a>',
-    '<a id="ra-skill-true-irrelevant"></a>',
-    '<a id="cl-core-1"></a>',
-    '<a id="cl-core-2"></a>',
-    '<a id="cl-core-3"></a>',
-    '<a id="cl-core-4"></a>',
-    '<a id="cl-skill-map"></a>',
-    '<a id="cl-skill-best-fit"></a>',
-    '<a id="cl-skill-collocation"></a>',
-    '<a id="cl-skill-relation"></a>',
-    '<a id="rb-core-1"></a>',
-    '<a id="rb-core-2"></a>',
-    '<a id="rb-core-3"></a>',
-    '<a id="rb-core-4"></a>',
-    '<a id="rb-skill-map"></a>',
-    '<a id="rb-skill-local-global"></a>',
-    '<a id="rb-skill-coupled"></a>',
-    '<a id="rb-skill-reference"></a>',
-    '<a id="runtime-bridge"></a>',
-    '静态内容策略',
-    'Deep Skill Content',
-    'Fast Track 改变阅读路径，不改变静态资产完整度'
-  ];
-  required.forEach((needle) => requireText('objective-learning asset', asset, needle));
+
+  // Coverage floor: all three task objects and the shared decision kernel must exist.
+  [
+    'Reading A',
+    'Cloze',
+    'Reading B',
+    'Question Demand',
+    'Decisive Evidence',
+    'Option Proposition',
+    'Slot Demand',
+    'Candidate',
+    'Discourse',
+    'Fast Track'
+  ].forEach((needle) => requireText('objective-learning asset', asset, needle));
+
+  requireAny('objective-learning asset', asset, ['REPRESENT', 'TEXT REPRESENTATION', 'Representation']);
+  requireAny('objective-learning asset', asset, ['ADJUDICATE', 'Adjudication', 'best fit']);
+  requireAny('objective-learning asset', asset, ['LexicalOS', 'Lexical']);
+
+  // Minimality: the asset must explicitly remain skippable / repair-reservoir compatible.
+  requireAny('objective-learning asset', asset, ['Fast Track 改变阅读路径', '强基础路径', '可以直接跳过']);
+
+  // Do not validate exact block counts, exact anchor inventory, or symmetrical Skill Map shape.
+  // Those are current content choices, not Logic truth.
 } catch (error) {
   issues.push(`objective-learning asset: ${error instanceof Error ? error.message : String(error)}`);
 }
 
 try {
   const page = read('../src/pages/objective-learn.astro');
-  const required = [
-    'content/english/modules/objective-learning.md',
-    "from 'marked'",
-    'href="#reading-a"',
-    'href="#ra-core-2"',
-    'href="#ra-skill-boundary"',
-    'href="#cloze"',
-    'href="#cl-core-2"',
-    'href="#cl-skill-collocation"',
-    'href="#reading-b"',
-    'href="#rb-core-4"',
-    'href="#rb-skill-coupled"',
-    'href="#runtime-bridge"',
-    'Skippable · Complete Static Asset'
-  ];
-  required.forEach((needle) => requireText('objective-learn page', page, needle));
+  requireText('objective-learn page', page, 'content/english/modules/objective-learning.md');
+  requireAny('objective-learn page', page, ['Skippable', 'Fast Track', '可跳过']);
+  requireText('objective-learn page', page, 'reading-a');
+  requireText('objective-learn page', page, 'cloze');
+  requireText('objective-learn page', page, 'reading-b');
 } catch (error) {
   issues.push(`objective-learn page: ${error instanceof Error ? error.message : String(error)}`);
 }
@@ -105,7 +83,7 @@ const summary = {
     issueCount: issues.length,
     canonicalOwner: 'content/english/modules/objective-learning.md',
     learnerPage: 'static-web/src/pages/objective-learn.astro',
-    staticAssetMode: 'complete_skippable',
+    validationPolicy: 'semantic-coverage-and-skippability-not-exact-decomposition',
     taskCoverage: ['reading_a', 'cloze', 'reading_b']
   }
 };

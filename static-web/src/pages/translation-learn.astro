@@ -21,15 +21,14 @@ for (const chunk of chunks) {
 const nav = [
   ['A', 'Global Map'],
   ['B1', 'B1 · Representation'],
-  ['B2', 'B2 · Fidelity'],
   ['B3', 'B3 · Reconstruction'],
   ['B4', 'B4 · Execution'],
   ['B5', 'Integrated Walkthrough'],
   ['F', 'How You Learn It'],
   ['G', '第一次学习出口']
 ];
-const coreKeys = ['A', 'B', 'B1', 'B2', 'B3', 'B4', 'B5', 'F', 'G'];
-const diagnosticKeys = ['C', 'D'];
+const coreKeys = ['A', 'B', 'B1', 'B3', 'B4', 'B5', 'F', 'G'];
+const diagnosticKeys = ['B2', 'C', 'D'];
 const runtimeKeys = ['E', 'H'];
 
 async function renderChunk(key) {
@@ -45,7 +44,7 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 <Base
   title="Translation First Learning"
   kicker="English · Translation First Learning"
-  description="先连续建立 Global Map 与四个 Core Blocks；诊断地图和 Runtime 规则保持完整，但不挡住第一次学习主线。"
+  description="Global Map + Representation / Reconstruction / Execution；Fidelity 作为贯穿约束按需展开，不制造第四门课。"
   sourcePath={sourcePath}
   sourceHash={sourceHash}
   objectId="english:translation-first-learning"
@@ -54,8 +53,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
   <section class="translationLearnShell">
     <aside class="translationLearnNav">
       <span>First Learning</span>
-      <strong>先主干，后真实 Translation</strong>
-      <p>第一次学习只需要连续建立能力模型。已经熟的段落可以跳；Skill Map 不是待办清单。</p>
+      <strong>三块主干，够用就进真题</strong>
+      <p>Global Map 看懂后，只补当前不稳的能力。已经会的直接跳；Skill Map 和 Fidelity Guard 都不是待办清单。</p>
       <nav aria-label="Translation First Learning navigation">
         {nav.map(([key, label]) => <a href={`#translation-${key.toLowerCase()}`}>{label}</a>)}
       </nav>
@@ -66,7 +65,7 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
       <section class="translationLearnIntro markdownBody" set:html={introHtml}></section>
 
       <section class="translationPathStrip" aria-label="Translation learning path">
-        <span>UNDERSTAND</span><b>→</b><span>PRESERVE</span><b>→</b><span>RECONSTRUCT</span><b>→</b><span>DELIVER</span>
+        <span>REPRESENT</span><b>→</b><span>RECONSTRUCT <em>faithfully</em></span><b>→</b><span>DELIVER</span>
       </section>
 
       {coreSections.map((section) => section.html && (
@@ -75,8 +74,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <details class="translationReferenceSection">
         <summary>
-          <div><span>按需展开</span><strong>Skill Map + Deep Skills</strong></div>
-          <small>真实错误出现后再回来定位，不作为第一次学习清单。</small>
+          <div><span>按需展开</span><strong>Fidelity Guard + Skill Map + Deep Repair</strong></div>
+          <small>只有真实失真或反复 failure 出现时才回来；这里保存知识，不制造第一次学习任务。</small>
         </summary>
         <div class="translationReferenceBody">
           {diagnosticSections.map((section) => section.html && (
@@ -87,8 +86,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <details class="translationReferenceSection runtimeReference">
         <summary>
-          <div><span>系统 / Chat 参考</span><strong>Material Routing + Runtime v1</strong></div>
-          <small>这些系统规则完整保留，但不需要第一次学习时背。</small>
+          <div><span>系统 / Chat 参考</span><strong>Material Routing + Runtime</strong></div>
+          <small>系统规则完整保留，但 learner 不需要为了流程完整而操作它们。</small>
         </summary>
         <div class="translationReferenceBody">
           {runtimeSections.map((section) => section.html && (
@@ -99,15 +98,15 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
 
       <a class="translationExit" href={`${base}translation/`}>
         <span>First Learning Exit</span>
-        <strong>主干已经够用 → 进入真实 Translation</strong>
-        <p>接下来不是继续背 taxonomy，而是让真实 clean attempt 暴露需要按需修复的 Skill。</p>
+        <strong>能稳定 Represent → Reconstruct → Deliver，就进入真实 Translation</strong>
+        <p>真实 clean attempt 才是主线；只有它暴露的高价值 failure 才值得把 repair reservoir 展开。</p>
       </a>
     </main>
   </section>
 </Base>
 
 <style>
-  .translationLearnShell{max-width:86rem;margin:0 auto;display:grid;grid-template-columns:17rem minmax(0,1fr);gap:16px;align-items:start}.translationLearnNav{position:sticky;top:76px;display:grid;gap:9px;padding:16px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnNav>span,.translationReferenceSection summary span,.translationExit>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationLearnNav>strong{font-size:14px}.translationLearnNav>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.translationLearnNav nav{display:grid;gap:2px;padding:8px 0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.translationLearnNav nav a{padding:6px 7px;border-radius:7px;color:inherit;font-size:10px;font-weight:750;text-decoration:none}.translationLearnNav nav a:hover{background:var(--study-green-soft);color:var(--study-green)}.runtimeLink{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.translationLearnMain{display:grid;gap:12px;min-width:0}.translationLearnIntro,.translationLearnContent,.translationReferenceSection,.translationExit{padding:28px 34px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnIntro{padding-bottom:18px}.translationPathStrip{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border:1px solid #cfe2d8;border-radius:12px;background:var(--study-green-soft);color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.04em}.translationPathStrip b{color:var(--study-faint)}.translationReferenceSection{padding:0;overflow:hidden}.translationReferenceSection summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;cursor:pointer;list-style:none}.translationReferenceSection summary::-webkit-details-marker{display:none}.translationReferenceSection summary>div{display:grid;gap:3px}.translationReferenceSection summary strong{font-size:14px}.translationReferenceSection summary small{max-width:34rem;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}.translationReferenceBody{display:grid;gap:0;padding:0 28px 26px;border-top:1px solid var(--study-line)}.translationReferenceBody>.markdownBody{padding-top:22px}.runtimeReference{background:#fbfdfc}.translationExit{display:grid;gap:4px;color:inherit;text-decoration:none;border-color:#bdd8c8;background:var(--study-green-soft)}.translationExit strong{font-size:18px}.translationExit p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}
+  .translationLearnShell{max-width:86rem;margin:0 auto;display:grid;grid-template-columns:17rem minmax(0,1fr);gap:16px;align-items:start}.translationLearnNav{position:sticky;top:76px;display:grid;gap:9px;padding:16px;border:1px solid var(--study-line);border-radius:14px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnNav>span,.translationReferenceSection summary span,.translationExit>span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.translationLearnNav>strong{font-size:14px}.translationLearnNav>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.translationLearnNav nav{display:grid;gap:2px;padding:8px 0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.translationLearnNav nav a{padding:6px 7px;border-radius:7px;color:inherit;font-size:10px;font-weight:750;text-decoration:none}.translationLearnNav nav a:hover{background:var(--study-green-soft);color:var(--study-green)}.runtimeLink{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.translationLearnMain{display:grid;gap:12px;min-width:0}.translationLearnIntro,.translationLearnContent,.translationReferenceSection,.translationExit{padding:28px 34px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}.translationLearnIntro{padding-bottom:18px}.translationPathStrip{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px;border:1px solid #cfe2d8;border-radius:12px;background:var(--study-green-soft);color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.04em}.translationPathStrip b{color:var(--study-faint)}.translationPathStrip em{font-style:normal;font-weight:650;opacity:.72}.translationReferenceSection{padding:0;overflow:hidden}.translationReferenceSection summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;cursor:pointer;list-style:none}.translationReferenceSection summary::-webkit-details-marker{display:none}.translationReferenceSection summary>div{display:grid;gap:3px}.translationReferenceSection summary strong{font-size:14px}.translationReferenceSection summary small{max-width:34rem;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}.translationReferenceBody{display:grid;gap:0;padding:0 28px 26px;border-top:1px solid var(--study-line)}.translationReferenceBody>.markdownBody{padding-top:22px}.runtimeReference{background:#fbfdfc}.translationExit{display:grid;gap:4px;color:inherit;text-decoration:none;border-color:#bdd8c8;background:var(--study-green-soft)}.translationExit strong{font-size:18px}.translationExit p{margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}
   .markdownBody :global(h1){margin:2.5rem 0 .9rem;padding-top:.2rem;font-size:27px;line-height:1.28;letter-spacing:-.02em;scroll-margin-top:90px}.translationLearnContent :global(h1:first-child),.translationReferenceBody .markdownBody :global(h1:first-child){margin-top:0}.markdownBody :global(h2){margin:2rem 0 .7rem;font-size:19px;line-height:1.35}.markdownBody :global(h3){margin:1.45rem 0 .5rem;font-size:15px}.markdownBody :global(p),.markdownBody :global(li){font-size:13.5px;line-height:1.86;color:#26352f}.markdownBody :global(p){margin:.62rem 0}.markdownBody :global(ul),.markdownBody :global(ol){padding-left:1.4rem}.markdownBody :global(blockquote){margin:1rem 0;padding:10px 14px;border-left:3px solid var(--study-green);background:var(--study-green-soft);border-radius:0 9px 9px 0;color:#1e3129}.markdownBody :global(blockquote p){margin:.25rem 0;color:inherit}.markdownBody :global(strong){color:#16251f}.markdownBody :global(pre){overflow:auto;margin:1rem 0;padding:14px 16px;border:1px solid var(--study-line);border-radius:11px;background:#f7f9f7;font-size:12px;line-height:1.6}.markdownBody :global(code){font-size:.92em}.markdownBody :global(hr){border:0;border-top:1px solid var(--study-line);margin:2.2rem 0}
   @media(max-width:920px){.translationLearnShell{grid-template-columns:1fr}.translationLearnNav{position:static}.translationLearnNav nav{grid-template-columns:repeat(2,minmax(0,1fr))}.translationLearnIntro,.translationLearnContent{padding:22px 20px}.translationReferenceSection summary{align-items:flex-start;flex-direction:column}.translationReferenceSection summary small{text-align:left}.translationReferenceBody{padding:0 20px 22px}}@media(max-width:560px){.translationLearnNav nav{grid-template-columns:1fr}.translationPathStrip{flex-wrap:wrap}.translationLearnIntro,.translationLearnContent{padding:18px 14px}.translationReferenceBody{padding:0 14px 18px}.markdownBody :global(h1){font-size:23px}.markdownBody :global(h2){font-size:18px}.markdownBody :global(p),.markdownBody :global(li){font-size:13px;line-height:1.78}}
 </style>

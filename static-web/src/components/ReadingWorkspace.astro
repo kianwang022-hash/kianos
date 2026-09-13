@@ -192,7 +192,7 @@ const questionId = (question, index) => String(question.id || question.question_
     });
     const readSession = () => normalizeSession(readJson(continuousKey, {}));
     const writeSession = (value) => writeJson(continuousKey, normalizeSession(value));
-    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}`;
+    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}/`;
     const setReviewUnlockedFor = (id, unlocked) => {
       if (!id) return;
       const key = `kianos-reading-attempt-v1:${id}`;

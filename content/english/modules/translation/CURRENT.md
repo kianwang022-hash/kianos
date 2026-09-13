@@ -11,105 +11,108 @@ This file does not own Translation content, acceptance evidence, or learner prog
 
 **Scope:** English Translation  
 **Active / earliest unresolved gate:** `U — Learner Validation`  
-**Blocker:** no engineering blocker. S/K/L/P/R/E are `PASS`; U is `UNTESTED`.  
-**Next action:** do **not** create a special Translation task merely to close U. Keep S–E frozen. When normal English study naturally uses Translation, treat that real path as U evidence; if a real-use defect appears, reopen the exact responsible gate.
+**Engineering state:** `S/K/L/P/R/E PASS`  
+**Blocker:** none at module engineering level.  
+**Next action:** keep S–E frozen. Do not create a special Translation task merely to manufacture U; real normal use may later supply learner evidence. English-level FFV integration may exercise synthetic/exposed paths without changing Translation semantics.
+
+Translation is **ready for learner test**, not learner-validated.
 
 ---
 
-## Stage discipline
+## Current canonical learning model
+
+Translation now uses the smallest sufficient learner model:
 
 ```text
-S  PASS            ← accepted; 27/27 sets complete, 0 pending reference debt
-K  PASS            ← accepted
-L  PASS            ← accepted
-P  PASS            ← accepted
-R  PASS            ← accepted
-E  PASS            ← accepted after fresh-evidence / lexical-ownership blockers were repaired
-U  UNTESTED        ← ACTIVE only through real learner use
+REPRESENT
+→ RECONSTRUCT faithfully
+→ DELIVER
 ```
 
-Translation is now **Module ready for learner test**, not learner-validated.
+`Fidelity / Preservation` is a **cross-cutting invariant**, not a fourth mandatory course or sequential stage.
+
+Learner-facing first learning therefore exposes three productive cores:
+
+- English Representation;
+- Chinese Reconstruction;
+- Exam Execution.
+
+The complete former high-density asset is preserved verbatim as:
+
+`content/english/modules/translation/learning.reference.md`
+
+It is a repair/reference reservoir. Folding it out of the first-learning route is not semantic deletion.
+
+Skill Map / deep content remains repair/navigation material. Stable work may skip first-learning sections and go directly to Translation Runtime.
 
 ---
 
-## Accepted engineering boundary
+## Accepted Functional boundary
 
 ### Source
 
-27 Current sets / 135 stable prompts / 27 complete-reference sets / 0 partial-reference sets / 0 pending reference debt. The former 2022 Q48, 2022 Q49, and 2025 Q46 gaps were closed only after exact prompt identity plus independent public semantic cross-check. Their normalized references are explicitly marked `official: false`; they are not represented as official or unique wording. Canonical question owner SHA-256: `406fe860626539acc9a433a3bcfb48be29f683674b32d432ac87b60272df814e`.
+27 Current sets / 135 stable prompts / 27 complete-reference sets / 0 partial-reference sets / 0 pending reference debt.
 
-### Knowledge / Learning
-
-Capability-native path:
-
-```text
-Representation
-→ Preservation
-→ Reconstruction
-→ Execution
-→ integrated use
-→ real whole-set Translation
-```
-
-Skill Map/deep content is later repair/navigation. Clean first output precedes diagnosis/reference. Repair follows the earliest meaningful failure and requires learner Reconstruction.
+The bounded 2022 Q48/Q49 and 2025 Q46 reference gaps remain closed through exact prompt identity + independent semantic cross-check. Their normalized references remain explicitly `official: false`; no official wording is fabricated.
 
 ### Projection
 
-Accepted after removing fresh-attempt cue leakage and restoring `HOW YOU LEARN IT` before the first-learning exit. P gate remains regression-protected by Translation QA.
+Current first-learning projection matches the fresh model:
+
+```text
+Global Map
+→ targeted Representation / Reconstruction / Execution
+→ real Translation
+```
+
+Fidelity stays visible as an invariant/repair owner but is not a required learner step.
+
+Backend pending transfer state is not surfaced on the Translation home as learner attention debt. Clean tasks remain clean; reference text remains protected until an allowed post-attempt action.
+
+Current regression evidence: `Static Web Translation QA` run `34752384519` on PR #52 head `c6c248e20ceb01071639e5a06b376ff11b77d883` passed Source, Runtime, Evidence, Astro build, and Projection.
 
 ### Runtime
 
-Accepted after requiring explicit repair slices and making failed return application atomic. R gate: 40 checks, 0 issues.
+Whole Translation task/set remains the learner-facing attempt/review context. Internal evidence and repair scope may be smaller.
+
+```text
+Clean Attempt
+→ PASS / quick correction / meaningful repair
+→ learner Reconstruction when useful
+→ optional transfer claim only if genuinely reusable
+```
+
+A repair does **not** automatically owe the system `TRANSFER_PENDING`.
+
+Runtime still fail-closes on invalid repair slices and failed return application remains atomic.
 
 ### Evidence
 
-Accepted after:
+Evidence invariants remain frozen:
 
-- stale/repeated tasks were prevented from masquerading as fresh transfer closure;
-- closure freshness was grounded in the task's own first-submission time + zero prior history;
-- LexicalOS-owned durable knowledge was prevented from duplicating into Translation transfer debt.
+- evidence granularity may be smaller than review granularity;
+- first meaningful failure absorbs explainable cascade effects;
+- same-item Reconstruction is repair evidence, not mastery;
+- old/repeated tasks cannot masquerade as fresh closure;
+- irrelevant evidence does not confirm/refute;
+- contradictory later evidence may reopen;
+- non-reusable repair creates no durable debt;
+- Lexical durable knowledge routes to LexicalOS;
+- learner evidence stays browser-local/private.
 
-E gate from run `34700382509`: `PASS`, 27 checks, 0 issues. Old/repeated non-closure, irrelevant non-confirmation, idempotent later evidence, fresh semantic closure, contradiction reopen, non-reusable no-debt, lexical canonical routing, and private-evidence locality all passed.
+A pending claim is backend observation state:
 
-Full evidence belongs in `content/english/modules/translation/ACCEPTANCE.md`.
+```text
+pending claim ≠ learner owes an action
+```
 
 ---
 
 ## U boundary
 
-U can only come from Kian actually using a Translation path.
+U can only come from Kian actually using Translation.
 
-Do not infer U from:
-
-- CI/build success;
-- synthetic validators;
-- screenshots;
-- repository state;
-- Chat/model review;
-- self-report that the framework looks familiar.
-
-Useful future real-use paths may include:
-
-- First Learning → real task;
-- clean attempt → PASS;
-- Need Review → Chat diagnosis → smallest repair → Reconstruction;
-- later genuinely fresh transfer closure;
-- reopen after contradictory later evidence.
-
-If real use reveals friction or semantic failure, reopen the earliest responsible S/K/L/P/R/E dependency rather than re-auditing everything.
-
----
-
-## Required reads
-
-For ordinary engineering re-entry while U is the only unresolved gate:
-
-1. `content/english/modules/translation/ACCEPTANCE.md`
-2. this `CURRENT.md`
-
-Do not default-read Runtime/Evidence internals or restart engineering work without a concrete learner-use defect.
-
-For a real learner-use issue, read only the exact owner needed to diagnose that path.
+Do not infer U from CI, synthetic validators, screenshots, repository state, or model review. If real use exposes friction or semantic failure, reopen only the earliest responsible gate/object.
 
 ---
 
@@ -117,17 +120,18 @@ For a real learner-use issue, read only the exact owner needed to diagnose that 
 
 While waiting for U:
 
-- S–E are frozen by default;
-- do not replace cross-verified references with generated or falsely official wording;
-- do not manufacture engineering work merely because U is still `UNTESTED`;
-- do not touch Objective / Writing / sibling scopes from this cursor;
-- do not infer or mutate Kian's Learner Truth from repository acceptance.
+- do not restore four-block first learning;
+- do not turn Fidelity into a mandatory page/stage;
+- do not surface pending claim counts on home/clean tasks;
+- do not consume fresh material merely to close evidence state;
+- do not replace cross-verified references with generated/falsely official wording;
+- do not visually polish beyond what blocks comprehension/use.
 
 ---
 
 ## Truth references
 
-**Artifact Truth:** canonical Translation content/source/projection/runtime/evidence owners.  
+**Artifact Truth:** `content/english/modules/translation/learning.md` + `learning.reference.md` + Current source/runtime/evidence owners.  
 **Acceptance Truth:** `content/english/modules/translation/ACCEPTANCE.md`.  
 **Learner Truth:** private learner/runtime state only.
 
@@ -138,8 +142,6 @@ While waiting for U:
 ```text
 Translation CURRENT
 → Translation ACCEPTANCE
-→ S–E PASS / frozen / Module ready for learner test
-→ wait for real Translation use
+→ S/K/L/P/R/E PASS / frozen
+→ U only through natural learner use
 ```
-
-A future real-use defect reopens only the exact responsible gate.

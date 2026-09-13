@@ -234,7 +234,7 @@ const questionByOrdinal = new Map(item.questions.map((question, index) => [Strin
             if (!option.value) return;
             const fixed = fixedGivens.includes(option.value);
             const usedElsewhere = (uses.get(option.value) || []).some((usedId) => usedId !== id);
-            option.disabled = !state.submitted && (fixed || (candidatePolicy === 'single_use' && usedElsewhere && option.value !== current));
+            option.disabled = fixed || (candidatePolicy === 'single_use' && usedElsewhere && option.value !== current);
           });
         }
         const uncertain = row.querySelector('[data-reading-b-uncertain]');

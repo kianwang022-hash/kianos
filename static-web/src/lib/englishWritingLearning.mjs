@@ -43,6 +43,14 @@ function extractTopLevel(markdown, startPattern) {
   return lines.slice(start, end).join('\n').trim();
 }
 
+function extractCoreIntro(markdown) {
+  const lines = linesOf(markdown);
+  const start = lines.findIndex((line) => /^# B｜/.test(line));
+  const end = lines.findIndex((line, index) => index > start && /^## B1｜/.test(line));
+  if (start < 0 || end < 0) throw new Error('WRITING_CORE_ROUTE_MISSING');
+  return lines.slice(start, end).join('\n').trim();
+}
+
 function extractLevelTwo(markdown, startPattern) {
   const lines = linesOf(markdown);
   const start = lines.findIndex((line) => startPattern.test(line));
@@ -58,100 +66,38 @@ function extractLevelTwo(markdown, startPattern) {
   return lines.slice(start, end).join('\n').trim();
 }
 
-function extractCoreIntro(markdown) {
-  const lines = linesOf(markdown);
-  const start = lines.findIndex((line) => /^# B｜/.test(line));
-  const end = lines.findIndex((line, index) => index > start && /^# B1｜/.test(line));
-  if (start < 0 || end < 0) throw new Error('WRITING_CORE_ROUTE_MISSING');
-  return lines.slice(start, end).join('\n').trim();
-}
-
 function titleFrom(markdown, fallback) {
   const first = linesOf(markdown).find((line) => /^#{1,6}\s+/.test(line));
-  if (!first) return fallback;
-  return first.replace(/^#{1,6}\s+/, '').trim();
-}
-
-function splitActiveChecks(markdown, blockId) {
-  const lines = linesOf(markdown);
-  const segments = [];
-  let cursor = 0;
-  let checkIndex = 0;
-  let currentGate = null;
-
-  while (cursor < lines.length) {
-    const activeIndex = lines.findIndex((line, index) => index >= cursor && /^###\s+Active Check\s*$/.test(line.trim()));
-    if (activeIndex < 0) {
-      const tail = lines.slice(cursor).join('\n').trim();
-      if (tail) segments.push({ type: 'content', markdown: tail, requires: currentGate });
-      break;
-    }
-
-    const before = lines.slice(cursor, activeIndex).join('\n').trim();
-    if (before) segments.push({ type: 'content', markdown: before, requires: currentGate });
-
-    let activeEnd = lines.length;
-    for (let index = activeIndex + 1; index < lines.length; index += 1) {
-      const level = headingLevel(lines[index]);
-      if (level !== null && level <= 3) {
-        activeEnd = index;
-        break;
-      }
-    }
-
-    checkIndex += 1;
-    const checkId = `${blockId}-check-${checkIndex}`;
-    const checkMarkdown = lines.slice(activeIndex, activeEnd).join('\n').trim();
-    segments.push({
-      type: 'active_check',
-      id: checkId,
-      markdown: checkMarkdown,
-      requires: currentGate
-    });
-    currentGate = checkId;
-    cursor = activeEnd;
-  }
-
-  return segments;
+  return first ? first.replace(/^#{1,6}\s+/, '').trim() : fallback;
 }
 
 function coreBlock(markdown, number) {
-  const id = `b${number}`;
-  const raw = extractTopLevel(markdown, new RegExp(`^# B${number}｜`));
-  const segments = splitActiveChecks(raw, id);
-  const lastSegment = segments.at(-1);
+  const raw = extractLevelTwo(markdown, new RegExp(`^## B${number}｜`));
   return {
-    id,
+    id: `b${number}`,
     number,
     title: titleFrom(raw, `B${number}`),
     markdown: raw,
-    segments,
-    terminalCheckId: lastSegment?.type === 'active_check' ? lastSegment.id : null
+    segments: [{ type: 'content', markdown: raw, requires: null }],
+    terminalCheckId: null
   };
 }
 
 function validateProjection(projection) {
   const issues = [];
-  if (!projection.globalMap.includes('TASK') || !projection.globalMap.includes('GENERATE') || !projection.globalMap.includes('DELIVER')) {
-    issues.push('GLOBAL_MAP_CHAIN_INCOMPLETE');
+  const global = projection.globalMap;
+  for (const token of ['TASK', 'CONTENT GENERATION', 'ORGANIZATION', 'ENGLISH REALIZATION', 'REGISTER', 'TIMED DELIVERY']) {
+    if (!global.includes(token)) issues.push(`GLOBAL_MAP_PRIMITIVE_MISSING:${token}`);
   }
-  if (projection.blocks.length !== 8) issues.push(`CORE_BLOCK_COUNT:${projection.blocks.length}`);
+  if (projection.blocks.length !== 6) issues.push(`CORE_PRIMITIVE_COUNT:${projection.blocks.length}`);
   const ids = projection.blocks.map((block) => block.id).join('|');
-  if (ids !== 'b1|b2|b3|b4|b5|b6|b7|b8') issues.push(`CORE_BLOCK_ORDER:${ids}`);
-  if (projection.activeCheckCount < 6) issues.push(`ACTIVE_CHECK_COVERAGE:${projection.activeCheckCount}`);
-  for (const block of projection.blocks) {
-    const activeChecks = block.segments.filter((segment) => segment.type === 'active_check');
-    const covered = new Set(block.segments.filter((segment) => segment.requires).map((segment) => segment.requires));
-    if (block.terminalCheckId) covered.add(block.terminalCheckId);
-    for (const check of activeChecks) {
-      if (!covered.has(check.id)) issues.push(`ACTIVE_CHECK_HAS_NO_POST_ACTION:${check.id}`);
-    }
+  if (ids !== 'b1|b2|b3|b4|b5|b6') issues.push(`CORE_PRIMITIVE_ORDER:${ids}`);
+  if (!/Small Writing/.test(projection.modeSpecializations) || !/Big Writing/.test(projection.modeSpecializations)) {
+    issues.push('TASK_MODE_SPECIALIZATION_INCOMPLETE');
   }
-  if (!/one synthetic Small Writing/i.test(projection.syntheticFullGate) || !/one synthetic Big Writing/i.test(projection.syntheticFullGate)) {
-    issues.push('FULL_SYNTHETIC_GATE_INCOMPLETE');
-  }
-  if (!/True-Exam Entry Gate/i.test(projection.trueExamEntryGate)) issues.push('TRUE_EXAM_ENTRY_GATE_MISSING');
-  if (!/Skill Map/i.test(projection.skillMap)) issues.push('SKILL_MAP_MISSING');
+  if (!/Skill Map/.test(projection.skillMap)) issues.push('SKILL_MAP_MISSING');
+  if (!/Synthetic Practice/.test(projection.syntheticPractice)) issues.push('SYNTHETIC_PRACTICE_MISSING');
+  if (!/True-Exam Entry/.test(projection.trueExamEntryGate)) issues.push('TRUE_EXAM_ENTRY_GATE_MISSING');
   return issues;
 }
 
@@ -160,19 +106,21 @@ let cache;
 export function loadWritingLearningProjection() {
   if (cache) return cache;
   const markdown = readSource();
-  const blocks = Array.from({ length: 8 }, (_, index) => coreBlock(markdown, index + 1));
+  const blocks = Array.from({ length: 6 }, (_, index) => coreBlock(markdown, index + 1));
   const projection = {
-    schema: 'kianos.english.writing.first-learning-projection.v1',
+    schema: 'kianos.english.writing.first-learning-projection.v2',
     sourcePath: WRITING_LEARNING_SOURCE,
     sourceHash: sha256(markdown),
     globalMap: extractTopLevel(markdown, /^# A｜/),
     coreIntro: extractCoreIntro(markdown),
     blocks,
-    skillMap: extractTopLevel(markdown, /^# C｜/),
-    syntheticFullGate: extractLevelTwo(markdown, /^## E12｜/),
+    modeSpecializations: extractTopLevel(markdown, /^# C｜/),
+    skillMap: extractTopLevel(markdown, /^# D｜/),
+    syntheticPractice: extractTopLevel(markdown, /^# E｜/),
+    syntheticFullGate: extractTopLevel(markdown, /^# E｜/),
     trueExamEntryGate: extractTopLevel(markdown, /^# I｜/),
-    activeCheckCount: blocks.reduce((sum, block) => sum + block.segments.filter((segment) => segment.type === 'active_check').length, 0),
-    route: ['global-map', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'b7', 'b8', 'synthetic-gate']
+    activeCheckCount: 0,
+    route: ['global-map', 'b1', 'b2', 'b3', 'b4', 'b5', 'b6', 'modes', 'practice']
   };
   const issues = validateProjection(projection);
   cache = { ...projection, status: issues.length ? 'invalid' : 'ready', issues };

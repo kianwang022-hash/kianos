@@ -6,7 +6,6 @@
   if (readingRoot) {
     const readingKey = readingRoot.getAttribute('data-reading-object') || 'reading';
     const continuousKey = 'kianos-reading-continuous-session-v1';
-    const watchKey = 'kianos-reading-watch-signals-v1';
     const resultSummary = readingRoot.querySelector('.portedReadingResultSummary');
     let handoff = null;
 
@@ -34,12 +33,12 @@
 
       const button = document.createElement('button');
       button.type = 'button';
-      button.textContent = '复制本次训练给 Chat';
+      button.textContent = '比较本次跨篇问题';
       button.setAttribute('data-reading-session-copy-chat', '');
 
       const status = document.createElement('small');
       status.setAttribute('data-reading-session-copy-status', '');
-      status.textContent = '跨篇复盘时再用。';
+      status.textContent = '只有多篇都出问题、值得找重复模式时才用。';
 
       handoff.append(button, status);
       resultSummary.appendChild(handoff);
@@ -47,64 +46,49 @@
     };
 
     const isRelevant = (session) => Boolean(
-      session.reviewIds.length > 0 && (
+      session.reviewIds.length >= 2 && (
         (session.reviewing && session.reviewIds.includes(readingKey)) ||
         session.lastSummary?.lastId === readingKey
       )
     );
 
     const buildPacket = (session) => {
-      const passageIds = new Set(session.items.map((item) => item?.id).filter(Boolean));
-      const watchStore = readJson(watchKey, { signals: [] });
-      const watchSignals = (Array.isArray(watchStore.signals) ? watchStore.signals : [])
-        .filter((signal) => {
-          if (passageIds.has(signal?.passageId)) return true;
-          return (signal?.transferEvidence || []).some((evidence) => passageIds.has(evidence?.passageId));
-        });
+      const problemPassages = session.items.filter((item) => session.reviewIds.includes(item?.id));
       const lines = [
-        'Reading A session review',
+        'Reading A cross-passage review',
         `Session started: ${session.startedAt || '—'}`,
         `Passages submitted: ${session.items.length}`,
-        `Passages needing review: ${session.reviewIds.length}`
+        `Problem passages: ${problemPassages.length}`,
+        '',
+        'Compare only where evidence supports a recurring pattern. A one-off error stays local.'
       ];
 
-      session.items.forEach((item, index) => {
+      problemPassages.forEach((item, index) => {
         const passageId = item?.id || '';
         if (!passageId) return;
         const attempt = readJson(`kianos-reading-attempt-v1:${passageId}`, {});
-        const coach = readJson(`kianos-reading-repair-coach-v1:${passageId}`, {});
         const uncertain = new Set(attempt.uncertain || []);
         const problemIds = Object.keys(attempt.results || {}).filter((id) =>
           ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
         );
 
         lines.push('');
-        lines.push(`Passage ${index + 1}: ${passageId}`);
+        lines.push(`Problem passage ${index + 1}: ${passageId}`);
         lines.push(`Score: ${item.score}/${item.total} · Time: ${item.durationSec || 0}s · Problems: ${problemIds.length}`);
 
         problemIds.forEach((id) => {
           const path = (attempt.trajectory?.[id] || []).map((step) => step?.answer).filter(Boolean).join(' → ') || '—';
-          const cause = attempt.causes?.[id] || '未标';
-          const handled = Boolean((coach.reviewed || coach.closed || {})?.[id]);
-          lines.push(`- ${id}: ${attempt.results?.[id] || 'uncertain'} · answer ${attempt.answers?.[id] || '未答'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · cause ${cause} · path ${path} · handled ${handled ? 'yes' : 'no'}`);
+          const localNote = attempt.causes?.[id] || '未标';
+          lines.push(`- ${id}: ${attempt.results?.[id] || 'uncertain'} · answer ${attempt.answers?.[id] || '未答'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · optional note ${localNote} · path ${path}`);
         });
       });
 
-      if (watchSignals.length) {
-        lines.push('');
-        lines.push('Review watch / transfer signals:');
-        watchSignals.forEach((signal) => {
-          const subtype = (signal.subtypeCodes || []).join(', ') || '—';
-          const relevantTransfer = (signal.transferEvidence || []).filter((evidence) => passageIds.has(evidence?.passageId));
-          lines.push(`- ${signal.questionId}: ${signal.family} · subtype ${subtype} · task ${signal.questionTask || '—'} · status ${signal.status || 'WATCH'} · prior transfer successes ${signal.transferSuccessCount || 0}`);
-          relevantTransfer.forEach((evidence) => {
-            lines.push(`  current-session evidence: ${evidence.passageId}/${evidence.questionId} · ${evidence.evidenceKind || 'DISTINCT_PASSAGE_SUCCESS'} · unseen ${evidence.unseenStatus || 'UNKNOWN'} · match ${(evidence.matchedSubtypeCodes || []).join(', ') || '—'}`);
-          });
-        });
-      }
-
-      lines.push('');
-      lines.push('Please resolve canonical question/evidence/option context from GitHub Current by the IDs above, then diagnose repeated patterns only where the evidence supports them. Treat WATCH signals as future observation targets, not as mastery or permanent weakness labels. Distinct-passage success with unseenStatus UNKNOWN is weaker than genuine unseen transfer.');
+      lines.push(
+        '',
+        'REVIEW INSTRUCTION',
+        'Resolve canonical question/evidence/option context from GitHub Current by the passage/question IDs. First ask whether two or more passages really share one failure mechanism. Merge only evidence-supported recurring patterns. Do not create one weakness label per wrong question and do not manufacture a cross-passage claim when the misses are independent.',
+        'If one recurring high-value failure is supported, choose the smallest repair that could change future performance. Otherwise leave each error local and return the learner to new Reading performance.'
+      );
       return lines.join('\n');
     };
 
@@ -121,7 +105,7 @@
       const status = handoff?.querySelector('[data-reading-session-copy-status]');
       try {
         await navigator.clipboard.writeText(buildPacket(session));
-        if (status) status.textContent = '已复制整组最小复盘包，直接贴到 Chat。';
+        if (status) status.textContent = '已复制跨篇最小证据包；只找真正重复的 failure。';
       } catch {
         if (status) status.textContent = '复制失败，请稍后再试。';
       }

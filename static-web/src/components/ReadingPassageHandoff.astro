@@ -30,16 +30,9 @@
     const expected = (question) => {
       try {
         const value = JSON.parse(question.getAttribute('data-answer') || '""');
-        return Array.isArray(value)
-          ? value.map(String)
-          : value === null || value === undefined
-            ? []
-            : [String(value)];
-      } catch {
-        return [];
-      }
+        return Array.isArray(value) ? value.map(String) : value === null || value === undefined ? [] : [String(value)];
+      } catch { return []; }
     };
-
     const qid = (question) => question.getAttribute('data-question') || '';
     const ordinal = (question) => Number(question.getAttribute('data-index') || 0) + 1;
 
@@ -50,27 +43,17 @@
       if (!Number.isFinite(start) || !Number.isFinite(end)) return null;
       return Math.max(0, Math.round((end - start) / 1000));
     };
-
     const formatDuration = (seconds) => {
       if (!Number.isFinite(seconds)) return '—';
       const minutes = Math.floor(seconds / 60);
       const rest = seconds % 60;
       return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
     };
-
     const problemIds = (attempt) => {
       const uncertain = new Set(attempt.uncertain || []);
       return Object.keys(attempt.results || {}).filter((id) =>
         ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
       );
-    };
-    const packetMode = (attempt) => {
-      const problems = problemIds(attempt).length > 0;
-      const pending = activeClaims().length > 0;
-      if (problems && pending) return 'REVIEW_AND_TRANSFER_CHECK';
-      if (problems) return 'REVIEW';
-      if (pending) return 'TRANSFER_CHECK';
-      return 'PASS';
     };
 
     const ensureHandoff = () => {
@@ -81,10 +64,12 @@
 
       const button = document.createElement('button');
       button.type = 'button';
+      button.textContent = '深复盘 · 整篇给 Chat';
       button.setAttribute('data-reading-passage-copy-chat', '');
 
       const status = document.createElement('small');
       status.setAttribute('data-reading-passage-copy-status', '');
+      status.textContent = '可选：快速看懂错误就继续；解释不清、反复错或需要归因时再用。';
 
       handoff.append(button, status);
       resultSummary.appendChild(handoff);
@@ -97,7 +82,10 @@
         if (actions instanceof HTMLElement) actions.hidden = true;
       });
       readingRoot.querySelectorAll('.portedReadingRepair header span').forEach((label) => {
-        if (label.textContent?.trim() === '只处理这道') label.textContent = '局部证据';
+        if (label.textContent?.trim() === '只处理这道') label.textContent = '局部线索 · 深挖时可选';
+      });
+      readingRoot.querySelectorAll('.portedReadingRepair header small').forEach((label) => {
+        if (label.textContent?.includes('错因')) label.textContent = '能直接说清就不用选错因';
       });
     };
 
@@ -121,19 +109,14 @@
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
       const pendingClaims = activeClaims();
-      const reopenCandidates = problems.size ? recentClosedClaims() : [];
-      const mode = packetMode(attempt);
+      const reopenCandidates = recentClosedClaims();
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
-      const wrongOrdinals = questions
-        .filter((question) => ['wrong', 'unanswered'].includes(attempt.results?.[qid(question)]))
-        .map((question) => `Q${ordinal(question)}`);
-      const uncertainOrdinals = questions
-        .filter((question) => uncertain.has(qid(question)))
-        .map((question) => `Q${ordinal(question)}`);
+      const wrongOrdinals = questions.filter((question) => ['wrong', 'unanswered'].includes(attempt.results?.[qid(question)])).map((question) => `Q${ordinal(question)}`);
+      const uncertainOrdinals = questions.filter((question) => uncertain.has(qid(question))).map((question) => `Q${ordinal(question)}`);
 
       const lines = [
-        'Reading A review packet v1',
-        `Mode: ${mode}`,
+        'Reading A deep review packet v2',
+        'Mode: OPTIONAL_ESCALATION',
         `Object: ${readingKey}`,
         `Source: ${passageMeta || '—'}`,
         `Title: ${passageTitle}`,
@@ -150,57 +133,42 @@
 
       questions.forEach((question) => {
         const id = qid(question);
-        const path = (attempt.trajectory?.[id] || [])
-          .map((step) => step?.answer)
-          .filter(Boolean)
-          .join(' → ') || '—';
+        const path = (attempt.trajectory?.[id] || []).map((step) => step?.answer).filter(Boolean).join(' → ') || '—';
         const note = attempt.causes?.[id] || '—';
-        lines.push(
-          `Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · optional local note ${note}`
-        );
+        lines.push(`Q${ordinal(question)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${expected(question).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path} · optional local note ${note}`);
       });
 
-      const expanded = pendingClaims.length
-        ? questions
-        : questions.filter((question) => problems.has(qid(question)));
+      const expanded = questions.filter((question) => problems.has(qid(question)));
       if (expanded.length) {
-        lines.push('', pendingClaims.length ? 'QUESTION CONTEXT FOR DIAGNOSIS / TRANSFER' : 'EXPANDED DIAGNOSTIC QUESTIONS');
+        lines.push('', 'PROBLEM QUESTION CONTEXT');
         expanded.forEach((question) => lines.push(...questionBlock(question)));
       }
 
-      lines.push('', 'ACTIVE TRANSFER CLAIMS');
+      lines.push('', 'ACTIVE TRANSFER CLAIMS · opportunistic only');
       if (!pendingClaims.length) lines.push('none');
       else pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
-      lines.push('', 'RECENT CLOSED CLAIMS · REOPEN CANDIDATES');
+      lines.push('', 'RECENT CLOSED CLAIMS · reopen only with direct contradiction');
       if (!reopenCandidates.length) lines.push('none');
       else reopenCandidates.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
       lines.push(
         '',
         'REVIEW INSTRUCTION',
-        'Treat this as one complete passage attempt. Diagnose the passage globally first, then merge questions that share one root cause or dependency. Use question-level evidence only after the whole-passage diagnosis chooses the smallest sufficient repair. Route lexical failures to LexicalOS, reading/comprehension failures to Reading, and option-adjudication failures to Reading A. Do not create one permanent weakness or one review card per wrong question.',
-        'ACTIVE TRANSFER CLAIMS are not automatically relevant. Close one only if this fresh passage genuinely tested the same procedure and the execution was stable. RECENT CLOSED CLAIMS are even stricter: reopen one only when a current fresh failure directly contradicts that exact previously closed procedure. Otherwise leave it untouched.',
+        'This escalation was requested because the local result was not cheap to resolve. Diagnose the whole passage first, but stop as soon as the smallest failure sufficient to explain the score-relevant miss is clear. Do not create one review object per wrong question.',
+        'Route true lexical failures to LexicalOS; keep Reading representation failures with Reading; keep task-specific option adjudication failures with Reading A. If the learner can already explain a one-off miss after seeing the decisive evidence / contrast, do not manufacture a durable claim.',
+        'ACTIVE TRANSFER CLAIMS are opportunistic only: update one only if this passage genuinely tested the same procedure. Their existence is not a reason to lengthen the review.',
         '',
         'REPAIR / RETURN PROTOCOL',
-        'Do not turn diagnosis directly into TRANSFER_PENDING. First diagnose the whole passage, then perform the smallest useful repair with the learner in Chat and require re-execution/reconstruction. For any thread that is genuinely completed, set repairCompleted=true and summarize the learner re-execution in repairEvidence. If repair did not occur or was not demonstrated, keep repairCompleted=false and do not create a new task-specific claim from that thread.',
-        'newClaims may only reference a task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. claimUpdates may reference only claim IDs actually supplied above. CLOSED and REOPENED require relevant fresh evidence; if this passage did not test the claim, leave it unchanged.',
+        'Use the smallest useful repair and re-execution only when it changes future behavior or resolves genuine uncertainty. newClaims require a reusable, high-value repaired thread with real repairEvidence. Leave unrelated claims untouched.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
-        JSON.stringify({
-          schema: 'kianos.english.objective_review_return.v1',
-          task: TASK,
-          objectId: readingKey,
-          threads: [],
-          newClaims: [],
-          claimUpdates: []
-        }, null, 2),
+        JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task: TASK, objectId: readingKey, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
         '```'
       );
 
       return {
         text: lines.join('\n'),
-        mode,
         activeClaimIds: pendingClaims.map((claim) => String(claim.claimId || '')).filter(Boolean),
         reopenCandidateIds: reopenCandidates.map((claim) => String(claim.claimId || '')).filter(Boolean)
       };
@@ -211,21 +179,15 @@
       const node = ensureHandoff();
       if (!node) return;
       const attempt = readAttempt();
-      const mode = packetMode(attempt);
-      node.hidden = !attempt?.submitted || attempt?.reviewUnlocked === false || mode === 'PASS';
-      const button = node.querySelector('[data-reading-passage-copy-chat]');
+      const problems = problemIds(attempt).length;
+      node.hidden = !attempt?.submitted || attempt?.reviewUnlocked === false || problems === 0;
       const status = node.querySelector('[data-reading-passage-copy-status]');
-      if (button) button.textContent = mode === 'TRANSFER_CHECK' ? '用这篇验证迁移' : '复制整篇给 Chat';
-      if (status) {
-        status.textContent = mode === 'TRANSFER_CHECK'
-          ? `当前有 ${activeClaims().length} 个 pending claim；只有相关时才需要验证。`
-          : '先按整篇诊断；单题只作为内部证据。';
-      }
+      if (status && problems > 0) status.textContent = `${problems} 个 problem。先快速理解；只有解释不清 / 反复出现时才值得整篇深复盘。`;
     };
 
     ensureHandoff()?.querySelector('[data-reading-passage-copy-chat]')?.addEventListener('click', async () => {
       const attempt = readAttempt();
-      if (!attempt?.submitted || attempt?.reviewUnlocked === false || packetMode(attempt) === 'PASS') return;
+      if (!attempt?.submitted || attempt?.reviewUnlocked === false || problemIds(attempt).length === 0) return;
       const status = handoff?.querySelector('[data-reading-passage-copy-status]');
       const packet = buildPacket(attempt);
       try {
@@ -235,14 +197,12 @@
             schema: 'kianos.english.objective_handoff.v1',
             task: TASK,
             objectId: readingKey,
-            mode: packet.mode,
+            mode: 'OPTIONAL_ESCALATION',
             activeClaimIds: packet.activeClaimIds,
             reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
-          if (status) status.textContent = packet.mode === 'TRANSFER_CHECK'
-            ? '已复制迁移验证包；让 Chat 只判断真正相关的 claim。'
-            : '已复制整篇复盘包；先整篇诊断，再完成最小 repair。';
+          if (status) status.textContent = '已复制深复盘包；让 Chat 在能解释得分问题时立即停，不追求流程完整。';
         } catch {
           if (status) status.textContent = '复盘包已复制，但本机握手状态保存失败；这次不要导入 claim 状态。';
         }

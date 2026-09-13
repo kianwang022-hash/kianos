@@ -12,28 +12,27 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
 <Base
   title="Writing"
   kicker="English · Productive Lane"
-  description="Cold-start whole-essay runtime: synthetic first, then one protected clean true-exam entry, semantic review through Chat, explicit PASS, smallest repair, and private later-fresh transfer evidence."
+  description="Whole-essay productive runtime: preserve first evidence, use semantic review during calibration, repair only meaningful failures, and return to writing."
   active="home"
 >
   <section class="writingHome" data-writing-home data-base={base}>
     <section class="writingHomeHero">
       <div>
         <span>Writing · Whole-Essay Runtime</span>
-        <h2>Generate → Chat judge → PASS / Repair</h2>
-        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 会保存在本机；两篇 synthetic 都合格后，只释放第一篇 clean 真题，不提前展示真题目录、范文或解析。</p>
+        <h2>Generate → Review → PASS / Repair → Continue</h2>
+        <p>先用 synthetic 完整输出建立真实生成能力。first planning/content evidence 和 first draft 保存在本机；calibration 阶段用 Chat 做 semantic judgment，稳定后只让真正影响未来表现的问题进入 repair。</p>
       </div>
       <aside>
         <strong>{state.status === 'ready' ? `${tasks.length} synthetic tasks` : state.status}</strong>
-        <span>S/K/L · accepted</span>
-        <span>P/R · synthetic + gated true-exam entry</span>
-        <span>E · later fresh transfer accepted</span>
-        <span>U · learner validation untested</span>
+        <span>whole essay = learner-facing attempt / review unit</span>
+        <span>first evidence stays private on-device</span>
+        <span>protected true exam stays hidden until entry condition is met</span>
       </aside>
     </section>
 
     <a class="writingLearnLink" href={`${base}writing-learn/`}>
-      <div><span>First Learning</span><strong>Global Map → B1–B8 → Full Synthetic Gate</strong></div>
-      <p>还没系统学过写作时先走这里；会的 Block 可以主动跳过，但不把 canonical asset 做薄。</p>
+      <div><span>First Learning</span><strong>Global Map → targeted primitive → real Writing</strong></div>
+      <p>六个 primitive 是能力 owner，不是必须完成的课程。Small / Big 是 specialization；会的直接跳过，卡住再回来。</p>
       <b>学习框架 →</b>
     </a>
 
@@ -60,15 +59,15 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
         <span>Protected true exam</span>
         <strong data-true-exam-title>现在不展示真题目录</strong>
       </div>
-      <p data-true-exam-copy>Cold-start mechanics 和第一次完整输出先用 synthetic material。真题不是为了证明页面能跑而消耗；Synthetic Small + Big 都到达终态后，只释放一篇 clean 真题来检查 synthetic skill 是否迁移到真实 prompt。</p>
+      <p data-true-exam-copy>Cold-start mechanics 和第一次完整输出先用 synthetic material。两种模式都有真实完整输出后，只释放第一篇 clean 真题来检查 synthetic skill 是否迁移到真实 prompt；不会为了工程验收消耗真题。</p>
       <a class="writingTrueExamEntry" data-true-exam-entry hidden href={`${base}writing/${encodeURIComponent(trueExam.firstExam.id)}/`}>
         开始第一篇 clean 真题 →
       </a>
     </section>
 
     <section class="writingRuntimeBoundary">
-      <strong>P / R / E boundary</strong>
-      <p>Projection 先保护真题，再由两篇 synthetic 的真实终态释放第一篇 official task；该真题继续使用同一个 whole-essay Runtime，保存 first evidence，并走 Chat PASS/repair → learner re-generation → repair check。只有显式可复用高价值问题才进入 TRANSFER_PENDING；同题 repair 不等于 transfer closure。</p>
+      <strong>Runtime boundary</strong>
+      <p>浏览器保存 first evidence 与 unfinished state；Chat 在需要 semantic judgment 时做 whole-essay review。PASS 是出口；repair 只处理 smallest meaningful failure。只有可复用高价值问题才建立后台 transfer target，pending target 不在首页制造 learner attention debt。</p>
     </section>
 
     <script type="application/json" data-writing-catalog set:html={payload}></script>
@@ -84,24 +83,24 @@ const payload = JSON.stringify({ tasks, trueExam: trueExam.firstExam }).replace(
     const finalStates = new Set(['PASS_ACCEPTABLE', 'REPAIR_COMPLETE', 'TRANSFER_PENDING']);
     const stageText = (state) => ({
       ATTEMPT: '进行中 · Clean Attempt',
-      REVIEW_PENDING: '待 Chat Review',
+      REVIEW_PENDING: '待 semantic review',
       PASS_ACCEPTABLE: 'PASS / ACCEPTABLE',
       REPAIR_NEEDED: '需要最小 repair',
-      REPAIR_CHECK_PENDING: '待 Repair Check',
-      REPAIR_COMPLETE: 'REPAIR_COMPLETE',
-      TRANSFER_PENDING: 'TRANSFER_PENDING'
+      REPAIR_CHECK_PENDING: 'repair 尚未确认',
+      REPAIR_COMPLETE: 'Repair Complete',
+      TRANSFER_PENDING: 'Repair Complete'
     })[state] || '未开始';
 
     let completed = 0;
     tasks.forEach((task) => {
       let saved = null;
       try { saved = JSON.parse(localStorage.getItem(`kianos-writing-runtime-v1:${task.id}`) || 'null'); } catch {}
-      const state = saved?.state || '';
-      if (finalStates.has(state)) completed += 1;
+      const taskState = saved?.state || '';
+      if (finalStates.has(taskState)) completed += 1;
       const label = root.querySelector(`[data-task-state="${task.id}"]`);
-      if (label) label.textContent = stageText(state);
+      if (label) label.textContent = stageText(taskState);
       const card = root.querySelector(`[data-writing-task-card="${task.id}"]`);
-      if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(state) ? 'true' : 'false';
+      if (card instanceof HTMLElement) card.dataset.complete = finalStates.has(taskState) ? 'true' : 'false';
     });
 
     const qualified = completed === tasks.length && tasks.length === 2;

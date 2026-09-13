@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'LEARNING_ACCEPTANCE.md'
+      - 'content/english/CURRENT.md'
       - 'content/english/LEARNING_CONTRACT.md'
       - 'content/english/manifest.json'
       - 'content/english/modules/writing/**'
@@ -20,6 +21,7 @@ on:
       - 'static-web/src/lib/*writing*.mjs'
       - 'static-web/src/lib/*Writing*.mjs'
       - 'static-web/src/components/Writing*.astro'
+      - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/writing.astro'
       - 'static-web/src/pages/writing/**'
       - 'static-web/src/pages/writing-learn.astro'
@@ -28,6 +30,7 @@ on:
   pull_request:
     paths:
       - 'LEARNING_ACCEPTANCE.md'
+      - 'content/english/CURRENT.md'
       - 'content/english/LEARNING_CONTRACT.md'
       - 'content/english/manifest.json'
       - 'content/english/modules/writing/**'
@@ -43,6 +46,7 @@ on:
       - 'static-web/src/lib/*writing*.mjs'
       - 'static-web/src/lib/*Writing*.mjs'
       - 'static-web/src/components/Writing*.astro'
+      - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/writing.astro'
       - 'static-web/src/pages/writing/**'
       - 'static-web/src/pages/writing-learn.astro'
@@ -56,6 +60,7 @@ concurrency:
 jobs:
   writing-runtime-qa:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     defaults:
       run:
         working-directory: static-web
@@ -72,3 +77,17 @@ jobs:
         run: npm run validate:writing
       - name: Build Astro
         run: npm run build
+      - name: Install isolated browser acceptance tool
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Functional First Writing + Resume journey
+        run: node scripts/test-writing-ffv-journey.mjs
+      - name: Preserve FFV evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: writing-ffv-${{ github.sha }}
+          path: ffv-audit/
+          retention-days: 14
+          if-no-files-found: warn

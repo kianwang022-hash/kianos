@@ -2,20 +2,20 @@
 
 ## Role
 
-Reading A is the exam-specific objective-reading module for English I.
+Reading A is the English I objective-reading trainer for **evidence-based option adjudication**.
 
-Target: **40/40 in training, with exam execution stable enough to support the overall 80–85+ goal.**
+Target: **40/40 in training**, with execution stable enough to support the overall English 80–85+ goal.
 
 Parent contracts:
 
-- `content/english/LEARNING_CONTRACT.md` for cross-English learning philosophy;
-- `content/english/modules/objective-runtime.md` for the frozen objective-task runtime, passage/set review unit, evidence/transfer semantics, and Chat review-packet rules.
+- `content/english/LEARNING_CONTRACT.md`;
+- `content/english/modules/objective-runtime.md`.
 
-Reading A is not organized around teacher question-type courses. Its learner path is:
+Learner path:
 
-`understand → locate decisive evidence → adjudicate options → execute`
+`understand relevant text → identify question demand → locate decisive evidence → adjudicate real competing options → execute`
 
-Question type may describe the item, but it is not assumed to explain the failure.
+Question type may describe an item, but it is not assumed to explain the failure.
 
 ---
 
@@ -23,308 +23,205 @@ Question type may describe the item, but it is not assumed to explain the failur
 
 The first attempt must remain clean and exam-like.
 
-Default learner surface:
+Default surface:
 
-- passage on the left;
-- one current question on the right;
-- A–D answer controls;
-- `Uncertain` as the only optional learner mark during the clean attempt;
-- quiet timer / progress;
+- passage visible;
+- one current question / A–D controls;
+- `Uncertain` as an optional low-friction mark;
+- quiet timer/progress;
 - fast keyboard navigation;
-- optional low-friction passage marking when useful.
+- optional lightweight passage marking.
 
-Before submission, do **not** expose:
+Before submission, do not expose formal answer, decisive evidence, option diagnosis, teacher method, prior-attempt analysis, or repair hints.
 
-- formal answer;
-- decisive evidence;
-- option diagnosis;
-- teacher method;
-- prior-attempt answer or analysis;
-- repair hints.
-
-Do not make annotation, tagging, or note-taking mandatory. Native text selection may remain available; custom marking should stay lightweight and optional.
+Annotation and note-taking are optional.
 
 ---
 
 ## Private attempt evidence
 
-Astro may keep private browser/device evidence needed for interaction and diagnosis. This is not shared Current content.
+Useful private evidence is intentionally small:
 
-Useful evidence is intentionally small:
-
-- selected answer per question;
+- final answer per question;
 - uncertain state;
-- attempt start / submit time;
+- attempt timing;
 - answer changes when available;
-- current question / navigation state;
 - final correctness;
-- optional learner quick-cause note after submission.
+- optional coarse learner note after submission.
 
-The learner may record a **coarse, low-friction personal cause** because this can preserve the feeling of the moment. It is not the system's semantic diagnosis and must never be mandatory.
+A quick-cause mark such as `没读懂 / 没定位准 / 选项没辨清 / 看错或改错` may preserve the learner's momentary feeling. It is not semantic truth and must never be mandatory.
 
-Preferred quick causes, when retained in UI, may include:
-
-- 没读懂;
-- 没定位准;
-- 选项没辨清;
-- 看错 / 改错.
-
-Chat remains responsible for deeper diagnosis when needed.
-
-Question-level evidence is permitted because evidence granularity may be smaller than review granularity. It must not turn the learner–Chat interaction into question-by-question review.
+Question-level evidence is allowed because evidence granularity can be smaller than attempt / diagnostic context.
 
 ---
 
-## Submit behavior
+## Submit and fast triage
 
 ### Stable clean result
 
-If all questions are correct, all answered, and none are marked uncertain:
+If all questions are correct, answered, and no uncertainty is meaningful:
 
 `score → compact success → next`
 
-Do not open a full explanation panel or force a second pass.
+Do not open full explanation or force a second pass.
 
-### Review queue
+### Problem signals
 
-A passage enters review by default when it contains at least one high-value signal:
+Wrong / unanswered and meaningful uncertainty trigger **fast triage**, not automatic deep Chat review.
 
-1. wrong / unanswered question;
-2. uncertain question even if correct;
-3. later, a meaningful execution anomaly when the captured evidence is strong enough to justify it.
+Triage should decide cheaply:
 
-Stable correct questions remain compressed **inside the passage-level review packet**. They do not become separate review work.
+- can the learner now identify the decisive evidence / option difference and explain the miss? → quick-resolved, move on;
+- is the failure lexical? → LexicalOS;
+- is the relevant proposition / scope / relation representation unstable? → shared English Representation repair;
+- is the problem ambiguous, recurring, high-cost, or likely to generalize? → optional deep review.
+
+A correct-but-uncertain item may fast-pass after a cheap check if no reusable weakness is supported.
 
 ---
 
 ## Review timing
 
-Attempt and review are separate phases. Do not interleave repair into the middle of the intended attempt unit.
+Attempt and repair stay separate. Do not interrupt the middle of a planned attempt unit.
 
-For a single-passage session:
+For continuous multi-passage training, review may be deferred until the planned batch ends so one miss does not destroy reading continuity.
 
-`finish the whole passage → submit → review the passage`
-
-For continuous training across multiple passages:
-
-`finish the planned passage set → then review the passages that actually need review`
-
-Continuous training is a deliberate **sealed mode**. Once enabled, each submitted passage may be recorded privately, but until the learner ends the continuous session the learner-facing surface should reveal only that the passage has been submitted. It must not reveal:
-
-- passage score;
-- which questions were wrong;
-- formal answers;
-- canonical evidence;
-- option diagnosis;
-- repair prompts.
-
-The learner can continue directly to the next passage. Ending the continuous session unlocks review only for passages that actually contain wrong, unanswered, uncertain, or later well-supported execution-anomaly items. Clean passages do not need to become review work merely because they were part of the session.
-
-For ordinary single-passage training, submission itself ends the clean attempt, so review may open immediately after the whole passage has been submitted.
+Clean passages do not become review work merely because they were part of a batch.
 
 ---
 
-## Frozen learner–Chat review unit
+## Diagnostic context envelope
 
-> **The minimum normal learner–Chat review unit is one complete Reading A passage and its full question set.**
+When deep Chat review is justified, the complete passage + its question set is the normal **diagnostic context envelope**.
 
-A single question is never the normal Chat review entrypoint.
+Why: several question-level problems may share one sentence, paragraph, stance, evidence-boundary, or discourse failure.
 
-Question objects remain valid internal evidence and repair slices. After Chat has inspected the whole passage attempt, it may decide that the smallest sufficient repair is local to one question, one sentence, or one option contrast. That local repair does not change the review unit.
+This is **not** a rule that every wrong or uncertain question must create a whole-passage Chat ritual.
 
-Chat should first ask, implicitly or explicitly:
+Question objects remain valid internal evidence and local repair slices.
+
+Chat should ask:
 
 ```text
-What happened across this passage?
-→ are the problem questions independent?
-→ do several share one representation/evidence failure?
-→ is any wrong answer dependent on an earlier misunderstanding?
-→ what is the smallest repair scope that explains the pattern?
+what happened across this passage?
+→ are problem questions independent?
+→ do several share one upstream failure?
+→ are some dependent/cascading?
+→ what is the smallest independent repair set?
 ```
-
-Completion language belongs at the passage or training-session level. A single question may be **handled as an internal repair slice**, but not declared independently mastered merely because it was corrected.
 
 ---
 
-## Passage-level review principle
+## Deep-review principle
 
-The review target is the **first meaningful failure**, not the largest available explanation and not one explanation per wrong question.
-
-Default review object:
-
-`complete passage attempt + compact all-question outcome map + expanded wrong/uncertain evidence`
-
-Stable correct questions remain visible only as compact evidence unless their content becomes necessary to establish a shared cause.
-
-The learner should reconstruct before receiving passive explanation whenever possible.
-
-A passage review should normally resolve into a small number of **repair threads** rather than one card/thread per problem question.
+Prefer the smallest set of meaningful independent failures, not the largest explanation and not one explanation per wrong question.
 
 Example:
 
 ```text
-Q2 wrong
-Q4 wrong
-Q5 uncertain
-↓
-Chat discovers Q2/Q4 share one paragraph-level stance misunderstanding
-↓
-1 Reading repair thread covers Q2 + Q4
-Q5 is independently an option-boundary repair
-↓
-2 repair threads, not 3 separate weaknesses
+Q2 wrong + Q4 wrong
+→ one paragraph-level stance misunderstanding
+→ one shared repair
+
+Q5 uncertain for an unrelated option-boundary reason
+→ one separate local repair
 ```
+
+This yields two repairs, not three and not an artificial one-thread-only story.
 
 ---
 
-## Internal repair actions
+## Repair actions
 
-These are repair scopes selected **after passage-level diagnosis**. They are not separate Chat entrypoints.
-
-### UNDERSTAND / SENTENCE
+### REPRESENT / SENTENCE
 
 Use when the decisive failure is the language representation itself.
 
-Surface:
+Surface only the necessary sentence/span and reconstruct proposition / relation.
 
-`necessary sentence/span → learner reconstructs proposition`
+Shared semantic primitives may include clause hierarchy, attachment, reference, scope, modality/degree, and logical relation.
 
-Do not reopen the whole passage unless local context is insufficient.
+Do not reopen the whole passage unless context requires it.
 
 ### LOCATE
 
-Use when the text was basically understood but the decisive evidence was not located correctly.
+Use when the text was basically understood but decisive evidence was not located correctly.
 
-Surface:
+`question → passage → re-identify minimum sufficient evidence`
 
-`question → passage → re-identify minimal decisive evidence`
-
-Do not reveal the decisive evidence before the learner gets a chance to relocate it.
+Do not reveal the decisive evidence before giving the learner a chance to relocate it when reconstruction value exists.
 
 ### JUDGE
 
-Use when the evidence is available but the options were adjudicated incorrectly.
+Use when evidence is available but options were adjudicated incorrectly.
 
-Surface:
+`minimum evidence + real competing option(s) → state the decisive difference`
 
-`minimal evidence + chosen option + correct option → state the decisive difference`
-
-Do not expand all four options unless the other distractors are themselves diagnostically useful.
+Do not analyze all four options unless needed.
 
 ### LEXICAL
 
-If a word, phrase, construction, contrast, or familiar-new sense caused the first failure, route the repair to its canonical LexicalOS owner when one exists. Do not create a duplicate Reading-specific word explanation.
+Route word-local sense, phrase, construction, collocation, contrast/confusable, or familiar-new-sense failure to LexicalOS.
 
-### DISCOURSE
+### DISCOURSE / REPRESENTATION
 
-Use when sentence-level repair is insufficient and paragraph / discourse structure is the first meaningful failure.
+Use when sentence-level repair is insufficient and paragraph/discourse structure is the first meaningful failure.
 
-Surface only the minimum structure needed to reconstruct the relation.
-
-One discourse repair may explain several question-level errors. Those errors should be attached to the same primary repair thread rather than counted as separate weaknesses.
+One discourse repair may explain several questions.
 
 ### EXECUTION
 
-Use only when observable attempt evidence supports a behavior-level failure, such as an avoidable answer switch or time-management problem.
+Use only when observable attempt evidence supports a behavior-level failure such as an avoidable answer switch or time collapse.
 
-Show the smallest relevant trajectory/timing evidence and derive one behavior rule. Do not convert ordinary uncertainty into an execution diagnosis.
-
----
-
-## Chat bridge｜Reading A passage packet v1
-
-Chat owns semantic diagnosis.
-
-The normal Astro action is **copy one complete Reading A passage attempt to Chat**. Do not make per-question `copy to Chat` the default bridge.
-
-The packet should be self-contained enough for ordinary review and compact enough not to duplicate unnecessary material.
-
-### Required packet structure
-
-#### 1. Identity
-
-- `Reading A review packet v1`;
-- reading object ID;
-- paper/year/section identity when available.
-
-#### 2. Attempt summary
-
-- score / total;
-- duration;
-- wrong / unanswered ordinals;
-- uncertain ordinals;
-- continuous-session marker when relevant.
-
-#### 3. Passage
-
-Include the passage once.
-
-A learner-selected passage span may be included as supplemental evidence, but must not replace the passage-level context.
-
-#### 4. All-question outcome map
-
-For every question preserve compactly:
-
-- ordinal / stable question ID;
-- learner final answer;
-- formal answer;
-- result;
-- uncertain yes/no;
-- answer path when captured;
-- optional learner quick cause when present.
-
-#### 5. Expanded diagnostic questions
-
-For wrong, unanswered, or uncertain questions, additionally include:
-
-- prompt;
-- options.
-
-Stable correct questions do not need full prompt/options in the default clipboard packet.
-
-### Expected Chat behavior
-
-Chat should process the packet as:
-
-`whole passage → identify meaningful problem questions → merge shared causes/dependencies → choose repair threads → route Lexical/Reading/task-specific failures → set only justified transfer claims`
-
-The learner should not need to manually retell each wrong question.
-
-Personal diagnosis is not written into shared Current by default. If repeated evidence justifies a durable shared learning asset or interaction improvement, update the relevant canonical owner in GitHub.
+Derive one compact behavior rule. Do not turn ordinary uncertainty into an execution diagnosis.
 
 ---
 
-## Retry / second pass
+## Optional Chat bridge
 
-There is no mandatory standalone “二刷” workflow.
+Chat owns deep semantic diagnosis, but Chat is not mandatory after every problem.
 
-A retry exists to verify a repair, not to make the learner re-do a page because the system has a second-pass feature.
+When escalation is justified, one self-contained passage packet may include:
 
-Preferred sequence:
+1. identity;
+2. score / duration / problem ordinals;
+3. passage once;
+4. compact all-question outcome map;
+5. expanded prompt/options for meaningful problem questions;
+6. uncertainty / answer trajectory / optional note when useful.
 
-`attempt unit → submit / seal → finish intended training unit → passage-level review → smallest repair threads → passage / session review complete → later unseen transfer`
+Stable correct questions stay compact.
 
-Quick cause logging is optional and should take one click if kept. It supplements, rather than replaces, semantic diagnosis.
+Expected Chat behavior:
+
+`whole context → meaningful problems → merge shared/dependent causes → choose smallest repair set → route LexicalOS / Representation / Reading-A-specific failures → optional backend transfer state`
+
+The learner should not need to retell every question.
+
+---
+
+## Retry / same-item correction
+
+There is no mandatory second-pass workflow.
+
+A known-item retry exists only when it gives useful repair evidence. Same-question correction proves that the repair may have worked; it is not mastery.
+
+The preferred end state is to return to new performance, not to prove completion of a page.
 
 ---
 
 ## Future validation / transfer
 
-Handling a known problem item is not mastery evidence.
-
-After a high-value passage review, private runtime may keep small **WATCH / TRANSFER_PENDING** signals describing what should be observed later. Such signals are future observation targets, not permanent weakness labels and not automatic new review work.
-
-Evidence strength should rise roughly as follows:
-
-`known-item repair < later clean success < later matching success on genuinely fresh / unseen material`
+A repaired reusable task-specific behavior may become a small backend observation target only when later evidence could change confidence or study allocation.
 
 Rules:
 
-- do not claim transfer from re-answering the same known question;
-- do not promote a one-off failure into a durable weakness;
-- repeated high-confidence failures on distinct passages matter more than one event;
-- a stable success on fresh material is stronger than a remembered success on a reused exam passage;
-- automatic transfer matching must remain conservative; if the runtime cannot establish the same underlying weakness reliably, leave the signal pending and let later evidence or Chat resolve it.
+- no durable weakness from one event;
+- no automatic future task from a pending target;
+- no clean-passage Chat requirement caused by pending state;
+- later fresh success is stronger than remembered success;
+- repeated high-confidence failures on distinct passages matter more than one miss;
+- if later normal work genuinely tests a pending behavior, Chat may update it opportunistically during an already-justified review.
 
 ---
 
@@ -332,46 +229,40 @@ Rules:
 
 Canonical exam source remains factual authority for passage, questions, options, and formal answers.
 
-High-value learner assets may be added only when they have future retrieval value, for example:
+High-value backend learner assets may include:
 
-- minimal decisive evidence;
+- minimum decisive evidence;
 - decisive proposition;
-- chosen-vs-correct option contrast;
+- chosen-vs-correct contrast;
 - necessary sentence/discourse focus;
-- validated high-value repair note.
+- validated repair note.
 
-These assets may exist richly in the backend but are revealed progressively according to the current repair action.
-
-Do not create one durable asset merely because one question was once wrong.
+Backend richness does not require learner-facing display. Do not create a durable asset merely because one question was once wrong.
 
 ---
 
-## Relationship to external reading
+## External reading
 
-Reading A measures **exam fitness**.
+Reading A measures exam fitness. Fresh TPO / IELTS / periodical material can provide lower-memory-residue transfer, language breadth, and reading-speed evidence.
 
-Fresh TPO / IELTS / periodical material measures **language transfer under low memory residue**.
-
-The two pools are complementary. Reused exam passages remain valuable for exam mechanics and failure repair, but their correctness rate must not be treated as equivalent to unseen mastery once memory residue is substantial.
+These pools are complementary. Reused exam passages are useful for mechanics/repair, but remembered correctness must not be treated as unseen mastery.
 
 ---
 
 ## UI deletion rule
 
-A Reading control or panel should not survive merely because it existed in Local or an earlier runtime.
+A Reading control or panel survives only if it materially improves:
 
-Keep it only if it materially improves one of:
-
-- clean attempt quality;
-- evidence capture for diagnosis;
-- speed of high-value repair;
+- clean-attempt quality;
+- useful evidence capture;
+- speed/quality of high-value repair;
 - score reliability;
-- unseen transfer testing.
+- or return to new performance.
 
-Specific consequence of Objective Runtime v1:
+Consequences:
 
-- a per-question `copy to Chat` control should be removed or demoted from the normal flow;
-- the normal Chat bridge should be one passage-level packet;
-- internal Q navigation and local repair slices may remain when they reduce repair friction, but must not make the learner perform question-by-question Chat review.
-
-Otherwise remove the control.
+- per-question `copy to Chat` is not a normal bridge;
+- passage-level deep handoff is optional escalation, not mandatory closure;
+- quick-cause / evidence-span / diagnosis controls remain optional;
+- pending backend state must not surface simply because it exists;
+- stable correct work should collapse.
