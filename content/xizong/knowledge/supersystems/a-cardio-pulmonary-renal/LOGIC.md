@@ -38,9 +38,9 @@ Hard rule:
 
 > **Compression that creates more study burden than retrieval / transfer / score value is negative value and must not reach the learner.**
 
-This rule applies to A-level teaching/projection, not to the existence of A as a taxonomy parent. Even if learner-facing A integration later proves useless, A can remain the structural parent of A1/A2/A3 while its visible learning content collapses toward zero.
+This applies to learner-facing A integration, not to the existence of A as a taxonomy parent. A may remain the structural parent of A1/A2/A3 even if its visible learning projection later collapses toward zero.
 
-The A parent must never create an independent required study quota, KP inventory, question quota, Memory queue, review debt, or completion burden.
+A must never create an independent required study quota, KP inventory, question quota, Memory queue, review debt, or completion burden.
 
 ---
 
@@ -57,9 +57,9 @@ E · Reproductive / Breast
 F · Remaining integrated clinical domains
 ```
 
-A is therefore **not** a new layer placed above the other current Systems.
+A is therefore **not** a new layer placed above the other broad domains.
 
-The current repository reports eight numbered Systems because A is unusually large and important and has been decomposed into three independently owned Systems:
+The repository currently has eight numbered System owners because A is unusually important and large and has been decomposed into three independently owned Systems:
 
 ```text
 A
@@ -74,12 +74,11 @@ E
 F
 ```
 
-So two different granularities must not be confused:
+So three granularities must not be confused:
 
 - **macro-domain taxonomy** = A / B / C / D / E / F;
-- **Current System owner granularity** = A1 / A2 / A3 / B / C / D / E / F.
-
-The manifest's eight numbered Systems describe durable artifact/owner units. They do not prove that A1/A2/A3 should be interpreted as top-level conceptual peers of B/C/D/E/F.
+- **Current System owner granularity** = A1 / A2 / A3 / B / C / D / E / F;
+- **learner route** = whatever sequence best serves the current exam phase.
 
 Hard rule:
 
@@ -89,7 +88,7 @@ Hard rule:
 
 ## 2｜Why A is specially decomposed into A1 / A2 / A3
 
-A1/A2/A3 receive independent System status because that decomposition is useful for the 275+ target, not because heart, lung and kidney are unrelated.
+A1/A2/A3 receive independent System status because that decomposition materially serves the 275+ target, not because heart, lung and kidney are unrelated.
 
 A split is justified when a child domain has enough of the following:
 
@@ -98,69 +97,149 @@ A split is justified when a child domain has enough of the following:
 - substantial independent first-pass learning work;
 - distinct Block / Logic Group / KP organization;
 - enough question coverage and error modes to justify independent verification;
-- enough engineering/runtime scope to justify independent continuation and Acceptance.
+- enough runtime/governance scope to justify independent continuation and Acceptance.
 
 A1, A2 and A3 meet that bar.
 
-This creates a deliberate asymmetry:
+This is a deliberate asymmetry:
 
-> **A is one top-level functional domain that receives three first-class implementation/learning Systems because the exam benefit of decomposing it is high.**
+> **A is one top-level macro-domain whose exam importance and internal scale justify three first-class child Systems.**
 
-The split is a performance decision, not a claim that their physiology should be learned as isolated worlds.
-
-If another macro-domain later becomes too large and receives similar first-class subdivisions, that would be the same pattern. It would not create another mysterious tier above A/B/C/D/E/F.
+The split is a performance decision. It must make learning, verification, repair and review easier than one giant A owner would.
 
 ---
 
-## 3｜What the A parent actually owns
+## 3｜What the A parent owns
 
-A owns only the **cross-child relations whose value appears specifically because A1, A2 and A3 are integrated**.
+A owns only cross-child relations whose value appears specifically because two or more child Systems are integrated.
 
-A does not own the union of all heart + lung + kidney facts.
+A does **not** own the union of all heart + lung + kidney facts.
 
-The A parent may own:
+A may own:
 
-- the organism-level mother model connecting gas exchange, blood flow and extracellular-fluid regulation;
-- a small set of cross-System loops;
-- shared localization coordinates used to distinguish which child System is failing;
-- explicit external interfaces to other macro-domains;
-- later phase compression where one cross-System reconstruction safely replaces duplicated review.
+- the minimal relationship among A1/A2/A3;
+- cross-System localization coordinates;
+- explicit pairwise interfaces;
+- external interfaces to B/C/D/E/F where needed;
+- later compression where one shared reconstruction safely replaces repeated child review.
 
 A must not own:
 
-- local A1/A2/A3 formulas merely because they can be displayed together;
-- disease-specific diagnosis/treatment already explained inside a child System;
+- local formulas merely because they can be displayed together;
+- disease-specific diagnosis/treatment already explained in A1/A2/A3;
 - copied KP content;
-- a second question bank or question taxonomy;
+- a second question taxonomy;
 - a second Memory/review queue;
 - an independent mandatory completion state.
 
-Admission test for any A-level relation:
+Admission test:
 
-> **If one child System can explain the relation completely without losing the reason it matters, the relation does not need A-level ownership.**
-
----
-
-## 4｜A-domain problem statement
-
-A1, A2 and A3 are coherent local causal Systems, but the common A domain solves one organism-level problem:
-
-> **Can the body maintain viable tissue delivery while keeping the circulating internal environment compatible with continued function?**
-
-This can be decomposed into four recurring questions:
-
-1. **Can O₂ enter blood?**
-2. **Can blood with adequate content reach tissue in adequate flow?**
-3. **Is circulating volume/composition compatible with stable perfusion and cellular function?**
-4. **Can CO₂, non-volatile acid, water, electrolytes and renal-excreted solutes be removed or regulated fast enough to keep that system viable?**
-
-The A-level model exists to compress the repeated reconstruction required when a problem crosses child boundaries.
-
-It does not need to appear when a local A1/A2/A3 model already solves the task efficiently.
+> **If one child System can explain a relation completely without losing why it matters, the relation does not need A-level ownership.**
 
 ---
 
-## 5｜A-domain mother model
+## 4｜Structural invariant: A is a three-edge triangle
+
+The cleanest A-level Logic is not a long “whole-body story”. It is a triangle of three high-value pairwise couplings:
+
+```text
+                 A2 Respiratory
+                /              \
+      O₂ delivery                CO₂ / acid–base
+              /                    \
+     A1 Circulation —— perfusion / volume —— A3 Urinary
+```
+
+This triangle is the primary structural claim.
+
+Each edge must justify itself independently.
+
+### Edge A1 ↔ A2｜Oxygen Delivery
+
+```text
+lung oxygenation
+→ arterial oxygen content
+→ cardiac output / distribution
+→ tissue O₂ delivery
+```
+
+Key discrimination:
+
+> **oxygenation failure ≠ oxygen-content failure ≠ flow failure ≠ distribution/use failure**
+
+Why this belongs at A level:
+
+- A2 can explain oxygenation but not whether enough oxygenated blood reaches tissue.
+- A1 can explain flow but not whether the blood was adequately oxygenated.
+- Hb/RBC mass enters as an explicit external C-domain interface rather than being silently owned by A.
+
+Pulmonary circulation, right-heart load and pulmonary vascular coupling may appear later as derived detail on this edge if they prove exam-useful; they are not admitted as a separate primitive yet.
+
+### Edge A1 ↔ A3｜Perfusion ↔ Volume
+
+```text
+cardiac output / arterial pressure
+→ renal perfusion
+→ renal Na-water handling + RAAS / distal regulation
+→ extracellular / effective arterial blood volume
+→ venous return + preload + vascular load
+→ cardiac output / pressure
+```
+
+Key discrimination:
+
+> **kidney function depends on perfusion while kidney regulation helps set the volume state that determines future perfusion.**
+
+Why this belongs at A level:
+
+- A1 alone cannot close the long-term volume/perfusion feedback.
+- A3 alone cannot explain renal perfusion as an independent upstream variable.
+- this edge directly links shock/prerenal reasoning, volume state, RAAS and heart–kidney feedback without creating a new disease chapter.
+
+### Edge A2 ↔ A3｜CO₂ / Acid–Base
+
+```text
+cellular metabolism
+→ CO₂ + non-volatile acid production
+→ lung changes CO₂ elimination rapidly
+↔ kidney changes HCO₃⁻ conservation/generation and H⁺ excretion more slowly
+→ pH stability
+```
+
+Key discrimination:
+
+> **lung and kidney are coupled acid–base actuators acting through PaCO₂ and HCO₃⁻ on the same pH problem, with different time scales.**
+
+Why this belongs at A level:
+
+- respiratory and metabolic components cannot be fully localized from only one child System;
+- compensation logic inherently crosses A2/A3;
+- the shared relation is more useful than duplicating acid–base framing independently in both children.
+
+---
+
+## 5｜Why the triangle is stronger than a giant SuperSystem narrative
+
+The triangle has four advantages for the 275+ goal:
+
+1. **Minimality:** only three primitive cross-child relations are admitted.
+2. **Localizability:** a mixed case can first be placed on one edge before opening detailed child knowledge.
+3. **No forced all-three reasoning:** many questions need only A1↔A2, A1↔A3 or A2↔A3; the third child can remain invisible.
+4. **Progressive compression:** three edges can plausibly collapse into a very thin second-round/final-sprint skeleton.
+
+All-three phenomena are therefore treated as **compositions of edges**, not automatically as new top-level primitives.
+
+Examples such as shock + AKI, heart failure + pulmonary congestion + renal response, or respiratory failure + acid–base disturbance may traverse two or three edges, but that does not create a fourth “multi-organ” curriculum.
+
+Hard rule:
+
+> **Do not promote a derived three-organ scenario into a new primitive unless repeated 306 reasoning cannot be handled cleanly by composing the three admitted edges.**
+
+---
+
+## 6｜Derived whole-body loop: useful explanation, not the primary invariant
+
+A whole-body loop can still summarize the three edges:
 
 ```text
 external O₂
@@ -177,74 +256,11 @@ external O₂
 → loop repeats
 ```
 
-This is a **closed core physiological loop with explicit external interfaces**. It is not three chapters placed side by side and not a complete model of the whole organism.
+But this long loop is **secondary**.
 
-Minimum relationship:
+If later Content can express the A parent more efficiently with the three-edge triangle alone, the long loop does not deserve learner-facing space.
 
-```text
-Tissue delivery = Flow × Blood content
-
-Homeostatic stability
-= adequate delivery
-+ adequate gas / renal-solute removal
-+ controlled circulating volume / composition
-```
-
-Exact formulas, coefficients, disease thresholds, diagnosis and treatment remain in canonical child System / Block owners.
-
----
-
-## 6｜Three admitted A-level loops
-
-### Loop A · Oxygen Delivery
-
-```text
-lung oxygenation
-→ arterial oxygen content
-→ cardiac output / distribution
-→ tissue delivery
-```
-
-Key distinction:
-
-> **oxygenation failure ≠ oxygen-content failure ≠ flow failure ≠ distribution/use failure**
-
-The A parent may own the distinction as a localization coordinate. Detailed causes remain local or external.
-
-### Loop B · Perfusion ↔ Volume
-
-```text
-cardiac output / arterial pressure
-→ renal perfusion
-→ renal Na-water handling + RAAS / distal regulation
-→ extracellular / effective arterial blood volume
-→ venous return + preload + vascular load
-→ cardiac output / pressure
-```
-
-Key distinction:
-
-> **the kidney depends on perfusion while helping set the volume state that determines future perfusion.**
-
-### Loop C · CO₂ / Acid–Base
-
-```text
-cellular metabolism
-→ CO₂ + non-volatile acid production
-→ lung changes CO₂ elimination rapidly
-↔ kidney changes HCO₃⁻ conservation/generation and H⁺ excretion more slowly
-→ pH stability
-```
-
-Key distinction:
-
-> **lung and kidney are coupled acid–base actuators acting through PaCO₂ and HCO₃⁻ on the same pH problem, with different time scales.**
-
-### Why only three for now
-
-Pulmonary circulation/right-heart coupling, congestion, edema and similar phenomena are currently treated as **derived intersections** of Oxygen Delivery and Perfusion↔Volume.
-
-Do not create a fourth A-level loop unless repeated real 306 reasoning shows that the existing three cannot localize an important cross-System problem without awkward exceptions.
+This protects A3 from being awkwardly appended to an “oxygen-delivery story” and keeps the Logic from becoming grander than the exam requires.
 
 ---
 
@@ -261,52 +277,43 @@ Candidate A-level coordinates are deliberately few:
 
 These are coordinates for localization and compression, not a new fact list to memorize.
 
+A coordinate survives only if it helps at least one admitted edge.
+
 ---
 
 ## 8｜External interfaces — explicit non-closure
 
 A is not a complete model of the organism. Important inputs remain externally owned:
 
-- **Hb / RBC mass** → Hematology; modifies arterial O₂ content.
-- **metabolic demand / substrate use / CO₂ production** → metabolism/endocrine.
-- **autonomic and endocrine control** → neuro/endocrine interfaces where appropriate.
-- **systemic inflammation / infection** → defense/infection owners.
+- **Hb / RBC mass** → C / Hematology; modifies arterial O₂ content on the A1↔A2 edge.
+- **metabolic demand / substrate use / CO₂ production** → B / metabolism-endocrine interface.
+- **autonomic and endocrine control** → D/B interfaces where appropriate.
+- **systemic inflammation / infection** → C-domain interface.
 - **hepatic and other non-renal clearance / metabolism** → outside A.
 
 Hard rule:
 
-> **An interface may enter the A model without transferring ownership of its source domain.**
+> **An interface may enter A without transferring ownership of its source domain.**
 
-This boundary is especially important because A is a top-level macro-domain peer, not a whole-body master owner.
+A is a top-level peer, not a whole-body master owner.
 
 ---
 
 ## 9｜Conceptual parent ≠ mandatory learner step
 
-A being the parent of A1/A2/A3 does not automatically mean every learner path must execute:
+A being the parent of A1/A2/A3 does not automatically mean every learner path must execute A before, between or after every child System.
+
+The stable Logic is only:
 
 ```text
-A orientation
-→ A1
-→ A orientation again
-→ A2
-→ A orientation again
-→ A3
-→ A completion
-```
-
-That would confuse taxonomy with learning workflow and can directly harm the 275+ objective.
-
-The stable truth is only:
-
-```text
-A = common macro-domain context
+A = common macro-domain parent
 A1/A2/A3 = independently learnable first-class child Systems
+three pairwise edges = A-level cross-child compression
 ```
 
-Whether A-level content should appear before, between or after child Systems is a later Content/Learn decision and must be justified by net score utility.
+Whether A-level Content should appear before, between or after child Systems is a later Content/Learn decision and must be justified by net score utility.
 
-Therefore:
+Hard rule:
 
 > **Parent existence does not earn learner contact time.**
 
@@ -314,36 +321,34 @@ Therefore:
 
 ## 10｜Exam-phase utility constraint
 
-The eventual A-level projection may have different thickness across phases, but it must become **thinner as the exam approaches**, never thicker.
+The eventual learner-facing A projection may have different thickness across phases, but it must become **thinner as the exam approaches**, never thicker.
 
 ### First round
 
 Potential value only:
 
-- reduce the cost of understanding genuine A1/A2/A3 intersections;
-- prevent isolated memorization where one shared mechanism is enough;
-- orient a child System without delaying its Lecture / Block mainline.
+- make a genuine pairwise relation easier when it first becomes relevant;
+- prevent duplicated or isolated mechanism learning;
+- orient a child System without delaying Lecture / Block mainline.
 
 Not allowed:
 
 - a separate A lecture;
 - a new memorization list;
-- a mandatory completion task merely because A exists.
+- a mandatory A completion task merely because A exists.
 
 ### Second round
 
 Expected highest potential value:
 
-- cross-System discrimination;
+- edge-based cross-System discrimination;
 - mixed-case localization;
 - replacing duplicated review with one shared reconstruction where safe;
-- heart–kidney volume/perfusion reasoning;
-- lung–kidney acid–base reasoning;
-- oxygenation/content/flow separation.
+- faster switching between A1/A2/A3 when a question crosses ownership.
 
 ### Final sprint
 
-Potential value only if it becomes an extremely thin retrieval skeleton that saves time.
+Potential value only if the A model collapses into an extremely thin retrieval skeleton that saves time.
 
 Not allowed:
 
@@ -351,21 +356,19 @@ Not allowed:
 - an independent A Recall schedule;
 - late addition of details that belong to A1/A2/A3.
 
-These are utility constraints only. Exact learner timing is intentionally not defined at Logic stage.
+These are utility constraints only. Exact timing is intentionally not defined at Logic stage.
 
 ---
 
-## 11｜What must die if it adds burden
-
-A taxonomy parent and learner-facing A integration are different things.
+## 11｜Kill rule: preserve taxonomy, kill useless projection
 
 If real use shows noticeable extra learning/maintenance time without lower errors, lower review cost or faster retrieval:
 
-- **keep** A as the macro-domain parent if it remains a useful taxonomy/ownership concept;
-- **collapse or delete** the learner-facing A integration Content / Learn step / UI projection that failed to add value;
-- do not preserve it merely because engineering work was already spent.
+- **keep** A as the macro-domain parent if the taxonomy remains useful;
+- **collapse or delete** learner-facing A Content / Learn steps / UI that fail to add value;
+- never preserve them because engineering work was already spent.
 
-A large independent A curriculum is itself evidence that the Logic-to-Content translation has failed.
+A large independent A curriculum is itself evidence that Logic-to-Content translation failed.
 
 ---
 
@@ -373,38 +376,25 @@ A large independent A curriculum is itself evidence that the Logic-to-Content tr
 
 B/C/D/E/F are already top-level macro-domain peers of A in the intended conceptual taxonomy.
 
-They therefore do **not** need to be “promoted into SuperSystems”.
+They do not need to be “promoted into SuperSystems”.
 
-The relevant future question is different:
+The future question is only:
 
-> **Does any one of B/C/D/E/F become large enough that it benefits from first-class child-System decomposition similar to A1/A2/A3?**
+> **Does any broad macro-domain benefit from first-class child-System decomposition similar to A1/A2/A3?**
 
 That decision must be made only for 275+ utility: content volume, causal independence, learner continuity, question/error structure and review efficiency.
 
 No symmetry rule applies.
 
-Possible legitimate long-term shape:
-
-```text
-A → A1 / A2 / A3
-B → remains one broad owner
-C → remains one broad owner
-D → later splits if useful
-E → remains one broad owner
-F → remains integration/remaining-clinical owner
-```
-
-or any other asymmetric structure that performs better.
-
 ---
 
 ## 13｜Logic acceptance tests before Content
 
-Content is not admitted until the following Logic tests survive:
+Content is not admitted until the following survive challenge.
 
 ### Test 1 · Taxonomy coherence
 
-Can A be stated as one coherent macro-domain problem while A1/A2/A3 remain independently coherent child Systems?
+Can A be one coherent macro-domain while A1/A2/A3 remain independently coherent child Systems?
 
 Current answer: **yes, provisionally**.
 
@@ -414,27 +404,35 @@ Would merging A1/A2/A3 into one ordinary broad System make first learning, conti
 
 Current answer: **yes** — their scale and causal independence justify first-class decomposition.
 
-### Test 3 · Parent-value test
+### Test 3 · Edge necessity
 
-Does A contain meaningful cross-child relations that are awkward or repetitive when reconstructed only inside A1/A2/A3?
+Does each admitted primitive genuinely need two child Systems?
 
-Current candidate evidence: Oxygen Delivery, Perfusion↔Volume, CO₂/Acid–Base.
+- A1↔A2 Oxygen Delivery → **yes, provisionally**.
+- A1↔A3 Perfusion↔Volume → **yes, provisionally**.
+- A2↔A3 CO₂/Acid–Base → **yes, provisionally**.
 
-### Test 4 · Non-duplication
+### Test 4 · Triangle sufficiency
 
-Can A remain small while all local medical truth stays in child owners?
+Can major A-level mixed reasoning be composed from these three edges without adding a fourth primitive?
+
+Current answer: **likely yes; requires continued challenge before freeze**.
+
+### Test 5 · Non-duplication
+
+Can A remain substantially smaller than any one child System while all local medical truth stays below?
 
 Required answer before Content: **yes**.
 
-### Test 5 · 275+ utility
+### Test 6 · 275+ utility
 
-Is there a plausible path for A-level compression to reduce understanding/review/retrieval cost or mixed-case error without adding a new course?
+Is there a plausible route for the three-edge compression to reduce understanding/review/retrieval cost or mixed-case error without adding a new course?
 
 Required answer before Content: **yes**.
 
-### Test 6 · Graceful failure
+### Test 7 · Graceful failure
 
-If learner-facing A integration later proves useless, can it be removed while A1/A2/A3 remain intact?
+If learner-facing A integration later proves useless, can it disappear while A1/A2/A3 remain intact?
 
 Required answer: **yes**.
 
@@ -447,17 +445,19 @@ Required answer: **yes**.
 ```text
 A is a top-level macro-domain peer of B/C/D/E/F.
 A1/A2/A3 are privileged first-class child Systems because decomposition materially serves the 275+ goal.
-A-level integration owns only cross-child compression.
+A-level integration is best modeled as three pairwise interfaces, not a fourth giant course:
+  A1↔A2 = Oxygen Delivery
+  A1↔A3 = Perfusion ↔ Volume
+  A2↔A3 = CO₂ / Acid–Base
+All-three cases are compositions unless evidence proves otherwise.
 A-level taxonomy does not imply a mandatory learner step.
 ```
 
-Working semantic name:
+For now, use the plain semantic label:
 
-> **A · Delivery & Homeostasis｜输送与内环境稳态**
+> **A · Cardio–Pulmonary–Renal｜心肺肾**
 
-Descriptive label:
-
-> **Cardio–Pulmonary–Renal｜心肺肾**
+Do not freeze a more decorative title such as `Delivery & Homeostasis` until Content proves that wording improves compression rather than merely sounding elegant.
 
 `SuperSystem` may remain a temporary engineering/path label, but it must not imply that A sits above B/C/D/E/F.
 
@@ -469,13 +469,14 @@ Do not create Content merely because this Logic sounds elegant.
 
 Before Logic is frozen, challenge at least these questions:
 
-- Is `Delivery & Homeostasis` genuinely the best parent problem, or does it overfit A3 to heart/lung language?
-- Does each of the three admitted loops require the A parent, or is any one actually local enough to stay below?
+- Is the A1↔A2 edge truly best compressed around oxygen delivery, or does pulmonary circulation require equal primitive status?
+- Is A1↔A3 perfusion↔volume sufficient to cover the high-value heart–kidney interface without dragging in disease detail?
+- Is A2↔A3 acid–base genuinely cross-System at the level needed for 306, or can child owners already handle it without duplication?
+- Can major all-three cases be composed from the triangle instead of becoming a fourth curriculum?
 - Are A1/A2/A3 split because of real 275+ utility rather than historical file organization?
-- Does A-level compression have a believable second-round/final-sprint payoff?
-- Can all A-level candidate content stay substantially smaller than any one child System?
+- Can all A-level candidate Content stay much smaller than any child System?
 - Can learner-facing A collapse to nearly zero if real use shows no benefit?
 
 Only after these survive should **Content** ask:
 
-> **What is the minimum information necessary to express the A parent without teaching A1/A2/A3 twice?**
+> **What is the minimum information necessary to express these three A-level edges without teaching A1/A2/A3 twice?**
