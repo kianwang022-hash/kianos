@@ -26,12 +26,24 @@ function coreNonempty(r){const c=r.core_concept??{};return Boolean(String(c.core
 function normOp(x){x=String(x??'').toUpperCase();if(!['NO_CHANGE','UPGRADE','BLOCKED'].includes(x))throw Error(`unsupported operation ${x}`);return x;}
 
 export function parseHandoff(text, source='<handoff>'){
-  const out=new Map(); let cur=null;
-  const re=/^-\s+o(\d{4})\s+\*\*(.+?)\*\*\s+—\s+`(NO_CHANGE|UPGRADE|BLOCKED)`\s+—\s+`([^`]+)`\./;
+  const out=new Map(); let cur=null, inferredOp=null, inferredQuality=null;
+  const explicit=/^(?:-\s+|###\s+)o(\d{4})\s+\*\*(.+?)\*\*\s+—\s+`?(NO_CHANGE|UPGRADE|BLOCKED)`?\s+—\s+`?([A-Z_]+)`?\.?$/;
+  const table=/^\|\s*o(\d{4})\s*\|\s*([^|]+?)\s*\|\s*(?:(NO_CHANGE|UPGRADE|BLOCKED)\s*\|\s*)?([A-Z_]+)\s*\|\s*([^|]*?)\s*\|$/;
+  const put=(n,word,operation,quality,detail=[])=>{if(out.has(n))throw Error(`${source}: duplicate o${String(n).padStart(4,'0')}`);cur={ordinal:n,word:word.trim(),operation:normOp(operation),quality:quality.trim(),detail,source};out.set(n,cur);};
   for(const line of text.split(/\r?\n/)){
-    const m=line.match(re);
-    if(m){const n=+m[1];if(out.has(n))throw Error(`${source}: duplicate o${m[1]}`);cur={ordinal:n,word:m[2],operation:m[3],quality:m[4],detail:[],source};out.set(n,cur);continue;}
-    if(cur&&/^\s{2,}-\s+/.test(line))cur.detail.push(line.trim());
+    let m=line.match(explicit);
+    if(m){put(+m[1],m[2],m[3],m[4]);continue;}
+    if(/^##\s+UPGRADE decisions/i.test(line)){inferredOp='UPGRADE';inferredQuality=null;cur=null;continue;}
+    m=line.match(/^###\s+NO_CHANGE\s+\+\s+(SAFE_SIMPLE|DEPTH_READY)/i);
+    if(m){inferredOp='NO_CHANGE';inferredQuality=m[1].toUpperCase();cur=null;continue;}
+    if(/^##\s+/.test(line)&&!/^##\s+UPGRADE decisions/i.test(line)){inferredOp=null;inferredQuality=null;cur=null;}
+    m=line.match(table);
+    if(m&&!/^Ordinal$/i.test(m[2].trim())){const op=m[3]||inferredOp;if(op)put(+m[1],m[2],op,m[4],[m[5].trim()].filter(Boolean));continue;}
+    if(inferredOp==='NO_CHANGE'&&inferredQuality){
+      const items=[...line.matchAll(/`o(\d{4})\s+([^`]+)`/g)];
+      if(items.length){for(const x of items)put(+x[1],x[2],inferredOp,inferredQuality);cur=null;continue;}
+    }
+    if(cur&&/^\s*-\s+/.test(line))cur.detail.push(line.trim());
   }
   return out;
 }
@@ -89,7 +101,15 @@ export const renderManifest=m=>`${JSON.stringify(m,null,2)}\n`;
 export const renderAuditView=v=>`${v.map(x=>JSON.stringify(x)).join('\n')}\n`;
 function loadOwners(dir){const out=[];for(const name of fs.readdirSync(dir).filter(x=>/^o\d{4}-\d{4}\.json$/.test(x)).sort()){const a=JSON.parse(fs.readFileSync(path.join(dir,name),'utf8'));if(!Array.isArray(a))throw Error(`${name}: expected array`);out.push(...a);}return out;}
 function args(argv){const o={handoff:[]};for(let i=0;i<argv.length;i++){const k=argv[i];if(k==='--check'){o.check=true;continue}if(k==='--self-test'){o.selfTest=true;continue}if(!k.startsWith('--'))throw Error(`bad arg ${k}`);const v=argv[++i];if(v==null)throw Error(`missing value ${k}`);if(k==='--handoff')o.handoff.push(v);else o[k.slice(2)]=v;}return o;}
-function selfTest(){const h='- o0001 **simple** — `NO_CHANGE` — `SAFE_SIMPLE`.\n- o0002 **capacity** — `NO_CHANGE` — `DEPTH_READY`.\n- o0003 **China** — `UPGRADE` — `DEPTH_READY`.\n  - Proper-name capitalization identity.\n';const d=mergeHandoffs([parseHandoff(h)]);const base=w=>({processing_status:'completed',core_concept:{core_meaning_en:w,core_clusters:[]},constructions:[],confusables:[],semantic_neighbors:[],word_family:[],review_signature:[]});const owners=[{ordinal:1,record:{...base('simple'),word:'simple',word_id:'word:simple',senses:[{sense_id:'sense:simple:1',pos:'noun',level:'L1',collocations:[],governing_pattern:'',needs_human_review:0}]}},{ordinal:2,record:{...base('capacity'),word:'capacity',word_id:'word:capacity',core_concept:{core_meaning_en:'ability',core_clusters:[{sense_ids:['sense:capacity:1']}]},senses:[{sense_id:'sense:capacity:1',pos:'noun',level:'L1',collocations:[{exam_value:'fixed_pattern',phrase:'capacity to do + sth'}],governing_pattern:'',needs_human_review:0}]}},{ordinal:3,record:{...base('country'),word:'China',word_id:'word:china',case_sensitive_identity:true,core_concept:{core_meaning_en:'country',core_clusters:[{sense_ids:['sense:China:1']}]},senses:[{sense_id:'sense:China:1',pos:'proper_noun',level:'L1',collocations:[],governing_pattern:'',needs_human_review:0}]}}];const m=buildManifest({owners,decisions:d,start:1,end:3,sourceHead:'x',handoffs:[{path:'h.md',text:h}],contracts:{content:'c',audit:'a',router:'r'}});if(m.rows[0].machine_min_depth!=='AUDIT_SIMPLE_CANDIDATE'||!m.rows[1].risk_flags.includes('PRODUCTION_PATTERN_SENTINEL')||!m.rows[2].mandatory_strata.includes('FORM_IDENTITY'))throw Error('self-test assertion failed');const v=renderAuditView(buildAuditView(m,owners));if(v.includes('Proper-name capitalization identity'))throw Error('blind view leaked production rationale');console.log('PASS semantic-audit-risk-router self-test');}
+function selfTest(){
+  const h='## Decisions\n| Ordinal | Word | Operation | Final quality | Semantic decision |\n|---|---|---|---|---|\n| o0001 | simple | NO_CHANGE | SAFE_SIMPLE | sufficient |\n\n### NO_CHANGE + DEPTH_READY (1)\n`o0002 capacity`.\n\n## UPGRADE decisions\n| Ordinal | Word | Final quality | Semantic decision |\n|---|---|---|---|\n| o0003 | China | DEPTH_READY | Proper-name capitalization identity. |\n';
+  const d=mergeHandoffs([parseHandoff(h)]);if(d.size!==3||d.get(2).operation!=='NO_CHANGE'||d.get(3).operation!=='UPGRADE')throw Error('handoff parser self-test failed');
+  const base=w=>({processing_status:'completed',core_concept:{core_meaning_en:w,core_clusters:[]},constructions:[],confusables:[],semantic_neighbors:[],word_family:[],review_signature:[]});
+  const owners=[{ordinal:1,record:{...base('simple'),word:'simple',word_id:'word:simple',senses:[{sense_id:'sense:simple:1',pos:'noun',level:'L1',collocations:[],governing_pattern:'',needs_human_review:0}]}},{ordinal:2,record:{...base('capacity'),word:'capacity',word_id:'word:capacity',core_concept:{core_meaning_en:'ability',core_clusters:[{sense_ids:['sense:capacity:1']}]},senses:[{sense_id:'sense:capacity:1',pos:'noun',level:'L1',collocations:[{exam_value:'fixed_pattern',phrase:'capacity to do + sth'}],governing_pattern:'',needs_human_review:0}]}},{ordinal:3,record:{...base('country'),word:'China',word_id:'word:china',case_sensitive_identity:true,core_concept:{core_meaning_en:'country',core_clusters:[{sense_ids:['sense:China:1']}]},senses:[{sense_id:'sense:China:1',pos:'proper_noun',level:'L1',collocations:[],governing_pattern:'',needs_human_review:0}]}}];
+  const m=buildManifest({owners,decisions:d,start:1,end:3,sourceHead:'x',handoffs:[{path:'h.md',text:h}],contracts:{content:'c',audit:'a',router:'r'}});
+  if(m.rows[0].machine_min_depth!=='AUDIT_SIMPLE_CANDIDATE'||!m.rows[1].risk_flags.includes('PRODUCTION_PATTERN_SENTINEL')||!m.rows[2].mandatory_strata.includes('FORM_IDENTITY'))throw Error('routing self-test assertion failed');
+  const v=renderAuditView(buildAuditView(m,owners));if(v.includes('Proper-name capitalization identity'))throw Error('blind view leaked production rationale');console.log('PASS semantic-audit-risk-router self-test');
+}
 function main(){const a=args(process.argv.slice(2));if(a.selfTest)return selfTest();const start=+a.start,end=+a.end;if(!Number.isInteger(start)||!Number.isInteger(end)||start<1||end<start)throw Error('invalid --start/--end');if(!a.handoff.length||!a.output||!a['source-head'])throw Error('require --start --end --source-head --handoff... --output');const root=path.resolve(a['repo-root']??process.cwd()),handoffs=a.handoff.map(p=>({path:p,text:fs.readFileSync(path.resolve(root,p),'utf8')})),decisions=mergeHandoffs(handoffs.map(h=>parseHandoff(h.text,h.path))),owners=loadOwners(path.resolve(root,a['shards-dir']??'content/lexical/canonical/words/shards')),contracts={content:fs.readFileSync(path.resolve(root,'content/lexical/CONTENT_ASSET_CONTRACT.md'),'utf8'),audit:fs.readFileSync(path.resolve(root,'content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md'),'utf8'),router:fs.readFileSync(path.resolve(root,'content/lexical/SEMANTIC_AUDIT_RISK_ROUTER_SPEC.md'),'utf8')},m=buildManifest({owners,decisions,start,end,sourceHead:a['source-head'],handoffs,contracts}),out=path.resolve(root,a.output),view=a['audit-view-output']?path.resolve(root,a['audit-view-output']):null,mt=renderManifest(m),vt=view?renderAuditView(buildAuditView(m,owners)):null;
   if(a.check){if(!fs.existsSync(out)||fs.readFileSync(out,'utf8')!==mt)throw Error(`stale manifest ${out}`);if(view&&(!fs.existsSync(view)||fs.readFileSync(view,'utf8')!==vt))throw Error(`stale audit view ${view}`);return console.log(`PASS ${path.relative(root,out)} (${m.owner_count} owners)`)}
   fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,mt);if(view){fs.mkdirSync(path.dirname(view),{recursive:true});fs.writeFileSync(view,vt)}console.log(`WROTE ${path.relative(root,out)} (${m.owner_count} owners; ${m.unique_mandatory_owner_count} mandatory; ${m.simple_candidate_count} simple)`);
