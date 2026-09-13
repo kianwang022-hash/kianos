@@ -1,3 +1,41 @@
+<style is:global>
+  .politicsCognitiveWorkspace.directReasoningWorkspace{gap:8px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext{display:none}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceBar{min-height:56px;padding:8px 14px;box-shadow:0 5px 18px rgba(22,31,27,.035)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:minmax(0,1fr) minmax(280px,22%);min-height:calc(100vh - 190px)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .cognitiveStage{padding:28px 34px 34px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector{padding:24px 20px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene{min-height:calc(100vh - 275px)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{max-width:38ch;margin-bottom:18px;font-size:clamp(27px,2.25vw,34px);line-height:1.22}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(430px,100%),1fr));gap:18px;align-items:start}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .mapTabs{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap{display:grid!important;gap:10px;padding-top:12px;border-top:1px solid var(--study-line)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap[hidden]{display:grid!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header{display:grid;gap:3px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:15px;line-height:1.4}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningFlow{display:flex;align-items:stretch;gap:9px;overflow-x:auto;padding:8px 1px 4px;scrollbar-width:thin}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningColumn{display:grid;align-content:center;gap:12px;min-width:150px;flex:1 1 0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningArrow{display:grid;place-items:center;min-width:22px;color:var(--study-green);font-size:21px;font-weight:650}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningNode{padding:5px 5px 5px 11px;border-left:3px solid #aac8bd;background:transparent}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningNode>strong{display:block;font-size:14px;line-height:1.35}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningNode>p{margin:5px 0 0;color:var(--study-muted);font-size:11.5px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningRelations{display:grid;gap:3px;margin-top:6px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningRelations small{color:#51766a;font-size:9.5px;line-height:1.35}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningMap>.semanticMapNodes[hidden],
+  .politicsCognitiveWorkspace.directReasoningWorkspace .directReasoningMap>.semanticEdges[hidden]{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip{margin-top:12px;padding-top:10px;border-top:1px solid var(--study-line)}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section>div{gap:6px;margin-top:6px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip b{font-size:11px;font-weight:720}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageActions{padding-top:20px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorPrimaryAnchor{margin:18px 0 0!important;padding:9px 0 9px 11px!important;border-left:3px solid var(--study-green)!important;border-radius:0!important;background:transparent!important;color:#315247!important;font-size:12.5px!important;line-height:1.55!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .suyiNote{padding-top:12px;border-top:1px solid var(--study-line)}
+  @media(max-width:1050px){
+    .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnit{grid-template-columns:1fr;min-height:auto}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene{min-height:auto}
+    .politicsCognitiveWorkspace.directReasoningWorkspace .mapDeck{grid-template-columns:1fr}
+  }
+</style>
+
 <script is:inline>
   const workspace = document.querySelector('[data-politics-cognitive-workspace]');
 
@@ -23,10 +61,133 @@
     } catch {}
   };
 
+  const buildDirectReasoningFlow = (panel) => {
+    const nodeWrap = panel.querySelector('.semanticMapNodes');
+    const edgeWrap = panel.querySelector('.semanticEdges');
+    if (!nodeWrap) return;
+
+    const nodes = [...nodeWrap.querySelectorAll('article')].map((node) => ({
+      label: node.querySelector('b')?.textContent?.trim() || '',
+      meaning: node.querySelector('p')?.textContent?.trim() || ''
+    })).filter((node) => node.label);
+    if (!nodes.length) return;
+
+    const labels = new Set(nodes.map((node) => node.label));
+    const edges = edgeWrap ? [...edgeWrap.children].map((row) => {
+      const spans = row.querySelectorAll('span');
+      return {
+        from: spans[0]?.textContent?.trim() || '',
+        to: spans[spans.length - 1]?.textContent?.trim() || '',
+        relation: row.querySelector('small')?.textContent?.trim() || ''
+      };
+    }).filter((edge) => labels.has(edge.from) && labels.has(edge.to)) : [];
+
+    const indegree = new Map(nodes.map((node) => [node.label, 0]));
+    const adjacency = new Map(nodes.map((node) => [node.label, []]));
+    edges.forEach((edge) => {
+      indegree.set(edge.to, (indegree.get(edge.to) || 0) + 1);
+      adjacency.get(edge.from)?.push(edge.to);
+    });
+
+    const queue = nodes.filter((node) => (indegree.get(node.label) || 0) === 0).map((node) => node.label);
+    const level = new Map(queue.map((label) => [label, 0]));
+    let processed = 0;
+    while (queue.length) {
+      const current = queue.shift();
+      processed += 1;
+      const currentLevel = level.get(current) || 0;
+      (adjacency.get(current) || []).forEach((next) => {
+        level.set(next, Math.max(level.get(next) || 0, currentLevel + 1));
+        indegree.set(next, (indegree.get(next) || 0) - 1);
+        if ((indegree.get(next) || 0) === 0) queue.push(next);
+      });
+    }
+
+    if (processed !== nodes.length || !edges.length) {
+      nodes.forEach((node, index) => level.set(node.label, index));
+    }
+
+    const maxLevel = Math.max(...nodes.map((node) => level.get(node.label) || 0));
+    const columns = Array.from({ length: maxLevel + 1 }, () => []);
+    nodes.forEach((node) => columns[level.get(node.label) || 0].push(node));
+
+    const flow = document.createElement('div');
+    flow.className = 'directReasoningFlow';
+    flow.setAttribute('data-direct-reasoning-flow', '');
+
+    columns.forEach((column, columnIndex) => {
+      const columnEl = document.createElement('div');
+      columnEl.className = 'directReasoningColumn';
+
+      column.forEach((node) => {
+        const nodeEl = document.createElement('section');
+        nodeEl.className = 'directReasoningNode';
+
+        const title = document.createElement('strong');
+        title.textContent = node.label;
+        nodeEl.appendChild(title);
+
+        if (node.meaning) {
+          const meaning = document.createElement('p');
+          meaning.textContent = node.meaning;
+          nodeEl.appendChild(meaning);
+        }
+
+        const outgoing = edges.filter((edge) => edge.from === node.label && edge.relation);
+        if (outgoing.length) {
+          const relationWrap = document.createElement('div');
+          relationWrap.className = 'directReasoningRelations';
+          outgoing.forEach((edge) => {
+            const relation = document.createElement('small');
+            relation.textContent = `→ ${edge.relation}`;
+            relationWrap.appendChild(relation);
+          });
+          nodeEl.appendChild(relationWrap);
+        }
+
+        columnEl.appendChild(nodeEl);
+      });
+
+      flow.appendChild(columnEl);
+      if (columnIndex < columns.length - 1) {
+        const arrow = document.createElement('div');
+        arrow.className = 'directReasoningArrow';
+        arrow.textContent = '→';
+        flow.appendChild(arrow);
+      }
+    });
+
+    panel.querySelector('header')?.after(flow);
+    nodeWrap.hidden = true;
+    if (edgeWrap) edgeWrap.hidden = true;
+    panel.classList.add('directReasoningMap');
+  };
+
   if (workspace) {
+    workspace.classList.add('directReasoningWorkspace');
+
+    // Real-use visual rule: core reasoning is primary content, so it is visible by default.
+    // Tabs/disclosure are reserved for secondary detail, not for the relation that orients the Unit.
+    workspace.querySelectorAll('[data-map-deck]').forEach((deck) => {
+      deck.querySelector('.mapTabs')?.remove();
+      deck.querySelectorAll('[data-map-panel]').forEach((panel) => {
+        panel.hidden = false;
+        panel.classList.add('active');
+        buildDirectReasoningFlow(panel);
+      });
+    });
+
+    // Keep the Cognitive Stage lean: durable Anchor stays visible, but in the Inspector.
+    workspace.querySelectorAll('[data-workspace-unit]').forEach((unit) => {
+      const anchor = unit.querySelector('[data-stage="ORIENT"] .stageAnchor');
+      const inspector = unit.querySelector('[data-inspector-state="ORIENT"]');
+      if (anchor && inspector) {
+        anchor.classList.add('inspectorPrimaryAnchor');
+        inspector.appendChild(anchor);
+      }
+    });
+
     // Score-first fast path: Recall is useful, but it is not a compulsory ritual.
-    // The core workspace listener reads data-workspace-action at click time, so
-    // renaming the original action disables the old mandatory LEARN → RECALL hop.
     workspace.querySelectorAll('[data-workspace-action="learn-done"]').forEach((button) => {
       const unit = button.closest('[data-workspace-unit]');
       if (!unit) return;
