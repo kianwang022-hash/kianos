@@ -1,0 +1,194 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L2_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L2_M1_M4",
+  "label": "结构与酶语言 → 碳氧化/ATP → RBC分流 → 糖原/糖异生",
+  "stable_identity": {
+    "blocks": ["M1", "M2", "M3", "M4"],
+    "canonical_kp_count": 49,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "within_scope": "This batch is the working Learning owner for M1-M4 on branch b-learning-upgrade.",
+    "whole_system_substrate": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+    "rule": "Learning may regroup stable KP identities and change learner order. Source conflicts and Visual gaps stay explicit; they are not silently repaired in L."
+  },
+  "learning_arc": {
+    "question": "吸收入体的营养物怎样依靠蛋白质/酶/辅因子被组织成可控反应网络，把葡萄糖碳骨架转成ATP；当细胞没有线粒体或机体从进食转为空腹时，这套网络又怎样重新分流？",
+    "block_order": ["M1", "M2", "M3", "M4"],
+    "causal_spine": [
+      "M1 establishes the common language: protein structure creates functional sites; enzymes lower activation barriers and control flux; cofactors carry electrons or chemical groups.",
+      "M2 applies that language to one complete energy chain: glucose carbon → pyruvate/acetyl-CoA/TCA → reducing equivalents → respiratory chain/proton gradient → ATP.",
+      "M3 stress-tests the model in a cell without mitochondria: G-6-P must divide between glycolytic ATP, 2,3-DPG oxygen-release control and PPP/NADPH/GSH antioxidant defense.",
+      "M4 changes the system question from oxidation to allocation: G-6-P becomes the hub for storage, local use, hepatic glucose output and gluconeogenesis across fasting time."
+    ],
+    "exit_reconstruction": "闭卷从『蛋白质结构为何能形成酶功能』讲到『碳流—电子流—质子流—ATP流』，再用成熟RBC和空腹肝脏说明为什么同一葡萄糖/G-6-P会因细胞器与全身状态不同而走向不同通路。"
+  },
+  "blocks": {
+    "M1": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-m01-lg01-v2",
+          "kp": [1,2,3,4,5],
+          "label": "序列怎样长成可工作的空间结构",
+          "local_question": "氨基酸序列怎样逐层形成二级结构、模体、结构域和三级/四级构象；为什么构象被破坏后功能会丢失？",
+          "learning_reason": "KP01-05共同回答结构→构象→功能，是后续活性中心与酶催化的结构前提。",
+          "closure": "能从一级结构讲到α螺旋、模体/结构域、三级/四级结构，再用变性解释『一级结构可保留但功能丢失』；不把模体、结构域、活性中心当同义词。",
+          "visual_gate": "回原讲义蛋白质层级/变性图；若运行层仍缺图，只记录Visual Gap，不用模型补图。"
+        },
+        {
+          "id": "b-m01-lg02-v2",
+          "kp": [6,7,8],
+          "label": "蛋白质作为现实对象：电荷、功能、评价、分离与清除",
+          "local_question": "离开抽象空间结构后，蛋白质的净电荷怎样随pH改变；体内/食物蛋白怎样被评价；实验和细胞又怎样按性质分离或清除蛋白？",
+          "learning_reason": "旧分组本身不是单一反应链，但它承担从『结构』到『酶』之间的现实应用层。保留成组，不伪装成因果链；学习目标改为同一对象的多轴判断。",
+          "closure": "能用pH相对pI判断净电荷，区分血浆蛋白系统功能与食物蛋白营养价值，并说清凝胶过滤/离子交换与溶酶体/泛素-蛋白酶体分别解决『分离』和『清除』什么问题。"
+        },
+        {
+          "id": "b-m01-lg03-v2",
+          "kp": [9,10,11,12],
+          "label": "从活性中心到代谢流量控制",
+          "local_question": "酶怎样识别底物、降低活化能；为什么只有某些关键酶值得被快调/慢调，从而控制整条通路流量？",
+          "learning_reason": "KP09-12形成『结构功能位点→催化本质→关键酶身份→调节层级』的控制链。旧版把动力学与调节全部压在一个大组中，遮住了这条核心链。",
+          "closure": "能从结合/催化基团讲到降低活化能且不改平衡点，再解释关键酶的单向/限速/可调节与酶量慢调、酶活快调。"
+        },
+        {
+          "id": "b-m01-lg04-v2",
+          "kp": [13,14],
+          "label": "动力学与抑制：看Km/Vmax判断发生了什么",
+          "local_question": "底物浓度、酶量和抑制剂改变时，Km与Vmax怎样变化，如何从曲线判断竞争/非竞争/反竞争或不可逆抑制？",
+          "learning_reason": "KP13-14共享同一判别工具：Km/Vmax与曲线。把它们从酶调节主链拆出后，学习目标更清晰。",
+          "closure": "能定义Km/Vmax，判断Km与亲和力方向，并不用死背表格就说明三类可逆抑制的结合对象、Km/Vmax变化以及加底物能否克服。",
+          "visual_gate": "Km/Vmax与抑制曲线必须回原讲义视觉层核对。"
+        },
+        {
+          "id": "b-m01-lg05-v2",
+          "kp": [15,16,17],
+          "label": "辅因子把『认底物』变成『能做化学反应』",
+          "local_question": "为什么很多酶只有酶蛋白还不够；B族维生素衍生辅酶怎样搬运电子、氢或化学基团；这些关系怎样成为后续代谢与医学酶学的接口？",
+          "learning_reason": "KP15建立全酶概念，KP16按搬运对象组织维生素，KP17把辅因子/酶学语言送入临床接口，直接为M2-M10服务。",
+          "closure": "能说明酶蛋白定特异性、辅因子定反应类型，并按搬运对象恢复B1/B2/PP/B5/B6/B7/叶酸/B12的核心身份；遇到PDH等后续通路能调用而不是重新背表。",
+          "visual_gate": "维生素—辅酶总图回原PDF；Source未可靠恢复的低频细节保持Visual Gap。"
+        }
+      ]
+    },
+    "M2": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-m02-lg01-v2",
+          "kp": [1,2,3,4,5],
+          "label": "胞浆拆糖到线粒体入口：丙酮酸去哪里",
+          "local_question": "葡萄糖怎样经糖酵解形成丙酮酸；缺氧时为什么转乳酸再生NAD⁺，有氧时又怎样经PDH进入乙酰CoA主线？",
+          "learning_reason": "KP01-05是一个明确分叉模型：糖酵解产生丙酮酸，氧/线粒体条件决定乳酸还是PDH入口。",
+          "closure": "能恢复糖酵解能量账和3个关键酶，并从丙酮酸解释乳酸分支的NAD⁺再生与PDH的氧化脱羧/辅因子/不可逆边界。"
+        },
+        {
+          "id": "b-m02-lg02-v2",
+          "kp": [6,7,8],
+          "label": "TCA把乙酰CoA拆成CO₂并收集还原当量",
+          "local_question": "乙酰CoA进入TCA后，碳骨架怎样循环、在哪里生成NADH/FADH₂和底物水平ATP/GTP；为什么TCA本身还不是大量ATP的最终来源？",
+          "learning_reason": "KP06-08共同建立TCA路线、1-2-3-4压缩与底物水平磷酸化/高能化合物。旧版把KP09穿梭塞在这里，会把『TCA内部产什么』和『胞浆NADH怎样接入呼吸链』混在一起。",
+          "closure": "能闭卷画出TCA顺序并恢复1-2-3-4身份，区分底物水平磷酸化与氧化磷酸化，说明NADH/FADH₂只是把能量交给下一层。"
+        },
+        {
+          "id": "b-m02-lg03-v2",
+          "kp": [9,10,11,12,13],
+          "label": "还原当量怎样跨膜进入呼吸链并结算ATP",
+          "local_question": "胞浆NADH怎样通过穿梭把还原当量送入线粒体；NADH/FADH₂怎样沿I/II→Q→III→Cytc→IV把电子势能变成质子梯度，再由ATP合酶转成30/32 ATP？",
+          "learning_reason": "KP09是呼吸链的入口问题而不是TCA尾巴；把KP09-13放在一起可形成『穿梭→电子流→质子流→P/O→总ATP』完整链。",
+          "closure": "能解释两条穿梭为何产能不同、II为何不泵H⁺、NADH/FADH₂ P/O为何不同，并把这些差异落回一分子葡萄糖30/32 ATP的唯一差值来源。",
+          "visual_gate": "呼吸链复合体、质子梯度和ATP合酶必须回原图；Visual-only页不靠文字想象替代。"
+        },
+        {
+          "id": "b-m02-lg04-v2",
+          "kp": [14,15],
+          "label": "调速与故障实验：抑制和解偶联为何不是一回事",
+          "local_question": "正常时ADP怎样按需加速OXPHOS；当电子传递、ATP合酶或质子耦联被破坏时，氧耗、ATP和产热为什么出现不同组合？",
+          "learning_reason": "KP14-15属于同一个系统扰动问题：正常反馈调速与三类故障的方向性比较。",
+          "closure": "能从ATP消耗→ADP↑→OXPHOS加速解释正常反馈，并按『电子流/质子梯度/ATP』判断呼吸链抑制、ATP合酶抑制和解偶联的差别。"
+        }
+      ]
+    },
+    "M3": {
+      "learning_order": [1,2,3,4,5,6,7],
+      "group_count": 2,
+      "logic_groups": [
+        {
+          "id": "b-m03-lg01-v2",
+          "kp": [1,2,3],
+          "label": "无线粒体RBC：用糖酵解换ATP，用2,3-DPG换放氧",
+          "local_question": "成熟RBC没有线粒体后，怎样靠无氧糖酵解生存；为什么还要从糖酵解中分出2,3-DPG来调节Hb放氧？",
+          "learning_reason": "现有分组成立；fresh pass未发现拆分收益。重点是把『供能』与『放氧调节』明确成同一G-6-P主路上的两个不同输出。",
+          "closure": "能说明成熟RBC不能做TCA/OXPHOS/β氧化，无氧糖酵解为何是唯一供能，并解释2,3-DPG旁路牺牲直接产能换取Hb亲和力下降/组织放氧。"
+        },
+        {
+          "id": "b-m03-lg02-v2",
+          "kp": [4,5,6,7],
+          "label": "PPP—NADPH—GSH：不为ATP而为抗氧化",
+          "local_question": "G-6-P为什么还要分流到PPP；NADPH怎样维持GSH，G6PD缺陷为什么先表现为氧化脆弱而不是所有ATP立即消失？",
+          "learning_reason": "现有分组成立；KP04-07天然构成PPP产NADPH→GSH循环→G6PD缺陷→NADH/NADPH边界。",
+          "closure": "能画出PPP→NADPH→GSSG还原回GSH→清除过氧化物，并用G6PD缺陷解释溶血接口；同时不把NADH与NADPH用途混淆。",
+          "visual_gate": "RBC三分流/PPP总图回原Lecture视觉层。"
+        }
+      ]
+    },
+    "M4": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10],
+      "group_count": 3,
+      "logic_groups": [
+        {
+          "id": "b-m04-lg01-v2",
+          "kp": [1,2,3,4],
+          "label": "G-6-P枢纽与糖原存取：肝管血糖，肌管自己",
+          "local_question": "G-6-P怎样在即时利用、PPP、糖原和肝糖输出之间分流；糖原怎样存/取，为什么肝能把葡萄糖送回血而肌不能？",
+          "learning_reason": "现有KP01-04分组成立，但闭合点应明确锁在G-6-P酶造成的肝/肌功能分工，而不是仅恢复四个KP。",
+          "closure": "能画G-6-P四向分流，恢复UDPG/糖原合酶与糖原磷酸化酶两条方向，并用『肝有、肌无G-6-P酶』解释全身保糖vs局部供能。",
+          "visual_gate": "G-6-P分流和糖原分支结构回原图。"
+        },
+        {
+          "id": "b-m04-lg02-v2",
+          "kp": [5,6,7,8],
+          "label": "无糖可取时怎样重新造糖",
+          "local_question": "糖异生为什么不能把糖酵解倒放；乳酸、甘油和氨基酸从哪里进入，为什么Cori循环既回收碳骨架又要让肝付出6个高能磷酸键？",
+          "learning_reason": "现有KP05-08分组成立，是绕行→原料→器官循环→能量代价的一条完整造糖链。",
+          "closure": "能把3个不可逆节点对应到4个绕行酶，说明乳酸/甘油/氨基酸入口和Leu/Lys边界，并恢复Cori循环与4ATP+2GTP能量账。"
+        },
+        {
+          "id": "b-m04-lg03-v2",
+          "kp": [9,10],
+          "label": "从通路到全身状态：空腹时何时切换、谁来推动",
+          "local_question": "胰高血糖素怎样把肝从糖酵解切向糖异生；随着空腹延长，血糖来源为什么从肝糖原逐步转向糖异生？",
+          "learning_reason": "现有KP09-10分组成立；这组是M4通往D7的桥，不扩写完整激素轴。",
+          "closure": "能用PFK2/FBPase2、F-2,6-BP、PK和PEPCK的方向解释通路切换，并按短期→约16-24h后恢复肝糖原/糖异生的时间轴；完整受体/餐后-空腹整合留给D7。"
+        }
+      ]
+    }
+  },
+  "source_and_visual_boundaries": [
+    "M1 original protein-structure, Km/Vmax/inhibition and vitamin-cofactor maps remain Visual gates; OCR gaps are not filled by model knowledge.",
+    "M2 source conflict on the P003 reconstructed explanatory text remains explicit; pathway spine governs current learning. Visual-only respiratory-chain pages require original-page contact.",
+    "M3 P010/P029 visual-only and P057 reconstructed GSH chain remain explicit evidence boundaries.",
+    "M4 P025 FBPase-1 inhibitor line remains SOURCE_CONFLICT; Learning order does not adjudicate it."
+  ],
+  "content_repairs": [],
+  "batch_checks": {
+    "all_49_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 12,
+    "logic_group_count_candidate": 14,
+    "content_semantic_rewrite_required": false,
+    "source_conflict_silently_resolved": false,
+    "visual_gap_silently_filled": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
