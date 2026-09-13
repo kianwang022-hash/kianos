@@ -167,7 +167,6 @@ async function readingADeepJourney(browser) {
     const ids = listReadingSets().slice(0, 6).map((item) => item.id);
     check(ids.length >= 5, 'reading_a_depth_has_five_sets');
     const [uncertainId, repairId, closeId, reopenId] = ids;
-
     // Correct but uncertain must enter passage-level review without manufacturing a wrong answer.
     const uncertainReading = loadReadingById(uncertainId);
     await page.goto(`${BASE}/reading/${encodeURIComponent(uncertainId)}/`, { waitUntil: 'domcontentloaded' });
@@ -300,7 +299,7 @@ async function readingAContinuousJourney(browser) {
     check(firstAttempt?.submitted === true && firstAttempt?.reviewUnlocked === false, 'reading_a_continuous_first_attempt_sealed');
 
     await page.locator('[data-reading-session-continue]').click();
-    await page.waitForURL(`**/reading/${encodeURIComponent(nextId)}/**`);
+    await page.waitForURL(`**/reading/${encodeURIComponent(nextId)}**`);
     await page.locator('[data-local-port="reading"]').waitFor({ state: 'visible' });
     await answerReadingA(page, nextReading, loadReadingAnswersById(nextId));
     check((await page.locator('[data-reading-score]').textContent())?.trim() === '已收卷', 'reading_a_continuous_second_score_stays_sealed');
@@ -309,7 +308,7 @@ async function readingAContinuousJourney(browser) {
     check(session?.reviewIds?.length === 1 && session.reviewIds[0] === start.objectId, 'reading_a_continuous_routes_only_problem_passage_to_review');
 
     await page.locator('[data-reading-session-review]').click();
-    await page.waitForURL(`**/reading/${encodeURIComponent(start.objectId)}/**`);
+    await page.waitForURL(`**/reading/${encodeURIComponent(start.objectId)}**`);
     await page.locator('[data-local-port="reading"]').waitFor({ state: 'visible' });
     check((await page.locator('[data-reading-score]').textContent())?.trim() === `${start.questions.length} / ${start.questions.length}`, 'reading_a_continuous_unlocks_review_score_at_session_end');
     check(await page.locator('[data-reading-passage-copy-chat]').isVisible(), 'reading_a_continuous_returns_to_problem_passage_handoff');
