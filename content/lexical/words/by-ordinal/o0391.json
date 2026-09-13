@@ -7,11 +7,19 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2dd44569478f4d177bf4c3f0c66f3c95b693f5769f1eec0005fd69e885675274",
+    "content_hash": "995977bb78cd6e482e1cd3249eff3bbea1a56dd084b8724660789c505d5e96c3",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "投票用纸；选票",
+          "label_cn": "投票；投票制度",
+          "label_en": "the process, system, or act of voting",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:ballot:c1148782a6617bb0"
+          ]
+        },
+        {
+          "label_cn": "选票；投票用纸",
           "label_en": "a document listing the alternatives used in voting",
           "pos": "noun",
           "sense_ids": [
@@ -20,7 +28,7 @@
         }
       ],
       "core_meaning_cn": "投票；选票",
-      "core_meaning_en": "voting or a vote",
+      "core_meaning_en": "the act or process of voting, or the document used for it",
       "mental_model_cn": "投票；选票",
       "mental_model_en": ""
     },
@@ -63,6 +71,30 @@
         "sense_id": "sense:ballot:08b55bfc3a165995",
         "sense_label_en": "a document listing the alternatives used in voting",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:679a686457b5086ccf07",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ballot:c1148782a6617bb0:collocation:new-10f4c14e"
+            ],
+            "meaning_cn": "通过无记名投票",
+            "phrase": "by secret ballot"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "投票；投票制度或过程",
+        "definition_en": "the process, system, or act of voting, especially by secret ballot",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ballot:c1148782a6617bb0",
+        "sense_label_en": "the process, system, or act of voting, especially by secret ballot",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -160,11 +192,19 @@
         "merged_into_sense_id": "sense:ballot:08b55bfc3a165995",
         "source_row": 1009,
         "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
+      },
+      {
+        "sense_id": "sense:ballot:c1148782a6617bb0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 25,
+        "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
       }
     ],
     "active_collocations": [
       "collocation:1a37d57a2b044936eb61",
-      "collocation:330925b70bd718d80132"
+      "collocation:330925b70bd718d80132",
+      "collocation:679a686457b5086ccf07"
     ],
     "facts": [],
     "collocations": [
@@ -191,6 +231,11 @@
       {
         "id": "collocation:ec723fe212cd8b159b3b",
         "source_row": 20038,
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+      },
+      {
+        "id": "collocation:679a686457b5086ccf07",
+        "source_row": 26,
         "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
       }
     ],
@@ -225,7 +270,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0385-0392.json",
-    "source_content_hash": "2dd44569478f4d177bf4c3f0c66f3c95b693f5769f1eec0005fd69e885675274",
+    "source_content_hash": "995977bb78cd6e482e1cd3249eff3bbea1a56dd084b8724660789c505d5e96c3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

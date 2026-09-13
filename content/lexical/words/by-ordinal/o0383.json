@@ -57,20 +57,29 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "009692fcec686cd48cffa90bdad4d57ea819b95281202341c22eab0781cd52df",
+    "content_hash": "37269c95adde7cabdc840d5324ee7c8c6d6e00a2ff7652c7429185f438299852",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "诱饵（用于捕鱼或捕兽）；引诱物，诱惑",
-          "label_en": "something used to lure fish or other animals into danger so they can be trapped or killed; anything that serves as an enticement",
+          "label_cn": "诱饵",
+          "label_en": "food or substance used to lure fish or animals",
           "pos": "noun",
           "sense_ids": [
+            "sense:bait:9720fc3f1b965e3f",
             "sense:bait:d7b7663c99835856"
+          ]
+        },
+        {
+          "label_cn": "用诱饵引诱；挑衅",
+          "label_en": "to lure or entice with bait; to provoke or taunt",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:bait:1c867861a9bf5e5c"
           ]
         }
       ],
-      "core_meaning_cn": "诱饵",
-      "core_meaning_en": "something used to lure or entrap",
+      "core_meaning_cn": "诱饵；引诱",
+      "core_meaning_en": "food or substance used to lure; to lure or provoke",
       "mental_model_cn": "诱饵",
       "mental_model_en": ""
     },
@@ -108,6 +117,54 @@
         "sense_label_en": "anything that serves as an enticement",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9126836dba0a221386a4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bait:9720fc3f1b965e3f:collocation:new-6c5151d2"
+            ],
+            "meaning_cn": "用于引诱鱼或动物的诱饵",
+            "phrase": "bait fish/animals"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "诱饵（用于捕鱼或捕兽）",
+        "definition_en": "something used to lure fish or other animals into danger so they can be trapped or killed",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bait:9720fc3f1b965e3f",
+        "sense_label_en": "something used to lure fish or other animals into danger so they can be trapped ",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8181a4a1ad1676ae2c1e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bait:1c867861a9bf5e5c:collocation:new-5a61e467"
+            ],
+            "meaning_cn": "给鱼钩/陷阱放饵",
+            "phrase": "bait a hook/trap"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用饵引诱",
+        "definition_en": "lure, entice, or entrap with bait",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:bait:1c867861a9bf5e5c",
+        "sense_label_en": "lure, entice, or entrap with bait",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -132,31 +189,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:bait:1c867861a9bf5e5c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "用饵引诱",
-      "definition_en": "lure, entice, or entrap with bait",
-      "semantic_key": "c44886f0b5b05119594a845841404765dc9669afddead0fd7c8f2ebfb65567c5",
-      "semantic_key_history": [
-        "1bc7a39932291f6f6787e712854c80ce6ee3de2d76d47b5a7583319122c42fdc"
-      ],
-      "legacy_aliases": [
-        "bait:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bait:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 980,
-      "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:bait:2cd01fa3dd2c537b",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -180,38 +212,13 @@
       "source_row": 981,
       "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:bait:9720fc3f1b965e3f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "诱饵（用于捕鱼或捕兽）",
-      "definition_en": "something used to lure fish or other animals into danger so they can be trapped or killed",
-      "semantic_key": "4666daa8e56b037a84f0509006647fa14581d4f5906aa027ee5412c0750ba0ed",
-      "semantic_key_history": [
-        "62bf4b1253a89bdcd9338fe06b63b9d8df8e4860d2c8991b661d5bd1792797d9"
-      ],
-      "legacy_aliases": [
-        "bait:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bait:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 982,
-      "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:bait:1c867861a9bf5e5c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 980,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -225,7 +232,7 @@
       },
       {
         "sense_id": "sense:bait:9720fc3f1b965e3f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 982,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -239,7 +246,9 @@
       }
     ],
     "active_collocations": [
-      "collocation:39d453a78f60613a0167"
+      "collocation:39d453a78f60613a0167",
+      "collocation:8181a4a1ad1676ae2c1e",
+      "collocation:9126836dba0a221386a4"
     ],
     "facts": [
       {
@@ -278,6 +287,16 @@
         "id": "collocation:ebe54f59a6dbf850aa72",
         "source_row": 19983,
         "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:9126836dba0a221386a4",
+        "source_row": 21,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:8181a4a1ad1676ae2c1e",
+        "source_row": 22,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
       }
     ],
     "exam-mappings": [],
@@ -306,7 +325,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0377-0384.json",
-    "source_content_hash": "009692fcec686cd48cffa90bdad4d57ea819b95281202341c22eab0781cd52df",
+    "source_content_hash": "37269c95adde7cabdc840d5324ee7c8c6d6e00a2ff7652c7429185f438299852",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

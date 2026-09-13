@@ -7,20 +7,28 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "90ea95ec98c48a54f622fce6f42a7ef8c4d9d055500eb15aaaa2dbab629c723a",
+    "content_hash": "eb2a8134d63fe6a88aeaa9f30f21821616a4ab66212bb0cb1a1b75d64f70cc46",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "对财务记录或情况的系统检查",
+          "label_cn": "审计；查账",
           "label_en": "a systematic examination or review of financial records or a situation",
           "pos": "noun",
           "sense_ids": [
             "sense:audit:ad323e028fbe556e"
           ]
+        },
+        {
+          "label_cn": "审计；正式检查",
+          "label_en": "to examine financial records, accounts, processes, or systems officially and systematically",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:audit:5013afcab94a592a"
+          ]
         }
       ],
-      "core_meaning_cn": "系统的检查或审查",
-      "core_meaning_en": "systematic examination or review",
+      "core_meaning_cn": "审计；查账",
+      "core_meaning_en": "an official and systematic examination of accounts, records, processes, or systems",
       "mental_model_cn": "系统的检查或审查",
       "mental_model_en": ""
     },
@@ -64,6 +72,39 @@
         "sense_label_en": "a systematic examination or review of financial records or a situation",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b8afbefccb64c0e9d5b0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:audit:5013afcab94a592a:collocation:new-4247d48f"
+            ],
+            "meaning_cn": "审计账目或记录",
+            "phrase": "audit accounts/records"
+          },
+          {
+            "collocation_id": "collocation:a25fa3f1a1d77c1f8db2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:audit:5013afcab94a592a:collocation:new-ec653e62"
+            ],
+            "meaning_cn": "审查流程或系统",
+            "phrase": "audit a process/system"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "审计，查账",
+        "definition_en": "to examine financial records or accounts officially",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:audit:5013afcab94a592a",
+        "sense_label_en": "to examine financial records or accounts officially",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -87,31 +128,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:audit:5013afcab94a592a",
-      "status": "merged",
-      "merged_into_sense_id": "sense:audit:ad323e028fbe556e",
-      "pos": "verb",
-      "definition_cn": "审计，查账",
-      "definition_en": "to examine financial records or accounts officially",
-      "semantic_key": "ff85b71558d88b8d283f601194e448e43a2f521efa582dcd6510a265012755a7",
-      "semantic_key_history": [
-        "45e451deafa5dc4ab2207cec28bae69d20dcd541d4c824e8cb58475b4d425f62"
-      ],
-      "legacy_aliases": [
-        "audit:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "audit:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 858,
-      "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:audit:6aa4c57342675de9",
       "status": "merged",
@@ -167,8 +183,8 @@
     "senses": [
       {
         "sense_id": "sense:audit:5013afcab94a592a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:audit:ad323e028fbe556e",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 858,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
       },
@@ -196,7 +212,9 @@
     ],
     "active_collocations": [
       "collocation:773d5852a1d0ddb1d701",
-      "collocation:9e93d6160af6a5dacea1"
+      "collocation:9e93d6160af6a5dacea1",
+      "collocation:a25fa3f1a1d77c1f8db2",
+      "collocation:b8afbefccb64c0e9d5b0"
     ],
     "facts": [],
     "collocations": [
@@ -218,6 +236,16 @@
       {
         "id": "collocation:df19b74bc91604109c20",
         "source_row": 18884,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:b8afbefccb64c0e9d5b0",
+        "source_row": 6,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:a25fa3f1a1d77c1f8db2",
+        "source_row": 7,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       }
     ],
@@ -242,7 +270,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0337-0344.json",
-    "source_content_hash": "90ea95ec98c48a54f622fce6f42a7ef8c4d9d055500eb15aaaa2dbab629c723a",
+    "source_content_hash": "eb2a8134d63fe6a88aeaa9f30f21821616a4ab66212bb0cb1a1b75d64f70cc46",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,11 +7,36 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1fa3bf46ab13f8b11dc0a0625579f79885a51fc1377cd721dc1b8111b4cfc6da",
+    "content_hash": "38f47cef11c621be3f6c33672cdca798b5da09d43060828de722ddc571103023",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "极坏的；可怕的",
-      "core_meaning_en": "extremely bad or unpleasant; causing fear or dread",
+      "core_clusters": [
+        {
+          "label_cn": "非常糟糕的；令人不快的",
+          "label_en": "very bad, unpleasant, or terrible",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:awful:e43db2f4fbea5dd1"
+          ]
+        },
+        {
+          "label_cn": "可怕的",
+          "label_en": "causing fear or dread; terrifying",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:awful:9e0b8d40233e5443"
+          ]
+        },
+        {
+          "label_cn": "威严的（旧/文学）",
+          "label_en": "inspiring awe; solemn or reverential",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:awful:033657bd172f5ac8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "糟糕的；可怕的",
+      "core_meaning_en": "very bad or unpleasant; secondarily causing fear",
       "mental_model_cn": "极坏的；可怕的",
       "mental_model_en": ""
     },
@@ -70,6 +95,20 @@
         "sense_label_en": "inspiring awe; solemn or reverential",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "非常糟糕的；令人不快的",
+        "definition_en": "very bad, unpleasant, or terrible",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:awful:e43db2f4fbea5dd1",
+        "sense_label_en": "very bad, unpleasant, or terrible",
+        "sort_order": 0,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -92,33 +131,7 @@
     "word_id": "word:awful"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:awful:e43db2f4fbea5dd1",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "极坏的，糟糕的",
-      "definition_en": "very bad or unpleasant",
-      "semantic_key": "d8e2557397773adcfa79f1e4856d2c1ff0dff41eb88230f747e0ab526aeca20c",
-      "semantic_key_history": [
-        "9a14ec71d891aa8a917398ab881450bedbde1c4581aa7d44999762be3226f0ca"
-      ],
-      "legacy_aliases": [
-        "awful:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "awful:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 926,
-      "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -137,7 +150,7 @@
       },
       {
         "sense_id": "sense:awful:e43db2f4fbea5dd1",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 926,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
@@ -206,7 +219,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0361-0368.json",
-    "source_content_hash": "1fa3bf46ab13f8b11dc0a0625579f79885a51fc1377cd721dc1b8111b4cfc6da",
+    "source_content_hash": "38f47cef11c621be3f6c33672cdca798b5da09d43060828de722ddc571103023",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

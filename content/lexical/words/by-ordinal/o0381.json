@@ -7,11 +7,28 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "461fe616164ce723331c3ec584068649c717d0686cdaa167879c06dce3f85f47",
+    "content_hash": "8f239021fe43800ef93e41cd2d6be7999c7d6614ae292ce889a10fa6ca1fcd70",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "行李或随身装备",
-      "core_meaning_en": "luggage or portable equipment",
+      "core_clusters": [
+        {
+          "label_cn": "行李；随身装备",
+          "label_en": "cases used to carry belongings when traveling",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:baggage:c2d1cfe627cd56b2"
+          ]
+        },
+        {
+          "label_cn": "情感或文化包袱",
+          "label_en": "accumulated emotional, cultural, or political assumptions, problems, or past experience affecting the present",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:baggage:c2f7d0d0eb16e54d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "行李；情感包袱",
+      "core_meaning_en": "luggage, or accumulated experiences and assumptions affecting the present",
       "mental_model_cn": "行李或随身装备",
       "mental_model_en": ""
     },
@@ -88,6 +105,39 @@
         "sense_label_en": "the portable equipment and supplies of an army",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ab34bad2cf80d7271ee0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:baggage:c2f7d0d0eb16e54d:collocation:new-d09679b6"
+            ],
+            "meaning_cn": "情感包袱",
+            "phrase": "emotional baggage"
+          },
+          {
+            "collocation_id": "collocation:c769e8a7cb66e60cfd80",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:baggage:c2f7d0d0eb16e54d:collocation:new-56a5f74a"
+            ],
+            "meaning_cn": "文化包袱",
+            "phrase": "cultural baggage"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（情感、文化等）包袱",
+        "definition_en": "accumulated emotional, cultural, or political assumptions, problems, or past experience affecting the present",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:baggage:c2f7d0d0eb16e54d",
+        "sense_label_en": "accumulated emotional, cultural, or political assumptions, problems, or past exp",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -126,13 +176,22 @@
         "merged_into_sense_id": null,
         "source_row": 975,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
+      },
+      {
+        "sense_id": "sense:baggage:c2f7d0d0eb16e54d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 18,
+        "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
       }
     ],
     "active_collocations": [
       "collocation:1d21eb7914a8f46b8783",
       "collocation:a8876dff99a01c9a10f0",
+      "collocation:ab34bad2cf80d7271ee0",
       "collocation:bbb653d79cce1590a9da",
-      "collocation:c68101ac5bd7455735d3"
+      "collocation:c68101ac5bd7455735d3",
+      "collocation:c769e8a7cb66e60cfd80"
     ],
     "facts": [],
     "collocations": [
@@ -154,6 +213,16 @@
       {
         "id": "collocation:c68101ac5bd7455735d3",
         "source_row": 16792,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:ab34bad2cf80d7271ee0",
+        "source_row": 19,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:c769e8a7cb66e60cfd80",
+        "source_row": 20,
         "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
       }
     ],
@@ -183,7 +252,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0377-0384.json",
-    "source_content_hash": "461fe616164ce723331c3ec584068649c717d0686cdaa167879c06dce3f85f47",
+    "source_content_hash": "8f239021fe43800ef93e41cd2d6be7999c7d6614ae292ce889a10fa6ca1fcd70",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

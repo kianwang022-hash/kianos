@@ -7,20 +7,36 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "357a08daae690abb8eb91cc19b5b76d269ee03fdb495851a1223271d44007957",
+    "content_hash": "ce3998b85d7c8dea45efd6c42a96b86814f51359a5ae34304140e1714d9e1d92",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "长椅，长凳；法官席；法官（总称）；替补队员；法官席（法庭中的座位）",
-          "label_en": "a long seat for more than one person; the magistrate or judge or judges sitting in court; the reserve players on a team; (law) the seat for judges in a courtroom",
+          "label_cn": "长椅；长凳",
+          "label_en": "a long seat for more than one person",
           "pos": "noun",
           "sense_ids": [
             "sense:bench:16afa7c57aea5c16"
           ]
+        },
+        {
+          "label_cn": "法官席；法官（总称）",
+          "label_en": "the judge or judges sitting in court, or the judicial office",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bench:314919b5c60d5e1e"
+          ]
+        },
+        {
+          "label_cn": "替补队员；替补席",
+          "label_en": "the reserve or substitute players on a team",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bench:22bded4ad0ad506f"
+          ]
         }
       ],
-      "core_meaning_cn": "长凳；法官或替补席",
-      "core_meaning_en": "a long seat or a position of authority/judgment",
+      "core_meaning_cn": "长凳；法官席；替补席",
+      "core_meaning_en": "a long seat; the judicial office; or reserve players",
       "mental_model_cn": "长凳；法官或替补席",
       "mental_model_en": ""
     },
@@ -55,6 +71,54 @@
         "sense_label_en": "a long seat for more than one person",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:709639d82c3fe55f2909",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bench:22bded4ad0ad506f:collocation:new-0cd8a6d6"
+            ],
+            "meaning_cn": "坐在替补席上",
+            "phrase": "on the bench"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "替补队员；替补席",
+        "definition_en": "the reserve or substitute players on a team",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bench:22bded4ad0ad506f",
+        "sense_label_en": "the reserve or substitute players on a team",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:21b1ae1c0b6f959394c2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bench:314919b5c60d5e1e:collocation:new-d757b41d"
+            ],
+            "meaning_cn": "法官席作出裁定",
+            "phrase": "the bench ruled"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "法官席；法官（总称）",
+        "definition_en": "the judge or judges sitting in court, or the judicial office",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bench:314919b5c60d5e1e",
+        "sense_label_en": "the judge or judges sitting in court, or the judicial office",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -78,56 +142,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:bench:22bded4ad0ad506f",
-      "status": "merged",
-      "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
-      "pos": "noun",
-      "definition_cn": "替补队员",
-      "definition_en": "the reserve players on a team",
-      "semantic_key": "02bf407532d11cf821deecbdf057bd826c6dfda28645363c56fb4791907d72f5",
-      "semantic_key_history": [
-        "a5c04dd25858f74626740096569115ceb30e72c026368b789ddade2fa32272b1"
-      ],
-      "legacy_aliases": [
-        "bench:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bench:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1217,
-      "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:bench:314919b5c60d5e1e",
-      "status": "merged",
-      "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
-      "pos": "noun",
-      "definition_cn": "法官席；法官（总称）",
-      "definition_en": "the magistrate or judge or judges sitting in court",
-      "semantic_key": "29cbb2e31e6951ff9d0e6d9bdf60cf423c3cf02e0c16ac8999ac35bfb53089de",
-      "semantic_key_history": [
-        "c43108ad936193190fd60e5176e43f1b2180891d7d605debb774d81ac4079e1d"
-      ],
-      "legacy_aliases": [
-        "bench:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bench:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1218,
-      "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:bench:bdd33c3186625100",
       "status": "merged",
@@ -190,15 +204,15 @@
       },
       {
         "sense_id": "sense:bench:22bded4ad0ad506f",
-        "status": "merged",
-        "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1217,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       },
       {
         "sense_id": "sense:bench:314919b5c60d5e1e",
-        "status": "merged",
-        "merged_into_sense_id": "sense:bench:16afa7c57aea5c16",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1218,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       },
@@ -218,6 +232,8 @@
       }
     ],
     "active_collocations": [
+      "collocation:21b1ae1c0b6f959394c2",
+      "collocation:709639d82c3fe55f2909",
       "collocation:ef5d9bb1fb2f7f2a2e6e"
     ],
     "facts": [],
@@ -240,6 +256,16 @@
       {
         "id": "collocation:ef5d9bb1fb2f7f2a2e6e",
         "source_row": 20280,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:709639d82c3fe55f2909",
+        "source_row": 50,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:21b1ae1c0b6f959394c2",
+        "source_row": 51,
         "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
       }
     ],
@@ -274,7 +300,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0457-0464.json",
-    "source_content_hash": "357a08daae690abb8eb91cc19b5b76d269ee03fdb495851a1223271d44007957",
+    "source_content_hash": "ce3998b85d7c8dea45efd6c42a96b86814f51359a5ae34304140e1714d9e1d92",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f5aca4bf5310595817ca2b3b9ba2ae4f6a731efb58d0bae4e5e370ea29ed608f",
+    "content_hash": "5281c54dba0f91beebd5b12bc574a262c631cf7112e7ed7169bded0fa3d31394",
     "core_concept": {
       "core_clusters": [
         {
@@ -19,24 +19,25 @@
           ]
         },
         {
-          "label_cn": "破产者",
-          "label_en": "a person who is unable to pay their debts and is legally declared insolvent",
-          "pos": "noun",
+          "label_cn": "思想或道德贫乏的",
+          "label_en": "completely lacking in valuable ideas, principles, or resources",
+          "pos": "adjective",
           "sense_ids": [
-            "sense:bankrupt:7febd61654ab5539"
+            "sense:bankrupt:60012b0bfa0f307c"
           ]
         },
         {
-          "label_cn": "使破产",
-          "label_en": "to make someone bankrupt or financially ruined",
-          "pos": "verb",
+          "label_cn": "破产者；使破产",
+          "label_en": "a bankrupt person; to make someone financially bankrupt",
+          "pos": "noun/verb",
           "sense_ids": [
+            "sense:bankrupt:7febd61654ab5539",
             "sense:bankrupt:2c378876be5c54c8"
           ]
         }
       ],
-      "core_meaning_cn": "财务上破产或无力偿还债务",
-      "core_meaning_en": "financially ruined or unable to pay debts",
+      "core_meaning_cn": "破产的；贫乏的",
+      "core_meaning_en": "financially ruined, or completely lacking in valuable qualities",
       "mental_model_cn": "财务上破产或无力偿还债务",
       "mental_model_en": ""
     },
@@ -128,6 +129,30 @@
         "sense_label_en": "to make someone bankrupt or financially ruined",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bbfe1dd255655010a5f9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bankrupt:60012b0bfa0f307c:collocation:new-8048bb2d"
+            ],
+            "meaning_cn": "道德上/思想上/政治上破产的",
+            "phrase": "morally/intellectually/politically bankrupt"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（思想、道德等）贫乏的",
+        "definition_en": "completely lacking in valuable ideas, principles, or resources",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:bankrupt:60012b0bfa0f307c",
+        "sense_label_en": "completely lacking in valuable ideas, principles, or resources",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -173,12 +198,20 @@
         "merged_into_sense_id": null,
         "source_row": 1031,
         "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
+      },
+      {
+        "sense_id": "sense:bankrupt:60012b0bfa0f307c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 31,
+        "source_path": "content/lexical/canonical/senses/shards/o0385-0416.json"
       }
     ],
     "active_collocations": [
       "collocation:1e328bfd72240a027c9b",
       "collocation:2b9ac18ad65b3a7dd207",
       "collocation:709da5c8dea6e458c1d9",
+      "collocation:bbfe1dd255655010a5f9",
       "collocation:e417d4a395bdc7bfd447"
     ],
     "facts": [],
@@ -201,6 +234,11 @@
       {
         "id": "collocation:e417d4a395bdc7bfd447",
         "source_row": 19311,
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+      },
+      {
+        "id": "collocation:bbfe1dd255655010a5f9",
+        "source_row": 32,
         "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
       }
     ],
@@ -235,7 +273,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0393-0400.json",
-    "source_content_hash": "f5aca4bf5310595817ca2b3b9ba2ae4f6a731efb58d0bae4e5e370ea29ed608f",
+    "source_content_hash": "5281c54dba0f91beebd5b12bc574a262c631cf7112e7ed7169bded0fa3d31394",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,11 +7,20 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8cc9cb9a614f564ab7616b75d5b6a3f380c3df3244526d2d686339627ca17056",
+    "content_hash": "2470c9e0f54d5e63f60d44eeaca33bb748095ae9ec7070bca887c498035f89ce",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "阻挡或分隔之物",
-      "core_meaning_en": "something that blocks or separates",
+      "core_clusters": [
+        {
+          "label_cn": "障碍；阻碍",
+          "label_en": "a physical or abstract obstacle or condition that prevents movement, access, or progress",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:barrier:e728b71b9c00518c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "障碍；阻碍",
+      "core_meaning_en": "a physical or abstract obstacle that prevents movement, access, or progress",
       "mental_model_cn": "阻挡或分隔之物",
       "mental_model_en": ""
     },
@@ -51,17 +60,26 @@
             ],
             "meaning_cn": "语言障碍",
             "phrase": "language barrier"
+          },
+          {
+            "collocation_id": "collocation:b3237cb7e71c07f61a77",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:barrier:e728b71b9c00518c:collocation:new-9219e325"
+            ],
+            "meaning_cn": "进入壁垒",
+            "phrase": "barrier to entry"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "阻碍自由移动的结构或物体",
-        "definition_en": "a structure or object that impedes free movement",
+        "definition_cn": "障碍；阻碍",
+        "definition_en": "a physical or abstract obstacle or condition that prevents movement, access, or progress",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:barrier:e728b71b9c00518c",
-        "sense_label_en": "a structure or object that impedes free movement",
+        "sense_label_en": "a physical or abstract obstacle or condition that prevents movement, access, or progress",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -165,7 +183,8 @@
     "active_collocations": [
       "collocation:89a4f5e9aebbe1cd22ef",
       "collocation:986d2af932c058347ad7",
-      "collocation:a182b54ae2fe9d3682f7"
+      "collocation:a182b54ae2fe9d3682f7",
+      "collocation:b3237cb7e71c07f61a77"
     ],
     "facts": [],
     "collocations": [
@@ -192,6 +211,11 @@
       {
         "id": "collocation:b2777ac963aaa68d15a3",
         "source_row": 15129,
+        "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
+      },
+      {
+        "id": "collocation:b3237cb7e71c07f61a77",
+        "source_row": 34,
         "source_path": "content/lexical/canonical/collocations/shards/o0385-0416.json"
       }
     ],
@@ -236,7 +260,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0409-0416.json",
-    "source_content_hash": "8cc9cb9a614f564ab7616b75d5b6a3f380c3df3244526d2d686339627ca17056",
+    "source_content_hash": "2470c9e0f54d5e63f60d44eeaca33bb748095ae9ec7070bca887c498035f89ce",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

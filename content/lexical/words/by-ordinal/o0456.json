@@ -7,11 +7,37 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "14b92f1647c1923a8f2bf02800bf6a23fb50809d049a7afb857dc8626b227f61",
+    "content_hash": "89582112613329f8589a5bdbc9b96af727d6d1618749236b0ba9cbe7e5229716",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "铃，钟",
-      "core_meaning_en": "a hollow metal device that rings when struck",
+      "core_clusters": [
+        {
+          "label_cn": "铃；钟",
+          "label_en": "a hollow metal device that makes a ringing sound when struck",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bell:df4ba6889c3158fc"
+          ]
+        },
+        {
+          "label_cn": "听起来熟悉",
+          "label_en": "to sound familiar or trigger vague recognition",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:bell:0d876d446557e4ea"
+          ]
+        },
+        {
+          "label_cn": "铃声；钟状物",
+          "label_en": "the sound or shape of a bell",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bell:4dc4533897cd52b7",
+            "sense:bell:4e59de466bc05f74"
+          ]
+        }
+      ],
+      "core_meaning_cn": "铃；钟；听起来熟悉",
+      "core_meaning_en": "a bell or its sound; to sound familiar",
       "mental_model_cn": "铃，钟",
       "mental_model_en": ""
     },
@@ -31,7 +57,7 @@
             "legacy_source_object_ids": [
               "sense:bell:df4ba6889c3158fc:collocation:0"
             ],
-            "meaning_cn": "按铃；使想起",
+            "meaning_cn": "按铃；（字面）敲响铃",
             "phrase": "ring a bell"
           },
           {
@@ -103,6 +129,30 @@
         "sense_label_en": "the shape of a bell",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dcef81fc7f926267996e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bell:0d876d446557e4ea:collocation:new-69e2d9a4"
+            ],
+            "meaning_cn": "听起来熟悉；使人隐约想起某事",
+            "phrase": "ring a bell"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "听起来熟悉；引起模糊的认知",
+        "definition_en": "to sound familiar or trigger a vague recognition",
+        "governing_pattern": "ring a bell",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:bell:0d876d446557e4ea",
+        "sense_label_en": "to sound familiar or trigger a vague recognition",
+        "sort_order": 3,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -148,12 +198,20 @@
         "merged_into_sense_id": null,
         "source_row": 1201,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
+      },
+      {
+        "sense_id": "sense:bell:0d876d446557e4ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 45,
+        "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       }
     ],
     "active_collocations": [
       "collocation:00a9f2c6298961251ddc",
       "collocation:04475069aa6b4695a832",
       "collocation:5b5ad17724e2225b1cfd",
+      "collocation:dcef81fc7f926267996e",
       "collocation:f8600b1e1d98ecb8ccb5"
     ],
     "facts": [],
@@ -176,6 +234,11 @@
       {
         "id": "collocation:f8600b1e1d98ecb8ccb5",
         "source_row": 21043,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:dcef81fc7f926267996e",
+        "source_row": 46,
         "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
       }
     ],
@@ -205,7 +268,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0449-0456.json",
-    "source_content_hash": "14b92f1647c1923a8f2bf02800bf6a23fb50809d049a7afb857dc8626b227f61",
+    "source_content_hash": "89582112613329f8589a5bdbc9b96af727d6d1618749236b0ba9cbe7e5229716",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
