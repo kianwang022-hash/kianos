@@ -6,11 +6,13 @@ on:
       - 'lexical/fresh-rebuild-*'
     paths:
       - 'tools/lexical_fresh_rebuild_apply.py'
+      - 'tools/lexical_fresh_rebuild_batch.py'
       - 'content/lexical/audit/fresh-rebuild/**'
       - '.github/workflows/lexical-fresh-rebuild-batch.yml'
   pull_request:
     paths:
       - 'tools/lexical_fresh_rebuild_apply.py'
+      - 'tools/lexical_fresh_rebuild_batch.py'
       - 'content/lexical/audit/fresh-rebuild/**'
       - 'content/lexical/words/by-ordinal/**'
       - 'content/lexical/relations/by-id/**'
@@ -20,30 +22,84 @@ permissions:
   contents: write
 
 jobs:
-  gold01:
+  fresh-batch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Apply fresh Gold01 in candidate workspace
+      - name: Resolve fresh batch
+        shell: bash
         run: |
-          python tools/lexical_fresh_rebuild_apply.py \
-            "$GITHUB_WORKSPACE/content/lexical/audit/fresh-rebuild/batches/gold01.json" \
-            --report /tmp/gold01-report.json
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "pull_request" ]]; then
+            BRANCH="${GITHUB_HEAD_REF}"
+          else
+            BRANCH="${GITHUB_REF_NAME}"
+          fi
+          BATCH_ID="${BRANCH##*-}"
+          SPEC="content/lexical/audit/fresh-rebuild/batches/${BATCH_ID}.json"
+          RECEIPT="content/lexical/audit/fresh-rebuild/batches/${BATCH_ID}-receipt.json"
+          if [[ ! -f "${SPEC}" ]]; then
+            echo "Fresh batch spec not found: ${SPEC}" >&2
+            exit 1
+          fi
+          if [[ -f "${RECEIPT}" ]]; then
+            MODE="verify"
+          else
+            MODE="apply"
+          fi
+          {
+            echo "BATCH_ID=${BATCH_ID}"
+            echo "BATCH_SPEC=${SPEC}"
+            echo "BATCH_RECEIPT=${RECEIPT}"
+            echo "BATCH_MODE=${MODE}"
+          } >> "$GITHUB_ENV"
+          echo "Resolved ${BATCH_ID} in ${MODE} mode"
 
-      - name: Validate changed-owner invariants
+      - name: Apply or verify fresh batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          EXTRA=()
+          if [[ "${BATCH_MODE}" == "verify" ]]; then
+            EXTRA+=(--verify-accepted)
+          fi
+          python tools/lexical_fresh_rebuild_batch.py \
+            "${GITHUB_WORKSPACE}/${BATCH_SPEC}" \
+            --report /tmp/fresh-batch-report.json \
+            "${EXTRA[@]}"
+
+      - name: Validate batch report and owner invariants
         run: |
           git diff --check
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
-          report = json.loads(Path('/tmp/gold01-report.json').read_text())
+
+          report = json.loads(Path('/tmp/fresh-batch-report.json').read_text())
+          spec_path = Path(os.environ['BATCH_SPEC'])
+          spec = json.loads(spec_path.read_text())
+          owners = list(spec.get('owners') or [])
+          for name in spec.get('parts') or []:
+              part = json.loads((spec_path.parent / name).read_text())
+              owners.extend(part.get('owners') or [])
+          expected_upgraded = sum(o.get('disposition') == 'FRESH_UPGRADED' for o in owners)
+          expected_pass = sum(o.get('disposition') == 'FRESH_PASS_NO_CHANGE' for o in owners)
+
           assert report['status'] == 'PASS'
           assert report['legacy_semantic_authority'] is False
-          assert report['owner_count'] == 6
-          assert report['relation_count'] == 1
+          assert report['owner_count'] == len(owners)
+          assert report['upgraded_count'] == expected_upgraded
+          assert report['pass_count'] == expected_pass
+          assert report['blocked_count'] == 0
           assert report['learner_state_mutation'] == 0
+
+          expected_ordinals = [int(o['ordinal']) for o in owners]
+          actual_ordinals = [int(o['ordinal']) for o in report['owners']]
+          assert actual_ordinals == expected_ordinals
+
           for row in report['owners']:
               json.loads(Path(row['path']).read_text())
           print(json.dumps(report, ensure_ascii=False, indent=2))
@@ -53,23 +109,28 @@ jobs:
         working-directory: static-web
         run: |
           node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
           import { loadLexicalWordByOrdinal } from './src/lib/lexical.mjs';
-          const ids = [3809, 3833, 3900, 3961, 4041, 4248];
-          const rows = Object.fromEntries(ids.map((o) => {
-            const x = loadLexicalWordByOrdinal(o);
-            return [x.record.word, x];
-          }));
-          const active = (w, id) => rows[w].record.senses.some((s) => s.sense_id === id);
-          const construction = (w, p) => rows[w].record.constructions.some((c) => c.pattern === p);
 
-          if (rows.profit.record.senses.length !== 3 || !construction('profit', 'profit from sth/doing')) throw new Error('GOLD01_PROFIT_READBACK');
-          if (!active('property', 'sense:property:e8f9398f1bf15486') || active('property', 'sense:property:a56f18865e615218')) throw new Error('GOLD01_PROPERTY_READBACK');
-          if (!active('queer', 'sense:queer:03edc8317599ae29') || !active('queer', 'sense:queer:88ea735327908287') || active('queer', 'sense:queer:af7a2e2821725385')) throw new Error('GOLD01_QUEER_READBACK');
-          if (!active('real', 'sense:real:3b195a98c63754f2') || active('real', 'sense:real:eba2fcdb2fb45215')) throw new Error('GOLD01_REAL_READBACK');
-          if (!active('relation', 'sense:relation:5fb74025eff45adb') || active('relation', 'sense:relation:f814d67d25f95bef') || !construction('relation', 'in relation to sth')) throw new Error('GOLD01_RELATION_READBACK');
-          if (rows.sanction.record.senses.length !== 4 || !construction('sanction', 'sanction sb for (doing) sth')) throw new Error('GOLD01_SANCTION_READBACK');
-          if (!(rows.sanction.record.semantic_neighbors || []).some((r) => r.relation_type === 'contronym')) throw new Error('GOLD01_SANCTION_RELATION_READBACK');
-          console.log('Gold01 learner-object readback PASS');
+          const report = JSON.parse(fs.readFileSync('/tmp/fresh-batch-report.json', 'utf8'));
+          for (const row of report.owners) {
+            const owner = loadLexicalWordByOrdinal(Number(row.ordinal));
+            if (!owner) throw new Error(`FRESH_BATCH_PROJECTION_MISSING:o${String(row.ordinal).padStart(4, '0')}`);
+            const wordId = owner.word_id ?? owner.record?.word_id;
+            if (wordId !== row.word_id) {
+              throw new Error(`FRESH_BATCH_PROJECTION_WORD_ID:o${row.ordinal}:${wordId}!=${row.word_id}`);
+            }
+            const active = new Set((owner.record?.senses ?? []).map((s) => s.sense_id));
+            for (const sid of row.active_sense_ids) {
+              if (!active.has(sid)) {
+                throw new Error(`FRESH_BATCH_PROJECTION_SENSE:o${row.ordinal}:${sid}`);
+              }
+            }
+            if ((owner.record?.needs_delta_review ?? false) !== false) {
+              throw new Error(`FRESH_BATCH_PROJECTION_DELTA_REVIEW:o${row.ordinal}`);
+            }
+          }
+          console.log(`Fresh batch learner-object readback PASS (${report.owner_count} owners)`);
           NODE
 
       - name: Validate full lexical JSON catalog
@@ -77,11 +138,13 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          paths = list(Path('content/lexical/words/by-ordinal').glob('*.json')) + list(Path('content/lexical/relations/by-id').glob('*/*.json'))
-          assert len(list(Path('content/lexical/words/by-ordinal').glob('*.json'))) == 7946
-          for path in paths:
+
+          words = list(Path('content/lexical/words/by-ordinal').glob('*.json'))
+          relations = list(Path('content/lexical/relations/by-id').glob('*/*.json'))
+          assert len(words) == 7946
+          for path in words + relations:
               json.loads(path.read_text())
-          print(f'validated {len(paths)} owner files')
+          print(f'validated {len(words)} Word owners + {len(relations)} Relation owners')
           PY
 
       - name: Install Astro dependencies
@@ -94,34 +157,51 @@ jobs:
 
       - name: Commit accepted batch to branch
         if: github.event_name == 'push'
+        shell: bash
         run: |
-          cp /tmp/gold01-report.json content/lexical/audit/fresh-rebuild/batches/gold01-receipt.json
+          set -euo pipefail
+          if [[ "${BATCH_MODE}" != "apply" ]]; then
+            echo "Accepted receipt already exists; verification-only run."
+            exit 0
+          fi
+
+          cp /tmp/fresh-batch-report.json "${BATCH_RECEIPT}"
           python - <<'PY'
-          import json, subprocess
+          import json
+          import os
+          import subprocess
           from pathlib import Path
-          report = json.loads(Path('/tmp/gold01-report.json').read_text())
+
+          report = json.loads(Path('/tmp/fresh-batch-report.json').read_text())
           paths = [row['path'] for row in report['owners']]
-          paths.append('content/lexical/audit/fresh-rebuild/batches/gold01-receipt.json')
+          paths.append(os.environ['BATCH_RECEIPT'])
           subprocess.run(['git', 'add', '--', *paths], check=True)
           PY
+
           if git diff --cached --quiet; then
             echo 'No accepted owner delta to commit.'
             exit 0
           fi
           git config user.name 'kianos-lexical-batch'
           git config user.email 'actions@users.noreply.github.com'
-          git commit -m 'lexical: accept fresh rebuild Gold01 owners'
+          git commit -m "lexical: accept fresh rebuild ${BATCH_ID} owners"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Package candidate output
         if: always()
         run: |
           python - <<'PY'
-          import json, shutil
+          import json
+          import os
+          import shutil
           from pathlib import Path
+
           out = Path('/tmp/fresh-rebuild-output')
           out.mkdir(parents=True, exist_ok=True)
-          report_path = Path('/tmp/gold01-report.json')
+          report_path = Path('/tmp/fresh-batch-report.json')
+          spec_path = Path(os.environ['BATCH_SPEC'])
+          if spec_path.exists():
+              shutil.copy2(spec_path, out / spec_path.name)
           if report_path.exists():
               report = json.loads(report_path.read_text())
               for row in report.get('owners', []):
@@ -134,14 +214,14 @@ jobs:
                   dst = out / src
                   dst.parent.mkdir(parents=True, exist_ok=True)
                   shutil.copy2(src, dst)
-              shutil.copy2(report_path, out / 'gold01-report.json')
+              shutil.copy2(report_path, out / f"{os.environ['BATCH_ID']}-report.json")
           PY
 
-      - name: Upload Gold01 candidate artifact
+      - name: Upload fresh batch artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-fresh-rebuild-gold01
+          name: lexical-fresh-rebuild-${{ env.BATCH_ID }}
           path: /tmp/fresh-rebuild-output
           if-no-files-found: error
           retention-days: 14
