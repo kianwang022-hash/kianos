@@ -90,7 +90,7 @@ assert(repairBridge.indexOf('writeJson(extensionKey, ext)') < repairBridge.index
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-cross-tab-return-missing');
 assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'block-evidence-guard-not-mounted');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
-assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'system-evidence-guard-not-mounted');
+assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'system-evidence-guard-not-mounted');
 
 // Current A1 question set contains both reviewed and unresolved precise relation cases,
 // so the executed Evidence journey can challenge both paths instead of fabricating fixtures.

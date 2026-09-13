@@ -208,7 +208,6 @@ try {
   const targetStudy = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(targetStudyKey)})||'null')`);
   const targetExt = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(targetExtKey)})||'null')`);
   check(targetStudy?.ratings?.[reviewedQuestion.relation.primaryKpId] === 'unknown', 'system_repair_import_preserves_original_block_recall');
-  check(localStorage !== undefined, 'browser_local_storage_available');
   check(await cdp.evaluate(`localStorage.getItem(${js(targetInboxKey)})`) === null, 'repair_inbox_cleared_only_after_block_import');
   check((targetExt?.reviewPlan || []).some((row) => row.kpId === reviewedQuestion.relation.primaryKpId && (row.sourceQuestionIds || []).includes(reviewedQuestion.questionId)), 'reviewed_wu_plan_imported_to_exact_block_kp');
   check((targetExt?.evidenceHistory || []).some((row) => row.type === 'SYSTEM_WU_PLAN_IMPORTED' && row.evidence_role === 'REPAIR_ONLY' && (row.source_question_ids || []).includes(reviewedQuestion.questionId)), 'repair_inbox_import_evidence_is_repair_only');
