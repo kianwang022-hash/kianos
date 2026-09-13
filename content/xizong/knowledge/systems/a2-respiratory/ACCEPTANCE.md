@@ -15,43 +15,151 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ```text
 S  PASS
-K  PASS
+K  PASS — fresh bottom-up re-accepted
 L  PASS
 P  PASS
-R  PASS
-E  PASS
+R  PASS — executed Functional First browser journey
+E  PASS — executed state/evidence/repair journey
 U  UNTESTED by every real learner path
 ```
 
 Allowed conclusion:
 
-> **A2 Respiratory is Module ready for learner test. S/K/L/P/R/E are accepted for the recorded scope. Every real User Validation path remains UNTESTED. This does not mean Kian has started or completed Respiratory.**
+> **A2 Respiratory is Functional First ready for actual study. S/K/L/P/R/E are accepted for the recorded scope. Every real learner U path remains UNTESTED.**
+
+Not allowed:
+
+> learner-validated / Respiratory learned / System Recall due now / questions due now.
 
 ---
 
 ## Current evidence boundary
 
-- **S PASS** — Current owner model exists and A2 official System scope is exactly **359** Current Question Truth IDs with fail-closed identity/count/hash validation in the accepted source boundary.
-- **K PASS** — the current System owner and all **12 canonical Blocks / 236 stable KPs** were boundedly re-audited against the current canonical content boundary. Stable Block/KP identity was preserved. The audit closed real semantic conflicts at their owning layer: R9 PDE5 uses the cGMP mechanism; R10 drug/hypersensitivity pleural inflammation is exudative; R11 2026 N129 is verified as C｜小细胞癌 for the narrower “most common” single-choice; R12 full modern ICU expansion is EXTERNAL_SCOPE. The System owner records no formal source gap.
-- **L PASS** — the accepted Xizong learning constitution, detailed shared study policy and `a2-respiratory-learning.json` define the direct **12-Block / 62-Logic-Group** first-learning route, Lecture-first contact, KP Recall, Block Recall, System Recall before questions, W/U repair and post-question Recall. R11 learning support was reconciled after K closure so the learner cue no longer advertises a closed Source Gap.
-- **P PASS** — the actual shared Xizong learner projection was audited against S/K/L rather than page existence. The System first-pass surface foregrounds System orientation, causal spine / variables / Failure Modes and Block entry. Full System Recall and the official System question sweep are no longer permanently foregrounded during orientation: they remain freely accessible inside a default-collapsed **later System Exit** surface explicitly labeled for use after the System is learned. The Block surface projects the accepted first-pass hierarchy as **Block focus → Logic Group → Lecture-first KP learning → Logic Group closure → KP Recall → Block Recall → Block complete**. Visual, Precision and connection cues are stage-timed rather than dumped into the primary surface, and After-Learn Memory/Chat extension visibility is tied to Recall/complete stages.
-- **R PASS** — the accepted projection has an executable A2 journey without manufacturing learner progress. Block state resumes at the saved stage/KP; Continue returns to the last System/Block; free navigation remains available while premature Recall/Block/System completion evidence is rejected. Block completion still requires Lecture confirmation. System questions remain gated by completed System Recall plus learner-selected holdout years. Stable correct questions can pass without repair debt; only Wrong / Uncertain enter repair. Chat repair return accepts only current real W/U question IDs, derives Block/KP routing only from repository-reviewed relations, sends precise tasks into the owning Block Review when such a relation exists, refuses to invent a route when it does not, and preserves the interrupted question mainline.
-- **E PASS** — private learner evidence now preserves the distinctions required by the Xizong learning model. Every real KP Recall attempt can leave an event even when the learner gives the same rating repeatedly; the current weak Memory queue is selective and a Memory item may become locally STABLE and leave that queue without rewriting the original Recall. Chat-plan review is explicitly `REPAIR_ONLY`; a repair task that becomes known/mastered can leave the active repair queue, but that repair evidence does not promote the original Recall or mastery. System Recall evidence distinguishes `PRE_QUESTION`, `MID_SWEEP` and `POST_QUESTION`, so the required post-question reconstruction cannot be confused with the pre-question Recall. W/U question results remain durable question evidence after repair rather than being silently rewritten as correct/mastered. Block evidence is version-bound to the current Block/System/learning-support sources; System/question evidence is version-bound to the current System, scope, question inventory, official answers, reviewed repair relations and explanation semantics. When those versions change, stale learning evidence is archived and removed from current closure rather than silently reused; learner notes are preserved across a Block evidence reset. System-delivered stale question-repair plans are also removed from active Block Review when their evidence version changes. Malformed private JSON fails to an empty/safe state rather than creating shared truth. The bounded A2 Evidence acceptance probe passed under the Current Xizong validation path and the current Astro build passed with the evidence guards mounted.
-- **U UNTESTED** — no synthetic, runtime or repository evidence can establish real learner validation. Only Kian's actual use can create U evidence, and it must remain path-scoped.
+### S — PASS
+
+Current Source scope remains exactly **359 official A2 Question Truth IDs** under the accepted fail-closed source boundary. The fresh audit found no evidence requiring a new A2 Source unit merely because a topic is clinically interesting outside Current 306 scope.
+
+### K — PASS · fresh re-accepted
+
+The fresh audit independently attacked completeness, minimality and ownership rather than treating stable counts or old Acceptance as the answer.
+
+Accepted result:
+
+- **12 canonical Blocks / 236 stable KPs / 62 Logic Groups** remain;
+- no Block/KP split, merge or renumber is justified;
+- R1/R2/R3/R4/R5/R7 remain coherent natural units;
+- the most suspicious combined Blocks also survive minimality attack:
+  - R6: chronic suppuration + structural destruction + drainage/cavity discrimination;
+  - R8: restrictive–diffusion–hypoxemia discrimination across ILD/silicosis and related alveolar patterns;
+  - R9: chronic PVR load vs acute pulmonary vascular obstruction under one RV-load model;
+  - R11: lung-cancer Primary with a small mediastinal spatial-localization tail;
+  - R12: shared oxygenation/ventilation failure endpoint;
+- no new medical Block or broad Content rewrite is required.
+
+A real System-level defect was repaired:
+
+- old failure language omitted **blood O2-carrying / oxygen-content failure**, even though R2 teaches that PaO2/SaO2 does not equal Hb/CaO2 or tissue oxygen delivery;
+- broad “persistent structural destruction / occupying lesion” was demoted from primitive status because those diseases compose from more specific functional failures;
+- ventilatory mechanics/pump failure is now separated from respiratory controller/neural-drive failure;
+- a judgment axis explicitly distinguishes **PaO2/SaO2 hypoxemia vs Hb/CaO2 carrying failure**;
+- matching `a2-respiratory-pathways.json` failure views were reconciled.
+
+Current minimal A2 failure language is:
+
+```text
+FM1 airway obstruction
+FM2 ventilatory mechanics / pump expansion failure
+FM3 alveolar filling or collapse
+FM4 diffusion-membrane failure
+FM5 V/Q mismatch
+FM6 pulmonary vascular resistance / pathway failure
+FM7 respiratory controller / neural-drive failure
+FM8 blood O2-carrying / oxygen-content failure
+```
+
+Complete anemia, toxicology and other non-respiratory etiologies remain with their owning Systems; A2 only owns the interface needed to localize oxygen-delivery failure correctly.
+
+### L — PASS
+
+The accepted Xizong learning constitution remains sufficient and was not expanded during this closure:
+
+`System orientation → Block/Logic Group Lecture-first learning → KP Recall → Logic Group closure → Block Recall → System Recall before questions → official System sweep → smallest-sufficient W/U repair → return → post-question reconstruction`.
+
+Continuous Lecture consumption remains external-primary on iPad/MarginNote. KianOS remains orientation, retrieval, compression, evidence and repair rather than a second mandatory Lecture reader.
+
+No new A2 ritual, Recall layer, question set or learner burden was introduced by the fresh audit.
+
+### P — PASS
+
+No visual redesign was required. Current shared System/Block surfaces project the accepted semantics sufficiently for Functional First use. Presentation polish is not part of this gate closure.
+
+### R — PASS · executed browser evidence
+
+The current Runtime was exercised through a real Playwright browser journey rather than accepted from page existence or source inspection alone.
+
+`Xizong A2 Functional First Journey` run `34755440083` passed after correcting an earlier **test-only locator bug**. The successful journey executed:
+
+- R1 first-learning state write;
+- refresh resume at the saved stage/KP;
+- premature Recall fail-closed behavior;
+- Lecture evidence as a hard Block-completion prerequisite;
+- successful Block completion only after required evidence;
+- home Continue → recent Block;
+- completed-System → System Recall;
+- learner-selected whole-paper holdout;
+- official System question sweep;
+- correct-but-Uncertain state transition;
+- W/U repair handoff and return path.
+
+`Static Web Xizong QA` run `34755440116` passed Current validators and Astro build on the same repaired candidate.
+
+### E — PASS · executed evidence semantics
+
+The same browser journey verified the critical evidence contracts in execution:
+
+- an unlearned KP cannot manufacture Recall evidence;
+- a Block cannot manufacture `completed=true` without Lecture + Learn + Recall + Block Recall evidence;
+- question results remain keyed to real Question Truth IDs;
+- stable work is not forced into repair;
+- repair input accepts only current real Wrong/Uncertain question IDs;
+- precise Question→Block/KP routing uses repository-reviewed relations only;
+- routed repair reaches the owning Block through the repair inbox;
+- imported repair evidence is `REPAIR_ONLY`;
+- repair does not rewrite the original question evidence;
+- the original sweep tab/mainline remains available for natural return;
+- Current-version evidence guards continue to archive/invalidate stale Block/System/question/repair evidence rather than silently reusing it.
+
+Evidence class:
+
+> **EXECUTED BROWSER ENGINEERING EVIDENCE — NOT REAL LEARNER U**
+
+### U — UNTESTED
+
+No repository, CI, fixture or headless browser run can establish real learner validation. Only Kian's actual use can create U evidence, and U remains path-scoped.
 
 ---
 
-## Current acceptance sequence
+## Functional First stop rule
 
-```text
-Module ready for learner test
-↓
-real U only when Kian actually uses a named learner path
-↓
-new learner evidence may reopen only the smallest responsible gate/object
-```
+A2 engineering is complete for the current scope.
 
-Do not trigger a learner test merely because the module is ready. Kian's next learner action comes from actual study state, not from this Acceptance file.
+Do not reopen accepted gates for visual polish or speculative improvement. New work requires concrete contradictory Source, medical, state/evidence, Runtime or real learner evidence and must reopen only the smallest responsible owner.
+
+Visual/interaction implementation may later be delegated to Codex. Codex may improve layout, responsiveness, components and micro-interactions, but must not change canonical medical ownership, Block/KP identity or learner order, Lecture-first semantics, completion/state meanings, evidence semantics, Memory admission, Question ownership/reviewed routing, W/U repair semantics, or repair/return progression.
+
+---
+
+## U paths awaiting real evidence
+
+All remain `UNTESTED` until Kian genuinely uses them:
+
+- sustained System orientation → Block first-learning flow;
+- real iPad/MarginNote ↔ KianOS handoff;
+- real weak KP Recall → Memory / Chat repair → natural return;
+- real completed System → System Recall → holdout → question sweep → W/U repair → post-question Recall;
+- sustained multi-session Continue/resume behavior.
+
+Passing one later U path must not silently promote the others.
 
 ---
 
@@ -62,12 +170,12 @@ Do not trigger a learner test merely because the module is ready. Kian's next le
 - System owner → `content/xizong/knowledge/systems/a2-respiratory/system.json`
 - medical Core → `content/xizong/knowledge/systems/a2-respiratory/blocks/`
 - lane learning semantics → `content/xizong/LEARNING_CONTRACT.md`
-- detailed shared learning policy / A2 support → `content/xizong/knowledge/learner/`
+- detailed learning policy/support/pathways → `content/xizong/knowledge/learner/`
 - official questions / explanations / reviewed relations → Xizong content roots
-- learner-facing implementation → Xizong surfaces under `static-web/`
+- learner Runtime / Functional First journey → `static-web/`
 
 ### Learner Truth
 
 Private learner/browser/conversation evidence only.
 
-This file does not mean Kian has started Respiratory, reached any Recall stage, attempted official questions, created repair/review debt, or validated any U path.
+This Acceptance does not mean Kian has started Respiratory, reached any Recall stage, attempted official questions, created repair/review debt, or validated any U path.
