@@ -80,6 +80,20 @@ jobs:
           name: mao-content-diagnostics-${{ github.run_id }}
           path: static-web/_diagnostics/mao-content.log
           if-no-files-found: ignore
+      - name: Audit Xi fresh content closure
+        id: xi_content
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p _diagnostics
+          node scripts/audit-politics-xi-content.mjs 2>&1 | tee _diagnostics/xi-content.log
+      - name: Upload Xi content diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi-content-diagnostics-${{ github.run_id }}
+          path: static-web/_diagnostics/xi-content.log
+          if-no-files-found: ignore
       - name: Audit History global first-ready parity
         run: node scripts/audit-politics-history-first-ready.mjs
       - name: Audit History Runtime closure
