@@ -132,3 +132,224 @@ The product must deliberately reduce learning barriers through:
 This must be solved before mass-projecting the existing Marxism C00 reference workspace to other chapters/subjects.
 
 Do not treat "large text" as merely a CSS typography problem. The question is **what the learner sees first, what stays visible, what is deferred, and how the logic of the content is visually encoded**.
+
+---
+
+# Design Stage Goal｜Cognitive Projection Layer
+
+Status: **ACTIVE DESIGN TARGET — no mass implementation yet**
+
+The current design stage is not to hand-layout every Politics chapter and not to redesign Politics Learning Logic. The goal is to freeze a **data-driven Cognitive Projection Layer** that can turn accepted Current Content into lower-friction learner-facing cognitive structures while preserving the existing Runtime / Evidence / Repair / Return chain.
+
+## Stage objective
+
+```text
+Current Content
+→ subject-specific semantic projection
+→ stable Cognitive ViewModel
+→ reusable cognitive components
+→ shared Mac-wide workspace shell
+→ existing Runtime / Evidence / Repair / Return
+```
+
+The design is accepted only if the resulting system can render many chapters from Current data without page-by-page bespoke artwork and without flattening all Politics subjects into one generic template.
+
+## Design-stage scope
+
+### A｜Freeze the shared Attention Architecture
+
+Define the default visual priority model for high-text Politics learning:
+
+```text
+L0  current learner problem / question
+L1  decisive relation / causal / hierarchy structure
+L2  explanation needed to understand that structure
+L3  takeaway / boundary / next bridge
+L4  exact wording / source / deeper detail / metadata
+```
+
+This is a hierarchy rule, not a requirement that every page contain all five layers. Subject semantics determine which layers exist.
+
+Default behavior:
+
+- L0–L1 dominate the first view;
+- L2 is readable but subordinate to the main structure;
+- L3 is contextual and may live in the Inspector;
+- L4 is progressively disclosed unless Current explicitly requires first-round exact recognition;
+- stable/correct work stays visually quiet;
+- Wrong / meaningful Uncertain may increase interface weight because new information becomes useful.
+
+### B｜Freeze the shared Workspace shell
+
+Define one reusable Mac-wide workspace shell that can host different cognitive geometries without forcing identical content templates.
+
+Expected structural regions:
+
+```text
+Location / Chapter / Natural Unit navigation
+→ Chapter-level orientation/map when useful
+→ Current Natural Unit cognitive stage
+→ Contextual Inspector
+→ existing stage actions / source handoff / verification / repair / return
+```
+
+The shell must avoid the current default of rendering every Unit in one continuously expanded Chapter document.
+
+Natural Units remain freely navigable; stateful focus is not permission to turn the page into a restrictive wizard.
+
+### C｜Freeze subject-specific Projection grammars
+
+At design stage, define the semantic fields and visual primitives for all five Politics subjects at the **grammar level**, without manually designing every chapter.
+
+Target grammars:
+
+```text
+Marxism
+relation / mechanism / boundary / reasoning chain
+
+History
+stage / chronology / cause / cause layers / turning point / evaluation / takeaway / next / causal chain
+
+Mao
+historical problem / theory response / sequence position / route-program-position boundary
+
+Xi
+hierarchy / role / identity / goal / principle / path / confusable fixed-formulation boundary
+
+Ethics-Law
+concept boundary / normative judgment / identity / situational application
+```
+
+Shared architecture may be reused; cognitive geometry must remain subject-specific.
+
+### D｜Define reusable cognitive component primitives
+
+Design the minimum component vocabulary needed by the projection grammars, for example:
+
+```text
+CausalChain
+ParallelCauses
+StageTimeline
+TurningPoint
+RelationMap
+MechanismChain
+ProblemAnswer
+TheoryPosition
+HierarchyTree
+RoleIdentity
+BoundaryCompare
+TakeawayList
+NextBridge
+ContextInspector
+```
+
+These are semantic/attention components, not decorative Card variants.
+
+Exact implementation names remain open until Codex handoff; design stage freezes their responsibilities and composition rules, not incidental code structure.
+
+### E｜Use History C01 as the first full pilot
+
+History C01 is the design calibration object because Current already owns enough distinct structure to test the architecture:
+
+- chapter stage story;
+- four Natural Units;
+- `cause`;
+- `cause_layers`;
+- `process`;
+- `turning_point`;
+- `evaluation`;
+- `what_to_hold`;
+- `next`;
+- chapter `timeline`;
+- chapter `causal_chain`.
+
+The design must preserve these Current relations rather than silently dropping them through the generic adapter.
+
+History C01 should be designed through the full learner-visible state chain:
+
+```text
+Chapter / Unit orientation
+→ External Learn handoff
+→ optional Recall / close
+→ Xiao1000 clean verification
+→ stable continuation
+→ Wrong / Uncertain repair
+→ exact return
+→ Unit / Chapter close
+```
+
+The design stage does **not** change the semantics of any of these states.
+
+### F｜Prove the design generalizes before implementation expansion
+
+Before declaring the History grammar frozen, sample at least one materially different later History chapter / Unit and verify that the same grammar can express it without bespoke page artwork or loss of Current semantics.
+
+The purpose is to reject a design that only looks good for History C01.
+
+### G｜Map implementation boundaries before Codex
+
+The design brief must identify:
+
+- which Current fields are read by each subject projection;
+- which existing generic adapter fields are preserved;
+- which currently dropped subject-specific fields need Projection support;
+- how ViewModel output connects to existing question / evidence / repair / return components;
+- which parts of the current Runtime remain untouched;
+- fallback behavior when a particular semantic structure is absent.
+
+Codex should receive a bounded implementation brief, not be asked to rediscover the product architecture.
+
+---
+
+## Design-stage non-goals
+
+Do **not** during this stage:
+
+- rewrite Politics Content to make UI implementation easier;
+- change Natural Unit ownership/order;
+- change Chengfeng / Suyi / Xiao1000 roles;
+- reinterpret first-ready question ownership;
+- alter Evidence / mastery semantics;
+- alter Wrong / Uncertain admission rules;
+- redesign Unit Return semantics;
+- mass-convert all Politics chapters before the pilot is accepted;
+- hand-design one-off artwork per chapter;
+- ask Codex to invent subject cognitive grammar from the data.
+
+---
+
+## Design-stage exit criteria
+
+The Politics Cognitive Projection design stage is complete only when all of the following are true:
+
+1. **Attention Architecture frozen** — default first-view / secondary / deferred hierarchy is explicit.
+2. **Shared Workspace shell frozen** — Mac-wide geometry, Natural Unit navigation and Inspector responsibilities are accepted.
+3. **History grammar frozen** — all high-value Current History fields used by learner cognition have an explicit Projection disposition.
+4. **History C01 full-state design accepted** — Orientation through Verify / Repair / Return / Close has learner-visible text-frame designs.
+5. **Generalization check passes** — at least one materially different History chapter can use the same grammar without one-off page design.
+6. **Five-subject grammar map exists** — Marxism / History / Mao / Xi / Ethics-Law each has a defined cognitive projection shape, even if only History is first implemented.
+7. **Component responsibility map frozen** — enough reusable cognitive primitives are defined to implement the pilot without decorative-card improvisation.
+8. **Semantic boundary documented** — Content / Logic / Runtime / Evidence owners remain unchanged; Projection changes are explicitly bounded.
+9. **Codex pilot brief ready** — implementation can begin with History C01 only, on one bounded Draft PR, without product rediscovery.
+
+After these conditions are met, the next stage is **implementation pilot**, not whole-Politics rollout.
+
+---
+
+## First implementation stage after design freeze
+
+The first Codex implementation should be intentionally narrow:
+
+```text
+History C01 only
+→ create Cognitive Projection foundation
+→ create History projection adapter / ViewModel
+→ create minimum reusable cognitive components
+→ connect to shared workspace shell
+→ preserve existing Xiao1000 / Evidence / Repair / Return behavior
+→ real Mac-wide screenshots
+→ Sol + Kian product review
+→ same-PR iteration
+```
+
+Only after real browser use and acceptance should the architecture expand to History C01–C10, then the other Politics subjects.
