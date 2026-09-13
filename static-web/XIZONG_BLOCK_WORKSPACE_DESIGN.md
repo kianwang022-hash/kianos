@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **ACTIVE SURFACE DESIGN — BASE WORKSPACE + LOGIC/HANDOFF + KP RECALL ACCEPTED, CLOSURE/BLOCK RECALL STILL UNDER DISCUSSION**
+Status: **ACTIVE SURFACE DESIGN — BASE WORKSPACE + LOGIC/HANDOFF + KP RECALL + CLOSURE/BLOCK RECALL ACCEPTED, AFTER-LEARN STILL UNDER DISCUSSION**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -249,12 +249,133 @@ High-density Core stays complete after Reveal; density is organized spatially ra
 
 Do not turn a long accepted KP Core into a thin summary merely because it sits inside a Recall surface. The learner action is still `Recall → verify against canonical Core`, not `Recall → verify against an AI-generated abstract`.
 
-## 10｜Still open
+## 10｜Logic Group Closure — ACCEPTED
+
+Logic Group Closure is a **local model closure**, not a second KP test and not a new mastery gate.
+
+After all owned KP in the Logic Group have real Recall evidence:
+
+```text
+KP Recall complete
+→ return to the Logic Group problem
+→ confirm the group now closes around its Current closure target
+→ expose timing-appropriate Precision / outgoing Connection / Reserve when Current owns them
+→ continue the mainline
+```
+
+Mac responsibilities:
+
+- keep the owning Logic Group visible in the Logic Map;
+- show the Current `goal` and `closure` as the local problem / closure target;
+- do not restate every KP or require another per-KP check;
+- weak Recall evidence remains preserved for later Memory/repair but does not block the first-pass mainline merely because one KP is not yet stable;
+- group-level Precision may appear here when its Current role is later exactness;
+- outgoing Connection / Reserve may appear here when Current explicitly owns the relation and timing;
+- no extra Closure rating, checklist, `mastered?` ceremony or forced Memory admission.
+
+Closure must remain cheap: the learner should be able to recognize that the local model closes and move on.
+
+## 11｜Block Recall / Reconstruction — ACCEPTED
+
+Block Recall is the first formal compression from many KP / Logic Groups back into one Block model.
+
+Hard rule:
+
+> **Block Recall tests whether the Block model can be reconstructed; it does not repeat all KP Recall.**
+
+### 11.1 Block Recall Front
+
+After all Logic Groups have closed, enter a neutral Block-level reconstruction state.
+
+Show:
+
+- Block identity;
+- Current `centerQuestion`;
+- the Logic Group Map as a high-level structural scaffold;
+- a simple instruction to reconstruct / run the Block from memory.
+
+Do not show before Reveal:
+
+- `recallSpine`;
+- Logic Group closure text;
+- Block Guide body;
+- KP titles / canonical Core;
+- other answer-revealing contextual objects.
+
+The Logic Group names may remain visible because they are the natural higher-level Block skeleton, not a replay of every KP answer.
+
+### 11.2 Block Recall Reveal
+
+After the learner has genuinely attempted reconstruction, Reveal shows the Current compression assets rather than reopening the full Lecture-like Block text:
+
+```text
+centerQuestion
++ recallSpine
++ Logic Group closure targets
++ Current-supported compressed cognitive geometry for this Block
+```
+
+The same Block may therefore have different geometry in different learning states:
+
+```text
+Block Guide        = complete orientation / first-pass map
+Block Recall Front = protected reconstruction prompt
+Block Recall Reveal= compressed reconstruction / verification
+```
+
+Do not author a second, independent Recall summary. The Recall view must be a state-specific projection of the same Current Block cognition.
+
+Examples already pressure-tested:
+
+- A1 B1 may reconstruct as a mechanical circulation spine;
+- A1 B7 may reconstruct through the valve inference spine plus its Logic Group closures;
+- A1 B10 may reconstruct through pulse/stability → rate → width → regularity → P-QRS → mechanism → treatment;
+- A1 B11 may reconstruct through pump/filling failure → low perfusion + congestion → compensation/remodeling → downstream coordinates.
+
+These examples illustrate geometry variation; they do not authorize content invention.
+
+### 11.3 Recovery when blocked
+
+If reconstruction exposes a local gap, the learner may navigate back to the responsible Logic Group through the persistent Logic Map.
+
+That navigation must not automatically:
+
+- reopen the whole Block;
+- erase existing evidence;
+- create Wrong/Uncertain question evidence;
+- manufacture review debt;
+- reset already completed Logic Groups.
+
+It is learner-controlled local recovery inside the accepted Block mainline.
+
+### 11.4 Block Recall evidence and completion
+
+Preserve the Current distinction:
+
+```text
+Block Recall done
+≠
+Block completed
+```
+
+Do not merge these state writes merely to remove one click without a dedicated Runtime/Evidence review.
+
+Current completion semantics remain:
+
+```text
+all owned KP formal Lecture contact
++ all owned KP Recall evidence
++ Block Recall
+= Block completion eligible
+```
+
+The final completion action may be visually lightweight, but its accepted evidence meaning remains intact.
+
+## 12｜Still open
 
 Not yet frozen here:
 
-- exact Logic Group Closure composition;
-- exact Block Recall geometry;
+- After-Learn Memory / Reserve / Chat-repair product composition and timing;
 - responsive fallback details;
 - final visual styling.
 
