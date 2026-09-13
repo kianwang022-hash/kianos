@@ -1,0 +1,363 @@
+/* Xizong projection layer: Dense Calm × Structured Reading × Mac landscape.
+   Domain semantics and learner evidence remain owned by canonical content/runtime. */
+
+.surfaceBody-xizong {
+  --xz-rail: 252px;
+  --xz-context: 304px;
+  --xz-reading: 900px;
+  --xz-panel-radius: 11px;
+  --xz-soft: #f7f8f7;
+  --xz-soft-2: #f1f4f2;
+  --xz-line: #d7ddd9;
+  --xz-muted: #59665f;
+}
+
+.surfaceBody-xizong .productBar {
+  min-height: 54px;
+  padding-inline: 18px;
+  background: rgba(252,252,250,.94);
+}
+.surfaceBody-xizong .productBrandMark { width: 29px; height: 29px; border-radius: 8px; box-shadow: none; }
+.surfaceBody-xizong .productBrandCopy small { font-size: 9px; }
+.surfaceBody-xizong .productNav { padding: 3px; border-radius: 9px; }
+.surfaceBody-xizong .productNavItem { min-width: 88px; padding: 6px 11px; font-size: 12.5px; }
+.surfaceBody-xizong .sourceDock > summary { min-height: 32px; font-size: 11.5px; }
+
+.surface-xizong {
+  width: min(1720px,calc(100% - 28px));
+  padding-top: 10px;
+  padding-bottom: 54px;
+}
+
+/* Xizong landing: denser, readable, no decorative whitespace. */
+.surface-xizong .homeCurrentStrip {
+  gap: 22px;
+  padding: 19px 22px;
+  border-radius: var(--xz-panel-radius);
+  box-shadow: none;
+}
+.surface-xizong .homeCurrentStrip h2 { font-size: clamp(24px,2.15vw,31px); }
+.surface-xizong .homeCurrentStrip p:not(.pageKicker) { max-width: 84ch; font-size: 14.5px; line-height: 1.58; }
+.surface-xizong .homeCurrentStrip aside strong { font-size: 13px; }
+.surface-xizong .homeCurrentStrip aside span { font-size: 10.5px; }
+.surface-xizong .homeGrid { gap: 9px; margin-top: 10px; }
+.surface-xizong .homeLane {
+  min-height: 188px;
+  gap: 14px;
+  padding: 18px 19px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+.surface-xizong .homeLane h2 { font-size: 24px; }
+.surface-xizong .homeLane > p { font-size: 14px; line-height: 1.58; }
+.surface-xizong .homeLane footer span { font-size: 10.5px; }
+.surface-xizong .homeLane footer b { font-size: 12.5px; }
+
+/* System workspace: persistent structure | semantic work | context. */
+.surface-xizong .xv6SystemShell {
+  grid-template-columns: var(--xz-rail) minmax(0,1fr) var(--xz-context);
+  gap: 10px;
+}
+.surface-xizong .xv6SystemRail,
+.surface-xizong .xv6SystemContext {
+  top: 62px;
+  max-height: calc(100vh - 72px);
+  border-radius: var(--xz-panel-radius);
+  box-shadow: none;
+}
+.surface-xizong .xv6SystemRail header { padding: 14px 14px 12px; }
+.surface-xizong .xv6SystemRail header span,
+.surface-xizong .xv6SystemContext > section > span,
+.surface-xizong .xv6Panel header span { font-size: 10.5px; letter-spacing: .065em; }
+.surface-xizong .xv6SystemRail header strong { font-size: 18px; }
+.surface-xizong .xv6SystemRail header small { font-size: 10.5px; }
+.surface-xizong .xv6SystemRail nav { padding: 6px 0; }
+.surface-xizong .xv6SystemRail nav a {
+  grid-template-columns: 35px minmax(0,1fr) auto;
+  min-height: 49px;
+  gap: 3px 8px;
+  padding: 7px 10px;
+}
+.surface-xizong .xv6SystemRail nav a b { font-size: 11.5px; }
+.surface-xizong .xv6SystemRail nav a span { font-size: 12.5px; font-weight: 700; }
+.surface-xizong .xv6SystemRail nav a small { font-size: 9.5px; }
+.surface-xizong .xv6SystemRail footer { padding: 10px 11px; font-size: 9.5px; }
+
+.surface-xizong .xv6SystemMain { gap: 8px; }
+.surface-xizong .xv6SystemHeroDense,
+.surface-xizong .xv6Panel,
+.surface-xizong .xv6Dependency {
+  border-radius: var(--xz-panel-radius);
+  box-shadow: none;
+}
+.surface-xizong .xv6SystemHeroDense {
+  grid-template-columns: minmax(190px,.48fr) minmax(0,1.52fr);
+  gap: 20px;
+  padding: 15px 18px;
+}
+.surface-xizong .xv6SystemHeroDense span { font-size: 10.5px; }
+.surface-xizong .xv6SystemHeroDense h2 { font-size: 30px; letter-spacing: -.025em; }
+.surface-xizong .xv6SystemHeroDense p { max-width: 78ch; font-size: 14.5px; line-height: 1.62; }
+.surface-xizong .xv6Panel { padding: 15px 18px; }
+.surface-xizong .xv6Panel h3 { margin-top: 3px; font-size: 19px; }
+.surface-xizong .xv6Mother { max-width: 92ch; font-size: 15.5px; line-height: 1.68; }
+.surface-xizong .xv6Spine { gap: 6px; }
+.surface-xizong .xv6Spine li { min-height: 48px; padding: 8px 9px; }
+.surface-xizong .xv6Spine li b { font-size: 10.5px; }
+.surface-xizong .xv6Spine li span { font-size: 13px; line-height: 1.42; }
+.surface-xizong .xv6Parallel span,
+.surface-xizong .xv6Chips span,
+.surface-xizong .xv6Relations code { font-size: 11.5px; }
+.surface-xizong .xv6FailureGrid button { border-radius: 8px; }
+.surface-xizong .xv6FailureGrid button b { font-size: 10.5px; }
+.surface-xizong .xv6FailureGrid h4 { font-size: 14px; }
+.surface-xizong .xv6FailureGrid p { font-size: 12px; line-height: 1.5; }
+.surface-xizong .xv6FailureRun { border-radius: 9px; }
+.surface-xizong .xv6FailureRun > span { font-size: 10px; }
+.surface-xizong .xv6FailureRun strong { font-size: 15px; }
+.surface-xizong .xv6FailureRun p { font-size: 13px; line-height: 1.58; }
+
+.surface-xizong .xv6SystemContext > section { padding: 15px 16px; }
+.surface-xizong .xv6SelectedBlock b { font-size: 12px; }
+.surface-xizong .xv6SelectedBlock h3 { font-size: 19px; line-height: 1.28; }
+.surface-xizong .xv6SelectedBlock p { font-size: 11.5px; }
+.surface-xizong .xv6SelectedBlock button { min-height: 38px; font-size: 12px; }
+.surface-xizong .xv6RecallCompact h3 { font-size: 16px; }
+.surface-xizong .xv6RecallCompact blockquote,
+.surface-xizong .xv6RecallCompact li,
+.surface-xizong .xv6SystemKeys p { font-size: 11.5px; line-height: 1.55; }
+
+/* Block workspace: preserve free navigation, make rails readable and content calm. */
+.surface-xizong .portedStudyRuntime {
+  border-radius: var(--xz-panel-radius);
+  box-shadow: none;
+}
+.surface-xizong .portedStudyContextRow {
+  min-height: 40px;
+  padding-inline: 18px;
+  font-size: 12.5px;
+}
+.surface-xizong .portedStudyShellActions button { padding: 5px 9px; font-size: 11px; }
+.surface-xizong .portedStudyIdentity { padding: 14px 19px 13px; }
+.surface-xizong .portedStudyIdentity span { font-size: 10.5px; }
+.surface-xizong .portedStudyIdentity h2 { font-size: 29px; letter-spacing: -.025em; }
+.surface-xizong .portedStudyIdentityMeta strong { font-size: 12px; }
+.surface-xizong .portedStudyIdentityMeta small { font-size: 10px; }
+.surface-xizong .portedStudyTabs button,
+.surface-xizong .portedStudyTabs span { min-height: 44px; font-size: 13px; }
+
+.surface-xizong .portedStudyLayout {
+  grid-template-columns: var(--xz-rail) minmax(0,1fr) 286px;
+  min-height: 690px;
+}
+.surface-xizong .portedStudyLayout.outline-collapsed { grid-template-columns: 0 minmax(0,1fr) 286px; }
+.surface-xizong .portedStudyLayout.chain-collapsed { grid-template-columns: var(--xz-rail) minmax(0,1fr) 0; }
+.surface-xizong .portedStudyOutline header,
+.surface-xizong .portedStudyChain header { padding: 15px 14px 11px; }
+.surface-xizong .portedStudyOutline header span,
+.surface-xizong .portedStudyChain header span { font-size: 10px; }
+.surface-xizong .portedStudyOutline header strong,
+.surface-xizong .portedStudyChain header strong { font-size: 14px; }
+.surface-xizong .portedStudyOutline nav button,
+.surface-xizong .portedStudyKpRail button {
+  grid-template-columns: 40px minmax(0,1fr);
+  min-height: 51px;
+  padding: 8px 10px;
+}
+.surface-xizong .portedStudyOutline nav button b,
+.surface-xizong .portedStudyKpRail button b { font-size: 11px; }
+.surface-xizong .portedStudyOutline nav button span,
+.surface-xizong .portedStudyKpRail button span { font-size: 12px; }
+.surface-xizong .portedStudyOutline nav button small,
+.surface-xizong .portedStudyKpRail button small { font-size: 9.5px; }
+.surface-xizong .portedStudyOutline footer,
+.surface-xizong .portedStudyChain footer { font-size: 10px; }
+.surface-xizong .portedStudyChain li button { grid-template-columns: 26px 1fr; padding: 10px 15px; }
+.surface-xizong .portedStudyChain li b { font-size: 12.5px; }
+.surface-xizong .portedStudyChain li small { font-size: 10.5px; }
+
+.surface-xizong .portedStudyLead { padding: 13px 22px; }
+.surface-xizong .portedStudyLead span { font-size: 10.5px; }
+.surface-xizong .portedStudyLead strong { max-width: 72ch; font-size: 13px; line-height: 1.5; }
+.surface-xizong .portedStudyArticle {
+  max-width: var(--xz-reading);
+  padding: 30px 34px 52px;
+}
+.surface-xizong .portedStudyArticle h1 { font-size: 30px; }
+.surface-xizong .portedStudyArticle h2 { font-size: 23px; }
+.surface-xizong .portedStudyArticle h3 { font-size: 18px; }
+.surface-xizong .portedStudyArticle p,
+.surface-xizong .portedStudyArticle li,
+.surface-xizong .portedKpCanonical p,
+.surface-xizong .portedKpCanonical li,
+.surface-xizong .portedRecallAnswer p,
+.surface-xizong .portedRecallAnswer li { font-size: 16.5px; line-height: 1.74; }
+.surface-xizong .portedStudyArticle th,
+.surface-xizong .portedStudyArticle td,
+.surface-xizong .portedKpCanonical th,
+.surface-xizong .portedKpCanonical td,
+.surface-xizong .portedRecallAnswer th,
+.surface-xizong .portedRecallAnswer td { padding: 9px 11px; font-size: 14px; }
+
+.surface-xizong .portedKpWorkspace { min-height: 660px; background: var(--xz-soft); }
+.surface-xizong .portedKpWorkspaceHeader { padding: 12px 17px; }
+.surface-xizong .portedKpWorkspaceHeader span { font-size: 10px; }
+.surface-xizong .portedKpWorkspaceHeader strong { font-size: 14px; }
+.surface-xizong .portedKpWorkspaceHeader em { font-size: 11.5px; }
+.surface-xizong .portedKpCards { padding: 14px; }
+.surface-xizong .portedKpCard,
+.surface-xizong .portedKpRecallCard {
+  max-width: var(--xz-reading);
+  border-radius: 10px;
+  box-shadow: none;
+}
+.surface-xizong .portedKpCard > header,
+.surface-xizong .portedKpRecallCard > header { padding: 19px 22px 15px; }
+.surface-xizong .portedKpCard h3,
+.surface-xizong .portedKpRecallCard h3 { font-size: 26px; line-height: 1.25; }
+.surface-xizong .portedKpCard header p,
+.surface-xizong .portedKpRecallCard header p { font-size: 14.5px; line-height: 1.58; }
+.surface-xizong .portedKpCanonical,
+.surface-xizong .portedRecallAnswer { padding: 20px 23px; }
+.surface-xizong .portedRecallPrompt { padding: 21px 23px; font-size: 14px; }
+.surface-xizong .portedKpCard > footer,
+.surface-xizong .portedRecallRating { padding: 12px 16px; font-size: 12px; }
+.surface-xizong .portedKpCard > footer button,
+.surface-xizong .portedRecallRating button,
+.surface-xizong .portedBlockRecall button { min-height: 36px; padding: 7px 11px; font-size: 11.5px; }
+.surface-xizong .portedBlockRecall { max-width: var(--xz-reading); padding: 27px 32px 44px; }
+.surface-xizong .portedBlockRecall header h3 { font-size: 24px; }
+.surface-xizong .portedBlockRecall header p,
+.surface-xizong .xv6RecallPromptBox p,
+.surface-xizong .xv6RecallSpine p,
+.surface-xizong .xv6GroupReview p { font-size: 15px; line-height: 1.68; }
+.surface-xizong .portedBlockComplete { max-width: 760px; padding: 26px 28px; border-radius: 10px; }
+
+/* Lecture-first cues should read like orientation, not tiny metadata. */
+.surface-xizong .xv6BlockFocus strong,
+.surface-xizong .xv6BlockSpine strong { font-size: 14px; line-height: 1.62; }
+.surface-xizong .xv6LaterCue { font-size: 12.5px; }
+.surface-xizong .xv6LectureFirst { padding: 9px 11px; }
+.surface-xizong .xv6LectureFirst strong { font-size: 13px; }
+.surface-xizong .xv6LectureFirst span { font-size: 11.5px; }
+.surface-xizong .xv6KpCore { border-radius: 8px; }
+.surface-xizong .xv6LogicStage { max-width: var(--xz-reading); border-radius: 10px; }
+.surface-xizong .xv6LogicStage > span { font-size: 10.5px; }
+.surface-xizong .xv6LogicStage h3 { font-size: 23px; }
+.surface-xizong .xv6LogicGoal,
+.surface-xizong .xv6GroupClosure { font-size: 15px; line-height: 1.68; }
+.surface-xizong .xv6LogicTarget span { font-size: 10.5px; }
+.surface-xizong .xv6LogicTarget p { font-size: 14px; }
+
+/* After-Learn: selective memory and repair remain contextual, but readable. */
+.surface-xizong .portedStudyExtension { margin-top: 9px; border-radius: var(--xz-panel-radius); box-shadow: none; }
+.surface-xizong .portedExtensionHeader { padding: 15px 17px; }
+.surface-xizong .portedExtensionHeader h3 { font-size: 21px; }
+.surface-xizong .portedExtensionHeader p { max-width: 78ch; font-size: 12.5px; line-height: 1.55; }
+.surface-xizong .portedExtensionHeader button,
+.surface-xizong .portedReviewToolbar button,
+.surface-xizong .portedReviewImport button { font-size: 11.5px; }
+.surface-xizong .portedMemorySummary,
+.surface-xizong .portedReviewToolbar { padding: 11px 14px; font-size: 11.5px; }
+.surface-xizong .portedPrecisionShell,
+.surface-xizong .portedReviewWorkspace { grid-template-columns: 276px minmax(0,1fr); }
+.surface-xizong .portedPrecisionShell > aside button,
+.surface-xizong .portedReviewWorkspace > aside button { min-height: 49px; padding: 9px 10px; }
+.surface-xizong .portedPrecisionShell > aside button b,
+.surface-xizong .portedReviewWorkspace > aside button b { font-size: 11px; }
+.surface-xizong .portedPrecisionShell > aside button span,
+.surface-xizong .portedReviewWorkspace > aside button span { font-size: 12px; }
+.surface-xizong .portedPrecisionShell > aside button small,
+.surface-xizong .portedReviewWorkspace > aside button small { font-size: 9.5px; }
+.surface-xizong .portedPrecisionCard,
+.surface-xizong .portedReviewCard { max-width: 820px; margin: 18px auto; padding: 22px 24px; border-radius: 9px; }
+.surface-xizong .portedPrecisionCard h4,
+.surface-xizong .portedReviewCard h4 { font-size: 20px; }
+.surface-xizong .portedPrecisionCard p,
+.surface-xizong .portedReviewCard p,
+.surface-xizong .portedPrecisionAnswer,
+.surface-xizong .portedReviewAnswer { font-size: 15px; line-height: 1.66; }
+.surface-xizong .xv6RoleNote,
+.surface-xizong .xv6ChatPacketIntro p,
+.surface-xizong .portedReviewImport small { font-size: 11px; line-height: 1.5; }
+
+/* System Exit: preserve 3-step overview on landscape, make question work readable. */
+.surface-xizong .xizongLaterStage { border-radius: var(--xz-panel-radius); }
+.surface-xizong .xizongLaterStage > summary { padding: 13px 15px; }
+.surface-xizong .xizongLaterStage > summary span { font-size: 10.5px; }
+.surface-xizong .xizongLaterStage > summary strong { font-size: 14px; }
+.surface-xizong .xizongLaterStage > summary small { font-size: 10.5px; }
+.surface-xizong .xse { gap: 9px; }
+.surface-xizong .xseHero,
+.surface-xizong .xseCard,
+.surface-xizong .xseWorkspace { border-radius: 10px; }
+.surface-xizong .xseHero { padding: 17px 19px; }
+.surface-xizong .xseHero span,
+.surface-xizong .xseEyebrow,
+.surface-xizong .xseRecallDialog span,
+.surface-xizong .xseDone > span { font-size: 10.5px; }
+.surface-xizong .xseHero h2 { font-size: 25px; }
+.surface-xizong .xseHero p,
+.surface-xizong .xseCard p { font-size: 13.5px; line-height: 1.62; }
+.surface-xizong .xseSteps { gap: 8px; }
+.surface-xizong .xseCard { padding: 15px; }
+.surface-xizong .xseCard h3 { font-size: 18px; }
+.surface-xizong .xseStatusRow strong { font-size: 12px; line-height: 1.45; }
+.surface-xizong .xse button { padding: 8px 11px; font-size: 12px; }
+.surface-xizong .xseCard small { font-size: 10.5px; line-height: 1.45; }
+.surface-xizong .xseHoldoutCurrent,
+.surface-xizong .xseHoldoutEditor input { font-size: 12px; }
+.surface-xizong .xseSweepStats span { font-size: 11px; }
+.surface-xizong .xseWorkspace { padding: 18px 20px; }
+.surface-xizong .xseWorkspaceHead span { font-size: 11px; }
+.surface-xizong .xseWorkspaceHead h3 { font-size: 19px; }
+.surface-xizong .xseStem { max-width: 82ch; font-size: 18px; line-height: 1.68; }
+.surface-xizong .xseOption { grid-template-columns: 30px minmax(0,1fr); padding: 11px 13px !important; font-size: 15.5px; line-height: 1.55; }
+.surface-xizong .xseRepair p { font-size: 12.5px; line-height: 1.58; }
+.surface-xizong .xseRecallDialog { width: min(860px,calc(100vw - 34px)); }
+.surface-xizong .xseRecallFront > p { font-size: 21px; }
+.surface-xizong .xseRecallInstruction { font-size: 13px; }
+.surface-xizong .xseRecallReveal ol,
+.surface-xizong .xseRecallReveal ul { font-size: 13px; line-height: 1.62; }
+
+/* Mac/desktop gets framed context. Smaller surfaces retain existing compact behavior. */
+@media (min-width: 1500px) {
+  .surface-xizong .homeGrid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+
+@media (max-width: 1240px) {
+  .surfaceBody-xizong { --xz-rail: 228px; --xz-context: 270px; --xz-reading: 820px; }
+  .surface-xizong .xv6SystemShell { grid-template-columns: 218px minmax(0,1fr) 266px; }
+  .surface-xizong .portedStudyLayout { grid-template-columns: 218px minmax(0,1fr) 252px; }
+  .surface-xizong .portedStudyLayout.outline-collapsed { grid-template-columns: 0 minmax(0,1fr) 252px; }
+  .surface-xizong .portedStudyLayout.chain-collapsed { grid-template-columns: 218px minmax(0,1fr) 0; }
+}
+
+@media (max-width: 1040px) {
+  .surface-xizong .xv6SystemShell { grid-template-columns: 210px minmax(0,1fr); }
+  .surface-xizong .xv6SystemContext { position: static; grid-column: 1 / -1; max-height: none; }
+  .surface-xizong .portedStudyLayout { grid-template-columns: 210px minmax(0,1fr); }
+  .surface-xizong .portedStudyChain { display: none; }
+  .surface-xizong .portedStudyLayout.outline-collapsed,
+  .surface-xizong .portedStudyLayout.chain-collapsed,
+  .surface-xizong .portedStudyLayout.outline-collapsed.chain-collapsed { grid-template-columns: 0 minmax(0,1fr); }
+  .surface-xizong .portedPrecisionShell,
+  .surface-xizong .portedReviewWorkspace { grid-template-columns: 230px minmax(0,1fr); }
+}
+
+@media (max-width: 760px) {
+  .surfaceBody-xizong .productBar { min-height: 58px; }
+  .surface-xizong { width: min(100% - 16px,1720px); }
+  .surface-xizong .xv6SystemShell,
+  .surface-xizong .portedStudyLayout,
+  .surface-xizong .portedPrecisionShell,
+  .surface-xizong .portedReviewWorkspace { grid-template-columns: 1fr; }
+  .surface-xizong .xv6SystemRail,
+  .surface-xizong .xv6SystemContext { position: static; max-height: none; }
+  .surface-xizong .portedStudyOutline { border-right: 0; border-bottom: 1px solid var(--study-line); }
+  .surface-xizong .portedStudyChain { display: none; }
+  .surface-xizong .portedStudyArticle { padding-inline: 20px; }
+  .surface-xizong .portedKpCards { padding: 9px; }
+  .surface-xizong .portedRecallRating > div { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .surface-xizong .homeGrid { grid-template-columns: 1fr; }
+}
