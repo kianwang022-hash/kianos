@@ -64,6 +64,16 @@ for (const fastPath of [
   "setWorkspaceState(unit, 'VERIFY')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
+for (const visualRule of [
+  'directReasoningWorkspace',
+  'data-direct-reasoning-flow',
+  'core reasoning is primary content',
+  "deck.querySelector('.mapTabs')?.remove()",
+  'panel.hidden = false',
+  'buildDirectReasoningFlow(panel)',
+  'inspectorPrimaryAnchor'
+]) requireText(bridge, visualRule, 'direct-visible reasoning bridge');
+
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
 requireText(page, 'PoliticsCognitiveWorkspace', 'route calibration');
@@ -106,5 +116,7 @@ console.log(JSON.stringify({
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
+  primaryReasoning: 'DIRECT_VISIBLE_NO_CLICK',
+  mapProjection: 'EDGE_DERIVED_LANDSCAPE_FLOW',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
 }, null, 2));
