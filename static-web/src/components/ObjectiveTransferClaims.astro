@@ -119,7 +119,7 @@ const { task = '' } = Astro.props;
       panel.innerHTML = `
         <div class="objectiveTransferHead">
           <div>
-            <span>Evidence / Transfer</span>
+            <span>Deep review evidence</span>
             <strong data-transfer-title>Chat 复盘回写</strong>
           </div>
           <button type="button" data-transfer-toggle>导入 Chat 返回</button>
@@ -144,7 +144,10 @@ const { task = '' } = Astro.props;
       const pending = activeClaimsFor(task);
       const savedReturn = readJson(reviewKey, null);
       const problems = problemCount(attempt);
-      node.hidden = !attempt?.submitted || (!problems && !pending.length && !savedReturn);
+
+      // Pending backend claims do not create a learner-facing task on a clean attempt.
+      // This panel exists only inside an already-justified problem/deep-review path.
+      node.hidden = !attempt?.submitted || problems === 0;
       if (node.hidden) return;
 
       const title = node.querySelector('[data-transfer-title]');
@@ -153,16 +156,12 @@ const { task = '' } = Astro.props;
       if (title) {
         title.textContent = savedReturn
           ? `Chat 返回已保存 · ${savedReturn.threads?.length || 0} thread`
-          : problems
-            ? '整篇 / 整组诊断后回写'
-            : '待迁移能力验证';
+          : '可选深复盘回写';
       }
       if (summary) {
         summary.textContent = savedReturn
-          ? `本次返回已保存到本机。当前 ${pending.length} 个 task-specific claim 仍待新材料验证。`
-          : problems
-            ? '先整篇 / 整组诊断并完成真正的最小 repair；只有 repair 后仍值得验证的 task-specific procedure 才进入 pending。'
-            : `这次是 clean attempt，但有 ${pending.length} 个 pending claim；只有这份新材料真的测到了它，才更新状态。`;
+          ? `本次深复盘返回已保存。${pending.length ? `仍有 ${pending.length} 个后台 pending claim；只在后续真正相关的复盘中顺手验证。` : '没有新的迁移债。'}`
+          : '只有这次 problem 确实值得深挖时才导入 Chat 返回；快速看懂的一次性错误不需要创建 claim。';
       }
       if (list) {
         list.replaceChildren();
@@ -178,7 +177,7 @@ const { task = '' } = Astro.props;
         });
         if (pending.length > 6) {
           const more = document.createElement('small');
-          more.textContent = `另有 ${pending.length - 6} 个 pending claim`;
+          more.textContent = `另有 ${pending.length - 6} 个后台 pending claim`;
           list.appendChild(more);
         }
       }
