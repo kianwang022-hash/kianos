@@ -14,6 +14,7 @@ This file owns only genuine **Politics-wide integration/readiness claims** broad
 | --- | --- | --- |
 | Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; current path `U UNTESTED`; C00 remains the presentation reference path |
 | History | `content/politics/learning/history/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| Mao | `content/politics/learning/mao/ACCEPTANCE.md` | fresh C00–C08 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
 | Ethics-Law | `content/politics/learning/ethics-law/ACCEPTANCE.md` | fresh C00–C06 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
 
 The table is routing only. Subject evidence remains in the local owner. Politics-wide Functional First integration does not manufacture a subject gate PASS that the subject owner has not accepted.
@@ -74,11 +75,19 @@ The first browser run failed after C00 correctly moved repair DOM from the quest
 
 ---
 
+## Mao scoped content compatibility evidence
+
+The independent Mao owner now records its own upstream closure. On content head `e36d51fb76c40d320210518ccbf3e0eb70d2a814`, `Static Web Politics QA` run #510 (`34758627084`) passed `Audit Mao fresh content closure`: 9/9 chapters, 18/18 canonical P0 Natural Units, source snapshot current, 0 blocker. Canonical coverage, Xiao routing, scoped source loading, existing subject checks, Current bindings and production Astro build also passed.
+
+This is accepted here only as **Politics-wide compatibility evidence** for the new Mao S/K content assets. The Mao subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
+
+---
+
 ## Ethics-Law scoped content compatibility evidence
 
-The independent Ethics-Law owner now records its own upstream closure. On content head `e3de7ad301ca8064c7edb162c375e9c46777ad44`, `Static Web Politics QA` run #498 (`34756165723`) passed `Audit Ethics content closure`, canonical coverage, Xiao routing, scoped source loading, Current bindings and the production Astro build.
+The independent Ethics-Law owner records its own upstream closure. On content head `e3de7ad301ca8064c7edb162c375e9c46777ad44`, `Static Web Politics QA` run #498 (`34756165723`) passed `Audit Ethics content closure`, canonical coverage, Xiao routing, scoped source loading, Current bindings and the production Astro build.
 
-This is accepted here only as **Politics-wide compatibility evidence** for the new Ethics S/K content artifacts. The Ethics subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
+This is accepted here only as **Politics-wide compatibility evidence** for the Ethics S/K content artifacts. The Ethics subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
 
 ---
 
@@ -120,6 +129,7 @@ Later pure visual/layout/interaction implementation belongs to Codex. Codex may 
 ### Scoped Acceptance Truth
 - Marxism → `content/politics/learning/marxism/ACCEPTANCE.md`
 - History → `content/politics/learning/history/ACCEPTANCE.md`
+- Mao → `content/politics/learning/mao/ACCEPTANCE.md`
 - Ethics-Law → `content/politics/learning/ethics-law/ACCEPTANCE.md`
 
 ### Learner Truth
