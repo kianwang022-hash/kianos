@@ -1,6 +1,6 @@
 # A · Cardio–Pulmonary–Renal Macro-Domain Logic
 
-Status: LOGIC CANDIDATE · CORE STRUCTURE PROVISIONAL · CONTENT NOT ADMITTED  
+Status: LOGIC FROZEN · CONTENT NOT ADMITTED  
 Role: top-level A-domain integration logic for A1 Circulation + A2 Respiratory + A3 Urinary  
 Current medical owners remain: `a1-circulation/system.json`, `a2-respiratory/system.json`, `a3-urinary/system.json` and their canonical Block/KP Core.
 
@@ -139,7 +139,7 @@ Admission test:
 
 ## 4｜Structural invariant: A is a three-edge triangle
 
-The cleanest A-level Logic is a triangle of three pairwise couplings:
+The frozen A-level Logic is a triangle of three pairwise couplings:
 
 ```text
                  A2 Respiratory
@@ -149,9 +149,7 @@ The cleanest A-level Logic is a triangle of three pairwise couplings:
      A1 Circulation —— perfusion / volume —— A3 Urinary
 ```
 
-This triangle is the primary structural claim.
-
-The important point is **not** that all three edges need equal learner-facing Content. The structural triangle is symmetric; medical ownership is not.
+The structural triangle is symmetric; medical ownership is not. The three edges must **not** be forced into equal Content modules later merely for visual symmetry.
 
 ---
 
@@ -172,7 +170,7 @@ Key discrimination:
 
 ### Existing owner pattern
 
-- A2 Block 2 already owns pulmonary exchange, Hb/oxygen-content language and explicitly calls circulation for pulmonary flow, CO and tissue-oxygen-delivery interface.
+- A2 Block 2 owns pulmonary exchange, Hb/oxygen-content language and explicitly calls circulation for pulmonary flow, CO and tissue-oxygen-delivery interface.
 - A1 owns CO, pressure, flow distribution and perfusion mechanics.
 - Hb/RBC mass remains an external C/Hematology input.
 
@@ -186,7 +184,7 @@ A does not reteach A2 gas transport or A1 circulation. It may own only the struc
 oxygen state/content × flow = delivery problem
 ```
 
-Pulmonary circulation/right-heart load remains derived/local unless later evidence proves it needs additional A-level compression.
+Pulmonary circulation/right-heart load is not a fourth primitive. A2 R9 already owns the pulmonary vascular model and recalls the necessary circulation mechanics.
 
 ---
 
@@ -216,7 +214,7 @@ Key discrimination:
 
 **Dual-local feedback compression.**
 
-This is exactly the kind of relation where two child Systems legitimately teach different sides of the same feedback loop. A may compress the loop for orientation/review, but may not create another RAAS / volume / shock curriculum.
+Two child Systems legitimately teach different sides of the same feedback loop. A may compress the loop for orientation/review, but may not create another RAAS / volume / shock curriculum.
 
 This edge is a strong candidate for reducing repeated second-round review.
 
@@ -248,32 +246,72 @@ A must **not** build a second acid–base model.
 
 The A-level value, if any, is only to preserve the A2↔A3 seam during cross-System retrieval and late compression.
 
-This is the strongest current example of the rule:
-
 > **cross-System relation ≠ parent-level medical ownership.**
 
 ---
 
-## 8｜Why the triangle is stronger than a giant SuperSystem narrative
+## 8｜Triangle sufficiency: no fourth primitive admitted
+
+Four high-pressure candidates were challenged explicitly.
+
+### Pulmonary circulation / right heart
+
+A2 R9 already owns:
+
+```text
+PVR↑
+→ RV afterload↑
+→ RV adaptation / failure
+→ LV filling / CO consequence
+→ hypotension / shock when severe
+```
+
+It calls A1 mechanics as prerequisite. This is a derived A1↔A2 relation, not a new primitive.
+
+### Congestion / edema
+
+A1 heart failure already owns:
+
+```text
+forward hypoperfusion + backward congestion
+→ RAAS / Na-water retention
+→ higher filling pressure / worse congestion
+```
+
+Pulmonary congestion uses A1↔A2; effective-volume / renal retention uses A1↔A3. No fourth primitive is required.
+
+### Shock
+
+A1 B12 owns shock as failure of effective tissue perfusion through volume / pump / resistance-distribution / obstruction layers.
+
+Renal hypoperfusion and oxygen-delivery consequences invoke existing edges. Shock remains an A1 Primary with cross-edge consequences, not an A-level fourth curriculum.
+
+### Multi-organ failure
+
+MODS-like patterns are downstream compositions and often extend into inflammation, coagulation, infection and metabolism outside A. They are therefore evidence **against** creating an A-only primitive.
+
+### Sufficiency decision
+
+> **No fourth primitive is admitted.**
+
+Current A-level high-value reasoning must first be attempted as composition of the three frozen edges. A new primitive requires future repeated 306 evidence that composition fails materially.
+
+---
+
+## 9｜Why the triangle is stronger than a giant SuperSystem narrative
 
 The triangle has four advantages for the 275+ goal:
 
 1. **Minimality:** only three primitive cross-child relations.
-2. **Localizability:** a mixed case can be placed on one edge before opening child detail.
-3. **No forced all-three reasoning:** the third child can remain invisible when unnecessary.
+2. **Localizability:** mixed cases can be placed on one edge before opening child detail.
+3. **No forced all-three reasoning:** the third child stays invisible when unnecessary.
 4. **Progressive compression:** the structure can plausibly become extremely thin in later phases.
 
-All-three phenomena are treated as **compositions of edges**, not automatically as new primitives.
-
-Examples such as shock + AKI, heart failure + pulmonary congestion + renal response, or respiratory failure + acid–base disturbance may traverse multiple edges, but that does not create a fourth “multi-organ” curriculum.
-
-Hard rule:
-
-> **Do not promote a derived three-organ scenario into a primitive unless repeated 306 reasoning cannot be handled cleanly by composing admitted edges.**
+All-three phenomena are compositions of edges unless future evidence proves otherwise.
 
 ---
 
-## 9｜Derived whole-body loop: secondary, disposable representation
+## 10｜Derived whole-body loop: secondary, disposable representation
 
 A whole-body loop can summarize the three edges:
 
@@ -293,11 +331,9 @@ But this long loop is **not** the Logic primitive.
 
 If later Content can express A more efficiently with the triangle alone, the loop should disappear from learner-facing projection.
 
-This prevents A3 from being awkwardly appended to an oxygen-delivery story and prevents “whole-body elegance” from becoming study burden.
-
 ---
 
-## 10｜Minimal coordinates
+## 11｜Minimal coordinates
 
 Candidate A-level coordinates are deliberately few:
 
@@ -313,7 +349,7 @@ A coordinate survives only if it helps an admitted edge and cannot be omitted wi
 
 ---
 
-## 11｜External interfaces — explicit non-closure
+## 12｜External interfaces — explicit non-closure
 
 A is not a complete model of the organism. Important inputs remain externally owned:
 
@@ -331,7 +367,7 @@ A is a top-level peer, not a whole-body master owner.
 
 ---
 
-## 12｜Conceptual parent ≠ mandatory learner step
+## 13｜Conceptual parent ≠ mandatory learner step
 
 Stable Logic:
 
@@ -349,7 +385,7 @@ Whether learner-facing A Content appears at all, and when, is a later Content/Le
 
 ---
 
-## 13｜Exam-phase utility constraint
+## 14｜Exam-phase utility constraint
 
 The eventual learner-facing A projection must become thinner as the exam approaches.
 
@@ -382,7 +418,7 @@ Exact timing remains outside Logic.
 
 ---
 
-## 14｜Kill rule: preserve taxonomy, kill useless projection
+## 15｜Kill rule: preserve taxonomy, kill useless projection
 
 If real use shows noticeable extra learning/maintenance time without lower errors, lower review cost or faster retrieval:
 
@@ -394,7 +430,7 @@ A large independent A curriculum is evidence that Logic-to-Content translation f
 
 ---
 
-## 15｜Implication for B / C / D / E / F
+## 16｜Implication for B / C / D / E / F
 
 B/C/D/E/F are already top-level macro-domain peers of A.
 
@@ -408,72 +444,59 @@ No symmetry rule applies.
 
 ---
 
-## 16｜Logic acceptance tests before Content
+## 17｜Logic acceptance record
 
-### Test 1 · Taxonomy coherence
+### Taxonomy coherence — PASS
 
-A as one macro-domain + A1/A2/A3 as independently coherent child Systems.
+A is one macro-domain; A1/A2/A3 remain independently coherent child Systems.
 
-**Result: PASS at Logic level.**
+### Decomposition utility — PASS
 
-### Test 2 · Decomposition utility
+A1/A2/A3 scale, causal independence and learning/verification needs justify first-class decomposition for 275+.
 
-A1/A2/A3 scale, causal independence and independent learning/verification justify first-class decomposition.
+### Existing-edge evidence — PASS
 
-**Result: PASS at Logic level.**
+The three seams already exist in child Core rather than being invented by the parent:
 
-### Test 3 · Existing-edge evidence
+- A2 calls circulation CO/flow/tissue-delivery interface.
+- A1 calls kidney–fluid long-term volume control.
+- A3 acid–base Primary calls respiratory PaCO₂ and circulation/shock prerequisites.
 
-The three edges are not invented solely by this parent:
+### Ownership discipline — PASS
 
-- A2 explicitly calls circulation CO/flow/tissue-delivery interface.
-- A1 explicitly calls kidney–fluid long-term volume control.
-- A3 acid–base Primary explicitly calls respiratory PaCO₂ and circulation/shock prerequisites.
+- A1↔A2 = split-primary joining interface.
+- A1↔A3 = dual-local feedback compression.
+- A2↔A3 = A3-primary; A-level routing/compression only.
 
-**Result: PASS for existence of the three structural seams.**
+No medical Primary moves upward.
 
-### Test 4 · Ownership discipline
+### Triangle sufficiency — PASS
 
-Can the edges exist without moving medical Primary upward?
+Pulmonary circulation/right heart, congestion/edema, shock and multi-organ failure do not currently justify a fourth primitive.
 
-- A1↔A2 → split-primary joining interface.
-- A1↔A3 → dual-local feedback compression.
-- A2↔A3 → A3-primary; A-level routing/compression only.
+### 275+ utility — LOGICALLY ADMISSIBLE, REAL VALUE UNPROVEN
 
-**Result: PASS provisionally.**
+The structure has a plausible route to reduce duplicated review and improve mixed-case localization, but real learner value can only be established after minimum Content and real use. This does **not** authorize a large learner-facing asset.
 
-### Test 5 · Triangle sufficiency
+### Graceful failure — PASS
 
-Can major A-level mixed reasoning be composed from three edges without a fourth primitive?
-
-**Result: NOT YET FROZEN.** Continue challenge before Content.
-
-### Test 6 · 275+ utility
-
-Can the eventual A projection plausibly reduce understanding/review/retrieval cost without becoming a new course?
-
-**Result: PLAUSIBLE, not yet proven by real use.** This permits Content design only after Logic freeze; it does not prove learner value.
-
-### Test 7 · Graceful failure
-
-Can learner-facing A integration disappear while A1/A2/A3 remain intact?
-
-**Result: PASS.**
+Learner-facing A integration may later collapse to zero while A1/A2/A3 remain intact.
 
 ---
 
-## 17｜Current Logic decision
+## 18｜Frozen Logic decision
 
 ```text
 A is a top-level macro-domain peer of B/C/D/E/F.
 A1/A2/A3 are privileged first-class child Systems because decomposition serves 275+.
 A itself is not a fourth medical course or medical-Core owner.
-Its structural core is three pairwise seams:
+Its structural core is exactly three pairwise seams:
   A1↔A2 = Oxygen Delivery
   A1↔A3 = Perfusion ↔ Volume
   A2↔A3 = CO₂ / Acid–Base routing seam
 The three seams have different underlying medical owners and must not be forced into symmetric Content.
-All-three cases are compositions unless evidence proves otherwise.
+No fourth primitive is currently admitted.
+All-three cases are compositions unless future 306 evidence proves otherwise.
 A taxonomy does not imply mandatory learner contact.
 ```
 
@@ -487,22 +510,12 @@ Do not freeze a decorative title such as `Delivery & Homeostasis` until Content 
 
 ---
 
-## 18｜Freeze gate before Content
+## 19｜Content admission gate
 
-One unresolved Logic question remains material:
+Logic is frozen; **Content is still not admitted automatically**.
 
-> **Are the three edges sufficient for the high-value A-level 306 reasoning, or is there a fourth primitive that cannot be cleanly represented as a derived composition?**
+The next task may begin only with:
 
-Before Logic is frozen, specifically challenge:
+> **What is the minimum information necessary to express the three frozen structural seams without teaching A1/A2/A3 twice?**
 
-- pulmonary circulation / right-heart coupling;
-- congestion / edema;
-- shock / perfusion / oxygen-delivery interactions;
-- multi-organ failure patterns;
-- whether any of those truly demand a new primitive rather than composition of existing edges.
-
-Also verify that all eventual A-level Content can remain **far smaller than any one child System**.
-
-Only after that should Content ask:
-
-> **What is the minimum information necessary to express these structural seams without teaching A1/A2/A3 twice?**
+Content must remain far smaller than any child System and may choose to expose less than all Logic if that produces better 275+ utility.
