@@ -96,6 +96,8 @@ jobs:
           name: xi-content-diagnostics-${{ github.run_id }}
           path: static-web/_diagnostics/xi-content.log
           if-no-files-found: ignore
+      - name: Audit Xi Projection closure
+        run: node scripts/audit-politics-xi-projection.mjs
       - name: Audit History global first-ready parity
         run: node scripts/audit-politics-history-first-ready.mjs
       - name: Audit History Runtime closure
