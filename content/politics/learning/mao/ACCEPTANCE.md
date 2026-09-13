@@ -16,8 +16,8 @@ S  PASS
 K  PASS
 L  PASS
 P  PASS
-R  UNTESTED   ← earliest unresolved
-E  UNTESTED   ← downstream-frozen
+R  PASS
+E  UNTESTED   ← earliest unresolved
 U  UNTESTED   ← learner-only
 ```
 
@@ -29,9 +29,9 @@ C00–C08 Current content closure  PASS
 
 Allowed conclusion:
 
-> **Mao now has accepted Current Source/Knowledge, complete first-round content, whole-book Learning Logic, and learner-facing Projection. Mao-specific Runtime/Evidence and real learner validation remain unaccepted.**
+> **Mao now has accepted Current Source/Knowledge, complete first-round content, whole-book Learning Logic, learner-facing Projection, and Mao-specific executed Runtime. Evidence semantics and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated before R/E are independently accepted.
+Do not promote this to module-ready or learner-validated before E is independently accepted and U exists only through real learner use.
 
 ---
 
@@ -204,17 +204,94 @@ The new projection guard also checks that accepted singular or plural core answe
 
 ---
 
-## L/P boundary / negative space
+## R｜Fresh Runtime re-acceptance — PASS after one repair
 
-L/P PASS does **not** mean:
+Mode: `EXECUTED + ADVERSARIAL`  
+Subject-specific journey: `static-web/scripts/test-politics-mao-runtime.mjs`
+
+### First real R failure
+
+The first Mao-specific browser run did **not** fail in accepted Content, Logic, Projection, or the external Chengfeng handoff. C00–C08 all rendered with Mao identity, Natural Units and the generic subject runtime, while the shared Politics Functional First journey stayed green.
+
+The Mao journey then failed at:
+
+```text
+mao_config_with_1_questions_exists
+```
+
+Root cause was Runtime ownership:
+
+```text
+buildPoliticsUnitReturnConfigs
+→ conservative safe Natural Unit fallback existed
+→ but fallback allowlist was hard-limited to Marxism / History
+→ Mao rendered valid Current Xiao1000 questions
+→ Mao received zero executable Unit Return configs
+```
+
+This was classified as a **Runtime defect**, not a reason to reopen S/K/L/P.
+
+### Narrow repair
+
+`static-web/src/lib/politicsUnitReturn.mjs` now permits Mao to use the existing safe fallback:
+
+```text
+NATURAL_UNIT_SAFE_FALLBACK
+mastery_claim = NONE
+```
+
+The repair does not invent finer question→node mappings, does not change Mao teaching assets, and does not enable Xi or Ethics-Law. Where source-validated finer mapping is absent, evidence stays explicitly at Natural Unit precision.
+
+### Executed Mao R evidence
+
+Final Runtime head before acceptance docs: `8f0e7e98ef66ff78bc122e78255bada023e38321`
+
+**Static Web Politics QA**
+- run #544 (`34770594438`) → **PASS**
+
+**Politics Functional First Journey**
+- run #56 (`34770594522`) → **PASS**
+- shared Politics Functional First journey → PASS
+- Mao-specific Runtime journey → PASS
+- Mao Runtime artifact → **64/64 checks PASS**
+
+The executed Mao journey proves:
+
+1. **C00–C08 runtime identity** — every Mao chapter keeps its subject/chapter identity, has Natural Units, exposes the external-primary Chengfeng handoff, and remains on the intended generic subject runtime rather than borrowing the Marxism cognitive workspace.
+2. **Clean verification path** — a Current Mao Xiao1000 Unit executes clean first attempts; STABLE is stored as this-pass evidence, Unit Return appears, no Wrong/Uncertain handoff debt is created, and the UI explicitly preserves `不等于长期掌握`.
+3. **Continuation** — Unit Return Continue advances to the next real action rather than a dead end.
+4. **Meaningful resume** — after the first question, the real next pending question (`X1000-MAO-M-002` in the executed path) is saved as `VERIFY`, restored after refresh, and Politics Home Continue points back to that exact question.
+5. **Wrong/repair route** — a real wrong first attempt (`X1000-MAO-M-001`, selected `D`, correct `ABC`) records `WRONG`, routes to the owning source, and saves `REPAIR_SOURCE` without changing subject/chapter identity.
+6. **Repair return** — the learner return control targets the interrupted question and restores `REPAIR`; the repair panel and original problem result remain visible immediately on return.
+7. **First-attempt immutability** — the original result text remains unchanged and the complete stored first-attempt object is byte-for-byte equivalent before/after repair return; refresh also restores the problem result/repair state without overwriting first-attempt truth.
+
+### R acceptance boundary
+
+R PASS means the Current Mao browser path can actually execute the accepted learning sequence and preserve meaningful runtime position/state.
+
+R PASS does **not** mean:
+
+- every Mao question or every future source mapping has been exhaustively exercised;
+- STABLE means mastery;
+- repair converts a historical Wrong/Uncertain attempt into a first-attempt success;
+- Return Packet semantics, transfer strength, persistence failure behavior and later evidence interpretation have been independently accepted under E;
+- Kian has studied or mastered Mao.
+
+Shared Politics journey remains regression evidence. Mao R PASS is grounded in the Mao-specific executed journey.
+
+---
+
+## L/P/R boundary / negative space
+
+S/K/L/P/R PASS does **not** mean:
 
 - Chengfeng has moved into KianOS as a second continuous reader;
 - every P0 fact is mandatory active recall or Memory debt;
 - all `content_support` detail should be visible immediately;
 - dates, meetings, long normative formulations or low-discrimination lists should be promoted into first-round memorization;
 - every Natural Unit needs a mandatory Recall ritual;
-- Mao-specific Runtime/Evidence journeys have been executed;
-- shared Politics browser journeys can be relabeled as Mao R/E acceptance;
+- Mao Evidence semantics are accepted merely because Runtime mechanics now execute;
+- shared Politics browser journeys can be relabeled as Mao E acceptance;
 - Kian has studied or mastered any Mao chapter.
 
 The continuous first-study surface remains iPad/MarginNote Chengfeng. KianOS surrounds that source with orientation, Logic, selective projection, verification and repair.
@@ -228,12 +305,12 @@ S/K            PASS
 Content        PASS
 L              PASS
 P              PASS
-R              UNTESTED / earliest unresolved
-E              downstream-frozen
+R              PASS
+E              UNTESTED / earliest unresolved
 U              UNTESTED / learner-only
 ```
 
-Next legitimate whole-module work is **R｜Runtime** using Mao-specific executed learner journeys. Do not reopen accepted upstream gates without new source truth, question evidence, real learner friction, or a concrete semantic/projection defect.
+Next legitimate whole-module work is **E｜Evidence**. R executed evidence is strong prior evidence for E, but E must independently attack evidence meaning, durability, persistence, repair≠mastery, routing and downstream handoff semantics. Do not reopen accepted upstream gates without new source truth, question evidence, real learner friction, or a concrete semantic/projection/runtime defect.
 
 ---
 
@@ -247,6 +324,8 @@ Next legitimate whole-module work is **R｜Runtime** using Mao-specific executed
 - learning review → `content/politics/learning/mao/learning-review.json`
 - projection review → `content/politics/learning/mao/projection-review.json`
 - Mao projection adapter → `static-web/src/lib/politicsMaoProjection.mjs`
+- Unit Return runtime → `static-web/src/lib/politicsUnitReturn.mjs`
+- Mao Runtime executed journey → `static-web/scripts/test-politics-mao-runtime.mjs`
 - shared Politics contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -255,4 +334,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Accepted Projection is not Mao Runtime/Evidence acceptance, mastery, or U evidence.**
+> **Accepted Runtime is not Mao Evidence acceptance, mastery, or U evidence.**
