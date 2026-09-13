@@ -196,6 +196,70 @@ Do **not** mass-roll this workspace across Marxism or sibling Politics subjects 
 
 ---
 
+## 2026-09-13 C00 Projection density / topology repair
+
+### Why P reopened
+
+A fresh adversarial Projection/UI re-acceptance challenged the then-current direct-visible bridge instead of treating the existing green validator as the answer key. The audit found a real Projection defect: the runtime had fixed hidden core reasoning by topologically sorting every semantic Map into one generic horizontal Flow, while also flattening `Map + relation_chain + Inspector` into competing visible layers. This could distort valid Map topology (especially C00 S02's contemporary-value hub) and recreate learner burden as visual accumulation.
+
+The responsible layer was **P｜Projection**. S/K/L remained closed: the semantic Maps, Chains, Boundaries, source ownership and learner order were not defective.
+
+### Repair decision
+
+PR #68 `Repair Politics C00 projection density and map topology` applies a bounded Projection-only repair:
+
+- semantic `edges` become the direct-visible primary reasoning surface;
+- Map topology is preserved rather than coerced into a generic Chain/Flow;
+- node meanings remain available as optional secondary glossary detail;
+- `relation_chain` is demoted to optional node-level/deepening detail instead of a third equal-weight mainline;
+- S02's two genuinely distinct Maps remain directly available;
+- learner-facing engineering chrome (`STATE`, `MAP 01`, Inspector state labels, Suyi-consumption accounting) is removed/demoted from the learning surface;
+- relation, node and Anchor typography is raised to readable Dense-Calm sizes;
+- Chengfeng iPad/MarginNote ownership, optional Recall, Xiao1000 fast path, Wrong/Uncertain Repair and evidence behavior are unchanged.
+
+The validator now explicitly rejects the retired generic-flow projection and checks that `MARX-C00-S02-MAP-VALUE-01` remains a three-edge hub sourced from `contemporary_value`.
+
+### P/R/E — PASS after bounded re-walk
+
+PR validation evidence:
+
+- PR: #68
+- tested head: `ad8ccc9adb9ef10306586c690d0ab7fa54ab269e`
+- workflow: `Static Web Politics QA`
+- run: #448 (`34750287077`)
+- `Audit Politics canonical coverage` → **PASS**
+- `Audit Xiao1000 semantic chapter routing` → **PASS**
+- `Prove scoped Politics source loading without monoliths` → **PASS**
+- `Audit History batch content closure` → **PASS**
+- `Audit History global first-ready parity` → **PASS**
+- `Audit History Runtime closure` → **PASS**
+- `Audit History Evidence closure` → **PASS**
+- `Audit K03 canonical knowledge closure` → **PASS**
+- `Audit Marxism batch content closure` → **PASS**
+- `Audit Politics learning semantics content contract` → **PASS**
+- `Validate Marxism C00 cognitive workspace` → **PASS**
+- `Audit Marxism global first-ready parity` → **PASS**
+- `Audit K03 learning and projection closure` → **PASS**
+- `Audit K03 runtime and evidence closure` → **PASS**
+- `Audit Marxism runtime and evidence closure` → **PASS**
+- `Validate Politics Current bindings` → **PASS**
+- `Build Astro` → **PASS**
+
+Allowed conclusion:
+
+> **C00 Projection is reaccepted at engineering level with relations-first, topology-preserving direct visibility and reduced visual burden. Existing Runtime/Evidence behavior remains compatible. This still does not establish real learner U for the repaired path.**
+
+### Current U boundary after repair
+
+```text
+latest repaired C00 path: P/R/E PASS
+latest repaired C00 path: U UNTESTED
+```
+
+Real Mac + iPad learner use remains the next evidence source. Do not mass-roll C00 presentation choices to other Politics units before that evidence.
+
+---
+
 ## Earlier executed acceptance evidence
 
 ### S/K/L/P — prior PASS under the earlier surface specification
@@ -262,11 +326,11 @@ Its accepted pilot state is now a strict subset of the accepted whole-subject Ma
 
 ```text
 S/K/L/P/R/E  CLOSED under corrected Surface Ownership
-C00 P/R/E     reaccepted under Cognitive Workspace reference implementation
+C00 P/R/E     reaccepted under Cognitive Workspace reference + topology-preserving Projection repair
 U             current path UNTESTED, learner-only
 ```
 
-No engineering stage remains active for the C00 reference path after the bounded Logic → Content → UI reacceptance. New engineering work requires real learner evidence or another concrete defect that reopens the responsible gate.
+No engineering stage remains active for the repaired C00 reference path. New engineering work requires real learner evidence or another concrete defect that reopens the responsible gate.
 
 U cannot be accepted from CI, code, simulated attempts, screenshots, architecture discussion, or repository state.
 

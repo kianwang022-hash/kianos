@@ -9,11 +9,11 @@ This file does not own Marxism Source Truth, teaching content, Politics learning
 
 ## Work Cursor
 
-**Scope:** whole-subject Marxism acceptance under corrected Surface Ownership + C00 Cognitive Workspace reference calibration  
+**Scope:** whole-subject Marxism acceptance under corrected Surface Ownership + topology-preserving C00 Cognitive Workspace reference calibration  
 **Engineering acceptance:** whole-subject `S/K/L/P/R/E PASS`; Marxism C00 reference path additionally re-walked through current Content Semantics → Mac-landscape Presentation → Runtime/Evidence  
 **Earliest unresolved stage:** `U｜User Validation` — the current C00 workspace and corrected multi-surface path require real learner use  
-**Blocker:** none at the engineering layer. The retired Astro continuous-Chengfeng reader remains invalid. PR #59 replaced Marxism C00 only with the Current Cognitive Workspace reference implementation and was merged as `33c17bc643b2b3fe8b8f6b8d92c9000f44a6416d`. Post-merge `Static Web Politics QA` run #414 (`34745611706`) passed the Content Semantics audit, C00 Cognitive Workspace guard, Marxism first-ready, K03 L/P, K03 R/E, whole-subject R/E, Current bindings, and production Astro build.  
-**Next action:** real learner test of Marxism C00 on the intended device split: Mac Astro for cognitive orientation/checkpoint/verification/repair + iPad/MarginNote for Chengfeng continuous study. Do **not** mass-roll the new Cognitive Workspace across Marxism or sibling Politics subjects before real C00 learner evidence. Reopen the earliest responsible gate only if that real use exposes concrete friction.
+**Blocker:** none at the engineering layer. The retired Astro continuous-Chengfeng reader remains invalid. PR #59 established the C00 Cognitive Workspace reference implementation. A later fresh Projection/UI re-acceptance found that the direct-visible bridge was coercing semantic Maps into a generic horizontal Flow and flattening too many layers at equal weight; PR #68 repairs that defect by preserving semantic-edge topology, keeping core relations directly visible, demoting node/chain depth, removing learner-facing engineering chrome, and restoring readable Dense-Calm typography. `Static Web Politics QA` run #448 (`34750287077`) passed the bounded P/R/E compatibility re-walk through production Astro build.  
+**Next action:** real learner test of Marxism C00 on the intended device split: Mac Astro for cognitive orientation/checkpoint/verification/repair + iPad/MarginNote for Chengfeng continuous study. Do **not** mass-roll the C00 presentation choices across Marxism or sibling Politics subjects before real C00 learner evidence. Reopen the earliest responsible gate only if that real use exposes concrete friction.
 
 ---
 
@@ -24,8 +24,8 @@ S PASS
 → K PASS
 → L PASS   surface ownership explicit
 → Content calibration PASS for C00 S01/S02
-→ P PASS   C00 Mac-landscape Cognitive Workspace + no duplicate Chengfeng reader
-→ R PASS   question / recall / repair / return state transitions preserved
+→ P PASS   topology-preserving direct-visible C00 Cognitive Workspace + no duplicate Chengfeng reader
+→ R PASS   question / optional recall / repair / return state transitions preserved
 → E PASS   existing Xiao1000 evidence behavior preserved
 → U UNTESTED on current C00 path (real learner use only)
 ```
@@ -45,8 +45,12 @@ It now proves, at engineering level:
 - `learning_semantics` can express `Problem / Map(s) / Chain / Boundary / Anchor / Exact / Source Handoff / Recall` without UI layout leakage;
 - useful Suyi structure can be absorbed into KianOS cognition without creating a second Suyi learner course;
 - one Natural Unit may own multiple valid semantic Maps (`framework_maps[]`), as demonstrated by C00 S02;
+- core Map relations are directly visible from the semantic `edges` without a required click;
+- Map topology is preserved rather than coerced into one generic linear Flow; S02's contemporary-value hub remains a hub;
+- node prose and relation-chain deepening remain available as secondary detail instead of competing with the primary relation surface;
+- learner-facing repository/debug chrome such as `STATE`, `MAP 01`, Inspector state labels, or Suyi-consumption accounting does not occupy the study surface;
 - the primary Astro projection is a **Mac landscape Cognitive Workspace**, not a vertical lecture document;
-- `ORIENT → EXTERNAL_LEARN → RECALL → VERIFY → REPAIR → CLOSE` is represented by state transitions rather than pre-expanding every stage down one long page;
+- `ORIENT → EXTERNAL_LEARN → [optional RECALL] → VERIFY → REPAIR → CLOSE` is represented by state transitions rather than pre-expanding every stage down one long page;
 - Chengfeng continuous study remains on the original iPad/MarginNote surface;
 - Wrong/Uncertain repair can transition back to the visible external-source handoff instead of jumping to a hidden locator;
 - existing Xiao1000 evidence / repair DOM contracts remain intact.
@@ -63,6 +67,9 @@ Do not:
 
 - restore Chengfeng continuous source text to Astro merely because the runtime can load it;
 - turn Astro into a Suyi reader; Suyi contributes absorbed framework / relation / boundary cognition only;
+- coerce a semantic Map into a generic Chain/Flow merely because a component can render it;
+- flatten Map, node detail, relation-chain deepening and Inspector support into equal-weight visible layers;
+- restore learner-facing engineering/debug chrome merely because it helps QA or provenance;
 - mass-roll the C00 Cognitive Workspace before real learner evidence validates or corrects the reference interaction;
 - keep polishing merely because more architecture can be imagined;
 - pre-run or simulate U;
