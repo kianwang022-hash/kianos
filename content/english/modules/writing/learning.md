@@ -121,6 +121,32 @@ Task reading 负责确定“必须完成什么”，不是提前把正文写成�
 
 ## B2｜Content Generation｜从“主题词”变成真正可写的内容
 
+### 先判断：你是“没内容”，还是“有内容但写不出来”
+
+这两个卡点看起来都像“我不会写”，但修法完全不同。
+
+```text
+删掉句型以后，脑中还剩具体意思吗？
+├─ 没有
+│  → Content Generation 问题
+│  → 先生成真正的信息
+└─ 有
+   → 已经知道想说什么，却落不成稳定英文
+   → 去看 B4 English Realization
+```
+
+例如你只想到：
+
+> technology is important
+
+这通常不是词汇量问题，而是内容还没生成。
+
+如果你已经知道：
+
+> digital tools reduce repetitive work, but blind trust can weaken judgment
+
+却不知道怎么用英语稳定写出来，才是 realization 问题。
+
 ### 主题词为什么不够
 
 `technology / cooperation / persistence / health` 只是 topic，不是 paragraph content。
@@ -529,9 +555,22 @@ NEXT STEP / CLOSE
 让沟通自然结束
 ```
 
-request / recommend / invite / inform / apologize / thank / inquire / report problem 只是表面 function。
+request / recommend / invite / inform / apologize / thank / inquire / report problem 不是八套模板，而是八种不同的沟通任务。
 
-长期稳定的问题只有三个：
+### Function matrix｜每种任务真正缺什么
+
+| Function | 至少要完成的核心信息 | 最常见的空壳 |
+| --- | --- | --- |
+| **Request** | 要对方做什么 + 必要 context / time + next step | 只堆 polite phrases，不说具体请求 |
+| **Recommend / Suggest** | 推荐什么 + **为什么适合这个对象/情境** + 必要 detail | `meaningful / beneficial`，没有 fit reason |
+| **Invite** | 什么活动 + time/place + 为什么值得来 + next step | 只有“诚挚邀请”，没有可行动信息 |
+| **Inform / Notify** | 什么变了 + 对方必须知道的事实 + 是否需要行动 | 情绪很多，关键信息很晚才出现 |
+| **Apologize** | 具体问题 + 简洁道歉 + 必要解释 + remedy | 连续说 sorry，却没处理问题 |
+| **Thank** | 感谢什么具体行为 + 它带来的帮助/影响 | 只加强情绪程度 |
+| **Ask / Inquire** | 把问题问到**可以被回答** + 必要 context | `give me more information` 太宽 |
+| **Report / Complain** | 发生什么 + 具体影响 + 希望怎样解决 | 只表达不满，没有可处理请求 |
+
+真正稳定的问题仍然只有三个：
 
 > 这个读者需要什么？我要完成什么动作？我该用多直接的语气？
 
@@ -566,6 +605,39 @@ DEVELOP
 REALIZE
 ```
 
+### Interpretation boundary｜先别急着上价值
+
+```text
+材料事实
+↓
+材料里真正出现的关系 / tension
+↓
+这个关系允许什么解释？
+↓
+再形成 Core Message
+```
+
+判断有没有上纲过头，可以问：
+
+```text
+如果拿掉我自己脑中的背景知识，
+材料本身还足以支撑这个解释吗？
+
+├─ 否 → 解释走太远了
+└─ 是 → 继续看是否具体、可展开
+```
+
+### Core Message 四个 gate
+
+一个能写的中心判断至少同时满足：
+
+```text
+GROUNDED      材料真的支撑它
+SPECIFIC      不只是 cooperation / persistence 这种主题词
+DEVELOPABLE   后面能自然长出 WHY / HOW / RESULT / CONTRAST
+NON-TEMPLATE  不是因为某个熟悉主题好写，就硬塞进去
+```
+
 材料：一个团队拥有很多数据，却因为成员各自保存、互不共享而反复做同样工作。
 
 弱 Core Message：
@@ -586,6 +658,20 @@ why coordination matters
 → what this costs
 → what a better practice looks like
 ```
+
+### 第一段只保留“对解释有用的材料”
+
+不要把第一段写成视觉物品清单。
+
+```text
+材料细节
+↓
+这个细节会改变后面的 interpretation 吗？
+├─ 会 → 值得保留
+└─ 不会 → 大概率只是噪声
+```
+
+第一段真正要做的是：让读者看得出后面的 Core Message **为什么能从材料里长出来**。
 
 > **Big Writing 的主题不是你想出来的词，而是材料关系允许你建立的判断。**
 
