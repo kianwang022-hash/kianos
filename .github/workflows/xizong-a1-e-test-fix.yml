@@ -1,0 +1,57 @@
+name: Xizong A1 Evidence Test Fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-a1-e-test-fix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fix A1 Evidence test-only assertions
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          journey = Path('static-web/scripts/test-xizong-a1-evidence-journey.mjs')
+          text = journey.read_text(encoding='utf-8')
+          old = "  check(localStorage !== undefined, 'browser_local_storage_available');\n"
+          if text.count(old) != 1:
+              raise SystemExit(f'journey replacement count={text.count(old)}')
+          journey.write_text(text.replace(old, ''), encoding='utf-8')
+
+          validator = Path('static-web/scripts/validate-xizong-a1-evidence.mjs')
+          text = validator.read_text(encoding='utf-8')
+          old = "assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={sweep} />'), 'system-evidence-guard-not-mounted');"
+          new = "assert(systemPage.includes('<XizongSystemEvidenceGuard system={system} sweep={questionSweep} />'), 'system-evidence-guard-not-mounted');"
+          if text.count(old) != 1:
+              raise SystemExit(f'validator replacement count={text.count(old)}')
+          validator.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          mapfile -t changed < <(git diff --name-only)
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/test-xizong-a1-evidence-journey.mjs'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/validate-xizong-a1-evidence.mjs'
+      - name: Commit bounded test fix
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static-web/scripts/test-xizong-a1-evidence-journey.mjs static-web/scripts/validate-xizong-a1-evidence.mjs
+          git commit -m 'xizong: fix A1 Evidence test assertions'
+          git pull --rebase origin main
+          git push origin HEAD:main
