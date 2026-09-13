@@ -4,77 +4,89 @@ Role: learner-facing website / UI Work Cursor + fresh-Chat restart entry
 Parent: root `CURRENT.md`  
 Navigation issue: #90 `KianOS UI Productization — Gold Pages & Design System`
 
-This file owns only **what the website productization program should do next**. It does not own domain cognition, canonical content, Acceptance Truth, learner state, or shared presentation semantics.
+This file owns only the current UI-productization cursor. Domain cognition/content/evidence remain owned by their canonical contracts and runtime owners.
 
 ---
 
 ## Work Cursor
 
 **Program:** KianOS learner-surface productization  
-**Active stage:** Writing Gold structural review  
-**Active Gold surface:** English Writing — First Learning  
-**Active implementation:** Draft PR #93 `UI: Writing Gold Lab — three structural projections`  
-**Active branch:** `ui-writing-gold-lab-v2`  
-**Lab route:** `/writing-gold-lab/`  
-**Blocker:** browser rendering / screenshot review has not yet been accepted by Kian  
-**Next action:** render PR #93 in a real browser, compare A/B/C on the same Writing content, fix obvious projection/interaction defects, then let Kian accept/reject a structural direction. Do **not** propagate a Design System before that choice.
+**Active stage:** Codex implementation handoff  
+**Active Gold surface:** English Writing — task-first workbook  
+**Implementation owner:** Codex  
+**Chat/Sol role:** product direction, contract reading, acceptance, screenshot/interaction review; do not become the long-running CSS/Astro implementer.  
+**Blocker:** no accepted Codex browser implementation yet.
 
-Current variants:
+### Exact next action
 
-```text
-A — Editorial Spine
-    continuous reading + persistent cognitive spine + bounded return inspector
+Codex should start from current `main@HEAD` and implement the Writing Gold surface from the frozen English logic rather than from an old visual prototype.
 
-B — Cognitive Canvas
-    explicit six-step map + route + central stage + contextual inspector
-
-C — Focused Workspace
-    one dominant primitive at a time + minimal chrome + in-place previous/next
-```
-
-All three use the same Current Writing content owner and route. `writing-learn.astro` remains the accepted Functional First baseline; PR #93 is an exploration surface, not a semantic replacement.
-
-Productization order after Writing acceptance:
+Read only what is needed:
 
 ```text
-Writing Gold
-→ Translation
-→ Objective (Reading A / Cloze / Part B)
-→ English shell / Resume
-→ Politics
-→ Xizong
-→ LexicalOS when its bounded vNext learner runtime is stable enough
-→ global home / identity last
+static-web/CURRENT.md
+→ static-web/PRESENTATION_CONTRACT.md
+→ content/english/LEARNING_CONTRACT.md
+→ content/english/modules/writing/CURRENT.md
+→ current Writing runtime (`WritingWorkspace.astro` and exact task/runtime owners)
 ```
 
-This is a UI implementation cursor, not learner study order.
+Then build **2–3 genuinely different Mac-landscape task-first workbook compositions**, run the real browser/build path, and return screenshots plus a compact implementation receipt.
+
+The comparison must be structural, not palette/radius variants.
+
+### Writing Gold invariant
+
+English is a **Digital Workbook + Adaptive Coach**, not a knowledge-course renderer.
+
+For Writing:
+
+```text
+Task / Prompt
++ learner Plan / Draft
+= dominant workspace
+
+six Writing primitives
+= quiet, complete-but-skippable coaching / repair reservoir
+```
+
+The formal learner unit remains **one complete essay**. Clean performance should dominate. Stable work exits quickly. Only meaningful failure should make the surface heavier and expose the smallest useful coaching/repair layer.
+
+Candidate structural directions may include, but Codex is not required to copy these literally:
+
+- split workbook: Prompt + work surface + bounded Coach;
+- writing desk: large paper/work surface, Prompt collapsible, Coach docked quietly;
+- focus + drawer: writing dominates, Task/Coach appear on demand.
+
+The six primitives must not become six compulsory chapters or the permanent visual mainline.
+
+### Prototype disposition
+
+Draft PR #93 / branch `ui-writing-gold-lab-v2` is **DISPOSABLE REFERENCE ONLY — DO NOT MERGE**.
+
+It was a Chat-authored structural sketch used to expose the correct upstream question. It has **zero authority** over Codex implementation. Codex may inspect it only as a bounded visual thought experiment and should prefer Current contracts + Current runtime.
 
 ---
 
 ## Frozen product basis
 
-Read in this order when needed:
+1. `static-web/PRESENTATION_CONTRACT.md` — shared Projection grammar, Dense Calm, high-frequency input grammar, Legacy firewall.
+2. `SYSTEM_CONTRACT.md` — surface ownership.
+3. applicable domain Learning / Interaction contract.
+4. Current content/runtime owner for the projected task.
 
-1. `static-web/PRESENTATION_CONTRACT.md` — shared Projection + high-frequency input grammar + Legacy firewall;
-2. `SYSTEM_CONTRACT.md` — surface ownership;
-3. applicable domain Learning / Interaction contract;
-4. Current content/runtime owner for the surface being projected.
+Hard product principles:
 
-Hard UI principles remain:
-
-- **Dense Calm**: useful density, comfortably readable type, low noise, strong hierarchy;
-- Mac / wide landscape is the primary work surface;
+- Dense Calm: comfortable readable type, useful density, strong hierarchy, low noise;
+- Mac / wide landscape first;
 - cognition before components;
 - `Content structure ≠ page structure`;
-- do not default to `Markdown heading → equal card/panel`;
-- use space for simultaneous relationships and state change for learner sequence;
-- one dominant cognitive task at a time;
-- cards/borders only when they mark a real semantic or interaction boundary;
-- stable/correct work should remain low-friction;
-- Wrong / meaningful Uncertain may make the surface heavier only because new information is now useful;
+- do not default to heading → card/panel;
+- stable/correct paths stay extremely low-friction;
+- Wrong / meaningful Uncertain may reveal the smallest useful Repair / explanation;
 - presentation work may not mutate learning semantics, evidence/mastery meaning, Repair admission, Resume priority, surface ownership or canonical truth.
 
-Shared semantic roles remain:
+Shared semantic roles:
 
 `Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
 
@@ -85,40 +97,44 @@ Shared semantic roles remain:
 A Gold surface is not accepted because it builds or looks polished.
 
 ```text
-Current cognition + Current content
-→ genuinely different structural projections
-→ real browser / interaction review
-→ Kian chooses or rejects
+Current logic + Current content/runtime
+→ Codex structural implementations
+→ real browser screenshots + interaction review
+→ Kian accepts / rejects
 → accepted composition
 → only then extract reusable tokens / primitives
 ```
 
 Check at minimum:
 
-- the current cognitive task is obvious immediately;
-- chain / compare / hierarchy / boundary stay visually distinct;
-- important learner text is comfortably readable;
-- secondary/system information stays subordinate;
-- route switching and frequent actions are low-friction;
-- no unnecessary confirmations or page changes appear;
-- the result feels sustainable for long real study, not merely attractive in a screenshot.
+- the task is immediately obvious;
+- learner work remains the dominant surface;
+- coaching/reference stays quiet until relevant;
+- important text is comfortably readable;
+- high-frequency interaction is low-friction;
+- no unnecessary confirmations/page changes;
+- long-session use feels sustainable;
+- zero semantic diff against Current.
+
+After Writing acceptance:
+
+```text
+Translation
+→ Objective (Reading A / Cloze / Part B)
+→ English shell / Resume
+→ Politics
+→ Xizong
+→ LexicalOS when its Current bounded runtime is ready
+→ global home / identity last
+```
 
 ---
 
-## Protected legacy references
+## Protected legacy reference｜Politics Question Workbench
 
-Legacy is **bounded evidence/reference only**. It is never a second Current and never a runtime fallback. The canonical firewall is in `static-web/PRESENTATION_CONTRACT.md`.
+Legacy is bounded evidence/reference only, never a second Current or runtime fallback.
 
-### Politics Question Workbench
-
-When Politics reaches productization, preserve the proven high-quality question interaction by comparing against:
-
-- `kianwang022-hash/kianos-site-v238-recovery@local-main`
-- compiled learner reference: `public/kianos/assets/PoliticsWorkbench-DbVipmSG.js`
-- UX evidence: `tests/politics-final-learner-ux-polish.test.mjs`
-- recovery authority note: `kianwang022-hash/kianos-legacy@local-main/content/politics/RECOVERY_CONTRACT.md`
-
-Useful behavior to reproduce against **Current** data/semantics includes:
+When Politics reaches productization, compare against the proven prior Workbench interaction in `kianos-site-v238-recovery@local-main`, especially:
 
 ```text
 Normal / Fast
@@ -126,7 +142,7 @@ Normal / Fast
 fast single choice correct → near-immediate next
 wrong → stay
 一句话带走
-your answer vs canonical answer
+answer delta
 optional failure-cause + note
 AI-refined 理解这道题
 Current source references
@@ -135,24 +151,23 @@ fixed low-friction Next
 optional original-question image check
 ```
 
-Historical evidence also pins a 1,148-record refined final-explanation artifact (`politics_question_explanation_final_freeze_candidate.v1.json`, SHA256 `e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec`). Its exact durable Current role must be reconciled before claiming the dual-layer explanation experience is fully preserved.
-
-Do not revive old scheduler/due/mastery/owner logic simply because the old Workbench used it.
+Historical evidence also pins a 1,148-record refined explanation artifact. It must be exactly recovered/reconciled before Current promotion. Do not revive old scheduler/due/mastery/owner logic or link Current runtime to legacy assets.
 
 ---
 
 ## Domain maturity boundary
 
-- **English:** Objective / Translation / Writing are mature Functional First slices and can undergo full UI productization under frozen semantics.
-- **Politics:** Marxism / History have mature S–E learner paths; Mao / Xi / Ethics-Law have accepted content with narrower downstream maturity. Do not invent missing interactions.
-- **Xizong:** A2 / A3 are mature learner-test-ready slices; A1/B and later Systems follow their own Current maturity.
-- **LexicalOS:** vNext Learning/Content contracts are accepted; catalog completion and bounded Evidence/Memory runtime remain separate. Global UI work must not outrun Lexical Current.
+- **English:** Objective / Translation / Writing are mature Functional First slices; full UI productization is allowed under frozen semantics.
+- **Politics:** content maturity differs by subject; do not invent unaccepted downstream interactions.
+- **Xizong:** A2/A3 are mature learner-test-ready slices; other Systems follow their own Current maturity.
+- **LexicalOS:** vNext logic is accepted, but catalog/runtime maturity remains bounded; UI must not outrun Lexical Current.
 
 ---
 
 ## Historical / superseded UI routes
 
-Issue #38 and branch `visual-language-v01` are **SUPERSEDED REFERENCE ONLY**. Do not resume them as the UI mainline.
+Issue #38 and branch `visual-language-v01` are superseded reference only.
+PR #93 is disposable reference only and is not the active implementation.
 
 ---
 
@@ -164,9 +179,9 @@ When Kian says **“继续 KianOS 总 UI”**, **“读取 GitHub 最新 UI 任�
 main@HEAD
 → static-web/CURRENT.md
 → static-web/PRESENTATION_CONTRACT.md
-→ active PR named above
-→ applicable domain contract only if needed
-→ continue exact current acceptance step
+→ active Codex UI PR / implementation receipt if one exists
+→ applicable domain contract only as needed
+→ continue exact acceptance step
 ```
 
-Do not reconstruct the UI program from old Issues, historical branches, previous Chats or legacy screenshots when this Current already resolves the active task.
+Do not reconstruct the UI program from old Issues, previous Chats, historical branches or legacy screenshots when this Current resolves the active task.
