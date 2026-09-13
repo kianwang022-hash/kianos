@@ -49,11 +49,40 @@ Learner validation / U         UNTESTED
 Current implementation handoff:
 
 - status / consumer boundary → `static-web/POLITICS_PRODUCT_STATUS.md`;
+- UI optimization / whole-flow safety protocol → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
 - accepted detailed UI decisions → `static-web/POLITICS_PRODUCT_BRIEF.md` + subject design files;
 - derived Projection ledger → `content/politics/projection/manifest.json`;
 - anti-drift guard → `static-web/scripts/validate-politics-cognitive-projection-assets.mjs` in `Static Web Politics QA`.
 
-UI implementation may proceed as a visual/product track **without reopening S/K/L/P/R/E**, provided it preserves accepted learning semantics, Runtime/Evidence behavior, source ownership and Return rules. UI/Codex must consume the compiled Projection layer for cognitive shape rather than re-inferring subject geometry from raw Current chapter JSON.
+UI implementation may proceed as a visual/product track **without reopening S/K/L/P/R/E**, provided it preserves accepted learning semantics, Runtime/Evidence behavior, source ownership and Return rules.
+
+Hard UI/product rule:
+
+```text
+Current Content / Learning Logic
+→ accepted compiled Projection
+→ existing Runtime / Evidence / Repair / Return
+→ Mac-wide UI optimization
+```
+
+Not:
+
+```text
+raw Current Content
+→ redesign cognitive shape from scratch
+→ reconnect Runtime afterward
+```
+
+For local UI work, first reconstruct the relevant whole learner loop, then audit the existing learner-facing element as:
+
+```text
+KEEP
+OPTIMIZE
+RESTORE_FROM_PROJECTION
+DEMOTE
+```
+
+UI/Codex must consume the compiled Projection layer for cognitive shape rather than re-inferring subject geometry from raw Current chapter JSON. A redesign/reopen requires fresh evidence of a concrete upstream defect and must identify the earliest responsible owner/gate.
 
 ---
 
@@ -141,6 +170,9 @@ If a real defect appears, reopen only the earliest responsible owner/gate. `U` i
 ### Product / Projection status
 `static-web/POLITICS_PRODUCT_STATUS.md` owns the current UI/Projection-compilation handoff state only. It does not change subject Acceptance truth.
 
+### UI optimization protocol
+`static-web/POLITICS_UI_REVIEW_PROTOCOL.md` owns the optimization-first / whole-flow-before-local-UI safety method. It does not own Politics semantics or UI design content.
+
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only. Repository state cannot manufacture study, mastery, transfer, or U.
 
@@ -153,6 +185,11 @@ Politics CURRENT
 → all five subject learning-engineering paths already closed through E
 → product/UI design frozen + Projection assets compiled
 → semantic work: prefer real learner use
-→ UI work: consume POLITICS_PRODUCT_STATUS + compiled Projection assets
-→ if concrete friction/evidence appears, route to the earliest responsible local owner
+→ UI work: POLITICS_PRODUCT_STATUS
+          → POLITICS_UI_REVIEW_PROTOCOL
+          → accepted subject design
+          → exact compiled Projection owner
+          → touched Runtime / Evidence / Repair / Return
+→ classify local surface: KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE
+→ if concrete contradictory evidence appears, route to the earliest responsible local owner
 ```
