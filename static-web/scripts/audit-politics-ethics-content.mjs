@@ -11,6 +11,10 @@ const NODE_SHARDS = path.join(repoRoot, 'content/politics/source/nodes/shards');
 const NODE_MANIFEST = path.join(repoRoot, 'content/politics/source/nodes/manifest.json');
 const SOURCE_REVIEW = path.join(LEARNING_ROOT, 'source-review.json');
 const SEMANTIC_REVIEW = path.join(LEARNING_ROOT, 'semantic-review.json');
+const ETHICS_CURRENT = path.join(LEARNING_ROOT, 'CURRENT.md');
+const ETHICS_ACCEPTANCE = path.join(LEARNING_ROOT, 'ACCEPTANCE.md');
+const POLITICS_MANIFEST = path.join(repoRoot, 'content/politics/manifest.json');
+const LEARNING_MANIFEST = path.join(repoRoot, 'content/politics/learning/manifest.json');
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 function readJsonl(file) {
@@ -27,6 +31,8 @@ const representedRegions = new Set();
 const nodeManifest = readJson(NODE_MANIFEST);
 const sourceReview = readJson(SOURCE_REVIEW);
 const semanticReview = readJson(SEMANTIC_REVIEW);
+const politicsManifest = readJson(POLITICS_MANIFEST);
+const learningManifest = readJson(LEARNING_MANIFEST);
 const regionRows = readJsonl(REGIONS).filter((row) => row?.status === 'canonical' && row?.subject === 'ETHICS');
 const regionById = new Map(regionRows.map((row) => [String(row.unified_region_id), row]));
 const shardCache = new Map();
@@ -156,6 +162,16 @@ if (sourceReview?.review_snapshot?.node_registry_canonical_row_digest_sha256 !==
   blockers.push({ chapter: 'subject', code: 'SOURCE_REVIEW_SNAPSHOT_STALE' });
 }
 
+const ethicsLearningManifest = learningManifest?.subjects?.ethics_law || {};
+if (ethicsLearningManifest?.status !== 'SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_NOT_CONTENT_CLOSED' });
+if (ethicsLearningManifest?.content_closure !== 'PASS') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_CONTENT_CLOSURE_NOT_PASS' });
+if (ethicsLearningManifest?.current !== 'content/politics/learning/ethics-law/CURRENT.md') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_CURRENT_OWNER_MISMATCH' });
+if (ethicsLearningManifest?.acceptance !== 'content/politics/learning/ethics-law/ACCEPTANCE.md') blockers.push({ chapter: 'subject', code: 'LEARNING_MANIFEST_ACCEPTANCE_OWNER_MISMATCH' });
+if (politicsManifest?.learning?.subject_status?.ethics_law !== 'SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06_WITH_SUBJECT_MAP') blockers.push({ chapter: 'subject', code: 'ROOT_MANIFEST_NOT_CONTENT_CLOSED' });
+if (politicsManifest?.readiness?.ethics_law_source_knowledge_content_closed !== true) blockers.push({ chapter: 'subject', code: 'ROOT_MANIFEST_CONTENT_CLOSURE_FLAG_MISSING' });
+if (!fs.existsSync(ETHICS_CURRENT)) blockers.push({ chapter: 'subject', code: 'SCOPED_CURRENT_MISSING' });
+if (!fs.existsSync(ETHICS_ACCEPTANCE)) blockers.push({ chapter: 'subject', code: 'SCOPED_ACCEPTANCE_MISSING' });
+
 const p0p1Rows = regionRows.filter((row) => ['P0', 'P1'].includes(String(row?.chat_decision?.priority || '')));
 for (const row of p0p1Rows) {
   if (!representedUnits.has(String(row.natural_unit_id))) blockers.push({ chapter: 'subject', code: `P0_P1_UNIT_NOT_REPRESENTED:${row.natural_unit_id}` });
@@ -171,6 +187,8 @@ const report = {
   p0_p1_region_count: p0p1Rows.length,
   source_review_snapshot_valid: sourceReview?.review_snapshot?.node_registry_canonical_row_digest_sha256 === nodeManifest?.canonical_row_digest_sha256,
   semantic_review_complete: semanticReview?.status === 'CURRENT_MAINLINE_SCAN_COMPLETE',
+  scoped_owner_pair_bound: fs.existsSync(ETHICS_CURRENT) && fs.existsSync(ETHICS_ACCEPTANCE),
+  manifest_content_closed: ethicsLearningManifest?.status === 'SOURCE_KNOWLEDGE_CONTENT_CLOSED_C00_TO_C06' && ethicsLearningManifest?.content_closure === 'PASS',
   blocker_count: blockers.length,
   chapters,
   blocker_sample: blockers.slice(0, 20)
