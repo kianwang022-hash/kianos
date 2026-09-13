@@ -1,0 +1,31 @@
+{
+  "schema": "kianos.politics.learning.ethics_runtime_review.v1",
+  "status": "ACCEPTED",
+  "scope": "ETHICS_C00_C06_RUNTIME",
+  "first_real_failure": {
+    "code": "ethics_config_with_1_questions_exists",
+    "pre_failure_smoke_checks": 28,
+    "meaning": "All seven Ethics chapters rendered the intended runtime and external Chengfeng handoff, but no executable Unit Return config existed."
+  },
+  "repair": {
+    "owner": "static-web/src/lib/politicsUnitReturn.mjs",
+    "change": "Add ethics_law to the existing conservative NATURAL_UNIT_SAFE_FALLBACK allowlist.",
+    "mastery_claim": "NONE",
+    "precision": "NATURAL_UNIT_SAFE_FALLBACK",
+    "finer_mapping_invented": false
+  },
+  "executed_evidence": {
+    "journey_checks": 45,
+    "failures": 0,
+    "chapter_smoke_checks": 28,
+    "clean_path": true,
+    "resume_path": true,
+    "repair_return_path": true,
+    "first_attempt_immutable": true
+  },
+  "boundaries": [
+    "R PASS does not accept Evidence/Return Packet semantics.",
+    "STABLE is this-pass evidence only and is not mastery.",
+    "U remains real-user-only."
+  ]
+}
