@@ -37,7 +37,7 @@
       };
     };
     const writeSession = (value) => writeJson(continuousKey, value);
-    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}`;
+    const hrefForReading = (id) => `${basePath}reading/${encodeURIComponent(id)}/`;
     const setReviewUnlockedFor = (id, unlocked) => {
       if (!id) return;
       const key = `kianos-reading-attempt-v1:${id}`;
