@@ -76,6 +76,8 @@ jobs:
         run: node scripts/audit-politics-marxism-content.mjs
       - name: Audit Politics learning semantics content contract
         run: node scripts/audit-politics-learning-semantics.mjs
+      - name: Validate Marxism C00 cognitive workspace
+        run: node scripts/validate-politics-cognitive-workspace.mjs
       - name: Audit Marxism global first-ready parity
         id: marxism_first_ready
         shell: bash

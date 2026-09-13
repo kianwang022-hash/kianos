@@ -1,0 +1,545 @@
+---
+const { chapter, base = '/' } = Astro.props;
+
+function asList(value) {
+  return Array.isArray(value) ? value : (value == null ? [] : [value]);
+}
+
+function uniqueNodes(nodes = []) {
+  const seen = new Set();
+  return nodes.filter((node) => {
+    const key = String(node?.id || node?.title || '').trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function mapsFor(semantics = {}) {
+  if (Array.isArray(semantics?.framework_maps)) return semantics.framework_maps;
+  return semantics?.framework_map ? [semantics.framework_map] : [];
+}
+
+const units = (chapter.units || []).map((unit) => ({
+  ...unit,
+  sourceNodes: uniqueNodes(unit.sourceNodes),
+  semantics: unit?.raw?.learning_semantics || null
+}));
+const o = chapter.orientation || {};
+const c = chapter.compression || {};
+const rawCompression = chapter.raw?.chapter_compression || {};
+const compressionSummary = String(rawCompression.stage_shift || rawCompression.double_judgment || '');
+---
+
+<section
+  class="politicsCognitiveWorkspace"
+  data-politics-runtime
+  data-politics-cognitive-workspace
+  data-subject={chapter.subject}
+  data-chapter={chapter.chapter || ''}
+  data-title={chapter.title}
+>
+  <header class="workspaceBar">
+    <div class="workspaceLocation">
+      <a href={`${base}politics/`}>政治</a>
+      <span>/</span>
+      <strong>{chapter.subjectMeta.label}</strong>
+      <span>/</span>
+      <b>{chapter.title}</b>
+    </div>
+    <nav class="workspaceUnitTabs" aria-label="Natural Unit">
+      {units.map((unit, index) => (
+        <button type="button" class={index === 0 ? 'active' : ''} data-workspace-unit-tab={index}>
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <b>{unit.title}</b>
+        </button>
+      ))}
+    </nav>
+    <div class="workspaceState">
+      <span>STATE</span>
+      <strong data-workspace-state-label>ORIENT</strong>
+    </div>
+  </header>
+
+  <section class="chapterContext">
+    <div>
+      <span>导论定位</span>
+      <strong>{o.question || chapter.title}</strong>
+    </div>
+    {o.chain?.length > 0 && (
+      <div class="chapterContextChain">
+        {o.chain.map((item) => <span>{item}</span>)}
+      </div>
+    )}
+  </section>
+
+  {units.map((unit, unitIndex) => {
+    const t = unit.teaching || {};
+    const semantics = unit.semantics || {};
+    const maps = mapsFor(semantics);
+    const chains = asList(semantics?.relation_chains);
+    const boundaries = asList(semantics?.boundaries);
+    const anchors = asList(semantics?.anchors);
+    const precision = asList(semantics?.precision_objects);
+    const handoff = semantics?.source_handoff || {};
+    const recall = semantics?.recall_seed || null;
+    const locatorCount = unit.sourceNodes.length || unit.sourceRefCount || 0;
+    const suyiRows = asList(semantics?.suyi_dispositions);
+    const absorbedSuyi = suyiRows.filter((row) => row?.disposition === 'ABSORBED').length;
+
+    return (
+      <article
+        class={`workspaceUnit ${unitIndex === 0 ? 'active' : ''}`}
+        data-politics-unit
+        data-workspace-unit
+        data-unit-index={unitIndex}
+        data-unit-id={unit.unitId}
+        data-state="ORIENT"
+        hidden={unitIndex !== 0}
+      >
+        <main class="cognitiveStage" data-cognitive-stage>
+          <section class="stageScene" data-stage="ORIENT">
+            <p class="stageEyebrow">先定位 · 不背</p>
+            {t.bridge && <p class="stageBridge">{t.bridge}</p>}
+            <h2>{semantics?.problem?.text || t.question || unit.title}</h2>
+
+            {maps.length > 0 ? (
+              <div class="mapDeck" data-map-deck>
+                {maps.length > 1 && (
+                  <div class="mapTabs" role="tablist" aria-label="认知地图">
+                    {maps.map((map, mapIndex) => (
+                      <button type="button" class={mapIndex === 0 ? 'active' : ''} data-map-tab={mapIndex}>{map.title}</button>
+                    ))}
+                  </div>
+                )}
+                {maps.map((map, mapIndex) => (
+                  <section class={`semanticMap ${mapIndex === 0 ? 'active' : ''}`} data-map-panel={mapIndex} hidden={mapIndex !== 0}>
+                    <header><span>MAP {String(mapIndex + 1).padStart(2, '0')}</span><strong>{map.title}</strong></header>
+                    <div class="semanticMapNodes">
+                      {asList(map.nodes).map((node) => (
+                        <article>
+                          <b>{node.label}</b>
+                          <p>{node.meaning}</p>
+                        </article>
+                      ))}
+                    </div>
+                    {asList(map.edges).length > 0 && (
+                      <div class="semanticEdges">
+                        {asList(map.edges).map((edge) => (
+                          <div>
+                            <span>{asList(map.nodes).find((node) => node.id === edge.from)?.label || edge.from}</span>
+                            <i>→</i>
+                            <small>{edge.relation}</small>
+                            <i>→</i>
+                            <span>{asList(map.nodes).find((node) => node.id === edge.to)?.label || edge.to}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </section>
+                ))}
+              </div>
+            ) : (
+              <div class="fallbackOrientation">
+                {t.answer && <p>{t.answer}</p>}
+                {t.beats?.length > 0 && <div>{t.beats.map((beat) => <span>{beat.label || beat.title}</span>)}</div>}
+              </div>
+            )}
+
+            {chains.length > 0 && (
+              <div class="relationStrip">
+                {chains.slice(0, 1).map((chain) => (
+                  <section>
+                    <span>{chain.title}</span>
+                    <div>{asList(chain.steps).map((step, index) => <><b>{step.text}</b>{index < chain.steps.length - 1 && <i>→</i>}</>)}</div>
+                  </section>
+                ))}
+              </div>
+            )}
+
+            {anchors.length > 0 && <p class="stageAnchor">{anchors[0].text}</p>}
+
+            <div class="stageActions">
+              <button type="button" class="primaryAction" data-workspace-action="start-learn">去 iPad / MarginNote 学乘风 →</button>
+              {maps.length > 0 && <span>先带着结构进入原讲义，不在 Astro 重读第二遍教材。</span>}
+            </div>
+          </section>
+
+          <section class="stageScene" data-stage="EXTERNAL_LEARN" hidden>
+            <p class="stageEyebrow">乘风 · 主学习面在 iPad</p>
+            <h2>{unit.title}</h2>
+            <p class="externalLead">Astro 此时只做认知伴随：保留位置、结构和要找的关系，不复制乘风连续正文。</p>
+
+            <div class="externalFocus">
+              <div>
+                <span>原讲义定位</span>
+                <strong>{handoff.locator || `乘风 · ${unit.title}`}</strong>
+              </div>
+              <div>
+                <span>这次进去找什么</span>
+                <ul>{asList(handoff.look_for).slice(0, 4).map((item) => <li>{item}</li>)}</ul>
+              </div>
+            </div>
+
+            {maps.length > 0 && (
+              <div class="compactMap">
+                <span>桌边地图</span>
+                <div>{asList(maps[0]?.nodes).map((node, index) => <><b>{node.label}</b>{index < maps[0].nodes.length - 1 && <i>·</i>}</>)}</div>
+              </div>
+            )}
+
+            <div class="stageActions splitActions">
+              <button type="button" class="secondaryAction" data-workspace-action="back-orient">← 回看定位</button>
+              <button type="button" class="primaryAction" data-workspace-action="learn-done">我学完这一 Unit 了 →</button>
+            </div>
+          </section>
+
+          <section class="stageScene recallScene" data-stage="RECALL" hidden>
+            <p class="stageEyebrow">20 秒闭卷收口</p>
+            <h2>{recall?.prompt || t.closure || t.question || '闭卷重建这一段最核心的关系。'}</h2>
+
+            <div class="recallBlank" data-recall-blank>
+              <span>先别看答案</span>
+              <div class="blankNodes">
+                {Array.from({ length: Math.max(3, maps[0]?.nodes?.length || 4) }).map((_, index) => <i>{index + 1}</i>)}
+              </div>
+              <p>在脑中把节点和箭头重新搭起来；卡住再揭示结构，不用追求逐字复述。</p>
+            </div>
+
+            <section class="recallReveal" data-recall-reveal hidden>
+              <span>结构核对</span>
+              {recall?.expected_relations?.length > 0
+                ? <div>{recall.expected_relations.map((item) => <b>{item}</b>)}</div>
+                : maps.length > 0
+                  ? <div>{asList(maps[0]?.edges).map((edge) => <b>{edge.from} → {edge.to}</b>)}</div>
+                  : <p>{t.answer}</p>}
+            </section>
+
+            <div class="stageActions recallActions">
+              <button type="button" class="secondaryAction" data-workspace-action="recall-source">我断了，回乘风</button>
+              <button type="button" class="secondaryAction" data-workspace-action="recall-reveal">显示结构核对</button>
+              <button type="button" class="primaryAction" data-workspace-action="recall-pass">能重建，进入肖1000 →</button>
+            </div>
+          </section>
+
+          <section class="stageScene verifyScene" data-stage="VERIFY" hidden>
+            <header class="verifyHeader">
+              <div><p class="stageEyebrow">肖1000 · 当前 first-ready</p><h2>干净作答，不提前看框架。</h2></div>
+              <span>{unit.questions.length ? `${unit.questions.length} 题` : unit.questionRefCount ? '题目待解析' : '本段无题'}</span>
+            </header>
+
+            <section class="politicsQuiz workspaceQuiz" data-politics-quiz>
+              {unit.questions.length > 0 ? (
+                <div class="politicsQuizDeck">
+                  {unit.questions.map((q, qIndex) => (
+                    <article
+                      class={`politicsQ workspaceQuestion ${qIndex === 0 ? 'active' : ''}`}
+                      data-politics-question
+                      data-question-id={q.id}
+                      data-unit-id={unit.unitId}
+                      data-answer={q.answer}
+                      data-index={qIndex}
+                    >
+                      <div class="politicsQMeta"><span>{qIndex + 1} / {unit.questions.length}</span><code>{q.id}</code></div>
+                      <h4>{q.stem}</h4>
+                      <div class="politicsOptions">
+                        {q.options.map((opt) => <button type="button" data-politics-option={opt.label}><b>{opt.label}</b><span>{opt.text}</span></button>)}
+                      </div>
+                      <div class="politicsActions"><button type="button" data-politics-uncertain>△ 不确定</button><button type="button" class="primary" data-politics-submit>提交</button></div>
+                      <div class="politicsResult" data-politics-result hidden></div>
+                      <div class="politicsRepair" data-politics-repair hidden>
+                        <p class="politicsMicro">只修最小缺口</p>
+                        {t.boundaries?.length > 0 ? <ul>{t.boundaries.slice(0, 3).map((item) => <li>{item}</li>)}</ul> : <p>回到刚才这段，重新确认决定性关系。</p>}
+                        <a href={`#source-${unit.unitId}`}>回到乘风原讲义定位 ↑</a>
+                      </div>
+                      {q.explanation && <details class="politicsExplain"><summary>需要时再看解析</summary><p>{q.explanation}</p></details>}
+                      <button type="button" class="politicsNextQ" data-politics-next hidden>下一题 →</button>
+                    </article>
+                  ))}
+                </div>
+              ) : unit.questionRefCount > 0 ? (
+                <div class="politicsBlocked"><strong>题目源当前没有可靠解析出来。</strong><p>不猜题干和答案；乘风原讲义学习不受影响。</p></div>
+              ) : (
+                <div class="politicsBlocked"><strong>当前 Unit 没有 first-ready 题。</strong><p>直接进入 Unit Close，不制造空验证。</p><button type="button" data-workspace-action="verify-empty-close">进入收口 →</button></div>
+              )}
+            </section>
+          </section>
+
+          <section class="stageScene closeScene" data-stage="CLOSE" hidden>
+            <p class="stageEyebrow">Unit Close</p>
+            <h2>{unit.title} · 收口</h2>
+            {anchors.length > 0 && <div class="closeAnchors">{anchors.map((anchor) => <strong>{anchor.text}</strong>)}</div>}
+            {t.next && <p class="nextBridge">接下来：{t.next}</p>}
+
+            {unitIndex === units.length - 1 && (
+              <section class="chapterCloseCompact" id="chapter-close">
+                <span>导论压缩</span>
+                {compressionSummary && <p>{compressionSummary}</p>}
+                {c.chain?.length > 0 && <div>{c.chain.map((item, index) => <><b>{item}</b>{index < c.chain.length - 1 && <i>→</i>}</>)}</div>}
+                {c.prompt && <blockquote>{c.prompt}</blockquote>}
+              </section>
+            )}
+
+            <div class="stageActions">
+              {unitIndex < units.length - 1
+                ? <button type="button" class="primaryAction" data-workspace-action="next-unit">进入下一 Unit →</button>
+                : <a class="primaryAction linkAction" href={`${base}politics/marxism/ch01/`}>进入第一章 →</a>}
+            </div>
+          </section>
+        </main>
+
+        <aside class="contextualInspector" data-contextual-inspector>
+          <section data-inspector-state="ORIENT">
+            <header><span>INSPECTOR</span><strong>结构提示</strong></header>
+            {boundaries.length > 0 && (
+              <div class="inspectorBlock">
+                <b>先别混</b>
+                {boundaries.slice(0, 3).map((item) => <p><strong>{item.left} ≠ {item.right}</strong><span>{item.distinction}</span></p>)}
+              </div>
+            )}
+            {precision.length > 0 && (
+              <details class="inspectorDetails">
+                <summary>Exact · 后置精确记忆</summary>
+                {precision.map((item) => <p>{item.fact}</p>)}
+              </details>
+            )}
+            {suyiRows.length > 0 && <p class="suyiNote">苏一结构已消费：{absorbedSuyi} 个关系/框架 delta 被吸收；不会另开第二条课程。</p>}
+          </section>
+
+          <section data-inspector-state="EXTERNAL_LEARN" hidden id={`source-${unit.unitId}`}>
+            <header><span>IPAD HANDOFF</span><strong>乘风定位</strong></header>
+            <p class="locatorText">{handoff.locator || unit.title}</p>
+            {asList(handoff.look_for).length > 0 && <ul>{asList(handoff.look_for).map((item) => <li>{item}</li>)}</ul>}
+            <details class="inspectorDetails sourceOwners">
+              <summary>{locatorCount ? `${locatorCount} 个 source owner` : '定位依据'}</summary>
+              {unit.sourceNodes.length > 0 ? unit.sourceNodes.map((node) => <code>{node.id}</code>) : <p>按当前 Natural Unit 标题回原讲义。</p>}
+            </details>
+          </section>
+
+          <section data-inspector-state="RECALL" hidden>
+            <header><span>RECALL</span><strong>先输出，再核对</strong></header>
+            <p>这里故意保持安静。先重建关系；只有主动点“显示结构核对”才揭示模型。</p>
+            {anchors.length > 0 && <details class="inspectorDetails"><summary>真的卡住再看 Anchor</summary>{anchors.map((item) => <p>{item.text}</p>)}</details>}
+          </section>
+
+          <section data-inspector-state="VERIFY" hidden>
+            <header><span>VERIFY</span><strong>Clean attempt</strong></header>
+            <p>答题时不展示 Map、Exact 或答案提示。正确就快走；Wrong / Uncertain 才打开 Repair。</p>
+          </section>
+
+          <section data-inspector-state="REPAIR" hidden>
+            <header><span>REPAIR</span><strong>只修最小缺口</strong></header>
+            <div data-workspace-repair-slot></div>
+          </section>
+
+          <section data-inspector-state="CLOSE" hidden>
+            <header><span>CLOSE</span><strong>本 Unit 留下什么</strong></header>
+            {anchors.length > 0 ? anchors.map((item) => <p class="closeInspectorAnchor">{item.text}</p>) : <p>{t.closure || '保留这段最核心的关系。'}</p>}
+          </section>
+        </aside>
+      </article>
+    );
+  })}
+</section>
+
+<script is:inline>
+  const runtime = document.querySelector('[data-politics-cognitive-workspace]');
+  const politicsLastKey = 'kianos-politics-last-location-v1';
+  const politicsEvidenceKey = 'kianos-politics-evidence-v1';
+  const cursorKey = runtime ? `kianos-politics-workspace-v1:${runtime.dataset.subject || ''}:${runtime.dataset.chapter || ''}` : '';
+  const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+  const readJson = (key, fallback) => {
+    try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+  };
+  const saveJson = (key, value) => {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+  };
+
+  if (runtime) {
+    saveJson(politicsLastKey, {
+      subject: runtime.dataset.subject || '',
+      chapter: runtime.dataset.chapter || '',
+      title: runtime.dataset.title || '',
+      href: window.location.pathname,
+      observed_at: new Date().toISOString()
+    });
+  }
+
+  const units = runtime ? [...runtime.querySelectorAll('[data-workspace-unit]')] : [];
+  const tabs = runtime ? [...runtime.querySelectorAll('[data-workspace-unit-tab]')] : [];
+  const stateLabel = runtime?.querySelector('[data-workspace-state-label]');
+  const cursor = cursorKey ? readJson(cursorKey, { activeUnit: 0, states: {} }) : { activeUnit: 0, states: {} };
+
+  const persistCursor = () => {
+    if (!cursorKey) return;
+    const activeUnit = Math.max(0, units.findIndex((unit) => !unit.hidden));
+    const states = Object.fromEntries(units.map((unit) => [unit.dataset.unitId || '', unit.dataset.state || 'ORIENT']));
+    saveJson(cursorKey, { activeUnit, states, observed_at: new Date().toISOString() });
+  };
+
+  const stageForState = (state) => state === 'REPAIR' ? 'VERIFY' : state;
+  const syncUnitState = (unit, nextState) => {
+    if (!unit) return;
+    const state = String(nextState || 'ORIENT');
+    unit.dataset.state = state;
+    unit.querySelectorAll('[data-stage]').forEach((scene) => {
+      scene.hidden = scene.getAttribute('data-stage') !== stageForState(state);
+    });
+    unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
+      panel.hidden = panel.getAttribute('data-inspector-state') !== state;
+    });
+    if (stateLabel && !unit.hidden) stateLabel.textContent = state;
+    persistCursor();
+  };
+
+  const setActiveUnit = (index) => {
+    const safe = Math.max(0, Math.min(units.length - 1, Number(index) || 0));
+    units.forEach((unit, i) => { unit.hidden = i !== safe; unit.classList.toggle('active', i === safe); });
+    tabs.forEach((tab, i) => tab.classList.toggle('active', i === safe));
+    const active = units[safe];
+    if (active) syncUnitState(active, active.dataset.state || 'ORIENT');
+    persistCursor();
+  };
+
+  units.forEach((unit) => {
+    const stored = cursor?.states?.[unit.dataset.unitId || ''];
+    if (stored) unit.dataset.state = stored;
+
+    unit.querySelectorAll('[data-map-deck]').forEach((deck) => {
+      const mapTabs = [...deck.querySelectorAll('[data-map-tab]')];
+      const panels = [...deck.querySelectorAll('[data-map-panel]')];
+      mapTabs.forEach((tab) => tab.addEventListener('click', () => {
+        const index = Number(tab.getAttribute('data-map-tab') || 0);
+        mapTabs.forEach((candidate, i) => candidate.classList.toggle('active', i === index));
+        panels.forEach((panel, i) => { panel.hidden = i !== index; panel.classList.toggle('active', i === index); });
+      }));
+    });
+
+    unit.querySelectorAll('[data-workspace-action]').forEach((button) => button.addEventListener('click', () => {
+      const action = button.getAttribute('data-workspace-action');
+      if (action === 'start-learn') syncUnitState(unit, 'EXTERNAL_LEARN');
+      if (action === 'back-orient') syncUnitState(unit, 'ORIENT');
+      if (action === 'learn-done') syncUnitState(unit, 'RECALL');
+      if (action === 'recall-source') syncUnitState(unit, 'EXTERNAL_LEARN');
+      if (action === 'recall-reveal') {
+        const reveal = unit.querySelector('[data-recall-reveal]');
+        if (reveal) reveal.hidden = false;
+      }
+      if (action === 'recall-pass') syncUnitState(unit, 'VERIFY');
+      if (action === 'verify-empty-close') syncUnitState(unit, 'CLOSE');
+      if (action === 'next-unit') setActiveUnit(Number(unit.dataset.unitIndex || 0) + 1);
+    }));
+  });
+
+  tabs.forEach((tab) => tab.addEventListener('click', () => setActiveUnit(Number(tab.dataset.workspaceUnitTab || 0))));
+
+  const recordPoliticsEvidence = (card, outcome, selected, correctAnswer) => {
+    if (!runtime || !card) return;
+    const events = readJson(politicsEvidenceKey, []);
+    const next = Array.isArray(events) ? events : [];
+    next.push({
+      subject: runtime.dataset.subject || '',
+      chapter: runtime.dataset.chapter || '',
+      chapter_title: runtime.dataset.title || '',
+      unit_id: card.getAttribute('data-unit-id') || '',
+      question_id: card.getAttribute('data-question-id') || '',
+      source: 'xiao1000',
+      outcome,
+      selected,
+      correct_answer: correctAnswer,
+      study_day: localStudyDay(),
+      observed_at: new Date().toISOString()
+    });
+    saveJson(politicsEvidenceKey, next.slice(-500));
+  };
+
+  runtime?.querySelectorAll('[data-politics-quiz]').forEach((quiz) => {
+    const unit = quiz.closest('[data-workspace-unit]');
+    const cards = [...quiz.querySelectorAll('[data-politics-question]')];
+    const show = (index) => cards.forEach((card, i) => card.classList.toggle('active', i === index));
+
+    cards.forEach((card, index) => {
+      const selected = new Set();
+      const answer = String(card.dataset.answer || '').split('').sort().join('');
+      const result = card.querySelector('[data-politics-result]');
+      const repair = card.querySelector('[data-politics-repair]');
+      const submit = card.querySelector('[data-politics-submit]');
+      const next = card.querySelector('[data-politics-next]');
+      const uncertain = card.querySelector('[data-politics-uncertain]');
+
+      card.querySelectorAll('[data-politics-option]').forEach((button) => button.addEventListener('click', () => {
+        const label = button.dataset.politicsOption;
+        if (selected.has(label)) selected.delete(label); else selected.add(label);
+        button.classList.toggle('selected', selected.has(label));
+      }));
+
+      uncertain?.addEventListener('click', () => uncertain.classList.toggle('active'));
+
+      submit?.addEventListener('click', () => {
+        const choice = [...selected].sort().join('');
+        if (!choice) return;
+        const correct = choice === answer;
+        const wasUncertain = Boolean(uncertain?.classList.contains('active'));
+        const needsRepair = !correct || wasUncertain;
+
+        result.hidden = false;
+        result.className = `politicsResult ${correct && !wasUncertain ? 'correct' : wasUncertain && correct ? 'uncertain' : 'wrong'}`;
+        result.textContent = correct
+          ? wasUncertain ? '△ 答对了，但你不确定。先补最小缺口，再继续。' : '✓ 对，继续。'
+          : `你的答案 ${choice} · 正确答案 ${answer}`;
+
+        if (repair) {
+          repair.hidden = !needsRepair;
+          if (needsRepair) {
+            const slot = unit?.querySelector('[data-workspace-repair-slot]');
+            if (slot) slot.appendChild(repair);
+          }
+        }
+
+        if (needsRepair) {
+          recordPoliticsEvidence(card, correct ? 'UNCERTAIN' : 'WRONG', choice, answer);
+          syncUnitState(unit, 'REPAIR');
+          if (next) next.textContent = index < cards.length - 1 ? '修完继续下一题 →' : '修完进入 Unit Close →';
+        }
+
+        if (next) next.hidden = false;
+        card.querySelectorAll('[data-politics-option]').forEach((button) => {
+          button.disabled = true;
+          if (answer.includes(button.dataset.politicsOption)) button.classList.add('answer');
+        });
+        if (uncertain) uncertain.disabled = true;
+        if (submit) submit.disabled = true;
+      });
+
+      next?.addEventListener('click', () => {
+        repair?.setAttribute('hidden', '');
+        if (index < cards.length - 1) {
+          show(index + 1);
+          syncUnitState(unit, 'VERIFY');
+        } else {
+          syncUnitState(unit, 'CLOSE');
+        }
+      });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    const button = event.target?.closest?.('[data-unit-return-continue]');
+    if (!button || !runtime?.contains(button)) return;
+    const current = button.closest('[data-workspace-unit]');
+    const index = units.indexOf(current);
+    if (index >= 0 && index < units.length - 1) setActiveUnit(index + 1);
+    else if (current) syncUnitState(current, 'CLOSE');
+  }, true);
+
+  setActiveUnit(Number(cursor?.activeUnit || 0));
+</script>
+
+<style>
+  .politicsCognitiveWorkspace{display:grid;gap:12px}.workspaceBar{position:sticky;top:62px;z-index:30;display:grid;grid-template-columns:minmax(240px,1fr) minmax(420px,1.35fr) auto;align-items:center;gap:18px;min-height:64px;padding:10px 16px;border:1px solid var(--study-line);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(22,31,27,.045);backdrop-filter:blur(12px)}.workspaceLocation{display:flex;align-items:center;gap:7px;min-width:0;color:var(--study-faint);font-size:12px}.workspaceLocation a{color:var(--study-green);font-weight:800;text-decoration:none}.workspaceLocation b{overflow:hidden;color:var(--study-ink);font-size:13px;text-overflow:ellipsis;white-space:nowrap}.workspaceUnitTabs{display:flex;min-width:0;gap:5px;padding:4px;border-radius:10px;background:#f4f6f5}.workspaceUnitTabs button{display:grid;min-width:0;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:7px;flex:1;padding:7px 9px;border:0;border-radius:8px;background:transparent;color:var(--study-muted);cursor:pointer;text-align:left}.workspaceUnitTabs button>span{font-size:10px;font-weight:850}.workspaceUnitTabs button>b{overflow:hidden;font-size:11px;text-overflow:ellipsis;white-space:nowrap}.workspaceUnitTabs button.active{background:#fff;color:var(--study-green);box-shadow:0 1px 5px rgba(20,30,25,.08)}.workspaceState{display:grid;justify-items:end;line-height:1.05}.workspaceState span{color:var(--study-faint);font-size:8px;font-weight:850;letter-spacing:.1em}.workspaceState strong{margin-top:4px;color:var(--study-green);font-size:12px}.chapterContext{display:grid;grid-template-columns:minmax(260px,.55fr) minmax(0,1.45fr);align-items:center;gap:22px;padding:13px 18px;border:1px solid var(--study-line);border-radius:12px;background:#fafbfa}.chapterContext>div:first-child{display:grid;gap:3px}.chapterContext>div:first-child span{color:var(--study-green);font-size:10px;font-weight:850}.chapterContext>div:first-child strong{font-size:13px;line-height:1.45}.chapterContextChain{display:flex;align-items:center;gap:7px;overflow:auto}.chapterContextChain span{position:relative;min-width:max-content;padding-right:17px;color:var(--study-muted);font-size:11px}.chapterContextChain span:not(:last-child)::after{content:'→';position:absolute;right:1px;color:var(--study-line-strong)}
+  .workspaceUnit{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,25%);min-height:690px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow);overflow:clip}.workspaceUnit[hidden]{display:none}.cognitiveStage{min-width:0;padding:34px 40px 42px}.contextualInspector{min-width:0;padding:26px 24px;border-left:1px solid var(--study-line);background:#fafbfa}.stageScene{display:grid;align-content:start;min-height:610px}.stageEyebrow{margin:0 0 8px;color:var(--study-green);font-size:11px;font-weight:850;letter-spacing:.06em}.stageBridge{margin:0 0 10px;color:var(--study-muted);font-size:14px}.stageScene>h2{max-width:30ch;margin:0 0 24px;font-size:clamp(28px,2.6vw,38px);line-height:1.24;letter-spacing:-.03em}.mapDeck{display:grid;gap:12px}.mapTabs{display:flex;gap:6px;overflow:auto}.mapTabs button{padding:7px 10px;border:1px solid var(--study-line);border-radius:8px;background:#fff;color:var(--study-muted);cursor:pointer;font-size:11px}.mapTabs button.active{border-color:#a8c7bc;background:var(--study-green-soft);color:var(--study-green);font-weight:800}.semanticMap{display:grid;gap:15px}.semanticMap>header{display:flex;align-items:baseline;gap:9px}.semanticMap>header span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em}.semanticMap>header strong{font-size:16px}.semanticMapNodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}.semanticMapNodes article{min-height:110px;padding:14px 15px;border-top:3px solid #b6cec5;border-bottom:1px solid var(--study-line);background:#fbfcfb}.semanticMapNodes b{font-size:14px}.semanticMapNodes p{margin:7px 0 0;color:var(--study-muted);font-size:12px;line-height:1.55}.semanticEdges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.semanticEdges>div{display:grid;grid-template-columns:max-content auto minmax(0,1fr) auto max-content;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;background:#f4f7f5}.semanticEdges span{font-size:10px;font-weight:800}.semanticEdges i{color:var(--study-green);font-style:normal}.semanticEdges small{color:var(--study-muted);font-size:10px;line-height:1.35}.relationStrip{margin-top:15px;padding-top:13px;border-top:1px solid var(--study-line)}.relationStrip>section>span{color:var(--study-faint);font-size:10px;font-weight:800}.relationStrip>section>div{display:flex;align-items:center;gap:7px;overflow:auto;margin-top:7px}.relationStrip b{min-width:max-content;font-size:12px}.relationStrip i{color:var(--study-green);font-style:normal}.stageAnchor{margin:17px 0 0;padding:11px 14px;border-left:4px solid var(--study-green);border-radius:0 9px 9px 0;background:#f4f8f6;color:#315247;font-size:14px;font-weight:700}.stageActions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto;padding-top:28px}.stageActions>span{max-width:46ch;color:var(--study-faint);font-size:11px;line-height:1.5}.primaryAction,.secondaryAction,.linkAction{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:9px 14px;border-radius:10px;font-weight:800;text-decoration:none;cursor:pointer}.primaryAction{border:1px solid var(--study-green);background:var(--study-green);color:#fff}.secondaryAction{border:1px solid var(--study-line);background:#fff;color:var(--study-muted)}.splitActions{justify-content:space-between}.externalLead{max-width:66ch;margin:0 0 22px;color:var(--study-muted);font-size:15px;line-height:1.7}.externalFocus{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:22px;padding:20px 0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.externalFocus>div{display:grid;align-content:start;gap:8px}.externalFocus span,.compactMap>span,.recallReveal>span,.chapterCloseCompact>span{color:var(--study-green);font-size:10px;font-weight:850;letter-spacing:.05em}.externalFocus strong{font-size:16px;line-height:1.5}.externalFocus ul{margin:0;padding-left:20px}.externalFocus li{margin:5px 0;color:var(--study-muted);font-size:13px;line-height:1.55}.compactMap{margin-top:18px}.compactMap>div{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}.compactMap b{font-size:12px}.compactMap i{color:var(--study-line-strong);font-style:normal}.recallBlank{display:grid;gap:14px;padding:24px;border:1px dashed var(--study-line-strong);border-radius:12px;background:#fbfcfb}.recallBlank>span{color:var(--study-faint);font-size:11px;font-weight:800}.blankNodes{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:10px}.blankNodes i{display:grid;min-height:60px;place-items:center;border-radius:10px;background:#f0f3f1;color:#a1aaa5;font-size:12px;font-style:normal}.recallBlank p{margin:0;color:var(--study-muted);font-size:13px}.recallReveal{margin-top:14px;padding:18px;border-left:4px solid var(--study-green);background:#f5f8f6}.recallReveal>div{display:grid;gap:7px;margin-top:9px}.recallReveal b{font-size:13px}.recallActions{gap:8px;justify-content:flex-end}.verifyHeader{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.verifyHeader h2{margin:2px 0 0;font-size:25px}.verifyHeader>span{color:var(--study-faint);font-size:11px}.workspaceQuiz{margin-top:0}.politicsQ{display:none}.politicsQ.active{display:block}.workspaceQuestion{padding:0;border:0;background:transparent}.politicsQMeta{display:flex;justify-content:space-between;color:var(--study-faint);font-size:11px}.workspaceQuestion h4{max-width:46ch;margin:18px 0;font-size:20px;line-height:1.55}.politicsOptions{display:grid;gap:9px}.politicsOptions button{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:13px 14px;border:1px solid var(--study-line);border-radius:10px;background:#fff;text-align:left;cursor:pointer}.politicsOptions button:hover:not(:disabled),.politicsOptions button.selected{border-color:#9cc4b5;background:#f3f8f6}.politicsOptions button.answer{border-color:#8db9aa;background:#edf7f2}.politicsOptions b{color:var(--study-green)}.politicsActions{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}.politicsActions button,.politicsNextQ,.politicsBlocked button{padding:9px 13px;border:1px solid var(--study-line);border-radius:9px;background:#fff;cursor:pointer}.politicsActions .primary{border-color:var(--study-green);background:var(--study-green);color:#fff}.politicsActions [data-politics-uncertain].active{border-color:#e7d59d;background:#fff8e8}.politicsResult{margin-top:13px;padding:11px 13px;border-radius:9px;font-weight:760}.politicsResult.correct{background:#edf7f2;color:#176b4f}.politicsResult.uncertain{background:#fff8e8;color:#6b4e16}.politicsResult.wrong{background:#fff0ef;color:#8d4944}.politicsRepair{margin-top:10px;padding:13px;border-radius:10px;background:#fff8e8}.politicsRepair li,.politicsRepair p{font-size:12px;line-height:1.6}.politicsRepair a{color:#6b4e16;font-size:12px;font-weight:760}.politicsExplain{margin-top:12px;border-top:1px solid var(--study-line)}.politicsExplain summary{padding-top:10px;cursor:pointer;color:var(--study-muted);font-size:11px}.politicsExplain p{font-size:12px;color:var(--study-muted)}.politicsNextQ{margin-top:12px}.politicsBlocked{padding:20px;border:1px dashed var(--study-line-strong);border-radius:12px;background:#fafbfa}.politicsBlocked p{color:var(--study-faint)}.closeAnchors{display:grid;gap:10px}.closeAnchors strong{padding:13px 15px;border-left:4px solid var(--study-green);background:#f4f8f6;font-size:14px;line-height:1.6}.nextBridge{color:var(--study-muted)}.chapterCloseCompact{display:grid;gap:10px;margin-top:22px;padding:19px;border-top:1px solid var(--study-line);background:#fbfcfb}.chapterCloseCompact>div{display:flex;align-items:center;gap:7px;overflow:auto}.chapterCloseCompact b{min-width:max-content;font-size:11px}.chapterCloseCompact i{color:var(--study-green);font-style:normal}.chapterCloseCompact blockquote{margin:0;padding:10px 13px;border-left:3px solid var(--study-green);background:#f4f8f6;color:var(--study-muted)}
+  .contextualInspector>section>header{display:grid;gap:3px;padding-bottom:13px;border-bottom:1px solid var(--study-line)}.contextualInspector>section>header span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.09em}.contextualInspector>section>header strong{font-size:17px}.inspectorBlock{display:grid;gap:12px;margin-top:16px}.inspectorBlock>b{font-size:11px;color:var(--study-faint)}.inspectorBlock p{display:grid;gap:3px;margin:0;padding-bottom:10px;border-bottom:1px solid #e7ebe8}.inspectorBlock p strong{font-size:12px}.inspectorBlock p span{color:var(--study-muted);font-size:11px;line-height:1.5}.inspectorDetails{margin-top:15px;padding-top:12px;border-top:1px solid var(--study-line)}.inspectorDetails summary{cursor:pointer;color:var(--study-green);font-size:11px;font-weight:800}.inspectorDetails p{margin:8px 0;color:var(--study-muted);font-size:11px;line-height:1.55}.suyiNote,.locatorText,.contextualInspector>section>p{margin:15px 0 0;color:var(--study-muted);font-size:12px;line-height:1.6}.contextualInspector ul{padding-left:18px}.contextualInspector li{margin:5px 0;color:var(--study-muted);font-size:11px;line-height:1.5}.sourceOwners code{display:block;margin-top:7px;padding:6px 7px;border-radius:6px;background:#f0f3f1;color:var(--study-faint);font-size:9px;overflow-wrap:anywhere}.closeInspectorAnchor{padding:9px 0;border-bottom:1px solid var(--study-line)}
+  :global(.politicsUnitReturn){margin-top:18px}:global(.politicsAttemptPersistenceError){margin-top:12px}
+  @media(max-width:1050px){.workspaceBar{grid-template-columns:1fr auto}.workspaceUnitTabs{grid-column:1/-1;grid-row:2}.workspaceUnit{grid-template-columns:1fr}.contextualInspector{border-top:1px solid var(--study-line);border-left:0}.cognitiveStage{padding:30px}.stageScene{min-height:auto}.contextualInspector{padding:22px}.semanticEdges{grid-template-columns:1fr}}
+  @media(max-width:720px){.workspaceBar{position:static;grid-template-columns:1fr}.workspaceState{justify-items:start}.chapterContext{grid-template-columns:1fr}.workspaceUnitTabs{overflow:auto}.workspaceUnitTabs button{min-width:210px}.cognitiveStage{padding:23px 19px}.stageScene>h2{font-size:27px}.semanticMapNodes{grid-template-columns:1fr}.externalFocus{grid-template-columns:1fr}.stageActions,.splitActions,.recallActions{align-items:stretch;flex-direction:column}.primaryAction,.secondaryAction{width:100%}}
+</style>
