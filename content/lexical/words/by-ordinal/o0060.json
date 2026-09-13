@@ -6,22 +6,59 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:60active0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "积极发挥作用/参与",
+        "pattern": "active + role/participation/member"
+      },
+      {
+        "construction_id": "construction:60active0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "正在运行或起作用",
+        "pattern": "active + system/ingredient/component"
+      },
+      {
+        "construction_id": "construction:60active0003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "活动性疾病",
+        "pattern": "active + disease/infection"
+      }
+    ],
     "content_hash": "48a98298057a365c65c6153956e732b64888de6198243cfec28cc11a427f16fb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "积极的，主动的；（疾病等）活动性的，进展性的；现役的",
-          "label_en": "disposed to take action or effectuate change; tending to become more severe or wider in scope; engaged in or ready for military or naval operations",
+          "label_cn": "积极参与的",
+          "label_en": "actively participating",
           "pos": "adjective",
           "sense_ids": [
-            "sense:active:461319a178955819",
+            "sense:active:461319a178955819"
+          ]
+        },
+        {
+          "label_cn": "正在运行/起作用的",
+          "label_en": "operating or functioning",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:active:7ab675cd195ef84e"
+          ]
+        },
+        {
+          "label_cn": "活动性/进展性的",
+          "label_en": "active disease process",
+          "pos": "adjective",
+          "sense_ids": [
             "sense:active:35c5abbd20be5f4e"
           ]
         },
         {
-          "label_cn": "积极分子；主动语态",
-          "label_en": "a person who is a participating member of an organization; the active voice (in grammar)",
+          "label_cn": "积极分子/主动语态",
+          "label_en": "specialist noun branches",
           "pos": "noun",
           "sense_ids": [
             "sense:active:91aecc90f63f5c5b",
@@ -29,10 +66,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "活跃的，积极的",
-      "core_meaning_en": "being in action or causing action",
-      "mental_model_cn": "活跃的，积极的",
-      "mental_model_en": ""
+      "core_meaning_cn": "共同核心是“不是静止/被动/停用，而是在参与、运行或产生作用”。",
+      "core_meaning_en": "not inactive or passive: participating, operating, progressing, or producing an effect",
+      "mental_model_cn": "active role＝积极参与；active system/ingredient＝正在起作用；active disease＝活动性疾病；active voice＝主动语态。",
+      "mental_model_en": "route by what is active: person/participation, system/function, disease process, grammar"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,7 +100,7 @@
             "phrase": "active participation"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "积极的，主动的",
         "definition_en": "disposed to take action or effectuate change",
         "governing_pattern": "",
@@ -87,7 +124,7 @@
             "phrase": "active disease"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "（疾病等）活动性的，进展性的",
         "definition_en": "tending to become more severe or wider in scope",
         "governing_pattern": "",
@@ -101,7 +138,7 @@
       },
       {
         "collocations": [],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "积极分子",
         "definition_en": "a person who is a participating member of an organization",
         "governing_pattern": "",
@@ -125,7 +162,7 @@
             "phrase": "in the active"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "主动语态",
         "definition_en": "the active voice (in grammar)",
         "governing_pattern": "",
@@ -135,6 +172,20 @@
         "sense_id": "sense:active:00403d6658535d96",
         "sense_label_en": "the active voice (in grammar)",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "正在运行/起作用的；处于活动状态的",
+        "definition_en": "currently operating, functioning, or having an effect",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:active:7ab675cd195ef84e",
+        "sense_label_en": "operating or functioning",
+        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -221,6 +272,14 @@
         "merged_into_sense_id": null,
         "source_row": 168,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
+        "sense_id": "sense:active:7ab675cd195ef84e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-receipt.json",
+        "vnext_created": true
       }
     ],
     "active_collocations": [
@@ -289,7 +348,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "48a98298057a365c65c6153956e732b64888de6198243cfec28cc11a427f16fb",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

@@ -6,17 +6,64 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:52acquaintance0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "熟人；相识的人",
+        "pattern": "an acquaintance"
+      },
+      {
+        "construction_id": "construction:52acquaintance0002",
+        "direction": "R",
+        "level": "L1",
+        "meaning_cn": "对……有一定了解",
+        "pattern": "have an acquaintance with + subject"
+      },
+      {
+        "construction_id": "construction:52acquaintance0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "结识某人",
+        "pattern": "make the acquaintance of + sb"
+      }
+    ],
     "content_hash": "dcb16e667b7f82ab6798e637e495b822aa8cc46d4f091fd4800502f7889cace2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "认识；熟人",
-      "core_meaning_en": "knowledge of or familiarity with someone or something; a person one knows slightly",
-      "mental_model_cn": "认识；熟人",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "了解；熟悉",
+          "label_en": "limited familiarity or knowledge",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquaintance:ce45086be5005ece"
+          ]
+        },
+        {
+          "label_cn": "熟人",
+          "label_en": "person known but not close friend",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquaintance:34d897eb61575945"
+          ]
+        },
+        {
+          "label_cn": "相识关系",
+          "label_en": "relationship short of friendship",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquaintance:daf39bf455b352fb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "“知道/认识，但没有进入亲密关系”的中间距离：可指熟悉程度、熟人或泛泛关系。",
+      "core_meaning_en": "limited familiarity short of close intimacy: knowledge, a person known, or a loose relationship",
+      "mental_model_cn": "an acquaintance＝熟人；acquaintance with＝对某事有些了解；make sb’s acquaintance＝结识。",
+      "mental_model_en": "familiarity without closeness is the organizing boundary"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -47,7 +94,7 @@
             "phrase": "make the acquaintance of + sb"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "认识；了解",
         "definition_en": "personal knowledge or information about someone or something",
         "governing_pattern": "",
@@ -71,7 +118,7 @@
             "phrase": "a casual acquaintance"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "熟人；相识的人",
         "definition_en": "a person with whom you are acquainted",
         "governing_pattern": "",
@@ -95,7 +142,7 @@
             "phrase": "a nodding acquaintance"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "相识；泛泛之交",
         "definition_en": "a relationship less intimate than friendship",
         "governing_pattern": "",
@@ -260,7 +307,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "dcb16e667b7f82ab6798e637e495b822aa8cc46d4f091fd4800502f7889cace2",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

@@ -6,14 +6,76 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:58action0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "采取行动",
+        "pattern": "take action"
+      },
+      {
+        "construction_id": "construction:58action0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "行动方案",
+        "pattern": "course of action"
+      },
+      {
+        "construction_id": "construction:58action0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "……的作用/作用机制",
+        "pattern": "action of + drug/chemical/process"
+      },
+      {
+        "construction_id": "construction:58action0004",
+        "direction": "R",
+        "level": "L3",
+        "meaning_cn": "在战斗中",
+        "pattern": "in action"
+      }
+    ],
     "content_hash": "2f472e460ecfe276f778103e8774d44851199569ceaa44a35920eac6ff8c2595",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "行动，行为",
-      "core_meaning_en": "the process of doing something",
-      "mental_model_cn": "行动，行为",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "行为",
+          "label_en": "specific deed",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:action:35715f8fe8d75892"
+          ]
+        },
+        {
+          "label_cn": "行动过程；措施",
+          "label_en": "process of acting",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:action:f6033e36e30f5518"
+          ]
+        },
+        {
+          "label_cn": "作用；机制",
+          "label_en": "effect or mechanism",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:action:dff3f124f9e65911"
+          ]
+        },
+        {
+          "label_cn": "战斗",
+          "label_en": "military fighting",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:action:c9ce9c4a51015154"
+          ]
+        }
+      ],
+      "core_meaning_cn": "从“一次做出的行为”到“为了结果而采取行动的过程”；专业语境还可指作用机制，军事语境可指战斗。",
+      "core_meaning_en": "from a specific deed to the process of taking action for a result, with effect/mechanism and military-fighting branches",
+      "mental_model_cn": "an action＝一个行为；take action＝采取行动；mechanism/action of drug＝作用；killed in action＝战斗中。",
+      "mental_model_en": "separate a deed from action-as-process, then specialist effect and combat"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +106,7 @@
             "phrase": "a course of action"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "行动，行为",
         "definition_en": "something that you do",
         "governing_pattern": "",
@@ -54,6 +116,48 @@
         "sense_id": "sense:action:35715f8fe8d75892",
         "sense_label_en": "something that you do",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "行动；采取措施的过程",
+        "definition_en": "the process of doing something, especially to achieve a result",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:action:f6033e36e30f5518",
+        "sense_label_en": "process of acting",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "作用；作用过程",
+        "definition_en": "the effect or action of one substance or process on another",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:action:dff3f124f9e65911",
+        "sense_label_en": "effect or mechanism of action",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "战斗；作战",
+        "definition_en": "fighting in war or military conflict",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:action:c9ce9c4a51015154",
+        "sense_label_en": "military fighting",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -77,83 +181,7 @@
     "word_id": "word:action"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:action:c9ce9c4a51015154",
-      "status": "merged",
-      "merged_into_sense_id": "sense:action:35715f8fe8d75892",
-      "pos": "noun",
-      "definition_cn": "战斗，作战",
-      "definition_en": "fighting during a war",
-      "semantic_key": "83a943bb938d04bf5b831592c6e3ccbe4775f8c6d1e212261fbb090dd0c44a9a",
-      "semantic_key_history": [
-        "05bf7c5f03c477c533ff459c7b305d2161c36098e87a0462a9aa47f0d8f4d7d9"
-      ],
-      "legacy_aliases": [
-        "action:l3:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "action:l3:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 158,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:action:dff3f124f9e65911",
-      "status": "merged",
-      "merged_into_sense_id": "sense:action:35715f8fe8d75892",
-      "pos": "noun",
-      "definition_cn": "作用，化学反应",
-      "definition_en": "the effect that one substance has on another",
-      "semantic_key": "254fcdc56bddccc274a0f7b226d4952f672a9e0ef4224c14f9eb2f5ea96a7b37",
-      "semantic_key_history": [
-        "33ac03a65c62658088d5bec0a8a09fffe69ca8a2d8d314b960d0d714752b710c"
-      ],
-      "legacy_aliases": [
-        "action:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "action:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 159,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:action:f6033e36e30f5518",
-      "status": "merged",
-      "merged_into_sense_id": "sense:action:35715f8fe8d75892",
-      "pos": "noun",
-      "definition_cn": "行动，活动",
-      "definition_en": "the process of doing something, especially in order to achieve a result",
-      "semantic_key": "7c504419401c3ac3ba0dc484f2825248deb013aa1e587438204c8cbf46aa4165",
-      "semantic_key_history": [
-        "ecd35576357999b97f0f0e3815281397c041334755e9cf840b1e07572134a701"
-      ],
-      "legacy_aliases": [
-        "action:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "action:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 160,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -165,22 +193,22 @@
       },
       {
         "sense_id": "sense:action:c9ce9c4a51015154",
-        "status": "merged",
-        "merged_into_sense_id": "sense:action:35715f8fe8d75892",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 158,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
         "sense_id": "sense:action:dff3f124f9e65911",
-        "status": "merged",
-        "merged_into_sense_id": "sense:action:35715f8fe8d75892",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 159,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
         "sense_id": "sense:action:f6033e36e30f5518",
-        "status": "merged",
-        "merged_into_sense_id": "sense:action:35715f8fe8d75892",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 160,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
@@ -259,7 +287,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "2f472e460ecfe276f778103e8774d44851199569ceaa44a35920eac6ff8c2595",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

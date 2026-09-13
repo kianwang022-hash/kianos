@@ -6,34 +6,71 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:56across0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "在……正对面",
+        "pattern": "across from + sb/sth"
+      },
+      {
+        "construction_id": "construction:56across0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "偶然遇到/发现",
+        "pattern": "come across + sb/sth"
+      },
+      {
+        "construction_id": "construction:56across0003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把意思讲清楚/传达出去",
+        "pattern": "get + idea/message + across"
+      },
+      {
+        "construction_id": "construction:56across0004",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "遍及某地/群体/范围",
+        "pattern": "across + country/industry/range"
+      }
+    ],
     "content_hash": "30ff5c4bc59651ea6d40e6d3308fb44fa80cd906bde74e17f705225cdd6314d2",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "穿过；横过",
-          "label_en": "from one side to the other of something",
+          "label_en": "from one side to the other",
           "pos": "preposition",
           "sense_ids": [
             "sense:across:60a1429fb120583b"
           ]
         },
         {
-          "label_cn": "到对面；横过",
+          "label_cn": "到对面",
           "label_en": "to the opposite side",
           "pos": "adverb",
           "sense_ids": [
             "sense:across:c2c44356bd55522c"
           ]
+        },
+        {
+          "label_cn": "遍及；横跨范围",
+          "label_en": "throughout a place/group/range",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:across:74528e563c1b576c"
+          ]
         }
       ],
-      "core_meaning_cn": "穿过；横过",
-      "core_meaning_en": "from one side to the other",
-      "mental_model_cn": "穿过；横过",
-      "mental_model_en": ""
+      "core_meaning_cn": "核心空间关系是“跨过/横贯一条边界或范围”，再派生出对面、遍及；come across/get across 是独立高价值短语。",
+      "core_meaning_en": "crossing a boundary or spanning a range, yielding opposite-side and throughout meanings; phrasal uses come across/get across are separate learner objects",
+      "mental_model_cn": "across the street＝横过；across from＝在对面；across the country＝遍及；come across＝偶遇；get sth across＝讲明白。",
+      "mental_model_en": "keep literal crossing/spanning separate from lexicalized come across/get across"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -63,7 +100,7 @@
             "phrase": "across from + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "穿过；横过",
         "definition_en": "from one side to the other of something",
         "governing_pattern": "",
@@ -96,7 +133,7 @@
             "phrase": "get across + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "到对面；横过",
         "definition_en": "to the opposite side",
         "governing_pattern": "",
@@ -110,7 +147,7 @@
       },
       {
         "collocations": [],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "遍及；在…各处；跨越整个范围",
         "definition_en": "in every part of a place, area, group, or range",
         "level": "L1",
@@ -239,7 +276,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "30ff5c4bc59651ea6d40e6d3308fb44fa80cd906bde74e17f705225cdd6314d2",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

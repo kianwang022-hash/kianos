@@ -6,7 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:37accord0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "与……一致；符合……",
+        "pattern": "in accord with + sth"
+      },
+      {
+        "construction_id": "construction:37accord0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "自愿地；主动地",
+        "pattern": "of one’s own accord"
+      },
+      {
+        "construction_id": "construction:37accord0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "与……相符；一致",
+        "pattern": "accord with + sth"
+      },
+      {
+        "construction_id": "construction:37accord0004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "正式给予/授予某人某物",
+        "pattern": "accord + sth + to + sb"
+      }
+    ],
     "content_hash": "3dd73c7badd2406c929a822e6359df8f3a5b27b9d6c49c52623a96e9d65d6edb",
     "core_concept": {
       "core_clusters": [
@@ -29,10 +58,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "一致或给予",
-      "core_meaning_en": "agreement or granting",
-      "mental_model_cn": "一致或给予",
-      "mental_model_en": ""
+      "core_meaning_cn": "主干是“进入一致/匹配”：名词可表示和谐或正式协定，动词可表示相符；另保留较正式的“给予/授予”分支。",
+      "core_meaning_en": "mainly agreement or matching—harmony, a formal agreement, or being consistent—with a separate formal grant/give verb branch",
+      "mental_model_cn": "in accord with / accord with＝一致；peace accord＝协定；of one’s own accord＝自愿地；accord sth to sb＝正式授予。",
+      "mental_model_en": "route by frame: agreement, treaty, voluntary action, then formal granting"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,7 +92,7 @@
             "phrase": "of one's own accord"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "一致，和谐",
         "definition_en": "agreement or harmony",
         "governing_pattern": "",
@@ -87,7 +116,7 @@
             "phrase": "peace accord"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "协定，条约",
         "definition_en": "a formal agreement or treaty",
         "governing_pattern": "",
@@ -120,7 +149,7 @@
             "phrase": "accord respect to + sb"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "给予，授予",
         "definition_en": "to give or grant something to someone",
         "governing_pattern": "vt. + sth + to sb",
@@ -144,7 +173,7 @@
             "phrase": "accord with + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "符合，一致",
         "definition_en": "to be consistent or in agreement",
         "governing_pattern": "vi. + with",
@@ -292,7 +321,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0033-0040.json",
     "source_content_hash": "3dd73c7badd2406c929a822e6359df8f3a5b27b9d6c49c52623a96e9d65d6edb",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

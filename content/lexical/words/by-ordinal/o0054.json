@@ -6,17 +6,64 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:54acquisition0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "……的获得/习得",
+        "pattern": "acquisition of + knowledge/skill/language"
+      },
+      {
+        "construction_id": "construction:54acquisition0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "并购",
+        "pattern": "mergers and acquisitions"
+      },
+      {
+        "construction_id": "construction:54acquisition0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "新获得的人或物",
+        "pattern": "a new acquisition"
+      }
+    ],
     "content_hash": "50ab457e3545ee83a049d0941a76a5d88e53e68d4125b2509b68ee576c73a8c7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "获得",
-      "core_meaning_en": "the act of acquiring something",
-      "mental_model_cn": "获得",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "获得/习得过程",
+          "label_en": "process of acquiring",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquisition:940bd2dbe332568e"
+          ]
+        },
+        {
+          "label_cn": "获得物",
+          "label_en": "thing acquired",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquisition:a47d1c9e663758f7"
+          ]
+        },
+        {
+          "label_cn": "收购",
+          "label_en": "corporate acquisition",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acquisition:5c95fabf41065150"
+          ]
+        }
+      ],
+      "core_meaning_cn": "acquire 的名词结果空间：获得的过程、得到的东西，以及商业上的收购。",
+      "core_meaning_en": "the process or result of acquiring, plus the business sense of buying another company",
+      "mental_model_cn": "language/skill acquisition＝习得过程；a new acquisition＝新获得物；mergers and acquisitions＝并购。",
+      "mental_model_en": "separate process, acquired result, and corporate purchase"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -44,7 +91,7 @@
             "phrase": "the acquisition of knowledge"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "获得；取得；习得（知识、技能等）",
         "definition_en": "the process of getting or gaining something, including knowledge or skills",
         "governing_pattern": "",
@@ -58,7 +105,7 @@
       },
       {
         "collocations": [],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "获得物",
         "definition_en": "something acquired",
         "governing_pattern": "",
@@ -82,7 +129,7 @@
             "phrase": "mergers and acquisitions"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "收购",
         "definition_en": "the act of buying another company",
         "governing_pattern": "",
@@ -205,7 +252,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "50ab457e3545ee83a049d0941a76a5d88e53e68d4125b2509b68ee576c73a8c7",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

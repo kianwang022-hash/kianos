@@ -6,14 +6,45 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:53acquire0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "习得知识/技能",
+        "pattern": "acquire + knowledge/skill"
+      },
+      {
+        "construction_id": "construction:53acquire0002",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "取得资产/公司等",
+        "pattern": "acquire + property/company/assets"
+      },
+      {
+        "construction_id": "construction:53acquire0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "逐渐养成品味/习惯",
+        "pattern": "acquire + taste/habit"
+      }
+    ],
     "content_hash": "7000fc77202723429664d8e484318b5de2e2c8cbf8b0a5167e78d9ebbfc90d5c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "获得",
-      "core_meaning_en": "to gain or obtain something",
-      "mental_model_cn": "获得",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "取得；习得；逐渐获得",
+          "label_en": "come to possess or develop",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acquire:85962eed951e5455"
+          ]
+        }
+      ],
+      "core_meaning_cn": "不是瞬间“拿到”，而是通过获得、学习、购买或长期形成，把某物变成自己拥有的。",
+      "core_meaning_en": "come to possess something through gaining, learning, buying, or gradual development",
+      "mental_model_cn": "acquire skill/knowledge＝习得；acquire property/company＝取得/购得；acquire a taste/habit＝逐渐形成。",
+      "mental_model_en": "focus on coming into possession rather than the generic Chinese gloss 获得"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,9 +75,9 @@
             "phrase": "acquire a skill"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "（通过努力、能力等）获得，取得",
-        "definition_en": "to gain something by your own efforts, ability, or behavior",
+        "confidence": "high",
+        "definition_cn": "取得；习得；购得；逐渐形成",
+        "definition_en": "to come to possess, gain, learn, buy, or develop something",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
@@ -185,7 +216,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "7000fc77202723429664d8e484318b5de2e2c8cbf8b0a5167e78d9ebbfc90d5c",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

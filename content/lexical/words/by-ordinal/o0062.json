@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:62actor0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "影视/戏剧演员",
+        "pattern": "actor in + film/play/series"
+      },
+      {
+        "construction_id": "construction:62actor0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "某领域的重要行动者/参与方",
+        "pattern": "key/state/non-state actor in + system/process"
+      }
+    ],
     "content_hash": "63d9829e12be64a8a9a0fcc35e483dfa52d506227e7f71ba8f586245fddee137",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "演员",
-      "core_meaning_en": "a person who performs in plays or movies",
-      "mental_model_cn": "演员",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "演员",
+          "label_en": "performer who plays roles",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:actor:7a22e9f40980525a"
+          ]
+        },
+        {
+          "label_cn": "行动者；参与方",
+          "label_en": "participant or entity that acts",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:actor:f211191920865162"
+          ]
+        }
+      ],
+      "core_meaning_cn": "可以是舞台/影视中扮演角色的人，也可以泛指在某个系统、事件或谈判中实际发挥作用的“行动者/参与方”。",
+      "core_meaning_en": "a performer who plays roles, or more generally a participant/entity that acts within a system or event",
+      "mental_model_cn": "actor in a film＝演员（不限性别）；key/state/non-state actor＝关键行动者/参与方。",
+      "mental_model_en": "separate performer from general acting participant; actor is gender-neutral in ordinary modern English"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -35,17 +67,18 @@
             "phrase": "actor in a play"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "男演员",
-        "definition_en": "a theatrical performer",
+        "confidence": "high",
+        "definition_cn": "演员",
+        "definition_en": "a performer who acts in plays, films, television, or other dramatic productions",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:actor:7a22e9f40980525a",
-        "sense_label_en": "a theatrical performer",
+        "sense_label_en": "performer in drama or film",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Modern actor is normally gender-neutral; actress may be used when gender is specifically relevant."
       },
       {
         "collocations": [
@@ -59,11 +92,11 @@
             "phrase": "a key actor in the negotiations"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "行动者",
         "definition_en": "a person who acts and gets things done",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:actor:f211191920865162",
@@ -159,7 +192,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "63d9829e12be64a8a9a0fcc35e483dfa52d506227e7f71ba8f586245fddee137",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

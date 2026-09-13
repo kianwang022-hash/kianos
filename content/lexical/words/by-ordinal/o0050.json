@@ -6,17 +6,79 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:50ack0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "承认某事实",
+        "pattern": "acknowledge + fact / acknowledge that + clause"
+      },
+      {
+        "construction_id": "construction:50ack0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "确认收到",
+        "pattern": "acknowledge receipt of + sth"
+      },
+      {
+        "construction_id": "construction:50ack0003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "认可某人的帮助/贡献",
+        "pattern": "acknowledge + sb/help/contribution"
+      },
+      {
+        "construction_id": "construction:50ack0004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "承认某人为某种身份",
+        "pattern": "acknowledge + sb + as + role/status"
+      }
+    ],
     "content_hash": "18aa47e82b260fbf6354f890aa71afa5281325ab020de17425479a9166dcc8d6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "承认或确认某事物的存在、真实性或收到",
-      "core_meaning_en": "to accept or admit the existence, truth, or receipt of something",
-      "mental_model_cn": "承认或确认某事物的存在、真实性或收到",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "承认事实/存在",
+          "label_en": "recognize truth or existence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acknowledge:d5f0efa1a6a8571b"
+          ]
+        },
+        {
+          "label_cn": "确认收到",
+          "label_en": "confirm receipt",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acknowledge:293571219d0554ec"
+          ]
+        },
+        {
+          "label_cn": "致谢/认可贡献",
+          "label_en": "recognize contribution with thanks",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acknowledge:1b009faaff9f5da8"
+          ]
+        },
+        {
+          "label_cn": "认可身份/地位",
+          "label_en": "recognize status or authority",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acknowledge:806e74ecbc1e5e3b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "把某个事实、收到的信息、他人的贡献或身份“明确承认出来”。",
+      "core_meaning_en": "make something explicitly recognized: a fact, receipt, contribution, or status",
+      "mental_model_cn": "acknowledge that/fact＝承认；acknowledge receipt＝确认收到；acknowledge help＝致谢；acknowledge sb as＝认可身份。",
+      "mental_model_en": "one explicit-recognition model across truth, receipt, thanks, and status"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -84,7 +146,7 @@
             "phrase": "acknowledge the fact that ..."
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "承认；认可",
         "definition_en": "to accept or admit that something is true or exists",
         "governing_pattern": "vt. + object",
@@ -117,7 +179,7 @@
             "phrase": "acknowledge a letter"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "告知收悉；确认收到",
         "definition_en": "to report that you have received something",
         "governing_pattern": "vt. + object",
@@ -150,7 +212,7 @@
             "phrase": "acknowledge sb's help"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "答谢；致谢",
         "definition_en": "to express thanks or gratitude for something",
         "governing_pattern": "vt. + object",
@@ -183,7 +245,7 @@
             "phrase": "acknowledge sb's authority"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "承认（某人的地位或权威）",
         "definition_en": "to accept someone as having a particular status or authority",
         "governing_pattern": "vt. + object",
@@ -349,7 +411,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "18aa47e82b260fbf6354f890aa71afa5281325ab020de17425479a9166dcc8d6",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

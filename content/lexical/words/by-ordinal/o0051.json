@@ -6,17 +6,41 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:51acquaint0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "使某人熟悉/了解某事",
+        "pattern": "acquaint + sb + with + sth"
+      },
+      {
+        "construction_id": "construction:51acquaint0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "熟悉/了解某事；与某人相识",
+        "pattern": "be/get acquainted with + sb/sth"
+      }
+    ],
     "content_hash": "58cce558140071199252f576eff8379807c618a9043ff7cd76510a84bacc2d4c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "使某人熟悉某事",
-      "core_meaning_en": "make someone familiar with something",
-      "mental_model_cn": "使某人熟悉某事",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "使熟悉；使了解",
+          "label_en": "make familiar with",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acquaint:7e02b56be89e50bd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "把人带到“熟悉/了解某事”的状态。",
+      "core_meaning_en": "bring someone into familiarity with a person, subject, or situation",
+      "mental_model_cn": "主动：acquaint sb with sth；更常见状态表达：be/get acquainted with。",
+      "mental_model_en": "causative acquaint someone with; state/result be or get acquainted with"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -47,7 +71,7 @@
             "phrase": "be acquainted with + sth"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "使熟悉；使了解",
         "definition_en": "to make someone familiar with something",
         "governing_pattern": "vt. + sb with sth",
@@ -186,7 +210,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "58cce558140071199252f576eff8379807c618a9043ff7cd76510a84bacc2d4c",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

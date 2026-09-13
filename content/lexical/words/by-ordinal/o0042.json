@@ -6,17 +6,41 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:42accumulate0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "逐渐积累知识、财富、证据等",
+        "pattern": "accumulate + knowledge/wealth/evidence"
+      },
+      {
+        "construction_id": "construction:42accumulate0002",
+        "direction": "R",
+        "level": "L1",
+        "meaning_cn": "某物逐渐积聚/累积",
+        "pattern": "dust/debt/data + accumulates"
+      }
+    ],
     "content_hash": "bba15e3f6da9038cbf1a8ce7799170cb37f01af41ae7b1c4a8dec4204046433d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "逐渐聚集",
-      "core_meaning_en": "to gather or collect over time",
-      "mental_model_cn": "逐渐聚集",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "逐渐积累/积聚",
+          "label_en": "build up gradually over time",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accumulate:57e81da3d41159b2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "数量随时间逐步堆起来：既可主动积累某物，也可让某物自行逐渐累积。",
+      "core_meaning_en": "build up gradually over time, either by collecting something or by something increasing on its own",
+      "mental_model_cn": "抓“gradual build-up”：accumulate evidence/wealth 是主动积累；dust/debt accumulates 是自行越积越多。",
+      "mental_model_en": "one gradual-build-up model for transitive collecting and intransitive increase"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -53,17 +77,17 @@
             "phrase": "dust accumulates"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "积聚；积累",
-        "definition_en": "to collect or gather something over a period of time",
-        "governing_pattern": "vt. + object",
+        "confidence": "high",
+        "definition_cn": "逐渐积累、积聚；（数量）随时间增加",
+        "definition_en": "to collect or build up gradually over time; also to increase in amount by accumulation",
+        "governing_pattern": "accumulate + object / subject + accumulates",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accumulate:57e81da3d41159b2",
         "sense_label_en": "to collect or gather something over a period of time",
         "sort_order": 0,
-        "transitivity": "I/T"
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -193,7 +217,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0041-0048.json",
     "source_content_hash": "bba15e3f6da9038cbf1a8ce7799170cb37f01af41ae7b1c4a8dec4204046433d",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

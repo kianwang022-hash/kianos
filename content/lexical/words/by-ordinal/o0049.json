@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:49acid0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "酸性物质/现象",
+        "pattern": "acid + solution/rain/soil"
+      },
+      {
+        "construction_id": "construction:49acid0002",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "尖刻的评论或语气",
+        "pattern": "acid + remark/comment/tone"
+      }
+    ],
     "content_hash": "60272b2fedc82e49cab0f955bd3a29999d7f83b651704b1c4549db3cc97a27ca",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "酸或具有酸的性质",
-      "core_meaning_en": "a sour substance or having sour properties",
-      "mental_model_cn": "酸或具有酸的性质",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "酸；酸性物质",
+          "label_en": "acid substance",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acid:2b721ced406c52e9"
+          ]
+        },
+        {
+          "label_cn": "酸性的；酸味/尖刻的",
+          "label_en": "acidic, sour, or biting",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:acid:4c1db00a02ff5246"
+          ]
+        }
+      ],
+      "core_meaning_cn": "从化学上的“酸性/尖锐性”向感官或语气上的“酸、尖刻”延伸。",
+      "core_meaning_en": "chemical acidity extending metaphorically to sourness or sharp/biting tone",
+      "mental_model_cn": "acid solution/rain＝化学酸；acid taste＝酸味；acid remark/tone＝尖刻。LSD 俚语留在 reference。",
+      "mental_model_en": "route chemical acid first, then the sour/sharp adjective branch"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +76,7 @@
             "phrase": "acid rain"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "酸，酸性物质",
         "definition_en": "a chemical substance that has a sour taste and can react with bases to form salts",
         "governing_pattern": "",
@@ -77,7 +109,7 @@
             "phrase": "acid remark"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "酸的，酸性的；尖刻的",
         "definition_en": "having the properties of an acid; sour or sharp",
         "governing_pattern": "",
@@ -87,7 +119,8 @@
         "sense_id": "sense:acid:4c1db00a02ff5246",
         "sense_label_en": "having the properties of an acid; sour or sharp",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "The adjective may be literal (acidic/sour) or figurative (an acid remark/tone = biting, caustic)."
       }
     ],
     "verification_summary": {
@@ -233,6 +266,8 @@
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
     "source_content_hash": "60272b2fedc82e49cab0f955bd3a29999d7f83b651704b1c4549db3cc97a27ca",
     "semantic_delta": 1,
-    "materializer": "tools/lexical_natural_owner.py"
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }

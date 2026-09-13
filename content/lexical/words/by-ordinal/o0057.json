@@ -6,23 +6,77 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:57act0001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "采取行动；按……行动",
+        "pattern": "act + adverb / act on + advice/information"
+      },
+      {
+        "construction_id": "construction:57act0002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "充当；担任",
+        "pattern": "act as + role"
+      },
+      {
+        "construction_id": "construction:57act0003",
+        "direction": "R",
+        "level": "L2",
+        "meaning_cn": "扮演某角色",
+        "pattern": "act/play + role"
+      }
+    ],
     "content_hash": "7856ef241ff8273e5e00119de6397911f59a5bcd97eb92b86ef802b3325100dd",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "行为，行动；法案，法令；（戏剧的）幕",
-          "label_en": "something that people do or cause to happen; a law made by a government; a part of a play or opera",
+          "label_cn": "行为；行动",
+          "label_en": "deed or action",
           "pos": "noun",
           "sense_ids": [
             "sense:act:601bb18249c95285"
           ]
+        },
+        {
+          "label_cn": "行动；表现",
+          "label_en": "take action or behave",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:act:27ae16abd7e25f5f"
+          ]
+        },
+        {
+          "label_cn": "表演；扮演",
+          "label_en": "perform a role",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:act:73a74867a0775de3"
+          ]
+        },
+        {
+          "label_cn": "法案；法令",
+          "label_en": "law or statute",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:act:91201571c8f9538c"
+          ]
+        },
+        {
+          "label_cn": "戏剧的一幕",
+          "label_en": "division of a play",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:act:9669b64cf18054d4"
+          ]
         }
       ],
-      "core_meaning_cn": "行动，行为",
-      "core_meaning_en": "to do something; a thing done",
-      "mental_model_cn": "行动，行为",
-      "mental_model_en": ""
+      "core_meaning_cn": "把“做出来的行为”作为中心：act 可指一次行为，也可作动词表示行动/表现；再延伸到表演角色、法律法案和戏剧的一幕。",
+      "core_meaning_en": "centered on doing: an act is a deed; to act is to take action or behave, with role-performance, statute, and theatrical-act branches",
+      "mental_model_cn": "act of kindness＝行为；act quickly/as＝行动/担任；act a role＝表演；an Act＝法案；Act II＝第二幕。",
+      "mental_model_en": "route deed → action/behavior → performance, with statute/theatrical noun branches"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +98,7 @@
             "phrase": "an act of kindness"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "行为，行动",
         "definition_en": "something that people do or cause to happen",
         "governing_pattern": "",
@@ -54,6 +108,63 @@
         "sense_id": "sense:act:601bb18249c95285",
         "sense_label_en": "something that people do or cause to happen",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "行动；表现；采取行动",
+        "definition_en": "to take action or behave in a particular way",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:act:27ae16abd7e25f5f",
+        "sense_label_en": "take action or behave",
+        "sort_order": 1,
+        "transitivity": "vi",
+        "usage_note": "Common frames include act quickly, act on advice, and act as + role."
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "扮演；表演",
+        "definition_en": "to perform or play a role in a play, film, or situation",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:act:73a74867a0775de3",
+        "sense_label_en": "perform or play a role",
+        "sort_order": 2,
+        "transitivity": "vi/vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "法案；法令",
+        "definition_en": "a law passed by a legislative body",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:act:91201571c8f9538c",
+        "sense_label_en": "law or statute",
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "（戏剧/歌剧的）一幕",
+        "definition_en": "a main division of a play or opera",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:act:9669b64cf18054d4",
+        "sense_label_en": "division of a play",
+        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -78,106 +189,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:act:27ae16abd7e25f5f",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "verb",
-      "definition_cn": "行动，表现",
-      "definition_en": "to take action; to behave in a particular way",
-      "semantic_key": "da6fd384a9f39172cd8edd0bf3a998188846aacd0f274d10a48d67bc57740229",
-      "semantic_key_history": [
-        "cd18eea2ecfb1884950fcebbd88cc5f5f327bc776497f22d0f5ac5e2ec63de90"
-      ],
-      "legacy_aliases": [
-        "act:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 151,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:act:73a74867a0775de3",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "verb",
-      "definition_cn": "扮演",
-      "definition_en": "to play the role of (in a play or film)",
-      "semantic_key": "1f4c7abd0161af0b9bdbfa35479f5e3e4df768fe3c8de632f8dffe4ec021f21d",
-      "semantic_key_history": [
-        "def4b2b88092c97d309a799ed7b960732bac35944aa4d5007cfdc455e00f0d05"
-      ],
-      "legacy_aliases": [
-        "act:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 153,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:act:91201571c8f9538c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "noun",
-      "definition_cn": "法案，法令",
-      "definition_en": "a law made by a government",
-      "semantic_key": "c8f54fa938c57ce40c3904869f1bf116da445acbb52c2378f127e95bdd59dd3c",
-      "semantic_key_history": [
-        "fb90b186511da9ed7f3c87381ba280fd2678e1b335c4dd88cd24367ec5e5d533"
-      ],
-      "legacy_aliases": [
-        "act:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 154,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:act:9669b64cf18054d4",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "noun",
-      "definition_cn": "（戏剧的）幕",
-      "definition_en": "a part of a play or opera",
-      "semantic_key": "16fabf40aa91a053d6216dd0c2790f4658115dbbd1c1d2ab3774dab59bed160b",
-      "semantic_key_history": [
-        "3ede000f50e67ae72d18e7a785026dcd3363d0324c7fbb499c8e7f4460a18fe1"
-      ],
-      "legacy_aliases": [
-        "act:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 155,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:act:9b6dec4acd3151a9",
       "status": "merged",
@@ -208,8 +219,8 @@
     "senses": [
       {
         "sense_id": "sense:act:27ae16abd7e25f5f",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 151,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
@@ -222,22 +233,22 @@
       },
       {
         "sense_id": "sense:act:73a74867a0775de3",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 153,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
         "sense_id": "sense:act:91201571c8f9538c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 154,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
         "sense_id": "sense:act:9669b64cf18054d4",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 155,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
@@ -327,7 +338,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
     "source_content_hash": "7856ef241ff8273e5e00119de6397911f59a5bcd97eb92b86ef802b3325100dd",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "vnext-wave03-shard01-o0037-o0064",
+    "vnext_content_judgment": "fresh_current_readback"
   }
 }
