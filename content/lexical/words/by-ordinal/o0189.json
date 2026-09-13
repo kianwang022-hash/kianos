@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "edba690767d769a6def588477296db684b363fb86fac963fed0e64183c4803b2",
+    "constructions": [
+      {
+        "construction_id": "construction:analysis:handoff-57caf9e6a746b1cd",
+        "pattern": "literary structural analysis",
+        "meaning_cn": "文学结构分析（参考层）",
+        "definition_en": "domain-specific use of detailed examination; reference-level",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "b857a14defaf25e380173107cdf098fa1dd879a31755efccf517d74418643360",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "对事物成分或结构的详细研究",
@@ -19,7 +29,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0189"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,30 +67,6 @@
         "sense_label_en": "detailed examination of the elements or structure of something",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e0062a7b487ad9a9e513",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:analysis:575d2bf4ac0b5199:collocation:0"
-            ],
-            "meaning_cn": "文学分析",
-            "phrase": "literary analysis"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "文学批评中的结构分析",
-        "definition_en": "a form of literary criticism in which the structure of a piece of writing is analyzed",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:analysis:575d2bf4ac0b5199",
-        "sense_label_en": "a form of literary criticism in which the structure of a piece of writin",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -101,12 +89,36 @@
     "word_id": "word:analysis"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:analysis:575d2bf4ac0b5199",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "文学批评中的结构分析",
+      "definition_en": "a form of literary criticism in which the structure of a piece of writing is analyzed",
+      "semantic_key": "cefc9c73980cc804ada8c99930808c4b3204880389dcdd7a3c72eb1de85baf67",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "analysis:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "analysis:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00+00:00",
+      "source_row": 480,
+      "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:analysis:575d2bf4ac0b5199",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 480,
         "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
@@ -121,8 +133,7 @@
     ],
     "active_collocations": [
       "collocation:14a2730e48ea89f54e9e",
-      "collocation:76a1451a89f700381db6",
-      "collocation:e0062a7b487ad9a9e513"
+      "collocation:76a1451a89f700381db6"
     ],
     "facts": [],
     "collocations": [
@@ -183,7 +194,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0185-0192.json",
-    "source_content_hash": "edba690767d769a6def588477296db684b363fb86fac963fed0e64183c4803b2",
+    "source_content_hash": "b857a14defaf25e380173107cdf098fa1dd879a31755efccf517d74418643360",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

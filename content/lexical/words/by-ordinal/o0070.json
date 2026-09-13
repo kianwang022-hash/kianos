@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "06314f9957da34a8a59a7d96daafdf7a48939b77142b86a6558927e16db3ddeb",
+    "constructions": [
+      {
+        "construction_id": "construction:address:handoff-95ad8f9131dd62c6",
+        "pattern": "address sth to sb",
+        "meaning_cn": "把某物寄给或针对某人",
+        "definition_en": "direct something to a person",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:address:handoff-126d864313204075",
+        "pattern": "address sb as ...",
+        "meaning_cn": "称呼某人为……",
+        "definition_en": "use a specified form of address",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "cae1479657a0b0906941da7506350d79bccd2fe8664b4a8262e755ea9e2efa63",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,13 +54,14 @@
       "mental_model_en": "An address gives direction: words go to an audience, action goes to a problem, and information points to a location."
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:semantic_contrast:address:83139cce53b73825",
       "relation:deep:semantic_contrast:address:83139cce53b73825",
-      "relation:horizontal:a79b15260df251ab9574"
+      "relation:horizontal:a79b15260df251ab9574",
+      "semantic-review:0070"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -439,7 +459,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0065-0072.json",
-    "source_content_hash": "06314f9957da34a8a59a7d96daafdf7a48939b77142b86a6558927e16db3ddeb",
+    "source_content_hash": "cae1479657a0b0906941da7506350d79bccd2fe8664b4a8262e755ea9e2efa63",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

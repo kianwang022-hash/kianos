@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "cd93959a2f3c932ef0255e7405bd389d7ef79e1be86e9dbad32ad0e678f6cfde",
+    "constructions": [
+      {
+        "construction_id": "construction:analyse:handoff-7191372f8ec65208",
+        "pattern": "analyse / analyze",
+        "meaning_cn": "英式 analyse；美式 analyze",
+        "definition_en": "regional spelling variants",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "1784ea957dcba621a02a1a8eb9c41a1c16dfde271c11767b14fe48fb2b89d359",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "分析",
@@ -19,7 +29,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0188"
+    ],
     "search_aliases": [
       "analyze"
     ],
@@ -109,7 +121,15 @@
       "runtime_model_calls": false
     },
     "word": "analyse",
-    "word_family": [],
+    "word_family": [
+      {
+        "form_boundary": true,
+        "pattern": "analyse / analyze",
+        "meaning_cn": "英式 analyse；美式 analyze",
+        "definition_en": "regional spelling variants",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
     "word_id": "word:analyse"
   },
   "relation_refs": [],
@@ -196,7 +216,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0185-0192.json",
-    "source_content_hash": "cd93959a2f3c932ef0255e7405bd389d7ef79e1be86e9dbad32ad0e678f6cfde",
+    "source_content_hash": "1784ea957dcba621a02a1a8eb9c41a1c16dfde271c11767b14fe48fb2b89d359",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

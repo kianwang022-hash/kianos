@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e2f609b81b5e052e1b3be832f8419b79e6585c10e9d866b2ac5957ed6c6ad741",
+    "constructions": [
+      {
+        "construction_id": "construction:affect:handoff-18178801990bc05e",
+        "pattern": "affect = influence / move emotionally",
+        "meaning_cn": "影响；使产生情感反应",
+        "definition_en": "influence something or move someone emotionally",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "3e115e0d519561a207a7d5e8db238630c5e4b2cc6635bac5ba61757c83dbada6",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,8 +26,7 @@
           "pos": "verb",
           "sense_ids": [
             "sense:affect:b8d5492ed2d05dfc",
-            "sense:affect:b504aff098e55ebd",
-            "sense:affect:6cb6d972c01d5dba"
+            "sense:affect:b504aff098e55ebd"
           ]
         },
         {
@@ -35,12 +44,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:confusables:affect:6976333ca4ed4d47",
-      "deep:deep:secondary_senses:affect:e1e4014481d6b01f"
+      "deep:deep:secondary_senses:affect:e1e4014481d6b01f",
+      "semantic-review:0100"
     ],
     "secondary_senses": [
       {
@@ -141,30 +151,6 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8e182200b4a119117aec",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:affect:6cb6d972c01d5dba:collocation:0"
-            ],
-            "meaning_cn": "假装冷漠",
-            "phrase": "affect indifference"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "假装；佯装",
-        "definition_en": "to pretend to have a feeling or way of behaving",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:affect:6cb6d972c01d5dba",
-        "sense_label_en": "to pretend to have a feeling or way of behaving",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "情感；感情",
@@ -206,7 +192,31 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:affect:6cb6d972c01d5dba",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "假装；佯装",
+      "definition_en": "to pretend to have a feeling or way of behaving",
+      "semantic_key": "749deb21692fb30f6aefede20d267c8fee771bd3324c15ef5786e0a3c1074920",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "affect:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "affect:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00+00:00",
+      "source_row": 273,
+      "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -218,7 +228,7 @@
       },
       {
         "sense_id": "sense:affect:6cb6d972c01d5dba",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 273,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
@@ -241,7 +251,6 @@
     "active_collocations": [
       "collocation:4089ae5c10948a49e826",
       "collocation:5dc2b925565eeac126b9",
-      "collocation:8e182200b4a119117aec",
       "collocation:be4ffbebf3b16fb82042"
     ],
     "facts": [
@@ -325,7 +334,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0097-0104.json",
-    "source_content_hash": "e2f609b81b5e052e1b3be832f8419b79e6585c10e9d866b2ac5957ed6c6ad741",
+    "source_content_hash": "3e115e0d519561a207a7d5e8db238630c5e4b2cc6635bac5ba61757c83dbada6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

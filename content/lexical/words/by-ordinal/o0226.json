@@ -6,20 +6,32 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "485886b4040ec3439c9121935156d5df181c5cfcaf74cc53d1cb5ad4735df2f7",
+    "constructions": [
+      {
+        "construction_id": "construction:apology:handoff-46143def2dc21349",
+        "pattern": "make/offer an apology to sb for sth",
+        "meaning_cn": "因某事向某人道歉",
+        "definition_en": "express regret to someone for something",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "da07d06527d217ea6566e4f82cb70118ba966da84b81e6f7bb84fd17d6dc8dcd",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "道歉；辩护",
-      "core_meaning_en": "an expression of regret or a formal defense",
-      "mental_model_cn": "道歉；辩护",
-      "mental_model_en": ""
+      "core_meaning_cn": "道歉；道歉的言辞或行为",
+      "core_meaning_en": "an expression of regret for causing trouble",
+      "mental_model_cn": "道歉；道歉的言辞或行为",
+      "mental_model_en": "an expression of regret for causing trouble"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0226"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,54 +67,6 @@
         "sense_label_en": "an expression of regret at having caused trouble for someone",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b2e6a380c0197a9a3574",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:apology:25927c9cf3a253e7:collocation:0"
-            ],
-            "meaning_cn": "为…的辩护",
-            "phrase": "an apology for + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "辩护，辩解",
-        "definition_en": "a formal written defense of something you believe in strongly",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:apology:25927c9cf3a253e7",
-        "sense_label_en": "a formal written defense of something you believe in strongly",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8b35a6d5bf5f9a26ba40",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:apology:2397a38b5f7f585e:collocation:0"
-            ],
-            "meaning_cn": "不像样的一顿饭",
-            "phrase": "an apology for a meal"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "勉强凑合的代用品，不像样的东西",
-        "definition_en": "a poor example",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:apology:2397a38b5f7f585e",
-        "sense_label_en": "a poor example",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,19 +89,66 @@
     "word_id": "word:apology"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:apology:2397a38b5f7f585e",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "勉强凑合的代用品，不像样的东西",
+      "definition_en": "a poor example",
+      "semantic_key": "715a83b3baf19bf24f676f0a289595898d6f529beeecdff173d6e0a81a82569c",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "apology:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "apology:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00+00:00",
+      "source_row": 564,
+      "source_path": "content/lexical/canonical/senses/shards/o0225-0256.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:apology:25927c9cf3a253e7",
+      "status": "reference_only",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "辩护，辩解",
+      "definition_en": "a formal written defense of something you believe in strongly",
+      "semantic_key": "abcb763a54e89bc2db922f94067ac1a6fa7839d3f896688ed65fa72ad56a4a73",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "apology:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "apology:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00+00:00",
+      "source_row": 565,
+      "source_path": "content/lexical/canonical/senses/shards/o0225-0256.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:apology:2397a38b5f7f585e",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 564,
         "source_path": "content/lexical/canonical/senses/shards/o0225-0256.json"
       },
       {
         "sense_id": "sense:apology:25927c9cf3a253e7",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 565,
         "source_path": "content/lexical/canonical/senses/shards/o0225-0256.json"
@@ -152,9 +163,7 @@
     ],
     "active_collocations": [
       "collocation:52ac4daead0804dec36e",
-      "collocation:8b35a6d5bf5f9a26ba40",
-      "collocation:93a84c4ea3cea23d8c06",
-      "collocation:b2e6a380c0197a9a3574"
+      "collocation:93a84c4ea3cea23d8c06"
     ],
     "facts": [],
     "collocations": [
@@ -205,7 +214,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0225-0232.json",
-    "source_content_hash": "485886b4040ec3439c9121935156d5df181c5cfcaf74cc53d1cb5ad4735df2f7",
+    "source_content_hash": "da07d06527d217ea6566e4f82cb70118ba966da84b81e6f7bb84fd17d6dc8dcd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

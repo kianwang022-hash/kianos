@@ -51,11 +51,37 @@
         "level": "L1",
         "meaning_cn": "把A与B联系起来；A与B相关",
         "pattern": "associate A with B / be associated with B"
+      },
+      {
+        "construction_id": "construction:associate:handoff-0e5475b7fda267ac",
+        "pattern": "associate with sb; an associate",
+        "meaning_cn": "与某人交往；同事或伙伴",
+        "definition_en": "keep company with someone; a colleague or partner",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "b562f39d2fdeba81c3d8d46da885bc08027449305c0ff92655a6a83124545cb8",
+    "content_hash": "780958eb04d7dc511944f3239149e9eae7bb82cccadea7c3d867d557d16f5d64",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "把 A 与 B 联系起来",
+          "label_en": "link A with B in thought or fact",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:associate:handoff-33eb7ecb8242f49b"
+          ]
+        },
+        {
+          "label_cn": "同事；伙伴",
+          "label_en": "a colleague or partner",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:associate:handoff-e7601f5f288af571"
+          ]
+        }
+      ],
       "core_meaning_cn": "联系；同伴",
       "core_meaning_en": "to connect in the mind, or a person connected with another in activity",
       "mental_model_cn": "联系；同伴",
@@ -68,11 +94,41 @@
     "review_signature": [
       "construction:construction:35e9c8240fd7ca7130d9",
       "construction:deep:constructions:associate:531dde10df4b367a",
-      "deep:deep:constructions:associate:531dde10df4b367a"
+      "deep:deep:constructions:associate:531dde10df4b367a",
+      "semantic-review:0309"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "把 A 与 B 联系起来",
+        "definition_en": "link A with B in thought or fact",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:associate:handoff-33eb7ecb8242f49b",
+        "sense_label_en": "associate A with B",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "collocations": []
+      },
+      {
+        "confidence": "high",
+        "definition_cn": "同事；伙伴",
+        "definition_en": "a colleague or partner",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:associate:handoff-e7601f5f288af571",
+        "sense_label_en": "associate",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -231,6 +287,20 @@
         "merged_into_sense_id": null,
         "source_row": 790,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:associate:handoff-33eb7ecb8242f49b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19516,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:associate:handoff-e7601f5f288af571",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19517,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
       }
     ],
     "active_collocations": [],
@@ -304,7 +374,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0305-0312.json",
-    "source_content_hash": "b562f39d2fdeba81c3d8d46da885bc08027449305c0ff92655a6a83124545cb8",
+    "source_content_hash": "780958eb04d7dc511944f3239149e9eae7bb82cccadea7c3d867d557d16f5d64",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

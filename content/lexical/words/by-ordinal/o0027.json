@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7d67c6a0c8499a2b2a6bfadffe754fe5cfa8e2f28e5ecb446f51c2e8b09bafe9",
+    "constructions": [
+      {
+        "construction_id": "construction:accept:handoff-647de9cfa264d802",
+        "pattern": "accept that ...",
+        "meaning_cn": "承认……为事实",
+        "definition_en": "accept a proposition as true",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:accept:handoff-660dc0f9cb942241",
+        "pattern": "accept A as B",
+        "meaning_cn": "把 A 接受为 B",
+        "definition_en": "regard A as B and receive it in that role",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "7d5da59da807475e08c0d1abf624b693a6d545eaef0c3346b2e46290fb991b05",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "接受，同意",
@@ -20,7 +39,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:confusables:accept:09cf96291d1ea0be"
+      "deep:deep:confusables:accept:09cf96291d1ea0be",
+      "semantic-review:0027"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -332,7 +352,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
-    "source_content_hash": "7d67c6a0c8499a2b2a6bfadffe754fe5cfa8e2f28e5ecb446f51c2e8b09bafe9",
+    "source_content_hash": "7d5da59da807475e08c0d1abf624b693a6d545eaef0c3346b2e46290fb991b05",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

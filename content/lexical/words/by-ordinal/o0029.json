@@ -8,59 +8,41 @@
     "confusables": [],
     "constructions": [
       {
-        "construction_id": "construction:29access000000000001",
-        "direction": "R+P",
+        "construction_id": "construction:access:handoff-4aa534f1ec02749a",
+        "pattern": "access to + noun",
+        "meaning_cn": "获得或使用……的权利、机会或途径",
+        "definition_en": "the right or opportunity to reach or use something",
         "level": "L1",
-        "meaning_cn": "有/获得进入或使用某物的权利/机会",
-        "pattern": "have/gain/get access to + sth"
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
       },
       {
-        "construction_id": "construction:29access000000000002",
-        "direction": "R+P",
+        "construction_id": "construction:access:handoff-73cab861d0418890",
+        "pattern": "access + object",
+        "meaning_cn": "取得、进入或使用",
+        "definition_en": "obtain, enter, or use a place, system, or data",
         "level": "L1",
-        "meaning_cn": "授予/拒绝某人访问权",
-        "pattern": "grant/deny + sb + access to + sth"
-      },
-      {
-        "construction_id": "construction:29access000000000003",
-        "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "访问数据库、文件、网站或服务",
-        "pattern": "access + database/file/site/service",
-        "learning_note": "Verb takes a direct object; no to."
-      },
-      {
-        "construction_id": "construction:29access000000000004",
-        "direction": "R+P",
-        "level": "L2",
-        "meaning_cn": "进入建筑物/区域/系统",
-        "pattern": "access + building/area/system"
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "0eeba29aeac6e7ace315b33b7452cba7e28d80ef1691e34da109cb1fba4ddbbc",
+    "content_hash": "d9a8cf0ea15ea2dd946640c2bc0ab3ea1e3b7c932f1b5079dcebbc8ee53b5f89",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "进入/使用的权利或机会",
-          "label_en": "the right or opportunity to enter, use, or obtain something",
+          "label_cn": "使用权；接近或进入的机会；通路；入口；访问代码；口令；（计算机）存取；访问",
+          "label_en": "the right or opportunity to use or benefit from something; a way of entering or leaving a place; a code or password that allows entry to a computer system or network; the operation of reading or writing data in a computer system",
           "pos": "noun",
           "sense_ids": [
-            "sense:access:19bed9a501315d9d"
-          ]
-        },
-        {
-          "label_cn": "通路；入口；访问凭证/技术访问",
-          "label_en": "a route or means of entry, or a technical means/operation of access",
-          "pos": "noun",
-          "sense_ids": [
+            "sense:access:19bed9a501315d9d",
             "sense:access:eebda8857a67598d",
             "sense:access:a2c075e1f92758c0",
             "sense:access:c2ad21ce22535191"
           ]
         },
         {
-          "label_cn": "访问；进入；存取",
-          "label_en": "reach, enter, or retrieve/use directly",
+          "label_cn": "访问；存取（数据）；进入；到达",
+          "label_en": "to obtain, read, or retrieve data from a computer system; to reach or enter a place or system",
           "pos": "verb",
           "sense_ids": [
             "sense:access:ce5556605dee5750",
@@ -68,10 +50,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "跨过“进入/使用”的门槛：名词表示权利、机会、通道或访问机制；动词表示直接进入、访问或存取对象。",
-      "core_meaning_en": "cross the threshold to enter or use something: as a noun, a right/opportunity/route/mechanism; as a verb, directly reach or retrieve the object",
-      "mental_model_cn": "先判词性：have access **to** data（名词）vs access the data（动词，直接接宾语）。这是最重要的使用边界。",
-      "mental_model_en": "first decide noun versus verb: have access to the data, but access the data directly"
+      "core_meaning_cn": "接近、进入或使用的权利与途径",
+      "core_meaning_en": "the right or means to reach, enter, or use something",
+      "mental_model_cn": "接近、进入或使用的权利与途径",
+      "mental_model_en": "the right or means to reach, enter, or use something"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -82,7 +64,8 @@
       "deep:deep:word_family:access:28901ab0a5ef7903",
       "deep:deep:word_family:access:aec6e9b5c4edb931",
       "relation:deep:word_family:access:28901ab0a5ef7903",
-      "relation:deep:word_family:access:aec6e9b5c4edb931"
+      "relation:deep:word_family:access:aec6e9b5c4edb931",
+      "semantic-review:0029"
     ],
     "secondary_senses": [
       {
@@ -156,18 +139,17 @@
             "phrase": "gain access to + sth"
           }
         ],
-        "confidence": "high",
-        "definition_cn": "进入、使用或获得某物的权利/机会",
-        "definition_en": "the right or opportunity to enter, use, or obtain something",
+        "confidence": "medium",
+        "definition_cn": "使用权；接近或进入的机会",
+        "definition_en": "the right or opportunity to use or benefit from something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:access:19bed9a501315d9d",
-        "sense_label_en": "right or opportunity to enter or use",
+        "sense_label_en": "the right or opportunity to use or benefit from something",
         "sort_order": 0,
-        "transitivity": "nonverb",
-        "usage_note": "Noun pattern: access to + noun."
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -181,15 +163,15 @@
             "phrase": "access to the building"
           }
         ],
-        "confidence": "high",
-        "definition_cn": "通路；入口；进入某地的途径",
-        "definition_en": "a way or route for entering or leaving a place",
+        "confidence": "medium",
+        "definition_cn": "通路；入口",
+        "definition_en": "a way of entering or leaving a place",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:access:eebda8857a67598d",
-        "sense_label_en": "route or means of entry",
+        "sense_label_en": "a way of entering or leaving a place",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -205,41 +187,16 @@
             "phrase": "access the database"
           }
         ],
-        "confidence": "high",
-        "definition_cn": "访问、打开或存取（数据、文件、服务等）",
-        "definition_en": "to obtain, open, read, or retrieve data, files, or a service",
-        "governing_pattern": "access + direct object",
+        "confidence": "medium",
+        "definition_cn": "访问；存取（数据）",
+        "definition_en": "to obtain, read, or retrieve data from a computer system",
+        "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:access:ce5556605dee5750",
-        "sense_label_en": "retrieve or use data/service directly",
-        "sort_order": 2,
-        "transitivity": "vt",
-        "usage_note": "As a verb, access takes a direct object: access the database, not *access to the database."
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:02a91811a7ca2acd830d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:access:facb20d742a655ab:collocation:0"
-            ],
-            "meaning_cn": "进入大楼",
-            "phrase": "access the building"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "进入；到达（某地或系统）",
-        "definition_en": "to reach or enter a place or system",
-        "governing_pattern": "access + direct object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:access:facb20d742a655ab",
-        "sense_label_en": "reach or enter a place/system",
-        "sort_order": 3,
+        "sense_label_en": "to obtain, read, or retrieve data from a computer system",
+        "sort_order": 4,
         "transitivity": "vt"
       },
       {
@@ -254,16 +211,16 @@
             "phrase": "access code"
           }
         ],
-        "confidence": "high",
+        "confidence": "medium",
         "definition_cn": "访问代码；口令",
-        "definition_en": "a code or password that allows entry to a system or network",
+        "definition_en": "a code or password that allows entry to a computer system or network",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:access:a2c075e1f92758c0",
-        "sense_label_en": "access code or password",
-        "sort_order": 4,
+        "sense_label_en": "a code or password that allows entry to a computer system or network",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -278,17 +235,41 @@
             "phrase": "random access memory"
           }
         ],
-        "confidence": "high",
-        "definition_cn": "（计算机）存取；数据读写访问",
+        "confidence": "medium",
+        "definition_cn": "（计算机）存取；访问",
         "definition_en": "the operation of reading or writing data in a computer system",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:access:c2ad21ce22535191",
-        "sense_label_en": "technical data-access operation",
-        "sort_order": 5,
+        "sense_label_en": "the operation of reading or writing data in a computer system",
+        "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:02a91811a7ca2acd830d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:access:facb20d742a655ab:collocation:0"
+            ],
+            "meaning_cn": "进入大楼",
+            "phrase": "access the building"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "进入；到达",
+        "definition_en": "to reach or enter a place or system",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:access:facb20d742a655ab",
+        "sense_label_en": "to reach or enter a place or system",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -549,10 +530,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
-    "source_content_hash": "0eeba29aeac6e7ace315b33b7452cba7e28d80ef1691e34da109cb1fba4ddbbc",
-    "semantic_delta": 1,
-    "materializer": "tools/lexical_natural_owner.py",
-    "fresh_rebuild_batch": "batch04",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
+    "source_content_hash": "d9a8cf0ea15ea2dd946640c2bc0ab3ea1e3b7c932f1b5079dcebbc8ee53b5f89",
+    "semantic_delta": 0,
+    "materializer": "tools/lexical_natural_owner.py"
   }
 }

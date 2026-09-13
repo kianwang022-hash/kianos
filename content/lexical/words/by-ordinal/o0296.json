@@ -6,10 +6,29 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7f9354c1a87473f28411c3218d065e66bc9481dd74080837a93db49fa2e8dff6",
+    "constructions": [
+      {
+        "construction_id": "construction:assassinate:handoff-01b2b3fd3ee47858",
+        "pattern": "assassinate a prominent/public person",
+        "meaning_cn": "暗杀重要、政治或公众人物",
+        "definition_en": "murder a prominent person deliberately, often for political reasons",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "036ddc0c67608b09947569b9435b1fd556a0c9da75767b09051ac1da44b8c94f",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "暗杀",
+          "label_en": "murder a prominent or public person deliberately",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:assassinate:handoff-19bc0b7e9746f486"
+          ]
+        }
+      ],
       "core_meaning_cn": "暗杀或诋毁",
       "core_meaning_en": "to murder someone, especially a prominent person, or to damage someone's reputation",
       "mental_model_cn": "暗杀或诋毁",
@@ -19,10 +38,27 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0296"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "暗杀",
+        "definition_en": "murder a prominent or public person deliberately",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:assassinate:handoff-19bc0b7e9746f486",
+        "sense_label_en": "assassinate",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -110,6 +146,13 @@
         "merged_into_sense_id": null,
         "source_row": 753,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:assassinate:handoff-19bc0b7e9746f486",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19514,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
       }
     ],
     "active_collocations": [],
@@ -167,7 +210,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0289-0296.json",
-    "source_content_hash": "7f9354c1a87473f28411c3218d065e66bc9481dd74080837a93db49fa2e8dff6",
+    "source_content_hash": "036ddc0c67608b09947569b9435b1fd556a0c9da75767b09051ac1da44b8c94f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
