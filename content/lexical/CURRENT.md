@@ -4,11 +4,11 @@ Role: human Work Cursor / fresh-Chat restart. Artifact, Acceptance and private L
 
 ## Current mainline
 
-**ACTIVE scope:** LexicalOS vNext — bounded Functional First learner-system closure.  
-**ACTIVE step:** bounded mechanical implementation of the completed semantic-review handoffs `o0025–o0324`.
-Catalog execution: ACTIVE
+**ACTIVE scope:** LexicalOS vNext — bounded implementation closure for `o0025–o0324`.
+**ACTIVE step:** bounded implementation complete; integrated repair/readback recorded; no new semantic batch is active.
+Catalog execution: PAUSED
 
-This is one bounded activation for the three existing semantic-review handoffs `o0025–o0124`, `o0125–o0224`, and `o0225–o0324`. It does not reactivate the full catalog, grant K/P/R/E/U acceptance, alter learner state, or advance a later cursor.
+The bounded implementation for the three existing semantic-review handoffs `o0025–o0124`, `o0125–o0224`, and `o0225–o0324` is complete. The full Catalog remains paused; `o0325–o0474` is not activated by this change. This does not grant K/P/R/E/U acceptance, alter learner state, or advance a later cursor.
 
 The latest discussion is now split by responsibility:
 
@@ -20,20 +20,20 @@ The latest discussion is now split by responsibility:
 
 ## Exact next action
 
-Implement only the three completed semantic-review handoffs for `o0025–o0324`, using their handoff text as the sole semantic authority. First read current Word Natural Owners and shared Relation/Form owners, skip owners whose final object already matches the handoff readback, apply only authorized `UPGRADE` changes, and keep `NO_CHANGE` owners byte/semantically unchanged.
+No automatic next batch is active. Any next cursor, including `o0325–o0474`, requires explicit activation after this bounded completion/readback.
 
-- `BLOCKED` remains blocked; do not guess.
-- A genuine semantic ambiguity is isolated to that ordinal with an exact escalation; independent owners continue.
-- JSON, IDs, hashes, ownership, validators, tests, CI, and Git failures remain executor-owned.
-- After full-object readback and integration tests, stop at `o0025–o0324`; do not activate another semantic-review range.
+- The bounded `o0025–o0324` implementation is complete; any exact semantic escalation remains isolated to its ordinal.
+- `NO_CHANGE` owners remain byte/semantically unchanged.
+- K/P/R/E/U acceptance is not granted by this completion state.
+- Do not activate another semantic-review range without explicit activation.
 
 Authorities: `content/lexical/semantic-review/o0025-o0124.md`, `content/lexical/semantic-review/o0125-o0224.md`, and `content/lexical/semantic-review/o0225-o0324.md`. Purpose: mechanical canonical implementation and integrated readback only. Scope: Current Natural Owners `o0025–o0324`, plus necessary shared Relation/Form owners explicitly required by these handoffs. No semantic audit queue, learner/runtime work, Production/Site/Study changes, or sibling-lane changes.
 
 The learner Evidence/Memory implementation remains a separate later step; this content activation does not claim its P/R/E/U readiness.
 
-## Content upgrade mode — bounded activation only
+## Content upgrade mode — bounded activation complete
 
-Use `CONTENT_EXECUTION.md` for these three exact handoffs only. This is not a full-catalog restart, automatic fresh pass, deferred repair queue, or new Batch/S-series authority.
+`CONTENT_EXECUTION.md` governed the three exact handoffs now completed. This is not a full-catalog restart, automatic fresh pass, deferred repair queue, or new Batch/S-series authority.
 
 `tools/lexical_shard.py` stages Word-local candidate changes and emits hash-locked readback/publication plans. It does not grant K PASS or handle shared Relation/Form writes silently. Relation/Form reconciliation must remain narrow and explicit for these handoffs.
 
@@ -49,6 +49,6 @@ Unique branch work is quarantined for explicitly bounded salvage, not claimed ac
 
 `main@HEAD → this Current → CONTENT_ASSET_CONTRACT + CONTENT_EXECUTION → three semantic-review handoffs → canonical apply → integrated readback`
 
-After readback, return to this Current and choose the next cursor explicitly. This implementation must not activate a later range.
+After completion/readback, return to this Current and choose the next cursor explicitly. This state must not activate a later range.
 
 Never infer the next action from an old Issue title, branch name, branch-local receipt, chat rollback or total files edited. Chat interruption does not roll back GitHub.

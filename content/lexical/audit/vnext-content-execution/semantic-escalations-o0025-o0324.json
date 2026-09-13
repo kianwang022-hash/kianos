@@ -1,6 +1,6 @@
 {
   "schema": "kianos.lexical.semantic_escalation_artifact.v1",
-  "status": "NONE",
+  "status": "PENDING_SOL_DECISION",
   "scope": [
     25,
     324
@@ -10,5 +10,64 @@
     "content/lexical/semantic-review/o0125-o0224.md",
     "content/lexical/semantic-review/o0225-o0324.md"
   ],
-  "escalations": []
+  "escalations": [
+    {
+      "ordinal": 28,
+      "word": "acceptance",
+      "handoff_original_decision": "Add acceptance/recognition, social acceptance, and admission/being accepted into an institution or group as the main learner-worthy branches.",
+      "current_minimal_conflict": {
+        "existing_stable_senses": [
+          {
+            "sense_id": "sense:acceptance:36d6ec9867445964",
+            "definition_en": "the act of taking something that is offered",
+            "status": "active after closure repair"
+          },
+          {
+            "sense_id": "sense:acceptance:90cafc9ec9555ecc",
+            "definition_en": "agreement to an offer or proposal",
+            "status": "deprecated"
+          },
+          {
+            "sense_id": "sense:acceptance:fb11ed57a25354cd",
+            "definition_en": "in banking, a time draft drawn on and accepted by a bank",
+            "status": "deprecated"
+          }
+        ],
+        "active_handoff_senses": [
+          {
+            "sense_id": "sense:acceptance:handoff-0a5c5439d7a8e91e",
+            "definition_en": "the act of accepting or recognizing something"
+          },
+          {
+            "sense_id": "sense:acceptance:handoff-0328198cfa0464a3",
+            "definition_en": "approval or welcome by a group or society"
+          },
+          {
+            "sense_id": "sense:acceptance:handoff-e9e9d966947591b4",
+            "definition_en": "being admitted to an institution or group"
+          }
+        ],
+        "dependent_fact": "deep:word_family:acceptance:8f4e70307ef38cc3 source_sense_id=sense:acceptance:36d6ec9867445964"
+      },
+      "unique_question": "Should the generalized acceptance/recognition payload handoff-0a5c5439d7a8e91e merge into stable sense:acceptance:36d6ec9867445964, stable sense:acceptance:90cafc9ec9555ecc, or remain a separate generalized branch while the social and institutional branches remain distinct?",
+      "alternatives": [
+        {
+          "id": "A",
+          "decision": "merge_into_36d6",
+          "effect": "preserve the existing family source and use the narrower stable acceptance sense as the generalized learner branch"
+        },
+        {
+          "id": "B",
+          "decision": "merge_into_90caf",
+          "effect": "treat agreement-to-offer as the surviving generalized acceptance branch"
+        },
+        {
+          "id": "C",
+          "decision": "retain_handoff_generalized",
+          "effect": "keep handoff-0a5 as a distinct generalized branch and retain both stable historical references"
+        }
+      ],
+      "status": "BLOCKED_PENDING_SOL_DECISION"
+    }
+  ]
 }
