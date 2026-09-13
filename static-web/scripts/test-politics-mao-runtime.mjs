@@ -187,6 +187,7 @@ async function maoRepairJourney(page) {
   const { card } = await answerCard(page, questionId, 'repair');
   const attempt = await firstAttempt(page, config, questionId);
   check(['WRONG', 'UNCERTAIN'].includes(attempt?.outcome), 'mao_problem_first_attempt_recorded', JSON.stringify(attempt));
+  const firstResultText = String(await card.locator('[data-politics-result]').textContent() || '');
 
   const repair = card.locator('[data-politics-repair]');
   await repair.waitFor({ state: 'visible' });
@@ -208,6 +209,9 @@ async function maoRepairJourney(page) {
   const returnCursor = await lastLocation(page);
   check(returnCursor?.action === 'REPAIR' && returnCursor?.question_id === questionId, 'mao_repair_return_targets_interrupted_question', JSON.stringify(returnCursor));
   check(await card.locator('[data-politics-repair]').isVisible(), 'mao_repair_panel_visible_after_return');
+  check(await card.locator('[data-politics-result]').isVisible(), 'mao_repair_return_keeps_problem_result_visible');
+  check(String(await card.locator('[data-politics-result]').textContent() || '') === firstResultText, 'mao_repair_return_preserves_problem_result');
+  check(JSON.stringify(await firstAttempt(page, config, questionId)) === JSON.stringify(attempt), 'mao_repair_return_preserves_first_attempt');
 
   await page.reload({ waitUntil: 'domcontentloaded' });
   const restored = await cardFor(page, questionId);
