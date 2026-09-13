@@ -56,6 +56,8 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+      - name: Validate Politics cognitive projection derived assets
+        run: node scripts/validate-politics-cognitive-projection-assets.mjs
       - name: Audit Politics canonical coverage
         run: node scripts/audit-politics-coverage.mjs
       - name: Audit Xiao1000 semantic chapter routing
