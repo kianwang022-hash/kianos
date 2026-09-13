@@ -2,6 +2,8 @@ export const LEXICAL_LEDGER_SCHEMA = 'kianos.lexical.evidence_ledger.v2';
 export const LEXICAL_LEDGER_STORAGE_KEY = 'kianos-lexical-evidence-ledger-v2';
 
 const repairOutcomes = new Set(['ADDED', 'REACTIVATED', 'WRONG', 'AGAIN', 'SLOW', 'CORRECT', 'CLEAR']);
+const englishSources = new Set(['reading', 'cloze', 'translation', 'writing']);
+const questionSources = new Set(['challenge', 'reconstruction', 'blind_probe']);
 
 function stableJson(value) {
   if (value === null || typeof value !== 'object') return JSON.stringify(value);
@@ -57,6 +59,19 @@ function eventPayload(event) {
   return copy;
 }
 
+function migrationSignature(event) {
+  if (!String(event?.event_id || '').startsWith('migration:')) return null;
+  return stableJson({
+    word_id: event?.word_id || null,
+    target_kind: event?.target_kind || null,
+    target_id: event?.target_id || null,
+    target_locator: event?.target_locator || null,
+    target_revision: event?.target_revision || null,
+    source: event?.source || null,
+    outcome: event?.outcome || null
+  });
+}
+
 export function legacyEventId(event) {
   const basis = {
     word_id: event?.word_id || null,
@@ -91,7 +106,9 @@ export function normalizeEvidenceEvent(event, { fallbackEventId = true } = {}) {
   if (result.demand) result.demand = String(result.demand);
   if (result.assistance) result.assistance = String(result.assistance);
   if (result.context_novelty) result.context_novelty = String(result.context_novelty);
+  if (result.attribution) result.attribution = String(result.attribution);
   if (typeof result.delayed !== 'boolean') delete result.delayed;
+  if (typeof result.question_valid !== 'boolean') delete result.question_valid;
   return result;
 }
 
@@ -100,6 +117,10 @@ export function appendEvidenceEvent(ledgerInput, eventInput) {
   const event = normalizeEvidenceEvent(eventInput);
   if (!event.event_id || !event.word_id || !event.source || !event.outcome || !event.observed_at) {
     return { ledger, status: 'REJECTED_INVALID_EVENT' };
+  }
+  const migration = migrationSignature(event);
+  if (migration && ledger.events.some((candidate) => migrationSignature(candidate) === migration)) {
+    return { ledger, status: 'DUPLICATE_MIGRATION_IGNORED' };
   }
   const existing = ledger.events.find((candidate) => candidate.event_id === event.event_id);
   if (existing) {
@@ -130,24 +151,46 @@ function millis(value) {
   return Number.isFinite(n) ? n : Number.NEGATIVE_INFINITY;
 }
 
+function correctionMatches(correction, original) {
+  if (!correction || !original || correction.word_id !== original.word_id) return false;
+  const correctionKey = lexicalTargetKey(correction);
+  const originalKey = lexicalTargetKey(original);
+  if (!correctionKey || correctionKey !== originalKey) return false;
+  if (correction.challenge_id && original.challenge_id && correction.challenge_id !== original.challenge_id) return false;
+  return true;
+}
+
 function sortedEffectiveEvents(ledgerInput) {
   const ledger = normalizeLexicalLedger(ledgerInput);
+  const byId = new Map(ledger.events.map((event) => [String(event.event_id || ''), event]));
   const voided = new Set();
   for (const event of ledger.events) {
-    if (['QUESTION_ISSUE', 'SEMANTIC_ISSUE'].includes(event.outcome) && event.corrects_event_id) {
-      voided.add(String(event.corrects_event_id));
-    }
+    if (!['QUESTION_ISSUE', 'SEMANTIC_ISSUE'].includes(event.outcome) || !event.corrects_event_id) continue;
+    const original = byId.get(String(event.corrects_event_id));
+    if (correctionMatches(event, original)) voided.add(String(event.corrects_event_id));
   }
   return ledger.events
     .filter((event) => !voided.has(String(event.event_id || '')))
     .sort((a, b) => millis(a.observed_at) - millis(b.observed_at) || String(a.event_id).localeCompare(String(b.event_id)));
 }
 
+function qualifiedTargetObservation(event) {
+  if (!lexicalTargetKey(event)) return false;
+  if (questionSources.has(event.source)) return event.question_valid === true;
+  if (englishSources.has(event.source)) return event.attribution === 'lexical';
+  return false;
+}
+
 function eventCanAdmit(event) {
   if (!lexicalTargetKey(event)) return false;
   if (event.outcome === 'ADDED' || event.outcome === 'REACTIVATED') return true;
-  if (event.outcome === 'WRONG' || event.outcome === 'AGAIN') return event.question_valid !== false;
+  if (event.outcome === 'WRONG' || event.outcome === 'AGAIN') return qualifiedTargetObservation(event);
   return false;
+}
+
+function weakEvidenceCanAccumulate(event) {
+  if (event.outcome !== 'SLOW') return false;
+  return qualifiedTargetObservation(event);
 }
 
 function demandMatches(requiredDemand, successDemand) {
@@ -157,8 +200,7 @@ function demandMatches(requiredDemand, successDemand) {
 
 export function qualifiesForDormancy(event, requiredDemand = null) {
   if (event?.outcome !== 'CORRECT' || event?.source === 'reconstruction') return false;
-  if (!lexicalTargetKey(event)) return false;
-  if (event?.question_valid === false) return false;
+  if (!qualifiedTargetObservation(event)) return false;
   if (event?.delayed !== true) return false;
   if (event?.assistance !== 'unassisted') return false;
   if (!['unseen', 'fresh'].includes(String(event?.context_novelty || ''))) return false;
@@ -201,7 +243,7 @@ export function deriveRepairStates(ledgerInput) {
         state.failure_count_since_dormant += 1;
         if (state.failure_count_since_dormant >= 2) state.diagnosis_required = true;
       }
-    } else if (event.outcome === 'SLOW') {
+    } else if (weakEvidenceCanAccumulate(event)) {
       const contexts = slowContexts.get(key) || new Set();
       if (event.context_id) contexts.add(String(event.context_id));
       slowContexts.set(key, contexts);
@@ -248,8 +290,9 @@ export function repairStateForEvent(ledgerInput, event) {
 }
 
 export function exportReturnEvents(ledgerInput, studyDay, toLocalDay = (iso) => String(iso || '').slice(0, 10)) {
-  const allowed = new Set(['ADDED', 'CORRECT', 'WRONG', 'SLOW', 'AGAIN', 'QUESTION_ISSUE', 'SEMANTIC_ISSUE']);
+  const allowed = new Set(['ADDED', 'CLEAR', 'REACTIVATED', 'CORRECT', 'WRONG', 'SLOW', 'AGAIN', 'QUESTION_ISSUE', 'SEMANTIC_ISSUE']);
   return sortedEffectiveEvents(ledgerInput)
+    .filter((event) => !String(event.event_id || '').startsWith('migration:'))
     .filter((event) => allowed.has(event.outcome) && toLocalDay(event.observed_at) === studyDay)
     .map((event) => clone(event));
 }
