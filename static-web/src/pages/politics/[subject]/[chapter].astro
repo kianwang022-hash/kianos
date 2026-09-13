@@ -61,5 +61,5 @@ const useCognitiveWorkspace = subject === 'marxism'
 
   <PoliticsRepairEnhancer chapter={data} />
   <PoliticsUnitReturnEnhancer chapter={data} />
-  {subject === 'mao' && <PoliticsEvidenceEnhancer chapter={data} />}
+  {['mao', 'xi'].includes(subject) && <PoliticsEvidenceEnhancer chapter={data} />}
 </Base>

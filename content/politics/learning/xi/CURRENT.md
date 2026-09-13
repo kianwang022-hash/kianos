@@ -9,12 +9,12 @@ This file does not own Xi Source Truth, Politics-wide learning/interaction seman
 
 ## Work Cursor
 
-**Scope:** Xi whole-module continuation after fresh Runtime re-acceptance  
-**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS / R PASS`  
+**Scope:** Xi whole-module continuation after fresh Evidence re-acceptance  
+**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS / R PASS / E PASS`  
 **Content closure:** `PASS` — supplemental content conclusion under K  
-**Earliest unresolved gate:** `E｜Evidence`  
-**Blocker:** none in Source/Knowledge/Content/Learning Logic/Projection/Runtime.  
-**Next action:** fresh Xi Evidence acceptance. Attack whether first-attempt truth, Wrong/Uncertain debt, repair-source attribution, persistence, Return Packet semantics and no-mastery boundaries remain trustworthy beyond Runtime mechanics. R evidence is strong prior evidence but must not be relabeled as automatic E PASS.
+**Earliest unresolved gate:** `U｜User Validation` — learner-only  
+**Engineering blocker:** none.  
+**Next action:** real Kian learner use on a named Xi path. Do not create more Xi engineering merely to complete architecture. Observe actual first-round use; only concrete learner friction may reopen the earliest responsible S/K/L/P/R/E owner.
 
 ---
 
@@ -26,24 +26,26 @@ S  PASS
 → L  PASS
 → P  PASS
 → R  PASS
-→ E  UNTESTED   ← current gate
-→ U  UNTESTED   ← learner-only
+→ E  PASS
+→ U  UNTESTED   ← real Kian use only
 ```
 
 Fresh owners:
 
 - L → `content/politics/learning/xi/learning-review.json`
 - P → `content/politics/learning/xi/projection-review.json`
-- Xi Projection adapter → `static-web/src/lib/politicsXiProjection.mjs`
-- P guard → `static-web/scripts/audit-politics-xi-projection.mjs`
 - R journey → `static-web/scripts/test-politics-xi-runtime.mjs`
+- E review → `content/politics/learning/xi/evidence-review.json`
+- E model audit → `static-web/scripts/audit-politics-xi-evidence.mjs`
+- E browser journey → `static-web/scripts/test-politics-xi-evidence.mjs`
 
 Fresh dispositions:
 
 ```text
 L: C00–C17 = 18 KEEP / 0 REPAIR / 0 BLOCKED
 P: C00 REPAIR / C01–C17 KEEP / 0 BLOCKED
-R: 1 real Runtime defect repaired; final Xi journey = 90/90 PASS
+R: 1 real Runtime defect repaired; Xi Runtime journey = 90/90 PASS
+E: 1 real Evidence defect repaired; whole-module model audit + browser journey = PASS
 ```
 
 ---
@@ -67,13 +69,13 @@ theory identity / method
 → strict Party governance / self-revolution
 ```
 
-Learner-facing path now executes as:
+Learner-facing path:
 
 ```text
 chapter role / WHY NOW
 → Natural Unit problem + core answer
 → optional hierarchy/guide
-→ external-primary Chengfeng study
+→ Chengfeng continuous study on iPad/MarginNote
 → optional short closure
 → Current Xiao1000 verification
 → stable fast continuation
@@ -82,146 +84,141 @@ chapter role / WHY NOW
 → interrupt / refresh / Continue restores meaningful position
 ```
 
-Dense `content_support` remains backend-only in the generic learner component. Chengfeng remains the only continuous first-study surface on iPad/MarginNote.
+Dense `content_support` remains backend-only in the generic learner component. Chengfeng remains the only continuous first-study surface.
 
 ---
 
-## P｜Projection closure
+## What was repaired without reopening upstream truth
 
-Fresh P attack found one real defect in C00:
+### P｜Projection
+
+C00 owns hierarchy as structured `{role, meaning}` rows. The generic component stringified structured values and could surface `[object Object]`. `politicsXiProjection.mjs` now normalizes those rows at Projection only; accepted Xi Content/Learning remains unchanged.
+
+### R｜Runtime
+
+Xi had valid rendered Xiao1000 questions but the conservative Unit Return fallback omitted Xi from its allowlist. `politicsUnitReturn.mjs` now allows Xi to use the existing `NATURAL_UNIT_SAFE_FALLBACK`; Ethics-Law remains excluded and `mastery_claim` remains `NONE`.
+
+### E｜Evidence
+
+Xi Wrong/Uncertain events preserved subject/chapter/unit/question/outcome, but did not carry stable repair provenance because the generic `PoliticsEvidenceEnhancer` was mounted only for Mao. The page now mounts that existing enhancer for Xi as well:
 
 ```text
-accepted hierarchy = array of {role, meaning}
-→ generic component stringified structured values
-→ learner-facing hierarchy could surface [object Object]
+matching Xi Wrong/Uncertain event
+→ preserve first-attempt evidence unchanged
+→ attach repair_source_anchor
+→ attach Current repair_source_owner_ids
 ```
 
-The Xi-only Projection adapter now normalizes structured hierarchy rows into render-safe `role → meaning` entries without rewriting accepted Content/Learning. C01–C17 ordinary hierarchy objects remain unchanged.
-
-P guard proves Orientation/Unit problem survival, render-safe hierarchy, no backend `content_support` leakage, explicit Chengfeng handoff, and progressive guide/closure disclosure.
+No event schema, Source/Knowledge/Content/Learning/Projection semantics, or Ethics-Law behavior was changed.
 
 ---
 
-## R｜Runtime closure — PASS after one repair
+## Executed closure
 
-Mode: `EXECUTED + ADVERSARIAL`  
-Xi-specific journey: `static-web/scripts/test-politics-xi-runtime.mjs`
+### R｜PASS
 
-### First real R failure
+Xi-specific Runtime evidence proves:
 
-The first Xi-specific browser run passed **72 smoke checks** across all C00–C17 chapters:
+- C00–C17 preserve subject/chapter identity, Natural Units and external-primary Chengfeng handoff;
+- clean Xi Xiao1000 first attempts record STABLE without manufacturing repair debt or mastery;
+- Unit Return is executable;
+- actual pending question resumes after refresh;
+- Wrong/Uncertain routes to source and returns to the interrupted question/result;
+- first-attempt evidence remains immutable.
 
-```text
-subject/chapter identity
-+ Natural Units exist
-+ external Chengfeng handoff exists
-+ Xi stays on the generic subject runtime
-```
+Final R artifact: **90/90 checks PASS**.
 
-It then failed at:
+### E｜PASS
 
-```text
-xi_config_with_1_questions_exists
-```
+Final fresh E implementation head: `beed0f112cf19ed73ce159da9a2f75639fe6905b`.
 
-Root cause belonged to Runtime ownership:
+Whole-module model audit:
 
 ```text
-buildPoliticsUnitReturnConfigs
-→ conservative NATURAL_UNIT_SAFE_FALLBACK existed
-→ allowlist included Marxism / History / Mao only
-→ Xi rendered valid Current Xiao1000 questions
-→ Xi received zero executable Unit Return configs
+C00–C17                 18 / 18 chapters
+Unit Return configs     52
+question evidence slots 215
+model checks            540
+failures                0
 ```
 
-This was not a reason to reopen S/K/L/P.
+Browser Evidence journey: **26/26 checks PASS**.
 
-### Narrow R repair
-
-`static-web/src/lib/politicsUnitReturn.mjs` now permits Xi to use the existing conservative fallback:
+Accepted Evidence semantics:
 
 ```text
-NATURAL_UNIT_SAFE_FALLBACK
-mastery_claim = NONE
+first attempt       immutable once durably recorded
+WRONG / UNCERTAIN   distinct durable repair evidence
+STABLE              this-pass stability only
+repair              does not rewrite first attempt or imply mastery
+mastery_claim       NONE
+repair provenance   travels with the event, not mutable last_location
+out-of-scope input  rejected
+persistence failure fail closed; no fake attempt / Unit Return
+learner evidence    private browser / Return Packet only
 ```
 
-The repair does not invent finer question→node mappings, does not change Xi teaching/projection assets, and does **not** enable Ethics-Law. Evidence precision remains Natural Unit level where finer mapping is not source-validated.
+The browser attack additionally proves that an original Xi repair event keeps its source anchor and source-owner ids after `last_location` moves to `ch17`, and the exported `kianos.politics.return_packet.v1` still carries the original repair provenance.
 
-### Executed R evidence
+Executed final-head evidence:
 
-Repair head: `aefaf829743d0b38b8084ce1e82f1b74b35c1ffd`
-
-- Static Web Politics QA #572 (`34773873052`) → **PASS**
-- Politics Functional First Journey #83 (`34773873064`) → **PASS**
-- Politics Xi Runtime Journey #2 (`34773873057`) → **PASS**
-- Xi Runtime artifact → **90/90 checks PASS**
-
-The Xi-specific journey proves:
-
-1. **C00–C17 runtime identity** — 18 chapters preserve Xi identity, Natural Units, external-primary Chengfeng handoff and the intended generic subject runtime.
-2. **Clean verification** — a real Xi Unit executes five clean Xiao1000 first attempts; each records `STABLE`, Unit Return appears, no Wrong/Uncertain debt is manufactured, and the UI explicitly preserves `不等于长期掌握`.
-3. **Meaningful resume** — after a stable first answer, the actual next pending Xi question is saved as `VERIFY`; refresh restores it active with subject/chapter/unit identity intact.
-4. **Wrong/Uncertain route** — a real problem first attempt is preserved distinctly, routes to the owning Chengfeng source, and saves `REPAIR_SOURCE`.
-5. **Repair return** — return control restores the interrupted question/result and repair panel.
-6. **First-attempt immutability** — the stored first-attempt object remains unchanged through repair return.
-
-Shared Politics Functional First remains regression evidence only. Xi R PASS is owned by the Xi-specific executed journey.
+- Static Web Politics QA #579 (`34774453094`) → PASS;
+- Politics Xi Runtime Journey #6 (`34774453081`) → PASS;
+- Politics Xi Evidence Journey #3 (`34774453080`) → PASS;
+- Politics Functional First Journey #90 (`34774453110`) → PASS.
 
 ---
 
-## R boundary / negative space
+## Transfer / U boundary
 
-R PASS does **not** mean:
+Do **not** invent a later-transfer workflow merely to make E look more complete.
 
-- every Xi question has been exhaustively browser-tested;
-- STABLE means mastery;
-- repair turns historical Wrong/Uncertain evidence into first-attempt success;
-- Return Packet source attribution/persistence semantics have been independently accepted under E;
-- later fresh/holdout transfer has been executed;
-- Kian has studied or mastered Xi.
+Fresh/holdout transfer belongs to later review/mock phases and was not executed in this first-round E closure. The invariant is:
 
----
+> Future fresh/holdout evidence may strengthen or challenge earlier evidence, but it must append/reconcile; it must never overwrite first-attempt truth.
 
-## E target
-
-E must now judge evidence truth rather than navigation mechanics:
-
-```text
-first attempt remains durable and immutable
-→ repair never rewrites history into success
-→ Wrong/Uncertain remains attributable to owning Unit/source
-→ STABLE remains this-pass evidence only
-→ persistence failure fails closed
-→ Return Packet preserves evidence meaning after later navigation
-→ later transfer may strengthen/challenge without overwriting first attempt
-```
-
-R PASS is prior evidence for E, not a substitute for it.
+`U` remains strictly learner-only. CI, simulated attempts, repository state, screenshots, browser automation or Acceptance cannot turn U green.
 
 ---
 
-## Frozen upstream boundary
+## Frozen upstream / anti-overengineering boundary
 
 ```text
 Chengfeng  continuous first-round mainline on iPad / MarginNote
-Suyi       compact framework / exactness / past-exam cross-check only
+Suyi       framework / exactness / past-exam cross-check input
 KianOS     hierarchy / role / selective projection / verification / repair companion
 Xiao1000   verification and evidence
 ```
 
-Do not reopen S/K/L/P/R merely for polish, do not turn backend completeness into first-round memorization debt, and do not infer U or mastery from engineering state.
+Do not:
 
-Current Xi still owns 60 canonical Natural Units: 6 ordinary P0, 36 ordinary P1, 12 ordinary P2, plus 6 frozen-pilot C02 units without ordinary priority.
+- turn Xi JSON/Astro into a second Chengfeng course;
+- expose all backend content merely because it exists;
+- promote P0/P1/P2 ownership into mandatory first-round recall or Memory debt;
+- reopen S/K/L/P/R/E merely because more can be built;
+- infer study, mastery, transfer or U from engineering acceptance.
+
+Current scheduling rule:
+
+```text
+real Xi study / U evidence
+>
+more Xi engineering
+>
+more visual polish
+```
 
 ---
 
 ## Current owners
 
-- teaching assets → `content/politics/learning/xi/ch00.json` … `ch17.json`
-- subject/review assets → `content/politics/learning/xi/`
+- teaching/review assets → `content/politics/learning/xi/`
 - Xi Projection adapter → `static-web/src/lib/politicsXiProjection.mjs`
 - Unit Return runtime → `static-web/src/lib/politicsUnitReturn.mjs`
+- Evidence provenance enhancer → `static-web/src/components/PoliticsEvidenceEnhancer.astro`
 - Xi Runtime journey → `static-web/scripts/test-politics-xi-runtime.mjs`
+- Xi Evidence model audit → `static-web/scripts/audit-politics-xi-evidence.mjs`
+- Xi Evidence browser journey → `static-web/scripts/test-politics-xi-evidence.mjs`
 - scoped Acceptance Truth → `content/politics/learning/xi/ACCEPTANCE.md`
 - shared contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
@@ -230,7 +227,7 @@ Current Xi still owns 60 canonical Natural Units: 6 ordinary P0, 36 ordinary P1,
 ## Truth boundaries
 
 ### Artifact Truth
-Current Xi teaching/review assets plus the narrow Xi Projection adapter and shared Politics Runtime owners.
+Current Xi teaching/review assets plus the narrow Xi Projection adapter and shared Politics Runtime/Evidence owners.
 
 ### Acceptance Truth
 `content/politics/learning/xi/ACCEPTANCE.md`
@@ -244,8 +241,8 @@ Private browser / Return Packet / conversation evidence only.
 
 ```text
 Xi CURRENT
-→ Xi ACCEPTANCE
-→ begin at E
-→ use R evidence as prior evidence only
-→ do not reopen accepted S/K/L/P/R without concrete evidence
+→ S/K/L/P/R/E are closed engineering gates
+→ next legitimate gate is U / real Kian use
+→ do not run more Xi engineering by default
+→ if real friction appears, reopen only its earliest responsible owner
 ```
