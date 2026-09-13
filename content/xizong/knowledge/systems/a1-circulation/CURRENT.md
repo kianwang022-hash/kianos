@@ -10,9 +10,9 @@ This file does not own medical Core, lane learning semantics, Acceptance Truth, 
 ## Work Cursor
 
 **Scope:** A1 — Circulation  
-**Active engineering stage:** fresh **Runtime Loop** re-acceptance  
-**Blocker:** none upstream; browser journey must finish after two real Runtime repairs and one test-only DOM reconciliation  
-**Next action:** run the standard Xizong QA browser journey. If the full executed path passes, close R and activate E. Do not perform U.
+**Active engineering stage:** fresh **Evidence / Acceptance** re-acceptance  
+**Blocker:** none through Runtime  
+**Next action:** fresh-audit A1 evidence semantics and storage behavior: repeated Recall attempts, repair≠mastery, Wrong/Uncertain routing, reviewed-only precise repair, holdout protection, stale/version invalidation, repair inbox return, and malformed-state containment. Stop before U.
 
 Current fresh progress:
 
@@ -22,119 +22,92 @@ K        RE-ACCEPTED after semantic repair
 L        RE-ACCEPTED
 Content  CLOSED
 P        RE-ACCEPTED after Projection repair
-R        ACTIVE — two real defects repaired; browser verification continuing
-E        downstream-frozen behind R
+R        RE-ACCEPTED by executed browser journey
+E        ACTIVE fresh attack
 U        real learner only / external workflow
 ```
 
-> Engineering evidence must not manufacture learner progress. This Chat stops before U.
+> Engineering evidence must not manufacture learner progress. U is explicitly owned elsewhere.
 
 ---
 
-## Current R evidence
+## R closure receipt
 
 Durable executable journey:
 
 `static-web/scripts/test-xizong-a1-browser-journey.mjs`
 
-It launches Astro preview + headless Chrome through CDP and writes `.qa/xizong-a1-browser-runtime.json`.
+It starts Astro preview + headless Chrome through CDP and exercises real DOM/localStorage transitions.
 
-### QA #352 / `34769191043` — real defect R1
+Two real Runtime defects were found before closure:
 
-Passed clean start, Logic Group lecture handoff, early Recall/Reveal rejection, current-group-only formal learning evidence, refresh/resume and early Block Recall rejection.
+1. **Logic Group premature closure** — rating the final-position KP could close a group despite an unrecalled middle KP. Fixed by returning to the first Recall gap and allowing closure only when every current-group KP has Recall evidence (`83b2ffbd313557451e4ec8fb454236d331b160d4`).
+2. **Block completion transient false-ready state** — Block runtime and enhancer competed over the completion button. `XizongBlockV6.canComplete()` now directly requires all KP formal contact + all KP Recall + Block Recall + original-Lecture one-pass confirmation (`2e5cde38fee9d78f9a0841fa766b6d3e3696d05f`).
 
-Found:
+QA #354 exposed a test-only obsolete System Recall selector; the browser assertion was reconciled to the actual closed-dialog semantics without weakening product guards.
 
-> Logic Group closure could occur after rating the final-position KP even if a middle KP had no Recall evidence.
+### Final executed Runtime evidence
 
-Fixed in `83b2ffbd313557451e4ec8fb454236d331b160d4`:
+**QA #355 / run `34769821351` → SUCCESS**.  
+Artifact: `xizong-a1-browser-runtime`, digest `sha256:ecf94930ba888e8cafca1fc8f7b8ab89f6feb8a24aa768dc38dcdcacbd2d3e00`.
 
-```text
-rate current KP
-→ find first current-group KP without Recall evidence
-→ if found: return to that gap
-→ only if none remain: group_close
-```
+Executed Chrome journey passed **39 checks**, including:
 
-### QA #353 / `34769447361` — real defect R2
+- clean Block start with no manufactured completion;
+- Block → Logic Group → continuous original-Lecture stage;
+- no implicit learning evidence merely from entering a group;
+- early KP Recall and early `Reveal Core` rejection;
+- current-group-only formal learning contact (`4/19` for first B2 group);
+- first Recall persistence and mid-group refresh/resume;
+- all-KP requirement before Logic Group closure;
+- B2 **19/19 learned + 19/19 recalled** before Block Recall;
+- Block-complete lock before Block Recall and before original-Lecture confirmation;
+- Block completion persistence across refresh;
+- Home Continue returning to `/xizong/circulation/b02/`;
+- early System Recall dialog remains closed and writes no evidence;
+- all-12-Blocks engineering fixture releases System Recall;
+- System Recall reveal/completion persists;
+- A1 official sweep resolves **376 questions**;
+- explicit whole-paper holdout required before sweep;
+- saved holdout unlocks question workspace;
+- malformed Block state falls back to clean orientation and manufactures no progress.
 
-Proved after R1 repair:
+Evidence class: `EXECUTED_HEADLESS_CHROME_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U`.
 
-- B2 formal learning contact **19/19**;
-- B2 Recall evidence **19/19**;
-- no missing Recall IDs;
-- Block Recall gate correct.
-
-Found:
-
-> Block runtime and enhancer separately controlled the completion button, allowing a transient false-ready affordance while `lectureRead=false`.
-
-Fixed in `2e5cde38fee9d78f9a0841fa766b6d3e3696d05f`:
-
-```text
-all KP formal learning contact
-+ all KP Recall evidence
-+ Block Recall complete
-+ original Lecture one-pass confirmation
-→ Block complete may become available
-```
-
-### QA #354 / `34769646325` — test-only mismatch, no product rollback
-
-The journey then passed through:
-
-- all 19/19 learning + Recall evidence;
-- Block Recall completion;
-- Lecture-confirmation lock/unlock;
-- Block completion persistence;
-- refresh of completed state;
-- Home Continue returning to the last real A1 Block.
-
-It stopped at the **test assertion** for early System Recall. The test referenced old nonexistent selectors (`data-system-recall-prompt` / `data-system-recall-answer`). The actual System Recall UI is a closed `<dialog data-recall-dialog>` whose prompt text is allowed to exist in DOM while the dialog remains unopened.
-
-The Runtime guard already intercepts the start/reveal action before the dialog handler when all A1 Blocks are not complete. Therefore the correct executed assertions are:
-
-```text
-before all 12 Blocks complete:
-click System Recall
-→ dialog.open = false
-→ no System Recall evidence written
-
-after engineering fixture marks all 12 complete:
-click System Recall
-→ dialog.open = true
-→ neutral front visible
-→ Reveal allowed
-```
-
-Only the browser test was reconciled to these real DOM semantics. No learner-facing product behavior was weakened.
+Fresh R verdict: **PASS**.
 
 ---
 
-## R acceptance target remaining
+## Active E fresh-audit contract
 
-The next normal browser run must still prove the complete remaining path:
+Fresh E must prove evidence semantics, not merely that Runtime can click through.
 
-1. all prior Block/Logic Group checks remain green;
-2. early System Recall dialog remains closed and creates no evidence;
-3. all-12-Blocks engineering fixture releases System Recall;
-4. System Recall reveal/completion persists;
-5. explicit whole-paper holdout is required before official System sweep;
-6. saved holdout unlocks the sweep and question workspace executes;
-7. malformed browser-local Block state falls back to clean orientation without manufactured progress.
+Required invariants:
 
-If this passes, R fresh closes and E becomes active. If another concrete Runtime defect appears, repair only the smallest responsible owner and rerun.
+1. every real KP Recall attempt can be preserved as evidence, including repeated attempts / repeated same rating;
+2. the latest convenience state may update, but it must not erase the historical attempt record when that history is required;
+3. repair evidence is **repair-only**, never mastery;
+4. stable-correct question work must not manufacture repair debt;
+5. only Wrong / Uncertain question evidence enters repair routing;
+6. precise Question→Block/KP repair uses reviewed relations only; absent reviewed relation must remain unresolved rather than guessed;
+7. full-paper holdout remains excluded from ordinary System sweep evidence;
+8. stale Block/System content versions invalidate or quarantine incompatible evidence rather than silently reusing it;
+9. System→Block repair inbox is write-before-clear, idempotent, and works for already-open Block tabs;
+10. repair return must not rewrite original Recall/question evidence;
+11. malformed evidence/state must fail closed without creating mastery/progress.
+
+Use existing shared A2/A3 evidence architecture as prior evidence only; fresh A1 must inspect/execute the relevant current owners before E closes.
 
 ---
 
-## Frozen while R is active
+## Frozen while E is active
 
-- no medical Content rewrite without a runtime-discovered semantic contradiction;
-- no visual-polish expansion;
+- no medical Content rewrite without an evidence-discovered semantic contradiction;
+- no UI polish expansion;
 - no Question→KP inference;
-- no learner-progress claims;
-- no U execution;
-- no sibling-System mutation except shared-runtime regression fixes required by the same shared contract.
+- no U execution or U claim;
+- no synthetic learner progress;
+- no sibling-System edits except strictly necessary shared evidence-contract regression repair.
 
 ---
 
@@ -147,7 +120,7 @@ If this passes, R fresh closes and E becomes active. If another concrete Runtime
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared policy → `content/xizong/knowledge/learner/study-policy.json`
 - A1 Learning support → `content/xizong/knowledge/learner/a1-circulation-learning.json`
-- learner-facing Projection/Runtime → Xizong surfaces under `static-web/`
+- Projection/Runtime/Evidence → Xizong surfaces under `static-web/`
 
 ### Acceptance Truth
 
@@ -163,7 +136,8 @@ Private learner/browser/conversation evidence only.
 
 ```text
 A1 CURRENT
-→ standard Xizong QA browser Runtime journey
-→ PASS: R close → E active
-→ FAIL: smallest responsible Runtime owner
+→ exact Evidence owners + existing evidence validators
+→ adversarial / executed A1 evidence audit
+→ PASS: stop engineering before U
+→ FAIL: repair smallest responsible Evidence owner
 ```
