@@ -1,163 +1,161 @@
 # LexicalOS Current
 
-Role: LexicalOS lane Work Cursor + restart entry  
+Role: LexicalOS lane Work Cursor + fresh-Chat restart entry  
 Parent: root `CURRENT.md`
 
-This file does not own lexical semantics, lane learning semantics, Acceptance Truth, or Kian's private learner progress.
+This file owns only **what should be continued next**. It does not own lexical semantics, learner logic, Acceptance Truth, or Kian's private learner state.
 
 ---
 
 ## Work Cursor
 
-**Active stage:** `Content Realization / Optimization — continue bounded 7,946-owner execution under the accepted vNext Content model.`
+**ACTIVE scope:** `LexicalOS vNext system-logic closure`  
+**ACTIVE design step:** `Evidence / Memory Logic`  
+**Catalog Content execution:** `PAUSED at 24 / 7,946` until this system-logic pass is explicitly closed or reactivated.
 
-- Learning authority: `content/lexical/LEARNING_CONTRACT.md`.
-- Content authority: `content/lexical/CONTENT_ASSET_CONTRACT.md`.
-- Gold calibration: `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` — PASS.
-- Batch01: `content/lexical/audit/vnext-content-execution/batch01-o0001-o0012.json` — PASS.
-- Batch02: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json` — PASS on this branch; durable after merge.
-- Learner scope: existing **7,946 Main Words** only; Pack remains metadata.
-- Full-catalog K: **BLOCKED** until all 7,946 owners are concluded and known semantic / ownership debt is closed.
+The previous cursor that told a fresh Chat to continue `o0025` was stale relative to the newer learner-system discussion. **Do not resume the old bounded Batch mainline merely because historical receipts / branches exist.**
 
-Do not resume the old `consolidated repair inventory → repair queue` path or stacked Fresh-Rebuild graph as Current authority. Historical Fresh-Rebuild assets may serve only as bounded provenance / candidate evidence.
-
-### Learner logic Content must serve
+The current mainline is the learner system itself:
 
 ```text
-reliable coverage judgment
-→ learner-controlled Fast Pass or Depth
-→ rich Recall / Reveal when worthwhile
+reliable Coverage
+→ learner-controlled Fast Pass / Depth
+→ rich Recall / Reveal
 → local + only where needed
-→ selective targeted Repair / Challenge
-→ real-context transfer
-→ fade / reactivate from evidence
+→ narrow Repair
+→ delayed adaptive Challenge
+→ real-context Transfer
+→ evidence-driven fade / reactivate
 ```
 
-Required distinctions:
-- every Main Word gets a reliable Content conclusion;
-- `SAFE_SIMPLE` permits fast passage by content but does not declare personal mastery;
-- `DEPTH_READY` supplies coherent Core + Senses + first-class Expansion when Depth is chosen;
-- Unknown / Fuzzy / Known / Mastered is private whole-card learner state;
-- whole-card revisit does not create full-card Repair debt;
-- local `+` / real failure owns targeted Repair admission;
-- no fixed daily volume / due-card quota is canonical;
-- Astro executes low-friction learning; Chat adaptively orchestrates policy.
+Current work is to finish the semantics that make the last half of that loop trustworthy, especially what evidence is recorded, what creates Repair debt, what retires it, and how real English performance changes future lexical work.
 
 ---
 
-## vNext Content execution state
+## Current accepted foundations
 
-### Gold calibration — PASS
+### Scope / ownership
 
-`ambulance` proved `SAFE_SIMPLE`; `abstract`, `access`, and `sanction` proved rich `DEPTH_READY` handling, including construction/form and same-word ownership boundaries.
+- learner universe for this phase = existing **7,946 Main Words**;
+- one Global Lexicon truth; Pack remains metadata / provenance, not duplicated semantics;
+- Word Natural Owner owns word-local semantics;
+- Relation Natural Owner owns genuine cross-word semantic boundaries;
+- shared Content must never encode Kian's private familiarity / mastery.
 
-### Batch01 `o0001–o0012` — PASS
+### Learning model
 
-```text
-12 / 12 concluded
-8 UPGRADED | 4 NO_CHANGE
-8 DEPTH_READY | 4 SAFE_SIMPLE
-0 BLOCKED
-```
+`content/lexical/LEARNING_CONTRACT.md` remains the learner-facing authority.
 
-### Batch02 `o0013–o0024` — PASS on branch
+Already accepted:
 
-Receipt: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json`.
+- every Main Word deserves reliable **content coverage judgment**;
+- not every Main Word deserves learner Depth;
+- whole-card familiarity judgment and local Repair admission are separate;
+- a full-card revisit can end with **zero** future Repair debt;
+- `+` means one exact lexical object deserves future attention;
+- rich `Expansion` is first-class for Depth;
+- Repair is narrow and testing should be stingy;
+- later real-context transfer evidence is stronger than repeated isolated button presses;
+- no fixed daily word quota, due-card quota, or punitive overdue pile is canonical;
+- Astro executes low-friction interactions; Chat adapts strategy; Kian retains final learner agency.
 
-```text
-12 / 12 concluded
-7 UPGRADED | 5 NO_CHANGE
-8 DEPTH_READY | 4 SAFE_SIMPLE
-0 BLOCKED
-0 Relation mutations | 0 Form mutations
-0 learner-state mutations | 0 Pack mutations
-```
+### Content model
 
-Depth-ready owners:
-- upgraded: `abroad`, `abrupt`, `absence`, `absent`, `absorb`, `abuse`, `academic`;
-- no-change: `abstract`, already accepted by vNext Gold.
+`content/lexical/CONTENT_ASSET_CONTRACT.md` remains the Content authority.
 
-Safe-simple no-change owners:
-- `absolute`, `absurd`, `abundant`, `academy`.
+- `SAFE_SIMPLE` = trustworthy low-risk content, Fast-Pass eligible by content;
+- `DEPTH_READY` = trustworthy rich/high-risk content ready for a coherent Depth encounter;
+- `BLOCKED` = unresolved semantic truth preserved rather than guessed;
+- final Content judgment is separate from whether an owner was edited (`NO_CHANGE / UPGRADED`).
 
-Fresh vNext judgment intentionally diverged from old Fresh Batch03 for `abrupt`: its three valid branches were retained, but the old gloss-list Core was upgraded to a predictive no-gradual-transition model. Earlier Batch03 files remain provenance/candidate evidence only; their stacked execution model is superseded.
-
-### Contiguous progress / next cursor
-
-After Batch02 merges:
-
-> **current-generation contiguous coverage = `24 / 7,946`; next ordinal = `o0025`.**
-
-Start the next unit from the newly accepted `main@HEAD`, never by stacking on this branch.
-
-Keep the next few units bounded. Scale only after repeated direct-close units stay semantically clean and Relation/Form collisions remain controlled.
+Gold calibration and `o0001–o0024` receipts remain valid evidence. They are **not the current Work Cursor**.
 
 ---
 
-## Execution rule
+## ACTIVE unresolved design: Evidence / Memory Logic
 
-For each bounded unit:
+The next continuation must resolve these questions before catalog execution or downstream UI/runtime work becomes the mainline again:
 
-```text
-read bounded owners
-→ fresh judgment
-→ direct owner mutation when needed
-→ final-object readback
-→ classify SAFE_SIMPLE / DEPTH_READY / BLOCKED
-→ record NO_CHANGE / UPGRADED separately
-→ reconcile Relation/Form writes against latest integration truth
-→ receipt / closure
-```
+1. **Routing evidence vs Repair evidence**  
+   Whole-card `Known / Fuzzy / Unknown / Mastered`-type judgment may guide what Kian opens now, but must not silently manufacture Repair debt.
 
-Do not inspect hundreds of owners, accumulate repair specs, then bulk-apply later. A future Chat may own a larger range, but acceptance still closes in smaller semantic units.
+2. **Minimal event history**  
+   Decide the smallest durable events worth recording, e.g. coverage pass, Depth open, local `+`, Challenge outcome, real-task lexical success/failure, manual clear/reactivation.
+
+3. **Repair lifecycle**  
+   Define a small lifecycle such as `NONE → ACTIVE → DORMANT`, with repeated failure escalating to diagnosis rather than to more mechanical repetitions. Do not invent a fake precise mastery percentage.
+
+4. **Admission rule**  
+   Repair should normally be earned by explicit local `+` or meaningful failure evidence. Fuzzy/Unknown whole-card feeling by itself is a Depth-routing signal, not an automatic testing obligation.
+
+5. **Retirement / reactivation evidence**  
+   A clean high-information Challenge success may be enough to retire a low-severity target; later real-context success may retire artificial review earlier; later real-context failure may reactivate immediately. Exact policy should stay evidence-driven rather than calendar-driven.
+
+6. **Scheduling semantics**  
+   Missed days must not create an ever-growing overdue queue. Next-session Repair should be compiled from current evidence, with Coverage remaining the long-run mainline.
+
+7. **Acceptance proof**  
+   Define what P/R/E must demonstrate before the system is called Functional First for real study.
+
+Hard architectural sentence for this step:
+
+> **Store what happened; compile what deserves learner time now. Do not pretend the system knows an exact mastery score.**
 
 ---
 
-## Frozen / out of scope
+## Catalog Content status — preserved, PAUSED
 
-- no learner UI / Codex visual redesign;
-- no full Runtime or scheduler rewrite;
+Current-generation accepted contiguous Content evidence on `main`:
+
+```text
+Gold calibration            PASS
+Batch01 o0001–o0012         PASS
+Batch02 o0013–o0024         PASS
+contiguous coverage         24 / 7,946
+next ordinal if reactivated o0025
+```
+
+Full-catalog K therefore remains BLOCKED. Nothing in the current system-logic pass upgrades the remaining 7,922 owners by implication.
+
+When Content execution is later reactivated, resume only from the then-current authority and then-current integrated owners. Do not revive stacked Fresh-Rebuild branches, historical repair queues, or old branch-local answer keys as Current Truth.
+
+---
+
+## Historical / stale routes that are NOT Current
+
+Do not continue any of these just because they are easy to discover in GitHub:
+
+- `lexical/fresh-rebuild-*` branch choreography;
+- `lexical-batch05-work` and its deferred spec/repair accumulation model;
+- `lexical/vnext-wave03-o0025-o0124` or other temporary inspection/execution branches unless Current is explicitly moved back there;
+- old `consolidated repair inventory → repair queue` narratives;
+- retired `continuation.json` issue pointers;
+- historical Issues / audit documents as semantic authority.
+
+Historical assets may be used only as bounded evidence when the current task genuinely needs them.
+
+---
+
+## Frozen / out of scope while this cursor is active
+
+- no new `o0025+` bulk Content batch;
+- no UI visual polish / Codex styling pass;
+- no full scheduler implementation before Evidence / Memory semantics are frozen;
 - no Pack-profile expansion;
-- no new historical audit round;
-- no blind wholesale rewrite for throughput;
-- no private learner-state mutation;
-- no English / Politics / Xizong sibling changes.
-
-Existing downstream Lexical UI / Runtime is provisional and must not decide Content truth.
+- no sibling English / Politics / Xizong changes;
+- no private learner-state fabrication.
 
 ---
 
-## Required reads for next Chat
+## Required reads for the next fresh Chat
 
 1. `content/lexical/CURRENT.md`
 2. `content/lexical/LEARNING_CONTRACT.md`
-3. `content/lexical/CONTENT_ASSET_CONTRACT.md`
-4. `content/lexical/ACCEPTANCE.md`
-5. latest vNext execution receipt(s)
-6. only exact Current owners / Relation / Form owners needed for the next bounded unit
-7. historical assets only as bounded defect-sentinel / candidate evidence when materially useful
+3. `content/lexical/ACCEPTANCE.md`
+4. `content/lexical/CONTENT_ASSET_CONTRACT.md` only when Content-shape detail is needed
+5. exact owner/runtime files only after the active Evidence / Memory decision requires them
 
----
-
-## Truth references
-
-### Artifact Truth
-
-- Word owners → `content/lexical/words/by-ordinal/`
-- Relation owners → `content/lexical/relations/by-id/`
-- owner schema → `content/lexical/schema.json`
-- pack membership metadata → `content/lexical/canonical/packs/`
-- lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
-- vNext execution evidence → `content/lexical/audit/vnext-content-calibration/` and `content/lexical/audit/vnext-content-execution/`
-
-### Acceptance Truth
-
-`content/lexical/ACCEPTANCE.md`
-
-### Learner Truth
-
-Private browser / packet / conversation evidence only. Shared repository state must not manufacture Kian's personal familiarity, repair queue, or mastery.
+**Do not read old Batch branches as a continuation source.**
 
 ---
 
@@ -167,9 +165,10 @@ Private browser / packet / conversation evidence only. Shared repository state m
 main@HEAD
 → Lexical CURRENT
 → Learning Contract
-→ Content Asset Contract
 → Acceptance
-→ latest vNext receipt
-→ next bounded unit from o0025
-→ direct-close execution
+→ continue Evidence / Memory Logic
+→ reconcile learner/runtime/evidence semantics
+→ only then choose the next active child scope
 ```
+
+A fresh Chat seeing this file must **not** automatically start `o0025`.
