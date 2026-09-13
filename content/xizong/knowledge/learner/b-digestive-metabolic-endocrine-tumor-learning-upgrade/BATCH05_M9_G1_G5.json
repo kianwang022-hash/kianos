@@ -1,0 +1,292 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L5_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L5_M9_G1_G5",
+  "label": "核苷酸供给 → 核酸结构 → 复制 → 表达 → 调控 → 损伤/肿瘤分子Gate",
+  "stable_identity": {
+    "blocks": ["M9", "G1", "G2", "G3", "G4", "G5"],
+    "canonical_kp_count": 74,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "within_scope": "This batch is the working Learning owner for M9 + G1-G5 on branch b-learning-upgrade.",
+    "whole_system_substrate": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+    "route_override": "M9 and G1-G5 are promoted before D21-D23 because accepted System Knowledge says G1-G5 provide information/repair/tumor gates before organ-specific tumor application; G1 explicitly requires M9, and G5 exits to pathology tumor gate then organ tumors.",
+    "block_continuity_rule": "D21 is not split into an endocrine-only pass plus a later cancer pass. It is a canonical continuous first-learning Block and contains organ-specific thyroid tumor application; therefore the D21-D23 target-gland branch waits until the molecular/tumor prerequisite gate is learned.",
+    "rule": "Learning may regroup/reorder stable KP identities, but it cannot invent molecular details beyond the Current Study or silently close Source/Visual gaps."
+  },
+  "learning_arc": {
+    "question": "细胞怎样先制造核苷酸原料，再把它们组织成可保存、复制、表达和调控的信息系统；当DNA损伤不能正确处理、油门持续开启或刹车失活时，怎样进入肿瘤分子失控，并用分子技术识别这些变化？",
+    "block_order": ["M9", "G1", "G2", "G3", "G4", "G5"],
+    "causal_spine": [
+      "M9 supplies the material layer: PRPP, purine/pyrimidine synthesis, deoxynucleotide/dTMP production and anti-metabolite choke points.",
+      "G1 changes the question from supply to information structure: nucleotide → directional nucleic-acid chain → DNA/RNA/chromatin/genome organization.",
+      "G2 asks how that DNA is copied faithfully under 5′→3′ constraints, including telomere and reverse-transcription exceptions.",
+      "G3 asks how selected information becomes RNA and protein through transcription, RNA processing, translation and protein maturation.",
+      "G4 asks when/where/how much those genes are expressed, from chromatin and operons to cis/trans control and RNA interference.",
+      "G5 closes the branch by asking how mutation/repair failure plus oncogene activation/tumor-suppressor loss breaks growth control, then how recombinant DNA/PCR/hybridization tools inspect or manipulate the altered system."
+    ],
+    "exit_reconstruction": "闭卷从PRPP/IMP/UMP讲到DNA/RNA结构、复制、转录翻译、表达调控，再用『损伤/突变 + 原癌油门 + 抑癌刹车』解释分子层肿瘤失控；最后说明PCR/杂交/重组DNA等工具各在检测或操作哪一层。"
+  },
+  "route_finding": {
+    "previous_active_batch": "D21-D23",
+    "decision": "DEFER_D21_D23_UNTIL_AFTER_M9_G1_G5",
+    "evidence": [
+      "G1 canonical prerequisites include M9.",
+      "M9 canonical owner says G1-G5 later Recall nucleotide supply/blockade rather than relearn it.",
+      "G5 canonical prerequisites include G1-G4 and M9, and its next path is pathology tumor gate then organ-specific tumor applications.",
+      "D21 contains a full thyroid-cancer section (KP23-KP25) inside the same canonical Block; splitting the Block solely to preserve the old route would violate Block continuity.",
+      "D23 explicitly recalls D21, so moving D22/D23 ahead while delaying only D21 would create a new dependency inversion."
+    ]
+  },
+  "blocks": {
+    "M9": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      "group_count": 3,
+      "logic_groups": [
+        {
+          "id": "b-m09-lg01-v2",
+          "kp": [1,2,3,4,5],
+          "label": "PRPP与嘌呤：先造IMP，再分流AMP/GMP，旧碱基还能补救回收",
+          "local_question": "嘌呤为何以PRPP为活化核糖，在其上逐步造环得到IMP，再分成AMP/GMP；从头、补救和分解到尿酸怎样互相补位？",
+          "learning_reason": "现有KP01-05是稳定完整的嘌呤供应链，fresh pass保留分组，替换模板化closure。",
+          "closure": "能从PPP→PRPP→PRA→IMP讲到AMP/GMP分支，再比较从头vs补救，并把HGPRT与嘌呤→尿酸/黄嘌呤氧化酶放回同一供应—回收—清除模型。",
+          "visual_gate": "P071-P074嘌呤原子来源和总通路回原PDF；不在文字层硬补空间位置。"
+        },
+        {
+          "id": "b-m09-lg02-v2",
+          "kp": [6,7,8,9,10],
+          "label": "嘧啶与DNA原料：先造环再接PRPP，再把NDP还原并造dTMP",
+          "local_question": "嘧啶为何先由CPS-II等造出乳清酸环再接PRPP形成UMP；RNA核苷酸怎样变成脱氧形式，dUMP又怎样依赖FH4变成dTMP？",
+          "learning_reason": "KP06-10天然形成嘧啶从头→UMP/UTP/CTP→NDP还原→dTMP的一条DNA原料链。",
+          "closure": "能比较嘌呤『PRPP上造环』与嘧啶『先造环再接PRPP』，区分CPS-I/CPS-II，并恢复NDP水平还原、NADPH和N5,N10-CH2-FH4→dTMP。"
+        },
+        {
+          "id": "b-m09-lg03-v2",
+          "kp": [11,12,13,14,15],
+          "label": "抗代谢物不是药名表：按核苷酸网络卡点定位",
+          "local_question": "6-MP、别嘌呤醇、阿糖胞苷、5-FU、MTX、氮杂丝氨酸分别卡在嘌呤供给、尿酸分解、脱氧化、dTMP/FH4或Gln依赖反应的哪一道门？",
+          "learning_reason": "机制网络已完成后再放药物卡点，能让药名依赖通路而不是独立背诵。",
+          "closure": "不给药物表也能把主要药物映射回前两组的具体节点，并区分『阻断DNA原料供给』与『抑制尿酸形成』不是同一治疗目标；Source不确定的一一配对继续回原图。",
+          "visual_gate": "P076抗代谢物靶点图必须回原PDF。"
+        }
+      ]
+    },
+    "G1": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-g01-lg01-v2",
+          "kp": [1,2,3],
+          "label": "从核苷酸原料到有方向的信息链",
+          "local_question": "M9造出的核苷酸怎样形成5′→3′核酸链；DNA/RNA最小化学身份是什么；碱基组成与A260/A280又怎样帮助判断核酸身份/纯度？",
+          "learning_reason": "旧LG01把KP01-06全部并成『核酸结构』过宽。KP01-03先闭合积木—方向—身份/测量层，减少同时处理三维结构的负荷。",
+          "closure": "能区分核苷/核苷酸、DNA/RNA，说明3′,5′-磷酸二酯键与5′→3′方向，并用Chargaff/260-280比值做最小身份和纯度判断。"
+        },
+        {
+          "id": "b-g01-lg02-v2",
+          "kp": [4,5,6],
+          "label": "DNA怎样既稳定保存又能被打开：双螺旋—核小体—变复性",
+          "local_question": "DNA的双螺旋和核小体如何提供稳定包装；为什么氢键/堆积力可逆破坏后一级结构仍在，并能复性/杂交？",
+          "learning_reason": "KP04-06共同回答DNA物理组织与可逆打开，适合独立于化学积木层。",
+          "closure": "能恢复B-DNA方向/沟/稳定力、核小体核心与H1位置，再解释变性、Tm、复性和杂交；明确变性不切断一级结构。",
+          "visual_gate": "B-DNA、核小体、Tm/杂交图回原Lecture。"
+        },
+        {
+          "id": "b-g01-lg03-v2",
+          "kp": [7,8,9],
+          "label": "从RNA身份到翻译前准确性",
+          "local_question": "mRNA/tRNA/rRNA各承担什么角色；密码子怎样映射氨基酸；tRNA和氨酰-tRNA合成酶怎样在真正翻译前保证『车』和『货』匹配？",
+          "learning_reason": "现有KP07-09分组成立，保留并用G3前置入口来闭合。",
+          "closure": "能比较三类RNA，恢复遗传密码核心性质和摆动，并解释aaRS为什么决定氨基酸是否装对，而密码子-反密码子只检查tRNA。"
+        },
+        {
+          "id": "b-g01-lg04-v2",
+          "kp": [10],
+          "label": "真核基因组地图：信息在染色质里怎样被分段和组织",
+          "local_question": "真核基因组为什么是多复制子、单顺反子与断裂基因；外显子/内含子/UTR和重复序列分别属于什么结构层？",
+          "learning_reason": "KP10是从分子结构切向后续G2-G4的组织地图，保留独立短LG。",
+          "closure": "能比较原核/真核的复制子、顺反子和结构基因组织，并说明内含子会进入前体RNA但被剪除、UTR保留在成熟mRNA却不编码蛋白。"
+        }
+      ]
+    },
+    "G2": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-g02-lg01-v2",
+          "kp": [1,2,3],
+          "label": "复制首先是方向约束问题：半保留、复制叉、前导/后随与引物",
+          "local_question": "两条模板反向平行而DNApol只能5′→3′时，细胞怎样用前导/后随、冈崎片段和RNA引物解决连续复制问题？",
+          "learning_reason": "旧LG01的KP01-07过宽。KP01-03先完成几何/方向/起始条件，后面再学具体机器。",
+          "closure": "能用模板方向+5′→3′限制推出前导/后随和冈崎片段，并解释DNA复制为何需要3′-OH引物而转录不需要。",
+          "visual_gate": "复制叉与前导/后随链必须回原图。"
+        },
+        {
+          "id": "b-g02-lg02-v2",
+          "kp": [4,5,6,7],
+          "label": "复制机器怎样把约束执行成高保真复制",
+          "local_question": "DNApol、Topo、解旋酶、SSB、引物酶和连接酶各解决哪个机械问题；原核三阶段与真核多复制子怎样共享同一底层逻辑？",
+          "learning_reason": "KP04-07形成聚合酶功能→复制叉工具→阶段流程→原核/真核比较，是实际执行层。",
+          "closure": "能按任务而非酶名表恢复复制机器，说明聚合、3′→5′校对、去引物/封缺口，并把原核单起点与真核多复制子/PCNA/核小体装配放回同一模型。"
+        },
+        {
+          "id": "b-g02-lg03-v2",
+          "kp": [8,9],
+          "label": "两种特殊DNA合成问题：末端复制与RNA→DNA",
+          "local_question": "线性染色体末端为何需要端粒酶；逆转录又如何把模板从DNA换成RNA但最终仍形成DNA？",
+          "learning_reason": "现有KP08-09同组成立；两者都是常规复制之外的特殊模板/末端问题。",
+          "closure": "能解释端复制问题与端粒酶RNA模板，也能恢复RNA→RNA/DNA→ssDNA→dsDNA的逆转录方向，不把端粒酶和普通DNApol混成同一用途。"
+        },
+        {
+          "id": "b-g02-lg04-v2",
+          "kp": [10,11],
+          "label": "工具与边界：核酸酶/连接酶/引物需求 + 复制vs转录",
+          "local_question": "学完复制后，怎样用核酸酶/连接酶/引物需求快速区分实验与生理过程，并把复制和下一Block转录的共同点/差别一次压缩？",
+          "learning_reason": "现有KP10-11作为Block出口成立，保留。",
+          "closure": "能区分内/外切、限制酶和连接酶场景，比较复制/逆转录/PCR/转录谁需要何种引物，并把复制vs转录从模板、原料、引物、保真和产物五轴压缩。"
+        }
+      ]
+    },
+    "G3": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-g03-lg01-v2",
+          "kp": [1,2,3,4],
+          "label": "先把DNA读成RNA：原核模板选择、启动、延长与终止",
+          "local_question": "RNApol怎样选择模板链和启动子，在不需要引物的情况下开始5′→3′合成，并通过ρ依赖/内在终止结束？",
+          "learning_reason": "旧组把KP05真核三类RNApol也塞进原核起始/延长链。fresh pass先用KP01-04完整关闭原核转录，再切换真核。",
+          "closure": "能从模板/编码链讲到σ-启动子、闭合/开放复合物、延长与两类终止，并解释原核为何能边转录边翻译。"
+        },
+        {
+          "id": "b-g03-lg02-v2",
+          "kp": [5,6,7,8],
+          "label": "真核前体RNA怎样被分工生产并加工成成熟RNA",
+          "local_question": "RNApol I/II/III各先生产什么前体；mRNA的帽/尾/剪接/编辑和tRNA/rRNA加工怎样把前体变成可用成品并接受质量控制？",
+          "learning_reason": "KP05真正是加工层的入口：先决定谁生产哪种RNA，再进入KP06-08加工；因此从旧LG01移动到LG02。",
+          "closure": "能把I/II/III与主要产物对应，再连续讲帽、尾、剪接/选择性剪接/编辑以及tRNA/rRNA加工/质控；不把启动子、加尾信号和终止密码混层。"
+        },
+        {
+          "id": "b-g03-lg03-v2",
+          "kp": [9,10,11,12,13],
+          "label": "核糖体怎样把密码子变成肽链：起始—进位—成肽—转位—终止",
+          "local_question": "mRNA、氨酰tRNA、A/P/E位和蛋白因子如何组成翻译机器；起始、延长和终止各依赖什么方向与耗能？",
+          "learning_reason": "现有KP09-13是完整翻译循环，保持不拆。",
+          "closure": "能按起始→进位→成肽→转位→终止恢复核糖体循环，说明肽酰转移酶的rRNA本质和ATP/GTP分别花在哪里；低频因子名不阻塞主链。",
+          "visual_gate": "A/P/E位与翻译循环回原图。"
+        },
+        {
+          "id": "b-g03-lg04-v2",
+          "kp": [14,15],
+          "label": "蛋白离开核糖体以后：加工、折叠、靶向与干扰",
+          "local_question": "新生肽链为什么还不是最终功能蛋白；切割/修饰/折叠/辅基和靶向如何完成成熟，药物/毒物又能在哪些翻译节点干扰？",
+          "learning_reason": "现有Block出口结构成立，保留。",
+          "closure": "能区分翻译完成与蛋白成熟，恢复主要加工/折叠/靶向入口，并把代表性干扰剂定位回其作用阶段而不是背孤立药名。"
+        }
+      ]
+    },
+    "G4": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-g04-lg01-v2",
+          "kp": [1,2],
+          "label": "同样DNA为何不同表达：先决定染色质能不能被读",
+          "local_question": "相同基因组怎样产生时间/空间特异表达；DNA甲基化、组蛋白乙酰化和染色质开放怎样改变被转录机器访问的概率？",
+          "learning_reason": "现有KP01-02分组成立，是所有调控的最上游闸门。",
+          "closure": "能区分时间/空间特异与管家/诱导/阻遏基因，并用当前Study方向解释DNA/CpG甲基化vs组蛋白乙酰化对染色质可及性的影响。"
+        },
+        {
+          "id": "b-g04-lg02-v2",
+          "kp": [3,4,5,6],
+          "label": "原核快速调控：乳糖操纵子回答『开不开/开多大』，Trp再加衰减精调",
+          "local_question": "原核怎样把多个结构基因用操纵子成组控制；乳糖和葡萄糖怎样分别决定负调控解除与CAP正调控，Trp又怎样用粗调+衰减完成反馈？",
+          "learning_reason": "现有KP03-06是强连续模型，保留。",
+          "closure": "能画I/CAP/P/O/ZYA，推四种乳糖/葡萄糖组合，并比较Trp操纵子的阻遏粗调与衰减精调；明确衰减依赖原核转录翻译耦联。",
+          "visual_gate": "Lac四组合与Trp发卡图回原Lecture。"
+        },
+        {
+          "id": "b-g04-lg03-v2",
+          "kp": [7,8,9],
+          "label": "真核转录起始：顺式元件 + 反式因子 + Pol II前起始复合物",
+          "local_question": "同一DNA上的启动子/增强子等入口怎样被可扩散的转录因子识别，并最终把RNApol II与通用TF装成可启动的PIC？",
+          "learning_reason": "旧LG03把转录起始与转录后调控混成KP07-10。KP07-09本身恰好是DNA入口→蛋白识别→起始机器的连续链。",
+          "closure": "能区分cis vs trans，说明核受体也是配体依赖转录因子，并恢复TFIID→A→B→F-polII→E→H的最小装配逻辑；增强子专一性冲突保持Source边界。"
+        },
+        {
+          "id": "b-g04-lg04-v2",
+          "kp": [10],
+          "label": "转录以后仍能调：RNAi、mRNA稳定性与蛋白降解",
+          "local_question": "基因已经被转录以后，细胞还怎样通过RNA加工/输出/稳定性、miRNA/siRNA-RISC和蛋白降解改变最终蛋白量？",
+          "learning_reason": "KP10回答的是与转录起始不同的一整层控制，独立成短LG可避免把所有调控压成一组。",
+          "closure": "能说明完全/不完全互补的RNAi主要后果方向，并把mRNA稳定性、翻译效率和泛素-蛋白酶体放回『最终蛋白量』这一输出变量。"
+        }
+      ]
+    },
+    "G5": {
+      "learning_order": [1,12,13,2,3,4,5,6,7,8,9,10,11],
+      "group_count": 3,
+      "logic_groups": [
+        {
+          "id": "b-g05-lg01-v2",
+          "kp": [1,12,13],
+          "label": "先把『底盘』讲清：DNA怎样受损、发生突变并被修复",
+          "local_question": "G5总览说肿瘤失控有油门、刹车、底盘三道门；其中底盘到底怎样从DNA损伤变成点突变/插缺/重排，又由直接修复、BER/NER、错配、双链断裂和SOS系统兜底？",
+          "learning_reason": "旧顺序把修复KP12-13放在分子技术之后，切断了KP01『三道门』中修复失败的因果解释。fresh pass在KP01总览后立即学习KP12-13。",
+          "closure": "能从损伤→突变类型→修复系统恢复底盘稳定性，并说明非3倍数插缺为什么移码、BER/NER/错配/双链断裂/SOS各解决哪类问题；Current Study的双链修复taxonomy冲突不擅改。",
+          "visual_gate": "P181-P183损伤修复图回原PDF。"
+        },
+        {
+          "id": "b-g05-lg02-v2",
+          "kp": [2,3,4,5],
+          "label": "再看油门和刹车：原癌基因怎样被持续打开，抑癌基因怎样失效",
+          "local_question": "正常生长信号链怎样因点突变、扩增、易位/融合或强启动/增强子而持续激活；p53/RB/p16等刹车又怎样因甲基化、LOH或突变失效？",
+          "learning_reason": "KP02-05在修复底盘之后构成真正的肿瘤分子控制模型，并直接输出到病理肿瘤Gate。",
+          "closure": "能把癌基因产物按配体/受体/胞内信号/TF/周期蛋白分层，恢复原癌激活4路、抑癌失活3路和p53『停—修—死』；不把正常原癌基因当作癌细胞专有基因。"
+        },
+        {
+          "id": "b-g05-lg03-v2",
+          "kp": [6,7,8,9,10,11],
+          "label": "最后学工具：怎样取、切、接、扩增、检测和验证这个信息系统",
+          "local_question": "已知道异常发生在哪些层后，重组DNA、限制酶/载体、PCR、印迹/杂交及DNA-蛋白/蛋白-蛋白技术分别怎样取得、放大、识别或验证目标？",
+          "learning_reason": "分子技术应服务于前述信息与肿瘤问题，而不是插在肿瘤机制和DNA修复之间。保留KP06-11一组，学习位置移到Block末尾。",
+          "closure": "能按『取—切—接—导—筛—表达』恢复重组DNA流程，按对象区分PCR/Southern/Northern/Western/杂交与相互作用技术，并说明每种工具回答的是序列、RNA、蛋白还是相互作用问题。",
+          "visual_gate": "重组DNA、PCR与印迹/相互作用技术原图回Lecture。"
+        }
+      ]
+    }
+  },
+  "source_and_visual_boundaries": [
+    "M9 UTP→CTP 'methylation' wording conflict remains explicit; stable route is UTP + Gln → CTP, while dUMP→dTMP is the FH4 one-carbon step.",
+    "M9 all-amino-acids→acetyl-CoA side note is not adopted; M7/M8 carbon-skeleton model remains the learned substrate.",
+    "G1 P180 terminology conflict and all visual-only spatial details remain Source/Visual boundaries.",
+    "G2 uncertain DNApol-I fragment wording remains bounded; Learning keeps only repeated stable functions.",
+    "G3 EF-G/GTPase Source conflict and translation visuals remain explicit.",
+    "G4 enhancer-specificity internal conflict remains open; Learning freezes only stable cis/trans/PIC relations.",
+    "G5 DSB-repair taxonomy conflict remains Current Study boundary; no external molecular-biology taxonomy silently replaces it.",
+    "G5 is only the molecular half of the tumor gate. Pathology tumor morphology/behavior overlay remains a separate required gate before dense organ-tumor learning."
+  ],
+  "content_repairs": [],
+  "batch_checks": {
+    "all_74_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 19,
+    "logic_group_count_candidate": 22,
+    "cross_block_route_change": "M9 + G1-G5 promoted before D21-D23 because of accepted molecular/tumor prerequisites",
+    "content_semantic_rewrite_required": false,
+    "source_conflict_silently_resolved": false,
+    "visual_gap_silently_filled": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
