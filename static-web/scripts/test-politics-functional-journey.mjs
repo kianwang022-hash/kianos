@@ -188,11 +188,12 @@ async function c00RepairResumeJourney(page) {
   const config = configRows.find((row) => row.runtime_unit_id === unitId);
   check(Boolean(config), 'c00_active_unit_has_return_config');
   const questionId = config.expected_question_ids[0];
-  const { card } = await answerCard(page, questionId, 'repair');
+  await answerCard(page, questionId, 'repair');
   check((await unit.getAttribute('data-state')) === 'REPAIR', 'c00_problem_enters_repair_state');
-  check(await unit.locator('[data-workspace-repair-slot] [data-politics-repair]').isVisible(), 'c00_problem_moves_repair_into_inspector');
+  const inspectorRepair = unit.locator('[data-workspace-repair-slot] [data-politics-repair]');
+  check(await inspectorRepair.isVisible(), 'c00_problem_moves_repair_into_inspector');
 
-  const sourceLink = card.locator('[data-politics-repair] a[href^="#source-"]');
+  const sourceLink = inspectorRepair.locator('a[href^="#source-"]');
   await sourceLink.click();
   check((await unit.getAttribute('data-state')) === 'EXTERNAL_LEARN', 'c00_repair_routes_to_external_source_state');
   const source = unit.locator(`#${config.source_anchor}`);
