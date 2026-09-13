@@ -1,0 +1,203 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L7_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L7_D21_D23",
+  "label": "靶腺内分泌应用｜甲状腺 → 肾上腺 → 钙/PTH与GH",
+  "stable_identity": {
+    "blocks": ["D21", "D22", "D23"],
+    "canonical_kp_count": 56,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/",
+    "prerequisites": ["D6 endocrine common language", "M6 cholesterol/VitD/steroid interfaces", "G1-G5 molecular tumor gate", "O9 pathology tumor-general gate"],
+    "rule": "Each canonical Block remains continuous first learning. D21 is not split into a physiology pass and a later tumor pass. D23 may contain two parallel local branches without pretending calcium homeostasis and GH are one causal axis."
+  },
+  "learning_arc": {
+    "question": "学会D6的反馈/受体/定位语言后，怎样把同一套方法落到三个真实靶腺场景：甲状腺同时有功能和形态/肿瘤问题，肾上腺有三类内分泌高血压，甲状旁腺/GH又分别控制矿物稳态和生长？",
+    "block_order": ["D21", "D22", "D23"],
+    "causal_spine": [
+      "D21 is the richest target-gland application: normal HPT physiology → hyper/hypofunction localization → morphology/inflammation/nodule → O9-backed thyroid tumors → surgery safety.",
+      "D22 reuses D6 localization but changes the output variable: aldosterone controls volume/K+/H+, cortisol controls stress/catabolism, catecholamines control sympathetic hemodynamics.",
+      "D23 deliberately contains two parallel branches: CT/PTH/calcitriol maintain calcium-phosphate/bone-kidney-gut balance; GH/IGF controls growth and substrate use. They share endocrine language, not a fake single causal chain."
+    ],
+    "exit_reconstruction": "面对内分泌病例先用『激素效应→上游/靶腺反馈→功能确认→病因定位』；甲状腺额外叠加形态/肿瘤轴，肾上腺额外按容量-K+/分解代谢/交感爆发三分，D23则分别恢复钙磷稳态轴与GH-IGF轴。"
+  },
+  "blocks": {
+    "D21": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
+      "group_count": 8,
+      "logic_groups": [
+        {
+          "id": "b-d21-lg01-v2",
+          "kp": [1,2,3,4,5],
+          "label": "正常HPT底座：身份/合成/作用/反馈",
+          "local_question": "T4/T3怎样合成、储存、释放和运输，真正发挥什么代谢/产热/生长作用；TRH-TSH-TH反馈怎样决定后续原发/中枢定位？",
+          "learning_reason": "现有正常生理组成立，作为所有甲亢/甲减和治疗靶点的唯一底座。",
+          "closure": "能恢复T4量/T3活性、NIS/TPO/胶质库存和负反馈，并说明为什么TBG改变要看游离激素、ATD阻新合成却不能立即清库存。",
+          "visual_gate": "滤泡合成—储存—释放与HPT轴回生理原图。"
+        },
+        {
+          "id": "b-d21-lg02-v2",
+          "kp": [6,7,8,9,10],
+          "label": "甲状腺毒症先分『真合成↑』还是『破坏释放』，再识别Graves",
+          "local_question": "TH高时怎样先判断是Graves/结甲/高功能腺瘤等真合成增加，还是亚甲炎等破坏释放；Graves为何同时出现高代谢、循环/低钾接口和眼病？",
+          "learning_reason": "KP06-10共同回答甲亢身份、Graves机制和系统表现，是一个功能异常模型。",
+          "closure": "能用TSH/FT4、摄碘率和形态区分真合成↑与库存泄漏，并把Graves的TSAb、弥漫对称、高代谢和GO放回同一疾病链。"
+        },
+        {
+          "id": "b-d21-lg03-v2",
+          "kp": [11,12,13,14,15],
+          "label": "甲亢决策链：证据 → ATD/¹³¹I/手术 → 危象与特殊场景",
+          "local_question": "确认甲亢后，检查怎样支持病因；什么时候选ATD、¹³¹I或手术；甲状腺危象为什么必须先抑制合成再封释放，妊娠/老年/特殊甲亢又怎样改变选择？",
+          "learning_reason": "原分组内容跨度大但实际上形成一条临床决策链：确认→治疗→急症/特殊情境。保留边界，强化顺序。",
+          "closure": "能按当前Study恢复ATD机制/严重不良反应、¹³¹I/手术边界，并闭卷说出甲危PTU→碘→β阻断/GC/降温顺序及妊娠/淡漠型等特殊入口。"
+        },
+        {
+          "id": "b-d21-lg04-v2",
+          "kp": [16,17,18],
+          "label": "甲减是TH效应的反向投影：再用TSH/FT4定位层级",
+          "local_question": "TH不足为什么出现低代谢、黏液性水肿和系统减速；怎样区分原发/中枢/亚临床甲减与低T3综合征，并安全完成替代？",
+          "learning_reason": "KP16-18自然形成表型→层级定位→治疗/危象链。",
+          "closure": "能用TSH/FT4定位原发vs中枢，区分低T3综合征，并解释L-T4为何小剂量递增、原发看TSH而中枢看FT4。"
+        },
+        {
+          "id": "b-d21-lg05-v2",
+          "kp": [19,20,21,22],
+          "label": "功能轴旁边还有形态轴：肿大/炎症/结节先做良恶性前定位",
+          "local_question": "甲状腺肿大或结节时，怎样区分单纯/结甲、腺瘤、桥本/亚甲炎，并避免把冷结节或快速增大单独当成癌？",
+          "learning_reason": "KP19-22建立O9进入器官肿瘤前的甲状腺形态坐标：结节结构、炎症破坏和恶性警报。",
+          "closure": "能四轴区分结甲vs腺瘤、桥本vs亚甲炎，解释亚甲炎TH高但摄碘低，并按风险警报→超声/FNA→滤泡病变看包膜/血管侵犯进入肿瘤判断。",
+          "visual_gate": "结甲/腺瘤/甲状腺炎与结节超声/核素图回原Source。"
+        },
+        {
+          "id": "b-d21-lg06-v2",
+          "kp": [23,24,25],
+          "label": "O9器官应用：四类甲状腺癌从来源—形态—扩散到处理",
+          "local_question": "乳头、滤泡、髓样、未分化癌怎样用来源、核心形态、标志物和转移方向快速定位；证据确认后切除/淋巴清扫/术后管理的当前Study边界是什么？",
+          "learning_reason": "G1-G5+O9已经完成共同肿瘤语言，此组只做甲状腺器官应用，不重讲分级分期/浸润总论。",
+          "closure": "能按乳头淋巴、滤泡血道、髓样C细胞/CT/淀粉样、未分化表型丢失快速定位，并说明FNA与滤泡癌包膜/血管侵犯的边界及当前Study手术/术后接口。",
+          "visual_gate": "乳头核特征、滤泡包膜/血管侵犯、髓样淀粉样和手术路径回原图。"
+        },
+        {
+          "id": "b-d21-lg07-v2",
+          "kp": [26,27,28],
+          "label": "外科安全链：准备充分 → 先救窒息 → 再定位神经损伤",
+          "local_question": "甲亢手术前怎样把功能状态拉到安全区；术后呼吸困难为什么先拆切口排除血肿，随后怎样区分气管塌陷、喉返/喉上神经和低钙入口？",
+          "learning_reason": "KP26-28共同回答真正的围术期安全；KP29并不属于这条链，fresh pass将其拆出。",
+          "closure": "能恢复术前准备目的和甲危因果，面对术后窒息先床旁拆线清血肿，再按喉上内/外支、单/双喉返和甲旁损伤定位。"
+        },
+        {
+          "id": "b-d21-lg08-v2",
+          "kp": [29],
+          "label": "颈前中线例外：甲状舌管囊肿",
+          "local_question": "什么颈前中线肿块随伸舌移动、为何属于胚胎残余而不是甲状腺功能/肿瘤主轴，手术切除需要带走哪些结构？",
+          "learning_reason": "KP29在Source章节连续但与术后安全无因果关系；独立成短识别组比强行粘进KP26-28更诚实。",
+          "closure": "能用儿童/颈前正中/随伸舌移动识别甲状舌管囊肿，并恢复囊肿+瘘管+部分舌骨切除。"
+        }
+      ]
+    },
+    "D22": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-d22-lg01-v2",
+          "kp": [1,2,3,4],
+          "label": "先建球—束—网—髓地图，再把GC接回HPA与全身应激",
+          "local_question": "肾上腺四区分别输出什么；皮质醇怎样改变糖脂蛋白、水盐、血管与炎症/应激，并受CRH-ACTH反馈和外源GC抑制？",
+          "learning_reason": "现有KP01-04分组成立，是原醛/库欣/嗜铬共同坐标和库欣机制底座。",
+          "closure": "能按球/束/网/髓定位激素，恢复GC代谢、允许作用和HPA反馈，并解释长期外源GC突然停药为何可危象。"
+        },
+        {
+          "id": "b-d22-lg02-v2",
+          "kp": [5,6],
+          "label": "容量型高血压：原醛 vs Liddle用肾素/醛固酮分层",
+          "local_question": "高血压+低钾+碱中毒时，怎样从保Na/排K-H链确认容量型模型，再用肾素与醛固酮区分原醛和ENaC端Liddle？",
+          "learning_reason": "KP05-06是极强的二分定位模型，保留。",
+          "closure": "能从醛固酮/ENaC效应推出低K碱中毒，用低肾素+高醛固酮识别原醛、低肾素+低醛固酮识别Liddle；ARR数字冲突保持Source边界。"
+        },
+        {
+          "id": "b-d22-lg03-v2",
+          "kp": [7,8,9],
+          "label": "交感爆发型高血压：嗜铬从功能确认到围术期安全",
+          "local_question": "阵发头痛心悸多汗和血压大幅波动怎样指向儿茶酚胺过多；确认功能后怎样定位，并为什么术前阻断顺序不能颠倒？",
+          "learning_reason": "现有KP07-09共同构成嗜铬功能→定位→治疗安全链。",
+          "closure": "能把儿茶酚胺效应连到症状/高低压波动，遵守先功能后影像，并说明围术期阻断顺序的血流动力学逻辑。"
+        },
+        {
+          "id": "b-d22-lg04-v2",
+          "kp": [10,11,12,13],
+          "label": "分解代谢型高血压：库欣先确认皮质醇，再用ACTH定位",
+          "local_question": "向心肥胖、紫纹、肌萎缩、糖代谢和骨质变化怎样来自皮质醇过多；功能确认后怎样用ACTH把病因分成依赖/非依赖，再进入抑制试验/影像与治疗？",
+          "learning_reason": "KP10-13现有结构成立，是D6『功能确认→层级定位』最完整的器官应用。",
+          "closure": "能从GC作用反推库欣表型，先确认皮质醇过多，再用ACTH分层和当前Study动态试验/影像定位；术后补充激素回扣HPA长期抑制。"
+        },
+        {
+          "id": "b-d22-lg05-v2",
+          "kp": [14,15],
+          "label": "三种内分泌高血压终局压缩：看被调变量，不看器官名字",
+          "local_question": "面对高血压病例，怎样用容量/K+、分解代谢/ACTH、交感爆发三组输出变量快速选原醛、库欣或嗜铬，并调用D6的原发/继发/抵抗语言？",
+          "learning_reason": "KP14-15是Recall/Integration而非新疾病；放末尾作为系统判别closure最合适。",
+          "closure": "能不看疾病标签，仅凭低K低肾素、向心肥胖紫纹、阵发头痛心悸多汗三种证据簇决定下一项激素检查和定位轴。"
+        }
+      ]
+    },
+    "D23": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12],
+      "group_count": 3,
+      "logic_groups": [
+        {
+          "id": "b-d23-lg01-v2",
+          "kp": [1,2,3,4,5,6],
+          "label": "钙磷稳态轴：CT/PTH/钙三醇怎样协调骨—肾—肠",
+          "local_question": "血钙/磷偏移时，CT、PTH和钙三醇分别从哪里来、作用何处、净方向怎样；低钙如何通过PTH→肾1α羟化酶→钙三醇把肠/骨/肾重新拉回稳态？",
+          "learning_reason": "现有KP01-06分组强，保持为一个三激素×三器官反馈模型。",
+          "closure": "能先背净方向CT↓Ca/↓P、PTH↑Ca/↓P、钙三醇↑Ca/↑P，再从骨/肾/肠解释方向，并画低钙→PTH→1α羟化酶→钙三醇反馈链；Source冲突不静默修正。",
+          "visual_gate": "三激素×骨肾肠总表和反馈图回生理原图。"
+        },
+        {
+          "id": "b-d23-lg02-v2",
+          "kp": [7,8,9],
+          "label": "甲旁功能异常：低钙兴奋性 vs PTH过多的骨肾表现",
+          "local_question": "甲状腺术后甲旁损伤为什么出现低钙、抽搐和呼吸困难；PTH过多又为什么造成骨量减少/骨痛与肾结石，怎样完成最小功能与定位判断？",
+          "learning_reason": "现有KP07-09把正常轴变成双向故障模型，保留。",
+          "closure": "能从低钙→阈电位靠近静息电位→神经肌肉兴奋性↑解释术后抽搐，并从PTH过多的骨/肾作用恢复甲旁亢核心证据和当前外科边界。"
+        },
+        {
+          "id": "b-d23-lg03-v2",
+          "kp": [10,11,12],
+          "label": "独立第二支路：GH脉冲 → 直接代谢 + IGF生长",
+          "local_question": "GHRH/SST和睡眠/底物状态怎样产生GH脉冲；GH为什么一边直接升糖/脂解/促蛋白合成，一边经IGF促进骨肌内脏生长，过少/过多如何形成侏儒、巨人或肢端肥大？",
+          "learning_reason": "GH与钙磷只在骨/生长结果相遇，不属于同一因果轴。保留独立LG并显式禁止假连续。",
+          "closure": "能恢复GH受体/IGF、生长与代谢双效应及分泌调节，按骨骺闭合前后区分巨人症/肢端肥大；完整垂体试验/影像/治疗保持Source Gap。"
+        }
+      ]
+    }
+  },
+  "source_and_visual_boundaries": [
+    "D21 uses current Study numbers, cancer staging and surgery rules; no modern nodule/TNM/guideline replacement is imported.",
+    "D21 tumor KPs apply G1-G5 + O9; they do not re-teach general tumor biology.",
+    "D22 ARR >30 narrative vs >50 question option remains an explicit Source conflict; Learning uses only aldosterone-high/renin-low/ARR-high direction.",
+    "D23 CT pathology side-note conflict, PTH source-reading anomaly and GH-factor unstable name remain explicit; calcium physiology chapter is Primary for net Ca/P direction.",
+    "D23 full pituitary/GH clinical diagnosis and treatment remains a real Source Gap.",
+    "All surgical anatomy, thyroid histology and endocrine imaging gates requiring source visuals remain Visual gates."
+  ],
+  "content_repairs": [],
+  "batch_checks": {
+    "all_56_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 15,
+    "logic_group_count_candidate": 16,
+    "d21_block_split_across_learning_passes": false,
+    "d23_false_causal_bridge_between_calcium_and_gh": false,
+    "content_semantic_rewrite_required": false,
+    "source_conflict_silently_resolved": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
