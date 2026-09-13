@@ -1,1 +1,138 @@
-name: Politics Functional First Journey
+name: Static Web Politics QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/politics/**'
+      - 'static-web/package.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/global.css'
+      - 'static-web/src/styles/runtime.css'
+      - 'static-web/src/styles/politics*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
+      - '.github/workflows/static-web-politics-qa.yml'
+  pull_request:
+    paths:
+      - 'LEARNING_ACCEPTANCE.md'
+      - 'content/politics/**'
+      - 'static-web/package.json'
+      - 'static-web/astro.config.mjs'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/global.css'
+      - 'static-web/src/styles/runtime.css'
+      - 'static-web/src/styles/politics*.css'
+      - 'static-web/src/lib/current.mjs'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/pages/politics.astro'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/*politics*.mjs'
+      - '.github/workflows/static-web-politics-qa.yml'
+
+concurrency:
+  group: politics-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  politics-runtime-qa:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Audit Politics canonical coverage
+        run: node scripts/audit-politics-coverage.mjs
+      - name: Audit Xiao1000 semantic chapter routing
+        run: node scripts/audit-politics-question-routing.mjs
+      - name: Prove scoped Politics source loading without monoliths
+        run: node scripts/audit-politics-scoped-source.mjs
+      - name: Audit History batch content closure
+        run: node scripts/audit-politics-history-content.mjs
+      - name: Audit Ethics content closure
+        run: node scripts/audit-politics-ethics-content.mjs
+      - name: Audit Mao fresh content closure
+        id: mao_content
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p _diagnostics
+          node scripts/audit-politics-mao-content.mjs 2>&1 | tee _diagnostics/mao-content.log
+      - name: Upload Mao content diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mao-content-diagnostics-${{ github.run_id }}
+          path: static-web/_diagnostics/mao-content.log
+          if-no-files-found: ignore
+      - name: Audit Mao projection closure
+        run: node scripts/audit-politics-mao-projection.mjs
+      - name: Audit Xi fresh content closure
+        id: xi_content
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p _diagnostics
+          node scripts/audit-politics-xi-content.mjs 2>&1 | tee _diagnostics/xi-content.log
+      - name: Upload Xi content diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xi-content-diagnostics-${{ github.run_id }}
+          path: static-web/_diagnostics/xi-content.log
+          if-no-files-found: ignore
+      - name: Audit Xi Projection closure
+        run: node scripts/audit-politics-xi-projection.mjs
+      - name: Audit History global first-ready parity
+        run: node scripts/audit-politics-history-first-ready.mjs
+      - name: Audit History Runtime closure
+        run: node scripts/audit-politics-history-runtime.mjs
+      - name: Audit History Evidence closure
+        run: node scripts/audit-politics-history-evidence.mjs
+      - name: Audit K03 canonical knowledge closure
+        run: node scripts/audit-politics-k03-knowledge.mjs
+      - name: Audit Marxism batch content closure
+        run: node scripts/audit-politics-marxism-content.mjs
+      - name: Audit Politics learning semantics content contract
+        run: node scripts/audit-politics-learning-semantics.mjs
+      - name: Validate Marxism C00 cognitive workspace
+        run: node scripts/validate-politics-cognitive-workspace.mjs
+      - name: Audit Marxism global first-ready parity
+        id: marxism_first_ready
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p _diagnostics
+          node scripts/audit-politics-marxism-first-ready.mjs 2>&1 | tee _diagnostics/marxism-first-ready.log
+      - name: Upload Marxism first-ready diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marxism-first-ready-diagnostics-${{ github.run_id }}
+          path: static-web/_diagnostics/marxism-first-ready.log
+          if-no-files-found: ignore
+      - name: Audit K03 learning and projection closure
+        run: node scripts/audit-politics-k03-learning-projection.mjs
+      - name: Audit K03 runtime and evidence closure
+        run: node scripts/audit-politics-k03-runtime-evidence.mjs
+      - name: Audit Marxism runtime and evidence closure
+        run: node scripts/audit-politics-marxism-runtime-evidence.mjs
+      - name: Validate Politics Current bindings
+        run: npm run validate:politics
+      - name: Build Astro
+        run: npm run build
