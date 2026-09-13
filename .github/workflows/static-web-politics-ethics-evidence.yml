@@ -1,0 +1,59 @@
+name: Politics Ethics Evidence Journey
+
+on:
+  pull_request:
+    paths:
+      - 'content/politics/**'
+      - 'static-web/src/components/Politics*.astro'
+      - 'static-web/src/lib/politics*.mjs'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/scripts/audit-politics-ethics-evidence.mjs'
+      - 'static-web/scripts/test-politics-ethics-evidence.mjs'
+      - '.github/workflows/static-web-politics-ethics-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: politics-ethics-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate Politics runtime
+        working-directory: static-web
+        run: npm run validate:politics
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Audit Ethics Evidence model
+        working-directory: static-web
+        run: node scripts/audit-politics-ethics-evidence.mjs
+      - name: Install browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute Ethics Evidence journey
+        working-directory: static-web
+        run: node scripts/test-politics-ethics-evidence.mjs
+      - name: Save Ethics Evidence evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-ethics-evidence-${{ github.sha }}
+          path: politics-ethics-evidence-audit/
+          retention-days: 7
