@@ -9,183 +9,119 @@ This file does not own lexical semantics, lane learning semantics, Acceptance Tr
 
 ## Work Cursor
 
-**Active stage:** `Content Realization / Optimization — continue bounded 7,946-owner execution under the accepted vNext Content model.`
+**Active stage:** `Content Realization / Optimization — continue 7,946-owner vNext execution.`
 
-- Learning authority: `content/lexical/LEARNING_CONTRACT.md`.
-- Content authority: `content/lexical/CONTENT_ASSET_CONTRACT.md`.
-- Gold calibration: `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` — PASS.
-- Batch01: `content/lexical/audit/vnext-content-execution/batch01-o0001-o0012.json` — PASS.
-- Batch02: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json` — PASS.
-- Wave03: `content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json` — PASS (100 owners).
-- Learner scope: existing **7,946 Main Words** only; Pack remains metadata.
-- Full-catalog K: **BLOCKED** until all 7,946 owners are concluded and known semantic / ownership debt is closed.
+Authority:
+- Learning → `content/lexical/LEARNING_CONTRACT.md`;
+- Content → `content/lexical/CONTENT_ASSET_CONTRACT.md`;
+- Acceptance → `content/lexical/ACCEPTANCE.md`;
+- Current semantics → Word / Relation / Form Natural Owners;
+- Pack → metadata only;
+- learner state → private evidence only.
 
-Do not resume the old `consolidated repair inventory → repair queue` path or stacked Fresh-Rebuild graph as Current authority. Historical Fresh-Rebuild assets may serve only as bounded provenance / candidate evidence.
+Full-catalog K remains **BLOCKED** until all 7,946 owners receive current-generation conclusions and known semantic / ownership debt is closed.
 
-### Learner logic Content must serve
+Do not resume the old `audit → repair queue` or stacked Fresh-Rebuild graph. Historical assets are bounded provenance / candidate / defect-sentinel evidence only.
+
+---
+
+## Accepted vNext execution
+
+- Gold calibration — PASS.
+- Batch01 `o0001–o0012` — PASS: `8 UPGRADED | 4 NO_CHANGE`, `8 DEPTH_READY | 4 SAFE_SIMPLE`, `0 BLOCKED`.
+- Batch02 `o0013–o0024` — PASS: `7 UPGRADED | 5 NO_CHANGE`, `8 DEPTH_READY | 4 SAFE_SIMPLE`, `0 BLOCKED`.
+- Wave03 `o0025–o0124` — PASS: `36 UPGRADED | 64 NO_CHANGE`, `74 DEPTH_READY | 26 SAFE_SIMPLE`, `0 BLOCKED`.
+
+Wave03 receipt:
+`content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json`
+
+Wave03 is the first throughput-cadence package: 100 owners were handled as one work package but closed through smaller semantic units. Simple trustworthy words fast-passed; rich / lifecycle-risk words received direct repair. Old Batch04/05 work accelerated inspection only where fresh vNext readback independently accepted it.
+
+> **Current-generation contiguous coverage = `124 / 7,946`. Next cursor = `o0125`.**
+
+After this wave merges, the next package must start from the newly accepted `main@HEAD`, not from this branch.
+
+---
+
+## Learner logic Content must serve
 
 ```text
 reliable coverage judgment
 → learner-controlled Fast Pass or Depth
 → rich Recall / Reveal when worthwhile
 → local + only where needed
-→ selective targeted Repair / Challenge
+→ selective Repair / Challenge
 → real-context transfer
 → fade / reactivate from evidence
 ```
 
-Required distinctions:
-- every Main Word gets a reliable Content conclusion;
-- `SAFE_SIMPLE` permits fast passage by content but does not declare personal mastery;
-- `DEPTH_READY` supplies coherent Core + Senses + first-class Expansion when Depth is chosen;
-- Unknown / Fuzzy / Known / Mastered is private whole-card learner state;
+Hard distinctions:
+- `SAFE_SIMPLE` = content-level Fast-Pass eligibility, not personal mastery;
+- `DEPTH_READY` = coherent Core + Active Senses + first-class Expansion when Depth is chosen;
+- Unknown / Fuzzy / Known / Mastered = private whole-card learner judgment;
 - whole-card revisit does not create full-card Repair debt;
-- local `+` / real failure owns targeted Repair admission;
+- local `+` / real failure admits targeted Repair;
 - no fixed daily volume / due-card quota is canonical;
 - Astro executes low-friction learning; Chat adaptively orchestrates policy.
 
 ---
 
-## vNext Content execution state
-
-### Gold calibration — PASS
-
-`ambulance` proved `SAFE_SIMPLE`; `abstract`, `access`, and `sanction` proved rich `DEPTH_READY` handling, including construction/form and same-word ownership boundaries.
-
-### Batch01 `o0001–o0012` — PASS
-
-```text
-12 / 12 concluded
-8 UPGRADED | 4 NO_CHANGE
-8 DEPTH_READY | 4 SAFE_SIMPLE
-0 BLOCKED
-```
-
-### Batch02 `o0013–o0024` — PASS
-
-Receipt: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json`.
-
-```text
-12 / 12 concluded
-7 UPGRADED | 5 NO_CHANGE
-8 DEPTH_READY | 4 SAFE_SIMPLE
-0 BLOCKED
-0 Relation mutations | 0 Form mutations
-0 learner-state mutations | 0 Pack mutations
-```
-
-Depth-ready owners:
-- upgraded: `abroad`, `abrupt`, `absence`, `absent`, `absorb`, `abuse`, `academic`;
-- no-change: `abstract`, already accepted by vNext Gold.
-
-Safe-simple no-change owners:
-- `absolute`, `absurd`, `abundant`, `academy`.
-
-Fresh vNext judgment intentionally diverged from old Fresh Batch03 for `abrupt`: its three valid branches were retained, but the old gloss-list Core was upgraded to a predictive no-gradual-transition model. Earlier Batch03 files remain provenance/candidate evidence only; their stacked execution model is superseded.
-
-### Wave03 `o0025–o0124` — PASS
-
-Receipt: `content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json`.
-
-```text
-100 / 100 concluded
-36 UPGRADED | 64 NO_CHANGE
-74 DEPTH_READY | 26 SAFE_SIMPLE
-0 BLOCKED
-1 Relation mutation | 0 Form mutations
-0 learner-state mutations | 0 Pack mutations
-```
-
-This is the first throughput-cadence package: one 100-owner work package closed through smaller semantic units rather than 100 identical micro-PRs. The old Batch04/05 material was acceleration evidence only; fresh vNext judgment could accept, reject, or supersede it.
-
-### Contiguous progress / next cursor
-
-After Batch02 merges:
-
-> **current-generation contiguous coverage = `124 / 7,946`; next ordinal = `o0125`.**
-
-After Wave03 merges, start the next package from the newly accepted `main@HEAD`, never by stacking on this branch.
-
-Keep the next few units bounded. Scale only after repeated direct-close units stay semantically clean and Relation/Form collisions remain controlled.
-
----
-
 ## Execution rule
 
-For each bounded unit:
+For each work package:
 
 ```text
-read bounded owners
-→ fresh judgment
-→ direct owner mutation when needed
-→ final-object readback
-→ classify SAFE_SIMPLE / DEPTH_READY / BLOCKED
-→ record NO_CHANGE / UPGRADED separately
-→ reconcile Relation/Form writes against latest integration truth
-→ receipt / closure
+latest main owners
+→ fresh risk routing
+→ direct semantic mutation where needed
+→ final integrated readback
+→ SAFE_SIMPLE / DEPTH_READY / BLOCKED
+→ local shard receipt(s)
+→ package receipt
+→ CI
+→ main
 ```
 
-Do not inspect hundreds of owners, accumulate repair specs, then bulk-apply later. A future Chat may own a larger range, but acceptance still closes in smaller semantic units.
+Operation history stays separate: `NO_CHANGE / UPGRADED`.
+
+Scale throughput by making simple judgments cheap, not by lowering the semantic bar. Work packages may be large; rich/high-risk closure remains locally bounded. Relation/Form writes must reconcile against latest integration truth.
+
+Do not inspect hundreds of owners, accumulate repair specs, and apply them later.
 
 ---
 
 ## Frozen / out of scope
 
-- no learner UI / Codex visual redesign;
-- no full Runtime or scheduler rewrite;
+- no learner UI / visual redesign;
+- no Runtime / scheduler rewrite;
 - no Pack-profile expansion;
-- no new historical audit round;
-- no blind wholesale rewrite for throughput;
-- no private learner-state mutation;
+- no historical audit round;
+- no blind wholesale rewrite;
+- no learner-state mutation;
 - no English / Politics / Xizong sibling changes.
 
 Existing downstream Lexical UI / Runtime is provisional and must not decide Content truth.
 
 ---
 
-## Required reads for next Chat
+## Next Chat reads
 
 1. `content/lexical/CURRENT.md`
 2. `content/lexical/LEARNING_CONTRACT.md`
 3. `content/lexical/CONTENT_ASSET_CONTRACT.md`
 4. `content/lexical/ACCEPTANCE.md`
-5. latest vNext execution receipt(s)
-6. only exact Current owners / Relation / Form owners needed for the next bounded unit
-7. historical assets only as bounded defect-sentinel / candidate evidence when materially useful
+5. latest vNext receipt(s)
+6. exact Current owners needed from `o0125` onward
+7. historical candidates only when materially useful
 
 ---
 
-## Truth references
-
-### Artifact Truth
-
-- Word owners → `content/lexical/words/by-ordinal/`
-- Relation owners → `content/lexical/relations/by-id/`
-- owner schema → `content/lexical/schema.json`
-- pack membership metadata → `content/lexical/canonical/packs/`
-- lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
-- vNext execution evidence → `content/lexical/audit/vnext-content-calibration/` and `content/lexical/audit/vnext-content-execution/`
-
-### Acceptance Truth
-
-`content/lexical/ACCEPTANCE.md`
-
-### Learner Truth
-
-Private browser / packet / conversation evidence only. Shared repository state must not manufacture Kian's personal familiarity, repair queue, or mastery.
-
----
-
-## Fresh-Chat target
+## Restart target
 
 ```text
 main@HEAD
-→ Lexical CURRENT
-→ Learning Contract
-→ Content Asset Contract
-→ Acceptance
-→ latest vNext receipt
-→ next bounded unit from o0125
+→ Lexical Current / Learning / Content / Acceptance
+→ latest receipt
+→ start fresh package at o0125
 → direct-close execution
 ```
