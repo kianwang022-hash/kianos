@@ -1,0 +1,52 @@
+name: Xizong A2 Functional First Journey
+
+on:
+  pull_request:
+    paths:
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/knowledge/learner/a2-respiratory-*.json'
+      - 'static-web/src/components/Xizong*.astro'
+      - 'static-web/src/lib/xizong*.mjs'
+      - 'static-web/src/pages/xizong/**'
+      - 'static-web/scripts/test-xizong-a2-functional-journey.mjs'
+      - '.github/workflows/static-web-xizong-a2-functional-journey.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Validate Xizong contracts
+        working-directory: static-web
+        run: npm run validate:xizong
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install isolated browser acceptance tool
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Execute A2 Functional First journeys
+        working-directory: static-web
+        run: node scripts/test-xizong-a2-functional-journey.mjs
+      - name: Save journey evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-a2-functional-journey-${{ github.sha }}
+          path: xizong-a2-functional-audit/
+          retention-days: 7
