@@ -56,6 +56,10 @@ const navItems = [
     <title>{title} · KianOS</title>
     <style is:global>
       [hidden] { display: none !important; }
+      /* Xizong learning surfaces stay learner-facing. Provenance remains in
+         canonical owners/validators instead of occupying the study chrome. */
+      body.surfaceBody-xizong .sourceDock,
+      body.surfaceBody-xizong .portedSourceFoot { display: none !important; }
     </style>
   </head>
   <body class={`surfaceBody-${active}`}>
