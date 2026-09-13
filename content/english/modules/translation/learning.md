@@ -749,3 +749,19 @@ learner owes an action
 ```
 
 claim 可以在 backend 静默等待，直到正常 Translation 恰好再次测试同一 demand。
+
+## H10 Evidence invariants｜保护语义，不制造 learner ritual
+
+下面五条是 Evidence owner 的 durable invariants，保留它们是为了防止假 mastery / 假 debt；它们不要求 learner 额外走一轮界面：
+
+> **Evidence granularity may be smaller than Review granularity.**
+
+Review context 可以是 whole-set，但真正进入 ledger / repair 的 evidence 可以更细。先寻找 **first meaningful failure**，再判断有没有第二个真正独立且高价值的 root cause；可由它解释的 downstream effects 不独立制造复习债务。
+
+> **同一句重译正确只证明 repair 生效，不证明 mastery。**
+
+但 `not mastery` 仍然不等于必须安排 fresh test；只有已 justified 的 reusable claim 才等待未来自然 evidence。
+
+> **Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner。**
+
+Translation 可以处理当前 task 的 lexical failure，但不能复制一份 durable lexical knowledge / transfer debt。
