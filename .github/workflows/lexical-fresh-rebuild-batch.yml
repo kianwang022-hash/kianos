@@ -1,0 +1,126 @@
+name: Lexical Fresh Rebuild Batch
+
+on:
+  push:
+    branches:
+      - 'lexical/fresh-rebuild-*'
+    paths:
+      - 'tools/lexical_fresh_rebuild_apply.py'
+      - 'content/lexical/audit/fresh-rebuild/**'
+      - '.github/workflows/lexical-fresh-rebuild-batch.yml'
+  pull_request:
+    paths:
+      - 'tools/lexical_fresh_rebuild_apply.py'
+      - 'content/lexical/audit/fresh-rebuild/**'
+      - 'content/lexical/words/by-ordinal/**'
+      - 'content/lexical/relations/by-id/**'
+      - '.github/workflows/lexical-fresh-rebuild-batch.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  gold01:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply fresh Gold01 in candidate workspace
+        run: |
+          python tools/lexical_fresh_rebuild_apply.py \
+            content/lexical/audit/fresh-rebuild/batches/gold01.json \
+            --report /tmp/gold01-report.json
+
+      - name: Validate changed-owner invariants
+        run: |
+          git diff --check
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/gold01-report.json').read_text())
+          assert report['status'] == 'PASS'
+          assert report['legacy_semantic_authority'] is False
+          assert report['owner_count'] == 6
+          assert report['relation_count'] == 1
+          assert report['learner_state_mutation'] == 0
+          for row in report['owners']:
+              json.loads(Path(row['path']).read_text())
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Read back final learner objects
+        working-directory: static-web
+        run: |
+          node --input-type=module - <<'NODE'
+          import { loadLexicalWordByOrdinal } from './src/lib/lexical.mjs';
+          const ids = [3809, 3833, 3900, 3961, 4041, 4248];
+          const rows = Object.fromEntries(ids.map((o) => {
+            const x = loadLexicalWordByOrdinal(o);
+            return [x.record.word, x];
+          }));
+          const active = (w, id) => rows[w].record.senses.some((s) => s.sense_id === id);
+          const construction = (w, p) => rows[w].record.constructions.some((c) => c.pattern === p);
+
+          if (rows.profit.record.senses.length !== 3 || !construction('profit', 'profit from sth/doing')) throw new Error('GOLD01_PROFIT_READBACK');
+          if (!active('property', 'sense:property:e8f9398f1bf15486') || active('property', 'sense:property:a56f18865e615218')) throw new Error('GOLD01_PROPERTY_READBACK');
+          if (!active('queer', 'sense:queer:03edc8317599ae29') || !active('queer', 'sense:queer:88ea735327908287') || active('queer', 'sense:queer:af7a2e2821725385')) throw new Error('GOLD01_QUEER_READBACK');
+          if (!active('real', 'sense:real:3b195a98c63754f2') || active('real', 'sense:real:eba2fcdb2fb45215')) throw new Error('GOLD01_REAL_READBACK');
+          if (!active('relation', 'sense:relation:5fb74025eff45adb') || active('relation', 'sense:relation:f814d67d25f95bef') || !construction('relation', 'in relation to sth')) throw new Error('GOLD01_RELATION_READBACK');
+          if (rows.sanction.record.senses.length !== 4 || !construction('sanction', 'sanction sb for (doing) sth')) throw new Error('GOLD01_SANCTION_READBACK');
+          if (!(rows.sanction.record.semantic_neighbors || []).some((r) => r.relation_type === 'contronym')) throw new Error('GOLD01_SANCTION_RELATION_READBACK');
+          console.log('Gold01 learner-object readback PASS');
+          NODE
+
+      - name: Validate full lexical JSON catalog
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = list(Path('content/lexical/words/by-ordinal').glob('*.json')) + list(Path('content/lexical/relations/by-id').glob('*/*.json'))
+          assert len(list(Path('content/lexical/words/by-ordinal').glob('*.json'))) == 7946
+          for path in paths:
+              json.loads(path.read_text())
+          print(f'validated {len(paths)} owner files')
+          PY
+
+      - name: Install Astro dependencies
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+
+      - name: Build Astro with candidate owners
+        working-directory: static-web
+        run: npm run build
+
+      - name: Package candidate output
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, shutil
+          from pathlib import Path
+          out = Path('/tmp/fresh-rebuild-output')
+          out.mkdir(parents=True, exist_ok=True)
+          report_path = Path('/tmp/gold01-report.json')
+          if report_path.exists():
+              report = json.loads(report_path.read_text())
+              for row in report.get('owners', []):
+                  src = Path(row['path'])
+                  dst = out / src
+                  dst.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(src, dst)
+              for row in report.get('relations', []):
+                  src = Path(row['path'])
+                  dst = out / src
+                  dst.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(src, dst)
+              shutil.copy2(report_path, out / 'gold01-report.json')
+          PY
+
+      - name: Upload Gold01 candidate artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-fresh-rebuild-gold01
+          path: /tmp/fresh-rebuild-output
+          if-no-files-found: error
+          retention-days: 14
