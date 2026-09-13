@@ -12,6 +12,96 @@ This file records accepted learner-visible Xizong product and Projection archite
 
 ---
 
+# 0｜Optimization-first operating rule
+
+Xizong UI productization starts from the **existing Current closed learning/Projection/Runtime loop**, not from raw Content as if no learner surface existed.
+
+For a System such as A1 whose scoped Acceptance already records `S/K/L/P/R/E = PASS`, normal UI/product discussion must assume the accepted Projection and Runtime are the baseline unless fresh contradictory evidence identifies a concrete defect. Visual/product work does not by itself reopen L, P, R or E.
+
+The default chain for UI work is therefore:
+
+```text
+Current Learning / Content authority
+→ existing accepted Projection behavior
+→ existing Runtime / Evidence / Repair / Return
+→ Projection optimization audit
+→ Mac-wide product recommendation
+```
+
+Not:
+
+```text
+Current Content
+→ invent a new learner flow / page model from scratch
+→ reconnect Runtime afterward
+```
+
+## Required four-way Projection audit before recommending changes
+
+Every mature Xizong learner surface must first classify the existing implementation into:
+
+### `KEEP`
+
+The existing Projection/interaction already expresses the accepted cognition or Runtime well enough and must be preserved semantically.
+
+Examples include accepted Logic Group Lecture continuity, neutral Recall fronts, answer gating, learner-state guards, evidence persistence and exact Return behavior.
+
+### `OPTIMIZE`
+
+The existing semantic object / learner behavior is correct, but its Mac-wide geometry, typography, density, hierarchy, simultaneous visibility, interaction cost or visual polish can improve.
+
+`OPTIMIZE` must not silently change the learner contract.
+
+### `RESTORE_FROM_CURRENT`
+
+Current Content / Learning support already owns useful semantics, but the existing Projection drops them, over-compresses them, hides them behind unnecessary disclosure, or projects only a lossy label.
+
+Restoration means exposing **already-authoritative Current semantics** through a better Projection. It is not permission to add new medical explanation.
+
+### `DEMOTE`
+
+The current learner surface exposes something real but it should not compete with the current cognitive action: e.g. engineering/provenance chrome, redundant counts, permanent shortcut instructions, or a legitimate later-stage capability shown before learner eligibility.
+
+Demotion does not delete mature capability. It changes learner-facing timing / prominence while preserving valid Runtime ownership.
+
+## Reopen / redesign threshold
+
+A proposal may move beyond `KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE` only when fresh evidence shows a real upstream defect.
+
+Before proposing a learner-flow redesign, the discussion must be able to name:
+
+```text
+which Current semantic / accepted behavior is wrong
+→ which owner is responsible
+→ which earliest gate / stage must reopen
+→ why simple Projection optimization is insufficient
+```
+
+Without that evidence, do not redesign the learning flow.
+
+## Recommendation protocol
+
+Before drawing a replacement UI or proposing a new surface model, Sol / Chat must:
+
+```text
+1. read the Current Logic / Content owner needed for the surface;
+2. read the existing Current Projection implementation;
+3. read the relevant Runtime / Evidence / Repair / Return behavior;
+4. enumerate the important existing learner-facing functions;
+5. classify each material part as KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE;
+6. only then recommend Mac-wide geometry or asset changes.
+```
+
+A simplified ASCII mockup is allowed only **after** this audit and represents spatial organization, not permission to replace an accepted high-density asset with a thinner summary.
+
+## Relationship to later Projection asset compilation
+
+The later Cognitive Projection Asset Compilation stage is also **optimization-first**.
+
+Its job is to materialize stable ViewModels for the already accepted cognition and product decisions, analogous to the Politics compilation lane. It may improve representation metadata and recover Current semantics currently lost by the renderer, but it must not reinterpret a closed learner loop as a blank-slate content-design task.
+
+---
+
 # 1｜Frozen product boundary
 
 Xizong web is not a second textbook and not a document browser.
@@ -315,7 +405,7 @@ P5  governance/provenance metadata stays out of learner chrome
 P6  Projection does not invent Question→KP binding
 ```
 
-The UI redesign is therefore a **Projection optimization**, not a new learner-flow invention.
+The UI productization is therefore a **Projection optimization**, not a new learner-flow invention.
 
 ---
 
@@ -428,6 +518,8 @@ content/xizong/LEARNING_CONTRACT.md
 → product discussion
 ```
 
+For a mature/accepted surface, **do not stop after the upstream owners**. Existing Projection/Runtime is part of the product baseline and must be read before a replacement recommendation.
+
 Do not default to retired System Guides, Legacy repos, historical branches, old audit sidecars or old Chat narratives.
 
 Historical material may be used only for an explicitly bounded migration/recovery/reference task and never silently becomes semantic authority.
@@ -440,6 +532,9 @@ Historical material may be used only for an explicitly bounded migration/recover
 
 - external-primary first-pass learner chain;
 - System → Block → Logic Group → continuous MarginNote Lecture → KP Recall → group closure → Block Recall semantics;
+- **optimization-first UI method: accepted Current Projection/Runtime is the baseline, not a blank-slate target**;
+- **KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE audit before recommendation**;
+- **reopen/redesign only on fresh concrete upstream defect evidence**;
 - Mac-wide primary environment;
 - high-density / low-disorder Guide principle;
 - Content authority vs Projection asset-upgrade boundary;
