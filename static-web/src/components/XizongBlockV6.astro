@@ -5,6 +5,13 @@ const kps = block?.kpRecords || [];
 const groups = block?.logicGroups || [];
 const firstKp = kps[0];
 const firstGroup = groups[0];
+const firstGroupKps = firstGroup ? kps.filter((kp) => (firstGroup.kpIds || []).includes(kp.kpId)) : [];
+const firstGroupLocators = [...new Set(firstGroupKps.map((kp) => kp.sourceLocator).filter(Boolean))];
+const firstGroupSource = firstGroupLocators.length === 0
+  ? 'MarginNote · 原讲义对应连续小节'
+  : firstGroupLocators.length === 1
+    ? `MarginNote · ${firstGroupLocators[0]}`
+    : `MarginNote · ${firstGroupLocators[0]} → ${firstGroupLocators[firstGroupLocators.length - 1]}`;
 const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 ---
 <section class="portedStudyRuntime portedStudyRuntimeV2 xv6Block" data-xizong-v6-block data-study-object={block.objectId} data-block-label={block.label}>
@@ -73,42 +80,29 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
           <h3 data-logic-title>{firstGroup?.label}</h3>
           <p class="xv6LogicGoal" data-logic-goal>{firstGroup?.goal || '先回答这一节共同在解决什么问题。'}</p>
           {firstGroup?.closure && <div class="xv6LogicTarget"><span>学完这一节，你应该能</span><p data-logic-closure>{firstGroup.closure}</p></div>}
-          <button type="button" class="portedPrimaryAction" data-enter-group>开始这一节</button>
+          <button type="button" class="portedPrimaryAction" data-enter-group>去讲义连续学习这一节</button>
         </section>
 
-        <section class="portedKpWorkspace" data-study-stage="kp_learn" hidden>
+        <section class="portedKpWorkspace xv6GroupLecture" data-study-stage="kp_learn" hidden>
           <header class="portedKpWorkspaceHeader">
-            <div><span>Learn</span><strong data-kp-learn-title>{firstKp?.displayId} · {firstKp?.title}</strong></div>
-            <div><button type="button" data-kp-prev>‹</button><em data-kp-counter>本节 1/{firstGroup?.kpCount || 1}</em><button type="button" data-kp-next>›</button></div>
+            <div><span>Lecture · MarginNote</span><strong data-group-lecture-title>{firstGroup?.label}</strong></div>
+            <em data-group-lecture-counter>学习节 1/{groups.length}</em>
           </header>
-          <div class="portedKpCards">
-            {kps.map((kp, index) => <article class="portedKpCard" data-kp-learn-card={index} hidden={index !== 0}>
-              <header><span>{kp.groupLabel}</span><h3>{kp.displayId}｜{kp.title}</h3>{kp.prompt && <p>{kp.prompt}</p>}</header>
-              <div class="xv6LectureFirst">
-                <strong>先回讲义完成这一点</strong>
-                <span>{kp.sourceLocator ? `讲义 · ${kp.sourceLocator}` : '回讲义完成对应学习'}</span>
-              </div>
-              <details class="xv6KpCore">
-                <summary>需要时看网页完整 Core</summary>
-                <div class="portedKpCanonical markdown" set:html={kp.detailHtml}></div>
-              </details>
-              <footer><span>理解后继续，不要求在网页再读一遍。</span><button type="button" data-kp-learned={kp.kpId}>学完，继续</button></footer>
-            </article>)}
+          <div class="xv6LectureFirst xv6LectureHandoff">
+            <div><strong>在原讲义里连续完成这一学习节</strong><p>不要按 KP 来回切换 App。先顺着原讲义把这一组机制完整学完，再一次回来做本节 Recall。</p></div>
+            <span data-group-lecture-source>{firstGroupSource}</span>
           </div>
-        </section>
-
-        <section class="xv6LogicStage close" data-study-stage="group_close" hidden>
-          <span>这一节收口</span>
-          <h3 data-group-close-title>{firstGroup?.label} 已学完</h3>
-          <p class="xv6GroupClosure" data-group-close-closure>{firstGroup?.closure || '先确认这一节的主问题已经能自己讲清，再继续。'}</p>
-          <small>有讲义配套题就在讲义做完再继续；网页不会猜题目绑定。</small>
-          <button type="button" class="portedPrimaryAction" data-group-close-next>继续下一节</button>
+          <details class="xv6GroupKpMap">
+            <summary>回来后要 Recall 的 KP 路标</summary>
+            <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
+          </details>
+          <footer><span>原图、表格、例子和讲义配套题都留在 MarginNote；网页只负责回来后的提取与闭合。</span><button type="button" class="portedPrimaryAction" data-group-lecture-done>这一节原讲义已连续学完，开始 Recall</button></footer>
         </section>
 
         <section class="portedKpWorkspace recall" data-study-stage="kp_recall" hidden>
           <header class="portedKpWorkspaceHeader">
-            <div><span>Recall · KP</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
-            <div><button type="button" data-recall-prev>‹</button><em data-recall-counter>1 / {kps.length}</em><button type="button" data-recall-next>›</button></div>
+            <div><span>Recall · 当前学习节</span><strong data-kp-recall-title>{firstKp?.displayId}</strong></div>
+            <div><button type="button" data-recall-prev>‹</button><em data-recall-counter>本节 1/{firstGroup?.kpCount || 1}</em><button type="button" data-recall-next>›</button></div>
           </header>
           <div class="portedKpCards">
             {kps.map((kp, index) => <article class="portedKpRecallCard" data-kp-recall-card={index} data-kp-id={kp.kpId} hidden={index !== 0}>
@@ -126,6 +120,14 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
           </div>
         </section>
 
+        <section class="xv6LogicStage close" data-study-stage="group_close" hidden>
+          <span>这一节收口</span>
+          <h3 data-group-close-title>{firstGroup?.label} 已学完</h3>
+          <p class="xv6GroupClosure" data-group-close-closure>{firstGroup?.closure || '先确认这一节的主问题已经能自己讲清，再继续。'}</p>
+          <small>这一步只确认局部模型已经闭合；模糊项会进入后续 Memory / repair，不要求第一次全部稳定。</small>
+          <button type="button" class="portedPrimaryAction" data-group-close-next>继续下一节</button>
+        </section>
+
         <section class="portedBlockRecall" data-study-stage="block_recall" hidden>
           <header><span>Recall · Block</span><h3>把这一块重新压回一条主链</h3><p>{block.centerQuestion}</p></header>
           <div class="xv6BlockRecallCore">
@@ -141,7 +143,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 
         <section class="portedBlockComplete" data-study-stage="block_complete" hidden>
           <span>Learn · Block 完成</span><h3 data-block-complete-title>还没有满足本轮检查点</h3>
-          <p data-block-complete-detail>需要走完学习、完成 KP Recall，并做一次 Block Recall。</p>
+          <p data-block-complete-detail>需要完成每个学习节的原讲义接触、KP Recall，并做一次 Block Recall。</p>
           <button type="button" class="portedPrimaryAction" data-block-complete disabled>确认 Block 第一轮完成</button>
           <small>这里只记录本机学习状态。</small>
         </section>
@@ -160,19 +162,19 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       <ol>
         <li data-chain-step="block_learn"><button type="button" data-stage-target="block_learn"><i></i><span><b>Block</b><small>局部模型</small></span></button></li>
         <li data-chain-step="logic_group"><button type="button" data-stage-target="logic_group"><i></i><span><b>学习节</b><small data-chain-group>1/{groups.length}</small></span></button></li>
-        <li data-chain-step="kp_learn"><button type="button" data-stage-target="kp_learn"><i></i><span><b>讲义学习</b><small data-chain-kp-learn>进行中</small></span></button></li>
-        <li data-chain-step="kp_recall"><button type="button" data-stage-target="kp_recall"><i></i><span><b>KP Recall</b><small data-chain-kp-recall>0/{kps.length}</small></span></button></li>
+        <li data-chain-step="kp_learn"><button type="button" data-stage-target="kp_learn"><i></i><span><b>原讲义</b><small data-chain-kp-learn>连续学习</small></span></button></li>
+        <li data-chain-step="kp_recall"><button type="button" data-stage-target="kp_recall"><i></i><span><b>本节 Recall</b><small data-chain-kp-recall>0/{kps.length}</small></span></button></li>
         <li data-chain-step="block_recall"><button type="button" data-stage-target="block_recall"><i></i><span><b>Block Recall</b><small data-chain-block-recall>未完成</small></span></button></li>
         <li data-chain-step="block_complete"><button type="button" data-stage-target="block_complete"><i></i><span><b>完成</b><small data-chain-complete>未完成</small></span></button></li>
       </ol>
-      <footer>先学当前这节；辅助信息只在该出现的时候出现。</footer>
+      <footer>一节一节连续学；原讲义负责解释，网页负责提取和闭合。</footer>
     </aside>
   </div>
 
   <details class="portedSourceFoot"><summary>Source</summary><code>{block.sourcePath}</code><code>sha256:{String(block.sourceHash).slice(0, 16)}</code>{block.learningSupportSourcePath && <code>{block.learningSupportSourcePath}</code>}</details>
 </section>
 
-<script define:vars={{ groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '' })), kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId })) }}>
+<script define:vars={{ groupPayload: groups.map((group) => ({ groupId: group.groupId, label: group.label, start: group.start, end: group.end, kpIds: group.kpIds, goal: group.goal || '', closure: group.closure || '' })), kpPayload: kps.map((kp) => ({ kpId: kp.kpId, displayId: kp.displayId, title: kp.title, groupId: kp.groupId, sourceLocator: kp.sourceLocator || '' })) }}>
   const root = document.querySelector('[data-xizong-v6-block]');
   if (root) {
     const objectId = root.getAttribute('data-study-object') || 'xizong:unknown';
@@ -180,7 +182,6 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     const storageKey = `kianos-xizong-astro-v2:${objectId}`;
     const groups = groupPayload || [];
     const kpData = kpPayload || [];
-    const kpLearnCards = [...root.querySelectorAll('[data-kp-learn-card]')];
     const kpRecallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const kpRailButtons = [...root.querySelectorAll('[data-kp-target]')];
     const groupRailButtons = [...root.querySelectorAll('[data-group-target]')];
@@ -192,7 +193,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     const groupRail = root.querySelector('[data-study-group-rail]');
     const contextLabel = root.querySelector('[data-study-context-label]');
     const statusLabel = root.querySelector('[data-study-local-status]');
-    const totalKp = kpLearnCards.length;
+    const totalKp = kpData.length;
     let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false };
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
 
@@ -211,20 +212,42 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       const found = kpData.findIndex((kp) => kp.kpId === firstKpId);
       return found >= 0 ? found : 0;
     };
-    const stageLabel = { block_learn: 'Block Learn', logic_group: '学习节', kp_learn: '讲义学习', group_close: '学习节收口', kp_recall: 'KP Recall', block_recall: 'Block Recall', block_complete: 'Block 完成' };
+    const indexForKpId = (kpId) => kpData.findIndex((kp) => kp.kpId === kpId);
+    const groupKps = (group = currentGroup()) => {
+      const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+      return ids.map((id) => kpData.find((kp) => kp.kpId === id)).filter(Boolean);
+    };
+    const sourceSummaryForGroup = (group = currentGroup()) => {
+      const locators = [...new Set(groupKps(group).map((kp) => kp.sourceLocator).filter(Boolean))];
+      if (!locators.length) return 'MarginNote · 原讲义对应连续小节';
+      if (locators.length === 1) return `MarginNote · ${locators[0]}`;
+      return `MarginNote · ${locators[0]} → ${locators[locators.length - 1]}`;
+    };
+    const firstUnrecalledIndexForGroup = (group = currentGroup()) => {
+      const item = groupKps(group).find((kp) => !state.ratings?.[kp.kpId]);
+      const index = item ? indexForKpId(item.kpId) : firstIndexForGroup(group);
+      return index >= 0 ? index : 0;
+    };
+    const stageLabel = { block_learn: 'Block Learn', logic_group: '学习节', kp_learn: '原讲义连续学习', group_close: '学习节收口', kp_recall: '本节 KP Recall', block_recall: 'Block Recall', block_complete: 'Block 完成' };
 
     const syncGroupStage = () => {
       const group = currentGroup();
+      const groupItems = groupKps(group);
       root.querySelector('[data-logic-counter]')?.replaceChildren(document.createTextNode(`${String(state.groupIndex + 1).padStart(2, '0')} / ${groups.length}`));
       root.querySelector('[data-logic-title]')?.replaceChildren(document.createTextNode(group?.label || '学习节'));
       root.querySelector('[data-logic-goal]')?.replaceChildren(document.createTextNode(group?.goal || '先回答这一节共同在解决什么问题。'));
       root.querySelector('[data-logic-closure]')?.replaceChildren(document.createTextNode(group?.closure || '学完后能自己恢复这一节的核心关系。'));
+      root.querySelector('[data-group-lecture-title]')?.replaceChildren(document.createTextNode(group?.label || '当前学习节'));
+      root.querySelector('[data-group-lecture-counter]')?.replaceChildren(document.createTextNode(`学习节 ${state.groupIndex + 1}/${groups.length}`));
+      root.querySelector('[data-group-lecture-source]')?.replaceChildren(document.createTextNode(sourceSummaryForGroup(group)));
+      root.querySelector('[data-group-lecture-kps]')?.replaceChildren(document.createTextNode(groupItems.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'));
       root.querySelector('[data-group-close-title]')?.replaceChildren(document.createTextNode(`${group?.label || '这一节'} 已学完`));
       root.querySelector('[data-group-close-closure]')?.replaceChildren(document.createTextNode(group?.closure || '先确认这一节的主问题已经能自己讲清，再继续。'));
       root.querySelector('[data-chain-group]')?.replaceChildren(document.createTextNode(`${state.groupIndex + 1}/${groups.length}`));
       groupRailButtons.forEach((button, index) => {
+        const ids = groups[index]?.kpIds || [];
         const active = index === state.groupIndex;
-        const done = (groups[index]?.kpIds || []).length > 0 && (groups[index]?.kpIds || []).every((id) => Boolean(state.learned?.[id]));
+        const done = ids.length > 0 && ids.every((id) => Boolean(state.learned?.[id]) && Boolean(state.ratings?.[id]));
         button.classList.toggle('active', active);
         button.classList.toggle('done', done);
       });
@@ -236,17 +259,18 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
         const small = button.querySelector('[data-kp-state]');
         const rating = state.ratings?.[kpId];
         const learned = Boolean(state.learned?.[kpId]);
-        if (small) small.textContent = rating || (learned ? '已学' : '—');
+        if (small) small.textContent = rating || (learned ? '已接触' : '—');
         button.classList.toggle('active', index === state.kpIndex);
-        button.classList.toggle('done', learned || Boolean(rating));
+        button.classList.toggle('done', learned && Boolean(rating));
       });
-      root.querySelector('[data-chain-kp-learn]')?.replaceChildren(document.createTextNode(learnedCount() >= totalKp ? '已走完' : '进行中'));
+      const completedGroups = groups.filter((group) => (group.kpIds || []).length > 0 && (group.kpIds || []).every((id) => Boolean(state.learned?.[id]) && Boolean(state.ratings?.[id]))).length;
+      root.querySelector('[data-chain-kp-learn]')?.replaceChildren(document.createTextNode(learnedCount() >= totalKp ? '全部已接触' : `${completedGroups}/${groups.length} 节闭合`));
       root.querySelector('[data-chain-kp-recall]')?.replaceChildren(document.createTextNode(`${recallCount()}/${totalKp}`));
       root.querySelector('[data-chain-block-recall]')?.replaceChildren(document.createTextNode(state.blockRecallDone ? '已完成' : '未完成'));
       root.querySelector('[data-chain-complete]')?.replaceChildren(document.createTextNode(state.completed ? '已完成' : '未完成'));
       const group = currentGroup();
       if (statusLabel) {
-        if (state.stage === 'kp_recall') statusLabel.textContent = `Recall · ${recallCount()}/${totalKp}`;
+        if (state.stage === 'kp_recall') statusLabel.textContent = `本节 Recall · ${groupKps(group).filter((kp) => Boolean(state.ratings?.[kp.kpId])).length}/${groupKps(group).length}`;
         else if (state.stage === 'block_recall') statusLabel.textContent = 'Block Recall';
         else if (state.stage === 'block_complete') statusLabel.textContent = '第一轮收口';
         else statusLabel.textContent = `学习节 ${state.groupIndex + 1}/${groups.length} · ${group?.label || ''}`;
@@ -254,18 +278,15 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       const completeButton = root.querySelector('[data-block-complete]');
       if (completeButton) completeButton.disabled = !canComplete() || state.completed;
       root.querySelector('[data-block-complete-title]')?.replaceChildren(document.createTextNode(state.completed ? '本 Block 第一轮已在本机记录完成' : canComplete() ? '本轮检查点已满足' : '还没有满足本轮检查点'));
-      root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`学习 ${learnedCount()}/${totalKp} · Recall ${recallCount()}/${totalKp} · Block Recall ${state.blockRecallDone ? '完成' : '未完成'}`));
+      root.querySelector('[data-block-complete-detail]')?.replaceChildren(document.createTextNode(`正式学习接触 ${learnedCount()}/${totalKp} · Recall ${recallCount()}/${totalKp} · Block Recall ${state.blockRecallDone ? '完成' : '未完成'}`));
       syncGroupStage();
     };
 
     const setKpIndex = (index) => {
       state.kpIndex = Math.max(0, Math.min(totalKp - 1, Number(index) || 0));
       state.groupIndex = groupIndexForKp(state.kpIndex);
-      kpLearnCards.forEach((card, itemIndex) => { card.hidden = itemIndex !== state.kpIndex; });
       kpRecallCards.forEach((card, itemIndex) => { card.hidden = itemIndex !== state.kpIndex; });
-      const learnLabel = kpLearnCards[state.kpIndex]?.querySelector('h3')?.textContent || '';
       const recallLabel = kpRecallCards[state.kpIndex]?.querySelector('h3')?.textContent || '';
-      root.querySelector('[data-kp-learn-title]')?.replaceChildren(document.createTextNode(learnLabel));
       root.querySelector('[data-kp-recall-title]')?.replaceChildren(document.createTextNode(recallLabel));
       const group = currentGroup();
       const currentKpId = kpData[state.kpIndex]?.kpId || '';
@@ -273,15 +294,26 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       const groupPosition = groupKpIds.indexOf(currentKpId);
       const localPosition = groupPosition >= 0 ? groupPosition + 1 : 1;
       const groupTotal = Math.max(1, groupKpIds.length);
-      root.querySelector('[data-kp-counter]')?.replaceChildren(document.createTextNode(`本节 ${localPosition}/${groupTotal}`));
-      root.querySelector('[data-recall-counter]')?.replaceChildren(document.createTextNode(`${state.kpIndex + 1} / ${totalKp}`));
+      root.querySelector('[data-recall-counter]')?.replaceChildren(document.createTextNode(`本节 ${localPosition}/${groupTotal}`));
       save(); syncState();
+    };
+
+    const normalizeLegacyStage = () => {
+      const validStages = ['block_learn', 'logic_group', 'kp_learn', 'kp_recall', 'group_close', 'block_recall', 'block_complete'];
+      if (!validStages.includes(state.stage)) state.stage = 'block_learn';
+      const group = currentGroup();
+      if (state.stage === 'group_close' && (group?.kpIds || []).some((id) => !state.ratings?.[id])) {
+        state.kpIndex = firstUnrecalledIndexForGroup(group);
+        state.stage = 'kp_recall';
+      }
+      if (state.stage === 'kp_recall') state.kpIndex = firstUnrecalledIndexForGroup(group);
+      if (state.completed && !canComplete()) state.completed = false;
     };
 
     const setStage = (stage) => {
       state.stage = stage || 'block_learn';
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
-      const kpMode = ['kp_learn', 'kp_recall'].includes(state.stage);
+      const kpMode = state.stage === 'kp_recall';
       if (kpRail) kpRail.hidden = !kpMode;
       if (groupRail) groupRail.hidden = kpMode;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
@@ -299,45 +331,35 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
       const group = currentGroup();
-      if (group) setKpIndex(firstIndexForGroup(group));
-      setStage('kp_learn');
+      if (group) state.kpIndex = firstIndexForGroup(group);
+      save(); setStage('kp_learn');
     });
-    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; save(); switchTab('learn'); setStage('logic_group'); }));
-    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => { state.groupIndex = Number(button.getAttribute('data-outline-open') || 0); save(); switchTab('learn'); setStage('logic_group'); }));
-
-    const stepKp = (delta) => setKpIndex(state.kpIndex + delta);
-    root.querySelector('[data-kp-prev]')?.addEventListener('click', () => stepKp(-1));
-    root.querySelector('[data-kp-next]')?.addEventListener('click', () => stepKp(1));
-    root.querySelector('[data-recall-prev]')?.addEventListener('click', () => stepKp(-1));
-    root.querySelector('[data-recall-next]')?.addEventListener('click', () => stepKp(1));
-    kpRailButtons.forEach((button, index) => button.addEventListener('click', () => setKpIndex(index)));
-
-    root.querySelectorAll('[data-kp-learned]').forEach((button) => button.addEventListener('click', () => {
-      const kpId = button.getAttribute('data-kp-learned') || '';
-      state.learned = { ...(state.learned || {}), [kpId]: true };
-      button.classList.add('completed'); button.textContent = '已学'; save(); syncState();
+    root.querySelector('[data-group-lecture-done]')?.addEventListener('click', () => {
       const group = currentGroup();
-      const currentKpId = kpData[state.kpIndex]?.kpId || kpId;
-      const groupKpIds = Array.isArray(group?.kpIds) ? group.kpIds : [];
-      const groupPosition = groupKpIds.indexOf(currentKpId);
-      const atGroupEnd = groupPosition >= 0 && groupPosition === groupKpIds.length - 1;
-      if (atGroupEnd) {
-        window.setTimeout(() => setStage('group_close'), 120);
-      } else {
-        window.setTimeout(() => setKpIndex(state.kpIndex + 1), 120);
-      }
-    }));
-
-    root.querySelector('[data-group-close-next]')?.addEventListener('click', () => {
-      if (state.groupIndex < groups.length - 1) {
-        state.groupIndex += 1;
-        const group = currentGroup();
-        if (group) state.kpIndex = firstIndexForGroup(group);
-        save(); setStage('logic_group');
-      } else {
-        state.kpIndex = 0; save(); setStage('kp_recall');
-      }
+      const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+      const learned = { ...(state.learned || {}) };
+      ids.forEach((id) => { learned[id] = true; });
+      state.learned = learned;
+      state.kpIndex = firstUnrecalledIndexForGroup(group);
+      save(); setStage('kp_recall');
     });
+    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
+    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => { state.groupIndex = Number(button.getAttribute('data-outline-open') || 0); const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
+
+    const stepRecall = (delta) => {
+      const ids = currentGroup()?.kpIds || [];
+      const currentId = kpData[state.kpIndex]?.kpId || '';
+      const position = Math.max(0, ids.indexOf(currentId));
+      const nextPosition = Math.max(0, Math.min(ids.length - 1, position + delta));
+      const nextIndex = indexForKpId(ids[nextPosition]);
+      if (nextIndex >= 0) setKpIndex(nextIndex);
+    };
+    root.querySelector('[data-recall-prev]')?.addEventListener('click', () => stepRecall(-1));
+    root.querySelector('[data-recall-next]')?.addEventListener('click', () => stepRecall(1));
+    kpRailButtons.forEach((button, index) => button.addEventListener('click', () => {
+      if (groupIndexForKp(index) !== state.groupIndex) return;
+      setKpIndex(index);
+    }));
 
     kpRecallCards.forEach((card) => {
       const reveal = card.querySelector('[data-kp-reveal]');
@@ -350,9 +372,27 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
         state.ratings = { ...(state.ratings || {}), [kpId]: value };
         card.querySelectorAll('[data-rating]').forEach((candidate) => candidate.classList.toggle('selected', candidate === button));
         save(); syncState();
-        if (state.kpIndex < totalKp - 1) window.setTimeout(() => setKpIndex(state.kpIndex + 1), 120);
-        else window.setTimeout(() => setStage('block_recall'), 120);
+        const group = currentGroup();
+        const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+        const position = ids.indexOf(kpId);
+        if (position >= 0 && position < ids.length - 1) {
+          const nextIndex = indexForKpId(ids[position + 1]);
+          if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
+        } else {
+          window.setTimeout(() => setStage('group_close'), 120);
+        }
       }));
+    });
+
+    root.querySelector('[data-group-close-next]')?.addEventListener('click', () => {
+      if (state.groupIndex < groups.length - 1) {
+        state.groupIndex += 1;
+        const group = currentGroup();
+        if (group) state.kpIndex = firstIndexForGroup(group);
+        save(); setStage('logic_group');
+      } else {
+        save(); setStage('block_recall');
+      }
     });
 
     root.querySelector('[data-block-recall-complete]')?.addEventListener('click', (event) => { state.blockRecallDone = true; event.currentTarget.textContent = 'Block Recall 已完成'; event.currentTarget.classList.add('completed'); save(); syncState(); setStage('block_complete'); });
@@ -372,23 +412,23 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
-      if (!['kp_learn', 'kp_recall'].includes(state.stage)) return;
-      if (event.key === 'ArrowLeft') { event.preventDefault(); stepKp(-1); }
-      if (event.key === 'ArrowRight') { event.preventDefault(); stepKp(1); }
-      if (state.stage === 'kp_recall' && event.code === 'Space') { event.preventDefault(); kpRecallCards[state.kpIndex]?.querySelector('[data-kp-reveal]')?.click(); }
-      if (state.stage === 'kp_recall' && /^[1-4]$/.test(event.key)) {
+      if (state.stage !== 'kp_recall') return;
+      if (event.key === 'ArrowLeft') { event.preventDefault(); stepRecall(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); stepRecall(1); }
+      if (event.code === 'Space') { event.preventDefault(); kpRecallCards[state.kpIndex]?.querySelector('[data-kp-reveal]')?.click(); }
+      if (/^[1-4]$/.test(event.key)) {
         const values = ['unknown', 'fuzzy', 'known', 'mastered'];
         kpRecallCards[state.kpIndex]?.querySelector(`[data-rating="${values[Number(event.key) - 1]}"]`)?.click();
       }
     });
 
-    Object.entries(state.learned || {}).forEach(([kpId, done]) => { if (done) { const button = root.querySelector(`[data-kp-learned="${kpId}"]`); if (button) { button.classList.add('completed'); button.textContent = '已学'; } } });
     kpRecallCards.forEach((card) => { const value = state.ratings?.[card.getAttribute('data-kp-id') || '']; if (value) card.querySelector(`[data-rating="${value}"]`)?.classList.add('selected'); });
     if (state.blockRecallDone) { const button = root.querySelector('[data-block-recall-complete]'); if (button) { button.textContent = 'Block Recall 已完成'; button.classList.add('completed'); } }
+    normalizeLegacyStage();
     setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn'); syncState();
   }
 </script>
 
 <style>
-  .xv6Block .portedStudyArticle>h2:first-child{margin-top:0}.xv6BlockFocus strong{max-width:52rem}.xv6BlockSpine{margin:.85rem 0;padding:.7rem 0;border-top:1px solid var(--line,#d9dde5);border-bottom:1px solid var(--line,#d9dde5);display:grid;gap:.25rem}.xv6BlockSpine span,.xv6LogicTarget span,.xv6LaterCue span{font-size:.76rem;letter-spacing:.04em;opacity:.62}.xv6BlockSpine strong{font-size:1rem;line-height:1.65}.xv6LaterCue{margin:.7rem 0 1rem;font-size:.88rem;line-height:1.6;opacity:.78}.xv6LaterCue span{margin-right:.7rem;font-weight:700}.xv6BlockOrientation{margin:.75rem 0}.xv6BlockOrientation summary,.xv6VisualGate summary,.xv6KpCore summary,.xv6RecallSpine summary,.xv6GroupReview summary{cursor:pointer;font-weight:700}.xv6BlockOrientation .portedStudyArticle{margin-top:.8rem}.xv6VisualGate{margin:.75rem 0;padding:.65rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px;background:var(--soft,#f5f6f8)}.xv6VisualGate>div{margin-top:.8rem}.xv6LogicStage{max-width:760px;margin:1rem auto;padding:1.25rem 1.35rem;border:1px solid var(--line,#d9dde5);border-radius:18px;background:var(--panel,#fff)}.xv6LogicStage>span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.58}.xv6LogicStage>b{float:right;font-size:.78rem;opacity:.6}.xv6LogicStage h3{font-size:1.42rem;margin:.5rem 0}.xv6LogicGoal{font-size:1rem;line-height:1.75;margin:.5rem 0}.xv6LogicTarget{margin:.9rem 0;padding:.7rem .8rem;border-left:3px solid var(--line,#d9dde5);background:var(--soft,#f5f6f8)}.xv6LogicTarget p{margin:.25rem 0 0;line-height:1.65}.xv6LogicStage.close{border-style:dashed}.xv6GroupClosure{font-size:1rem;line-height:1.75}.xv6LogicStage.close small{display:block;margin:.5rem 0 1rem;opacity:.62}.xv6LectureFirst{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.2rem 0 .65rem;padding:.65rem .8rem;border-radius:10px;background:var(--soft,#f5f6f8)}.xv6LectureFirst strong{font-size:.9rem}.xv6LectureFirst span{font-size:.78rem;opacity:.7;text-align:right}.xv6KpCore{margin:.2rem 0 .8rem;padding:.55rem .7rem;border:1px solid var(--line,#d9dde5);border-radius:10px}.xv6KpCore .portedKpCanonical{margin-top:.7rem}.portedRecallAnswer>h4{font-size:1.15rem;margin:.25rem 0 1rem}.xv6BlockRecallCore{display:grid;gap:.8rem;margin:1rem 0}.xv6RecallPromptBox{padding:.8rem 0;border-bottom:1px solid var(--line,#d9dde5)}.xv6RecallPromptBox p{margin:.3rem 0 0;line-height:1.65;opacity:.75}.xv6RecallSpine,.xv6GroupReview{padding:.7rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px}.xv6RecallSpine p{font-size:1.02rem;line-height:1.75;margin:.8rem 0 .15rem;font-weight:650}.xv6GroupReview>div{display:grid;gap:.65rem;margin-top:.75rem}.xv6GroupReview section{padding:.55rem 0;border-top:1px solid var(--line,#d9dde5)}.xv6GroupReview section:first-child{border-top:0}.xv6GroupReview p{margin:.2rem 0 0;line-height:1.6;opacity:.78}@media(max-width:720px){.xv6LectureFirst{align-items:flex-start;flex-direction:column}.xv6LectureFirst span{text-align:left}}
+  .xv6Block .portedStudyArticle>h2:first-child{margin-top:0}.xv6BlockFocus strong{max-width:52rem}.xv6BlockSpine{margin:.85rem 0;padding:.7rem 0;border-top:1px solid var(--line,#d9dde5);border-bottom:1px solid var(--line,#d9dde5);display:grid;gap:.25rem}.xv6BlockSpine span,.xv6LogicTarget span,.xv6LaterCue span{font-size:.76rem;letter-spacing:.04em;opacity:.62}.xv6BlockSpine strong{font-size:1rem;line-height:1.65}.xv6LaterCue{margin:.7rem 0 1rem;font-size:.88rem;line-height:1.6;opacity:.78}.xv6LaterCue span{margin-right:.7rem;font-weight:700}.xv6BlockOrientation{margin:.75rem 0}.xv6BlockOrientation summary,.xv6VisualGate summary,.xv6RecallSpine summary,.xv6GroupReview summary,.xv6GroupKpMap summary{cursor:pointer;font-weight:700}.xv6BlockOrientation .portedStudyArticle{margin-top:.8rem}.xv6VisualGate{margin:.75rem 0;padding:.65rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px;background:var(--soft,#f5f6f8)}.xv6VisualGate>div{margin-top:.8rem}.xv6LogicStage{max-width:760px;margin:1rem auto;padding:1.25rem 1.35rem;border:1px solid var(--line,#d9dde5);border-radius:18px;background:var(--panel,#fff)}.xv6LogicStage>span{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.58}.xv6LogicStage>b{float:right;font-size:.78rem;opacity:.6}.xv6LogicStage h3{font-size:1.42rem;margin:.5rem 0}.xv6LogicGoal{font-size:1rem;line-height:1.75;margin:.5rem 0}.xv6LogicTarget{margin:.9rem 0;padding:.7rem .8rem;border-left:3px solid var(--line,#d9dde5);background:var(--soft,#f5f6f8)}.xv6LogicTarget p{margin:.25rem 0 0;line-height:1.65}.xv6LogicStage.close{border-style:dashed}.xv6GroupClosure{font-size:1rem;line-height:1.75}.xv6LogicStage.close small{display:block;margin:.5rem 0 1rem;opacity:.62}.xv6LectureFirst{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.2rem 0 .65rem;padding:.65rem .8rem;border-radius:10px;background:var(--soft,#f5f6f8)}.xv6LectureFirst strong{font-size:.9rem}.xv6LectureFirst span{font-size:.78rem;opacity:.7;text-align:right}.xv6LectureHandoff{align-items:flex-start;padding:.9rem 1rem}.xv6LectureHandoff div{display:grid;gap:.25rem}.xv6LectureHandoff p{margin:0;max-width:48rem;font-size:.9rem;line-height:1.65;opacity:.76}.xv6GroupKpMap{margin:.7rem 0 1rem;padding:.65rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:10px}.xv6GroupKpMap p{margin:.6rem 0 .1rem;line-height:1.6;opacity:.72}.portedRecallAnswer>h4{font-size:1.15rem;margin:.25rem 0 1rem}.xv6BlockRecallCore{display:grid;gap:.8rem;margin:1rem 0}.xv6RecallPromptBox{padding:.8rem 0;border-bottom:1px solid var(--line,#d9dde5)}.xv6RecallPromptBox p{margin:.3rem 0 0;line-height:1.65;opacity:.75}.xv6RecallSpine,.xv6GroupReview{padding:.7rem .8rem;border:1px solid var(--line,#d9dde5);border-radius:12px}.xv6RecallSpine p{font-size:1.02rem;line-height:1.75;margin:.8rem 0 .15rem;font-weight:650}.xv6GroupReview>div{display:grid;gap:.65rem;margin-top:.75rem}.xv6GroupReview section{padding:.55rem 0;border-top:1px solid var(--line,#d9dde5)}.xv6GroupReview section:first-child{border-top:0}.xv6GroupReview p{margin:.2rem 0 0;line-height:1.6;opacity:.78}@media(max-width:720px){.xv6LectureFirst{align-items:flex-start;flex-direction:column}.xv6LectureFirst span{text-align:left}}
 </style>
