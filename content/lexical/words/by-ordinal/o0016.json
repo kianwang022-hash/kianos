@@ -6,35 +6,58 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:16ab5e17d492a3f6c101",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "缺席某地/某活动",
+        "pattern": "be absent from + place/activity"
+      },
+      {
+        "construction_id": "construction:16ab5e17d492a3f6c102",
+        "direction": "R+P",
+        "level": "L3",
+        "meaning_cn": "（正式）使自己不参加/离开某处",
+        "pattern": "absent oneself from + place/event",
+        "learning_note": "Formal reflexive verb pattern."
+      }
+    ],
     "content_hash": "4e2996b84a93dd843bad696779c91dd996c96e18e698ece219e88229cf3853ea",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "缺席的；不在的；漫不经心的；心不在焉的",
-          "label_en": "not present in a place; not paying attention; preoccupied",
+          "label_cn": "缺席的；不在的",
+          "label_en": "not present where expected",
           "pos": "adjective",
           "sense_ids": [
-            "sense:absent:72efeeec5e5456f8",
+            "sense:absent:72efeeec5e5456f8"
+          ]
+        },
+        {
+          "label_cn": "心不在焉的",
+          "label_en": "not paying attention; preoccupied",
+          "pos": "adjective",
+          "sense_ids": [
             "sense:absent:77745d8f06ba57ba"
           ]
         },
         {
-          "label_cn": "使缺席；使离开",
-          "label_en": "to keep oneself away",
+          "label_cn": "使自己缺席（正式）",
+          "label_en": "formally keep oneself away from a place or event",
           "pos": "verb",
           "sense_ids": [
             "sense:absent:20bcab510bdd5c1a"
           ]
         }
       ],
-      "core_meaning_cn": "缺席的",
-      "core_meaning_en": "not present",
-      "mental_model_cn": "缺席的",
-      "mental_model_en": ""
+      "core_meaning_cn": "核心是“人不在该在的位置/注意力不在当前对象上”",
+      "core_meaning_en": "not being where one is expected to be, physically or mentally; formally, to keep oneself away",
+      "mental_model_cn": "physical absence → be absent from；mental absence → an absent look；正式主动回避 → absent oneself from。",
+      "mental_model_en": "physical absence, mental absence, then the formal reflexive verb absent oneself from"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [],
@@ -62,17 +85,18 @@
             "phrase": "absent from school"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "缺席的；不在的",
-        "definition_en": "not present in a place",
+        "confidence": "high",
+        "definition_cn": "缺席的；不在应在场所的",
+        "definition_en": "not present where someone is expected to be",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:absent:72efeeec5e5456f8",
-        "sense_label_en": "not present in a place",
+        "sense_label_en": "not present where expected",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "The ordinary frame is be absent from + place/activity."
       },
       {
         "collocations": [
@@ -86,15 +110,15 @@
             "phrase": "an absent look"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "漫不经心的；心不在焉的",
-        "definition_en": "not paying attention; preoccupied",
+        "confidence": "high",
+        "definition_cn": "心不在焉的；出神的",
+        "definition_en": "not paying attention because the mind is elsewhere; preoccupied",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:absent:77745d8f06ba57ba",
-        "sense_label_en": "not paying attention; preoccupied",
+        "sense_label_en": "inattentive or preoccupied",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -119,17 +143,18 @@
             "phrase": "He absented himself from the meeting."
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "使缺席；使离开",
-        "definition_en": "to keep oneself away",
-        "governing_pattern": "vt. + oneself + from",
-        "level": "L2",
+        "confidence": "high",
+        "definition_cn": "（正式）使自己缺席；避开应在的地方或场合",
+        "definition_en": "formal: to keep oneself away from a place or event where one might be expected",
+        "governing_pattern": "absent oneself from + place/event",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:absent:20bcab510bdd5c1a",
-        "sense_label_en": "to keep oneself away",
+        "sense_label_en": "formal: keep oneself away",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Formal and normally reflexive: absent yourself/himself/herself from ..."
       }
     ],
     "verification_summary": {
@@ -244,7 +269,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "4e2996b84a93dd843bad696779c91dd996c96e18e698ece219e88229cf3853ea",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }

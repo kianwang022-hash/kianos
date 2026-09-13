@@ -1,0 +1,280 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch_report.v2",
+  "batch_id": "batch03",
+  "mode": "APPLY_CANDIDATE",
+  "status": "PASS",
+  "legacy_semantic_authority": false,
+  "owner_count": 12,
+  "upgraded_count": 7,
+  "pass_count": 5,
+  "reference_only_count": 0,
+  "blocked_count": 0,
+  "relation_count": 0,
+  "learner_state_mutation": 0,
+  "complexity_split": {
+    "moderate": 7,
+    "rich_polysemy": 3,
+    "simple": 2
+  },
+  "owners": [
+    {
+      "ordinal": 13,
+      "word_id": "word:abroad",
+      "active_sense_ids": [
+        "sense:abroad:bba84c94bafe5f55"
+      ],
+      "reference_sense_count": 2,
+      "construction_count": 2,
+      "sentinels_resolved": [
+        "ADVERB_GRAMMAR_BOUNDARY_IMPLICIT",
+        "TO_IN_ABROAD_ERROR_NOT_GUARDED",
+        "OLD_FORMAL_REFERENCE_MUST_NOT_REENTER_CORE"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0013.json",
+      "complexity": "moderate",
+      "reason": null,
+      "material_changes": [
+        "Keep the modern foreign-country adverb as the sole active sense and leave old/formal historical uses reference-only.",
+        "Make the high-value adverb grammar explicit: go/live/study/work abroad, not *to abroad or *in abroad; from abroad is valid."
+      ]
+    },
+    {
+      "ordinal": 14,
+      "word_id": "word:abrupt",
+      "active_sense_ids": [
+        "sense:abrupt:3b9959721a645ce2",
+        "sense:abrupt:3160249468cf5dcf",
+        "sense:abrupt:7822790ddb43595c"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 0,
+      "sentinels_resolved": [],
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "reason": "Current object already separates sudden/unexpected, brusque manner, and steep physical senses at sensible L1/L2/L3 levels with representative collocations; adding more structure would not materially improve learner decisions.",
+      "material_changes": [],
+      "path": "content/lexical/words/by-ordinal/o0014.json"
+    },
+    {
+      "ordinal": 15,
+      "word_id": "word:absence",
+      "active_sense_ids": [
+        "sense:absence:0da5aabdb1705dae",
+        "sense:absence:3e4a58fe8eed57ba"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 3,
+      "sentinels_resolved": [
+        "IN_THE_ABSENCE_OF_BURIED_AS_COLLOCATION",
+        "PERSON_ABSENCE_AND_NONEXISTENCE_NEED_BRANCH_CUES",
+        "CORE_CLUSTERS_EMPTY"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0015.json",
+      "complexity": "moderate",
+      "reason": null,
+      "material_changes": [
+        "Keep both absence-of-person and lack/nonexistence senses but make both live reading branches.",
+        "Promote in someone's absence and in the absence of + person/thing into first-class constructions instead of leaving them at example level."
+      ]
+    },
+    {
+      "ordinal": 16,
+      "word_id": "word:absent",
+      "active_sense_ids": [
+        "sense:absent:20bcab510bdd5c1a",
+        "sense:absent:72efeeec5e5456f8",
+        "sense:absent:77745d8f06ba57ba"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 2,
+      "sentinels_resolved": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "FORMAL_VERB_OVERWEIGHTED",
+        "ABSENT_FROM_PATTERN_NOT_FIRST_CLASS"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0016.json",
+      "complexity": "moderate",
+      "reason": null,
+      "material_changes": [
+        "Keep ordinary not-present and inattentive adjective senses as the main learner branches.",
+        "Keep formal absent oneself from as a live but low-priority verb branch rather than deleting it or presenting it as ordinary speech.",
+        "Promote be absent from and absent oneself from into register-aware constructions."
+      ]
+    },
+    {
+      "ordinal": 17,
+      "word_id": "word:absolute",
+      "active_sense_ids": [
+        "sense:absolute:88ee4e57be7e566f",
+        "sense:absolute:41c8fe621af7544e"
+      ],
+      "reference_sense_count": 1,
+      "construction_count": 0,
+      "sentinels_resolved": [],
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "reason": "Current object already preserves the high-value complete/unqualified and unlimited-power branches, keeps the rare noun reference-only, and supplies representative absolute truth/power/monarchy collocations; no material learner decision is missing.",
+      "material_changes": [],
+      "path": "content/lexical/words/by-ordinal/o0017.json"
+    },
+    {
+      "ordinal": 18,
+      "word_id": "word:absorb",
+      "active_sense_ids": [
+        "sense:absorb:986532362aea5901",
+        "sense:absorb:ac064998275d5f3d",
+        "sense:absorb:e10dc94ae11e5a7c",
+        "sense:absorb:efa12a855e2a5080",
+        "sense:absorb:f3ade412a01b5da4"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 4,
+      "sentinels_resolved": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "FIVE_VALID_SENSES_WITHOUT_SHARED_MODEL",
+        "ABSORBED_IN_AND_ABSORB_INTO_BURIED_AS_COLLOCATIONS",
+        "COST_IMPACT_BRANCH_NEEDS_CLEAR_CUE"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0018.json",
+      "complexity": "rich_polysemy",
+      "reason": null,
+      "material_changes": [
+        "Preserve all five current modern senses but organize them under one take-in/take-on model rather than five flat translations.",
+        "Promote absorb information, be absorbed in, absorb A into B, and absorb cost/loss/shock into first-class constructions."
+      ]
+    },
+    {
+      "ordinal": 19,
+      "word_id": "word:abstract",
+      "active_sense_ids": [
+        "sense:abstract:101ad1c99ab15f03",
+        "sense:abstract:77cac107d5a45df4",
+        "sense:abstract:b7b8b05117f3527c",
+        "sense:abstract:d665d4c15aae5ea2"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 4,
+      "sentinels_resolved": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "ACADEMIC_NOUN_UNDERWEIGHTED",
+        "VERB_BRANCHES_COMPRESSED_IN_CORE",
+        "ABSTRACT_FROM_PATTERN_NOT_FIRST_CLASS"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0019.json",
+      "complexity": "rich_polysemy",
+      "reason": null,
+      "material_changes": [
+        "Promote the academic noun 'abstract' (summary of a paper/article) to L1 alongside the abstract-versus-concrete adjective.",
+        "Separate the productive verb abstract A from B from the low-frequency summarize-as-a-verb use.",
+        "Make the academic noun and verb constructions learner-visible and note the noun/adjective versus verb stress shift."
+      ]
+    },
+    {
+      "ordinal": 20,
+      "word_id": "word:absurd",
+      "active_sense_ids": [
+        "sense:absurd:8d020d7c1b3f5099"
+      ],
+      "reference_sense_count": 2,
+      "construction_count": 0,
+      "sentinels_resolved": [],
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "simple",
+      "reason": "Current object has the ordinary unreasonable/silly adjective as the sole active learner sense, includes the high-value 'it is absurd to do sth' pattern, and correctly leaves merged/rare philosophical material outside the active layer.",
+      "material_changes": [],
+      "path": "content/lexical/words/by-ordinal/o0020.json"
+    },
+    {
+      "ordinal": 21,
+      "word_id": "word:abundant",
+      "active_sense_ids": [
+        "sense:abundant:cb12b87fb0aa5f91"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 0,
+      "sentinels_resolved": [],
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "simple",
+      "reason": "Current object is a clean one-sense adjective with both attributive use ('abundant resources') and the key 'abundant in + sth' pattern already visible; further decomposition would add complexity without improving retrieval or use.",
+      "material_changes": [],
+      "path": "content/lexical/words/by-ordinal/o0021.json"
+    },
+    {
+      "ordinal": 22,
+      "word_id": "word:abuse",
+      "active_sense_ids": [
+        "sense:abuse:03afeb7464a650ce",
+        "sense:abuse:473dcb564e105651",
+        "sense:abuse:701fb09ff9905f17",
+        "sense:abuse:70dd2a3fc8b55c63",
+        "sense:abuse:a23d414559125663",
+        "sense:abuse:ad175cc9e01c54ea"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 5,
+      "sentinels_resolved": [
+        "SIX_SENSES_FLAT_BY_POS",
+        "MISUSE_MISTREATMENT_VERBAL_BRANCHES_NOT_CLUSTERED",
+        "HIGH_VALUE_ABUSE_OF_POWER_DRUG_ABUSE_VERBAL_ABUSE_PATTERNS_NOT_FIRST_CLASS",
+        "NOUN_VERB_PRONUNCIATION_BOUNDARY_MISSING"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0022.json",
+      "complexity": "rich_polysemy",
+      "reason": null,
+      "material_changes": [
+        "Keep all six current modern verb/noun senses but reorganize them by semantic branch: misuse, mistreatment, and verbal attack.",
+        "Promote abuse of power/authority, drug/alcohol abuse, physical/sexual/child abuse, and verbal abuse into learner-visible constructions.",
+        "Make the noun-versus-verb pronunciation boundary explicit without collapsing the semantic branches."
+      ]
+    },
+    {
+      "ordinal": 23,
+      "word_id": "word:academic",
+      "active_sense_ids": [
+        "sense:academic:ed40215658295c39",
+        "sense:academic:f38a7e62a4c35915",
+        "sense:academic:f80f4988ad015c68"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 2,
+      "sentinels_resolved": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "STUDY_BRANCH_AND_PURELY_THEORETICAL_BRANCH_COMPRESSED",
+        "PURELY_ACADEMIC_PATTERN_NOT_FIRST_CLASS",
+        "NOUN_ACADEMIC_NEEDS_CLEAR_SEPARATE_BRANCH"
+      ],
+      "disposition": "FRESH_UPGRADED",
+      "path": "content/lexical/words/by-ordinal/o0023.json",
+      "complexity": "moderate",
+      "reason": null,
+      "material_changes": [
+        "Separate the ordinary education/scholarship adjective from the 'purely theoretical / no practical consequence' adjective branch.",
+        "Keep the noun 'an academic' as a separate person branch rather than letting it hide inside a mixed adjective cluster.",
+        "Promote purely academic and common academic-domain collocations into first-class constructions."
+      ]
+    },
+    {
+      "ordinal": 24,
+      "word_id": "word:academy",
+      "active_sense_ids": [
+        "sense:academy:aa68a0fe29325341",
+        "sense:academy:45c3a31681c35083"
+      ],
+      "reference_sense_count": 0,
+      "construction_count": 0,
+      "sentinels_resolved": [],
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "reason": "Current object cleanly separates a specialized school/college from a learned or artistic society, with representative military academy and Royal Academy examples; no high-value modern branch or construction is missing enough to justify extra complexity.",
+      "material_changes": [],
+      "path": "content/lexical/words/by-ordinal/o0024.json"
+    }
+  ],
+  "relations": []
+}
