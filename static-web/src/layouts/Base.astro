@@ -10,7 +10,8 @@ const {
   sourcePath,
   sourceHash,
   objectId,
-  active = 'home'
+  active = 'home',
+  showLead = true
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -56,10 +57,12 @@ const navItems = [
       </details>
     </header>
     <main class={`productCanvas surface-${active}`}>
-      <section class="pageLead">
-        <p class="pageKicker">{kicker}</p>
-        <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
-      </section>
+      {showLead && (
+        <section class="pageLead">
+          <p class="pageKicker">{kicker}</p>
+          <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
+        </section>
+      )}
       <slot />
     </main>
   </body>
