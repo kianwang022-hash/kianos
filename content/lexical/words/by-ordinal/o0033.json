@@ -6,14 +6,68 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:33accommodate00000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "容纳若干人/物",
+        "pattern": "accommodate + person/number/object"
+      },
+      {
+        "construction_id": "construction:33accommodate00000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "满足/照顾需要、请求或限制条件",
+        "pattern": "accommodate + needs/request/schedule/constraint"
+      },
+      {
+        "construction_id": "construction:33accommodate00000003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "向某人提供所需之物（较正式）",
+        "pattern": "accommodate + sb + with + sth"
+      },
+      {
+        "construction_id": "construction:33accommodate00000004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "（正式）使自己适应新条件",
+        "pattern": "accommodate oneself to + change/conditions"
+      }
+    ],
     "content_hash": "788aa142d353538ff5e6659e4bcc1beede051131d059d6f9dadff542a2f56e04",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "容纳，适应，提供",
-      "core_meaning_en": "to provide space or make suitable",
-      "mental_model_cn": "容纳，适应，提供",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "容纳；提供空间",
+          "label_en": "have or provide enough space for people or things",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accommodate:c291a8f41cf257f7"
+          ]
+        },
+        {
+          "label_cn": "满足需要；作出安排",
+          "label_en": "provide what is needed or make room for a request/need",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accommodate:906d6d44f80955e4"
+          ]
+        },
+        {
+          "label_cn": "使自己适应（正式）",
+          "label_en": "formally adapt oneself to conditions or change",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accommodate:1fbf05b413d85299"
+          ]
+        }
+      ],
+      "core_meaning_cn": "给人、物或需求“腾出位置”：可以是物理空间，也可以是安排上的余地；正式反身用法表示让自己适应新条件。",
+      "core_meaning_en": "make room physically or figuratively: provide space, meet a need/request, or formally adapt oneself to new conditions",
+      "mental_model_cn": "hotel accommodates guests = 容纳；plan/service accommodates needs = 照顾需要；person accommodates oneself to change = 正式“使自己适应”。避免裸用 *accommodate to。",
+      "mental_model_en": "space for guests, room for needs/requests, then formal reflexive adaptation; avoid treating bare accommodate to as the default"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,15 +98,15 @@
             "phrase": "The hotel can accommodate 500 guests."
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "容纳，提供空间",
-        "definition_en": "to have enough space for someone or something",
+        "confidence": "high",
+        "definition_cn": "容纳；有足够空间供……使用/居住",
+        "definition_en": "to have or provide enough space for a person or thing",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accommodate:c291a8f41cf257f7",
-        "sense_label_en": "to have enough space for someone or something",
+        "sense_label_en": "provide enough space for",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -77,83 +131,33 @@
             "phrase": "accommodate a request"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "向…提供，满足需要",
-        "definition_en": "to provide someone with what they need or want",
+        "confidence": "high",
+        "definition_cn": "满足需要或请求；为……作出合适安排",
+        "definition_en": "to provide what someone needs or wants, or make arrangements that allow for a need, request, or constraint",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accommodate:906d6d44f80955e4",
-        "sense_label_en": "to provide someone with what they need or want",
+        "sense_label_en": "meet a need/request or make room for it",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Common modern objects include needs, requests, schedules, and people requiring particular arrangements."
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:62e21fa0196de629e47f",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:accommodate:c8fc5c6590a45eea:collocation:0"
-            ],
-            "meaning_cn": "使某物适应某物",
-            "phrase": "accommodate + sth to + sth"
-          },
-          {
-            "collocation_id": "collocation:a003d71b1a1095c1bcdb",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:accommodate:c8fc5c6590a45eea:collocation:1"
-            ],
-            "meaning_cn": "使计划适应新情况",
-            "phrase": "accommodate the plan to the new conditions"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "使适应，使调和",
-        "definition_en": "to make something compatible with something else",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:accommodate:c8fc5c6590a45eea",
-        "sense_label_en": "to make something compatible with something else",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:89beddce3782166c7843",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:accommodate:1fbf05b413d85299:collocation:0"
-            ],
-            "meaning_cn": "适应某物",
-            "phrase": "accommodate to + sth"
-          },
-          {
-            "collocation_id": "collocation:051a5d0b3dac12e864a7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:accommodate:1fbf05b413d85299:collocation:1"
-            ],
-            "meaning_cn": "适应新环境",
-            "phrase": "accommodate to the new environment"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "适应",
-        "definition_en": "to adapt to something",
-        "governing_pattern": "vi. + to",
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "（正式，反身）使自己适应新的情况或条件",
+        "definition_en": "formal and reflexive: to adapt oneself to a new situation or set of conditions",
+        "governing_pattern": "accommodate oneself to + n",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accommodate:1fbf05b413d85299",
-        "sense_label_en": "to adapt to something",
-        "sort_order": 3,
-        "transitivity": "vi"
+        "sense_label_en": "formal: adapt oneself to conditions",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "Use the reflexive pattern accommodate oneself to; bare *accommodate to is not the default modern learner pattern."
       }
     ],
     "verification_summary": {
@@ -176,7 +180,21 @@
     "word_id": "word:accommodate"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:accommodate:c8fc5c6590a45eea",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "使适应，使调和",
+      "definition_en": "to make something compatible with something else",
+      "updated_at": null,
+      "source_row": 95,
+      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "The old learner branch 'accommodate the plan to new conditions' is not a good modern default. Current make-room/adjustment meaning is carried by accommodating needs/requests/constraints; retain the historical branch only for reference."
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -202,20 +220,16 @@
       },
       {
         "sense_id": "sense:accommodate:c8fc5c6590a45eea",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 95,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
     ],
     "active_collocations": [
-      "collocation:051a5d0b3dac12e864a7",
       "collocation:39bdf1ee62a326e67517",
-      "collocation:62e21fa0196de629e47f",
       "collocation:82ee56032f0f295c5685",
       "collocation:870e65656fbd90b9b811",
-      "collocation:89beddce3782166c7843",
-      "collocation:a003d71b1a1095c1bcdb",
       "collocation:a03a47d6363d3c19e8b7"
     ],
     "facts": [],
@@ -303,7 +317,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0033-0040.json",
     "source_content_hash": "788aa142d353538ff5e6659e4bcc1beede051131d059d6f9dadff542a2f56e04",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

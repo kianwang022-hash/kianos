@@ -6,14 +6,68 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:28acceptance00000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "获得/赢得认可",
+        "pattern": "gain/win/find acceptance"
+      },
+      {
+        "construction_id": "construction:28acceptance00000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "被接纳进入某个群体/社区",
+        "pattern": "acceptance into + group/community/institution"
+      },
+      {
+        "construction_id": "construction:28acceptance00000003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "接受/同意某个提议或方案",
+        "pattern": "acceptance of + offer/proposal/plan"
+      },
+      {
+        "construction_id": "construction:28acceptance00000004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "接受现实、损失或困难局面",
+        "pattern": "acceptance of + reality/loss/situation"
+      }
+    ],
     "content_hash": "038eb8f236494e3e2d55b26015ef3435684f68324e34f1113b70f589b5d6d78b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "接受",
-      "core_meaning_en": "the act of accepting or being accepted",
-      "mental_model_cn": "接受",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "认可；接纳；被接受",
+          "label_en": "approval, recognition, or inclusion by others",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acceptance:36d6ec9867445964"
+          ]
+        },
+        {
+          "label_cn": "同意；接受提议",
+          "label_en": "the act of agreeing to an offer, plan, or invitation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acceptance:90cafc9ec9555ecc"
+          ]
+        },
+        {
+          "label_cn": "接受现实",
+          "label_en": "the process of coming to terms with a difficult reality",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:acceptance:996470c6cf16e5fa"
+          ]
+        }
+      ],
+      "core_meaning_cn": "“不再拒绝”形成的状态或结果：被社会/群体认可，正式同意某个提议，或心理上接受现实。",
+      "core_meaning_en": "the state or result of no longer rejecting: approval/inclusion, agreement to an offer, or coming to terms with reality",
+      "mental_model_cn": "看 acceptance 后面接什么：gain/public acceptance→认可；acceptance of an offer→同意；acceptance of reality/loss→接受现实。",
+      "mental_model_en": "use the complement as the branch cue: public/gain acceptance, acceptance of an offer, or acceptance of a difficult reality"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -29,15 +83,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:e2d1a26a70171776765c",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:acceptance:36d6ec9867445964:collocation:0"
-            ],
-            "meaning_cn": "对某事物的接受",
-            "phrase": "acceptance of + sth"
-          },
-          {
             "collocation_id": "collocation:fb81052e56d06f99b905",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -47,15 +92,15 @@
             "phrase": "gain acceptance"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "接受；接纳",
-        "definition_en": "the act of taking something that is offered",
+        "confidence": "high",
+        "definition_cn": "认可；接纳；被接受的状态",
+        "definition_en": "approval, recognition, or the state of being accepted as suitable or included",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:acceptance:36d6ec9867445964",
-        "sense_label_en": "the act of taking something that is offered",
+        "sense_label_en": "approval, recognition, or inclusion",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -71,17 +116,45 @@
             "phrase": "acceptance of an offer"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "同意；赞同",
-        "definition_en": "agreement to an offer or proposal",
+        "confidence": "high",
+        "definition_cn": "接受；同意（提议、计划、邀请等）",
+        "definition_en": "the act of agreeing to an offer, proposal, plan, or invitation",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:acceptance:90cafc9ec9555ecc",
-        "sense_label_en": "agreement to an offer or proposal",
+        "sense_label_en": "agreement to an offer, plan, or invitation",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "接受困难或不愉快现实的过程/状态",
+        "definition_en": "the process or state of recognizing and coming to terms with a difficult or unpleasant reality",
+        "governing_pattern": "acceptance of + reality/situation/loss",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:acceptance:996470c6cf16e5fa",
+        "sense_label_en": "coming to terms with a difficult reality",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/acceptance",
+                "role": "current_reality_acceptance_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -193,11 +266,18 @@
         "merged_into_sense_id": null,
         "source_row": 78,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:acceptance:996470c6cf16e5fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch04.json",
+        "fresh_rebuild_created": true
       }
     ],
     "active_collocations": [
       "collocation:99bdb037e152c3b730d6",
-      "collocation:e2d1a26a70171776765c",
       "collocation:fb81052e56d06f99b905"
     ],
     "facts": [
@@ -268,6 +348,8 @@
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "038eb8f236494e3e2d55b26015ef3435684f68324e34f1113b70f589b5d6d78b",
     "semantic_delta": 1,
-    "materializer": "tools/lexical_natural_owner.py"
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

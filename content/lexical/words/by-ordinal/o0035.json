@@ -6,17 +6,64 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:35accompany0000000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "陪某人去某地/某活动",
+        "pattern": "accompany + sb + to + place/event"
+      },
+      {
+        "construction_id": "construction:35accompany0000000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "伴随着……；同时出现……",
+        "pattern": "be accompanied by + person/feature/symptom/event"
+      },
+      {
+        "construction_id": "construction:35accompany0000000003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "用某种乐器为某人伴奏",
+        "pattern": "accompany + sb + on + instrument"
+      }
+    ],
     "content_hash": "f96e488c471a8d67143b85017de977cae78ce8d15a2170ad7aa3e14875c4f35e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "陪伴",
-      "core_meaning_en": "to go with someone or something",
-      "mental_model_cn": "陪伴",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "陪同；陪伴",
+          "label_en": "go somewhere with someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accompany:13c859f5957f5f26"
+          ]
+        },
+        {
+          "label_cn": "伴随发生",
+          "label_en": "happen or exist together with something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accompany:3dcd74ca6a7e52a7"
+          ]
+        },
+        {
+          "label_cn": "伴奏",
+          "label_en": "play music alongside a singer or another instrument",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accompany:08c4df946d265dd8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "作为“主角旁边的伴随项”一起出现：陪人去、与事件同时发生，或在音乐上伴奏。",
+      "core_meaning_en": "to be alongside a main person, event, or sound: go with someone, occur together, or provide musical accompaniment",
+      "mental_model_cn": "person→accompany sb to place；event/symptom→be accompanied by；music→accompany sb on piano/guitar。",
+      "mental_model_en": "use the companion type as the cue: person-to-place, event accompanied by another feature, or musical accompaniment"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -47,17 +94,18 @@
             "phrase": "accompany a friend to the airport"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "陪伴；陪同",
+        "confidence": "high",
+        "definition_cn": "陪同；陪伴某人去某处",
         "definition_en": "to go somewhere with someone",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accompany:13c859f5957f5f26",
-        "sense_label_en": "to go somewhere with someone",
+        "sense_label_en": "go somewhere with someone",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Often somewhat formal compared with ordinary go with or take in everyday contexts."
       },
       {
         "collocations": [
@@ -80,17 +128,18 @@
             "phrase": "The storm was accompanied by strong winds."
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "伴随；与…同时发生",
-        "definition_en": "to happen or exist at the same time as something else",
+        "confidence": "high",
+        "definition_cn": "伴随；与……同时发生或存在",
+        "definition_en": "to happen, exist, or be provided at the same time as something else",
         "governing_pattern": "vt. + object",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accompany:3dcd74ca6a7e52a7",
-        "sense_label_en": "to happen or exist at the same time as something else",
+        "sense_label_en": "happen or exist together with",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Very common in passive form: be accompanied by."
       },
       {
         "collocations": [
@@ -104,15 +153,15 @@
             "phrase": "accompany a singer on the piano"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "为…伴奏",
+        "confidence": "high",
+        "definition_cn": "为……伴奏",
         "definition_en": "to play music while someone sings or plays another instrument",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accompany:08c4df946d265dd8",
-        "sense_label_en": "to play music while someone sings or plays another instrument",
+        "sense_label_en": "provide musical accompaniment",
         "sort_order": 2,
         "transitivity": "vt"
       }
@@ -179,7 +228,7 @@
   "reference_senses": [
     {
       "stable_sense_id": "sense:accompany:d589762bb7b1516a",
-      "status": "merged",
+      "status": "deprecated",
       "merged_into_sense_id": "sense:accompany:08c4df946d265dd8",
       "pos": "verb",
       "definition_cn": "伴奏",
@@ -226,8 +275,8 @@
       },
       {
         "sense_id": "sense:accompany:d589762bb7b1516a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:accompany:08c4df946d265dd8",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 103,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
@@ -320,7 +369,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0033-0040.json",
     "source_content_hash": "f96e488c471a8d67143b85017de977cae78ce8d15a2170ad7aa3e14875c4f35e",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

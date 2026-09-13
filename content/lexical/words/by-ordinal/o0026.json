@@ -6,35 +6,65 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:26acc3nt000000000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "带着某种口音说话",
+        "pattern": "speak with + an/a ... accent"
+      },
+      {
+        "construction_id": "construction:26acc3nt000000000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "重音/着重点落在……上",
+        "pattern": "the accent falls/is on + syllable/word/beat/feature"
+      },
+      {
+        "construction_id": "construction:26acc3nt000000000003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "强调某个词、特征或重要性",
+        "pattern": "accent + word/feature/importance"
+      }
+    ],
     "content_hash": "37f42b59a25dfb48e065e9dc3b8abdb335f2de886aeca7cdfc5a51dfd20c0c25",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "口音；重音符号",
-          "label_en": "a distinctive manner of pronunciation characteristic of a region or social group; a mark used to indicate stress or special pronunciation",
+          "label_cn": "口音",
+          "label_en": "a characteristic way of pronouncing a language",
           "pos": "noun",
           "sense_ids": [
-            "sense:accent:db6cfea9045c504f",
+            "sense:accent:db6cfea9045c504f"
+          ]
+        },
+        {
+          "label_cn": "重音符号",
+          "label_en": "a written mark showing stress or special pronunciation",
+          "pos": "noun",
+          "sense_ids": [
             "sense:accent:7fe3c4bee4745ad0"
           ]
         },
         {
-          "label_cn": "强调，重读",
-          "label_en": "to emphasize or stress",
-          "pos": "verb",
+          "label_cn": "重音；强调；着重点",
+          "label_en": "special stress or prominence; to give such prominence",
+          "pos": "noun/verb",
           "sense_ids": [
+            "sense:accent:658ff62ffe8ee633",
             "sense:accent:9eece5d7e6595bee"
           ]
         }
       ],
-      "core_meaning_cn": "口音或重音",
-      "core_meaning_en": "a distinctive way of pronouncing or emphasizing",
-      "mental_model_cn": "口音或重音",
-      "mental_model_en": ""
+      "core_meaning_cn": "让某种发音、音节、词或特征变得更“突出”：可以表现为口音、重音符号、着重点，也可以作动词表示强调。",
+      "core_meaning_en": "prominence in pronunciation or emphasis: a characteristic accent, a written accent mark, a point of stress/emphasis, or the act of emphasizing",
+      "mental_model_cn": "共同线索是 prominence：人怎么发音→口音；符号标出哪里重读→重音符号；某处最突出→重音/着重点；主动让它突出→accent 作动词。",
+      "mental_model_en": "follow the prominence cue: pronunciation pattern, written mark, point of stress/emphasis, then the verb meaning make something prominent"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -56,17 +86,46 @@
             "phrase": "speak with an accent"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "口音",
-        "definition_en": "a distinctive manner of pronunciation characteristic of a region or social group",
+        "confidence": "high",
+        "definition_cn": "口音；某地区、群体或个人特有的发音方式",
+        "definition_en": "a characteristic way of pronouncing a language, especially one associated with a region or social group",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accent:db6cfea9045c504f",
-        "sense_label_en": "a distinctive manner of pronunciation characteristic of a region or soci",
+        "sense_label_en": "a characteristic way of pronouncing a language",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "重音；强调；着重点",
+        "definition_en": "special stress or emphasis given to a syllable, word, musical note, or particular feature",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:accent:658ff62ffe8ee633",
+        "sense_label_en": "special stress, emphasis, or point of prominence",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "In this branch accent overlaps with emphasis, but accent often points to a particular stress or focal point.",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/accent",
+                "role": "current_noun_emphasis_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       },
       {
         "collocations": [
@@ -80,16 +139,16 @@
             "phrase": "acute accent"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "重音符号",
-        "definition_en": "a mark used to indicate stress or special pronunciation",
+        "confidence": "high",
+        "definition_cn": "重音符号；表示重音或特殊发音的书写符号",
+        "definition_en": "a written mark used to show stress or a special pronunciation",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accent:7fe3c4bee4745ad0",
-        "sense_label_en": "a mark used to indicate stress or special pronunciation",
-        "sort_order": 1,
+        "sense_label_en": "a written accent mark",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -104,16 +163,16 @@
             "phrase": "accent the importance"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "强调，重读",
-        "definition_en": "to emphasize or stress",
-        "governing_pattern": "vt. + object",
+        "confidence": "high",
+        "definition_cn": "强调；使突出；重读",
+        "definition_en": "to emphasize, stress, or make a feature more noticeable",
+        "governing_pattern": "accent + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accent:9eece5d7e6595bee",
-        "sense_label_en": "to emphasize or stress",
-        "sort_order": 2,
+        "sense_label_en": "emphasize or make prominent",
+        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -167,6 +226,14 @@
         "merged_into_sense_id": null,
         "source_row": 69,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:accent:658ff62ffe8ee633",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch04.json",
+        "fresh_rebuild_created": true
       }
     ],
     "active_collocations": [
@@ -225,7 +292,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "37f42b59a25dfb48e065e9dc3b8abdb335f2de886aeca7cdfc5a51dfd20c0c25",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

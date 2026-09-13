@@ -6,14 +6,76 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:34accommodation000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "提供/寻找住宿",
+        "pattern": "provide/find/book accommodation"
+      },
+      {
+        "construction_id": "construction:34accommodation000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "为某人的需要作特殊安排",
+        "pattern": "make/provide accommodations for + sb/needs"
+      },
+      {
+        "construction_id": "construction:34accommodation000003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "合理便利/合理调整",
+        "pattern": "reasonable accommodations"
+      },
+      {
+        "construction_id": "construction:34accommodation000004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与某人达成和解/妥协",
+        "pattern": "reach an accommodation with + sb"
+      },
+      {
+        "construction_id": "construction:34accommodation000005",
+        "direction": "R+P",
+        "level": "L3",
+        "meaning_cn": "对变化/条件的适应",
+        "pattern": "accommodation to + change/conditions"
+      }
+    ],
     "content_hash": "a0ed47f4191d2b7adab8ee221a75cdcfd0c2d7b2b1b4fd80497178442250c196",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "住宿；适应",
-      "core_meaning_en": "a place to stay or the act of adapting",
-      "mental_model_cn": "住宿；适应",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "住宿；住处",
+          "label_en": "a place to stay or lodging provided for people",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accommodation:5ad63bd02bfa5bf3"
+          ]
+        },
+        {
+          "label_cn": "特殊安排；便利措施",
+          "label_en": "a special arrangement or adjustment made for someone's needs",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accommodation:37905e3528ab2239"
+          ]
+        },
+        {
+          "label_cn": "调解/妥协；适应/调节",
+          "label_en": "a formal settlement or the process of adjustment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accommodation:465234e7d1be530b",
+            "sense:accommodation:e33ebbe126a85146"
+          ]
+        }
+      ],
+      "core_meaning_cn": "为人或情况“腾出合适的位置/余地”：提供住处、为特殊需要作安排，或通过调整/妥协使双方适配。",
+      "core_meaning_en": "making room for people or circumstances: lodging, special arrangements for needs, or adjustment/settlement",
+      "mental_model_cn": "hotel accommodation→住处；reasonable accommodations→为需要作出的便利安排；reach an accommodation→达成妥协；accommodation to change→较抽象的适应。",
+      "mental_model_en": "lodging, special provisions for needs, formal settlement, then lower-priority abstract adaptation"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,17 +106,45 @@
             "phrase": "hotel accommodation"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "膳宿，住宿",
-        "definition_en": "living quarters provided for people",
+        "confidence": "high",
+        "definition_cn": "住宿；住处；供人居住的地方",
+        "definition_en": "a place to stay or living quarters provided for people",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accommodation:5ad63bd02bfa5bf3",
-        "sense_label_en": "living quarters provided for people",
+        "sense_label_en": "lodging or a place to stay",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "（尤美）为不同需要作出的特殊安排、调整或便利措施",
+        "definition_en": "especially US: a special arrangement, adjustment, or provision made to meet someone's particular needs",
+        "governing_pattern": "make/provide accommodations for + needs/person",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:accommodation:37905e3528ab2239",
+        "sense_label_en": "special arrangement or adjustment for a need",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/accommodation",
+                "role": "current_special_arrangements_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       },
       {
         "collocations": [
@@ -68,16 +158,16 @@
             "phrase": "reach an accommodation with + sb"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "调解，调和",
-        "definition_en": "a settlement of differences",
+        "confidence": "high",
+        "definition_cn": "（正式）和解；调解；妥协性协议",
+        "definition_en": "formal: an agreement or settlement that resolves differences",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accommodation:465234e7d1be530b",
-        "sense_label_en": "a settlement of differences",
-        "sort_order": 1,
+        "sense_label_en": "formal settlement or compromise",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -92,16 +182,16 @@
             "phrase": "accommodation to + sth"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "适应，调节",
-        "definition_en": "the process of adapting or adjusting",
+        "confidence": "high",
+        "definition_cn": "适应；调节；调整的过程",
+        "definition_en": "the process of adapting or adjusting to something",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accommodation:e33ebbe126a85146",
-        "sense_label_en": "the process of adapting or adjusting",
-        "sort_order": 2,
+        "sense_label_en": "process of adaptation or adjustment",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -181,6 +271,14 @@
         "merged_into_sense_id": null,
         "source_row": 99,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
+        "sense_id": "sense:accommodation:37905e3528ab2239",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch04.json",
+        "fresh_rebuild_created": true
       }
     ],
     "active_collocations": [
@@ -259,7 +357,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0033-0040.json",
     "source_content_hash": "a0ed47f4191d2b7adab8ee221a75cdcfd0c2d7b2b1b4fd80497178442250c196",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

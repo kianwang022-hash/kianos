@@ -6,14 +6,54 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:31accident0000000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "交通/汽车/道路事故",
+        "pattern": "traffic/car/road accident"
+      },
+      {
+        "construction_id": "construction:31accident0000000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "发生/卷入事故",
+        "pattern": "have/be involved in + an accident"
+      },
+      {
+        "construction_id": "construction:31accident0000000003",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "偶然；非故意地",
+        "pattern": "by accident",
+        "learning_note": "Selects the chance/unintentional branch, not specifically the injury-event branch."
+      }
+    ],
     "content_hash": "46b3423cf4e53ce4876d6a7570e48d6efd5dd3ef2965819c6d3936b2f8671f87",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "事故；意外",
-      "core_meaning_en": "an unexpected event, especially one causing damage or injury",
-      "mental_model_cn": "事故；意外",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "事故；意外事故",
+          "label_en": "an unexpected event, especially one causing damage or injury",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accident:6efa8b01ee4658ec"
+          ]
+        },
+        {
+          "label_cn": "偶然；非故意发生的事",
+          "label_en": "something happening by chance or unintentionally",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accident:483e0350a62e5da6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "没有被计划或故意安排的事件：一条常指造成损害的事故，另一条强调偶然/非故意。",
+      "core_meaning_en": "an unplanned event: either an incident causing harm/damage or something that happens by chance or unintentionally",
+      "mental_model_cn": "traffic accident = 事故；by accident = 偶然/不是故意。不要让同一个固定短语挂错到“造成伤害的事故”那条。",
+      "mental_model_en": "traffic accident selects the harmful-event branch; by accident selects the chance/unintentional branch"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -33,26 +73,17 @@
             ],
             "meaning_cn": "交通事故",
             "phrase": "traffic accident"
-          },
-          {
-            "collocation_id": "collocation:d9e2eb841923b6f2d498",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:accident:6efa8b01ee4658ec:collocation:1"
-            ],
-            "meaning_cn": "偶然，意外地",
-            "phrase": "by accident"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "事故，不幸事件",
-        "definition_en": "an unfortunate event that causes damage or injury",
+        "confidence": "high",
+        "definition_cn": "事故；造成损害或受伤的意外事件",
+        "definition_en": "an unexpected event, especially one causing damage or injury",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accident:6efa8b01ee4658ec",
-        "sense_label_en": "an unfortunate event that causes damage or injury",
+        "sense_label_en": "unexpected harmful event",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -66,17 +97,26 @@
             ],
             "meaning_cn": "纯属偶然",
             "phrase": "pure accident"
+          },
+          {
+            "collocation_id": "collocation:d9e2eb841923b6f2d498",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:accident:6efa8b01ee4658ec:collocation:1"
+            ],
+            "meaning_cn": "偶然；非故意地",
+            "phrase": "by accident"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "意外，偶然事件",
-        "definition_en": "something that happens by chance, without apparent cause",
+        "confidence": "high",
+        "definition_cn": "偶然；非故意发生的事件或结果",
+        "definition_en": "something that happens by chance or unintentionally, without being planned",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:accident:483e0350a62e5da6",
-        "sense_label_en": "something that happens by chance, without apparent cause",
+        "sense_label_en": "chance or unintentional event",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -179,7 +219,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "46b3423cf4e53ce4876d6a7570e48d6efd5dd3ef2965819c6d3936b2f8671f87",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

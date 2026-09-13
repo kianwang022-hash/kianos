@@ -3,31 +3,31 @@
   "relation_id": "deep:semantic_contrast:accent:f0d231ab5f56fe21",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "accent可指重音或强调点；emphasis更泛指强调",
+    "boundary": "accent（名词）常指某个音节、词、音符上的重音，或某个具体着重点；emphasis 更泛指给予某事的强调、重要性或突出程度。",
     "codex_boundary_corrected": true,
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
-    "codex_review_rationale": "Sense-grounded relation retained with a corrected compact learning boundary.",
+    "codex_review_rationale": "Fresh Current-first repair: relation retargeted from verb accent to the live noun stress/emphasis sense so source, boundary, and noun evidence are semantically aligned.",
     "codex_reviewed": true,
     "content": {
-      "shared_definition": "the relative prominence of a syllable or musical note (especially with regard to stress or pitch)",
+      "shared_definition": "special prominence, stress, or importance given to something",
       "shared_synset": "07099567-n",
-      "source_definition": "to emphasize or stress",
-      "source_sense_id": "sense:accent:9eece5d7e6595bee",
+      "source_definition": "special stress or emphasis given to a syllable, word, musical note, or particular feature",
+      "source_sense_id": "sense:accent:658ff62ffe8ee633",
       "target_definition": "special and significant stress by means of position or repetition",
       "target_sense_id": "sense:emphasis:740adc49afae53c0",
       "target_word": "emphasis"
     },
     "dimensions": {
       "certainty": "高",
-      "collocation": "accent the need",
-      "core_meaning": "强调动作与名词",
-      "exam_trap": "词性转换考点",
+      "collocation": "the accent is/falls on ... / place emphasis on ...",
+      "core_meaning": "具体重音或着重点 vs 更泛的强调、重要性",
+      "exam_trap": "accent 另有“口音”和“重音符号”义；只有 emphasis/着重点分支与 emphasis 发生语义竞争",
       "register": "通用",
       "semantic_prosody": "中性",
-      "strength": "词性差异明显",
-      "syntax": "动词对名词",
-      "writing_safety": "安全"
+      "strength": "部分重叠，emphasis 语义范围更泛",
+      "syntax": "名词对名词",
+      "writing_safety": "需按具体语境辨义"
     },
     "direction": "C",
     "evidence": [
@@ -62,8 +62,8 @@
     "selection_rank": 7,
     "semantic_stage_a": {
       "relation_class": "partial_overlap",
-      "source_definition": "to emphasize or stress",
-      "source_sense_id": "sense:accent:9eece5d7e6595bee",
+      "source_definition": "special stress or emphasis given to a syllable, word, musical note, or particular feature",
+      "source_sense_id": "sense:accent:658ff62ffe8ee633",
       "target_definition": "special and significant stress by means of position or repetition",
       "target_sense_id": "sense:emphasis:740adc49afae53c0"
     },
@@ -75,7 +75,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:accent:9eece5d7e6595bee",
+    "source_sense_id": "sense:accent:658ff62ffe8ee633",
     "target_sense_id": "sense:emphasis:740adc49afae53c0",
     "target_word": "emphasis",
     "task_tags": [
@@ -98,20 +98,20 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "accent可指重音或强调点；emphasis更泛指强调",
+        "boundary": "accent（名词）常指某个音节、词、音符上的重音，或某个具体着重点；emphasis 更泛指给予某事的强调、重要性或突出程度。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
         "dimensions": {
           "certainty": "高",
-          "collocation": "accent the need",
-          "core_meaning": "强调动作与名词",
-          "exam_trap": "词性转换考点",
+          "collocation": "the accent is/falls on ... / place emphasis on ...",
+          "core_meaning": "具体重音或着重点 vs 更泛的强调、重要性",
+          "exam_trap": "accent 另有“口音”和“重音符号”义；只有 emphasis/着重点分支与 emphasis 发生语义竞争",
           "register": "通用",
           "semantic_prosody": "中性",
-          "strength": "词性差异明显",
-          "syntax": "动词对名词",
-          "writing_safety": "安全"
+          "strength": "部分重叠，emphasis 语义范围更泛",
+          "syntax": "名词对名词",
+          "writing_safety": "需按具体语境辨义"
         },
         "direction": "C",
         "evidence": [
@@ -133,8 +133,8 @@
         "pos": null,
         "priority": "A",
         "publication_status": "codex_reviewed",
-        "shared_definition": "the relative prominence of a syllable or musical note (especially with regard to stress or pitch)",
-        "source_sense_id": "sense:accent:9eece5d7e6595bee",
+        "shared_definition": "special prominence, stress, or importance given to something",
+        "source_sense_id": "sense:accent:658ff62ffe8ee633",
         "target_sense_id": "sense:emphasis:740adc49afae53c0",
         "target_word": "emphasis",
         "task_tags": [
@@ -147,6 +147,8 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 1,
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }

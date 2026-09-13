@@ -6,14 +6,85 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:27accept000000000001",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "接受提议、邀请、道歉等",
+        "pattern": "accept + offer/proposal/invitation/apology"
+      },
+      {
+        "construction_id": "construction:27accept000000000002",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "承认/接受某个事实",
+        "pattern": "accept that + clause; accept the fact that + clause"
+      },
+      {
+        "construction_id": "construction:27accept000000000003",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "接受困难现实/局面",
+        "pattern": "accept + reality/situation/fact"
+      },
+      {
+        "construction_id": "construction:27accept000000000004",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "承担责任或责备",
+        "pattern": "accept + responsibility/blame"
+      },
+      {
+        "construction_id": "construction:27accept000000000005",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "被认可发表/录取进入/接纳为……",
+        "pattern": "be accepted for + publication; be accepted into + group/institution; be accepted as + role/member"
+      }
+    ],
     "content_hash": "7d67c6a0c8499a2b2a6bfadffe754fe5cfa8e2f28e5ecb446f51c2e8b09bafe9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "接受，同意",
-      "core_meaning_en": "to receive or agree to something",
-      "mental_model_cn": "接受，同意",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "接受所提供的东西；同意提议",
+          "label_en": "receive something willingly or say yes to an offer/proposal",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accept:8ecc4d0929cd5421",
+            "sense:accept:315a58aede445a32"
+          ]
+        },
+        {
+          "label_cn": "承认事实；接受现实",
+          "label_en": "recognize something as true or come to terms with an unpleasant reality",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accept:61dd9db2f3cd5716",
+            "sense:accept:d9a5a89d091a3172"
+          ]
+        },
+        {
+          "label_cn": "承担责任",
+          "label_en": "take on responsibility, blame, or duty",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accept:c623fb7aaae452d5"
+          ]
+        },
+        {
+          "label_cn": "认可；接纳",
+          "label_en": "consider satisfactory/suitable or allow into a group",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:accept:957b6fe22c4b26e9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "核心不是简单“拿到”，而是停止拒绝：接受东西/提议，承认事实或现实，承担责任，或认可并接纳某人某物。",
+      "core_meaning_en": "to stop rejecting something: receive or agree to it, recognize a truth or reality, take responsibility, or approve/include someone or something",
+      "mental_model_cn": "先问“原本拒绝什么”：gift/offer→收下/同意；fact/that-clause→承认；bad reality→接受现实；responsibility→承担；person/paper/application→认可或接纳。",
+      "mental_model_en": "identify what is no longer rejected: an item/offer, a fact/reality, responsibility, or a person/work judged suitable"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,15 +117,15 @@
             "phrase": "accept a gift"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "接受，收受",
-        "definition_en": "to receive something willingly",
+        "confidence": "high",
+        "definition_cn": "接受；收下（别人提供的东西）",
+        "definition_en": "to receive or take something that is offered willingly",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accept:8ecc4d0929cd5421",
-        "sense_label_en": "to receive something willingly",
+        "sense_label_en": "receive something offered willingly",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -70,15 +141,15 @@
             "phrase": "accept a proposal"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "同意，赞成",
-        "definition_en": "to agree to something",
+        "confidence": "high",
+        "definition_cn": "接受；同意（提议、邀请、条件等）",
+        "definition_en": "to say yes to or agree to an offer, proposal, invitation, or arrangement",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accept:315a58aede445a32",
-        "sense_label_en": "to agree to something",
+        "sense_label_en": "agree to an offer, proposal, or invitation",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -94,17 +165,45 @@
             "phrase": "accept a fact"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "相信，承认",
-        "definition_en": "to consider something as true",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
+        "confidence": "high",
+        "definition_cn": "承认；相信……为真",
+        "definition_en": "to recognize, believe, or admit that something is true",
+        "governing_pattern": "accept + n / accept that + clause",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accept:61dd9db2f3cd5716",
-        "sense_label_en": "to consider something as true",
+        "sense_label_en": "recognize or believe as true",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "接受无法轻易改变的困难或不愉快现实；与之和解",
+        "definition_en": "to recognize a difficult or unpleasant reality and stop trying to deny or resist the fact that it cannot readily be changed",
+        "governing_pattern": "accept + reality/situation/fact",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:accept:d9a5a89d091a3172",
+        "sense_label_en": "come to terms with an unpleasant reality",
+        "sort_order": 3,
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/accept",
+                "role": "current_difficult_reality_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       },
       {
         "collocations": [
@@ -118,41 +217,45 @@
             "phrase": "accept responsibility"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "承担",
-        "definition_en": "to take on responsibility or duty",
+        "confidence": "high",
+        "definition_cn": "承担；接受（责任、责备、义务等）",
+        "definition_en": "to take on responsibility, blame, duty, or a similar obligation",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:accept:c623fb7aaae452d5",
-        "sense_label_en": "to take on responsibility or duty",
-        "sort_order": 3,
+        "sense_label_en": "take on responsibility, blame, or duty",
+        "sort_order": 4,
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5c51957f3cdfd82d94c2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:accept:16ef1a685c9d5897:collocation:0"
-            ],
-            "meaning_cn": "接受批评",
-            "phrase": "accept criticism"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "容忍",
-        "definition_en": "to tolerate or put up with something",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "认可；认为合格/合适；接纳进入某群体或机构",
+        "definition_en": "to consider someone or something satisfactory or suitable, or to allow someone to join or become part of a group or institution",
+        "governing_pattern": "accept + sb/sth / be accepted for/into/as",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:accept:16ef1a685c9d5897",
-        "sense_label_en": "to tolerate or put up with something",
-        "sort_order": 4,
-        "transitivity": "vt"
+        "sense_id": "sense:accept:957b6fe22c4b26e9",
+        "sense_label_en": "approve as suitable or include as a member",
+        "sort_order": 5,
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/accept",
+                "role": "current_approval_and_inclusion_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,8 +287,21 @@
   ],
   "reference_senses": [
     {
+      "stable_sense_id": "sense:accept:16ef1a685c9d5897",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "容忍",
+      "definition_en": "to tolerate or put up with something",
+      "updated_at": null,
+      "source_row": 70,
+      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "The old generic 'tolerate/put up with' branch was too broad and used 'accept criticism' as misleading carrier; modern difficult-situation use is rebuilt as a distinct come-to-terms-with-reality sense."
+    },
+    {
       "stable_sense_id": "sense:accept:502bb34819ef57fc",
-      "status": "merged",
+      "status": "deprecated",
       "merged_into_sense_id": "sense:accept:315a58aede445a32",
       "pos": "verb",
       "definition_cn": "同意",
@@ -213,7 +329,7 @@
     "senses": [
       {
         "sense_id": "sense:accept:16ef1a685c9d5897",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 70,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -227,8 +343,8 @@
       },
       {
         "sense_id": "sense:accept:502bb34819ef57fc",
-        "status": "merged",
-        "merged_into_sense_id": "sense:accept:315a58aede445a32",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 72,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
       },
@@ -252,12 +368,27 @@
         "merged_into_sense_id": null,
         "source_row": 75,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:accept:d9a5a89d091a3172",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch04.json",
+        "fresh_rebuild_created": true
+      },
+      {
+        "sense_id": "sense:accept:957b6fe22c4b26e9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch04.json",
+        "fresh_rebuild_created": true
       }
     ],
     "active_collocations": [
       "collocation:3ce5feb1a678e1cda7db",
       "collocation:538c24d0e8ca1279e50f",
-      "collocation:5c51957f3cdfd82d94c2",
       "collocation:6f65f54ca2b51bfa6784",
       "collocation:b5b9e12dd401fcfe93c3",
       "collocation:e2ec5d9999c3dfb789ff"
@@ -333,7 +464,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0025-0032.json",
     "source_content_hash": "7d67c6a0c8499a2b2a6bfadffe754fe5cfa8e2f28e5ecb446f51c2e8b09bafe9",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch04",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch04.json"
   }
 }
