@@ -107,7 +107,7 @@ async function systemQuestionRepairJourney(page) {
   await page.reload({ waitUntil: 'domcontentloaded' });
 
   const later = page.locator('[data-xizong-later-stage="system-exit"]');
-  await later.locator('summary').click();
+  await later.locator(':scope > summary').click();
   const exit = page.locator('[data-xizong-system-exit="respiratory"]');
   await exit.locator('[data-start-recall]').click();
   await exit.locator('[data-reveal-recall]').click();
@@ -122,7 +122,7 @@ async function systemQuestionRepairJourney(page) {
   await exit.locator('[data-holdout-input]').fill(String(holdoutYear));
   await exit.locator('[data-save-holdout]').click();
 
-  await page.evaluate(({ targetId, targetYear, heldYear, questions }) => {
+  await page.evaluate(({ targetId, heldYear, questions }) => {
     const active = questions.filter((q) => Number(q.year) !== Number(heldYear));
     const results = {};
     for (const q of active) {
@@ -130,7 +130,7 @@ async function systemQuestionRepairJourney(page) {
       results[q.questionId] = { status: 'stable', selected: [], correctAnswer: q.correctAnswer, updatedAt: new Date().toISOString() };
     }
     localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1', JSON.stringify({ results }));
-  }, { targetId: target.questionId, targetYear: target.year, heldYear: holdoutYear, questions: payload.questions });
+  }, { targetId: target.questionId, heldYear: holdoutYear, questions: payload.questions });
 
   await exit.locator('[data-start-sweep]').click();
   const workspace = exit.locator('[data-question-workspace]');
@@ -145,7 +145,7 @@ async function systemQuestionRepairJourney(page) {
   check(saved?.status === 'uncertain', 'uncertain_result_persists_as_question_evidence');
 
   const repair = page.locator('[data-xizong-repair-return="respiratory"]');
-  await repair.locator('summary').click();
+  await repair.locator(':scope > summary').click();
   const plan = JSON.stringify({ plan: [{ question_id: target.questionId, reason: 'functional journey', action: 'repair owning KP', priority: 'high' }] });
   await repair.locator('[data-plan-text]').fill(plan);
   await repair.locator('[data-apply-plan]').click();
