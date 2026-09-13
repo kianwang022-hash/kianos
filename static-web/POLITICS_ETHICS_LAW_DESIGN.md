@@ -1,11 +1,11 @@
 # Politics Ethics-Law — Cognitive Projection Design
 
-Status: BATCH DESIGN CANDIDATE — CURRENT-GROUNDED / KIAN ACCEPTANCE PENDING  
+Status: ACCEPTED GRAMMAR — KIAN APPROVED  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current subject owner: `content/politics/learning/ethics-law/`
 
-This file records a bounded learner-visible design candidate derived from Current Ethics-Law assets. It does not change Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
+This file records the accepted learner-visible Cognitive Projection grammar derived from Current Ethics-Law assets. It does not change Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
 
 ---
 
@@ -36,7 +36,7 @@ Mac wide landscape should show these simultaneously when they belong to one firs
 
 ## Representative test A — C05 Socialist Morality
 
-### S01 core / principle candidate geometry
+### S01 core / principle accepted geometry
 
 Current gives a natural left-to-right structure:
 
@@ -135,7 +135,7 @@ Below, retain the rights/obligations relation and nearest boundaries. Scenario q
 
 ---
 
-## Ethics-Law Natural Unit grammar — CANDIDATE
+## Ethics-Law Natural Unit grammar — ACCEPTED
 
 A Natural Unit may project:
 
@@ -160,5 +160,3 @@ Rules:
 - dense full lists remain on Chengfeng unless Current marks them as first-round active/precision;
 - no new mandatory recall or diagnosis step is introduced;
 - question verification uses the preserved historical Politics Workbench.
-
-This candidate requires Kian acceptance before being marked frozen.
