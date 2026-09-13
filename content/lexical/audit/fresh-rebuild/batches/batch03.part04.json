@@ -1,0 +1,275 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch_part.v1",
+  "batch_id": "batch03",
+  "owners": [
+    {
+      "ordinal": 22,
+      "word_id": "word:abuse",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "rich_polysemy",
+      "sentinels": [
+        "SIX_SENSES_FLAT_BY_POS",
+        "MISUSE_MISTREATMENT_VERBAL_BRANCHES_NOT_CLUSTERED",
+        "HIGH_VALUE_ABUSE_OF_POWER_DRUG_ABUSE_VERBAL_ABUSE_PATTERNS_NOT_FIRST_CLASS",
+        "NOUN_VERB_PRONUNCIATION_BOUNDARY_MISSING"
+      ],
+      "material_changes": [
+        "Keep all six current modern verb/noun senses but reorganize them by semantic branch: misuse, mistreatment, and verbal attack.",
+        "Promote abuse of power/authority, drug/alcohol abuse, physical/sexual/child abuse, and verbal abuse into learner-visible constructions.",
+        "Make the noun-versus-verb pronunciation boundary explicit without collapsing the semantic branches."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "滥用；不当使用",
+            "label_en": "use something wrongly or excessively; improper use",
+            "pos": "verb/noun",
+            "sense_ids": [
+              "sense:abuse:a23d414559125663",
+              "sense:abuse:473dcb564e105651"
+            ]
+          },
+          {
+            "label_cn": "虐待；伤害性对待",
+            "label_en": "treat someone cruelly or violently; cruel or violent treatment",
+            "pos": "verb/noun",
+            "sense_ids": [
+              "sense:abuse:70dd2a3fc8b55c63",
+              "sense:abuse:ad175cc9e01c54ea"
+            ]
+          },
+          {
+            "label_cn": "辱骂；言语攻击",
+            "label_en": "speak to someone rudely or cruelly; rude offensive language",
+            "pos": "verb/noun",
+            "sense_ids": [
+              "sense:abuse:701fb09ff9905f17",
+              "sense:abuse:03afeb7464a650ce"
+            ]
+          }
+        ],
+        "core_meaning_cn": "把人、权力、物质或语言以有害/错误方式使用或对待",
+        "core_meaning_en": "harmful or wrongful use or treatment, whether of power/substances, people, or language",
+        "mental_model_cn": "先判对象：power/drugs → 滥用；person/child/partner → 虐待；words/insults → 言语辱骂。再判词性：verb /əˈbjuːz/，noun /əˈbjuːs/。",
+        "mental_model_en": "branch by object: power/substances = misuse; people = mistreatment; language = verbal attack; then distinguish verb /z/ from noun /s/"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:a23d414559125663",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "滥用；以错误、有害或不当方式使用",
+            "definition_en": "to use something wrongly, excessively, or for a harmful or improper purpose",
+            "sense_label_en": "misuse something",
+            "usage_note": "Verb pronunciation ends in /z/: /əˈbjuːz/. Common objects include power, authority, trust, drugs, and alcohol."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:473dcb564e105651",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "滥用；不当或过度使用",
+            "definition_en": "the improper, harmful, or excessive use of something",
+            "sense_label_en": "improper or excessive use",
+            "usage_note": "Noun pronunciation ends in /s/: /əˈbjuːs/."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:70dd2a3fc8b55c63",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "虐待；残酷或暴力地对待",
+            "definition_en": "to treat a person or animal cruelly, violently, or harmfully",
+            "sense_label_en": "mistreat cruelly or violently",
+            "usage_note": "Common cues include physically/sexually abuse and abuse a child/partner."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:ad175cc9e01c54ea",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "虐待；残酷、暴力或伤害性的对待",
+            "definition_en": "cruel, violent, or harmful treatment of a person or animal",
+            "sense_label_en": "cruel or violent treatment"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:701fb09ff9905f17",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "辱骂；用粗鲁、侮辱性语言攻击某人",
+            "definition_en": "to speak to someone rudely, offensively, or cruelly",
+            "sense_label_en": "verbally attack or insult"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abuse:03afeb7464a650ce",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "辱骂；恶言；侮辱性言语",
+            "definition_en": "rude, offensive, or insulting language directed at someone",
+            "sense_label_en": "rude or offensive language"
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:22ab05e91dc84f731301",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "滥用权力、职权或信任",
+          "pattern": "abuse + power/authority/position/trust"
+        },
+        {
+          "construction_id": "construction:22ab05e91dc84f731302",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "权力/职权的滥用",
+          "pattern": "abuse of + power/authority/position"
+        },
+        {
+          "construction_id": "construction:22ab05e91dc84f731303",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "药物/酒精滥用",
+          "pattern": "drug/alcohol/substance abuse"
+        },
+        {
+          "construction_id": "construction:22ab05e91dc84f731304",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "身体/性/儿童虐待",
+          "pattern": "physical/sexual/child abuse"
+        },
+        {
+          "construction_id": "construction:22ab05e91dc84f731305",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "言语辱骂；向某人恶言相向",
+          "pattern": "verbal abuse; hurl/shout abuse at + sb"
+        }
+      ]
+    },
+    {
+      "ordinal": 23,
+      "word_id": "word:academic",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "moderate",
+      "sentinels": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "STUDY_BRANCH_AND_PURELY_THEORETICAL_BRANCH_COMPRESSED",
+        "PURELY_ACADEMIC_PATTERN_NOT_FIRST_CLASS",
+        "NOUN_ACADEMIC_NEEDS_CLEAR_SEPARATE_BRANCH"
+      ],
+      "material_changes": [
+        "Separate the ordinary education/scholarship adjective from the 'purely theoretical / no practical consequence' adjective branch.",
+        "Keep the noun 'an academic' as a separate person branch rather than letting it hide inside a mixed adjective cluster.",
+        "Promote purely academic and common academic-domain collocations into first-class constructions."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "学术/学校教育相关的",
+            "label_en": "relating to education, scholarship, study, or universities",
+            "pos": "adjective",
+            "sense_ids": [
+              "sense:academic:ed40215658295c39"
+            ]
+          },
+          {
+            "label_cn": "纯理论的；无实际影响的",
+            "label_en": "theoretical and not practically consequential",
+            "pos": "adjective",
+            "sense_ids": [
+              "sense:academic:f38a7e62a4c35915"
+            ]
+          },
+          {
+            "label_cn": "大学教师；学者",
+            "label_en": "a person who teaches or researches at a college or university",
+            "pos": "noun",
+            "sense_ids": [
+              "sense:academic:f80f4988ad015c68"
+            ]
+          }
+        ],
+        "core_meaning_cn": "围绕学校、大学、学习与学术研究；另有“只停留在理论上、无实际影响”的分支",
+        "core_meaning_en": "connected with education and scholarship; separately, theoretical rather than practically consequential; as a noun, a university scholar or teacher",
+        "mental_model_cn": "先分两条 adjective：academic research = 学术/教育；purely academic = 只在理论上。noun an academic = 学者/大学教师。",
+        "mental_model_en": "separate study/scholarship from 'purely theoretical', then keep the noun academic as a person branch"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:academic:ed40215658295c39",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "学术的；学校/大学教育相关的；与学习和研究有关的",
+            "definition_en": "relating to education, especially colleges and universities, or to studying, scholarship, and research",
+            "sense_label_en": "related to education and scholarship"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:academic:f80f4988ad015c68",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "大学教师；学者；高校研究人员",
+            "definition_en": "a person who teaches or does research at a college or university",
+            "sense_label_en": "university scholar or teacher"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:academic:f38a7e62a4c35915",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "纯理论的；与实际结果无关的；现实意义不大的",
+            "definition_en": "based on theory or possibilities rather than practical effects or consequences",
+            "sense_label_en": "theoretical rather than practical",
+            "usage_note": "A strong cue is purely academic; the meaning is not simply 'scholarly'."
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:23acad3e94f6b8d20101",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "学术研究/写作/职业/成绩等",
+          "pattern": "academic + research/writing/career/performance/achievement"
+        },
+        {
+          "construction_id": "construction:23acad3e94f6b8d20102",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "纯属理论问题；现实上没有实际影响",
+          "pattern": "purely academic; an academic question/argument"
+        }
+      ]
+    },
+    {
+      "ordinal": 24,
+      "word_id": "word:academy",
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "sentinels": [],
+      "reason": "Current object cleanly separates a specialized school/college from a learned or artistic society, with representative military academy and Royal Academy examples; no high-value modern branch or construction is missing enough to justify extra complexity."
+    }
+  ]
+}
