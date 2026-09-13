@@ -20,8 +20,9 @@ Current independently continued Systems:
 | A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/CURRENT.md` | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` |
 | A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/CURRENT.md` | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
 | A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/CURRENT.md` | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` |
+| B Digestive / Metabolic / Endocrine / Tumor | `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/CURRENT.md` | `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md` |
 
-A1/A2/A3 current stages and gate claims belong only to those local owners. Do not copy their detailed state back into this lane router.
+A1/A2/A3/B current stages and gate claims belong only to those local owners. Do not copy their detailed state back into this lane router.
 
 These Systems may be worked on concurrently when their current tasks are independent. If a shared Xizong owner/runtime creates a real dependency, name that dependency explicitly and coordinate only the affected scopes.
 
@@ -126,7 +127,7 @@ Private learner/browser/conversation evidence only. System readiness or lane Wor
 
 ## Fresh-Chat routing
 
-Known A1/A2/A3 — ordinary continuation:
+Known A1/A2/A3/B — ordinary continuation:
 
 ```text
 requested System CURRENT
@@ -135,7 +136,7 @@ requested System CURRENT
 → work
 ```
 
-Known A1/A2/A3 — independent re-acceptance:
+Known A1/A2/A3/B — independent re-acceptance:
 
 ```text
 Xizong CURRENT anti-cocoon directive
