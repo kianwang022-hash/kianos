@@ -63,7 +63,7 @@ function addFormFlags(f,r,detail){
 }
 export function routeOwner(e,d,idx){
   const r=e.record,op=normOp(d.operation),detail=(d.detail??[]).join('\n'),f=new Set();
-  if(op==='UPGRADE')f.add('PRODUCTION_UPGRADE'); if(op==='BLOCKED')f.add('OWNERSHIP_OR_IDENTITY_SENTINEL');
+  if(op==='UPGRADE')f.add('PRODUCTION_UPGRADE'); if(op==='BLOCKED')f.add('OWNERSHIP_OR_IDENTITY_SENTINEL'); const headwordCaseVariant=d.word.split('/').map(x=>x.trim()).some(x=>x!==r.word&&x.toLowerCase()===String(r.word??'').toLowerCase()); if(headwordCaseVariant)f.add('FORM_CASE_SENTINEL');
   const senses=(r.senses??[]).filter(active),poses=new Set(senses.map(s=>s.pos).filter(Boolean));
   if(senses.length>1)f.add('MULTI_ACTIVE_SENSE'); if(poses.size>1)f.add('MULTI_POS');
   if((r.constructions??[]).length||senses.some(s=>String(s.governing_pattern??'').trim()||(s.collocations??[]).some(c=>c.exam_value==='fixed_pattern')))f.add('HAS_CONSTRUCTION');
@@ -90,7 +90,7 @@ function count(rows,fn){const o={};for(const r of rows)for(const k of fn(r))o[k]
 export function buildManifest({owners,decisions,start,end,sourceHead,handoffs,contracts}){
   const idx=indexes(owners),scope=owners.filter(e=>e.ordinal>=start&&e.ordinal<=end).sort((a,b)=>a.ordinal-b.ordinal),want=end-start+1;
   if(scope.length!==want||new Set(scope.map(e=>e.ordinal)).size!==want)throw Error(`scope coverage mismatch: expected ${want}, found ${scope.length}`);
-  const rows=scope.map(e=>{const d=decisions.get(e.ordinal);if(!d)throw Error(`missing handoff o${String(e.ordinal).padStart(4,'0')}`);if(d.word!==e.record.word)throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);return routeOwner(e,d,idx)});
+  const rows=scope.map(e=>{const d=decisions.get(e.ordinal);if(!d)throw Error(`missing handoff o${String(e.ordinal).padStart(4,'0')}`);const handoffNames=d.word.split('/').map(x=>x.trim()),headwordMatched=handoffNames.includes(e.record.word)||handoffNames.some(x=>x.toLowerCase()===e.record.word.toLowerCase());if(!headwordMatched)throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);return routeOwner(e,d,idx)});
   const ss=simpleSample(rows),set=new Set(ss);for(const r of rows)r.simple_deep_sample=set.has(r.ordinal);
   const mandatory=rows.filter(r=>r.mandatory_strata.some(s=>s!=='SIMPLE_NO_CHANGE_CANDIDATE'));
   return{schema:'kianos.lexical.semantic_audit_risk_manifest.v1',router_version:ROUTER_VERSION,scope_start:start,scope_end:end,owner_count:rows.length,unique_mandatory_owner_count:mandatory.length,simple_candidate_count:rows.length-mandatory.length,simple_deep_sample_count:ss.length,simple_deep_sample_ordinals:ss,flag_counts:count(rows,r=>r.risk_flags),risk_family_counts:count(rows,r=>r.risk_families),mandatory_strata_counts:count(rows,r=>r.mandatory_strata),source_head:sourceHead,content_contract_blob_sha:gitBlobSha(contracts.content),audit_contract_blob_sha:gitBlobSha(contracts.audit),router_spec_blob_sha:gitBlobSha(contracts.router),production_handoff_blob_shas:handoffs.map(h=>({path:h.path,blob_sha:gitBlobSha(h.text)})),rows};
