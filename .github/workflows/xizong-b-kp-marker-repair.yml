@@ -1,0 +1,90 @@
+name: Xizong B KP Marker Repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-b-kp-marker-repair.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Add only missing B KP identity markers
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          targets = [
+              (
+                  Path('content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D8_糖尿病_学习阅读版_v1_最终执行版.md'),
+                  'dme-d08',
+                  25,
+              ),
+              (
+                  Path('content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D11_食管与胃肿瘤_学习阅读版_v1_最终执行版.md'),
+                  'dme-d11',
+                  24,
+              ),
+          ]
+
+          for path, prefix, expected in targets:
+              original = path.read_text(encoding='utf-8')
+              lines = original.splitlines(keepends=True)
+              out = []
+              headings = 0
+              for line in lines:
+                  match = re.match(r'^## KP(\d{2})｜', line)
+                  if match:
+                      headings += 1
+                      number = match.group(1)
+                      marker = f'<!-- kianos:kp id="{prefix}-kp{number}" -->'
+                      previous = out[-1].strip() if out else ''
+                      if previous != marker:
+                          out.append(marker + '\n')
+                  out.append(line)
+
+              repaired = ''.join(out)
+              marker_ids = re.findall(r'<!--\s*kianos:kp\s+id="([^"]+)"\s*-->', repaired)
+              expected_ids = [f'{prefix}-kp{i:02d}' for i in range(1, expected + 1)]
+              missing = [item for item in expected_ids if item not in marker_ids]
+              duplicates = sorted({item for item in marker_ids if marker_ids.count(item) > 1})
+
+              if headings != expected:
+                  raise SystemExit(f'{path}: expected {expected} KP headings, found {headings}')
+              if missing:
+                  raise SystemExit(f'{path}: still missing markers: {missing}')
+              if duplicates:
+                  raise SystemExit(f'{path}: duplicate markers: {duplicates}')
+
+              path.write_text(repaired, encoding='utf-8')
+              print(f'{path}: headings={headings} markers={len(marker_ids)}')
+          PY
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          mapfile -t changed < <(git diff --name-only)
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D8_糖尿病_学习阅读版_v1_最终执行版.md'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D11_食管与胃肿瘤_学习阅读版_v1_最终执行版.md'
+      - name: Commit bounded repair
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- \
+            'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D8_糖尿病_学习阅读版_v1_最终执行版.md' \
+            'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/d-d1-d23/D11_食管与胃肿瘤_学习阅读版_v1_最终执行版.md'
+          git commit -m 'xizong: restore B KP identity markers'
+          git pull --rebase origin main
+          git push origin HEAD:main
