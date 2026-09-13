@@ -1,0 +1,153 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch_part.v1",
+  "batch_id": "batch03",
+  "owners": [
+    {
+      "ordinal": 19,
+      "word_id": "word:abstract",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "rich_polysemy",
+      "sentinels": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "ACADEMIC_NOUN_UNDERWEIGHTED",
+        "VERB_BRANCHES_COMPRESSED_IN_CORE",
+        "ABSTRACT_FROM_PATTERN_NOT_FIRST_CLASS"
+      ],
+      "material_changes": [
+        "Promote the academic noun 'abstract' (summary of a paper/article) to L1 alongside the abstract-versus-concrete adjective.",
+        "Separate the productive verb abstract A from B from the low-frequency summarize-as-a-verb use.",
+        "Make the academic noun and verb constructions learner-visible and note the noun/adjective versus verb stress shift."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "抽象的；非具体的",
+            "label_en": "existing as an idea rather than a concrete physical instance",
+            "pos": "adjective",
+            "sense_ids": [
+              "sense:abstract:b7b8b05117f3527c"
+            ]
+          },
+          {
+            "label_cn": "摘要；论文摘要",
+            "label_en": "a short summary of the main facts or ideas in a paper, article, or speech",
+            "pos": "noun",
+            "sense_ids": [
+              "sense:abstract:77cac107d5a45df4"
+            ]
+          },
+          {
+            "label_cn": "抽取/抽象出；做摘要",
+            "label_en": "extract or generalize something from a source; less commonly, summarize it",
+            "pos": "verb",
+            "sense_ids": [
+              "sense:abstract:d665d4c15aae5ea2",
+              "sense:abstract:101ad1c99ab15f03"
+            ]
+          }
+        ],
+        "core_meaning_cn": "把具体细节拿开，只保留概念或关键信息；名词还表示论文/文章的摘要",
+        "core_meaning_en": "remove concrete detail to retain a concept or essential information; as a noun, a concise summary of a paper or article",
+        "mental_model_cn": "adj = 从具体实例抽离；noun = 把论文压成摘要；verb = 从材料中抽取/抽象出。",
+        "mental_model_en": "adjective: away from concrete instances; noun: compressed summary; verb: extract or generalize from a source"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:abstract:b7b8b05117f3527c",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "抽象的；作为概念存在而非具体物体/实例的",
+            "definition_en": "existing as an idea, quality, or general concept rather than a concrete physical instance",
+            "sense_label_en": "conceptual rather than concrete",
+            "usage_note": "As adjective/noun, stress is normally on the first syllable: AB-stract."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abstract:77cac107d5a45df4",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "摘要；尤指论文、文章或报告的简短概要",
+            "definition_en": "a short summary giving the main facts or ideas of a paper, article, book, or speech",
+            "sense_label_en": "summary of a paper or article",
+            "usage_note": "High-value academic noun: read/write/submit an abstract."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abstract:d665d4c15aae5ea2",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "从具体材料中抽取、抽象出概念或特征",
+            "definition_en": "to extract or generalize an idea, feature, or information from a more concrete source",
+            "sense_label_en": "extract or generalize from a source",
+            "governing_pattern": "abstract + A + from + B",
+            "usage_note": "As a verb, stress normally shifts to the second syllable: ab-STRACT."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:abstract:101ad1c99ab15f03",
+          "overrides": {
+            "level": "L3",
+            "confidence": "high",
+            "definition_cn": "（较少见）为……作摘要；概述",
+            "definition_en": "less commonly, to make a summary or abstract of something",
+            "sense_label_en": "make a summary of",
+            "usage_note": "Lower-frequency verb use; do not confuse it with the much more common noun abstract."
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:19ab57ac7e31c4d9b201",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "抽象概念/模型/思想",
+          "pattern": "abstract + concept/model/idea"
+        },
+        {
+          "construction_id": "construction:19ab57ac7e31c4d9b202",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "论文/文章的摘要",
+          "pattern": "an abstract of/from a paper/article"
+        },
+        {
+          "construction_id": "construction:19ab57ac7e31c4d9b203",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "撰写/提交摘要",
+          "pattern": "write/submit/read an abstract"
+        },
+        {
+          "construction_id": "construction:19ab57ac7e31c4d9b204",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "从 B 中抽取/抽象出 A",
+          "pattern": "abstract + A + from + B"
+        }
+      ]
+    },
+    {
+      "ordinal": 20,
+      "word_id": "word:absurd",
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "simple",
+      "sentinels": [],
+      "reason": "Current object has the ordinary unreasonable/silly adjective as the sole active learner sense, includes the high-value 'it is absurd to do sth' pattern, and correctly leaves merged/rare philosophical material outside the active layer."
+    },
+    {
+      "ordinal": 21,
+      "word_id": "word:abundant",
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "simple",
+      "sentinels": [],
+      "reason": "Current object is a clean one-sense adjective with both attributive use ('abundant resources') and the key 'abundant in + sth' pattern already visible; further decomposition would add complexity without improving retrieval or use."
+    }
+  ]
+}

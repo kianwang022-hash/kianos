@@ -1,0 +1,257 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch_part.v1",
+  "batch_id": "batch03",
+  "owners": [
+    {
+      "ordinal": 16,
+      "word_id": "word:absent",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "moderate",
+      "sentinels": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "FORMAL_VERB_OVERWEIGHTED",
+        "ABSENT_FROM_PATTERN_NOT_FIRST_CLASS"
+      ],
+      "material_changes": [
+        "Keep ordinary not-present and inattentive adjective senses as the main learner branches.",
+        "Keep formal absent oneself from as a live but low-priority verb branch rather than deleting it or presenting it as ordinary speech.",
+        "Promote be absent from and absent oneself from into register-aware constructions."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "缺席的；不在的",
+            "label_en": "not present where expected",
+            "pos": "adjective",
+            "sense_ids": [
+              "sense:absent:72efeeec5e5456f8"
+            ]
+          },
+          {
+            "label_cn": "心不在焉的",
+            "label_en": "not paying attention; preoccupied",
+            "pos": "adjective",
+            "sense_ids": [
+              "sense:absent:77745d8f06ba57ba"
+            ]
+          },
+          {
+            "label_cn": "使自己缺席（正式）",
+            "label_en": "formally keep oneself away from a place or event",
+            "pos": "verb",
+            "sense_ids": [
+              "sense:absent:20bcab510bdd5c1a"
+            ]
+          }
+        ],
+        "core_meaning_cn": "核心是“人不在该在的位置/注意力不在当前对象上”",
+        "core_meaning_en": "not being where one is expected to be, physically or mentally; formally, to keep oneself away",
+        "mental_model_cn": "physical absence → be absent from；mental absence → an absent look；正式主动回避 → absent oneself from。",
+        "mental_model_en": "physical absence, mental absence, then the formal reflexive verb absent oneself from"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:absent:72efeeec5e5456f8",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "缺席的；不在应在场所的",
+            "definition_en": "not present where someone is expected to be",
+            "sense_label_en": "not present where expected",
+            "usage_note": "The ordinary frame is be absent from + place/activity."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absent:77745d8f06ba57ba",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "心不在焉的；出神的",
+            "definition_en": "not paying attention because the mind is elsewhere; preoccupied",
+            "sense_label_en": "inattentive or preoccupied"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absent:20bcab510bdd5c1a",
+          "overrides": {
+            "level": "L3",
+            "confidence": "high",
+            "definition_cn": "（正式）使自己缺席；避开应在的地方或场合",
+            "definition_en": "formal: to keep oneself away from a place or event where one might be expected",
+            "sense_label_en": "formal: keep oneself away",
+            "governing_pattern": "absent oneself from + place/event",
+            "transitivity": "vt",
+            "usage_note": "Formal and normally reflexive: absent yourself/himself/herself from ..."
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:16ab5e17d492a3f6c101",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "缺席某地/某活动",
+          "pattern": "be absent from + place/activity"
+        },
+        {
+          "construction_id": "construction:16ab5e17d492a3f6c102",
+          "direction": "R+P",
+          "level": "L3",
+          "meaning_cn": "（正式）使自己不参加/离开某处",
+          "pattern": "absent oneself from + place/event",
+          "learning_note": "Formal reflexive verb pattern."
+        }
+      ]
+    },
+    {
+      "ordinal": 17,
+      "word_id": "word:absolute",
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "sentinels": [],
+      "reason": "Current object already preserves the high-value complete/unqualified and unlimited-power branches, keeps the rare noun reference-only, and supplies representative absolute truth/power/monarchy collocations; no material learner decision is missing."
+    },
+    {
+      "ordinal": 18,
+      "word_id": "word:absorb",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "rich_polysemy",
+      "sentinels": [
+        "NEEDS_DELTA_REVIEW_OPEN",
+        "FIVE_VALID_SENSES_WITHOUT_SHARED_MODEL",
+        "ABSORBED_IN_AND_ABSORB_INTO_BURIED_AS_COLLOCATIONS",
+        "COST_IMPACT_BRANCH_NEEDS_CLEAR_CUE"
+      ],
+      "material_changes": [
+        "Preserve all five current modern senses but organize them under one take-in/take-on model rather than five flat translations.",
+        "Promote absorb information, be absorbed in, absorb A into B, and absorb cost/loss/shock into first-class constructions."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "吸收物质；吸收信息",
+            "label_en": "take something in physically or mentally",
+            "pos": "verb",
+            "sense_ids": [
+              "sense:absorb:ac064998275d5f3d",
+              "sense:absorb:f3ade412a01b5da4"
+            ]
+          },
+          {
+            "label_cn": "吸住注意力；全神贯注",
+            "label_en": "take up someone's attention completely",
+            "pos": "verb",
+            "sense_ids": [
+              "sense:absorb:986532362aea5901"
+            ]
+          },
+          {
+            "label_cn": "并入；承担成本或冲击",
+            "label_en": "take something into a larger whole or take on its cost/impact",
+            "pos": "verb",
+            "sense_ids": [
+              "sense:absorb:e10dc94ae11e5a7c",
+              "sense:absorb:efa12a855e2a5080"
+            ]
+          }
+        ],
+        "core_meaning_cn": "把外来的东西“吸进来/接进来/承担下来”，可作用于物质、信息、注意力、组织或成本冲击",
+        "core_meaning_en": "to take something in, into, or on: substance, information, attention, an entity, or a cost/impact",
+        "mental_model_cn": "统一成 take in / take on：水被材料吸收、信息被大脑吸收、注意力被事情占满、公司被并入、成本被承担。",
+        "mental_model_en": "one take-in/take-on model across matter, information, attention, incorporation, and cost or impact"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:absorb:ac064998275d5f3d",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "吸收液体、气体、能量等",
+            "definition_en": "to take in a liquid, gas, energy, or other substance",
+            "sense_label_en": "take in a substance or energy"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absorb:f3ade412a01b5da4",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "理解并记住信息、知识或思想",
+            "definition_en": "to understand information or ideas completely and retain them",
+            "sense_label_en": "understand and retain information"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absorb:986532362aea5901",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "完全吸引注意力；使全神贯注",
+            "definition_en": "to take up someone's attention completely; engross",
+            "sense_label_en": "take up attention completely",
+            "usage_note": "A very common learner frame is be absorbed in + noun/doing."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absorb:e10dc94ae11e5a7c",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "吸收、并入较大的整体或组织",
+            "definition_en": "to take a person, group, or company into a larger whole; incorporate",
+            "sense_label_en": "incorporate into a larger whole",
+            "governing_pattern": "absorb + A + into + B"
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absorb:efa12a855e2a5080",
+          "overrides": {
+            "level": "L2",
+            "confidence": "high",
+            "definition_cn": "承担或消化成本、损失、冲击等",
+            "definition_en": "to take on or bear a cost, loss, impact, or shock",
+            "sense_label_en": "bear a cost, loss, impact, or shock"
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:18ab50b4c8f6e20d1101",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "吸收、理解并记住信息",
+          "pattern": "absorb + information/knowledge/ideas"
+        },
+        {
+          "construction_id": "construction:18ab50b4c8f6e20d1102",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "全神贯注于……",
+          "pattern": "be absorbed in + n/doing"
+        },
+        {
+          "construction_id": "construction:18ab50b4c8f6e20d1103",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "把 A 并入 B",
+          "pattern": "absorb + A + into + B"
+        },
+        {
+          "construction_id": "construction:18ab50b4c8f6e20d1104",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "承担/消化成本、损失或冲击",
+          "pattern": "absorb + cost/loss/impact/shock"
+        }
+      ]
+    }
+  ]
+}

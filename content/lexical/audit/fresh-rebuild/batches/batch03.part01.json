@@ -1,0 +1,164 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch_part.v1",
+  "batch_id": "batch03",
+  "owners": [
+    {
+      "ordinal": 13,
+      "word_id": "word:abroad",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "moderate",
+      "sentinels": [
+        "ADVERB_GRAMMAR_BOUNDARY_IMPLICIT",
+        "TO_IN_ABROAD_ERROR_NOT_GUARDED",
+        "OLD_FORMAL_REFERENCE_MUST_NOT_REENTER_CORE"
+      ],
+      "material_changes": [
+        "Keep the modern foreign-country adverb as the sole active sense and leave old/formal historical uses reference-only.",
+        "Make the high-value adverb grammar explicit: go/live/study/work abroad, not *to abroad or *in abroad; from abroad is valid."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "在国外；到国外",
+            "label_en": "in or to a foreign country",
+            "pos": "adverb",
+            "sense_ids": [
+              "sense:abroad:bba84c94bafe5f55"
+            ]
+          }
+        ],
+        "core_meaning_cn": "在国外；到国外（副词，本身已经包含地点/方向含义）",
+        "core_meaning_en": "in or to a foreign country; an adverb that already carries the location/direction meaning",
+        "mental_model_cn": "把 abroad 当地点副词：go/live/study abroad；不要再在前面补 to/in，只有 from abroad 很自然。",
+        "mental_model_en": "treat abroad as a place adverb: go/live/study abroad; do not add to/in, while from abroad is normal"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:abroad:bba84c94bafe5f55",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "在国外；到国外",
+            "definition_en": "in or to a foreign country",
+            "sense_label_en": "in or to a foreign country",
+            "usage_note": "Abroad is an adverb: go/live/study/work abroad, not *to abroad or *in abroad. From abroad is normal."
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:13ab0ad4d3f91f8c9a01",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "去国外/在国外生活、学习或工作",
+          "pattern": "go/live/study/work abroad",
+          "learning_note": "No to/in before abroad."
+        },
+        {
+          "construction_id": "construction:13ab0ad4d3f91f8c9a02",
+          "direction": "R+P",
+          "level": "L2",
+          "meaning_cn": "来自国外；从国外",
+          "pattern": "from abroad"
+        }
+      ]
+    },
+    {
+      "ordinal": 14,
+      "word_id": "word:abrupt",
+      "disposition": "FRESH_PASS_NO_CHANGE",
+      "complexity": "moderate",
+      "sentinels": [],
+      "reason": "Current object already separates sudden/unexpected, brusque manner, and steep physical senses at sensible L1/L2/L3 levels with representative collocations; adding more structure would not materially improve learner decisions."
+    },
+    {
+      "ordinal": 15,
+      "word_id": "word:absence",
+      "disposition": "FRESH_UPGRADED",
+      "complexity": "moderate",
+      "sentinels": [
+        "IN_THE_ABSENCE_OF_BURIED_AS_COLLOCATION",
+        "PERSON_ABSENCE_AND_NONEXISTENCE_NEED_BRANCH_CUES",
+        "CORE_CLUSTERS_EMPTY"
+      ],
+      "material_changes": [
+        "Keep both absence-of-person and lack/nonexistence senses but make both live reading branches.",
+        "Promote in someone's absence and in the absence of + person/thing into first-class constructions instead of leaving them at example level."
+      ],
+      "core_concept": {
+        "core_clusters": [
+          {
+            "label_cn": "缺席；不在场",
+            "label_en": "the state or period of not being present",
+            "pos": "noun",
+            "sense_ids": [
+              "sense:absence:3e4a58fe8eed57ba"
+            ]
+          },
+          {
+            "label_cn": "缺乏；不存在",
+            "label_en": "the lack or nonexistence of something",
+            "pos": "noun",
+            "sense_ids": [
+              "sense:absence:0da5aabdb1705dae"
+            ]
+          }
+        ],
+        "core_meaning_cn": "某人/某物本应存在却不在场、不存在或缺失",
+        "core_meaning_en": "the non-presence of a person or the lack/nonexistence of a thing that could otherwise be present",
+        "mental_model_cn": "先问“缺的是谁/什么”：人不在 = absence from / in someone's absence；条件或证据不存在 = in the absence of / absence of。",
+        "mental_model_en": "identify what is missing: a person being away versus a thing, condition, or evidence not existing"
+      },
+      "sense_plan": [
+        {
+          "source": "current",
+          "sense_id": "sense:absence:3e4a58fe8eed57ba",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "缺席；不在场；不在某处的一段时间",
+            "definition_en": "the fact or period of not being present where someone is expected to be",
+            "sense_label_en": "not being present",
+            "usage_note": "Common frames include absence from work/school and in/during someone's absence."
+          }
+        },
+        {
+          "source": "current",
+          "sense_id": "sense:absence:0da5aabdb1705dae",
+          "overrides": {
+            "level": "L1",
+            "confidence": "high",
+            "definition_cn": "缺乏；没有；不存在",
+            "definition_en": "the lack or nonexistence of something",
+            "sense_label_en": "lack or nonexistence",
+            "usage_note": "In the absence of can mean because a person, thing, condition, or evidence is not present or does not exist."
+          }
+        }
+      ],
+      "constructions": [
+        {
+          "construction_id": "construction:15ab5e0ce9f21a7d8b01",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "缺席工作/学校/某地",
+          "pattern": "absence from + place/activity"
+        },
+        {
+          "construction_id": "construction:15ab5e0ce9f21a7d8b02",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "在某人不在时",
+          "pattern": "in/during someone's absence"
+        },
+        {
+          "construction_id": "construction:15ab5e0ce9f21a7d8b03",
+          "direction": "R+P",
+          "level": "L1",
+          "meaning_cn": "在缺少/不存在……的情况下；由于没有……",
+          "pattern": "in the absence of + person/thing/evidence/condition"
+        }
+      ]
+    }
+  ]
+}
