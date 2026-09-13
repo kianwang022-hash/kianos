@@ -14,8 +14,8 @@ This file owns current acceptance claims for the independently continued Mao sub
 ```text
 S  PASS
 K  PASS
-L  UNTESTED   ← earliest unresolved if whole-module acceptance resumes
-P  UNTESTED   ← downstream-frozen
+L  PASS
+P  UNTESTED   ← earliest unresolved
 R  UNTESTED   ← downstream-frozen
 E  UNTESTED   ← downstream-frozen
 U  UNTESTED   ← learner-only
@@ -29,126 +29,144 @@ C00–C08 Current content closure  PASS
 
 Allowed conclusion:
 
-> **Mao has a fresh, source-grounded S/K content closure for C00–C08 under the current Politics content contract. It is not yet accepted as a complete learner-ready module because L/P/R/E remain untested for this subject, and U requires real Kian use.**
+> **Mao now has accepted Current Source/Knowledge, complete first-round content, and a fresh whole-book Learning Logic. Projection, Mao-specific Runtime/Evidence and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated.
+Do not promote this to module-ready or learner-validated before P/R/E are independently accepted.
 
 ---
 
-## 2026-09-13 fresh Source/Knowledge content closure
+## S/K + Content closure｜accepted upstream
 
-This was not a schema-completeness pass. All nine chapters were freshly attacked against the 18 canonical Mao Natural Units; all 18 are P0. Existing `CHAPTER_PROJECTION_COMPLETE` state was treated as prior artifact state, not the semantic answer key.
+The 2026-09-13 fresh Source/Knowledge review attacked all 9 chapters against all 18 canonical Mao Natural Units; all 18 are P0.
+
+```text
+C00–C08  REPAIRED
+9 reviewed / 9 repaired / 0 keep / 0 blocked
+Content closure PASS
+```
+
+The common upstream defect was over-compression: good problem→answer spines had lost some P0 fixed identities, role hierarchies, causal/historical relations and high-value boundaries. Those were restored without duplicating Chengfeng.
+
+Source boundary remains:
+
+```text
+Chengfeng  continuous first-round mainline + primary semantic source
+Suyi       compact framework / exactness / past-exam cross-check only
+Xiao1000   verification and transfer evidence, not first-learning order
+KianOS     approved orientation / bridge / boundary / compression / repair semantics
+```
+
+`source-review.json` remains the Source/Knowledge provenance owner. The accepted C04 bounded provenance exception remains unchanged: the readable `《论十大关系》` passage is bound to the real chapter owner `POL27-CF-MAO-C04` rather than a manufactured child ID.
+
+Executed compatibility evidence for that upstream closure:
+- Static Web Politics QA run #510 (`34758627084`) → PASS
+- Mao fresh content audit → 9/9 chapters, 18/18 canonical P0 Natural Units, 0 blocker
+
+---
+
+## L｜Fresh Learning Logic re-acceptance — PASS
+
+Review owner: `content/politics/learning/mao/learning-review.json`  
+Reviewed base: `b243b00d254c1f5b53a87a1d143769688437e5b5`
 
 Fresh disposition:
 
 ```text
-C00  REPAIRED
-C01  REPAIRED
-C02  REPAIRED
-C03  REPAIRED
-C04  REPAIRED
-C05  REPAIRED
-C06  REPAIRED
-C07  REPAIRED
-C08  REPAIRED
+C00 KEEP
+C01 KEEP
+C02 KEEP
+C03 KEEP
+C04 KEEP
+C05 KEEP
+C06 KEEP
+C07 KEEP
+C08 KEEP
 
-9 chapters reviewed
-9 repaired
-0 keep
+9 reviewed
+9 keep
+0 repair
 0 blocked
 ```
 
-The common defect was over-compression: the problem→answer spine was usually good, but P0 fixed identities, role hierarchies, causal/historical relations and high-value confusable boundaries had often collapsed into one broad summary sentence.
+This was not a schema-completeness pass and did not inherit the existing chapter prose as the answer key. The audit attacked whether Current teaching semantics actually produce a coherent learner reasoning path with minimal unnecessary operations.
 
-The repair restored those structures while keeping the intended negative space: dense meeting/date tables, long normative formulations, low-discrimination lists and noisy OCR detail remain Chengfeng-primary unless later Xiao1000 Wrong/Uncertain or other evidence activates precision debt.
+### Accepted whole-subject learner chain
 
-### Representative repaired structures
+```text
+为什么必须中国化时代化
+→ 毛泽东思想怎样形成并成为第一个重大理论成果
+→ 半殖民地半封建中国怎样革命
+→ 革命胜利后为什么还要完成社会主义改造
+→ 制度建立后中国自己的社会主义建设道路怎样探索
+→ 改革开放后为什么形成接续发展的中国特色社会主义理论体系
+→ 邓小平理论重新回答什么是社会主义、怎样建设社会主义
+→ “三个代表”怎样回答新的党建与执政实践问题
+→ 科学发展观怎样回答发展质量、结构与长期性问题
+→ 新时代问题交给新思想继续承接
+```
 
-- C00 → Chinese adaptation/epochalization meaning, necessity/possibility, `两个结合`, theoretical-achievement succession.
-- C01 → formation conditions, theme/main contents/theoretical essence/living soul, historical position.
-- C02 → national conditions → contradictions → task/nature chain; object/dynamics/leadership/nature/future; road and Three Magic Weapons.
-- C03 → transitional social structure, `一化三改`, distinct transformation routes, 1949/1956 boundary.
-- C04 → `《论十大关系》`, socialist contradictions, Chinese industrialization road, exploration significance/lessons.
-- C05 → formation conditions and complete theory-system succession through the New Era chapter.
-- C06 → socialist essence, initial-stage/basic-line identities, reform/opening and market-economy boundaries.
-- C07 → Three Represents core views vs major-content layer, reform/development/stability role identities.
-- C08 → first priority/core standpoint/basic requirement/fundamental method role mapping, six major-content groups, spiritual essence.
+### Learning-logic acceptance criteria
 
----
+The Current Mao path passes because:
 
-## Source boundary
+1. **Problem-first** — each chapter starts from a real historical/theoretical problem rather than a heading or hat list.
+2. **Canonical integrity** — Chengfeng Natural Unit identity/order remains intact; Xiao1000 does not reorganize first learning.
+3. **Reasoning continuity** — multi-unit chapters preserve `problem → answer → relation/boundary → next` rather than isolated summaries.
+4. **Cross-chapter continuity** — each chapter opens the next historical/theoretical problem, so the book reconstructs as one chain.
+5. **Exam discrimination** — Logic explicitly separates confusable identities and levels instead of postponing all discrimination to rote memory.
+6. **Compression quality** — chapter compression reconstructs causal/role relations rather than merely shortening prose.
+7. **Minimality** — no extra Recall/checkpoint ritual is required merely for architectural symmetry.
 
-`source-review.json` records:
+### Strongest attacks
 
-- `CURRENT_REVIEW_COMPLETE`;
-- all 18 canonical P0 Natural Units received a fresh Chengfeng semantic read;
-- no blocking Natural Unit owner gap;
-- a source snapshot tied to the Current node-registry canonical-row digest;
-- Suyi supplied only compact framework/past-exam cross-checks and created no second semantic course;
-- unreadable/noisy exact detail remains source-primary/deferred rather than guessed.
+**C05 — theory-system navigation risk**  
+The strongest challenge was that C05 could become a redundant list of theory names before C06–C08. Fresh readback found the opposite: it is explicitly a navigation chapter that owns formation conditions and succession identities, while deferring internal theory content to later chapters.
 
-### C04 bounded provenance exception
+**C06 — policy-inventory overload risk**  
+The canonical main-content Unit contains many policies and fixed formulations. Fresh readback found a real learner hierarchy: theoretical problem/essence → national conditions/basic line → development/reform/market → unification/external conditions → historical position. Backend density therefore does not itself become learner sequence.
 
-The Current raw Chengfeng C04 chapter span clearly contains the `《论十大关系》` positioning and basic-policy passage, but the Current C04 node shard has no stable `K01/K01-N02` child. The repaired asset therefore binds that passage to the real chapter owner `POL27-CF-MAO-C04` rather than inventing a nonexistent child ID. This is accepted as bounded provenance granularity debt because the semantic content is readable and the canonical C04-S01 Natural Unit remains intact.
+**C07/C08 — hat-list risk**  
+Current Logic keeps `三个代表核心观点 ≠ 主要内容` and `第一要义/核心立场/基本要求/根本方法 ≠ 六个实践领域`, preventing the two chapters from degrading into parallel memorization lists.
 
----
+### Material delta
 
-## Executed closure evidence
+```text
+NO_CHAPTER_LOGIC_REWRITE_REQUIRED
+```
 
-Tested content head: `e36d51fb76c40d320210518ccbf3e0eb70d2a814`
-
-**Static Web Politics QA**
-- run #510 (`34758627084`) → **PASS**
-- `Audit Mao fresh content closure` → **PASS**
-- 9/9 chapters → 0 blocker
-- 18/18 canonical Mao Natural Units represented
-- 18/18 canonical regions confirmed P0
-- source-review snapshot → valid
-- canonical Politics coverage → PASS
-- Xiao1000 semantic chapter routing → PASS
-- scoped Politics source loading → PASS
-- existing History/Ethics/Marxism/K03 checks → PASS
-- Politics Current bindings → PASS
-- production Astro build → PASS
-
-This proves the repaired Mao S/K content assets close cleanly against Current ownership and do not break shared Politics integration. It does **not** accept Mao L/P/R/E.
-
-The separate Politics Functional First Journey is shared integration evidence only and is not re-labeled as Mao-specific Runtime/Evidence acceptance.
+No C00–C08 teaching asset was changed merely to manufacture work. Passing L by keeping valid Logic is intentional.
 
 ---
 
-## Content closure boundary
+## L boundary / negative space
 
-Content closure means:
+L PASS does **not** mean:
 
-- every canonical Mao Natural Unit is represented by Current C00–C08 assets;
-- all 18 P0 units received a fresh semantic judgment;
-- fresh review found no remaining blocking high-value identity/relation/boundary omission for the present first-round content path;
-- declared source refs used by repaired support resolve against Current owners, with the explicit C04 chapter-owner fallback above;
-- source-review snapshot is current;
-- high-value P0 material is represented without converting Chengfeng into KianOS.
+- Chengfeng has moved into KianOS as a second continuous reader;
+- every P0 fact is now mandatory active recall or Memory debt;
+- all `content_support` detail must be visible in the first-round page;
+- dates, meetings, long normative formulations or low-discrimination lists should be promoted into first-round memorization;
+- every Natural Unit needs a mandatory Recall ritual;
+- Projection has been accepted;
+- Mao-specific Runtime/Evidence journeys have been executed;
+- Kian has studied or mastered any Mao chapter.
 
-Content closure does **not** mean:
-
-- every Chengfeng sentence, table, date, meeting, long list or exact wording is duplicated;
-- P0 equals permanent active recall;
-- the Mao learning path has been freshly accepted;
-- UI/projection has been accepted for Mao;
-- Mao-specific Runtime or Evidence journeys have been executed;
-- Kian has learned or validated any Mao chapter.
+The continuous first-study surface remains iPad/MarginNote Chengfeng. KianOS Learning Logic surrounds that source with orientation, reasoning bridges, boundaries and compression.
 
 ---
 
 ## Stage boundary
 
 ```text
-S/K            CLOSED for Current C00–C08 content
-L              UNTESTED / earliest unresolved if module acceptance resumes
-P/R/E          downstream-frozen
+S/K            PASS
+Content        PASS
+L              PASS
+P              UNTESTED / earliest unresolved
+R/E            downstream-frozen
 U              UNTESTED / learner-only
 ```
 
-The current book-by-book Politics content program may therefore leave Mao and move to the next subject without reopening these nine chapters merely for polish.
+Next legitimate whole-module work is **P｜Projection**. Do not reopen Source, Knowledge, Content or Logic without new source truth, question evidence, real learner friction, or a concrete semantic defect.
 
 ---
 
@@ -156,8 +174,10 @@ The current book-by-book Politics content program may therefore leave Mao and mo
 
 ### Artifact Truth
 - teaching assets → `content/politics/learning/mao/ch00.json` … `ch08.json`
+- subject map → `content/politics/learning/mao/subject-map.json`
 - semantic review → `content/politics/learning/mao/semantic-review.json`
 - source review → `content/politics/learning/mao/source-review.json`
+- learning review → `content/politics/learning/mao/learning-review.json`
 - shared Politics contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -166,4 +186,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Fresh S/K content closure is not the same thing as whole-module readiness or learner validation.**
+> **Accepted Learning Logic is not Projection acceptance, Runtime/Evidence acceptance, mastery, or U evidence.**
