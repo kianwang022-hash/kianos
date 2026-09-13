@@ -17,49 +17,31 @@ jobs:
         with:
           ref: audit-semantic-router-v1
           fetch-depth: 1
-      - name: Apply validated headword-identity routing fixes
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p = Path('content/lexical/tools/semantic-audit-risk-router.mjs')
-          s = p.read_text()
-          old_guard = "if(d.word!==e.record.word)throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);"
-          new_guard = "const handoffNames=d.word.split('/').map(x=>x.trim()),headwordMatched=handoffNames.includes(e.record.word)||handoffNames.some(x=>x.toLowerCase()===e.record.word.toLowerCase());if(!headwordMatched)throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);"
-          old_route = "if(op==='UPGRADE')f.add('PRODUCTION_UPGRADE'); if(op==='BLOCKED')f.add('OWNERSHIP_OR_IDENTITY_SENTINEL');"
-          new_route = "if(op==='UPGRADE')f.add('PRODUCTION_UPGRADE'); if(op==='BLOCKED')f.add('OWNERSHIP_OR_IDENTITY_SENTINEL'); const headwordCaseVariant=d.word.split('/').map(x=>x.trim()).some(x=>x!==r.word&&x.toLowerCase()===String(r.word??'').toLowerCase()); if(headwordCaseVariant)f.add('FORM_CASE_SENTINEL');"
-          if s.count(old_guard) != 1:
-              raise SystemExit('expected exactly one strict word-match guard')
-          if s.count(old_route) != 1:
-              raise SystemExit('expected exactly one route operation guard')
-          p.write_text(s.replace(old_guard, new_guard).replace(old_route, new_route))
-          PY
       - name: Router self-test
         run: node content/lexical/tools/semantic-audit-risk-router.mjs --self-test
-      - name: Generate full current semantic-review backlog routing
+      - name: Generate first 650-owner audit window
         run: |
           node content/lexical/tools/semantic-audit-risk-router.mjs \
             --start 25 \
-            --end 1124 \
+            --end 674 \
             --source-head "$GITHUB_SHA" \
             --handoff content/lexical/semantic-review/o0025-o0124.md \
             --handoff content/lexical/semantic-review/o0125-o0224.md \
             --handoff content/lexical/semantic-review/o0225-o0324.md \
             --handoff content/lexical/semantic-review/o0325-o0474.md \
             --handoff content/lexical/semantic-review/o0475-o0674.md \
-            --handoff content/lexical/semantic-review/o0675-o0874.md \
-            --handoff content/lexical/semantic-review/o0875-o1124.md \
-            --output content/lexical/semantic-audit/manifests/o0025-o1124.risk.json \
-            --audit-view-output tmp/lexical-audit/o0025-o1124.blind.jsonl
-      - name: Summarize routing
+            --output content/lexical/semantic-audit/manifests/o0025-o0674.risk.json \
+            --audit-view-output tmp/lexical-audit/o0025-o0674.blind.jsonl
+      - name: Summarize first window
         run: |
           node - <<'NODE'
-          const m = JSON.parse(require('fs').readFileSync('content/lexical/semantic-audit/manifests/o0025-o1124.risk.json','utf8'));
-          console.log(JSON.stringify({owner_count:m.owner_count,unique_mandatory_owner_count:m.unique_mandatory_owner_count,simple_candidate_count:m.simple_candidate_count,simple_deep_sample_count:m.simple_deep_sample_count,mandatory_strata_counts:m.mandatory_strata_counts,flag_counts:m.flag_counts},null,2));
+          const m = JSON.parse(require('fs').readFileSync('content/lexical/semantic-audit/manifests/o0025-o0674.risk.json','utf8'));
+          console.log(JSON.stringify({owner_count:m.owner_count,unique_mandatory_owner_count:m.unique_mandatory_owner_count,simple_candidate_count:m.simple_candidate_count,simple_deep_sample_count:m.simple_deep_sample_count,simple_deep_sample_ordinals:m.simple_deep_sample_ordinals,mandatory_strata_counts:m.mandatory_strata_counts,risk_family_counts:m.risk_family_counts},null,2));
           NODE
-      - name: Commit generated work products to audit branch
+      - name: Commit generated first-window work products
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/lexical/tools/semantic-audit-risk-router.mjs content/lexical/semantic-audit/manifests/o0025-o1124.risk.json tmp/lexical-audit/o0025-o1124.blind.jsonl
-          git commit -m "chore(lexical): generate audit router backlog [router-output]"
+          git add content/lexical/semantic-audit/manifests/o0025-o0674.risk.json tmp/lexical-audit/o0025-o0674.blind.jsonl
+          git commit -m "chore(lexical): route audit window o0025-o0674 [router-output]"
           git push origin HEAD:audit-semantic-router-v1
