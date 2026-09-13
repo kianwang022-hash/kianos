@@ -1,0 +1,205 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L1_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L1_D1_D4",
+  "label": "管道 → 消化 → 吸收",
+  "stable_identity": {
+    "blocks": ["D1", "D2", "D3", "D4"],
+    "canonical_kp_count": 37,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "within_scope": "This batch is the working Learning owner for D1-D4 on branch b-learning-upgrade.",
+    "whole_system_substrate": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+    "rule": "Learning may reorder or regroup stable KP identities. It may not rewrite medical meaning merely to simplify the route."
+  },
+  "learning_arc": {
+    "question": "食物进入胃肠道后，怎样被推进、分泌液拆解并最终跨黏膜进入门静脉或淋巴？",
+    "block_order": ["D1", "D2", "D3", "D4"],
+    "causal_spine": [
+      "D1 establishes the actuator and control language: smooth muscle execution, slow-wave thresholds, ENS and autonomic modulation.",
+      "D2 applies that language to oral preparation, LES gating, gastric storage/emptying, gastric secretion and mucosal defense.",
+      "D3 follows the gastric output into duodenum: neutralization, pancreatic enzymes, bile, intestinal mixing and failure localization.",
+      "D4 completes the chain by moving digested products across epithelium into portal blood or lymph, including B12, lipid, iron and calcium exceptions."
+    ],
+    "exit_reconstruction": "闭卷从『食物进入』连续讲到『门静脉/淋巴』，并能在运动、分泌、腔内消化、黏膜吸收四层定位第一故障。"
+  },
+  "blocks": {
+    "D1": {
+      "learning_order": [1, 6, 2, 3, 4, 5],
+      "group_count": 2,
+      "logic_groups": [
+        {
+          "id": "b-d01-lg01-v2",
+          "kp": [1, 6, 2, 3],
+          "label": "从平滑肌执行器到有节律的收缩",
+          "local_question": "胃肠壁为什么能长期、缓慢、可扩张地工作；ICC慢波怎样跨过机械阈/电阈，最后由Ca²⁺—CaM—MLCK变成不同强度的收缩？",
+          "learning_reason": "KP01给执行器特性，KP06给分子执行链，KP02-03再把节律和阈值接到该执行器上。旧版把KP01与慢波并列、把KP06孤立，因果链被切开。",
+          "closure": "能从『平滑肌为何适合长期运行』讲到『慢波决定节律、动作电位数决定主要收缩强度、Ca²⁺—CaM—MLCK执行收缩』，并区分机械阈与电阈。"
+        },
+        {
+          "id": "b-d01-lg02-v2",
+          "kp": [4, 5],
+          "label": "本地控制与全身改档",
+          "local_question": "ENS怎样在局部独立控制运动/分泌，而交感和副交感又怎样分别改变管壁、括约肌和腺体？",
+          "learning_reason": "KP04与KP05共同回答『谁在控制』，必须在同一局部模型内比较 local controller 与 external modulator。",
+          "closure": "能解释为什么切断外在神经后胃肠仍可工作，并能分别判断交感/副交感对管壁、括约肌、腺体的方向，避免把『促进消化』机械等同于所有平滑肌收缩。"
+        }
+      ]
+    },
+    "D2": {
+      "learning_order": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-d02-lg01-v2",
+          "kp": [1, 2, 3, 4],
+          "label": "口腔准备与LES门控",
+          "local_question": "食物怎样先被唾液处理，再让LES在正确时间开门、关门；这扇门打不开和关不住分别会发生什么？",
+          "learning_reason": "保留原分组，但把目标从泛化『恢复KP01-04』改成入口—门控—失败的连续问题。",
+          "closure": "能从唾液性质/神经调节讲到VIP+NO使LES松弛、ACh恢复张力，并用『失弛缓=门打不开、GERD=门关不住』完成反向校验。"
+        },
+        {
+          "id": "b-d02-lg02-v2",
+          "kp": [5, 6, 7],
+          "label": "胃的容纳、磨碎与限流排空",
+          "local_question": "胃怎样既容纳一餐而不明显升压，又能磨碎推进，并让十二指肠按处理能力限制排空速度？",
+          "learning_reason": "KP05-07天然形成『运动形式→容受性舒张→胃排空』的机械功能链。",
+          "closure": "能比较头区/尾区、MMC/蠕动/容受性舒张，并解释为什么糖>蛋白>脂肪排空以及胃泌素虽促胃运动却可延缓总排空。"
+        },
+        {
+          "id": "b-d02-lg03-v2",
+          "kp": [8, 9, 10, 11],
+          "label": "胃液供给系统：时相→细胞→泌酸→反馈",
+          "local_question": "胃在什么时相启动分泌、哪些细胞提供什么、壁细胞怎样泌酸、ACh/胃泌素/组胺和SST反馈怎样共同决定酸量？",
+          "learning_reason": "四个KP并非四张表，而是一条从输入时相到细胞执行再到反馈控制的供给系统。",
+          "closure": "能从头/胃/肠三期进入细胞地图，再讲H⁺-K⁺-ATPase泌酸和ACh—胃泌素—组胺放大、HCl—D细胞—SST刹车；能说明肠期少量分泌不等于小肠总体促胃。"
+        },
+        {
+          "id": "b-d02-lg04-v2",
+          "kp": [12],
+          "label": "攻击—防御天平",
+          "local_question": "既然HCl和胃蛋白酶具有攻击性，正常胃黏膜靠什么不被自己消化？",
+          "learning_reason": "KP12是前一组『酸/蛋白酶供给』的必要反面，独立成最终闭环而不是附属记忆表。",
+          "closure": "能用黏液-HCO₃⁻、上皮紧密连接、黏膜血流/修复三层解释保护，并用NSAID→PG下降→防御下降验证该模型。"
+        }
+      ]
+    },
+    "D3": {
+      "learning_order": [2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 11],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-d03-lg01-v2",
+          "kp": [2, 3, 4],
+          "label": "酸性食糜到来：先中和，再安全放酶",
+          "local_question": "酸性食糜进入十二指肠后，胰腺怎样把『HCO₃⁻和水』与『消化酶』分工供给，并保证蛋白酶只在肠腔安全启动？",
+          "learning_reason": "KP02建立腺泡/导管双细胞，KP03建立酶原保险，KP04用Secretin/CCK把刺激接回两套输出，是完整一条因果链。",
+          "closure": "能从十二指肠酸/蛋白脂肪刺激讲到Secretin→HCO₃⁻、CCK→胰酶，再讲肠激酶→胰蛋白酶级联；能说明提前激活为什么连接急性胰腺炎。"
+        },
+        {
+          "id": "b-d03-lg02-v2",
+          "kp": [5, 6, 7],
+          "label": "胆汁调度与脂肪处理",
+          "local_question": "肝胆系统怎样在一餐中把胆汁送到肠腔，胆盐/辅脂酶/胰脂肪酶各做什么，胆盐为什么还能循环再用？",
+          "learning_reason": "KP05-07构成生产储存→脂滴处理→回肠回收的闭合胆盐循环。",
+          "closure": "能区分胆汁无消化酶、胆盐乳化/成微胶粒、辅脂酶锚定、胰脂肪酶水解，并恢复CCK胆囊收缩+Oddi舒张和肠肝循环。"
+        },
+        {
+          "id": "b-d03-lg03-v2",
+          "kp": [8, 9],
+          "label": "肠道机械处理：小肠混合，大肠回收推进",
+          "local_question": "腔内化学消化之外，小肠和大肠各靠什么运动把内容物混匀、推进并完成吸收/储存？",
+          "learning_reason": "KP08-09都是腔内容物的机械处理，但任务不同，适合一组内做小肠vs大肠比较。",
+          "closure": "能说清小肠分节运动以混合/接触黏膜为主、蠕动以推进为主，大肠袋状往返利于水盐回收、集团蠕动负责餐后远距离推进。"
+        },
+        {
+          "id": "b-d03-lg04-v2",
+          "kp": [10],
+          "label": "胃肠激素总表不是表：用共同轴压缩",
+          "local_question": "胃泌素、促胰液素、CCK如何用同一套来源—刺激—胃—胰—胆轴比较，而不是记三张互不相干的清单？",
+          "learning_reason": "KP10是D2+D3激素信息的整合压缩，应在机制学完后再出现。",
+          "closure": "不给表格也能分别恢复三者的最强刺激、胃酸/排空、胰液和胆囊方向，并解释CCK『缩胆囊但抑胃运动』。"
+        },
+        {
+          "id": "b-d03-lg05-v2",
+          "kp": [1, 11],
+          "label": "反向定位：到底缺的是液、酶、胆盐还是运动",
+          "local_question": "当出现消化不良、脂肪泻或吸收问题时，怎样从后果反推是胃液/胰液/胆汁、酸中和、酶解、胆盐还是运动出了问题？",
+          "learning_reason": "KP01本质是前述机制的缺失实验，KP11是症状反推故障位置；两者都应位于机制之后，而不是开场。",
+          "closure": "能用『胰液缺乏→脂肪/蛋白最明显』『胆汁缺乏→脂类/ADEK』『酸未中和→黏膜/胰酶环境』『分节/MMC异常→混合清除失败』做最小故障定位，并明确D4接手跨上皮吸收。"
+        }
+      ]
+    },
+    "D4": {
+      "learning_order": [1, 2, 5, 6, 3, 4, 7, 8],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-d04-lg01-v2",
+          "kp": [1, 2],
+          "label": "先建立默认吸收地图：在哪里、跨哪层、进血还是淋巴",
+          "local_question": "一个已经消化好的小分子，默认怎样从肠腔跨上皮并进入毛细血管或毛细淋巴；不同部位承担什么任务？",
+          "learning_reason": "KP01给空间分工，KP02给跨上皮和血/淋巴路线，是所有后续营养素的坐标系。",
+          "closure": "能画出『肠腔→顶端→上皮→基底侧→血/淋巴』并说明十二指肠/空肠上段、回肠和大肠的核心分工。"
+        },
+        {
+          "id": "b-d04-lg02-v2",
+          "kp": [5, 6],
+          "label": "默认水溶性营养物：糖与氨基酸/小肽怎样借梯度入血",
+          "local_question": "单糖、氨基酸和小肽为什么大多能直接走门静脉，但顶端进入所借的离子梯度又不同？",
+          "learning_reason": "KP05-06共享『顶端载体/继发主动转运→基底侧输出→门静脉』骨架，适合在异常路线之前建立默认模板。",
+          "closure": "能比较葡萄糖/半乳糖Na⁺同向、果糖易化扩散、氨基酸Na⁺相关、小肽H⁺同向，并都落回基底侧入血。"
+        },
+        {
+          "id": "b-d04-lg03-v2",
+          "kp": [3, 4],
+          "label": "两条特殊路线：B12接力与长链脂质淋巴绕行",
+          "local_question": "哪些营养物不能套用『简单小分子直接入门静脉』：B12为什么需要胃—胰—回肠接力，长链脂质为什么要在上皮重装后走淋巴？",
+          "learning_reason": "保留KP03-04同组，但明确它们的共同价值是作为默认路线的两个高价值例外，而不是仅因相邻而成组。",
+          "closure": "能完整恢复B12的胃酸→R蛋白→胰蛋白酶→内因子→回肠链，以及混合微胶粒→上皮→TAG→apoB48/乳糜微粒→淋巴链，并说明微胶粒与乳糜微粒不是同一结构。"
+        },
+        {
+          "id": "b-d04-lg04-v2",
+          "kp": [7, 8],
+          "label": "矿物准入门槛：铁与钙为什么不能只看摄入量",
+          "local_question": "铁和钙吸收为什么取决于价态/可溶性、需求量和促进抑制环境，而不是吃进去多少就吸收多少？",
+          "learning_reason": "旧LG03把KP05-08全部打成『选择性吸收』，掩盖了糖/肽的转运器逻辑与铁/钙的化学准入门槛是两类问题。",
+          "closure": "能恢复铁『Fe²⁺吸收、Fe³⁺运输/储存』及HCl/VitC方向，钙『需求量+VitD+可溶性』主轴，并区分肠腔钙皂与胰腺炎低钙的不同场景。"
+        }
+      ]
+    }
+  },
+  "content_repairs": [
+    {
+      "block": "D2",
+      "kp": 11,
+      "type": "LABEL_COUNT_CONSISTENCY",
+      "from": "迷走神经的三类靶点",
+      "to": "迷走神经的四类靶点",
+      "semantic_change": false
+    },
+    {
+      "block": "D4",
+      "kp": 3,
+      "type": "LABEL_COUNT_CONSISTENCY",
+      "from": "三个故障入口",
+      "to": "四个故障入口",
+      "semantic_change": false
+    }
+  ],
+  "batch_checks": {
+    "all_37_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 14,
+    "logic_group_count_candidate": 15,
+    "content_semantic_rewrite_required": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
