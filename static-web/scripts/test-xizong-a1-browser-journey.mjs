@@ -264,15 +264,17 @@ try {
   await cdp.navigate(`${BASE}/xizong/circulation/`);
   check(await cdp.evaluate(existsExpr('[data-start-recall]')), 'system_exit_runtime_present');
   await cdp.evaluate(clickExpr('[data-start-recall]'));
-  check(await cdp.evaluate(hiddenExpr('[data-system-recall-prompt]')) === true, 'early_system_recall_prompt_stays_hidden');
+  check(await cdp.evaluate(`Boolean(document.querySelector('[data-recall-dialog]')?.open)`) === false, 'early_system_recall_dialog_stays_closed');
+  check(await cdp.evaluate(`localStorage.getItem('kianos:xizong:system-recall:circulation:v1')`) === null, 'early_system_recall_creates_no_evidence');
 
   // Engineering fixture: mark all A1 Blocks complete to exercise late transitions.
   await cdp.evaluate(`(${JSON.stringify(blockIds)}).forEach(id=>{const key='kianos-xizong-astro-v2:xizong:'+id;let old={};try{old=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{};localStorage.setItem(key,JSON.stringify({...old,completed:true}));})`);
   await cdp.reload();
   await cdp.evaluate(clickExpr('[data-start-recall]'));
-  check(await cdp.evaluate(hiddenExpr('[data-system-recall-prompt]')) === false, 'completed_system_releases_system_recall');
+  check(await cdp.evaluate(`Boolean(document.querySelector('[data-recall-dialog]')?.open)`) === true, 'completed_system_releases_system_recall');
+  check(await cdp.evaluate(hiddenExpr('[data-recall-front]')) === false, 'system_recall_front_visible_after_prerequisites');
   await cdp.evaluate(clickExpr('[data-reveal-recall]'));
-  check(await cdp.evaluate(hiddenExpr('[data-system-recall-answer]')) === false, 'system_recall_reveal_after_prerequisites');
+  check(await cdp.evaluate(hiddenExpr('[data-recall-reveal]')) === false, 'system_recall_reveal_after_prerequisites');
   await cdp.evaluate(clickExpr('[data-complete-recall]'));
   const systemRecall = await cdp.evaluate(`JSON.parse(localStorage.getItem('kianos:xizong:system-recall:circulation:v1')||'null')`);
   check(Boolean(systemRecall?.completedAt), 'system_recall_completion_persists');
