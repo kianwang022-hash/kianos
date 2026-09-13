@@ -7,7 +7,6 @@ const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const repoRoot = path.resolve(webRoot, '..');
 const bRoot = path.join(repoRoot, 'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor');
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
-const pad2 = (value) => String(value).padStart(2, '0');
 
 const groups = [
   { dir: 'd-d1-d23', prefix: 'D', expectedCount: 23 },
@@ -160,6 +159,14 @@ const report = {
   content_inventory_sha256: sha256(`${inventoryLines.join('\n')}\n`),
   blocks,
 };
+
+const serialized = `${JSON.stringify(report, null, 2)}\n`;
+if (process.env.B_CORE_REPORT_PATH) {
+  const outputPath = path.resolve(webRoot, process.env.B_CORE_REPORT_PATH);
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, serialized, 'utf8');
+  console.log(`B Core report written: ${path.relative(webRoot, outputPath)}`);
+}
 
 console.log('B_CORE_INVENTORY_REPORT_BEGIN');
 console.log(JSON.stringify(report));
