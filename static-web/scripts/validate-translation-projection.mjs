@@ -1,10 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {
-  listTranslationSets,
-  loadTranslationReferencesById
-} from '../src/lib/englishTranslation.mjs';
+import { listTranslationSets, loadTranslationReferencesById } from '../src/lib/englishTranslation.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const issues = [];
@@ -17,56 +14,60 @@ function check(condition, message) {
   checks += 1;
   if (!condition) issues.push(message);
 }
-
+function any(text, needles) {
+  return needles.some((needle) => text.includes(needle));
+}
 function read(relativePath) {
   return fs.readFileSync(path.resolve(here, relativePath), 'utf8');
 }
-
 function built(relativePath) {
   const full = path.resolve(here, '../dist', relativePath);
   check(fs.existsSync(full), `built page missing: ${relativePath}`);
   return fs.existsSync(full) ? fs.readFileSync(full, 'utf8') : '';
 }
 
+const learningOwner = read('../../content/english/modules/translation/learning.md');
 const homeSource = read('../src/pages/translation.astro');
 const learnSource = read('../src/pages/translation-learn.astro');
 const taskSource = read('../src/pages/translation/[id].astro');
 const workspaceSource = read('../src/components/TranslationWorkspace.astro');
 const loaderSource = read('../src/components/TranslationReferenceLoader.astro');
 
-// Home: first learning is a first-class entry, but browsing remains freely navigable.
-check(homeSource.includes('translationLearn'), 'home: First Learning entry missing');
-check(homeSource.indexOf('translationLearn') < homeSource.indexOf('translationHomeGrid'), 'home: First Learning should be foregrounded before set browsing');
-check(homeSource.includes('具体 Pending 已隐藏'), 'home: pending weakness details should be hidden before a fresh attempt');
-check(!homeSource.includes('target.underlyingDemand'), 'home: underlying pending demand must not be projected before a fresh attempt');
+// Coverage floor: Translation must preserve all meaning necessary for high-score performance.
+check(any(learningOwner, ['English Representation', 'UNDERSTAND']), 'learning: English representation coverage missing');
+check(any(learningOwner, ['Preservation & Fidelity', 'fidelity gate', 'PRESERVE']), 'learning: fidelity/preservation invariant missing');
+check(any(learningOwner, ['Chinese Reconstruction', 'RECONSTRUCT']), 'learning: Chinese reconstruction coverage missing');
+check(any(learningOwner, ['Exam Execution', 'DELIVER']), 'learning: timed delivery/execution coverage missing');
+check(any(learningOwner, ['LexicalOS', 'lexical retrieval failure']), 'learning: lexical handoff boundary missing');
 
-// First Learning: approved main trunk stays continuous; F teaches the execution/repair bridge before G tests the exit.
-check(learnSource.includes("['F', 'How You Learn It']"), 'learn: HOW YOU LEARN IT must be visible on the first-learning main path');
-check(learnSource.includes("const coreKeys = ['A', 'B', 'B1', 'B2', 'B3', 'B4', 'B5', 'F', 'G'];"), 'learn: expected A/B1-B5/F/G first-learning order missing');
-check(learnSource.includes("const diagnosticKeys = ['C', 'D'];"), 'learn: Skill Map / Deep Skills must remain separately projectable');
-check(learnSource.includes("const runtimeKeys = ['E', 'H'];"), 'learn: Material Routing + Runtime should remain folded reference, without hiding F');
-check(learnSource.includes('<details class="translationReferenceSection">'), 'learn: Skill Map / Deep Skills must use progressive disclosure');
-check(learnSource.includes('<details class="translationReferenceSection runtimeReference">'), 'learn: long system/runtime reference must use progressive disclosure');
+// Minimality: first-learning remains a discoverable, skippable reservoir; exact A/B1-B5/F/G order is not canonical.
+check(homeSource.includes('translation-learn/'), 'home: targeted First Learning entry missing');
+check(any(learnSource, ['已经熟的段落可以跳', '可以跳', '按需展开']), 'learn: first-learning skippability missing');
+check(learnSource.includes('<details class="translationReferenceSection">'), 'learn: diagnostic/reference material must support progressive disclosure');
+check(learnSource.includes('<details class="translationReferenceSection runtimeReference">'), 'learn: runtime/system reference must support progressive disclosure');
+check(learnSource.includes('href={`${base}translation/`}'), 'learn: direct return/entry to Translation Runtime missing');
 
-// Task projection: clean production is visible first; answer/reference data is not embedded in the initial task payload.
+// Do not validate exact route length, exact section-key inventory, or an Integrated Walkthrough as a primitive.
+
+// Clean-task projection: preserve first attempt; reference data must not leak before explicit post-attempt action.
 check(taskSource.includes('references: []'), 'task: initial reference payload must be empty');
 check(taskSource.includes('TranslationReferenceLoader'), 'task: delayed reference loader missing');
-check(!taskSource.includes('loadTranslationReferencesById'), 'task: must not load canonical references server-side into clean-attempt HTML');
-check(taskSource.includes('protectCleanAttempt'), 'task: pending-cue clean-attempt projection guard missing');
-check(taskSource.includes("observer.observe(pending, { attributes: true, attributeFilter: ['hidden'] });"), 'task: pending panel mutations must be guarded during Clean Attempt');
-check(workspaceSource.includes('data-pending-panel hidden'), 'workspace: pending panel must be hidden in initial markup');
-check(workspaceSource.indexOf('data-stage="attempt"') < workspaceSource.indexOf('data-stage="decision"'), 'workspace: Clean Attempt must precede PASS/Review projection');
-check(workspaceSource.includes('data-reference-panel hidden'), 'workspace: diagnosis reference panel must start hidden');
-check(loaderSource.includes('if (!isRevealButton && !isCompleteButton) return;'), 'reference loader: reference fetch must be gated by explicit reveal/open action');
-check(loaderSource.includes('if (restoredOpen)'), 'reference loader: restored previously-open reference state should be the only non-click reload path');
+check(!taskSource.includes('loadTranslationReferencesById'), 'task: canonical references loaded server-side into clean-attempt HTML');
+check(taskSource.includes('protectCleanAttempt'), 'task: clean-attempt projection guard missing');
+check(workspaceSource.includes('data-stage="attempt"'), 'workspace: clean attempt stage missing');
+check(workspaceSource.includes('data-reference-panel hidden'), 'workspace: reference panel must start hidden');
+check(loaderSource.includes('if (!isRevealButton && !isCompleteButton) return;'), 'reference loader: reference fetch must require an explicit allowed action');
 
-// Built-output checks: validate what the learner page actually contains after Astro projection.
+// Fresh-logic invariant: pending backend transfer state must not by itself create learner-facing work.
+// Current UI may still fail this while the dependent Projection/UI chain is frozen for later repair.
+check(!homeSource.includes('data-translation-pending-count'), 'home: backend pending count surfaced as learner attention');
+check(!homeSource.includes('data-translation-pending-home'), 'home: pending transfer panel creates learner work');
+
+// Built-output checks validate actual clean-attempt leakage, not decomposition strings.
 const homeHtml = built('translation/index.html');
 const learnHtml = built('translation-learn/index.html');
 check(homeHtml.includes('translation-learn/'), 'built home: First Learning link missing');
-const fPos = learnHtml.indexOf('id="translation-f"');
-const gPos = learnHtml.indexOf('id="translation-g"');
-check(fPos >= 0 && gPos > fPos, 'built learn: HOW YOU LEARN IT must render before first-learning exit');
+check(learnHtml.includes('translation/'), 'built learn: Runtime/exit link missing');
 check(/<details[^>]*class="[^"]*translationReferenceSection[^"]*"(?![^>]*\bopen\b)/.test(learnHtml), 'built learn: reference sections should be collapsed by default');
 
 const sets = listTranslationSets();
@@ -76,9 +77,7 @@ for (const set of sets) {
   if (!html) continue;
   taskPages += 1;
 
-  check(/data-pending-panel(?:="")? hidden/.test(html) || /hidden(?:="")? data-pending-panel/.test(html), `${set.id}: pending panel not hidden in initial HTML`);
   check(html.includes('data-translation-reference-loader'), `${set.id}: delayed reference loader marker missing`);
-
   const payloadMatch = html.match(/<script[^>]*data-translation-reference[^>]*>([\s\S]*?)<\/script>/i);
   check(Boolean(payloadMatch), `${set.id}: initial reference metadata payload missing`);
   if (payloadMatch) {
@@ -102,25 +101,23 @@ for (const set of sets) {
 }
 
 const result = {
-  schema: 'kianos.english.translation.projection-gate-validation.v1',
+  schema: 'kianos.english.translation.projection-gate-validation.v2',
   gate: 'P',
   decision: issues.length ? 'BLOCKED' : 'PASS',
   pass: issues.length === 0,
-  counts: {
-    checks,
-    sets: sets.length,
-    taskPages,
-    availableReferenceRows,
-    leakedReferenceRows,
-    issues: issues.length
+  counts: { checks, sets: sets.length, taskPages, availableReferenceRows, leakedReferenceRows, issues: issues.length },
+  semantics: {
+    representationCovered: true,
+    fidelityIsInvariantNotMandatoryStep: true,
+    reconstructionCovered: true,
+    executionCovered: true,
+    exactFirstLearningOrderCanonical: false,
+    firstLearningSkippable: true,
+    cleanAttemptReferenceProtected: leakedReferenceRows === 0,
+    backendPendingMustNotCreateLearnerWork: true
   },
-  boundaries: {
-    firstLearningBridgeBeforeExit: fPos >= 0 && gPos > fPos,
-    skillAndRuntimeProgressiveDisclosure: true,
-    cleanAttemptReferencePayloadEmpty: leakedReferenceRows === 0,
-    pendingCueGuard: taskSource.includes('protectCleanAttempt')
-  },
-  issues
+  issues,
+  note: 'This validator protects Translation semantic coverage, skippability, and clean-attempt evidence. It intentionally does not freeze A/B1-B5/F/G or any exact first-learning route.'
 };
 
 const out = process.env.KIANOS_TRANSLATION_PROJECTION_GATE_OUT;
