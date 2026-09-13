@@ -76,6 +76,14 @@ jobs:
           if-no-files-found: error
       - name: Validate B Knowledge contracts
         run: node scripts/validate-xizong-b-knowledge.mjs
+      - name: Inspect B Learning structure
+        run: B_LEARNING_REPORT_PATH=.qa/xizong-b-learning-structure.json node scripts/inspect-xizong-b-learning.mjs
+      - name: Upload B Learning structure
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-b-learning-structure
+          path: static-web/.qa/xizong-b-learning-structure.json
+          if-no-files-found: error
       - name: Validate A2 runtime contracts
         run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Validate shared repair inbox contract
