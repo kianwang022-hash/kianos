@@ -46,9 +46,10 @@ Current independent subject scopes:
 | --- | --- | --- |
 | Marxism | `content/politics/learning/marxism/CURRENT.md` | `content/politics/learning/marxism/ACCEPTANCE.md` |
 | History | `content/politics/learning/history/CURRENT.md` | `content/politics/learning/history/ACCEPTANCE.md` |
+| Mao | `content/politics/learning/mao/CURRENT.md` | `content/politics/learning/mao/ACCEPTANCE.md` |
 | Ethics-Law | `content/politics/learning/ethics-law/CURRENT.md` | `content/politics/learning/ethics-law/ACCEPTANCE.md` |
 
-Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress. Ethics-Law currently owns a fresh S/K content closure only; L/P/R/E/U are not inherited from generic Politics integration.
+Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress. Mao and Ethics-Law currently own fresh S/K content closures only; L/P/R/E/U are not inherited from generic Politics integration.
 
 Scheduling boundary:
 
@@ -95,9 +96,9 @@ Politics-specific invariant: **Suyi = framework/orientation input; Chengfeng = c
 
 ## Subject governance boundary
 
-Mao / Xi remain Politics subject/content structures and do not currently justify independent `CURRENT / ACCEPTANCE` owners.
+Xi remains a Politics subject/content structure and does not currently justify an independent `CURRENT / ACCEPTANCE` owner.
 
-Ethics-Law now does own a scoped pair because a fresh whole-book Source/Knowledge content closure created a durable independent restart/readiness boundary. That pair must not be interpreted as whole-module readiness: its current Acceptance stops at S/K.
+Mao and Ethics-Law now each own a scoped pair because a fresh whole-book Source/Knowledge content closure created a durable independent restart/readiness boundary. Neither pair implies whole-module readiness: both current Acceptances stop at S/K.
 
 Shared cognition remains in:
 
@@ -132,7 +133,7 @@ Ordinary use / continuation:
 
 ```text
 Politics CURRENT
-→ if work names Marxism / History / Ethics-Law, route to its local CURRENT
+→ if work names Marxism / History / Mao / Ethics-Law, route to its local CURRENT
 → otherwise use the existing Current Politics runtime/content without new lane-level engineering
 ```
 
