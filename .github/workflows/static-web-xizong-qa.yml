@@ -66,6 +66,8 @@ jobs:
         run: A3_SOURCE_PHASE=truth node scripts/validate-xizong-a3-source.mjs
       - name: Validate A3 boundary and provenance
         run: A3_SOURCE_PHASE=boundary node scripts/validate-xizong-a3-source.mjs
+      - name: Inspect B Current Core substrate
+        run: node scripts/inspect-xizong-b-core.mjs
       - name: Validate A2 runtime contracts
         run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Validate shared repair inbox contract
