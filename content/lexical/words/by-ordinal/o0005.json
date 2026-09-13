@@ -6,14 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:233a297c0d52f86a0704",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "做某事的能力",
+        "pattern": "the ability to do sth",
+        "learning_note": "Use to-infinitive, not of + -ing."
+      },
+      {
+        "construction_id": "construction:c0ca70f8aab256474638",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "具备/培养/展现做某事的能力",
+        "pattern": "have/develop/show the ability to do sth"
+      }
+    ],
     "content_hash": "67b7112f8b537b1d81e79b44fc0c30f60704324e07da45d8074aefdcf4eff097",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "做某事的能力",
-      "core_meaning_en": "the quality of being able to do something",
-      "mental_model_cn": "做某事的能力",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "能力；本领",
+          "label_en": "the capacity or skill to do something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:ability:cdd1c93c1b68540e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使人能够完成某事的能力、技能或潜力",
+      "core_meaning_en": "the capacity, skill, or power that makes someone able to do something",
+      "mental_model_cn": "ability 关注“能不能做到”的能力本身；后面最重要的语法出口是 to do。",
+      "mental_model_en": "the capacity behind being able to do something; its key complement is a to-infinitive"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,17 +69,18 @@
             "phrase": "have the ability to + do"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "能力，才干",
-        "definition_en": "the quality of being able to perform; a quality that permits or facilitates achievement",
+        "confidence": "high",
+        "definition_cn": "能力；本领；做某事的能力",
+        "definition_en": "the capacity, skill, or power to do something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:ability:cdd1c93c1b68540e",
-        "sense_label_en": "the quality of being able to perform; a quality that permits or facilita",
+        "sense_label_en": "capacity or skill to do something",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Use ability to do something; not ability of doing something."
       }
     ],
     "verification_summary": {
@@ -137,7 +163,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "67b7112f8b537b1d81e79b44fc0c30f60704324e07da45d8074aefdcf4eff097",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

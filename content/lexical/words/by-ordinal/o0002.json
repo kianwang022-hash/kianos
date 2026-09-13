@@ -59,11 +59,28 @@
     ],
     "content_hash": "e00d4cc40a308b200a1e4613fe93f418bf87ac99dc5ff5eeea402f12b8bac711",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "完全放弃或离开",
-      "core_meaning_en": "to leave or give up completely",
-      "mental_model_cn": "完全放弃或离开",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "抛弃；遗弃；离开",
+          "label_en": "leave a person, place, or thing behind completely",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:abandon:237479b583c9599b"
+          ]
+        },
+        {
+          "label_cn": "放弃；中止",
+          "label_en": "give up a plan, attempt, activity, or intention",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:abandon:7318523e97f85e71"
+          ]
+        }
+      ],
+      "core_meaning_cn": "彻底撤回原本的陪伴、占有、计划或投入",
+      "core_meaning_en": "to withdraw completely from a person, place, thing, plan, or course of action",
+      "mental_model_cn": "不是暂时放一放，而是把原本的“继续维持/继续投入”彻底撤掉。",
+      "mental_model_en": "remove the commitment to keep staying with, supporting, possessing, or pursuing something"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -97,7 +114,7 @@
             "phrase": "abandon a child"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "抛弃，遗弃（人、物）",
         "definition_en": "to leave someone or something permanently, especially when you should not",
         "governing_pattern": "vt. + object",
@@ -105,7 +122,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abandon:237479b583c9599b",
-        "sense_label_en": "to leave someone or something permanently, especially when you should no",
+        "sense_label_en": "leave someone or something behind completely",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -130,7 +147,7 @@
             "phrase": "abandon a plan"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "放弃（计划、活动等）",
         "definition_en": "to stop doing or having something, especially before it is finished",
         "governing_pattern": "vt. + object",
@@ -138,7 +155,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abandon:7318523e97f85e71",
-        "sense_label_en": "to stop doing or having something, especially before it is finished",
+        "sense_label_en": "give up a plan, activity, or attempt",
         "sort_order": 1,
         "transitivity": "vt"
       }
@@ -297,6 +314,8 @@
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "e00d4cc40a308b200a1e4613fe93f418bf87ac99dc5ff5eeea402f12b8bac711",
     "semantic_delta": 1,
-    "materializer": "tools/lexical_natural_owner.py"
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

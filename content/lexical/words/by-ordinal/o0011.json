@@ -12,37 +12,73 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "即将做某事",
-        "pattern": "be about to do sth"
+        "pattern": "be about to do sth",
+        "learning_note": "Very near future; often something is just about to happen."
+      },
+      {
+        "construction_id": "construction:f9870b09520f4c040542",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "……怎么样？（建议、询问或转向另一个对象）",
+        "pattern": "how/what about + n/doing?"
+      },
+      {
+        "construction_id": "construction:059102efd26e3590e38c",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "核心就是；主要关乎",
+        "pattern": "be all about sth"
+      },
+      {
+        "construction_id": "construction:e7f9c6bd032e4cec7c49",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "差不多就是这些；大致到此为止",
+        "pattern": "that's about it / that's about all"
+      },
+      {
+        "construction_id": "construction:2ed25b16290a71d33a50",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "几乎；差不多",
+        "pattern": "just about + amount/adjective/verb"
       }
     ],
     "content_hash": "e4a31272195c9bec41d41ad2a8fa96dd25ca3ae8ca03a724575322ed35033825",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "关于",
-          "label_en": "on the subject of",
+          "label_cn": "关于；涉及",
+          "label_en": "on the subject of or connected with",
           "pos": "preposition",
           "sense_ids": [
             "sense:about:7434feb019535430"
           ]
         },
         {
-          "label_cn": "大约；四处",
-          "label_en": "approximately; in various directions or places",
+          "label_cn": "大约；左右",
+          "label_en": "approximately in number, time, amount, or degree",
           "pos": "adverb",
           "sense_ids": [
-            "sense:about:e4e8b2fc53ff52a7",
+            "sense:about:e4e8b2fc53ff52a7"
+          ]
+        },
+        {
+          "label_cn": "四处；到处",
+          "label_en": "around in different places or directions",
+          "pos": "adverb",
+          "sense_ids": [
             "sense:about:00b9e6eb4e1457d8"
           ]
         }
       ],
-      "core_meaning_cn": "关于；大约",
-      "core_meaning_en": "concerning; approximately",
-      "mental_model_cn": "关于；大约",
-      "mental_model_en": ""
+      "core_meaning_cn": "围绕一个主题/位置，或落在一个数值附近",
+      "core_meaning_en": "around a topic or place, or near rather than exactly at a number, time, amount, or degree",
+      "mental_model_cn": "about 的共同感觉是“围着/附近”：围绕主题 = 关于；围着某处 = 四处；围着一个数 = 大约。",
+      "mental_model_en": "the shared image is around: around a topic, around a place, or around an approximate value"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -63,15 +99,15 @@
             "phrase": "talk about"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "关于",
-        "definition_en": "on the subject of",
+        "confidence": "high",
+        "definition_cn": "关于；有关；涉及",
+        "definition_en": "on the subject of or connected with",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:about:7434feb019535430",
-        "sense_label_en": "on the subject of",
+        "sense_label_en": "on the subject of; connected with",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -87,9 +123,9 @@
             "phrase": "about ten"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "大约",
-        "definition_en": "approximately",
+        "confidence": "high",
+        "definition_cn": "大约；左右",
+        "definition_en": "approximately; a little more or less than a stated number, time, or amount",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
@@ -111,17 +147,18 @@
             "phrase": "walk about"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "四处",
-        "definition_en": "in various directions or places",
+        "confidence": "high",
+        "definition_cn": "四处；到处；向各处",
+        "definition_en": "around in various places or directions",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:about:00b9e6eb4e1457d8",
-        "sense_label_en": "in various directions or places",
+        "sense_label_en": "around in different places or directions",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Less common than around in some varieties, but still ordinary."
       }
     ],
     "verification_summary": {
@@ -219,7 +256,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "e4a31272195c9bec41d41ad2a8fa96dd25ca3ae8ca03a724575322ed35033825",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }
