@@ -128,12 +128,18 @@ has(blockUi, "setStage('group_close')", 'logic-group-close-transition');
 has(blockUi, "setStage('kp_recall')", 'kp-recall-transition');
 has(blockUi, "setStage('block_recall')", 'block-recall-transition');
 has(blockUi, "setStage('block_complete')", 'block-complete-transition');
+has(blockUi, '不要按 KP 来回切换 App', 'logic-group-lecture-continuity');
+has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
 matches(enhancerUi, /!personal\.lectureRead\s*\|\|\s*!coreReady/, 'lecture-close-gate');
 
-has(guardUi, "if (kpId && !state?.learned?.[kpId])", 'premature-kp-recall-guard');
-has(guardUi, 'if (!total || learned < total || recalled < total)', 'premature-block-recall-guard');
+has(guardUi, "requested === 'kp_recall' && counts.learned <= counts.recalled", 'premature-kp-recall-stage-guard');
+has(guardUi, "target.closest('[data-kp-reveal]')", 'premature-kp-reveal-guard');
+has(guardUi, "requested === 'block_recall'", 'premature-block-recall-stage-guard');
+has(guardUi, "target.closest('[data-block-recall-complete]')", 'premature-block-recall-evidence-guard');
+has(guardUi, "target.closest('[data-start-recall]')", 'premature-system-recall-start-guard');
+has(guardUi, "target.closest('[data-reveal-recall]')", 'premature-system-recall-reveal-guard');
 has(guardUi, 'if (completed.length < blockIds.length)', 'premature-system-recall-guard');
-has(guardUi, 'Free navigation is preserved.', 'free-navigation-contract');
+has(guardUi, 'Free navigation among orientation/current-learning surfaces is preserved.', 'free-navigation-contract');
 has(blockPage, '<XizongRuntimeStageGuard system={system} block={block} />', 'block-guard-not-mounted');
 has(systemPage, '<XizongRuntimeStageGuard system={system} />', 'system-guard-not-mounted');
 
