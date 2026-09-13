@@ -60,6 +60,9 @@ jobs:
       - name: Execute Mao Runtime journeys
         working-directory: static-web
         run: node scripts/test-politics-mao-runtime.mjs
+      - name: Audit Mao Evidence model
+        working-directory: static-web
+        run: node scripts/audit-politics-mao-evidence.mjs
       - name: Execute Mao Evidence journeys
         working-directory: static-web
         run: node scripts/test-politics-mao-evidence.mjs
