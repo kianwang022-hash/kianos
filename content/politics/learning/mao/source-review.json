@@ -1,0 +1,58 @@
+{
+  "schema": "kianos.politics.mao_source_review.v1",
+  "status": "CURRENT_REVIEW_COMPLETE",
+  "scope": "MAO_C00_TO_C08",
+  "review_snapshot": {
+    "node_registry_canonical_row_digest_sha256": "97c50e490bfe070d0fccced1873482a373bcb8d25bc4d1c74e82b399e9c09f57",
+    "rule": "This disposition is valid only while the Current node-shard manifest retains the same canonical row digest. A Source change reopens compact review rather than silently inheriting this approval."
+  },
+  "review_rule": "Use Chengfeng as the continuous first-round mainline and semantic source authority. Use Suyi only as a compact framework/past-exam cross-check. Admit a Suyi semantic delta only when it supplies a stable high-value identity, boundary or relation missing or under-specified in Current. Never create a second learner course and never guess exact wording from model memory when Current source cannot support it.",
+  "chengfeng_review": {
+    "status": "COMPLETE_FOR_ACTIVE_CONTENT_CLOSURE",
+    "decision": "NO_BLOCKING_NATURAL_UNIT_OWNER_GAP_FOUND",
+    "boundary": "All 18 canonical Mao Natural Units are P0, so every unit received a fresh semantic read. Some child OCR rows are noisy or truncated; closure admits only readable, stable source semantics and explicitly leaves unrecoverable exact wording source-primary/deferred rather than manufacturing precision. P0 unit ownership is therefore complete without duplicating every child row.",
+    "reviewed_high_value_areas": [
+      "C00 Chinese adaptation/epochalization meaning, necessity/possibility, Two Integrations and theoretical-achievement succession",
+      "C01 formation conditions, theme/content/theoretical essence/living soul and historical position",
+      "C02 national conditions, main contradictions, general-line roles, programs, road and Three Magic Weapons",
+      "C03 transitional social structure, One Industrialization + Three Transformations, distinct transformation routes and socialist-system establishment",
+      "C04 On the Ten Major Relationships, socialist contradictions, Chinese industrialization road and exploration lessons",
+      "C05 historical conditions, theoretical-system succession identities and high-value formation milestones",
+      "C06 socialist essence, initial stage/basic line, reform/opening, market economy, unity/international strategy and historical position",
+      "C07 Three Represents core views, major contents, reform-development-stability relation and historical position",
+      "C08 four scientific-connotation role identities, six major-content groups, spiritual essence and historical position"
+    ]
+  },
+  "suyi_delta_review": {
+    "status": "COMPLETE",
+    "decision": "NO_NEW_SEMANTIC_COURSE_DELTA",
+    "admitted_deltas": [],
+    "reviewed_support": [
+      {
+        "scope": "C00",
+        "source_refs": ["POL27-SY-MAO-P045-B011"],
+        "disposition": "DUPLICATE_FRAMEWORK_SUPPORT",
+        "note": "Reinforces that advancing Marxism in Chinese context/era is an internal requirement of Marxist theoretical development, already clearly supported by Chengfeng C00."
+      },
+      {
+        "scope": "C02",
+        "source_refs": ["POL27-SY-MAO-P047-B066-Y2018"],
+        "disposition": "PAST_EXAM_PRIORITY_SUPPORT_ONLY",
+        "note": "The parent Suyi node reinforces that the imperialism-Chinese-nation contradiction is the most important contradiction and carries a 2018 past-exam signal. Chengfeng already supplies the semantic identity; Suyi only reinforces priority."
+      },
+      {
+        "scope": "C07",
+        "source_refs": ["POL27-SY-MAO-P059-B035-Y2012"],
+        "disposition": "PAST_EXAM_SIGNAL_ONLY",
+        "note": "The declared child is a 2012 past-exam signal, not an independent semantic owner. It does not justify a second teaching structure."
+      }
+    ]
+  },
+  "precision_boundary": [
+    "C04's complete Ten Relationships and Three Musts wording remains Chengfeng-primary.",
+    "C05 historical-significance long formulations and dense congress milestone tables remain Chengfeng-primary beyond the selected high-value anchors.",
+    "C06 initial-stage two-part formulation, Three-Step development targets, detailed market/unification/international formulations remain Chengfeng-primary unless evidence activates them.",
+    "C07/C08 historical-position normative long formulations remain source-primary where the Current shard exposes only a reliable exam-point owner rather than full clean wording."
+  ],
+  "acceptance_boundary": "Content closure means the approved Mao learning semantics represent all 18 canonical P0 Natural Units and contain the high-value identities, relations and boundaries needed for the current first-round path. It does not mean every Chengfeng sentence, table, date, long list or noisy OCR child row is copied into KianOS."
+}
