@@ -72,6 +72,7 @@ jobs:
       - name: Fail closed on write set
         shell: bash
         run: |
+          git config core.quotePath false
           mapfile -t changed < <(git diff --name-only)
           printf '%s\n' "${changed[@]}"
           test "${#changed[@]}" -eq 2
