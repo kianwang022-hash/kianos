@@ -114,6 +114,82 @@ Do not show Politics percentage progress unless a later product decision defines
 
 ---
 
+## Xiao1000 Question Workbench — accepted preservation decision
+
+This surface is **not a redesign target**.
+
+Kian explicitly rejected adding new learner-facing `structure / 易混` blocks because they would increase process weight. The accepted direction is to preserve the historical Politics Workbench interaction and information architecture **as-is**, rather than recompose it into a new repair layout.
+
+### Historical UI reference for this surface only
+
+Use the historical learner-facing Workbench as the presentation/interaction reference:
+
+- `kianos-legacy/runtime/frontend/src/learning/PoliticsWorkbench.jsx`
+- `kianos-legacy/runtime/frontend/src/learning/PoliticsWorkbench.css`
+
+This is a bounded Projection/UI reference only. It does **not** make Legacy the semantic authority for Politics Content, Evidence, learner state or learning logic.
+
+### Clean attempt — preserve
+
+Preserve the existing full-width question workbench behavior, including:
+
+- full-width stem;
+- 2×2 option layout on Mac when the option length permits;
+- verified text question face with optional original-image check;
+- favorite;
+- Uncertain;
+- mark-for-discussion;
+- existing single/multiple-choice submission behavior;
+- existing answer gating and no correctness leak before submission;
+- current session / question progression semantics.
+
+Do not introduce a new left/right split during clean attempt.
+
+### Submitted result — preserve
+
+Preserve the historical bounded result workspace and its existing information structure:
+
+```text
+left summary/evidence pane
+→ correct/wrong result
+→ 一句话带走
+→ learner answer vs formal answer
+→ missing/extra choice detail when relevant
+→ optional learner cause mark
+→ learner note
+
+right knowledge-review pane
+→ 理解这道题
+→ 对应来源 / source text
+→ 肖1000原解析 or bounded supplemental reference
+→ 下一题 / 返回当前 Unit / 返回原入口
+```
+
+The historical approximate 32/68 Mac-wide result composition is an accepted reference. Do not create a new empty left region and do not move the existing knowledge-review content into a new workflow.
+
+### Explicit non-goals
+
+For this Workbench, do **not** add:
+
+- a new `结构` review step;
+- a new `易混` review step;
+- new mandatory diagnosis stages;
+- new repair cards/panels merely because Cognitive Projection exists elsewhere;
+- extra learner confirmations before Next/Return;
+- a generic subject-cognitive diagram on every question.
+
+If existing Content already naturally appears inside the historical explanation/source fields, render it there; do not create a new process layer around it.
+
+### Allowed modernization
+
+Codex may apply the accepted shared visual system to this Workbench—typography, spacing, contrast, controls, focus states, responsive fallback and token consistency—provided the learner-visible information architecture, sequence and effort remain materially unchanged.
+
+The acceptance test for this surface is therefore:
+
+> **historical Workbench capability preserved + shared visual polish + zero new learner process burden.**
+
+---
+
 ## Core unresolved Politics UI problem
 
 The next design problem is not navigation. It is the main Politics learning workspace under **large text volume + multiple semantic layers**.
