@@ -74,6 +74,8 @@ jobs:
           name: xizong-b-core-inventory
           path: static-web/.qa/xizong-b-core-inventory.json
           if-no-files-found: error
+      - name: Validate B Knowledge contracts
+        run: node scripts/validate-xizong-b-knowledge.mjs
       - name: Validate A2 runtime contracts
         run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Validate shared repair inbox contract
