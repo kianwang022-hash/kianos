@@ -5,10 +5,13 @@ Parent UI cursor: `static-web/CURRENT.md`
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Lane router: `content/xizong/CURRENT.md`  
 Shared projection grammar: `static-web/PRESENTATION_CONTRACT.md`  
+**UI review safety protocol: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`**  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Style owner: `static-web/UI_STYLE_BRIEF.md`
 
 This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
+
+For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method.
 
 ---
 
@@ -81,7 +84,7 @@ Without that evidence, do not redesign the learning flow.
 
 ## Recommendation protocol
 
-Before drawing a replacement UI or proposing a new surface model, Sol / Chat must:
+Before drawing a replacement UI or proposing a new surface model, Sol / Chat must first follow `XIZONG_UI_REVIEW_PROTOCOL.md`, then:
 
 ```text
 1. read the Current Logic / Content owner needed for the surface;
@@ -506,10 +509,11 @@ No Codex implementation begins merely because this top-level architecture is fro
 
 # 11｜Future design read path
 
-For ordinary Xizong UI discussion, use Current-first reads:
+For ordinary Xizong UI discussion, first read the mandatory review protocol and then use Current-first reads:
 
 ```text
-content/xizong/LEARNING_CONTRACT.md
+static-web/XIZONG_UI_REVIEW_PROTOCOL.md
+→ content/xizong/LEARNING_CONTRACT.md
 → relevant System K owner (`system.json`)
 → relevant System L owner (`*-learning.json`)
 → exact Block medical Core when needed
@@ -532,6 +536,7 @@ Historical material may be used only for an explicitly bounded migration/recover
 
 - external-primary first-pass learner chain;
 - System → Block → Logic Group → continuous MarginNote Lecture → KP Recall → group closure → Block Recall semantics;
+- **whole-flow-before-local-optimization review protocol**;
 - **optimization-first UI method: accepted Current Projection/Runtime is the baseline, not a blank-slate target**;
 - **KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE audit before recommendation**;
 - **reopen/redesign only on fresh concrete upstream defect evidence**;
