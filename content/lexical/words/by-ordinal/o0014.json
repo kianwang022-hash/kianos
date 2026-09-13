@@ -9,11 +9,36 @@
     "constructions": [],
     "content_hash": "64a188d28d12f110a39aa570dad53af9cd3117a9385501115eeb71c646a8832b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "突然的；唐突的；陡峭的",
-      "core_meaning_en": "sudden and unexpected; brusque in manner; steep",
-      "mental_model_cn": "突然的；唐突的；陡峭的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "突然的；没有渐进过程的",
+          "label_en": "sudden, sharp, and without a gradual transition",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:abrupt:3b9959721a645ce2"
+          ]
+        },
+        {
+          "label_cn": "唐突生硬的；简短得近乎不礼貌的",
+          "label_en": "brief, brusque, and unexpectedly direct in manner",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:abrupt:3160249468cf5dcf"
+          ]
+        },
+        {
+          "label_cn": "陡峭的；骤然升降的",
+          "label_en": "very steep or sharply changing in slope",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:abrupt:7822790ddb43595c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "共同感觉是“没有缓冲地突然变陡、变快或被截断”，可落在事件变化、说话方式或地形坡度上",
+      "core_meaning_en": "a sharp change with little or no gradual transition, applied to events, manner, or physical slope",
+      "mental_model_cn": "抓住 no gradual transition：abrupt change = 突变；abrupt manner = 生硬唐突；abrupt cliff = 陡峭。",
+      "mental_model_en": "think no gradual transition: a sudden change, a brusque manner, or a steep physical edge"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -35,15 +60,15 @@
             "phrase": "abrupt change"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "突然的；意外的",
-        "definition_en": "sudden and unexpected",
+        "confidence": "high",
+        "definition_cn": "突然的；意外且没有渐进过程的",
+        "definition_en": "sudden and unexpected, with little or no gradual transition",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:abrupt:3b9959721a645ce2",
-        "sense_label_en": "sudden and unexpected",
+        "sense_label_en": "sudden and without gradual transition",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -59,15 +84,15 @@
             "phrase": "abrupt manner"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "唐突的；鲁莽的",
-        "definition_en": "brusque and unceremonious in manner",
+        "confidence": "high",
+        "definition_cn": "唐突生硬的；说话或举止简短直接得近乎不礼貌的",
+        "definition_en": "brief, brusque, and unexpectedly direct in speech or manner, often seeming rude",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:abrupt:3160249468cf5dcf",
-        "sense_label_en": "brusque and unceremonious in manner",
+        "sense_label_en": "brusque and unexpectedly direct in manner",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -83,15 +108,15 @@
             "phrase": "abrupt cliff"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "陡峭的",
-        "definition_en": "extremely steep",
+        "confidence": "high",
+        "definition_cn": "陡峭的；坡度突然且很大的",
+        "definition_en": "extremely steep or rising or falling very sharply",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:abrupt:7822790ddb43595c",
-        "sense_label_en": "extremely steep",
+        "sense_label_en": "very steep or sharply changing in slope",
         "sort_order": 2,
         "transitivity": "nonverb"
       }
@@ -196,7 +221,8 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "64a188d28d12f110a39aa570dad53af9cd3117a9385501115eeb71c646a8832b",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "vnext_content_batch": "batch02-o0013-o0024"
   }
 }
