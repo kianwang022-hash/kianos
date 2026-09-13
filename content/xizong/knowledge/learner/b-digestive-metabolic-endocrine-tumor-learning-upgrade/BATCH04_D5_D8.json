@@ -1,0 +1,239 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L4_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L4_D5_D8",
+  "label": "能量/应激状态 → 内分泌共同语言 → 胰岛状态切换 → 糖尿病",
+  "stable_identity": {
+    "blocks": ["D5", "D6", "D7", "D8"],
+    "canonical_kp_count": 70,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "within_scope": "This batch is the working Learning owner for D5-D8 on branch b-learning-upgrade.",
+    "whole_system_substrate": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+    "route_context": "This batch follows M1-M8 in the fresh route. The old candidate route placed D5-D8 before M5-M8, but D7/D8 explicitly call lipid/ketone/nitrogen substrate and therefore now follow the completed metabolic foundation.",
+    "m9_boundary": "D8 frontmatter broadly declares M2-M9 as prerequisites, but its actual learner-facing recall chain explicitly depends on M4/M7/M8 and D7; no M9-specific mechanism is required to understand the current D8 causal spine. M9 placement remains a later route decision rather than a synthetic blocker here.",
+    "rule": "Learning may regroup or reorder stable KP identities. Current Source precision and guideline-era boundaries remain untouched."
+  },
+  "learning_arc": {
+    "question": "机体怎样把底物和能量状态感知成神经/激素输出，在进食、空腹、应激之间切换储存与动员；当胰岛素信号绝对缺乏或抵抗失代偿时，为什么会从高血糖一路发展到DKA/HHS、慢性器官损伤，并最终决定检查与治疗？",
+    "block_order": ["D5", "D6", "D7", "D8"],
+    "causal_spine": [
+      "D5 first defines system state: energy expenditure, heat balance and stress catabolism determine what the body is trying to do and when nutritional support is needed.",
+      "D6 provides the controller language: hormone source/secretion, hypothalamic-pituitary axes, feedback, receptor class and functional localization of excess/deficiency/resistance.",
+      "D7 applies that language to the islet: insulin sensing/output and glucagon determine fed-versus-fasted substrate routing over the already learned M1-M8 pathways.",
+      "D8 is then a failure model rather than a new list: loss of insulin action explains hyperglycemia, lipolysis/ketogenesis, acute crises, chronic vascular-organ injury, diagnostic tests and treatment targets."
+    ],
+    "exit_reconstruction": "闭卷从『能量/应激状态是什么』讲到『激素轴怎样感知和反馈』，再画进食vs空腹的胰岛素/胰高血糖素切换，最后用同一模型解释T1/T2、DKA/HHS、慢性并发症、C肽/诊断与治疗靶点。"
+  },
+  "blocks": {
+    "D5": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,16,15,17,18,19],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-d05-lg01-v2",
+          "kp": [1,2,3,4,5,6],
+          "label": "能量账：ATP、热、底物识别与BMR",
+          "local_question": "营养物氧化后的能量到底去了哪里；热价、氧热价、RQ怎样回答不同问题；什么因素改变总能耗，BMR为什么必须在严格条件下测？",
+          "learning_reason": "KP01-06现有分组稳定，fresh pass保留；把记忆点压到『能量去路→怎么测→什么改变』而不是六个并列定义。",
+          "closure": "能区分ATP/体热/外功，区分热价、氧热价和RQ，解释肌肉活动为何是能量代谢最主要影响因素，并恢复BMR测定条件及甲亢/甲减方向。"
+        },
+        {
+          "id": "b-d05-lg02-v2",
+          "kp": [7,8,9,10],
+          "label": "核心温度闭环：产热与散热怎样把温度拉回工作区间",
+          "local_question": "核心温度变化后，成人/新生儿怎样产热，皮肤血流、辐射/传导/对流/蒸发怎样散热，环境温度升高时为什么散热方式会改变？",
+          "learning_reason": "KP07-10是体温系统的物理执行层，应在调定点/发热之前先建立。",
+          "closure": "能从核心温度讲到成人战栗、新生儿棕脂/UCP，并说明皮温≤环境时蒸发成为唯一有效散热方式；不把产热器官清单和调节中枢混在一起。",
+          "visual_gate": "体温产热/散热图回生理原PDF。"
+        },
+        {
+          "id": "b-d05-lg03-v2",
+          "kp": [11,12,13,14],
+          "label": "调节器：发汗、调定点以及发热vs中暑",
+          "local_question": "汗液怎样从等渗初汗变为低渗终汗；PO/AH和调定点怎样协调产热/散热；发热为什么寒战而中暑却不是调定点上移？",
+          "learning_reason": "KP11-14现有分组强，保留；重点是把『执行散热』与『中枢目标值改变』串成一个闭环。",
+          "closure": "能恢复汗液NaCl重吸收、PO/AH/调定点，并用『发热=调定点上移；中暑=调定点不变的非调节性升温』做强制区分。"
+        },
+        {
+          "id": "b-d05-lg04-v2",
+          "kp": [16,15],
+          "label": "为什么需要营养支持：先看应激分解，再评估库存",
+          "local_question": "手术/创伤/感染/烧伤为什么把机体切到分解、糖异生和负氮平衡；在这种需求上升的背景下，如何用体重/BMI/肌脂/蛋白/氮平衡/TLC判断患者还有多少营养储备？",
+          "learning_reason": "旧版把KP15-19全部塞成一个EN/PN组。fresh learner order先学KP16『需求为什么变大』，再学KP15『库存是否够』，让营养决策有输入。",
+          "closure": "能从应激→REE↑/分解↑/负氮平衡讲到六类营养评价证据，明确评估是多证据合并，不凭白蛋白或BMI单项下结论。"
+        },
+        {
+          "id": "b-d05-lg05-v2",
+          "kp": [17,18,19],
+          "label": "输入路径决策：肠道可用先EN，不能满足才PN",
+          "local_question": "在需求和营养风险已经明确后，怎样按肠道是否可用选择EN/PN；两条路径各有哪些高价值并发症和停止线？",
+          "learning_reason": "KP17-19构成完整决策链：EN→PN→PN风险。与应激机制分开后，临床选择更清楚。",
+          "closure": "能先问『肠道可用吗』再选EN/PN，恢复EN腹泻/吸入性肺炎与PN导管、再喂养低磷、肝胆/肠屏障等风险；当前Source时间/配方数字按Study口径保留。",
+          "visual_gate": "外科营养路径与并发症图回Project Source原页。"
+        }
+      ]
+    },
+    "D6": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-d06-lg01-v2",
+          "kp": [1,2,3],
+          "label": "先学激素共同语言：它是什么、怎样互相作用、怎样分泌",
+          "local_question": "激素作为化学信号有哪些共同特征；协同/拮抗/允许作用意味着什么；内分泌、旁分泌、自分泌、神经内分泌等分泌方式怎样区分？",
+          "learning_reason": "旧KP01-05把共同语言和具体下丘脑—垂体解剖绑在一起。KP01-03先形成通用词汇，更适合后续所有轴复用。",
+          "closure": "能不用器官名单解释激素共同特征、三类相互作用和主要分泌方式；明确这一层只回答『信号怎样存在』，尚未进入具体轴。"
+        },
+        {
+          "id": "b-d06-lg02-v2",
+          "kp": [4,5,6,7],
+          "label": "下丘脑—垂体—靶腺怎样构成带反馈的控制轴",
+          "local_question": "大细胞系统与小细胞—垂体前叶系统各怎样输出；神经/体液/反馈如何调节分泌，负反馈怎样帮助判断故障在上游还是靶腺？",
+          "learning_reason": "KP04-07共同回答『控制器怎么接线并稳定输出』，应该独立于化学分类/受体。",
+          "closure": "能区分ADH/OT的大细胞神经内分泌与释放激素→垂体前叶→靶腺链，画出负反馈，并解释为什么终末激素变化必须连同上游激素一起看。"
+        },
+        {
+          "id": "b-d06-lg03-v2",
+          "kp": [8,9],
+          "label": "化学性质决定受体位置和信号方式",
+          "local_question": "肽/蛋白、儿茶酚胺、甲状腺/类固醇等激素为什么因溶解性不同而使用膜受体或胞内受体，并产生不同起效/持续特征？",
+          "learning_reason": "KP08-09是机制配对轴，和反馈调节不是同一局部问题，单独闭合后D7/D21-D23可直接调用。",
+          "closure": "能从水溶/脂溶方向判断膜受体vs胞内受体，并把第二信使/转录调节语言接到反应速度与持续时间；不靠死背每个激素受体。"
+        },
+        {
+          "id": "b-d06-lg04-v2",
+          "kp": [10,11,12,13],
+          "label": "从功能异常反推层级：过多、过少、抵抗与动态定位",
+          "local_question": "出现激素效应过强/过弱时，怎样先确认功能状态，再区分激素过多、缺乏或靶器官抵抗，并沿上游—靶腺—靶组织定位？",
+          "learning_reason": "KP10-13现有分组成立，是D6最重要的临床推理出口。",
+          "closure": "能用『终末激素+上游激素+靶效应』做原发/继发/抵抗方向判断，并用高血压+低钾等入口说明为什么不能看到单个激素值就直接猜疾病。"
+        }
+      ]
+    },
+    "D7": {
+      "learning_order": [1,2,3,5,4,6,7,8,9,10,11,12,13],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-d07-lg01-v2",
+          "kp": [1,2,3],
+          "label": "胰岛素为什么是全身储存信号：受体→糖→脂/蛋白/K+",
+          "local_question": "胰岛素怎样从RTK—IRS—PI3K/AKT进入细胞，并同时减少血糖来源、增加去路、促进脂肪/蛋白合成和K+入细胞？",
+          "learning_reason": "旧KP01-05把胰岛素效应与分泌机制混在一起。KP01-03先把『已经有胰岛素后会发生什么』完整闭合。",
+          "closure": "能从RTK/IRS讲到GLUT4与糖代谢，再扩展到脂肪、蛋白、K+和生长；明确胰岛素不是只等于『降糖』。"
+        },
+        {
+          "id": "b-d07-lg02-v2",
+          "kp": [5,4,6],
+          "label": "B细胞怎样把血糖变成分泌：感知→双相输出→药物绕过",
+          "local_question": "葡萄糖怎样经GLUT2—葡萄糖激酶—ATP—KATP—Ca2+触发胰岛素；为什么先释放库存再持续生产；磺脲/格列奈为何能绕过血糖感知却增加低血糖风险？",
+          "learning_reason": "fresh learner order把KP05葡萄糖感知放在KP04双相分泌之前：先解释触发，再看时间结构；KP06则是对KATP节点的机制扰动实验。",
+          "closure": "能画完整GLUT2→GK→ATP↑→KATP关→去极化→Ca2+→出胞链，再说明快相库存/慢相持续与KATP促泌剂需残存B细胞且不依赖血糖。",
+          "visual_gate": "KATP链与双相分泌曲线回生理原图。"
+        },
+        {
+          "id": "b-d07-lg03-v2",
+          "kp": [7,8,9],
+          "label": "B细胞不是只看血糖：神经、肠促胰素、旁分泌与营养物共同改档",
+          "local_question": "迷走/交感、GIP/GLP-1、SST以及AA/FA/ketone/K+怎样在葡萄糖主感知链之外提前或修饰胰岛素输出？",
+          "learning_reason": "KP07-09共享『modulator而非主传感器』身份；独立成组可以避免把这些因素与KATP主链等权记忆。",
+          "closure": "能解释迷走促、交感α2占优总体抑制胰岛素，解释口服葡萄糖的incretin前馈，并把多数促进/特殊抑制因素压成方向网络。"
+        },
+        {
+          "id": "b-d07-lg04-v2",
+          "kp": [10,11],
+          "label": "空腹对手盘：胰高血糖素主要让肝输出燃料",
+          "local_question": "胰高血糖素为何主要作用肝，经GPCR-cAMP-PKA促进糖原分解/糖异生；它与胰岛素在来源、受体、靶器官和代谢方向上怎样成对比较？",
+          "learning_reason": "KP10-11是状态切换前的两激素比较轴，应在最终进食/空腹总图之前闭合。",
+          "closure": "能明确骨骼肌不是胰高血糖素主要靶器官，并按来源—受体—靶器官—合成/分解四轴比较胰岛素与胰高血糖素。"
+        },
+        {
+          "id": "b-d07-lg05-v2",
+          "kp": [12,13],
+          "label": "把M1-M8全部压成两张状态图：进食储存 vs 空腹/应激动员",
+          "local_question": "当胰岛素/胰高血糖素比值改变时，肝、肌、脂肪怎样调用已经学过的糖原、糖异生、TAG、β氧化、酮体和蛋白通路完成整机状态切换？",
+          "learning_reason": "KP12-13是D7真正的System-in-miniature；放在最后只调用底层通路，不再重讲M1-M8。",
+          "closure": "能从食物/空腹入口分别画出肝、肌、脂肪的底物流向，并解释为什么胰岛素绝对不足会把空腹动员程序推到病理极端，为D8 DKA做好唯一桥接。"
+        }
+      ]
+    },
+    "D8": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+      "group_count": 5,
+      "logic_groups": [
+        {
+          "id": "b-d08-lg01-v2",
+          "kp": [1,2,3,4,5],
+          "label": "先回答『为什么是糖尿病、哪一种』：绝对缺乏vs抵抗失代偿",
+          "local_question": "T1/T2和特殊类型的第一故障分别是什么；β细胞绝对缺乏与胰岛素抵抗+失代偿怎样产生不同自然史、病理和酮症倾向？",
+          "learning_reason": "现有KP01-05分组强，保留；从D7正常状态切换直接进入两条失效路线。",
+          "closure": "能用第一故障而非年龄/胖瘦机械分型，解释T1免疫性β细胞破坏与T2抵抗→代偿→失代偿，并识别MODY/线粒体等特殊入口。"
+        },
+        {
+          "id": "b-d08-lg02-v2",
+          "kp": [6,7,8,9,10,11,12],
+          "label": "急性危象先救命：同一失控模型怎样分成DKA与HHS",
+          "local_question": "胰岛素作用不足怎样同时造成高血糖、渗透性利尿、脱水、电解质移动和脂解/酮体；为什么DKA偏酮酸中毒而HHS偏极重高渗？",
+          "learning_reason": "现有急性危象组成立；fresh closure要求从机制推出表现/实验室/治疗顺序，而不是背两个表。",
+          "closure": "能从D7/M7画出胰岛素不足→脂解→β氧化→酮体以及高糖→渗透性利尿→低容量链，比较DKA/HHS的酮体、酸碱、高渗和脱水，并按当前Study恢复补液→胰岛素→K+监测的优先级。"
+        },
+        {
+          "id": "b-d08-lg03-v2",
+          "kp": [13,14,15,16],
+          "label": "慢性高糖不是一个并发症：按血管尺度和器官定位",
+          "local_question": "长期高糖和代谢/血管损伤怎样分别落到微血管、大血管、神经和足/感染等器官出口；为什么需要把病变层级而不是疾病名单作为主索引？",
+          "learning_reason": "现有KP13-16分组成立；closure从『器官列表』升级为『微血管/大血管/神经/足』定位框架。",
+          "closure": "能把DKD/DR归入微血管，把ASCVD归入大血管，并说明神经病变和足病如何与感觉、灌注、感染共同形成风险；器官详细管理回各系统Apply。"
+        },
+        {
+          "id": "b-d08-lg04-v2",
+          "kp": [17,18,19,20],
+          "label": "检查不是一串数字：诊断、长期暴露和β细胞功能各回答不同问题",
+          "local_question": "FPG/2hPG/随机血糖/HbA1c分别在诊断与长期暴露中回答什么；C肽/胰岛素释放、自身抗体等又怎样帮助分型和判断残余β细胞功能？",
+          "learning_reason": "现有KP17-20分组强，保留；强调每个检查的决策问题而非孤立阈值。",
+          "closure": "能先确认是否达到当前Study诊断标准，再用HbA1c看长期暴露、C肽/释放曲线看内源胰岛素储备、自身抗体等辅助分型；所有阈值保持Current Source口径。"
+        },
+        {
+          "id": "b-d08-lg05-v2",
+          "kp": [21,22,23,24,25],
+          "label": "治疗按故障层选靶点：补胰岛素、促分泌、增敏、减输入/增排出",
+          "local_question": "长期治疗为什么不能只按药名背：不同方案是在补充胰岛素、让B细胞多分泌、提高敏感性、减少糖输入或增加排出/肠促胰素效应中的哪一层工作？",
+          "learning_reason": "现有KP21-25分组成立；fresh closure把药物映射回D7正常机制和D8故障层，避免变成药名清单。",
+          "closure": "能先判断是否必须胰岛素，再把主要非胰岛素药物按机制靶点归类，并用低血糖、体重、器官功能/禁忌证等当前Study轴做基本筛选；不把考试化口诀当真实处方指南。"
+        }
+      ]
+    }
+  },
+  "source_and_visual_boundaries": [
+    "D5 RQ, BMR, nutrition thresholds and EN/PN timing/amounts stay at current Study precision; modern nutrition guidelines are not imported.",
+    "D5 surgery nutrition visuals remain Project-source gates where the current runtime lacks directly mounted image assets.",
+    "D6 hormone classification/feedback/receptor language remains Source-bound; no external endocrine taxonomy is inserted.",
+    "D7 preserves current Study IRS distribution and GIP/GLP-1 glucagon directions; no external mechanistic nuance silently overrides the lecture.",
+    "D8 diagnostic thresholds, DKA/HHS treatment numbers, DKD staging systems and drug-selection heuristics remain current Source precision; no latest-guideline replacement occurs in L."
+  ],
+  "content_repairs": [],
+  "route_findings": [
+    "The old broad frontmatter dependency D8=M2-M9 is too coarse to dictate learner order. Current D8 prose explicitly calls M4/M7/M8 and D7; M9-specific content is not needed for the D8 causal spine.",
+    "D5 old group KP15-19 hid two separate questions: stress-induced need/assessment versus EN/PN route/risk. Candidate splits these into KP16→KP15 and KP17-19.",
+    "D7 old KP1-5 hid effect-side and secretion-side mechanisms. Candidate separates insulin action (KP1-3) from glucose sensing/output (KP5→KP4→KP6)."
+  ],
+  "batch_checks": {
+    "all_70_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 15,
+    "logic_group_count_candidate": 19,
+    "cross_block_route_change": "D5-D8 now follow M5-M8 rather than precede them",
+    "content_semantic_rewrite_required": false,
+    "source_precision_replaced_by_external_guidelines": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
