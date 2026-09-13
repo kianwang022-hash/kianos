@@ -9,48 +9,41 @@ Parent contracts:
 - `content/english/LEARNING_CONTRACT.md`;
 - `content/english/modules/objective-runtime.md`.
 
-Its task surface may vary by exam format, but the stable cognitive object is:
+Its task surface varies by exam form, but the stable cognitive object is:
 
 `discourse skeleton → required role → candidate role → cohesion evidence → global reconciliation`
 
-Reading B is not Reading A with a different question layout, and it is not a keyword-matching game.
+Part B is not Reading A with a different layout and not a keyword-matching game.
 
 ---
 
 ## Attempt unit
 
-> **One complete Part B material/set is the minimum learner-facing attempt and review unit.**
+> **One complete Part B material/set is the clean-attempt unit.**
 
-A placement / match / heading choice may be stored as an internal answer unit, but it is not an independent Chat review unit.
+A placement / match / heading choice is an internal answer/evidence unit.
 
-This rule is especially important because one early wrong placement may distort the remaining candidate relationships.
+Whole-set continuity matters because one early placement can change the remaining candidate constraints. This does not mean every imperfect set requires a full Chat review.
 
 ---
 
 ## Clean attempt surface
 
-The learner should be able to maintain a whole-passage structural model while manipulating candidates.
+The learner should maintain a whole-material structural model while manipulating candidates.
 
 Preferred interaction principles:
 
-- keep the passage/material structure visible;
-- keep the candidate inventory visible or one action away;
-- make position/candidate assignment low-friction;
-- allow easy revision before submission;
-- capture uncertainty only when it costs almost nothing;
+- keep passage/material structure visible;
+- keep candidate inventory visible or one action away;
+- make assignment and reassignment low-friction;
+- allow revision before submission;
+- capture uncertainty only when cheap;
 - keep timer/progress quiet;
 - reveal no correctness until the complete set is submitted.
 
-Before submission do **not** expose:
+Before submission do not expose formal map, discourse-role labels, cohesion hints, keyword hints, teacher method, or prior diagnosis.
 
-- formal placement/matching map;
-- discourse-role labels;
-- cohesion hints;
-- keyword hints;
-- teacher method;
-- prior-attempt diagnosis.
-
-Do not force the learner to annotate every paragraph with a formal discourse category. The needed model may remain coarse as long as it supports correct reconstruction.
+Do not force formal paragraph taxonomy. A coarse model is sufficient if it supports correct reconstruction.
 
 ---
 
@@ -59,114 +52,106 @@ Do not force the learner to annotate every paragraph with a formal discourse cat
 Useful internal evidence may include:
 
 - complete learner placement/matching map;
-- answer trajectory / candidate swaps when available;
+- candidate swaps / trajectory when available;
 - uncertain positions;
 - attempt duration;
 - optional learner note after submission.
 
-The final set map matters more than a collection of isolated per-position snapshots.
+The final set map matters more than isolated per-position snapshots.
 
-Do not require a manual error category for each placement.
+Do not require a manual error category for every placement.
 
 ---
 
-## Submit behavior
+## Submit and triage
 
 Finish the complete set before revealing correctness.
 
 ### Stable clean result
 
-If the complete map is correct and no position is uncertain:
+If the complete map is correct and no uncertainty is meaningful:
 
 `compact success → next`
 
-Do not force a structural lecture or second pass.
+No structural lecture and no second pass.
 
-### Set enters review when
+### Problem signals
 
-- at least one position/match is wrong or unanswered;
-- at least one position is uncertain even if ultimately correct;
-- a later well-supported execution anomaly justifies review.
+Wrong / unanswered and meaningful uncertainty trigger **fast triage**.
 
-Stable correct placements remain compact evidence inside the full-set packet.
+Fast triage asks:
+
+- can the learner now see the decisive role / cohesion / global-fit difference cheaply? → quick-resolved;
+- is the root problem lexical? → LexicalOS;
+- is sentence/paragraph/discourse representation unstable? → shared English Representation repair;
+- is there a coupled/structural or recurring Part-B procedure problem? → optional deep review.
+
+A correct-but-uncertain placement does not automatically require a full-set Chat session.
 
 ---
 
-## Whole-set diagnosis first
+## Optional whole-set diagnosis
 
-Chat must diagnose the set before deciding how many repair objects exist.
+When deep review is justified, Chat should see the whole set before choosing repair scope.
 
 Default sequence:
 
 ```text
-whole passage/material
-→ reconstruct rough discourse skeleton
-→ inspect complete learner map
-→ identify first meaningful structural/local failure
-→ detect swaps, coupled errors, and cascades
-→ choose local / coupled / structure-level repair
+whole material
+→ rough discourse skeleton
+→ complete learner map
+→ first meaningful structural/local failure(s)
+→ detect swaps, coupled errors, cascades
+→ choose the smallest independent repair set
 ```
 
-The system must not assume every wrong position is independent.
+Do not assume every wrong position is independent.
 
 Example:
 
 ```text
-Position 2 wrong
-Position 4 wrong
-↓
-B and D were swapped because the learner reversed their discourse roles
-↓
-1 coupled repair, not 2 unrelated weaknesses
+P2 wrong + P4 wrong
+→ B/D were swapped because their discourse roles were reversed
+→ 1 coupled repair
 ```
 
 Another example:
 
 ```text
-first transition into the “causes” section was misunderstood
-↓
-three later placements were forced into the wrong structure
-↓
-1 primary structure repair + dependent placements
+first transition into a new section was misunderstood
+→ several later placements cascade
+→ 1 structure repair + dependent positions
 ```
+
+But if two mistakes are genuinely independent and score-relevant, preserve two repairs rather than forcing false singularity.
 
 ---
 
 ## Repair scopes
 
-### 1. Local repair
+### Local
 
-Use when one position is wrong but the global skeleton and other placements are stable.
+One position is wrong while the global skeleton is stable.
 
-Minimum repair object:
+`before context + target + after context + real competing candidates + decisive fit`
 
-`before context + target position + after context + genuinely competing candidates + decisive fit`
+### Coupled
 
-### 2. Coupled repair
-
-Use when two or more positions/candidates are interdependent, such as a swap or mutually exclusive role confusion.
-
-Minimum repair object:
+Two or more positions/candidates are interdependent.
 
 `relevant positions + competing candidates + role contrast + global consistency check`
 
-Do not split a coupled error into artificial independent cards.
+### Structure-level
 
-### 3. Structure-level repair
+The discourse model itself is wrong and several placements depend on it.
 
-Use when the passage/discourse model itself is wrong and several downstream placements depend on it.
+`smallest sufficient discourse skeleton + key transitions + affected positions`
 
-Minimum repair object:
-
-`smallest sufficient discourse skeleton + key transition(s) + affected positions`
-
-Do not review every downstream placement as a fresh root cause.
+Dependent placements do not become fresh root causes.
 
 ---
 
 ## Evidence hierarchy inside the task
-
-Evidence can be tested in three directions:
 
 ### Backward fit
 
@@ -178,19 +163,19 @@ Does it naturally set up what comes after?
 
 ### Global fit
 
-Does the placement preserve the passage’s overall progression and leave the remaining candidate map coherent?
+Does the placement preserve overall progression and leave the remaining map coherent?
 
-Cohesion evidence may include:
+Evidence may include:
 
 - pronoun/reference chains;
 - connectives;
 - lexical chains;
 - repetition / synonymy;
 - tense/topic continuity;
-- examples and generalizations;
-- cause/effect, problem/solution, claim/evidence, contrast, chronology, or other discourse relations.
+- examples/generalizations;
+- cause/effect, problem/solution, claim/evidence, contrast, chronology, and other discourse relations.
 
-These are evidence sources, not the task’s ultimate authority.
+These are evidence sources, not independent mandatory annotations.
 
 > **Discourse role and global coherence outrank superficial keyword overlap.**
 
@@ -198,89 +183,86 @@ These are evidence sources, not the task’s ultimate authority.
 
 ## Root-cause routing
 
-### Lexical
+### LexicalOS
 
-Route to LexicalOS when the first meaningful failure is an unknown or unstable sense, phrase, construction, contrast, or reference-triggering expression.
+Route unknown/unstable sense, phrase, word-local construction, collocation, confusable, or lexical trigger.
 
-### Reading
+### Shared English Representation
 
-Route to Reading when the learner failed to build the needed sentence/paragraph/discourse representation, including:
+Route sentence meaning, reference, paragraph function, logical relation, or passage progression when the representation itself failed.
 
-- sentence meaning;
-- reference;
-- paragraph function;
-- logical relation;
-- passage progression.
+Current runtime code may still call this route `reading`; treat it as a compatibility alias.
 
-### Reading B-specific
+### Part-B-specific
 
-Keep the repair in Reading B when the representation was available but the learner failed the reconstruction procedure, for example:
+Keep repair here when the representation was available but the reconstruction procedure failed, for example:
 
 - over-weighted local keyword overlap;
-- checked only backward fit and ignored forward/global fit;
-- failed to reconcile the complete candidate map;
-- treated placements independently when the candidate constraints were coupled.
+- checked only backward fit;
+- failed global reconciliation;
+- treated coupled placements as independent.
 
 ---
 
-## Chat bridge｜Reading B set packet v1
+## Chat bridge
 
-The normal Chat bridge is one complete Part B set.
+Chat is an escalation tool, not the default consequence of every problem.
 
-Packet structure inherits Objective Review Packet v1 and specializes it as follows:
+When needed, one deep-review packet may include:
 
-- include the complete passage/material needed to reconstruct the task;
-- include the complete candidate inventory;
-- include the learner's full placement/matching map;
-- include the formal map;
-- include uncertainty and trajectory/candidate swaps when captured;
-- preserve a compact outcome record for all positions;
-- expand local context only after whole-set diagnosis identifies the useful repair scope.
+- full task directions / task form;
+- full passage/material;
+- candidate inventory;
+- learner full map + formal map;
+- uncertainty / swaps when useful;
+- compact all-position outcomes.
 
 Expected Chat behavior:
 
-`whole set → discourse skeleton → compare learner/formal maps → identify primary/coupled/dependent errors → choose repair scope → route Lexical/Reading/Reading-B-specific failures → create only justified transfer claims`
+`whole set → skeleton → compare maps → primary/coupled/dependent errors → smallest repair set → route LexicalOS / Representation / Part-B-specific failures → optional backend transfer state`
 
-Do not produce one Chat packet per placement.
+Do not create one packet per placement.
 
 ---
 
-## Memory admission
+## Memory / future review admission
 
 A wrong historical ordering is not a durable memory object.
 
-Admit future review only when evidence reveals:
+Admit future work only for:
 
-- a reusable lexical object;
-- a recurring Reading/discourse representation failure;
-- a repeated Reading B procedure failure that remains weak across distinct material.
+- reusable lexical knowledge;
+- recurring Representation failure;
+- repeated high-value Part-B procedure failure that remains unstable on distinct material.
 
-Dependent placements do not independently earn memory admission.
+Dependent placements do not independently earn review debt.
+
+A one-off quickly understood set may close with no durable object.
 
 ---
 
 ## Transfer / closure
 
-Evidence strength follows:
+Evidence strength generally rises:
 
-`known set explanation < repaired known-set reconstruction < targeted new structure contrast < later fresh Part B success < repeated independent unseen discourse transfer`
+`known-set explanation < repaired known-set reconstruction < targeted new contrast < later fresh Part-B success < repeated unseen discourse transfer`
 
 Rules:
 
-- memorizing one correct ordering is weak evidence;
-- rebuilding the same passage after seeing the answer is repair, not mastery;
-- later fresh success with the same structural demand is stronger;
-- a procedure claim may move from `TRANSFER_PENDING` to `CLOSED` only when later evidence is sufficient.
+- memorizing one ordering is weak evidence;
+- same-set reconstruction is repair, not mastery;
+- later fresh success is stronger;
+- pending procedure state is backend observation only and must not force a clean future set into Chat.
 
 ---
 
 ## UI non-isomorphism
 
-Do not clone Reading A’s one-current-question layout.
+Do not clone Reading A's one-current-question layout.
 
-Reading B needs to preserve **simultaneous awareness of passage structure, open positions, and the candidate inventory**. A UI that hides the rest of the set while showing one placement at a time can destroy the very global constraints the task is meant to train.
+Part B must preserve **simultaneous awareness of material structure, open positions, and candidate inventory**.
 
-The exact surface may vary with the exam format, but it must preserve:
+Exact layout may vary by task form, but preserve:
 
 - whole-structure visibility;
 - candidate competition;
