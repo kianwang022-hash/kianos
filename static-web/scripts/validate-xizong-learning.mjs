@@ -32,12 +32,11 @@ function weakMemory(kpIds, recallRatings, memory = {}) {
   return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
 }
 
-function canCloseBlock({ totalKp, learned, ratings, blockRecallDone, lectureRead }) {
-  const coreReady = totalKp > 0
+function canCloseBlock({ totalKp, learned, ratings, blockRecallDone }) {
+  return totalKp > 0
     && Object.values(learned).filter(Boolean).length >= totalKp
     && Object.keys(ratings).length >= totalKp
     && Boolean(blockRecallDone);
-  return coreReady && Boolean(lectureRead);
 }
 
 function scopedChatPlan(rawPlan, kpIds) {
@@ -123,8 +122,8 @@ const kpIds = b1.kpRecords.map((kp) => kp.kpId);
 const learnedAll = Object.fromEntries(kpIds.map((id) => [id, true]));
 const masteredAll = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
 assert(weakMemory(kpIds, masteredAll).length === 0, 'clean-path-manufactured-memory-debt');
-assert(!canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: false }), 'close-without-lecture');
-assert(canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true, lectureRead: true }), 'clean-path-cannot-close');
+assert(!canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: false }), 'close-without-block-recall');
+assert(canCloseBlock({ totalKp: kpIds.length, learned: learnedAll, ratings: masteredAll, blockRecallDone: true }), 'clean-path-cannot-close');
 
 const persisted = roundTrip({ learned: learnedAll, ratings: masteredAll, blockRecallDone: true, completed: true });
 assert(Object.keys(persisted.learned).length === kpIds.length, 'persistence-lost-learned');
@@ -203,7 +202,8 @@ matches(blockUi, /learnedCount\(\)\s*>=\s*totalKp\s*&&\s*recallCount\(\)\s*>=\s*
 has(blockUi, "JSON.parse(localStorage.getItem(storageKey) || 'null')", 'block-persistence-read-missing');
 has(blockUi, 'localStorage.setItem(storageKey, JSON.stringify(state))', 'block-persistence-write-missing');
 has(blockUi, '} catch {}', 'block-storage-error-containment-missing');
-matches(enhancerUi, /!personal\.lectureRead\s*\|\|\s*!coreReady/, 'lecture-one-pass-close-gate');
+has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
+assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 
 matches(memoryUi, /\['HOT',\s*'WARM'\]\.includes\(row\.memoryState\)/, 'weak-memory-admission');
 has(memoryUi, "type: 'CHAT_PLAN_REVIEW', evidence_role: 'REPAIR_ONLY'", 'chat-repair-role');
