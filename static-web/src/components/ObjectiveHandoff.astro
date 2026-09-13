@@ -54,14 +54,6 @@
         ['wrong', 'unanswered'].includes(attempt.results?.[id]) || uncertain.has(id)
       );
     };
-    const packetMode = (attempt) => {
-      const problems = problemIds(attempt).length > 0;
-      const pending = activeClaimsFor(task).length > 0;
-      if (problems && pending) return 'REVIEW_AND_TRANSFER_CHECK';
-      if (problems) return 'REVIEW';
-      if (pending) return 'TRANSFER_CHECK';
-      return 'PASS';
-    };
 
     const ensureHandoff = () => {
       if (handoff) return handoff;
@@ -92,8 +84,7 @@
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
       const pendingClaims = activeClaimsFor(task);
-      const reopenCandidates = problems.size ? recentClosedClaimsFor(task, objectId) : [];
-      const mode = packetMode(attempt);
+      const reopenCandidates = recentClosedClaimsFor(task, objectId);
       const score = Object.values(attempt.results || {}).filter((value) => value === 'correct').length;
       const duration = attempt.startedAt && attempt.submittedAt
         ? Math.max(0, Math.round((new Date(attempt.submittedAt).getTime() - new Date(attempt.startedAt).getTime()) / 1000))
@@ -104,17 +95,13 @@
         .map((node) => node.textContent?.trim() || '')
         .filter(Boolean)
         .join('\n\n');
-      const wrong = rows
-        .filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)]))
-        .map(displayLabelOf);
-      const uncertainRows = rows
-        .filter((row) => uncertain.has(idOf(row)))
-        .map(displayLabelOf);
-      const packetName = task === 'cloze' ? 'Cloze passage review packet v1' : 'Reading B set review packet v1';
+      const wrong = rows.filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)])).map(displayLabelOf);
+      const uncertainRows = rows.filter((row) => uncertain.has(idOf(row))).map(displayLabelOf);
+      const packetName = task === 'cloze' ? 'Cloze deep review packet v2' : 'Reading B deep review packet v2';
 
       const lines = [
         packetName,
-        `Mode: ${mode}`,
+        'Mode: OPTIONAL_ESCALATION',
         `Object: ${objectId}`,
         `Source: ${source}`,
         `Title: ${title}`,
@@ -152,39 +139,36 @@
       lines.push('', task === 'cloze' ? 'ALL-BLANK OUTCOME MAP' : 'COMPLETE MATCH / PLACEMENT MAP');
       rows.forEach((row) => {
         const id = idOf(row);
-        const path = (attempt.trajectory?.[id] || [])
-          .map((step) => step?.answer)
-          .filter(Boolean)
-          .join(' → ') || '—';
+        const path = (attempt.trajectory?.[id] || []).map((step) => step?.answer).filter(Boolean).join(' → ') || '—';
         lines.push(`${displayLabelOf(row)} (${id}) · ${attempt.results?.[id] || '—'} · my ${attempt.answers?.[id] || '未答'} · formal ${formalOf(row).join(', ') || '—'} · uncertain ${uncertain.has(id) ? 'yes' : 'no'} · path ${path}`);
       });
 
-      const expanded = pendingClaims.length ? rows : rows.filter((row) => problems.has(idOf(row)));
+      const expanded = rows.filter((row) => problems.has(idOf(row)));
       if (expanded.length) {
-        lines.push('', pendingClaims.length ? 'ITEM CONTEXT FOR DIAGNOSIS / TRANSFER' : 'EXPANDED PROBLEM ITEMS');
+        lines.push('', 'PROBLEM ITEM CONTEXT');
         expanded.forEach((row) => lines.push(...itemContext(row)));
       }
 
-      lines.push('', 'ACTIVE TRANSFER CLAIMS');
+      lines.push('', 'ACTIVE TRANSFER CLAIMS · opportunistic only');
       if (!pendingClaims.length) lines.push('none');
       else pendingClaims.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
-      lines.push('', 'RECENT CLOSED CLAIMS · REOPEN CANDIDATES');
+      lines.push('', 'RECENT CLOSED CLAIMS · reopen only with direct contradiction');
       if (!reopenCandidates.length) lines.push('none');
       else reopenCandidates.forEach((claim) => lines.push(`${claim.claimId} · ${claim.statement}`));
 
       lines.push('', 'REVIEW INSTRUCTION');
       if (task === 'cloze') {
-        lines.push('Treat this as one complete Cloze passage. Diagnose globally first; merge blanks that share one lexical, sentence, discourse, or task-procedure root cause. For a local repair, reconstruct Slot Demand before comparing the genuinely competing candidates, then identify the decisive constraint. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze.');
+        lines.push('This is optional escalation because a real problem remained. Diagnose the whole Cloze passage first, but stop when the smallest score-relevant failure is clear. Reconstruct Slot Demand before comparing the genuinely competing candidates. Route lexical objects to LexicalOS, representation failures to Reading, and keep only true best-fit procedure failures in Cloze.');
       } else {
-        lines.push('Treat this as one complete Reading B set using the actual DIRECTIONS, task form, candidate inventory, and ordering skeleton when present. Diagnose the whole discourse/matching structure before splitting items. Compare the complete learner map with the formal map, detect swaps/coupled errors/cascades, then choose local, coupled, or structure-level repair. Route lexical objects to LexicalOS and representation/discourse failures to Reading.');
+        lines.push('This is optional escalation because a real problem remained. Use the actual DIRECTIONS, task form, candidate inventory and ordering skeleton. Compare the complete learner map with the formal map, detect swaps/coupled errors/cascades, then stop at the smallest repair that can change future performance. Route lexical objects to LexicalOS and representation/discourse failures to Reading.');
       }
-      lines.push('ACTIVE TRANSFER CLAIMS are not automatically relevant. Close one only if this fresh set genuinely tested the same procedure and execution was stable. RECENT CLOSED CLAIMS are reopen candidates only: reopen one only when a current fresh failure directly contradicts that exact previously closed procedure.');
+      lines.push('ACTIVE TRANSFER CLAIMS are opportunistic only. Their existence is not a learner task. Update one only if this set genuinely tested the same procedure; otherwise leave it untouched.');
       lines.push(
         '',
         'REPAIR / RETURN PROTOCOL',
-        'Diagnosis does not equal completed repair. First diagnose the whole passage/set, then perform the smallest useful repair with the learner in Chat and require re-execution/reconstruction. For any thread genuinely completed, set repairCompleted=true and put the learner re-execution evidence in repairEvidence. Otherwise keep repairCompleted=false.',
-        'newClaims may only reference a task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. claimUpdates may reference only claim IDs actually supplied above. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
+        'Diagnosis does not equal completed repair. If a reusable task-specific failure is genuinely repaired, set repairCompleted=true and place the learner re-execution evidence in repairEvidence. If quick understanding is sufficient and no durable claim is justified, do not manufacture one.',
+        'newClaims may only reference a reusable task-specific thread whose repairCompleted=true and repairEvidence is non-empty. Do not duplicate Lexical or Reading objects. CLOSED and REOPENED require relevant fresh evidence; otherwise leave the claim unchanged.',
         'KIANOS_OBJECTIVE_RETURN_V1',
         '```json',
         JSON.stringify({ schema: 'kianos.english.objective_review_return.v1', task, objectId, threads: [], newClaims: [], claimUpdates: [] }, null, 2),
@@ -193,7 +177,6 @@
 
       return {
         text: lines.join('\n'),
-        mode,
         activeClaimIds: pendingClaims.map((claim) => String(claim.claimId || '')).filter(Boolean),
         reopenCandidateIds: reopenCandidates.map((claim) => String(claim.claimId || '')).filter(Boolean)
       };
@@ -202,38 +185,32 @@
     const sync = () => {
       const node = ensureHandoff();
       const attempt = readAttempt();
-      const mode = packetMode(attempt);
-      node.hidden = !attempt.submitted || mode === 'PASS';
+      const problems = problemIds(attempt).length;
+      node.hidden = !attempt.submitted || problems === 0;
       const button = node.querySelector('[data-objective-copy-chat]');
       const status = node.querySelector('[data-objective-copy-status]');
-      if (button) {
-        button.textContent = mode === 'TRANSFER_CHECK'
-          ? (task === 'cloze' ? '用这篇验证迁移' : '用这组验证迁移')
-          : (task === 'cloze' ? '复制整篇完形给 Chat' : '复制整组 Part B 给 Chat');
-      }
-      if (status) {
-        status.textContent = mode === 'TRANSFER_CHECK'
-          ? `当前有 ${activeClaimsFor(task).length} 个 pending claim；只有相关时才需要验证。`
-          : '先按整篇 / 整组诊断；局部题位只作为内部证据。';
-      }
+      if (button) button.textContent = task === 'cloze' ? '深复盘 · 整篇给 Chat' : '深复盘 · 整组给 Chat';
+      if (status && problems > 0) status.textContent = `${problems} 个 problem。先快速理解；解释不清、反复出现或结构耦合时再升级。`;
     };
 
     ensureHandoff()?.querySelector('[data-objective-copy-chat]')?.addEventListener('click', async () => {
       const attempt = readAttempt();
-      if (!attempt.submitted || packetMode(attempt) === 'PASS') return;
+      if (!attempt.submitted || problemIds(attempt).length === 0) return;
       const status = handoff?.querySelector('[data-objective-copy-status]');
       const packet = buildPacket(attempt);
       try {
         await navigator.clipboard.writeText(packet.text);
         try {
           localStorage.setItem(handoffKey, JSON.stringify({
-            schema: 'kianos.english.objective_handoff.v1', task, objectId, mode: packet.mode,
-            activeClaimIds: packet.activeClaimIds, reopenCandidateIds: packet.reopenCandidateIds,
+            schema: 'kianos.english.objective_handoff.v1',
+            task,
+            objectId,
+            mode: 'OPTIONAL_ESCALATION',
+            activeClaimIds: packet.activeClaimIds,
+            reopenCandidateIds: packet.reopenCandidateIds,
             createdAt: new Date().toISOString()
           }));
-          if (status) status.textContent = packet.mode === 'TRANSFER_CHECK'
-            ? '已复制迁移验证包；只判断真正相关的 claim。'
-            : '已复制整篇 / 整组复盘包；先诊断，再完成最小 repair。';
+          if (status) status.textContent = '已复制深复盘包；能解释得分问题时就停，不追求流程完整。';
         } catch {
           if (status) status.textContent = '复盘包已复制，但本机握手状态保存失败；这次不要导入 claim 状态。';
         }
