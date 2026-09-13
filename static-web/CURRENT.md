@@ -4,82 +4,67 @@ Role: learner-facing website / UI Work Cursor + fresh-Chat restart entry
 Parent: root `CURRENT.md`  
 Navigation issue: #90 `KianOS UI Productization — Gold Pages & Design System`
 
-This file owns the current UI-productization cursor and the **UI Execution Lifecycle**. Domain cognition/content/evidence remain owned by their canonical contracts and runtime owners.
+This file owns the current UI-productization cursor. Domain cognition/content/evidence remain owned by their canonical contracts and runtime owners.
 
 ---
 
 ## UI Execution Lifecycle v1.2｜FROZEN
 
-The current program starts with a **full Projection Audit sweep before production redesign**. A new UI phase does not imply every surface must be rebuilt.
-
 ```text
-0. PREFERENCE + AUTHORITY SYNC
-   Chat/Sol re-anchors to Kian's stable UI/interaction preferences,
-   then reads main@HEAD + UI Current + Presentation Contract + exact domain owners.
+0 Preference + Authority Sync
+  Chat/Sol re-anchors to Kian's stable UI/interaction preferences,
+  then reads main@HEAD + this Current + Presentation Contract + exact domain owners.
 
-1. PROJECTION AUDIT
-   Inspect one real learner surface at a time.
+1 Projection Audit
+  one real learner surface at a time → KEEP / MIGRATE / OPTIMIZE / REBUILD / BLOCKED
 
-   KEEP
-   = current projection already fits Current Logic + Kian's preferences.
+2 Product Brief / Migration Output
+  OPTIMIZE / REBUILD → clean implementation brief
+  MIGRATE → Chat/Sol reconciles prior behavior/assets into a Current-facing migration output
+  KEEP → no redesign ceremony
 
-   MIGRATE
-   = a prior interaction Kian already considers good;
-     Chat/Sol reconciles it against Current and carries it forward near-1:1.
+3 Codex Handoff
+  only after audit/migration closure; default ONE short-lived branch + ONE Draft PR
 
-   OPTIMIZE
-   = semantic/interaction skeleton is right, but hierarchy, spatial projection,
-     readability or friction needs improvement.
+4 Product Review
+  Chat/Sol reviews real browser output against Current Logic + Kian preferences
 
-   REBUILD
-   = projection itself conflicts with Current cognition or Kian's stable preferences.
+5 Iteration
+  Codex iterates the SAME PR unless the direction is abandoned
 
-   BLOCKED
-   = required authority/data/legacy reconciliation is unresolved.
+6 Acceptance
+  browser usable + meaningful Kian choice accepted + zero semantic diff
+  + required migration reconciled + no hidden legacy fallback
 
-2. PRODUCT BRIEF / MIGRATION OUTPUT
-   Only OPTIMIZE / REBUILD need a design brief.
-   MIGRATE receives a clean Current-facing migration output.
-   KEEP receives no redesign ceremony.
+7 Merge + Closure
+  merge → advance Current → close PR → retire branch
 
-3. CODEX HANDOFF
-   Codex becomes the sole production implementation owner only after Audit is closed.
-   Codex receives Current contracts/runtime + clean brief/migration output.
-   Codex does not perform project archaeology or choose which historical behavior survives.
-   Default = ONE short-lived implementation branch / Draft PR.
-
-4. PRODUCT REVIEW
-   Chat/Sol reviews browser output against Current Logic, Kian's preferences and the Audit receipt.
-
-5. ITERATION
-   Codex iterates on the SAME implementation PR unless the direction is abandoned.
-
-6. ACCEPTANCE GATE
-   Browser usable + Kian accepts genuinely open structural choice + zero semantic diff
-   + required migration reconciled + no hidden legacy fallback.
-
-7. MERGE + CLOSURE
-   Merge accepted work, advance Current, close PR, retire branch, retain minimal receipt.
-
-8. FRESH-CHAT RESUME
-   New Chat reads this Current first and continues the exact stage.
+8 Fresh-Chat Resume
+  main@HEAD → this Current → exact active stage/surface
 ```
 
-### Kian preference baseline
+### Role boundary
 
-Cross-project taste evidence lives in `kianwang022-hash/kianos-cognition/library/cyber_archive/UI_INTERACTION_PREFERENCES.md`; KianOS-specific execution is governed by `static-web/PRESENTATION_CONTRACT.md`.
+**Chat / Sol:** preference interpretation, Projection Audit, Current Logic reading, all legacy discovery/reconciliation/migration, Product Brief, screenshot/journey review, acceptance and Current reconciliation.
 
-Stable KianOS baseline:
+**Codex:** production Astro/CSS/JS, components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
 
-- **Dense Calm** — medium/high useful density, comfortable readable type, low visual noise;
-- strong visible structure; the page should draw logic rather than ask Kian to reconstruct it from prose;
-- no tiny-text + giant-whitespace pseudo-minimalism;
-- no default card/panel pile merely because components are convenient;
-- primary action obvious; secondary capability progressively disclosed;
-- interaction natural, stable, predictable and low-friction;
-- work/content surfaces quiet and durable; entry/identity surfaces may be stronger;
-- high-frequency correct/stable paths should be extremely fast;
-- wrong / meaningful uncertain may make the interface heavier only because new information is useful.
+**Codex is not the project historian. Raw Legacy is never its research assignment.**
+
+**Kian:** final preference where multiple structurally valid choices remain, real-use `U`, explicit workflow override.
+
+---
+
+## Kian preference baseline
+
+- **Dense Calm**: medium/high useful density, comfortable readable type, low visual noise.
+- strong visible structure; draw the logic instead of asking the learner to reconstruct it from prose.
+- no tiny-text + giant-whitespace pseudo-minimalism.
+- no default card/panel pile merely because components are available.
+- obvious primary action; secondary capability progressively disclosed.
+- stable, predictable, low-friction interaction; motion only when it explains continuity/state.
+- work/content surfaces calm; entry/identity may be stronger.
+- stable/correct paths should be extremely fast; Wrong/meaningful Uncertain may become heavier only when new information is useful.
 
 ### Protected carry-forward interaction baselines
 
@@ -96,7 +81,7 @@ Enter = submit when confirmation is needed
 Fast single-choice = click/key submits immediately
 correct = near-immediate next
 wrong = stay + explanation/repair
-multiple-choice = Enter still confirms
+multiple-choice = Enter confirms
 
 Lexical
 whole-card judgment near-instant
@@ -107,17 +92,7 @@ local + = exact Repair admission
 keyboard-first traversal / Reveal / local targeting preferred
 ```
 
-These are interaction baselines, not universal mastery semantics; owning domain contracts still define evidence meaning.
-
-### Role boundary
-
-**Chat / Sol owns:** preference interpretation, Projection Audit, current logic reading, all legacy discovery/reconciliation/migration, Product Brief, screenshot/journey review, acceptance and Current reconciliation.
-
-**Codex owns:** production Astro/CSS/JS, layout/components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
-
-**Codex is not the project historian. Raw Legacy is never its research assignment.**
-
-**Kian owns:** final preference when multiple structurally valid directions genuinely remain, real-use `U`, explicit workflow override.
+Owning domain contracts still define evidence/mastery meaning.
 
 ---
 
@@ -125,199 +100,132 @@ These are interaction baselines, not universal mastery semantics; owning domain 
 
 **Program:** KianOS learner-surface productization  
 **Active stage:** `1 · PROJECTION AUDIT`  
-**Active audit surface:** Politics learning projection  
-**Implementation owner:** none during the audit sweep  
-**Active implementation PR:** none  
-**Blocker:** none.
+**Active audit surface:** Xizong System / Block / KP / Recall  
+**Implementation owner:** none during audit sweep  
+**Active UI implementation PR:** none  
+**Blocker:** none for the audit sweep.
 
-### Audit rule
-
-```text
-Current Logic
-+ Current Projection / Runtime
-+ Kian preference baseline
-+ bounded proven prior interaction only when relevant
-↓
-KEEP / MIGRATE / OPTIMIZE / REBUILD / BLOCKED
-↓
-short receipt here
-↓
-next surface
-```
-
-Do not open a Codex UI implementation PR during the audit sweep unless this Current explicitly records a dependency reason to break the sequence.
+Do not open a Codex UI implementation PR during this sweep unless this Current explicitly records a dependency reason.
 
 ### Audit order
 
 ```text
-1. Writing ✅ OPTIMIZE
-2. Translation ✅ OPTIMIZE
-3. Reading A ✅ OPTIMIZE
-4. Cloze ✅ OPTIMIZE
-5. Part B ✅ KEEP
-6. English shell / Resume ✅ OPTIMIZE
-7. Politics learning projection ← active
-8. Politics question workbench migration
-9. Xizong System / Block / KP / Recall surfaces
-10. Lexical Fast Pass / Depth / Challenge
-11. global home / identity after real work surfaces are understood
+1 Writing                         ✅ OPTIMIZE
+2 Translation                     ✅ OPTIMIZE
+3 Reading A                       ✅ OPTIMIZE
+4 Cloze                           ✅ OPTIMIZE
+5 Part B                          ✅ KEEP
+6 English shell / Resume          ✅ OPTIMIZE
+7 Politics learning projection    ✅ REBUILD projection / KEEP Logic
+8 Politics question workbench     ✅ MIGRATE interaction
+   refined-explanation promotion  ⏸ BLOCKED on bounded durable-role proof
+9 Xizong System / Block / KP       ← active
+10 Lexical Fast Pass / Depth       pending
+11 global home / identity          last
 ```
+
+A bounded migration blocker does not reopen earlier audit results or stop unrelated Projection Audit work.
 
 ---
 
-## Closed Projection Audit｜English family
+## Closed audit｜English family
 
-### Writing — `OPTIMIZE`
+**Product identity: `Digital Workbook + Adaptive Coach`.** Task / passage / prompt / learner output stay foreground; First Learning is complete-but-skippable coaching/repair reservoir; stable work exits quickly.
 
-Preserve:
-- whole-essay task-first Runtime;
-- Prompt visible during work;
-- optional Plan / Direct mode;
-- first Draft as primary work/evidence surface;
-- PASS as real exit;
-- smallest-repair / learner re-generation / return semantics.
+### Writing — OPTIMIZE
+Keep whole-essay task-first runtime, visible Prompt, optional Plan/Direct mode, Draft as primary work/evidence, real PASS, smallest repair + learner regeneration. Optimize Home/Resume hierarchy, typography/chrome, and make six Writing primitives on-demand Coach rather than mandatory course navigation.
 
-Optimize:
-- Home should prioritize Resume / real task over engineering explanation;
-- comfortable type, less status/card chrome;
-- six Writing primitives should behave as on-demand Coach / Repair reservoir, not permanent course navigation.
+### Translation — OPTIMIZE
+Keep whole-set context, Source beside learner work, immutable first attempt, delayed Reference, clean PASS, whole-set diagnosis → smallest repair → Reconstruction. Optimize Home/First Learning hierarchy, repeated boxes/source duplication and small engineering/status text.
 
-No Legacy migration required.
+### Reading A — OPTIMIZE
+Keep split passage/question workspace, long-reading typography, stable question nav, optional highlight, continuous practice and optional whole-passage deep escalation. Add protected `1–4 = A/B/C/D` muscle memory; reduce permanent chrome; turn First Learning into on-demand coaching rather than a giant textbook route.
 
-### Translation — `OPTIMIZE`
+### Cloze — OPTIMIZE
+Keep whole passage + active blank and unified whole-passage submit. Add `1–4`, smoother blank traversal, larger reading type and less mouse/status friction. Candidate selection may advance focus without scoring/revealing; final submit remains whole-passage.
 
-Current model and Runtime are correct:
+### Part B — KEEP
+Protect current information architecture: full material / candidate pool / Complete Map together; distinct real task forms; ordering fixed givens; single-use locking / repeat-policy fidelity; whole-set global reconciliation. Shared typography/control tokens may polish it, but do not redesign its cognition for visual consistency.
 
-```text
-Represent → Reconstruct faithfully → Deliver
-```
-
-Preserve:
-- whole set as learner-facing attempt/review context;
-- Source/Task visible beside learner work;
-- first translation evidence frozen;
-- Reference hidden during clean attempt and optional later;
-- stable PASS exit;
-- whole-set diagnosis → smallest repair → learner Reconstruction;
-- pending transfer claims staying quiet unless relevant.
-
-Optimize:
-- Translation Home currently overexposes source/runtime/engineering copy and small status text;
-- First Learning still reads too much like chaptered Markdown; Representation/Reconstruction/Execution should be task-linked coaching/reference rather than a competing course;
-- reduce repeated boxes/borders and duplicate source text where spatial relation already makes ownership obvious;
-- increase comfortable learner text and preserve stable two-pane workbook behavior.
-
-No Legacy migration required.
-
-### Reading A — `OPTIMIZE`
-
-Current Runtime has strong carry-forward bones and should not be redesigned from scratch:
-- Mac split workspace: passage left, active question right;
-- passage uses comfortable long-reading typography;
-- question navigation is stable;
-- optional highlight stays secondary;
-- continuous practice can defer answer/review leakage;
-- problem review remains optional and whole-passage escalation exists for meaningful deep diagnosis.
-
-Optimize:
-- replace/augment current `A–D` keyboard selection with protected `1–4 = A/B/C/D` muscle memory;
-- reduce permanent header/reset/status chrome;
-- keep high-frequency question movement/selection fast;
-- Objective First Learning should not remain one giant Markdown textbook + deep navigation tree during normal use; its framework should become on-demand coaching around task friction.
-
-### Cloze — `OPTIMIZE`
-
-Preserve:
-- whole passage visible + one active blank decision area;
-- whole-passage clean attempt and unified submit;
-- answer leakage protected until submission;
-- whole-passage review semantics.
-
-Optimize:
-- add shared `1–4 = A/B/C/D` keyboard grammar;
-- make repeated blank traversal substantially lower-friction; selecting a candidate may advance focus without scoring/revealing the blank, while final submission remains whole-passage;
-- comfortable passage type closer to Reading A long-use standard;
-- reduce mouse-only navigation and small status text.
-
-### Part B — `KEEP`
-
-This projection already represents cognition directly and should be protected.
-
-Keep:
-- full material / candidate pool / complete map visible together;
-- distinct projection for real task forms instead of one generic template;
-- ordering form with fixed givens + 41–45 Order Map;
-- single-use candidate locking / duplicate warnings / repeat-policy fidelity;
-- whole-set submission and global-reconciliation semantics.
-
-Future shared typography/control tokens may improve polish, but **do not redesign the Part B information architecture merely for visual consistency**.
-
-### English shell / Resume — `OPTIMIZE`
-
-Preserve:
-- English split into Objective 60 / Translation 10 / Writing 30;
-- task owners remain distinct;
-- LexicalOS stays an independent supply lane;
-- highest-value Resume concept.
-
-Fix/optimize:
-- current global Resume reads Reading A / Translation / Writing, while Cloze and Part B write their own last-location state but are not participating in the same English Resume competition;
-- Resume must cover all unfinished high-value English task owners without turning passed/dormant work into debt;
-- capability map currently explains too much architecture to the learner; make `Continue highest-value work` the strongest entry and keep architecture/framework quiet;
-- reduce tiny status metadata and card-like context rail;
-- First Learning remains targeted intervention, not a parallel course dashboard.
-
-### English family product conclusion
-
-English is **Digital Workbook + Adaptive Coach**.
-
-Shared family rules:
-
-```text
-Task / passage / prompt / learner output = foreground
-framework / First Learning = complete but skippable coaching reservoir
-stable work = exit quickly
-problem = smallest useful coaching / repair
-```
-
-Do share typography, low-friction input grammar, Resume language, state feedback and general product quality.
-
-Do **not** force Writing / Translation / Reading A / Cloze / Part B into one page template. Their task geometry differs.
+### English shell / Resume — OPTIMIZE
+Keep Objective 60 / Translation 10 / Writing 30, distinct task owners, LexicalOS as independent supply lane, and highest-value Resume. Fix Resume coverage so Cloze/Part B participate alongside Reading A/Translation/Writing without manufacturing debt. Make Continue strongest; architecture/framework quieter.
 
 ---
 
-## Protected migration candidates
+## Closed audit｜Politics learning projection
 
-### Politics Question Workbench
+**Disposition: `REBUILD projection / KEEP Current Politics Logic`.**
 
-Kian explicitly prefers the prior 4173/local question interaction. Treat it as **MIGRATE**, not a redesign target.
+Current Politics Interaction Contract already defines the right journey:
 
-Before Politics question UI implementation, Chat/Sol must recover and reconcile:
+```text
+ORIENT → EXTERNAL_LEARN on iPad/MarginNote
+→ RETURN/CLOSE → VERIFY Xiao1000
+→ correct CONTINUE
+or Wrong/Uncertain → smallest REPAIR → return
+```
+
+Carry forward from the current Marxism `ch00` cognitive workspace:
+- stateful one-dominant-task progression;
+- central Cognitive Stage + secondary Contextual Inspector;
+- Natural Unit continuity;
+- Chengfeng remains external-primary on iPad/MarginNote;
+- clean VERIFY stays answer-safe;
+- Map / Chain / Compare / Boundary / Anchor appear only when semantically justified.
+
+Rebuild requirement:
+- most other Politics chapters still use the older vertically stacked chapter runtime that exposes orientation, every Unit, handoff, closure and quiz as one long document;
+- mature subjects should project the frozen state model instead of preserving that long-document shape;
+- remove engineering-facing chrome such as literal `STATE`, `INSPECTOR`, source-owner/debug identity and absorbed-source counters from the learner foreground;
+- reduce map/card flattening; use subject-specific geometry;
+- **do not force all five Politics subjects into one template or pretend downstream readiness is symmetric.**
+
+No Politics Logic/content/state meaning changes are authorized by this UI audit.
+
+---
+
+## Politics Question Workbench migration receipt
+
+**Disposition: `MIGRATE interaction`. Do not redesign the proven learner loop.**
+
+Protected carry-forward behavior from the prior 4173/v238 Workbench:
 
 ```text
 Normal / Fast
-1–4 / Enter
-fast single-choice correct → near-immediate next
+1–4 = A/B/C/D
+Fast single-choice click/key → immediate submit
+correct → near-immediate next
 wrong → stay
-一句话带走
-answer delta
-optional failure-cause + note
-AI-refined 理解这道题
-Current source references
-collapsible Xiao original explanation
-fixed low-friction Next
+multiple-choice → Enter confirms
+result: headline → 一句话带走 → answer delta → optional cause → personal note
+right review: AI-refined 理解这道题 → Current source refs → collapsible Xiao original explanation
+Next stays fixed / easy to reach
+personal note stays attempt-scoped
 optional original-question image check
 ```
 
-Historical evidence also pins a 1,148-record refined explanation artifact. Chat/Sol owns exact recovery + reconciliation + Current promotion. Old scheduler/due/mastery/owner semantics do not return with the UI.
+### Refined explanation data boundary
 
-### KP / Recall
+Historical evidence proves:
+- canonical Xiao question inventory = 1148 stable IDs;
+- explanation provenance = 1148;
+- historical final-explanation file = 1148 records;
+- pinned final-explanation SHA256 = `e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec`;
+- the old Workbench runtime exposes `question_explanation` as the refined learner explanation field.
 
-Kian explicitly likes the prior `Space / 1–4 / Enter / ←→` grammar. Treat this as a MIGRATE/KEEP baseline wherever Current Recall semantics are compatible.
+But the existing Recovery Contract explicitly says the durable role of `politics_question_explanation_final_freeze_candidate.v1.json` is **not proven merely by its name/path** and requires bounded real Local/Study source-chain proof before Current promotion.
 
-### Lexical
+Therefore:
 
-Latest vNext projection intentionally pursues sub-second routing and keyboard-first Depth/Challenge; Kian reports this direction as comfortable. Treat as KEEP/OPTIMIZE candidate, not default rebuild. Exact audit waits for Lexical turn and must respect its Current bounded runtime maturity.
+```text
+interaction migration = accepted
+Current question truth = stays Current-owned
+refined explanation promotion = BLOCKED only on durable-role proof
+hidden runtime fetch/fallback to recovery repo / old snapshot = FORBIDDEN
+old scheduler / due / mastery / owner semantics = FORBIDDEN
+```
+
+Do not keep archaeology running indefinitely. When the exact durable-role proof becomes available, reconcile IDs/hash and promote the verified payload into a Current owner. Until then, implementation may not silently consume Legacy as a second authority.
 
 ---
 
@@ -334,8 +242,10 @@ Never:
 
 ```text
 Current runtime
-→ hidden fetch/fallback/link to old repo / branch / localhost / stale owner
+→ hidden fetch/fallback/link to old repo / old branch / localhost / stale owner
 ```
+
+A user-approved old interaction is evidence worth carrying forward; old scheduling/content authority is not.
 
 ---
 
@@ -353,10 +263,12 @@ When Kian says `继续 KianOS 总 UI`, `读取 GitHub 最新 UI 任务`, or equi
 ```text
 main@HEAD
 → static-web/CURRENT.md
-→ read Kian preference baseline
-→ identify active Projection Audit surface
-→ inspect exact Current Logic + Projection
-→ close one disposition
-→ continue audit sweep
-→ only after audit sweep produce implementation/migration briefs for Codex
+→ Kian preference baseline
+→ active Projection Audit surface
+→ exact Current Logic + Projection
+→ close one KEEP / MIGRATE / OPTIMIZE / REBUILD / BLOCKED disposition
+→ continue sweep
+→ only after audit/migration output hand implementation to Codex
 ```
+
+Do not reconstruct current UI work from old Issues, old Chats, historical branches or raw Legacy when this Current resolves the task.
