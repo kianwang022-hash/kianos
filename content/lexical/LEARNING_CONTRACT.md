@@ -10,7 +10,7 @@ LexicalOS is a top-level system beside English. It supplies lexical access to En
 
 LexicalOS exists to build **fast, correct, transferable lexical access**.
 
-Kian already has broad vocabulary exposure. The main problem is not basic word-list coverage but precision and access quality:
+Kian already has broad vocabulary exposure. The main problem is not beginner word-list coverage but access quality:
 
 - familiar-new senses;
 - high-value polysemy;
@@ -19,8 +19,8 @@ Kian already has broad vocabulary exposure. The main problem is not basic word-l
 - collocation / phraseology;
 - confusable and contrast boundaries;
 - register / form / pronunciation distinctions when material;
-- productive lexical knowledge for Translation / Writing;
-- fast recognition and selection in real context.
+- useful productive lexical knowledge for Translation / Writing;
+- fast recognition and branch selection in real context.
 
 Do not optimize for dictionary completion, sense-count completion, daily card quotas, or total review-card count.
 
@@ -40,10 +40,10 @@ For this stage:
 
 - one Global Lexicon truth;
 - current 7,946-word learner universe;
-- pack membership retained for provenance / future extension;
+- Pack retained for provenance / future extension;
 - no current requirement for multi-profile routing, TOEFL/IELTS overlays, or pack-specific learning demand.
 
-Future expansion may add new pack memberships or new learning demand incrementally without duplicating Word semantics.
+Future expansion may add new pack memberships or incremental learning demand without duplicating Word semantics.
 
 ---
 
@@ -54,7 +54,7 @@ Lexical learning projects from Current Natural Owners:
 - Word Natural Owner owns word-local Core, senses, constructions, phraseology, collocations and same-word polysemy;
 - Relation Natural Owner owns genuine cross-word semantic relationships and confusable boundaries;
 - Form / Identity truth remains in its correct canonical owner;
-- generated questions, learner notes, card state and runtime state are evidence, not semantic owners;
+- generated questions, learner notes, card judgments and runtime state are evidence, not semantic owners;
 - Astro must not invent lexical truth merely because a UI template expects it.
 
 Projection may be selective. Canonical knowledge must not silently become lossy merely to make Study shorter.
@@ -85,7 +85,7 @@ These are intentionally different.
 
 ## 4. Coverage is universal; Depth is selective
 
-Every Main Word deserves a reliable content/coverage judgment so the system knows whether its lexical object is trustworthy and whether hidden learner risk exists.
+Every Main Word deserves a reliable **content coverage judgment** so the system knows whether the lexical object is trustworthy and whether meaningful hidden learner risk exists.
 
 This does **not** mean every Main Word deserves full learner Depth.
 
@@ -109,24 +109,49 @@ Content risk is a suggestion, not a command. Kian may open Depth for a supposedl
 
 ---
 
-## 5. Learner-controlled card judgment
+## 5. Two different learner judgments
 
-Card-level judgment is deliberately subjective and low-friction. It is not a quantitative mastery score.
+LexicalOS must preserve a hard distinction between:
 
-The durable states are:
+```text
+Card-level judgment
+“这个词整体我现在要不要重新看？”
 
-- **不认识 / Unknown** — many important parts are unavailable; reopen the full Depth object;
-- **模糊 / Fuzzy** — some knowledge is present but incomplete or structurally unstable; reopen the full Depth object;
-- **认识 / Known** — the word is familiar and usable enough for fast passage; local gaps may still be marked with `+`;
-- **掌握 / Mastered** — very familiar / automatic; card-level recurrence should fade strongly and may disappear entirely until counterevidence appears.
+Object-level judgment
+“这个 sense / construction / phrase / boundary
+具体需不需要以后再修？”
+```
 
-These states answer:
+### Card-level judgment
 
-> **How much of this whole lexical object do I want to revisit?**
+Kian may naturally feel a word is:
 
-They do **not** automatically create local Repair targets.
+- **Unknown / 不认识**;
+- **Fuzzy / 模糊**;
+- **Known / 认识**;
+- **Mastered / 很熟、自动化**.
 
-There is no fixed numeric threshold such as “three missed senses means whole-card failure.” Kian's immediate judgment is valid learner evidence.
+These labels are **subjective routing judgments**, not a quantitative mastery score and not a mandatory SRS state machine.
+
+They answer:
+
+> **Do I want to reopen the whole lexical object now, and how much attention should it receive in this encounter?**
+
+The current learner judgment has high authority for Depth routing. A content-rich word may still be passed when Kian is already stable; a supposedly simple word may be opened fully when Kian does not know it.
+
+A card-level judgment may be retained as history if useful, but it must not silently become a blanket future testing obligation.
+
+Hard rule:
+
+> **Unknown / Fuzzy may justify full Depth now; they do not by themselves create full-card Repair debt.**
+
+There is no fixed threshold such as “three weak senses means whole-card failure.” Kian's qualitative judgment is allowed to remain qualitative.
+
+### Object-level judgment
+
+After Reveal, exact local objects may still be unstable. Those are handled through `+` or meaningful failure evidence.
+
+A whole-card revisit may finish with **zero** future Repair targets.
 
 ---
 
@@ -134,7 +159,7 @@ There is no fixed numeric threshold such as “three missed senses means whole-c
 
 Fast Pass exists for low-friction throughput.
 
-A stable simple or already-mastered word should be able to pass in roughly the time needed to recognize it. Do not require ritual Reveal, confirmation, typing, or multi-step ratings merely to prove known knowledge again.
+A stable simple or already-familiar word should be able to pass in roughly the time needed to recognize it. Do not require ritual Reveal, confirmation, typing, or repeated ratings merely to prove known knowledge again.
 
 The design target is not “fewer cards.” It is:
 
@@ -174,7 +199,7 @@ Rules:
 
 Reveal should expose a coherent learner object, not a dictionary dump.
 
-Preferred order:
+Preferred hierarchy:
 
 1. **Core / Word Feel** — mental compression;
 2. **high-value senses** — including familiar-new branches;
@@ -189,13 +214,13 @@ Expansion is a first-class learning layer, not decorative “more.”
 
 Kian's strong vocabulary base means LexicalOS should often create value through Expansion rather than re-teaching obvious Core meanings.
 
-Rich content does not imply equal mastery requirement. Some objects need Recognition, some Discrimination, and only selected objects need Production.
+Rich content does not imply equal mastery demand. Some objects need Recognition, some Discrimination, and only selected objects need Production.
 
 ---
 
 ## 8. Local `+`: explicit Repair admission
 
-Every learner-worthy local object may be marked `+` when Kian wants it to return later.
+Every learner-worthy local object may be marked `+` when Kian wants that exact object to return later.
 
 Possible `+` targets include:
 
@@ -222,10 +247,10 @@ Hard distinction:
 
 ```text
 Unknown / Fuzzy / Known / Mastered
-= whole-card familiarity / revisit judgment
+= whole-card current routing / revisit judgment
 
 +
-= local future Repair admission
+= explicit local future Repair admission
 ```
 
 ---
@@ -236,22 +261,38 @@ Hard rule:
 
 > **Depth can be rich and broad; Repair must stay narrow and evidence-driven.**
 
-Do not full-test every sense of a word merely because the whole card was Fuzzy or Unknown.
+Do not full-test every sense of a word merely because the whole card felt Fuzzy or Unknown.
 
 Primary Repair admission signals are:
 
 1. explicit learner `+`;
-2. real WRONG / Uncertain / clearly Slow lexical performance;
+2. meaningful real-task lexical failure;
 3. Challenge failure;
-4. repeated failure on the same target.
+4. repeated clear uncertainty / slowness when it is strong enough to justify future learner time.
+
+Uncertain or Slow is weaker than a clear Wrong and should not become debt mechanically every time it appears.
 
 A full-card revisit alone does not imply a full-card testing obligation.
 
-When a local target returns, use the smallest high-information test that can change the next decision.
+Strong operational principle:
 
-One good contextual discrimination is better than several ritual repetitions when it provides stronger evidence.
+> **看整张卡很便宜，进入未来复习很贵。**
 
-Repeated failure should change the repair method rather than merely increasing question count.
+Traditional SRS tends to assume:
+
+```text
+learned / seen
+→ default future review
+→ repeated proof until an algorithm retires it
+```
+
+LexicalOS should instead default toward:
+
+```text
+learned / seen
+→ exit
+→ only explicit or evidence-backed problems earn future review time
+```
 
 ---
 
@@ -270,15 +311,55 @@ Do not prebuild one permanent question per sense.
 
 Do not use Challenge volume as a proxy for learning quality.
 
-Correct answers should move quickly. Wrong answers should show the smallest sufficient repair and, when useful, reconstruct with a changed context.
+A returning Repair target should normally receive the **smallest high-information test that can change the next decision**.
+
+Correct and natural performance should move quickly. Wrong performance should show the smallest sufficient repair and, when useful, reconstruct with a changed context.
+
+Repeated failure should change the **diagnostic form**, not merely increase repetitions.
 
 Blind probes may exist, but they are optional and low priority. They must never become a sampling quota that displaces real learner evidence.
 
 ---
 
-## 11. No fixed-volume scheduler in the learning contract
+## 11. Runtime priority: Coverage is the mainline; Repair is a narrow branch
 
-This contract does **not** impose fixed limits for:
+Normal lexical study should feel like:
+
+```text
+Start
+↓
+small amount of high-value Repair
+↓
+continue 7,946-word Coverage cursor
+↓
+Word
+├─ stable / familiar → Fast Pass → Next
+├─ Fuzzy → Full Depth → Next
+├─ Unknown → Full Depth → Next
+└─ local problem → [+] → Next
+↓
+stop by real time / capacity
+```
+
+Then real English work may return evidence:
+
+```text
+Reading / Cloze / Translation / Writing
+↓
+exact lexical success / failure when meaningful
+↓
+changes later Repair priority
+```
+
+Hard rule:
+
+> **Coverage is the long-run mainline. Repair must not grow into a wall that prevents new Coverage.**
+
+Do not create an Anki-style rule such as “all due items must be cleared before any new words.”
+
+Missed calendar days must not manufacture a punitive overdue pile.
+
+No fixed-volume scheduler belongs in this contract for:
 
 - words per day;
 - new Depth cards;
@@ -286,69 +367,110 @@ This contract does **not** impose fixed limits for:
 - Challenge items;
 - review minutes.
 
-Kian can process hundreds of words when most judgments are fast.
-
-The system should measure real friction and evidence rather than assume that large counts are overload.
-
-If Kian reports overload, or evidence shows that learning quality is degrading, Chat may temporarily reduce volume, change priority, reduce blind probes, or adjust recurrence.
-
-No static scheduler owns that decision permanently.
-
-Missed calendar days must not manufacture a punitive overdue pile.
+Chat may adapt volume from actual learner friction and quality evidence, but no permanent static quota owns the learner.
 
 ---
 
-## 12. Card recurrence and fading
+## 12. Full-card refresh has no automatic scheduling side effect
 
-Card-level states influence whether the whole word deserves future appearance:
-
-- Unknown → likely near-term whole-card revisit until Kian promotes it;
-- Fuzzy → may recur, but should fade rapidly once familiarity returns;
-- Known → generally fast-pass / low recurrence; local Repair remains independent;
-- Mastered → strong fade / retire from active card review, potentially indefinitely.
-
-Mastered is not a claim of permanent human memory. It means there is currently no reason to spend active lexical-review time on that whole card.
-
-New real failure, a newly discovered high-value branch, or Kian's own renewed uncertainty may reactivate it immediately.
-
-Do not require ritual periodic re-proving merely because time elapsed.
-
----
-
-## 13. Evidence strength
-
-Useful default ordering:
+This distinction is canonical:
 
 ```text
-card-level self judgment / isolated recall
-< targeted sentence recall
+Full-card refresh
+= I want to inspect / relearn this whole word now
+
+Repair admission
+= this exact local object deserves future learner time
+```
+
+Therefore:
+
+- opening Full Depth does not automatically schedule the word again;
+- Unknown/Fuzzy alone does not create a later full-card test;
+- after Reveal, Kian may simply press Next and leave no debt;
+- local `+` or meaningful failure evidence is what normally creates a future Repair claim;
+- Kian may manually reopen any word later without the system needing a pre-existing Repair target.
+
+This supersedes any older interpretation that treated Unknown/Fuzzy as an automatic near-term recurrence obligation.
+
+---
+
+## 13. Evidence has two different jobs
+
+Do not collapse routing evidence and Repair evidence into one mastery number.
+
+### A. Routing evidence
+
+Question:
+
+> **What should Kian do with this whole word now?**
+
+Inputs may include:
+
+- current subjective familiarity;
+- prior encounter history;
+- intrinsic content risk;
+- prior learner evidence when relevant.
+
+For this decision, **Kian's current judgment has high authority**.
+
+### B. Repair evidence
+
+Question:
+
+> **Does this exact lexical object deserve future learner time?**
+
+The strongest signals are explicit local `+`, real lexical failure, and targeted Challenge evidence. Whole-card Fuzzy/Unknown is much weaker for this purpose and cannot manufacture blanket Repair debt.
+
+Useful default evidence ordering for lexical stability is roughly:
+
+```text
+isolated self judgment / isolated recall
+< targeted contextual recall
 < construction / contrast discrimination
-< successful Reading / Cloze / Translation / Writing use
+< successful real Reading / Cloze / Translation / Writing use
 < later unseen-context success under normal task pressure
 ```
 
-Real-context evidence may both activate and retire lexical work.
-
-A later strong success may make planned artificial review unnecessary. A later real failure may reactivate an apparently stable target immediately.
+But this ordering must not be misused for routing: a current learner can always choose to open or skip Depth regardless of what the backend thinks is “high risk.”
 
 The system does not need to estimate a fake precise mastery percentage.
 
-It only needs enough evidence to decide whether more learner time is currently justified.
+It needs enough evidence to decide whether **more learner time is currently justified**.
+
+The detailed event model, Repair lifecycle, retirement/reactivation rule, and scheduler compilation are owned by the currently active Evidence / Memory design step named in `content/lexical/CURRENT.md` until that step is explicitly closed.
 
 ---
 
-## 14. Astro executes; Chat orchestrates
+## 14. Real-context English is high-value lexical evidence
+
+A later real task can both activate and retire lexical work.
+
+Examples:
+
+- if `account for` is a Repair target but later Reading shows immediate correct understanding in a fresh context, planned artificial review may become unnecessary;
+- if a supposedly stable `yield` branch is misread in Reading, that exact sense may reactivate immediately;
+- if Translation or Writing exposes a productive selection problem, Repair should target the smallest lexical object involved rather than the entire word.
+
+LexicalOS and English must not become separate competing SRS systems.
+
+Real English performance should continuously inform what deserves lexical time.
+
+---
+
+## 15. Astro executes; Chat orchestrates
 
 ### Astro owns execution friction
 
 Astro should make these actions extremely fast:
 
 - continuous word traversal;
-- card-level Unknown / Fuzzy / Known / Mastered judgment;
+- current whole-card judgment;
+- Fast Pass;
 - Recall → Reveal when Depth is chosen;
 - local `+`;
 - Challenge answer / Next;
-- automatic evidence capture.
+- automatic evidence capture where useful.
 
 Astro should not force Kian to maintain backend taxonomy manually.
 
@@ -371,7 +493,7 @@ Automation should remove friction, not remove learner judgment.
 
 ---
 
-## 15. Return evidence, not Return Packet ritual
+## 16. Return evidence, not Return Packet ritual
 
 Meaningful learner evidence should return to Chat / the next compilation when it can change future action.
 
@@ -381,10 +503,10 @@ If no meaningful evidence exists, no empty export ritual is required.
 
 Useful evidence may include:
 
-- whole-card state changes;
+- card-level routing judgments when they materially help later continuation;
 - local `+`;
 - Challenge correct / wrong / slow / uncertain;
-- target identity;
+- exact target identity;
 - Reading / Cloze / Translation / Writing lexical failure or strong success;
 - question defect / semantic defect signals.
 
@@ -392,7 +514,7 @@ Fresh evidence outranks stale scheduling.
 
 ---
 
-## 16. Domain boundary with English
+## 17. Domain boundary with English
 
 ```text
 LexicalOS owns lexical semantics and lexical repair.
@@ -414,7 +536,7 @@ Likewise, LexicalOS must not turn every English failure into lexical debt.
 
 ---
 
-## 17. Protect unseen exam evidence
+## 18. Protect unseen exam evidence
 
 Lexical Challenge should not consume unattempted true-exam, TPO, or intentionally held-out material merely because it is available.
 
@@ -422,17 +544,17 @@ Generated Challenge material is the normal default. Real unseen task material is
 
 ---
 
-## 18. Study versus Explore
+## 19. Study versus Explore
 
 - **Study / Fast Pass / Depth** — fast learner judgment and high-value lexical learning;
 - **Repair / Challenge** — only explicit or evidenced unstable local objects;
-- **Explore / Search** — complete inspection of Current lexical knowledge, including reference-level material and asset metadata such as pack membership when useful.
+- **Explore / Search** — complete inspection of Current lexical knowledge, including reference-level material and asset metadata such as Pack membership when useful.
 
-Do not force Explore completeness into normal Study.
+Learner-worthy Expansion belongs in Depth. Explore is for lower-priority completeness, provenance, historical/specialist material, and deep inspection—not for hiding the main value layer.
 
 ---
 
-## 19. Interaction quality bar
+## 20. Interaction quality bar
 
 Any learner-facing action must materially do at least one of:
 
