@@ -1,0 +1,67 @@
+{
+  "schema": "kianos.politics.mao_projection_review.v1",
+  "status": "CURRENT_REVIEW_COMPLETE",
+  "scope": "MAO_C00_TO_C08",
+  "review_mode": "FRESH_PROJECTION_REACCEPTANCE",
+  "upstream": {
+    "S": "PASS",
+    "K": "PASS",
+    "content": "PASS",
+    "L": "PASS"
+  },
+  "acceptance_question": "Does the Current learner surface faithfully project accepted Mao Logic and exam-useful content with the right information hierarchy, while Chengfeng remains the external-primary continuous study surface?",
+  "chapter_dispositions": [
+    {"chapter":"C00","verdict":"KEEP"},
+    {"chapter":"C01","verdict":"KEEP"},
+    {"chapter":"C02","verdict":"KEEP"},
+    {"chapter":"C03","verdict":"KEEP"},
+    {
+      "chapter":"C04",
+      "verdict":"REPAIR",
+      "defect":"C04-S01 owns four parallel `answers[]` in accepted Content, but the generic projection adapter only mapped singular answer/core_answer/evaluation, so the learner-facing core answer disappeared.",
+      "repair":"Add a Mao-scoped projection adapter that preserves plural answers only when generic teaching.answer is empty. Accepted C04 Content/Logic remains unchanged."
+    },
+    {"chapter":"C05","verdict":"KEEP"},
+    {"chapter":"C06","verdict":"KEEP"},
+    {"chapter":"C07","verdict":"KEEP"},
+    {"chapter":"C08","verdict":"KEEP"}
+  ],
+  "whole_subject": {
+    "verdict": "PASS_AFTER_REPAIR",
+    "strongest_attack": "Backend completeness must not be confused with learner-surface completeness. The audit specifically searched for accepted core problems/answers that disappear in the generic adapter, as well as the opposite failure where rich content_support would be dumped into the first-round surface.",
+    "material_delta": "ONE_SCOPED_PROJECTION_REPAIR",
+    "surface_findings": [
+      "Chapter orientation foregrounds the chapter problem, answer, sequence and attention rule.",
+      "Natural Unit foregrounds the current problem and core answer; relation/hierarchy/application remain progressively disclosed.",
+      "content_support is not rendered wholesale into the generic first-round page.",
+      "Chengfeng is explicitly handed off to iPad/MarginNote and continuous source text is not copied into Astro.",
+      "20-second closure is a collapsible tool rather than a mandatory blocking ritual.",
+      "Xiao1000 remains downstream verification and does not organize first-learning order.",
+      "Chapter compression remains subordinate to the learning path."
+    ]
+  },
+  "executed_evidence": {
+    "head": "08ae4c5027f9fc47654f26fec48d29f9a773cfc8",
+    "static_web_politics_qa": {
+      "run_number": 536,
+      "run_id": 34767639225,
+      "result": "PASS",
+      "mao_projection_guard": "PASS",
+      "current_bindings": "PASS",
+      "astro_build": "PASS"
+    }
+  },
+  "negative_space": [
+    "Projection PASS does not mean every backend exact list should be visible immediately.",
+    "Projection PASS does not accept Mao-specific Runtime or Evidence semantics.",
+    "Projection PASS does not make closure/Recall mandatory after every Natural Unit.",
+    "Projection PASS does not move continuous Chengfeng reading into Astro.",
+    "Projection PASS does not manufacture U or learner progress."
+  ],
+  "conclusion": {
+    "P": "PASS",
+    "repairs": 1,
+    "next_gate": "R",
+    "runtime_and_evidence": "UNTESTED_FOR_MAO"
+  }
+}
