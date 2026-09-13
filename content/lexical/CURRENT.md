@@ -9,17 +9,19 @@ This file does not own lexical semantics, lane learning semantics, Acceptance Tr
 
 ## Work Cursor
 
-**Active / earliest unresolved construction stage:** `Content Realization / Optimization — rebuild the current 7,946-word asset under the accepted learner-controlled vNext logic.`
+**Active / earliest unresolved construction stage:** `Content Realization / Optimization — begin bounded 7,946-owner execution from the accepted vNext Content model.`
 
 **Upstream learning logic:** `content/lexical/LEARNING_CONTRACT.md` — re-accepted from direct learner requirements.
 
-**Content standard:** `content/lexical/CONTENT_ASSET_CONTRACT.md` — current vNext Content rule layer for coverage, SAFE_SIMPLE / DEPTH_READY, Expansion, local repairability and bounded acceptance.
+**Content standard:** `content/lexical/CONTENT_ASSET_CONTRACT.md` — vNext rule layer for reliable coverage, SAFE_SIMPLE / DEPTH_READY / BLOCKED, rich Expansion, local repairability and bounded acceptance.
+
+**Representative execution calibration:** `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` — PASS.
 
 **Current learner scope:** the existing **7,946 Main Words** only. Pack membership remains asset-management metadata; multi-profile / TOEFL / IELTS expansion is deferred.
 
-**Knowledge acceptance:** full-catalog K remains BLOCKED because Current Natural Owners still contain known semantic-fidelity and learner-value defects. Historical R12–R31 evidence remains bounded defect evidence only.
+**Knowledge acceptance:** full-catalog K remains BLOCKED until the complete 7,946-owner generation is concluded under the vNext Content standard. Gold calibration proves the execution model, not full-catalog K.
 
-**Paused / superseded execution narrative:** do not resume the old `consolidated repair inventory → repair queue` path or the stopped large parallel Fresh Rebuild batches merely because their branches/issues still exist. They are provisional/historical execution evidence until reconciled against the new Learning + Content contracts.
+**Paused / superseded execution narrative:** do not resume the old `consolidated repair inventory → repair queue` path or the stopped large stacked Fresh-Rebuild batches as Current authority. Their semantic work may be reused only after fresh vNext readback; their execution model is superseded.
 
 ### Frozen learner logic that Content must serve
 
@@ -33,79 +35,58 @@ reliable coverage judgment
 → fade / reactivate from evidence
 ```
 
-Content must support these distinctions:
+Content must preserve these distinctions:
 
-- every Main Word receives reliable coverage judgment;
+- every Main Word gets a reliable content conclusion;
 - full Depth is not mandatory for every Main Word;
 - simple trustworthy words may be `SAFE_SIMPLE` / Fast-Pass eligible;
-- rich/high-risk words must become `DEPTH_READY` with a coherent learner object;
-- Expansion is first-class and especially important for this learner;
-- whole-card Unknown / Fuzzy / Known / Mastered is distinct from local Repair admission;
-- a full-card revisit must not imply full-card testing;
-- `+` / real failure owns local Repair admission;
+- rich/high-risk words must become `DEPTH_READY` with a coherent Core + Senses + first-class Expansion;
+- whole-card Unknown / Fuzzy / Known / Mastered is learner state, not shared content truth;
+- a full-card revisit does not create full-card Repair debt;
+- local `+` / real failure owns targeted Repair admission;
 - no fixed daily volume / due-card quota belongs in canonical learning logic;
-- Astro executes low-friction learning; Chat adaptively orchestrates review policy from evidence and learner feedback.
+- Astro executes low-friction learning; Chat adaptively orchestrates policy from learner evidence and feedback.
 
-### Current Content execution problem
+### Gold calibration closure
 
-The Content rule layer is now explicit, but corpus-scale execution is not yet reopened.
+The representative calibration closed four distinct content shapes:
 
-The next step is to prove one **small bounded execution model** before any large batch work resumes.
+- `ambulance` — `NO_CHANGE + SAFE_SIMPLE`;
+- `abstract` — `UPGRADED + DEPTH_READY`, proving rich polysemy / academic noun / construction / pronunciation-form handling;
+- `access` — `UPGRADED + DEPTH_READY`, proving noun-versus-verb grammar and reusable construction handling;
+- `sanction` — `UPGRADED + DEPTH_READY`, proving contronym decision boundaries and same-word ownership reconciliation.
 
-Use a representative calibration set spanning at least:
+The legacy single-member `sanction` contronym Relation is now a reference-only compatibility pointer; the live approval-versus-penalty semantic boundary is Word-owned.
 
-- simple / likely `SAFE_SIMPLE`;
-- rich polysemy / familiar-new;
-- construction-heavy;
-- confusable / contronym / Relation-risk;
-- one Form / pronunciation / register case when available.
-
-For each specimen:
+This proves:
 
 ```text
-read latest Current owner
-→ fresh Content judgment under CONTENT_ASSET_CONTRACT
-→ classify final target SAFE_SIMPLE / DEPTH_READY / BLOCKED
-→ mutate only if needed
-→ final integrated owner readback
-→ verify local Repair targets remain addressable
-→ record operation history separately from final quality
+read latest owner
+→ fresh vNext judgment
+→ direct mutation only when needed
+→ final integrated readback
+→ reconcile Relation/Form ownership
+→ local receipt / closure
 ```
 
-The calibration must also prove that Relation / Form owners are reconciled against the latest integration truth rather than silently diverging across ordinal branches.
+without returning to an audit → queue → later-repair loop.
 
-Only after this bounded path is clean may corpus-scale execution restart.
+### Next action
 
-### Required execution rule after calibration
+Start the first **bounded corpus execution unit** from the latest integration head.
 
-A Chat may own a larger ordinal range for convenience, but semantic acceptance must close in smaller local units:
+Use these rules:
 
-```text
-bounded owners
-→ judgment
-→ direct owner mutation when needed
-→ final-object readback
-→ receipt / closure
-→ next local unit
-```
+1. owner coverage is fresh under the vNext contract;
+2. semantic mutation happens directly when required;
+3. final-object readback closes the same local unit;
+4. each ordinal receives one current-generation Content conclusion;
+5. final outcome is `SAFE_SIMPLE`, `DEPTH_READY`, or explicit `BLOCKED`;
+6. operation history `NO_CHANGE / UPGRADED` remains separate from final quality;
+7. Relation/Form owners that cross ordinal ranges reconcile against the latest integration truth before acceptance;
+8. large Chat ownership ranges may exist later, but no hundreds-of-owners deferred repair spec is allowed.
 
-Do **not** inspect hundreds of owners, accumulate repair specs, then apply them later.
-
-Final content outcomes are:
-
-```text
-SAFE_SIMPLE
-DEPTH_READY
-BLOCKED
-```
-
-Operation history is independent:
-
-```text
-NO_CHANGE / UPGRADED
-```
-
-Thus `NO_CHANGE + DEPTH_READY` and `UPGRADED + SAFE_SIMPLE` are both legitimate.
+Begin small enough to preserve semantic judgment quality. Scale only after repeated local direct-close units remain clean.
 
 ---
 
@@ -117,7 +98,7 @@ Thus `NO_CHANGE + DEPTH_READY` and `UPGRADED + SAFE_SIMPLE` are both legitimate.
 - no hard scheduler / SRS parameter design;
 - no pack-profile expansion beyond retaining current membership metadata;
 - no new historical audit round;
-- no blind 7,946-owner rewrite merely to satisfy throughput;
+- no blind wholesale rewrite merely to satisfy throughput;
 - no private learner-state mutation;
 - no English / Politics / Xizong sibling changes.
 
@@ -130,10 +111,11 @@ Existing downstream Lexical UI / Runtime remains provisional and must not decide
 1. `content/lexical/LEARNING_CONTRACT.md`
 2. `content/lexical/CONTENT_ASSET_CONTRACT.md`
 3. `content/lexical/ACCEPTANCE.md`
-4. tiny representative owner set only for the active calibration
-5. historical audit / stopped Fresh Rebuild material only when needed as bounded defect-sentinel evidence
+4. `content/lexical/audit/vnext-content-calibration/gold01-receipt.json`
+5. only the exact Current owners / Relation / Form owners needed for the active bounded execution unit
+6. historical audit / stopped Fresh-Rebuild assets only as bounded defect-sentinel or candidate evidence when materially useful
 
-Do not read the full 7,946 corpus to calibrate the execution model.
+Do not reread the full legacy history or inspect the full 7,946 corpus by default.
 
 ---
 
@@ -147,6 +129,7 @@ Do not read the full 7,946 corpus to calibrate the execution model.
 - pack membership metadata → `content/lexical/canonical/packs/`
 - lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
 - content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
+- vNext execution calibration → `content/lexical/audit/vnext-content-calibration/`
 
 ### Acceptance Truth
 
@@ -165,7 +148,7 @@ Lexical CURRENT
 → Lexical LEARNING_CONTRACT
 → Lexical CONTENT_ASSET_CONTRACT
 → Lexical ACCEPTANCE
-→ tiny representative calibration set
-→ prove bounded direct-close Content execution
-→ only then reopen corpus-scale 7,946-owner work
+→ vNext Gold calibration receipt
+→ exact owners for the next bounded corpus unit
+→ direct-close execution
 ```
