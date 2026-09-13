@@ -11,160 +11,130 @@ It does not own medical Core, lane learning semantics, Work Cursor, or Kian's pr
 
 ---
 
-## Gate status
+## Fresh-reset gate status
 
 ```text
-S  BLOCKED — exact Current official-question membership owner not yet accepted
-K  PASS — 38 stable Blocks / 600 stable KPs + accepted System model
-L  UNTESTED — ACTIVE on the Knowledge→Learning dependency chain
+S  UNTESTED — ACTIVE / fresh audit in progress
+K  UNTESTED — downstream-frozen behind S
+L  UNTESTED — downstream-frozen behind K
 P  UNTESTED — downstream-frozen behind L
 R  UNTESTED — downstream-frozen behind P
 E  UNTESTED — downstream-frozen behind R
-U  UNTESTED — real learner use only after engineering readiness
+U  UNTESTED — real learner use only
 ```
 
 Current allowed conclusion:
 
-> **B's medical Knowledge model is accepted and Learning design may proceed. Source remains partially blocked only on the exact official-question membership needed for the later honest System question sweep. That Source blocker does not revoke the accepted medical Core or force unrelated Knowledge/Learning work to wait. B is not yet learner-ready.**
-
-This is dependency-scoped scheduling rather than a synthetic linear queue: K/L can advance from the accepted medical/source boundary, while execution of the later official-question sweep remains dependent on S question-scope closure.
+> **B is undergoing a fresh Source-first reconstruction. No prior B K/L PASS or candidate is Current acceptance authority for this rebuild. B is not learner-ready.**
 
 ---
 
-## S — BLOCKED｜official-question membership sub-boundary
+## Reset receipt
 
-### What is already authoritative
+The previous B Knowledge `system.json` candidate and B system-learning candidate were removed from Current on the fresh rebuild branch before Source re-acceptance.
 
-- B System identity and ownership are declared by `content/xizong/knowledge/manifest.json`.
-- B medical Block/KP Core exists under `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/`.
-- Current System-level Knowledge owner is `system.json`; the earlier System Guide is retained as transitional/reference substrate rather than a parallel semantic owner.
-- The System Guide's Scope Audit establishes the first-party medical/source boundary across digestive, material/energy metabolism, endocrine, biochemistry/molecular biology and assigned tumor interfaces.
-- Current official Question Truth is `content/xizong/questions/`.
+Preserved evidence/substrate:
 
-### What is missing
+- 38 B Block Markdown files and their currently embedded KP identities;
+- the prior source-bound System Guide as transitional evidence only;
+- Current official Question Truth;
+- reviewed Question→Knowledge relation records.
 
-No accepted Current B question-scope owner yet records the exact official-question membership required for a later honest System question sweep.
-
-Current Question Truth cannot silently manufacture this membership: question-level `classification.system/block/chapter/subject` fields are not a complete accepted B routing layer, and reviewed Question→Knowledge relations are intentionally sparse and separate from System membership.
-
-### Acceptance requirement
-
-S remains BLOCKED until a Current owner is accepted that:
-
-- contains stable exact question IDs;
-- resolves every included ID against Current Question Truth;
-- derives membership from the canonical B source boundary plus explicit collision/inclusion/exclusion decisions;
-- checks negative space and neighboring-system false positives;
-- leaves real ambiguities explicit until reviewed;
-- does not target a desired historical count such as `1072`;
-- does not infer precise Question→Block/KP relations from System membership;
-- records reconstruction provenance honestly.
-
-A historical count or historical routing artifact may be evidence, but is not sufficient by itself for Current PASS. The previously attempted bounded recovery is closed; normal work must not resume broad historical archaeology.
-
-Evidence mode required for closure: at minimum `STRUCTURAL + ADVERSARIAL` over Current authority, with executable identity/count/inventory validation where practical.
-
-### Scheduling consequence
-
-This unresolved sub-boundary blocks **the official B System question sweep and evidence derived from that exact sweep**. It does not block formation of the medical System model, causal learner order, MarginNote/KianOS surface ownership, Logic Group structure, Block Recall semantics or other work whose correctness does not depend on knowing the exact qid membership.
+These preserved artifacts do not manufacture S/K/L PASS.
 
 ---
 
-## K — PASS
+## S — UNTESTED / ACTIVE
 
-Accepted Current owner:
+### Acceptance question
 
-`content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json`
+> **Is the complete B source boundary reliable enough that downstream Knowledge can be rebuilt without silent omission, duplication, guessed ownership or leakage across neighboring Systems — and can the exact official-question System membership be reproduced from Current authority with explicit adjudication?**
 
-Accepted stable substrate:
+### Required S1｜medical/source boundary
 
-- **38 canonical Blocks** = D1–D23 + M1–M10 + G1–G5;
-- **600 canonical KP identities**;
-- zero missing Block ordinal and zero duplicate Block ordinal;
-- 600 sequential KP headings and 600 unique `kianos:kp` identities after bounded metadata-only repair of D8 and D11;
-- no Block/KP split, merge, semantic rewrite or renumbering;
-- legacy `system_id` spelling variants are aliases and are not normalized by rewriting medical Core.
+The audit must independently establish:
 
-Accepted System model:
+- Current first-party source regions owned by B across physiology, pathology, internal medicine, surgery and biochemistry/molecular biology;
+- per-Block Primary versus Recall / Apply / Interface / Defer semantics;
+- explicit source gaps, visual gaps, provisional-source status and source conflicts;
+- B interfaces with A1/A2/A3/C/D/E/F and O9 without importing neighboring complete models;
+- negative space and mixed-owner chapter/topic decisions.
 
-- mother model = **food/substrate input → gastrointestinal transport/digestion → selective absorption → portal/lymph delivery → carbon/energy + storage/mobilization + nitrogen/bilirubin/xenobiotic handling → endocrine flow control → DNA→RNA→protein execution and clonal control → clinical evidence/localization**;
-- eleven functional components spanning transport tube, mucosal barrier, digestive glands, absorption interface, ATP engine, storage/mobilization, nitrogen/one-carbon, liver chemical hub, endocrine controller, genetic-information system and abdominal/surgical space;
-- thirteen Failure Modes covering motility/outlet, mucosa, digestive-fluid, absorption, ATP/redox, substrate routing, lipid transport, nitrogen/urea, nucleotide, liver chemistry, abdominal contamination/bleeding/obstruction, endocrine-axis and genetic/clonal-control failure;
-- explicit judgment axes for GI localization, metabolic-state localization, hepatic/cholestatic/portal differentiation, endocrine feedback localization, acute crisis vs chronic complications and tumor source/depth/spread/resectability;
-- explicit negative space for renal, hematology/coagulation, immune/infection, reproductive, neurologic, tumor-general and modern oncology guideline owners;
-- question count is not a Knowledge completeness target, and missing exact B official-question membership cannot be smuggled into K as a guessed `1072` list.
+A source is not accepted merely because a Block file cites it. The declared scope must be challenged for missing coverage and over-ownership.
 
-### K falsification and evidence
+### Required S2｜exact official-question System scope
 
-Evidence mode: `STRUCTURAL + EXECUTED + ADVERSARIAL`  
-Independence: `SELF`
+A future Current `b-...-question-scope` owner must:
 
-Strongest falsification attempted:
+- enumerate stable exact question IDs deterministically;
+- resolve every ID in Current Question Truth;
+- derive membership from the accepted B source boundary plus explicit inclusion/exclusion/collision decisions;
+- preserve unresolved ambiguity rather than count-fit it away;
+- attack neighboring-System false positives and likely B false negatives;
+- keep System membership separate from Question→Block/KP relations;
+- record provenance and any reconstruction status honestly.
 
-1. machine-enumerated every Current B Block rather than trusting the old Guide's counts;
-2. compared expected D1–D23 / M1–M10 / G1–G5 identity set against actual files;
-3. counted actual KP headings and stable markers, checking duplicates and gaps;
-4. found a real metadata defect: all 25 D8 KP markers plus D11 KP02 marker were missing while the medical KP bodies existed;
-5. repaired only those 26 identity markers through a two-file fail-closed migration, without changing medical prose;
-6. challenged legacy `system_id` inconsistency and resolved it as alias debt rather than mass-editing medical owners;
-7. challenged negative space and prohibited question-count / Question→KP inference shortcuts;
-8. ran `validate-xizong-b-knowledge.mjs` alongside existing A1/A2/A3/shared regressions and the Astro build.
+### Forbidden evidence / shortcuts
 
-Validation evidence:
+The following cannot establish S:
 
-- bounded marker repair run `34763908768` → success;
-- Xizong QA run `34764075042` (#325) → success;
-- `Validate B Knowledge contracts` → PASS;
-- `Inspect B Current Core substrate` → PASS;
-- A1/A2/A3/shared regressions → PASS;
-- `Build Astro` → PASS.
+- the deleted B K mother model or L learner route;
+- historical `1072` or any other target count by subtraction/count fitting;
+- nullable Current `classification.system/block/chapter/subject` fields;
+- keyword/title similarity without source-ownership adjudication;
+- 38 Block / 600 KP counts;
+- build/validator success alone;
+- previous B Acceptance wording;
+- broad historical archaeology after a bounded recovery path has already failed to add material evidence.
 
-K PASS is a Knowledge/readiness claim only. It does not mean Kian has learned any B Block or that the official B question sweep is available.
+### Minimum fresh falsification floor
 
----
+Evidence mode required before PASS: at least `STRUCTURAL + EXECUTED + ADVERSARIAL`.  
+Independence target: fresh auditor reasoning rather than inheriting builder conclusions.
 
-## L — UNTESTED / ACTIVE
+Required attacks:
 
-L is now the earliest unresolved eligible gate on the medical Knowledge→Learning dependency chain.
+1. reconcile every B Block's declared source boundary against a System-level source map;
+2. inspect mixed-owner and adjacent-system negative space;
+3. adjudicate collision regions instead of assigning whole chapters mechanically;
+4. validate exact qid resolution/uniqueness/inventory deterministically;
+5. test strongest plausible false-positive and false-negative hypotheses;
+6. prove that precise Question→Knowledge routing is not being inferred from System scope.
 
-The inherited lane constitution already fixes the non-negotiable surface model:
-
-- **iPad / MarginNote** = continuous original Lecture/source reading, source figures/tables, annotations, source-local examples and Lecture-attached questions;
-- **KianOS** = System/Block orientation, attention boundary, selective cues, active retrieval, Logic Group closure, Block/System compression, Wrong/Uncertain routing and later review;
-- **Chat** = adaptive explanation, mechanism linking and smallest-sufficient repair.
-
-B Learning must now determine the causal learner route and Logic Group/closure structure for the accepted 38-Block / 600-KP substrate without reviving the old Guide as a second primary Lecture reader.
-
-L may define when the later official System question sweep belongs in the learner journey, but actual execution/loading of that sweep remains gated by S exact question membership.
+Until those are done, S remains UNTESTED / active.
 
 ---
 
-## P / R / E
+## K / L / P / R / E — downstream-frozen
 
-Downstream-frozen behind L on the learner-surface chain.
+No downstream gate may be accepted from removed prior candidates.
 
-The existence of old web/runtime surfaces is not evidence of P/R/E acceptance. In particular, B's current D/M/G file layout is a future Projection concern and must not be used as a reason to rewrite medical Core during K/L.
+When S eventually passes:
+
+```text
+accepted Source boundary
+→ fresh K reconstruction from real B Core + Source
+→ K falsification / negative-space acceptance
+→ only then L construction and alternative-route challenge
+```
+
+The old System Guide may inform Source provenance/boundaries but may not silently become the answer to K or L.
 
 ---
 
 ## U — UNTESTED
 
-U is real learner validation only and is not currently eligible.
-
-No repository state implies Kian has started, completed, recalled, answered, repaired, or validated B.
+U is real learner validation only. No repository state implies Kian has learned, recalled, answered, repaired or validated B.
 
 ---
 
 ## Truth boundaries
 
-### Artifact Truth
+### Artifact / Source evidence
 
-- owner map → `content/xizong/knowledge/manifest.json`
-- B System Knowledge → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json`
-- B medical Core → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/` D/M/G canonical Block Markdown
-- transitional/reference System Guide → `content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md`
-- lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
-- Current Question Truth → `content/xizong/questions/`
+- B Current Block substrate → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/`
+- transitional source-bound System Guide → `content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md`
+- Current official Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
 ### Acceptance Truth
