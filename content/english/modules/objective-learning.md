@@ -1,82 +1,88 @@
-# Objective Tasks｜第一次学习框架与高密度能力资产
+# Objective｜Reading A / Cloze / Part B 第一次学习主干
 
-> **定位**：English I 客观题（Reading A / Cloze / Reading B）的 Current learner-facing first-learning asset。  
-> **静态内容策略**：稳定、高频、真正改变做题能力的内容应完整写在这里；学习者会的内容可以直接跳过，不因为基础强就把正文裁薄。  
-> **第一次学习**：先建立 Objective Global Map，再连续学习对应题型的 Core Learning Blocks；不要从题型标签、错题卡或几十个 Skill 节点开始。  
-> **强基础路径**：快速校准 Core Blocks，能稳定解释并执行的部分直接跳到 Skill Content 或真实题。Fast Track 改变阅读路径，不改变静态资产完整度。  
-> **后续训练**：Skill Map 负责稳定地址与诊断；真实题目负责提供 evidence；Runtime 负责 Attempt / Review / Repair / Transfer。  
-> **Chat 展开原则**：静态资产负责主干 mental model、稳定边界、可执行动作与代表性竞争；复杂歧义、多机制叠加、真实强竞争项、个性化 micro-drill 和 transfer judgment 在真实遇到时交给 Chat。`可以问 Chat` 不是把正文做薄的借口，也不是提前写完所有长尾的理由。  
-> **原则**：先形成足够强的生成模型，再让真实题目不断校准；Skill Map 是地址，不是第一次学习课程目录；真实 transfer 比重复同题更能证明学会。
+> **目标**：不是背题型技巧，而是学会在有限时间里做出有证据的选择。  
+> **怎么用**：先看共同 Global Map，再进入对应题型。已经稳定会做的部分可以直接跳过；真实题卡住时再回到相应节点。  
+> **三种题不是同一种阅读题**：Reading A 判断选项命题，Cloze 判断 slot 的 best fit，Part B 重建篇章关系。  
+> **Fast Track**：会的直接跳，内容完整不等于必须线性读完。
 
 ---
 
 <a id="global-map"></a>
-# A｜Objective Global Map：客观题到底在训练什么
+# A｜Objective Global Map：客观题真正训练什么
 
 客观题不是：
 
-> 看文章 → 凭感觉从几个答案里挑一个。
+> 看懂大概意思 → 凭感觉挑一个最顺眼的答案。
 
-真正共同的决策骨架是：
+共同骨架是：
 
 ```text
 INPUT
 文章 / 局部上下文 / 题目 / 候选
 ↓
 REPRESENT
-先把当前需要理解的语言、命题和关系搭准
+先把当前真正需要理解的语言、命题和关系搭准
 ↓
 DEMAND
-现在到底缺什么、问什么、要求什么角色
+现在到底缺什么 / 问什么 / 要完成什么角色？
 ↓
 CANDIDATES
-真正有哪些竞争假设
+真正有竞争力的是谁？
 ↓
 EVIDENCE / CONSTRAINTS
-什么证据能支持、限制或排除它们
+哪些证据支持、限制或排除它们？
 ↓
 ADJUDICATE
-找到真正决定答案的差异
+哪个差异真正决定胜负？
 ↓
 EXECUTE
-在考试时间里做出稳定决定并离开
+有足够证据就做决定，然后离开
 ```
 
-三种客观题共用这条抽象骨架，但认知对象不同：
+三种题共用这条骨架，但**决策对象完全不同**：
+
+| 题型 | 你真正判断的东西 | 核心问题 |
+| --- | --- | --- |
+| **Reading A** | option proposition | 哪个选项最忠实地待在文本证据边界内？ |
+| **Cloze** | slot + candidate | 在所有有效 constraints 下，哪个候选是 best fit？ |
+| **Part B** | discourse map | 哪个候选完成当前位置/目标需要的篇章角色，并让整张图继续成立？ |
+
+所以不要把三个题型压成一句“定位原文找同义替换”。
+
+---
+
+## A1｜先判断：是语言没搭准，还是题型动作没做对
+
+一道题错了，最先问：
 
 ```text
-Reading A
-Question Demand → Decisive Evidence → Option Proposition → Adjudication
-
-Cloze
-Slot Demand → Constraints → Candidate Competition → Best Fit
-
-Reading B
-Discourse Skeleton → Position Demand → Candidate Role → Global Reconciliation
+当前关键句 / 段我真的理解了吗？
+├─ 没有
+│  → 先解决词义、scope、reference、relation、篇章推进
+└─ 理解基本够用
+   ↓
+我知道这道题真正要求什么吗？
+├─ 不知道 → Demand 问题
+└─ 知道
+   ↓
+我能指出决定答案的 evidence / constraint 吗？
+├─ 不能 → Evidence / Constraint 问题
+└─ 能
+   ↓
+我是否比较了真正竞争的候选？
+├─ 没有 → Adjudication 问题
+└─ 有 → 再看 execution / one-off slip
 ```
 
-## A1｜先区分能力层和题型层
+这比先给错误贴“推断题错了 / 完形词义错了 / 新题型错了”的标签更有用。
 
-一个错误首先问：
+词义、搭配、构式等长期知识继续回 LexicalOS；Objective 只负责当前题里的调用与决策。
 
-> **最早哪一层已经坏了？**
+---
 
-如果是：
+## A2｜题型标签只是导航，不是答案生成器
 
-- 词义、搭配、构式、熟词新义、confusable → **Lexical**；
-- 句意、scope、reference、逻辑关系、篇章推进没有搭准 → **Reading**；
-- 语言表示已经够用，但不会完成该题型的决策动作 → 才属于 **Reading A / Cloze / Reading B task-specific procedure**。
-
-因此客观题不是三套独立知识库。
-
-```text
-Lexical / Reading = 可迁移能力 owner
-Reading A / Cloze / Reading B = 决策训练器
-```
-
-## A2｜为什么不能从“题型分类”开始学
-
-老师常见目录可能是：
+老师常见目录：
 
 ```text
 细节题
@@ -87,403 +93,325 @@ Reading A / Cloze / Reading B = 决策训练器
 ……
 ```
 
-这些标签可以描述题目，却不一定解释为什么做错。
+这些名称能描述题目，但未必解释为什么做错。
 
-同样一题“推断题”，真正 failure 可能分别是：
+同样是 inference，真实失败可能分别是：
 
-- 没读懂句子；
-- 找错 evidence range；
-- 把 `may` 当成 `must`；
-- 把局部例子扩大成作者总体观点；
-- 证据和选项都理解了，但没有比较真正竞争的两项。
+- `may` 被读成 `must`；
+- evidence range 找太窄；
+- 把例子扩大成普遍规律；
+- 两个 option 都理解了，却没比较谁多说了一步。
 
-所以第一次学习先形成**做题认知动作**，题型标签只留作辅助地址。
+所以第一次学习更应该形成**决策动作**，而不是背一整套题型口诀。
 
-## A3｜正确题不是自动学习债务
+---
 
-第一次学习资产负责建立 mental model；真实训练负责验证它。
+## A3｜稳定正确的题，不欠一轮解析
 
-一篇 / 一组题全部稳定做对时：
+如果一篇 / 一组题：
 
 ```text
-PASS → next
+答案稳定正确
++
+没有实质 uncertainty
++
+过程没有明显异常
 ```
 
-不需要为了“学完整”强迫打开每题解析。
+就可以：
 
-只有 wrong / unanswered / uncertain 或高质量行为 evidence 才进入 repair。
+```text
+PASS → NEXT
+```
 
-## A4｜Fast Track 的正确用法
+正确题不是自动学习债务。
 
-Fast Track 不是删教材，而是允许跳读。
+Wrong / unanswered / meaningful uncertain 才提示你：这里可能值得回看 decisive difference。
 
-对任一 Core Block，如果你已经能在真实题里稳定做到：
+---
+
+## A4｜Fast Track：内容写全，但不强迫线性读完
+
+如果你已经能稳定做到：
 
 ```text
 知道当前 demand
 +
 能指出 decisive evidence / constraint
 +
-能解释真实竞争项为什么分出胜负
+能解释真实竞争项为什么分胜负
 +
 知道什么时候该停
 ```
 
-就可以快速扫过正文，直接去：
+对应 Core Block **可以直接跳过**。
 
-- Starter / Deep Skill Content；
-- 真题 Attempt；
-- 已暴露 failure 的定向 repair。
-
-静态资产仍完整保留，未来某个机制变成 bottleneck 时再回来。
+真实题以后暴露具体 friction，再回来查相应 Skill Content。
 
 ---
 
 <a id="reading-a"></a>
 # B｜Reading A：Evidence Adjudication
 
-## B0｜Global Model
+Reading A 的核心不是“找到原文”，而是：
 
-Reading A 不是“读懂文章以后凭印象选最像的”。
-
-真正工作链是：
+> **把题目要求、文本证据和选项命题对齐，判断哪个选项没有越过文本允许的边界。**
 
 ```text
 TEXT REPRESENTATION
-当前相关文本到底说了什么
 ↓
 QUESTION DEMAND
-这道题要求判断什么 proposition
 ↓
 DECISIVE EVIDENCE
-哪一段文本真正决定答案
 ↓
 OPTION PROPOSITIONS
-每个候选到底在断言什么
 ↓
 BOUNDARY / CONTRAST
-谁越界、偷换、强化、缩小或答非所问
 ↓
 ADJUDICATION
-选择证据支持最充分的一项
 ↓
-EXECUTION
-有证据就离开，没有决定性新证据不乱改
+STOP
 ```
 
-Reading A 的高分区难点经常不是“文章完全没读懂”，而是：
+高分区最常见的陷阱不是完全看不懂，而是：
 
 > **文本只说到这里，错误选项偷偷多走了一步。**
 
 ---
 
 <a id="ra-core-1"></a>
-## B1｜Core Block 1：Question Demand｜先把题目压成判断任务
+## B1｜Question Demand：先确定“我要判断什么”
 
-### 核心模型
+### 核心问题
 
-题干不是标签，而是对 evidence 的需求说明。
+题干不是一个标签，而是对 evidence 的需求说明。
 
-做题前先把问题压成：
-
-```text
-我要判断谁 / 什么？
-判断的是事实、原因、态度、目的、关系还是推断边界？
-答案必须覆盖什么范围？
-需要直接证据，还是允许受控推断？
-```
-
-例如：
-
-> What can be inferred from paragraph 3?
-
-不要只在脑中贴“推断题”。更有效的是：
-
-> **我要找一个 paragraph 3 没有逐字说出、但被其证据充分支持，而且不能超过证据强度的 proposition。**
-
-这会直接改变后面对选项的判断标准。
-
-### Question type 的正确身份
-
-DETAIL / INFERENCE / ATTITUDE / MAIN IDEA 等可以帮助预期 evidence 形状，但不能替代实际 demand。
-
-两个同属 inference 的题，可能一个主要考 scope，一个考 cause boundary；两个 DETAIL 题也可能一个考 reference，一个考 attribution。
-
-### Demand Drift｜做到一半别把题目换掉
-
-常见隐性错误不是“没看懂题干”，而是做着做着把任务换了：
+做题前先压成：
 
 ```text
-题目问 why
-→ 你找到一段相关背景
-→ 最后选了“这件事是什么”
+对象是谁 / 什么？
+↓
+要判断事实、原因、态度、功能、关系，还是推断？
+↓
+合法 evidence range 在哪里？
+↓
+允许直接复述，还是允许受控推断？
 ```
 
-或者：
+### 题型标签 ↔ 真正 demand
 
-```text
-题目问 author's attitude
-→ 你选了一个事实正确、但不是态度判断的选项
-```
+| 表面题型 | 真正要锁定的 demand |
+| --- | --- |
+| Detail | 哪个具体 proposition 被文本直接承担？ |
+| Inference | 哪个未逐字出现的 proposition 被证据充分支持，但没有越界？ |
+| Why / Cause | 原文真正承担的原因是什么，而不是相关背景是什么？ |
+| Purpose / Function | 作者为什么在这里提 X，它在段落中起什么作用？ |
+| Attitude | 谁对什么对象持什么 stance，强度多大？ |
+| Main Idea | 哪个 proposition 覆盖全文/段落的合法 scope，而不是某个强烈局部？ |
 
-执行动作：
-
-> 当两个选项都像答案时，重新用一句话说出 question demand，检查其中一个是不是其实在回答另一个问题。
-
-### Active Check
+### Demand Drift｜做着做着别把题换掉
 
 题目问：
 
-> Why does the author mention X in paragraph 2?
+```text
+Why does the author mention X?
+```
 
-不要先看选项，只回答：
+你可能找到了一段准确描述 X 的文字，然后选了“X 是什么”。
 
-1. 这里需要的是 X 的事实内容，还是 X 在段落里的功能？
-2. 如果一个选项准确复述 X，但没有解释作者为什么提它，它满足 demand 吗？
+信息是真的，但回答了另一个问题。
+
+当两个选项都像答案时，先重新说一遍：
+
+> **这道题到底要求我判断什么？**
+
+如果一个选项内容正确却没完成 demand，它仍然不是答案。
+
+> **带走：先锁 demand，再评价 evidence。**
 
 ---
 
 <a id="ra-core-2"></a>
-## B2｜Core Block 2：Decisive Evidence & Boundary｜定位不是找到相关词
+## B2｜Decisive Evidence & Boundary：相关，不等于决定答案
 
-### 核心模型
-
-真正的 decisive evidence 是：
-
-> **没有这段证据，就不能可靠决定竞争项；有了它，就能让它们分出胜负。**
-
-定位有三个层次：
+### 三层定位
 
 ```text
 TOPIC MATCH
-找到了同一个主题
+找到同一个主题
 <
 RELEVANT REGION
-找到了相关句群
+找到相关句群
 <
 DECISIVE EVIDENCE
-找到真正限制答案边界的最小证据
+找到真正把竞争项分开的最小充分证据
 ```
 
-很多“定位错”并不是完全找错段落，而是：
+很多“定位错误”其实已经到了正确段落，只是还停在 relevant region，没有缩到真正决定答案的 qualification / scope / relation。
 
-> 找到了相关区域，却没有缩到真正决定答案的 relation / scope / qualification。
+### 什么叫 decisive
 
-### Evidence Boundary｜答案必须待在文本许可范围内
+> **再删一点，就无法可靠分出竞争项；再加很多，只会增加噪声。**
 
-文本支持可以粗略想成一个边界：
+有时是一句；有时必须连前一句的 antecedent 或下一句的 qualification 一起看。
+
+### Evidence Boundary｜选项不能比原文承担更多
+
+原文：
+
+> The approach may help some users under limited conditions.
+
+| 原文承担 | 选项偷走的一步 | 问题 |
+| --- | --- | --- |
+| may help | will help | modality 强化 |
+| some users | all users | scope 扩大 |
+| limited conditions | most situations | condition 扩大 |
+| 没说谁偏好它 | researchers prefer it | 新增 attribution |
+
+可以把错误项想成：
 
 ```text
-text says X
-```
+TEXT SUPPORT = X
 
-选项可能变成：
-
-```text
-X
+错误项可能是：
 X + stronger degree
 X + broader scope
 X + new cause
 X + new attribution
-X + universal claim
 X + different condition
 ```
 
-主题一致不等于命题一致。
+### Negative Evidence｜“没被文本承担”本身就是证据
 
-例如原文：
+有些错误项找不到一句原文直接反驳它。
 
-> The approach may help some users under limited conditions.
+但如果它引入：
 
-以下变化都高度危险：
+- 新因果；
+- 新态度；
+- universal claim；
+- 新主体；
+- 新条件；
 
-- `will help users` → modality 强化；
-- `helps all users` → quantity / scope 扩大；
-- `works in most situations` → condition 扩大；
-- `is preferred by researchers` → 新增 attribution。
+而文本从未承担，那么它已经越过 evidence boundary。
 
-### Minimal Evidence｜越短越好吗？不是
-
-最小证据不是机械追求最短句子。
-
-真正标准是：
-
-> **再删一点，就无法可靠判定；再加很多，只会增加噪声。**
-
-有时 decisive evidence 是一句；有时必须包含前一句的 reference 或下一句的 qualification。
-
-### Negative Evidence｜没有支持本身也可能决定答案
-
-某些题目不是找到一句直接反驳，而是：
-
-- 选项引入了文本从未承担的新因果；
-- 选项把作者没评价的对象写成褒贬态度；
-- 选项给出 universal claim，但全文没有这种范围支持。
-
-这时关键动作不是继续找“对应原句”，而是确认：
-
-> **文本是否真的提供了支撑这一步额外断言的 evidence？**
+> **带走：答案不仅要“相关”，还必须待在文本许可范围内。**
 
 ---
 
 <a id="ra-core-3"></a>
-## B3｜Core Block 3：Option Proposition｜把选项当成精确命题
+## B3｜Option Proposition：不要把选项当“意思差不多的一句话”
 
-### 核心模型
-
-一个选项至少可以拆成：
+一个选项可以拆成：
 
 ```text
-ENTITY / SUBJECT
-谁或什么
-
-PREDICATE
-发生什么 / 被判断为什么
-
-OBJECT
-作用到谁 / 什么
-
-SCOPE / QUANTITY
-适用范围多大
-
-DEGREE / MODALITY
-说得有多满
-
-RELATION
-因果、比较、条件、归属是什么
-
-TIME / CONDITION
-什么时候成立
+ENTITY / SUBJECT   谁？
+PREDICATE          发生什么 / 被判断为什么？
+OBJECT             作用到谁 / 什么？
+SCOPE / QUANTITY   范围多大？
+DEGREE / MODALITY  强度多高？
+RELATION           因果 / 比较 / 条件 / 归属是什么？
+TIME / CONDITION   什么时候成立？
+ATTRIBUTION        谁承担这个观点？
 ```
 
-因此比较选项时不要问：
+两个选项词面可能很像，但只要其中一个字段变了，命题就已经不同。
 
-> 哪一句“像原文”？
+### 高频 shift families
 
-而要问：
+| Shift | 常见偷换 |
+| --- | --- |
+| Entity / Object | 主体或对象被换掉 |
+| Scope / Quantity | `some` → `most / all` |
+| Degree / Modality | `may` → `will`；`tend to` → `always` |
+| Cause / Relation | 同现 / 条件 / 顺序 → 因果 |
+| Attribution | 研究者观点 → 作者观点；转述 → 赞同 |
+| Time / Condition | 特定情境 → 一般情况 |
+| Local → Global | 某段 / 某群体 → 全文 / 所有人 |
+| Example → Claim | 个案 → 普遍规律 |
+| True but Irrelevant | 内容正确，却没回答 demand |
 
-> **这个 option proposition 和 decisive evidence 相比，哪个字段变了？**
+### Paraphrase 不等于词面重合
 
-### 高频 Shift Families
+正确项可能换掉大量词，却保持同一 proposition。
 
-```text
-ENTITY / OBJECT SHIFT
-主体或对象换了
-
-SCOPE / QUANTITY SHIFT
-局部 → 全部；some → most / all
-
-DEGREE / MODALITY SHIFT
-may → will；tend to → always
-
-CAUSE SHIFT
-相关 / 条件 / 顺序 → 因果
-
-ATTRIBUTION SHIFT
-作者观点 → 他人观点；研究结果 → 作者判断
-
-TIME / CONDITION SHIFT
-特定阶段 / 条件 → 一般情况
-
-LOCAL → GLOBAL
-某段局部结论 → 全文总体立场
-
-EXAMPLE → CLAIM
-例子 / 个案 → 一般规律
-
-TRUE BUT IRRELEVANT
-内容本身正确，但没有回答 question demand
-```
-
-这些 code 是 Skill Map 地址，不要求背术语；真正要形成的是 proposition-level comparison。
-
-### Paraphrase ≠ Same Proposition
-
-高质量正确项常不是原文同义替换那么简单，而是结构换了但 proposition 保持。
-
-同样，错误项也可能大量复用原词，却在一个小字段上改命题。
+错误项也可能复用原文大量词，只偷偷改一个 scope / cause / subject。
 
 所以 authority 永远是：
 
 > **意义结构是否等价，而不是词面重合多少。**
 
+> **带走：两个选项都像时，问“哪个字段变了”。**
+
 ---
 
 <a id="ra-core-4"></a>
-## B4｜Core Block 4：Adjudication & Execution｜真正分胜负的是竞争项
+## B4｜Adjudication：不要平均分析四个选项
 
-### 核心路径
+真实做题通常不是：
 
 ```text
-理解 question demand
-→ 找 decisive evidence
-→ 快速淘汰明显错误项
-→ 找出 2 个真实竞争项
-→ 说清 winning difference
-→ 选择
+A 全面分析
+B 全面分析
+C 全面分析
+D 全面分析
 ```
 
-不要为了“严谨”平均分析四个选项。
-
-### Supported vs Plausible
-
-错误项常常不是荒谬，而是“现实中说得通”。
-
-Reading A 的 authority 不是常识，而是当前文本。
+更高效的是：
 
 ```text
-plausible in the world
+4 options
+↓
+淘汰明显不满足 demand / evidence 的
+↓
+留下 2 个真实竞争项
+↓
+找 winning difference
+↓
+回 decisive evidence 验证
+↓
+选择
+```
+
+### Supported ↔ Plausible
+
+```text
+现实中说得通
 ≠
-supported by the passage
+当前文本支持
 ```
 
-当两个选项都合理时，优先问：
+错误项常常非常合理，只是需要额外假设。
 
-> 哪一个需要额外假设才能成立？
+当两项都 plausible 时，问：
 
-### Competition Test｜不要继续找相同点
+> **哪一个需要文本没给出的那一步？**
 
-两个选项都“有点像”时，不要继续证明它们都相关。
+### Competition Test
 
-改问：
+不要继续找相同点。
 
 ```text
-它们哪一个字段不同？
+两项到底差在哪个字段？
+↓
 这个差异文本承担得起吗？
-哪个选项多说了一步？
+↓
+谁多说了一步？
 ```
 
-### 改答案规则
+### 改答案：必须有新 evidence
 
-如果第一次选择已有明确 evidence：
+第一次选择已有明确证据时：
 
-> **没有新的决定性 evidence，不从已经合理的答案改走。**
+> **没有新的决定性 evidence，不因为“另一个更像”而改。**
 
-“突然觉得另一个更像”“看到一个熟悉词”都不是新证据。
+值得改的真正新证据包括：
 
-真正值得改答案的新 evidence 包括：
-
-- 原先忽略的 qualification；
+- 忽略的 qualification；
 - reference 重新解析后主体变了；
 - 找到直接 contradiction；
-- 发现选项实际回答了不同 demand；
-- 发现原先 evidence range 太窄或太宽。
-
-### 什么时候需要回文章
-
-回去：
-
-- 两个选项只差 scope / degree / attribution；
-- 说不出决定答案的文本依据；
-- inference 看起来合理，但不确定是否越界；
-- reference / relation 会改变 proposition；
-- 主旨/态度题被某个局部强烈句子吸走。
-
-不必回去：
-
-- evidence 已直接 contradiction 一个选项；
-- distractor 明显答非所问；
-- 只是记不清原文具体同义词，但 proposition 已稳定。
+- 发现选项回答了不同 demand；
+- 原先 evidence range 太窄 / 太宽。
 
 ### Stop Rule
 
@@ -494,7 +422,7 @@ question demand
 +
 decisive evidence
 +
-winning difference between real competitors
+real competitors 的 winning difference
 ```
 
 就离开这题。
@@ -502,22 +430,22 @@ winning difference between real competitors
 ---
 
 <a id="ra-skill-map"></a>
-## B5｜Reading A Skill Map：稳定地址，不是题型课程目录
+## B5｜Reading A Skill Map：卡住时查地址
 
 ```text
 RA1 Question Demand
    ├─ requested entity / proposition
    ├─ evidence range
-   ├─ purpose / function demand
-   └─ inference requirement
+   ├─ purpose / function
+   └─ inference boundary
 
 RA2 Evidence
-   ├─ relevant-region locating
+   ├─ relevant region
    ├─ minimal decisive evidence
    ├─ cross-sentence evidence
    └─ evidence boundary
 
-RA3 Option Representation
+RA3 Option Proposition
    ├─ entity / object
    ├─ scope / quantity
    ├─ degree / modality
@@ -530,7 +458,6 @@ RA4 Option Competition
    ├─ true-but-irrelevant
    ├─ local-to-global
    ├─ example-as-claim
-   ├─ partly true
    └─ over-inference
 
 RA5 Discourse
@@ -546,111 +473,113 @@ RA6 Execution
    └─ stop rule
 ```
 
+Skill Map 不是第一次学习清单。
+
+---
+
 <a id="ra-skill-boundary"></a>
-### Deep Skill Content｜RA2.4 Evidence Boundary
+### Deep｜Evidence Boundary：抓住选项最“敢说”的词
 
-**Mental model**：答案必须待在文本证据许可的区域内。现实中“很可能是真的”也不够。
-
-**Boundary test**：找选项里最强、最具体、最承担责任的词：
+高风险词常包括：
 
 ```text
 all / only / must / mainly / cause / always / completely
 most / primary / inevitable / prove / prevent / prefer
 ```
 
-再问：
+看到它们，不是自动判错，而是问：
 
-> 文本真的承担得起这个强度和范围吗？
+> **文本真的承担得起这个强度和范围吗？**
 
-**高分区陷阱**：错误项常只比正确项多一个隐藏承诺，比如把 “can” 变成 “will”，把 “a reason” 变成 “the main reason”，把 “associated with” 变成 “caused by”。
+高分区错误项经常只比正确项多一个隐藏承诺：
 
-**主动判断**：两个选项都像时，优先问：
-
-> 哪一个比文本多说了什么？
+```text
+can → will
+one reason → the main reason
+associated with → caused by
+some → most
+```
 
 ---
 
 <a id="ra-skill-cause"></a>
-### Deep Skill Content｜RA3.4 Cause / Relation Shift
-
-**Mental model**：共同出现、时间先后、条件关系、作者并置，不自动等于因果。
-
-高风险变化：
+### Deep｜Cause / Relation Shift：一起出现，不等于因果
 
 ```text
 A appears with B
-→ A causes B
+≠ A causes B
 
 A is required when B happens
-→ A produces B
+≠ A produces B
 
 A followed B
-→ A resulted from B
+≠ A resulted from B
 ```
 
-**Boundary**：只有文本明确承担 cause / result，或结构上足以推出该因果时，选项才可以写 cause。
+当 option 出现 `because / lead to / result in / due to / responsible for` 这类强因果时，回原文检查：
 
-**主动判断**：看到 `because / lead to / result in / due to / responsible for` 等强因果表达时，回原文检查它是否真的给出了因果 authority。
+> **因果是文本承担的，还是选项自己加的？**
 
 ---
 
 <a id="ra-skill-attribution"></a>
-### Deep Skill Content｜RA3.5 Attribution Shift
+### Deep｜Attribution Shift：同一个观点，换个人说就变了
 
-**Mental model**：同一句观点由谁承担，是命题的一部分。
+观点可能来自：
 
-常见来源：
+```text
+author
+researchers
+critics
+participants
+quoted expert
+hypothetical opponent
+```
 
-- author；
-- researchers；
-- critics；
-- participants；
-- companies / governments；
-- quoted expert；
-- hypothetical opponent。
+选项可以把真实观点放到错误的人头上。
 
-错误项可以把一个真实观点放到错误的人头上。
+态度 / 观点题被卡住时，加一句：
 
-**主动判断**：态度、观点、原因题被两个选项卡住时，加一句：
-
-> 这句话是谁说的？作者是在赞同、转述、限定，还是反驳？
+> **这句话到底是谁承担的？作者是在赞同、转述、限定还是反驳？**
 
 ---
 
 <a id="ra-skill-local-global"></a>
-### Deep Skill Content｜RA4.3 Local → Global / Example → Claim
+### Deep｜Local → Global / Example → Claim
 
-**Mental model**：局部证据可以支持局部结论，不自动代表全文立场或普遍规律。
+局部证据只自动支持局部结论。
 
-高风险场景：
+```text
+一个案例
+≠ 一般规律
 
-- 一个案例被写成一般趋势；
-- 某段限制被写成全文主旨；
-- 某个群体的结果被扩大到所有人；
-- 作者引用他人观点，被选项写成作者最终结论。
+某个群体
+≠ 所有人
 
-**主动判断**：主旨、态度、推断题里，问：
+某段限制
+≠ 全文主旨
 
-> 这个证据的合法 scope 到底是这一句、这一段、这个群体，还是整篇？
+引用他人观点
+≠ 作者最终立场
+```
+
+判断时问：
+
+> **这个 evidence 的合法 scope 到底是这一句、这一段、这个群体，还是整篇？**
 
 ---
 
 <a id="ra-skill-true-irrelevant"></a>
-### Deep Skill Content｜RA4.2 True but Irrelevant
+### Deep｜True but Irrelevant：正确事实，也可能是错误答案
 
-**Mental model**：正确事实 ≠ 正确答案。
+一个 distractor 可以完全符合原文，却没有满足当前 question demand。
 
-一个 distractor 可以：
-
-- 完全符合原文；
-- 甚至是文章的重要信息；
-- 但没有满足当前 question demand。
-
-**判断顺序**：
+判断顺序：
 
 ```text
-先问它是否回答题目
-再问它是否被证据支持
+先问：它回答题目了吗？
+↓
+再问：它被 evidence 支持吗？
 ```
 
 不要反过来。
@@ -658,30 +587,26 @@ A followed B
 ---
 
 <a id="ra-execution"></a>
-### Reading A｜Exam Execution Compression
+### Reading A｜Exam Compression
 
-熟练后无需显式念出所有步骤，压成：
+熟练后压成：
 
 ```text
 问什么？
-→ 哪段证据决定？
-→ 两个真竞争项差在哪？
+→ 哪段 evidence 真正决定？
+→ 两个真实竞争项差在哪？
 → 谁多说了一步？
 → 有证据就走
 ```
 
-如果一篇 5/5、无 uncertain、过程稳定：直接 PASS。
-
-如果错题集中在同一 passage-level misunderstanding：合并 repair，不做“一题一个弱点”。
+一篇稳定 5/5、无 meaningful uncertain，就直接 PASS。
 
 ---
 
 <a id="cloze"></a>
-# C｜Cloze：Slot Constraint → Best Fit
+# C｜Cloze：Slot Constraints → Best Fit
 
-## C0｜Global Model
-
-完形不是二十道独立词义题。
+Cloze 不是二十道独立词义题。
 
 真正任务是：
 
@@ -698,232 +623,235 @@ REAL COMPETITORS
 真正有竞争力的是哪两三个候选？
 ↓
 DECISIVE CONSTRAINT
-哪一条证据把它们分开？
+哪条证据把它们分开？
 ↓
 BEST FIT
 不是“能放”，而是“最合适”
 ```
 
-第一次学习 Cloze，不要求“遮住选项就猜出原词”。
+看到选项之前，不需要猜出精确原词。
 
-需要形成的是：
+真正有价值的是：
 
-> **在看到四个候选之前，脑中已经对 slot 有一个足够有用的需求模型。**
+> **脑中已经知道这个空大概需要什么角色。**
 
 ---
 
 <a id="cl-core-1"></a>
-## C1｜Core Block 1：Slot Demand｜先问这个空需要什么
+## C1｜Slot Demand：先问“这个空缺什么”
 
-### 核心模型
+不要先问：
 
-看到空时，不要先问：
-
-> A/B/C/D 哪个中文意思顺？
+> A / B / C / D 哪个中文意思最顺？
 
 先问：
 
 ```text
-这里语法上允许什么？
-这里语义上缺什么角色？
-前后命题是什么关系？
-如果只用粗糙概念描述，这里应该补什么？
+语法上允许什么？
+↓
+语义上缺什么角色？
+↓
+前后 proposition 是什么关系？
+↓
+粗糙描述：这个 slot 应该补什么？
 ```
 
-Slot Demand 不等于精确预测答案。
+### 三类常见 demand
+
+| Demand | 你真正缺的东西 |
+| --- | --- |
+| **Content Demand** | 某类动作 / 状态 / 评价 / 对象 |
+| **Relation Demand** | cause / contrast / concession / addition / condition / example... |
+| **Grammatical-role Demand** | 特定词性 / construction slot / government pattern |
 
 例如：
 
 > The policy looked efficient on paper, ___ it created unexpected costs in practice.
 
-最有价值的 demand 不是猜 `but / yet / however` 中某一个，而是：
-
-> **这里需要 contrast / concession relation。**
-
-### Demand 的三类常见形状
+最先要知道的不是 `but / yet / however` 谁是答案，而是：
 
 ```text
-CONTENT DEMAND
-需要某类动作 / 状态 / 评价 / 对象
-
-RELATION DEMAND
-需要因果 / 转折 / 递进 / 条件 / 举例等连接
-
-GRAMMATICAL-ROLE DEMAND
-需要特定词性 / construction slot / government pattern
+前：理论上高效
+后：实际制造新成本
+→ 这里需要 CONTRAST
 ```
 
-### Active Check
+只要 demand 先成形，很多候选已经自动降权。
 
-> People often remember striking examples, ___ they may forget the broader statistical pattern.
-
-先不猜具体连接词，只回答：
-
-1. 两个命题之间是什么关系？
-2. 这个 slot 是 content word 还是 relation marker？
-3. 如果候选里同时有因果与转折，哪一类先出局？
+> **带走：先形成 slot demand，再让候选进入竞争。**
 
 ---
 
 <a id="cl-core-2"></a>
-## C2｜Core Block 2：Constraint Stack｜答案被多层限制共同逼出来
+## C2｜Constraint Stack：答案不是靠一个 clue 猜出来的
 
-### 五层约束
+一个空可能同时受多层限制：
 
 ```text
-L1 Lexical / Collocation
-词义、搭配、语义偏好
-
-L2 Syntax / Construction
+L1  LEXICAL / COLLOCATION
+词义、搭配、semantic preference
+↓
+L2  SYNTAX / CONSTRUCTION
 词性、支配、构式、固定框架
-
-L3 Sentence Proposition
-放进去后整句到底断言什么
-
-L4 Inter-sentence Relation
-和前后句是什么逻辑 / 信息关系
-
-L5 Global Discourse
-是否符合整篇主题、立场和推进方向
+↓
+L3  SENTENCE PROPOSITION
+放进去以后整句到底在说什么
+↓
+L4  INTER-SENTENCE RELATION
+和前后句是什么逻辑关系
+↓
+L5  GLOBAL DISCOURSE
+是否符合整篇推进方向
 ```
 
-不是每空都显式检查五层。熟练后大量限制自动完成；卡住时才问：
+不是每空都从 L1 查到 L5。
 
-> **现在真正分胜负的是哪一层？**
+真正问题是：
 
-### Collocation vs Semantic Preference
+> **现在分胜负的 constraint 在哪一层？**
 
-二者相关，但不是一回事。
+### Construction 可能直接结束竞争
 
-- collocation：哪些词经常自然组合；
-- semantic preference：这个词通常偏好什么语义类型的主语 / 宾语 / 情境。
+如果当前结构已经明确要求：
 
-两个近义动词中文都可译成“导致”，但一个偏主动促成，另一个偏结果产生，当前主语角色可能只允许一个。
-
-### Construction Authority
-
-有些空不需要继续分析全文，因为 construction 已经决定：
-
+- 特定 preposition；
 - verb government；
-- preposition frame；
-- fixed phrase；
-- comparative structure；
 - correlative construction；
-- argument structure。
+- argument structure；
+- fixed phrase；
 
-如果 construction 已足够 decisive，不要为了“上下文意识”过度扩大范围。
+就不必为了“上下文意识”继续把全篇拉进来。
+
+### Collocation ≠ Semantic Preference
+
+```text
+collocation
+哪些词自然经常一起出现
+
+semantic preference
+这个词通常喜欢什么语义类型的主语 / 宾语 / 情境
+```
+
+两个中文都译成“导致”的词，可能因为主语角色不同而只有一个真正适合当前 slot。
+
+> **带走：用最先足够 decisive 的 constraint 停止搜索。**
 
 ---
 
 <a id="cl-core-3"></a>
-## C3｜Core Block 3：Candidate Competition｜不要平均分析四项
+## C3｜Candidate Competition：Possible 不是 Best Fit
 
 真实做题常是：
 
 ```text
 4 candidates
-↓ 快速淘汰明显不合适项
+↓
+明显不合适项快速退出
+↓
 2 real competitors
-↓ 找决定性差异
+↓
+找 decisive difference
+↓
 1 best fit
 ```
 
-高价值动作不是给四项都写解释，而是：
+### Near-synonym competition
 
-> **找真正会犹豫的竞争项，说出哪个 constraint 把它们分开。**
-
-### Near-synonym Competition
-
-先问：
+当两项中文差不多时，别继续翻中文。
 
 ```text
-两项共同覆盖什么意义？
+它们共同覆盖什么意义？
+↓
 真正不同的使用条件是什么？
+↓
 当前 slot 触发了哪个区别？
 ```
 
-不要停在“中文都差不多”。
+高价值差异可能来自：
 
-### Possible ≠ Best Fit
+- argument / object type；
+- construction / preposition；
+- register；
+- semantic role；
+- semantic prosody；
+- local vs discourse fit。
 
-一个候选能组成合法句子，只说明没有立即出局。
-
-最终 authority 是全部有效 constraints 的联合结果：
+### Possible < Context-compatible < Best-supported
 
 ```text
-possible
-<
-context-compatible
-<
-best-supported
+能组成合法句子
+        <
+放在当前上下文说得通
+        <
+同时满足最多 decisive constraints
 ```
 
-### Distractor 的常见伪装
+所以“两个都能放”不是终点，而是在提示：
 
-- 意义大方向对，但搭配不自然；
-- 局部句法对，但 discourse relation 错；
-- 熟悉固定搭配诱导，但当前 proposition 不允许；
-- 近义词中文相同，但 semantic role 不同；
-- 本句能放，上一句/下一句却被破坏。
+> **还有哪一条 constraint 没检查？**
+
+> **带走：不要平均解释四项，只解释真正竞争的差异。**
 
 ---
 
 <a id="cl-core-4"></a>
-## C4｜Core Block 4：Passage Execution｜整篇完成，而不是被一个空拖死
+## C4｜Passage Execution：别让一个空拖死整篇
 
-### 核心路径
+### 主线
 
 ```text
 快速建立 passage direction
-→ 每空先形成 demand
-→ 简单空直接走
-→ 真竞争空找 decisive constraint
-→ 局部证据不足时扩大上下文
-→ 仍不确定则保留 uncertain 并继续
-→ 完成整篇后回看高价值冲突
+↓
+每空先形成 demand
+↓
+简单空直接走
+↓
+真竞争空找 decisive constraint
+↓
+证据不足才扩大上下文
+↓
+仍不确定就标记并继续
+↓
+整篇结束后回看高价值冲突
 ```
 
 ### Context Expansion Ladder
 
-卡住时不要直接从半句跳到整篇。
+卡住时按最小范围向外扩：
 
 ```text
-slot local phrase
-→ complete sentence
-→ previous / next sentence
-→ paragraph
-→ whole passage direction
+slot phrase
+↓
+current sentence
+↓
+adjacent sentence(s)
+↓
+paragraph / local discourse
+↓
+whole passage
 ```
 
-只扩大到 ambiguity 被解决为止。
+每扩大一级都问：
 
-### Uncertainty Triage
+> **新范围是否增加了真正能分胜负的 constraint？**
 
-值得标 uncertain：
-
-- 两个真实竞争项都还活着；
-- decisive constraint 暂时找不到；
-- 需要后文才能确认 discourse fit。
-
-不值得标 uncertain：
-
-- 只是两个中文译法都可以；
-- 一个 construction 已经明确排除其他项；
-- 只是对自己第一反应缺乏心理信心，但 evidence 很清楚。
+没有，就不要继续无限扩。
 
 ### Stop Rule
 
-当你已经有：
+当你能说出：
 
 ```text
-clear slot demand
+slot demand
++
+real competitors
 +
 one decisive constraint
 +
 best candidate clearly outranks rivals
 ```
 
-就离开。
+就离开这个空。
 
 ---
 
@@ -967,23 +895,31 @@ CL7 Execution
    └─ stop rule
 ```
 
+---
+
 <a id="cl-skill-best-fit"></a>
-### Deep Skill Content｜CL6.2 Local-possible vs Best-fit
+### Deep｜Local-possible vs Best-fit
 
-**Mental model**：不要问“这个能不能放”，要问“在所有有效约束下，它是不是比竞争项更有证据”。
+当一个候选只是“中文顺”，另一个同时满足：
 
-**Boundary**：如果一个候选只靠“中文顺”成立，而另一个同时满足 collocation + proposition + discourse relation，前者不应继续保持同等权重。
+```text
+collocation
++
+proposition
++
+discourse relation
+```
 
-**主动判断**：当你说“两个都可以”时，必须补一句：
+它们不应继续保持同等权重。
 
-> 哪个额外 constraint 还没有检查？
+> **“都可以”通常意味着还有 constraint 没被调用。**
 
 ---
 
 <a id="cl-skill-collocation"></a>
-### Deep Skill Content｜CL2.2 Collocation vs Near-synonym
+### Deep｜Collocation vs Near-synonym
 
-**Mental model**：近义不等于可互换。
+近义不等于可互换。
 
 稳定区分至少看：
 
@@ -993,21 +929,17 @@ register
 semantic role
 typical frame
 preposition / complement
-positive / negative semantic prosody
+semantic prosody
 ```
 
-**主动判断**：两个近义项都“意思对”时，不翻中文解释，直接比较它们通常进入什么 construction、带什么对象、表达什么角色。
-
-长期词汇知识仍回 LexicalOS；Cloze 只负责暴露和验证。
+长期词汇知识仍回 LexicalOS；Cloze 只负责把真实 competition 暴露出来。
 
 ---
 
 <a id="cl-skill-relation"></a>
-### Deep Skill Content｜CL5 Discourse Relation
+### Deep｜Discourse Relation：先看 proposition，再看连接词
 
-relation blank 的 authority 不是连接词中文释义，而是两个 proposition 的关系。
-
-高频区分：
+relation blank 的 authority 不是中文释义，而是两个 proposition 为什么连在一起。
 
 ```text
 cause vs explanation
@@ -1017,12 +949,12 @@ example vs restatement
 addition vs progression
 ```
 
-**执行动作**：先把左右两个命题各压成一句，再问“为什么作者把它们接在一起”，最后才看哪个 marker 最自然。
+先把左右命题各压成一句，再判断关系，最后才选 marker。
 
 ---
 
 <a id="cl-execution"></a>
-### Cloze｜Exam Execution Compression
+### Cloze｜Exam Compression
 
 熟练后压成：
 
@@ -1039,43 +971,48 @@ addition vs progression
 <a id="reading-b"></a>
 # D｜Reading B / Part B：Discourse Reconstruction
 
-## D0｜Global Model
+Part B 不是关键词配对，也不是 Reading A 换了个界面。
 
-Part B 不是关键词配对。
-
-真正任务是：
+它的稳定核心是：
 
 ```text
 WHOLE MATERIAL
 ↓
 DISCOURSE SKELETON
-文章整体在怎样推进
+材料整体怎样推进？
 ↓
-POSITION DEMAND
-这个位置现在缺什么功能
+TARGET DEMAND
+这个 gap / paragraph / slot / comment 现在缺什么？
 ↓
 CANDIDATE ROLE
-每个候选在篇章里承担什么角色
+候选真正承担什么功能 / proposition？
 ↓
-LOCAL FIT
-前后是否能接上
+COHESION EVIDENCE
+reference / relation / chronology / lexical chain 能支持什么？
 ↓
 GLOBAL RECONCILIATION
-放进去以后整张图是否仍然成立
+选完以后整张 map 仍然成立吗？
 ```
 
-关键词重合只是 evidence，不是 authority。
+但是 Part B 有四种真实 form，**target demand 并不相同**。
 
-最终 authority 是：
+### 四种 form 一眼区分
 
-> **discourse role + backward fit + forward fit + global consistency。**
+| Form | 你在给谁找什么 | Decisive evidence | 最常见误区 |
+| --- | --- | --- | --- |
+| **Gap Matching** | 给篇章中的空位找能完成桥接的候选段/句 | backward role + forward role + global fit | 只看前一句关键词 |
+| **Heading Matching** | 给完整段落找最能概括其中心 proposition / function 的 heading | whole-paragraph dominant claim / role | 用一个细节词命中标题 |
+| **Paragraph Ordering** | 把候选段落放入整体顺序 / skeleton | fixed givens + adjacency + chronology/reference + whole-chain coherence | 两段局部顺就锁死 |
+| **Comment–Statement Matching** | 给人物/comment 找语义对应的 statement | commentator proposition / stance / reason / boundary | 共享主题词，却 attribution 不对 |
+
+共同对象仍然是 discourse reconstruction；区别只是“当前位置/目标到底缺什么”。
 
 ---
 
 <a id="rb-core-1"></a>
-## D1｜Core Block 1：Discourse Skeleton｜先看文章往哪里走
+## D1｜Discourse Skeleton：先看材料往哪里走
 
-第一次扫材料，不需要给每段贴正式标签。
+第一次扫材料，不需要给每段贴学术标签。
 
 只要形成粗骨架：
 
@@ -1088,77 +1025,152 @@ GLOBAL RECONCILIATION
 → 总结 / 推论
 ```
 
-Skeleton 的目标不是 taxonomy 完整，而是：
+高价值关系包括：
 
-> **知道每一块信息为什么出现在这里，以及下一块大概率需要承担什么功能。**
+```text
+claim → evidence
+general → example
+problem → solution
+cause → consequence
+contrast / concession
+chronology
+question → answer
+old information → new information
+misconception → correction
+position → qualification
+```
 
-### 高价值结构关系
+Skeleton 不是全文摘要。
 
-- claim → evidence；
-- general → example；
-- problem → solution；
-- cause → consequence；
-- contrast / concession；
-- chronology；
-- question → answer；
-- old information → new information；
-- misconception → correction；
-- position → qualification。
+> **只保留会改变 placement / matching 的结构节点。**
 
-### Skeleton 不是全文摘要
+### 不同 form 里 Skeleton 的作用
 
-不需要复述每句话。只要保留决定 placement 的结构节点。
+```text
+Gap Matching
+→ 预测 gap 前后需要什么桥
 
-过度摘要会把 Part B 做成 Reading note-taking，反而拖慢。
+Heading Matching
+→ 判断每段在整篇里承担的 dominant role
+
+Paragraph Ordering
+→ 建立 whole-chain sequence 和 hard anchors
+
+Comment Matching
+→ 看不同评论围绕同一主题分别承担什么 stance / claim
+```
+
+> **带走：先看文章怎样推进，再看候选词面像不像。**
 
 ---
 
 <a id="rb-core-2"></a>
-## D2｜Core Block 2：Position Demand｜先判断这里缺什么角色
+## D2｜Target / Position Demand：先判断“这里缺什么角色”
 
-看到 gap，先暂时不看候选：
+这一块在四种 form 里有不同形状。
+
+### Gap Matching｜这个空需要怎样的桥
+
+先暂时不看候选：
 
 ```text
 前面刚完成什么？
++
 后面马上要做什么？
-这个位置必须完成怎样的桥接？
+↓
+这里必须承担什么 bridge role？
 ```
 
-典型 demand：
-
-- general claim 后进入案例 → example introduction；
-- 连续讲优点后开始限制 → contrast / qualification；
-- 描述问题后列措施 → problem → solution bridge；
-- 出现 this / these / such → 需要 antecedent-compatible content；
-- 下一句以 consequence 开头 → 前面可能需要 cause / condition setup。
-
-Position Demand 不要求预测原句，只要锁定功能角色。
-
-### Backward + Forward Demand
-
-只看 gap 前一句不够。
-
-真正 demand 是：
+例如：
 
 ```text
-what must attach backward
-+
-what must prepare forward
+general claim
+→ GAP
+→ concrete example
 ```
 
-一个 candidate 和前面很顺，但无法解释后一句，仍然不够。
+Gap 很可能需要：引出 example、把 general claim 过渡到 concrete case，或者本身就是 example-opening。
+
+只和前句接得上，不够；它还必须把后句准备好。
+
+### Heading Matching｜这一整段“主要在干什么”
+
+Heading 不是给段落找一个出现过的关键词。
+
+压缩顺序：
+
+```text
+这段主要断言什么？
+↓
+哪几句只是 support / example / detail？
+↓
+如果删掉细节，剩下的 dominant proposition / role 是什么？
+```
+
+高风险 heading：
+
+```text
+太窄
+只覆盖一个例子 / 数字 / 小细节
+
+太宽
+主题相关，但比本段承担的 scope 更大
+
+词面很像
+复用了段落关键词，却没概括段落真正的 claim
+```
+
+Heading authority 是**整段的中心意义**，不是词频。
+
+### Paragraph Ordering｜这个 slot 前后需要什么 sequence relation
+
+Ordering 有 fixed givens 时，先把它们当 hard anchors：
+
+```text
+FIXED A
+↓
+unknown slots
+↓
+FIXED B
+```
+
+每个待放 paragraph 不只问“和前面顺不顺”，还要问：
+
+```text
+它从前面接来了什么 old information？
+它为后面建立了什么 new information？
+chronology / reference / cause / contrast 是否连续？
+```
+
+### Comment–Statement Matching｜这个人到底承担什么 proposition
+
+先把每个 comment / speaker 压成：
+
+```text
+WHO          谁在说？
+CLAIM        他真正主张什么？
+STANCE       支持 / 质疑 / 限定什么？
+REASON       为什么？
+BOUNDARY     他没有说到哪里？
+```
+
+再去看 statement candidate。
+
+主题相同，不代表 attribution 相同。
+
+> **带走：Part B 先判断 target demand，再让 candidate 进入。**
 
 ---
 
 <a id="rb-core-3"></a>
-## D3｜Core Block 3：Candidate Role & Cohesion｜候选不是关键词袋
+## D3｜Candidate Role & Cohesion：候选不是关键词袋
 
-每个 candidate 先压成：
+每个 candidate 先压成两件事：
 
 ```text
-它在说什么
+它在说什么？
 +
-它在篇章里想干什么
+它想在篇章里做什么？
 ```
 
 常见 role：
@@ -1166,118 +1178,166 @@ what must prepare forward
 - 提出 claim；
 - 解释原因；
 - 举例；
-- 否定 / 修正前文；
-- 转折 / qualification；
+- 修正 / 限定前文；
+- 转折；
 - 总结；
-- 承接 reference；
 - 引出 solution；
+- 承接 reference；
 - 承上启下。
 
-### Cohesion Evidence
+### Cohesion 只是 evidence，不是 authority
 
-局部连接可以看：
-
-- pronoun / reference；
-- lexical chain；
-- repetition / synonymy；
-- connective；
-- topic continuity；
-- tense / chronology；
-- definite / given information；
-- parallel structure。
-
-但要记住：
-
-> **cohesion 能证明“接得上”，不能单独证明“这里就是最佳位置”。**
-
-### Reference Chain
-
-Part B 里的 `this / these / such / they / the problem / this approach` 常是高价值硬约束。
-
-但不要只做最近名词匹配，要同时检查：
+可以利用：
 
 ```text
-grammatical antecedent
+pronoun / reference
+lexical chain
+repetition / synonymy
+connective
+topic continuity
+tense / chronology
+definite / given information
+parallel structure
+```
+
+但：
+
+> **“接得上”只证明局部可行，不证明这里就是最佳位置 / 最佳匹配。**
+
+### Reference Chain｜高价值硬约束
+
+`this / these / such / they / the problem / this approach` 常常很有价值。
+
+但 antecedent 不是“最近名词优先”这么简单：
+
+```text
+grammatical candidate
 +
 semantic role
 +
 forward coherence
 ```
 
+三者都要成立。
+
+### Heading candidates｜不是每个词都同权
+
+Heading candidate 应压成一个短 proposition，而不是几个 topic words。
+
+比如：
+
+```text
+"The limits of rapid expansion"
+```
+
+不是只看 `rapid / expansion` 有没有出现在段落里，而要看：
+
+> 这段的 dominant move 真的是在讨论 expansion 的 **limits** 吗？
+
+### Comment candidates｜先守 attribution
+
+两个人可能都谈 technology，但：
+
+```text
+A：认为工具有用，但必须保留人工判断
+B：认为真正问题不是工具，而是机构不愿改变流程
+```
+
+主题词高度重合，proposition 却完全不同。
+
+> **带走：关键词只能告诉你“可能相关”，role / proposition 才能决定匹配。**
+
 ---
 
 <a id="rb-core-4"></a>
-## D4｜Core Block 4：Global Reconciliation｜最终判断是整张 map
+## D4｜Global Reconciliation：Part B 最终判断的是整张 map
 
-每完成一个高置信 placement，都要更新全局约束：
+每完成一个高置信选择，约束都会变化：
 
 ```text
 candidate 被使用
 ↓
-剩余 positions 的需求变化
+剩余 target 的需求变化
 ↓
-剩余 candidates 的可行位置压缩
+剩余 candidate 的可行范围压缩
 ↓
-之前低置信 placement 被加强或证伪
+之前低置信判断可能被加强，也可能被推翻
 ```
 
-这就是为什么 Part B 不能当成 5 道独立题。
+所以 Part B 不是五道完全独立的小题。
 
-### Confidence Ordering
+### Single-use 是全局约束
 
-优先处理有硬约束的位置：
+四种真实 form 都以 single-use candidate policy 为主：
+
+```text
+一个 candidate 放下去
+→ 不只是当前 target 多了一个答案
+→ 其他 target 同时少了一个可能
+```
+
+这意味着 elimination 是合法证据，但不能替代 local meaning fit。
+
+### Confidence Ordering｜先锁硬约束
+
+优先处理：
 
 - 强 reference chain；
 - 明确 chronology；
 - 唯一 discourse role；
+- fixed givens 附近的硬关系；
 - 明显 cause / consequence；
-- 独特 lexical chain。
+- comment 中独特 stance / reason；
+- paragraph 中非常明确的 dominant claim。
 
-先锁高置信点，再让 elimination 帮助难点。
+先锁高置信点，再让全局 elimination 帮助难点。
 
-### Provisional Placement
-
-低置信 placement 可以暂放，但必须保留“可撤销”状态。
-
-不要因为先填了一个位置，就心理上把它当成事实。
-
-### Coupled Error
-
-如果：
+### Provisional Placement｜低置信就保持可撤销
 
 ```text
-P2 选 B
-P4 选 D
+暂时最优
+≠
+已经成为事实
+```
+
+低置信选择可以先放，但别因为“已经填了”就停止重新检查。
+
+### Coupled Error｜两个错可能只有一个原因
+
+例如：
+
+```text
+P2 放 B
+P4 放 D
 formal 恰好相反
 ```
 
-而原因是 B / D discourse role 理反，这是：
-
-> **1 个 coupled role-contrast failure，而不是 2 个独立弱点。**
-
-### Cascade
-
-如果最早 structural transition 看错，后面三个位置都被迫进入错误骨架：
+如果真正原因是 B / D 的 discourse role 理反，那么这是：
 
 ```text
-1 primary structure failure
-+
-3 dependent placements
+1 个 coupled contrast failure
+→ 2 个位置一起错
 ```
 
-不是四个长期错题。
+不是两个完全独立弱点。
 
-### Final Global Check
-
-完成后问：
+### 四种 form 的 Global Check
 
 ```text
-每个 position 都完成它需要的 role 吗？
-前后链条有没有突然断裂？
-是否有 candidate 只能靠关键词勉强挂住？
-剩余 map 是否整体自洽？
-是否有一个 placement 一改，两个局部问题同时消失？
+Gap Matching
+每个 gap 前后都通？整篇 progression 还自然？
+
+Heading Matching
+每个 heading 都覆盖整段中心？有没有某段被迫拿一个“次优相关标题”？
+
+Paragraph Ordering
+相邻 pair 都通？fixed givens 关系正确？whole chain 有无 reference / chronology 断裂？
+
+Comment Matching
+每个人的 statement attribution 都成立？相似评论是否因为 elimination 被错配？
 ```
+
+> **带走：局部 fit 只是候选资格，global consistency 才完成 Part B。**
 
 ---
 
@@ -1292,24 +1352,26 @@ RB1 Discourse Skeleton
    ├─ cause / consequence
    └─ contrast / qualification
 
-RB2 Position Demand
-   ├─ backward requirement
-   ├─ forward requirement
-   └─ bridge role
+RB2 Target Demand
+   ├─ gap bridge role
+   ├─ paragraph dominant proposition
+   ├─ ordering adjacency / sequence
+   └─ comment proposition / attribution
 
 RB3 Candidate Role
    ├─ function compression
    ├─ reference chain
    ├─ lexical cohesion
-   └─ topic continuity
+   └─ topic / stance continuity
 
 RB4 Fit Testing
    ├─ backward fit
    ├─ forward fit
+   ├─ whole-paragraph fit
    └─ local vs global fit
 
 RB5 Global Reconciliation
-   ├─ candidate elimination
+   ├─ single-use elimination
    ├─ coupled placement
    ├─ swap detection
    └─ cascade / dependency
@@ -1320,191 +1382,166 @@ RB6 Execution
    └─ final global check
 ```
 
+---
+
 <a id="rb-skill-local-global"></a>
-### Deep Skill Content｜RB4.3 Local Fit vs Global Fit
+### Deep｜Local Fit vs Global Fit
 
-**Mental model**：一句放在这里读着顺，只证明局部可行；正确 placement 还必须让后文成立，并让剩余 map 可解。
+一句 / 一段放在这里读着顺，只证明局部可行。
 
-**三向检查**：
+正确 map 还必须同时满足：
 
 ```text
-Backward：它接得住前面吗？
-Forward：它为后面准备对了吗？
-Global：放完后整篇和剩余候选还自洽吗？
+Backward
+它接得住前面 / target 吗？
++
+Forward
+它为后面准备对了吗？
++
+Global
+整篇和剩余 candidates 还自洽吗？
 ```
 
-**主动判断**：如果理由只是“和前面关键词很多”，必须追加：
+如果理由只有“和前面关键词很多”，必须继续问：
 
-> 那它如何解释后一句？剩余候选会因此更清楚还是更矛盾？
+> **那它如何解释后一句 / 整段 / 剩余 map？**
 
 ---
 
 <a id="rb-skill-coupled"></a>
-### Deep Skill Content｜RB5.2 Coupled Placement
-
-两个位置共享候选约束时，不能独立判断。
+### Deep｜Coupled Placement：比较整组，不比较孤立位置
 
 如果 A 放 P2 会迫使 B 只能去 P4，那么真正比较的是：
 
 ```text
-(A→P2, B→P4)
+(A → P2, B → P4)
 vs
-(B→P2, A→P4)
+(B → P2, A → P4)
 ```
 
-authority 是哪一整组 map 更满足 role + local fit + global consistency。
+哪一整组同时满足：
+
+```text
+role
++
+local fit
++
+global consistency
+```
+
+哪一组才更有 authority。
+
+Ordering、Gap Matching、Heading Matching 都可能出现这种 coupled competition。
 
 ---
 
 <a id="rb-skill-reference"></a>
-### Deep Skill Content｜RB3.2 Reference Chain
-
-**Mental model**：reference 是跨位置硬约束，但 antecedent 不一定是最近名词。
+### Deep｜Reference Chain：硬约束，但不是最近名词匹配
 
 检查：
 
 ```text
-这个 pronoun / demonstrative 在语法上能指谁？
-语义角色是否成立？
-放入后，下一句继续使用这个 referent 是否自然？
+这个 pronoun / demonstrative 语法上能指谁？
+↓
+语义角色成立吗？
+↓
+放进去以后，下一步继续使用这个 referent 自然吗？
 ```
 
-尤其警惕“关键词重复很多，所以就能接”的假阳性。
+尤其警惕：
+
+> 关键词重复很多，所以一定能接。
+
+Reference 是结构约束，不是词面小游戏。
 
 ---
 
 <a id="rb-execution"></a>
-### Reading B｜Exam Execution Compression
+### Reading B｜Exam Compression
 
-熟练后压成：
+熟练后先识别 form，再压成：
 
 ```text
-先看文章往哪走
-→ 每个 gap 缺什么 role
-→ 先锁硬约束位置
-→ candidate 看 role，不看关键词多少
-→ backward + forward
-→ 最后 global reconcile
+整篇往哪走？
+↓
+当前 target 缺什么？
+↓
+candidate 真正是什么 role / proposition？
+↓
+先锁硬约束
+↓
+检查 local / whole-paragraph / forward fit
+↓
+用 single-use 做 global reconcile
+↓
+整张 map 自洽就走
+```
+
+四种 form 的最短提醒：
+
+```text
+Gap       看 bridge：前 + 后
+Heading   看整段 dominant proposition
+Ordering  看 fixed anchors + adjacency + whole chain
+Comment   看 proposition / stance / attribution
 ```
 
 ---
 
 <a id="runtime-bridge"></a>
-# E｜第一次学习以后，Skill Map 和 Runtime 怎样接上
+# E｜第一次学习以后：别把 Skill Map 变成新的待办清单
 
-第一次学习完成后，不要把 Skill Map 变成新的待办清单。
+第一次学习的目的不是把每个节点都学到“完成”，而是拥有一张足够做题的模型。
 
-正确关系：
+之后关系很简单：
 
 ```text
 Global Map + Core Blocks
-= 已经有一张可以做题的认知模型
-
+→ 我已经知道这类题应怎样判断
+↓
 真实 Attempt
-= 检验模型能不能执行
-
-wrong / uncertain evidence
-= 暴露最早 meaningful failure
-
-Skill Map
-= 给 failure 一个稳定地址
-
-Selective Skill Content / Chat
-= 只补真正需要的局部机制
-
-later fresh transfer
-= 检验能力是否真的迁移
-```
-
-## E1｜一次题目可以涉及很多 Skill，但 repair 不必全修
-
-例如一篇 Reading A 同时出现：
-
-- reference；
-- scope；
-- evidence boundary；
-- option degree shift；
-- answer switch。
-
-不意味着建立五个复习对象。
-
-Chat / Runtime 应找：
-
-> **哪一个最早、最小、足以解释结果的 failure？**
-
-下游 dependent errors 只保留为 evidence。
-
-## E2｜静态学习资产与 Chat 的边界
-
-静态资产负责：
-
-- 第一次必须形成的 mental model；
-- 高频稳定机制；
-- 可靠边界；
-- 可执行判断动作；
-- 代表性 examples / active checks；
-- 足够完整、可长期回看的主干内容。
-
-Chat 负责：
-
-- 真题里两个候选都很强时的精确竞争；
-- 多个机制同时作用；
-- 罕见结构；
-- 个人 error pattern；
-- 当前 failure 的 micro-drill；
-- transfer relevance / closure judgment。
-
-## E3｜学习资产完整，不等于必须线性读完
-
-正确使用方式：
-
-```text
-不会 → 连续学 Core Block
-已经会 → 快速扫过 / 直接跳过
-真实题卡住 → 回对应 Skill Content
-重复 failure → Chat 深挖 + fresh transfer
-```
-
-所以“内容完整”和“学习低摩擦”并不矛盾。
-
-## E4｜不要把第一次学习资产和 Runtime 混在一起
-
-学习资产回答：
-
-> **这种题到底应该怎么思考？**
-
-Runtime 回答：
-
-> **现在这一次 attempt 怎么记录、复盘、修复和验证？**
-
-正常顺序：
-
-```text
-First Learning
-Global Map → Core Blocks → Skill Map
+→ 看模型能不能执行
 ↓
-Practice
-clean Attempt
+Wrong / Uncertain
+→ 找最早、最有价值的失效点
 ↓
-Repair only when needed
+最小修复
+→ 只补真正缺的机制
 ↓
-Transfer on fresh material
+回到新题
 ```
 
-不是：
+一篇题可以同时暴露很多现象，但不代表未来要记很多“弱点”。
+
+例如 Reading A 同时出现：
 
 ```text
-先做大量题
-→ 错了再从错题中零散拼出方法
+reference 错
+→ scope 跟着错
+→ option degree 判断也错
 ```
 
-也不是：
+如果最早的 reference failure 已经解释后面结果，就先修它。
+
+稳定正确的题直接离开；一次性错误看懂 decisive difference 后也可以结束。
+
+同一道题重做正确说明 repair 生效，但不自动证明 mastery；真正更强的证据来自以后独立材料里的稳定表现。
+
+---
+
+# 最后压缩｜Objective 只带走三句话
 
 ```text
-先背完整技巧 taxonomy
-→ 再开始做题
+Reading A
+问什么 → 哪段 evidence 决定 → 谁多说了一步
+
+Cloze
+这个空要什么 → 哪条 constraint 分胜负 → 谁是 best fit
+
+Part B
+整篇怎样推进 → target 缺什么 role → 哪个 candidate 让整张 map 成立
 ```
 
-真正目标是：
+如果这三条已经能稳定执行，就不要继续“学客观题框架”。
 
-> **先建立足够强的生成模型，再让真实题目不断校准它。**
+去做题。
