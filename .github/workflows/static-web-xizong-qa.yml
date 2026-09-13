@@ -96,3 +96,12 @@ jobs:
         run: node scripts/validate-xizong-a3-evidence.mjs
       - name: Build Astro
         run: npm run build
+      - name: Execute A1 browser Runtime journey
+        run: node scripts/test-xizong-a1-browser-journey.mjs
+      - name: Upload A1 browser Runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-a1-browser-runtime
+          path: static-web/.qa/xizong-a1-browser-runtime.json
+          if-no-files-found: warn
