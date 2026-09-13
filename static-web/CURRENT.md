@@ -202,6 +202,55 @@ No Legacy archaeology. No English semantic/content edits.
    - responsive fallback required, but Mac landscape is design origin.
    - on narrower screens, stacking Passage and full question set is acceptable; preserve the whole-set model rather than reverting to one-question paging.
 
+### Accepted interaction details｜frozen for first implementation
+
+**Answer selection**
+
+Before submit, a selected option is shown as a quiet outlined choice with a checkmark inside the selection row. It means only **my current choice**; it must not use correctness color or reveal correctness.
+
+```text
+  1   option A
+
+  2   option B
+
+╭──────────────────────────────╮
+│ 3   option C              ✓ │
+╰──────────────────────────────╯
+
+  4   option D
+```
+
+Changing the answer moves this quiet selected treatment to the new option while existing answer trajectory remains preserved in state. After submit, an incorrect selected option and the formal answer may receive restrained distinct result treatments in place; do not turn the question into a separate result card.
+
+**Attempt time + deep-review packet**
+
+- preserve attempt start/submission timestamps and total duration;
+- timer stays subordinate during work;
+- the existing whole-passage deep-review packet must retain **total doing time** together with score, Wrong/Uncertain set, answer trajectory, optional cause and selected passage context;
+- timing is diagnostic context, not mastery/debt by itself.
+
+**Passage text selection → contextual tools**
+
+Do not keep a permanent highlight toolbar. Selection itself summons the smallest useful contextual menu.
+
+- exact **single lexical token**: primary action `Lexical 查词`, plus secondary `高亮` and `Chat 上下文`;
+- multiword phrase / short span: `高亮` + `Chat 上下文`; expose a Lexical construction action only when Current LexicalOS can resolve that exact object without guessing;
+- sentence / paragraph: `高亮` + `Chat 上下文`, no fake word lookup.
+
+`Lexical 查词` must route to **Current LexicalOS truth**, never render a duplicate mini-dictionary inside Reading. The current Vocabulary surface already owns Search + Depth Card. For the Reading Gold PR, use read-only exact Current owner resolution when possible: exact match may open the corresponding current Depth Card. If no exact owner match exists, fail softly into the current Vocabulary search surface rather than inventing a meaning. Do not mutate Lexical evidence, Repair, mastery or learner state merely because the learner looked up a word.
+
+Because PR #86 currently touches Lexical Evidence/Memory and vocabulary routing, the Reading Gold implementation must not modify Lexical runtime/pages to obtain this bridge. Keep the Reading-side bridge read-only and non-overlapping; if a richer prefilled search requires a Lexical-side change, leave that enhancement until the Lexical owner is safe.
+
+**Header / secondary controls**
+
+Primary work chrome should remain approximately:
+
+```text
+← Reading       paper · passage identity       answered/total · time       Submit
+```
+
+Reset / History / provenance / debug do not compete with the learner task. Reset/history may live behind secondary controls; provenance/debug stay off the normal learner surface.
+
 ### Forbidden
 
 - no semantic diff to English Objective Logic/content/evidence.
@@ -212,6 +261,8 @@ No Legacy archaeology. No English semantic/content edits.
 - no generic Markdown/card redesign.
 - no giant dashboard/status header.
 - no tiny-text aesthetic.
+- no Reading-local dictionary or duplicated Lexical semantic truth.
+- no learner-state mutation from a mere lexical lookup.
 - do not touch Part B IA merely to make it match Reading A.
 - do not modify Writing/Translation/Cloze in this first PR except truly shared styling that cannot change their layout/behavior. The broader exam-native-object principle above constrains their later Gold work, not this PR's write-set.
 
@@ -220,7 +271,9 @@ No Legacy archaeology. No English semantic/content edits.
 One short-lived branch + one Draft PR. Return:
 - working browser implementation;
 - desktop screenshot showing Passage left + the full visible question set right during a clean attempt;
+- desktop screenshot showing the quiet outlined selected-option treatment before submit;
 - desktop screenshot of Wrong/Uncertain review with in-place problem disclosure while the whole set remains available;
+- screenshot or browser proof for single-word selection → Lexical lookup action;
 - narrow responsive screenshot;
 - build/tests/browser-journey result;
 - concise changed-file receipt;
@@ -237,9 +290,11 @@ open passage + full question set
 → read / locate / compare naturally across the whole set
 → answer with almost no UI friction
 → scroll as needed without mode switching
+→ optionally select one word → Current LexicalOS lookup
 → submit the whole passage
 → stable = leave/continue quickly
 → problem = reveal the smallest useful review in place
+→ only when needed, deep-review packet includes the whole passage context + total doing time
 ```
 
 The learner should notice the Passage and its complete set of questions before noticing KianOS itself.
