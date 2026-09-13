@@ -11,7 +11,7 @@ This file does not own Source Truth, lane learning/interaction semantics, scoped
 
 **Active lane-level scope:** none — Functional First Version integration is technically closed.  
 **Blocker:** none at the engineering layer.  
-**Next action:** real learner use. Do not continue Politics engineering or visual polish merely because more can be built. Concrete real-use friction may reopen only the earliest responsible semantic/functional owner.
+**Next action:** real learner use at the lane level. Independently scoped subject content work may still close its own upstream S/K boundary without reopening Politics-wide Functional First.
 
 Functional First phase state:
 
@@ -36,7 +36,7 @@ enter chapter → locate Natural Unit / current action
 
 Hard stop:
 
-> Politics is now at the Functional First boundary. Real study outranks further architecture or polish.
+> Politics-wide Functional First is closed. New work must belong to a concrete scoped owner or real learner evidence; do not reopen lane-level architecture merely because more can be built.
 
 Later visual/layout/interaction implementation may be delegated to Codex, but Codex must not change canonical learning semantics, learning order, state meaning, source ownership, evidence semantics, repair/return rules, or canonical contracts. Semantic changes return to the responsible canonical owner.
 
@@ -46,8 +46,9 @@ Current independent subject scopes:
 | --- | --- | --- |
 | Marxism | `content/politics/learning/marxism/CURRENT.md` | `content/politics/learning/marxism/ACCEPTANCE.md` |
 | History | `content/politics/learning/history/CURRENT.md` | `content/politics/learning/history/ACCEPTANCE.md` |
+| Ethics-Law | `content/politics/learning/ethics-law/CURRENT.md` | `content/politics/learning/ethics-law/ACCEPTANCE.md` |
 
-Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress.
+Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress. Ethics-Law currently owns a fresh S/K content closure only; L/P/R/E/U are not inherited from generic Politics integration.
 
 Scheduling boundary:
 
@@ -94,9 +95,11 @@ Politics-specific invariant: **Suyi = framework/orientation input; Chengfeng = c
 
 ## Subject governance boundary
 
-Mao / Xi / Ethics-Law remain Politics subject/content structures but do not currently justify independent `CURRENT / ACCEPTANCE` owners.
+Mao / Xi remain Politics subject/content structures and do not currently justify independent `CURRENT / ACCEPTANCE` owners.
 
-Create a subject owner pair only when independent continuation/readiness ownership materially lowers ambiguity. Shared cognition remains in:
+Ethics-Law now does own a scoped pair because a fresh whole-book Source/Knowledge content closure created a durable independent restart/readiness boundary. That pair must not be interpreted as whole-module readiness: its current Acceptance stops at S/K.
+
+Shared cognition remains in:
 
 - `content/politics/LEARNING_CONTRACT.md`
 - `content/politics/INTERACTION_CONTRACT.md`
@@ -129,8 +132,8 @@ Ordinary use / continuation:
 
 ```text
 Politics CURRENT
-→ if learner work names Marxism/History, route to its local CURRENT
-→ otherwise use the existing Current Politics runtime/content without new engineering
+→ if work names Marxism / History / Ethics-Law, route to its local CURRENT
+→ otherwise use the existing Current Politics runtime/content without new lane-level engineering
 ```
 
 Real learner friction:

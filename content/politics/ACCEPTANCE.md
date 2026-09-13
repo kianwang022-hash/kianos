@@ -14,8 +14,9 @@ This file owns only genuine **Politics-wide integration/readiness claims** broad
 | --- | --- | --- |
 | Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; current path `U UNTESTED`; C00 remains the presentation reference path |
 | History | `content/politics/learning/history/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; `U UNTESTED` |
+| Ethics-Law | `content/politics/learning/ethics-law/ACCEPTANCE.md` | fresh C00–C06 `S/K PASS` + content closure `PASS`; `L/P/R/E/U UNTESTED` |
 
-The table is routing only. Subject evidence remains in the local owner.
+The table is routing only. Subject evidence remains in the local owner. Politics-wide Functional First integration does not manufacture a subject gate PASS that the subject owner has not accepted.
 
 ---
 
@@ -73,6 +74,14 @@ The first browser run failed after C00 correctly moved repair DOM from the quest
 
 ---
 
+## Ethics-Law scoped content compatibility evidence
+
+The independent Ethics-Law owner now records its own upstream closure. On content head `e3de7ad301ca8064c7edb162c375e9c46777ad44`, `Static Web Politics QA` run #498 (`34756165723`) passed `Audit Ethics content closure`, canonical coverage, Xiao routing, scoped source loading, Current bindings and the production Astro build.
+
+This is accepted here only as **Politics-wide compatibility evidence** for the new Ethics S/K content artifacts. The Ethics subject owner remains authoritative for gate status and intentionally leaves L/P/R/E/U untested.
+
+---
+
 ## U boundary
 
 ```text
@@ -89,8 +98,10 @@ Synthetic browser execution proves technical readiness for real study, not User 
 Functional First is now technically sufficient for real use:
 
 ```text
-PASS → STOP engineering expansion → real learner use / U evidence
+PASS → STOP lane-level engineering expansion → real learner use / U evidence
 ```
+
+Independently owned upstream subject work may still proceed when it has its own scoped Current/Acceptance and does not use shared integration PASS to manufacture downstream gate readiness.
 
 Later pure visual/layout/interaction implementation belongs to Codex. Codex may change presentation, CSS, component implementation and reduce UI friction, but **must not** change canonical learning semantics, learning order, state meaning, source ownership, evidence semantics, repair/return rules, or canonical contracts. If implementation requires such a semantic change, it must return to the responsible canonical owner.
 
@@ -109,6 +120,7 @@ Later pure visual/layout/interaction implementation belongs to Codex. Codex may 
 ### Scoped Acceptance Truth
 - Marxism → `content/politics/learning/marxism/ACCEPTANCE.md`
 - History → `content/politics/learning/history/ACCEPTANCE.md`
+- Ethics-Law → `content/politics/learning/ethics-law/ACCEPTANCE.md`
 
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
