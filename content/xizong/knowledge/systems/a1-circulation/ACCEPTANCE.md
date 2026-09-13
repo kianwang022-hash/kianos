@@ -16,7 +16,7 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 ```text
 S  PASS
 K  PASS
-L  PASS — prior accepted claim; fresh re-audit not yet completed
+L  PASS
 P  PASS — prior accepted claim; fresh re-audit not yet completed
 R  PASS — prior accepted claim; fresh re-audit not yet completed
 E  PASS — prior accepted claim; fresh re-audit not yet completed
@@ -25,7 +25,7 @@ U  UNTESTED by every real learner path
 
 Allowed current conclusion remains:
 
-> **A1 is Module ready for learner test under the currently accepted S–E evidence; the requested fresh re-acceptance has only newly re-established S/K so far.**
+> **A1 is Module ready for learner test under the currently accepted S–E evidence. The requested fresh re-acceptance has now re-established S/K/L. Fresh Content realization/closure is the active construction stage before fresh P/R/E attacks.**
 
 Fresh audit does **not** automatically revoke an existing PASS. A later layer is downgraded only if new evidence actually demonstrates a defect or invalidates the old claim.
 
@@ -38,18 +38,34 @@ This does **not** mean Kian has started Circulation, reached System Recall, or s
 ```text
 S  RE-ACCEPTED
 K  RE-ACCEPTED after semantic repair
-L  PENDING fresh attack
+L  RE-ACCEPTED after learner-route / surface-ownership attack
+Content realization / closure  ACTIVE construction stage (not an acceptance gate)
 P  PENDING fresh attack
 R  PENDING fresh attack
 E  PENDING fresh attack
 U  real learner only
 ```
 
-`PENDING fresh attack` is audit progress, **not** a readiness state and does not mean `UNTESTED/BLOCKED` in the gate ledger.
+`Content` is not an eighth gate. Repository construction order and acceptance gates are separate:
+
+```text
+Construction:
+Truth / Knowledge Boundary
+→ Learning Logic
+→ Content Realization / Optimization
+→ Projection / Interaction
+→ Runtime Loop
+→ Evidence / Acceptance
+
+Acceptance:
+S / K / L / P / R / E / U
+```
+
+Fresh Content work therefore begins only after fresh S/K/L logic is coherent. A concrete Content defect may still reopen the earliest responsible S/K/L owner.
 
 ---
 
-## Fresh S / K evidence
+## Fresh S / K / L evidence
 
 ### S｜PASS
 
@@ -59,17 +75,28 @@ Independence: **SELF + AUTHORITATIVE_PROJECT_SOURCE_BOUNDARY**
 Fresh Source-boundary attacks included:
 
 - checked the circulation System substrate against the actual Study / Outline scopes rather than inferring completeness from current Block/KP counts;
+- confirmed the frozen Xizong Source Baseline identifies the current AI-readable Lecture layer as `生理学讲义_AI阅读版.md`, `病理学讲义_AI阅读版.md`, `内科学讲义_AI阅读版.md`, `外科学讲义_AI阅读版.md`, and `生物化学讲义_AI阅读版.md`, with four-subject Outline coverage and Biochemistry embedded-question coverage;
+- confirmed the Global coverage map assigns **850 unique Primary Outline items** to A1 with `orphan_scope = 0` and `duplicate_primary = 0` at that frozen coverage layer;
 - explicitly attacked missing aortic-dissection / aneurysm content and found no independent aortic-disease unit in the Current A1 canonical Study/Outline boundary, so no new A1 Block is authorized by current Source;
 - challenged DIC ownership: A1 B12 already contains the current-source shock/DIC interface, while a complete independent DIC disease model must not be silently invented in A1.
 
-No new Source gap currently requires A1 expansion.
+Important Source locator boundary:
+
+- the retained Circulation first-pass source pack records **312 KP**, of which **158 are `SOURCE_EXACT` and 154 are `SOURCE_PENDING`**;
+- those `SOURCE_PENDING` records are not silently treated as exact page-level provenance;
+- the same pack's validation summary is PASS because the intended first-pass path is continuous Lecture-section learning with known Source/Outline ownership, not mandatory per-KP deep-linking;
+- therefore A1 S PASS means **the authoritative Source/coverage boundary is usable without guessing**, not “all 312 KPs already have exact literal page coordinates.”
+
+If Content audit finds a pending locator that cannot be resolved to the current formal Lecture/Outline owner, reopen S for that smallest affected object rather than hiding the gap.
+
+No current Source-boundary defect requires A1 expansion.
 
 ### K｜PASS after repair
 
 Evidence mode: **STRUCTURAL + ADVERSARIAL + EXECUTED_COMPATIBILITY**  
 Independence: **SELF**
 
-Fresh K attack did not start from the old Acceptance answer key. It independently challenged:
+Fresh K attack independently challenged:
 
 - the System mother model;
 - all 12 Block natural units and their negative space;
@@ -96,7 +123,46 @@ Compatibility evidence from the first K-only commit:
 - all existing Xizong validators PASS;
 - Astro build PASS.
 
-A later CI failure after this file temporarily downgraded L/P/R/E was correctly diagnosed as an audit-state modeling error: projection availability is gated by the accepted P claim. The anti-cocoon directive says fresh audit does not automatically revoke existing PASS, so the ledger now preserves accepted L/P/R/E while tracking fresh audit progress separately.
+Fresh K PASS is a **Knowledge-boundary/System-model claim**. It is not a claim that every one of the 312 KP bodies has already completed the new Source-first Content closure audit. That work is the currently active Content construction stage and may reopen K if it finds a real medical/ownership defect.
+
+### L｜PASS after fresh attack
+
+Evidence mode: **STRUCTURAL + ADVERSARIAL**  
+Independence: **SELF**
+
+Owners inspected:
+
+- lane constitution → `content/xizong/LEARNING_CONTRACT.md`;
+- shared execution policy → `content/xizong/knowledge/learner/study-policy.json`;
+- A1 support → `content/xizong/knowledge/learner/a1-circulation-learning.json`.
+
+Accepted learner model:
+
+```text
+KianOS System / Block orientation + selective cue
+→ iPad / MarginNote original Lecture continuous learning
+→ return to KianOS for active retrieval / Logic Group closure
+→ Block Recall
+→ after real completion of all A1 Blocks: pre-question System Recall
+→ official System question sweep
+→ Wrong / Uncertain smallest-sufficient repair
+→ short post-question System reconstruction
+```
+
+Surface ownership is explicit:
+
+- **iPad / MarginNote** owns continuous original Lecture/source reading, figures/tables, annotations, source-local examples and Lecture-attached questions;
+- **KianOS** owns orientation, current causal target, attention boundary, selective cues, active Recall, Logic Group closure, compression, W/U routing and later review;
+- **Chat** owns adaptive explanation and smallest-sufficient repair.
+
+The A1 learning owner preserves this role separation: it defines `first_pass_focus`, `stop_line`, `recall_spine`, and Logic Group goals/closure for all 12 Blocks without restating or overriding medical Core.
+
+Strongest alternative-route attacks:
+
+1. **KianOS as a continuous second Lecture reader** — rejected because it duplicates the original teaching surface, increases reading/switching burden, and violates the current lane-level external-primary Lecture decision.
+2. **KP-by-KP KianOS learning before continuous Lecture contact** — rejected because KP is stable identity, not automatically the natural learner-facing unit; it fragments Block/Logic Group continuity and encourages isolated memorization before the owning model exists.
+
+No fresh L defect was found that changes learner order or surface ownership.
 
 ---
 
@@ -112,25 +178,51 @@ Disposition:
 
 > **Record for C fresh audit; do not expand A1 merely to repair another domain's owner debt.**
 
-This debt does not block A1 S/K because A1's own Source-bound requirement is already represented.
+This debt does not block A1 S/K/L because A1's own Source-bound requirement and learner path are already represented.
 
 ---
 
-## Prior L / P / R / E evidence boundary
+## Active Content realization / closure boundary
 
-The previous L/P/R/E evidence remains valid accepted evidence unless a fresh attack finds a material defect. It is not treated as the answer key for the ongoing audit.
+Content is now the earliest unresolved **construction stage**, not a new acceptance gate.
 
-Fresh dependency order:
+Every A1 Block must be attacked against:
 
 ```text
-Content / Learning realization
-→ Projection / Interaction
+actual current Study Lecture Source
+→ current Outline / Coverage owner
+→ canonical Block / KP asset
+→ learner burden / ownership / boundary
+```
+
+Required questions:
+
+```text
+Completeness
+→ important mechanism / boundary / exception / confusable / transfer support missing?
+→ Source or Outline negative space hidden?
+
+Minimality
+→ unsupported expansion / duplicate Primary / pseudo-KP / wrong owner / unnecessary burden?
+→ can detail be routed/deferred without losing Knowledge Truth?
+```
+
+A Content repair can reopen S, K, or L only when the defect actually belongs there. Stable counts and old FINAL labels are not closure evidence.
+
+---
+
+## Prior P / R / E evidence boundary
+
+The previous P/R/E evidence remains valid accepted evidence unless a fresh attack finds a material defect. It is not treated as the answer key for the ongoing audit.
+
+Fresh dependency order after Content closure:
+
+```text
+Projection / Interaction
 → Runtime
 → Evidence
 → real U only when Kian actually uses the path
 ```
-
-A discovered downstream defect may reopen the earliest responsible owner; mere absence of a new audit does not revoke current readiness.
 
 ---
 
