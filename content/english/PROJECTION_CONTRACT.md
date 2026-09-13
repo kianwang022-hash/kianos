@@ -2,55 +2,83 @@
 
 Role: learner-facing projection contract for the English lane.
 
-This file adapts Kian's explicitly authorized Cognition interaction principles to English without creating a runtime dependency on the cognition repository. English learning semantics remain owned by `content/english/LEARNING_CONTRACT.md`; this contract only governs how those semantics are projected into learner-facing UI.
+English learning semantics are owned by `content/english/LEARNING_CONTRACT.md`. This contract governs how those semantics become learner interaction.
 
-## 1. Projection follows capability logic
+## 1. Projection follows the performance model
 
-English is projected from its capability architecture, not from repository folders or exam section names.
+English is projected from exam performance, not repository folders, evidence machinery, or the number of question-type owners.
 
-Primary learner model:
+Primary English learner model:
 
 ```text
-Lexical access
-Reading representation / judgment
-Translation reconstruction
-Writing generation
+Reading family
+Translation
+Writing
 ```
 
-Task-specific trainers such as Cloze and Part B remain subordinate to the capability they train. They may have dedicated workspaces because their cognitive objects differ, but they must not become peer top-level product lanes merely because the exam gives them separate section labels.
+Cloze and Part B are dedicated Reading-family trainers because their decision objects differ from Reading A.
 
-Repository structure, content headings, acceptance gates and page structure are different things.
+**LexicalOS is a separate top-level domain.** English may show a small LexicalOS handoff / supply entry, but Vocabulary must not appear as “English capability 01” or be counted inside the English capability map.
 
-> Content structure != page structure.
+Repository structure, canonical owner structure, and page structure are different things.
 
-The UI should reveal the next useful learning action, not mirror every canonical owner.
+> Content structure != page structure != learner path.
 
-## 2. Resume before browse
+## 2. Highest-value next action before browse
 
-Default learner entry should answer, in this order:
+The first screen should answer:
 
-1. What should I continue now?
-2. Which capability am I training?
-3. If I am stuck, where is the smallest useful repair surface?
-4. Only then: what else exists?
+1. Is there an unfinished clean attempt?
+2. Is there an already-active meaningful repair worth finishing?
+3. Is there a high-value validation that naturally belongs now?
+4. Otherwise, what is the best new performance task?
 
-Catalogs and complete maps remain available, but should not dominate the first screen.
+“Resume” is **not** synonymous with “most recently opened”. Passed or low-value old work must not pull the learner backward.
 
-## 3. Progressive disclosure
+Catalogs and complete maps remain available but must not dominate the first screen.
 
-Before a clean attempt, protect first-attempt evidence and unseen diagnostic capital.
+## 3. Performance first; review conditional
+
+Default projection:
+
+```text
+Perform
+→ Fast triage
+→ EXIT / smallest repair / LexicalOS handoff
+→ continue performance
+```
+
+Fresh validation appears only when a justified reusable claim exists. It is not a mandatory final step after every repair.
+
+Before a clean attempt, protect answers, reference solutions, teacher methods, canonical evidence, and unseen diagnostic capital.
 
 After an attempt:
 
-- stable correct / strong work should pass with very little UI;
-- wrong, uncertain, fragile or diagnostically valuable work may expand;
-- diagnosis should expose only the information needed for the next action;
-- repair should return to re-execution rather than end in passive explanation;
-- transfer targets stay hidden before the fresh attempt when revealing them would cue the answer.
+- stable work collapses quickly;
+- an isolated understandable miss may need only decisive evidence / contrast;
+- deeper diagnosis appears only for ambiguous, recurring, high-cost, or high-value failure;
+- re-execution appears only when it adds useful evidence;
+- backend evidence may remain rich without becoming learner work.
 
-Construction metadata, gate codes, hashes, source gaps and acceptance details belong in developer/current surfaces unless they materially change the learner's next action.
+## 4. Review interaction budget
 
-## 4. Dense Calm
+A review surface must justify its occupied time.
+
+A one-off wrong answer should normally take substantially less time to understand than the original task took to perform.
+
+Do not require interaction merely to make the state machine complete. In particular, these are escalation tools, not universal obligations:
+
+- choosing a detailed taxonomy label;
+- manually saving evidence spans;
+- revealing canonical diagnoses;
+- clicking “mark reviewed”;
+- creating / closing a transfer claim;
+- running a second repair-check round;
+- viewing reference output.
+
+If the learner already understands the decisive reason for the error and no recurring pattern is supported, provide a clean exit.
+
+## 5. Dense Calm
 
 English uses a calm workbench rather than a marketing page or a wall of cards.
 
@@ -58,97 +86,112 @@ Target feel:
 
 > medium-high information density + comfortably readable type + strong hierarchy + restrained visual noise + low-friction actions
 
-Do not implement generic minimalism as tiny text plus empty space. Do not implement readability as oversized cards, headings or padding.
+On wide Mac screens, extra width buys parallel context, not inflated scale:
 
-### Wide-screen rule
-
-Readable does not mean oversized.
-
-On Mac / landscape / wide screens, additional width should primarily buy:
-
-- parallel context;
-- visible relationships;
 - passage + questions;
 - source + reconstruction;
-- plan + draft / revision;
-- context rails or navigation when useful.
+- prompt + draft / revision;
+- compact context rail when useful.
 
-It should not proportionally enlarge font size, cards, spacing or hero blocks.
+Keep prose measure bounded. Do not convert readability into giant headings, cards, or whitespace.
 
-Use bounded scale:
+## 6. Capability-specific workspaces
 
-- work-area H1: about 28–34 px;
-- ordinary body: about 15–18 px depending on task;
-- long English reading body: about 17.5–18.5 px with a bounded reading measure;
-- dense metadata may be smaller but must not carry primary learning meaning.
+### Reading family
 
-## 5. Capability-specific workspaces
+Primary object:
 
-Shared chrome is allowed; learning interactions are not forced into one template.
+```text
+representation → decisive evidence / constraints → judgment → execution
+```
 
-### Reading
+Reading A may use passage/question parallelism. Cloze and Part B keep their own task-specific layouts.
 
-Primary object: text representation -> decisive evidence -> option adjudication.
-
-Use wide screens for passage/question parallelism. Keep the passage measure bounded; do not stretch prose across the entire display.
+Default post-attempt view should make the actual wrong/uncertain decision understandable before offering deeper coaching.
 
 ### Translation
 
-Primary object: English representation -> relation preservation -> Chinese reconstruction.
+Primary object:
 
-The learner should be able to keep source, preserved first attempt and current reconstruction mentally or visually connected. Reference material appears only when allowed by the evidence stage.
+```text
+English representation → relation preservation → Chinese reconstruction
+```
+
+Keep source, first translation, and affected reconstruction connected. Reference is optional after the attempt.
+
+A calibrated stable task may PASS without forcing Chat review. Deep review is for uncertainty or meaningful failure.
 
 ### Writing
 
-Primary object: task constraints -> content -> structure -> English realization -> control -> timed delivery.
+Primary object:
 
-Preserve first planning/draft evidence. Do not let model output become the center of the workspace.
+```text
+task constraints → content → structure → English generation → control → timed delivery
+```
 
-### Lexical
+Preserve first plan / first draft evidence. Direct mode remains valid.
 
-Primary object: fast, correct contextual access.
+Chat review may be frequent when calibration value is high, but the UI must not imply that every future essay owes every internal review / repair-check / transfer state.
 
-Optimize retrieval, discrimination and later contextual validation rather than dictionary accumulation.
+### LexicalOS handoff
 
-### Cloze / Part B
+English exposes LexicalOS as an external supply / repair lane. A lexical detour should be small and return the learner to the originating task quickly.
 
-Dedicated trainer surfaces are justified by their distinct decision problems, but remain visibly part of English rather than separate product domains.
+## 7. Evidence without dashboard theater
 
-## 6. Evidence without dashboard theater
+Evidence exists to change the next learning decision.
 
-Evidence exists to improve diagnosis and transfer decisions, not to make the learner stare at system state.
+Preferred learner-facing language:
 
-Learner-facing state should prefer plain next-action language such as:
-
-- Continue
-- Clean Attempt
+- Continue attempt
+- New task
 - Review needed
-- Repair
-- Try again
-- Fresh validation pending
+- Quick repair
+- Deeper review
+- Return to task
+- Validation pending
 
-Internal S/K/L/P/R/E acceptance status, source hashes and other construction diagnostics remain accessible through Current/system surfaces, not primary learning cards.
+Internal S/K/L/P/R/E status, hashes, claim IDs, taxonomy codes, ledger state, and source diagnostics stay out of the primary work surface unless they materially alter the next learner action.
 
-## 7. Interaction quality test
+Pending claims should not appear merely because they exist. Surface them when the current task naturally activates or can test them.
 
-A learner-facing element earns its place only if it does at least one of the following:
+## 8. Interaction quality test
 
-- clarifies the current capability or next action;
-- reduces friction in a high-value learning action;
-- preserves evidence needed for diagnosis;
-- enables a better repair or fresh transfer test;
-- helps the learner understand where the ability process broke.
+A learner-facing element earns its place only if it materially improves one of:
 
-Otherwise remove, collapse or move it out of the primary surface.
+- expected exam score;
+- execution speed / reliability;
+- quality of a high-value repair;
+- quality of a future transfer decision;
+- return speed from a failure to real performance.
 
-## 8. Non-goals
+Preserving evidence is not sufficient by itself if equivalent evidence can be captured automatically or backend-only.
+
+Otherwise remove, collapse, automate, or move the element out of the primary surface.
+
+## 9. Score-time stop rule
+
+For learner-facing projection:
+
+```text
+real performance
+> high-value repair
+> useful explanation / learning asset
+> evidence administration
+> decorative system completeness
+```
+
+The system must be willing to stop explaining, stop reviewing, and stop tracking when the next unseen performance item has higher expected value.
+
+## 10. Non-goals
 
 This contract does not:
 
-- rewrite English source/content owners;
-- change accepted answer/evidence semantics;
-- merge different cognitive objects into one generic page;
+- rewrite source / answer truth;
+- collapse different cognitive tasks into one generic UI;
+- make LexicalOS subordinate to English;
 - create a second learner-state database;
-- force every Cognition feature into an exam workflow.
+- force every diagnostic capability into every task;
+- turn “more complete evidence” into a learner obligation.
 
-Cognition supplies design constraints. English remains the domain owner.
+English remains the domain owner for English task performance; LexicalOS remains its own domain owner.
