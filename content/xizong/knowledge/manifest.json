@@ -14,7 +14,46 @@
       "included_in_2514_count": false
     }
   },
+  "macro_domain_taxonomy": {
+    "role": "TOP_LEVEL_CONCEPTUAL_GROUPING_NOT_MEDICAL_CORE_NOT_LEARNER_ROUTE",
+    "rule": "Macro-domain taxonomy, durable System-owner granularity, and learner route are distinct. A/B/C/D/E/F describe the top-level conceptual grouping. A is specially decomposed into A1/A2/A3 first-class System owners because that decomposition serves exam-scale learning and governance. Macro-domain membership never creates a mandatory learner step or transfers Block/KP medical ownership upward.",
+    "domains": {
+      "A": {
+        "label": "Cardio-Pulmonary-Renal",
+        "system_owners": [
+          "systems/a1-circulation/",
+          "systems/a2-respiratory/",
+          "systems/a3-urinary/"
+        ],
+        "integration_logic_owner": "supersystems/a-cardio-pulmonary-renal/LOGIC.md"
+      },
+      "B": {
+        "label": "Digestive-Metabolic-Endocrine-Tumor",
+        "system_owners": ["systems/b-digestive-metabolic-endocrine-tumor/"]
+      },
+      "C": {
+        "label": "Hematology-Immunity-Infection",
+        "system_owners": ["systems/c-hematology-immunity-infection/"]
+      },
+      "D": {
+        "label": "Neuro-Sensory-Motor-Orthopedics",
+        "system_owners": ["systems/d-neuro-sensory-motor-orthopedics/"]
+      },
+      "E": {
+        "label": "Reproductive-Breast",
+        "system_owners": ["systems/e-reproductive-breast/"]
+      },
+      "F": {
+        "label": "Remaining-Clinical",
+        "system_owners": ["systems/f-remaining-clinical/"]
+      }
+    }
+  },
   "owner_resolution": {
+    "macro_domain_logic": {
+      "owner": "supersystems/**/LOGIC.md when a macro-domain actually needs explicit cross-child integration logic",
+      "rule": "Macro-domain Logic may own only cross-child structural compression, routing semantics, and explicit external interfaces. It may not become a second medical-Core owner, duplicate child Primary content, manufacture learner progress, or require symmetric macro-domain assets where no score utility exists."
+    },
     "system_level": {
       "preferred_owner": "systems/**/system.json",
       "transition_owner": "system-guides/*.md",
@@ -41,6 +80,7 @@
   "stable_roots": {
     "system_guides": "system-guides/",
     "systems": "systems/",
+    "macro_domain_logic_legacy_path": "supersystems/",
     "overlays": "overlays/",
     "shared_learning_support": "learner/"
   },
