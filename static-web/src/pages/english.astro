@@ -15,109 +15,115 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
 ---
 <Base
   title="English"
-  kicker="English · Capability Runtime"
-  description="从能力继续，不从题型目录开始。Lexical 提供语言访问；Reading / Translation / Writing 形成三条主要任务能力；Cloze 与 Part B 是专项 trainer。"
-  objectId="english:capability-home"
+  kicker="English · Performance Runtime"
+  description="English 只负责三条考试表现能力：Reading family / Translation / Writing。LexicalOS 是独立一级板块，通过最小 handoff 为 English 供能。"
+  objectId="english:performance-home"
   active="english"
 >
   <section class="englishHub" data-english-hub data-base={base}>
     <header class="englishOverview">
       <div>
         <span>Target · English I 80–85+</span>
-        <h2>能力形成优先，材料和题型只是入口。</h2>
-        <p>默认先回答“现在继续什么、在训练哪种能力、卡住后去哪里最小修复”。完整目录、方法资产和系统证据都在需要时再展开。</p>
+        <h2>先把分拿到，再决定什么值得复盘。</h2>
+        <p>主线是新任务上的稳定表现。一次失误只有在会影响未来正确率、速度或稳定性时，才值得升级成 repair / transfer debt。</p>
       </div>
       <aside>
-        <strong>Clean Attempt → Repair only when needed → Fresh validation</strong>
-        <span>stable work fast-passes</span>
-        <span>protected unseen material stays clean</span>
+        <span>Score map</span>
+        <strong>60 · 10 · 30</strong>
+        <small>Reading family · Translation · Writing</small>
       </aside>
     </header>
 
-    <a class="englishResume" data-english-resume hidden href={`${base}english/`}>
+    <section class="englishResume" data-english-resume hidden>
       <div>
-        <span>Resume</span>
-        <strong data-english-resume-title>Continue English</strong>
-        <p data-english-resume-meta>最近的真实学习动作</p>
+        <span>Highest-value next action</span>
+        <strong data-english-resume-title></strong>
+        <small data-english-resume-meta></small>
       </div>
-      <b>继续 →</b>
-    </a>
+      <a class="primaryLink" data-english-resume-link href={`${base}english/`}>继续 →</a>
+    </section>
 
-    <div class="englishHubLayout">
+    <div class="englishCapabilityLayout">
       <main class="englishCapabilityMap">
         <header>
-          <div><span>Capability Map</span><strong>四条能力线</strong></div>
-          <p>没有可继续状态，或你主动换能力时，再从这里进入。</p>
+          <div><span>Performance map</span><h2>三条 English scoring lanes</h2></div>
+          <p>题型不是一级导航；不同题型只有在认知对象不同、值得专门训练时才保留独立 workspace。</p>
         </header>
 
-        <a class="englishCapabilityRow" href={`${base}vocabulary/`}>
-          <div class="englishCapabilityIndex">01</div>
-          <div class="englishCapabilityCopy">
-            <span>LEXICAL · shared supply</span>
-            <strong>快速、正确地在语境中调用语言单位</strong>
-            <p>简单词 L0-first；多义、构式、搭配和 confusable 才增加深度。长期 review 必须挣到未来注意力。</p>
+        <section class="englishCapabilityGroup" data-capability="reading">
+          <div class="englishCapabilityLead">
+            <span>01 · Reading family · 60 pts</span>
+            <h3>把输入变成正确判断</h3>
+            <p>representation → decisive evidence / constraints → judgment → execution</p>
           </div>
-          <div class="englishCapabilityAction"><small>Canonical owner · LexicalOS</small><b>进入 Vocabulary →</b></div>
-        </a>
-
-        <section class="englishCapabilityRow readingRow">
-          <div class="englishCapabilityIndex">02</div>
-          <div class="englishCapabilityCopy">
-            <span>READING · representation + judgment</span>
-            <strong>把输入转成足以支持正确判断的表示</strong>
-            <p>主线：understand → decisive evidence → option adjudication → execute。专项 trainer 在同一能力上下文中按需调用。</p>
-            <div class="englishTrainerLinks">
-              <a href={`${base}reading/`}>Reading A</a>
-              <a href={`${base}cloze/`}>Cloze trainer</a>
-              <a href={`${base}reading-b/`}>Part B trainer</a>
-            </div>
+          <div class="englishCapabilityRoutes">
+            <a href={`${base}reading/`}>
+              <span>Primary</span><strong>Reading A</strong><small>{reading.readingA.ready} ready · 40 pts</small>
+            </a>
+            <a href={`${base}cloze/`}>
+              <span>Trainer</span><strong>Cloze</strong><small>{reading.cloze.ready} ready · 10 pts</small>
+            </a>
+            <a href={`${base}reading-b/`}>
+              <span>Trainer</span><strong>Part B</strong><small>{reading.readingB.ready} ready · 10 pts</small>
+            </a>
           </div>
-          <div class="englishCapabilityAction"><small>{statusLabel(reading.status)} · Current source</small><a href={`${base}reading/`}>继续 Reading →</a></div>
         </section>
 
-        <a class="englishCapabilityRow" href={`${base}translation/`}>
-          <div class="englishCapabilityIndex">03</div>
-          <div class="englishCapabilityCopy">
-            <span>TRANSLATION · reconstruction</span>
-            <strong>保住英文意义与关系，再重建成自然中文</strong>
-            <p>保留 first translation；先查 representation 和 relations，再查遗漏/歪曲，最后才是中文重建质量。</p>
+        <section class="englishCapabilityGroup" data-capability="translation">
+          <div class="englishCapabilityLead">
+            <span>02 · Translation · 10 pts</span>
+            <h3>理解以后，关系不丢地重建成中文</h3>
+            <p>representation → relation preservation → reconstruction</p>
           </div>
-          <div class="englishCapabilityAction"><small>{statusLabel(translation.status)} · productive lane</small><b>进入 Translation →</b></div>
-        </a>
+          <div class="englishCapabilityRoutes one">
+            <a href={`${base}translation/`}>
+              <span>{statusLabel(translation.status)}</span><strong>Translation Runtime</strong><small>{translation.ready} ready · {translation.total} total</small>
+            </a>
+          </div>
+        </section>
 
-        <a class="englishCapabilityRow" href={`${base}writing/`}>
-          <div class="englishCapabilityIndex">04</div>
-          <div class="englishCapabilityCopy">
-            <span>WRITING · active generation</span>
-            <strong>从任务约束主动生成可交付英语</strong>
-            <p>task → content → structure → realization → control → timed delivery。先 synthetic 建能力，再消耗受保护真题。</p>
+        <section class="englishCapabilityGroup" data-capability="writing">
+          <div class="englishCapabilityLead">
+            <span>03 · Writing · 30 pts</span>
+            <h3>从任务约束主动生成可得分输出</h3>
+            <p>task → content → structure → realization → control → timed delivery</p>
           </div>
-          <div class="englishCapabilityAction"><small>{statusLabel(writingRuntime.status)} · whole-essay runtime</small><b>进入 Writing →</b></div>
-        </a>
+          <div class="englishCapabilityRoutes one">
+            <a href={`${base}writing/`}>
+              <span>{statusLabel(writingRuntime.status)}</span><strong>Writing Runtime</strong><small>{writingRuntime.ready} synthetic tasks · learning {writingLearning.status}</small>
+            </a>
+          </div>
+        </section>
       </main>
 
       <aside class="englishContextRail">
-        <section>
-          <span>First Learning</span>
-          <strong>第一次系统进入时才用</strong>
-          <nav>
-            <a href={`${base}objective-learn/`}><b>Objective</b><small>Reading A / Cloze / Part B</small></a>
-            <a href={`${base}translation-learn/`}><b>Translation</b><small>Global Map → B1–B4</small></a>
-            <a href={`${base}writing-learn/`}><b>Writing</b><small>{writingLearning.status === 'ready' ? 'Global Map → B1–B8' : 'projection gated'}</small></a>
-          </nav>
+        <section class="englishContextCard lexicalSupply">
+          <span>Independent supply lane</span>
+          <strong>LexicalOS</strong>
+          <p>词汇不是 English 的“第 4 条能力”。遇到真实 sense / construction / confusable 瓶颈时最小跳转，修完立即回原任务。</p>
+          <a href={`${base}vocabulary/`}>进入 Vocabulary →</a>
         </section>
 
-        <section>
+        <section class="englishContextCard">
           <span>Runtime rule</span>
-          <strong>会的不要被系统拖住</strong>
-          <p>稳定正确直接过；真实 wrong / uncertain / fragile 才展开。Repair 只修最早足以解释表现的层，再回到执行。</p>
+          <strong>Perform → Triage → Exit / Repair</strong>
+          <p>稳定就走；偶发且已理解的错不制造债。只有 recurring / high-cost / high-value failure 才升级深复盘。</p>
         </section>
 
-        <section class="englishFreshRule">
-          <span>Evidence</span>
-          <strong>fresh success &gt; remembered correction</strong>
-          <p>同题改对不是 mastery。真正有价值的是后来在低记忆残留的新材料里仍能独立调用。</p>
+        <section class="englishContextCard">
+          <span>Review budget</span>
+          <strong>复盘必须比错误更值钱</strong>
+          <p>错因标签、证据片段、repair check、transfer claim 都只是升级工具，不是每题必须完成的流程。</p>
         </section>
+
+        <details class="englishFirstLearning">
+          <summary>First Learning / targeted intervention</summary>
+          <div>
+            <a href={`${base}objective-learn/`}><strong>Reading family</strong><span>只在真实表现暴露稳定缺口时调用</span></a>
+            <a href={`${base}translation-learn/`}><strong>Translation</strong><span>representation / relation / reconstruction</span></a>
+            <a href={`${base}writing-learn/`}><strong>Writing</strong><span>content / structure / generation</span></a>
+          </div>
+        </details>
       </aside>
     </div>
   </section>
@@ -126,88 +132,79 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
 <script>
   const root = document.querySelector('[data-english-hub]');
   if (root instanceof HTMLElement) {
-    const readJson = (key) => {
+    const base = root.getAttribute('data-base') || '/';
+    const resume = root.querySelector('[data-english-resume]');
+    const title = root.querySelector('[data-english-resume-title]');
+    const meta = root.querySelector('[data-english-resume-meta]');
+    const link = root.querySelector('[data-english-resume-link]');
+
+    const read = (key) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null'); }
       catch { return null; }
     };
-    const asTime = (value) => {
-      const time = Date.parse(String(value || ''));
-      return Number.isFinite(time) ? time : 0;
-    };
+    const timestamp = (value) => Date.parse(value || '') || 0;
     const entries = [];
 
-    const readingLast = readJson('kianos-reading-last-location-v1');
-    if (readingLast?.id && readingLast?.href) {
-      const attempt = readJson(`kianos-reading-attempt-v1:${readingLast.id}`);
-      entries.push({
-        lane: 'Reading A',
-        title: readingLast.title || readingLast.id,
-        href: readingLast.href,
-        time: asTime(readingLast.observed_at),
-        state: attempt?.submitted ? '已提交 · 可继续 review / next' : 'Clean Attempt'
+    const readingLast = read('kianos-reading-last-location-v1');
+    if (readingLast?.id) {
+      const attempt = read(`kianos-reading-attempt-v1:${readingLast.id}`) || {};
+      const results = attempt.results || {};
+      const uncertain = new Set(attempt.uncertain || []);
+      const problems = Object.keys(results).filter((id) => ['wrong', 'unanswered'].includes(results[id]) || uncertain.has(id)).length;
+      if (!attempt.submitted) {
+        entries.push({ priority: 100, time: timestamp(readingLast.updatedAt || attempt.startedAt), title: readingLast.title || 'Reading A · unfinished attempt', meta: 'Reading · 继续 clean attempt', href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
+      } else if (problems > 0 && attempt.reviewUnlocked !== false) {
+        entries.push({ priority: 82, time: timestamp(attempt.submittedAt || readingLast.updatedAt), title: readingLast.title || 'Reading A · review', meta: `Reading · ${problems} 个真实 problem 等待 triage`, href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
+      }
+    }
+
+    const translationLast = read('kianos-translation-last-location-v1');
+    if (translationLast?.id) {
+      const state = String(translationLast.stage || translationLast.state || '').toUpperCase();
+      const priorities = {
+        ATTEMPT: 100,
+        DECISION: 86,
+        DIAGNOSIS: 92,
+        RECONSTRUCT: 96,
+        TRANSFER_PENDING: 35
+      };
+      const priority = priorities[state] || 0;
+      if (priority) entries.push({
+        priority,
+        time: timestamp(translationLast.updatedAt),
+        title: translationLast.title || 'Translation',
+        meta: state === 'TRANSFER_PENDING' ? 'Translation · later validation（低于当前 repair）' : `Translation · ${state.toLowerCase().replaceAll('_', ' ')}`,
+        href: translationLast.href || `${base}translation/${encodeURIComponent(translationLast.id)}/`
       });
     }
 
-    const translationLast = readJson('kianos-translation-last-location-v1');
-    if (translationLast?.id && translationLast?.href) {
-      const attempt = readJson(`kianos-translation-attempt-v2:${translationLast.id}`);
-      const stage = ({
-        attempt: 'Clean Attempt',
-        decision: 'PASS / Review',
-        diagnosis: 'Review needed',
-        reconstruct: 'Reconstruction',
-        passed: 'PASS',
-        repaired: 'Repair Complete',
-        transfer_pending: 'Fresh validation pending'
-      })[attempt?.stage] || 'Continue';
-      entries.push({
-        lane: 'Translation',
-        title: translationLast.title || translationLast.id,
-        href: translationLast.href,
-        time: asTime(translationLast.updatedAt),
-        state: stage
+    const writingLast = read('kianos-writing-last-location-v1');
+    if (writingLast?.id) {
+      const state = String(writingLast.state || '').toUpperCase();
+      const priorities = {
+        ATTEMPT: 100,
+        REVIEW_PENDING: 90,
+        REPAIR_NEEDED: 96,
+        REPAIR_CHECK_PENDING: 86,
+        TRANSFER_PENDING: 35
+      };
+      const priority = priorities[state] || 0;
+      if (priority) entries.push({
+        priority,
+        time: timestamp(writingLast.updatedAt),
+        title: writingLast.title || 'Writing',
+        meta: state === 'TRANSFER_PENDING' ? 'Writing · later validation（不抢占当前 performance）' : `Writing · ${state.toLowerCase().replaceAll('_', ' ')}`,
+        href: writingLast.href || `${base}writing/${encodeURIComponent(writingLast.id)}/`
       });
     }
 
-    const writingLast = readJson('kianos-writing-last-location-v1');
-    if (writingLast?.id && writingLast?.href) {
-      const state = ({
-        ATTEMPT: 'Clean Attempt',
-        REVIEW_PENDING: 'Review needed',
-        PASS_ACCEPTABLE: 'PASS',
-        REPAIR_NEEDED: 'Smallest Repair',
-        REPAIR_CHECK_PENDING: 'Repair Check',
-        REPAIR_COMPLETE: 'Repair Complete',
-        TRANSFER_PENDING: 'Fresh validation pending'
-      })[writingLast.state] || 'Continue';
-      entries.push({
-        lane: 'Writing',
-        title: writingLast.title || writingLast.id,
-        href: writingLast.href,
-        time: asTime(writingLast.updatedAt),
-        state
-      });
-    }
-
-    const latest = entries.sort((a, b) => b.time - a.time)[0];
-    const resume = root.querySelector('[data-english-resume]');
-    if (latest && resume instanceof HTMLAnchorElement) {
+    entries.sort((a, b) => b.priority - a.priority || b.time - a.time);
+    const best = entries[0];
+    if (best && resume && title && meta && link) {
       resume.hidden = false;
-      resume.href = latest.href;
-      const title = root.querySelector('[data-english-resume-title]');
-      const meta = root.querySelector('[data-english-resume-meta]');
-      if (title) title.textContent = latest.title;
-      if (meta) meta.textContent = `${latest.lane} · ${latest.state}`;
+      title.textContent = best.title;
+      meta.textContent = best.meta;
+      link.href = best.href;
     }
   }
 </script>
-
-<style>
-  .englishHub{max-width:80rem;margin:0 auto;display:grid;gap:12px}.englishOverview{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,.48fr);gap:22px;align-items:end;padding:18px 20px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishOverview>div>span,.englishCapabilityMap header span,.englishCapabilityCopy>span,.englishContextRail section>span,.englishResume span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.englishOverview h2{margin:5px 0 7px;font-size:24px;line-height:1.22;letter-spacing:-.025em}.englishOverview p{max-width:72ch;margin:0;color:var(--study-muted);font-size:13px;line-height:1.65}.englishOverview aside{display:grid;gap:3px;padding-left:18px;border-left:1px solid var(--study-line)}.englishOverview aside strong{font-size:11px;line-height:1.45;color:#29483f}.englishOverview aside span{font-size:9px;color:var(--study-faint)}
-  .englishResume{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px;border:1px solid #bdd8c8;border-radius:12px;background:var(--study-green-soft);color:inherit;text-decoration:none}.englishResume[hidden]{display:none}.englishResume>div{display:grid;gap:2px}.englishResume strong{font-size:15px;line-height:1.35}.englishResume p{margin:0;color:var(--study-muted);font-size:10px}.englishResume>b{color:var(--study-green);font-size:11px;white-space:nowrap}
-  .englishHubLayout{display:grid;grid-template-columns:minmax(0,1fr) 17rem;gap:12px;align-items:start}.englishCapabilityMap{overflow:hidden;border:1px solid var(--study-line);border-radius:14px;background:#fff}.englishCapabilityMap>header{display:flex;align-items:end;justify-content:space-between;gap:20px;padding:16px 18px;border-bottom:1px solid var(--study-line);background:#fafbfa}.englishCapabilityMap>header>div{display:grid;gap:2px}.englishCapabilityMap>header strong{font-size:15px}.englishCapabilityMap>header p{max-width:32rem;margin:0;color:var(--study-muted);font-size:10px;line-height:1.5;text-align:right}
-  .englishCapabilityRow{display:grid;grid-template-columns:42px minmax(0,1fr) 12rem;gap:14px;align-items:center;padding:16px 18px;border-bottom:1px solid var(--study-line);color:inherit;text-decoration:none}.englishCapabilityRow:last-child{border-bottom:0}.englishCapabilityRow:hover{background:#fbfdfc}.englishCapabilityIndex{font:700 12px/1 var(--study-mono);color:#91a099}.englishCapabilityCopy{min-width:0;display:grid;gap:4px}.englishCapabilityCopy strong{font-size:16px;line-height:1.35;letter-spacing:-.015em}.englishCapabilityCopy p{max-width:70ch;margin:0;color:var(--study-muted);font-size:11px;line-height:1.55}.englishCapabilityAction{display:grid;gap:5px;justify-items:end;text-align:right}.englishCapabilityAction small{color:var(--study-faint);font-size:9px}.englishCapabilityAction b,.englishCapabilityAction>a{color:var(--study-green);font-size:10px;font-weight:850;text-decoration:none}.englishTrainerLinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:3px}.englishTrainerLinks a{padding:5px 8px;border:1px solid #d3dfda;border-radius:999px;background:#fbfdfc;color:#2e6254;font-size:9px;font-weight:800;text-decoration:none}.readingRow{cursor:default}
-  .englishContextRail{display:grid;gap:10px}.englishContextRail section{display:grid;gap:7px;padding:14px 15px;border:1px solid var(--study-line);border-radius:13px;background:#fff}.englishContextRail section>strong{font-size:13px;line-height:1.4}.englishContextRail section>p{margin:0;color:var(--study-muted);font-size:10px;line-height:1.6}.englishContextRail nav{display:grid;gap:5px}.englishContextRail nav a{display:grid;gap:1px;padding:8px 9px;border-radius:9px;background:#f7f9f8;color:inherit;text-decoration:none}.englishContextRail nav a:hover{background:var(--study-green-soft)}.englishContextRail nav b{font-size:10px}.englishContextRail nav small{color:var(--study-muted);font-size:9px}.englishFreshRule{background:#fbfdfc!important}
-  @media(max-width:940px){.englishOverview,.englishHubLayout{grid-template-columns:1fr}.englishOverview aside{padding:12px 0 0;border-left:0;border-top:1px solid var(--study-line)}.englishContextRail{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  @media(max-width:700px){.englishCapabilityRow{grid-template-columns:32px minmax(0,1fr);padding:14px}.englishCapabilityAction{grid-column:2;justify-items:start;text-align:left}.englishCapabilityMap>header{align-items:flex-start;flex-direction:column}.englishCapabilityMap>header p{text-align:left}.englishContextRail{grid-template-columns:1fr}}
-</style>
