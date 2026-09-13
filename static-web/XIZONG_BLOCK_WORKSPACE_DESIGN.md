@@ -1,6 +1,6 @@
 # Xizong Block Workspace — accepted design
 
-Status: **ACTIVE SURFACE DESIGN — BASE WORKSPACE ACCEPTED, INNER STATES STILL UNDER DISCUSSION**
+Status: **ACTIVE SURFACE DESIGN — BASE WORKSPACE + LOGIC/HANDOFF ACCEPTED, RECALL/BLOCK RECALL STILL UNDER DISCUSSION**
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -108,14 +108,82 @@ Legitimate clicks/state changes include switching Logic Group, entering external
 
 Important first-round Block Guide structure should normally be visible on Mac without repeated accordion/detail opening. Protected answers and truly secondary/later reference remain progressively disclosed.
 
-## 6｜Still open
+## 6｜Logic Group orientation — ACCEPTED
+
+Entering a Logic Group changes the current cognitive object but stays inside the same Block Workspace.
+
+Default Mac composition:
+
+```text
+Logic Group Map
+│
+├─ current Logic Group title
+├─ goal: this group solves what problem
+├─ closure target: what should be possible after learning
+├─ KP coverage / range as return roadmap only
+├─ relevant Current Visual cue / incoming connection when explicitly owned
+└─ action: go to the original Lecture for continuous study
+```
+
+Rules:
+
+- `goal` and `closure` remain Current learning-support text; UI does not rewrite their meaning;
+- KP identities/range are visible as a roadmap, not as permission to turn first learning into isolated KP cards;
+- group-level Visual appears at the learning entrance only when Current owns a relevant cue;
+- incoming connection may reactivate a previously learned relation when Current explicitly owns that connection;
+- no permanent empty Context rail when no contextual object exists.
+
+## 7｜MarginNote handoff / one return — ACCEPTED
+
+The external-Lecture handoff is a real surface transition and should be low-friction.
+
+Before leaving KianOS, show directly:
+
+```text
+current Logic Group
+→ exact Current source locator or bounded continuous source range when available
+→ KP return roadmap for this Logic Group
+→ relevant source-local Visual task when Current owns one
+→ one clear instruction: learn this whole Logic Group continuously in MarginNote
+```
+
+Do not hide the return roadmap behind a disclosure control.
+
+Do not fabricate source locators. If Current lacks an exact locator, show a bounded generic continuous-source instruction rather than guessing.
+
+The handoff must continue to say, in learner-facing language, that original figures/tables/examples/Lecture-attached questions remain on the original Lecture surface and KianOS is the return surface for retrieval/closure.
+
+### Return evidence
+
+Preserve one meaningful learner confirmation:
+
+```text
+this Logic Group's original Lecture contact is complete
+→ start this Logic Group's KP Recall
+```
+
+This confirmation is not UI ceremony; it records formal Lecture contact required by the accepted Runtime/completion semantics.
+
+Do not add extra `I am back`, double-confirmation, or modal rituals.
+
+## 8｜Visual / Precision timing boundary — ACCEPTED AT RESPONSIBILITY LEVEL
+
+Preserve Current timing semantics rather than filling spare Mac width:
+
+- a group Visual that helps learning now may appear at Logic Group entry / handoff;
+- group Precision whose role is later exactness may remain at/after group closure according to its Current timing;
+- KP-level Visual / Precision remains tied to the relevant KP learning/Recall context when Current owns it;
+- Reserve / Connection Hook remains timing-sensitive and must not become ordinary first-pass Memory merely because it is visible;
+- absent cues remain absent.
+
+The final component placement for KP-level cues remains part of the KP Recall design discussion.
+
+## 9｜Still open
 
 Not yet frozen here:
 
-- exact Logic Group orientation composition;
-- exact MarginNote handoff / return composition;
-- exact KP Recall post-Reveal composition;
-- exact placement/timing presentation of Visual / Precision / Connection / Reserve;
+- exact KP Recall pre-Reveal / post-Reveal composition;
+- exact KP-level Visual / Precision placement inside Recall;
 - exact Block Recall geometry;
 - responsive fallback details;
 - final visual styling.
