@@ -6,35 +6,78 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:22ab05e91dc84f731301",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "滥用权力、职权或信任",
+        "pattern": "abuse + power/authority/position/trust"
+      },
+      {
+        "construction_id": "construction:22ab05e91dc84f731302",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "权力/职权的滥用",
+        "pattern": "abuse of + power/authority/position"
+      },
+      {
+        "construction_id": "construction:22ab05e91dc84f731303",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "药物/酒精滥用",
+        "pattern": "drug/alcohol/substance abuse"
+      },
+      {
+        "construction_id": "construction:22ab05e91dc84f731304",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "身体/性/儿童虐待",
+        "pattern": "physical/sexual/child abuse"
+      },
+      {
+        "construction_id": "construction:22ab05e91dc84f731305",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "言语辱骂；向某人恶言相向",
+        "pattern": "verbal abuse; hurl/shout abuse at + sb"
+      }
+    ],
     "content_hash": "4113482147fc4f82eed47f585e965351ce483dc3db0bee15897862f573b54ef6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "滥用；虐待；辱骂",
-          "label_en": "to use wrongly or improperly or excessively; to treat with cruelty or violence; to use foul or abusive language towards",
-          "pos": "verb",
+          "label_cn": "滥用；不当使用",
+          "label_en": "use something wrongly or excessively; improper use",
+          "pos": "verb/noun",
           "sense_ids": [
             "sense:abuse:a23d414559125663",
-            "sense:abuse:70dd2a3fc8b55c63",
-            "sense:abuse:701fb09ff9905f17"
+            "sense:abuse:473dcb564e105651"
           ]
         },
         {
-          "label_cn": "辱骂；恶言；滥用；虐待",
-          "label_en": "a rude expression intended to offend or hurt; improper or excessive use; cruel or violent treatment",
-          "pos": "noun",
+          "label_cn": "虐待；伤害性对待",
+          "label_en": "treat someone cruelly or violently; cruel or violent treatment",
+          "pos": "verb/noun",
           "sense_ids": [
-            "sense:abuse:03afeb7464a650ce",
-            "sense:abuse:473dcb564e105651",
+            "sense:abuse:70dd2a3fc8b55c63",
             "sense:abuse:ad175cc9e01c54ea"
+          ]
+        },
+        {
+          "label_cn": "辱骂；言语攻击",
+          "label_en": "speak to someone rudely or cruelly; rude offensive language",
+          "pos": "verb/noun",
+          "sense_ids": [
+            "sense:abuse:701fb09ff9905f17",
+            "sense:abuse:03afeb7464a650ce"
           ]
         }
       ],
-      "core_meaning_cn": "滥用；虐待",
-      "core_meaning_en": "to use wrongly or treat badly",
-      "mental_model_cn": "滥用；虐待",
-      "mental_model_en": ""
+      "core_meaning_cn": "把人、权力、物质或语言以有害/错误方式使用或对待",
+      "core_meaning_en": "harmful or wrongful use or treatment, whether of power/substances, people, or language",
+      "mental_model_cn": "先判对象：power/drugs → 滥用；person/child/partner → 虐待；words/insults → 言语辱骂。再判词性：verb /əˈbjuːz/，noun /əˈbjuːs/。",
+      "mental_model_en": "branch by object: power/substances = misuse; people = mistreatment; language = verbal attack; then distinguish verb /z/ from noun /s/"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -56,17 +99,43 @@
             "phrase": "abuse power"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "滥用",
-        "definition_en": "to use wrongly or improperly or excessively",
+        "confidence": "high",
+        "definition_cn": "滥用；以错误、有害或不当方式使用",
+        "definition_en": "to use something wrongly, excessively, or for a harmful or improper purpose",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abuse:a23d414559125663",
-        "sense_label_en": "to use wrongly or improperly or excessively",
+        "sense_label_en": "misuse something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Verb pronunciation ends in /z/: /əˈbjuːz/. Common objects include power, authority, trust, drugs, and alcohol."
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2978e0f88a4c0294e416",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:abuse:473dcb564e105651:collocation:0"
+            ],
+            "meaning_cn": "药物滥用",
+            "phrase": "drug abuse"
+          }
+        ],
+        "confidence": "high",
+        "definition_cn": "滥用；不当或过度使用",
+        "definition_en": "the improper, harmful, or excessive use of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:abuse:473dcb564e105651",
+        "sense_label_en": "improper or excessive use",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "Noun pronunciation ends in /s/: /əˈbjuːs/."
       },
       {
         "collocations": [
@@ -80,17 +149,42 @@
             "phrase": "abuse children"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "虐待",
-        "definition_en": "to treat with cruelty or violence",
+        "confidence": "high",
+        "definition_cn": "虐待；残酷或暴力地对待",
+        "definition_en": "to treat a person or animal cruelly, violently, or harmfully",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abuse:70dd2a3fc8b55c63",
-        "sense_label_en": "to treat with cruelty or violence",
-        "sort_order": 1,
-        "transitivity": "vt"
+        "sense_label_en": "mistreat cruelly or violently",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "Common cues include physically/sexually abuse and abuse a child/partner."
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bc2ec436938c530acbbb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:abuse:ad175cc9e01c54ea:collocation:0"
+            ],
+            "meaning_cn": "虐待儿童",
+            "phrase": "child abuse"
+          }
+        ],
+        "confidence": "high",
+        "definition_cn": "虐待；残酷、暴力或伤害性的对待",
+        "definition_en": "cruel, violent, or harmful treatment of a person or animal",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:abuse:ad175cc9e01c54ea",
+        "sense_label_en": "cruel or violent treatment",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -104,16 +198,16 @@
             "phrase": "abuse + sb"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "辱骂",
-        "definition_en": "to use foul or abusive language towards",
+        "confidence": "high",
+        "definition_cn": "辱骂；用粗鲁、侮辱性语言攻击某人",
+        "definition_en": "to speak to someone rudely, offensively, or cruelly",
         "governing_pattern": "vt. + object",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abuse:701fb09ff9905f17",
-        "sense_label_en": "to use foul or abusive language towards",
-        "sort_order": 2,
+        "sense_label_en": "verbally attack or insult",
+        "sort_order": 4,
         "transitivity": "vt"
       },
       {
@@ -128,63 +222,15 @@
             "phrase": "shout abuse at + sb"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "辱骂；恶言",
-        "definition_en": "a rude expression intended to offend or hurt",
+        "confidence": "high",
+        "definition_cn": "辱骂；恶言；侮辱性言语",
+        "definition_en": "rude, offensive, or insulting language directed at someone",
         "governing_pattern": "",
-        "level": "L1",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:abuse:03afeb7464a650ce",
-        "sense_label_en": "a rude expression intended to offend or hurt",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2978e0f88a4c0294e416",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:abuse:473dcb564e105651:collocation:0"
-            ],
-            "meaning_cn": "药物滥用",
-            "phrase": "drug abuse"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "滥用",
-        "definition_en": "improper or excessive use",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:abuse:473dcb564e105651",
-        "sense_label_en": "improper or excessive use",
-        "sort_order": 4,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bc2ec436938c530acbbb",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:abuse:ad175cc9e01c54ea:collocation:0"
-            ],
-            "meaning_cn": "虐待儿童",
-            "phrase": "child abuse"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "虐待",
-        "definition_en": "cruel or violent treatment",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:abuse:ad175cc9e01c54ea",
-        "sense_label_en": "cruel or violent treatment",
+        "sense_label_en": "rude or offensive language",
         "sort_order": 5,
         "transitivity": "nonverb"
       }
@@ -338,7 +384,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0017-0024.json",
     "source_content_hash": "4113482147fc4f82eed47f585e965351ce483dc3db0bee15897862f573b54ef6",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }

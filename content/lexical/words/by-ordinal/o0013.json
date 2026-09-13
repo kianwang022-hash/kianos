@@ -6,14 +6,39 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:13ab0ad4d3f91f8c9a01",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "去国外/在国外生活、学习或工作",
+        "pattern": "go/live/study/work abroad",
+        "learning_note": "No to/in before abroad."
+      },
+      {
+        "construction_id": "construction:13ab0ad4d3f91f8c9a02",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "来自国外；从国外",
+        "pattern": "from abroad"
+      }
+    ],
     "content_hash": "f1f0d27620fdcaadc878ab2c8adb82dd4300a5c12297dea7dcd79aea9410776a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "在国外；到国外",
-      "core_meaning_en": "in or to a foreign country",
-      "mental_model_cn": "在国外；到国外",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "在国外；到国外",
+          "label_en": "in or to a foreign country",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:abroad:bba84c94bafe5f55"
+          ]
+        }
+      ],
+      "core_meaning_cn": "在国外；到国外（副词，本身已经包含地点/方向含义）",
+      "core_meaning_en": "in or to a foreign country; an adverb that already carries the location/direction meaning",
+      "mental_model_cn": "把 abroad 当地点副词：go/live/study abroad；不要再在前面补 to/in，只有 from abroad 很自然。",
+      "mental_model_en": "treat abroad as a place adverb: go/live/study abroad; do not add to/in, while from abroad is normal"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,7 +69,7 @@
             "phrase": "study abroad"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "在国外；到国外",
         "definition_en": "in or to a foreign country",
         "governing_pattern": "",
@@ -54,7 +79,8 @@
         "sense_id": "sense:abroad:bba84c94bafe5f55",
         "sense_label_en": "in or to a foreign country",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Abroad is an adverb: go/live/study/work abroad, not *to abroad or *in abroad. From abroad is normal."
       }
     ],
     "verification_summary": {
@@ -207,7 +233,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "f1f0d27620fdcaadc878ab2c8adb82dd4300a5c12297dea7dcd79aea9410776a",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }
