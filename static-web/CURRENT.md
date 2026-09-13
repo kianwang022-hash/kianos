@@ -8,164 +8,239 @@ This file owns the current UI-productization cursor and the **UI Execution Lifec
 
 ---
 
-## UI Execution Lifecycle v1.1｜FROZEN
+## UI Execution Lifecycle v1.2｜FROZEN
 
 This lifecycle applies to every major learner-facing UI/productization task unless Kian explicitly overrides it.
 
 ```text
-0. AUTHORITY SYNC
-   Chat reads main@HEAD + UI Current + Presentation Contract + exact domain owners.
+0. PREFERENCE + AUTHORITY SYNC
+   Chat/Sol first re-anchors to Kian's stable UI/interaction preferences,
+   then reads main@HEAD + UI Current + Presentation Contract + exact domain owners.
    No implementation yet.
 
-1. PRODUCT BRIEF
-   Chat defines the one active product question:
-   - target learner surface
-   - cognition / task shape
-   - frozen semantic boundaries
-   - acceptance criteria
-   - what Kian should actually judge
+1. PROJECTION AUDIT
+   Chat/Sol inspects the existing Current projection and, only when relevant,
+   bounded prior/legacy interaction evidence.
 
-1.5 LEGACY / MIGRATION GATE — only when relevant
-   Chat/Sol owns all legacy archaeology, reconciliation and migration.
-   Codex does NOT discover project history or decide what old assets mean.
+   Every learner surface receives exactly one disposition:
 
-   Legacy interaction:
-   exact old implementation/tests
-   → Chat extracts proven behavior
-   → reconcile against Current contracts
-   → Current-facing interaction brief
+   KEEP
+   = current projection already fits Current Logic + Kian's preferences;
+     preserve it and avoid redesign ceremony.
 
-   Legacy content/data:
-   exact old asset
-   → Chat recovers identity / bytes / provenance
-   → reconcile against Current canonical owner
-   → deliberately promote/materialize into Current
-   → only then may UI consume it
+   MIGRATE
+   = a prior interaction Kian already considers good;
+     Chat/Sol reconciles it against Current and carries it forward near-1:1.
 
-   If unresolved, the UI task is BLOCKED before Codex.
+   OPTIMIZE
+   = semantic/interaction skeleton is right, but hierarchy, spatial projection,
+     readability or friction needs improvement.
 
-2. CODEX HANDOFF
-   Codex becomes the sole production implementation owner.
-   It receives only Current contracts/runtime + the clean Product Brief + already-reconciled migration output.
-   Codex opens ONE short-lived implementation branch / Draft PR,
-   implements Astro/CSS/interaction, runs build/browser checks,
-   and returns real screenshots + a compact receipt.
+   REBUILD
+   = projection itself conflicts with Current cognition or Kian's stable preferences;
+     define a new Product Brief before implementation.
 
-3. PRODUCT REVIEW
-   Chat reviews the browser result against Current contracts and the Product Brief.
-   Chat gives product / interaction feedback; it does not become the long-running CSS/Astro implementer.
-   Kian is asked only for meaningful direction choices, not engineering ceremony.
+   BLOCKED
+   = required authority/data/legacy reconciliation is unresolved;
+     stop before Codex.
 
-4. ITERATION
-   Codex iterates on the SAME active implementation PR unless the direction is explicitly abandoned.
+2. PRODUCT BRIEF / MIGRATION OUTPUT
+   Only surfaces marked OPTIMIZE / REBUILD need a design brief.
+   MIGRATE surfaces get a clean Current-facing migration brief or promoted Current asset.
+   KEEP surfaces require no implementation merely to make them look new.
 
-5. ACCEPTANCE GATE
+3. CODEX HANDOFF
+   Codex becomes the sole production implementation owner only after Audit is closed.
+   Codex receives Current contracts/runtime + clean brief/migration output.
+   Codex does not perform project archaeology or choose which historical behavior survives.
+   Default = ONE short-lived implementation branch / Draft PR.
+
+4. PRODUCT REVIEW
+   Chat/Sol reviews real browser output against Current Logic, Kian's preferences,
+   the Audit disposition and the implementation brief.
+   Chat gives product/interaction feedback rather than becoming the long-running CSS/Astro implementer.
+
+5. ITERATION
+   Codex iterates on the SAME active implementation PR unless the direction is abandoned.
+
+6. ACCEPTANCE GATE
    Move forward only when:
-   - real browser behavior is usable;
-   - Kian accepts the structural direction;
+   - browser behavior is usable;
+   - Kian accepts any genuinely open structural choice;
    - Chat verifies zero semantic diff;
-   - required legacy migration is already reconciled into Current;
+   - required migration is reconciled into Current;
    - no hidden legacy/runtime fallback exists.
 
-6. MERGE + CLOSURE
-   Merge only the accepted implementation.
-   Same session: advance Current → close PR → retire/delete branch → retain only minimal restart receipt.
+7. MERGE + CLOSURE
+   Merge only accepted implementation.
+   Same session: advance Current → close PR → retire/delete branch → keep minimal restart receipt.
 
-7. FRESH-CHAT RESUME
+8. FRESH-CHAT RESUME
    New Chat reads Current first and continues the exact stage.
 ```
 
+### Kian preference baseline
+
+Cross-project taste evidence lives in `kianwang022-hash/kianos-cognition/library/cyber_archive/UI_INTERACTION_PREFERENCES.md`; KianOS-specific execution is governed by this repo's `PRESENTATION_CONTRACT.md`.
+
+Stable KianOS-facing baseline:
+
+- **Dense Calm** — medium/high useful density, comfortable readable type, low visual noise;
+- strong visible structure; page should draw logic rather than ask Kian to reconstruct it from prose;
+- no tiny-text + giant-whitespace pseudo-minimalism;
+- no default card/panel pile merely because components are convenient;
+- primary action obvious, secondary capability progressively disclosed;
+- interaction natural, stable, predictable and low-friction; motion only when it explains continuity/state;
+- work/content surfaces quiet and durable; entry/identity surfaces may be visually stronger;
+- high-frequency correct/stable paths should be extremely fast;
+- wrong / meaningful uncertain may make the interface heavier only because new information is now useful.
+
+Do not ask Codex to reinterpret these preferences from scratch for every page.
+
+### Protected carry-forward interaction baselines
+
+Kian has already identified the following as comfortable and worth preserving unless a Current semantic conflict is proven:
+
+```text
+Recall / KP
+Space = reveal
+1–4 = learner judgment
+Enter = commit / clean-pass and next
+← / → = previous / next KP
+
+Standard A–D question
+1–4 = A/B/C/D
+Enter = submit when confirmation is needed
+Fast single-choice = click/key submits immediately
+correct = near-immediate next
+wrong = stay + explanation/repair
+multiple-choice = Enter still confirms
+
+Lexical
+whole-card judgment must stay near-instant
+Known/Mastered = fast pass
+Fuzzy/Unknown = Depth
+Depth = rich but low-friction
+local + = exact Repair admission
+keyboard-first traversal / Reveal / local targeting remains preferred
+```
+
+These are interaction baselines, not universal mastery semantics; the owning domain Evidence contract still defines meaning.
+
 ### Role boundary
 
-**Chat / Sol owns:** current logic reading, Product Brief, all legacy discovery/archaeology/migration/authority reconciliation, interaction intent, screenshot/journey review, acceptance and Current reconciliation.
+**Chat / Sol owns:** preference interpretation, Projection Audit, current logic reading, all legacy discovery/reconciliation/migration, Product Brief, screenshot/journey review, acceptance and Current reconciliation.
 
-**Codex owns:** production Astro/CSS/JS, components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
+**Codex owns:** production Astro/CSS/JS, layout/components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
 
-**Codex is not the project historian.** It must not infer what an old owner meant, choose between Legacy and Current truth, recover historical data, or decide which old behavior survives.
+**Codex is not the project historian.** Raw Legacy never becomes its research assignment.
 
-**Kian owns:** final learner preference between structurally valid directions, real-use `U`, explicit workflow override.
+**Kian owns:** final preference when multiple structurally valid directions genuinely remain, real-use `U`, explicit workflow override.
 
 ### Hard hygiene
 
 1. Default maximum = **one active UI implementation PR**.
-2. No implementation branch before Product Brief + required Migration Gate are complete.
-3. Chat-authored code sketches are disposable references only.
-4. Codex may not change learning/evidence/Repair/Resume/content semantics for UI convenience.
-5. Codex consumes Current or an explicit Chat-produced migration output — never raw Legacy as a second authority.
-6. Screenshot ≠ acceptance; browser interaction/build must work.
-7. Merged/abandoned UI branches are not durable task state; Current is.
-8. Upstream ambiguity returns to Chat/domain owner instead of being patched around in UI.
+2. No implementation branch before Projection Audit + required Migration Gate are complete.
+3. A new UI phase does **not** imply every surface must be redesigned.
+4. User-approved prior interaction should be migrated, not gratuitously reimagined.
+5. Chat-authored code sketches are disposable references only.
+6. Codex may not change learning/evidence/Repair/Resume/content semantics for UI convenience.
+7. Codex consumes Current or an explicit Chat-produced migration output — never raw Legacy as a second authority.
+8. Screenshot ≠ acceptance; browser interaction/build must work.
+9. Merged/abandoned UI branches are not durable task state; Current is.
+10. Upstream ambiguity returns to Chat/domain owner instead of being patched around in UI.
 
 ---
 
 ## Work Cursor
 
 **Program:** KianOS learner-surface productization  
-**Active stage:** `2 · CODEX HANDOFF`  
-**Active Gold surface:** English Writing — task-first workbook  
-**Implementation owner:** Codex  
-**Chat/Sol role:** product direction + acceptance; migration owner when relevant  
+**Active stage:** `1 · PROJECTION AUDIT`  
+**Implementation owner:** none until the active audit produces a disposition  
+**Chat/Sol role:** audit + migration owner  
 **Active implementation PR:** none  
-**Blocker:** no browser-tested Codex implementation yet.
+**Blocker:** none.
 
-### Current Product Brief｜Writing Gold
+### Audit rule
 
-English is a **Digital Workbook + Adaptive Coach**, not a knowledge-course renderer.
+Audit one surface at a time. Do not batch the whole website into one aesthetic judgment.
 
-```text
-Task / Prompt + learner Plan / Draft = dominant workspace
-six Writing primitives = quiet, complete-but-skippable coaching / repair reservoir
-```
-
-Formal learner unit = one complete essay. Clean performance dominates. Stable work exits quickly. Meaningful failure alone makes the surface heavier.
-
-**Migration Gate for this Writing slice:** none required. Current English/Writing Logic + Current `WritingWorkspace.astro` are sufficient authority. Closed PR #93 is disposable thought-experiment reference only.
-
-Codex reads:
+For each surface:
 
 ```text
-static-web/CURRENT.md
-→ static-web/PRESENTATION_CONTRACT.md
-→ content/english/LEARNING_CONTRACT.md
-→ content/english/modules/writing/CURRENT.md
-→ Current Writing runtime
+Current Logic
++ Current Projection / Runtime
++ Kian preference baseline
++ bounded proven prior interaction only when relevant
+↓
+KEEP / MIGRATE / OPTIMIZE / REBUILD / BLOCKED
+↓
+short receipt in this Current
+↓
+move to the next surface or hand the exact implementation brief to Codex
 ```
 
-Then build **2–3 genuinely different Mac-landscape task-first workbook compositions** — structural alternatives, not palette/radius variants.
+### Audit order
 
-Candidate directions only:
+Start with English because its learner model differs materially from Politics/Xizong and should establish the workbook family without forcing it onto knowledge-heavy domains.
 
-- split workbook: Prompt + work surface + bounded Coach;
-- writing desk: large work surface, Prompt collapsible, Coach quiet;
-- focus + drawer: writing dominates, Task/Coach on demand.
+```text
+1. Writing
+2. Translation
+3. Objective — Reading A
+4. Objective — Cloze
+5. Objective — Part B
+6. English shell / Resume
+7. Politics learning projection
+8. Politics question workbench migration
+9. Xizong System / Block / KP / Recall surfaces
+10. Lexical Fast Pass / Depth / Challenge
+11. global home / identity only after real work surfaces are accepted
+```
 
-Six primitives must never become six compulsory chapters or the permanent visual mainline.
+Order may change when a bounded dependency justifies it; record the reason here rather than inferring from branch activity.
 
-### What Kian should judge
+### Already-known audit evidence
 
-- Is Task obviously the main object?
-- Is there comfortable room to write for 20–30 minutes?
-- Is Prompt always reachable without dominating?
-- Does Coach stay quiet until useful?
-- Which structure feels most natural for repeated English use?
+**Writing:** Current English Logic says task/performance first; First Learning is complete-but-skippable repair reservoir; formal learner unit is one complete essay. Existing `WritingWorkspace.astro` already has useful task-first bones. The old `writing-learn.astro` over-centers six primitives as a learner route. **Audit not yet closed**: likely KEEP core Runtime interaction + OPTIMIZE/REBUILD First-Learning projection, but inspect as one combined learner journey before final disposition.
+
+**Politics question workbench:** Kian explicitly prefers the prior 4173/local question interaction. Treat this as a **MIGRATE candidate**, not a redesign target. Chat/Sol must first reconcile interaction + 1,148 refined explanation asset against Current Politics truth. Codex receives only the reconciled result.
+
+**KP / Recall interaction:** Kian explicitly likes the prior Space / 1–4 / Enter / ←→ grammar. Treat as a **MIGRATE/KEEP baseline** across compatible Current Recall surfaces unless an owning contract proves a conflict.
+
+**Lexical:** latest projection intentionally pursues sub-second routing and keyboard-first Depth/Challenge. Kian reports this interaction direction as comfortable. Treat as **KEEP/OPTIMIZE candidate**, not a default rebuild; exact audit waits for its turn and must respect Lexical Current runtime maturity.
 
 ---
 
 ## Frozen product basis
 
-`PRESENTATION_CONTRACT.md` + `SYSTEM_CONTRACT.md` + applicable domain contract + Current content/runtime owner.
+`PRESENTATION_CONTRACT.md` + `SYSTEM_CONTRACT.md` + applicable domain contract + Current content/runtime owner + Kian preference baseline above.
 
-Hard principles: Dense Calm; Mac landscape first; cognition before components; `Content structure ≠ page structure`; stable/correct paths stay low-friction; Wrong/Uncertain reveals smallest useful Repair; UI cannot mutate Current semantics.
-
-Shared roles: `Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
+Shared semantic roles: `Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
 
 ---
 
-## Protected legacy reference｜Politics Question Workbench
+## Legacy / migration firewall
 
-Politics has a **mandatory Chat-owned Migration Gate before Codex implementation**.
+Legacy may provide bounded evidence of an interaction Kian already liked or a recoverable content asset. Chat/Sol owns all archaeology and reconciliation.
 
-Chat/Sol must recover and reconcile the prior Workbench interaction against Current Politics truth, including:
+```text
+raw Legacy
+→ Chat/Sol exact recovery + reconciliation
+→ Current-facing interaction brief OR promoted Current asset
+→ Codex implementation
+```
+
+Never:
+
+```text
+Current runtime
+→ hidden fetch/fallback/link to old repo / branch / localhost / stale owner
+```
+
+### Politics protected reference
+
+Before Politics question UI implementation, Chat/Sol must recover/reconcile the proven prior Workbench behavior, including:
 
 ```text
 Normal / Fast
@@ -182,38 +257,29 @@ fixed low-friction Next
 optional original-question image check
 ```
 
-Historical evidence also pins a 1,148-record refined explanation artifact. **Chat/Sol owns locating, recovering, reconciling and promoting it through the correct Current Politics owner.** Codex receives only the reconciled Current result / clean implementation brief.
-
-Codex must never wire learner runtime directly to recovery repos, old localhost assets, historical schedulers, or stale owners.
+Historical evidence also pins a 1,148-record refined explanation artifact. Chat/Sol owns exact recovery and Current promotion. Old scheduler/due/mastery/owner semantics do not return with the UI.
 
 ---
 
-## Gold acceptance
+## Historical / superseded UI routes
 
-```text
-Current logic/content/runtime
-→ Chat closes Migration Gate if needed
-→ Codex implementations
-→ browser screenshots + interaction review
-→ Kian accepts/rejects
-→ accepted composition
-→ then reusable tokens/primitives
-```
-
-After Writing: Translation → Objective → English shell/Resume → Politics → Xizong → LexicalOS when ready → global home/identity last.
+Issue #38 / `visual-language-v01` = superseded reference only.  
+Closed PR #93 / `ui-writing-gold-lab-v2` = disposable Chat-authored thought experiment only; do not resume as implementation.
 
 ---
 
 ## Fresh-Chat restart
 
+When Kian says `继续 KianOS 总 UI`, `读取 GitHub 最新 UI 任务`, or equivalent:
+
 ```text
 main@HEAD
 → static-web/CURRENT.md
-→ identify lifecycle stage
-→ if Migration Gate exists, Chat closes it
-→ only then Codex Handoff
-→ active Codex PR/browser receipt
-→ continue exact acceptance step
+→ read Kian preference baseline
+→ identify active Projection Audit surface
+→ inspect exact Current Logic + Projection
+→ close one KEEP/MIGRATE/OPTIMIZE/REBUILD/BLOCKED disposition
+→ only then decide whether Codex implementation is needed
 ```
 
 Do not reconstruct UI work from old Issues, previous Chats, historical branches or legacy screenshots when Current resolves the task.
