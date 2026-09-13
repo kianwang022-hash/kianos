@@ -1,614 +1,1071 @@
-# Translation｜Current Learning Asset
+# Translation｜第一次学习主干
 
-> **Role**：Translation 的 Current learner-facing canonical learning asset。  
-> **目标**：把英语原意准确恢复出来，用自然中文重构，并在考试时间内稳定交付。  
-> **第一次学习**：先建立 Global Map，再按需学习 3 个 Core Blocks：Representation / Reconstruction / Execution。已经稳定的部分可以直接跳过。  
-> **Fidelity**：不是第 4 门课，而是贯穿“理解 → 中文重构”的意义守恒约束；只有真实失真时才需要单独展开。  
-> **完整知识保全**：上一版高密度长资产完整保存在 `content/english/modules/translation/learning.reference.md`，身份降为 **repair/reference reservoir**。任何被主路径折叠的有效例子、边界、skill detail 都仍有明确 owner，不因 learner-facing 压缩而删除。  
-> **Runtime**：clean performance 优先；Wrong / Uncertain 是 evidence signal，不自动制造 Chat、repair、transfer 或复习债务。
+> **目标**：把英文真正说了什么搭准，再把同一件事用自然中文重新说出来，并在考试时间里稳定交付。  
+> **怎么用**：先看 Global Map。第一次学习只需要抓住 **3 个 Core Blocks**：Representation / Reconstruction / Execution；会的直接跳。  
+> **Fidelity**：是一条贯穿全程的意义守恒线，**不是第 4 门课**。只有真实发生失真时，才需要单独展开检查。  
+> **更深内容**：长例子、复杂边界、micro-drill 和旧版高密度内容保存在 `learning.reference.md`，真正卡住时再下钻。
 
 ---
 
-# A｜Global Map：翻译到底是在做什么
+# A｜Global Map：翻译到底在做什么
 
-考研翻译不是逐词替换，而是完成三个真正的 productive jobs：
+Translation 不是：
+
+> 英文从左到右读过去 → 每个词换一个中文词。
+
+真正的主干只有三步：
 
 ```text
 REPRESENT
-把英文真正说了什么搭准
+把英文真正断言了什么搭准
 ↓
-RECONSTRUCT — while preserving fidelity
-把同一件事重新组织成正常中文
+RECONSTRUCT — faithfully
+把同一意义重新组织成正常中文
 ↓
 DELIVER
-在时间压力下稳定写出来并及时离开
+在时间压力下稳定写出，并及时离开
 ```
 
-压成一句话：
-
-> **把英文真正说了什么搭准，再把同一件事用正常中文重新说出来。**
-
-其中有一条贯穿约束：
+贯穿三步的是一条护栏：
 
 ```text
-FIDELITY GUARD
-允许改变形式
-禁止改变命题、关系、角色、范围、程度与必要信息
+                FIDELITY GUARD
+      ─────────────────────────────
+      形式可以变，意义结构不能变
+
+必须守住：
+命题 / 角色 / 关系 / scope / 程度 / reference / 必要信息
 ```
 
-所以 Translation 的最小充分模型是：
+把整门 Translation 压成一句话：
 
-1. **English Representation**｜原文到底断言了什么；
-2. **Chinese Reconstruction**｜同一意义怎样重组成自然中文；
-3. **Exam Execution**｜怎样在有限时间稳定交付；
-4. **Fidelity Guard**｜跨阶段 invariant，不是必须单独走过的顺序节点。
+> **先把意思搭准，再把形式放开。**
 
-例如：
+这句话很重要，因为翻译的两个典型极端都不对：
+
+```text
+只顾“忠实”
+→ 英文顺序、词性、被动、长定语全部照搬
+→ 中文机械
+
+只顾“自然”
+→ 为了讲顺，自行改强度、补原因、换角色
+→ 中文自然，但已经不是原句
+```
+
+正确状态是：
+
+```text
+意义结构锁住
++
+中文形式自由
+```
+
+### 一个句子里，三个问题可以分开
 
 > Evidence collected under ideal conditions does not always predict what will happen in everyday life.
 
-真正重要的是：
+先看三层：
 
-- `collected under ideal conditions` 挂到 `Evidence`；
-- `does not always` 是“并不总是”，不是“完全不能”；
-- 中文可以重排，但不能抹掉“有时仍可能预测”的命题强度。
+```text
+Representation
+Evidence ← collected under ideal conditions
+not always = 并不总是，而不是“完全不能”
 
-如果 `does not always` 一开始就理解错 → **Representation failure**。  
-如果理解对了，中文输出时漏掉限制 → **Fidelity failure**。  
-如果意思都保住但中文机械僵硬 → **Reconstruction failure**。
+Reconstruction
+英文后置修饰和语序可以重新包装成中文
 
-这些 failure 可以诊断区分，但不意味着 learner 必须先上四门独立课程。
+Fidelity
+不能把 not always 的部分限制翻成 total negation
+```
+
+所以：
+
+- 一开始把 `not always` 理解错 → Representation 问题；
+- 理解对了，中文里却漏掉这个限制 → Fidelity 失真；
+- 意思都对，只是中文像英文倒装出来的 → Reconstruction 问题。
+
+这三个问题可以诊断区分，但学习主线仍然只有 **Represent → Reconstruct → Deliver**。
 
 ---
 
-# B｜Core Learning：三块就够，Fidelity 贯穿其中
+# B｜Core Learning：三块主干 + 一条 Fidelity 护栏
 
-第一次进入 Translation，不要求把下面内容全部学完。
+第一次学习不是把几十种长难句结构全部背完。
 
-默认只在当前能力不稳时进入相应 Core Block：
+真正需要形成的是：
 
 ```text
-B1 Representation
-B3 Reconstruction
-B4 Execution
+B1｜Representation
+我到底读懂了什么？
+
+B3｜Reconstruction
+同一意义怎样变成正常中文？
+
+B4｜Execution
+哪些风险必须解决，什么时候该停？
 ```
 
-`B2 Fidelity Guard` 保留完整语义，但身份是跨阶段 guard + repair reservoir，不是第一次学习必须连续完成的第 2 个 Block。
+`B2 Fidelity Guard` 放在这里，是为了把“形式变化”和“意义变化”的边界讲清楚；它不是必须按顺序学完的第四个 Block。
 
 ---
 
 # B1｜English Representation：先把英文的意义结构搭准
 
-## B1.0 核心模型
+## B1.0｜核心问题
 
-英文表面是一串词，真正需要恢复的是意义结构：
+> **如果先不管中文好不好看，我能不能用粗糙但准确的话，说清这句英文到底断言了什么？**
+
+英文表面是一串词，真正需要恢复的是一张意义图：
 
 ```text
-谁 / 什么
-→ 发生什么、做什么、是什么
-→ 哪些成分属于谁
-→ 命题之间是什么关系
-→ 否定、比较、程度、条件作用到哪里
-→ reference 指向什么
-→ 关键词在当前语境是哪一个 sense
+                 CORE PROPOSITION
+                 谁发生了什么？
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+   ATTACHMENT       SCOPE          RELATION
+   谁属于谁？       限制到哪？     命题为何相连？
+        │              │              │
+        └──────────────┼──────────────┘
+                       │
+                  REFERENCE
+                  这个词指谁？
+                       │
+                  LEXICAL SENSE
+                  当前到底是哪一义？
 ```
 
-目标不是把语法术语说全，而是：
+语法术语不是目标。能把这张图恢复出来，才是目标。
 
-> **先用粗糙但准确的话，说清这句英文到底断言了什么。**
+---
 
-如果粗糙意义都不稳定，不要先润色中文。
+## B1.1｜Proposition Hierarchy：先找主干，再看附属信息
 
-## B1.1 Proposition hierarchy
-
-面对复杂句先问：
+面对长句，先问三个问题：
 
 ```text
-核心对象是谁 / 什么？
+谁 / 什么是核心对象？
+↓
 核心动作、判断、状态是什么？
-其他内容是在限定、解释、补充，还是另起命题？
+↓
+其他部分是在限定、解释、补充，还是另起命题？
 ```
 
 例如：
 
 > Policies that appear efficient in theory may fail when they ignore how people actually behave.
 
+不要先逐词翻。
+
 先压成：
 
 ```text
-主命题：某些政策可能失败
-哪些政策：理论上看起来高效的政策
-什么条件下：忽视人们实际行为方式时
+主命题      某些政策可能失败
+哪些政策    理论上看起来高效的政策
+什么情境    忽视人们实际行为方式时
 ```
 
-长句不等于巨大主干；从句多也不意味着每个从句都同等重要。
+这里最值得带走的不是“定语从句 + 状语从句”两个标签，而是：
 
-## B1.2 Attachment｜谁修饰谁
+> **长句不等于巨大主干；从句多，也不等于每层信息同权。**
 
-高风险位置包括长名词短语、后置定语、非谓语、介词短语、插入结构、句尾长修饰。
-
-不要只按最近距离挂接，同时检查：
-
-```text
-结构上能不能挂
-+
-意义上是否合理
-+
-整个命题是否因此连贯
-```
-
-`Evidence collected under ideal conditions` 中，`collected...` 限定的是 `Evidence`，不是新主命题。
-
-## B1.3 Reference｜这个词到底指谁 / 什么
-
-`it / they / this / that / these / such` 可能指：
-
-- noun / phrase；
-- event；
-- whole proposition；
-- discourse idea。
-
-判断不靠“最近名词”一个规则，而靠：语法可行 + 语义角色可行 + 后文继续成立。
-
-## B1.4 Scope / strength
-
-最容易出现“每个词都认识但命题仍翻错”的位置：
-
-```text
-not all        ≠ 全都不
-not always     ≠ 从不
-not necessarily ≠ 一定不
-may / might / can
-only / even / just
-quantifier / comparison / degree
-```
-
-先确定限制作用到哪个断言，再找中文表达。
-
-## B1.5 Logical relation
-
-连接词不是固定中文词典。真正要恢复的是：
-
-> **命题 A 和命题 B 为什么被放在一起？**
-
-cause / condition / contrast / concession / comparison / purpose / example / time 等关系可以换表面形式，但不能被换成另一个 relation。
-
-## B1.6 Lexical access boundary
-
-熟词生义、sense competition、phrase、construction、collocation、contrast、confusable 的长期知识属于 **LexicalOS**。
-
-Translation 只负责在当前句里识别：
-
-> 这里是 lexical retrieval failure；哪个 sense 才能让当前 proposition / relation 成立？
-
-不要在 Translation 再建第二套词汇库。
-
-## B1.7 卡住时的压缩排查
-
-```text
-抓主命题
-→ 挂 attachment
-→ 定 scope / strength
-→ 定 relation
-→ 解 reference
-→ 检 lexical sense
-```
-
-这是一套故障排查顺序，不是每句必须念一遍的算法。
-
-如果两个 attachment candidate 都成立、reference 指向有真实竞争、几层 scope 叠加，或每个词都认识却说不清主命题，再把原句 + 必要上下文 + 自己的粗糙理解交给 Chat 下钻。
+如果一句英文你还压不成一两个稳定命题，就先别急着润色中文。
 
 ---
 
-# B2｜Fidelity Guard：意义守恒，不是一门独立课程
+## B1.2｜Attachment：长句最容易错在“谁属于谁”
 
-## B2.0 Owner / boundary
+Attachment 不是“见到后置修饰会不会翻”，而是：
 
-Fidelity 解决的问题是：
+> **这个成分到底挂在哪个对象上？**
 
-> **我已经理解对英文，但写出来的中文有没有把同一张意义结构改坏？**
+高风险信号：
 
-如果原文一开始就理解错，owner 是 Representation；只有“理解正确但输出失真”才是 Fidelity failure。
+- 名词后连续出现 PP / participle / relative clause；
+- 句尾有很长 modifier；
+- 两个名词都像 possible candidate；
+- 最近的名词语法上能挂，但语义很奇怪。
 
-因此这里不复制一套 Scope / Reference / Attachment 课程，只保留转换阶段真正必要的守恒检查。
-
-## B2.1 必须守住什么
-
-中文可以重排、拆句、合句、词性转换、主动被动互换，但不能任意改变：
-
-- core proposition；
-- semantic roles / attachment；
-- relation；
-- negation / scope；
-- modality / degree / frequency；
-- condition / restriction；
-- reference；
-- necessary information units。
-
-## B2.2 三类硬伤
+### 一眼模型
 
 ```text
-OMISSION   原文有，中文没了
-ADDITION   原文没有，中文加了新判断
-DISTORTION 信息还在，但变成另一件事
+先锁中心对象
+↓
+列出可能 attachment candidate
+↓
+结构上能不能挂？
++
+语义上合理吗？
++
+整个命题连贯吗？
+↓
+再决定中文怎么拆 / 调序
 ```
 
-高价值例子：
+### 代表例子
 
-- `may` 被写成“会” → 弱断言被强化；
-- condition 被写成 certainty；
-- partial negation 被写成 total negation；
-- reference / role 被换人；
-- 为了“讲通”自行补原因或作者态度。
+> Researchers examined reports collected from clinics serving remote communities.
 
-## B2.3 Meaning checksum｜需要时才用
-
-不是逐词回译，只检查：
+意义结构是：
 
 ```text
-1. 核心命题还在吗？
-2. 角色 / attachment 还对吗？
-3. relation / scope / reference 还对吗？
-4. degree / modality 有没有变强或变弱？
-5. 有没有漏、增、反、错挂？
+reports
+└─ collected from clinics
+                  └─ serving remote communities
 ```
 
-这个 guard 的价值恰恰是让 Reconstruction 更大胆：
+也就是：
 
-> **意义结构锁住以后，表面形式可以放开。**
+```text
+reports ← collected from clinics
+clinics ← serving remote communities
+```
 
-Stable learner 不需要每句显式跑 checksum。真实错误显示存在失真风险时再展开。
+如果把 `serving remote communities` 挂到 `reports`，后面中文再自然，也已经是在忠实地翻一个**错误的意思**。
+
+> **边界：先解决“挂谁”，再解决“中文怎么卸载”。**
 
 ---
 
-# B3｜Chinese Reconstruction：把同一意义重新说成正常中文
+## B1.3｜Reference：最近的名词不是默认答案
 
-## B3.0 核心模型
-
-Representation 稳定后，不再一边润色一边重新猜原文。
-
-重构主要是三个决策：
+`it / this / that / they / these / such` 可能指：
 
 ```text
-CENTER     中文以什么为表达中心
-ORDER      信息按什么顺序展开
-PACKAGING  用什么句法 / 词类 / 分句承载
+noun
+phrase
+event
+whole proposition
+discourse idea
 ```
 
-authority 不是“技巧表”，而是：
+判断不是只看距离，而是三重约束：
 
-> **哪种中文组织能让读者最省力地恢复同一件事，就优先哪种。**
+```text
+语法能对应？
++
+语义角色合理？
++
+后文接上去仍然成立？
+```
 
-## B3.1 Information order
+### 代表例子
 
-中文不欠英文一个原顺序。条件、原因、长修饰、插入内容可以前移/后移/拆开，只要 relation 与 emphasis 不被改坏。
+> A rule may be easy to describe. This does not mean that people can follow it consistently.
 
-## B3.2 Modifier unloading
+这里 `This` 更自然地指：
 
-当多层英文 modifier 全塞到中文名词前会形成定语墙时：
+> “规则容易描述”这一整件事，
+
+而不是只指 `rule` 这个名词。
+
+中文如果机械写成“这并不意味着……”，有时仍然可以；如果“这”变得悬空，就应把 antecedent 适度显化。
+
+显化来自已经恢复的 reference，不是自由补意思。
+
+---
+
+## B1.4｜Scope / Strength：每个词都认识，命题仍然可能翻错
+
+这是 Translation 最值得敏感的一类 competition。
+
+| 原文 | 真正留下的空间 | 高风险误译 |
+| --- | --- | --- |
+| `not all` | 并非所有都…… | 全都不…… |
+| `not always` | 并不总是 / 未必总是 | 从不 / 不能 |
+| `not necessarily` | 未必 / 不一定 | 一定不 |
+| `may / might` | 可能 | 会 / 必然 |
+| `some` | 一部分 | 全部 / 普遍 |
+| `only` | 限定范围 | 漏掉限定 |
+
+共同动作只有一个：
+
+```text
+不要看到 NOT / MAY / ONLY 就急着找中文词
+↓
+先问：它作用到哪个 proposition？
+↓
+原文还留下了哪些可能空间？
+```
+
+例如：
+
+> High scores do not always indicate deep understanding.
+
+不是：
+
+> 高分不能说明真正理解。
+
+而是保留原句留下的空间：
+
+> 高分并不总能说明理解得很深入。
+
+> **带走：scope 错误往往不是词错，而是命题强度被你改写了。**
+
+---
+
+## B1.5｜Logical Relation：不要把连接词当中文词典
+
+真正的问题是：
+
+> **命题 A 和命题 B 为什么放在一起？**
+
+常见关系可以是：
+
+```text
+cause / result
+condition
+contrast
+concession
+comparison
+purpose
+example
+restriction
+emphasis
+```
+
+### 代表例子｜not A but B
+
+> What matters is not whether a rule is simple, but whether people can follow it consistently.
+
+这里不是两个孤立词 `not` 和 `but`。
+
+真正结构是：
+
+```text
+被排除的判断标准
+规则是否简单
+
+        ↕ decisive contrast
+
+真正被强调的判断标准
+人们能否持续遵守
+```
+
+所以自然中文可以改变表面形式，但这条 contrast 不能丢。
+
+---
+
+## B1.6｜Lexical Access：词义进入当前命题，不在 Translation 建第二套词库
+
+如果卡点是：
+
+- 熟词新义；
+- sense competition；
+- phrase / construction；
+- collocation；
+- contrast / confusable；
+
+做题当下仍要解决：
+
+> **哪个义项放进当前 proposition / relation 后，整句才成立？**
+
+但长期词汇知识继续回到 **LexicalOS**。
+
+Translation 负责当前语境中的调用，不重复背一套 durable vocabulary system。
+
+---
+
+## B1.7｜卡住时，按风险回退
+
+这不是每句必走的算法，而是出问题时的排查顺序：
+
+```text
+我能说清主命题吗？
+├─ 不能 → 先抓 proposition hierarchy
+└─ 能
+   ↓
+谁修饰谁确定吗？
+├─ 不确定 → attachment
+└─ 确定
+   ↓
+scope / strength 会改命题吗？
+├─ 会 → 先定范围与强度
+└─ 不会
+   ↓
+relation / reference 清楚吗？
+├─ 不清楚 → 回最小必要上下文
+└─ 清楚 → 进入中文重构
+```
+
+> **带走：英文粗糙意义没搭稳之前，不要拿中文润色掩盖理解问题。**
+
+---
+
+# B2｜Fidelity Guard：形式可以大胆变，意义不能偷偷变
+
+Fidelity 不是新的学习流程，而是一条**边界线**。
+
+核心问题：
+
+> **我理解英文已经正确，现在为了中文自然做的改动，有没有把原来那件事改坏？**
+
+## B2.1｜什么可以变，什么必须守住
+
+| 形式可以变 | 意义必须守住 |
+| --- | --- |
+| word order | core proposition |
+| split / merge | semantic roles |
+| noun → verb | attachment |
+| passive → active / topic sentence | relation |
+| long modifier → clause | negation / scope |
+| necessary explicitation | modality / degree / frequency |
+| natural omission of form repetition | reference / restriction / necessary information |
+
+这张表就是 Fidelity 的核心。
+
+它的价值不是让中文更保守，而是让你**更敢重构**：
+
+> **因为 meaning 锁住了，所以 form 可以放开。**
+
+---
+
+## B2.2｜三类真正的硬伤
+
+```text
+OMISSION
+原文有，中文没了
+
+ADDITION
+原文没有，中文新增了判断
+
+DISTORTION
+信息似乎还在，但角色 / 关系 / 强度已经变成另一件事
+```
+
+高风险失真通常长这样：
+
+```text
+may        → 会
+condition  → certainty
+not all    → 全都不
+reference  → 换了对象
+passive    → 主客体倒置
+为了讲通  → 自行补作者态度 / 原因
+```
+
+---
+
+## B2.3｜合法重构 ↔ 意义破坏
+
+原文：
+
+> A simple rule may be easier to remember, but that does not guarantee that it will work in every situation.
+
+### 合法重构
+
+> 简单的规则可能更容易记住，但这并不能保证它在所有情况下都有效。
+
+形式已经变化，但：
+
+```text
+may          仍然是弱断言
+contrast     仍然存在
+not guarantee 没被偷换成“无效”
+every situation 的范围仍然保留
+```
+
+### 已经越界
+
+> 简单规则容易记住，但在实际中往往不起作用。
+
+看起来很顺，却偷偷改了几件事：
+
+```text
+may → certainty
+not guarantee → often ineffective
+in every situation → in practice
+```
+
+这不是“另一种译法”，而是另一张意义图。
+
+---
+
+## B2.4｜Meaning Checksum：只有有风险时才扫
+
+不需要逐词回译。
+
+只问：
+
+```text
+核心命题还在吗？
+角色 / attachment 还对吗？
+relation / scope / reference 还对吗？
+degree / modality 有没有被我加强或削弱？
+有没有漏、增、反、错挂？
+```
+
+稳定时 Fidelity 应该退到后台。
+
+> **带走：忠实不是保留英文形式，而是允许形式变化后，原来的意义仍然完整可恢复。**
+
+---
+
+# B3｜Chinese Reconstruction：意义锁住以后，把英文“卸下来”
+
+## B3.0｜核心模型
+
+Representation 稳定以后，不要一边润色一边重新猜英文。
+
+重构只做三个决定：
+
+```text
+MEANING LOCKED
+↓
+CENTER
+中文以什么为表达中心？
+↓
+ORDER
+信息按什么顺序最省力？
+↓
+PACKAGING
+哪些保留在短语里，哪些拆成动作 / 分句？
+```
+
+真正标准不是“用了哪条翻译技巧”，而是：
+
+> **哪种中文组织能让读者最省力地恢复同一件事。**
+
+---
+
+## B3.1｜机械保形 ↔ 意义重构
+
+英文：
+
+> The rapid expansion of services designed to reduce administrative costs has raised concerns about their long-term reliability.
+
+### 表面跟得太紧
+
+> 为降低行政成本而设计的服务的迅速扩张，引发了关于它们长期可靠性的担忧。
+
+不算完全错，但中文中心被一串名词和定语压住。
+
+### 先恢复事件，再组织中文
+
+```text
+某些服务正在迅速扩张
+这些服务旨在降低行政成本
+这种扩张引发了对长期可靠性的担忧
+```
+
+可以重构为：
+
+> 一些旨在降低行政成本的服务正在迅速扩张，这也引发了人们对其长期可靠性的担忧。
+
+这里没有“少翻”，而是把英文的 noun-heavy packaging 释放成中文更自然的事件结构。
+
+---
+
+## B3.2｜Modifier Unloading：定语墙太长，就把信息卸开
+
+```text
+英文
+CENTER NOUN
++ modifier A
++ modifier B
++ modifier C
+
+中文如果全部前置
+→ 读者一直等不到中心
+```
+
+判断动作：
 
 ```text
 先找中心对象
-→ 判断哪些修饰必须紧贴
-→ 其余改成后置说明 / 小分句 / 独立动作
+↓
+哪些修饰必须紧贴？
+↓
+其余能否后移成说明 / 小分句 / 独立动作？
 ```
 
-不是“长句一定拆”，而是减少读者必须憋到句尾才知道中心的负担。
+不是“长句一定拆”。
 
-## B3.3 Split / Merge
+真正信号是：
 
-按 proposition 组织，不按英文句号组织。
-
-可以拆主命题 + 原因/条件/长解释；也可以在中文里合并重复主语或自然属于一个动作的短结构。
-
-## B3.4 Nominalization → action
-
-看到 `recognition / development / assessment / failure / increase / reduction` 等抽象名词时问：
-
-> **这个名词背后其实是谁在做什么？**
-
-例如 `the recognition of the problem` 在合适语境中可以恢复为“认识到这个问题”。
-
-## B3.5 Voice reconstruction
-
-英文被动可能服务于信息结构，不等于中文必须出现“被”。中文可改主动、无主句、受事话题或状态句；必须保住的是角色关系。
-
-## B3.6 Explicit ↔ implicit
-
-可以显化原文已经存在、但中文不说清会断裂的 relation/reference；也可以省略中文不需要重复的主语或形式结构。
-
-显化 ≠ 自由增义；省略 ≠ 删除 proposition。
-
-## B3.7 Natural packaging
-
-优先级：
-
-```text
-准确
-> 关系清楚
-> 信息完整
-> 自然可读
-> 风格漂亮
-```
-
-两个版本都忠实自然时，不为“更像参考译文”继续消耗时间。
+> **读者必须憋太久才知道你到底在说什么。**
 
 ---
 
-# B4｜Exam Execution：稳定交付，然后离开
+## B3.3｜Nominalization → Action：看到抽象名词，问“谁做了什么”
 
-Translation 的最终目标不是分析最完整，而是在有限时间里交付足够可靠的中文。
+例如：
 
-正常执行可压成：
+```text
+the failure of institutions to respond quickly
+```
+
+不要默认写成：
+
+> 机构对迅速回应的失败
+
+先问：
+
+```text
+谁？      institutions
+做什么？  respond quickly
+发生什么？ failed to do it
+```
+
+更自然的意义骨架是：
+
+> 机构未能迅速作出回应。
+
+同理：
+
+```text
+the recognition of the problem
+→ 认识到这个问题
+
+a reduction in unnecessary procedures
+→ 减少不必要的程序
+```
+
+词性不是 fidelity 的一部分。
+
+---
+
+## B3.4｜Voice Reconstruction：英文被动不等于中文必须有“被”
+
+英文被动可能只是为了：
+
+- 突出受事；
+- 隐去执行者；
+- 保持客观语气；
+- 服务信息结构。
+
+中文可以选择：
+
+```text
+主动句
+无主句
+受事作话题
+状态句
+真正必要时才保留“被”
+```
+
+必须守住的是角色关系，不是 `be + done` 的表面形式。
+
+---
+
+## B3.5｜Split / Merge：按 proposition 组织，不按英文句号组织
+
+可以拆：
+
+```text
+主命题 + 原因
+主命题 + 条件
+中心判断 + 长解释
+主句 + 复杂插入
+```
+
+也可以合：
+
+```text
+重复主语
+自然属于一个动作的短结构
+中文无需重复出现的形式关系
+```
+
+判断线只有一个：
+
+```text
+拆 / 合之后
+↓
+原来的 proposition + relation 还能完整恢复吗？
+├─ 能 → 合法重构
+└─ 不能 → 越过 Fidelity 边界
+```
+
+---
+
+## B3.6｜Explicit ↔ Implicit：显化不是自由增义，省略不是删信息
+
+可以显化：
+
+- 中文不说清就会断裂的 reference；
+- 原文已经存在的 logic；
+- 必要的 antecedent。
+
+可以省略：
+
+- 中文不需要反复出现的主语；
+- 纯形式重复；
+- 已由上下文明确恢复的信息。
+
+但所有动作都受一个约束：
+
+> **中文读者最后恢复出来的 proposition 仍然必须和英文一致。**
+
+---
+
+## B3.7｜Reconstruction 的优先级
+
+```text
+准确
+>
+关系清楚
+>
+信息完整
+>
+自然可读
+>
+风格漂亮
+```
+
+两个版本都忠实、自然，就不需要为了“更像参考译文”继续改。
+
+> **带走：中文自然不是贴着英文走，而是在意义不变的前提下主动释放英文形式。**
+
+---
+
+# B4｜Exam Execution：先消灭 meaning risk，再处理 style preference
+
+Translation 的最终目标不是分析最完整，而是**稳定交付**。
+
+## B4.0｜主线
 
 ```text
 调用最小必要上下文
-→ 搭稳意义骨架
-→ 直接生成可信中文
-→ 只扫高风险失真点
-→ 够好就离开
+↓
+搭稳意义骨架
+↓
+直接生成可信中文
+↓
+只扫高风险失真
+↓
+够好就离开
 ```
 
-## B4.1 Local context
+---
 
-reference、sense、logic 真依赖前后文时，只回看解决 ambiguity 所需的最小范围，然后立即返回 Translation；不要把整个 task 重新做成 Reading 分析。
+## B4.1｜不确定时，先问它会不会改变命题
 
-## B4.2 First-pass production
+```text
+这里有不确定？
+↓
+它会改变 proposition / role / relation / scope / reference 吗？
+├─ 会
+│  → 必须解决
+│  → 必要时回看最小上下文
+└─ 不会
+   → 两种中文都忠实自然？
+      ├─ 是 → 选一个，走
+      └─ 否 → 做最小局部调整
+```
 
-意义骨架稳定后就可以落笔，不必等“英文分析 100% 完成”。真正要避免的是：英文没懂先润色、为一个中文词卡住整句、已有合格表达仍追求参考答案措辞。
+### 必须解决
 
-## B4.3 Uncertainty triage
+- 主谓 / semantic role；
+- attachment；
+- negation / scope；
+- reference；
+- logical relation；
+- modality / degree；
+- 会改变核心意义的 lexical sense。
 
-必须解决：会改变 proposition 的主谓关系、attachment、scope、reference、logic、modality、degree、关键词 sense。
+### 可以先放过
 
-可以先放过：两个都自然忠实的中文词、纯风格偏好、只会让句子“更漂亮”的修改。
+- 两个都自然的中文词；
+- 不影响 fidelity 的语序偏好；
+- “还能不能更漂亮”。
 
-## B4.4 High-risk self-check
+> **带走：先消灭 meaning risk，再处理 style preference。**
 
-优先扫：
+---
+
+## B4.2｜Local Context：只回看够用的范围
+
+如果当前 reference / sense / relation 依赖前后文：
+
+```text
+回看最小必要范围
+→ 只解决当前 ambiguity
+→ 立即回到 Translation
+```
+
+不要因为一个代词不确定，就把整篇文章重新做成 Reading 分析。
+
+---
+
+## B4.3｜First-pass Production：意义骨架稳定，就可以落笔
+
+不是等英文分析到“100% 完整”才开始写。
+
+真正要避免的是：
+
+```text
+英文还没懂
+→ 先润色中文
+
+一个中文词拿不准
+→ 卡住整句
+
+已经有合格表达
+→ 继续追参考答案措辞
+```
+
+只要主命题、relation、scope 等高风险结构稳定，就可以直接生成可信中文，再做局部校正。
+
+---
+
+## B4.4｜最后检查，只扫高风险点
 
 ```text
 NEGATION / SCOPE
+↓
 MODALITY / DEGREE
-COMPARISON
+↓
+COMPARISON / RELATION
+↓
 REFERENCE
-ATTACHMENT
-ROLE REVERSAL
+↓
+ATTACHMENT / ROLE REVERSAL
+↓
 OMISSION
+↓
+明显翻译腔是否阻碍理解
 ```
 
 不是逐词重新翻一次。
 
-## B4.5 Stop rule
+---
 
-满足以下条件就应该前进：
+## B4.5｜Stop Line
 
 ```text
-核心命题稳定
-关系与限制没有明显失真
-重要信息没有漏
-中文读得通
-没有高风险 unresolved ambiguity
+核心命题稳定？
+relation / scope / role 没有明显失真？
+必要信息没有漏？
+中文正常可读？
+没有会改变意义的 unresolved ambiguity？
+
+大体成立
+→ STOP
 ```
 
 “还能再润色一点”不是继续停留的理由。
 
-重复出现的漏限制、计时掉主干、自查漏否定/比较/modality、为了漂亮改坏原意、长修饰导致停止输出，才值得建立 execution repair object。
+> **带走：可靠、忠实、可读以后，就应该离开。**
 
 ---
 
-# B5｜Integrated Walkthrough：三块能力 + 一条 Fidelity Guard
+# B5｜Integrated Walkthrough：一条句子怎样从英文变成中文
 
-合成句：
+用同一个 synthetic sentence，把三步和 Fidelity 护栏同时看见：
 
 > The growing reliance on systems designed to simplify decisions may create new problems when users assume that these systems are always reliable.
 
-## Step 1｜Represent
+## Step 1｜Represent：先画意义，不写漂亮中文
 
 ```text
-主命题：越来越依赖某些系统，可能制造新的问题
-systems：designed to simplify decisions
-出现问题的情境：users assume ... 时
-assume 内容：these systems are always reliable
-may：可能，不是必然
-these systems：指前面的 systems
+MAIN
+越来越依赖某些 systems
+→ may create new problems
+
+SYSTEMS
+← designed to simplify decisions
+
+WHEN
+users assume...
+
+ASSUME WHAT
+these systems are always reliable
+
+STRENGTH
+may = 可能，不是必然
+always = 始终 / 总是
+these systems = 前面的 systems
 ```
 
-## Step 2｜Reconstruct faithfully
+现在已经知道这句话在断言什么。
 
-可以释放英文名词结构，例如：
+## Step 2｜Reconstruct：选择中文中心、顺序和 packaging
+
+英文表面中心是：
+
+```text
+the growing reliance on systems...
+```
+
+中文不必硬保留成一个巨大名词短语。
+
+可以组织成：
 
 > 人们越来越依赖那些旨在简化决策的系统；如果使用者想当然地认为这些系统始终可靠，这种依赖反而可能带来新的问题。
 
-重构过程中 Fidelity Guard 只守住高风险 truth：
+这里做了几件合法的 form change：
 
-- `growing reliance` 的增加趋势；
-- `may` 的弱断言；
-- `designed to...` 的 attachment；
-- `when` 的关系；
-- `always` 的强度。
+```text
+名词化 reliance → “人们越来越依赖”
+长 modifier → 放回 systems 后理解，再在中文里自然承载
+when-clause → 条件 / 情境前置
+reference → “这种依赖 / 这些系统”适度显化
+```
 
-Preservation 在这里是约束，不需要被 learner 单独“过一关”。
+## Step 3｜Fidelity Guard：只守高风险 truth
 
-## Step 3｜Deliver
+```text
+growing reliance  增长趋势还在？
+may               弱断言还在？
+designed to...    attachment 没挂错？
+when              relation 没改成 certainty？
+always            强度没丢？
+```
 
-高风险点稳定、中文可读，就离开。
+如果这些都守住，中文表面和英文不同完全没问题。
 
-这就是 Translation 的完整工作模型。
+## Step 4｜Deliver：够好就走
+
+中文可读、高风险意义稳定，就离开。
+
+> **整条 Translation 的动作就是：意义搭准 → 形式释放 → 高风险守恒 → 及时交付。**
 
 ---
 
-# C｜Skill Map：诊断地址，不是课程目录
-
-Skill Map 给失败一个稳定 owner，避免“一题一个知识点”。一个 task 可以同时暴露多个 node，但一次 repair 只处理真正有独立边际价值的 root causes。
-
-## R｜Representation
+# C｜Skill Map：卡住时查地址，不是第一次学习清单
 
 ```text
+R｜Representation
 R1 Proposition / clause hierarchy
 R2 Attachment
 R3 Reference
 R4 Scope / strength
 R5 Logical relation
-R6 Lexical access → canonical knowledge belongs to LexicalOS
-```
+R6 Lexical access → LexicalOS
 
-## F｜Fidelity Guard
-
-```text
+F｜Fidelity Guard
 F1 Core proposition preservation
 F2 Relation preservation
-F3 Restriction / scope / degree preservation
+F3 Scope / degree preservation
 F4 Role / reference preservation
 F5 Information completeness
-F6 Omission / Addition / Distortion control
-```
+F6 Omission / Addition / Distortion
 
-这些是 cross-cutting checks，不应复制成与 R 平行的一整套 learner course。
-
-## C｜Chinese Reconstruction
-
-```text
-C1 Information order
+C｜Chinese Reconstruction
+C1 Center / Information order
 C2 Split / Merge
 C3 Modifier unloading
 C4 Nominalization → Action
 C5 Voice reconstruction
 C6 Explicit ↔ Implicit
 C7 Abstract → Concrete
-C8 Natural packaging / register
-```
+C8 Natural packaging
 
-## E｜Exam Execution
-
-```text
+E｜Exam Execution
 E1 Local-context use
 E2 First-pass production
 E3 Uncertainty triage
 E4 High-risk self-check
-E5 Time-pressure stability
+E5 Time-pressure stability / Stop rule
 ```
+
+Skill Map 的用途只是：真实错误出现时，知道该往哪里下钻。
+
+不需要把这些 node 全部“刷完”。
 
 ---
 
-# D｜Repair / Reference Reservoir：什么时候值得向下学
+# D｜更深内容什么时候再看
 
-Current first-learning 不要求预学几十个 leaf。详细高密度例子、旧 Active Checks、starter skills 和长尾边界完整保存在 `learning.reference.md`。
+`learning.reference.md` 保存更长的 examples、micro-drills、复杂 competition、edge cases 和旧 Skill Content。
 
-只有 evidence 说明某个 node 真正影响得分、速度或稳定性时，才向下调用其中内容。
-
-一个值得占未来学习时间的 repair content 至少要做到：
+当前主干已经覆盖 first-learning 最重要的机制；只有下面情况值得下钻：
 
 ```text
-建立可执行 mental model
-+
-解释真正改变意义 / 输出的 mechanism
-+
-给出高价值 boundary / competition
-+
-有代表性 example
-+
-让 learner 做一次判断 / generation
-+
-能直接返回真实 Translation task
+真实翻译反复出现同类高价值错误
+或
+当前主干无法解释一个真正的 ambiguity
+或
+需要更细的 competition 才能分清边界
 ```
 
-高价值 starter directions 包括：
+高价值下钻方向通常包括：
 
-- negation / quantifier / modality scope；
-- attachment competition；
+- negation / quantifier / modality 多层 scope；
+- 两个都成立的 attachment competition；
 - reference competition；
-- modifier unloading + nominalization；
+- modifier unloading + nominalization 叠加；
 - omission / addition / distortion；
 - timed self-check failure。
 
-如果一个节点只是“定义 + 标签”，不值得单独变成一课。
+如果只是：
+
+- 想“把长难句技巧学完整”；
+- 想背更多增译减译规则；
+- 想和参考译文逐字一致；
+
+通常不值得先扩大课程。
 
 ---
 
-# E｜Material Routing：东西去哪，不创造第二门课
+# E｜Material Routing：系统参考，第一次学习可跳过
 
-## E1 Current canonical
+本文件负责 learner-facing 的稳定主干。
 
-本文件拥有最小充分 learner model、核心 mechanisms、diagnostic map 与 runtime boundary。
+更深的 Translation detail 保存在 `learning.reference.md`；老师课程和长难句资料默认作为按需参考，不自动变成新的学习顺序。
 
-## E2 Deep reference reservoir
-
-`learning.reference.md` 保存上一版完整高密度知识、examples、micro-drills、edge cases 与旧 skill details。它是 backend-rich / repair-only reference，不是 first-learning checklist。
-
-任何从主路径删除、合并、降级的信息，如果仍有效，都由这里继续保留；只有未来明确 semantic deprecation 才能真正删除。
-
-## E3 Teacher / framework material
-
-默认身份是 Repair Reservoir。老师有完整 30 章课程，不意味着 KianOS 也要复制同样的 learner 顺序。
-
-## E4 Training material
+训练材料仍然区分：
 
 ```text
-synthetic        教学 / micro-probe，不消耗真题新鲜度
+synthetic        建立动作 / micro-probe
 exposed exam     已经做过，可用于普通 repair
-protected unseen 保留 clean performance / transfer value
+protected unseen 保留 clean attempt / strong transfer value
 ```
 
-fresh material 是有限 diagnostic capital，不为关闭系统状态而消耗。
-
-## E5 Personal evidence
-
-first translation、wrong/uncertain、timing、repair history、later transfer 属于 learner runtime，不写进共享 canonical knowledge。
+first translation、timing、wrong / uncertain、repair history 属于个人学习证据，不写进共享知识资产。
 
 ---
 
-# F｜HOW YOU LEARN IT：performance first，review conditional
+# F｜HOW YOU LEARN IT：主线永远回到真实 Translation
 
-Translation 默认循环不是“每次都完整闭环”，而是：
+第一次进入：
+
+```text
+Global Map
+→ 快扫 Representation / Reconstruction / Execution
+→ 会的直接跳
+→ 不稳的看当前模型 / 例子
+→ 必要时用 synthetic 练一个动作
+→ real Translation
+```
+
+以后：
 
 ```text
 Clean Attempt
-→ preserve first translation
-→ Fast triage
-→ EXIT / quick correction / smallest repair
-→ return to real Translation
+→ 保留第一次译文
+→ 快速判断：够不够好？
+├─ 够 → EXIT
+└─ 不够 → 找 first meaningful failure
+          → 修最小范围
+          → 自己 reconstruct
+          → 回到真实 Translation
 ```
 
-只有 meaningful recurring / ambiguous / high-cost failure 才值得更深：
+稳定 clean work 可以直接结束。
 
-```text
-whole-task diagnostic context
-→ smallest independent failure set
-→ repair
-→ learner reconstructs when useful
-→ optional transfer claim only if future evidence could change allocation/confidence
-```
+一次性错误看懂 decisive difference 后也可以离开，不需要为了“闭环”额外造任务。
 
-原则：
+同一句改对说明 repair 生效，但不等于 mastery；更强的证据来自以后独立材料里的自然成功。
 
-- stable clean → 直接 PASS；
-- 一次性错误，看懂 decisive evidence 后可以离开；
-- Wrong / Uncertain 不自动等于 Chat；
-- diagnosis ≠ repair；
-- repair ≠ mastery；
-- `not mastery` ≠ 必须安排一轮新测试；
-- Lexical failure → 最小 lexical target 回 LexicalOS；
-- pending claim 可以静默存在，不召唤 learner task。
-
-参考译文和老师解析都应在 first translation 之后按需揭示；它们是 reference，不是唯一 surface-form authority。
+如果确实存在 reusable weakness，**pending claim 可以静默存在**，直到后续正常 Translation 自然再次碰到同一 demand；它不召唤 learner task。
 
 ---
 
 # G｜第一次学习的出口
 
-不再要求“完成 4 个 Core Learning Blocks”。
-
-Global Map 看懂后，只要能自然回答下面高价值问题，就可以进入真实 Translation；不会的那一块再回来学：
+Global Map 看懂以后，能自然回答下面这些问题，就可以进入真实 Translation：
 
 1. 长句怎样先恢复核心 proposition，而不是逐词替换？
-2. Attachment / Reference / Scope / Relation 为什么会改变命题？
-3. 中文可以大胆改形式时，Fidelity Guard 到底守什么？
-4. 什么情况下应该拆句、调序、释放 nominalization / passive？
-5. 什么不确定必须解决，什么只是风格偏好？
-6. 什么时候已经“够好”，应该离开这句？
+2. Attachment / Reference / Scope / Relation 为什么会直接改变命题？
+3. Fidelity 为什么允许形式大胆变化，却不允许 proposition / role / strength 改变？
+4. 中文什么时候应该卸载 modifier、释放 nominalization、重构 passive？
+5. 什么 ambiguity 必须解决，什么只是 style preference？
+6. 什么时候已经“够好”，应该离开？
 
-最终希望形成的是：
+最终希望形成：
 
 ```text
 读英文
@@ -618,26 +1075,27 @@ Global Map 看懂后，只要能自然回答下面高价值问题，就可以进
 → 够好就走
 ```
 
-框架越熟，显式步骤越少。
+如果这条链已经稳定，就不要继续“学 Translation 框架”。
+
+去翻。
 
 ---
 
-# H｜Translation Runtime v2 — aligned with current English Logic
+# H｜Translation Runtime v2：内部运行语义，第一次学习可跳过
 
-**Parent authority:** `content/english/LEARNING_CONTRACT.md`  
-**Boundary:** Runtime 规定 clean attempt / review / repair / evidence interaction，不把 diagnostic taxonomy 变成 learner ritual。
+**Parent authority:** `content/english/LEARNING_CONTRACT.md`
 
-## H1 Review unit / diagnostic context / repair scope
+这里保留系统需要守住的几条边界，不属于 learner 第一次学习任务。
 
-Translation learner-facing attempt/review context是完整 Translation task/set；内部 evidence 可以细到 sentence、clause、proposition、relation、information unit 或 Chinese span。
+## H1｜完整 task 是 review context，repair 可以更小
 
-```text
-attempt unit ≠ diagnostic evidence granularity ≠ repair scope
-```
+Translation learner-facing attempt / review context 是完整 Translation task / set；内部 evidence 可以细到 sentence、clause、proposition、relation、information unit 或 Chinese span。
 
-Chat 需要深诊断时先看完整 task，再缩到最小有用 slice。
+> **Evidence granularity may be smaller than Review granularity.**
 
-## H2 State semantics：不是每次都欠完整闭环
+需要深诊断时先看完整 task，再缩到最小有用 slice。
+
+## H2｜PASS 是真实出口
 
 ```text
 ATTEMPT
@@ -650,118 +1108,60 @@ FAST TRIAGE
    smallest repair
       ↓
    learner reconstruction when useful
-      ↓
-   optional TRANSFER_PENDING only when a reusable claim is justified
 ```
 
-`TRANSFER_PENDING` 不是 repair 后的必经状态。只有未来 evidence 真的可能改变学习分配 / confidence 的 reusable target 才值得创建。
+repair 后不自动欠一轮 transfer test。
 
-## H3 Cascade / dependency collapse
+## H3｜因果优先
 
-上游 Representation failure 足以解释 relation / omission / awkward Chinese 时，只保留上游主因；下游仍独立存在时才增加第二个 repair object。
+先找 **first meaningful failure**。
 
-两个真正独立、高价值 failure 可以保留两个，不为了“一个 root cause”审美强行合并。
+如果上游 Representation failure 已经解释了后面的 awkward Chinese / omission / relation drift，**可由它解释的 downstream effects 不独立制造复习债务**。
 
-## H4 Reference reveal
+两个真正独立、高价值的问题可以保留两个，不为了形式统一强行合并。
+
+## H4｜Reference 不能接管 learner generation
 
 ```text
 first translation
 → fast triage / diagnosis
-→ smallest cue or repair when needed
+→ smallest cue / repair when needed
 → learner reconstructs when useful
 → reference comparison only if it adds value
 ```
 
-clean attempt 不嵌入 reference answer。完整参考译文不是唯一 surface-form authority。
+与参考译文措辞不同，但 meaning faithful、relation preserved、中文自然可接受，可以 PASS。
 
-## H5 PASS semantics
+## H5｜Repair ≠ Mastery
 
-只要 meaning faithful、relation/intended information preserved、Chinese acceptable/natural enough，就可以 PASS。
+> **同一句重译正确只证明 repair 生效，不证明 mastery。**
 
-不自动触发 Repair：
-
-- 与参考译文措辞不同但语义等价；
-- 两种中文组织都自然且忠实；
-- 单次无得分价值的措辞偏好；
-- 纯风格差异。
-
-## H6 Evidence hierarchy
-
-一般而言，memory residue 越低、context 越新，evidence 越强：
+更强 evidence 一般来自：
 
 ```text
 看懂解释
-< 同句 repair 后自己重译
+< 同句自己重译
 < later independent success
 < fresh task success on same demand
 < repeated stable timed performance
 ```
 
-但 evidence hierarchy 不是 scheduler。没有 justified claim，就不需要为了“闭环”再造一次测试。
+但 evidence hierarchy 不是 scheduler；没有 justified reusable claim，就不需要为了证明 mastery 主动安排 fresh test。
 
-## H7 Memory / claim admission
+## H6｜Lexical ownership
 
-优先保留：
+> **Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner。**
 
-- recurring / high-cost representation demand；
-- repeated fidelity distortion；
-- stable reconstruction bottleneck；
-- execution/self-check failure；
-- later evidence 仍弱或矛盾的 reusable object。
+Translation 可以处理当前句子的 lexical failure，但不能复制一份 durable lexical knowledge / transfer debt。
 
-不要因为“一句曾经翻错 / 一个词不够漂亮 / 看过参考后会改”自动创建长期债务。
-
-## H8 Interaction boundary
-
-至少保存：
+## H7｜Pending state 不制造 learner work
 
 ```text
-original + necessary context
-+
-first translation (immutable evidence)
-+
-current reconstruction when one exists
-```
-
-禁止为了系统完整感：
-
-- 把 Translation 变成逐句强制 Chat review；
-- 强制每句选择 cause taxonomy；
-- 把所有局部错误做成 permanent cards；
-- 用参考译文替代 learner generation；
-- pending claim 在首页或 clean task 上制造 attention debt；
-- 为了 close claim 消耗 fresh material。
-
-## H9 Closure semantics
-
-Repair 只说明当前 failure 被处理。若一个 reusable transfer claim **已经有理由存在**，后续自然 fresh evidence 可以支持或反驳它；同-item correction 不能冒充 transfer。
-
-但是：
-
-```text
-not mastered
-≠
-must schedule a test
-
 pending claim
 ≠
 learner owes an action
 ```
 
-claim 可以在 backend 静默等待，直到正常 Translation 恰好再次测试同一 demand。
+pending claim 可以静默存在，直到正常 Translation 恰好再次测试同一 underlying demand。
 
-## H10 Evidence invariants｜保护语义，不制造 learner ritual
-
-下面五条是 Evidence owner 的 durable invariants，保留它们是为了防止假 mastery / 假 debt；它们不要求 learner 额外走一轮界面：
-
-> **Evidence granularity may be smaller than Review granularity.**
-
-Review context 可以是 whole-set，但真正进入 ledger / repair 的 evidence 可以更细。先寻找 **first meaningful failure**，再判断有没有第二个真正独立且高价值的 root cause；可由它解释的 downstream effects 不独立制造复习债务。
-
-> **同一句重译正确只证明 repair 生效，不证明 mastery。**
-
-但 `not mastery` 仍然不等于必须安排 fresh test；只有已 justified 的 reusable claim 才等待未来自然 evidence。
-
-> **Lexical sense / phrase / construction / collocation / contrast / confusable 继续回到 LexicalOS canonical owner。**
-
-Translation 可以处理当前 task 的 lexical failure，但不能复制一份 durable lexical knowledge / transfer debt。
+Passed work、后台 pending state、纯风格差异都不应该把 learner 从真实 Translation 主线拖走。
