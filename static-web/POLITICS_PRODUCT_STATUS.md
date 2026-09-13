@@ -5,7 +5,7 @@ Role: current Politics productization status / implementation handoff
 Design detail owner: `static-web/POLITICS_PRODUCT_BRIEF.md` + five subject design files  
 Derived asset owner: `content/politics/projection/manifest.json`
 
-This file supersedes **only stale stage/cursor wording** in older Politics design briefs (for example `ACTIVE DESIGN TARGET`, `History C01 pilot first`, or `mass Projection not yet compiled`). It does not replace or reinterpret the accepted UI/product design decisions in those files.
+This file supersedes **only stale Politics stage/cursor wording** in older design/UI cursor documents (for example `ACTIVE DESIGN TARGET`, `History C01 pilot first`, `Politics learning projection REBUILD`, or `mass Projection not yet compiled`). It does not replace or reinterpret the accepted UI/product design decisions in those files.
 
 ---
 
@@ -81,7 +81,7 @@ The validator is part of `Static Web Politics QA` and checks, at minimum:
 - every Projection `source.path` exists;
 - stored `source.blob_sha` still matches the exact Current source bytes;
 - Current chapter files and manifest chapter files reconcile;
-- each chapter's projected Natural Unit ids preserve Current `source_bindings.natural_unit_ids` accounting/order;
+- each chapter's projected Natural Unit owner set reconciles with Current `source_bindings.natural_unit_ids` while allowing Projection-specific display ordering;
 - PASS / REFERENCE_ONLY / BLOCKED counts reconcile with the manifest;
 - Current field references and selectors resolve rather than silently widening/falling back;
 - `first_round_exact` contains Current references rather than synthesized learner content;
