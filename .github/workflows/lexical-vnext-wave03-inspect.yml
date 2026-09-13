@@ -1,0 +1,69 @@
+name: Lexical vNext Wave03 Inspect
+
+on:
+  push:
+    branches:
+      - lexical/vnext-wave03-o0025-o0124
+
+permissions:
+  contents: read
+
+jobs:
+  summarize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Summarize o0025-o0124 learner objects
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          def small_fact(x):
+              if not isinstance(x, dict):
+                  return str(x)
+              return {
+                  k: x.get(k)
+                  for k in ('module','boundary','pattern','label_en','meaning_cn','target_word','level','direction')
+                  if x.get(k) not in (None, '', [], {})
+              }
+
+          for n in range(25, 125):
+              p = Path(f'content/lexical/words/by-ordinal/o{n:04d}.json')
+              d = json.loads(p.read_text())
+              r = d['record']
+              out = {
+                  'o': n,
+                  'word': d['word'],
+                  'core_cn': r.get('core_concept',{}).get('core_meaning_cn'),
+                  'mental_cn': r.get('core_concept',{}).get('mental_model_cn'),
+                  'needs_delta_review': r.get('needs_delta_review'),
+                  'senses': [
+                      {
+                          'id': s.get('sense_id'),
+                          'pos': s.get('pos'),
+                          'level': s.get('level'),
+                          'cn': s.get('definition_cn'),
+                          'en': s.get('definition_en'),
+                          'pattern': s.get('governing_pattern'),
+                          'usage': s.get('usage_note'),
+                          'collocations': [c.get('phrase') for c in s.get('collocations',[])],
+                      }
+                      for s in r.get('senses',[])
+                  ],
+                  'constructions': [
+                      {'level': c.get('level'), 'pattern': c.get('pattern'), 'cn': c.get('meaning_cn')}
+                      for c in r.get('constructions',[])
+                  ],
+                  'confusables': [small_fact(x) for x in r.get('confusables',[])],
+                  'semantic_neighbors': [small_fact(x) for x in r.get('semantic_neighbors',[])],
+                  'word_family': [small_fact(x) for x in r.get('word_family',[])],
+                  'relation_refs': [x.get('relation_id') for x in d.get('relation_refs',[])],
+                  'reference_senses': [
+                      {'pos': s.get('pos'), 'cn': s.get('definition_cn'), 'en': s.get('definition_en'), 'status': s.get('status')}
+                      for s in d.get('reference_senses',[])
+                  ],
+              }
+              print('LEXICAL_OWNER ' + json.dumps(out, ensure_ascii=False, separators=(',', ':')))
+          PY
