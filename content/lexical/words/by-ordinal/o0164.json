@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6f31ab135a934c2b722c7b758dbfe3218900df42a16e4c937eeae57a138d1a44",
+    "constructions": [
+      {
+        "construction_id": "construction:alternate:handoff-d010fa12fddf4c10",
+        "pattern": "an alternate",
+        "meaning_cn": "替代者；候补者",
+        "definition_en": "a substitute or stand-in",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:alternate:handoff-8fb61b1683c436a6",
+        "pattern": "alternate verb/adjective",
+        "meaning_cn": "动词与形容词/名词的重音和词性区别",
+        "definition_en": "pronunciation and part-of-speech boundary",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "040fc630f07cd7e311f637be630f31286e3b07d77daea672af673341c9894dbb",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,7 +56,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0164"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -139,7 +160,15 @@
       "runtime_model_calls": false
     },
     "word": "alternate",
-    "word_family": [],
+    "word_family": [
+      {
+        "form_boundary": true,
+        "pattern": "alternate verb / adjective-noun",
+        "meaning_cn": "动词与形容词/名词的发音和词性边界",
+        "definition_en": "part-of-speech and pronunciation boundary",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
     "word_id": "word:alternate"
   },
   "relation_refs": [],
@@ -233,7 +262,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0161-0168.json",
-    "source_content_hash": "6f31ab135a934c2b722c7b758dbfe3218900df42a16e4c937eeae57a138d1a44",
+    "source_content_hash": "040fc630f07cd7e311f637be630f31286e3b07d77daea672af673341c9894dbb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

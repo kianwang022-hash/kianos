@@ -4,11 +4,11 @@ Role: human Work Cursor / fresh-Chat restart. Artifact, Acceptance and private L
 
 ## Current mainline
 
-**ACTIVE scope:** LexicalOS vNext — bounded Functional First learner-system closure.  
-**ACTIVE step:** Evidence / Memory contract-to-runtime reconciliation.  
+**ACTIVE scope:** LexicalOS vNext — bounded implementation closure for `o0025–o0324`.
+**ACTIVE step:** bounded implementation complete; integrated repair/readback recorded; no new semantic batch is active.
 Catalog execution: PAUSED
 
-Content progress remains in `ACCEPTANCE.md`; the accepted contiguous baseline is not a command to resume o0025. The catalog is not reset, erased or accepted by this pause.
+The bounded implementation for the three existing semantic-review handoffs `o0025–o0124`, `o0125–o0224`, and `o0225–o0324` is complete. The full Catalog remains paused; `o0325–o0474` is not activated by this change. This does not grant K/P/R/E/U acceptance, alter learner state, or advance a later cursor.
 
 The latest discussion is now split by responsibility:
 
@@ -20,26 +20,24 @@ The latest discussion is now split by responsibility:
 
 ## Exact next action
 
-Reconcile the current learner implementation with the Evidence / Memory contract's scenario table, using isolated synthetic learner state and an explicitly accepted bounded Content fixture. Start with:
+No automatic next batch is active. Any next cursor, including `o0325–o0474`, requires explicit activation after this bounded completion/readback.
 
-1. whole-card Unknown/Fuzzy → Depth → Next must create zero Repair without local `+` or qualified failure;
-2. local target identity and idempotent return import;
-3. delayed/unseen vs immediate-assisted evidence and target/demand-matched dormancy/reactivation;
-4. skipped days and return/resume without overdue debt.
+- The bounded `o0025–o0324` implementation is complete; any exact semantic escalation remains isolated to its ordinal.
+- `NO_CHANGE` owners remain byte/semantically unchanged.
+- K/P/R/E/U acceptance is not granted by this completion state.
+- Do not activate another semantic-review range without explicit activation.
 
-Read `learner/packet-contract.json`, then the relevant consumer reached from `static-web/src/lib/lexical.mjs` / the Lexical learner surface. Inspect only the exact implementation needed by these scenarios. Do not design a second SRS or impose quotas. The v1 transport compatibility notes do not prove its consumer implements vNext semantics.
+Authorities: `content/lexical/semantic-review/o0025-o0124.md`, `content/lexical/semantic-review/o0125-o0224.md`, and `content/lexical/semantic-review/o0225-o0324.md`. Purpose: mechanical canonical implementation and integrated readback only. Scope: Current Natural Owners `o0025–o0324`, plus necessary shared Relation/Form owners explicitly required by these handoffs. No semantic audit queue, learner/runtime work, Production/Site/Study changes, or sibling-lane changes.
 
-The detailed Evidence/Memory design is specified; implementation alignment and E proof are still unresolved. First close the earliest actual dependency of the bounded slice, then prove P → R → E separately. A successful R path is not E PASS. Do not ask Kian to perform engineering learner tests before he has studied; U is private and separate.
+The learner Evidence/Memory implementation remains a separate later step; this content activation does not claim its P/R/E/U readiness.
 
-A bounded Functional First slice may be built/verified without waiting for every catalog owner, provided its content fixture is explicitly accepted and the claim stays bounded. It cannot grant unrestricted full-catalog readiness. Stop at a faithfully usable loop; no visual-polish expansion or sibling-lane changes.
+## Content upgrade mode — bounded activation complete
 
-## Content upgrade mode — prepared, not active
+`CONTENT_EXECUTION.md` governed the three exact handoffs now completed. This is not a full-catalog restart, automatic fresh pass, deferred repair queue, or new Batch/S-series authority.
 
-Use `CONTENT_EXECUTION.md` when Catalog is explicitly reactivated. Packages allocate roughly 200 owners; one turn closes a budget-bounded shard, not 200 remote files. Compact transport keeps semantics and stable identities. No automatic fresh-pass. No deferred multi-shard repair-spec queue. No new Batch/S-series numbering scheme is authority.
+`tools/lexical_shard.py` stages Word-local candidate changes and emits hash-locked readback/publication plans. It does not grant K PASS or handle shared Relation/Form writes silently. Relation/Form reconciliation must remain narrow and explicit for these handoffs.
 
-`tools/lexical_shard.py` stages Word-local candidate changes and emits hash-locked readback/publication plans. It does not modify main, grant K PASS or handle shared Relation/Form writes silently. Transport-only tests/pilots are allowed during the pause and add zero semantic acceptance.
-
-On reactivation, first verify then-current owners/contracts and one bounded semantic end-to-end shard. Only then widen package allocation or enable independent workers. Do not reopen the old Wave03 or stacked Fresh branches.
+Do not widen this activation, reopen historical Wave03/Fresh branches, or change another lane's Current.
 
 ## Historical routes
 
@@ -49,8 +47,8 @@ Unique branch work is quarantined for explicitly bounded salvage, not claimed ac
 
 ## Restart boundary
 
-`main@HEAD → this Current → Learning + Evidence/Memory contract → Acceptance → exact implementation needed by next scenario`
+`main@HEAD → this Current → CONTENT_ASSET_CONTRACT + CONTENT_EXECUTION → three semantic-review handoffs → canonical apply → integrated readback`
 
-For later activated Content work only: `Current → active package checkpoint → current shard bundle`.
+After completion/readback, return to this Current and choose the next cursor explicitly. This state must not activate a later range.
 
 Never infer the next action from an old Issue title, branch name, branch-local receipt, chat rollback or total files edited. Chat interruption does not roll back GitHub.

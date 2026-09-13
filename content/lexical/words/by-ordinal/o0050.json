@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "18aa47e82b260fbf6354f890aa71afa5281325ab020de17425479a9166dcc8d6",
+    "constructions": [
+      {
+        "construction_id": "construction:acknowledge:handoff-e39e1759157429c9",
+        "pattern": "acknowledge that ...",
+        "meaning_cn": "承认/表示已注意到……",
+        "definition_en": "recognize or admit that something is the case",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:acknowledge:handoff-7ff81d1709ced63a",
+        "pattern": "acknowledge sb as ...",
+        "meaning_cn": "承认某人为……",
+        "definition_en": "recognize someone in a stated role",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "9d4882e121bfe41b775288fa25fde0297f88a3278c5e0e4d2e8b0470ab57e5cc",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "承认或确认某事物的存在、真实性或收到",
@@ -16,11 +35,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:acknowledge:0e654ba1b40ac05e"
+      "deep:deep:secondary_senses:acknowledge:0e654ba1b40ac05e",
+      "semantic-review:0050"
     ],
     "secondary_senses": [
       {
@@ -348,7 +368,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
-    "source_content_hash": "18aa47e82b260fbf6354f890aa71afa5281325ab020de17425479a9166dcc8d6",
+    "source_content_hash": "9d4882e121bfe41b775288fa25fde0297f88a3278c5e0e4d2e8b0470ab57e5cc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

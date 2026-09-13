@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "449a9f523456ed8956b03ef7172000cce9f8a07f400905ff1ecca4abafd346cd",
+    "constructions": [
+      {
+        "construction_id": "construction:attack:handoff-929dcdbb7ae53162",
+        "pattern": "attack a policy/argument; an attack of illness",
+        "meaning_cn": "猛烈批评政策/论点；疾病突然发作",
+        "definition_en": "direct hostile criticism at something or a sudden episode of illness",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "da49372a7815b618182425999a1f88bf833991ca5722c99a6eb53ef429245f86",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,18 +37,19 @@
           ]
         }
       ],
-      "core_meaning_cn": "攻击",
-      "core_meaning_en": "to act against with force or criticism",
-      "mental_model_cn": "攻击",
-      "mental_model_en": ""
+      "core_meaning_cn": "攻击；猛烈批评；疾病发作",
+      "core_meaning_en": "physical attack, hostile criticism, or a sudden illness episode",
+      "mental_model_cn": "攻击；猛烈批评；疾病发作",
+      "mental_model_en": "physical attack, hostile criticism, or a sudden illness episode"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
-      "relation:deep:semantic_contrast:attack:5fcb8f2cb2e55dd1"
+      "relation:deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
+      "semantic-review:0323"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -196,7 +207,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0321-0328.json",
-    "source_content_hash": "449a9f523456ed8956b03ef7172000cce9f8a07f400905ff1ecca4abafd346cd",
+    "source_content_hash": "da49372a7815b618182425999a1f88bf833991ca5722c99a6eb53ef429245f86",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

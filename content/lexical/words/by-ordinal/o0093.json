@@ -6,25 +6,69 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7bda17679b905a981d12fc363ec2cd77f6fdaccc24896c94f858b9210b95b77c",
+    "constructions": [
+      {
+        "construction_id": "construction:advice:handoff-0561197382248890",
+        "pattern": "a piece of advice",
+        "meaning_cn": "一条建议",
+        "definition_en": "one item of uncountable advice",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:advice:handoff-a258bdeedcf942ba",
+        "pattern": "give/seek/take/follow advice",
+        "meaning_cn": "给予、寻求、接受或遵循建议",
+        "definition_en": "common verb patterns with advice",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "b5c1ceccb4ef447b43863dda43a9f5e4c7aad5411deca37c82557ae72330c58e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "建议；忠告",
-      "core_meaning_en": "a recommendation or suggestion about what to do",
-      "mental_model_cn": "建议；忠告",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "建议；劝告（不可数）",
+          "label_en": "an opinion about what someone should do",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:advice:ad506be70a1a5a4f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "建议；关于应做什么的意见",
+      "core_meaning_en": "an opinion about what someone should do",
+      "mental_model_cn": "建议；关于应做什么的意见",
+      "mental_model_en": "an opinion about what someone should do"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:confusables:advice:5b2ad712a3268539"
+      "deep:deep:confusables:advice:5b2ad712a3268539",
+      "semantic-review:0093"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "建议；劝告（不可数）",
+        "definition_en": "an opinion about what someone should do",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advice:ad506be70a1a5a4f",
+        "sense_label_en": "advice",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -79,27 +123,18 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:advice:ad506be70a1a5a4f",
+      "stable_sense_id": "sense:advice:handoff-918eefe255a9d4fe",
       "status": "deprecated",
-      "merged_into_sense_id": null,
+      "merged_into_sense_id": "sense:advice:ad506be70a1a5a4f",
       "pos": "noun",
-      "definition_cn": "建议；忠告",
-      "definition_en": "a proposal for an appropriate course of action",
-      "semantic_key": "a6b020f625b6268b937b339ab4f26202d8ffef319ad184dc94828d1976d6645b",
-      "semantic_key_history": [
-        "16eebeabdc783dc8b2be56ab341202e2fbefae295f9d8abf526083d3461362f7"
-      ],
-      "legacy_aliases": [
-        "advice:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advice:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 259,
+      "definition_cn": "建议；劝告（不可数）",
+      "definition_en": "an opinion about what someone should do",
+      "semantic_key": "506de02f62afe55c3c648a3d1e604b8ed92dc2fefd6f921272efe972d934150a",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19507,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
     }
@@ -115,9 +150,16 @@
       },
       {
         "sense_id": "sense:advice:ad506be70a1a5a4f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 259,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      },
+      {
+        "sense_id": "sense:advice:handoff-918eefe255a9d4fe",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:advice:ad506be70a1a5a4f",
+        "source_row": 19507,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       }
     ],
@@ -187,7 +229,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
-    "source_content_hash": "7bda17679b905a981d12fc363ec2cd77f6fdaccc24896c94f858b9210b95b77c",
+    "source_content_hash": "b5c1ceccb4ef447b43863dda43a9f5e4c7aad5411deca37c82557ae72330c58e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

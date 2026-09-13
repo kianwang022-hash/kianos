@@ -6,10 +6,29 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "7f9354c1a87473f28411c3218d065e66bc9481dd74080837a93db49fa2e8dff6",
+    "constructions": [
+      {
+        "construction_id": "construction:assassinate:handoff-01b2b3fd3ee47858",
+        "pattern": "assassinate a prominent/public person",
+        "meaning_cn": "暗杀重要、政治或公众人物",
+        "definition_en": "murder a prominent person deliberately, often for political reasons",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "036ddc0c67608b09947569b9435b1fd556a0c9da75767b09051ac1da44b8c94f",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "暗杀",
+          "label_en": "murder a prominent or public person deliberately",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:assassinate:3d5f697679e15f74"
+          ]
+        }
+      ],
       "core_meaning_cn": "暗杀或诋毁",
       "core_meaning_en": "to murder someone, especially a prominent person, or to damage someone's reputation",
       "mental_model_cn": "暗杀或诋毁",
@@ -19,10 +38,27 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0296"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "暗杀",
+        "definition_en": "murder a prominent or public person deliberately",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:assassinate:3d5f697679e15f74",
+        "sense_label_en": "assassinate",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,31 +80,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:assassinate:3d5f697679e15f74",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "暗杀，行刺（尤指重要人物）",
-      "definition_en": "to murder someone, especially a politically important or famous person",
-      "semantic_key": "118be8528971119f6e7e31869ebb226c377c8666d9ceaab9778daa6ae27570ca",
-      "semantic_key_history": [
-        "c22a7cb4466949a2b8461dd8a7cdcc21e49971ac92876e4223e3072b08e21388"
-      ],
-      "legacy_aliases": [
-        "assassinate:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "assassinate:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 752,
-      "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:assassinate:f69c615acce8554f",
       "status": "deprecated",
@@ -93,13 +104,29 @@
       "source_row": 753,
       "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
       "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:assassinate:handoff-19bc0b7e9746f486",
+      "status": "deprecated",
+      "merged_into_sense_id": "sense:assassinate:3d5f697679e15f74",
+      "pos": "verb",
+      "definition_cn": "暗杀",
+      "definition_en": "murder a prominent or public person deliberately",
+      "semantic_key": "1e5b7b8abed54b380d5793a9cc0212d5d3acffbdde2f3d57c5658b586c08d37b",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19514,
+      "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
+      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:assassinate:3d5f697679e15f74",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 752,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
@@ -109,6 +136,13 @@
         "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 753,
+        "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
+      },
+      {
+        "sense_id": "sense:assassinate:handoff-19bc0b7e9746f486",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:assassinate:3d5f697679e15f74",
+        "source_row": 19514,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
       }
     ],
@@ -167,7 +201,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0289-0296.json",
-    "source_content_hash": "7f9354c1a87473f28411c3218d065e66bc9481dd74080837a93db49fa2e8dff6",
+    "source_content_hash": "036ddc0c67608b09947569b9435b1fd556a0c9da75767b09051ac1da44b8c94f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "edee0bbb25ea5b143a1b3a0e2cfc1e87f209e97c6f9e31008828bac00404b5bd",
+    "constructions": [
+      {
+        "construction_id": "construction:apartment:handoff-9420ad66fc9686a8",
+        "pattern": "apartment / flat",
+        "meaning_cn": "美式 apartment；英式 flat",
+        "definition_en": "regional lexical equivalents for a self-contained dwelling",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "9d771996393d546347b657ae6d2569d5b8953349339bdc1e8b465a51f87bcc3b",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "公寓；套房",
@@ -16,12 +26,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:apartment:982b06af9ef12a8a",
-      "relation:deep:word_family:apartment:982b06af9ef12a8a"
+      "relation:deep:word_family:apartment:982b06af9ef12a8a",
+      "semantic-review:0223"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -115,6 +126,13 @@
         ],
         "verification_status": "verified",
         "writing_safe": false
+      },
+      {
+        "form_boundary": true,
+        "pattern": "apartment / flat",
+        "meaning_cn": "美式 apartment；英式 flat",
+        "definition_en": "regional lexical equivalents",
+        "source": "semantic-review-handoff-v1"
       }
     ],
     "word_id": "word:apartment"
@@ -185,7 +203,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0217-0224.json",
-    "source_content_hash": "edee0bbb25ea5b143a1b3a0e2cfc1e87f209e97c6f9e31008828bac00404b5bd",
+    "source_content_hash": "9d771996393d546347b657ae6d2569d5b8953349339bdc1e8b465a51f87bcc3b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

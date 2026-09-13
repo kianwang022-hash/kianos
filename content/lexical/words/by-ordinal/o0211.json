@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "797a6e4899f22efc8a4fdafd93e1fe011b0b426b3c74e9b4928b2d479da9911e",
+    "constructions": [
+      {
+        "construction_id": "construction:antenna:handoff-6569a1d661d66324",
+        "pattern": "antennas / antennae",
+        "meaning_cn": "技术天线通常用 antennas；生物触角通常用 antennae",
+        "definition_en": "plural form boundary by sense/domain",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "2e71e98326b2f685d8f38229cdeb67363653bf2c24b27c95d2b36366cbb0e971",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "天线；触角",
@@ -19,7 +29,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0211"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -97,7 +109,15 @@
       "runtime_model_calls": false
     },
     "word": "antenna",
-    "word_family": [],
+    "word_family": [
+      {
+        "form_boundary": true,
+        "pattern": "antennas / antennae",
+        "meaning_cn": "技术意义 antennas；生物意义 antennae",
+        "definition_en": "plural forms selected by sense/domain",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
     "word_id": "word:antenna"
   },
   "relation_refs": [],
@@ -168,7 +188,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0209-0216.json",
-    "source_content_hash": "797a6e4899f22efc8a4fdafd93e1fe011b0b426b3c74e9b4928b2d479da9911e",
+    "source_content_hash": "2e71e98326b2f685d8f38229cdeb67363653bf2c24b27c95d2b36366cbb0e971",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

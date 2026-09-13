@@ -6,23 +6,90 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "5e8136e1d1ce9960abd81058e3cf74d5a73314161bc65905b60a81ee81285a93",
+    "constructions": [
+      {
+        "construction_id": "construction:advocate:handoff-0bdf3a61a2bcdf09",
+        "pattern": "advocate doing sth/advocate for ...",
+        "meaning_cn": "主张做某事；公开支持……",
+        "definition_en": "publicly support or recommend something",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:advocate:handoff-45b25953e926b1b2",
+        "pattern": "an advocate",
+        "meaning_cn": "支持者；倡导者",
+        "definition_en": "a person who publicly supports a cause",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "6641861ed674d24c039b566575bd26f1c304a5cc0ba0ca68504fdde9547822da",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "公开支持或推荐某事业",
-      "core_meaning_en": "to publicly support or recommend a cause",
-      "mental_model_cn": "公开支持或推荐某事业",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "公开支持；主张",
+          "label_en": "publicly support or recommend a cause or action",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:advocate:ef64940b713b57c7"
+          ]
+        },
+        {
+          "label_cn": "支持者；倡导者",
+          "label_en": "a person who publicly supports a cause",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:advocate:57dc30b549145007"
+          ]
+        }
+      ],
+      "core_meaning_cn": "主张、支持；支持者",
+      "core_meaning_en": "publicly support a cause or be a person who does so",
+      "mental_model_cn": "主张、支持；支持者",
+      "mental_model_en": "publicly support a cause or be a person who does so"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0096"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "公开支持；主张",
+        "definition_en": "publicly support or recommend a cause or action",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:advocate:ef64940b713b57c7",
+        "sense_label_en": "advocate (verb)",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "collocations": []
+      },
+      {
+        "confidence": "high",
+        "definition_cn": "支持者；倡导者",
+        "definition_en": "a person who publicly supports a cause",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advocate:57dc30b549145007",
+        "sense_label_en": "advocate (noun)",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -70,52 +137,34 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:advocate:57dc30b549145007",
+      "stable_sense_id": "sense:advocate:handoff-274fbec09e3f8964",
       "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "提倡者；拥护者",
-      "definition_en": "a person who publicly supports or recommends a particular cause or policy",
-      "semantic_key": "bb432c2d0ae89d9a22ecf8b5e4a27ffdf6f5044adc49d21fc2d4556b6f5f7b13",
-      "semantic_key_history": [
-        "e8aafd318f6229f49cbfdc9a5f5a07dfbe8d8fc25bd02cbe47df81e1d60fcc8a"
-      ],
-      "legacy_aliases": [
-        "advocate:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advocate:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 264,
+      "merged_into_sense_id": "sense:advocate:ef64940b713b57c7",
+      "pos": "verb",
+      "definition_cn": "公开支持；主张",
+      "definition_en": "publicly support or recommend a cause or action",
+      "semantic_key": "a934373e8138fa3b3b42210b70f2b72b281c669503de47a51883599a05b2f3f9",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19508,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:advocate:ef64940b713b57c7",
+      "stable_sense_id": "sense:advocate:handoff-ff5aa2d507acef92",
       "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "提倡；主张",
-      "definition_en": "to publicly support or recommend a particular cause or policy",
-      "semantic_key": "a4f9acf4c4add6aced41ad6a1349894aff57e84b3fc89275c883a3922b977ce2",
-      "semantic_key_history": [
-        "3b744844f93b3b76358207052ffca17d8964c094dfe796a36f6443b34facc664"
-      ],
-      "legacy_aliases": [
-        "advocate:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advocate:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 265,
+      "merged_into_sense_id": "sense:advocate:57dc30b549145007",
+      "pos": "noun",
+      "definition_cn": "支持者；倡导者",
+      "definition_en": "a person who publicly supports a cause",
+      "semantic_key": "fbcc4978f7f20712df95ab724028bb2b4ea05c937d2310dc6bd6b8a8bbc62593",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19509,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
     }
@@ -131,16 +180,30 @@
       },
       {
         "sense_id": "sense:advocate:57dc30b549145007",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 264,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       },
       {
         "sense_id": "sense:advocate:ef64940b713b57c7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 265,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      },
+      {
+        "sense_id": "sense:advocate:handoff-274fbec09e3f8964",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:advocate:ef64940b713b57c7",
+        "source_row": 19508,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      },
+      {
+        "sense_id": "sense:advocate:handoff-ff5aa2d507acef92",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:advocate:57dc30b549145007",
+        "source_row": 19509,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       }
     ],
@@ -214,7 +277,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0089-0096.json",
-    "source_content_hash": "5e8136e1d1ce9960abd81058e3cf74d5a73314161bc65905b60a81ee81285a93",
+    "source_content_hash": "6641861ed674d24c039b566575bd26f1c304a5cc0ba0ca68504fdde9547822da",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,10 +6,37 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "038c0b6eacc1582ef9c2f14c4d6cc9dcfde1a3acf4f3247df0ab241a8a4b6d59",
+    "constructions": [
+      {
+        "construction_id": "construction:antique:handoff-2f96350c02b3ca42",
+        "pattern": "an antique; antique furniture",
+        "meaning_cn": "古董；古老且有收藏价值的",
+        "definition_en": "an old collectible object or something old and valued",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "c10f47f003dbf639fb7468c399392a7b8a50c353cf8b1d87ac7f49dc47d2eea2",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "古董",
+          "label_en": "an old collectible or valuable object",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:antique:800f13ce6d7c5ef7"
+          ]
+        },
+        {
+          "label_cn": "古老且有收藏价值的",
+          "label_en": "old and often valued or collectible",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:antique:df07ef1a8a405dcc"
+          ]
+        }
+      ],
       "core_meaning_cn": "古老而有价值的物品或风格",
       "core_meaning_en": "old and valuable object or style",
       "mental_model_cn": "古老而有价值的物品或风格",
@@ -19,10 +46,41 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0213"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "古董",
+        "definition_en": "an old collectible or valuable object",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:antique:800f13ce6d7c5ef7",
+        "sense_label_en": "antique (noun)",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "collocations": []
+      },
+      {
+        "confidence": "high",
+        "definition_cn": "古老且有收藏价值的",
+        "definition_en": "old and often valued or collectible",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:antique:df07ef1a8a405dcc",
+        "sense_label_en": "antique (adjective)",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,31 +102,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:antique:800f13ce6d7c5ef7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "古董，古物（因年代久远而珍贵的家具或装饰品）",
-      "definition_en": "an old object such as a piece of furniture or decoration that is valuable because of its age and beauty",
-      "semantic_key": "8cf9e9ea2f206cc80dda74c35677c1460210c4f747d114fd2e6dd1000f00c64e",
-      "semantic_key_history": [
-        "af90b3180925c36e0a54dec1ecf44e1555387197240d63d90850616ce78a2da7"
-      ],
-      "legacy_aliases": [
-        "antique:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "antique:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 539,
-      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:antique:9a98c817f5c55ad7",
       "status": "deprecated",
@@ -120,27 +153,34 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:antique:df07ef1a8a405dcc",
+      "stable_sense_id": "sense:antique:handoff-bbbe421749a28b01",
       "status": "deprecated",
-      "merged_into_sense_id": null,
+      "merged_into_sense_id": "sense:antique:800f13ce6d7c5ef7",
+      "pos": "noun",
+      "definition_cn": "古董",
+      "definition_en": "an old collectible or valuable object",
+      "semantic_key": "3206d3dea1c4a1c108d85fbb827d3ee9dc43b75d9d81d15898dce13e4ab58180",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19511,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:antique:handoff-8bad603a8d3d674a",
+      "status": "deprecated",
+      "merged_into_sense_id": "sense:antique:df07ef1a8a405dcc",
       "pos": "adjective",
-      "definition_cn": "古老的，古式的（因年代久远而有价值）",
-      "definition_en": "made in or typical of an earlier period and valued for its age",
-      "semantic_key": "8bb91bcc3e01cd94018932b3996e393a7e757ccaad59ff697e8c79d9b1cb381c",
-      "semantic_key_history": [
-        "f3918b3df4729061ac144d852848144d3810174bd249388c7aae7142f00c5b17"
-      ],
-      "legacy_aliases": [
-        "antique:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "antique:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 542,
+      "definition_cn": "古老且有收藏价值的",
+      "definition_en": "old and often valued or collectible",
+      "semantic_key": "750013f7ab4efb609a1c9c09b1e0e5af593ff38ec8f3fb9c74fc590bbc8e3c93",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 19512,
       "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
       "reference_only": true
     }
@@ -149,7 +189,7 @@
     "senses": [
       {
         "sense_id": "sense:antique:800f13ce6d7c5ef7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 539,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
@@ -170,9 +210,23 @@
       },
       {
         "sense_id": "sense:antique:df07ef1a8a405dcc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 542,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      },
+      {
+        "sense_id": "sense:antique:handoff-bbbe421749a28b01",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:antique:800f13ce6d7c5ef7",
+        "source_row": 19511,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      },
+      {
+        "sense_id": "sense:antique:handoff-8bad603a8d3d674a",
+        "status": "deprecated",
+        "merged_into_sense_id": "sense:antique:df07ef1a8a405dcc",
+        "source_row": 19512,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
       }
     ],
@@ -241,7 +295,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0209-0216.json",
-    "source_content_hash": "038c0b6eacc1582ef9c2f14c4d6cc9dcfde1a3acf4f3247df0ab241a8a4b6d59",
+    "source_content_hash": "c10f47f003dbf639fb7468c399392a7b8a50c353cf8b1d87ac7f49dc47d2eea2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
