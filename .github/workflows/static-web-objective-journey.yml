@@ -150,6 +150,9 @@ jobs:
       - name: Exercise all real Reading B forms
         working-directory: static-web
         run: node scripts/test-reading-b-forms.mjs
+      - name: Execute bounded Reading A and Reading B Evidence closure
+        working-directory: static-web
+        run: node scripts/test-objective-evidence-depth.mjs
       - name: Save audit evidence
         if: always()
         uses: actions/upload-artifact@v4
