@@ -95,6 +95,7 @@ Global
 
 Key receipts:
 - **English = Digital Workbook + Adaptive Coach.** Task/passage/prompt/output foreground; First Learning is skippable coaching/repair reservoir. Part B IA is protected.
+- **English preserves exam-native object integrity.** A real task/set stays visibly whole unless its native format requires staged disclosure. Reading A is one Passage + its full question set; Cloze remains one complete passage + all blanks; Reading B preserves its full matching/order structure; Translation and Writing preserve whole-source / whole-output workspaces. UI convenience must not fragment the authentic exam object into flashcards or a wizard flow.
 - **Politics learning:** keep `ORIENT → EXTERNAL_LEARN → RETURN/CLOSE → VERIFY → CONTINUE/REPAIR`; migrate mature chapters away from stacked long-document projection without forcing one subject template.
 - **Politics Workbench:** preserve prior 4173 Normal/Fast, `1–4`, fast-single correct→next, wrong→stay, `一句话带走`, answer delta, optional cause/note, AI-refined `理解这道题`, Current refs, collapsible Xiao original explanation, fixed/easy Next.
 - **Xizong:** keep System→Block→Logic Group→MarginNote Lecture→KP Recall→Block Recall and current `←/→ + Space + 1–4` KP core. Optimize typography/chrome; add `Enter = Mastered + next` after Reveal; do not allow hidden-answer keyboard rating.
@@ -123,7 +124,7 @@ Open PR #86 remains Lexical Functional First Evidence/Memory work, not merged Cu
 **Active UI implementation PR:** none yet  
 **Blocker:** none.
 
-Why Reading A first: it is already the clearest Current example of English as a Digital Workbook—real passage left, active question right, comfortable long-reading typography, clean attempt, optional continuous practice and problem-only review. It is a better place to establish shared English typography/control/feedback quality than inventing a new abstract design system first. Part B remains a protected second reference.
+Why Reading A first: it is already the clearest Current example of English as a Digital Workbook—real Passage left, the **full question set right**, comfortable long-reading typography, clean attempt, optional continuous practice and problem-only review. It is a better place to establish shared English typography/control/feedback quality than inventing a new abstract design system first. Part B remains a protected second reference.
 
 ---
 
@@ -151,7 +152,8 @@ No Legacy archaeology. No English semantic/content edits.
 ### Preserve exactly
 
 - Reading A remains **passage/set-first**, not one-question-at-a-time knowledge cards.
-- Mac landscape split: readable Passage left, active Question right.
+- The learner-visible task object is **one Passage + its entire question set**. All questions for the passage remain present together; a local active/focused question may exist for keyboard handling, but it must never gate visibility of the other questions.
+- Mac landscape split: readable Passage left, **full question set right**. Both columns may scroll naturally and independently; sustained scrolling is expected because Reading A is a slow, careful task rather than rapid serial review.
 - current passage content, questions, answers, source ownership and held-out behavior.
 - whole-passage clean attempt and existing local state/trajectory/Uncertain evidence.
 - continuous-practice mode may keep result/review hidden until the intended review stage.
@@ -163,47 +165,62 @@ No Legacy archaeology. No English semantic/content edits.
 
 1. **Reading comfort**
    - retain the strong long-reading treatment; use it as the English typography reference.
-   - question/options must be comfortably readable too; remove unnecessary 8–10px learner text.
+   - question prompts/options must be comfortably readable too; remove unnecessary 8–10px learner text.
+   - the right column should read as a continuous question sheet, not a stack of hidden/revealed cards.
 
 2. **Dense Calm hierarchy**
-   - passage + current question dominate the viewport.
+   - Passage + **full question set** dominate the viewport.
+   - remove the current top-level Q1/Q2/Q3… navigation strip as a primary interaction. The page itself is the navigation; at most retain a quiet answered/progress indicator if it materially helps orientation.
    - simplify permanent header chrome; move Reset/debug/history-like actions out of the primary action line when possible.
    - progress/timer/Uncertain remain visible but subordinate.
-   - use borders/cards only where they express a real interaction boundary.
+   - use borders/cards only where they express a real interaction boundary; avoid visually boxing every question as if it were a separate mini-app.
 
-3. **Low-friction keyboard grammar**
-   - `1–4 = A/B/C/D` for the current question.
-   - `← / →` remains question navigation.
-   - `U` may remain Uncertain.
+3. **Full-set interaction model**
+   - render Q1…Q5 (or the set's actual count) simultaneously in natural order inside the right column.
+   - selecting/focusing a question may set a lightweight active question for keyboard targeting, but **active ≠ only visible**.
+   - preserve free visual comparison between questions and easy return to earlier answers without mode switching.
+   - do not auto-hide previous questions or require Previous/Next controls to inspect the set.
+   - a separate question navigator is unnecessary unless later real use proves that the full sheet becomes hard to navigate.
+
+4. **Low-friction keyboard grammar**
+   - `1–4 = A/B/C/D` for the currently focused/active question; pointer/focus interaction may establish that local target.
+   - `A–D` may remain as a compatibility alias if this can be preserved without complexity.
+   - `U` toggles Uncertain for the focused/active question.
    - choosing an answer must **not** reveal correctness before whole-passage submission.
-   - if selection auto-advances focus, it must preserve answer trajectory and allow immediate backtracking; do not score/lock locally.
    - `Enter` may submit the whole passage only when the existing attempt contract makes that unambiguous; never turn Reading A into Politics Fast mode.
+   - do not add keyboard machinery merely to avoid natural scrolling. Reading A is a sustained workspace; keyboard is an accelerator, not the governing interaction model.
 
-4. **After submit**
+5. **After submit**
    - stable clean result: make the next meaningful action obvious and cheap.
-   - Wrong/Uncertain: reveal only the problem navigation, answer delta and smallest local triage needed.
+   - Wrong/Uncertain: reveal answer delta and smallest local triage **in place on the relevant questions** while preserving the full set and passage context.
+   - problem review may jump/scroll to a problem, but must not collapse the rest of the set into a one-question wizard.
    - whole-passage Chat escalation stays optional and secondary; do not manufacture a deep-review workflow for every miss.
 
-5. **Continuity**
-   - no layout jump that loses passage position or current-question context.
+6. **Continuity**
+   - preserve independent Passage/right-question scroll positions through ordinary answering and review whenever practical.
+   - no visibility-mode switch that loses the learner's place in the question sheet.
    - responsive fallback required, but Mac landscape is design origin.
+   - on narrower screens, stacking Passage and full question set is acceptable; preserve the whole-set model rather than reverting to one-question paging.
 
 ### Forbidden
 
 - no semantic diff to English Objective Logic/content/evidence.
 - no new mastery/transfer meaning.
 - no answer leakage during clean attempt.
+- no one-question-at-a-time paging/wizard as the primary Reading A projection.
+- no top Question Nav whose existence is required only because non-active questions are hidden.
 - no generic Markdown/card redesign.
 - no giant dashboard/status header.
 - no tiny-text aesthetic.
 - do not touch Part B IA merely to make it match Reading A.
-- do not modify Writing/Translation/Cloze in this first PR except truly shared styling that cannot change their layout/behavior.
+- do not modify Writing/Translation/Cloze in this first PR except truly shared styling that cannot change their layout/behavior. The broader exam-native-object principle above constrains their later Gold work, not this PR's write-set.
 
 ### Codex deliverable
 
 One short-lived branch + one Draft PR. Return:
 - working browser implementation;
-- desktop screenshots of clean attempt and Wrong/Uncertain review state;
+- desktop screenshot showing Passage left + the full visible question set right during a clean attempt;
+- desktop screenshot of Wrong/Uncertain review with in-place problem disclosure while the whole set remains available;
 - narrow responsive screenshot;
 - build/tests/browser-journey result;
 - concise changed-file receipt;
@@ -213,18 +230,19 @@ Do not merge before Sol/Kian review.
 
 ### Acceptance target
 
-A successful Reading A Gold surface should feel like **a very good digital workbook, not a learning dashboard**:
+A successful Reading A Gold surface should feel like **a very good digital exam workbook, not a learning dashboard or step-by-step quiz wizard**:
 
 ```text
-open passage
-→ read comfortably
+open passage + full question set
+→ read / locate / compare naturally across the whole set
 → answer with almost no UI friction
-→ finish clean attempt
+→ scroll as needed without mode switching
+→ submit the whole passage
 → stable = leave/continue quickly
-→ problem = only then expose the smallest useful review layer
+→ problem = reveal the smallest useful review in place
 ```
 
-The learner should notice the passage and question before noticing KianOS itself.
+The learner should notice the Passage and its complete set of questions before noticing KianOS itself.
 
 ---
 
