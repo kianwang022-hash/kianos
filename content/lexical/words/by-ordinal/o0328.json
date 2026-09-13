@@ -64,11 +64,29 @@
         "pattern": "draw/call attention to sth"
       }
     ],
-    "content_hash": "8357425259d890abbae261487480de1b21875a753d1b01e3b3ec82be077f5cc0",
+    "content_hash": "a445ba435e47601b5126e6ab35b7e4d1ba30b88617017179b68a3d36e14f5da8",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "注意；注意力",
-      "core_meaning_en": "the act or power of carefully thinking about or listening to someone or something",
+      "core_clusters": [
+        {
+          "label_cn": "注意；专注",
+          "label_en": "the process whereby a person concentrates on some features of the environment to the (relative) exclusion of others",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attention:63ce18651dcb5d4c"
+          ]
+        },
+        {
+          "label_cn": "关注；兴趣",
+          "label_en": "a general interest that leads people to want to know more",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attention:f8de33835c65520e",
+            "sense:attention:4b2aa60463110766"
+          ]
+        }
+      ],
+      "core_meaning_cn": "注意；关注；照料",
+      "core_meaning_en": "careful focus or care given to someone or something",
       "mental_model_cn": "注意；注意力",
       "mental_model_en": ""
     },
@@ -164,6 +182,48 @@
         "sense_label_en": "a courteous act indicating affection",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3a966ae842713eb13c87",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attention:4b2aa60463110766:collocation:new-d6faace6"
+            ],
+            "meaning_cn": "医疗护理",
+            "phrase": "medical attention"
+          },
+          {
+            "collocation_id": "collocation:e34bb2ac0d382cca82c1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attention:4b2aa60463110766:collocation:new-012e9e22"
+            ],
+            "meaning_cn": "给予某人/某事关注",
+            "phrase": "give attention to sb/sth"
+          },
+          {
+            "collocation_id": "collocation:3ed2b18bd19e7bd10c4e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attention:4b2aa60463110766:collocation:new-2d290489"
+            ],
+            "meaning_cn": "需要关注",
+            "phrase": "need/require attention"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "关怀；治疗；考虑",
+        "definition_en": "care, treatment, or consideration given to a person or problem",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:attention:4b2aa60463110766",
+        "sense_label_en": "care, treatment, or consideration given to a person or problem",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -209,13 +269,23 @@
         "merged_into_sense_id": null,
         "source_row": 839,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:attention:4b2aa60463110766",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1,
+        "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
       }
     ],
     "active_collocations": [
       "collocation:23ca455091f8bc2a22d0",
       "collocation:2bfc1f18505ef1844ac9",
+      "collocation:3a966ae842713eb13c87",
+      "collocation:3ed2b18bd19e7bd10c4e",
       "collocation:50655eff1cbdd03c9bda",
-      "collocation:9b97dda1887059ad4162"
+      "collocation:9b97dda1887059ad4162",
+      "collocation:e34bb2ac0d382cca82c1"
     ],
     "facts": [
       {
@@ -243,6 +313,21 @@
       {
         "id": "collocation:9b97dda1887059ad4162",
         "source_row": 13251,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:3a966ae842713eb13c87",
+        "source_row": 2,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:e34bb2ac0d382cca82c1",
+        "source_row": 3,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:3ed2b18bd19e7bd10c4e",
+        "source_row": 4,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       }
     ],
@@ -282,7 +367,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0321-0328.json",
-    "source_content_hash": "8357425259d890abbae261487480de1b21875a753d1b01e3b3ec82be077f5cc0",
+    "source_content_hash": "a445ba435e47601b5126e6ab35b7e4d1ba30b88617017179b68a3d36e14f5da8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

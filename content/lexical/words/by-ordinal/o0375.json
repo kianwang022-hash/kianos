@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b10690ed987eec1796f4de5a2d05ab217bde0d3c50a817b32b196255677c25c0",
+    "content_hash": "df18fabdc410aac2ddbe88288bc654f1127a8c28979a34f85825916b22dd3d76",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "细菌",
@@ -54,7 +54,25 @@
         "sense_id": "sense:bacteria:622dc9a258bf5748",
         "sense_label_en": "plural of bacterium; microscopic organisms that can cause disease and ar",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "inflectional_form",
+          "lexical_identity_id": "identity:800772404141f1bc2fb3",
+          "surface_lemma": "bacteria",
+          "inflectional_forms": [
+            {
+              "surface_form": "bacterium",
+              "number": "singular",
+              "word_id": "word:bacterium",
+              "sense_id": "sense:bacterium:a722ba645eb454cf"
+            },
+            {
+              "surface_form": "bacteria",
+              "number": "plural"
+            }
+          ]
+        }
       }
     ],
     "verification_summary": {
@@ -73,7 +91,18 @@
       "runtime_model_calls": false
     },
     "word": "bacteria",
-    "word_family": [],
+    "word_family": [
+      {
+        "boundary": "bacterium（单数）→ bacteria（复数）",
+        "module": "word_family",
+        "pattern": "bacterium → bacteria",
+        "pos": "noun",
+        "source_sense_id": "sense:bacteria:622dc9a258bf5748",
+        "target_word": "bacterium",
+        "target_sense_id": "sense:bacterium:a722ba645eb454cf",
+        "definition_en": "bacterium is singular; bacteria is plural"
+      }
+    ],
     "word_id": "word:bacteria"
   },
   "relation_refs": [],
@@ -136,7 +165,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0369-0376.json",
-    "source_content_hash": "b10690ed987eec1796f4de5a2d05ab217bde0d3c50a817b32b196255677c25c0",
+    "source_content_hash": "df18fabdc410aac2ddbe88288bc654f1127a8c28979a34f85825916b22dd3d76",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

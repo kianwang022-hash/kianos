@@ -7,28 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f6fdddd68c216807eb5faf0e9f2a90d838919f80813761bcc83df2c56371a81d",
+    "content_hash": "87806711e5d2185a9f4c8133cdfacd9c067c24746b520216a89d10eac97c7cc8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "平均数；平均值",
-          "label_en": "a number expressing the central or typical value in a set of data",
-          "pos": "noun",
+          "label_cn": "平均数；平均的",
+          "label_en": "a central or typical value; ordinary or not exceptional",
+          "pos": "noun/adjective",
           "sense_ids": [
-            "sense:average:013a65ddd17453df"
-          ]
-        },
-        {
-          "label_cn": "平均的；普通的；平常的",
-          "label_en": "typical or normal; of the usual or ordinary kind",
-          "pos": "adjective",
-          "sense_ids": [
+            "sense:average:013a65ddd17453df",
             "sense:average:57136c8611845fb4"
           ]
         },
         {
-          "label_cn": "算出…的平均数；平均为；平均达到",
-          "label_en": "to calculate the average of something; to amount to or come to an average",
+          "label_cn": "平均；达到平均",
+          "label_en": "to calculate or amount to an average",
           "pos": "verb",
           "sense_ids": [
             "sense:average:212d931a15bf5958",
@@ -36,8 +29,8 @@
           ]
         }
       ],
-      "core_meaning_cn": "平均；通常水平",
-      "core_meaning_en": "the typical or middle value of a set",
+      "core_meaning_cn": "平均数；普通的",
+      "core_meaning_en": "the central value of a set; ordinary or not exceptional",
       "mental_model_cn": "平均；通常水平",
       "mental_model_en": ""
     },
@@ -101,6 +94,24 @@
             ],
             "meaning_cn": "平均气温",
             "phrase": "average temperature"
+          },
+          {
+            "collocation_id": "collocation:3d9ba7f4b95982348971",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:average:57136c8611845fb4:collocation:new-32c2c9ff"
+            ],
+            "meaning_cn": "高于平均水平",
+            "phrase": "above average"
+          },
+          {
+            "collocation_id": "collocation:e5ce2d649c3fd9d864e3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:average:57136c8611845fb4:collocation:new-e6777f08"
+            ],
+            "meaning_cn": "低于平均水平",
+            "phrase": "below average"
           }
         ],
         "confidence": "medium",
@@ -207,11 +218,13 @@
       }
     ],
     "active_collocations": [
+      "collocation:3d9ba7f4b95982348971",
       "collocation:a865d404e61c22c095ad",
       "collocation:c270557b8418c04b44e8",
       "collocation:c94a669c3cd1236ac5e4",
       "collocation:cc5094b9725f40ca221c",
-      "collocation:d2341594919e6e798e8f"
+      "collocation:d2341594919e6e798e8f",
+      "collocation:e5ce2d649c3fd9d864e3"
     ],
     "facts": [],
     "collocations": [
@@ -238,6 +251,16 @@
       {
         "id": "collocation:d2341594919e6e798e8f",
         "source_row": 17751,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:3d9ba7f4b95982348971",
+        "source_row": 9,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:e5ce2d649c3fd9d864e3",
+        "source_row": 10,
         "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
       }
     ],
@@ -277,7 +300,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0353-0360.json",
-    "source_content_hash": "f6fdddd68c216807eb5faf0e9f2a90d838919f80813761bcc83df2c56371a81d",
+    "source_content_hash": "87806711e5d2185a9f4c8133cdfacd9c067c24746b520216a89d10eac97c7cc8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

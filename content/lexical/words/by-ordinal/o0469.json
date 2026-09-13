@@ -7,10 +7,19 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "cdc56d246bc09cdff5827e65e32117157c750144b426405974e2888e230359d6",
+    "content_hash": "1881cd6571a1a69c3e972ef57f23597803f2d0b21b89ed4c529d9e2007d53523",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "在…旁边；紧挨着",
+      "core_clusters": [
+        {
+          "label_cn": "在……旁边；紧挨着",
+          "label_en": "at the side of; next to",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:beside:7425bd3aad5e591b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "在……旁边；紧挨着",
       "core_meaning_en": "at the side of; next to",
       "mental_model_cn": "在…旁边；紧挨着",
       "mental_model_en": ""
@@ -25,7 +34,32 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:67e96f535d178cf5a297",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:beside:7425bd3aad5e591b:collocation:new-742c2736"
+            ],
+            "meaning_cn": "离题；无关紧要",
+            "phrase": "beside the point"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "在……旁边；紧挨着",
+        "definition_en": "at the side of; next to",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:beside:7425bd3aad5e591b",
+        "sense_label_en": "at the side of; next to",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -82,31 +116,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 1238,
-      "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:beside:7425bd3aad5e591b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "preposition",
-      "definition_cn": "在…旁边；紧挨着",
-      "definition_en": "at the side of; next to",
-      "semantic_key": "316e2bc4ddab2da6841103fbfd951ec04dcfb4076d192e4d7c226c3b35f93bc0",
-      "semantic_key_history": [
-        "df3a2ee0e8f64713317754a620a53533670ad078898e173903ca56256208eb77"
-      ],
-      "legacy_aliases": [
-        "beside:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "beside:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1239,
       "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json",
       "reference_only": true
     },
@@ -172,7 +181,7 @@
       },
       {
         "sense_id": "sense:beside:7425bd3aad5e591b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1239,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
@@ -192,7 +201,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:67e96f535d178cf5a297"
+    ],
     "facts": [
       {
         "id": "deep:confusables:beside:25b35653c7a51bd2",
@@ -219,6 +230,11 @@
       {
         "id": "collocation:ec167890e698d8dd0008",
         "source_row": 20005,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:67e96f535d178cf5a297",
+        "source_row": 55,
         "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
       }
     ],
@@ -248,7 +264,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0465-0472.json",
-    "source_content_hash": "cdc56d246bc09cdff5827e65e32117157c750144b426405974e2888e230359d6",
+    "source_content_hash": "1881cd6571a1a69c3e972ef57f23597803f2d0b21b89ed4c529d9e2007d53523",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

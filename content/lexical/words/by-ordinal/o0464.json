@@ -7,28 +7,29 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5836956a3906ea0812684c08bcec6d54c4a6818375080a4e40552a6db8ecfc72",
+    "content_hash": "dc2005a8fae25bb4922a2ed643649d0241cd855020f04328173e6764c698c4a7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "在...下方",
+          "label_cn": "在……下面",
           "label_en": "in or to a place that is lower than something",
-          "pos": "preposition",
+          "pos": "preposition/adverb",
           "sense_ids": [
-            "sense:beneath:08cf18d479c259bd"
+            "sense:beneath:08cf18d479c259bd",
+            "sense:beneath:1e80d1f17e3a56ad"
           ]
         },
         {
-          "label_cn": "在下方",
-          "label_en": "in or to a lower position",
-          "pos": "adverb",
+          "label_cn": "有失身份；不配",
+          "label_en": "lower than or unworthy of someone’s rank, dignity, or consideration",
+          "pos": "preposition",
           "sense_ids": [
-            "sense:beneath:1e80d1f17e3a56ad"
+            "sense:beneath:a976078c7c9195d5"
           ]
         }
       ],
-      "core_meaning_cn": "在下方",
-      "core_meaning_en": "in or to a lower place",
+      "core_meaning_cn": "在……下面；有失身份",
+      "core_meaning_en": "below something physically, or unworthy of a person’s dignity",
       "mental_model_cn": "在下方",
       "mental_model_en": ""
     },
@@ -87,6 +88,39 @@
         "sense_label_en": "in or to a lower position",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ce2d4be2324ae48d6001",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:beneath:a976078c7c9195d5:collocation:new-88064e91"
+            ],
+            "meaning_cn": "不屑一顾；卑劣得不值一提",
+            "phrase": "beneath contempt"
+          },
+          {
+            "collocation_id": "collocation:3b8cd4930830167b04df",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:beneath:a976078c7c9195d5:collocation:new-39c6e330"
+            ],
+            "meaning_cn": "有失某人的身份/尊严",
+            "phrase": "beneath one's dignity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "低于某人的身份或尊严；不配",
+        "definition_en": "lower than or unworthy of someone’s rank, dignity, or consideration",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "preposition",
+        "sense_id": "sense:beneath:a976078c7c9195d5",
+        "sense_label_en": "lower than or unworthy of someone’s rank, dignity, or consideration",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,10 +159,19 @@
         "merged_into_sense_id": null,
         "source_row": 1226,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
+      },
+      {
+        "sense_id": "sense:beneath:a976078c7c9195d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 52,
+        "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       }
     ],
     "active_collocations": [
+      "collocation:3b8cd4930830167b04df",
       "collocation:77a1062800d09c0c9573",
+      "collocation:ce2d4be2324ae48d6001",
       "collocation:d315522af0f1b3566952"
     ],
     "facts": [],
@@ -141,6 +184,16 @@
       {
         "id": "collocation:d315522af0f1b3566952",
         "source_row": 17839,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:ce2d4be2324ae48d6001",
+        "source_row": 53,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:3b8cd4930830167b04df",
+        "source_row": 54,
         "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
       }
     ],
@@ -175,7 +228,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0457-0464.json",
-    "source_content_hash": "5836956a3906ea0812684c08bcec6d54c4a6818375080a4e40552a6db8ecfc72",
+    "source_content_hash": "dc2005a8fae25bb4922a2ed643649d0241cd855020f04328173e6764c698c4a7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

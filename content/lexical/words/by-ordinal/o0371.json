@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "821f8cf7fcc0a97a6c4b748e440349d8f83c00fd9a6236e7d0d8cbbdfae67c43",
+    "content_hash": "a2f0d85c906e5c0222f4f2f9c65bb237afc4e906975a9f8c83d1a3e869ccfcd2",
     "core_concept": {
       "core_clusters": [
         {
@@ -20,33 +20,28 @@
           ]
         },
         {
-          "label_cn": "回到原处/原状态；回到较早时间；作为回应",
-          "label_en": "to a previous place, condition, or earlier time; also in return or reply",
-          "pos": "adverb",
+          "label_cn": "返回；后面的",
+          "label_en": "to a previous place, condition, or earlier time; located at the rear",
+          "pos": "adverb/adjective",
           "sense_ids": [
-            "sense:back:d17f14b62add5374"
-          ]
-        },
-        {
-          "label_cn": "后面的",
-          "label_en": "located at the rear",
-          "pos": "adjective",
-          "sense_ids": [
+            "sense:back:d17f14b62add5374",
             "sense:back:edd7558d42f15e3a"
           ]
         },
         {
-          "label_cn": "支持；资助；为…背书；后退；倒退；使后退",
-          "label_en": "to give support to a person, plan, argument, or activity; to move or cause something to move backward",
+          "label_cn": "支持；后退；备份",
+          "label_en": "to support or corroborate; to move backward; to make a backup copy",
           "pos": "verb",
           "sense_ids": [
             "sense:back:9583373a552257ca",
-            "sense:back:34f852d5d806503c"
+            "sense:back:34f852d5d806503c",
+            "sense:back:62eefac1c84a9b9c",
+            "sense:back:fa670d74ea4f6c54"
           ]
         }
       ],
-      "core_meaning_cn": "后面；向后",
-      "core_meaning_en": "the rear part of something or moving/positioning toward the rear",
+      "core_meaning_cn": "后面；向后；支持或备份",
+      "core_meaning_en": "the rear or a movement toward it; support or backup",
       "mental_model_cn": "后面；向后",
       "mental_model_en": ""
     },
@@ -302,6 +297,54 @@
         "sense_label_en": "to bet money on a person, animal, or result",
         "sort_order": 7,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:022209805d10fc4fbb48",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:back:62eefac1c84a9b9c:collocation:new-f42db955"
+            ],
+            "meaning_cn": "支持或证实主张",
+            "phrase": "back up a claim"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "支持；证实",
+        "definition_en": "to support or corroborate a person, claim, plan, or argument",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:back:62eefac1c84a9b9c",
+        "sense_label_en": "to support or corroborate a person, claim, plan, or argument",
+        "sort_order": 8,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:894ea8a91024eb71b417",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:back:fa670d74ea4f6c54:collocation:new-f26f264c"
+            ],
+            "meaning_cn": "备份数据或文件",
+            "phrase": "back up data/files"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "备份；制作备份副本",
+        "definition_en": "to make or provide a backup copy of data",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:back:fa670d74ea4f6c54",
+        "sense_label_en": "to make or provide a backup copy of data",
+        "sort_order": 9,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -382,9 +425,24 @@
         "merged_into_sense_id": null,
         "source_row": 949,
         "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
+      },
+      {
+        "sense_id": "sense:back:62eefac1c84a9b9c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14,
+        "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
+      },
+      {
+        "sense_id": "sense:back:fa670d74ea4f6c54",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16,
+        "source_path": "content/lexical/canonical/senses/shards/o0353-0384.json"
       }
     ],
     "active_collocations": [
+      "collocation:022209805d10fc4fbb48",
       "collocation:19ac1f88763581d6e9c1",
       "collocation:2ef32f5cf9211f041e51",
       "collocation:30a7f938ad729807305b",
@@ -396,6 +454,7 @@
       "collocation:571266a8d30d196f2a08",
       "collocation:604fd5b01c5267af62b8",
       "collocation:6905de15a32d4638499f",
+      "collocation:894ea8a91024eb71b417",
       "collocation:b28bf828b2604e713195",
       "collocation:bcbdef73b01c16bea509",
       "collocation:d84fe418dde04253fcec"
@@ -471,6 +530,16 @@
         "id": "collocation:d84fe418dde04253fcec",
         "source_row": 18292,
         "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:022209805d10fc4fbb48",
+        "source_row": 15,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
+      },
+      {
+        "id": "collocation:894ea8a91024eb71b417",
+        "source_row": 17,
+        "source_path": "content/lexical/canonical/collocations/shards/o0353-0384.json"
       }
     ],
     "exam-mappings": [],
@@ -499,7 +568,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0369-0376.json",
-    "source_content_hash": "821f8cf7fcc0a97a6c4b748e440349d8f83c00fd9a6236e7d0d8cbbdfae67c43",
+    "source_content_hash": "a2f0d85c906e5c0222f4f2f9c65bb237afc4e906975a9f8c83d1a3e869ccfcd2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

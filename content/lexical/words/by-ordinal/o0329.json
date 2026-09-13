@@ -7,11 +7,36 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0be15cf2cb3b1bf9793f51ae49b185faebee7728ba06d580379b94575c3e2686",
+    "content_hash": "9fed11abce29b016fd68b3c464bf83847f85df5e14a51bda75892b0d5c482e43",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "态度或看法",
-      "core_meaning_en": "a mental state or viewpoint",
+      "core_clusters": [
+        {
+          "label_cn": "态度；看法",
+          "label_en": "a complex mental state involving beliefs and feelings and values and dispositions to act in certain ways",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attitude:e3cd4c9333f758be"
+          ]
+        },
+        {
+          "label_cn": "姿势",
+          "label_en": "a theatrical pose created for effect",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attitude:26ee83a413115c8a"
+          ]
+        },
+        {
+          "label_cn": "（航空器）姿态",
+          "label_en": "position of aircraft or spacecraft relative to a frame of reference",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attitude:78c32fc6a9235814"
+          ]
+        }
+      ],
+      "core_meaning_cn": "态度；看法",
+      "core_meaning_en": "a way of thinking or feeling toward someone or something; a position or viewpoint",
       "mental_model_cn": "态度或看法",
       "mental_model_en": ""
     },
@@ -70,6 +95,30 @@
         "sense_label_en": "position of aircraft or spacecraft relative to a frame of reference (the",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:777515541729fa3b01f9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attitude:e3cd4c9333f758be:collocation:new-7ace8db5"
+            ],
+            "meaning_cn": "对某人/某事的态度",
+            "phrase": "attitude to/toward sb/sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "态度，看法",
+        "definition_en": "a complex mental state involving beliefs and feelings and values and dispositions to act in certain ways",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:attitude:e3cd4c9333f758be",
+        "sense_label_en": "a complex mental state involving beliefs and feelings and values and disposition",
+        "sort_order": 0,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -92,33 +141,7 @@
     "word_id": "word:attitude"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:attitude:e3cd4c9333f758be",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "态度，看法",
-      "definition_en": "a complex mental state involving beliefs and feelings and values and dispositions to act in certain ways",
-      "semantic_key": "8d94269431aa7bffdcd66ef2f113035f949eb451d32e601d24cfafea0084f221",
-      "semantic_key_history": [
-        "726353f887390663829c296455a4982dbb3ae9d46be24992c34df4b116d14c62"
-      ],
-      "legacy_aliases": [
-        "attitude:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "attitude:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 842,
-      "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -137,7 +160,7 @@
       },
       {
         "sense_id": "sense:attitude:e3cd4c9333f758be",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 842,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
@@ -145,7 +168,8 @@
     ],
     "active_collocations": [
       "collocation:02ab08a92eb78f74da0d",
-      "collocation:21fea125387ed937968a"
+      "collocation:21fea125387ed937968a",
+      "collocation:777515541729fa3b01f9"
     ],
     "facts": [],
     "collocations": [
@@ -167,6 +191,11 @@
       {
         "id": "collocation:beccfeb217302461da01",
         "source_row": 16147,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:777515541729fa3b01f9",
+        "source_row": 5,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       }
     ],
@@ -206,7 +235,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0329-0336.json",
-    "source_content_hash": "0be15cf2cb3b1bf9793f51ae49b185faebee7728ba06d580379b94575c3e2686",
+    "source_content_hash": "9fed11abce29b016fd68b3c464bf83847f85df5e14a51bda75892b0d5c482e43",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

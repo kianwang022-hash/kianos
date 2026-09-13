@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "begin 接宾语或不定式",
+        "boundary": "begin sth / begin to do sth / begin doing sth",
         "codex_reviewed": false,
         "definition_cn": "开始",
         "definition_en": "to start doing something or cause something to start",
@@ -30,7 +30,7 @@
         "level": null,
         "meaning_cn": "",
         "module": "constructions",
-        "pattern": "vt. + object / vi. + to do",
+        "pattern": "vt. + object / vi. + to do or doing",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -46,7 +46,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "de80b58360120cab804729d8bd3f823a327949fecdda2f9702f39583e788dbc0",
+    "content_hash": "4edb9c735cecbc65b989aae1b6eef395567e65e114f01b3f586220301bf0b73e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "开始",
@@ -84,6 +84,15 @@
             ],
             "meaning_cn": "开始理解",
             "phrase": "begin to understand"
+          },
+          {
+            "collocation_id": "collocation:f0aa1e0840de8ba1c564",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:begin:c9bd5bde044859bf:collocation:new-88893360"
+            ],
+            "meaning_cn": "开始做某事",
+            "phrase": "begin doing sth"
           }
         ],
         "confidence": "medium",
@@ -132,7 +141,8 @@
     ],
     "active_collocations": [
       "collocation:1390d32d7d621657c7a6",
-      "collocation:bdd863394731b5ee31f2"
+      "collocation:bdd863394731b5ee31f2",
+      "collocation:f0aa1e0840de8ba1c564"
     ],
     "facts": [
       {
@@ -150,6 +160,11 @@
       {
         "id": "collocation:bdd863394731b5ee31f2",
         "source_row": 16069,
+        "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
+      },
+      {
+        "id": "collocation:f0aa1e0840de8ba1c564",
+        "source_row": 42,
         "source_path": "content/lexical/canonical/collocations/shards/o0417-0448.json"
       }
     ],
@@ -184,7 +199,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0441-0448.json",
-    "source_content_hash": "de80b58360120cab804729d8bd3f823a327949fecdda2f9702f39583e788dbc0",
+    "source_content_hash": "4edb9c735cecbc65b989aae1b6eef395567e65e114f01b3f586220301bf0b73e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

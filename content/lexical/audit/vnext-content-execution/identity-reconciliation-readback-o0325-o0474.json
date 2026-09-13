@@ -1,0 +1,131 @@
+{
+  "schema": "kianos.lexical.identity_reconciliation_readback.v1",
+  "status": "PASS",
+  "baseline_origin_main": "52f575307fda094c9a0d6335a6544bc61e194a00",
+  "scope": [
+    325,
+    474
+  ],
+  "handoff": "content/lexical/semantic-review/o0325-o0474.md",
+  "classifications": {
+    "REUSE_EXISTING_STABLE": {
+      "rule": "reuse continuous active/deprecated/merged stable branch; no generated replacement",
+      "owners": [
+        327,
+        329,
+        333,
+        337,
+        340,
+        342,
+        343,
+        355,
+        358,
+        359,
+        363,
+        365,
+        367,
+        368,
+        375,
+        380,
+        383,
+        388,
+        396,
+        408,
+        411,
+        412,
+        415,
+        417,
+        427,
+        428,
+        432,
+        434,
+        440,
+        446,
+        447,
+        454,
+        462,
+        469
+      ]
+    },
+    "NEW_SEMANTIC_BRANCH": {
+      "rule": "new branch had no legitimate existing stable identity; deterministic stable ID created",
+      "owners": [
+        328,
+        371,
+        381,
+        391,
+        394,
+        397,
+        398,
+        443,
+        456,
+        458,
+        464
+      ]
+    },
+    "ESCALATE_IDENTITY": {
+      "owners": []
+    }
+  },
+  "reactivated_or_reconciled_sense_ids": [
+    "sense:attendant:ee277353e8da5f76",
+    "sense:attitude:e3cd4c9333f758be",
+    "sense:audit:5013afcab94a592a",
+    "sense:awful:e43db2f4fbea5dd1",
+    "sense:bag:4a7a5fc6dae45504",
+    "sense:bait:9720fc3f1b965e3f",
+    "sense:bait:1c867861a9bf5e5c",
+    "sense:barn:78b93dbf58cc5dd6",
+    "sense:bench:22bded4ad0ad506f",
+    "sense:bench:314919b5c60d5e1e",
+    "sense:beside:7425bd3aad5e591b"
+  ],
+  "new_stable_sense_ids": [
+    "sense:attention:4b2aa60463110766",
+    "sense:back:62eefac1c84a9b9c",
+    "sense:back:fa670d74ea4f6c54",
+    "sense:baggage:c2f7d0d0eb16e54d",
+    "sense:ballot:c1148782a6617bb0",
+    "sense:band:8e1c3394af0ec747",
+    "sense:bank:614f869ef98c4e8c",
+    "sense:bankrupt:60012b0bfa0f307c",
+    "sense:beef:4a291e995f66a319",
+    "sense:bell:0d876d446557e4ea",
+    "sense:belong:dd81579f540a00d3",
+    "sense:beneath:a976078c7c9195d5"
+  ],
+  "reference_closure": "PASS",
+  "relation_owner_changes": [],
+  "form_identity_closure": {
+    "status": "PASS",
+    "owner_files": [
+      "content/lexical/words/by-ordinal/o0333.json",
+      "content/lexical/words/by-ordinal/o0340.json",
+      "content/lexical/words/by-ordinal/o0367.json",
+      "content/lexical/words/by-ordinal/o0368.json",
+      "content/lexical/words/by-ordinal/o0375.json",
+      "content/lexical/words/by-ordinal/o0417.json"
+    ]
+  },
+  "readback_assertions": {
+    "stable_word_identity_preserved": true,
+    "active_sense_registry_closed": true,
+    "merged_into_not_left_on_active_senses": true,
+    "handoff_generated_ids_absent": true,
+    "o0475_plus_not_activated": true
+  },
+  "independent_review_repairs": {
+    "review_id": 5191830132,
+    "status": "PASS",
+    "scope": [
+      380,
+      408,
+      415
+    ],
+    "stable_ids_changed": false,
+    "reference_closure": "PASS",
+    "learner_object_readback": "PASS: 3/3",
+    "other_147_owners_untouched": true,
+    "o0475_plus_untouched": true
+  }
+}

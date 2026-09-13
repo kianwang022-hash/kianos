@@ -57,11 +57,37 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "ac49143a215a082d3575cda5b13a01b7d3cc93b248841e908e673f0ae1e1ec8c",
+    "content_hash": "a39d5eaa622431a3c9aab2ea5b0d883ef2222b29de6fb712d656f1db63ca4741",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "属于；应在某处",
-      "core_meaning_en": "to be in the right place or possession of",
+      "core_clusters": [
+        {
+          "label_cn": "属于；应在某处",
+          "label_en": "to be owned by someone or be in the right place or situation",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:belong:9ba1b59e53fd5c21",
+            "sense:belong:23ba68d1d72453a9"
+          ]
+        },
+        {
+          "label_cn": "归类于",
+          "label_en": "to be rightly classified in a class or category",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:belong:b5970b2532fc5599"
+          ]
+        },
+        {
+          "label_cn": "感到被接纳；有归属感",
+          "label_en": "to feel accepted, at home, or part of a group or place",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:belong:dd81579f540a00d3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "属于；有归属感",
+      "core_meaning_en": "to be in the right place or possession of; to feel accepted",
       "mental_model_cn": "属于；应在某处",
       "mental_model_en": ""
     },
@@ -174,6 +200,39 @@
         "sense_label_en": "to be rightly classified in a class or category",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:37deb7956d501cda44a3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:belong:dd81579f540a00d3:collocation:new-e1f2afc5"
+            ],
+            "meaning_cn": "感到自己属于这里",
+            "phrase": "feel that you belong"
+          },
+          {
+            "collocation_id": "collocation:9949dc5a9d5b9c07dcb9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:belong:dd81579f540a00d3:collocation:new-eb48d8e9"
+            ],
+            "meaning_cn": "归属感",
+            "phrase": "a sense of belonging"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "感到被接纳；属于某个群体或地方",
+        "definition_en": "to feel accepted, at home, or part of a group or place",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:belong:dd81579f540a00d3",
+        "sense_label_en": "to feel accepted, at home, or part of a group or place",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -219,13 +278,22 @@
         "merged_into_sense_id": null,
         "source_row": 1209,
         "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
+      },
+      {
+        "sense_id": "sense:belong:dd81579f540a00d3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 47,
+        "source_path": "content/lexical/canonical/senses/shards/o0449-0480.json"
       }
     ],
     "active_collocations": [
       "collocation:13a1889f474a1db59f11",
+      "collocation:37deb7956d501cda44a3",
       "collocation:49dfad80bec8df46bc87",
       "collocation:68e2d2703aed2061044c",
       "collocation:7d26a581e0b3c547832b",
+      "collocation:9949dc5a9d5b9c07dcb9",
       "collocation:af53b312311bfe965245",
       "collocation:ed1e1024e6c5b270f1a8"
     ],
@@ -266,6 +334,16 @@
         "id": "collocation:ed1e1024e6c5b270f1a8",
         "source_row": 20095,
         "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:37deb7956d501cda44a3",
+        "source_row": 48,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
+      },
+      {
+        "id": "collocation:9949dc5a9d5b9c07dcb9",
+        "source_row": 49,
+        "source_path": "content/lexical/canonical/collocations/shards/o0449-0480.json"
       }
     ],
     "exam-mappings": [],
@@ -299,7 +377,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0457-0464.json",
-    "source_content_hash": "ac49143a215a082d3575cda5b13a01b7d3cc93b248841e908e673f0ae1e1ec8c",
+    "source_content_hash": "a39d5eaa622431a3c9aab2ea5b0d883ef2222b29de6fb712d656f1db63ca4741",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

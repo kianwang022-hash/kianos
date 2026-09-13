@@ -7,11 +7,20 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "39513a105bb54405fb0c9b0d6908864a3cdbb41536bd982245a56309a4dd35c4",
+    "content_hash": "287f09fdbf656036461cf821494eab7eb6af8799a379cda6462ee556f80bdff1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "听觉的",
-      "core_meaning_en": "relating to the ear or hearing",
+      "core_clusters": [
+        {
+          "label_cn": "听觉的；耳的",
+          "label_en": "of or pertaining to hearing or the ear",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:aural:4cee84e2728e5198"
+          ]
+        }
+      ],
+      "core_meaning_cn": "听觉的；耳的",
+      "core_meaning_en": "relating to hearing or the ear, contrasted with oral",
       "mental_model_cn": "听觉的",
       "mental_model_en": ""
     },
@@ -44,6 +53,15 @@
             ],
             "meaning_cn": "听觉技能",
             "phrase": "aural skills"
+          },
+          {
+            "collocation_id": "collocation:a304f047dc97cb78b059",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aural:4cee84e2728e5198:collocation:new-b07de817"
+            ],
+            "meaning_cn": "听觉的与口头的区别",
+            "phrase": "aural/oral distinction"
           }
         ],
         "confidence": "medium",
@@ -56,30 +74,6 @@
         "sense_id": "sense:aural:4cee84e2728e5198",
         "sense_label_en": "of or pertaining to hearing or the ear",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e23c8e0fbdfb07f79412",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:aural:a33fadec98a35105:collocation:0"
-            ],
-            "meaning_cn": "先兆症状",
-            "phrase": "aural symptoms"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "先兆的；气氛的",
-        "definition_en": "relating to or characterized by an aura",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:aural:a33fadec98a35105",
-        "sense_label_en": "relating to or characterized by an aura",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -110,7 +104,31 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:aural:a33fadec98a35105",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "先兆的；气氛的",
+      "definition_en": "relating to or characterized by an aura",
+      "semantic_key": "cd5fbc6bd87caf93fb21e322325b1403e02dee2e8fed3c5a7e0b197940a59814",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "aural:l3:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "aural:l3:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 869,
+      "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -122,7 +140,7 @@
       },
       {
         "sense_id": "sense:aural:a33fadec98a35105",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 869,
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
@@ -130,8 +148,8 @@
     ],
     "active_collocations": [
       "collocation:189071aecaacb952845c",
-      "collocation:b9b29a82289b950c542b",
-      "collocation:e23c8e0fbdfb07f79412"
+      "collocation:a304f047dc97cb78b059",
+      "collocation:b9b29a82289b950c542b"
     ],
     "facts": [],
     "collocations": [
@@ -148,6 +166,11 @@
       {
         "id": "collocation:e23c8e0fbdfb07f79412",
         "source_row": 19138,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:a304f047dc97cb78b059",
+        "source_row": 8,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       }
     ],
@@ -182,7 +205,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0337-0344.json",
-    "source_content_hash": "39513a105bb54405fb0c9b0d6908864a3cdbb41536bd982245a56309a4dd35c4",
+    "source_content_hash": "287f09fdbf656036461cf821494eab7eb6af8799a379cda6462ee556f80bdff1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
