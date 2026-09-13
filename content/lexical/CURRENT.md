@@ -15,7 +15,8 @@ This file does not own lexical semantics, lane learning semantics, Acceptance Tr
 - Content authority: `content/lexical/CONTENT_ASSET_CONTRACT.md`.
 - Gold calibration: `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` — PASS.
 - Batch01: `content/lexical/audit/vnext-content-execution/batch01-o0001-o0012.json` — PASS.
-- Batch02: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json` — PASS on this branch; durable after merge.
+- Batch02: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json` — PASS.
+- Wave03: `content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json` — PASS (100 owners).
 - Learner scope: existing **7,946 Main Words** only; Pack remains metadata.
 - Full-catalog K: **BLOCKED** until all 7,946 owners are concluded and known semantic / ownership debt is closed.
 
@@ -60,7 +61,7 @@ Required distinctions:
 0 BLOCKED
 ```
 
-### Batch02 `o0013–o0024` — PASS on branch
+### Batch02 `o0013–o0024` — PASS
 
 Receipt: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json`.
 
@@ -82,13 +83,28 @@ Safe-simple no-change owners:
 
 Fresh vNext judgment intentionally diverged from old Fresh Batch03 for `abrupt`: its three valid branches were retained, but the old gloss-list Core was upgraded to a predictive no-gradual-transition model. Earlier Batch03 files remain provenance/candidate evidence only; their stacked execution model is superseded.
 
+### Wave03 `o0025–o0124` — PASS
+
+Receipt: `content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json`.
+
+```text
+100 / 100 concluded
+36 UPGRADED | 64 NO_CHANGE
+74 DEPTH_READY | 26 SAFE_SIMPLE
+0 BLOCKED
+1 Relation mutation | 0 Form mutations
+0 learner-state mutations | 0 Pack mutations
+```
+
+This is the first throughput-cadence package: one 100-owner work package closed through smaller semantic units rather than 100 identical micro-PRs. The old Batch04/05 material was acceleration evidence only; fresh vNext judgment could accept, reject, or supersede it.
+
 ### Contiguous progress / next cursor
 
 After Batch02 merges:
 
-> **current-generation contiguous coverage = `24 / 7,946`; next ordinal = `o0025`.**
+> **current-generation contiguous coverage = `124 / 7,946`; next ordinal = `o0125`.**
 
-Start the next unit from the newly accepted `main@HEAD`, never by stacking on this branch.
+After Wave03 merges, start the next package from the newly accepted `main@HEAD`, never by stacking on this branch.
 
 Keep the next few units bounded. Scale only after repeated direct-close units stay semantically clean and Relation/Form collisions remain controlled.
 
@@ -170,6 +186,6 @@ main@HEAD
 → Content Asset Contract
 → Acceptance
 → latest vNext receipt
-→ next bounded unit from o0025
+→ next bounded unit from o0125
 → direct-close execution
 ```

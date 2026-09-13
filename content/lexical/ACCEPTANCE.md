@@ -22,7 +22,7 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Natural-Owner/source boundary, accepted learner-controlled Learning + Content contracts, PASS Gold calibration, and two bounded contiguous vNext Content units covering `o0001–o0024`. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive current-generation conclusions and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U remain unaccepted.**
+> **LexicalOS has a stable Natural-Owner/source boundary, accepted learner-controlled Learning + Content contracts, PASS Gold calibration, and accepted vNext Content execution covering `o0001–o0124`, including the first 100-owner throughput package. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive current-generation conclusions and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U remain unaccepted.**
 
 ---
 
@@ -44,7 +44,7 @@ Historical audit / Fresh-Rebuild material may serve as bounded defect-sentinel, 
 
 ## K｜Knowledge — BLOCKED
 
-Current-generation contiguous coverage after Batch02 merges is **24 / 7,946**.
+Current-generation contiguous coverage after Wave03 merges is **124 / 7,946**.
 
 K remains BLOCKED because the remaining catalog may still contain semantic-fidelity and learner-value defects: weak Core carriers, familiar-new omissions, construction/phraseology gaps, Relation/Form ownership errors, overmerge/oversplit, poor hierarchy, and projection risk.
 
@@ -169,6 +169,27 @@ Full-catalog K remains BLOCKED.
 
 ---
 
+### Wave03 `o0025–o0124` — PASS
+
+Receipt: `content/lexical/audit/vnext-content-execution/wave03-o0025-o0124.json`.
+
+```text
+100 / 100 concluded
+36 UPGRADED | 64 NO_CHANGE
+74 DEPTH_READY | 26 SAFE_SIMPLE
+0 BLOCKED
+1 Relation mutation | 0 Form mutations
+0 learner-state mutations | 0 Pack mutations
+```
+
+Wave03 deliberately increased throughput without weakening the semantic stop rule: simple trustworthy owners fast-passed, rich/lifecycle-risk owners received direct repair, and acceptance still closed by final integrated readback. Historical Batch04/05 judgments remained candidate/sentinel evidence rather than target authority.
+
+> **contiguous current-generation Content coverage = `124 / 7,946`; next cursor = `o0125`.**
+
+Full-catalog K remains BLOCKED.
+
+---
+
 ## P / R / E｜BLOCKED for unrestricted full-catalog use
 
 Existing learner-facing surfaces/runtime remain provisional downstream assets. They may be reused later only if they faithfully implement accepted upstream Content + Learning truth.
@@ -188,8 +209,8 @@ S Source / Natural Owner boundary     ✅ PASS
 L learner-controlled vNext logic      ✅ PASS
 Content Asset Contract                ✅ frozen
 Gold calibration                      ✅ PASS
-o0001–o0024 bounded realization       ✅ PASS after Batch02 merge
-remaining 7,922 owners                ← CURRENT
+o0001–o0124 vNext realization         ✅ PASS
+remaining 7,822 owners                ← CURRENT
 K full-catalog re-acceptance          ⏳
 P → R → E → U                         ⏳
 ```
