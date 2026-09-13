@@ -2,13 +2,13 @@
   "schema": "kianos.lexical.continuation.retired.v1",
   "status": "RETIRED",
   "authority": "NONE",
-  "reason": "Lexical Work Cursor moved to content/lexical/CURRENT.md and Acceptance Truth moved to content/lexical/ACCEPTANCE.md. The predecessor continuation still pointed to unrestricted real learner runtime after current Knowledge had been reopened and BLOCKED by migration semantic-integrity defects.",
+  "reason": "Lexical Work Cursor is owned by content/lexical/CURRENT.md and Acceptance Truth by content/lexical/ACCEPTANCE.md. This retired continuation must not route fresh Chats into historical issues, batches, runtime narratives, or repair queues.",
   "normal_read": false,
   "replacements": {
     "work_cursor": "content/lexical/CURRENT.md",
     "acceptance_truth": "content/lexical/ACCEPTANCE.md",
-    "knowledge_reacceptance": "content/lexical/audit/knowledge-reacceptance/README.md",
-    "active_issue": "https://github.com/kianwang022-hash/kianos/issues/6"
+    "learning_authority": "content/lexical/LEARNING_CONTRACT.md",
+    "content_authority": "content/lexical/CONTENT_ASSET_CONTRACT.md"
   },
-  "rule": "Do not use this file for normal Lexical continuation, acceptance, semantic truth, runtime scheduling, or learner state. Git history preserves the retired narrative for explicitly bounded historical audit only."
+  "rule": "Do not use this file for normal Lexical continuation, acceptance, semantic truth, runtime scheduling, learner state, or active-Issue routing. Git history preserves retired narratives for explicitly bounded historical audit only."
 }
