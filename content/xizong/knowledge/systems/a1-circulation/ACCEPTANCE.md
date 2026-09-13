@@ -11,23 +11,41 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ---
 
-## Gate status
+## Current accepted gate status
 
 ```text
 S  PASS
 K  PASS
-L  UNTESTED — fresh re-acceptance pending after K semantic repair
-P  UNTESTED — fresh re-acceptance pending
-R  UNTESTED — fresh re-acceptance pending
-E  UNTESTED — fresh re-acceptance pending
+L  PASS — prior accepted claim; fresh re-audit not yet completed
+P  PASS — prior accepted claim; fresh re-audit not yet completed
+R  PASS — prior accepted claim; fresh re-audit not yet completed
+E  PASS — prior accepted claim; fresh re-audit not yet completed
 U  UNTESTED by every real learner path
 ```
 
-Allowed current conclusion:
+Allowed current conclusion remains:
 
-> **A1 is Source-ready + Knowledge-ready under the fresh re-acceptance. Full module readiness is not re-claimed until L–E are freshly re-accepted.**
+> **A1 is Module ready for learner test under the currently accepted S–E evidence; the requested fresh re-acceptance has only newly re-established S/K so far.**
+
+Fresh audit does **not** automatically revoke an existing PASS. A later layer is downgraded only if new evidence actually demonstrates a defect or invalidates the old claim.
 
 This does **not** mean Kian has started Circulation, reached System Recall, or should perform System Exit now.
+
+---
+
+## Fresh re-acceptance progress
+
+```text
+S  RE-ACCEPTED
+K  RE-ACCEPTED after semantic repair
+L  PENDING fresh attack
+P  PENDING fresh attack
+R  PENDING fresh attack
+E  PENDING fresh attack
+U  real learner only
+```
+
+`PENDING fresh attack` is audit progress, **not** a readiness state and does not mean `UNTESTED/BLOCKED` in the gate ledger.
 
 ---
 
@@ -72,13 +90,13 @@ Fresh verdict:
 
 Strongest post-repair falsification included MI/DCM, HFpEF/RCM/tamponade/constriction, valve lesions, high resistance/conduit obstruction, arrhythmia, hemorrhage/distributive shock, and low-oncotic/permeability/lymphatic edema cases. No eighth primitive was required; mixed cases may compose more than one failure mode rather than forcing one exclusive bucket.
 
-Compatibility evidence:
+Compatibility evidence from the first K-only commit:
 
-- PR #69 Xizong QA: A1 learner contract validation PASS;
+- A1 learner contract validation PASS;
 - all existing Xizong validators PASS;
 - Astro build PASS.
 
-Those executed checks prove the K repair did not mechanically break current downstream assets; they do **not** re-grant L/P/R/E PASS.
+A later CI failure after this file temporarily downgraded L/P/R/E was correctly diagnosed as an audit-state modeling error: projection availability is gated by the accepted P claim. The anti-cocoon directive says fresh audit does not automatically revoke existing PASS, so the ledger now preserves accepted L/P/R/E while tracking fresh audit progress separately.
 
 ---
 
@@ -100,11 +118,9 @@ This debt does not block A1 S/K because A1's own Source-bound requirement is alr
 
 ## Prior L / P / R / E evidence boundary
 
-The previous Acceptance held L/P/R/E PASS and its historical executed evidence remains useful **prior evidence**. It is not erased.
+The previous L/P/R/E evidence remains valid accepted evidence unless a fresh attack finds a material defect. It is not treated as the answer key for the ongoing audit.
 
-However, the requested bottom-up fresh re-acceptance and the K-level semantic repair reopen the dependent chain. Therefore current fresh status is `UNTESTED` until each layer is attacked again rather than mechanically inheriting old green results.
-
-Next dependency order:
+Fresh dependency order:
 
 ```text
 Content / Learning realization
@@ -113,6 +129,8 @@ Content / Learning realization
 → Evidence
 → real U only when Kian actually uses the path
 ```
+
+A discovered downstream defect may reopen the earliest responsible owner; mere absence of a new audit does not revoke current readiness.
 
 ---
 
@@ -131,7 +149,9 @@ Only Kian's real use can change these claims.
 
 ## Reopen rule
 
-Reopen only the earliest responsible gate/object when new evidence identifies a concrete defect. Freeze only the dependent chain; do not use A1 re-acceptance to mutate independent sibling Systems.
+Reopen only the earliest responsible gate/object when new evidence identifies a concrete defect. Freeze only the affected dependent work; do not use A1 re-acceptance to mutate independent sibling Systems.
+
+Fresh re-acceptance itself does not automatically revoke accepted PASS claims.
 
 ---
 
