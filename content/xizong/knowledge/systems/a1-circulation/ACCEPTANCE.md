@@ -16,33 +16,49 @@ S  PASS — fresh re-accepted
 K  PASS — fresh re-accepted after semantic repair
 L  PASS — fresh re-accepted
 P  PASS — fresh re-accepted after Projection repair
-R  PASS — prior accepted claim; fresh re-audit ACTIVE
-E  PASS — prior accepted claim; fresh re-audit downstream-frozen behind R
-U  UNTESTED here — real learner use is owned by another workflow
+R  PASS — fresh browser Runtime journey executed
+E  PASS — fresh browser Evidence journey executed
+U  UNTESTED — real learner use only
 ```
+
+`Content` is a construction stage, not an eighth acceptance gate; A1 Content is **CLOSED**.
 
 Allowed current conclusion:
 
-> **A1 remains Module-ready for learner test under accepted S–E evidence. The fresh re-acceptance has now re-established S/K/L, closed Content, and re-accepted P after repairing actual learner-facing defects. Fresh Runtime is active. No engineering evidence in this file implies that Kian has learned A1.**
-
-Fresh audit does not automatically revoke an existing PASS; a gate is downgraded only when new evidence demonstrates a material defect.
+> **A1 engineering is closed through Evidence. S/K/L/P/R/E are accepted on the current learning contract. U is intentionally UNTESTED and cannot be inferred from engineering fixtures, CI, browser automation, seeded local state, or prior acceptance history.**
 
 ---
 
-## Fresh re-acceptance progress
+## Final engineering closure receipt
+
+Fresh closeout revision:
+
+`97ec341f3fe510fd0cb4b5e2aeffa94a292fa6ff`
+
+Standard workflow:
+
+- `Static Web Xizong QA #365`
+- run `34775611247`
+- conclusion: **SUCCESS**
+
+Executed evidence on that revision:
 
 ```text
-S        RE-ACCEPTED
-K        RE-ACCEPTED after semantic repair
-L        RE-ACCEPTED
-Content  CLOSED
-P        RE-ACCEPTED after learner-facing repair
-R        ACTIVE fresh attack
-E        PENDING fresh attack
-U        real learner only / external workflow
+A1 learner contract                 PASS
+A1 Projection contract              PASS
+A1 persistence / Evidence contract  PASS
+A2/A3 shared contract regressions   PASS
+Astro build                         PASS
+A1 browser Runtime journey          PASS
+A1 Runtime evidence upload          PASS
+A1 Evidence validation              PASS
+A1 browser Evidence journey         PASS
+A1 Evidence artifact upload         PASS
+Evidence build                      PASS
+Final static build                  PASS
 ```
 
-`Content` is a construction stage, not an eighth acceptance gate.
+This is the closing R/E receipt. Older workflow reds and older SHAs are historical evidence only and do not override this fresh executed result.
 
 ---
 
@@ -51,20 +67,15 @@ U        real learner only / external workflow
 Evidence mode: **STRUCTURAL + ADVERSARIAL**  
 Independence: **SELF + AUTHORITATIVE_PROJECT_SOURCE_BOUNDARY**
 
-Fresh Source-boundary work established:
+Accepted Source boundary:
 
 - current formal AI-readable Lecture layer = Physiology / Pathology / Internal Medicine / Surgery / Biochemistry MD sources;
 - frozen Global coverage assigns **850 unique Primary Outline items** to A1 with `orphan_scope = 0` and `duplicate_primary = 0` at that layer;
-- no independent current-Source aortic-disease unit authorizes a new A1 Block;
-- A1 owns normal hemostasis/thrombosis mechanics and the current-source shock/DIC interface without inventing the complete C/Hematology DIC owner.
+- A1 retains **12 natural Blocks / 312 stable KPs**;
+- retained locator state remains **158 `SOURCE_EXACT` + 154 `SOURCE_PENDING`**;
+- pending locator debt remains explicit and is not represented as fictitious page-level provenance.
 
-Locator boundary remains explicit:
-
-- retained A1 first-pass source pack = **312 KP**;
-- **158 `SOURCE_EXACT` + 154 `SOURCE_PENDING`** locator records;
-- pending locator debt is not represented as fictitious exact page provenance.
-
-Therefore S PASS means the authoritative Source/coverage boundary is usable without silent guessing; it does not mean all 312 KPs have literal page-level deep links.
+S PASS means the current Source/coverage boundary is usable without silent guessing. It does not mean all 312 KPs have exact page locators.
 
 ---
 
@@ -73,20 +84,17 @@ Therefore S PASS means the authoritative Source/coverage boundary is usable with
 Evidence mode: **STRUCTURAL + ADVERSARIAL + EXECUTED_COMPATIBILITY**  
 Independence: **SELF**
 
-Fresh K attack independently challenged the System mother model, 12 natural Block units, cross-System ownership and Failure Modes.
+Fresh K falsification retained the 12-Block / 312-KP architecture and repaired the System mother model without architecture growth.
 
-Verdict:
+Accepted high-level result:
 
-- **KEEP 12 Blocks / 312 stable KPs**;
-- demote duplicate System-level `outflow_obstruction` primitive;
-- filling restriction covers intrinsic myocardial relaxation/compliance failure and external pericardial restriction;
+- duplicate System-level `outflow_obstruction` primitive demoted;
+- filling restriction covers intrinsic relaxation/compliance failure and external pericardial restriction;
 - resistance/pathway failure absorbs fixed narrowing/obstruction;
-- add the previously missing microcirculation-exchange / lymph-return failure already present in B1 Core;
-- retain **7** System Failure Modes without architecture growth.
+- microcirculation-exchange / lymph-return failure is represented where already supported by B1 Core;
+- **7 System Failure Modes** retained.
 
-Post-repair falsification covered pump failure, filling restriction, valve disease, high resistance/conduit obstruction, arrhythmia, volume/distribution shock and exchange/lymph edema. Existing Xizong compatibility validators and Astro build passed after repair.
-
-K PASS is a Knowledge/System-model claim, not a substitute for Content closure.
+K PASS is a Knowledge/System-model claim, not learner mastery.
 
 ---
 
@@ -95,18 +103,12 @@ K PASS is a Knowledge/System-model claim, not a substitute for Content closure.
 Evidence mode: **STRUCTURAL + ADVERSARIAL**  
 Independence: **SELF**
 
-Owners inspected:
-
-- `content/xizong/LEARNING_CONTRACT.md`;
-- `content/xizong/knowledge/learner/study-policy.json`;
-- `content/xizong/knowledge/learner/a1-circulation-learning.json`.
-
 Accepted learner model:
 
 ```text
 KianOS System / Block orientation + selective cue
 → iPad / MarginNote original Lecture continuous learning
-→ KianOS active retrieval / Logic Group closure
+→ KianOS Logic Group active retrieval / closure
 → Block Recall
 → after real completion of all A1 Blocks: pre-question System Recall
 → official System question sweep
@@ -114,71 +116,42 @@ KianOS System / Block orientation + selective cue
 → short post-question System reconstruction
 ```
 
-Rejected alternatives:
+Rejected models remain rejected:
 
 1. KianOS as a continuous second Lecture reader;
-2. KP-card-first learning before continuous Lecture contact.
-
-Both fragment the learner model and violate approved surface ownership. No fresh L defect remains.
+2. KP-card-first learning before continuous original-Lecture contact.
 
 ---
 
-## Fresh Content Closure｜COMPLETE
+## Content Closure｜CLOSED
 
-Evidence mode: **STRUCTURAL + ADVERSARIAL + AUTHORITATIVE_SOURCE_RECONCILIATION**  
-Independence: **SELF + AUTHORITATIVE_PROJECT_SOURCE**
+Evidence mode: **STRUCTURAL + ADVERSARIAL + AUTHORITATIVE_SOURCE_RECONCILIATION**
 
-Fresh Content attack followed:
-
-```text
-current Study Lecture Source
-→ current Outline / Coverage ownership
-→ canonical Block / KP asset
-→ ownership / burden / negative-space attack
-```
-
-Three bounded batches closed:
+Fresh Content attack closed all three bounded batches:
 
 ```text
-C1  B1–B4   PASS   (B1 after existing targeted transfer-boundary repair)
-C2  B5–B9   PASS   (B9 locator debt retained, not fabricated)
+C1  B1–B4   PASS
+C2  B5–B9   PASS
 C3  B10–B12 PASS
 ```
-
-Strongest attacks included normal mechanics/regulation/electrophysiology/hemostasis; HTN/atherosclerosis/ACS/valves/cardiomyopathy/pericardium/peripheral vascular disease; arrhythmia/HF/shock/arrest. Current Source/Outline ownership supported the retained medical content.
 
 Closure verdict:
 
 - **12 / 12 Blocks closed**;
 - **312 stable KPs preserved**;
-- no new Block, KP split/merge/renumber or broad medical rewrite justified;
-- no material new Lecture/Outline hole found after B1 repair;
+- no justified Block/KP split, merge, renumber, or broad medical rewrite;
+- no material new Lecture/Outline hole remained after bounded repairs;
 - `158 SOURCE_EXACT / 154 SOURCE_PENDING` remains explicit locator debt.
 
 ---
 
 ## P｜PASS after fresh repair
 
-Evidence mode: **STRUCTURAL + ADVERSARIAL + EXECUTED_COMPATIBILITY**  
-Independence: **SELF**
+Evidence mode: **STRUCTURAL + ADVERSARIAL + EXECUTED_COMPATIBILITY**
 
-Fresh P inspected actual A1 learner-facing implementation rather than source-string presence alone.
+Fresh P repaired learner-facing projection defects while preserving medical ownership and stable KP identities.
 
-### Defect 1｜KP-by-KP Lecture switching
-
-Previous Block projection implemented:
-
-```text
-Logic Group
-→ KP1 go to Lecture
-→ return / mark learned
-→ KP2 go to Lecture
-→ ...
-```
-
-This contradicted the accepted L requirement for continuous original-Lecture learning within a Logic Group.
-
-Repair in `XizongBlockV6.astro`:
+Accepted Projection contract:
 
 ```text
 学习节定位
@@ -189,65 +162,93 @@ Repair in `XizongBlockV6.astro`:
 → 下一学习节
 ```
 
-Stable KP identities and medical content were unchanged.
+Shared stage guards fail closed against future-stage / answer leakage. Learner-facing chrome no longer exposes governance metadata as primary study content.
 
-### Defect 2｜future-stage / answer leakage
+Durable P validator:
 
-The old shared guard blocked recording a Recall rating before formal learning but did not fully block navigation to future Recall/Reveal stages.
+`static-web/scripts/validate-xizong-a1-projection.mjs`
 
-Repair in `XizongRuntimeStageGuard.astro` now fails closed before:
-
-- KP Recall stage when no newly learned KP exists;
-- `Reveal Core` for an unlearned KP;
-- Block Recall until all KP learning-contact + Recall evidence exists;
-- Block completion until original-Lecture confirmation + KP Recall + Block Recall exists;
-- System Recall/reveal/complete and System sweep until all Blocks are complete.
-
-### Defect 3｜governance metadata in learner chrome
-
-Xizong learner pages previously exposed `Canonical projection`, object IDs, source path/hash and `System Current`. Base layout now keeps those governance/provenance details off the primary Xizong learner chrome while preserving canonical provenance in repository owners and validators.
-
-### Durable P evidence
-
-- `static-web/scripts/validate-xizong-a1-projection.mjs` added to the standard Xizong QA workflow;
-- QA #345: A1 learner + A1 fresh Projection PASS; stale A2 validator expectation exposed;
-- QA #346: A1 P PASS + updated A2 PASS; stale A3 validator expectation exposed;
-- A2/A3 probes were updated to the same shared Logic Group/stage-guard contract without changing their medical/Learning owners;
-- **QA #347 / run `34768893981` completed SUCCESS**, including A1 fresh Projection contracts, A2/A3 regressions, shared repair inbox, B probes and Astro build.
-
-Strongest P falsification attempted:
-
-- direct future-stage navigation;
-- early formal-answer reveal;
-- bypassing original-Lecture contact;
-- raw file/question order versus Logic Group order;
-- learner-surface governance leakage;
-- regression against A2/A3 using the same shared components.
-
-Fresh P verdict: **PASS**. Projection was the earliest responsible defect owner; no L/Content rollback was required.
+P remains PASS under the final #365 standard QA execution.
 
 ---
 
-## R｜prior PASS / fresh attack ACTIVE
+## R｜PASS — fresh browser execution
 
-Fresh R must execute realistic browser-local transitions rather than infer readiness from code shape.
+Evidence mode: **EXECUTED_BROWSER_RUNTIME**  
+Independence: **ENGINEERING_FIXTURE_ONLY; NOT LEARNER_TRUTH**
 
-Required journeys:
+Fresh execution first exposed a real final-completion defect. The browser journey showed that the fine-grained learning path itself was correct:
 
-- clean Block with zero manufactured progress;
-- Logic Group entry without implicit learning evidence;
-- early KP Recall / Reveal rejection;
-- one Logic Group formal Lecture contact marks only that group's KPs learned;
-- group-scoped Recall and closure;
-- refresh/resume preserving stage/group/KP state;
-- full-Block Recall and completion gates;
-- Continue return to the last real route;
-- System Recall gate before/after all 12 Blocks are complete;
-- stale/malformed state containment and version invalidation where applicable.
+- clean start did not manufacture progress;
+- Logic Group entry did not imply learning;
+- formal original-Lecture contact was recorded at Logic Group scope;
+- KP Recall remained group-scoped and complete;
+- all owned KPs received formal contact and Recall evidence;
+- Block Recall completed;
+- legacy Block-level `lectureRead` UI was absent.
 
-Engineering fixture state may be used to reach late transitions, but it is test evidence only, never Kian's Learner Truth.
+The only remaining failure was final completion unlock. Root cause was a hidden legacy localStorage requirement in `XizongBlockV6.astro`:
 
-E fresh attack remains downstream-frozen until R closes.
+```text
+circulationLectureRead:<objectId> == true
+```
+
+That state no longer represented a legitimate learning event, because Logic Group original-Lecture contact is the canonical formal-contact evidence.
+
+Repair removed the hidden dependency. Final completion semantics are now exactly:
+
+```text
+all owned KP formal Lecture contact
++ all owned KP Recall evidence
++ Block Recall
+= Block completion eligible
+```
+
+No duplicate Block-level `lectureRead` confirmation exists in the learner surface or completion gate.
+
+Durable browser journey:
+
+`static-web/scripts/test-xizong-a1-browser-journey.mjs`
+
+Fresh verdict: **R PASS** under QA #365.
+
+---
+
+## E｜PASS — fresh browser Evidence execution
+
+Evidence mode: **EXECUTED_BROWSER_EVIDENCE + CONTRACT_VALIDATION**  
+Independence: **ENGINEERING_FIXTURE_ONLY; NOT LEARNER_TRUTH**
+
+Durable owners:
+
+- `static-web/scripts/validate-xizong-a1-evidence.mjs`;
+- `static-web/scripts/test-xizong-a1-evidence-journey.mjs`.
+
+Fresh Evidence execution proved the current architecture preserves the required distinctions:
+
+1. repeated real Recall attempts are append-preserved, including repeated identical ratings;
+2. latest convenience state may change without erasing historical Recall evidence;
+3. Memory / Chat repair evidence is repair-only and does not rewrite original Recall/mastery;
+4. stable-correct question evidence creates no repair debt;
+5. only Wrong / Uncertain enters repair routing;
+6. precise repair requires REVIEWED Question→Block/KP relation; unresolved relations remain unresolved;
+7. private full-paper holdout is excluded from ordinary sweep evidence;
+8. stale Block/System versions invalidate or quarantine incompatible evidence;
+9. System→Block repair inbox is write-before-clear, idempotent and cross-tab safe;
+10. repair return preserves original question/Recall evidence;
+11. malformed evidence/state fails closed.
+
+Fresh verdict: **E PASS** under QA #365.
+
+---
+
+## Cross-System regression note
+
+The same A1 fix touched shared `XizongBlockV6.astro`, so the independent A2 functional-first workflow was inspected before A1 closure.
+
+Its failure occurred immediately at `A2_FUNCTIONAL_FAIL:r01_kp_count_15`, before any completion behavior was exercised. The A1 patch only removed the obsolete completion-localStorage dependency and did not alter KP inventory/projection. Therefore that A2 count failure is an independent A2 baseline/test issue, not evidence of an A1-caused shared Runtime regression.
+
+This note does not accept, repair, or otherwise change A2.
 
 ---
 
@@ -257,15 +258,23 @@ DIC exposes a C/Hematology reconciliation debt: A1's own shock-DIC interface is 
 
 ---
 
-## U boundary
+## U｜UNTESTED
 
-U is not executed in this Chat. The user has assigned real learner validation to another workflow. No engineering build, validator or browser simulation may write U PASS here.
+U is not executed by this engineering closeout.
+
+A real learner session must own any future U result. No CI run, browser simulation, engineering fixture, seeded localStorage state, or acceptance document may write U PASS on Kian's behalf.
+
+Current terminal engineering state:
+
+```text
+S PASS → K PASS → L PASS → P PASS → R PASS → E PASS → U UNTESTED
+```
 
 ---
 
 ## Reopen rule
 
-Reopen only the earliest responsible gate/object when fresh evidence identifies a concrete defect; freeze only its dependent chain.
+A1 is engineering-closed. Reopen only the earliest responsible gate/object when **fresh contradictory evidence** identifies a concrete defect. Do not reopen for old-SHA failures, historical governance debt, visual polish, simulated learner progress, or unrelated A2/A3 failures.
 
 ---
 
@@ -277,7 +286,7 @@ Reopen only the earliest responsible gate/object when fresh evidence identifies 
 - medical Core → `content/xizong/knowledge/systems/a1-circulation/blocks/`
 - lane Learning semantics → `content/xizong/LEARNING_CONTRACT.md`
 - shared/System Learning support → `content/xizong/knowledge/learner/`
-- learner-facing Projection/Runtime → Xizong surfaces under `static-web/`
+- learner-facing Projection / Runtime / Evidence → Xizong surfaces under `static-web/`
 
 ### Work Cursor
 
