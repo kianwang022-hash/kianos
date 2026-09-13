@@ -1,0 +1,122 @@
+{
+  "schema": "kianos.lexical.vnext_content_calibration_receipt.v1",
+  "calibration_id": "gold-vnext-01",
+  "status": "PASS",
+  "contract": "content/lexical/CONTENT_ASSET_CONTRACT.md",
+  "learning_authority": "content/lexical/LEARNING_CONTRACT.md",
+  "rule_layer_head": "0cca2e6213183b2e3027a1df6cc25e7bbe23fede",
+  "pre_receipt_execution_head": "597d6808c903bf52826902ef0f2d15adaf0116a9",
+  "legacy_semantic_authority": false,
+  "historical_candidate_reuse": {
+    "used": true,
+    "rule": "Previously accepted Fresh-Rebuild objects were treated only as candidate evidence. Each final integrated object was freshly re-read against the vNext Learning + Content contracts before this receipt; previous batch wording/status did not itself confer PASS."
+  },
+  "learner_state_mutation": 0,
+  "pack_membership_mutation": 0,
+  "ui_runtime_mutation": 0,
+  "owners": [
+    {
+      "ordinal": 177,
+      "word_id": "word:ambulance",
+      "operation": "NO_CHANGE",
+      "content_outcome": "SAFE_SIMPLE",
+      "final_blob_sha": "ee1e14994d56bf845e6f98d44b26b43d062db042",
+      "intrinsic_risk": [],
+      "readback": {
+        "ordinary_core_present": true,
+        "hidden_high_value_branch_missing": false,
+        "consequential_construction_missing": false,
+        "confusable_or_form_boundary_missing": false,
+        "fast_pass_safe_by_content": true
+      },
+      "reason": "One ordinary modern noun sense with only routine collocations; no material hidden branch or reusable structure justifies mandatory Depth."
+    },
+    {
+      "ordinal": 19,
+      "word_id": "word:abstract",
+      "operation": "UPGRADED",
+      "content_outcome": "DEPTH_READY",
+      "final_blob_sha": "3be31b265b0cac642d51eacebb2c00110772630f",
+      "intrinsic_risk": [
+        "polysemy",
+        "familiar_new",
+        "construction",
+        "form_pronunciation",
+        "academic_value"
+      ],
+      "readback": {
+        "core_compresses_without_false_merge": true,
+        "academic_noun_visible": true,
+        "abstract_A_from_B_first_class": true,
+        "noun_adjective_vs_verb_stress_visible": true,
+        "lower_value_summary_verb_demoted": true,
+        "local_repair_targets_available": true
+      },
+      "reason": "The final object supports a coherent high-value Depth encounter: adjective concept branch, academic noun, productive abstract A from B construction, lower-frequency summary verb, and the material stress boundary."
+    },
+    {
+      "ordinal": 29,
+      "word_id": "word:access",
+      "operation": "UPGRADED",
+      "content_outcome": "DEPTH_READY",
+      "final_blob_sha": "47f45bb5169b74dea550146be2edca392f3c6544",
+      "intrinsic_risk": [
+        "polysemy",
+        "construction",
+        "grammar_boundary",
+        "productive_value"
+      ],
+      "readback": {
+        "six_valid_current_senses_preserved": true,
+        "noun_access_to_vs_verb_direct_object_explicit": true,
+        "high_value_access_constructions_first_class": true,
+        "technical_branch_deprioritized_without_deletion": true,
+        "local_repair_targets_available": true
+      },
+      "reason": "The final object organizes rather than flattens the six current senses and makes the crucial noun access to X versus verb access X boundary directly learnable."
+    },
+    {
+      "ordinal": 4248,
+      "word_id": "word:sanction",
+      "operation": "UPGRADED",
+      "content_outcome": "DEPTH_READY",
+      "final_blob_sha": "c168fe5d5eb15cc647fc1af42b20ec2defba0d9d",
+      "intrinsic_risk": [
+        "contronym",
+        "polysemy",
+        "construction",
+        "decision_boundary",
+        "ownership_boundary"
+      ],
+      "readback": {
+        "approval_and_penalty_branches_preserved": true,
+        "authority_model_explains_both_branches": true,
+        "branch_selecting_constructions_visible": true,
+        "same_word_boundary_word_owned": true,
+        "legacy_relation_no_longer_independent_semantic_owner": true,
+        "local_repair_targets_available": true
+      },
+      "reason": "The final Word owner teaches sanction as one authority lexeme with two opposing branches and context-selection cues; its old single-member contronym Relation is retired as an independent semantic owner."
+    }
+  ],
+  "relation_reconciliation": [
+    {
+      "relation_id": "relation:horizontal:723ea8bbbf5882b9faaf",
+      "previous_role": "independent same-word contronym semantic owner",
+      "current_role": "reference-only compatibility pointer",
+      "semantic_owner": "word:sanction",
+      "status": "RETIRED_AS_SEMANTIC_OWNER",
+      "reason": "Same-word polysemy belongs to the Word Natural Owner; genuine cross-word truth remains Relation-owned."
+    }
+  ],
+  "calibration_claims": {
+    "safe_simple_path_proven": true,
+    "rich_polysemy_depth_path_proven": true,
+    "construction_grammar_boundary_path_proven": true,
+    "contronym_ownership_reconciliation_path_proven": true,
+    "content_outcome_separate_from_operation_history": true,
+    "coverage_does_not_imply_learner_depth": true,
+    "deferred_repair_queue_required": false
+  },
+  "next_action": "Design the first bounded corpus execution unit from the latest integration head. Large Chat ownership ranges are allowed later, but each semantic unit must direct-write, final-readback, receipt-close, and reconcile cross-range Relation/Form owners against current integration truth before continuing."
+}

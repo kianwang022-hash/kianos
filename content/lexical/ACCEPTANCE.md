@@ -4,7 +4,7 @@ Status: CURRENT
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: LexicalOS lane Acceptance Truth
 
-This file owns current learner-readiness claims for LexicalOS. It does not own lexical semantics, lane learning semantics, the K repair procedure, Work Cursor, or Kian's private learner evidence.
+This file owns current learner-readiness claims for LexicalOS. It does not own lexical semantics, lane learning semantics, Work Cursor, or Kian's private learner evidence.
 
 ---
 
@@ -13,7 +13,7 @@ This file owns current learner-readiness claims for LexicalOS. It does not own l
 ```text
 S  PASS
 K  BLOCKED
-L  PASS
+L  PASS — vNext learner logic re-accepted
 P  BLOCKED for unrestricted full-catalog learner use
 R  BLOCKED for unrestricted full-catalog learner use
 E  BLOCKED for unrestricted full-catalog learner use
@@ -22,9 +22,7 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Current Natural Owner/source boundary and a mature accepted learning model. The bounded historical semantic first-pass is now complete through all 7,946 ordinals, but full-catalog Knowledge remains BLOCKED because the discovered semantic debt has not yet been repaired. Downstream full-catalog P/R/E readiness cannot be claimed until the consolidated repair inventory is closed; unrestricted learner U remains UNTESTED.**
-
-The blocker is upstream semantic fidelity, not absence of runtime code and no longer absence of audit coverage.
+> **LexicalOS has a stable Natural-Owner/source boundary, a re-accepted learner-controlled Learning Contract, a frozen vNext Content Asset Contract, and a PASS representative Content execution calibration. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive a current-generation Content conclusion and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U cannot be claimed from existing implementation alone.**
 
 ---
 
@@ -32,119 +30,164 @@ The blocker is upstream semantic fidelity, not absence of runtime code and no lo
 
 Current owner architecture remains explicit:
 
-- **7,946 Word Natural Owners**;
-- **369 Relation Owners**;
+- 7,946 Word Natural Owners;
+- Relation owners for genuine cross-word semantic truth;
+- same-word polysemy / branch selection remains Word-owned;
 - deterministic lookup/reference stores are not semantic authority;
-- learner runtime reads Current Natural Owners;
-- legacy/reference semantic fallback is forbidden;
-- Natural Owner cutover reconstructed the then-current canonical plane with `semantic_delta = 0`.
+- learner runtime must project Current Natural Owners;
+- legacy/reference semantic fallback is forbidden as live target authority;
+- pack membership is asset metadata, not duplicate lexical semantics;
+- private learner state is not shared semantic truth.
 
-`semantic_delta = 0` proves faithful reconstruction of the then-current canonical representation. It does **not** prove that every earlier Chat-approved semantic operation had been correctly realized before cutover.
-
-Historical semantic authority was used only as bounded migration-integrity evidence. With R31 complete, routine K work must not resume open-ended legacy archaeology: the durable checkpoints plus latest Chat judgments now feed one consolidated Current repair inventory.
-
----
-
-## K｜Knowledge — BLOCKED, audit coverage complete
-
-Known defect classes include P0 owner-health failures, stale/misbound carriers, missing approved senses/constructions/phrases, relation gaps, operation-target vs KEEP/PRESERVE binding errors, overmerge/carrier loss, wrong anchors, stale duplicate representation, bilingual contamination, learner-value priority errors, and ownership mistakes between Word/Identity/Form and Relation layers.
-
-Current K exit rule remains:
-
-- P0 = 0;
-- known P1 authority-fidelity defects = 0;
-- known approved semantic debt classified, repaired and read back;
-- repeated stratified samples stop exposing systematic lifecycle/binding defects;
-- rich-word samples show trustworthy learner-value selection rather than dictionary accumulation;
-- a documented stop rule has been reached.
-
-### Historical audit coverage — CLOSED
-
-- Durable semantic re-acceptance checkpoints now cover **R12–R31**, terminating at **7701–7946**.
-- The R31 historical source explicitly states that the bounded Owner semantic first-pass is complete through corpus end **1–7946**.
-- Coverage completion means **discovery/target coverage only**. It does not mean K PASS and it does not authorize unrestricted learner use.
-- Natural Word owners, Relation owners and private learner state were **not** semantically mutated by R12–R31 audit checkpoints.
-
-### Recent exact acceptance evidence
-
-- **R23 — 5301–5600**, checkpoint `05c7a4ee16209dcb5692643d9a95580c30e9bf60`: Core **18 correct / 66 defective**, including 7 P0; Expansion **49 / 15 / 37**; Contrast **2 complete / 1 partial / 66 missing**.
-- **R24 — 5601–5900**, checkpoint `7f0c47779a229147f3bf3840c4ed05caecff3a97`: Core **51 / 40**, P0=0; Expansion **7 / 24 / 30**; Contrast **0 complete / 1 partial / 79 missing**, including `hassle-free` owner-absent debt.
-- **R25 — 5901–6200**, checkpoint `e332d7b25fedc2279f93ffda5eb4ead2a6003de1`: Core **22 / 79**, including 33 P0; Expansion **3 / 13 / 76**; Contrast **0 complete / 80 missing**, re-owned as 70 Relation + 10 Word/Identity/Form targets.
-- **R26 — 6201–6500**, checkpoint `9bd98ae0524f4dcf6457166a83afb24ec6b51ff7`: Core **13 / 84**, including 26 P0; Expansion **13 / 35 / 39**; Contrast **0 complete / 1 partial / 85 missing** across 80 Relation + 6 Form targets.
-- **R27 — 6501–6800**, checkpoint `e3fdb557f5c7738563a0c528389aa29ae7b1d384`: Core **5 / 78**, including 16 P0; 116 exact Expansion groups **33 / 50 / 33**; all 80 Contrast targets Relation-owned and missing. Direct-pass calibration retained isolated upgrades `enervate`, `exterminate`.
-- **R28 — 6801–7100**, checkpoint `0937f9f45568cb4503085feac31abccf9b82c3ad`: Core **7 / 79**, including 14 P0; 88 exact Expansion groups **35 / 27 / 26**; Contrast **0 complete / 80 missing**, re-owned as 79 Relation + `hamlet/Hamlet` Form. Calibration retained `gainsay`, `intercept`.
-- **R29 — 7101–7400**, checkpoint `517256c66e885230725825021ba17c08cfae576d`: Core **1 / 84**, P0=0 and all 85 structurally health-clean, proving lifecycle health does not equal semantic K; 114 Expansion groups **67 / 23 / 24**; Contrast **0 complete / 1 partial / 79 missing**, with `oversight` re-owned to same-word Natural-Owner polysemy.
-- **R30 — 7401–7700**, checkpoint `73bacc682bd2499d374fdd5bcf1f96cdbdc6a15e`: Core **5 / 99**, including 7 P0; 102 Expansion groups **42 / 25 / 35**; Contrast **0 complete / 1 partial / 79 missing**, re-owned as 78 Relation + 2 Word/Identity/Form (`titanic/Titanic`, `vandal/Vandal`). Direct-pass calibration found no new debt.
-- **R31 — 7701–7946**, final checkpoint `4f173f7b0484f2f00e3f32e61ecefef60e542c41`: Core **0 / 49**, including 2 P0; 99 Expansion groups **64 / 21 / 14**; Contrast **0 complete / 65 missing**, re-owned as 63 Relation + 2 Word/Identity/Form (`finalize/finalise`, `statistic/statistics`). Direct-pass calibration found no new systematic or isolated debt. Historical coverage is terminal at corpus end.
-
-All ratios above are `Current-correct / defective` for Core and `correct / partial / missing` for Expansion unless otherwise stated. Exact per-item evidence stays in the durable batch checkpoints; this file records acceptance truth rather than duplicating each repair target.
-
-### Latest-target / repair rule
-
-The consolidated repair inventory must use the **latest Chat-approved target**, not mechanically restore old text. Historical authority is evidence, not immutable ontology.
-
-Inventory and repair must obey these ownership rules:
-
-- deduplicate Core + Expansion debt onto the same Natural Word owner where one semantic repair can satisfy both;
-- keep genuine cross-word distinctions Relation-owned;
-- keep spelling, capitalization, pronunciation, inflection and lexicalized-form boundaries Word/Identity/Form-owned;
-- keep genuine same-word polysemy inside the Natural Word owner;
-- preserve construction/presentation-only debt separately when the underlying semantic family is already correct;
-- keep isolated calibration upgrades such as `enervate`, `exterminate`, `gainsay`, and `intercept` explicit;
-- fail closed when ownership or latest target is ambiguous.
-
-Mechanical owner health remains a lifecycle/structure signal only. Mechanical phrase absence is not semantic absence; Current owner projection and Chat semantic judgment are required before repair classification.
+Historical R12–R31 coverage remains durable bounded migration-integrity / defect-sentinel evidence. It is not current learner semantics and must not reopen an endless historical audit loop.
 
 ---
 
-## L｜Learning — PASS
+## K｜Knowledge — BLOCKED
 
-`content/lexical/LEARNING_CONTRACT.md` remains the accepted learning model:
+The 7,946-word content universe still contains known semantic-fidelity and learner-value defects, including missing/weak ordinary Core carriers, familiar-new-sense omissions, construction/phraseology gaps, relation/form ownership errors, overmerge/oversplit, weak learner hierarchy, and projection risk.
 
-- fast, correct contextual lexical access rather than dictionary completion;
-- rich Depth Scan / Recall Map before Reveal;
-- familiar-new senses, real polysemy, Word Feel, constructions, phrase skeletons and material contrasts are prioritized;
-- reference-only/historical/technical micro-senses stay out of the main Depth Scan unless they earn learner value;
-- selective object-level `+` repair rather than whole-word permanent debt;
-- Challenge is generated from Current semantics and does not consume protected unseen exam evidence;
-- evidence strength rises toward later real/unseen-context transfer;
-- Memory admission is selective and fading is evidence-driven.
+Historical discovery coverage is closed through corpus end, but discovery coverage is not K acceptance.
 
-K being BLOCKED does not imply the learning model is wrong. It means semantic objects supplied to it are not trustworthy enough yet for unrestricted full-catalog use.
+`content/lexical/CONTENT_ASSET_CONTRACT.md` defines the vNext content target. `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` proves the bounded execution model on representative content shapes; it does **not** close full-catalog K.
+
+K exit requires at minimum:
+
+- every Main Word receives a reliable fresh Content coverage conclusion under the vNext contract;
+- each accepted Word ends as `SAFE_SIMPLE` or `DEPTH_READY`; unresolved truth remains explicit `BLOCKED`;
+- operation history (`NO_CHANGE` / `UPGRADED`) remains separate from final content quality;
+- no known P0 lifecycle/carrier defect remains;
+- known semantic-fidelity debt is resolved or explicitly blocked;
+- simple trustworthy words can safely support Fast Pass without manufacturing learner mastery;
+- rich/high-risk words expose a coherent high-value Depth object;
+- Expansion is trustworthy and learner-worthy rather than thin Core-only or dictionary-dump content;
+- important constructions, phraseology, decision boundaries and material form/register/family distinctions are correctly represented;
+- Relation / Form ownership is coherent against the latest integration truth;
+- final learner projection can faithfully consume accepted Current truth;
+- 7,946/7,946 content coverage does **not** imply 7,946 learner Depth cards;
+- final integrated owner readback, not field/build presence, closes Content judgment;
+- a documented stop rule is reached.
+
+Exact historical batch evidence remains in `content/lexical/audit/` and may be used only as bounded defect-sentinel / candidate evidence rather than semantic target wording.
+
+---
+
+## L｜Learning — PASS, vNext re-accepted
+
+`content/lexical/LEARNING_CONTRACT.md` is the accepted learner logic.
+
+Key accepted decisions:
+
+- current learner universe = existing 7,946 Main Words;
+- pack membership is asset metadata, not a duplicate learning system;
+- every Main Word deserves reliable coverage judgment, but not every word deserves full Depth;
+- Kian controls whole-card depth through subjective **Unknown / Fuzzy / Known / Mastered** judgment;
+- card state is not a quantitative mastery score and is distinct from local Repair admission;
+- Recall Map keeps concrete notation such as `3A + 2N + (1+1)V` when useful;
+- Depth preserves rich Core + Senses + first-class Expansion;
+- a sense / construction / phrase / relation / productive object may be individually `+`-ed;
+- Unknown/Fuzzy may reopen the whole card without creating full-card test debt;
+- Repair is admitted mainly by explicit `+` or real Wrong / Uncertain / Slow evidence;
+- Challenge tests the smallest unstable object rather than full-testing every Fuzzy/Unknown word;
+- no fixed daily word/review quota is canonical; high-throughput sub-second / 1–2 second judgments are legitimate;
+- Mastered may fade strongly or disappear from active review until counterevidence;
+- real English transfer evidence outranks repeated isolated button presses;
+- Astro executes low-friction interactions; Chat adaptively orchestrates policy from evidence and Kian's feedback;
+- Kian retains final learner agency and may report overload / underload for dynamic adjustment.
+
+This L PASS does not claim that current full-catalog Content, UI, Runtime, or Evidence implementations already realize the model correctly.
+
+---
+
+## Content standard｜RULE LAYER FROZEN
+
+`content/lexical/CONTENT_ASSET_CONTRACT.md` freezes these Content requirements:
+
+- every Main Word gets a fresh content coverage conclusion;
+- `SAFE_SIMPLE` describes trustworthy low-risk content and Fast-Pass eligibility by content, not personal mastery;
+- `DEPTH_READY` describes trustworthy rich/high-risk content that can support a coherent Depth encounter;
+- `BLOCKED` preserves unresolved truth rather than guessing;
+- Core / Word Feel compresses semantics without deleting genuine polysemy;
+- Active Senses prioritize ordinary current and high-value familiar-new branches;
+- Recall Map is derived from semantics rather than driving sense structure;
+- Expansion is first-class: construction, collocation/phraseology, contrast, register/form/pronunciation/family and useful productive distinctions may remain rich;
+- Recognition / Discrimination / Production demand may be represented sparsely when materially useful;
+- valid low-value material remains reference-only / Explore rather than being deleted;
+- a large Chat ownership range does not justify deferred audit→queue→later-repair execution;
+- Relation / Form owners crossing ordinal ranges must reconcile against the latest integration truth.
+
+---
+
+## Content execution calibration｜PASS
+
+Receipt: `content/lexical/audit/vnext-content-calibration/gold01-receipt.json`.
+
+Representative closure:
+
+- `ambulance` → `NO_CHANGE + SAFE_SIMPLE`;
+- `abstract` → `UPGRADED + DEPTH_READY`;
+- `access` → `UPGRADED + DEPTH_READY`;
+- `sanction` → `UPGRADED + DEPTH_READY`.
+
+The calibration demonstrates:
+
+- a simple word can be accepted as Fast-Pass eligible without forcing richer learner work;
+- rich polysemy can preserve Core + high-value senses + first-class Expansion;
+- grammar/construction boundaries can be made directly learnable;
+- same-word contronym truth can be reconciled back to the Word owner while a legacy Relation becomes reference-only compatibility evidence;
+- previous Fresh-Rebuild semantic work may be reused only after fresh vNext final-object readback;
+- local direct-write/readback/receipt closure works without a deferred repair queue.
+
+This PASS authorizes bounded corpus Content execution. It does not authorize unrestricted learner P/R/E/U or full-catalog K PASS.
 
 ---
 
 ## P / R / E｜BLOCKED for unrestricted full-catalog use
 
-Learner-facing runtime, routing, search, selective Repair, Challenge and Return Packet implementations exist. Known upstream Knowledge defects can change learner-facing semantics, so full-catalog P/R/E cannot be accepted yet.
+Existing learner-facing surfaces and runtime code are provisional downstream assets.
 
-Controlled smoke tests may use semantically accepted subsets. Full build, route existence, roundtrip, UI rendering, Challenge mechanics, or packet mechanics cannot substitute for K closure.
+Because K is blocked, existing P/R/E must not constrain Content truth or be treated as accepted merely because they build or render.
+
+They may be reused later if they faithfully implement the accepted upstream decisions.
 
 ---
 
-## U｜User Validation — UNTESTED for unrestricted full-catalog use
+## U｜UNTESTED for unrestricted full-catalog use
 
-Private learner evidence remains separate. Until K passes, unrestricted full-catalog learner use is not a valid module-level U path. Controlled UX smoke may provide local friction evidence only; learner behavior cannot manufacture missing semantic authority.
+Private learner evidence remains separate.
+
+No repository acceptance state can manufacture Kian's actual vocabulary mastery, Repair queue, or real transfer performance.
 
 ---
 
 ## Current acceptance sequence
 
 ```text
-historical K audit coverage 1–7946
-✅ CLOSED
+S Source / Natural Owner boundary
+✅ PASS
 ↓
-consolidated exact repair inventory
+L learner-controlled vNext logic
+✅ PASS
+↓
+Content Asset Contract
+✅ rule layer frozen
+↓
+representative Content execution calibration
+✅ PASS
+↓
+7,946-owner bounded Content realization + K re-acceptance
 ← CURRENT
 ↓
-bounded Natural Owner / Relation / Form repair + deterministic readback
+P Projection / Interaction re-acceptance
 ↓
-K re-acceptance / stop-rule sampling
+R Runtime re-acceptance
 ↓
-re-evaluate full-catalog P / R / E
+E Evidence / integration re-acceptance
 ↓
-real learner U on named paths
+U real learner validation
 ```
+
+Historical audit / stopped Fresh-Rebuild branches may inform bounded defect detection or candidate semantics, but they are not the current construction sequence or semantic authority.
 
 ---
 
@@ -152,16 +195,15 @@ real learner U on named paths
 
 ### Artifact Truth
 
-- owner routing → `content/lexical/manifest.json`
 - Word owners → `content/lexical/words/by-ordinal/`
 - Relation owners → `content/lexical/relations/by-id/`
 - owner schema → `content/lexical/schema.json`
+- pack membership metadata → `content/lexical/canonical/packs/`
 - lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- knowledge reacceptance / repair evidence → `content/lexical/audit/knowledge-reacceptance/`
-- migration authority/readback → `content/lexical/audit/migration-integrity/`
-- active migration work owner → GitHub Issue #6
-- learner runtime → Vocabulary surfaces under `static-web/`
+- content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
+- vNext calibration evidence → `content/lexical/audit/vnext-content-calibration/`
+- historical defect / migration evidence → `content/lexical/audit/`
 
 ### Learner Truth
 
-Private browser / packet / conversation evidence only. Shared K/P/R/E state must not be interpreted as Kian's personal vocabulary progress, repair queue, or mastery.
+Private browser / packet / conversation evidence only. Shared S/K/L/P/R/E/U state must not be interpreted as Kian's personal word familiarity, repair queue, or mastery.
