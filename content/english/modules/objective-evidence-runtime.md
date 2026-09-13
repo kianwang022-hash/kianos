@@ -49,8 +49,10 @@ When deep review is justified, a repair thread may preserve:
 - `itemIds` supplying evidence;
 - `route` — lexical / representation / task-specific;
 - concise failure summary;
-- whether learner re-execution actually occurred;
-- concise repair evidence when it did.
+- current transport field `repairCompleted` for whether learner re-execution actually occurred;
+- current transport field `repairEvidence` for concise learner repair evidence when it did.
+
+These field names are the current private handoff interface, not evidence that every miss must create a thread.
 
 Compatibility note: current runtime may still encode shared Representation as route `reading`. Treat that label as an implementation alias, not a distinct canonical Reading course.
 
