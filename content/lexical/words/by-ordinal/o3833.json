@@ -6,14 +6,53 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e00aa4cc040c316538e4",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "知识产权",
+        "pattern": "intellectual property"
+      },
+      {
+        "construction_id": "construction:de0f2ce8f1410aa263f0",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "财产权；产权",
+        "pattern": "property rights"
+      },
+      {
+        "construction_id": "construction:16881f2ee12d9c57df90",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "物理/化学性质",
+        "pattern": "physical/chemical properties"
+      }
+    ],
     "content_hash": "6c19e769ea3410f9000f4d3eedb1ae6fc7652dea5202161be162f8bb983e324f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "财产；属性",
-      "core_meaning_en": "something owned; a characteristic or attribute",
-      "mental_model_cn": "财产；属性",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "财产；所有物",
+          "label_en": "something owned by a person or organization",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:9a1058a3861c5a35"
+          ]
+        },
+        {
+          "label_cn": "性质；属性",
+          "label_en": "a characteristic or quality that something has",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:e8f9398f1bf15486"
+          ]
+        }
+      ],
+      "core_meaning_cn": "某物“属于谁”，或某物“本身具有什么性质”",
+      "core_meaning_en": "either something that belongs to an owner, or a characteristic that belongs to the thing itself",
+      "mental_model_cn": "property 的共同感觉是“归属”：财产归某人，性质归某物本身。",
+      "mental_model_en": "belonging: an asset belongs to an owner; a property belongs to the nature of a thing"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -22,45 +61,7 @@
     "review_signature": [
       "deep:deep:secondary_senses:property:94cd08b099c4815f"
     ],
-    "secondary_senses": [
-      {
-        "boundary": "chemical properties 化学性质",
-        "codex_reviewed": false,
-        "definition_cn": "性质；属性",
-        "definition_en": "a characteristic or attribute of something",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:property:adc3b165fb24",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "property:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:secondary_senses:property:94cd08b099c4815f",
-        "family_sources": [],
-        "label_en": "a characteristic or attribute of something",
-        "level": "L1",
-        "meaning_cn": null,
-        "module": "secondary_senses",
-        "pattern": null,
-        "pos": "noun",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:property:e8f9398f1bf15486",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
@@ -84,7 +85,7 @@
             "phrase": "property owner"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "财产；所有物",
         "definition_en": "something that is owned",
         "governing_pattern": "",
@@ -97,26 +98,16 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b798651026d2aac08558",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:property:a56f18865e615218:collocation:0"
-            ],
-            "meaning_cn": "舞台道具",
-            "phrase": "stage property"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "道具",
-        "definition_en": "a movable object used on a stage or movie set",
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "性质；属性；特性",
+        "definition_en": "a characteristic, quality, or feature that something has",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:property:a56f18865e615218",
-        "sense_label_en": "a movable object used on a stage or movie set",
+        "sense_id": "sense:property:e8f9398f1bf15486",
+        "sense_label_en": "a characteristic or attribute",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -143,29 +134,17 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:property:e8f9398f1bf15486",
+      "stable_sense_id": "sense:property:a56f18865e615218",
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "noun",
-      "definition_cn": "性质；属性",
-      "definition_en": "a characteristic or attribute of something",
-      "semantic_key": "5051d088447a99f27ad6d4f8d625543c9165bf4aeca16946a880c719e79fce04",
-      "semantic_key_history": [
-        "1d2ab3512d0d2b5c4cab89c46dc57cc55443fab8de107c9bad407a71421eede2"
-      ],
-      "legacy_aliases": [
-        "property:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "property:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10672,
+      "definition_cn": "道具",
+      "definition_en": "a movable object used on a stage or movie set",
+      "updated_at": null,
+      "source_row": 10671,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "Stage/film prop is a real but lower-value domain meaning; keep as reference rather than equal learner-active branch."
     }
   ],
   "identity_refs": {
@@ -179,14 +158,14 @@
       },
       {
         "sense_id": "sense:property:a56f18865e615218",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 10671,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
         "sense_id": "sense:property:e8f9398f1bf15486",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10672,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -194,8 +173,7 @@
     ],
     "active_collocations": [
       "collocation:4680297086be0104c414",
-      "collocation:555a9255a3697d12e5f9",
-      "collocation:b798651026d2aac08558"
+      "collocation:555a9255a3697d12e5f9"
     ],
     "facts": [
       {
@@ -268,7 +246,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3833-3840.json",
     "source_content_hash": "6c19e769ea3410f9000f4d3eedb1ae6fc7652dea5202161be162f8bb983e324f",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "gold01",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/gold01.json"
   }
 }

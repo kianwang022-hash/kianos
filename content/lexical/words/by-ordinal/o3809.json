@@ -6,14 +6,61 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:02b26e0ea8c35944836e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "从……中获益",
+        "pattern": "profit from sth/doing"
+      },
+      {
+        "construction_id": "construction:f523c9e669994ff68112",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "盈利；赚取利润",
+        "pattern": "make/turn a profit"
+      },
+      {
+        "construction_id": "construction:b5d7ee0e38f0f7f17805",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "有利润地；盈利地",
+        "pattern": "at a profit"
+      }
+    ],
     "content_hash": "fae32906908ce7951ccbd3e30f0422bbf43fc25cc1f456714726cd88d818f155",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "利润；获益",
-      "core_meaning_en": "financial gain or benefit; to gain benefit",
-      "mental_model_cn": "利润；获益",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "利润；盈利",
+          "label_en": "money left as gain after costs",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profit:1c9fadfb470553b4"
+          ]
+        },
+        {
+          "label_cn": "收益；好处",
+          "label_en": "a benefit or advantage gained",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profit:d10794932a19537c"
+          ]
+        },
+        {
+          "label_cn": "获益；受益",
+          "label_en": "gain a benefit from something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:profit:f0ec702cc8c057e2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "扣除成本后得到的收益；更广义也指获益",
+      "core_meaning_en": "what you come out ahead with after costs or effort: financial gain in business, and more broadly a benefit gained",
+      "mental_model_cn": "投入之后“净赚到”的东西——可以是钱，也可以是更广义的好处。",
+      "mental_model_en": "what remains on the plus side after costs, effort, or exposure"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -22,7 +69,50 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "利润；盈利",
+        "definition_en": "money gained from a business or transaction after costs are paid",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:profit:1c9fadfb470553b4",
+        "sense_label_en": "financial gain after costs",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "获益；受益",
+        "definition_en": "to gain a benefit, advantage, or useful result from something",
+        "governing_pattern": "vi. + from + n/doing",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:profit:f0ec702cc8c057e2",
+        "sense_label_en": "gain benefit from something",
+        "sort_order": 1,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "收益；好处",
+        "definition_en": "a benefit or advantage gained, especially from an action or situation",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:profit:d10794932a19537c",
+        "sense_label_en": "benefit or advantage",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,56 +134,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:profit:1c9fadfb470553b4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "利润，赢利",
-      "definition_en": "money that is made in a business after costs are paid",
-      "semantic_key": "002716c8e9934b202560f2a4c2cc33ad21eac8241c9695f4f431f9c7c5c82023",
-      "semantic_key_history": [
-        "7e71b715334440a46823ecc71e9eb4369d9874266683cf1b4e5aabe6bac561c0"
-      ],
-      "legacy_aliases": [
-        "profit:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profit:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10600,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:profit:d10794932a19537c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "利益，好处",
-      "definition_en": "an advantage or benefit",
-      "semantic_key": "a2ae0e8485754ef3693996363d13c7efee2983dd59023278cb51634f272b4145",
-      "semantic_key_history": [
-        "62feb1ab0d64937470da0149bb5504941e7f835fe263f70cb8e9173bb75238df"
-      ],
-      "legacy_aliases": [
-        "profit:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profit:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10601,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:profit:dd32139b007b5a0e",
       "status": "deprecated",
@@ -118,45 +158,20 @@
       "source_row": 10602,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:profit:f0ec702cc8c057e2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "获益，受益",
-      "definition_en": "to gain benefit from something",
-      "semantic_key": "64580831c46b9d2a2aaca0e68b081e7bd2514477d11dd02d3401374a9ca11081",
-      "semantic_key_history": [
-        "98de45b24ab26ea722e3affc175a0c22525d31f9f50df5eae8aa99eef27ef902"
-      ],
-      "legacy_aliases": [
-        "profit:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profit:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10603,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:profit:1c9fadfb470553b4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10600,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
         "sense_id": "sense:profit:d10794932a19537c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10601,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -170,7 +185,7 @@
       },
       {
         "sense_id": "sense:profit:f0ec702cc8c057e2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10603,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -248,7 +263,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3809-3816.json",
     "source_content_hash": "fae32906908ce7951ccbd3e30f0422bbf43fc25cc1f456714726cd88d818f155",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "gold01",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/gold01.json"
   }
 }

@@ -6,40 +6,55 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:649f86e83bd7488deeb0",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "真的；当真；真实地",
+        "pattern": "for real"
+      },
+      {
+        "construction_id": "construction:a7f3b23e13acc58b45ad",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "真正的东西；货真价实的人/事物",
+        "pattern": "the real thing"
+      }
+    ],
     "content_hash": "9758e29bab18087999d66f6d26b826cffa6844ce3d432ac746f8326e9d4d8577",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "真实的，实际的；名副其实的，真正的",
-          "label_en": "actually existing or happening; not imaginary; no less than what is stated; worthy of the name",
+          "label_cn": "真实的；实际存在的；真正的",
+          "label_en": "existing in reality or genuinely being what is claimed",
           "pos": "adjective",
           "sense_ids": [
+            "sense:real:3b195a98c63754f2",
             "sense:real:aad202c048ec5c6c"
           ]
         },
         {
-          "label_cn": "雷亚尔（巴西货币单位）；里亚尔（旧西班牙小银币）；实数",
-          "label_en": "the basic unit of money in Brazil; equal to 100 centavos; an old small silver Spanish coin; a real number",
+          "label_cn": "实数",
+          "label_en": "a real number",
           "pos": "noun",
           "sense_ids": [
-            "sense:real:eba2fcdb2fb45215",
-            "sense:real:1f6e6981f4b25a88"
+            "sense:real:74a5e634145d5d35"
           ]
         },
         {
-          "label_cn": "真正地，非常",
-          "label_en": "very or extremely",
+          "label_cn": "（非正式）非常；很",
+          "label_en": "very or extremely (informal)",
           "pos": "adverb",
           "sense_ids": [
             "sense:real:c396ac46d22c5fb5"
           ]
         }
       ],
-      "core_meaning_cn": "真实的，实际的",
-      "core_meaning_en": "actually existing or happening; not imaginary",
-      "mental_model_cn": "真实的，实际的",
-      "mental_model_en": ""
+      "core_meaning_cn": "真实存在、不是虚构或名义上的；也可表示“真正的”",
+      "core_meaning_en": "existing in reality rather than imagination or appearance, and by extension genuine rather than merely nominal",
+      "mental_model_cn": "real 把东西拉回“现实本身”：真的存在、确实如此、名副其实。",
+      "mental_model_en": "matching reality itself: actually there, actually true, or genuinely what it claims to be"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -57,6 +72,20 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "真实的；实际存在的",
+        "definition_en": "actually existing or happening; not imaginary or merely apparent",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:real:3b195a98c63754f2",
+        "sense_label_en": "actually existing or real",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:fa9c79c0ae4d467b2141",
@@ -68,43 +97,29 @@
             "phrase": "a real hero"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "名副其实的，真正的",
-        "definition_en": "no less than what is stated; worthy of the name",
+        "confidence": "high",
+        "definition_cn": "真正的；名副其实的",
+        "definition_en": "genuine; truly deserving the name or description",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:real:aad202c048ec5c6c",
-        "sense_label_en": "no less than what is stated; worthy of the name",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "雷亚尔（巴西货币单位）",
-        "definition_en": "the basic unit of money in Brazil; equal to 100 centavos",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:real:eba2fcdb2fb45215",
-        "sense_label_en": "the basic unit of money in Brazil; equal to 100 centavos",
+        "sense_label_en": "genuine; worthy of the name",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
         "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "里亚尔（旧西班牙小银币）",
-        "definition_en": "an old small silver Spanish coin",
+        "confidence": "high",
+        "definition_cn": "实数",
+        "definition_en": "a real number",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:real:1f6e6981f4b25a88",
-        "sense_label_en": "an old small silver Spanish coin",
+        "sense_id": "sense:real:74a5e634145d5d35",
+        "sense_label_en": "a real number",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -120,17 +135,18 @@
             "phrase": "real good"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "真正地，非常",
-        "definition_en": "very or extremely",
+        "confidence": "high",
+        "definition_cn": "（非正式）非常；很",
+        "definition_en": "very or extremely in informal speech",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:real:c396ac46d22c5fb5",
-        "sense_label_en": "very or extremely",
+        "sense_label_en": "very or extremely (informal)",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Informal, especially in some varieties of spoken English; standard formal writing normally prefers really/very."
       }
     ],
     "verification_summary": {
@@ -307,75 +323,51 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:real:3b195a98c63754f2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "真实的，实际的",
-      "definition_en": "actually existing or happening; not imaginary",
-      "semantic_key": "4d5e70deca8aa72d76143277f03e127956d7f50a2407cb15a234eb6e69fc2bda",
-      "semantic_key_history": [
-        "b091005a9def9a9c8f98b13339d211167d0568b5bf29ded109d696063253c1ed"
-      ],
-      "legacy_aliases": [
-        "real:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "real:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11055,
-      "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:real:74a5e634145d5d35",
+      "stable_sense_id": "sense:real:1f6e6981f4b25a88",
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "noun",
-      "definition_cn": "实数",
-      "definition_en": "a real number",
-      "semantic_key": "b8fe5260f017c227e73f48c570239d0e938e8ecc043b69df01ad39a7c557038b",
-      "semantic_key_history": [
-        "673c53644623ea78409d46d6c2c3cf7dafe8a0ac527326d1a3162d8336e7163d"
-      ],
-      "legacy_aliases": [
-        "real:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "real:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11056,
+      "definition_cn": "里亚尔（旧西班牙小银币）",
+      "definition_en": "an old small silver Spanish coin",
+      "updated_at": null,
+      "source_row": 11054,
       "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json",
-      "reference_only": true
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "Historical Spanish coin identity is reference knowledge, not a main learner sense."
+    },
+    {
+      "stable_sense_id": "sense:real:eba2fcdb2fb45215",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "雷亚尔（巴西货币单位）",
+      "definition_en": "the basic unit of money in Brazil; equal to 100 centavos",
+      "updated_at": null,
+      "source_row": 11059,
+      "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json",
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "Brazilian currency identity is reference knowledge, not a main English learner sense."
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:real:1f6e6981f4b25a88",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 11054,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       },
       {
         "sense_id": "sense:real:3b195a98c63754f2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11055,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       },
       {
         "sense_id": "sense:real:74a5e634145d5d35",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11056,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
@@ -396,7 +388,7 @@
       },
       {
         "sense_id": "sense:real:eba2fcdb2fb45215",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 11059,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
@@ -482,7 +474,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3961-3968.json",
     "source_content_hash": "9758e29bab18087999d66f6d26b826cffa6844ce3d432ac746f8326e9d4d8577",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "gold01",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/gold01.json"
   }
 }

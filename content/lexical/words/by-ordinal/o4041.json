@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:7ff5dbb7768f5d834e7f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "关于；涉及；相对于",
+        "pattern": "in relation to sth"
+      },
+      {
+        "construction_id": "construction:b51d5838b0c9ec46af70",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "A 与 B 之间的关系",
+        "pattern": "the relation between A and B"
+      }
+    ],
     "content_hash": "1e9b39865f7b578706e09be6df81a87b60dd6d31647d1a83fe9146df26f9a717",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "关系；联系",
-      "core_meaning_en": "a connection or association between things or people",
-      "mental_model_cn": "关系；联系",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "关系；联系",
+          "label_en": "a connection or way in which people or things are connected",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:relation:5fb74025eff45adb"
+          ]
+        },
+        {
+          "label_cn": "亲属；亲戚",
+          "label_en": "a person related by blood or marriage",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:relation:fe3a525110c45b49"
+          ]
+        }
+      ],
+      "core_meaning_cn": "两个对象之间怎样相互关联；也可指与某人有亲属关系的人",
+      "core_meaning_en": "a connection between people, things, or ideas; also a person connected to someone by family",
+      "mental_model_cn": "relation 的中心是“连接方式”：事物之间的联系，或人与人之间的亲属连接。",
+      "mental_model_en": "the way two things stand connected to each other"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -27,6 +59,20 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "关系；联系；关联",
+        "definition_en": "a connection or the way in which two people, things, or ideas are connected",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:relation:5fb74025eff45adb",
+        "sense_label_en": "a connection or association",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:ac57d8a84e6e5976feed",
@@ -38,39 +84,15 @@
             "phrase": "a close relation"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "亲戚；家属",
-        "definition_en": "a person who is related by blood or marriage",
+        "confidence": "high",
+        "definition_cn": "亲属；亲戚",
+        "definition_en": "a person related to someone by blood or marriage",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:relation:fe3a525110c45b49",
-        "sense_label_en": "a person who is related by blood or marriage",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:356a761e6e44609de120",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:relation:f814d67d25f95bef:collocation:0"
-            ],
-            "meaning_cn": "事件的叙述",
-            "phrase": "relation of events"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "叙述；讲述",
-        "definition_en": "the act of telling a story",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:relation:f814d67d25f95bef",
-        "sense_label_en": "the act of telling a story",
+        "sense_label_en": "a relative",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -137,43 +159,31 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:relation:5fb74025eff45adb",
+      "stable_sense_id": "sense:relation:f814d67d25f95bef",
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "noun",
-      "definition_cn": "关系；联系",
-      "definition_en": "the way in which two things are connected",
-      "semantic_key": "252e02aab4d900ec94a60e3694cf210085dcfb1d3f83f9e3f3f300ff6f5c1243",
-      "semantic_key_history": [
-        "6a4b0f41011b0b0c4b7128ec13e949dca0f0b00c4407b8c9af039e69726e3dbc"
-      ],
-      "legacy_aliases": [
-        "relation:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "relation:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11289,
+      "definition_cn": "叙述；讲述",
+      "definition_en": "the act of telling a story",
+      "updated_at": null,
+      "source_row": 11290,
       "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json",
-      "reference_only": true
+      "reference_only": true,
+      "fresh_rebuild_demotion_reason": "Narration/account sense is archaic or literary and should remain reference-only."
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:relation:5fb74025eff45adb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11289,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
       },
       {
         "sense_id": "sense:relation:f814d67d25f95bef",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 11290,
         "source_path": "content/lexical/canonical/senses/shards/o4033-4064.json"
@@ -187,7 +197,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:356a761e6e44609de120",
       "collocation:ac57d8a84e6e5976feed"
     ],
     "facts": [
@@ -256,7 +265,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4041-4048.json",
     "source_content_hash": "1e9b39865f7b578706e09be6df81a87b60dd6d31647d1a83fe9146df26f9a717",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "gold01",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/gold01.json"
   }
 }
