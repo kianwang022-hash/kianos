@@ -67,6 +67,14 @@ These are taste constraints, not instructions to clone Apple, Raycast, Arc, or a
 - The learner should be able to jump, compare, scroll, backtrack and reopen context freely where the native task allows it.
 - Stable/correct paths should be extremely fast.
 
+### Reduce interaction used only to reveal information
+
+- On the primary Mac-wide workspace, important structure and first-round useful content should preferably be **visible by default** instead of hidden behind repeated `click to expand` interactions.
+- Progressive disclosure is still useful for genuinely secondary/deep material, but should not become the mechanism that keeps the whole page tidy.
+- Do not make the learner repeatedly open cards, accordions, details panels or modal layers simply to reconstruct one coherent knowledge object.
+- Prefer spatial organization, typography, grouping and simultaneous visibility over interaction-heavy disclosure when the Mac viewport can carry the information comfortably.
+- This preference is especially important for high-density learning surfaces such as Politics cognitive workspaces and Xizong Block/KP learning, where excessive reveal interactions can become an additional learning barrier.
+
 ### Structure should be visible
 
 - Important relations, maps, hierarchy, causal chains and task structure should be visually apparent rather than requiring the learner to reconstruct them from prose or repeated clicks.
