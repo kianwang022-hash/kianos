@@ -1,21 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import VocabularyHome from '../../components/VocabularyHome.astro';
-import VocabularyChallengeRuntime from '../../components/VocabularyChallengeRuntime.astro';
+import VocabularyHomeEvidenceBridge from '../../components/VocabularyHomeEvidenceBridge.astro';
+import VocabularyChallengeRuntimeVNext from '../../components/VocabularyChallengeRuntimeVNext.astro';
 import { inspectLexicalSources, listLexicalWordSummaries } from '../../lib/lexical.mjs';
-
-const inspection = inspectLexicalSources();
-const rows = listLexicalWordSummaries();
+const inspection=inspectLexicalSources();const rows=listLexicalWordSummaries();
 ---
-<Base
-  title="Vocabulary"
-  kicker="LexicalOS · Current Natural Owners"
-  description="Continue / Search / Review / Challenge. 主入口只负责把你送到真正需要学习或验证的对象；不会把 7,946 个 Main Words 自动变成复习队列。"
-  sourcePath={inspection.manifestPath}
-  objectId="lexical:vocabulary-home"
-  active="lexical"
->
-  <VocabularyHome rows={rows}>
-    <VocabularyChallengeRuntime slot="challenge" />
-  </VocabularyHome>
+<Base title="Vocabulary" kicker="LexicalOS · Current Natural Owners" description="Continue / Search / Repair / Challenge. Coverage 是长期主线；Repair 从当前 evidence 编译，不会把 7,946 个词或错过的日历天数变成欠债。" sourcePath={inspection.manifestPath} objectId="lexical:vocabulary-home" active="lexical">
+  <VocabularyHome rows={rows}><VocabularyChallengeRuntimeVNext slot="challenge"/></VocabularyHome>
+  <VocabularyHomeEvidenceBridge rows={rows}/>
 </Base>
