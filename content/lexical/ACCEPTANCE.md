@@ -22,7 +22,7 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Natural-Owner/source boundary and a re-accepted learner-controlled learning model. Full-catalog Knowledge remains BLOCKED because the current 7,946-word content asset has not yet been rebuilt/re-accepted under that model. Downstream unrestricted P/R/E and real learner U cannot be claimed from existing implementation alone.**
+> **LexicalOS has a stable Natural-Owner/source boundary and a re-accepted learner-controlled learning model. The vNext Content Asset Contract now defines the target shape for the current 7,946 Main Words, but full-catalog Knowledge remains BLOCKED until Current owners are rebuilt/re-accepted under that standard. Downstream unrestricted P/R/E and real learner U cannot be claimed from existing implementation alone.**
 
 ---
 
@@ -35,6 +35,7 @@ Current owner architecture remains explicit:
 - deterministic lookup/reference stores are not semantic authority;
 - learner runtime must project Current Natural Owners;
 - legacy/reference semantic fallback is forbidden as live target authority;
+- pack membership is asset metadata, not duplicate lexical semantics;
 - private learner state is not shared semantic truth.
 
 Historical R12–R31 coverage remains durable bounded migration-integrity / defect-sentinel evidence. It is not current learner semantics and must not reopen an endless historical audit loop.
@@ -47,22 +48,26 @@ The 7,946-word content universe contains known semantic-fidelity and learner-val
 
 Historical discovery coverage is closed through corpus end, but discovery coverage is not K acceptance.
 
-K must now be re-evaluated against the new Content standard that follows the accepted Learning Contract.
+`content/lexical/CONTENT_ASSET_CONTRACT.md` now defines the vNext content target. Full-catalog K has **not** passed merely because that rule layer exists.
 
 K exit requires at minimum:
 
-- every Main Word receives a reliable content/coverage judgment;
+- every Main Word receives a reliable fresh Content coverage conclusion under the vNext contract;
+- each accepted Word ends as `SAFE_SIMPLE` or `DEPTH_READY`; unresolved truth remains explicit `BLOCKED`;
+- operation history (`NO_CHANGE` / `UPGRADED`) remains separate from final content quality;
 - no known P0 lifecycle/carrier defect remains;
 - known semantic-fidelity debt is resolved or explicitly blocked;
-- simple trustworthy words can be identified without forced Depth;
+- simple trustworthy words can safely support Fast Pass without manufacturing learner mastery;
 - rich/high-risk words expose a coherent high-value Depth object;
 - Expansion is trustworthy and learner-worthy rather than thin Core-only or dictionary-dump content;
-- Relation / Form ownership is coherent;
+- important constructions, phraseology, decision boundaries and material form/register/family distinctions are correctly represented;
+- Relation / Form ownership is coherent against the latest integration truth;
 - final learner projection can faithfully consume accepted Current truth;
 - 7,946/7,946 content coverage does **not** imply 7,946 learner Depth cards;
+- final integrated owner readback, not field/build presence, closes Content judgment;
 - a documented stop rule is reached.
 
-Exact historical batch evidence remains in `content/lexical/audit/knowledge-reacceptance/` and migration-integrity assets rather than being replayed as the new semantic target.
+Exact historical batch evidence remains in `content/lexical/audit/` and may be used only as bounded defect-sentinel evidence rather than semantic target wording.
 
 ---
 
@@ -83,7 +88,7 @@ The key accepted decisions are:
 - Unknown/Fuzzy may reopen the whole card without creating full-card test debt;
 - Repair is admitted mainly by explicit `+` or real Wrong / Uncertain / Slow evidence;
 - Challenge tests the smallest unstable object rather than full-testing every Fuzzy/Unknown word;
-- no fixed daily word/review quota is canonical; high-throughput 1–2 second judgments are legitimate;
+- no fixed daily word/review quota is canonical; high-throughput sub-second / 1–2 second judgments are legitimate;
 - Mastered may fade strongly or disappear from active review until counterevidence;
 - real English transfer evidence outranks repeated isolated button presses;
 - Astro executes low-friction interactions; Chat adaptively orchestrates policy from evidence and Kian's feedback;
@@ -93,11 +98,32 @@ This L PASS does not claim that current Content, UI, Runtime, or Evidence implem
 
 ---
 
+## Content standard｜RULE LAYER FROZEN, corpus execution not yet accepted
+
+`content/lexical/CONTENT_ASSET_CONTRACT.md` freezes these Content requirements:
+
+- every Main Word gets a fresh content coverage conclusion;
+- `SAFE_SIMPLE` describes trustworthy low-risk content and Fast-Pass eligibility by content, not personal mastery;
+- `DEPTH_READY` describes trustworthy rich/high-risk content that can support a coherent Depth encounter;
+- `BLOCKED` preserves unresolved truth rather than guessing;
+- Core / Word Feel compresses semantics without deleting genuine polysemy;
+- Active Senses prioritize ordinary current and high-value familiar-new branches;
+- Recall Map is derived from semantics rather than driving sense structure;
+- Expansion is first-class: construction, collocation/phraseology, contrast, register/form/pronunciation/family and useful productive distinctions may remain rich;
+- Recognition / Discrimination / Production demand may be represented sparsely when materially useful;
+- valid low-value material remains reference-only / Explore rather than being deleted;
+- a large Chat ownership range does not justify deferred audit→queue→later-repair execution;
+- Relation / Form owners crossing ordinal ranges must reconcile against the latest integration truth.
+
+The next acceptance evidence required is a small representative calibration proving bounded direct-close execution before corpus-scale work resumes.
+
+---
+
 ## P / R / E｜BLOCKED for unrestricted full-catalog use
 
 Existing learner-facing surfaces and runtime code are provisional downstream assets.
 
-Because K is blocked and Learning Logic has just been re-frozen, existing P/R/E must not constrain Content truth or be treated as accepted merely because they build or render.
+Because K is blocked and Learning + Content rules have just been re-frozen, existing P/R/E must not constrain Content truth or be treated as accepted merely because they build or render.
 
 They may be reused later if they faithfully implement the new upstream decisions.
 
@@ -120,10 +146,13 @@ S Source / Natural Owner boundary
 L learner-controlled vNext logic
 ✅ PASS
 ↓
-Content Realization / Optimization for current 7,946 words
-← CURRENT construction stage
+Content Asset Contract
+✅ rule layer frozen
 ↓
-K re-acceptance against final Content objects
+bounded representative Content execution calibration
+← CURRENT
+↓
+7,946-owner Content realization + K re-acceptance
 ↓
 P Projection / Interaction re-acceptance
 ↓
@@ -147,6 +176,7 @@ Historical audit / stopped Fresh Rebuild branches may inform bounded defect dete
 - owner schema → `content/lexical/schema.json`
 - pack membership metadata → `content/lexical/canonical/packs/`
 - lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
+- content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
 - historical defect / migration evidence → `content/lexical/audit/`
 
 ### Learner Truth
