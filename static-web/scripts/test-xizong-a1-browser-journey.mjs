@@ -159,7 +159,6 @@ try {
 
   const blockUrl = `${BASE}/xizong/circulation/b02/`;
   const studyKey = 'kianos-xizong-astro-v2:xizong:circulation-b02';
-  const personalKey = 'kianos-xizong-personal-v1:xizong:circulation-b02';
 
   // Clean first-learning state.
   await cdp.navigate(blockUrl);
@@ -238,19 +237,16 @@ try {
   const missingRecallIds = allKpIds.filter((id) => !state?.ratings?.[id]);
   check(learnedCount === totalKp && recalledCount === totalKp, 'all_kps_have_learning_and_recall_evidence', `learned=${learnedCount}/${totalKp};recalled=${recalledCount}/${totalKp};missing=${missingRecallIds.join(',')}`);
 
-  // Block completion requires Block Recall + Block-level original Lecture confirmation.
+  // Block completion requires formal contact for every KP + every KP Recall + Block Recall.
   await cdp.evaluate(clickExpr('[data-stage-target="block_complete"]'));
   check(await cdp.evaluate(visibleStageExpr) === 'block_recall', 'block_complete_before_block_recall_rejected');
   await cdp.evaluate(clickExpr('[data-block-recall-complete]'));
   check(await cdp.evaluate(visibleStageExpr) === 'block_complete', 'block_recall_completion_advances_to_close');
-  check(await cdp.evaluate(`document.querySelector('[data-block-complete]')?.disabled === true`), 'lecture_confirmation_keeps_block_completion_locked');
-  await cdp.evaluate(clickExpr('[data-lecture-read]'));
-  await sleep(80);
-  check(await cdp.evaluate(`document.querySelector('[data-block-complete]')?.disabled === false`), 'lecture_confirmation_unlocks_block_completion');
+  check(await cdp.evaluate(`document.querySelector('[data-lecture-read]') === null`), 'legacy_block_lecture_confirmation_removed');
+  check(await cdp.evaluate(`document.querySelector('[data-block-complete]')?.disabled === false`), 'formal_contact_recall_and_block_recall_unlock_completion');
   await cdp.evaluate(clickExpr('[data-block-complete]'));
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
   check(state?.completed === true, 'block_completion_persists');
-  check((await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(personalKey)})||'null')`))?.lectureRead === true, 'lecture_confirmation_persists');
   await cdp.reload();
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
   check(state?.completed === true && state?.stage === 'block_complete', 'refresh_preserves_completed_block_state');

@@ -17,7 +17,7 @@ const learnedCount = (state) => Object.values(state?.learned || {}).filter(Boole
 const recallCount = (state) => Object.keys(state?.ratings || {}).length;
 const canRecordKpRecall = (state, kpId) => Boolean(state?.learned?.[kpId]);
 const canRecordBlockRecall = (state, totalKp) => totalKp > 0 && learnedCount(state) >= totalKp && recallCount(state) >= totalKp;
-const canCloseBlock = (state, totalKp, lectureRead) => canRecordBlockRecall(state, totalKp) && Boolean(state?.blockRecallDone) && Boolean(lectureRead);
+const canCloseBlock = (state, totalKp) => canRecordBlockRecall(state, totalKp) && Boolean(state?.blockRecallDone);
 const canRecordSystemRecall = (states, blockIds) => blockIds.length > 0 && blockIds.every((id) => Boolean(states?.[id]?.completed));
 const normalizeHoldout = (years, eligibleYears) => {
   const eligible = new Set(eligibleYears.map(Number));
@@ -71,9 +71,9 @@ state.learned = Object.fromEntries(kpIds.map((id) => [id, true]));
 assert(!canRecordBlockRecall(state, totalFirstKp), 'block-recall-before-kp-recall');
 state.ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
 assert(canRecordBlockRecall(state, totalFirstKp), 'block-recall-after-kp-recall-blocked');
+assert(!canCloseBlock(state, totalFirstKp), 'block-close-before-block-recall');
 state.blockRecallDone = true;
-assert(!canCloseBlock(state, totalFirstKp, false), 'block-close-without-lecture');
-assert(canCloseBlock(state, totalFirstKp, true), 'clean-block-cannot-close');
+assert(canCloseBlock(state, totalFirstKp), 'clean-block-cannot-close');
 state.completed = true;
 const persistedBlock = roundTrip(state);
 assert(persistedBlock.completed && Object.keys(persistedBlock.ratings).length === totalFirstKp, 'block-roundtrip-loss');
@@ -130,7 +130,8 @@ has(blockUi, "setStage('block_recall')", 'block-recall-transition');
 has(blockUi, "setStage('block_complete')", 'block-complete-transition');
 has(blockUi, '不要按 KP 来回切换 App', 'logic-group-lecture-continuity');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
-matches(enhancerUi, /!personal\.lectureRead\s*\|\|\s*!coreReady/, 'lecture-close-gate');
+has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
+assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 
 has(guardUi, "requested === 'kp_recall' && counts.learned <= counts.recalled", 'premature-kp-recall-stage-guard');
 has(guardUi, "target.closest('[data-kp-reveal]')", 'premature-kp-reveal-guard');

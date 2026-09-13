@@ -13,10 +13,6 @@ const kps = block?.kpRecords || [];
     <code data-source-locator>{kps[0]?.sourceLocator || 'Current 暂无精确定位'}</code>
   </div>
 
-  <div class="xv6DockLecture">
-    <button type="button" data-lecture-read aria-pressed="false">原讲义一轮 · 未确认</button>
-    <small>在 iPad / MarginNote 连续完成本 Block 原讲义学习后再确认；网页 Core 只作需要时参考。</small>
-  </div>
 
   <label class="xv6DockComment">
     <span>随手记 · C</span>
@@ -42,7 +38,7 @@ const kps = block?.kpRecords || [];
     const studyKey = `kianos-xizong-astro-v2:${objectId}`;
     let kpRows = [];
     try { kpRows = JSON.parse(dock.querySelector('[data-dock-payload]')?.textContent || '[]'); } catch {}
-    let personal = { lectureRead: false, kp: {} };
+    let personal = { kp: {} };
     try { personal = { ...personal, ...(JSON.parse(localStorage.getItem(personalKey) || 'null') || {}) }; } catch {}
 
     const chain = root.querySelector('.portedStudyChain');
@@ -50,7 +46,6 @@ const kps = block?.kpRecords || [];
     if (chain && dock.parentElement !== chain) chain.insertBefore(dock, chainList || chain.firstChild);
 
     const recallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
-    const lectureButton = dock.querySelector('[data-lecture-read]');
     const locator = dock.querySelector('[data-source-locator]');
     const position = dock.querySelector('[data-dock-position]');
     const group = dock.querySelector('[data-dock-group]');
@@ -85,8 +80,8 @@ const kps = block?.kpRecords || [];
       const learned = Object.values(study.learned || {}).filter(Boolean).length;
       const recalled = Object.keys(study.ratings || {}).length;
       const coreReady = kpRows.length > 0 && learned >= kpRows.length && recalled >= kpRows.length && Boolean(study.blockRecallDone);
-      button.disabled = !personal.lectureRead || !coreReady || Boolean(study.completed);
-      button.title = personal.lectureRead ? '' : '先在 iPad / MarginNote 确认本 Block 原讲义已完成一轮';
+      button.disabled = !coreReady || Boolean(study.completed);
+      button.title = '';
     };
 
     const syncReviewVisibility = () => {
@@ -105,16 +100,10 @@ const kps = block?.kpRecords || [];
         if (comment && document.activeElement !== comment && renderedKpId !== row.kpId) comment.value = local?.comment || '';
         renderedKpId = row.kpId;
       }
-      if (lectureButton) {
-        lectureButton.setAttribute('aria-pressed', String(Boolean(personal.lectureRead)));
-        lectureButton.textContent = personal.lectureRead ? '原讲义一轮 · 已确认' : '原讲义一轮 · 未确认';
-        lectureButton.classList.toggle('active', Boolean(personal.lectureRead));
-      }
       applyCompletionGate();
       syncReviewVisibility();
     };
 
-    lectureButton?.addEventListener('click', () => { personal.lectureRead = !personal.lectureRead; savePersonal(); renderDock(); });
     comment?.addEventListener('input', () => {
       const local = currentLocal();
       if (!local) return;
@@ -155,7 +144,6 @@ const kps = block?.kpRecords || [];
       }
       const key = event.key.toLowerCase();
       if (key === 'c') { event.preventDefault(); comment?.focus(); comment?.select(); return; }
-      if (key === 'l') { event.preventDefault(); lectureButton?.click(); }
     });
 
     renderDock();
@@ -163,6 +151,6 @@ const kps = block?.kpRecords || [];
 </script>
 
 <style>
-  .xv6PersonalDock{display:grid;gap:8px;padding:10px 11px;border-bottom:1px solid var(--study-line);background:#fff}.xv6PersonalDock>header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:0 0 6px!important;border:0!important}.xv6PersonalDock>header div{min-width:0}.xv6PersonalDock>header span,.xv6DockLocator>span,.xv6DockComment>span{display:block;color:var(--study-green);font-size:8px;font-weight:850;letter-spacing:.06em}.xv6PersonalDock>header strong{display:block;overflow:hidden;margin-top:2px;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.xv6PersonalDock>header small{align-self:end;color:var(--study-muted);font-size:8px}.xv6DockLocator{display:grid;gap:3px;padding:7px;border-radius:8px;background:var(--study-surface-muted)}.xv6DockLocator code{overflow:hidden;color:var(--study-muted);font-size:8px;line-height:1.45;white-space:normal}.xv6DockLecture{display:grid;gap:3px}.xv6DockLecture button{min-height:28px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-green);font-size:9px;font-weight:800}.xv6DockLecture button.active{border-color:var(--study-green);background:var(--study-green-soft)}.xv6DockLecture small{color:var(--study-faint);font-size:8px;line-height:1.35}.xv6DockComment{display:grid;gap:4px}.xv6DockComment textarea{width:100%;resize:vertical;min-height:42px;padding:7px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;line-height:1.45}
+  .xv6PersonalDock{display:grid;gap:8px;padding:10px 11px;border-bottom:1px solid var(--study-line);background:#fff}.xv6PersonalDock>header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:0 0 6px!important;border:0!important}.xv6PersonalDock>header div{min-width:0}.xv6PersonalDock>header span,.xv6DockLocator>span,.xv6DockComment>span{display:block;color:var(--study-green);font-size:8px;font-weight:850;letter-spacing:.06em}.xv6PersonalDock>header strong{display:block;overflow:hidden;margin-top:2px;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.xv6PersonalDock>header small{align-self:end;color:var(--study-muted);font-size:8px}.xv6DockLocator{display:grid;gap:3px;padding:7px;border-radius:8px;background:var(--study-surface-muted)}.xv6DockLocator code{overflow:hidden;color:var(--study-muted);font-size:8px;line-height:1.45;white-space:normal}.xv6DockComment{display:grid;gap:4px}.xv6DockComment textarea{width:100%;resize:vertical;min-height:42px;padding:7px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;line-height:1.45}
   @media(min-width:1100px){.xv6Block .portedStudyLayout{grid-template-columns:220px minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.chain-collapsed{grid-template-columns:220px minmax(0,1fr) 0}.xv6Block .portedKpWorkspace{min-height:0}.xv6Block .portedKpCards{height:calc(100vh - 225px);min-height:520px;max-height:760px;padding:8px 10px}.xv6Block .portedKpRecallCard{display:flex;height:100%;max-width:none;flex-direction:column}.xv6Block .portedKpRecallCard>header{padding:11px 15px 9px}.xv6Block .portedKpRecallCard>footer{margin-top:auto}.xv6Block .portedRecallAnswer{overflow:auto}.xv6Block .portedStudyChain{min-width:0}}
 </style>

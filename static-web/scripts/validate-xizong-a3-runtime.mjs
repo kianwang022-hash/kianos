@@ -24,7 +24,7 @@ const learnedCount = (state) => Object.values(state?.learned || {}).filter(Boole
 const recallCount = (state) => Object.keys(state?.ratings || {}).length;
 const canRecordKpRecall = (state, kpId) => Boolean(state?.learned?.[kpId]);
 const canRecordBlockRecall = (state, totalKp) => totalKp > 0 && learnedCount(state) >= totalKp && recallCount(state) >= totalKp;
-const canCloseBlock = (state, totalKp, lectureRead) => canRecordBlockRecall(state, totalKp) && Boolean(state?.blockRecallDone) && Boolean(lectureRead);
+const canCloseBlock = (state, totalKp) => canRecordBlockRecall(state, totalKp) && Boolean(state?.blockRecallDone);
 const canRecordSystemRecall = (states, blockIds) => blockIds.length > 0 && blockIds.every((id) => Boolean(states?.[id]?.completed));
 
 const system = loadXizongSystem('urinary');
@@ -61,9 +61,9 @@ state.learned = Object.fromEntries(kpIds.map((id) => [id, true]));
 assert(!canRecordBlockRecall(state, kpIds.length), 'block-recall-before-kp-recall');
 state.ratings = Object.fromEntries(kpIds.map((id) => [id, 'known']));
 assert(canRecordBlockRecall(state, kpIds.length), 'block-recall-after-kp-recall-blocked');
+assert(!canCloseBlock(state, kpIds.length), 'block-close-before-block-recall');
 state.blockRecallDone = true;
-assert(!canCloseBlock(state, kpIds.length, false), 'block-close-without-original-lecture');
-assert(canCloseBlock(state, kpIds.length, true), 'clean-block-cannot-close');
+assert(canCloseBlock(state, kpIds.length), 'clean-block-cannot-close');
 
 const blockIds = system.blocks.map((block) => block.blockId);
 const systemStates = Object.fromEntries(blockIds.map((id) => [id, { completed: false }]));
@@ -100,7 +100,8 @@ has(blockUi, "setStage('block_recall')", 'block-recall-transition');
 has(blockUi, "setStage('block_complete')", 'block-complete-transition');
 has(blockUi, '不要按 KP 来回切换 App', 'logic-group-lecture-continuity');
 has(blockUi, 'data-group-lecture-done', 'logic-group-lecture-return');
-matches(enhancerUi, /!personal\.lectureRead\s*\|\|\s*!coreReady/, 'original-lecture-close-gate');
+has(enhancerUi, 'button.disabled = !coreReady || Boolean(study.completed);', 'block-completion-ui-gate');
+assert(!enhancerUi.includes('lectureRead'), 'legacy-block-lecture-confirmation-remains');
 has(enhancerUi, 'iPad / MarginNote · 原讲义定位', 'external-primary-source-not-explicit');
 
 has(stageGuard, "requested === 'kp_recall' && counts.learned <= counts.recalled", 'premature-kp-recall-stage-guard');

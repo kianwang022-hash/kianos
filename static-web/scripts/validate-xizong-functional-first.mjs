@@ -51,8 +51,8 @@ assert(isGroupEnd(11) && kps[11]?.ordinal === 6, 'b5-lg02-real-end-not-kp06');
 const blockRuntime = read('static-web/src/components/XizongBlockV6.astro');
 assert(blockRuntime.includes("const groupId = kpData[index]?.groupId || '';"), 'runtime-does-not-route-by-kp-group-id');
 assert(blockRuntime.includes("const firstKpId = Array.isArray(group?.kpIds) ? group.kpIds[0] : '';"), 'runtime-group-entry-does-not-use-first-kp-id');
-assert(blockRuntime.includes('const groupPosition = groupKpIds.indexOf(currentKpId);'), 'runtime-local-position-does-not-use-group-membership');
-assert(blockRuntime.includes('const atGroupEnd = groupPosition >= 0 && groupPosition === groupKpIds.length - 1;'), 'runtime-group-close-does-not-use-group-membership');
+assert(blockRuntime.includes("const firstMissingId = ids.find((id) => !state.ratings?.[id]);"), 'runtime-group-close-does-not-check-missing-recall');
+assert(blockRuntime.includes("window.setTimeout(() => setStage('group_close'), 120);"), 'runtime-group-close-transition-missing');
 assert(!blockRuntime.includes('const ordinal = index + 1;'), 'runtime-still-confuses-array-position-with-stable-kp-ordinal');
 assert(!blockRuntime.includes('if ((state.kpIndex + 1) >= Number(group?.end || totalKp))'), 'runtime-still-closes-group-by-array-position');
 
@@ -67,18 +67,20 @@ assert(homeTools.includes('link.href = last.href;'), 'home-resume-does-not-retur
 assert(blockRuntime.includes("JSON.parse(localStorage.getItem(storageKey) || 'null')"), 'block-resume-does-not-restore-state');
 assert(blockRuntime.includes("setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn');"), 'block-resume-does-not-restore-stage-and-kp');
 
-// Completion evidence must be enforced at the transition owner, not merely by
-// a disabled-looking companion button. Lecture completion is browser evidence.
+// Completion evidence is enforced at the transition owner. Logic Group lecture contact
+// already records formal KP contact, so no second Block-level lecture checkbox is required.
 const stageGuard = read('static-web/src/components/XizongRuntimeStageGuard.astro');
-assert(stageGuard.includes('const readBlockPersonal = (id) =>'), 'block-complete-has-no-personal-evidence-reader');
+assert(!stageGuard.includes('readBlockPersonal'), 'legacy-block-personal-reader-remains');
+assert(!stageGuard.includes('personal?.lectureRead'), 'legacy-block-lecture-confirmation-remains');
 assert(stageGuard.includes("target.closest('[data-block-complete]')"), 'block-complete-transition-not-guarded');
-assert(stageGuard.includes('Boolean(personal?.lectureRead)'), 'block-complete-does-not-require-lecture-evidence');
+assert(stageGuard.includes('counts.learned >= counts.total'), 'block-complete-does-not-require-formal-contact');
+assert(stageGuard.includes('counts.recalled >= counts.total'), 'block-complete-does-not-require-kp-recall');
 assert(stageGuard.includes('Boolean(state?.blockRecallDone)'), 'block-complete-does-not-require-block-recall-evidence');
 
 console.log([
   'Xizong Functional First regression PASS',
   'B5=nonnumeric-order-routed-by-canonical-group-id',
-  'BlockComplete=lecture+learn+recall+block-recall-fail-closed',
+  'BlockComplete=formal-contact+recall+block-recall-fail-closed',
   'Resume=last-route+block-stage+kp-state',
   'Evidence=DETERMINISTIC_RUNTIME_CONTRACT',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
