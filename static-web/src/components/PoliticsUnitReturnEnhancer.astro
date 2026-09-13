@@ -16,6 +16,8 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
   import { evaluatePoliticsUnitReturn, recordPoliticsFirstAttempt } from '../lib/politicsUnitReturn.mjs';
 
   const attemptKey = 'kianos-politics-attempts-v1';
+  const lastKey = 'kianos-politics-last-location-v1';
+  const runtime = document.querySelector('[data-politics-runtime]');
   const localStudyDay = () => new Date().toLocaleDateString('en-CA');
   const readJson = (key, fallback) => {
     try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
@@ -45,6 +47,43 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     return first?.closest('[data-politics-unit]') || null;
   };
 
+  const unitIdForSection = (unitSection) => {
+    if (!(unitSection instanceof HTMLElement)) return '';
+    const explicit = unitSection.getAttribute('data-unit-id');
+    if (explicit) return explicit;
+    const source = unitSection.querySelector('[id^="source-"]');
+    if (source?.id) return source.id.replace(/^source-/, '');
+    return unitSection.querySelector('[data-politics-question]')?.getAttribute('data-unit-id') || '';
+  };
+
+  const chapterIdentity = () => ({
+    subject: runtime?.getAttribute('data-subject') || '',
+    chapter: runtime?.getAttribute('data-chapter') || '',
+    title: runtime?.getAttribute('data-title') || ''
+  });
+
+  const saveLastLocation = ({ unitId = '', action = '', questionId = '', href = '' } = {}) => {
+    if (!runtime) return false;
+    const previous = readJson(lastKey, {});
+    const identity = chapterIdentity();
+    return saveJson(lastKey, {
+      ...previous,
+      ...identity,
+      href: href || `${window.location.pathname}${window.location.hash}`,
+      unit_id: unitId || previous?.unit_id || '',
+      action: action || previous?.action || '',
+      question_id: questionId,
+      observed_at: new Date().toISOString()
+    });
+  };
+
+  const sameChapterLast = () => {
+    const last = readJson(lastKey, null);
+    if (!last || !runtime) return null;
+    const identity = chapterIdentity();
+    return last.subject === identity.subject && last.chapter === identity.chapter ? last : null;
+  };
+
   const make = (tag, className, text = '') => {
     const node = document.createElement(tag);
     if (className) node.className = className;
@@ -53,6 +92,30 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
   };
 
   const returnIdFor = (config) => `politics-unit-return-${String(config.natural_unit_id || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+  const questionIdFor = (questionId) => `politics-question-${String(questionId || '').replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+
+  const dispatchWorkspaceState = (unitSection, state) => {
+    if (!unitSection || !state) return;
+    unitSection.dispatchEvent(new CustomEvent('politics:resume-state', {
+      bubbles: true,
+      detail: { state }
+    }));
+  };
+
+  const cardsFor = (config) => (config.expected_question_ids || [])
+    .map((questionId) => questionCard(config, questionId))
+    .filter(Boolean);
+
+  const activateQuestion = (config, questionId) => {
+    const cards = cardsFor(config);
+    const target = questionCard(config, questionId);
+    if (!target) return null;
+    cards.forEach((card) => card.classList.toggle('active', card === target));
+    target.id = questionIdFor(questionId);
+    return target;
+  };
+
+  const attemptFor = (config, questionId) => attemptSnapshot?.units?.[String(config.unit_key || '')]?.attempts?.[questionId] || null;
 
   const showPersistenceFailure = (config) => {
     const unitSection = unitSectionFor(config);
@@ -127,12 +190,45 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       const target = currentIndex >= 0 && currentIndex < allUnits.length - 1
         ? allUnits[currentIndex + 1]
         : document.getElementById('chapter-close');
+      const nextUnitId = target?.matches?.('[data-politics-unit]') ? unitIdForSection(target) : '';
+      saveLastLocation({
+        unitId: nextUnitId,
+        action: nextUnitId ? 'ORIENT' : 'CHAPTER_CLOSE',
+        href: target?.id ? `${window.location.pathname}#${target.id}` : window.location.pathname
+      });
       target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     section.append(micro, title, summary, nodeList, guard, continueButton);
     quiz.insertAdjacentElement('afterend', section);
     return section;
+  };
+
+  const ensureQuestionRepairReturn = (config, card) => {
+    const source = document.getElementById(config.source_anchor);
+    const questionId = card?.getAttribute('data-question-id') || '';
+    if (!source || !questionId) return null;
+    let link = source.querySelector(`[data-politics-return-to-question="${questionId}"]`);
+    if (!link) {
+      link = make('a', 'politicsReturnToQuestion', '修完回这一题 ↓');
+      link.setAttribute('data-politics-return-to-question', questionId);
+      source.append(link);
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const target = activateQuestion(config, questionId);
+        const unitSection = unitSectionFor(config);
+        dispatchWorkspaceState(unitSection, 'REPAIR');
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'REPAIR',
+          questionId,
+          href: `${window.location.pathname}#${questionIdFor(questionId)}`
+        });
+        requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+      });
+    }
+    link.href = `#${questionIdFor(questionId)}`;
+    return link;
   };
 
   const syncRepairReturnLink = (config, evaluation, section) => {
@@ -154,10 +250,10 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
 
   const renderUnitReturn = (config) => {
     const section = ensureReturnUi(config);
-    if (!section) return;
+    if (!section) return null;
     const evaluation = evaluatePoliticsUnitReturn(config, attemptSnapshot);
     section.hidden = !evaluation.ready;
-    if (!evaluation.ready) return;
+    if (!evaluation.ready) return evaluation;
 
     const repairCount = evaluation.nodes.filter((node) => node.state === 'REPAIR').length;
     const uncertainCount = evaluation.nodes.filter((node) => node.state === 'UNCERTAIN').length;
@@ -185,6 +281,119 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
     const continueButton = section.querySelector('[data-unit-return-continue]');
     if (continueButton) continueButton.textContent = evaluation.unit_state === 'STABLE' ? '继续学习 →' : '修完后继续 →';
     syncRepairReturnLink(config, evaluation, section);
+    return evaluation;
+  };
+
+  const restoreAttemptCard = (config, questionId, attempt) => {
+    const card = activateQuestion(config, questionId);
+    const unitSection = unitSectionFor(config);
+    if (!card || !unitSection || !attempt) return false;
+
+    const selected = new Set(String(attempt.selected || '').split('').filter(Boolean));
+    const answer = String(attempt.correct_answer || '').split('').sort().join('');
+    const outcome = String(attempt.outcome || '').toUpperCase();
+    const result = card.querySelector('[data-politics-result]');
+    const repair = card.querySelector('[data-politics-repair]');
+    const submit = card.querySelector('[data-politics-submit]');
+    const uncertain = card.querySelector('[data-politics-uncertain]');
+    const next = card.querySelector('[data-politics-next]');
+
+    card.querySelectorAll('[data-politics-option]').forEach((button) => {
+      const label = String(button.getAttribute('data-politics-option') || '');
+      button.classList.toggle('selected', selected.has(label));
+      button.classList.toggle('answer', answer.includes(label));
+      button.disabled = true;
+    });
+    if (uncertain) {
+      uncertain.classList.toggle('active', outcome === 'UNCERTAIN');
+      uncertain.disabled = true;
+    }
+    if (submit) submit.disabled = true;
+
+    const needsRepair = outcome === 'WRONG' || outcome === 'UNCERTAIN';
+    if (result) {
+      result.hidden = false;
+      result.className = `politicsResult ${outcome === 'WRONG' ? 'wrong' : outcome === 'UNCERTAIN' ? 'uncertain' : 'correct'}`;
+      result.textContent = outcome === 'WRONG'
+        ? `你的首次答案 ${attempt.selected || ''} · 正确答案 ${attempt.correct_answer || ''}`
+        : outcome === 'UNCERTAIN'
+          ? '△ 首次答对，但当时不确定。继续完成最小修复。'
+          : '✓ 首次作答稳定。';
+    }
+
+    if (repair) {
+      repair.hidden = !needsRepair;
+      if (needsRepair) {
+        const slot = unitSection.querySelector('[data-workspace-repair-slot]');
+        if (slot) slot.appendChild(repair);
+      }
+    }
+    if (next) {
+      next.hidden = !needsRepair;
+      const cards = cardsFor(config);
+      const index = cards.indexOf(card);
+      next.textContent = index >= 0 && index < cards.length - 1 ? '修完继续下一题 →' : '修完进入 Unit Close →';
+    }
+
+    if (needsRepair) {
+      ensureQuestionRepairReturn(config, card);
+      dispatchWorkspaceState(unitSection, 'REPAIR');
+    }
+    return needsRepair;
+  };
+
+  const resumeConfig = (config) => {
+    const section = ensureReturnUi(config);
+    const evaluation = renderUnitReturn(config) || evaluatePoliticsUnitReturn(config, attemptSnapshot);
+    const unitSection = unitSectionFor(config);
+    if (!unitSection) return;
+    const last = sameChapterLast();
+    const matchesUnit = last && [config.runtime_unit_id, config.natural_unit_id].includes(String(last.unit_id || ''));
+
+    cardsFor(config).forEach((card) => {
+      const questionId = card.getAttribute('data-question-id') || '';
+      if (questionId) card.id = questionIdFor(questionId);
+    });
+
+    if (matchesUnit && ['REPAIR', 'REPAIR_SOURCE'].includes(String(last.action || '')) && last.question_id) {
+      const attempt = attemptFor(config, last.question_id);
+      if (attempt && ['WRONG', 'UNCERTAIN'].includes(String(attempt.outcome || '').toUpperCase())) {
+        const card = questionCard(config, last.question_id);
+        restoreAttemptCard(config, last.question_id, attempt);
+        if (card) ensureQuestionRepairReturn(config, card);
+        if (last.action === 'REPAIR_SOURCE') dispatchWorkspaceState(unitSection, 'EXTERNAL_LEARN');
+        return;
+      }
+    }
+
+    if (!evaluation.ready) {
+      const pending = evaluation.pending_question_ids || [];
+      if (!pending.length) return;
+      const preferred = matchesUnit && pending.includes(String(last?.question_id || ''))
+        ? String(last.question_id)
+        : pending[0];
+      activateQuestion(config, preferred);
+      if (matchesUnit) {
+        dispatchWorkspaceState(unitSection, 'VERIFY');
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'VERIFY',
+          questionId: preferred,
+          href: `${window.location.pathname}#${questionIdFor(preferred)}`
+        });
+      }
+      return;
+    }
+
+    cardsFor(config).forEach((card) => card.classList.remove('active'));
+    if (matchesUnit && section) {
+      dispatchWorkspaceState(unitSection, 'VERIFY');
+      saveLastLocation({
+        unitId: config.runtime_unit_id,
+        action: 'UNIT_RETURN',
+        href: `${window.location.pathname}#${section.id}`
+      });
+    }
   };
 
   const captureFirstAttempt = (config, card, submit) => {
@@ -196,12 +405,13 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
         .sort()
         .join('');
       if (!selected) return;
+      const questionId = card.getAttribute('data-question-id') || '';
       const answer = String(card.getAttribute('data-answer') || '').split('').sort().join('');
       const uncertain = Boolean(card.querySelector('[data-politics-uncertain]')?.classList.contains('active'));
       const correct = selected === answer;
       const outcome = correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG';
       const recorded = recordPoliticsFirstAttempt(attemptSnapshot, config, {
-        question_id: card.getAttribute('data-question-id') || '',
+        question_id: questionId,
         outcome,
         selected,
         correct_answer: answer,
@@ -219,8 +429,70 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       } else {
         attemptSnapshot = recorded.store;
       }
-      renderUnitReturn(config);
+
+      const evaluation = renderUnitReturn(config) || evaluatePoliticsUnitReturn(config, attemptSnapshot);
+      if (outcome === 'WRONG' || outcome === 'UNCERTAIN') {
+        ensureQuestionRepairReturn(config, card);
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'REPAIR',
+          questionId,
+          href: `${window.location.pathname}#${questionIdFor(questionId)}`
+        });
+      } else if (evaluation.ready) {
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'UNIT_RETURN',
+          href: `${window.location.pathname}#${returnIdFor(config)}`
+        });
+      } else {
+        const nextPending = evaluation.pending_question_ids?.[0] || '';
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'VERIFY',
+          questionId: nextPending,
+          href: nextPending ? `${window.location.pathname}#${questionIdFor(nextPending)}` : window.location.pathname
+        });
+      }
     });
+  };
+
+  const installRepairSourceReturn = (config, card) => {
+    const sourceLink = card.querySelector('[data-politics-repair] a[href^="#source-"]');
+    if (!sourceLink) return;
+    sourceLink.addEventListener('click', () => {
+      const questionId = card.getAttribute('data-question-id') || '';
+      ensureQuestionRepairReturn(config, card);
+      saveLastLocation({
+        unitId: config.runtime_unit_id,
+        action: 'REPAIR_SOURCE',
+        questionId,
+        href: sourceLink.getAttribute('href') ? `${window.location.pathname}${sourceLink.getAttribute('href')}` : window.location.pathname
+      });
+    });
+  };
+
+  const installNextCursor = (config, card) => {
+    const next = card.querySelector('[data-politics-next]');
+    if (!next) return;
+    next.addEventListener('click', () => queueMicrotask(() => {
+      const evaluation = evaluatePoliticsUnitReturn(config, attemptSnapshot);
+      const nextPending = evaluation.pending_question_ids?.[0] || '';
+      if (nextPending) {
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'VERIFY',
+          questionId: nextPending,
+          href: `${window.location.pathname}#${questionIdFor(nextPending)}`
+        });
+      } else {
+        saveLastLocation({
+          unitId: config.runtime_unit_id,
+          action: 'UNIT_RETURN',
+          href: `${window.location.pathname}#${returnIdFor(config)}`
+        });
+      }
+    }));
   };
 
   for (const config of configRows) {
@@ -229,13 +501,52 @@ const configs = buildPoliticsUnitReturnConfigs(chapter);
       const card = questionCard(config, questionId);
       const submit = card?.querySelector('[data-politics-submit]');
       if (!card || !(submit instanceof HTMLButtonElement)) continue;
+      card.id = questionIdFor(questionId);
       submit.addEventListener('click', () => captureFirstAttempt(config, card, submit));
+      installRepairSourceReturn(config, card);
+      installNextCursor(config, card);
     }
-    renderUnitReturn(config);
+    resumeConfig(config);
+  }
+
+  if (runtime && !runtime.hasAttribute('data-politics-cognitive-workspace') && 'IntersectionObserver' in window) {
+    const cursorObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      const node = visible?.target;
+      if (!(node instanceof HTMLElement)) return;
+      const unitSection = node.closest('[data-politics-unit]');
+      const unitId = unitIdForSection(unitSection);
+      const current = sameChapterLast();
+      if (current && String(current.action || '').startsWith('REPAIR') && current.unit_id === unitId) return;
+
+      if (node.matches('[data-politics-external-source]')) {
+        saveLastLocation({ unitId, action: 'EXTERNAL_LEARN', href: `${window.location.pathname}#${node.id}` });
+        return;
+      }
+      if (node.matches('[data-politics-quiz]')) {
+        const active = node.querySelector('[data-politics-question].active');
+        const questionId = active?.getAttribute('data-question-id') || '';
+        saveLastLocation({
+          unitId,
+          action: 'VERIFY',
+          questionId,
+          href: questionId ? `${window.location.pathname}#${questionIdFor(questionId)}` : window.location.pathname
+        });
+        return;
+      }
+      if (unitSection === node) {
+        saveLastLocation({ unitId, action: 'ORIENT', href: node.id ? `${window.location.pathname}#${node.id}` : window.location.pathname });
+      }
+    }, { threshold: [0.45, 0.65] });
+
+    document.querySelectorAll('[data-politics-unit], [data-politics-external-source], [data-politics-quiz]')
+      .forEach((node) => cursorObserver.observe(node));
   }
 </script>
 
 <style>
-  .politicsUnitReturn{margin-top:14px;padding:18px;border:1px solid var(--study-line);border-radius:13px;background:#fbfcfb}.politicsUnitReturn[hidden]{display:none}.politicsUnitReturn h3{margin:4px 0 6px;font-size:18px}.politicsUnitReturnSummary{margin:0 0 12px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsUnitReturnNodes{display:grid;gap:7px}.politicsUnitReturnNode{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.politicsUnitReturnNodeCopy{display:grid;gap:2px}.politicsUnitReturnNodeCopy strong{font-size:12px}.politicsUnitReturnNodeCopy small{color:var(--study-faint);font-size:9px}.politicsUnitReturnState{font-size:10px;font-weight:820;white-space:nowrap}.politicsUnitReturnNode[data-state="STABLE"] .politicsUnitReturnState{color:var(--study-green)}.politicsUnitReturnNode[data-state="UNCERTAIN"] .politicsUnitReturnState,.politicsUnitReturnNode[data-state="REPAIR"] .politicsUnitReturnState{color:#8a5d16}.politicsUnitReturnRepair,.politicsReturnAfterRepair{font-size:10px;font-weight:760;color:var(--study-green);text-decoration:none}.politicsUnitReturnGuard{margin:12px 0 0;color:var(--study-faint);font-size:10px;line-height:1.55}.politicsUnitReturnContinue{margin-top:12px;padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:var(--study-green);font:inherit;font-size:11px;font-weight:800;cursor:pointer}.politicsReturnAfterRepair{display:inline-block;margin:12px 0 0}.politicsReturnAfterRepair::before{content:'↳ ';color:var(--study-faint)}.politicsAttemptPersistenceError{margin-top:10px;padding:11px 12px;border:1px solid #d5b26f;border-radius:10px;background:#fffaf0}.politicsAttemptPersistenceError strong{font-size:11px;color:#7a5010}.politicsAttemptPersistenceError p{margin:3px 0 0;color:#7d6b4e;font-size:10px;line-height:1.55}
+  .politicsUnitReturn{margin-top:14px;padding:18px;border:1px solid var(--study-line);border-radius:13px;background:#fbfcfb}.politicsUnitReturn[hidden]{display:none}.politicsUnitReturn h3{margin:4px 0 6px;font-size:18px}.politicsUnitReturnSummary{margin:0 0 12px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsUnitReturnNodes{display:grid;gap:7px}.politicsUnitReturnNode{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid var(--study-line);border-radius:10px;background:#fff}.politicsUnitReturnNodeCopy{display:grid;gap:2px}.politicsUnitReturnNodeCopy strong{font-size:12px}.politicsUnitReturnNodeCopy small{color:var(--study-faint);font-size:9px}.politicsUnitReturnState{font-size:10px;font-weight:820;white-space:nowrap}.politicsUnitReturnNode[data-state="STABLE"] .politicsUnitReturnState{color:var(--study-green)}.politicsUnitReturnNode[data-state="UNCERTAIN"] .politicsUnitReturnState,.politicsUnitReturnNode[data-state="REPAIR"] .politicsUnitReturnState{color:#8a5d16}.politicsUnitReturnRepair,.politicsReturnAfterRepair,.politicsReturnToQuestion{font-size:10px;font-weight:760;color:var(--study-green);text-decoration:none}.politicsUnitReturnGuard{margin:12px 0 0;color:var(--study-faint);font-size:10px;line-height:1.55}.politicsUnitReturnContinue{margin-top:12px;padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:var(--study-green);font:inherit;font-size:11px;font-weight:800;cursor:pointer}.politicsReturnAfterRepair,.politicsReturnToQuestion{display:inline-block;margin:12px 12px 0 0}.politicsReturnAfterRepair::before,.politicsReturnToQuestion::before{content:'↳ ';color:var(--study-faint)}.politicsAttemptPersistenceError{margin-top:10px;padding:11px 12px;border:1px solid #d5b26f;border-radius:10px;background:#fffaf0}.politicsAttemptPersistenceError strong{font-size:11px;color:#7a5010}.politicsAttemptPersistenceError p{margin:3px 0 0;color:#7d6b4e;font-size:10px;line-height:1.55}
   @media(max-width:680px){.politicsUnitReturnNode{grid-template-columns:1fr auto}.politicsUnitReturnRepair{grid-column:1/-1}.politicsUnitReturnContinue{width:100%}}
 </style>
