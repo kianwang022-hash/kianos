@@ -3,7 +3,7 @@
 > **目标**：面对陌生题目，能独立写出一篇相关、完整、能推进、语言可控，并且按时交付的英文文本。  
 > **怎么用**：先看 Global Map。会的部分直接跳；只有真实不稳的地方才往下学。  
 > **Small / Big Writing**：共用同一条能力主干，只是任务形态不同。  
-> **更深内容**：长例子、旧版 Active Checks、边界情况和细分训练保存在 `learning.reference.md`，真正卡住时再下钻。
+> **更深内容**：长例子、边界情况和细分训练保存在 `learning.reference.md`，真正卡住时再下钻。
 
 ---
 
@@ -349,7 +349,7 @@ modifier 越挂越长？
 → 换简单但准确的词
 ```
 
-长期 lexical knowledge 由 LexicalOS 管；Writing 只需要知道当前输出在哪里卡住。
+如果长期总卡在某个词义、搭配或构式，那是词汇本身需要补，不在 Writing 里再背第二套词库。
 
 > **带走：先保证命题能稳定落地，再谈句子有多高级。**
 
@@ -672,7 +672,7 @@ Cold start 时，通常值得先各做一篇 synthetic Small / Big；目的是�
 
 # F｜更深内容什么时候再看
 
-`learning.reference.md` 保存更长的 examples、旧 Active Checks、Small / Big function detail、starter skills、edge cases 和更多 synthetic drills。
+`learning.reference.md` 保存更长的 examples、Small / Big function detail、starter skills、edge cases 和更多 synthetic drills。
 
 主文没有把它们删掉，只是不要求第一次学习全部背负。
 
@@ -735,18 +735,18 @@ Global Map
 
 下面开始不再是“该学什么”，而是系统怎样保护真实学习证据。
 
-这部分保留，是为了防止以后 UI / Runtime 把 Writing 重新做成打卡课；正常第一次学习可以直接跳到结尾。
+这部分保留，是为了防止以后页面和运行逻辑把 Writing 重新做成打卡课；正常第一次学习可以直接跳到结尾。
 
 核心边界只有几条：
 
 - 正式 attempt / review unit = **一篇完整作文**；
 - first meaningful plan + first draft 要保留，后改不能覆盖第一次证据；
-- PASS 是真实出口，不制造 cosmetic repair；
-- Chat diagnosis 先看整篇，再缩到最小独立 failure；
-- repair 的目标是 learner 自己重新生成，不是 Chat 代写；
+- PASS 是真实出口，不制造无意义修改；
+- 深诊断先看整篇，再缩到最小独立问题；
+- repair 的目标是自己重新生成，不是让 Chat 代写；
 - same-prompt rewrite = repair evidence，不是 mastery；
-- durable lexical knowledge 回 LexicalOS；
-- dormant transfer state 不应该在首页制造 attention debt。
+- 长期词汇知识回 LexicalOS；
+- 没有当前价值的后台状态不应该抢注意力。
 
 ---
 
@@ -765,7 +765,7 @@ Cold start 推荐进入真题前至少证明一次：
 
 会，就可以进入真题；不会，就回到最早失效的能力块。
 
-不要为了工程验收消耗 protected unseen true-exam。
+不要为了系统测试消耗 protected unseen true-exam。
 
 ---
 
@@ -797,7 +797,7 @@ REPAIR_COMPLETE
 
 只有 reusable / recurring / high-cost / still-unstable target 才值得形成后续观察。
 
-`TRANSFER_PENDING` 如果存在，只是 backend observation state：
+`TRANSFER_PENDING` 如果存在，只是后台 observation state：
 
 ```text
 pending target ≠ learner owes an action
