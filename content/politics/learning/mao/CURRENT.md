@@ -9,12 +9,12 @@ This file does not own Mao Source Truth, Politics-wide learning/interaction sema
 
 ## Work Cursor
 
-**Scope:** Mao whole-module continuation after fresh Learning Logic re-acceptance  
-**Accepted upstream state:** `S PASS / K PASS / L PASS`  
+**Scope:** Mao whole-module continuation after fresh Projection re-acceptance  
+**Accepted upstream state:** `S PASS / K PASS / L PASS / P PASS`  
 **Content closure:** `PASS` — supplemental content conclusion under K  
-**Earliest unresolved gate:** `P｜Projection`  
-**Blocker:** none in Source/Knowledge/Content/Learning Logic.  
-**Next action:** fresh Mao Projection acceptance. Check whether the approved Logic is actually surfaced with the right information hierarchy and surface ownership without exposing backend completeness as a second Chengfeng reader.
+**Earliest unresolved gate:** `R｜Runtime`  
+**Blocker:** none in Source/Knowledge/Content/Learning Logic/Projection.  
+**Next action:** execute Mao-specific Runtime journeys. Prove the real Mao learner path can move through Orientation → external Chengfeng study → return/closure → Xiao1000 → repair/return → continuation/resume without borrowing generic integration evidence as a Mao R PASS.
 
 ---
 
@@ -24,57 +24,51 @@ This file does not own Mao Source Truth, Politics-wide learning/interaction sema
 S  PASS
 → K  PASS
 → L  PASS
-→ P  UNTESTED   ← current gate
-→ R  UNTESTED   ← downstream-frozen
+→ P  PASS
+→ R  UNTESTED   ← current gate
 → E  UNTESTED   ← downstream-frozen
 → U  UNTESTED   ← learner-only
 ```
 
-Fresh L owner: `content/politics/learning/mao/learning-review.json`
+Fresh review owners:
 
-Fresh L disposition:
+- L → `content/politics/learning/mao/learning-review.json`
+- P → `content/politics/learning/mao/projection-review.json`
 
-```text
-C00–C08: 9 KEEP / 0 REPAIR / 0 BLOCKED
-```
-
-Passing L required no chapter rewrite. Current chapter assets already preserve the accepted subject teaching shape:
+Fresh dispositions:
 
 ```text
-historical / theoretical problem
-→ theory response
-→ causal or role relation
-→ confusable boundary
-→ next problem
-→ chapter compression
+L: C00–C08 = 9 KEEP / 0 REPAIR / 0 BLOCKED
+P: C00–C08 = 8 KEEP / C04 REPAIR / 0 BLOCKED
 ```
 
-The strongest attacks were C05 theory-name-list risk and C06 policy-inventory overload risk; both were rejected after fresh readback because Current already provides a learner hierarchy and defers source detail instead of making it the learning sequence.
+The P repair was narrow: C04-S01 accepted Content uses four parallel `answers[]`; generic Politics projection silently dropped them because it only understood a singular answer. `static-web/src/lib/politicsMaoProjection.mjs` now restores those answers at Projection without rewriting accepted Content/Logic.
+
+Executed P guard: Static Web Politics QA #536 (`34767639225`) → PASS, including `Audit Mao projection closure`, Current bindings and Astro build.
 
 ---
 
 ## Frozen upstream boundary
 
-Do not reopen S/K/Content/L merely because more detail can be added.
+Do not reopen S/K/Content/L/P merely because more detail or nicer UI can be added.
 
 ```text
 Chengfeng  continuous first-round mainline on iPad / MarginNote
 Suyi       compact framework / exactness / past-exam cross-check only
-KianOS     orientation / logic / boundary / compression / verification / repair companion
+KianOS     orientation / logic / selective projection / verification / repair companion
 Xiao1000   verification and transfer evidence
 ```
 
 Do not:
 
-- turn Mao JSON into a second Chengfeng textbook;
+- turn Mao JSON or Projection into a second Chengfeng textbook;
+- expose all `content_support` merely because it exists;
 - interpret P0 ownership as “everything must become active recall”;
 - promote every date, meeting, long formulation or table into first-round memory debt;
 - add mandatory Recall/checkpoint rituals for symmetry;
-- infer P/R/E from generic Politics runtime success;
+- infer Mao R/E from generic Politics runtime success;
 - infer learner progress from repository state;
-- rewrite valid Logic merely to create visible project activity.
-
-C04's accepted bounded provenance exception remains unchanged: the `《论十大关系》` passage is bound to the real chapter owner `POL27-CF-MAO-C04` rather than a fabricated child ID.
+- revisit P for visual polish before real learner/runtime evidence.
 
 ---
 
@@ -85,36 +79,40 @@ C04's accepted bounded provenance exception remains unchanged: the `《论十大
 - semantic review → `content/politics/learning/mao/semantic-review.json`
 - source review → `content/politics/learning/mao/source-review.json`
 - learning review → `content/politics/learning/mao/learning-review.json`
+- projection review → `content/politics/learning/mao/projection-review.json`
+- projection adapter → `static-web/src/lib/politicsMaoProjection.mjs`
 - scoped Acceptance Truth → `content/politics/learning/mao/ACCEPTANCE.md`
 - shared learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - shared interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
 
 ---
 
-## Projection target
+## Runtime target
 
-P must answer a different question from L:
+R must now prove behavior, not page structure:
 
-> **Given the accepted Logic and rich backend content, does the learner surface show only the right current cognitive action, in the right order, with Chengfeng remaining external-primary?**
+```text
+enter Mao chapter / Unit
+→ understand current action
+→ hand off to Chengfeng original surface
+→ return without losing Unit position
+→ optional closure when useful
+→ launch correct Xiao1000 set
+→ stable correct continues quickly
+→ Wrong/Uncertain enters smallest repair
+→ source repair returns to interrupted question
+→ next question / Unit
+→ interrupt + refresh restores meaningful Mao position/action
+```
 
-Fresh P should attack:
-
-1. chapter orientation hierarchy;
-2. current Natural Unit visibility / source locator;
-3. whether Logic spine is visible before precision detail;
-4. whether `content_support` stays progressively disclosed rather than dumped;
-5. whether the learner can leave for Chengfeng and return without losing position;
-6. whether question-bank controls or metadata compete with the main cognitive action;
-7. whether generic Politics Runtime accidentally forces a teaching shape that is wrong for Mao.
-
-P acceptance must not yet claim Mao-specific Runtime/Evidence behavior.
+Mao-specific R acceptance must be executed. Shared Politics Functional First is regression evidence only.
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-Current Mao assets and review dispositions under `content/politics/learning/mao/`.
+Current Mao assets and review dispositions under `content/politics/learning/mao/` plus its narrow projection adapter.
 
 ### Acceptance Truth
 `content/politics/learning/mao/ACCEPTANCE.md`
@@ -129,7 +127,7 @@ Private browser / Return Packet / conversation evidence only.
 ```text
 Mao CURRENT
 → Mao ACCEPTANCE
-→ learning-review.json
-→ begin at P
+→ projection-review.json
+→ begin at R
 → do not reopen accepted upstream gates without concrete evidence
 ```
