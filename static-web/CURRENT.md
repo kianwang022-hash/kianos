@@ -116,8 +116,8 @@ English
   English shell / Resume   OPTIMIZE
 
 Politics
-  learning projection      REBUILD projection / KEEP Logic
-  question workbench       MIGRATE interaction
+  learning projection      CLOSED / OPTIMIZE compiled Projection
+  question workbench       KEEP interaction core + visual OPTIMIZE
   refined explanation      BLOCKED only on bounded durable-role proof
 
 Xizong
@@ -137,8 +137,8 @@ Global
 Key receipts:
 - **English = Digital Workbook + Adaptive Coach.** Task/passage/prompt/output foreground; First Learning is skippable coaching/repair reservoir. Part B IA is protected.
 - **English preserves exam-native object integrity.** A real task/set stays visibly whole unless its native format requires staged disclosure. Reading A is one Passage + its full question set; Cloze remains one complete passage + all blanks; Reading B preserves its full matching/order structure; Translation and Writing preserve whole-source / whole-output workspaces. UI convenience must not fragment the authentic exam object into flashcards or a wizard flow.
-- **Politics learning:** keep `ORIENT → EXTERNAL_LEARN → RETURN/CLOSE → VERIFY → CONTINUE/REPAIR`; migrate mature chapters away from stacked long-document projection without forcing one subject template.
-- **Politics Workbench:** preserve prior 4173 Normal/Fast, `1–4`, fast-single correct→next, wrong→stay, `一句话带走`, answer delta, optional cause/note, AI-refined `理解这道题`, Current refs, collapsible Xiao original explanation, fixed/easy Next.
+- **Politics = closed Projection → Mac-wide productization.** UI/product design is frozen; 53 chapter / 160 NU derived Projection assets are compiled and guarded. Implementation must consume those assets, preserve `ORIENT → EXTERNAL_LEARN → RETURN/CLOSE → VERIFY → CONTINUE/REPAIR`, and must not re-infer subject grammar from raw Current.
+- **Politics Workbench:** preserve prior 4173 Normal/Fast, `1–4`, fast-single correct→next, wrong→stay, `一句话带走`, answer delta, optional cause/note, AI-refined `理解这道题`, Current refs, collapsible Xiao original explanation, fixed/easy Next. Visual modernization only; no new learner process.
 - **Xizong:** keep System→Block→Logic Group→MarginNote Lecture→KP Recall→Block Recall and current `←/→ + Space + 1–4` KP core. Optimize typography/chrome; add `Enter = Mastered + next` after Reveal; do not allow hidden-answer keyboard rating.
 - **Lexical:** keep current low-friction routing/Depth/Challenge grammar. Optimize only learner-facing presentation; demote packet/evidence/debug language.
 - **Global Home:** keep simple four-lane navigation, but rebuild the entry around meaningful Continue / identity / learner action rather than Runtime/build health. Functional Home is part of the website baseline; only final brand/identity polish waits until the end.
@@ -148,6 +148,8 @@ Key receipts:
 Historical 1148-record refined explanation asset is pinned by SHA256 `e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec`; old runtime exposes it as `question_explanation`. Existing Recovery Contract requires bounded real Local/Study durable-role proof before Current promotion.
 
 This does **not** block unrelated UI work. Current may never hidden-fetch/fallback to old snapshot/recovery/local runtime. Old due/mastery/scheduler/owner semantics do not return.
+
+Politics UI/product implementation must follow `static-web/POLITICS_PRODUCT_STATUS.md` and `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`.
 
 ### Lexical concurrency boundary
 
@@ -347,99 +349,3 @@ Primary work chrome should remain approximately:
 ```
 
 Reset / History / provenance / debug do not compete with the learner task. Reset/history may live behind secondary controls; provenance/debug stay off the normal learner surface.
-
-### Forbidden
-
-- no semantic diff to English Objective Logic/content/evidence.
-- no new mastery/transfer meaning.
-- no answer leakage during clean attempt.
-- no one-question-at-a-time paging/wizard as the primary Reading A projection.
-- no top Question Nav whose existence is required only because non-active questions are hidden.
-- no generic Markdown/card redesign.
-- no giant dashboard/status header.
-- no tiny-text aesthetic.
-- no Reading-local dictionary or duplicated Lexical semantic truth.
-- no learner-state mutation from a mere lexical lookup.
-- do not touch Part B IA merely to make it match Reading A.
-
-### Reading A acceptance target
-
-A successful Reading A Gold surface should feel like **a very good digital exam workbook, not a learning dashboard or step-by-step quiz wizard**:
-
-```text
-open passage + full question set
-→ read / locate / compare naturally across the whole set
-→ answer with almost no UI friction
-→ scroll as needed without mode switching
-→ submit the whole passage
-→ stable = leave/continue quickly
-→ problem = reveal the smallest useful review in place
-```
-
-The learner should notice the Passage and its complete set of questions before noticing KianOS itself.
-
----
-
-## English family discussion order｜ACTIVE
-
-Continue product discussion in this order, without opening implementation yet:
-
-```text
-1 English Home / Resume / navigation
-2 Cloze
-3 Part B
-4 Translation
-5 Writing
-6 First Learning / targeted intervention surfaces
-7 family-level shell / return / Lexical handoff reconciliation
-8 freeze English family
-9 Stage 3 Codex implementation begins with Reading A
-```
-
-Reading A is already frozen enough for implementation; do not reopen it unless a later family-level shell dependency genuinely requires a change.
-
----
-
-## Whole-site sequencing after English brief
-
-```text
-Functional Site Shell / Home baseline is already required
-→ English family implementation + acceptance
-→ Politics family product brief + implementation
-→ Xizong family product brief + implementation
-→ Lexical presentation after its Current runtime is safe
-→ Global Home / identity final polish + cross-site acceptance
-```
-
-The final step is **polish and whole-site acceptance**, not the first creation of Home.
-
----
-
-## Legacy firewall
-
-```text
-raw Legacy
-→ Sol exact recovery + reconciliation
-→ Current-facing brief OR promoted Current asset
-→ Codex implementation
-```
-
-Never `Current runtime → hidden old repo/branch/localhost/stale owner fallback`.
-
-Issue #38 / `visual-language-v01` and closed PR #93 are superseded historical references only.
-
----
-
-## Fresh-Chat restart
-
-When Kian says `继续 KianOS 总 UI` or `读取 GitHub 最新 UI 任务`:
-
-```text
-main@HEAD
-→ static-web/CURRENT.md
-→ Stage 2 PRODUCT BRIEF — COMPLETE SITE + ENGLISH FAMILY
-→ continue the next unresolved English family surface
-→ do not open implementation until the English family brief is frozen
-```
-
-Do not reconstruct current work from old Issues, old Chats, historical branches or raw Legacy when this Current resolves the task.
