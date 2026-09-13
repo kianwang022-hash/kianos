@@ -1,4 +1,4 @@
-name: Lexical Semantic Audit Router Work
+name: Lexical Semantic Audit Compact Work
 
 on:
   push:
@@ -9,39 +9,71 @@ permissions:
   contents: write
 
 jobs:
-  route:
-    if: ${{ !contains(github.event.head_commit.message, '[router-output]') }}
+  compact:
+    if: ${{ !contains(github.event.head_commit.message, '[compact-output]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: audit-semantic-router-v1
           fetch-depth: 1
-      - name: Router self-test
-        run: node content/lexical/tools/semantic-audit-risk-router.mjs --self-test
-      - name: Generate first 650-owner audit window
-        run: |
-          node content/lexical/tools/semantic-audit-risk-router.mjs \
-            --start 25 \
-            --end 674 \
-            --source-head "$GITHUB_SHA" \
-            --handoff content/lexical/semantic-review/o0025-o0124.md \
-            --handoff content/lexical/semantic-review/o0125-o0224.md \
-            --handoff content/lexical/semantic-review/o0225-o0324.md \
-            --handoff content/lexical/semantic-review/o0325-o0474.md \
-            --handoff content/lexical/semantic-review/o0475-o0674.md \
-            --output content/lexical/semantic-audit/manifests/o0025-o0674.risk.json \
-            --audit-view-output tmp/lexical-audit/o0025-o0674.blind.jsonl
-      - name: Summarize first window
+      - name: Build blind semantic digest chunks
         run: |
           node - <<'NODE'
-          const m = JSON.parse(require('fs').readFileSync('content/lexical/semantic-audit/manifests/o0025-o0674.risk.json','utf8'));
-          console.log(JSON.stringify({owner_count:m.owner_count,unique_mandatory_owner_count:m.unique_mandatory_owner_count,simple_candidate_count:m.simple_candidate_count,simple_deep_sample_count:m.simple_deep_sample_count,simple_deep_sample_ordinals:m.simple_deep_sample_ordinals,mandatory_strata_counts:m.mandatory_strata_counts,risk_family_counts:m.risk_family_counts},null,2));
+          const fs=require('fs'), path=require('path');
+          const src='tmp/lexical-audit/o0025-o0674.blind.jsonl';
+          const rows=fs.readFileSync(src,'utf8').trim().split('\n').map(JSON.parse).filter(x=>x.type==='owner');
+          const clean=s=>String(s??'').replace(/\s+/g,' ').replace(/\|/g,'／').trim();
+          const arr=x=>Array.isArray(x)?x:[];
+          const briefRel=x=>{
+            if(!x||typeof x!=='object')return clean(x);
+            return clean([x.target_word,x.relation_type,x.boundary,x.shared_definition,x.pattern,x.definition_en,x.meaning_cn,x.source_sense_id,x.target_sense_id].filter(Boolean).join(' ~ '));
+          };
+          function identity(o){
+            const hit={};
+            const re=/(case|spell|orthograph|variant|alias|pronunc|phonetic|ipa|stress|deprecated|reference|lifecycle|identity)/i;
+            for(const [k,v] of Object.entries(o||{}))if(re.test(k)&&v!=null&&!(Array.isArray(v)&&!v.length)&&v!=='')hit[k]=v;
+            return clean(JSON.stringify(hit));
+          }
+          function line(r){
+            const o=r.owner||{}, c=o.core_concept||{};
+            const core=clean([c.core_meaning_en,c.core_meaning_cn,...arr(c.core_clusters).map(x=>`cluster:${clean(x.label_en||x.label_cn)}[${arr(x.sense_ids).join(',')}]`)].filter(Boolean).join(' ; '));
+            const senses=arr(o.senses).map(s=>{
+              const cols=arr(s.collocations).map(x=>`${clean(x.phrase)}{${clean(x.exam_value)}}`).filter(Boolean).join(', ');
+              return `${clean(s.level)} ${clean(s.pos)} ${clean(s.sense_id)} :: ${clean(s.definition_en)} / ${clean(s.definition_cn)}${s.governing_pattern?` ; pattern=${clean(s.governing_pattern)}`:''}${cols?` ; colloc=${cols}`:''}`;
+            }).join(' || ');
+            const cons=arr(o.constructions).map(x=>`${clean(x.pattern)} => ${clean(x.definition_en)} / ${clean(x.meaning_cn)} [${clean(x.level)}]`).join(' || ');
+            const conf=arr(o.confusables).map(briefRel).join(' || ');
+            const neigh=arr(o.semantic_neighbors).map(briefRel).join(' || ');
+            const fam=arr(o.word_family).map(briefRel).join(' || ');
+            const sec=arr(o.secondary_senses).map(briefRel).join(' || ');
+            const para=arr(o.exam_paraphrases).map(briefRel).join(' || ');
+            const deps=arr(r.dependencies).map(d=>`${clean(d.ref)}=>${clean(d.word)}${d.referenced_sense?`:${clean(d.referenced_sense.definition_en)}/${clean(d.referenced_sense.definition_cn)}`:''}`).join(' || ');
+            return [
+              `### o${String(r.ordinal).padStart(4,'0')} ${clean(r.word)}`,
+              `META: op=${clean(r.production_operation)} quality=${clean(r.production_quality)} depth=${clean(r.machine_min_depth)} strata=${arr(r.mandatory_strata).join(',')} flags=${arr(r.risk_flags).join(',')} sample=${r.simple_deep_sample?'YES':'NO'}`,
+              `CORE: ${core||'∅'}`,
+              `SENSES: ${senses||'∅'}`,
+              `CONSTRUCTIONS: ${cons||'∅'}`,
+              `CONFUSABLES: ${conf||'∅'}`,
+              `NEIGHBORS: ${neigh||'∅'}`,
+              `WORD_FAMILY: ${fam||'∅'}`,
+              `SECONDARY: ${sec||'∅'}`,
+              `PARAPHRASES: ${para||'∅'}`,
+              `IDENTITY: ${identity(o)||'{}'}`,
+              `DEPENDENCIES: ${deps||'∅'}`,
+              ''
+            ].join('\n');
+          }
+          const dir='tmp/lexical-audit/compact';fs.rmSync(dir,{recursive:true,force:true});fs.mkdirSync(dir,{recursive:true});
+          const size=20;
+          for(let i=0;i<rows.length;i+=size){const g=rows.slice(i,i+size);const a=String(g[0].ordinal).padStart(4,'0'),b=String(g[g.length-1].ordinal).padStart(4,'0');fs.writeFileSync(path.join(dir,`o${a}-o${b}.md`),g.map(line).join('\n'));}
+          console.log(`WROTE ${rows.length} owners into ${Math.ceil(rows.length/size)} chunks`);
           NODE
-      - name: Commit generated first-window work products
+      - name: Commit compact blind work products
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/lexical/semantic-audit/manifests/o0025-o0674.risk.json tmp/lexical-audit/o0025-o0674.blind.jsonl
-          git commit -m "chore(lexical): route audit window o0025-o0674 [router-output]"
+          git add tmp/lexical-audit/compact
+          git commit -m "chore(lexical): compact blind audit view [compact-output]"
           git push origin HEAD:audit-semantic-router-v1
