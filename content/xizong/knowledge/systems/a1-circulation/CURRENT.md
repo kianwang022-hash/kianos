@@ -10,9 +10,9 @@ This file does not own medical Core, lane learning semantics, Acceptance Truth, 
 ## Work Cursor
 
 **Scope:** A1 — Circulation  
-**Active engineering stage:** fresh **Evidence / Acceptance** re-acceptance  
-**Blocker:** none through Runtime  
-**Next action:** fresh-audit A1 evidence semantics and storage behavior: repeated Recall attempts, repair≠mastery, Wrong/Uncertain routing, reviewed-only precise repair, holdout protection, stale/version invalidation, repair inbox return, and malformed-state containment. Stop before U.
+**Active engineering stage:** fresh **Runtime Loop revalidation** after a shared Runtime contract change  
+**Blocker:** latest Runtime must be re-executed before E can continue  
+**Next action:** run the standard Xizong QA against the current Runtime after retiring the redundant Block-level Lecture confirmation. Require the real A1 browser journey to pass on the current code, then restore R fresh PASS and resume E. Stop before U.
 
 Current fresh progress:
 
@@ -22,8 +22,8 @@ K        RE-ACCEPTED after semantic repair
 L        RE-ACCEPTED
 Content  CLOSED
 P        RE-ACCEPTED after Projection repair
-R        RE-ACCEPTED by executed browser journey
-E        ACTIVE fresh attack
+R        REVALIDATION ACTIVE after post-P Runtime simplification
+E        PAUSED behind current-R execution
 U        real learner only / external workflow
 ```
 
@@ -31,83 +31,88 @@ U        real learner only / external workflow
 
 ---
 
-## R closure receipt
+## Why R is temporarily re-opened
+
+A prior real-browser journey closed R on the then-current Runtime:
+
+- QA #355 / run `34769821351` → SUCCESS;
+- `xizong-a1-browser-runtime` artifact passed 39 executed checks.
+
+That evidence remains valid for the version it tested, but the shared Runtime has since changed in one material way:
+
+> Logic Group Lecture contact already records formal contact for every owned KP, so the old extra Block-level `原讲义一轮 · 已确认` checkbox was redundant and has been retired.
+
+Current Block completion remains fail-closed on the actual evidence chain:
+
+```text
+all Logic Group formal Lecture contacts
+→ all KP Recall evidence
+→ Block Recall
+→ Block Complete
+```
+
+There is no longer a second manual Block-level Lecture confirmation for the same learning event.
+
+Because this changes a completion prerequisite, the old QA #355 green result cannot by itself certify the new Runtime. Fresh R is therefore re-opened only for execution on the current code; S/K/L/Content/P are not reopened.
+
+---
+
+## R defects already repaired during this fresh cycle
+
+1. **Logic Group premature closure**  
+   Rating the final-position KP could previously close a Logic Group while an intermediate KP remained unrecalled. Runtime now finds the first missing Recall ID and refuses closure until every KP in the current Logic Group has Recall evidence.
+
+2. **stale keyboard transition**  
+   The old Enter shortcut still targeted the retired per-KP learning button. It now follows the current Logic Group Lecture handoff/return transition.
+
+3. **duplicate Block-level Lecture confirmation**  
+   Each Logic Group already requires explicit original-Lecture contact before Recall. Requiring a second Block-level Lecture confirmation duplicated the same evidence and added friction. The duplicate checkbox/guard was removed; completion still requires complete formal-contact + Recall + Block Recall evidence.
 
 Durable executable journey:
 
 `static-web/scripts/test-xizong-a1-browser-journey.mjs`
 
-It starts Astro preview + headless Chrome through CDP and exercises real DOM/localStorage transitions.
+The current journey must verify at least:
 
-Two real Runtime defects were found before closure:
-
-1. **Logic Group premature closure** — rating the final-position KP could close a group despite an unrecalled middle KP. Fixed by returning to the first Recall gap and allowing closure only when every current-group KP has Recall evidence (`83b2ffbd313557451e4ec8fb454236d331b160d4`).
-2. **Block completion transient false-ready state** — Block runtime and enhancer competed over the completion button. `XizongBlockV6.canComplete()` now directly requires all KP formal contact + all KP Recall + Block Recall + original-Lecture one-pass confirmation (`2e5cde38fee9d78f9a0841fa766b6d3e3696d05f`).
-
-QA #354 exposed a test-only obsolete System Recall selector; the browser assertion was reconciled to the actual closed-dialog semantics without weakening product guards.
-
-### Final executed Runtime evidence
-
-**QA #355 / run `34769821351` → SUCCESS**.  
-Artifact: `xizong-a1-browser-runtime`, digest `sha256:ecf94930ba888e8cafca1fc8f7b8ab89f6feb8a24aa768dc38dcdcacbd2d3e00`.
-
-Executed Chrome journey passed **39 checks**, including:
-
-- clean Block start with no manufactured completion;
-- Block → Logic Group → continuous original-Lecture stage;
-- no implicit learning evidence merely from entering a group;
-- early KP Recall and early `Reveal Core` rejection;
-- current-group-only formal learning contact (`4/19` for first B2 group);
-- first Recall persistence and mid-group refresh/resume;
-- all-KP requirement before Logic Group closure;
-- B2 **19/19 learned + 19/19 recalled** before Block Recall;
-- Block-complete lock before Block Recall and before original-Lecture confirmation;
-- Block completion persistence across refresh;
-- Home Continue returning to `/xizong/circulation/b02/`;
-- early System Recall dialog remains closed and writes no evidence;
-- all-12-Blocks engineering fixture releases System Recall;
-- System Recall reveal/completion persists;
-- A1 official sweep resolves **376 questions**;
-- explicit whole-paper holdout required before sweep;
-- saved holdout unlocks question workspace;
-- malformed Block state falls back to clean orientation and manufactures no progress.
-
-Evidence class: `EXECUTED_HEADLESS_CHROME_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U`.
-
-Fresh R verdict: **PASS**.
+- clean start and zero manufactured progress;
+- Logic Group → external original Lecture → group Recall/closure;
+- early Recall/Reveal/Block Recall failure;
+- all-group formal contact and complete KP Recall before Block Recall;
+- Block completion directly after valid Block Recall, with no duplicate Lecture checkbox;
+- refresh/resume and Home Continue;
+- System Recall gating before/after all 12 Blocks;
+- holdout requirement before official sweep;
+- malformed state fail-closed.
 
 ---
 
-## Active E fresh-audit contract
+## E boundary after R revalidates
 
-Fresh E must prove evidence semantics, not merely that Runtime can click through.
+Fresh E then resumes immediately and must prove:
 
-Required invariants:
+1. repeated real Recall attempts are preserved rather than overwritten;
+2. repair evidence is repair-only, never mastery;
+3. stable-correct question work creates no repair debt;
+4. only Wrong / Uncertain enters repair routing;
+5. precise Question→Block/KP repair uses reviewed relations only;
+6. full-paper holdout stays excluded from ordinary System sweep evidence;
+7. stale Block/System versions invalidate or quarantine incompatible evidence;
+8. System→Block repair inbox is write-before-clear, idempotent and cross-tab safe;
+9. repair return does not rewrite original Recall/question evidence;
+10. malformed evidence/state fails closed.
 
-1. every real KP Recall attempt can be preserved as evidence, including repeated attempts / repeated same rating;
-2. the latest convenience state may update, but it must not erase the historical attempt record when that history is required;
-3. repair evidence is **repair-only**, never mastery;
-4. stable-correct question work must not manufacture repair debt;
-5. only Wrong / Uncertain question evidence enters repair routing;
-6. precise Question→Block/KP repair uses reviewed relations only; absent reviewed relation must remain unresolved rather than guessed;
-7. full-paper holdout remains excluded from ordinary System sweep evidence;
-8. stale Block/System content versions invalidate or quarantine incompatible evidence rather than silently reusing it;
-9. System→Block repair inbox is write-before-clear, idempotent, and works for already-open Block tabs;
-10. repair return must not rewrite original Recall/question evidence;
-11. malformed evidence/state must fail closed without creating mastery/progress.
-
-Use existing shared A2/A3 evidence architecture as prior evidence only; fresh A1 must inspect/execute the relevant current owners before E closes.
+Existing A1/A2/A3 evidence validators and prior runs are evidence inputs, not automatic fresh-E PASS.
 
 ---
 
-## Frozen while E is active
+## Frozen until current R execution passes
 
-- no medical Content rewrite without an evidence-discovered semantic contradiction;
-- no UI polish expansion;
+- no medical Content rewrite;
+- no visual polish expansion;
 - no Question→KP inference;
 - no U execution or U claim;
 - no synthetic learner progress;
-- no sibling-System edits except strictly necessary shared evidence-contract regression repair.
+- no sibling-System edits except a strictly necessary shared Runtime/Evidence regression fix.
 
 ---
 
@@ -136,8 +141,8 @@ Private learner/browser/conversation evidence only.
 
 ```text
 A1 CURRENT
-→ exact Evidence owners + existing evidence validators
-→ adversarial / executed A1 evidence audit
-→ PASS: stop engineering before U
-→ FAIL: repair smallest responsible Evidence owner
+→ current Runtime owners + browser journey
+→ execute latest Runtime
+→ R PASS: resume E
+→ E PASS: stop before U
 ```
