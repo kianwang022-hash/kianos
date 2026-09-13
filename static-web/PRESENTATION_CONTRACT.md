@@ -230,6 +230,158 @@ Horizontal space exists to clarify cognition, not to maximize visible widgets.
 
 ---
 
+## 7A｜High-frequency input grammar
+
+KianOS should develop **stable muscle memory by semantic surface type**. Do not make every subject invent its own keyboard language, and do not force one global key meaning across genuinely different cognitive objects.
+
+General rules:
+
+- frequent learner actions should be reachable without pointer travel or confirmation ceremony;
+- shortcuts must be visibly discoverable on the active surface, but the hint stays subordinate;
+- `input`, `textarea`, `select`, editable text and other focused authoring controls suspend global learning shortcuts;
+- a focused spatial interaction may temporarily own arrow keys; on exit, the enclosing surface regains them;
+- a clean correct action should not require a second confirmation unless the task itself is multi-select or otherwise ambiguous;
+- Wrong / meaningful Uncertain should interrupt auto-advance and open the smallest useful Repair / explanation surface;
+- visual feedback may be brief; it must not become a modal checkpoint.
+
+### Recall / KP / memory surface
+
+Default shared grammar:
+
+```text
+Space      Reveal / hide the answer or model
+1          1 · 没掌握
+2          2 · 模糊
+3          3 · 熟练 / 基本稳定
+4          4 · 掌握
+Enter      commit the selected score and continue
+← / →      previous / next Recall or KP
+```
+
+Low-friction stable path:
+
+- if no lower score has been explicitly selected and the current Recall/KP is eligible for a clean pass, `Enter` may act as **Mastered / pass + next**;
+- if `1–4` was explicitly selected, `Enter` commits that learner judgment and advances;
+- Reveal is optional when the learner already knows the answer confidently; the applicable domain Evidence contract still owns what that learner action means.
+
+This input grammar does not create a universal numeric mastery model. `1–4` is learner interaction shorthand; domain Evidence/Memory semantics remain authoritative.
+
+### Standard question surface
+
+For ordinary exam-like A–D questions:
+
+```text
+1 / 2 / 3 / 4  = A / B / C / D
+Enter           = confirm / submit when confirmation is required
+```
+
+Normal mode:
+
+- single choice: `1–4` or click selects; `Enter` confirms;
+- multiple choice: `1–4` toggles A–D; `Enter` confirms.
+
+Fast mode:
+
+- single choice: the first valid `1–4` keypress or option click **submits immediately**;
+- stable correct → brief subordinate feedback → next question without another Enter;
+- Wrong or meaningful Uncertain → stay on the question and open the bounded explanation / Repair surface;
+- multiple choice still requires `Enter`, because selection is not complete until the learner says it is complete.
+
+Fast mode must never turn a wrong answer into a blink-and-skip interaction merely to maximize throughput.
+
+### Lexical whole-card routing
+
+LexicalOS uses the same increasing-familiarity numeric direction, but this is **card routing**, not Recall scoring:
+
+```text
+1  Unknown  → Depth
+2  Fuzzy    → Depth
+3  Known    → Fast Pass / Next
+4  Mastered → Fast Pass / Next
+```
+
+The card-level judgment controls whether the whole lexical object deserves Depth **now**. It must not by itself create future Repair debt.
+
+This aligns with `content/lexical/LEARNING_CONTRACT.md`: Known/Mastered should be near-instant pass paths; Unknown/Fuzzy may open rich Depth; local instability is admitted separately.
+
+### Lexical Depth
+
+The current proven low-friction vocabulary grammar is retained as the direction for productization:
+
+```text
+Space      Recall → Reveal; after Reveal, when no nested control owns Space, continue / Next
+↑ / ↓      move the local target focus
+→ / +      add the focused exact local object to Repair
+←          undo / remove that local Repair admission
+S          pronunciation
+```
+
+`+` remains exact-object admission: sense / secondary sense / construction / collocation / phrase / relation / boundary / other learner-worthy local object. It must not silently promote the whole word into Repair.
+
+### Lexical Challenge spatial exception
+
+Lexical vNext may use a spatial forced-choice surface when spatial placement itself reduces decision friction:
+
+```text
+← / ↑ / → / ↓  answer the visible spatial option directly
+Q              report a question defect
+Space / Enter  continue after scored feedback or enter the required reconstruction
+```
+
+This is an explicit semantic exception, not permission for arbitrary key drift. It is valid only when the active Challenge visibly presents options in the matching spatial positions and does not masquerade as an A–D exam question.
+
+If a Lexical Challenge is rendered as ordinary A–D choices, it should use the standard question grammar instead.
+
+### Conflict rule
+
+Shortcut ownership follows the **active semantic object**:
+
+```text
+Recall / KP active        → Recall grammar
+A–D Question active       → Question grammar
+Lexical Depth target active → Depth grammar
+Spatial Challenge active  → spatial Challenge grammar
+text field focused        → typing wins; learning shortcuts suspended
+```
+
+Do not solve conflicts by adding modifier-key rituals. Resolve them through clear active state and visible affordance.
+
+---
+
+## 7B｜Legacy reference firewall
+
+Legacy may be consulted when it contains a demonstrably better interaction, layout, test, or recoverable content candidate. It is **evidence / reference only** unless a Current owner explicitly promotes reconciled material.
+
+Hard firewall:
+
+```text
+Current Truth
+→ may consult bounded legacy evidence
+→ re-implement / reconcile against Current contracts
+→ materialize accepted result in Current
+
+NOT
+
+Current runtime
+→ fetch / fall back / link directly into historical branches, legacy repos,
+  old schedulers, generated workbenches or stale semantic owners
+```
+
+Rules:
+
+1. learner-facing Current runtime must not depend on a legacy repository path, historical branch, old localhost path, or historical generated asset as a hidden fallback;
+2. a useful legacy **interaction** may be reproduced near-1:1, but its data must bind to Current canonical truth, Current identity, Current evidence semantics and Current surface ownership;
+3. useful legacy **content/data** must be exactly recovered, reconciled and deliberately promoted before it becomes Current learner material;
+4. legacy scheduler/due logic, mastery semantics, routes, owner hierarchies or state machines do not return merely because the old UI used them;
+5. no “Current missing → silently show old asset” behavior is allowed on the learner surface;
+6. historical repository/commit/path references are allowed in governance notes, provenance and bounded tests; they are not runtime APIs;
+7. once useful behavior or content is reconciled into Current, the Current owner becomes the durable source. The historical copy remains provenance/reference only;
+8. any deliberate compatibility migration must be one-way, explicit, testable and semantically bounded. It may not establish the legacy store as a second live owner.
+
+The purpose of consulting Legacy is to avoid throwing away proven good interaction—not to reopen historical architecture or let asset drift leak back into the learner system.
+
+---
+
 ## 8｜Dense Calm visual behavior
 
 The KianOS work/content surface should optimize for long, high-frequency cognitive work:
@@ -287,6 +439,8 @@ Before a learner-facing KianOS web path may claim mature Projection quality, ver
 9. meaningful framework/relation content is visually represented rather than buried in undifferentiated prose when a structural representation is justified;
 10. typography and density support sustained work without tiny-text / giant-whitespace pseudo-minimalism;
 11. global navigation and status chrome do not dominate the Cognitive Stage;
-12. the same domain semantics would remain correct if the specific Astro components were replaced.
+12. the same domain semantics would remain correct if the specific Astro components were replaced;
+13. high-frequency actions follow the shared input grammar unless a visible semantic exception is justified;
+14. learner runtime has no hidden Legacy fallback or historical asset dependency.
 
 A screenshot, pretty component set, or successful build cannot by itself satisfy this contract. Real learner U remains governed by `LEARNING_ACCEPTANCE.md`.
