@@ -1,11 +1,11 @@
 # Politics Mao — Cognitive Projection Design
 
-Status: BATCH DESIGN CANDIDATE — CURRENT-GROUNDED / KIAN ACCEPTANCE PENDING  
+Status: ACCEPTED GRAMMAR — KIAN APPROVED  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current subject owner: `content/politics/learning/mao/`
 
-This file records a bounded learner-visible design candidate derived from Current Mao assets. It does not change Mao Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
+This file records the accepted learner-visible Cognitive Projection grammar derived from Current Mao assets. It does not change Mao Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
 
 ---
 
@@ -46,7 +46,7 @@ Current chapter logic:
 → 三大法宝
 ```
 
-### S01 candidate geometry
+### S01 accepted geometry
 
 Use a horizontal decision chain rather than prose blocks:
 
@@ -64,7 +64,7 @@ Keep the decisive boundary directly visible at lower weight:
 ≠ 单看谁来领导
 ```
 
-### S02 candidate geometry
+### S02 accepted geometry
 
 Use a role matrix because the Current problem is explicitly “怎样放在一张结构图里而不串帽子”:
 
@@ -88,7 +88,7 @@ Directly visible boundaries:
 新民主主义共和国 = 过渡形式 ≠ 社会主义国家本身
 ```
 
-### S03 candidate geometry
+### S03 accepted geometry
 
 Separate “road” from “three magic weapons” rather than putting four equal cards beside each other:
 
@@ -112,7 +112,7 @@ Boundary:
 
 C04-S01 proves Mao also needs a parallel-response shape. Current owns four accepted answer branches around one historical problem.
 
-Candidate Mac geometry:
+Accepted Mac geometry:
 
 ```text
 共同问题：社会主义制度建立后，中国自己的建设道路怎样走？
@@ -137,7 +137,7 @@ Directly visible boundaries may include only Current-owned high-value distinctio
 
 ---
 
-## Mao Natural Unit grammar — CANDIDATE
+## Mao Natural Unit grammar — ACCEPTED
 
 A Mao Natural Unit may project:
 
@@ -161,5 +161,3 @@ Rules:
 - source-heavy detail remains on Chengfeng iPad/MarginNote;
 - no new mandatory recall or diagnosis step is introduced;
 - question verification uses the preserved historical Politics Workbench.
-
-This candidate requires Kian acceptance before being marked frozen.
