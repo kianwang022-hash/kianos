@@ -4,68 +4,113 @@ Status: CURRENT
 Standard: root `LEARNING_ACCEPTANCE.md`  
 Role: Politics lane-wide integration Acceptance Truth
 
-This file owns only genuine **Politics-wide integration/readiness claims** that are broader than one independently continued subject.
-
-It does not own political Source Truth, lane learning/interaction semantics, subject-scoped readiness, teaching projection, runtime code, Work Cursor, or Kian's private learner progress.
+This file owns only genuine **Politics-wide integration/readiness claims** broader than one independently continued subject. It does not own Source Truth, lane learning semantics, subject-scoped readiness, teaching content, runtime code, Work Cursor, or private learner progress.
 
 ---
 
 ## Scoped Acceptance owners
 
-Current independently continued subjects own their own readiness evidence:
-
 | Scope | Acceptance owner | Current headline |
 | --- | --- | --- |
-| Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | K03 S–E PASS / U UNTESTED; whole-subject formal gates not accepted; executed content-closure red preserved locally |
-| History | `content/politics/learning/history/ACCEPTANCE.md` | whole-subject S/K/L/P/R/E/U remain UNTESTED pending dedicated executable gates |
+| Marxism | `content/politics/learning/marxism/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; current path `U UNTESTED`; C00 remains the presentation reference path |
+| History | `content/politics/learning/history/ACCEPTANCE.md` | whole-subject `S/K/L/P/R/E PASS`; `U UNTESTED` |
 
-The table is routing only. Local subject files are the canonical evidence ledgers and detailed evidence must not be copied back here.
+The table is routing only. Subject evidence remains in the local owner.
 
 ---
 
-## Lane-wide readiness
+## Politics-wide integration｜Functional First Version
 
-No separate whole-Politics S/K/L/P/R/E/U claim is currently asserted by this owner.
+**Status: PASS — technically ready for real learner use; U is not claimed.**
 
-A Politics-wide Acceptance claim belongs here only when there is a real cross-subject learner journey or integration property that cannot truthfully be established by subject owners independently, for example:
+Accepted canonical journey:
 
-- Politics home/navigation integration;
-- cross-subject Continue / Return behavior;
-- whole-paper / Mock transfer across subjects;
-- another genuinely shared learner-facing path supported by executed evidence.
+```text
+enter chapter → locate Natural Unit / current action
+→ Chengfeng on original iPad/MarginNote surface
+→ return / close when useful → Xiao1000 clean attempt
+→ stable correct fast continuation
+   OR Wrong/Uncertain → smallest repair → owning source
+   → return to interrupted question / Unit
+→ next question / Unit → interrupt → resume real position/action
+```
 
-Do not aggregate Marxism/History child gates into a synthetic whole-lane score merely because the data is available.
+This acceptance is intentionally functional, not visual. It does not require a unified Politics page appearance and does not authorize a second Chengfeng reader.
+
+### Executed evidence
+
+Tested runtime head: `42f8501ab5f59d23aeff157cecf959d5879e2909`
+
+**Static Web Politics QA**
+- run #485 (`34752661629`) → **PASS**
+- canonical coverage, Xiao routing, scoped source loading, History content/runtime/evidence, Marxism content/semantics/C00 workspace, K03/Marxism R/E, Current bindings and production Astro build all passed.
+
+**Politics Functional First Journey**
+- run #3 (`34752661632`) → **PASS**
+- artifact: `politics-functional-journey-bbfc412ee29730ae9028da1bc862688f8ea2a784`
+- Evidence mode: **EXECUTED + ADVERSARIAL**
+- Independence: **SELF**
+
+Executed browser checks prove:
+
+1. **Clean path / no false debt** — History C01 completed an eight-question first-ready Unit cleanly; first attempts persisted as `STABLE`, Unit Return appeared, `STABLE` remained this-pass evidence rather than mastery, and no Wrong/Uncertain handoff event was manufactured.
+2. **Meaningful resume** — after one completed question and advancement to the next, refresh restored the real pending question; first-attempt truth remained intact; Politics Home Continue targeted that question anchor rather than reopening only the chapter shell.
+3. **Wrong/Uncertain repair-return** — a real Wrong first attempt persisted, source repair saved `REPAIR_SOURCE`, the source surface exposed an explicit return to the interrupted question, and refresh restored the result + repair without overwriting the immutable first attempt.
+4. **C00 canonical state path** — C00 moved `EXTERNAL_LEARN → VERIFY` without forced Recall; Wrong entered `REPAIR`; repair moved into the Inspector; source repair entered `EXTERNAL_LEARN`; return restored `REPAIR`; refresh restored both repair state and repair content.
+5. **Teaching-shape non-overfit smoke** — Xi C00 still used the generic Politics Runtime with Natural Units and external-primary Chengfeng handoff.
+
+### Functional ownership closure
+
+- `kianos-politics-attempts-v1` owns immutable first-attempt snapshot evidence used for Unit Return and resume rehydration.
+- `kianos-politics-evidence-v1` remains Wrong/Uncertain handoff evidence; clean stable work does not enter it by default.
+- `kianos-politics-last-location-v1` now carries private learner cursor information sufficient to resume meaningful Unit/action/question position.
+- Source/repair metadata remains attached to the repair/evidence path and does not create new learning order or mastery.
+- Generic Politics Runtime and Marxism C00 may present differently while preserving the same canonical learner semantics.
+
+### Strongest falsification encountered
+
+The first browser run failed after C00 correctly moved repair DOM from the question card into the Inspector. The harness incorrectly searched the old card location. That failure was diagnosed as a **test assumption defect**, so only the harness was corrected; Runtime semantics were not weakened to satisfy the test. The full journey then passed.
+
+---
+
+## U boundary
+
+```text
+Functional First technical integration: PASS
+Real Kian learner validation:             UNTESTED on this frozen FFFV
+```
+
+Synthetic browser execution proves technical readiness for real study, not User Validation. Real use may reopen only the earliest responsible semantic/functional layer when concrete friction appears.
+
+---
+
+## Functional First stop rule
+
+Functional First is now technically sufficient for real use:
+
+```text
+PASS → STOP engineering expansion → real learner use / U evidence
+```
+
+Later pure visual/layout/interaction implementation belongs to Codex. Codex may change presentation, CSS, component implementation and reduce UI friction, but **must not** change canonical learning semantics, learning order, state meaning, source ownership, evidence semantics, repair/return rules, or canonical contracts. If implementation requires such a semantic change, it must return to the responsible canonical owner.
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-
 - owner map → `content/politics/manifest.json`
 - source owners → `content/politics/source/`
 - lane learning semantics → `content/politics/LEARNING_CONTRACT.md`
 - interaction semantics → `content/politics/INTERACTION_CONTRACT.md`
-- teaching projections / durable review dispositions → `content/politics/learning/`
+- teaching projections → `content/politics/learning/`
 - learner runtime → Politics surfaces under `static-web/`
 
 ### Scoped Acceptance Truth
-
-Read the narrowest independent subject owner first:
-
 - Marxism → `content/politics/learning/marxism/ACCEPTANCE.md`
 - History → `content/politics/learning/history/ACCEPTANCE.md`
 
 ### Learner Truth
-
 Private browser / Return Packet / conversation evidence only.
 
-> **Subject implementation, subject Acceptance, or a lane integration claim cannot manufacture Kian's learner progress.**
-
----
-
-## Change rule
-
-Do not add subject ledgers to this file merely because another Politics subject becomes active.
-
-When a subject qualifies for independent continuation, give it the narrow local Acceptance owner and reserve this file for genuine Politics-wide evidence.
+> **Functional readiness, subject Acceptance, and synthetic journeys cannot manufacture Kian's learner progress or U evidence.**

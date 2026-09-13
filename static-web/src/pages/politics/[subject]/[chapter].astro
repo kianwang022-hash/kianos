@@ -30,10 +30,34 @@ const useCognitiveWorkspace = subject === 'marxism'
   active="politics"
   showLead={!useCognitiveWorkspace}
 >
+  <script is:inline>
+    (() => {
+      try {
+        const key = 'kianos-politics-last-location-v1';
+        const last = JSON.parse(localStorage.getItem(key) || 'null');
+        if (!last?.href || !(last.unit_id || last.question_id || last.action)) return;
+        const url = new URL(last.href, window.location.origin);
+        if (url.pathname === window.location.pathname) window.__kianosPoliticsResumeSnapshot = last;
+      } catch {}
+    })();
+  </script>
+
   {useCognitiveWorkspace
     ? <PoliticsCognitiveWorkspace chapter={data} base={base} />
     : <PoliticsChapterRuntime chapter={data} base={base} />}
   {useCognitiveWorkspace && <PoliticsCognitiveWorkspaceBridge />}
+
+  <script is:inline>
+    (() => {
+      const snapshot = window.__kianosPoliticsResumeSnapshot;
+      if (!snapshot) return;
+      try {
+        localStorage.setItem('kianos-politics-last-location-v1', JSON.stringify(snapshot));
+      } catch {}
+      delete window.__kianosPoliticsResumeSnapshot;
+    })();
+  </script>
+
   <PoliticsRepairEnhancer chapter={data} />
   <PoliticsUnitReturnEnhancer chapter={data} />
 </Base>
