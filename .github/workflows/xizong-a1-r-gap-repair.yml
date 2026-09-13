@@ -1,0 +1,80 @@
+name: Xizong A1 Runtime Gap Repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/xizong-a1-r-gap-repair.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Repair Logic Group closure and diagnostics
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          block = Path('static-web/src/components/XizongBlockV6.astro')
+          text = block.read_text(encoding='utf-8')
+          old = '''        const group = currentGroup();
+          const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+          const position = ids.indexOf(kpId);
+          if (position >= 0 && position < ids.length - 1) {
+            const nextIndex = indexForKpId(ids[position + 1]);
+            if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
+          } else {
+            window.setTimeout(() => setStage('group_close'), 120);
+          }'''
+          new = '''        const group = currentGroup();
+          const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
+          const firstMissingId = ids.find((id) => !state.ratings?.[id]);
+          if (firstMissingId) {
+            const nextIndex = indexForKpId(firstMissingId);
+            if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
+          } else {
+            window.setTimeout(() => setStage('group_close'), 120);
+          }'''
+          if text.count(old) != 1:
+              raise SystemExit(f'Block replacement count={text.count(old)}')
+          block.write_text(text.replace(old, new), encoding='utf-8')
+
+          test = Path('static-web/scripts/test-xizong-a1-browser-journey.mjs')
+          text = test.read_text(encoding='utf-8')
+          old = '''  learnedCount = Object.values(state?.learned || {}).filter(Boolean).length;
+          check(learnedCount === totalKp && Object.keys(state?.ratings || {}).length === totalKp, 'all_kps_have_learning_and_recall_evidence', `${learnedCount}/${totalKp}`);'''
+          new = '''  learnedCount = Object.values(state?.learned || {}).filter(Boolean).length;
+          const recalledCount = Object.keys(state?.ratings || {}).length;
+          const allKpIds = await cdp.evaluate(`Array.from(document.querySelectorAll('[data-kp-recall-card]')).map(card=>card.getAttribute('data-kp-id'))`);
+          const missingRecallIds = allKpIds.filter((id) => !state?.ratings?.[id]);
+          check(learnedCount === totalKp && recalledCount === totalKp, 'all_kps_have_learning_and_recall_evidence', `learned=${learnedCount}/${totalKp};recalled=${recalledCount}/${totalKp};missing=${missingRecallIds.join(',')}`);'''
+          if text.count(old) != 1:
+              raise SystemExit(f'Test replacement count={text.count(old)}')
+          test.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          git config core.quotePath false
+          mapfile -t changed < <(git diff --name-only)
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/src/components/XizongBlockV6.astro'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/test-xizong-a1-browser-journey.mjs'
+      - name: Commit bounded repair
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static-web/src/components/XizongBlockV6.astro static-web/scripts/test-xizong-a1-browser-journey.mjs
+          git commit -m 'xizong: require complete Logic Group recall before closure'
+          git pull --rebase origin main
+          git push origin HEAD:main
