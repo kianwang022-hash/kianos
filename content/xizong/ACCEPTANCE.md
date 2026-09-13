@@ -19,6 +19,7 @@ Current independently continued Systems own their own readiness evidence:
 | A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` |
 | A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
 | A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` |
+| B Digestive / Metabolic / Endocrine / Tumor | `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md` |
 
 This table is **routing only**. It must not cache child gate status, readiness headlines, blocker text, counts, or other System-scoped Acceptance claims.
 
@@ -61,6 +62,7 @@ Read the narrowest independent System owner first:
 - A1 → `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md`
 - A2 → `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md`
 - A3 → `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md`
+- B → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/ACCEPTANCE.md`
 
 ### Learner Truth
 
