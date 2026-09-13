@@ -1,0 +1,38 @@
+{
+  "schema": "kianos.lexical.historical_route_disposition.v1",
+  "role": "BOUNDED_DISPOSITION_RECORD_NOT_LIVE_BRANCH_STATUS_OR_WORK_CURSOR",
+  "reviewed_on": "2026-09-13",
+  "main_baseline": "49d288ccfe533f251868f6b0738793e5b4b85eac",
+  "authority": "content/lexical/CURRENT.md",
+  "semantic_acceptance_delta": 0,
+  "rule": "No listed historical branch or Issue is normal continuation authority. Unique candidate work is preserved for an explicitly bounded salvage request. Its old CURRENT/ACCEPTANCE/receipt claims must not be imported. This record classifies routes; observed deletion/integration results belong in VALIDATION.md.",
+  "issues": [
+    {"number": 6, "disposition": "SUPERSEDED_NOT_COMPLETED", "reason": "Historical authority-restoration and audit-then-repair queue contradict Current-first local closure. Preserve the historical discussion as evidence, not a task."},
+    {"number": 50, "disposition": "NAVIGATION_PARENT_ONLY", "reason": "Current owns next action; system closure active, catalog paused."},
+    {"number": 54, "disposition": "PAUSED_CATALOG", "reason": "S001/o0025 is not active while Current pauses content. Future execution follows CONTENT_EXECUTION.md."},
+    {"number": 56, "disposition": "DEFERRED_FULL_CATALOG_ACCEPTANCE", "reason": "Full-catalog exit depends on full K; it does not block a correctly bounded accepted-content Functional First slice."}
+  ],
+  "retire_exact_duplicate_aliases": {
+    "verified_head": "c856c288a32f82bf02ddd87ec3497a88cc21781e",
+    "preserved_primary_ref": "lexical/fresh-rebuild-batch04",
+    "reason": "Each alias has exactly the preserved primary head, hence no alias-only commits. Re-check before deletion if the ref may have moved. This is not acceptance of Batch04 semantics.",
+    "branches": ["lexical/fresh-rebuild-batch05-o0037-o0236", "lexical/fresh-rebuild-batch08", "lexical-fresh-batch06-o0237-o0436", "lexical-fresh-batch08-o0637-o0836"]
+  },
+  "preserved_for_bounded_reconciliation": [
+    {"branch":"lexical/asset-integrity-audit","head":"ca879529078611518e79d0b47b94f7301ddd83b5"},
+    {"branch":"lexical/closure-a-current-reconciliation","head":"0b6e6fcde5c7764bef799382e1dd6ef6d591d70c"},
+    {"branch":"lexical/fresh-rebuild-batch02","head":"c8cfc685457f12a8b9313c289425d8593bf4e3af"},
+    {"branch":"lexical/fresh-rebuild-batch03","head":"771041bc1bd323d0974490de9a5b4e45a8562573"},
+    {"branch":"lexical/fresh-rebuild-batch04","head":"c856c288a32f82bf02ddd87ec3497a88cc21781e"},
+    {"branch":"lexical/fresh-rebuild-batch06","head":"3cac484fd0707c2f7ea554bcd4cace6c3418592f"},
+    {"branch":"lexical/fresh-rebuild-gold01","head":"f1b2692e31bf9829c4fa550b7fdf966475139876"},
+    {"branch":"lexical/full-content-asset-upgrade","head":"73802c9037355f1f9e5c02a9429dda4f50bd00a8"},
+    {"branch":"lexical/knowledge-audit-v2","head":"c782ad1bb38a848e48644a205cb907f20c718280"},
+    {"branch":"lexical/p0-calibration-0001","head":"05b8134f19a8fd102ce72cfb91fbe1a5c295fb98"},
+    {"branch":"lexical/p0-calibration-0002","head":"19d4764373eace519f4fc1652059519c6a7a2427"},
+    {"branch":"lexical/vnext-wave03-o0025-o0124","head":"e229388d82e6a561c2a4593ef457508831873b17","detail":"Candidate Word/Relation mutations and receipts coexist with stale CURRENT/ACCEPTANCE. No blanket merge; preserve candidate work. Ahead/behind counts are not acceptance."},
+    {"branch":"lexical-batch05-work","head":"465bf16b3d66e9285de564b0b07d292753eb758b"}
+  ],
+  "preservation_reason": "Unique content or review artifacts have not been proved safely subsumed by Current. Retain only for bounded reconciliation, with no automatic workload or scheduling authority. Do not delete merely to make a cleanup count look complete.",
+  "salvage_stop_rule": "Read Current plus one named bounded candidate. Retain useful semantics only through a fresh current patch and integrated readback. If no needed current requirement depends on the candidate, do not keep reading history."
+}

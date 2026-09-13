@@ -1,227 +1,84 @@
 # LexicalOS Acceptance
 
-Status: CURRENT  
-Standard: root `LEARNING_ACCEPTANCE.md`  
-Role: LexicalOS lane Acceptance Truth
+Role: lane Acceptance Truth. Standard: root `LEARNING_ACCEPTANCE.md`. Work Cursor: `CURRENT.md`.
 
-This file owns current learner-readiness claims for LexicalOS. It does not own lexical semantics, learner-system requirements, the Work Cursor, or Kian's private learner evidence.
-
----
-
-## Current gate state
+## Current readiness
 
 ```text
 S  PASS
-K  BLOCKED
-L  PASS — vNext learner logic accepted
-P  BLOCKED for unrestricted learner use
-R  BLOCKED for unrestricted learner use
-E  BLOCKED for unrestricted learner use
-U  UNTESTED for unrestricted learner use
+K  BLOCKED — full catalog
+L  PASS — learner-controlled vNext learning logic
+P  BLOCKED — unrestricted learner use
+R  BLOCKED — unrestricted learner use
+E  BLOCKED — unrestricted learner use
+U  UNTESTED
 ```
 
-Allowed conclusion:
+Allowed claim: Source/Natural Owner boundaries, the vNext Learning Contract, the Content Asset Contract, Gold calibration and 24/7,946 current-generation contiguous content conclusions are preserved. Detailed Evidence/Memory rules are now specified. Neither a specification, a transport test, a branch receipt nor a green build grants unrestricted learner readiness.
 
-> **LexicalOS has a stable Natural-Owner/source boundary, an accepted learner-controlled Learning Contract, an accepted Content Asset Contract, PASS Gold calibration, and 24 / 7,946 Main Words with current-generation contiguous Content conclusions. Full-catalog Knowledge remains BLOCKED. Projection / Runtime / Evidence remain unaccepted for unrestricted real learner use, and learner U is still untested.**
+## S — preserved PASS
 
-The current Work Cursor is now the **vNext system-logic Evidence / Memory closure**, not the next Content batch. Acceptance facts from prior batches remain valid evidence but do not determine what a fresh Chat should do next.
+7,946 Word Natural Owners; genuine cross-word truth is Relation-owned; same-word polysemy stays Word-owned; Form/identity is resolved in the correct owner layer. Pack membership is metadata. Lookup/reference stores are not semantic authority. Private learner state is never shared lexical content.
 
----
+Historical assets can be bounded provenance, sentinels or salvage candidates, not an alternative Current or an answer key. No source boundary is changed by this reconciliation.
 
-## S｜Source / authority boundary — PASS
+## K — full-catalog BLOCKED
 
-Current owner architecture remains explicit:
-
-- 7,946 Word Natural Owners;
-- Relation owners for genuine cross-word semantic truth;
-- same-word polysemy / branch selection remains Word-owned;
-- lookup/reference stores are not semantic authority;
-- learner runtime must project Current Natural Owners;
-- Pack membership is asset metadata, not duplicate semantics;
-- private learner state is not shared semantic truth.
-
-Historical audit / Fresh-Rebuild material may serve as bounded defect-sentinel, provenance, or candidate evidence only. It cannot become live target authority merely because a previous branch passed.
-
----
-
-## K｜Knowledge — BLOCKED
-
-Current-generation contiguous Content coverage on `main` is:
+Preserved accepted contiguous evidence on main:
 
 ```text
-Gold calibration            PASS
-Batch01 o0001–o0012         PASS
-Batch02 o0013–o0024         PASS
-contiguous coverage         24 / 7,946
-remaining owners            7,922
+Gold calibration          PASS (separate calibration evidence)
+Batch01 o0001–o0012       PASS
+Batch02 o0013–o0024       PASS
+contiguous coverage       24 / 7,946
+remaining contiguous gap  7,922
 ```
 
-K remains BLOCKED because the remaining catalog may still contain semantic-fidelity and learner-value defects: weak Core carriers, familiar-new omissions, construction / phraseology gaps, Relation / Form ownership errors, overmerge / oversplit, poor hierarchy, and projection risk.
+Catalog execution is paused by Current, not accepted or reset. Wave03 o0025–o0124 and other branch-local work are not added to these totals. Transport-only inspection of current owners adds zero accepted words.
 
-K exit still requires:
+K exit requires every Main Word to receive a current-generation quality conclusion under `CONTENT_ASSET_CONTRACT.md`, no unresolved semantic/ownership gap, coherent Relation/Form ownership and final integrated readback. Accepted quality is SAFE_SIMPLE or DEPTH_READY, independent of NO_CHANGE/UPGRADED. BLOCKED stays visible and does not count as accepted. Important Core, active senses, familiar-new branches, first-class Expansion, construction/phraseology, contrast, form/register and hierarchy must be trustworthy.
 
-- every Main Word receives a current-generation Content conclusion;
-- accepted owners end as `SAFE_SIMPLE` or `DEPTH_READY`; unresolved truth stays `BLOCKED`;
-- `NO_CHANGE / UPGRADED` remains separate from final quality;
-- known semantic / ownership debt is resolved or explicitly blocked;
-- rich words expose coherent Core + Active Senses + first-class Expansion;
-- important construction, phraseology, contrast, register, form/pronunciation and family boundaries are trustworthy;
-- Relation / Form ownership is coherent against latest integration truth;
-- final integrated owner readback closes judgment;
-- no full-catalog claim is inferred from build success or historical audit coverage;
-- `7,946 / 7,946` Content coverage never means `7,946` mandatory learner Depth cards.
+Field existence, schema/build success, receipt presence and historical coverage cannot grant K. Content coverage, learner traversal and demonstrated transfer are separate facts. 7,946 accepted content owners would not mean 7,946 mandatory Depth encounters or review objects.
 
-**Catalog execution is currently PAUSED by Work Cursor choice, not PASSed by implication.** If reactivated later, the next ordinal is `o0025` only after re-reading the then-current authority.
+## L — preserved PASS
 
----
+`LEARNING_CONTRACT.md` remains the learner-facing authority. Coverage is universal as an asset-quality requirement; learner Depth is selective and under Kian's current judgment. Core compresses, Expansion may be rich, Recall Maps derive from accepted semantics, and local `+` addresses exact objects.
 
-## L｜Learning — PASS
+Unknown/Fuzzy can open whole-card Depth now but cannot manufacture future whole-card Repair. A whole-card revisit may leave zero targets. Explicit local `+` or meaningful target-level failure normally earns Repair. Challenge is narrow; real-context evidence is valuable when target/demand matched. Coverage is the long-run mainline; no fixed quota or overdue wall is canonical. Astro executes; Chat adapts strategy; Kian retains agency.
 
-`content/lexical/LEARNING_CONTRACT.md` is the accepted learner-facing authority.
+L PASS does not claim the existing packet consumer, projection, scheduler or runtime realizes all these decisions.
 
-Accepted decisions include:
+## Evidence / Memory specification — DESIGN SPECIFIED, not E PASS
 
-- current learner universe = existing 7,946 Main Words;
-- every word deserves reliable coverage judgment, not mandatory Depth;
-- Kian controls whole-card revisit / Depth through subjective card-level judgment;
-- whole-card judgment is distinct from local Repair admission;
-- Recall Map may use concrete notation such as `3A + 2N + (1+1)V`;
-- Depth preserves Core + Senses + first-class Expansion;
-- exact local objects may be `+`-ed;
-- a whole-card revisit may finish with zero future Repair targets;
-- Repair is admitted mainly by explicit `+` or meaningful failure evidence;
-- Challenge targets the smallest unstable object;
-- no fixed daily word/review quota is canonical;
-- real-context transfer evidence outranks repeated isolated button presses;
-- Astro executes low-friction interaction; Chat adaptively orchestrates policy from evidence and Kian's feedback.
+`EVIDENCE_MEMORY_CONTRACT.md` now owns minimal event meaning, precise identity, idempotent import, chronology, defect correction, routing/admission separation, NONE/ACTIVE/DORMANT eligibility, target/demand-matched retirement/reactivation and current-evidence session compilation.
 
-L PASS does **not** claim that current Projection, Runtime, scheduler, Evidence implementation, or the full 7,946-word catalog already realizes this model.
+Its scenario table is a normative implementation test oracle, not recorded learner evidence and not an executed browser result. Legacy v1 packet shape remains a compatibility bridge; missing fields constrain inference. The current work must reconcile its consumers rather than assume a documentation patch changes runtime behavior.
 
----
+## P / R / E — not yet accepted for unrestricted use
 
-## Content standard｜ACCEPTED RULE LAYER
+P must show low-friction Fast Pass; learner-controlled Depth; non-leaking Recall; coherent Core/Senses/Expansion; exact local `+`; and no whole-card debt side effect.
 
-`content/lexical/CONTENT_ASSET_CONTRACT.md` owns the current Content target:
+R must show actual transitions, private persistence, resume, narrow Repair selection, Challenge return and cross-module handoff against the final semantics.
 
-- `SAFE_SIMPLE` = trustworthy low-risk content, Fast-Pass eligible by content;
-- `DEPTH_READY` = trustworthy rich/high-risk content ready for a coherent Depth encounter;
-- `BLOCKED` = unresolved truth preserved rather than guessed;
-- Core / Word Feel compresses real semantics instead of concatenating glosses;
-- Active Senses prioritize ordinary current and high-value familiar-new branches;
-- Expansion is first-class;
-- Recall Map is derived from accepted semantics;
-- valid low-value material remains reference-only / Explore;
-- acceptance closes by direct mutation + final-object readback + local receipt;
-- cross-range Relation/Form writes reconcile against latest integration truth.
+E must separately show faithful capture, identity resolution, idempotent replay, target/demand attribution, assistance/novelty distinctions, corrections, lifecycle and recomputation. A run that proves R does not automatically prove E. Defective questions and unresolved attribution cannot be learner failure.
 
-Gold and `o0001–o0024` receipts remain accepted Content evidence. They are **not an active execution queue**.
+A bounded Functional First slice may have its own explicitly scoped proof on accepted content without waiting for full-catalog K. That evidence must name its fixture/range and cannot be generalized to unrestricted use. Keep the full-catalog claim blocked until its genuine dependencies close.
 
----
+## U — UNTESTED
 
-## P｜Projection — BLOCKED
+Only real private learner evidence establishes study, familiarity, repair or transfer. No engineering cursor requires Kian to pretend he has already learned the module.
 
-The learner-facing surface is not yet accepted as a faithful end-to-end realization of the vNext model.
+## Execution / history evidence boundary
 
-Projection acceptance must eventually demonstrate at least:
+The new `CONTENT_EXECUTION.md` and `tools/lexical_shard.py` reduce mechanical I/O and specify interruption-safe staging. Synthetic tool tests and real-owner transport pilots are engineering evidence only; they do not supply fresh lexical semantic conclusions. Published test results belong in `execution/VALIDATION.md` when observed.
 
-- low-friction Fast Pass;
-- learner-controlled entry into full Depth;
-- Recall Map without answer leakage;
-- coherent Core / Senses / Expansion hierarchy;
-- local object-level `+`;
-- no forced Pack/profile clutter in normal Study;
-- no UI behavior that turns whole-card uncertainty into blanket Repair debt.
+`execution/historical-routes.json` records exact historical refs and their bounded disposition. Retirement is not retroactive semantic acceptance. Preserve unique candidate work until safely salvaged/archived; do not inherit its old Current, Acceptance or issue instructions.
 
-Existing UI may be reused only if it satisfies the accepted semantics.
+## Owners
 
----
-
-## R｜Runtime — BLOCKED
-
-The governing runtime idea is directionally accepted, but unrestricted runtime readiness is not.
-
-The intended loop is:
-
-```text
-small amount of high-value Repair
-→ continue 7,946-word Coverage
-→ Fast Pass or full Depth by current judgment
-→ local + only where needed
-→ continue forward
-→ later Challenge / real English evidence updates Repair
-```
-
-R remains BLOCKED until actual state transitions, resume behavior, Repair compilation, Challenge return, and cross-module evidence flow are verified against the final Evidence / Memory semantics.
-
----
-
-## E｜Evidence — BLOCKED, semantic closure ACTIVE
-
-This is the current design/semantic focus named by `content/lexical/CURRENT.md`.
-
-Evidence acceptance is not yet granted. The active closure must settle at least:
-
-- routing evidence vs Repair evidence;
-- which minimal events are persisted;
-- what admits a target into Repair;
-- how Repair becomes dormant / reactivated;
-- how repeated failure escalates to diagnosis instead of repetitions;
-- how real-context success/failure outranks weaker artificial evidence;
-- how missed days avoid manufacturing overdue debt;
-- how current Repair is compiled from history without a fake mastery percentage.
-
-Hard boundary:
-
-> **Whole-card Fuzzy / Unknown can justify opening Depth now; it must not by itself become a blanket future testing obligation.**
-
----
-
-## U｜UNTESTED
-
-Private learner evidence remains separate. Repository acceptance cannot manufacture Kian's actual familiarity, Repair queue, transfer performance, or study completion.
-
----
-
-## Current acceptance picture
-
-```text
-S Source / Natural Owner boundary      ✅ PASS
-L learner-controlled vNext logic       ✅ PASS
-Content Asset Contract                 ✅ accepted
-Gold + o0001–o0024 Content evidence    ✅ preserved
-K full-catalog Content                 ⏳ BLOCKED (24 / 7,946)
-E Evidence / Memory semantics          ← ACTIVE design closure
-P Projection implementation            ⏳ BLOCKED
-R Runtime implementation               ⏳ BLOCKED
-U real learner validation              ⏳ UNTESTED
-```
-
-This picture is intentionally different from the old narrative:
-
-```text
-remaining 7,922 owners ← CURRENT
-```
-
-That old statement is no longer the Work Cursor.
-
----
-
-## Truth boundaries
-
-### Artifact Truth
-
-- Word owners → `content/lexical/words/by-ordinal/`
-- Relation owners → `content/lexical/relations/by-id/`
-- owner schema → `content/lexical/schema.json`
-- Pack metadata → `content/lexical/canonical/packs/`
-- Learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- Content standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
-- bounded Content evidence → `content/lexical/audit/vnext-content-calibration/` and `content/lexical/audit/vnext-content-execution/`
-
-### Work Cursor
-
-`content/lexical/CURRENT.md`
-
-### Learner Truth
-
-Private browser / packet / conversation evidence only.
+- Artifact: `words/by-ordinal/`, `relations/by-id/`, `schema.json`; Pack metadata: `canonical/packs/`.
+- Learning: `LEARNING_CONTRACT.md`; detailed evidence semantics: `EVIDENCE_MEMORY_CONTRACT.md`.
+- Content quality: `CONTENT_ASSET_CONTRACT.md`; operations: `CONTENT_EXECUTION.md`.
+- Existing bounded content evidence: `audit/vnext-content-calibration/`, `audit/vnext-content-execution/`.
+- Work Cursor: `CURRENT.md` only.
+- Learner Truth: private browser/packet/conversation evidence only.

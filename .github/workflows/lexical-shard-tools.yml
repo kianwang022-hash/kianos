@@ -1,0 +1,95 @@
+name: Lexical Shard Tools
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: First ordinal (inspection only)
+        required: true
+        default: '25'
+      end:
+        description: Package end; only one bounded shard is returned
+        required: true
+        default: '224'
+      max_bytes:
+        description: Compact byte budget; never truncate a semantic object
+        required: true
+        default: '48000'
+  push:
+    branches: [main, 'lexical/continuity-throughput-*']
+    paths: ['tools/lexical_shard.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
+  pull_request:
+    paths: ['tools/lexical_shard.py', 'tools/test_lexical*.py', 'content/lexical/**', '.github/workflows/lexical-shard-tools.yml']
+permissions:
+  contents: read
+concurrency:
+  group: lexical-shard-tools-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Synthetic safety tests (not semantic K/E/U acceptance)
+        shell: bash
+        run: |
+          mkdir -p /tmp/lexical-shard-evidence
+          python tools/test_lexical_transport_guards.py 2>&1 | tee /tmp/lexical-shard-evidence/tests.txt
+      - name: Transport-only pilot on 50 Current owners
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          python - <<'PY'
+          import sys, time, json, subprocess
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          import lexical_shard as m
+          root = Path.cwd()
+          out = Path('/tmp/lexical-shard-evidence')
+          cursor, seen, batches = 1, [], []
+          start = time.perf_counter()
+          while cursor is not None:
+              b = m.export(root, cursor, 50)
+              m.verify_bundle(root, b)
+              ids = [w['view']['ordinal'] for w in b['words']]
+              seen += ids
+              (out / f'review-{ids[0]:04d}-{ids[-1]:04d}.json').write_bytes(m.encoded(b))
+              batches.append({'range':[ids[0], ids[-1]], 'words':len(ids), 'compact_bytes':len(m.encoded(b)), 'relation_owners':len(b['relations'])})
+              cursor = b['next_ordinal']
+          assert seen == list(range(1,51)), seen
+          assert all(x['compact_bytes'] <= 48000 for x in batches)
+          summary = {'status':'PASS_TRANSPORT_ONLY', 'head':subprocess.check_output(['git','rev-parse','HEAD']).decode().strip(), 'current_owners_inspected':50, 'shards':batches, 'elapsed_seconds':round(time.perf_counter()-start,3), 'semantic_judgments':0, 'accepted_content_delta':0, 'learner_state_mutation':0}
+          m.save(out / 'summary.json', summary)
+          print(json.dumps(summary, ensure_ascii=False))
+          PY
+      - name: Export one requested bounded shard without mutation
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          START: ${{ inputs.start }}
+          END: ${{ inputs.end }}
+          MAX_BYTES: ${{ inputs.max_bytes }}
+        run: |
+          python - <<'PY'
+          import sys, os, json
+          from pathlib import Path
+          sys.path.insert(0, 'tools')
+          import lexical_shard as m
+          budget = int(os.environ['MAX_BYTES'])
+          assert 1000 <= budget <= 256000, 'EXPLICIT_BOUNDED_BUDGET_REQUIRED'
+          b = m.export(Path.cwd(), int(os.environ['START']), int(os.environ['END']), max_bytes=budget)
+          m.verify_bundle(Path.cwd(), b)
+          Path('/tmp/lexical-shard-evidence/review.json').write_bytes(m.encoded(b))
+          print(json.dumps({'bundle_id':b['bundle_id'], 'words':len(b['words']), 'compact_bytes':len(m.encoded(b)), 'next_ordinal':b['next_ordinal'], 'semantic_judgments':0}))
+          PY
+      - name: Confirm no source mutation
+        run: git diff --exit-code
+      - name: Preserve bounded reproducible evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-shard-evidence-${{ github.sha }}
+          path: /tmp/lexical-shard-evidence
+          if-no-files-found: error
+          retention-days: 14
