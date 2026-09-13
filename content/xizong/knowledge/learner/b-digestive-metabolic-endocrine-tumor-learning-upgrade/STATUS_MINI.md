@@ -1,16 +1,29 @@
 # B Learning Upgrade — STATUS_MINI
 
 Branch: `b-learning-upgrade`
+Draft PR: `#108 — Xizong B — Logic-first Learning upgrade`
 Gate: `L — Learning`
 Authority: working semantic mainline for B Learning upgrade only
 Stable substrate: `38 Blocks / 600 canonical KPs / accepted system.json`
 Current whole-system L substrate: `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
 
-## Current batch
+## Method
 
-`L1 — ARC1 / D1–D4 / 管道 → 消化 → 吸收`
+Do not rebuild Source, System, Block or KP identity.
 
-Status: `SEMANTIC_AUDIT_ACTIVE`
+Per batch:
+
+`existing System/Block/KP → fresh learning pass → Logic Group redesign → targeted content repair only when the learning pass exposes a real defect → batch closure → later Projection/interaction design`
+
+Logic Group and learner order are editable Learning structure. Block/KP identities are hard assets unless contradictory evidence reaches K.
+
+Original Lecture remains complete Source Truth / continuous learning substrate. KianOS does not become a second Lecture reader.
+
+---
+
+## L1 — PASS_BOUNDED
+
+`ARC1 / D1–D4 / 管道 → 消化 → 吸收`
 
 Scope:
 - D1 胃肠管道控制 — 6 KP
@@ -19,34 +32,47 @@ Scope:
 - D4 小肠吸收与营养运输 — 8 KP
 - total = 37 stable KP identities
 
-## Working rule
+Accepted working owner:
+`BATCH01_D1_D4.json`
 
-Do not rebuild Source, System, Block or KP identity.
+Fresh Learning changes:
+- D1: 3 old LG → 2 causal LG; execution/electrical-threshold chain is reunited with Ca²⁺—CaM—MLCK instead of isolating KP06.
+- D2: Block/KP grouping stays 4 LG, but generic template goals/closures are replaced by actual local questions and causal closure tests.
+- D3: 4 old LG → 5 LG; KP01 is recognized as a post-mechanism loss-of-function summary and moves with KP11 to final reverse-localization closure.
+- D4: 3 old LG → 4 LG; default sugar/peptide transport is separated from Fe/Ca chemical-entry gating while B12/lipid remain explicit special routes.
+- all 37 canonical KP identities are covered exactly once; no split/merge/renumber.
 
-For each batch:
+Tracked bounded content repairs exposed by learning pass:
+- D2 KP11 label says `三类靶点` while four targets are enumerated → intended label `四类靶点`.
+- D4 KP03 label says `三个故障入口` while four are enumerated → intended label `四个故障入口`.
 
-`existing System/Block/KP → fresh learning pass → Logic Group redesign → targeted content repair only when the learning pass exposes a real defect → batch closure → later Projection/interaction design`
+These two label repairs are **tracked but not yet written into the large canonical Block Markdown**. They do not change medical meaning and do not block L1 Logic acceptance.
 
-Logic Group is editable learning structure. Block/KP identities are hard assets unless contradictory evidence reaches K.
+---
 
-Original Lecture remains complete Source Truth / continuous learning substrate. KianOS does not become a second Lecture reader.
+## L2 — ACTIVE
 
-## Batch L1 findings so far
+`ARC2 / M1–M4 / 结构与酶语言 → 碳氧化/ATP → RBC分流 → 糖原/糖异生`
 
-- D1 current LG01 mechanically couples KP01 with KP02–03 while leaving KP06 isolated; the stronger local causal model is `平滑肌执行器 + 电活动/阈值 + Ca²⁺执行` followed by `ENS + autonomic control`.
-- D2 group boundaries are basically sound; the weak part is generic learner goals/closure wording, not the Block/KP partition.
-- D3 current order puts summary/failure-localization KP01 before the mechanisms it summarizes. Learning order should move KP01 together with KP11 to the end as a reverse-localization closure.
-- D4 current LG03 lumps sugar, peptide, iron and calcium into one broad group. It should separate default macronutrient transport from gated mineral absorption.
-- Two learner-facing content consistency defects were exposed during the pass: D2 KP11 says `三类靶点` but enumerates four; D4 KP03 says `三个故障入口` but enumerates four.
+Scope:
+- M1 蛋白质、酶与维生素 — 17 KP
+- M2 碳氧化、TCA、氧化磷酸化与ATP — 15 KP
+- M3 成熟红细胞与磷酸戊糖途径 — 7 KP
+- M4 糖原与糖异生 — 10 KP
+- total = 49 stable KP identities
 
-## Next
+Fresh audit questions:
+1. M1 old KP06–08 group mixes pI, plasma/dietary protein, separation/degradation; test whether this is a real learning unit or only adjacency.
+2. M1 old KP09–14 group may be too broad; test whether catalyst identity/control should be separated from kinetics/inhibition.
+3. M2 old KP06–09 group puts cytosolic NADH shuttle with TCA/high-energy compounds; test whether KP09 should bridge into respiratory-chain/OXPHOS instead.
+4. M3 currently has a strong G-6-P three-output model; likely preserve grouping unless fresh pass falsifies it.
+5. M4 current three groups are structurally coherent; replace generic closure language and test whether hormone/time-axis KP09–10 should remain together after biochemical mechanism is learned.
 
-1. Land `BATCH01_D1_D4.json` as the fresh Logic candidate.
-2. Repair the two bounded content-label defects without changing KP identity or medical meaning.
-3. Read back the batch owner + repaired Blocks.
-4. If coherent, mark L1 `PASS_BOUNDED` and advance to L2.
+Next artifact: `BATCH02_M1_M4.json`.
 
-## Frozen / not in this batch
+---
+
+## Frozen / parallel
 
 - S exact official-question membership blocker: parallel; do not resume archaeology here.
 - K medical identity: PASS and frozen unless contradictory evidence appears.
