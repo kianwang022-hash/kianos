@@ -1,0 +1,73 @@
+{
+  "schema": "kianos.politics.xi_evidence_review.v1",
+  "status": "CURRENT_REVIEW_COMPLETE",
+  "scope": "XI_C00_TO_C17",
+  "review_mode": "FRESH_EVIDENCE_REACCEPTANCE",
+  "accepted_upstream": "S/K/L/P/R PASS",
+  "whole_subject": {
+    "verdict": "PASS_AFTER_REPAIR",
+    "model_audit": {
+      "chapters": 18,
+      "unit_return_configs": 52,
+      "question_evidence_slots": 215,
+      "checks": 540,
+      "failures": 0
+    },
+    "browser_journey": {
+      "checks": 26,
+      "failures": 0,
+      "proved": [
+        "clean STABLE first attempts create no Wrong/Uncertain repair debt",
+        "STABLE remains this-pass evidence and never implies mastery",
+        "Wrong/Uncertain evidence retains subject/chapter/unit/question identity",
+        "repair-source anchor and stable Current source-owner ids travel with the event",
+        "repair does not rewrite the first-attempt object",
+        "Return Packet preserves original repair provenance after last_location moves to ch17",
+        "UNCERTAIN remains distinct from WRONG and STABLE",
+        "attempt-persistence failure is visible and fails closed",
+        "failed persistence cannot manufacture a first attempt or Unit Return"
+      ]
+    },
+    "first_real_defect": {
+      "layer": "EVIDENCE",
+      "description": "The shared PoliticsEvidenceEnhancer already knew how to attach repair_source_anchor and repair_source_owner_ids to Wrong/Uncertain events, but the Politics chapter page mounted that enhancer only for Mao. Xi therefore preserved failure identity but not stable repair provenance in the event/Return Packet after later navigation.",
+      "repair": "Mount the existing generic PoliticsEvidenceEnhancer for Xi as well as Mao. Do not duplicate Evidence logic, change event schema, rewrite first-attempt evidence, or enable Ethics-Law before its own E acceptance.",
+      "implementation": "static-web/src/pages/politics/[subject]/[chapter].astro"
+    },
+    "test_correction_not_product_defect": "The first browser attempt tried to manufacture a wrong answer on a question whose official answer was ABCD, so no incorrect option existed and the attempt became STABLE. The test was corrected to use a legitimate UNCERTAIN repair event. This did not change product behavior and is not counted as an Evidence defect.",
+    "accepted_semantics": [
+      "first attempt is immutable once durably recorded",
+      "repair never rewrites historical evidence into success",
+      "WRONG and UNCERTAIN are distinct durable repair evidence",
+      "STABLE is this-pass stability only",
+      "mastery_claim remains NONE",
+      "repair provenance travels with the evidence event rather than mutable last_location",
+      "out-of-scope evidence is rejected",
+      "persistence failure fails closed",
+      "learner evidence remains private browser / Return Packet state"
+    ],
+    "boundaries": [
+      "Later fresh/holdout transfer belongs to later review/mock phases and was not executed in this first-round E closure.",
+      "Future transfer evidence may strengthen or challenge earlier evidence, but must append/reconcile rather than overwrite first-attempt truth.",
+      "U remains real-user-only and cannot be manufactured by CI, browser automation, repository state or Acceptance docs."
+    ]
+  },
+  "executed_evidence": {
+    "repair_head": "beed0f112cf19ed73ce159da9a2f75639fe6905b",
+    "xi_evidence_run": "34774453080",
+    "xi_evidence_run_number": 3,
+    "xi_evidence_status": "PASS",
+    "static_web_politics_qa_run": "34774453094",
+    "static_web_politics_qa_status": "PASS",
+    "xi_runtime_regression_run": "34774453081",
+    "xi_runtime_regression_status": "PASS",
+    "shared_politics_regression_run": "34774453110",
+    "shared_politics_regression_status": "PASS"
+  },
+  "conclusion": {
+    "evidence": "PASS_AFTER_REPAIR",
+    "next_gate": "U",
+    "user_validation": "UNTESTED_REAL_USER_ONLY",
+    "note": "Xi S/K/L/P/R/E are engineering-accepted. The next legitimate Xi action is real Kian learner use; further engineering requires concrete learner friction that reopens the earliest responsible gate."
+  }
+}
