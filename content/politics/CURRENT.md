@@ -11,7 +11,7 @@ This file does not own Source Truth, lane learning/interaction semantics, scoped
 
 **Active lane-level scope:** none — Functional First Version integration is technically closed.  
 **Blocker:** none at the engineering layer.  
-**Next action:** real learner use at the lane level. Independently scoped subject content work may still close its own upstream S/K boundary without reopening Politics-wide Functional First.
+**Next action:** real learner use at the lane level. The book-by-book Politics Source/Knowledge content program is also closed across all five subjects under their local owners; do not reopen subject content merely because more Chengfeng detail exists. Downstream readiness remains subject-local.
 
 Functional First phase state:
 
@@ -47,9 +47,20 @@ Current independent subject scopes:
 | Marxism | `content/politics/learning/marxism/CURRENT.md` | `content/politics/learning/marxism/ACCEPTANCE.md` |
 | History | `content/politics/learning/history/CURRENT.md` | `content/politics/learning/history/ACCEPTANCE.md` |
 | Mao | `content/politics/learning/mao/CURRENT.md` | `content/politics/learning/mao/ACCEPTANCE.md` |
+| Xi | `content/politics/learning/xi/CURRENT.md` | `content/politics/learning/xi/ACCEPTANCE.md` |
 | Ethics-Law | `content/politics/learning/ethics-law/CURRENT.md` | `content/politics/learning/ethics-law/ACCEPTANCE.md` |
 
-Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress. Mao and Ethics-Law currently own fresh S/K content closures only; L/P/R/E/U are not inherited from generic Politics integration.
+Subject readiness remains locally owned. Functional First does not manufacture subject U evidence or learner progress. Current subject boundaries are intentionally asymmetric:
+
+```text
+Marxism    S/K/L/P/R/E PASS; U UNTESTED on the corrected current path
+History    S/K/L/P/R/E PASS; U UNTESTED
+Mao        S/K + content closure PASS; L/P/R/E/U UNTESTED
+Xi         S/K + content closure PASS; L/P/R/E/U UNTESTED
+Ethics-Law S/K + content closure PASS; L/P/R/E/U UNTESTED
+```
+
+The fact that all five subjects now have Source/Knowledge content closure does **not** flatten those downstream readiness differences.
 
 Scheduling boundary:
 
@@ -96,9 +107,11 @@ Politics-specific invariant: **Suyi = framework/orientation input; Chengfeng = c
 
 ## Subject governance boundary
 
-Xi remains a Politics subject/content structure and does not currently justify an independent `CURRENT / ACCEPTANCE` owner.
+All five Politics subjects now own scoped `CURRENT / ACCEPTANCE` pairs because each has a durable independent restart/readiness boundary.
 
-Mao and Ethics-Law now each own a scoped pair because a fresh whole-book Source/Knowledge content closure created a durable independent restart/readiness boundary. Neither pair implies whole-module readiness: both current Acceptances stop at S/K.
+- Marxism and History own broader whole-subject engineering acceptance through `S/K/L/P/R/E PASS`; current-path `U` remains learner-only and untested.
+- Mao, Xi and Ethics-Law own fresh Source/Knowledge content closures only; their local Acceptances intentionally stop at `S/K`, with `L/P/R/E/U` untested.
+- Xi's scoped pair was created by the fresh C00–C17 Source/Knowledge closure; the retired statement that Xi did not justify an independent owner is no longer Current Truth.
 
 Shared cognition remains in:
 
@@ -133,7 +146,7 @@ Ordinary use / continuation:
 
 ```text
 Politics CURRENT
-→ if work names Marxism / History / Mao / Ethics-Law, route to its local CURRENT
+→ if work names Marxism / History / Mao / Xi / Ethics-Law, route to its local CURRENT
 → otherwise use the existing Current Politics runtime/content without new lane-level engineering
 ```
 
