@@ -6,14 +6,69 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:0a81e3ed7b30bf43f260",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "一个非特指的单数可数对象；a/an 由后接音决定",
+        "pattern": "a/an + singular count noun",
+        "learning_note": "a before a consonant sound; an before a vowel sound."
+      },
+      {
+        "construction_id": "construction:d8b4c2e126ed284be5b7",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "说明职业、身份或类别",
+        "pattern": "a/an + job/role/classification"
+      },
+      {
+        "construction_id": "construction:afdce6cbcdf5b565b44c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "每……一次/若干次；按单位计",
+        "pattern": "once/twice/... a day/week/year"
+      },
+      {
+        "construction_id": "construction:c7ee0ce066508488b4d1",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "一百/一千/一百万等",
+        "pattern": "a hundred/thousand/million"
+      }
+    ],
     "content_hash": "bb18718a9d464173ca107d1d1066e17ea0aa7e8f7a22a230513d08253ea68936",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "不定冠词",
-      "core_meaning_en": "indefinite article",
-      "mental_model_cn": "不定冠词",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "一个；某个；某类中的一个",
+          "label_en": "one non-specific member of a class",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:a:c33114436c8951d1"
+          ]
+        },
+        {
+          "label_cn": "每；每一",
+          "label_en": "for each or every unit",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:a:2bce36ff092d64e2"
+          ]
+        },
+        {
+          "label_cn": "一（用于数量表达）",
+          "label_en": "one before a number or quantity expression",
+          "pos": "determiner",
+          "sense_ids": [
+            "sense:a:1d8b259b88fddfd1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "把一个对象作为“非特指的一个/一类成员”引入；也可表示每一单位或数量中的“一”",
+      "core_meaning_en": "introduces one non-specific member of a class; it also marks a per-unit rate or the value one in common quantity expressions",
+      "mental_model_cn": "先把某个单数可数对象“引入场景”，而不是指双方已经知道的那个；在频率、价格和数量里又常读成“每/一”。",
+      "mental_model_en": "introduce one non-specific instance; in rate and quantity frames, read it as per/one"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -35,17 +90,74 @@
             "phrase": "a book"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "用于单数名词前，表示未提及的一个",
-        "definition_en": "used before a singular noun to refer to one person or thing that has not been mentioned before",
+        "confidence": "high",
+        "definition_cn": "用于单数可数名词前，引入一个非特指的人/物，或说明其身份、类别",
+        "definition_en": "used before a singular count noun to introduce one non-specific person or thing or to classify what someone or something is",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "article",
         "sense_id": "sense:a:c33114436c8951d1",
-        "sense_label_en": "used before a singular noun to refer to one person or thing that has not",
+        "sense_label_en": "one non-specific member or class label",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Use a before a consonant sound and an before a vowel sound; the sound, not the first written letter, decides."
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "每；每一（表示频率、价格、速度等的单位）",
+        "definition_en": "for each or every unit, especially in rates, frequency, prices, or measurement",
+        "governing_pattern": "number/amount + a + unit",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "determiner",
+        "sense_id": "sense:a:2bce36ff092d64e2",
+        "sense_label_en": "for each or every unit; per",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/a",
+                "role": "current_usage_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "一；一个（用于 hundred、thousand、dozen 等数量表达）",
+        "definition_en": "one, especially before common number or quantity expressions such as hundred, thousand, or dozen",
+        "governing_pattern": "a + hundred/thousand/dozen/...",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "determiner",
+        "sense_id": "sense:a:1d8b259b88fddfd1",
+        "sense_label_en": "one in a number or quantity expression",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/a",
+                "role": "current_usage_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -77,6 +189,22 @@
         "merged_into_sense_id": null,
         "source_row": 1,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
+        "sense_id": "sense:a:2bce36ff092d64e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch02.json",
+        "fresh_rebuild_created": true
+      },
+      {
+        "sense_id": "sense:a:1d8b259b88fddfd1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/audit/fresh-rebuild/batches/batch02.json",
+        "fresh_rebuild_created": true
       }
     ],
     "active_collocations": [
@@ -117,7 +245,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "bb18718a9d464173ca107d1d1066e17ea0aa7e8f7a22a230513d08253ea68936",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

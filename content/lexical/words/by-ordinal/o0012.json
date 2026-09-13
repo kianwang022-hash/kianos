@@ -13,45 +13,59 @@
         "level": "L1",
         "meaning_cn": "最重要的是；尤其",
         "pattern": "above all"
+      },
+      {
+        "construction_id": "construction:d4215dfc8d0365b55207",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "高于数字、阈值或平均水平",
+        "pattern": "above + number/threshold/average"
+      },
+      {
+        "construction_id": "construction:87311b82e8951b7106b3",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "如上所述；上述……",
+        "pattern": "as noted/mentioned above; the above + noun"
       }
     ],
     "content_hash": "b883a14f271975f5b835b6993f64fb1599870e07ed2576d7efdf706ebb205498",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "在...上方；超过，多于",
-          "label_en": "in or to a place that is higher; more than in number, amount, or degree",
-          "pos": "preposition",
+          "label_cn": "在……上方",
+          "label_en": "in or to a physically higher position",
+          "pos": "preposition/adverb",
           "sense_ids": [
             "sense:above:b163f934bc0355fa",
-            "sense:above:6df6e25582b55f9d"
-          ]
-        },
-        {
-          "label_cn": "上文，前文；在上面",
-          "label_en": "at an earlier place (in a text); in or to a higher place",
-          "pos": "adverb",
-          "sense_ids": [
-            "sense:above:ab87693030e75155",
             "sense:above:ba04ea4b0e015ce0"
           ]
         },
         {
-          "label_cn": "上述的",
-          "label_en": "appearing earlier in the same text",
-          "pos": "adjective",
+          "label_cn": "超过；高于某一水平",
+          "label_en": "higher than a number, amount, level, or standard",
+          "pos": "preposition",
           "sense_ids": [
+            "sense:above:6df6e25582b55f9d"
+          ]
+        },
+        {
+          "label_cn": "上文；上述",
+          "label_en": "earlier or higher in a text",
+          "pos": "adverb/adjective",
+          "sense_ids": [
+            "sense:above:ab87693030e75155",
             "sense:above:49b1bc4bff86552c"
           ]
         }
       ],
-      "core_meaning_cn": "在上面",
-      "core_meaning_en": "in a higher position or earlier in text",
-      "mental_model_cn": "在上面",
-      "mental_model_en": ""
+      "core_meaning_cn": "在空间、尺度或文本顺序上处于“更高/更前”的位置",
+      "core_meaning_en": "higher on a physical axis, a numerical/abstract scale, or the layout/order of a text",
+      "mental_model_cn": "把 above 看成一条“向上”的轴：空间上方、数值高于阈值、文本里位于上文。",
+      "mental_model_en": "one upward axis applied to space, scales/thresholds, and text position"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -72,7 +86,7 @@
             "phrase": "above the door"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "在...上方",
         "definition_en": "in or to a place that is higher",
         "governing_pattern": "",
@@ -105,7 +119,7 @@
             "phrase": "above 100"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "超过，多于",
         "definition_en": "more than in number, amount, or degree",
         "governing_pattern": "",
@@ -129,7 +143,7 @@
             "phrase": "as mentioned above"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "上文，前文",
         "definition_en": "at an earlier place (in a text)",
         "governing_pattern": "",
@@ -153,7 +167,7 @@
             "phrase": "the floor above"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "在上面",
         "definition_en": "in or to a higher place",
         "governing_pattern": "",
@@ -177,7 +191,7 @@
             "phrase": "the above example"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "上述的",
         "definition_en": "appearing earlier in the same text",
         "governing_pattern": "",
@@ -317,7 +331,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "b883a14f271975f5b835b6993f64fb1599870e07ed2576d7efdf706ebb205498",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

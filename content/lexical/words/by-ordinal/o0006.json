@@ -6,17 +6,50 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:d01da8e981b462c55168",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "能够做某事",
+        "pattern": "be able to + verb",
+        "learning_note": "to-infinitive required; not *able do or *able doing."
+      },
+      {
+        "construction_id": "construction:e278ae7c592201e0d70b",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "更有/较没能力做某事",
+        "pattern": "be better/less able to + verb"
+      }
+    ],
     "content_hash": "334cfe2f36e4fcede3d2976df46d0a945cf6dc88041aa9d3c34d95f45b18214d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有能力的；能够的",
-      "core_meaning_en": "having the skill, means, or opportunity to do something",
-      "mental_model_cn": "有能力的；能够的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "能够的；有条件做到的",
+          "label_en": "having the power, skill, means, time, or opportunity to do something",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:able:9d1f6c4b8e585dd8"
+          ]
+        },
+        {
+          "label_cn": "能干的；有才干的",
+          "label_en": "competent or skilled",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:able:9ea7a84a03b55c1d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "具备完成某事所需要的能力、条件或机会；也可形容人能干",
+      "core_meaning_en": "having what is needed to do something, or describing a person as competent and skilled",
+      "mental_model_cn": "able 不是普通后置动词：核心骨架是 be able to do；它还能填 can 无法变形或无法出现的位置。",
+      "mental_model_en": "anchor it to be able to + verb; unlike can, the phrase can inflect and appear in non-finite slots"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -38,17 +71,18 @@
             "phrase": "be able to do sth"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "能够的；有能力的",
-        "definition_en": "having the power, skill, or means to do something",
+        "confidence": "high",
+        "definition_cn": "能够的；有能力、条件或机会做某事的",
+        "definition_en": "having the power, skill, means, time, or opportunity to do something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:able:9d1f6c4b8e585dd8",
-        "sense_label_en": "having the power, skill, or means to do something",
+        "sense_label_en": "having what is needed to do something",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Followed by a to-infinitive: be able to do something. Be able to can be used in tense/non-finite positions where modal can cannot."
       },
       {
         "collocations": [
@@ -62,7 +96,7 @@
             "phrase": "an able teacher"
           }
         ],
-        "confidence": "medium",
+        "confidence": "high",
         "definition_cn": "能干的；有才干的",
         "definition_en": "competent or skilled in a particular activity",
         "governing_pattern": "",
@@ -70,7 +104,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:able:9ea7a84a03b55c1d",
-        "sense_label_en": "competent or skilled in a particular activity",
+        "sense_label_en": "competent or skilled",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -212,7 +246,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "334cfe2f36e4fcede3d2976df46d0a945cf6dc88041aa9d3c34d95f45b18214d",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

@@ -6,14 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:334cb7112465e58fe63e",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "某类事物大量存在",
+        "pattern": "sth abounds"
+      },
+      {
+        "construction_id": "construction:12fe3f72374c06796bb2",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "某处/某文本充满某物",
+        "pattern": "place/text/system abounds in/with sth",
+        "learning_note": "The container is the subject; the plentiful things follow in/with."
+      }
+    ],
     "content_hash": "543fc993fab7975eea6e1075148802b1ea2045e29eab1f1281f89bfc7f650b18",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "大量存在",
-      "core_meaning_en": "to exist in large numbers or amounts",
-      "mental_model_cn": "大量存在",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "大量存在；到处都是",
+          "label_en": "exist in large numbers or amounts",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:abound:c982b03dbf715ea7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "某类事物大量存在；也可说某个地方/文本“充满”某物",
+      "core_meaning_en": "to exist in large numbers, or for a place, text, or system to contain many examples of something",
+      "mental_model_cn": "看主语：Theories abound = 理论很多；The text abounds in examples = 文本里例子很多。",
+      "mental_model_en": "watch the subject frame: things abound; a place/text abounds in or with those things"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,15 +69,15 @@
             "phrase": "Fish abound in the river."
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "大量存在；丰富",
-        "definition_en": "to exist in large numbers or amounts",
-        "governing_pattern": "vi. + with/in",
+        "confidence": "high",
+        "definition_cn": "大量存在；充满；富于",
+        "definition_en": "to exist in large numbers or amounts; in abound in/with, to contain many examples of something",
+        "governing_pattern": "vi.; subject + abound / container + abound in/with + n",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abound:c982b03dbf715ea7",
-        "sense_label_en": "to exist in large numbers or amounts",
+        "sense_label_en": "exist in large numbers; be full of",
         "sort_order": 0,
         "transitivity": "vi"
       }
@@ -127,7 +152,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "543fc993fab7975eea6e1075148802b1ea2045e29eab1f1281f89bfc7f650b18",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }
