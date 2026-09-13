@@ -29,7 +29,7 @@ jobs:
       - name: Apply fresh Gold01 in candidate workspace
         run: |
           python tools/lexical_fresh_rebuild_apply.py \
-            content/lexical/audit/fresh-rebuild/batches/gold01.json \
+            "$GITHUB_WORKSPACE/content/lexical/audit/fresh-rebuild/batches/gold01.json" \
             --report /tmp/gold01-report.json
 
       - name: Validate changed-owner invariants
