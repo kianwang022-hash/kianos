@@ -12,7 +12,6 @@ Current whole-system L substrate: `content/xizong/knowledge/learner/b-digestive-
 Do not rebuild Source, System, Block or KP identity.
 
 Per batch:
-
 `existing System/Block/KP → fresh learning pass → Logic Group redesign → targeted content repair only when the learning pass exposes a real defect → batch closure → later Projection/interaction design`
 
 Logic Group and learner order are editable Learning structure. Block/KP identities are hard assets unless contradictory evidence reaches K.
@@ -22,71 +21,77 @@ Original Lecture remains complete Source Truth / continuous learning substrate. 
 
 ## L1 — PASS_BOUNDED
 
-`ARC1 / D1–D4 / 管道 → 消化 → 吸收`
-
+`D1–D4 / 管道 → 消化 → 吸收`
 - 37 stable KPs; all covered exactly once.
-- working owner: `BATCH01_D1_D4.json`.
-- D1 3→2 LG; D2 4→4 with real local questions; D3 4→5 and moves summary/failure-localization to the end; D4 3→4 and separates default nutrient transport from mineral gating.
-- no Block/KP identity change.
-- tracked, not yet written to canonical Markdown: D2 KP11 `三类靶点→四类靶点`; D4 KP03 `三个故障入口→四个故障入口`.
-
----
+- owner: `BATCH01_D1_D4.json`.
+- key changes: D1 3→2 LG; D3 summary/failure-localization moved to end; D4 default nutrient transport separated from mineral gating.
+- tracked-only label repairs: D2 KP11 `三类→四类靶点`; D4 KP03 `三个→四个故障入口`.
 
 ## L2 — PASS_BOUNDED
 
-`ARC2 / M1–M4 / 结构与酶语言 → 碳氧化/ATP → RBC分流 → 糖原/糖异生`
+`M1–M4 / 结构与酶语言 → 碳氧化/ATP → RBC分流 → 糖原/糖异生`
+- 49 stable KPs; all covered exactly once.
+- owner: `BATCH02_M1_M4.json`.
+- key changes: M1 enzyme control separated from kinetics/inhibition; M2 NADH shuttle moved into the respiratory-chain chain; M3 and M4 strong structures preserved with real causal closure.
+- Source conflicts / Visual gaps remain explicit; no silent semantic repair.
 
-Scope:
-- M1 — 17 KP
-- M2 — 15 KP
-- M3 — 7 KP
-- M4 — 10 KP
-- total = 49 stable KP identities
+---
 
-Accepted working owner:
-`BATCH02_M1_M4.json`
+## Route challenge discovered after L2
 
-Fresh Learning changes:
-- M1: 4 old LG → 5 LG. Keeps protein structure as one chain, explicitly treats KP06–08 as a multi-axis application layer rather than inventing false causality, splits enzyme control (KP09–12) from kinetics/inhibition (KP13–14), and closes with cofactor/vitamin language (KP15–17).
-- M2: 3 old LG → 4 LG. Moves KP09 NADH shuttle from the TCA group into the respiratory-chain chain, producing `TCA output → shuttle → ETC → proton gradient → P/O → 30/32 ATP`; regulation/perturbation becomes a separate final group.
-- M3: preserves the strong 2-LG structure, but rewrites it as two actual functional questions: `ATP/2,3-DPG` vs `PPP/NADPH/GSH`.
-- M4: preserves the strong 3-LG structure but makes each closure causal: G-6-P/glycogen and liver-muscle split → gluconeogenesis/Cori/energy → glucagon/fasting time axis.
-- all 49 KPs covered exactly once; no split/merge/renumber.
-- no new medical-content rewrite required.
-- existing M1/M2/M3/M4 Visual gaps and M2/M4 Source conflicts stay explicit; L did not silently solve them.
+The old whole-system direct route is **not safe to continue as written**.
+
+Old route places `D5–D8` immediately after `M1–M4`, then postpones `M5–M10`.
+Fresh readback shows this conflicts with the actual learning dependencies:
+- D5 explicitly recalls lipid mobilization, ketones and nitrogen handling.
+- D7 explicitly recalls M5–M8: lipoprotein/lipid synthesis-mobilization/fatty acids-ketones/amino acids.
+- D8 explicitly recalls M7/M8 for DKA and protein/lipid catabolism.
+- system.json itself says `M5–M7 establish lipid transport/cholesterol/fatty-acid/ketone handling` and `M8 establishes nitrogen/one-carbon handling`, while D5–D8 integrate these into fed-fasting/diabetes.
+
+Therefore L must not force D5–D8 ahead of their metabolic substrate merely to preserve the old candidate route.
+
+Local accepted routing correction:
+
+`M1–M4 → M5–M8 → D5–D8`
+
+M9/M10 are not automatically pulled forward: their primary downstream roles are nucleotide/information and heme-bilirubin/biotransformation branches. Their exact placement remains open for later fresh audit.
+
+This is a Learning-route correction only. No Block/KP identity changes.
 
 ---
 
 ## L3 — ACTIVE
 
-`ARC3a / D5–D8 / 能量状态 → 内分泌共同语言 → 胰岛调控 → 糖尿病`
+`M5–M8 / 脂质运输与胆固醇 → 脂肪储存/动员/酮体 → 氮与一碳`
 
 Scope:
-- D5 能量、体温、应激与临床营养 — 19 KP
-- D6 内分泌共同语言 — 13 KP
-- D7 进食—空腹与胰岛激素 — 13 KP
-- D8 糖尿病 — 25 KP
-- total = 70 stable KP identities
+- M5 血浆脂蛋白 — 10 KP
+- M6 胆固醇、磷脂与胆汁酸 — 11 KP
+- M7 三酰甘油、脂肪酸与酮体 — 16 KP
+- M8 氨基酸、氨、尿素与一碳单位 — 18 KP
+- total = 55 stable KP identities
 
-Why split ARC3 here:
-- D5–D8 forms one complete causal branch from energy state and general endocrine control to insulin/glucagon and diabetes.
-- D21–D23 are target-gland applications that depend on D6 but do not need to be forced into the same 126-KP batch; they will be L4.
+Why now:
+- this is the missing substrate for D5 stress/nutrition and especially D7/D8 fed-fasting/diabetes;
+- it preserves the System causal relation `absorbed substrate → transport/storage/mobilization → endocrine state control`;
+- it avoids learning D7/D8 while their lipid/ketone/nitrogen prerequisites are still future knowledge.
 
 Fresh audit focus:
-1. D5: check whether energy measurement, thermoregulation and clinical nutrition are truly one learning progression or need explicit local branch separation.
-2. D6: test whether source/axis/feedback/receptor language should precede chemical classification details and whether diagnostic localization is sufficiently separated from memorized hormone tables.
-3. D7: use M4 as prerequisite; test whether insulin secretion, metabolic action and fed/fasted state should be regrouped around state transition rather than source order.
-4. D8: challenge large sequential groups for whether disease identity → acute crisis → chronic damage → diagnostic function → treatment is the best case-solving order, and surface any content upgrades exposed by that journey.
+1. M5: test whether particle identity should be immediately followed by the three transport routes before apo/enzyme/receiver tables.
+2. M6: separate cholesterol fate from phospholipid branch only if the shared acetyl-CoA/membrane logic no longer holds as one learner model.
+3. M7: stress-test the current synthesis → mobilization/β-oxidation → ketone grouping, especially the state-switch bridge to D7/D8.
+4. M8: challenge whether KP01–07 is too broad; distinguish amino-acid identity/derivatives from SAM/one-carbon if learning continuity improves.
 
-Next artifact: `BATCH03_D5_D8.json`.
+Next artifact: `BATCH03_M5_M8.json`.
 
 ---
 
 ## Planned next
 
-- L4: D21–D23 target-gland endocrine branch.
-- L5+: M5–M10, then GI clinical, hepatobiliary/pancreas, molecular-information arcs, each as bounded semantic batches.
-- P starts only after L content is accepted sufficiently for projection decisions.
+- L4: D5–D8 after M5–M8 closes.
+- L5: D21–D23 target-gland endocrine branch.
+- later placement of M9/M10, G1–G5 and clinical organ branches will be decided by fresh dependency audit rather than old direct-route inertia.
+- P starts only after L content is sufficiently accepted for projection decisions.
 
 ---
 
