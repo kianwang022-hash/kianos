@@ -67,9 +67,18 @@ assert(homeTools.includes('link.href = last.href;'), 'home-resume-does-not-retur
 assert(blockRuntime.includes("JSON.parse(localStorage.getItem(storageKey) || 'null')"), 'block-resume-does-not-restore-state');
 assert(blockRuntime.includes("setKpIndex(state.kpIndex || 0); setStage(state.stage || 'block_learn');"), 'block-resume-does-not-restore-stage-and-kp');
 
+// Completion evidence must be enforced at the transition owner, not merely by
+// a disabled-looking companion button. Lecture completion is browser evidence.
+const stageGuard = read('static-web/src/components/XizongRuntimeStageGuard.astro');
+assert(stageGuard.includes('const readBlockPersonal = (id) =>'), 'block-complete-has-no-personal-evidence-reader');
+assert(stageGuard.includes("target.closest('[data-block-complete]')"), 'block-complete-transition-not-guarded');
+assert(stageGuard.includes('Boolean(personal?.lectureRead)'), 'block-complete-does-not-require-lecture-evidence');
+assert(stageGuard.includes('Boolean(state?.blockRecallDone)'), 'block-complete-does-not-require-block-recall-evidence');
+
 console.log([
   'Xizong Functional First regression PASS',
   'B5=nonnumeric-order-routed-by-canonical-group-id',
+  'BlockComplete=lecture+learn+recall+block-recall-fail-closed',
   'Resume=last-route+block-stage+kp-state',
   'Evidence=DETERMINISTIC_RUNTIME_CONTRACT',
   'U=NOT_TESTED_BY_THIS_SCRIPT'
