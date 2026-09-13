@@ -4,9 +4,7 @@ Status: CURRENT
 Scope: English Objective tasks — Reading A / Cloze / Reading B  
 Standard: root `LEARNING_ACCEPTANCE.md`
 
-This file owns current **Acceptance Truth** for the Objective learner-facing scope.
-
-It does not own Objective cognition/content, runtime implementation, Work Cursor, or Kian's private learner state.
+This file owns current **Acceptance Truth** for the Objective learner-facing scope. It does not own cognition/content, runtime implementation, the Work Cursor, or Kian's private learner state.
 
 ---
 
@@ -14,12 +12,12 @@ It does not own Objective cognition/content, runtime implementation, Work Cursor
 
 | Gate | Status | Current evidence / boundary |
 | --- | --- | --- |
-| S — Source | **PASS** | Independent Current-first source/provenance sampling found no material Objective source gap. Current source coverage remains 2000–2026; sampled early/recent Cloze, Reading A and Reading B objects are source-backed, and all four real Reading B form families remain represented. |
-| K — Knowledge | **PASS** | Objective Global Map plus Reading A / Cloze / Reading B contracts preserve distinct cognitive objects, route Lexical/Reading root causes to their canonical owners, and do not collapse the module into question-type taxonomy. |
-| L — Learning | **PASS** | Whole passage/set remains the learner-facing attempt/review unit; stable clean work fast-passes; first meaningful failure drives the smallest sufficient repair; web owns the clean task interaction and Chat owns semantic diagnosis/repair judgment. |
-| P — Projection | **PASS** | Prior Chromium/WebKit execution plus fresh code-level adversarial inspection support clean answer gating, whole-unit continuity, all four Reading B forms, fixed givens and single-use candidate constraints. No current Projection blocker was found. |
-| R — Runtime | **UNTESTED** | **Reopened by independent re-acceptance.** Cloze has a deep executed clean→problem→return→fresh continuation journey. Reading A / Reading B currently have strong task smoke/form execution, but not individually executed repair-return/resume/fresh paths sufficient to grant each task R PASS under the current per-module standard. |
-| E — Evidence | **UNTESTED** | **Downstream-frozen behind R.** The shared evidence importer has strong executed negative-boundary evidence through Cloze, but Reading A / Reading B have not individually executed the task-specific repair-thread / transfer lifecycle. Shared runtime evidence cannot automatically grant child-task E PASS. |
+| S — Source | **PASS** | Independent Current-first source/provenance sampling found no material Objective source gap. Current source coverage remains 2000–2026 and all four real Reading B form families are represented. |
+| K — Knowledge | **PASS** | Reading A, Cloze and Reading B preserve distinct cognitive objects; Lexical/Reading root causes route to their canonical owners rather than becoming duplicate Objective knowledge. |
+| L — Learning | **PASS** | Whole passage/set remains the learner-facing attempt/review unit; stable clean work fast-passes; only a real problem justifies optional deeper review; smallest sufficient repair beats per-question ritual. |
+| P — Projection | **PASS** | Executed Chromium/WebKit evidence plus fresh adversarial inspection protect answer gating, whole-unit continuity, Reading B source directions/forms, fixed givens and single-use constraints. |
+| R — Runtime | **PASS** | Fresh bounded Reading A + Reading B browser closure on PR #52 head `ea0c5ecf95d60b04dc166fb2081416a7aa49871a`; Runtime depth passed and all real Reading B forms passed in workflow run `34750453565`. Clean attempts do not manufacture Chat/debt, pending claims remain dormant on clean fresh work, repair-return persistence/idempotence works, Reading A continuous sealed mode preserves state, and Reading B single-use survives the problem journey. |
+| E — Evidence | **UNTESTED** | **ACTIVE.** Cloze/shared importer evidence remains valid, but Reading A / Reading B still need bounded task-specific close/reopen/routing evidence under the new rule that clean work is never forced into Chat merely to service a pending claim. |
 | U — User Validation | **UNTESTED** | Real Kian use only. Engineering/browser acceptance cannot replace learner validation. |
 
 ---
@@ -28,189 +26,122 @@ It does not own Objective cognition/content, runtime implementation, Work Cursor
 
 Allowed statement:
 
-> **Objective S/K/L/P are accepted. R has been reopened for bounded Reading A / Reading B engineering acceptance; E remains UNTESTED downstream of R; U remains real-use-only UNTESTED.**
+> **Objective S/K/L/P/R are accepted. E is the active engineering gate. U remains real-use-only UNTESTED.**
 
-Do **not** currently claim the aggregate Objective scope is `S/K/L/P/R/E PASS` or “module ready for learner test.”
-
-This does not mean a product defect has been found in Reading A or Reading B. The reopened object is the **acceptance evidence boundary**: the existing executed evidence does not yet cover those task-specific R/E paths deeply enough under the current standard.
+Do not yet claim `S/K/L/P/R/E PASS` or “module ready for learner test.”
 
 ---
 
-# Independent re-acceptance｜2026-09-13
+# Fresh re-acceptance ledger｜2026-09-13
 
-Authority: parent `content/english/CURRENT.md` anti-cocoon directive.
+The fresh audit treated previous PASS labels, validators and UI as prior claims rather than answer keys. It formed provisional judgments from the actual owners and then reconciled old Acceptance.
 
-The audit formed its provisional S–E verdict from actual Source/module/learning/runtime owners and inherited contracts **before reading the previous Objective Acceptance**. Previous green claims were reconciled only after the provisional verdict existed.
+## S — Source · PASS
 
-## S — Source
+**Evidence:** `STRUCTURAL + FRESH_AUDITOR`, supported by Current provenance.
 
-**Previous claim → independent verdict:** `PASS → PASS`
+Strongest attack: negative-space sampling across Objective families/chronology, Reading B form coverage and candidate-policy fidelity, plus unresolved provenance debt. No material Source blocker was found. A bounded public search did not produce a suitable official NEEA copy of the exact papers, so reposts were not promoted to false authoritative provenance.
 
-**Evidence mode + Independence:**
+## K — Knowledge · PASS
 
-- `STRUCTURAL + FRESH_AUDITOR` — direct Current source-truth sampling across Objective families / chronology;
-- `STRUCTURAL + SELF` — current provenance and coverage ledgers, used as supporting evidence rather than as their own completeness proof.
+**Evidence:** `ADVERSARIAL + FRESH_AUDITOR`.
 
-**Strongest falsification attempted:**
-
-- inspected negative space rather than accepting manifest counts alone;
-- sampled early Cloze / Reading A source objects and a recent Reading B comment–statement object;
-- challenged Reading B form coverage and candidate-policy fidelity;
-- checked current provenance for unresolved answer/source repair debt rather than inheriting old source closure.
-
-**Material delta / blocker / debt:** none found for Objective Source.
-
-The audit did not manufacture an `AUTHORITATIVE_EXTERNAL` label: a bounded public search did not surface a suitable official NEEA copy of the specific postgraduate English I papers, so external reposts were not used to fake stronger provenance.
-
----
-
-## K — Knowledge
-
-**Previous claim → independent verdict:** `PASS → PASS`
-
-**Evidence mode + Independence:** `ADVERSARIAL + FRESH_AUDITOR`, supported by current canonical learning/task owners.
-
-**Strongest falsification attempted:** challenged whether Objective had merely reorganized available question types instead of modeling ability. The accepted model survived the challenge:
+Accepted smallest sufficient decomposition:
 
 - Reading A → evidence-based option adjudication;
 - Cloze → best-fit decision under slot constraints;
 - Reading B → discourse reconstruction / global reconciliation;
-- Lexical and Reading failures route outward rather than being duplicated locally.
+- Lexical and general Reading failures route outward instead of being duplicated locally.
 
-**Material delta / blocker / debt:** none found.
+The model survived the attack that Objective might merely be a question-type taxonomy.
 
----
+## L — Learning · PASS
 
-## L — Learning
+**Evidence:** `ADVERSARIAL + FRESH_AUDITOR`.
 
-**Previous claim → independent verdict:** `PASS → PASS`
-
-**Evidence mode + Independence:** `ADVERSARIAL + FRESH_AUDITOR`.
-
-**Strongest alternative route challenged:**
+Rejected alternative:
 
 ```text
 question-type curriculum
-+
-per-question immediate result / review
-+
-one wrong item → one repair object
++ per-question immediate review
++ one wrong item → one repair object
 ```
 
-This route was rejected because it weakens clean exam continuity, burns cross-item evidence, and hides shared/cascade causes. The accepted route remains stronger for Kian:
+Accepted route:
 
 ```text
 complete passage / set clean attempt
-→ compact stable PASS when warranted
+→ fast PASS when stable
 or
 whole-unit diagnosis
 → smallest local/shared/coupled/structure repair
-→ learner re-execution
-→ later fresh transfer evidence
+→ learner re-execution when useful
+→ later fresh evidence only when naturally relevant
 ```
 
-Surface ownership is also explicit: the learner-facing web task owns the clean attempt and low-friction evidence capture; Chat owns semantic diagnosis and adaptive repair judgment.
+A pending backend claim is not itself a learner task. Clean work stays clean.
 
-**Material delta / blocker / debt:** none found.
+## P — Projection · PASS
 
----
+**Evidence:** `EXECUTED + SELF` plus `ADVERSARIAL + FRESH_AUDITOR`.
 
-## P — Projection
+Strongest attacks rejected:
 
-**Previous claim → independent verdict:** `PASS → PASS`
+- formal-answer leakage before submit/reveal;
+- Reading B declaring `single_use` while allowing impossible duplicate maps;
+- flattening Reading B into Reading A's one-item layout;
+- losing ordering skeleton/fixed givens;
+- forcing Chat after a clean Reading B map.
 
-**Evidence mode + Independence:**
+Current Chromium/WebKit form execution covers gap matching, heading matching, paragraph ordering and comment–statement matching.
 
-- `EXECUTED + SELF` — existing Chromium/WebKit P seal and all-four-form Reading B browser evidence;
-- `ADVERSARIAL + FRESH_AUDITOR` — direct inspection of answer gates, task surfaces and Reading B constraint behavior.
+## R — Runtime · PASS
 
-**Strongest falsification attempted:**
+**Previous fresh verdict:** `PASS → UNTESTED` after decomposing the old aggregate seal.  
+**Current verdict after bounded execution:** `UNTESTED → PASS`.
 
-1. challenged whether formal answers were present in the pre-attempt DOM — rejected: answer gates fetch/inject formal answers only after the allowed submit/reveal boundary;
-2. challenged whether Reading B only *declared* `single_use` while allowing impossible duplicate maps — rejected: used candidates are disabled elsewhere and duplicate state blocks submit;
-3. challenged whether Reading B had been flattened into Reading A's one-item layout — rejected: material/candidate inventory/complete map remain jointly available and ordering preserves fixed skeleton/givens.
+**Evidence:** `EXECUTED + SELF`, with the test target selected by the fresh adversarial audit rather than inherited from the old aggregate validator.
 
-**Material delta / blocker / debt:** no current P blocker found.
+Fresh workflow evidence:
 
-Prior durable P evidence remains useful:
+- PR #52 head: `ea0c5ecf95d60b04dc166fb2081416a7aa49871a`;
+- Objective Learner Journey run: `34750453565`;
+- build / shared closure / task smoke / bounded Runtime / all Reading B forms: PASS;
+- bounded Runtime report: `objective-runtime-depth.json`;
+- Reading B form report: `reading-b-forms.json`.
 
-- artifact head `addb1c74cbe6ca756fd613bff7e634a3741c0995`;
-- workflow run `34695962533`;
-- successful rerun job `103559543188`;
-- `journey-task-smoke.json` → PASS in Chromium + WebKit;
-- `reading-b-forms.json` → PASS, `88` checks.
+### Reading A closed paths
 
----
+- clean whole-passage score with no forced Chat or debt;
+- correct-but-uncertain enters optional whole-passage review without becoming wrong;
+- wrong passage creates whole-passage handoff, not mandatory per-question Chat;
+- failed return import rolls back atomically and preserves the return;
+- completed repair return persists; duplicate return is idempotent;
+- a justified pending claim survives a distinct clean fresh passage **without** surfacing a learner handoff;
+- continuous mode seals interim score/formal answer/review;
+- session end returns only the actual problem passage and preserves attempt/uncertainty state.
 
-## R — Runtime
+### Reading B closed paths
 
-**Previous claim → independent verdict:** `PASS → UNTESTED`
+- clean whole-set pass with no forced Chat or debt;
+- a real swap-compatible problem produces whole-set deep-review context;
+- Reading-owned local repair does not duplicate Objective debt;
+- completed coupled repair persists; failed persistence rolls back; duplicate return is idempotent;
+- `single_use` remains enforced through the submitted problem journey;
+- a justified pending claim survives a distinct clean fresh set without surfacing a learner handoff;
+- all four real source form families execute after the Runtime journey.
 
-**Evidence mode + Independence:**
+### Validator repair reconciled
 
-- `EXECUTED + SELF` — historical/current browser artifacts;
-- `ADVERSARIAL + FRESH_AUDITOR` — artifact decomposition and current implementation inspection.
+The previous deep validator incorrectly required a clean fresh passage/set to open Chat solely because a pending claim existed. That ritual was deleted from the R acceptance path. The valid semantic truth — fresh evidence is needed before mastery/closure — remains owned by **E**, not by a forced learner-visible clean-task review.
 
-**Strongest falsification attempted:** decomposed the claimed Runtime seal by task instead of accepting the aggregate label.
+A second stale Reading B form assertion still expected the retired packet label `Reading B set review packet v1`; it was updated to the current optional escalation packet `Reading B deep review packet v2`. No Runtime semantics changed for that repair.
 
-The durable artifacts show:
+## E — Evidence · ACTIVE / UNTESTED
 
-### Cloze
+**Prior fresh verdict:** aggregate `PASS → UNTESTED` because deep shared evidence was primarily instantiated through Cloze.
 
-Deep shared journey executed:
-
-- clean PASS without manufactured debt;
-- whole-passage problem handoff;
-- handoff snapshot;
-- failed-return rollback;
-- completed repair return;
-- duplicate-return idempotence;
-- continuation to distinct fresh sets;
-- close and reopen paths.
-
-Cloze R evidence remains strong.
-
-### Reading A
-
-Executed task evidence currently demonstrates:
-
-- Chromium + WebKit task-page load;
-- clean PASS;
-- no forced Chat on clean work;
-- problem path remains passage-first.
-
-It does **not** currently execute, as a Reading-A-specific acceptance journey, the full wrong/uncertain → repair return → resume / continuous-session boundary → later fresh transfer lifecycle required for an independent R PASS.
-
-### Reading B
-
-Executed task/form evidence currently demonstrates:
-
-- all four real form families in Chromium + WebKit;
-- source directions / task form / candidate policy projection;
-- clean formal maps;
-- single-use / fixed-given mechanics;
-- source-faithful whole-set ordering handoff.
-
-It does **not** currently execute, as a Reading-B-specific acceptance journey, the full repair return → coupled/structure handling → later fresh transfer lifecycle required for an independent R PASS.
-
-**Material delta:** previous R PASS over-generalized a deep **Cloze** shared journey plus Reading A/B task smoke into three individually closed task runtimes.
-
-This is an **acceptance-evidence defect**, not yet a demonstrated product/runtime defect.
-
----
-
-## E — Evidence
-
-**Previous claim → independent verdict:** `PASS → UNTESTED` (downstream-frozen behind R)
-
-**Evidence mode + Independence:**
-
-- `EXECUTED + SELF` — deep shared evidence journey;
-- `ADVERSARIAL + FRESH_AUDITOR` — direct inspection of the current negative tests and their task scope.
-
-**Strongest falsification attempted:** tested whether the `20/20` Evidence seal really represented all Objective tasks.
-
-The shared journey is genuinely adversarial and remains valuable. It proves through Cloze that the runtime rejects/handles:
+Existing reusable shared/Cloze evidence already proves the importer can reject or handle:
 
 - diagnosis-only debt admission;
 - duplicate Objective debt for Lexical/Reading-owned repairs;
@@ -218,60 +149,39 @@ The shared journey is genuinely adversarial and remains valuable. It proves thro
 - duplicate return mutation;
 - stale/same-object closure;
 - closure without fresh evidence;
-- unauthorized clean reopen;
-- and permits explicit relevant fresh close / contradictory fresh reopen.
+- unauthorized reopen;
+- explicit relevant fresh close / contradictory fresh reopen.
 
-However, that executed deep journey is task-instantiated through **Cloze**. Reading A and Reading B currently contribute whole-unit/task-form browser evidence, but not their own executed repair-thread / transfer lifecycle. Under the current English rule that Reading A, Cloze and Reading B are evaluated individually, the shared importer cannot by itself grant all three E PASS.
+Do not duplicate these shared mechanics merely for symmetry.
 
-**Material delta:** previous E PASS over-generalized a strong shared/Cloze adversarial seal into child-task evidence closure.
+The smallest remaining task-specific Evidence attack for Reading A and Reading B is:
 
----
+1. diagnosis-only does not create task debt;
+2. Lexical/Reading routes do not create duplicate Objective claims;
+3. completed reusable task repair is required before a task-specific claim exists;
+4. same-object correction cannot close it;
+5. a later **problem/deep-review path** may opportunistically carry the pending claim, but a clean task must not be lengthened just to service it;
+6. close requires explicit relevant fresh evidence;
+7. a later contradictory fresh problem may reopen the exact claim;
+8. multi-item/cascade evidence may remain one coupled/shared repair thread.
 
-## U — User Validation
+If this task-specific integration survives, E may close without inventing a second transfer curriculum.
 
-**Previous claim → independent verdict:** `UNTESTED → UNTESTED`
+## U — User Validation · UNTESTED
 
-**Evidence mode + Independence:** `REAL_USE + REAL_USER` only.
-
-No engineering or synthetic test is allowed to replace Kian's actual use. Do not ask Kian to consume fresh exam material merely to close this engineering audit.
-
----
-
-# R closure required next
-
-The next acceptance work is bounded to **Reading A and Reading B Runtime execution**. Do not reopen S/K/L/P or rewrite the learning model unless the new execution reveals a concrete upstream defect.
-
-Minimum Reading A R closure should execute, on Current artifacts:
-
-1. clean PASS with no manufactured debt;
-2. wrong and uncertain whole-passage review entry;
-3. repair return / persistence / idempotence;
-4. continuous sealed mode with no interim answer/score leak where used;
-5. resume / return without losing the learner's place;
-6. distinct fresh-object continuation when a task-specific claim is pending.
-
-Minimum Reading B R closure should execute, on Current artifacts:
-
-1. clean PASS across representative real form(s);
-2. whole-set problem handoff;
-3. repair return with a local/coupled/structure thread shape;
-4. persistence / idempotence;
-5. later distinct-set continuation for a task-specific pending claim;
-6. preserve source single-use/fixed-given/global-map constraints throughout.
-
-Once R is independently closed for both tasks, activate E and execute the task-specific evidence boundaries needed to justify Reading A and Reading B E PASS. Reuse the shared importer evidence where legitimately shared; do not duplicate tests merely for ritual.
+`REAL_USE + REAL_USER` only. Do not consume fresh exam material merely to close engineering acceptance.
 
 ---
 
-## Gate progression / readiness
+## Gate progression
 
 ```text
 S PASS
 → K PASS
 → L PASS
 → P PASS
-→ R UNTESTED  ← ACTIVE / Reading A + Reading B bounded closure
-→ E UNTESTED  ← downstream-frozen
+→ R PASS
+→ E UNTESTED  ← ACTIVE
 → U UNTESTED  ← real learner use only
 ```
 
@@ -279,21 +189,16 @@ S PASS
 
 ## Truth boundaries
 
-### Artifact Truth
+**Artifact Truth**
 
 - shared learning owner → `content/english/modules/objective-learning.md`
-- shared runtime contract → `content/english/modules/objective-runtime.md`
-- evidence/transfer contract → `content/english/modules/objective-evidence-runtime.md`
+- runtime semantics → `content/english/modules/objective-runtime.md`
+- evidence semantics → `content/english/modules/objective-evidence-runtime.md`
 - task contracts → `reading-a.md`, `cloze.md`, `reading-b.md`
-- Current source owners → `content/english/source/`
+- Current source → `content/english/source/`
 - learner runtime / validators → Objective/Reading/Cloze surfaces under `static-web/`
 
-### Acceptance Truth
+**Acceptance Truth** → this file.  
+**Learner Truth** → private learner/runtime state only.
 
-This file only.
-
-### Learner Truth
-
-Private learner/runtime state only.
-
-This Acceptance file does not mean Kian has personally attempted Objective tasks, repaired any error, or reached transfer closure.
+This Acceptance file does not mean Kian has personally attempted Objective tasks, repaired an error, or reached transfer closure.
