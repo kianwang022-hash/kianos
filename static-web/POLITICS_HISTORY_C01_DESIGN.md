@@ -101,3 +101,97 @@ Do not foreground:
 - repeated hidden panels for first-round useful structure.
 
 Exact/source/deeper material may remain secondary, but first-round decisive relations should not require repeated reveal interactions.
+
+---
+
+## VERIFY / Workbench — accepted merge direction
+
+The C01 pilot must **not replace** the previously recovered Politics question-workbench interaction model with a new simplified quiz. The prior mature Workbench is the functional base; the new Cognitive Projection work adds spatial/contextual repair capability around it.
+
+### Preserve from the historical Workbench asset
+
+The Current UI productization cursor already freezes these as migration targets:
+
+```text
+Normal / Fast modes
+1–4 = A/B/C/D
+Fast single-choice: correct → near-immediate next
+wrong → stay on the current question
+answer delta: learner answer vs formal answer
+一句话带走
+optional cause / note
+AI-refined 理解这道题 when a legally promoted Current asset exists
+Current refs
+collapsible Xiao original explanation
+fixed/easy Next
+```
+
+Do not regress these functions merely because the C01 pilot uses a new Mac-wide workspace shell.
+
+### Add from the Cognitive Projection pilot
+
+The new layer may add:
+
+- Mac-wide question + repair side-by-side layout;
+- keep the learner on the original question when Wrong / meaningful Uncertain occurs;
+- reuse the Current History cognitive structure in the repair Inspector (cause / turning point / boundary / takeaway) when it is the smallest sufficient repair;
+- restore the relevant Unit structure without forcing a full-page mode switch;
+- make Wrong / Uncertain visually heavier only when useful;
+- keep correct/stable work almost frictionless;
+- permit local Inspector scrolling when repair content exceeds the viewport while keeping the question itself stable.
+
+The new Cognitive Projection must **not** create a second competing explanation system. It should orchestrate existing Workbench functions + Current History structure into one lower-friction repair surface.
+
+### Question identity / parity rule
+
+Kian states that the underlying Politics questions have not been intentionally modified during this productization work. Treat this as a strong expectation of parity, **not as sufficient proof by itself**.
+
+Before binding historical Workbench enrichments or historical refined explanations to Current questions, implementation must reconcile identity exactly using the strongest available stable keys, preferably:
+
+```text
+canonical question_id
++ normalized stem
++ option set/order
++ formal answer
+```
+
+If exact parity is demonstrated, reuse the Current Xiao1000 question object and attach the migrated Workbench behavior/enrichment to it. Do not fork or duplicate the question bank merely to recover the old UI.
+
+If a historical enrichment cannot be proven to belong to the exact Current question, fail closed: keep the Current question and omit that enrichment.
+
+### Historical refined-explanation boundary
+
+The historical 1148-record refined explanation asset remains a separate bounded migration issue. Its known pinned SHA256 is:
+
+`e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec`
+
+The old runtime exposed this content as `question_explanation`. It may be used in the future Workbench only after the existing Recovery Contract's durable-role proof and Current promotion are satisfied.
+
+Until then:
+
+- do not hidden-fetch or fallback to Legacy/local snapshots;
+- do not treat the 1148 historical rows as Current merely because question parity appears likely;
+- preserve a clean fallback using Current answer delta / History structure / Xiao original explanation / Chat;
+- never reintroduce old due/mastery/scheduler state alongside the explanation asset.
+
+### Target learner experience
+
+```text
+clean question
+→ correct = near-immediate continuation
+
+Wrong / meaningful Uncertain
+→ stay on exact question
+→ show answer delta
+→ smallest useful repair in side Inspector
+   ├─ 一句话带走
+   ├─ relevant Current History structure / boundary
+   ├─ optional cause / note
+   ├─ Xiao original explanation when needed
+   ├─ AI-refined 理解这道题 only when Current-legal
+   ├─ Current refs when useful
+   └─ Chat / source escalation only when deeper repair is earned
+→ continue / return without losing place
+```
+
+This is an enhancement of the recovered Workbench, not a new quiz product.
