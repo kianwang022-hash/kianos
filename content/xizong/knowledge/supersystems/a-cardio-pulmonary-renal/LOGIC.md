@@ -1,199 +1,167 @@
 # A · Cardio–Pulmonary–Renal Macro-Domain Logic
 
-Status: LOGIC FROZEN · CONTENT NOT ADMITTED  
-Role: top-level A-domain integration logic for A1 Circulation + A2 Respiratory + A3 Urinary  
-Current medical owners remain: `a1-circulation/system.json`, `a2-respiratory/system.json`, `a3-urinary/system.json` and their canonical Block/KP Core.
+Status: **LOGIC FROZEN · fresh SELF+ADVERSARIAL re-acceptance · CONTENT NOT ADMITTED**  
+Role: top-level A-domain structural integration logic for A1 Circulation + A2 Respiratory + A3 Urinary  
+Medical Core remains owned by the existing child System / Block / KP owners.
 
-> Terminology note: the repository path currently says `supersystems/` and older files may say `SuperSystem`. In Logic, **A is not a tier above B/C/D/E/F**. A is a top-level macro-domain peer of B/C/D/E/F. A1/A2/A3 are a privileged decomposition of A.
+## 0｜Purpose: 275+ or stay invisible
 
-This file answers only:
+A-level integration exists for one learner-facing reason only:
 
-> **What is A at the top Xizong level, why are A1/A2/A3 split into first-class Systems, what structural cross-System logic belongs to their common parent, and what must never be promoted upward?**
+> **improve the probability of 306 西医综合 275+ with lower total learning/review cost.**
 
-It does **not** define teaching content, learner sequence, Recall implementation, UI, runtime state, questions, Memory, or Acceptance.
+A may remain a taxonomy parent even if its learner-facing projection later collapses to zero.
 
----
+Hard rules:
 
-## 0｜Highest constraint: 275+ or do not expose it to the learner
-
-The A-level integration has no learner-facing value merely because it is medically elegant, conceptually higher-level, visually impressive, or architecturally symmetric.
-
-Its only legitimate learner-facing reason to exist is to improve Kian's probability of reaching:
-
-> **306 西医综合 275+**
-
-Every later Content / Learn / UI decision must pass at least one test:
-
-```text
-faster / more stable first-round understanding
-OR
-less repeated review + better second-round discrimination / cross-System application
-OR
-faster, thinner final-sprint retrieval
-```
-
-If not, that learner-facing projection is not admitted.
-
-Hard rule:
-
-> **Compression that creates more study burden than retrieval / transfer / score value is negative value and must not reach the learner.**
-
-This applies to learner-facing A integration, not to A's existence as a taxonomy parent. A may remain the structural parent of A1/A2/A3 even if visible A-level learning content later collapses toward zero.
-
-A must never create an independent required study quota, KP inventory, question quota, Memory queue, review debt, or completion burden.
+- minimize learner burden, not Knowledge Truth;
+- higher abstraction does not earn learner contact time;
+- A creates no independent KP inventory, question quota, Memory queue, Recall schedule or completion burden;
+- if an A-level projection costs more time than it saves in understanding, discrimination, review or retrieval, delete the projection;
+- a correct relation may remain child-owned / backend-only / repair-only / later-phase without becoming A-level learner content.
 
 ---
 
-## 1｜Top-level taxonomy: A is peer to B/C/D/E/F
+## 1｜Taxonomy and owner granularity are different
 
-The intended highest-level Xizong grouping is conceptually:
+Top-level conceptual grouping:
 
 ```text
 A · Cardio–Pulmonary–Renal
-B · Digestive / Metabolic / Endocrine ...
+B · Digestive / Metabolic / Endocrine / Tumor
 C · Hematology / Immunity / Infection
 D · Neuro / Sensory / Motor / Orthopedics
 E · Reproductive / Breast
-F · Remaining integrated clinical domains
+F · Remaining Clinical
 ```
 
-A is therefore **not** a new layer placed above the other broad domains.
+A is a peer of B/C/D/E/F, not a tier above them.
 
-The repository currently has eight numbered System owners because A is unusually important and large and has been decomposed into three independently owned Systems:
+A is unusually important and large, so it is decomposed into three first-class child Systems:
 
 ```text
 A
 ├─ A1 Circulation
 ├─ A2 Respiratory
 └─ A3 Urinary
-
-B
-C
-D
-E
-F
 ```
 
-Three granularities must not be confused:
+Therefore:
 
-- **macro-domain taxonomy** = A / B / C / D / E / F;
-- **Current System owner granularity** = A1 / A2 / A3 / B / C / D / E / F;
-- **learner route** = whatever sequence best serves the current exam phase.
+```text
+macro-domain taxonomy
+≠ durable System-owner granularity
+≠ learner route
+```
 
-Hard rule:
-
-> **Owner granularity ≠ highest conceptual taxonomy ≠ learner route.**
+The owner manifest is the durable map for this distinction.
 
 ---
 
-## 2｜Why A is specially decomposed into A1 / A2 / A3
+## 2｜Why A1 / A2 / A3 deserve independent System status
 
-A1/A2/A3 receive independent System status because that decomposition materially serves the 275+ target, not because heart, lung and kidney are unrelated.
+The split is justified by exam utility, not by organ isolation.
 
-A split is justified when a child domain has enough of the following:
+Each child has:
 
-- large exam/content volume;
+- large independent 306 content/question volume;
 - a coherent local causal mother model;
-- substantial independent first-pass learning work;
-- distinct Block / Logic Group / KP organization;
-- enough question coverage and error modes to justify independent verification;
-- enough runtime/governance scope to justify independent continuation and Acceptance.
+- substantial first-pass learning work;
+- distinct Block / Logic Group / KP structure;
+- independent error/repair/acceptance needs.
 
-A1, A2 and A3 meet that bar.
+Merging all three into one ordinary broad System would increase navigation, verification, learning and review cost.
 
-> **A is one top-level macro-domain whose exam importance and internal scale justify three first-class child Systems.**
-
-The split is a performance decision. It must make learning, verification, repair and review easier than one giant A owner would.
+So A is one macro-domain with three privileged first-class child Systems.
 
 ---
 
-## 3｜A parent ownership: structural compression, not medical Core
+## 3｜A owns structural compression, not a fourth medical Core
 
-A does **not** become a fourth medical owner over heart + lung + kidney.
+A may own only semantics whose value appears when child boundaries are crossed:
 
-A may own only structural integration semantics whose value appears specifically because child boundaries are crossed:
+- which child Systems connect;
+- the minimum joining relation;
+- cross-System localization/routing;
+- explicit external interfaces;
+- safe deduplication/compression in later review.
 
-- which child Systems are connected;
-- the minimal joining relation between them;
-- cross-System localization coordinates;
-- routing / compression relationships;
-- external interfaces to B/C/D/E/F;
-- later shared reconstruction that can safely replace duplicated review.
+A must not duplicate:
 
-All detailed medical truth stays in the existing child System / Block owners.
+- child formulas, thresholds, diagnosis or treatment;
+- child Framework / KP content;
+- Question Truth or a second question taxonomy;
+- child Primary teaching that already solves the medical problem.
 
-A must not own:
+Admission rule:
 
-- local formulas merely because they can be displayed together;
-- disease-specific diagnosis/treatment already explained below;
-- copied KP content;
-- a second question taxonomy;
-- a second Memory/review queue;
-- an independent mandatory completion state.
-
-Admission test:
-
-> **If one child owner already explains the medical relation completely, A may at most index / route / compress that relation; it must not recreate a second Primary.**
+> **If one child owner already explains the medical relation sufficiently, A may index/route/compress it but may not create a second Primary.**
 
 ---
 
-## 4｜Structural invariant: A is a three-edge triangle
+## 4｜Frozen structure: three pairwise interface families
 
-The frozen A-level Logic is a triangle of three pairwise couplings:
+A has three child pairs. Each pair has one **primary score-useful seam candidate**, but the pair may contain other valid child-owned relations.
 
 ```text
                  A2 Respiratory
                 /              \
-      O₂ delivery                CO₂ / acid–base
+   A1↔A2 family                  A2↔A3 family
+   primary: O₂ delivery          primary: acid–base routing
               /                    \
-     A1 Circulation —— perfusion / volume —— A3 Urinary
+     A1 Circulation —— A1↔A3 family —— A3 Urinary
+                      primary: perfusion ↔ volume
 ```
 
-The structural triangle is symmetric; medical ownership is not. The three edges must **not** be forced into equal Content modules later merely for visual symmetry.
+Important:
+
+> **three interface families ≠ exactly three total medical relations.**
+
+The parent stays minimal by keeping secondary relations with their real child owner instead of promoting every cross-boundary fact into a new A primitive.
 
 ---
 
-## 5｜Edge A1 ↔ A2 · Oxygen Delivery
+## 5｜A1 ↔ A2 family
 
-Minimal relation:
+### Primary score-useful seam candidate: Oxygen Delivery
 
 ```text
 lung oxygenation
-→ arterial O₂ state / content
-× circulation flow / distribution
+→ arterial O₂ state/content
+× circulation flow/distribution
 → tissue O₂ delivery
 ```
 
 Key discrimination:
 
-> **oxygenation failure ≠ oxygen-content failure ≠ flow failure ≠ distribution/use failure**
+> oxygenation failure ≠ O₂-content failure ≠ flow failure ≠ distribution/use failure
 
-### Existing owner pattern
+Ownership:
 
-- A2 Block 2 owns pulmonary exchange, Hb/oxygen-content language and explicitly calls circulation for pulmonary flow, CO and tissue-oxygen-delivery interface.
-- A1 owns CO, pressure, flow distribution and perfusion mechanics.
+- A2 Block 2 owns pulmonary exchange and oxygen-content language;
+- A1 owns CO, pressure, flow distribution and perfusion mechanics;
 - Hb/RBC mass remains an external C/Hematology input.
 
-### A-level role
+### Secondary valid seam: pulmonary circulation / right heart
 
-**Split-primary joining interface.**
+Pulmonary vascular resistance, right-ventricular afterload and PE/pulmonary-hypertension hemodynamics remain **A2 R9 Primary**, with A1 mechanics recalled as prerequisite.
 
-A does not reteach A2 gas transport or A1 circulation. It may own only the structural join:
+Semantic reconciliation:
 
 ```text
-oxygen state/content × flow = delivery problem
+KEEP medical truth in A2 R9
+→ backend/indexable A1↔A2 relation
+→ no new A primitive or duplicate learner module by default
 ```
-
-Pulmonary circulation/right-heart load is not a fourth primitive. A2 R9 already owns the pulmonary vascular model and recalls the necessary circulation mechanics.
 
 ---
 
-## 6｜Edge A1 ↔ A3 · Perfusion ↔ Volume
+## 6｜A1 ↔ A3 family
 
-Minimal relation:
+### Primary score-useful seam candidate: Perfusion ↔ Volume
 
 ```text
-cardiac output / arterial pressure
+CO / arterial pressure
 → renal perfusion
 → renal Na-water / RAAS response
 → effective circulating volume
@@ -201,321 +169,180 @@ cardiac output / arterial pressure
 → future circulation
 ```
 
-Key discrimination:
+This is the strongest deduplication candidate because A1 and A3 legitimately teach different sides of the same feedback loop.
 
-> **kidney function depends on perfusion while kidney regulation helps set the volume state that determines future perfusion.**
+Ownership:
 
-### Existing owner pattern
+- A1 Block 2 owns circulation regulation and explicitly calls the kidney-fluid system for long-term volume control;
+- A3 owns renal perfusion sensing, RAAS, Na-water handling, volume regulation and renal consequences.
 
-- A1 Block 2 already includes the kidney–fluid system as the long-term ECF / blood-volume controller inside circulation regulation.
-- A3 owns renal perfusion sensing, RAAS, Na-water handling, volume regulation and renal consequence.
+### Secondary valid seam: electrolytes ↔ cardiac excitability
 
-### A-level role
+K⁺/Ca²⁺ effects on cardiac/neuro-muscular excitability and ECG are important but do not need a new A primitive.
 
-**Dual-local feedback compression.**
+Semantic reconciliation:
 
-Two child Systems legitimately teach different sides of the same feedback loop. A may compress the loop for orientation/review, but may not create another RAAS / volume / shock curriculum.
+```text
+KEEP electrolyte danger/integration in A3 Block 5
++ KEEP cardiac electrical/ECG Core in A1
+→ cross-System retrieval/repair may route between them
+→ no separate A electrolyte-cardiac course
+```
 
-This edge is a strong candidate for reducing repeated second-round review.
+### Secondary valid seam: perfusion failure → AKI / CKD cardiopulmonary consequences
+
+AKI localization and CKD systemic consequences remain **A3 Block 7 Primary**. Their circulation/heart/lung interfaces may route outward without moving ownership upward.
 
 ---
 
-## 7｜Edge A2 ↔ A3 · CO₂ / Acid–Base
+## 7｜A2 ↔ A3 family
 
-Minimal relation:
+### Primary score-useful seam candidate: CO₂ / Acid–Base routing
 
 ```text
 PaCO₂ respiratory component
 ↔ HCO₃⁻ / H⁺ renal-metabolic component
-→ pH + compensation / mixed-process localization
+→ pH / compensation / mixed-process localization
 ```
 
-Key discrimination:
+A3 Block 5 is already the **unique complete Primary** for water/electrolyte/acid–base integration and explicitly calls A2 PaCO₂ as Recall / Integrate input.
 
-> **lung and kidney act on the same acid–base problem through different variables and time scales.**
-
-### Existing owner pattern
-
-A3 Block 5 is already the **unique complete Primary** for water/electrolyte/acid–base integration and explicitly treats respiratory PaCO₂ as Recall / Integrate input from A2.
-
-### A-level role
-
-**Routing / compression edge only.**
-
-A must **not** build a second acid–base model.
-
-The A-level value, if any, is only to preserve the A2↔A3 seam during cross-System retrieval and late compression.
-
-> **cross-System relation ≠ parent-level medical ownership.**
-
----
-
-## 8｜Triangle sufficiency: no fourth primitive admitted
-
-Four high-pressure candidates were challenged explicitly.
-
-### Pulmonary circulation / right heart
-
-A2 R9 already owns:
+Semantic reconciliation:
 
 ```text
-PVR↑
-→ RV afterload↑
-→ RV adaptation / failure
-→ LV filling / CO consequence
-→ hypotension / shock when severe
+KEEP complete acid–base model in A3 Block 5
+→ A-level relation is routing/compression only
+→ DELETE any future plan for a second A-level acid–base course
 ```
 
-It calls A1 mechanics as prerequisite. This is a derived A1↔A2 relation, not a new primitive.
-
-### Congestion / edema
-
-A1 heart failure already owns:
-
-```text
-forward hypoperfusion + backward congestion
-→ RAAS / Na-water retention
-→ higher filling pressure / worse congestion
-```
-
-Pulmonary congestion uses A1↔A2; effective-volume / renal retention uses A1↔A3. No fourth primitive is required.
-
-### Shock
-
-A1 B12 owns shock as failure of effective tissue perfusion through volume / pump / resistance-distribution / obstruction layers.
-
-Renal hypoperfusion and oxygen-delivery consequences invoke existing edges. Shock remains an A1 Primary with cross-edge consequences, not an A-level fourth curriculum.
-
-### Multi-organ failure
-
-MODS-like patterns are downstream compositions and often extend into inflammation, coagulation, infection and metabolism outside A. They are therefore evidence **against** creating an A-only primitive.
-
-### Sufficiency decision
-
-> **No fourth primitive is admitted.**
-
-Current A-level high-value reasoning must first be attempted as composition of the three frozen edges. A new primitive requires future repeated 306 evidence that composition fails materially.
+Cross-System relation does not imply parent-level medical ownership.
 
 ---
 
-## 9｜Why the triangle is stronger than a giant SuperSystem narrative
+## 8｜Strongest completeness attacks and where the knowledge lives
 
-The triangle has four advantages for the 275+ goal:
+The following were deliberately used to attack the minimal three-family model.
 
-1. **Minimality:** only three primitive cross-child relations.
-2. **Localizability:** mixed cases can be placed on one edge before opening child detail.
-3. **No forced all-three reasoning:** the third child stays invisible when unnecessary.
-4. **Progressive compression:** the structure can plausibly become extremely thin in later phases.
+| Attack | Fresh result | Canonical owner / destination |
+| --- | --- | --- |
+| pulmonary HTN / PE / acute RV failure | important A1↔A2 relation, but not a new parent primitive | A2 R9 Primary + A1 mechanics Recall |
+| heart failure + pulmonary congestion | composition, not missing primitive | A1 heart-failure Primary; A1↔A2 routing |
+| heart failure / shock → renal hypoperfusion / AKI | composition, not missing primitive | A1 B11/B12 + A3 B7; A1↔A3 routing |
+| CKD volume overload / cardiopulmonary manifestations | important systemic consequence, child-owned | A3 B7 Primary + route to A1/A2 as needed |
+| hyper/hypokalemia with ECG/arrhythmia risk | important A1↔A3 seam, but A3 already integrates danger/ECG | A3 B5 + A1 electrical Core |
+| chronic respiratory acid-base compensation / mixed disorder | genuine A2↔A3 seam, but complete model already centralized | A3 B5 Primary; A2 input |
+| anemia with normal PaO₂ but low O₂ content | negative-space test outside A | C/Hematology owns Hb/RBC mass; A1↔A2 delivery model accepts external input |
+| sepsis / MODS | cannot be made A-only without stealing C/B semantics | C inflammation/infection + B metabolism + A child effects |
 
-All-three phenomena are compositions of edges unless future evidence proves otherwise.
+Result:
 
----
+> **No fourth A-level primitive is currently required.**
 
-## 10｜Derived whole-body loop: secondary, disposable representation
-
-A whole-body loop can summarize the three edges:
-
-```text
-external O₂
-→ lung oxygenation
-→ blood O₂ state/content
-→ circulation flow / distribution
-→ tissue delivery / use
-→ CO₂ + fixed-acid + renal-solute load
-→ lung CO₂ removal + renal composition/volume regulation
-→ venous return / future perfusion
-→ loop repeats
-```
-
-But this long loop is **not** the Logic primitive.
-
-If later Content can express A more efficiently with the triangle alone, the loop should disappear from learner-facing projection.
+But the reason is ownership/composition, not because the omitted relations are unimportant.
 
 ---
 
-## 11｜Minimal coordinates
+## 9｜Composition rule
 
-Candidate A-level coordinates are deliberately few:
+All-three-organ cases do not automatically create a fourth primitive.
 
-- **Flow / perfusion:** CO, organ perfusion, effective arterial blood volume.
-- **Oxygen state/content:** PaO₂ / SaO₂ / Hb interface / arterial O₂ content.
-- **Volume state:** ECF / effective arterial blood volume / venous return.
-- **Gas–acid state:** PaCO₂ / HCO₃⁻ / pH.
-- **Renal response interface:** renal perfusion / GFR / Na-water response.
+Examples such as:
 
-These are localization coordinates, not a new fact list.
+- heart failure + pulmonary congestion + renal retention;
+- shock + hypoxemia + AKI;
+- PE + RV failure + renal hypoperfusion;
 
-A coordinate survives only if it helps an admitted edge and cannot be omitted without loss of useful compression.
+should first be solved by composing child Core plus the relevant pairwise families.
 
----
-
-## 12｜External interfaces — explicit non-closure
-
-A is not a complete model of the organism. Important inputs remain externally owned:
-
-- **Hb / RBC mass** → C / Hematology.
-- **metabolic demand / substrate use / CO₂ production** → B / metabolism-endocrine interface.
-- **autonomic / endocrine control** → D/B interfaces where appropriate.
-- **systemic inflammation / infection** → C-domain interface.
-- **hepatic and other non-renal clearance / metabolism** → outside A.
-
-Hard rule:
-
-> **An interface may enter A without transferring ownership of its source domain.**
-
-A is a top-level peer, not a whole-body master owner.
+New A primitive admission requires repeated real 306 evidence that composition is materially slow, confusing or error-prone **and** that a new primitive reduces net learner burden.
 
 ---
 
-## 13｜Conceptual parent ≠ mandatory learner step
+## 10｜External interfaces
 
-Stable Logic:
+A is not a whole-body master owner.
 
-```text
-A = common macro-domain parent
-A1/A2/A3 = independently learnable first-class child Systems
-three pairwise edges = A-level structural compression index
-```
+Important external inputs remain:
 
-This does **not** imply a mandatory route through A before/between/after each child System.
+- Hb / RBC mass → C/Hematology;
+- metabolic demand, substrate use, CO₂ production → B;
+- autonomic/endocrine control → D/B where appropriate;
+- systemic inflammation/infection → C;
+- hepatic/non-renal metabolism and clearance → outside A.
 
-Whether learner-facing A Content appears at all, and when, is a later Content/Learn decision subject to score utility.
-
-> **Parent existence does not earn learner contact time.**
+An interface may enter A reasoning without transferring its canonical owner.
 
 ---
 
-## 14｜Exam-phase utility constraint
+## 11｜Question evidence cannot define completeness
 
-The eventual learner-facing A projection must become thinner as the exam approaches.
+Current Question Truth contains the full canonical exam-question corpus, while reviewed Question→Knowledge relations cover only a subset.
 
-### First round
+Therefore:
 
-Potential value only:
+> **absence from current question mapping is not evidence that an A relation is non-required.**
 
-- make a genuine edge easier when it first becomes relevant;
-- prevent duplicated/isolated mechanism learning;
-- orient without delaying Lecture / Block mainline.
+Question mapping may support transfer/coverage evidence after a relation is identified, but A-level completeness must also be challenged from medical Core, negative space, confusables and realistic cases.
 
-Not allowed: separate A lecture, new memorization list, mandatory A completion.
-
-### Second round
-
-Expected highest potential value:
-
-- edge-based discrimination;
-- mixed-case localization;
-- deduplicated review;
-- faster routing between A1/A2/A3.
-
-### Final sprint
-
-Only valuable if it becomes an extremely thin retrieval skeleton that saves time.
-
-Not allowed: long rereading, independent A Recall schedule, late new details.
-
-Exact timing remains outside Logic.
+This prevents taxonomy + mapping + validator from jointly hiding the same omission.
 
 ---
 
-## 15｜Kill rule: preserve taxonomy, kill useless projection
+## 12｜Learner-facing utility constraint
 
-If real use shows noticeable extra learning/maintenance time without lower errors, lower review cost or faster retrieval:
+A taxonomy does not imply a learner action.
 
-- keep A as macro-domain parent if taxonomy remains useful;
-- collapse/delete learner-facing A Content / Learn steps / UI that fail to add value;
-- never preserve them because engineering work was already spent.
+Potential phase value:
 
-A large independent A curriculum is evidence that Logic-to-Content translation failed.
+- **first round:** only where an interface reduces confusion during child learning; no separate A lecture;
+- **second round:** highest expected value for cross-System discrimination and deduplicated review;
+- **final sprint:** only if it compresses to a very thin retrieval skeleton.
 
----
+Stable-correct learner must be able to fast-pass any A projection. Wrong/Uncertain or mixed-case evidence may justify deeper expansion later.
 
-## 16｜Implication for B / C / D / E / F
-
-B/C/D/E/F are already top-level macro-domain peers of A.
-
-They do not need to be “promoted into SuperSystems”.
-
-Future question only:
-
-> **Does a broad macro-domain benefit from first-class child-System decomposition similar to A1/A2/A3?**
-
-No symmetry rule applies.
+No mandatory ritual unless it earns its place.
 
 ---
 
-## 17｜Logic acceptance record
+## 13｜Fresh Logic verdict
 
-### Taxonomy coherence — PASS
+### KEEP
 
-A is one macro-domain; A1/A2/A3 remain independently coherent child Systems.
+- A as top-level macro-domain peer of B/C/D/E/F;
+- A1/A2/A3 as first-class child Systems;
+- three pairwise **interface families**;
+- A1↔A2 Oxygen Delivery as primary compression candidate;
+- A1↔A3 Perfusion↔Volume as primary compression candidate;
+- A2↔A3 Acid–Base as routing/compression seam;
+- explicit external interfaces and the 275+ kill rule.
 
-### Decomposition utility — PASS
+### CHANGE
 
-A1/A2/A3 scale, causal independence and learning/verification needs justify first-class decomposition for 275+.
+- replace the overly rigid claim `exactly three primitive medical relations` with `three pairwise interface families with selected primary score-useful seams`;
+- make negative-space semantic reconciliation explicit;
+- align the knowledge owner manifest with A/B/C/D/E/F macro-domain taxonomy.
 
-### Existing-edge evidence — PASS
+### DEMOTE
 
-The three seams already exist in child Core rather than being invented by the parent:
+- giant whole-body closed-loop narrative → optional explanatory representation only, not canonical primitive;
+- secondary seams (pulmonary hemodynamics, electrolyte↔ECG, CKD cardiopulmonary consequences) → child-owned / routed, not new A learner modules.
 
-- A2 calls circulation CO/flow/tissue-delivery interface.
-- A1 calls kidney–fluid long-term volume control.
-- A3 acid–base Primary calls respiratory PaCO₂ and circulation/shock prerequisites.
+### DELETE
 
-### Ownership discipline — PASS
-
-- A1↔A2 = split-primary joining interface.
-- A1↔A3 = dual-local feedback compression.
-- A2↔A3 = A3-primary; A-level routing/compression only.
-
-No medical Primary moves upward.
-
-### Triangle sufficiency — PASS
-
-Pulmonary circulation/right heart, congestion/edema, shock and multi-organ failure do not currently justify a fourth primitive.
-
-### 275+ utility — LOGICALLY ADMISSIBLE, REAL VALUE UNPROVEN
-
-The structure has a plausible route to reduce duplicated review and improve mixed-case localization, but real learner value can only be established after minimum Content and real use. This does **not** authorize a large learner-facing asset.
-
-### Graceful failure — PASS
-
-Learner-facing A integration may later collapse to zero while A1/A2/A3 remain intact.
+- any implication that `SuperSystem` places A above B/C/D/E/F;
+- any future requirement for symmetric A-edge Content modules;
+- any second acid–base Primary at A level.
 
 ---
 
-## 18｜Frozen Logic decision
+## 14｜Logic freeze condition
 
-```text
-A is a top-level macro-domain peer of B/C/D/E/F.
-A1/A2/A3 are privileged first-class child Systems because decomposition serves 275+.
-A itself is not a fourth medical course or medical-Core owner.
-Its structural core is exactly three pairwise seams:
-  A1↔A2 = Oxygen Delivery
-  A1↔A3 = Perfusion ↔ Volume
-  A2↔A3 = CO₂ / Acid–Base routing seam
-The three seams have different underlying medical owners and must not be forced into symmetric Content.
-No fourth primitive is currently admitted.
-All-three cases are compositions unless future 306 evidence proves otherwise.
-A taxonomy does not imply mandatory learner contact.
-```
+After manifest reconciliation and the changes above, Logic is frozen again.
 
-For now use the plain label:
+Content is still **not** automatically admitted.
 
-> **A · Cardio–Pulmonary–Renal｜心肺肾**
+Next question only:
 
-Do not freeze a decorative title such as `Delivery & Homeostasis` until Content proves that wording actually improves compression.
+> **What is the minimum learner-facing Content, if any, that realizes the high-value parts of these interface families without duplicating A1/A2/A3 or creating a second course?**
 
-`SuperSystem` may remain a temporary engineering/path label, but it must not imply that A sits above B/C/D/E/F.
-
----
-
-## 19｜Content admission gate
-
-Logic is frozen; **Content is still not admitted automatically**.
-
-The next task may begin only with:
-
-> **What is the minimum information necessary to express the three frozen structural seams without teaching A1/A2/A3 twice?**
-
-Content must remain far smaller than any child System and may choose to expose less than all Logic if that produces better 275+ utility.
+Content may legitimately decide that some Logic remains backend-only and never appears to Kian.
