@@ -10,23 +10,18 @@ This file owns the current UI-productization cursor and the **UI Execution Lifec
 
 ## UI Execution Lifecycle v1.2｜FROZEN
 
-This lifecycle applies to every major learner-facing UI/productization task unless Kian explicitly overrides it.
+The current program starts with a **full Projection Audit sweep before production redesign**. A new UI phase does not imply every surface must be rebuilt.
 
 ```text
 0. PREFERENCE + AUTHORITY SYNC
-   Chat/Sol first re-anchors to Kian's stable UI/interaction preferences,
+   Chat/Sol re-anchors to Kian's stable UI/interaction preferences,
    then reads main@HEAD + UI Current + Presentation Contract + exact domain owners.
-   No implementation yet.
 
 1. PROJECTION AUDIT
-   Chat/Sol inspects the existing Current projection and, only when relevant,
-   bounded prior/legacy interaction evidence.
-
-   Every learner surface receives exactly one disposition:
+   Inspect one real learner surface at a time.
 
    KEEP
-   = current projection already fits Current Logic + Kian's preferences;
-     preserve it and avoid redesign ceremony.
+   = current projection already fits Current Logic + Kian's preferences.
 
    MIGRATE
    = a prior interaction Kian already considers good;
@@ -37,17 +32,15 @@ This lifecycle applies to every major learner-facing UI/productization task unle
      readability or friction needs improvement.
 
    REBUILD
-   = projection itself conflicts with Current cognition or Kian's stable preferences;
-     define a new Product Brief before implementation.
+   = projection itself conflicts with Current cognition or Kian's stable preferences.
 
    BLOCKED
-   = required authority/data/legacy reconciliation is unresolved;
-     stop before Codex.
+   = required authority/data/legacy reconciliation is unresolved.
 
 2. PRODUCT BRIEF / MIGRATION OUTPUT
-   Only surfaces marked OPTIMIZE / REBUILD need a design brief.
-   MIGRATE surfaces get a clean Current-facing migration brief or promoted Current asset.
-   KEEP surfaces require no implementation merely to make them look new.
+   Only OPTIMIZE / REBUILD need a design brief.
+   MIGRATE receives a clean Current-facing migration output.
+   KEEP receives no redesign ceremony.
 
 3. CODEX HANDOFF
    Codex becomes the sole production implementation owner only after Audit is closed.
@@ -56,50 +49,39 @@ This lifecycle applies to every major learner-facing UI/productization task unle
    Default = ONE short-lived implementation branch / Draft PR.
 
 4. PRODUCT REVIEW
-   Chat/Sol reviews real browser output against Current Logic, Kian's preferences,
-   the Audit disposition and the implementation brief.
-   Chat gives product/interaction feedback rather than becoming the long-running CSS/Astro implementer.
+   Chat/Sol reviews browser output against Current Logic, Kian's preferences and the Audit receipt.
 
 5. ITERATION
-   Codex iterates on the SAME active implementation PR unless the direction is abandoned.
+   Codex iterates on the SAME implementation PR unless the direction is abandoned.
 
 6. ACCEPTANCE GATE
-   Move forward only when:
-   - browser behavior is usable;
-   - Kian accepts any genuinely open structural choice;
-   - Chat verifies zero semantic diff;
-   - required migration is reconciled into Current;
-   - no hidden legacy/runtime fallback exists.
+   Browser usable + Kian accepts genuinely open structural choice + zero semantic diff
+   + required migration reconciled + no hidden legacy fallback.
 
 7. MERGE + CLOSURE
-   Merge only accepted implementation.
-   Same session: advance Current → close PR → retire/delete branch → keep minimal restart receipt.
+   Merge accepted work, advance Current, close PR, retire branch, retain minimal receipt.
 
 8. FRESH-CHAT RESUME
-   New Chat reads Current first and continues the exact stage.
+   New Chat reads this Current first and continues the exact stage.
 ```
 
 ### Kian preference baseline
 
-Cross-project taste evidence lives in `kianwang022-hash/kianos-cognition/library/cyber_archive/UI_INTERACTION_PREFERENCES.md`; KianOS-specific execution is governed by this repo's `PRESENTATION_CONTRACT.md`.
+Cross-project taste evidence lives in `kianwang022-hash/kianos-cognition/library/cyber_archive/UI_INTERACTION_PREFERENCES.md`; KianOS-specific execution is governed by `static-web/PRESENTATION_CONTRACT.md`.
 
-Stable KianOS-facing baseline:
+Stable KianOS baseline:
 
 - **Dense Calm** — medium/high useful density, comfortable readable type, low visual noise;
-- strong visible structure; page should draw logic rather than ask Kian to reconstruct it from prose;
+- strong visible structure; the page should draw logic rather than ask Kian to reconstruct it from prose;
 - no tiny-text + giant-whitespace pseudo-minimalism;
 - no default card/panel pile merely because components are convenient;
-- primary action obvious, secondary capability progressively disclosed;
-- interaction natural, stable, predictable and low-friction; motion only when it explains continuity/state;
-- work/content surfaces quiet and durable; entry/identity surfaces may be visually stronger;
+- primary action obvious; secondary capability progressively disclosed;
+- interaction natural, stable, predictable and low-friction;
+- work/content surfaces quiet and durable; entry/identity surfaces may be stronger;
 - high-frequency correct/stable paths should be extremely fast;
-- wrong / meaningful uncertain may make the interface heavier only because new information is now useful.
-
-Do not ask Codex to reinterpret these preferences from scratch for every page.
+- wrong / meaningful uncertain may make the interface heavier only because new information is useful.
 
 ### Protected carry-forward interaction baselines
-
-Kian has already identified the following as comfortable and worth preserving unless a Current semantic conflict is proven:
 
 ```text
 Recall / KP
@@ -117,15 +99,15 @@ wrong = stay + explanation/repair
 multiple-choice = Enter still confirms
 
 Lexical
-whole-card judgment must stay near-instant
+whole-card judgment near-instant
 Known/Mastered = fast pass
 Fuzzy/Unknown = Depth
-Depth = rich but low-friction
+Depth rich but low-friction
 local + = exact Repair admission
-keyboard-first traversal / Reveal / local targeting remains preferred
+keyboard-first traversal / Reveal / local targeting preferred
 ```
 
-These are interaction baselines, not universal mastery semantics; the owning domain Evidence contract still defines meaning.
+These are interaction baselines, not universal mastery semantics; owning domain contracts still define evidence meaning.
 
 ### Role boundary
 
@@ -133,22 +115,9 @@ These are interaction baselines, not universal mastery semantics; the owning dom
 
 **Codex owns:** production Astro/CSS/JS, layout/components/tokens/responsiveness, browser iteration/screenshots, build/tests/cleanup, implementation branch/PR lifecycle.
 
-**Codex is not the project historian.** Raw Legacy never becomes its research assignment.
+**Codex is not the project historian. Raw Legacy is never its research assignment.**
 
 **Kian owns:** final preference when multiple structurally valid directions genuinely remain, real-use `U`, explicit workflow override.
-
-### Hard hygiene
-
-1. Default maximum = **one active UI implementation PR**.
-2. No implementation branch before Projection Audit + required Migration Gate are complete.
-3. A new UI phase does **not** imply every surface must be redesigned.
-4. User-approved prior interaction should be migrated, not gratuitously reimagined.
-5. Chat-authored code sketches are disposable references only.
-6. Codex may not change learning/evidence/Repair/Resume/content semantics for UI convenience.
-7. Codex consumes Current or an explicit Chat-produced migration output — never raw Legacy as a second authority.
-8. Screenshot ≠ acceptance; browser interaction/build must work.
-9. Merged/abandoned UI branches are not durable task state; Current is.
-10. Upstream ambiguity returns to Chat/domain owner instead of being patched around in UI.
 
 ---
 
@@ -156,17 +125,12 @@ These are interaction baselines, not universal mastery semantics; the owning dom
 
 **Program:** KianOS learner-surface productization  
 **Active stage:** `1 · PROJECTION AUDIT`  
-**Active audit surface:** English Translation  
-**Implementation owner:** none until the active audit produces a disposition  
-**Chat/Sol role:** audit + migration owner  
+**Active audit surface:** Politics learning projection  
+**Implementation owner:** none during the audit sweep  
 **Active implementation PR:** none  
 **Blocker:** none.
 
 ### Audit rule
-
-Audit one surface at a time. Do not batch the whole website into one aesthetic judgment.
-
-For each surface:
 
 ```text
 Current Logic
@@ -176,105 +140,159 @@ Current Logic
 ↓
 KEEP / MIGRATE / OPTIMIZE / REBUILD / BLOCKED
 ↓
-short receipt in this Current
+short receipt here
 ↓
-move to the next surface or hand the exact implementation brief to Codex
+next surface
 ```
+
+Do not open a Codex UI implementation PR during the audit sweep unless this Current explicitly records a dependency reason to break the sequence.
 
 ### Audit order
 
 ```text
-1. Writing ✅
-2. Translation ← active
-3. Objective — Reading A
-4. Objective — Cloze
-5. Objective — Part B
-6. English shell / Resume
-7. Politics learning projection
+1. Writing ✅ OPTIMIZE
+2. Translation ✅ OPTIMIZE
+3. Reading A ✅ OPTIMIZE
+4. Cloze ✅ OPTIMIZE
+5. Part B ✅ KEEP
+6. English shell / Resume ✅ OPTIMIZE
+7. Politics learning projection ← active
 8. Politics question workbench migration
 9. Xizong System / Block / KP / Recall surfaces
 10. Lexical Fast Pass / Depth / Challenge
-11. global home / identity only after real work surfaces are accepted
+11. global home / identity after real work surfaces are understood
 ```
-
-Order may change when a bounded dependency justifies it; record the reason here rather than inferring from branch activity.
-
-### Closed audit receipt｜Writing
-
-**Disposition: `OPTIMIZE` — preserve the good Runtime bones; reproject the learner journey rather than rebuilding Writing semantics.**
-
-Evidence:
-
-- English Logic is performance-first; clean tasks dominate learner time; First Learning is a complete-but-skippable repair reservoir, not a course checklist.
-- formal Writing learner unit is one complete essay.
-- Current `WritingWorkspace.astro` already has the correct structural core: Prompt stays visible, Plan may be skipped through Direct mode, complete Draft is the dominant work object, PASS is a real exit, and meaningful failure alone opens smallest Repair / re-generation.
-- Current Writing Home preserves the right semantic route but overexposes engineering/runtime explanation, status chrome, small text and card-like blocks relative to Kian's Dense Calm preference.
-- Current `writing-learn.astro` over-centers the six primitives as a visible learner route even though those primitives should mainly behave as quiet coaching/repair coordinates around real Writing performance.
-
-Carry-forward / change boundary:
-
-```text
-KEEP
-- whole-essay task-first Runtime
-- visible Prompt during work
-- Direct mode / optional Plan
-- first Draft as primary evidence/work surface
-- PASS exits cleanly
-- smallest-repair / return semantics
-
-OPTIMIZE
-- Writing Home hierarchy: Resume / real Task first; engineering metadata quiet
-- larger comfortable learner text and less card/status clutter
-- task/work surface should dominate Mac landscape
-- integrate or expose six primitives as on-demand Coach / Repair reservoir
-
-DO NOT
-- turn six primitives into mandatory chapters
-- create a second Writing state machine
-- invent new mastery/transfer meaning
-```
-
-No Legacy migration is required for Writing. Implementation brief waits until the broader English Projection Audit determines which workbook primitives should be shared with Translation / Objective instead of prematurely designing Writing in isolation.
-
-### Protected / already-known audit evidence
-
-**Politics question workbench:** Kian explicitly prefers the prior 4173/local question interaction. Treat as a **MIGRATE candidate**, not a redesign target. Chat/Sol must first reconcile interaction + 1,148 refined explanation asset against Current Politics truth. Codex receives only the reconciled result.
-
-**KP / Recall interaction:** Kian explicitly likes the prior Space / 1–4 / Enter / ←→ grammar. Treat as a **MIGRATE/KEEP baseline** across compatible Current Recall surfaces unless an owning contract proves a conflict.
-
-**Lexical:** latest projection intentionally pursues sub-second routing and keyboard-first Depth/Challenge. Kian reports this interaction direction as comfortable. Treat as **KEEP/OPTIMIZE candidate**, not a default rebuild; exact audit waits for its turn and must respect Lexical Current runtime maturity.
 
 ---
 
-## Frozen product basis
+## Closed Projection Audit｜English family
 
-`PRESENTATION_CONTRACT.md` + `SYSTEM_CONTRACT.md` + applicable domain contract + Current content/runtime owner + Kian preference baseline above.
+### Writing — `OPTIMIZE`
 
-Shared semantic roles: `Problem / Map / Chain / Compare / Boundary / Anchor / Exact / Handoff / Recall / Question / Repair / Closure / Reference`.
+Preserve:
+- whole-essay task-first Runtime;
+- Prompt visible during work;
+- optional Plan / Direct mode;
+- first Draft as primary work/evidence surface;
+- PASS as real exit;
+- smallest-repair / learner re-generation / return semantics.
+
+Optimize:
+- Home should prioritize Resume / real task over engineering explanation;
+- comfortable type, less status/card chrome;
+- six Writing primitives should behave as on-demand Coach / Repair reservoir, not permanent course navigation.
+
+No Legacy migration required.
+
+### Translation — `OPTIMIZE`
+
+Current model and Runtime are correct:
+
+```text
+Represent → Reconstruct faithfully → Deliver
+```
+
+Preserve:
+- whole set as learner-facing attempt/review context;
+- Source/Task visible beside learner work;
+- first translation evidence frozen;
+- Reference hidden during clean attempt and optional later;
+- stable PASS exit;
+- whole-set diagnosis → smallest repair → learner Reconstruction;
+- pending transfer claims staying quiet unless relevant.
+
+Optimize:
+- Translation Home currently overexposes source/runtime/engineering copy and small status text;
+- First Learning still reads too much like chaptered Markdown; Representation/Reconstruction/Execution should be task-linked coaching/reference rather than a competing course;
+- reduce repeated boxes/borders and duplicate source text where spatial relation already makes ownership obvious;
+- increase comfortable learner text and preserve stable two-pane workbook behavior.
+
+No Legacy migration required.
+
+### Reading A — `OPTIMIZE`
+
+Current Runtime has strong carry-forward bones and should not be redesigned from scratch:
+- Mac split workspace: passage left, active question right;
+- passage uses comfortable long-reading typography;
+- question navigation is stable;
+- optional highlight stays secondary;
+- continuous practice can defer answer/review leakage;
+- problem review remains optional and whole-passage escalation exists for meaningful deep diagnosis.
+
+Optimize:
+- replace/augment current `A–D` keyboard selection with protected `1–4 = A/B/C/D` muscle memory;
+- reduce permanent header/reset/status chrome;
+- keep high-frequency question movement/selection fast;
+- Objective First Learning should not remain one giant Markdown textbook + deep navigation tree during normal use; its framework should become on-demand coaching around task friction.
+
+### Cloze — `OPTIMIZE`
+
+Preserve:
+- whole passage visible + one active blank decision area;
+- whole-passage clean attempt and unified submit;
+- answer leakage protected until submission;
+- whole-passage review semantics.
+
+Optimize:
+- add shared `1–4 = A/B/C/D` keyboard grammar;
+- make repeated blank traversal substantially lower-friction; selecting a candidate may advance focus without scoring/revealing the blank, while final submission remains whole-passage;
+- comfortable passage type closer to Reading A long-use standard;
+- reduce mouse-only navigation and small status text.
+
+### Part B — `KEEP`
+
+This projection already represents cognition directly and should be protected.
+
+Keep:
+- full material / candidate pool / complete map visible together;
+- distinct projection for real task forms instead of one generic template;
+- ordering form with fixed givens + 41–45 Order Map;
+- single-use candidate locking / duplicate warnings / repeat-policy fidelity;
+- whole-set submission and global-reconciliation semantics.
+
+Future shared typography/control tokens may improve polish, but **do not redesign the Part B information architecture merely for visual consistency**.
+
+### English shell / Resume — `OPTIMIZE`
+
+Preserve:
+- English split into Objective 60 / Translation 10 / Writing 30;
+- task owners remain distinct;
+- LexicalOS stays an independent supply lane;
+- highest-value Resume concept.
+
+Fix/optimize:
+- current global Resume reads Reading A / Translation / Writing, while Cloze and Part B write their own last-location state but are not participating in the same English Resume competition;
+- Resume must cover all unfinished high-value English task owners without turning passed/dormant work into debt;
+- capability map currently explains too much architecture to the learner; make `Continue highest-value work` the strongest entry and keep architecture/framework quiet;
+- reduce tiny status metadata and card-like context rail;
+- First Learning remains targeted intervention, not a parallel course dashboard.
+
+### English family product conclusion
+
+English is **Digital Workbook + Adaptive Coach**.
+
+Shared family rules:
+
+```text
+Task / passage / prompt / learner output = foreground
+framework / First Learning = complete but skippable coaching reservoir
+stable work = exit quickly
+problem = smallest useful coaching / repair
+```
+
+Do share typography, low-friction input grammar, Resume language, state feedback and general product quality.
+
+Do **not** force Writing / Translation / Reading A / Cloze / Part B into one page template. Their task geometry differs.
 
 ---
 
-## Legacy / migration firewall
+## Protected migration candidates
 
-Legacy may provide bounded evidence of an interaction Kian already liked or a recoverable content asset. Chat/Sol owns all archaeology and reconciliation.
+### Politics Question Workbench
 
-```text
-raw Legacy
-→ Chat/Sol exact recovery + reconciliation
-→ Current-facing interaction brief OR promoted Current asset
-→ Codex implementation
-```
+Kian explicitly prefers the prior 4173/local question interaction. Treat it as **MIGRATE**, not a redesign target.
 
-Never:
-
-```text
-Current runtime
-→ hidden fetch/fallback/link to old repo / branch / localhost / stale owner
-```
-
-### Politics protected reference
-
-Before Politics question UI implementation, Chat/Sol must recover/reconcile the proven prior Workbench behavior, including:
+Before Politics question UI implementation, Chat/Sol must recover and reconcile:
 
 ```text
 Normal / Fast
@@ -291,7 +309,33 @@ fixed low-friction Next
 optional original-question image check
 ```
 
-Historical evidence also pins a 1,148-record refined explanation artifact. Chat/Sol owns exact recovery and Current promotion. Old scheduler/due/mastery/owner semantics do not return with the UI.
+Historical evidence also pins a 1,148-record refined explanation artifact. Chat/Sol owns exact recovery + reconciliation + Current promotion. Old scheduler/due/mastery/owner semantics do not return with the UI.
+
+### KP / Recall
+
+Kian explicitly likes the prior `Space / 1–4 / Enter / ←→` grammar. Treat this as a MIGRATE/KEEP baseline wherever Current Recall semantics are compatible.
+
+### Lexical
+
+Latest vNext projection intentionally pursues sub-second routing and keyboard-first Depth/Challenge; Kian reports this direction as comfortable. Treat as KEEP/OPTIMIZE candidate, not default rebuild. Exact audit waits for Lexical turn and must respect its Current bounded runtime maturity.
+
+---
+
+## Legacy / migration firewall
+
+```text
+raw Legacy
+→ Chat/Sol exact recovery + reconciliation
+→ Current-facing interaction brief OR promoted Current asset
+→ Codex implementation
+```
+
+Never:
+
+```text
+Current runtime
+→ hidden fetch/fallback/link to old repo / branch / localhost / stale owner
+```
 
 ---
 
@@ -312,8 +356,7 @@ main@HEAD
 → read Kian preference baseline
 → identify active Projection Audit surface
 → inspect exact Current Logic + Projection
-→ close one KEEP/MIGRATE/OPTIMIZE/REBUILD/BLOCKED disposition
-→ only then decide whether Codex implementation is needed
+→ close one disposition
+→ continue audit sweep
+→ only after audit sweep produce implementation/migration briefs for Codex
 ```
-
-Do not reconstruct UI work from old Issues, previous Chats, historical branches or legacy screenshots when Current resolves the task.
