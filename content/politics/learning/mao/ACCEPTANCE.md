@@ -15,8 +15,8 @@ This file owns current acceptance claims for the independently continued Mao sub
 S  PASS
 K  PASS
 L  PASS
-P  UNTESTED   ← earliest unresolved
-R  UNTESTED   ← downstream-frozen
+P  PASS
+R  UNTESTED   ← earliest unresolved
 E  UNTESTED   ← downstream-frozen
 U  UNTESTED   ← learner-only
 ```
@@ -29,9 +29,9 @@ C00–C08 Current content closure  PASS
 
 Allowed conclusion:
 
-> **Mao now has accepted Current Source/Knowledge, complete first-round content, and a fresh whole-book Learning Logic. Projection, Mao-specific Runtime/Evidence and real learner validation remain unaccepted.**
+> **Mao now has accepted Current Source/Knowledge, complete first-round content, whole-book Learning Logic, and learner-facing Projection. Mao-specific Runtime/Evidence and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated before P/R/E are independently accepted.
+Do not promote this to module-ready or learner-validated before R/E are independently accepted.
 
 ---
 
@@ -138,20 +138,86 @@ No C00–C08 teaching asset was changed merely to manufacture work. Passing L by
 
 ---
 
-## L boundary / negative space
+## P｜Fresh Projection re-acceptance — PASS after one repair
 
-L PASS does **not** mean:
+Review owner: `content/politics/learning/mao/projection-review.json`
+
+Fresh disposition:
+
+```text
+C00 KEEP
+C01 KEEP
+C02 KEEP
+C03 KEEP
+C04 REPAIR
+C05 KEEP
+C06 KEEP
+C07 KEEP
+C08 KEEP
+
+8 keep / 1 repair / 0 blocked
+```
+
+The audit did not ask whether the page looked polished. It attacked whether accepted Mao Logic and high-value learner content survive the Current adapter with the right information hierarchy and surface ownership.
+
+### Real P defect found
+
+C04-S01 legitimately owns four parallel theory responses in accepted Content as `answers[]`. The generic Politics scoped adapter only mapped singular `answer / core_answer / evaluation`, so the learner-facing page could show the question and relation while silently dropping the actual core responses.
+
+This was classified as a **Projection defect**, not a Content or Logic defect.
+
+Repair:
+
+```text
+accepted Mao Content/Logic unchanged
+→ Mao-scoped projection adapter reads plural answers only when teaching.answer is empty
+→ learner-facing core answer restored
+```
+
+No C00–C08 teaching JSON was rewritten to fit the generic adapter.
+
+### Accepted information hierarchy
+
+Current generic Mao projection is accepted because:
+
+1. chapter Orientation foregrounds problem → answer → sequence → attention rule;
+2. each Natural Unit foregrounds the current learner problem and core answer;
+3. relation / hierarchy / application remain progressively disclosed rather than competing with the primary action;
+4. `content_support` backend completeness is not dumped wholesale onto the first-round learner surface;
+5. Chengfeng is explicitly handed off to iPad/MarginNote and continuous lecture text is not copied into Astro;
+6. the 20-second closure is a collapsible tool, not a blocking ritual;
+7. Xiao1000 remains downstream verification rather than first-learning order;
+8. chapter compression stays subordinate to the study path.
+
+### Executed P evidence
+
+Projection repair head: `08ae4c5027f9fc47654f26fec48d29f9a773cfc8`
+
+**Static Web Politics QA**
+- run #536 (`34767639225`) → **PASS**
+- `Audit Mao projection closure` → PASS
+- Current bindings → PASS
+- production Astro build → PASS
+- all existing Politics content/runtime integration checks remained green
+
+The new projection guard also checks that accepted singular or plural core answers cannot silently disappear from Mao Current.
+
+---
+
+## L/P boundary / negative space
+
+L/P PASS does **not** mean:
 
 - Chengfeng has moved into KianOS as a second continuous reader;
-- every P0 fact is now mandatory active recall or Memory debt;
-- all `content_support` detail must be visible in the first-round page;
+- every P0 fact is mandatory active recall or Memory debt;
+- all `content_support` detail should be visible immediately;
 - dates, meetings, long normative formulations or low-discrimination lists should be promoted into first-round memorization;
 - every Natural Unit needs a mandatory Recall ritual;
-- Projection has been accepted;
 - Mao-specific Runtime/Evidence journeys have been executed;
+- shared Politics browser journeys can be relabeled as Mao R/E acceptance;
 - Kian has studied or mastered any Mao chapter.
 
-The continuous first-study surface remains iPad/MarginNote Chengfeng. KianOS Learning Logic surrounds that source with orientation, reasoning bridges, boundaries and compression.
+The continuous first-study surface remains iPad/MarginNote Chengfeng. KianOS surrounds that source with orientation, Logic, selective projection, verification and repair.
 
 ---
 
@@ -161,12 +227,13 @@ The continuous first-study surface remains iPad/MarginNote Chengfeng. KianOS Lea
 S/K            PASS
 Content        PASS
 L              PASS
-P              UNTESTED / earliest unresolved
-R/E            downstream-frozen
+P              PASS
+R              UNTESTED / earliest unresolved
+E              downstream-frozen
 U              UNTESTED / learner-only
 ```
 
-Next legitimate whole-module work is **P｜Projection**. Do not reopen Source, Knowledge, Content or Logic without new source truth, question evidence, real learner friction, or a concrete semantic defect.
+Next legitimate whole-module work is **R｜Runtime** using Mao-specific executed learner journeys. Do not reopen accepted upstream gates without new source truth, question evidence, real learner friction, or a concrete semantic/projection defect.
 
 ---
 
@@ -178,6 +245,8 @@ Next legitimate whole-module work is **P｜Projection**. Do not reopen Source, K
 - semantic review → `content/politics/learning/mao/semantic-review.json`
 - source review → `content/politics/learning/mao/source-review.json`
 - learning review → `content/politics/learning/mao/learning-review.json`
+- projection review → `content/politics/learning/mao/projection-review.json`
+- Mao projection adapter → `static-web/src/lib/politicsMaoProjection.mjs`
 - shared Politics contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -186,4 +255,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Accepted Learning Logic is not Projection acceptance, Runtime/Evidence acceptance, mastery, or U evidence.**
+> **Accepted Projection is not Mao Runtime/Evidence acceptance, mastery, or U evidence.**
