@@ -42,7 +42,7 @@ const isSmall = task.kind === 'small';
         <label><span>Compact plan <small>optional</small></span><textarea rows="6" data-gold-plan placeholder="Task / core message / content atoms / order…"></textarea></label>
         <label class="draftField"><span>First draft</span><textarea rows="20" data-gold-draft placeholder="在这里完成整篇第一版…"></textarea></label>
       </main>
-      <aside class="coachPane">
+      <aside class="coachPane" data-coach-surface>
         <header><span>Coach</span><strong>哪里卡住，才打开哪里。</strong><p>六个 primitive 是诊断坐标，不是六章课程。</p></header>
         <nav>{coach.map((item) => <button type="button" data-coach-open={item.id}><b>{item.code}</b><span>{item.short}</span></button>)}</nav>
         <section class="coachContent"><p data-coach-empty>默认保持安静。写不下去、推进不动或表达失控时再调用。</p>{coach.map((item) => <article data-coach-panel={item.id} hidden><header><span>{item.code}</span><h3>{item.title}</h3></header><div class="coachMarkdown" set:html={item.html}></div><button type="button" data-coach-close>收起 Coach</button></article>)}</section>
@@ -54,7 +54,7 @@ const isSmall = task.kind === 'small';
       <section class="deskPrompt" data-desk-prompt-body>{isSmall ? <><p>{task.learnerTask.background}</p><blockquote>{task.learnerTask.directions}</blockquote></> : <><p>{task.learnerTask.visual_scenario}</p><blockquote>{task.learnerTask.directions}</blockquote></>}</section>
       <div class="deskBody">
         <main class="paper"><label><span>Plan <small>optional</small></span><textarea rows="5" data-gold-plan placeholder="短计划；会写时可以直接跳到正文。"></textarea></label><label class="draftField"><span>Draft</span><textarea rows="23" data-gold-draft placeholder="像在真正答题纸上完成这一篇…"></textarea></label></main>
-        <aside class="coachDock"><span>Need help?</span>{coach.map((item) => <button type="button" data-coach-open={item.id}><b>{item.code}</b><small>{item.short}</small></button>)}<section class="coachContent"><p data-coach-empty>Coach 不常驻正文。只有真实卡点出现时才占空间。</p>{coach.map((item) => <article data-coach-panel={item.id} hidden><header><span>{item.code}</span><h3>{item.title}</h3></header><div class="coachMarkdown" set:html={item.html}></div><button type="button" data-coach-close>收起</button></article>)}</section></aside>
+        <aside class="coachDock" data-coach-surface><span>Need help?</span>{coach.map((item) => <button type="button" data-coach-open={item.id}><b>{item.code}</b><small>{item.short}</small></button>)}<section class="coachContent"><p data-coach-empty>Coach 不常驻正文。只有真实卡点出现时才占空间。</p>{coach.map((item) => <article data-coach-panel={item.id} hidden><header><span>{item.code}</span><h3>{item.title}</h3></header><div class="coachMarkdown" set:html={item.html}></div><button type="button" data-coach-close>收起</button></article>)}</section></aside>
       </div>
     </section>
 
@@ -62,7 +62,7 @@ const isSmall = task.kind === 'small';
       <header class="focusBar"><button type="button" data-focus-prompt>Task</button><div><span>Focus Writing</span><strong>{task.title}</strong></div><button type="button" data-focus-coach>Coach</button></header>
       <aside class="focusPrompt" data-focus-prompt-body hidden>{isSmall ? <><p>{task.learnerTask.background}</p><blockquote>{task.learnerTask.directions}</blockquote></> : <><p>{task.learnerTask.visual_scenario}</p><blockquote>{task.learnerTask.directions}</blockquote></>}</aside>
       <main class="focusPaper"><label class="focusPlan"><span>Plan <small>optional</small></span><textarea rows="4" data-gold-plan placeholder="需要时才计划…"></textarea></label><label class="draftField"><span>First draft</span><textarea rows="26" data-gold-draft placeholder="当前屏幕只做一件事：把这篇写出来。"></textarea></label></main>
-      <aside class="focusCoach" data-focus-coach-body hidden><header><span>Coach Drawer</span><strong>不要先学；遇到问题再叫出来。</strong></header><nav>{coach.map((item) => <button type="button" data-coach-open={item.id}><b>{item.code}</b><span>{item.short}</span></button>)}</nav><section class="coachContent"><p data-coach-empty>选择一个真实卡点。</p>{coach.map((item) => <article data-coach-panel={item.id} hidden><header><span>{item.code}</span><h3>{item.title}</h3></header><div class="coachMarkdown" set:html={item.html}></div><button type="button" data-coach-close>收起</button></article>)}</section></aside>
+      <aside class="focusCoach" data-focus-coach-body data-coach-surface hidden><header><span>Coach Drawer</span><strong>不要先学；遇到问题再叫出来。</strong></header><nav>{coach.map((item) => <button type="button" data-coach-open={item.id}><b>{item.code}</b><span>{item.short}</span></button>)}</nav><section class="coachContent"><p data-coach-empty>选择一个真实卡点。</p>{coach.map((item) => <article data-coach-panel={item.id} hidden><header><span>{item.code}</span><h3>{item.title}</h3></header><div class="coachMarkdown" set:html={item.html}></div><button type="button" data-coach-close>收起</button></article>)}</section></aside>
     </section>
 
     <footer class="goldFoot"><span>比较重点：Task 是否始终是主角｜写作区域是否稳定｜Coach 是否只在需要时变重｜长期写 20–30 分钟会不会累</span><a href={taskHref}>去 Current Writing Runtime →</a></footer>
@@ -80,8 +80,10 @@ const isSmall = task.kind === 'small';
     variantButtons.forEach((button)=>button.addEventListener('click',()=>{active=button.getAttribute('data-gold-variant')||'split';renderVariant()}));
     const syncFields=(selector,key)=>{const fields=[...root.querySelectorAll(selector)].filter((node)=>node instanceof HTMLTextAreaElement);let saved='';try{saved=localStorage.getItem(key)||''}catch{}fields.forEach((field)=>field.value=saved);fields.forEach((field)=>field.addEventListener('input',()=>{fields.forEach((other)=>{if(other!==field)other.value=field.value});try{localStorage.setItem(key,field.value)}catch{}}))};
     syncFields('[data-gold-plan]',planKey);syncFields('[data-gold-draft]',draftKey);
-    const setCoach=(id='')=>{root.querySelectorAll('[data-coach-panel]').forEach((panel)=>panel.hidden=panel.getAttribute('data-coach-panel')!==id);root.querySelectorAll('[data-coach-empty]').forEach((node)=>node.hidden=Boolean(id));root.querySelectorAll('[data-coach-open]').forEach((button)=>button.classList.toggle('active',button.getAttribute('data-coach-open')===id))};
-    root.querySelectorAll('[data-coach-open]').forEach((button)=>button.addEventListener('click',()=>setCoach(button.getAttribute('data-coach-open')||'')));root.querySelectorAll('[data-coach-close]').forEach((button)=>button.addEventListener('click',()=>setCoach('')));
+    root.querySelectorAll('[data-coach-surface]').forEach((surface)=>{
+      const setCoach=(id='')=>{surface.querySelectorAll('[data-coach-panel]').forEach((panel)=>panel.hidden=panel.getAttribute('data-coach-panel')!==id);surface.querySelectorAll('[data-coach-empty]').forEach((node)=>node.hidden=Boolean(id));surface.querySelectorAll('[data-coach-open]').forEach((button)=>button.classList.toggle('active',button.getAttribute('data-coach-open')===id))};
+      surface.querySelectorAll('[data-coach-open]').forEach((button)=>button.addEventListener('click',()=>setCoach(button.getAttribute('data-coach-open')||'')));surface.querySelectorAll('[data-coach-close]').forEach((button)=>button.addEventListener('click',()=>setCoach('')));
+    });
     root.querySelector('[data-desk-prompt]')?.addEventListener('click',()=>{const body=root.querySelector('[data-desk-prompt-body]');if(body instanceof HTMLElement)body.hidden=!body.hidden});
     root.querySelector('[data-focus-prompt]')?.addEventListener('click',()=>{const body=root.querySelector('[data-focus-prompt-body]');if(body instanceof HTMLElement)body.hidden=!body.hidden});
     root.querySelector('[data-focus-coach]')?.addEventListener('click',()=>{const body=root.querySelector('[data-focus-coach-body]');if(body instanceof HTMLElement)body.hidden=!body.hidden});
