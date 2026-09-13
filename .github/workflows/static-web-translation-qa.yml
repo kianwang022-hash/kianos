@@ -81,8 +81,6 @@ jobs:
           name: translation-source-gate
           path: ${{ runner.temp }}/translation-source-gate.json
           if-no-files-found: error
-      - name: Validate Translation runtime and evidence candidate QA
-        run: node scripts/validate-translation-runtime.mjs && node scripts/validate-translation-evidence-guard.mjs
       - name: Validate Translation Runtime gate
         env:
           KIANOS_TRANSLATION_RUNTIME_GATE_OUT: ${{ runner.temp }}/translation-runtime-gate.json
