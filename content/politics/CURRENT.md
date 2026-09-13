@@ -55,7 +55,7 @@ Subject readiness remains locally owned. Functional First does not manufacture s
 ```text
 Marxism    S/K/L/P/R/E PASS; U UNTESTED on the corrected current path
 History    S/K/L/P/R/E PASS; U UNTESTED
-Mao        S/K/L/P/R PASS; E UNTESTED; U UNTESTED
+Mao        S/K/L/P/R/E PASS; U UNTESTED
 Xi         S/K + content closure PASS; L/P/R/E/U UNTESTED
 Ethics-Law S/K + content closure PASS; L/P/R/E/U UNTESTED
 ```
@@ -109,8 +109,8 @@ Politics-specific invariant: **Suyi = framework/orientation input; Chengfeng = c
 
 All five Politics subjects now own scoped `CURRENT / ACCEPTANCE` pairs because each has a durable independent restart/readiness boundary.
 
-- Marxism and History own broader whole-subject engineering acceptance through `S/K/L/P/R/E PASS`; current-path `U` remains learner-only and untested.
-- Mao owns fresh engineering acceptance through `S/K/L/P/R PASS`; its earliest unresolved gate is `E`, and `U` remains learner-only.
+- Marxism, History and Mao now own whole-subject engineering acceptance through `S/K/L/P/R/E PASS`; their current-path `U` remains learner-only and untested.
+- Mao's E closure is Mao-specific: it preserves first-attempt truth, Wrong/Uncertain repair provenance, no-mastery semantics, Return Packet meaning and fail-closed persistence; this does not manufacture U or later-phase transfer evidence.
 - Xi and Ethics-Law currently stop at fresh Source/Knowledge content closure; their local Acceptances intentionally keep `L/P/R/E/U` untested.
 - Xi's scoped pair was created by the fresh C00–C17 Source/Knowledge closure; the retired statement that Xi did not justify an independent owner is no longer Current Truth.
 

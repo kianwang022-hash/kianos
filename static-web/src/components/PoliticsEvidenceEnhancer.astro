@@ -1,0 +1,71 @@
+---
+const { chapter } = Astro.props;
+const configs = (chapter?.units || []).map((unit) => ({
+  runtime_unit_id: String(unit?.unitId || ''),
+  source_anchor: `source-${String(unit?.unitId || '')}`,
+  source_owner_ids: (unit?.sourceNodes || []).map((node) => String(node?.id || '')).filter(Boolean)
+})).filter((config) => config.runtime_unit_id);
+---
+{configs.map((config) => (
+  <span hidden data-politics-evidence-source-config data-config={JSON.stringify(config)}></span>
+))}
+
+<script>
+  const evidenceKey = 'kianos-politics-evidence-v1';
+  const runtime = document.querySelector('[data-politics-runtime]');
+  const sourceConfigs = [...document.querySelectorAll('[data-politics-evidence-source-config]')]
+    .map((row) => {
+      try { return JSON.parse(row.getAttribute('data-config') || 'null'); } catch { return null; }
+    })
+    .filter(Boolean);
+
+  const readEvents = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(evidenceKey) || '[]');
+      return Array.isArray(value) ? value : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const saveEvents = (events) => {
+    try { localStorage.setItem(evidenceKey, JSON.stringify(events)); } catch {}
+  };
+
+  const enrichLatestRepairEvidence = (card) => {
+    if (!(card instanceof HTMLElement) || !(runtime instanceof HTMLElement)) return;
+    const unitId = String(card.getAttribute('data-unit-id') || '');
+    const questionId = String(card.getAttribute('data-question-id') || '');
+    const config = sourceConfigs.find((row) => row.runtime_unit_id === unitId);
+    if (!unitId || !questionId || !config) return;
+
+    const events = readEvents();
+    for (let index = events.length - 1; index >= 0; index -= 1) {
+      const event = events[index];
+      if (!event || !['WRONG', 'UNCERTAIN'].includes(String(event.outcome || ''))) continue;
+      if (String(event.subject || '') !== String(runtime.getAttribute('data-subject') || '')) continue;
+      if (String(event.chapter || '') !== String(runtime.getAttribute('data-chapter') || '')) continue;
+      if (String(event.unit_id || '') !== unitId || String(event.question_id || '') !== questionId) continue;
+      if (event.repair_source_anchor && Array.isArray(event.repair_source_owner_ids)) return;
+
+      events[index] = {
+        ...event,
+        repair_source_anchor: String(config.source_anchor || ''),
+        repair_source_owner_ids: Array.isArray(config.source_owner_ids) ? [...config.source_owner_ids] : []
+      };
+      saveEvents(events);
+      return;
+    }
+  };
+
+  document.querySelectorAll('[data-politics-question]').forEach((card) => {
+    const submit = card.querySelector('[data-politics-submit]');
+    if (!(submit instanceof HTMLButtonElement)) return;
+    submit.addEventListener('click', () => queueMicrotask(() => {
+      if (!submit.disabled) return;
+      const repair = card.querySelector('[data-politics-repair]');
+      if (!(repair instanceof HTMLElement) || repair.hidden) return;
+      enrichLatestRepairEvidence(card);
+    }));
+  });
+</script>
