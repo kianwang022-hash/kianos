@@ -1,11 +1,11 @@
 # Politics Xi — Cognitive Projection Design
 
-Status: BATCH DESIGN CANDIDATE — CURRENT-GROUNDED / KIAN ACCEPTANCE PENDING  
+Status: ACCEPTED GRAMMAR — KIAN APPROVED  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current subject owner: `content/politics/learning/xi/`
 
-This file records a bounded learner-visible design candidate derived from Current Xi assets. It does not change Xi Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
+This file records the accepted learner-visible Cognitive Projection grammar derived from Current Xi assets. It does not change Xi Learning Logic, Current Content, Natural Unit ownership/order, Chengfeng/Suyi/Xiao1000 roles, Evidence, Repair, Return, or learner state.
 
 ---
 
@@ -39,7 +39,7 @@ Current chapter-level identity chain:
 → 中国特色 / 本质要求 / 重大原则 / 重大关系
 ```
 
-Candidate chapter-wide Mac rail:
+Accepted chapter-wide Mac rail:
 
 ```text
 最终目标        目标表达        现实道路        道路是什么        根本上必须什么       推进时怎样把握       长期怎样平衡
@@ -68,7 +68,7 @@ The main learner task is to keep these hats stable before memorizing exact lists
 
 Current `content_support` contains complete lists such as five characteristics, nine essential requirements, five principles and six major relationships. These do not all become equal-weight first-view cards merely because they exist.
 
-Candidate projection:
+Accepted projection:
 
 ```text
 first view
@@ -98,7 +98,7 @@ When K06 becomes current, K06 may own the larger region and K05 compresses to co
 
 ---
 
-## Xi Natural Unit grammar — CANDIDATE
+## Xi Natural Unit grammar — ACCEPTED
 
 A Xi Natural Unit may project:
 
@@ -124,5 +124,3 @@ Rules:
 - source-heavy detail remains on Chengfeng iPad/MarginNote;
 - no new mandatory recall or diagnosis step is introduced;
 - question verification uses the preserved historical Politics Workbench.
-
-This candidate requires Kian acceptance before being marked frozen.
