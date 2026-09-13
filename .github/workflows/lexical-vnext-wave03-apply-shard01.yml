@@ -1,0 +1,171 @@
+name: Lexical vNext Wave03 Apply Shard01
+
+on:
+  push:
+    branches:
+      - lexical/vnext-wave03-o0025-o0124
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lexical-vnext-wave03-shard01
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Stop if shard already applied
+        id: guard
+        shell: bash
+        run: |
+          if [[ -f content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-apply.json ]]; then
+            echo 'done=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'done=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build fresh-vNext shard input
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin lexical-batch05-work lexical/fresh-rebuild-batch04
+          mkdir -p .tmp-lexical-tools content/lexical/audit/vnext-content-execution
+          git show origin/lexical/fresh-rebuild-batch04:tools/lexical_fresh_rebuild_apply.py > .tmp-lexical-tools/lexical_fresh_rebuild_apply.py
+          git show origin/lexical/fresh-rebuild-batch04:tools/lexical_fresh_rebuild_batch.py > .tmp-lexical-tools/lexical_fresh_rebuild_batch.py
+          git show origin/lexical-batch05-work:content/lexical/audit/fresh-rebuild/batches/batch05.part01.json > /tmp/batch05.part01.json
+          git show origin/lexical-batch05-work:content/lexical/audit/fresh-rebuild/batches/batch05.part02.json > /tmp/batch05.part02.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          old = {}
+          for p in ['/tmp/batch05.part01.json','/tmp/batch05.part02.json']:
+              d = json.loads(Path(p).read_text())
+              for row in d.get('owners', []):
+                  old[int(row['ordinal'])] = row
+
+          upgrades = {38,40,42,49,50,51,52,53,54,56,57,58,59,60,62}
+          pass_quality = {
+              39:'DEPTH_READY', 41:'SAFE_SIMPLE', 43:'SAFE_SIMPLE', 44:'SAFE_SIMPLE',
+              45:'DEPTH_READY',46:'DEPTH_READY',47:'DEPTH_READY',48:'SAFE_SIMPLE',
+              55:'SAFE_SIMPLE',61:'DEPTH_READY',63:'SAFE_SIMPLE',64:'DEPTH_READY'
+          }
+          owners = []
+
+          owners.append({
+              'ordinal':37,
+              'word_id':'word:accord',
+              'disposition':'FRESH_UPGRADED',
+              'complexity':'rich_polysemy',
+              'sentinels':['GLOSS_LIST_CORE_NOT_PREDICTIVE','OF_OWN_ACCORD_AND_GRANT_BRANCH_NEED_ROUTING'],
+              'material_changes':[
+                  'Replace the weak “agreement or granting” gloss pair with a structured agreement/match versus formal-grant model.',
+                  'Promote in accord with, of one’s own accord, accord with, and accord something to someone as explicit retrieval frames.'
+              ],
+              'core_concept':{
+                  'core_clusters':[
+                      {'label_cn':'一致；和谐','label_en':'agreement, harmony, or consistency','pos':'noun','sense_ids':['sense:accord:d85fab2fcbe85dc6']},
+                      {'label_cn':'正式协定','label_en':'a formal agreement or treaty','pos':'noun','sense_ids':['sense:accord:ee8962e07f1255a9']},
+                      {'label_cn':'正式给予；授予','label_en':'formally give or grant something','pos':'verb','sense_ids':['sense:accord:8cb228b8d5e65e29']},
+                      {'label_cn':'相符；一致','label_en':'be consistent or in agreement','pos':'verb','sense_ids':['sense:accord:12a6674e5f74566a']}
+                  ],
+                  'core_meaning_cn':'主干是“进入一致/匹配”：名词可表示和谐或正式协定，动词可表示相符；另保留较正式的“给予/授予”分支。',
+                  'core_meaning_en':'mainly agreement or matching—harmony, a formal agreement, or being consistent—with a separate formal grant/give verb branch',
+                  'mental_model_cn':'in accord with / accord with＝一致；peace accord＝协定；of one’s own accord＝自愿地；accord sth to sb＝正式授予。',
+                  'mental_model_en':'route by frame: in accord with / accord with = agreement; peace accord = treaty; of one’s own accord = voluntarily; accord sth to sb = formally grant'
+              },
+              'sense_plan':[
+                  {'source':'current','sense_id':'sense:accord:d85fab2fcbe85dc6','overrides':{'confidence':'high'}},
+                  {'source':'current','sense_id':'sense:accord:ee8962e07f1255a9','overrides':{'confidence':'high'}},
+                  {'source':'current','sense_id':'sense:accord:8cb228b8d5e65e29','overrides':{'confidence':'high'}},
+                  {'source':'current','sense_id':'sense:accord:12a6674e5f74566a','overrides':{'confidence':'high'}}
+              ],
+              'constructions':[
+                  {'construction_id':'construction:37accord000000000001','direction':'R+P','level':'L1','meaning_cn':'与……一致；符合……','pattern':'in accord with + sth'},
+                  {'construction_id':'construction:37accord000000000002','direction':'R+P','level':'L1','meaning_cn':'自愿地；主动地','pattern':'of one’s own accord'},
+                  {'construction_id':'construction:37accord000000000003','direction':'R','level':'L2','meaning_cn':'与……相符；一致','pattern':'accord with + sth'},
+                  {'construction_id':'construction:37accord000000000004','direction':'R+P','level':'L2','meaning_cn':'正式给予/授予某人某物','pattern':'accord + sth + to + sb'}
+              ]
+          })
+
+          for n in range(38,65):
+              if n in upgrades:
+                  row = old[n]
+                  row = json.loads(json.dumps(row))
+                  row.pop('relations', None)
+                  owners.append(row)
+              else:
+                  quality = pass_quality[n]
+                  owners.append({
+                      'ordinal':n,
+                      'word_id':old[n]['word_id'],
+                      'disposition':'FRESH_PASS_NO_CHANGE',
+                      'complexity':old[n].get('complexity','moderate'),
+                      'sentinels':[],
+                      'reason':f'Fresh vNext final-object readback accepts Current as {quality}; no semantic mutation is justified in this shard.',
+                      'material_changes':[]
+                  })
+
+          batch = {
+              'schema':'kianos.lexical.vnext_content_shard_input.v1',
+              'batch_id':'vnext-wave03-shard01-o0037-o0064',
+              'status':'CHAT_REVIEWED_FRESH_REBUILD_INPUT',
+              'legacy_semantic_authority':False,
+              'coverage':{'ordinal_start':37,'ordinal_end':64,'owner_count':28,'contiguous':True},
+              'owners':owners,
+              'relations':[]
+          }
+          Path('content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json').write_text(json.dumps(batch,ensure_ascii=False,indent=2)+'\n')
+          PY
+
+      - name: Apply directly and read back
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .tmp-lexical-tools/lexical_fresh_rebuild_batch.py \
+            content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json \
+            --report content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-apply.json
+          python .tmp-lexical-tools/lexical_fresh_rebuild_batch.py \
+            content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json \
+            --report /tmp/wave03-shard01-verify.json --verify-accepted
+
+      - name: Validate JSON corpus
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for root in ['content/lexical/words/by-ordinal','content/lexical/relations/by-id']:
+              for p in Path(root).rglob('*.json'):
+                  json.loads(p.read_text())
+          print('LEXICAL_JSON_READBACK_PASS')
+          PY
+
+      - name: Build Astro
+        if: steps.guard.outputs.done != 'true'
+        working-directory: static-web
+        shell: bash
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Commit direct-close shard
+        if: steps.guard.outputs.done != 'true'
+        shell: bash
+        run: |
+          rm -rf .tmp-lexical-tools
+          git config user.name 'kianos-lexical-vnext'
+          git config user.email 'actions@users.noreply.github.com'
+          git add content/lexical/words/by-ordinal content/lexical/audit/vnext-content-execution
+          git commit -m 'lexical: direct-close vNext wave03 shard01 o0037-o0064'
+          git push origin HEAD:lexical/vnext-wave03-o0025-o0124
