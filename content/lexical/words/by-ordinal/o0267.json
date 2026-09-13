@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "38df7663c4bdce945d05b1f70b85ef5334403ac4c2871cf187e38decbdf7b360",
+    "constructions": [
+      {
+        "construction_id": "construction:around:handoff-de74d1033da13a6a",
+        "pattern": "around/about + number/time",
+        "meaning_cn": "大约……",
+        "definition_en": "approximately a number or time",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "b963950ed380abde23c313c14a53e50206aabd062e58d3e126e432340f5241dd",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,11 +46,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "sense:sense:around:1cfe2000dfc853bd"
+      "sense:sense:around:1cfe2000dfc853bd",
+      "semantic-review:0267"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -315,7 +326,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0265-0272.json",
-    "source_content_hash": "38df7663c4bdce945d05b1f70b85ef5334403ac4c2871cf187e38decbdf7b360",
+    "source_content_hash": "b963950ed380abde23c313c14a53e50206aabd062e58d3e126e432340f5241dd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

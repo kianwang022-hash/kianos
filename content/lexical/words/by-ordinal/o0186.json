@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9feba94dfd99323a180026f70ed297ad8b9931d3aa92ec9f11ae0962beb0d95b",
+    "constructions": [
+      {
+        "construction_id": "construction:analog:handoff-851570fc4e14df5d",
+        "pattern": "analog / analogue; analog ↔ digital",
+        "meaning_cn": "模拟的/模拟设备；美式 analog 与英式 analogue；与 digital 对比",
+        "definition_en": "regional spelling and the contrast between continuous and digital systems",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "93e4fe3b1089d019fa5b4542bdabd85d058a8be89e2d658c2f50c56d5aa3277e",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,7 +46,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0186"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -114,7 +126,15 @@
       "runtime_model_calls": false
     },
     "word": "analog",
-    "word_family": [],
+    "word_family": [
+      {
+        "form_boundary": true,
+        "pattern": "analog / analogue",
+        "meaning_cn": "美式 analog；英式 analogue",
+        "definition_en": "regional spelling variants",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
     "word_id": "word:analog"
   },
   "relation_refs": [],
@@ -180,7 +200,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0185-0192.json",
-    "source_content_hash": "9feba94dfd99323a180026f70ed297ad8b9931d3aa92ec9f11ae0962beb0d95b",
+    "source_content_hash": "93e4fe3b1089d019fa5b4542bdabd85d058a8be89e2d658c2f50c56d5aa3277e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

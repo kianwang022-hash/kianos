@@ -6,10 +6,29 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "82c63b7db8cc8004090c784916c199a29ed5e619fae6e52dd26cb6f1f16d0374",
+    "constructions": [
+      {
+        "construction_id": "construction:anguish:handoff-1b18179845987439",
+        "pattern": "anguish",
+        "meaning_cn": "极度的精神或身体痛苦",
+        "definition_en": "extreme mental or physical suffering or distress",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "d413ed095fffa83e34c85c13cdff9678af0ab7aabfd83289895dffe3f96e9b7d",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "极度痛苦；苦恼",
+          "label_en": "extreme mental or physical suffering or distress",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:anguish:handoff-e64fa78c33f8fce4"
+          ]
+        }
+      ],
       "core_meaning_cn": "极度痛苦",
       "core_meaning_en": "severe mental or physical pain",
       "mental_model_cn": "极度痛苦",
@@ -19,10 +38,27 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0200"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "极度痛苦；苦恼",
+        "definition_en": "extreme mental or physical suffering or distress",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:anguish:handoff-e64fa78c33f8fce4",
+        "sense_label_en": "anguish",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -142,6 +178,13 @@
         "merged_into_sense_id": null,
         "source_row": 513,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
+      },
+      {
+        "sense_id": "sense:anguish:handoff-e64fa78c33f8fce4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19510,
+        "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
       }
     ],
     "active_collocations": [],
@@ -194,7 +237,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0193-0200.json",
-    "source_content_hash": "82c63b7db8cc8004090c784916c199a29ed5e619fae6e52dd26cb6f1f16d0374",
+    "source_content_hash": "d413ed095fffa83e34c85c13cdff9678af0ab7aabfd83289895dffe3f96e9b7d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

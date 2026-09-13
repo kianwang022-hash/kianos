@@ -6,23 +6,59 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d970240c56734ad2ebc603911fb0e42e801eac00022fa13631fe217c93c009b0",
+    "constructions": [
+      {
+        "construction_id": "construction:arouse:handoff-0602bf2337be93d9",
+        "pattern": "arouse interest/suspicion/anger/a reaction",
+        "meaning_cn": "引起兴趣、怀疑、愤怒或反应",
+        "definition_en": "evoke or cause a feeling, suspicion, or reaction",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "2270151f2fbfd52d053c66c825fed323bd56389312cb3feb12f1c759a91c4688",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "引起，唤醒",
-      "core_meaning_en": "to cause a feeling or reaction; to wake someone",
-      "mental_model_cn": "引起，唤醒",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "引起；唤起",
+          "label_en": "cause a feeling, reaction, interest, or suspicion",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:arouse:handoff-b4987de4f302e864"
+          ]
+        }
+      ],
+      "core_meaning_cn": "引起或唤起反应、兴趣或情绪",
+      "core_meaning_en": "cause a feeling, reaction, interest, or suspicion",
+      "mental_model_cn": "引起或唤起反应、兴趣或情绪",
+      "mental_model_en": "cause a feeling, reaction, interest, or suspicion"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0268"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "引起；唤起",
+        "definition_en": "cause a feeling, reaction, interest, or suspicion",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:arouse:handoff-b4987de4f302e864",
+        "sense_label_en": "arouse",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -142,6 +178,13 @@
         "merged_into_sense_id": null,
         "source_row": 681,
         "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
+      },
+      {
+        "sense_id": "sense:arouse:handoff-b4987de4f302e864",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19513,
+        "source_path": "content/lexical/canonical/senses/shards/o0257-0288.json"
       }
     ],
     "active_collocations": [],
@@ -199,7 +242,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0265-0272.json",
-    "source_content_hash": "d970240c56734ad2ebc603911fb0e42e801eac00022fa13631fe217c93c009b0",
+    "source_content_hash": "2270151f2fbfd52d053c66c825fed323bd56389312cb3feb12f1c759a91c4688",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

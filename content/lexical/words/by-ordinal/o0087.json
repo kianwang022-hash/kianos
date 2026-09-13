@@ -6,10 +6,38 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "260b7b12b53994a9157e6cafb4bb2dd73fbbd193f5599e1efef75a496eb630f9",
+    "constructions": [
+      {
+        "construction_id": "construction:advantage:handoff-cc0656a50ff9a84d",
+        "pattern": "advantage over ...",
+        "meaning_cn": "相对于……的优势",
+        "definition_en": "a favorable position compared with someone or something",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:advantage:handoff-baaad44cb2af252d",
+        "pattern": "take advantage of ...",
+        "meaning_cn": "利用机会；占便宜",
+        "definition_en": "make use of an opportunity or exploit a person",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "f13bf1353bfe3ea146756af741338baa43dab6670d6740c525dc947134f34c09",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "优势；好处；有利地位",
+          "label_en": "a favorable condition or position that benefits someone",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:advantage:handoff-82b0dc96b34b4a38"
+          ]
+        }
+      ],
       "core_meaning_cn": "优势；有利条件",
       "core_meaning_en": "a condition or circumstance that puts one in a favorable position",
       "mental_model_cn": "优势；有利条件",
@@ -19,10 +47,27 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0087"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "confidence": "high",
+        "definition_cn": "优势；好处；有利地位",
+        "definition_en": "a favorable condition or position that benefits someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advantage:handoff-82b0dc96b34b4a38",
+        "sense_label_en": "advantage/benefit",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "collocations": []
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -174,6 +219,13 @@
         "merged_into_sense_id": "sense:advantage:2a27fb744f8e53c3",
         "source_row": 247,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
+      },
+      {
+        "sense_id": "sense:advantage:handoff-82b0dc96b34b4a38",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19515,
+        "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       }
     ],
     "active_collocations": [],
@@ -231,7 +283,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0081-0088.json",
-    "source_content_hash": "260b7b12b53994a9157e6cafb4bb2dd73fbbd193f5599e1efef75a496eb630f9",
+    "source_content_hash": "f13bf1353bfe3ea146756af741338baa43dab6670d6740c525dc947134f34c09",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

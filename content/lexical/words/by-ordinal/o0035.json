@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f96e488c471a8d67143b85017de977cae78ce8d15a2170ad7aa3e14875c4f35e",
+    "constructions": [
+      {
+        "construction_id": "construction:accompany:handoff-be2bad7c679a2646",
+        "pattern": "accompany A with B",
+        "meaning_cn": "用 B 伴随或配合 A",
+        "definition_en": "provide or add B together with A",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "caf6186e516df181ac37cb2b26f917853140252285f0e543696bb34585a490f9",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "陪伴",
@@ -16,12 +26,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:accompany:c7b5362930bc7228",
-      "relation:deep:word_family:accompany:c7b5362930bc7228"
+      "relation:deep:word_family:accompany:c7b5362930bc7228",
+      "semantic-review:0035"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -319,7 +330,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0033-0040.json",
-    "source_content_hash": "f96e488c471a8d67143b85017de977cae78ce8d15a2170ad7aa3e14875c4f35e",
+    "source_content_hash": "caf6186e516df181ac37cb2b26f917853140252285f0e543696bb34585a490f9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

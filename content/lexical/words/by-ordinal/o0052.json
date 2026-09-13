@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "dcb16e667b7f82ab6798e637e495b822aa8cc46d4f091fd4800502f7889cace2",
+    "constructions": [
+      {
+        "construction_id": "construction:acquaintance:handoff-a1e7e1af188a1fd1",
+        "pattern": "a passing acquaintance with ...",
+        "meaning_cn": "对……略有了解",
+        "definition_en": "limited familiarity with something",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:acquaintance:handoff-36b91aed87697709",
+        "pattern": "make the acquaintance of ...",
+        "meaning_cn": "结识某人",
+        "definition_en": "become acquainted with a person",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "efad39655808a7aeea97fb4db0ad34c12a82850305ba9aa4f85655526ce20e3c",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "认识；熟人",
@@ -16,12 +35,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:acquaintance:02b67bf7a8a7e60a",
-      "relation:deep:word_family:acquaintance:02b67bf7a8a7e60a"
+      "relation:deep:word_family:acquaintance:02b67bf7a8a7e60a",
+      "semantic-review:0052"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -259,7 +279,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0049-0056.json",
-    "source_content_hash": "dcb16e667b7f82ab6798e637e495b822aa8cc46d4f091fd4800502f7889cace2",
+    "source_content_hash": "efad39655808a7aeea97fb4db0ad34c12a82850305ba9aa4f85655526ce20e3c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

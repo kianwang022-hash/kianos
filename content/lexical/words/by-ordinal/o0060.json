@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "48a98298057a365c65c6153956e732b64888de6198243cfec28cc11a427f16fb",
+    "constructions": [
+      {
+        "construction_id": "construction:active:handoff-e046d908b99f350f",
+        "pattern": "active/in use",
+        "meaning_cn": "正在运行或使用中",
+        "definition_en": "currently operating or being used",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      },
+      {
+        "construction_id": "construction:active:handoff-4001ac98cb9c4cb1",
+        "pattern": "active participant",
+        "meaning_cn": "积极参与者",
+        "definition_en": "actively engaged in an activity",
+        "level": "L1",
+        "pos": "phrase",
+        "source": "semantic-review-handoff-v1"
+      }
+    ],
+    "content_hash": "b135fc4a7ca79aee8d9298ef42adc853dd19c6ff57ff7e43bb9416f971a1eb87",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +57,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-review:0060"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -288,7 +309,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0057-0064.json",
-    "source_content_hash": "48a98298057a365c65c6153956e732b64888de6198243cfec28cc11a427f16fb",
+    "source_content_hash": "b135fc4a7ca79aee8d9298ef42adc853dd19c6ff57ff7e43bb9416f971a1eb87",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
