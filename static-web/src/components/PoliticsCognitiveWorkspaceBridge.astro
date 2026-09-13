@@ -162,6 +162,14 @@
       if (closeEyebrow) closeEyebrow.textContent = '本段收口';
     });
 
+    // Shared Functional First resume/repair enhancer can request a canonical workspace state
+    // without owning or redefining the C00 state machine.
+    workspace.addEventListener('politics:resume-state', (event) => {
+      const unit = event.target?.closest?.('[data-workspace-unit]');
+      const state = event.detail?.state;
+      if (unit && state) setWorkspaceState(unit, state);
+    });
+
     // Score-first fast path: Recall is useful, but it is not a compulsory ritual.
     workspace.querySelectorAll('[data-workspace-action="learn-done"]').forEach((button) => {
       const unit = button.closest('[data-workspace-unit]');
