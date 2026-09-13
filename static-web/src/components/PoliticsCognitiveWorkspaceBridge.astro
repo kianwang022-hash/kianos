@@ -1,0 +1,32 @@
+<script is:inline>
+  const workspace = document.querySelector('[data-politics-cognitive-workspace]');
+  if (workspace) {
+    workspace.addEventListener('click', (event) => {
+      const link = event.target?.closest?.('a[href^="#source-"]');
+      if (!link || !workspace.contains(link)) return;
+      const unit = link.closest('[data-workspace-unit]');
+      if (!unit) return;
+
+      event.preventDefault();
+      unit.dataset.state = 'EXTERNAL_LEARN';
+      unit.querySelectorAll('[data-stage]').forEach((scene) => {
+        scene.hidden = scene.getAttribute('data-stage') !== 'EXTERNAL_LEARN';
+      });
+      unit.querySelectorAll('[data-inspector-state]').forEach((panel) => {
+        panel.hidden = panel.getAttribute('data-inspector-state') !== 'EXTERNAL_LEARN';
+      });
+      const stateLabel = workspace.querySelector('[data-workspace-state-label]');
+      if (stateLabel) stateLabel.textContent = 'EXTERNAL_LEARN';
+
+      try {
+        const key = `kianos-politics-workspace-v1:${workspace.dataset.subject || ''}:${workspace.dataset.chapter || ''}`;
+        const saved = JSON.parse(localStorage.getItem(key) || '{}');
+        const states = { ...(saved.states || {}), [unit.dataset.unitId || '']: 'EXTERNAL_LEARN' };
+        localStorage.setItem(key, JSON.stringify({ ...saved, states, observed_at: new Date().toISOString() }));
+      } catch {}
+
+      const target = document.querySelector(link.getAttribute('href'));
+      requestAnimationFrame(() => target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+    });
+  }
+</script>
