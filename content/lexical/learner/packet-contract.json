@@ -7,8 +7,8 @@
   "compatibility": {
     "wire_schema_changed": false,
     "existing_consumer_alignment": "BOUNDED_VNEXT_ADAPTER_UNDER_TEST; unrestricted P/R/E not implied",
-    "missing_evidence_fields": "Do not fabricate event identity, target revision, task attribution, demand, assistance, novelty, or delayed separation. Missing fields limit inference and cannot automatically retire Repair.",
-    "migration_rule": "Legacy Unknown/Fuzzy and whole-card revisit history cannot automatically create full-card Repair. Only explicit local + targets may migrate as active evidence; old timing metadata stays historical."
+    "missing_evidence_fields": "Do not fabricate event identity, target revision, task attribution, demand, assistance, novelty, validity, or delayed separation. Missing fields limit inference and cannot automatically admit or retire Repair.",
+    "migration_rule": "Legacy Unknown/Fuzzy and whole-card revisit history cannot automatically create full-card Repair. Only explicit local + targets may migrate as active evidence; repeated compatibility migration of the same exact legacy target is idempotent and is not re-exported as a new learner event."
   },
   "return_packet": {
     "schema": "kianos.lexical.return_packet.v1",
@@ -27,13 +27,16 @@
     },
     "optional_evidence_enrichment": {
       "event_id": "Stable source event identity for idempotent replay; conflicting reuse is quarantined.", "source_task_id": "Originating task/attempt identity when relevant.", "context_id": "Identifies repeated versus distinct evidence contexts.",
-      "target_revision": "Owner revision or target fingerprint when needed to resolve identity.", "demand": "recognition | discrimination | production when observed and material.", "assistance": "Observed assistance/answer exposure, not an inferred default of unassisted.",
+      "target_revision": "Owner revision or target fingerprint when needed to resolve identity.", "demand": "recognition | discrimination | production when observed and material.",
+      "attribution": "lexical | non_lexical | unresolved. English-task WRONG/AGAIN/SLOW/CORRECT cannot be used as lexical admission/retirement evidence unless the exact target is resolved and attribution is lexical.",
+      "assistance": "Observed assistance/answer exposure, not an inferred default of unassisted.",
       "context_novelty": "Observed fresh/unseen/repeated context; unavailable is not unseen.", "delayed": "Explicit boolean that the observation is meaningfully separated from answer exposure/initial repair; absence is not true.",
-      "question_valid": "Explicit false when the generated question is defective; unresolved validity cannot be counted as learner failure.", "corrects_event_id": "Explicit defect/correction linkage when an earlier score must be withdrawn."
+      "question_valid": "For Challenge/reconstruction/probe scoring evidence, explicit true means the generated question is accepted as valid; false marks a defect; absence is not silently upgraded to valid.",
+      "corrects_event_id": "Explicit defect/correction linkage. A correction can withdraw only an event for the same exact Word/target and, when both carry challenge IDs, the same Challenge."
     },
     "rules": [
       "Keep exact target references rather than duplicated whole definitions.", "Meaningful events inform the next relevant compilation, not a compulsory next-day review queue.", "Re-importing one event cannot create additional debt or independent successes.",
-      "Whole-card Unknown/Fuzzy routes Depth now and does not by itself admit any Repair target.", "Manual clear means learner agency and DORMANT, not demonstrated mastery.",
+      "Whole-card Unknown/Fuzzy routes Depth now and does not by itself admit any Repair target.", "Manual clear means learner agency and DORMANT, not demonstrated mastery; CLEAR/REACTIVATED remain exportable evidence so another compiler can reproduce the decision history.",
       "A defective question is not learner failure; unresolved target or task attribution cannot silently become vocabulary debt.", "Immediate assisted reconstruction is not delayed transfer; a correct English answer is not success for every word in the passage.",
       "Return Packet remains private and must not be committed as shared content."
     ]
@@ -46,13 +49,14 @@
       "challenge_id": "Unique packet-local Challenge identity.", "word_id": "Stable Current Word identity.", "ordinal": "Stable Current Word ordinal.", "word": "Optional display spelling.",
       "target_kind": "core | sense | secondary_sense | collocation | construction | phrase | relation | word_feel | productive_need", "target_id": "Stable Current subobject identity when available.", "target_locator": "Versioned owner-local locator when necessary.",
       "target_revision": "Optional exact Current owner/target revision for locator-only targets.", "source_evidence": "Exact local + or qualified target-level failure/uncertainty, or explicitly optional probe. Whole-card Fuzzy alone is not admission evidence.",
-      "demand": "Optional recognition | discrimination | production requirement for this target.", "evidence_quality": "Optional observed/compiled metadata such as target_revision, demand, assistance, context_novelty, and delayed. Missing values stay unknown; they must never be upgraded to strong evidence merely because the answer is correct.",
+      "demand": "Optional recognition | discrimination | production requirement for this target.", "evidence_quality": "Optional observed/compiled metadata such as target_revision, demand, assistance, context_novelty, delayed and attribution. Missing values stay unknown; they must never be upgraded to strong evidence merely because the answer is correct.",
       "question_type": "spatial_choice for v1; later versions may add other low-friction forms.", "stem": "Generated context from accepted Current semantics. Never consume protected unseen true-exam/TPO material.",
       "options": "2-4 objects with keys in left | up | right | down and learner-visible text.", "correct_key": "One spatial key present in options.",
       "repair": "Optional smallest-sufficient repair shown only after failure.", "reconstruction": "Optional one same-session reconstruction, without recursive repair chains; not independent delayed stability evidence."
     },
     "rules": [
       "Generate from valid Current lexical semantics and relations, not one permanent item per sense.", "Do not consume unattempted held-out true-exam/TPO source sentences.", "Two-choice items normally use left/right; other spatial choices remain consistent.", "Arrow choice submits immediately without a ritual second Enter.", "One correct Challenge does not automatically retire Repair. Dormancy requires explicitly qualifying target/demand-matched evidence; same-session reconstruction never supplies delayed evidence.",
+      "A scored Challenge event produced by the runtime carries question_valid=true only after packet validation; a later QUESTION_ISSUE may withdraw only its own exact corrected target event.",
       "Preserve valid failure history even after same-session reconstruction succeeds, but do not turn history retention into an unconditional future test obligation.", "Retirement/reactivation compares the same target and relevant demand. Reading recognition cannot automatically clear Writing production weakness.",
       "Challenge packets are private transport, not semantic authority or an obligatory daily ritual."
     ]
