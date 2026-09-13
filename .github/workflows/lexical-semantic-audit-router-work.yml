@@ -17,6 +17,18 @@ jobs:
         with:
           ref: audit-semantic-router-v1
           fetch-depth: 1
+      - name: Apply explicit multi-form headword matching fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('content/lexical/tools/semantic-audit-risk-router.mjs')
+          s = p.read_text()
+          old = "if(d.word!==e.record.word)throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);"
+          new = "const handoffNames=d.word.split('/').map(x=>x.trim());if(!handoffNames.includes(e.record.word))throw Error(`word mismatch o${String(e.ordinal).padStart(4,'0')}: ${d.word} != ${e.record.word}`);"
+          if s.count(old) != 1:
+              raise SystemExit('expected exactly one strict word-match guard')
+          p.write_text(s.replace(old, new))
+          PY
       - name: Router self-test
         run: node content/lexical/tools/semantic-audit-risk-router.mjs --self-test
       - name: Generate full current semantic-review backlog routing
@@ -44,6 +56,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/lexical/semantic-audit/manifests/o0025-o1124.risk.json tmp/lexical-audit/o0025-o1124.blind.jsonl
+          git add content/lexical/tools/semantic-audit-risk-router.mjs content/lexical/semantic-audit/manifests/o0025-o1124.risk.json tmp/lexical-audit/o0025-o1124.blind.jsonl
           git commit -m "chore(lexical): generate audit router backlog [router-output]"
           git push origin HEAD:audit-semantic-router-v1
