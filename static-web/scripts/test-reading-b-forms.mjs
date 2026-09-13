@@ -128,7 +128,7 @@ async function runBrowser(browserType, name, itemsByForm, { handoff = false } = 
       await page.locator('[data-objective-copy-chat]').waitFor({ state: 'visible' });
       await page.locator('[data-objective-copy-chat]').click();
       const packet = await page.evaluate(() => navigator.clipboard.readText());
-      check(packet.includes('Reading B set review packet v1'), 'chromium_ordering_handoff_whole_set');
+      check(packet.includes('Reading B deep review packet v2'), 'chromium_ordering_handoff_whole_set');
       check(packet.includes('Task form: ordering'), 'chromium_ordering_handoff_form');
       check(packet.includes('ORDERING SKELETON'), 'chromium_ordering_handoff_skeleton');
       check(packet.includes('CANDIDATE INVENTORY'), 'chromium_ordering_handoff_candidates');
