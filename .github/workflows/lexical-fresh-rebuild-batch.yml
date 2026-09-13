@@ -17,7 +17,7 @@ on:
       - '.github/workflows/lexical-fresh-rebuild-batch.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   gold01:
@@ -91,6 +91,27 @@ jobs:
       - name: Build Astro with candidate owners
         working-directory: static-web
         run: npm run build
+
+      - name: Commit accepted batch to branch
+        if: github.event_name == 'push'
+        run: |
+          cp /tmp/gold01-report.json content/lexical/audit/fresh-rebuild/batches/gold01-receipt.json
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          report = json.loads(Path('/tmp/gold01-report.json').read_text())
+          paths = [row['path'] for row in report['owners']]
+          paths.append('content/lexical/audit/fresh-rebuild/batches/gold01-receipt.json')
+          subprocess.run(['git', 'add', '--', *paths], check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo 'No accepted owner delta to commit.'
+            exit 0
+          fi
+          git config user.name 'kianos-lexical-batch'
+          git config user.email 'actions@users.noreply.github.com'
+          git commit -m 'lexical: accept fresh rebuild Gold01 owners'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Package candidate output
         if: always()
