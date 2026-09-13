@@ -42,27 +42,38 @@ Projection asset compilation   COMPLETE
 160 Current NU owners          ACCOUNTED
 151 PASS / 9 REFERENCE_ONLY    ACCEPTED
 Projection BLOCKED             0
-UI implementation              NOT STARTED
+UI implementation              READY / NOT YET EXECUTED
 Learner validation / U         UNTESTED
 ```
 
+**Current product task:**
+
+> **Politics Projection Optimization / Mac-wide Productization Implementation**
+
+This is a downstream UI/productization track over a closed semantic/runtime loop, not a new Politics Projection-design project.
+
 Current implementation handoff:
 
-- status / consumer boundary → `static-web/POLITICS_PRODUCT_STATUS.md`;
+- **full task contract / implementation program** → `static-web/POLITICS_PRODUCT_STATUS.md`;
 - UI optimization / whole-flow safety protocol → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
 - accepted detailed UI decisions → `static-web/POLITICS_PRODUCT_BRIEF.md` + subject design files;
+- shared presentation grammar → `static-web/PRESENTATION_CONTRACT.md`;
+- preferences / style → `static-web/KIAN_UI_PREFERENCES.md` + `static-web/UI_STYLE_BRIEF.md`;
 - derived Projection ledger → `content/politics/projection/manifest.json`;
 - anti-drift guard → `static-web/scripts/validate-politics-cognitive-projection-assets.mjs` in `Static Web Politics QA`.
 
-UI implementation may proceed as a visual/product track **without reopening S/K/L/P/R/E**, provided it preserves accepted learning semantics, Runtime/Evidence behavior, source ownership and Return rules.
+UI implementation may proceed **without reopening S/K/L/P/R/E**, provided it follows the full program in `POLITICS_PRODUCT_STATUS.md` and preserves accepted learning semantics, Runtime/Evidence behavior, source ownership and Return rules.
 
-Hard UI/product rule:
+Hard UI/product chain:
 
 ```text
 Current Content / Learning Logic
 → accepted compiled Projection
 → existing Runtime / Evidence / Repair / Return
-→ Mac-wide UI optimization
+→ Mac-wide UI optimization / implementation
+→ real browser screenshots
+→ product review / same-slice iteration
+→ zero-semantic-diff acceptance
 ```
 
 Not:
@@ -73,7 +84,7 @@ raw Current Content
 → reconnect Runtime afterward
 ```
 
-For local UI work, first reconstruct the relevant whole learner loop, then audit the existing learner-facing element as:
+Before local UI work, first reconstruct the relevant whole learner loop, then audit the existing learner-facing element as:
 
 ```text
 KEEP
@@ -83,6 +94,20 @@ DEMOTE
 ```
 
 UI/Codex must consume the compiled Projection layer for cognitive shape rather than re-inferring subject geometry from raw Current chapter JSON. A redesign/reopen requires fresh evidence of a concrete upstream defect and must identify the earliest responsible owner/gate.
+
+Current implementation sequence is owned by `POLITICS_PRODUCT_STATUS.md`; in compact form:
+
+```text
+authority sync
+→ bounded shared-shell / Projection-consumer implementation
+→ five-subject grammar pressure test
+→ Home + Chengfeng handoff/return + protected Xiao1000 Workbench + W/U repair/return
+→ real Mac-wide screenshots
+→ same-slice iteration
+→ data-driven expansion across 53 chapter Projection owners
+→ full QA + zero-semantic-diff closure
+→ STOP engineering by default → real Kian use
+```
 
 ---
 
@@ -167,8 +192,8 @@ If a real defect appears, reopen only the earliest responsible owner/gate. `U` i
 ### Acceptance Truth
 `content/politics/ACCEPTANCE.md` owns Politics-wide integration/reconciliation claims. Each subject's readiness is owned by its local `ACCEPTANCE.md`.
 
-### Product / Projection status
-`static-web/POLITICS_PRODUCT_STATUS.md` owns the current UI/Projection-compilation handoff state only. It does not change subject Acceptance truth.
+### Product / Projection task contract
+`static-web/POLITICS_PRODUCT_STATUS.md` owns the current UI/productization task setting, implementation sequence, acceptance matrix and frozen/open boundary. It does not change subject Acceptance truth.
 
 ### UI optimization protocol
 `static-web/POLITICS_UI_REVIEW_PROTOCOL.md` owns the optimization-first / whole-flow-before-local-UI safety method. It does not own Politics semantics or UI design content.
@@ -185,11 +210,14 @@ Politics CURRENT
 → all five subject learning-engineering paths already closed through E
 → product/UI design frozen + Projection assets compiled
 → semantic work: prefer real learner use
-→ UI work: POLITICS_PRODUCT_STATUS
-          → POLITICS_UI_REVIEW_PROTOCOL
-          → accepted subject design
-          → exact compiled Projection owner
-          → touched Runtime / Evidence / Repair / Return
+→ UI/product work: POLITICS_PRODUCT_STATUS
+                 → POLITICS_UI_REVIEW_PROTOCOL
+                 → Learning / Interaction contracts
+                 → shared Presentation + preference/style
+                 → accepted subject design
+                 → exact compiled Projection owner
+                 → touched Runtime / Evidence / Repair / Return
 → classify local surface: KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE
+→ implement bounded slice → Mac screenshots → safety/semantic review → same-slice iteration
 → if concrete contradictory evidence appears, route to the earliest responsible local owner
 ```
