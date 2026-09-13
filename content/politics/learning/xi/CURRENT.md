@@ -9,12 +9,12 @@ This file does not own Xi Source Truth, Politics-wide learning/interaction seman
 
 ## Work Cursor
 
-**Scope:** Xi whole-module continuation after fresh Learning Logic re-acceptance  
-**Accepted upstream state:** `S PASS / K PASS / L PASS`  
-**Content closure:** `PASS` — supplemental content conclusion under K, not a new acceptance gate  
-**Earliest unresolved gate:** `P｜Projection`  
-**Blocker:** none in Source/Knowledge/Content/Learning Logic.  
-**Next action:** fresh Xi Projection acceptance. Attack whether the learner-facing generic Politics projection actually preserves Xi's hierarchy-first learning logic, keeps dense `content_support` progressively disclosed, keeps Chengfeng external-primary, and does not turn fixed identities into a first-round hat wall.
+**Scope:** Xi whole-module continuation after fresh Projection re-acceptance  
+**Accepted engineering state:** `S PASS / K PASS / L PASS / P PASS`  
+**Content closure:** `PASS` — supplemental content conclusion under K  
+**Earliest unresolved gate:** `R｜Runtime`  
+**Blocker:** none in Source/Knowledge/Content/Learning Logic/Projection.  
+**Next action:** execute Xi-specific Runtime journeys. Prove that the accepted hierarchy-first path can actually move through Orientation → external Chengfeng study → return/closure → Xiao1000 → Wrong/Uncertain repair-return → continuation/resume without borrowing generic Politics integration evidence as Xi R PASS.
 
 ---
 
@@ -24,71 +24,92 @@ This file does not own Xi Source Truth, Politics-wide learning/interaction seman
 S  PASS
 → K  PASS
 → L  PASS
-→ P  UNTESTED   ← current gate
-→ R  UNTESTED   ← downstream-frozen
+→ P  PASS
+→ R  UNTESTED   ← current gate
 → E  UNTESTED   ← downstream-frozen
 → U  UNTESTED   ← learner-only
 ```
 
-Fresh review owner:
+Fresh owners:
 
 - L → `content/politics/learning/xi/learning-review.json`
+- P → `content/politics/learning/xi/projection-review.json`
+- Xi Projection adapter → `static-web/src/lib/politicsXiProjection.mjs`
+- executable P guard → `static-web/scripts/audit-politics-xi-projection.mjs`
 
-Fresh L disposition:
+Fresh dispositions:
 
 ```text
-C00–C17 = 18 KEEP / 0 REPAIR / 0 BLOCKED
-material delta = NO_CHAPTER_LOGIC_REWRITE_REQUIRED
+L: C00–C17 = 18 KEEP / 0 REPAIR / 0 BLOCKED
+P: C00 REPAIR / C01–C17 KEEP / 0 BLOCKED
 ```
-
-The Learning review was semantic, not schema-based. All eighteen chapter owners were read back against the shared Politics Learning/Interaction contracts and the Xi subject map before reconciling prior Acceptance.
 
 ---
 
-## Accepted Xi Learning shape
+## Accepted Xi learning/projection shape
 
-Whole-subject learner architecture:
+Xi first-round rule remains:
+
+> **先分层级和身份，再做固定表述精确化。**
+
+Whole-subject architecture:
 
 ```text
 theory identity / method
 → direction + New Era historical position
 → national rejuvenation / Chinese modernization
-→ Party leadership as fundamental guarantee
-→ people-centered fundamental standpoint
-→ reform and opening as driving force
-→ economic development + education/science/talent support
-→ democracy / rule of law / culture / livelihood-social governance / ecology
+→ Party leadership / people standpoint / reform driving force
+→ development + education/science/talent
+→ democracy / rule of law / culture / livelihood / ecology
 → security / military / reunification / diplomacy
 → strict Party governance / self-revolution
 ```
 
-Xi's first-round cognitive rule remains:
+Projection now preserves that architecture without making backend completeness a learner-facing hat wall:
 
-> **先分层级和身份，再做固定表述精确化。**
+```text
+chapter role / WHY NOW
+→ Natural Unit problem + core answer
+→ optional hierarchy/guide under progressive disclosure
+→ external-primary Chengfeng handoff
+→ optional short closure
+→ Xiao1000 verification
+```
 
-The strongest fresh attacks were:
-
-1. **C02 layer collision** — characteristics / essential requirements / major principles / major relationships could become four parallel memorization lists. Current keeps them as `what it is / what it must be / how to advance / how to balance tensions`.
-2. **C07 duplication risk** — New Development Philosophy could repeat C06 and add learner work. Current uses it only as a bridge explaining why education-science-talent sits under high-quality development.
-3. **C15 memorization-wall risk** — the ten-item Taiwan overall-strategy chain is dense. Current assigns semantic roles and leaves detailed expansion to Chengfeng instead of making the ten items the first-learning sequence.
-4. **C17 overlap risk** — C03 already teaches Party leadership. Current distinguishes `who leads / fundamental guarantee` from `how the leading force remains capable / self-revolution`, avoiding duplicate chapter cognition.
-
-No chapter rewrite would reduce learner operations without sacrificing useful discrimination.
+`content_support` remains backend-only in the generic learner component. Chengfeng remains the only continuous first-study surface on iPad/MarginNote.
 
 ---
 
-## Canonical priority boundary
+## P｜Projection closure
 
-Current Xi has 60 canonical Natural Units:
+Fresh P attack found one real defect in accepted C00:
 
-- 6 ordinary `P0` regions;
-- 36 ordinary `P1` regions;
-- 12 ordinary `P2` regions;
-- 6 pre-existing frozen-pilot C02 regions without the ordinary `chat_decision.priority` field.
+```text
+C00 accepted hierarchy = array of {role, meaning} objects
+→ generic Politics adapter preserved the structured array
+→ generic component rendered hierarchy via Object.entries + String(value)
+→ learner-facing value could become [object Object]
+```
 
-P2 remains canonical but may stay source-primary/deferred. Frozen pilot ownership remains valid Current authority and is not rewritten merely for schema uniformity.
+This was a Projection defect, not a Content/Learning defect.
 
-`P0/P1` ownership does **not** mean mandatory active recall or render entitlement.
+Narrow repair:
+
+```text
+accepted Xi C00 unchanged
+→ Xi-only Projection adapter normalizes structured hierarchy rows
+→ role → meaning remains learner-readable
+→ C01–C17 ordinary hierarchy objects remain unchanged
+```
+
+Executable P guard proves:
+
+- C00–C17 Orientation survives Projection;
+- Natural Unit learner problems survive Projection;
+- structured hierarchy is render-safe;
+- backend `content_support` is not read by `PoliticsChapterRuntime`;
+- Chengfeng external-primary handoff remains explicit;
+- guide and closure remain progressive disclosure.
 
 ---
 
@@ -97,7 +118,7 @@ P2 remains canonical but may stay source-primary/deferred. Frozen pilot ownershi
 ```text
 Chengfeng  continuous first-round mainline on iPad / MarginNote
 Suyi       compact framework / exactness / past-exam cross-check only
-KianOS     hierarchy / role / fixed-structure / boundary companion
+KianOS     hierarchy / role / selective projection / verification / repair companion
 Xiao1000   verification and transfer evidence
 ```
 
@@ -105,52 +126,55 @@ Do not:
 
 - turn Xi JSON/Astro into a second Chengfeng course;
 - expose all `content_support` merely because backend content is complete;
-- interpret P0/P1 ownership as “everything must become active recall”;
-- promote P2 simply to make assets look exhaustive;
-- flatten goal / stance / guarantee /动力 / principle / path identities into one hat list;
-- add mandatory Recall/checkpoint rituals for symmetry;
-- infer Xi P/R/E from shared Politics runtime/build success;
-- infer learner progress or mastery from repository state;
-- reopen accepted S/K/L without source change, question evidence, real learner friction, or a concrete upstream defect.
+- interpret P0/P1 ownership as active-recall or Memory admission;
+- promote P2 merely for completeness;
+- flatten goal / stance / guarantee / driving force / principle / path into one hat list;
+- reopen S/K/L/P for polish;
+- infer Xi R/E/U from shared Politics behavior or repository state.
 
-C02's bounded Suyi cross-check and C08's corrected real source owner `POL27-CF-XI-C08-K06-N01-TBL01` remain accepted upstream facts.
+Current Xi still owns 60 canonical Natural Units: 6 ordinary P0, 36 ordinary P1, 12 ordinary P2, plus 6 frozen-pilot C02 units without the ordinary priority field.
 
 ---
 
-## P target
+## R target
 
-Projection must prove the accepted Learning shape survives the actual learner-facing page:
+R must prove behavior, not page structure:
 
 ```text
-chapter role / WHY NOW is foregrounded
-→ current Natural Unit problem + role are obvious
-→ dense fixed structures remain progressively disclosed
-→ Chengfeng remains the only continuous lecture surface
-→ source locator / closure is companion-level
-→ Xiao1000 stays downstream of owning learning
-→ first-round page does not become a hat dashboard
+enter Xi chapter / Natural Unit
+→ know current role/problem
+→ hand off to Chengfeng original surface
+→ return without losing position
+→ optional closure
+→ launch owning Xiao1000 questions
+→ stable correct continues quickly
+→ Wrong/Uncertain enters smallest repair
+→ repair source returns to interrupted question/result
+→ next question / Unit
+→ refresh / Politics Continue restores meaningful Xi position/action
 ```
 
-The main P attack is not whether every accepted content object can technically render. It is whether **the right amount** renders at the right cognitive moment.
+Xi-specific R acceptance must be executed. Shared Politics Functional First is regression evidence only.
 
 ---
 
 ## Current owners
 
-- chapter teaching assets → `content/politics/learning/xi/ch00.json` … `ch17.json`
+- teaching assets → `content/politics/learning/xi/ch00.json` … `ch17.json`
 - subject map → `content/politics/learning/xi/subject-map.json`
-- semantic review → `content/politics/learning/xi/semantic-review.json`
-- source/Suyi review → `content/politics/learning/xi/source-review.json`
-- Learning review → `content/politics/learning/xi/learning-review.json`
+- semantic/source reviews → `semantic-review.json` + `source-review.json`
+- L review → `learning-review.json`
+- P review → `projection-review.json`
+- Xi Projection adapter → `static-web/src/lib/politicsXiProjection.mjs`
 - scoped Acceptance Truth → `content/politics/learning/xi/ACCEPTANCE.md`
-- shared Politics semantics → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
+- shared contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ---
 
 ## Truth boundaries
 
 ### Artifact Truth
-Current Xi teaching artifacts and review dispositions under `content/politics/learning/xi/`.
+Current Xi teaching/review assets plus the narrow Xi Projection adapter.
 
 ### Acceptance Truth
 `content/politics/learning/xi/ACCEPTANCE.md`
@@ -165,7 +189,7 @@ Private browser / Return Packet / conversation evidence only.
 ```text
 Xi CURRENT
 → Xi ACCEPTANCE
-→ learning-review.json
-→ begin at P
-→ do not reopen accepted S/K/L without concrete evidence
+→ projection-review.json
+→ begin at R
+→ do not reopen accepted S/K/L/P without concrete evidence
 ```
