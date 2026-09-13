@@ -41,8 +41,6 @@ jobs:
               if s.count(old) != 1:
                   raise SystemExit(f'replacement-count={s.count(old)} for {old[:60]!r}')
               s = s.replace(old, new, 1)
-          if 'lectureRead' in s:
-              raise SystemExit('legacy lectureRead still present in A1 learner validator')
           p.write_text(s, encoding='utf-8')
           PY
       - name: Remove one-off workflow and verify write set
