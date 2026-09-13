@@ -1,79 +1,126 @@
 # A · Cardio–Pulmonary–Renal SuperSystem Logic
 
-Status: DRAFT · LOGIC ONLY  
-Role: cross-System integration logic owner for A1 Circulation + A2 Respiratory + A3 Urinary  
+Status: LOGIC CANDIDATE · CONTENT NOT ADMITTED  
+Role: cross-System compression logic for A1 Circulation + A2 Respiratory + A3 Urinary  
 Current medical owners remain: `a1-circulation/system.json`, `a2-respiratory/system.json`, `a3-urinary/system.json` and their canonical Block/KP Core.
 
 This file answers only:
 
-> **Why does a Cardio–Pulmonary–Renal SuperSystem deserve to exist, what cross-System problem does it compress, and what must it never own?**
+> **Why does a Cardio–Pulmonary–Renal SuperSystem deserve to exist, what cross-System problem does it compress, and under what conditions should it disappear?**
 
-It does **not** yet define learner order, teaching content, Recall, UI, runtime state, questions, Memory, or Acceptance.
+It does **not** define teaching content, learner sequence, Recall implementation, UI, runtime state, questions, Memory, or Acceptance.
 
 ---
 
-## 0｜Exam-first constraint
+## 0｜Highest constraint: 275+ or delete it
 
 The SuperSystem has no value merely because it is medically elegant, conceptually higher-level, visually impressive, or architecturally symmetric.
 
-Its only legitimate reason to exist is to improve Kian's probability of reaching the Xizong target:
+Its only legitimate reason to exist is to improve Kian's probability of reaching:
 
 > **306 西医综合 275+**
 
-Every later Learn / Content / UI decision must therefore pass a strict utility test:
+Every later Learn / Content / UI decision must pass at least one of these tests:
 
 ```text
-Does this make first-pass understanding faster or more stable?
+Does it make first-round understanding faster or more stable?
 OR
-Does this make second-pass discrimination / cross-System application better?
+Does it reduce repeated review and improve second-round discrimination / cross-System application?
 OR
-Does this make final-sprint retrieval materially faster and thinner?
+Does it make final-sprint retrieval materially faster and thinner?
 ```
 
-If the answer is **no**, the feature/content/review step is not admitted.
+If not, it is not admitted.
 
 Hard rule:
 
-> **Compression that creates more study burden than retrieval/transfer value is negative value and must be deleted, even if the model is intellectually correct.**
+> **Compression that creates more study burden than retrieval / transfer / score value is negative value and must be deleted, even when the model is intellectually correct.**
 
-This means the SuperSystem is a **performance overlay**, not a new curriculum layer.
+Therefore the SuperSystem is a **performance overlay**, not a new curriculum layer.
 
-It must never create an independent required study quota, independent KP inventory, independent question quota, or independent Memory/review debt.
+It must never create an independent required study quota, KP inventory, question quota, Memory queue, review debt, or completion burden.
 
 ---
 
-## 1｜Problem this layer exists to solve
+## 1｜Architectural status: Overlay, not a mandatory hierarchy level
 
-A1, A2 and A3 are each coherent local causal Systems, but important 306 reasoning often crosses their borders before a disease label is known.
+Current Xizong natural learning units remain:
 
-The missing compression is not another organ chapter. It is a whole-body answer to four recurring questions:
+```text
+System
+→ Block
+→ Logic Group
+→ KP
+```
+
+The SuperSystem does **not** automatically change this into:
+
+```text
+SuperSystem
+→ System
+→ Block
+→ Logic Group
+→ KP
+```
+
+That would make every first-pass route longer merely because a higher abstraction exists.
+
+Instead:
+
+```text
+A1 / A2 / A3 normal mainline
+        ↕
+optional cross-System SuperSystem overlay
+```
+
+The overlay appears only when its compression is useful and may remain completely invisible during local learning where one System already explains the problem efficiently.
+
+This distinction is fundamental:
+
+- **System hierarchy** = stable medical / learning ownership.
+- **SuperSystem overlay** = selective cross-System compression and retrieval aid.
+- **learner route** = phase- and evidence-dependent; it does not have to pass through every abstraction layer.
+
+Hard rule:
+
+> **Higher abstraction does not earn a mandatory learner step.**
+
+---
+
+## 2｜Problem this layer exists to solve
+
+A1, A2 and A3 are each coherent local causal Systems, but important 306 reasoning can cross their borders before a disease label is known.
+
+The missing compression is not another organ chapter. It is a compact answer to four recurring organism-level questions:
 
 1. **Can oxygen enter blood?**
 2. **Can oxygenated blood reach tissue in enough flow?**
-3. **Is the circulating fluid volume/composition compatible with stable perfusion and cellular function?**
+3. **Is circulating volume/composition compatible with stable perfusion and cellular function?**
 4. **Can CO₂, non-volatile acid, water, electrolytes and renal-excreted solutes be removed or regulated fast enough to keep the internal environment viable?**
 
-Without an integration layer, these relations are repeatedly reconstructed ad hoc across Respiratory, Circulation and Urinary. The SuperSystem exists only if it compresses those repeated cross-System relations without duplicating the Systems themselves.
+Without an integration layer, these relations may need to be repeatedly reconstructed across Respiratory, Circulation and Urinary.
+
+The overlay exists only if it **reduces** that reconstruction cost.
 
 ---
 
-## 2｜SuperSystem mission
+## 3｜SuperSystem mission
 
 > **Maintain tissue viability by coupling gas exchange, blood flow and extracellular-fluid regulation into one core homeostatic loop with explicit interfaces to the rest of the organism.**
 
 The three Systems contribute different irreducible functions:
 
-- **Respiratory:** load O₂ into blood, remove CO₂, and regulate the respiratory side of acid–base balance.
-- **Circulation:** generate and distribute pressure/flow so blood actually reaches organs and returns to the heart.
+- **Respiratory:** load O₂ into blood, remove CO₂, regulate the respiratory side of acid–base balance.
+- **Circulation:** generate and distribute pressure/flow so blood reaches organs and returns to the heart.
 - **Urinary:** regulate extracellular volume, water, electrolytes, bicarbonate/non-volatile acid handling and renal-solute excretion; renal perfusion simultaneously depends on the circulation it helps stabilize.
 
-None of the three alone owns tissue oxygen delivery or whole-body homeostasis.
+A3 belongs here **not because kidney is another oxygen-delivery organ**, but because tissue viability requires a stable circulating medium and because kidney ↔ circulation feedback determines future volume/perfusion while kidney ↔ lung coupling stabilizes acid–base state.
 
-A3 is required **not because the kidney is another oxygen-delivery organ**, but because tissue viability depends on a stable circulating medium and because kidney ↔ circulation feedback determines future volume/perfusion while kidney ↔ lung coupling stabilizes acid–base state.
+No single A System owns the organism-level problem.
 
 ---
 
-## 3｜Mother model
+## 4｜Mother model
 
 ```text
 external O₂
@@ -90,20 +137,24 @@ external O₂
 → loop repeats
 ```
 
-This is a **closed core physiological loop with explicit external interfaces**, not three chapters placed side by side and not a complete model of the whole organism.
+This is a **closed core physiological loop with explicit external interfaces**. It is not three chapters placed side by side and not a complete model of the whole organism.
 
-The minimum high-level relationship is:
+Minimum relationship:
 
 ```text
 Tissue delivery = Flow × Blood content
-Homeostatic stability = adequate delivery + adequate gas/renal-solute removal + controlled circulating volume/composition
+
+Homeostatic stability
+= adequate delivery
++ adequate gas / renal-solute removal
++ controlled circulating volume / composition
 ```
 
-Exact formulas, coefficients and disease-specific thresholds remain in their canonical System / Block owners until the Content layer intentionally projects them.
+Exact formulas, coefficients, disease thresholds, diagnosis and treatment remain in canonical System / Block owners.
 
 ---
 
-## 4｜Three cross-System control loops
+## 5｜Three admitted cross-System loops
 
 ### Loop A · Oxygen Delivery
 
@@ -114,11 +165,11 @@ lung oxygenation
 → tissue delivery
 ```
 
-Core distinction:
+Key distinction:
 
 > **oxygenation failure ≠ oxygen-content failure ≠ flow failure ≠ distribution/use failure**
 
-The SuperSystem owns this distinction as a cross-System coordinate. It does not own the detailed causes inside A1/A2 or hematology.
+The overlay owns the distinction, not the detailed causes.
 
 ### Loop B · Perfusion ↔ Volume
 
@@ -131,11 +182,9 @@ cardiac output / arterial pressure
 → cardiac output / pressure
 ```
 
-Core distinction:
+Key distinction:
 
-> **the kidney depends on perfusion while simultaneously helping set the volume state that determines future perfusion.**
-
-This feedback loop is the main reason A1 and A3 cannot be understood as completely independent at organism level.
+> **the kidney depends on perfusion while helping set the volume state that determines future perfusion.**
 
 ### Loop C · CO₂ / Acid–Base
 
@@ -147,92 +196,86 @@ cellular metabolism
 → pH stability
 ```
 
-Core distinction:
+Key distinction:
 
-> **respiratory and renal acid–base control are two coupled actuators acting through PaCO₂ and HCO₃⁻ on the same pH problem, with different response time scales.**
+> **lung and kidney are coupled acid–base actuators acting through PaCO₂ and HCO₃⁻ on the same pH problem, with different time scales.**
 
-Detailed acid–base rules remain in A2/A3 content owners.
+### Why only three
 
-### Why only three loops for now
+Pulmonary circulation/right-heart coupling, congestion, edema and similar phenomena are currently treated as **derived intersections** of Oxygen Delivery and Perfusion↔Volume.
 
-Pulmonary circulation/right-heart coupling, congestion, edema and other cross-organ phenomena are currently treated as **derived intersections** of Oxygen Delivery and Perfusion↔Volume rather than promoted to a fourth top-level loop.
-
-Hard rule:
-
-> **Do not create another SuperSystem loop unless the existing three repeatedly fail to localize an important cross-System problem without awkward exceptions.**
+Do not create a fourth loop unless repeated real 306 reasoning shows that the existing three cannot localize an important cross-System problem without awkward exceptions.
 
 ---
 
-## 5｜Shared coordinates
+## 6｜Minimal shared coordinates
 
-The SuperSystem should remain compressible to a small coordinate set. Candidate cross-System coordinates are:
+Candidate integration coordinates are deliberately few:
 
 - **Flow / perfusion:** CO, organ perfusion, effective arterial blood volume.
-- **Pressure:** systemic arterial pressure and relevant upstream/downstream pressure relationships.
+- **Pressure:** systemic arterial pressure and relevant upstream/downstream pressure relations.
 - **Oxygen state:** PaO₂ / SaO₂ / arterial O₂ content / tissue delivery.
 - **Volume state:** ECF volume / effective arterial blood volume / venous return.
 - **Gas–acid state:** PaCO₂ / HCO₃⁻ / pH.
 - **Renal response:** renal perfusion / GFR as consequence and regulator interface.
 
-These are integration coordinates, not a new canonical fact list.
+These are coordinates for localization, not a new fact list to memorize.
 
 ---
 
-## 6｜External interfaces — deliberate non-closure
+## 7｜External interfaces — explicit non-closure
 
-A1+A2+A3 do **not** form a completely closed model of the organism. The SuperSystem must expose important inputs from other domains rather than silently absorb them.
+A1+A2+A3 do not form a complete model of the organism. Important inputs remain externally owned:
 
-Examples:
-
-- **Hb / RBC mass** → owned by Hematology; affects arterial O₂ content.
-- **metabolic demand / substrate use / CO₂ production** → interfaces with metabolism/endocrine.
-- **autonomic and endocrine control** → may cross into neuro/endocrine owners even when A1/A3 use those signals locally.
-- **systemic inflammation / infection** → may alter vascular tone, permeability, lung function and kidney perfusion but remains owned by the relevant defense/infection domain.
-- **hepatic and other non-renal clearance / metabolism** → remains outside this SuperSystem even when a case alters circulating composition.
+- **Hb / RBC mass** → Hematology; modifies arterial O₂ content.
+- **metabolic demand / substrate use / CO₂ production** → metabolism/endocrine.
+- **autonomic and endocrine control** → neuro/endocrine interfaces where appropriate.
+- **systemic inflammation / infection** → defense/infection owners.
+- **hepatic and other non-renal clearance / metabolism** → outside this SuperSystem.
 
 Hard rule:
 
-> **An interface may enter the SuperSystem model without transferring ownership of the source domain.**
+> **An interface may enter the model without transferring ownership of its source domain.**
 
 ---
 
-## 7｜Phase utility requirement
+## 8｜Phase utility requirement
 
-The same SuperSystem is allowed to have different thickness across exam phases. It must become **thinner as the exam approaches**, never thicker.
+The same overlay may have different thickness across exam phases. It must become **thinner as the exam approaches**, never thicker.
 
 ### First round｜建模，不加课
 
 Allowed value:
 
-- reduce the cost of understanding why A1/A2/A3 connect;
+- make A1/A2/A3 easier to understand where they genuinely intersect;
 - prevent isolated memorization of perfusion, oxygenation, volume and acid–base mechanisms;
-- provide a small orientation frame when entering or crossing Systems.
+- provide a tiny orientation frame when a cross-System relation is needed.
 
 Forbidden:
 
-- a separate SuperSystem lecture before the three Systems;
-- memorizing a new fact list;
-- delaying the main Lecture/Block path merely to complete integration material.
+- a separate SuperSystem lecture before A1/A2/A3;
+- a new memorization list;
+- delaying Lecture / Block mainline to “finish integration”.
 
-First-round success means:
+Success criterion:
 
-> **A123 becomes easier to understand with the overlay than without it, with negligible extra workload.**
+> **better local understanding with negligible extra workload.**
 
-### Second round｜判别与迁移
+### Second round｜判别、迁移、减少重复
 
-This is expected to be the SuperSystem's highest-value phase.
+Expected highest-value phase.
 
 Allowed value:
 
-- distinguish oxygenation vs O₂-content vs flow/perfusion failure;
+- discriminate oxygenation vs O₂-content vs flow/perfusion failure;
 - reason through heart–kidney volume/perfusion feedback;
 - connect respiratory and renal acid–base responses;
-- localize cross-System cases before jumping to disease labels;
-- compress repeated mechanisms instead of reviewing three Systems independently where one shared model is sufficient.
+- localize mixed cases before jumping to disease labels;
+- replace repeated review of duplicated cross-System mechanisms with one shared reconstruction when safe.
 
-Second-round success means:
+Success criterion:
 
-> **fewer repeated reviews + faster cross-System localization + better discrimination on mixed questions/cases.**
+> **fewer repeated reviews + faster localization + better mixed-question/case discrimination.**
 
 ### Final sprint｜极薄调用骨架
 
@@ -240,96 +283,127 @@ Allowed value:
 
 - one rapid organism-level reconstruction;
 - a few decisive cross-System distinctions;
-- a compact entry point for mixed-case localization.
+- a fast entry point for mixed-case localization.
 
 Forbidden:
 
 - rereading a long SuperSystem document;
-- maintaining an independent recall schedule;
-- adding new details that should have remained in System-level review.
+- an independent Recall schedule;
+- adding details that belong to System-level review.
 
-Final-sprint success means:
+Success criterion:
 
-> **the overlay can be reconstructed quickly enough to save time, not consume it.**
+> **retrieval is faster because the overlay exists.**
 
-If the final version cannot become substantially thinner than the first-round version, the design has failed progressive compression.
+If the final version cannot become substantially thinner than earlier use, progressive compression has failed.
 
 ---
 
-## 8｜What this layer must NOT become
+## 9｜Admission rule for any future SuperSystem
+
+There is **no requirement** that Xizong have a symmetric set of SuperSystems.
+
+A123 is a pilot because it already exposes strong cross-System loops and A3 explicitly reserved the higher cardio-pulmonary-renal owner.
+
+B / C / D / E / F do not automatically become SuperSystems merely because their directories combine multiple domains.
+
+Any future SuperSystem must independently prove:
+
+1. repeated cross-System reconstruction exists;
+2. a small shared model materially reduces that cost;
+3. the shared model improves exam reasoning or review compression;
+4. it does not duplicate local medical owners;
+5. it does not create meaningful new maintenance burden.
+
+Possible outcomes are all legitimate:
+
+```text
+A has a durable SuperSystem overlay
+B remains one broad System/domain
+C gains only one cross-System overlay
+D/E/F gain none
+```
+
+Architecture follows score utility, not symmetry.
+
+---
+
+## 10｜What this layer must NOT become
 
 The SuperSystem is invalid if it becomes any of the following:
 
 - a fourth Lecture covering heart, lung and kidney again;
 - a new KP namespace duplicating A1/A2/A3 facts;
 - a new question taxonomy or question owner;
-- a mandatory review queue that creates independent Memory debt;
+- a mandatory review queue creating independent Memory debt;
 - a disease encyclopedia organized by “multi-organ disease”;
-- a second owner for local System formulas, thresholds, diagnoses, drugs or procedures;
+- a second owner for local formulas, thresholds, diagnoses, drugs or procedures;
 - a UI-first diagram whose semantics do not exist independently of the page;
 - a reason to force all other Xizong Systems into symmetric SuperSystems;
-- a fixed extra learning step that must be completed regardless of whether it improves exam performance.
+- a fixed extra learning step regardless of performance value.
 
 A relation belongs here only when its value comes specifically from integrating **two or more Systems / external interfaces**.
 
 ---
 
-## 9｜Compression and score-utility test
+## 11｜Compression + score-utility test
 
-This layer earns its existence only if all are true:
+The overlay earns continued existence only if all are true:
 
 1. **Cross-System necessity:** removing it materially increases repeated reconstruction across A1/A2/A3.
-2. **Compression gain:** the useful integration can remain a small mother model + a few cross-System loops/coordinates.
-3. **No duplication:** local medical truth remains in existing System / Block / KP owners.
-4. **Transfer value:** the model helps localize unfamiliar cases before a disease label is known.
-5. **Phase value:** it has a clear role in first round, second round and/or final sprint, with later phases becoming thinner.
-6. **Net workload benefit:** any added learning time is outweighed by reduced relearning, faster retrieval, better discrimination or fewer cross-System mistakes.
-7. **Reversibility:** if real use shows no added retrieval/transfer/score value, the layer can be removed without damaging A1/A2/A3.
+2. **Compression gain:** useful integration remains a small mother model + few loops/coordinates.
+3. **No duplication:** local medical truth stays in System / Block / KP owners.
+4. **Transfer value:** it helps localize unfamiliar or mixed cases before disease-label recall.
+5. **Phase value:** at least one exam phase receives material benefit and later use becomes thinner.
+6. **Net workload benefit:** added contact time is outweighed by reduced relearning, faster retrieval, better discrimination or fewer cross-System errors.
+7. **Reversibility:** removal does not damage A1/A2/A3.
 
 Hard kill rule:
 
-> **If real use shows that Kian must spend noticeable extra time learning/maintaining the SuperSystem but it does not reduce errors, review time or retrieval latency, delete or collapse it.**
+> **If real use shows noticeable extra learning/maintenance time without lower errors, lower review cost or faster retrieval, collapse or delete the overlay.**
 
-If the layer requires a large independent curriculum to feel useful, Logic has failed and should be redesigned rather than expanded.
+A large independent curriculum is itself evidence that the Logic has failed.
 
 ---
 
-## 10｜Current Logic decision
+## 12｜Current Logic decision
 
-**Provisional decision: KEEP the A1+A2+A3 SuperSystem concept only as a performance overlay.**
+**KEEP A123 provisionally as an optional performance overlay, not as a mandatory new learner hierarchy level.**
 
-Reason: A1, A2 and A3 each own a different irreducible actuator in the same organism-level delivery/homeostasis problem, and A3 already explicitly reserves `cardio-pulmonary-renal SuperSystem` for a higher owner instead of pre-building it locally.
-
-But existence is conditional:
-
-> **No proven compression / transfer / exam-phase value → no durable SuperSystem.**
-
-Current working name:
+Working semantic name:
 
 > **A · Delivery & Homeostasis｜输送与内环境稳态**
 
-Alternative descriptive name retained for engineering clarity:
+Engineering description:
 
 > **Cardio–Pulmonary–Renal SuperSystem**
 
-Naming is not yet frozen; semantics above are the Logic owner.
+Naming is not yet the important decision. The important decision is the contract:
+
+```text
+local problem → stay inside owning System
+cross-System problem → overlay may compress
+no compression gain → overlay stays invisible
+no score/workload value in real use → overlay dies
+```
 
 ---
 
-## 11｜Gate to the next layer
+## 13｜Logic freeze gate before Content
 
-Do **not** design Content / UI yet.
+Do **not** create Content or UI merely because this file exists.
 
-The next layer is **Learn**, and it must solve a stricter problem than “how to teach this model”:
+Before Content is admitted, Logic must remain stable under these challenges:
 
-> **How can this overlay reduce total study/review cost and improve 275+ exam performance across first round, second round and final sprint without becoming a new course?**
+- removing A1, A2 or A3 should break a genuinely important admitted loop;
+- every top-level relation should require at least two Systems/interfaces;
+- local disease detail should be explainable without moving ownership upward;
+- three loops should cover the intended high-value intersections without obvious bloat;
+- the overlay should plausibly save more study/review time than it costs;
+- no other Xizong domain should be promoted merely for structural symmetry.
 
-Learn is allowed to proceed only if it can define:
+Only after these conditions are accepted should **Content** ask:
 
-- when the overlay appears and when it stays invisible;
-- the minimum learner contact needed in first round;
-- how second-round mixed-question/case evidence should invoke it;
-- how it collapses into an extremely thin final-sprint skeleton;
-- a kill/rollback criterion when real use shows no net value.
+> **What is the minimum information necessary to realize this Logic across first round, second round and final sprint?**
 
-Only after Learn is accepted should Content decide exactly what is shown, and only after Content should UI project it.
+Learn / learner timing can then be derived from the accepted Logic + admitted minimum Content rather than inventing a new course in advance.
