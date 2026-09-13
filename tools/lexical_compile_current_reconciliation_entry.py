@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 import lexical_compile_consolidated_repair_inventory_entry as prior
 
@@ -12,6 +13,11 @@ RESOLUTIONS = json.loads(RESOLUTION_PATH.read_text(encoding="utf-8"))
 RESOLUTION_BY_TARGET = {row["target"]: row for row in RESOLUTIONS.get("resolutions") or []}
 
 _previous_finalize = compiler.InventoryBuilder.finalize
+_PLACEHOLDER_RX = re.compile(
+    r"historical approved revision|exact wording\s+(?:in|remains|is)\b|exact semantic wording remains",
+    re.I,
+)
+_core_source_cache: dict[int, dict[str, dict]] = {}
 
 
 def _resolve_owner_ids(owner_ids: list[str]) -> tuple[list[dict], list[str]]:
@@ -24,6 +30,133 @@ def _resolve_owner_ids(owner_ids: list[str]) -> tuple[list[dict], list[str]]:
         else:
             missing.append(owner_id)
     return resolved, missing
+
+
+def _exact_core_source_map(comment_id: int) -> dict[str, dict]:
+    cached = _core_source_cache.get(comment_id)
+    if cached is not None:
+        return cached
+
+    last_error = None
+    body = None
+    source_repo = None
+    for repo in ("kianwang022-hash/kianos-legacy", "kianwang022-hash/kianos"):
+        try:
+            fetched = compiler.triage.fetch_comment(repo, comment_id)
+            body = fetched.get("body")
+            if body:
+                source_repo = repo
+                break
+        except Exception as exc:  # fail closed below
+            last_error = repr(exc)
+
+    if not body:
+        _core_source_cache[comment_id] = {"__error__": {"error": last_error or "SOURCE_COMMENT_UNAVAILABLE"}}
+        return _core_source_cache[comment_id]
+
+    rows = compiler.base.parse_core_compatible(body)
+    if not rows:
+        rows = compiler.owner_surfaces.parse_core_compatible(body)
+
+    by_key: dict[str, dict] = {}
+    for row in rows:
+        exact = row.get("approved_revision") or row.get("approved_target")
+        if not isinstance(exact, str) or not exact.strip() or _PLACEHOLDER_RX.search(exact):
+            continue
+        ordinal = row.get("ordinal")
+        word_id = row.get("word_id")
+        materialized = {
+            "approved_revision": exact.strip(),
+            "ordinal": ordinal,
+            "word_id": word_id,
+            "source_repo": source_repo,
+            "source_comment_id": comment_id,
+            "source_index": row.get("index"),
+        }
+        if isinstance(ordinal, int):
+            by_key[f"ordinal:{ordinal}"] = materialized
+        if isinstance(word_id, str) and word_id:
+            by_key[f"word_id:{word_id}"] = materialized
+
+    if not by_key:
+        by_key["__error__"] = {"error": "NO_EXECUTABLE_CORE_REVISIONS_PARSED", "source_repo": source_repo}
+    _core_source_cache[comment_id] = by_key
+    return by_key
+
+
+def _materialize_core_placeholders(result: dict) -> dict:
+    materialized = []
+    unresolved = []
+
+    for word in result.get("word_repairs") or []:
+        ordinal = word.get("ordinal")
+        word_id = word.get("word_id")
+        for requirement in word.get("requirements") or []:
+            if requirement.get("kind") != "CORE":
+                continue
+            target = requirement.get("target")
+            if not isinstance(target, str) or not _PLACEHOLDER_RX.search(target):
+                continue
+
+            provenance = requirement.get("provenance") or {}
+            comment_id = provenance.get("historical_comment_id")
+            if not isinstance(comment_id, int):
+                unresolved.append({
+                    "ordinal": ordinal,
+                    "word_id": word_id,
+                    "reason": "MISSING_HISTORICAL_COMMENT_ID",
+                    "provenance": provenance,
+                })
+                continue
+
+            source_map = _exact_core_source_map(comment_id)
+            exact = None
+            if isinstance(ordinal, int):
+                exact = source_map.get(f"ordinal:{ordinal}")
+            if exact is None and isinstance(word_id, str):
+                exact = source_map.get(f"word_id:{word_id}")
+
+            if not exact:
+                unresolved.append({
+                    "ordinal": ordinal,
+                    "word_id": word_id,
+                    "historical_comment_id": comment_id,
+                    "reason": "EXACT_CORE_TARGET_NOT_MATERIALIZED",
+                    "source_error": source_map.get("__error__"),
+                    "provenance": provenance,
+                })
+                continue
+
+            historical_locator = target
+            requirement["historical_target_locator"] = historical_locator
+            requirement["target"] = exact["approved_revision"]
+            requirement["target_materialization"] = {
+                "mode": "EXACT_HISTORICAL_SOURCE_READBACK",
+                "source_repo": exact["source_repo"],
+                "source_comment_id": exact["source_comment_id"],
+                "source_index": exact.get("source_index"),
+                "semantic_mutation": 0,
+            }
+            materialized.append({
+                "ordinal": ordinal,
+                "word_id": word_id,
+                "source_repo": exact["source_repo"],
+                "source_comment_id": exact["source_comment_id"],
+                "source_index": exact.get("source_index"),
+            })
+
+    result["closure_a_core_target_materialization"] = {
+        "materialized_count": len(materialized),
+        "unresolved_count": len(unresolved),
+        "source_comment_count": len(_core_source_cache),
+        "semantic_mutation": 0,
+        "learner_state_mutation": 0,
+        "method": "Exact Core wording is reread from the provenance-linked historical source comment and matched by Current ordinal/word_id. No model-generated replacement is permitted here.",
+        "unresolved": unresolved,
+    }
+    result.setdefault("summary", {})["core_placeholder_materialized"] = len(materialized)
+    result["summary"]["core_placeholder_unresolved"] = len(unresolved)
+    return result
 
 
 def finalize_with_closure_a_owner_resolution(self):
@@ -148,7 +281,7 @@ def finalize_with_closure_a_owner_resolution(self):
     result["composite_owner_reconciliation_units"] = composite_units
     result.setdefault("summary", {})["multi_owner_family_reconciliation_units"] = len(family_units)
     result["summary"]["composite_owner_reconciliation_units"] = len(composite_units)
-    return result
+    return _materialize_core_placeholders(result)
 
 
 compiler.InventoryBuilder.finalize = finalize_with_closure_a_owner_resolution
