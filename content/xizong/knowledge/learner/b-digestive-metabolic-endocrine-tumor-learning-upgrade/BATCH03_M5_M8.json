@@ -1,0 +1,221 @@
+{
+  "schema": "kianos.xizong.learning_upgrade_batch.v1",
+  "status": "L3_CANDIDATE",
+  "authority": "CHAT_SEMANTIC_WORKING_OWNER_WITHIN_BATCH_ONLY",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "batch_id": "L3_M5_M8",
+  "label": "脂质运输 → 胆固醇/膜脂 → 储存/动员/酮体 → 氮流/尿素/一碳",
+  "stable_identity": {
+    "blocks": ["M5", "M6", "M7", "M8"],
+    "canonical_kp_count": 55,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false
+  },
+  "precedence": {
+    "within_scope": "This batch is the working Learning owner for M5-M8 on branch b-learning-upgrade.",
+    "whole_system_substrate": "content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json",
+    "medical_core_owner": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/",
+    "route_override": "Within the current B Learning upgrade, M5-M8 precede D5-D8 because D5/D7/D8 explicitly call lipid/ketone/nitrogen substrate that the old candidate route had postponed.",
+    "rule": "Learning may regroup or reorder stable KP identities. Source conflicts, source gaps and visual gaps remain explicit and are not silently repaired by Learning."
+  },
+  "learning_arc": {
+    "question": "吸收入体或肝内合成的脂质怎样在血中运输、进入细胞后被合成/储存；当能量状态转为空腹或糖利用失败时，脂肪库怎样动员、氧化并输出酮体；蛋白分解产生的氮又怎样安全运输并由肝转成尿素？",
+    "block_order": ["M5", "M6", "M7", "M8"],
+    "causal_spine": [
+      "M5 first solves extracellular logistics: CM/VLDL/LDL/HDL, apo, LPL/LCAT and receptor handoff determine where hydrophobic lipids go.",
+      "M6 then follows cholesterol and phospholipid inside the system: esterification, de-novo synthesis, bile-acid/VitD/steroid fates and membrane-phospholipid construction/cutting.",
+      "M7 switches from lipid identity to energy state: fed-state FA/TAG synthesis and storage oppose fasting-state lipolysis, carnitine entry, beta-oxidation and ketone export.",
+      "M8 completes the non-carbohydrate substrate side: amino-acid carbon returns to energy/glucose/lipid pathways while nitrogen is gathered, transported and converted to urea; SAM/FH4/B12 connect amino acids to methyl/one-carbon supply."
+    ],
+    "exit_reconstruction": "闭卷从『外源/内源脂质怎样被运输』讲到『餐后怎样合成TAG、空腹怎样HSL→CPT-I→β氧化→酮体』，再把蛋白分解后的碳骨架接回糖脂能量、把氮接到丙氨酸/谷氨酰胺→肝→尿素。完成后D5–D8只做状态整合，不再重新学习这些底层通路。"
+  },
+  "blocks": {
+    "M5": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10],
+      "group_count": 3,
+      "logic_groups": [
+        {
+          "id": "b-m05-lg01-v2",
+          "kp": [1,2,3],
+          "label": "先认颗粒：为什么需要脂蛋白、四类颗粒各是谁",
+          "local_question": "疏水TAG/胆固醇/磷脂为什么需要血浆颗粒；CM、VLDL、LDL、HDL怎样用来源、主货物、方向和组成密度快速定位？",
+          "learning_reason": "现有KP01-03是稳定的身份坐标系，fresh pass未发现拆分收益；改进点在于把组成排序服务于颗粒身份，而不是单独背表。",
+          "closure": "能不用『好/坏胆固醇』语言，按来源→主货物→方向恢复四类颗粒，并用『油越多越轻、蛋白越多越密』解释核心组成排序；明确FFA由白蛋白而非脂蛋白运输。",
+          "visual_gate": "四类颗粒组成/密度/电泳总图回26生化原页。"
+        },
+        {
+          "id": "b-m05-lg02-v2",
+          "kp": [4,5,6,7],
+          "label": "四条物流线：外源卸货、内源转换、LDL交付、HDL回收",
+          "local_question": "小肠和肝输出的脂质分别怎样卸货；VLDL为什么逐步变LDL；LDL怎样把胆固醇交给细胞，而HDL怎样把胆固醇逆向带回肝？",
+          "learning_reason": "KP04-07本来就是M5最强的连续模型。保留分组，把closure改成四条可闭卷重建的物流线。",
+          "closure": "能连续画出小肠→CM→LPL、肝→VLDL→IDL→LDL、LDL→apoB100/LDL-R→细胞、组织胆固醇→HDL/apoA1/LCAT→肝，并指出受体通路与清道夫通路回答不同问题。"
+        },
+        {
+          "id": "b-m05-lg03-v2",
+          "kp": [8,9,10],
+          "label": "交接规则与故障定位：apo、酶、受体谁负责哪一站",
+          "local_question": "为什么颗粒会送错货或清不掉：apo身份/受体识别、LPL/LCAT/ACAT和白蛋白分别控制哪一层，异常TG/LDL/HDL/脂肪肝又指向哪段物流？",
+          "learning_reason": "KP08-10适合作为前两组的控制/故障闭环，而不是另一张独立名单。",
+          "closure": "能把B48/B100/E/A1/C2按『身份—受体—酶激活』归类，区分LPL/LCAT/ACAT/HSL/白蛋白，并从CM/VLDL/LDL/HDL异常方向反推最可能的物流层。"
+        }
+      ]
+    },
+    "M6": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-m06-lg01-v2",
+          "kp": [1],
+          "label": "承接M5：胆固醇到达后先决定游离还是酯化",
+          "local_question": "M5把胆固醇送到血浆/细胞后，LCAT和ACAT为什么做相似的酯化却发生在完全不同空间，并分别服务于运输和细胞储存？",
+          "learning_reason": "旧版把KP01与de-novo synthesis绑成一组，但KP01真正是M5→M6的桥。单独做短LG能先关掉『血浆酯化 vs 细胞内酯化』再进入合成来源。",
+          "closure": "能比较LCAT/ACAT的空间、脂酰基来源与apoA1接口，并明确二者都改变胆固醇物理处理状态，不等于从头合成胆固醇。"
+        },
+        {
+          "id": "b-m06-lg02-v2",
+          "kp": [2,3,4],
+          "label": "胆固醇从头合成：乙酰CoA怎样出线粒体并由HMG-CoA还原酶控流",
+          "local_question": "线粒体乙酰CoA不能直接去胞浆时，怎样以柠檬酸形式输出，再经HMG-CoA→甲羟戊酸→鲨烯形成胆固醇；进食/空腹为何反向调节这条线？",
+          "learning_reason": "KP02-04形成清晰的运输前提→合成主链→关键酶调节，不再被KP01酯化概念打断。",
+          "closure": "能从乙酰CoA+OAA→柠檬酸出线粒体讲到HMG-CoA还原酶，并用胰岛素/去磷酸化vs胰高血糖素/磷酸化解释合成开关；Source不确定的激素箭头不自行补齐。",
+          "visual_gate": "柠檬酸—丙酮酸循环与胆固醇合成图回原PDF。"
+        },
+        {
+          "id": "b-m06-lg03-v2",
+          "kp": [5,6,7,8],
+          "label": "胆固醇去哪里：膜/储存只是起点，胆汁酸、VitD和类固醇是三大衍生出口",
+          "local_question": "一个胆固醇分子在体内有哪些合法去路；胆汁酸的两套分类和肠肝循环怎样工作；VitD和类固醇激素又怎样共享胆固醇前体？",
+          "learning_reason": "KP05先给去路总图，KP06-08逐一展开高价值衍生出口，现有分组成立。",
+          "closure": "能先说清胆固醇不能彻底氧化、不能变胆色素，再按初级/次级与游离/结合两轴恢复胆汁酸，画出回肠→门静脉→肝的肠肝循环，并恢复VitD皮肤—肝—肾与类固醇前体关系。"
+        },
+        {
+          "id": "b-m06-lg04-v2",
+          "kp": [9,10,11],
+          "label": "膜脂支路：共同甘油骨架怎样分流，再被不同磷脂酶切出不同接口",
+          "local_question": "甘油磷脂怎样由G3P/磷脂酸分成DAG路和CDP-DAG路；PLA1/PLA2/PLC/PLD切不同键为什么产生不同信号/脂肪酸接口？",
+          "learning_reason": "磷脂是与胆固醇相邻但独立的膜脂支路。保留KP09-11同组，并把结构→合成→切割作为完整局部模型。",
+          "closure": "能从甘油+2FA+磷酸-X画到磷脂酸→DAG/CDP-DAG两路，再按切位区分PLA1/PLA2/PLC/PLD；明确只有当前切割图中的PLC直接给DAG，不采纳冲突旁注。",
+          "visual_gate": "两条合成线与四类磷脂酶切位必须回原图。"
+        }
+      ]
+    },
+    "M7": {
+      "learning_order": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+      "group_count": 4,
+      "logic_groups": [
+        {
+          "id": "b-m07-lg01-v2",
+          "kp": [1,2,3,4,5,6],
+          "label": "餐后储能：从甘油骨架和乙酰CoA拼出TAG",
+          "local_question": "能量充足时，小肠/肝/脂肪细胞分别怎样获得甘油骨架和脂肪酸；ACC—丙二酰CoA如何一边开合成、一边关CPT-I，最终把3条脂肪酸装成TAG？",
+          "learning_reason": "KP01-06现有分组强，fresh pass保留；closure改为明确的『原料→区室→关键酶→互斥开关→TAG』。",
+          "closure": "能区分小肠一酰甘油途径与肝/脂肪G3P-DAG途径，解释肝有甘油激酶而脂肪/肌更依赖糖酵解，画出ACC→丙二酰CoA并说明其抑制CPT-I。",
+          "visual_gate": "ACC调节、柠檬酸输出、TAG合成图回原PDF。"
+        },
+        {
+          "id": "b-m07-lg02-v2",
+          "kp": [7,8,9,10,11,12],
+          "label": "空腹拆库与氧化：HSL拆TAG，CPT-I开门，β氧化把FA拆成乙酰CoA",
+          "local_question": "能量不足时脂肪库怎样被ATGL/HSL/MAG脂肪酶拆开；甘油和FFA各去哪；长链脂酰CoA怎样进线粒体并经四步β氧化，偶/奇数碳的碳命运为何不同？",
+          "learning_reason": "KP07-12现有分组同样强，是完整的动员→运输→入线粒体→氧化→生糖边界。",
+          "closure": "能从TAG→甘油+3FFA讲到白蛋白运输、CPT-I/肉碱穿梭和脱氢—加水—脱氢—硫解；能推偶数碳能量账来源，并说明甘油和奇数碳丙酰CoA是脂肪生糖的例外接口。",
+          "visual_gate": "肉碱穿梭、β氧化每轮少2C的空间图回原PDF。"
+        },
+        {
+          "id": "b-m07-lg03-v2",
+          "kp": [13,14,15],
+          "label": "酮体是肝的空腹燃料包装，不是无条件病理产物",
+          "local_question": "当糖不足/利用失败使OAA偏向糖异生且β氧化产生大量乙酰CoA时，肝怎样生成酮体、为何自己不用、肝外/脑怎样利用；什么时候才从适应性燃料变成酮症酸中毒？",
+          "learning_reason": "旧组把KP16必需脂肪酸硬塞进酮体链。fresh pass把真正连续的生成→利用→过量失衡收成KP13-15。",
+          "closure": "能恢复乙酰乙酸/β-羟丁酸/丙酮三者，解释肝产肝外用、长期饥饿脑可用酮体但不能β氧化FA，并从脂解↑+β氧化↑+TCA承载受限解释DKA机制入口。"
+        },
+        {
+          "id": "b-m07-lg04-v2",
+          "kp": [16],
+          "label": "必需脂肪酸与eicosanoid接口",
+          "local_question": "哪些多不饱和脂肪酸按当前Study必须由食物提供；花生四烯酸怎样把脂质代谢接到PG/LT/TXA2等炎症、气道和血小板接口？",
+          "learning_reason": "KP16与酮体没有局部因果关系，独立成短closure能避免为了连续编号制造假逻辑。",
+          "closure": "按当前Study恢复亚油酸/亚麻酸/花生四烯酸和PG/LT/TXA2接口，同时不扩写完整炎症药理网络。"
+        }
+      ]
+    },
+    "M8": {
+      "learning_order": [1,2,3,4,6,7,8,9,10,11,12,13,14,15,16,5,17,18],
+      "group_count": 6,
+      "logic_groups": [
+        {
+          "id": "b-m08-lg01-v2",
+          "kp": [1,2,3],
+          "label": "先认氨基酸身份：分类轴、电荷和能否进入蛋白是三件不同的事",
+          "local_question": "同一个氨基酸为什么可以同时属于酸/碱、支链/芳香、必需、生糖/生酮等多条轴；pH怎样决定净电荷；有没有密码子又怎样决定它是编码单位、修饰产物还是代谢中间物？",
+          "learning_reason": "旧KP01-07过宽。KP01-03本身形成稳定的身份坐标系，应先闭合再进入特殊化学产物。",
+          "closure": "能避免把分类名单混成一张表，用pH相对pI判断电荷，并按『有无密码子→是否翻译后修饰』区分编码、修饰和非蛋白氨基酸。"
+        },
+        {
+          "id": "b-m08-lg02-v2",
+          "kp": [4,6,7],
+          "label": "氨基酸还能变成什么：硫供体、递质/色素和活性胺",
+          "local_question": "氨基酸除了进入蛋白和供能，还怎样通过含硫代谢、酪氨酸分支和脱羧反应变成PAPS、儿茶酚胺/黑色素、GABA/组胺/5-HT等功能分子？",
+          "learning_reason": "KP04/06/07共享『侧链化学→专门产物』而非氮解毒主线；把它们独立出来可避免与后面的氨运输/尿素混读。",
+          "closure": "能区分PAPS与SAM任务，恢复Phe→Tyr后三支，以及氨基酸脱羧用PLP/B6而α-酮酸脱羧用TPP/B1；低频疾病只作接口。"
+        },
+        {
+          "id": "b-m08-lg03-v2",
+          "kp": [8,9,10],
+          "label": "先把碳和氮拆开：转氨只搬氮，联合脱氨才真正释放NH3",
+          "local_question": "蛋白分解后的氨基酸怎样把碳骨架送回糖脂/TCA，同时把氨基汇到谷氨酸；肝肾脑与心肌骨骼肌为何用不同组合真正释放NH3？",
+          "learning_reason": "KP08给总分流，KP09转氨，KP10联合脱氨，是氮流主线的第一完整环。",
+          "closure": "能说清α-酮酸与NH3各自去向，写ALT/AST不把转氨误当脱氨，并比较肝肾脑『转氨+谷氨酸脱氢』与心肌骨骼肌『转氨+嘌呤核苷酸循环』。"
+        },
+        {
+          "id": "b-m08-lg04-v2",
+          "kp": [11,12,13],
+          "label": "游离氨不能乱跑：丙氨酸和谷氨酰胺负责跨器官安全运输",
+          "local_question": "血氨从哪里来、最终去哪；肌肉怎样用丙氨酸同时送碳和氮，脑/肌又怎样用谷氨酰胺储存和运输氨？",
+          "learning_reason": "KP11-13是『生成→运输→目的地』的跨器官层，和组织内脱氨、肝内尿素两侧自然衔接。",
+          "closure": "能列血氨最主要来源/去路，画肌→丙氨酸→肝→尿素+糖异生，以及Glu+NH3→Gln→肝/肾；明确血中主要运氨形式是丙氨酸和谷氨酰胺而非谷氨酸。"
+        },
+        {
+          "id": "b-m08-lg05-v2",
+          "kp": [14,15,16],
+          "label": "肝怎样把氨锁成尿素：跨线粒体/胞浆的五步解毒循环",
+          "local_question": "进入肝的氮怎样用NH3与Asp提供两个氮，经鸟氨酸循环消耗高能磷酸键生成尿素；延胡索酸又怎样把尿素循环接回TCA？",
+          "learning_reason": "KP14-16现有分组强，保留并把两氮、能量账、TCA接口和Study双门调节压成一个解毒模型。",
+          "closure": "能按前2步线粒体/后3步胞浆恢复五步，说明两个氮来自NH3与Asp、耗3ATP/4高能键，并按当前Study保留CPS-I启动钥匙+精氨酸代琥珀酸合成酶启动后油门。",
+          "visual_gate": "尿素循环跨区室与延胡索酸接口回原图；CO2术语等Source边界不在L层擅改。"
+        },
+        {
+          "id": "b-m08-lg06-v2",
+          "kp": [5,17,18],
+          "label": "最后统一甲基与一碳：SAM、FH4和B12各搬什么",
+          "local_question": "甲硫氨酸/SAM的活性甲基与FH4的一碳单位为什么相关却不能互换；B12怎样连接N5-甲基-FH4、同型半胱氨酸和巨幼变，并把一碳送到M9核苷酸合成？",
+          "learning_reason": "旧版把KP05 SAM夹在氨基酸身份组，同时把KP17-18放在末尾。fresh learner order把三者合并，让『SAM vs FH4 vs B12』成为一个真正可比较的终局模型，并直接桥接M9。",
+          "closure": "能分别回答SAM捐活性甲基、FH4携带一碳、N5,N10-CH2-FH4参与dUMP→dTMP，B12帮助再生FH4并处理同型半胱氨酸；能解释叶酸/B12障碍为什么影响DNA合成而出现巨幼变。"
+        }
+      ]
+    }
+  },
+  "source_and_visual_boundaries": [
+    "M5 composition/particle/receptor maps remain Visual gates; the current text artifact does not pretend to replace spatial particle diagrams.",
+    "M6 P036 glycerol formula and phospholipase blanket-DAG statement remain SOURCE_CONFLICT; candidate Learning uses the stable structural/cutting map only and preserves the conflict.",
+    "M7 PA→DAG enzyme label conflict, glycerol ATP Source gap and broad ketone explanatory wording remain explicit; Learning uses only the stable pathway spine.",
+    "M8 alpha-ketoacid long-chain reconstruction conflict, urea-cycle current Study boundary wording, P070 glutamate ATP Visual gap and uncertain phospholipid reading remain explicit.",
+    "M7 essential-fatty-acid set is retained exactly as the current Study exam wording; no external textbook correction is silently imported."
+  ],
+  "content_repairs": [],
+  "batch_checks": {
+    "all_55_kps_covered_exactly_once": true,
+    "stable_kp_identity_preserved": true,
+    "logic_group_count_old": 13,
+    "logic_group_count_candidate": 17,
+    "cross_block_route_change": "M5-M8 promoted before D5-D8 because of explicit prerequisite evidence",
+    "content_semantic_rewrite_required": false,
+    "source_conflict_silently_resolved": false,
+    "visual_gap_silently_filled": false,
+    "projection_or_runtime_decision_made": false,
+    "official_question_membership_used_as_learning_order": false
+  }
+}
