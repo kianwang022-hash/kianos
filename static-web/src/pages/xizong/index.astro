@@ -9,24 +9,27 @@ const firstSystem = systems[0];
 const firstHref = firstSystem ? `${base}xizong/${firstSystem.systemId}/` : `${base}xizong/`;
 const firstLabel = firstSystem ? `${firstSystem.canonicalId} · ${firstSystem.title}` : '开始西综学习';
 ---
-<Base title="西医综合" kicker="Xizong · Current" description="System owner 决定系统学习结构；Block Markdown 保持医学 Core；Astro 只做 learner-facing projection。" active="xizong">
+<Base title="西医综合" kicker="Xizong · Current" description="先看清整个系统怎样运行，再进入 Block、学习节与 KP；讲义负责连续学习，网页负责定位、Recall 与修补。" active="xizong">
   <section class="homeCurrentStrip">
-    <div><p class="pageKicker">Current owner projection</p><h2>System → Block → Logic Group → KP</h2><p>只有已经具备 Chat-approved system owner + exact Logic Group index 的系统才在这里进入 v6 Runtime；缺失依赖直接 fail closed。</p></div>
-    <aside><strong>{systems.length} systems ready</strong><span>learner state · browser local</span><span>no legacy fallback</span></aside>
+    <div>
+      <p class="pageKicker">Learning map</p>
+      <h2>System → Block → Logic Group → KP</h2>
+      <p>先建立系统母模型和判断轴，再按 Block 主线进入讲义学习。网页不替代原讲义，只在需要定位、主动回忆、错题修补和系统收口时出现。</p>
+    </div>
+    <aside>
+      <strong>{systems.length} systems ready</strong>
+      <span>学习进度仅保存在本机</span>
+      <span>可自由进入，也可继续上次位置</span>
+    </aside>
   </section>
 
   <XizongHomeTools firstHref={firstHref} firstLabel={firstLabel} />
 
   <section class="homeGrid">
     {systems.map((system) => <a class="homeLane" href={`${base}xizong/${system.systemId}/`}>
-      <div><span>{system.canonicalId} · v6 Ready</span><h2>{system.title}</h2></div>
-      <p>{system.blocks.length} Blocks · {system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} KP · System Learn → Logic-first Block Runtime。</p>
-      <footer><span>Current system owner</span><b>进入 →</b></footer>
+      <div><span>{system.canonicalId} · Ready</span><h2>{system.title}</h2></div>
+      <p>{system.blocks.length} Blocks · {system.blocks.reduce((sum, block) => sum + block.kpCount, 0)} KP。先看 System 框架，再按学习节进入对应讲义与 Recall。</p>
+      <footer><span>System learning map</span><b>进入 →</b></footer>
     </a>)}
-    <a class="homeLane" href={`${base}b1/`}>
-      <div><span>A1 · Representative runtime</span><h2>循环 B1</h2></div>
-      <p>保留现有 B1 learner runtime，直到循环完整 Logic Group projection 单独升级；不由 A2 改动覆盖。</p>
-      <footer><span>stable existing route</span><b>进入 →</b></footer>
-    </a>
   </section>
 </Base>
