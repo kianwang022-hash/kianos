@@ -91,7 +91,7 @@ async function wrongPacket(page, context) {
   await clearState(page);
   const { chapter, config } = await findConfig(page, 6);
   const qid = config.expected_question_ids[0];
-  const card = await answer(page, qid, 'wrong');
+  const card = await answer(page, qid, 'uncertain');
   const attempt = await firstAttempt(page, config, qid);
   check(['WRONG','UNCERTAIN'].includes(attempt?.outcome), 'xi_e_problem_first_attempt', JSON.stringify(attempt));
   const initialEvents = await events(page);
