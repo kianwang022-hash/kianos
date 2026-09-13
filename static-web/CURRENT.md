@@ -64,6 +64,46 @@ Owning domain contracts still define evidence/mastery meaning.
 
 ---
 
+## Complete website boundary｜FROZEN
+
+KianOS learner UI is **one coherent website**, not a collection of disconnected Gold pages.
+
+A functional site shell is required from the beginning:
+
+```text
+KianOS Home
+→ lane Home / meaningful Continue
+→ task / learning workspace
+→ problem-only repair / cross-lane handoff when useful
+→ return to the interrupted mainline
+```
+
+Important distinction:
+
+- **functional Home / navigation / Resume / shared shell = required now**;
+- **final brand/identity/hero visual polish = may remain last**.
+
+Therefore “Global Home last” never means “no Home until the end.” The current `index.astro` is only an engineering/runtime-oriented baseline, not the accepted final product Home. It must eventually stop foregrounding build/runtime health and instead foreground meaningful Continue, four learner lanes, current task identity and low-friction entry.
+
+Gold pages must compose into the website hierarchy rather than becoming isolated microsites. Shared shell decisions may be defined before implementation when they materially affect every English surface; domain semantics must remain local.
+
+For English specifically, finish the **whole English product family** before opening the first production UI PR:
+
+```text
+English Home / Resume / navigation
+→ Reading A
+→ Cloze
+→ Part B
+→ Translation
+→ Writing
+→ First Learning / targeted coaching surfaces
+→ Lexical handoff / return behavior
+```
+
+The family should feel like one English Digital Workbook + Adaptive Coach system while preserving each task's native geometry.
+
+---
+
 ## Projection Audit｜CLOSED
 
 ```text
@@ -90,7 +130,8 @@ Lexical
 
 Global
   Base shell/nav           KEEP / light OPTIMIZE
-  home / identity          REBUILD entry projection
+  functional Home          REBUILD entry projection
+  final identity polish    LAST
 ```
 
 Key receipts:
@@ -100,7 +141,7 @@ Key receipts:
 - **Politics Workbench:** preserve prior 4173 Normal/Fast, `1–4`, fast-single correct→next, wrong→stay, `一句话带走`, answer delta, optional cause/note, AI-refined `理解这道题`, Current refs, collapsible Xiao original explanation, fixed/easy Next.
 - **Xizong:** keep System→Block→Logic Group→MarginNote Lecture→KP Recall→Block Recall and current `←/→ + Space + 1–4` KP core. Optimize typography/chrome; add `Enter = Mastered + next` after Reveal; do not allow hidden-answer keyboard rating.
 - **Lexical:** keep current low-friction routing/Depth/Challenge grammar. Optimize only learner-facing presentation; demote packet/evidence/debug language.
-- **Global Home:** keep simple four-lane nav; rebuild entry around meaningful Continue/identity rather than Runtime/build health. Implement last.
+- **Global Home:** keep simple four-lane navigation, but rebuild the entry around meaningful Continue / identity / learner action rather than Runtime/build health. Functional Home is part of the website baseline; only final brand/identity polish waits until the end.
 
 ### Bounded Politics data blocker
 
@@ -117,22 +158,78 @@ Open PR #86 remains Lexical Functional First Evidence/Memory work, not merged Cu
 ## Work Cursor
 
 **Program:** KianOS learner-surface productization  
-**Active stage:** `3 · CODEX HANDOFF`  
-**Gold work surface:** `English Reading A Runtime`  
-**Disposition:** `OPTIMIZE — preserve the good workbook bones`  
-**Implementation owner:** Codex  
+**Active stage:** `2 · PRODUCT BRIEF — COMPLETE SITE + ENGLISH FAMILY`  
+**Active scope:** functional Site Shell / Home + complete English product family  
+**Implementation owner:** none until this family brief is frozen  
 **Active UI implementation PR:** none yet  
 **Blocker:** none.
 
-Why Reading A first: it is already the clearest Current example of English as a Digital Workbook—real Passage left, the **full question set right**, comfortable long-reading typography, clean attempt, optional continuous practice and problem-only review. It is a better place to establish shared English typography/control/feedback quality than inventing a new abstract design system first. Part B remains a protected second reference.
+**Next action:** finish the learner-visible design of English Home/Resume, Reading A, Cloze, Part B, Translation, Writing, targeted First Learning and cross-lane Lexical handoff as one coherent subsystem. At the same time freeze the minimum site shell/Home behavior that makes KianOS a complete website. Only then reopen Stage 3 Codex handoff.
+
+Reading A remains the first Gold work surface after this family brief closes, because it is already the clearest example of English as a Digital Workbook—real Passage left, the full question set right, comfortable long-reading typography, clean attempt, optional continuous practice and problem-only review.
 
 ---
 
-## First Codex Product Brief｜Reading A Gold Polish
+## English family｜shared product rules
+
+English is one coherent **Digital Workbook + Adaptive Coach**, not a dashboard and not a course catalogue.
+
+Shared shell:
+
+```text
+English Home
+→ highest-value Continue if one exists
+→ Objective / Translation / Writing task entry
+→ task-native workspace
+→ stable = exit / continue cheaply
+→ problem = smallest useful local triage
+→ deeper First Learning / Chat / Lexical only when earned
+→ return to the interrupted task
+```
+
+Shared rules:
+
+- real exam task / passage / prompt / learner output is foreground;
+- task-native object integrity outranks component convenience;
+- large comfortable learner text; engineering metadata stays out of the main surface;
+- stable work is quiet and fast;
+- Wrong / meaningful Uncertain may progressively disclose more help;
+- no task becomes a flashcard/wizard merely to share components;
+- First Learning is complete but skippable targeted coaching, not a competing course dashboard;
+- LexicalOS is a separate truth owner and appears through minimal read-only lookup / handoff when a real lexical object blocks English performance;
+- Resume represents unfinished/high-value learner work, never generic due debt.
+
+### English Home / Resume｜product direction
+
+Current `english.astro` is an architecture-rich baseline, not final presentation. Preserve the three score lanes and distinct task owners, but reduce explanatory framework/chrome.
+
+Normal entry should prioritize:
+
+```text
+English
+
+Continue
+<highest-value unfinished task, if any>
+
+Objective 60
+Reading A · Cloze · Part B
+
+Translation 10
+Writing 30
+
+First Learning / targeted coaching     secondary
+LexicalOS                              secondary supply lane
+```
+
+Resume must eventually consider all five real English task surfaces, including Cloze and Part B, while ignoring passed/dormant work.
+
+---
+
+## First Gold brief｜Reading A
 
 ### Authority reads
 
-Codex must start from current `main@HEAD` and read only the relevant Current owners:
+Codex must eventually start from current `main@HEAD` and read only the relevant Current owners:
 
 ```text
 AGENTS.md
@@ -264,24 +361,8 @@ Reset / History / provenance / debug do not compete with the learner task. Reset
 - no Reading-local dictionary or duplicated Lexical semantic truth.
 - no learner-state mutation from a mere lexical lookup.
 - do not touch Part B IA merely to make it match Reading A.
-- do not modify Writing/Translation/Cloze in this first PR except truly shared styling that cannot change their layout/behavior. The broader exam-native-object principle above constrains their later Gold work, not this PR's write-set.
 
-### Codex deliverable
-
-One short-lived branch + one Draft PR. Return:
-- working browser implementation;
-- desktop screenshot showing Passage left + the full visible question set right during a clean attempt;
-- desktop screenshot showing the quiet outlined selected-option treatment before submit;
-- desktop screenshot of Wrong/Uncertain review with in-place problem disclosure while the whole set remains available;
-- screenshot or browser proof for single-word selection → Lexical lookup action;
-- narrow responsive screenshot;
-- build/tests/browser-journey result;
-- concise changed-file receipt;
-- any genuine open product choice for Kian/Sol.
-
-Do not merge before Sol/Kian review.
-
-### Acceptance target
+### Reading A acceptance target
 
 A successful Reading A Gold surface should feel like **a very good digital exam workbook, not a learning dashboard or step-by-step quiz wizard**:
 
@@ -290,34 +371,47 @@ open passage + full question set
 → read / locate / compare naturally across the whole set
 → answer with almost no UI friction
 → scroll as needed without mode switching
-→ optionally select one word → Current LexicalOS lookup
 → submit the whole passage
 → stable = leave/continue quickly
 → problem = reveal the smallest useful review in place
-→ only when needed, deep-review packet includes the whole passage context + total doing time
 ```
 
 The learner should notice the Passage and its complete set of questions before noticing KianOS itself.
 
 ---
 
-## Sequencing after Reading A acceptance
+## English family discussion order｜ACTIVE
 
-Default order, subject to Current dependencies:
+Continue product discussion in this order, without opening implementation yet:
 
 ```text
-Reading A Gold
-→ Cloze low-friction workbook polish
-→ Translation productive workbook polish
-→ Writing task-first writing workspace
-→ English shell / Resume
-→ Politics learning workspace + Workbench migration when data allows
-→ Xizong readability / KP polish
-→ Lexical Presentation polish after its Functional First owner is safe
-→ Global Home / identity last
+1 English Home / Resume / navigation
+2 Cloze
+3 Part B
+4 Translation
+5 Writing
+6 First Learning / targeted intervention surfaces
+7 family-level shell / return / Lexical handoff reconciliation
+8 freeze English family
+9 Stage 3 Codex implementation begins with Reading A
 ```
 
-Part B remains KEEP and receives only compatible shared token/control polish.
+Reading A is already frozen enough for implementation; do not reopen it unless a later family-level shell dependency genuinely requires a change.
+
+---
+
+## Whole-site sequencing after English brief
+
+```text
+Functional Site Shell / Home baseline is already required
+→ English family implementation + acceptance
+→ Politics family product brief + implementation
+→ Xizong family product brief + implementation
+→ Lexical presentation after its Current runtime is safe
+→ Global Home / identity final polish + cross-site acceptance
+```
+
+The final step is **polish and whole-site acceptance**, not the first creation of Home.
 
 ---
 
@@ -343,10 +437,9 @@ When Kian says `继续 KianOS 总 UI` or `读取 GitHub 最新 UI 任务`:
 ```text
 main@HEAD
 → static-web/CURRENT.md
-→ Stage 3 CODEX HANDOFF
-→ Gold surface = English Reading A Runtime
-→ if no implementation PR exists, Codex implements the frozen brief above
-→ if PR exists, Sol reviews real browser/screenshots and continues the lifecycle
+→ Stage 2 PRODUCT BRIEF — COMPLETE SITE + ENGLISH FAMILY
+→ continue the next unresolved English family surface
+→ do not open implementation until the English family brief is frozen
 ```
 
 Do not reconstruct current work from old Issues, old Chats, historical branches or raw Legacy when this Current resolves the task.
