@@ -57,10 +57,20 @@ jobs:
       - name: Execute Politics Functional First journeys
         working-directory: static-web
         run: node scripts/test-politics-functional-journey.mjs
+      - name: Execute Mao Runtime journeys
+        working-directory: static-web
+        run: node scripts/test-politics-mao-runtime.mjs
       - name: Save journey evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: politics-functional-journey-${{ github.sha }}
           path: politics-functional-audit/
+          retention-days: 7
+      - name: Save Mao Runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: politics-mao-runtime-${{ github.sha }}
+          path: politics-mao-runtime-audit/
           retention-days: 7
