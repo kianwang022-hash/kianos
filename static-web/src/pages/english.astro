@@ -6,7 +6,7 @@ import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs
 import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
 
 const base = import.meta.env.BASE_URL;
-const reading = inspectReadingSources();
+const objectiveSource = inspectReadingSources();
 const translation = inspectTranslationSources();
 const writingLearning = loadWritingLearningProjection();
 const writingRuntime = inspectWritingSyntheticTasks();
@@ -16,7 +16,7 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
 <Base
   title="English"
   kicker="English · Performance Runtime"
-  description="English 只负责三条考试表现能力：Reading family / Translation / Writing。LexicalOS 是独立一级板块，通过最小 handoff 为 English 供能。"
+  description="English 的三个得分通道是 Objective / Translation / Writing。LexicalOS 是独立一级板块，通过最小 handoff 为 English 供能。"
   objectId="english:performance-home"
   active="english"
 >
@@ -25,12 +25,12 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
       <div>
         <span>Target · English I 80–85+</span>
         <h2>先把分拿到，再决定什么值得复盘。</h2>
-        <p>主线是新任务上的稳定表现。一次失误只有在会影响未来正确率、速度或稳定性时，才值得升级成 repair / transfer debt。</p>
+        <p>主线是新任务上的稳定表现。一次失误只有在会影响未来正确率、速度或稳定性时，才值得升级成更深 repair。</p>
       </div>
       <aside>
         <span>Score map</span>
         <strong>60 · 10 · 30</strong>
-        <small>Reading family · Translation · Writing</small>
+        <small>Objective · Translation · Writing</small>
       </aside>
     </header>
 
@@ -47,24 +47,24 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
       <main class="englishCapabilityMap">
         <header>
           <div><span>Performance map</span><h2>三条 English scoring lanes</h2></div>
-          <p>题型不是一级导航；不同题型只有在认知对象不同、值得专门训练时才保留独立 workspace。</p>
+          <p>得分通道、语义 owner 和页面结构不是同一件事。Cloze / Reading A / Part B 保留各自认知对象，不因同属 Objective 就被揉成一种题。</p>
         </header>
 
-        <section class="englishCapabilityGroup" data-capability="reading">
+        <section class="englishCapabilityGroup" data-capability="objective">
           <div class="englishCapabilityLead">
-            <span>01 · Reading family · 60 pts</span>
-            <h3>把输入变成正确判断</h3>
-            <p>representation → decisive evidence / constraints → judgment → execution</p>
+            <span>01 · Objective · 60 pts</span>
+            <h3>三种不同任务，共用一条很薄的判断内核</h3>
+            <p>represent → demand → candidates → decisive evidence / constraints → adjudicate → execute</p>
           </div>
           <div class="englishCapabilityRoutes">
             <a href={`${base}reading/`}>
-              <span>Primary</span><strong>Reading A</strong><small>{reading.readingA.ready} ready · 40 pts</small>
+              <span>40 pts</span><strong>Reading A</strong><small>{statusLabel(objectiveSource.status)} source · evidence adjudication</small>
             </a>
             <a href={`${base}cloze/`}>
-              <span>Trainer</span><strong>Cloze</strong><small>{reading.cloze.ready} ready · 10 pts</small>
+              <span>10 pts</span><strong>Cloze</strong><small>{statusLabel(objectiveSource.status)} source · slot best fit</small>
             </a>
             <a href={`${base}reading-b/`}>
-              <span>Trainer</span><strong>Part B</strong><small>{reading.readingB.ready} ready · 10 pts</small>
+              <span>10 pts</span><strong>Part B</strong><small>{statusLabel(objectiveSource.status)} source · discourse reconstruction</small>
             </a>
           </div>
         </section>
@@ -72,8 +72,8 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
         <section class="englishCapabilityGroup" data-capability="translation">
           <div class="englishCapabilityLead">
             <span>02 · Translation · 10 pts</span>
-            <h3>理解以后，关系不丢地重建成中文</h3>
-            <p>representation → relation preservation → reconstruction</p>
+            <h3>把英文意义与关系保住，再重建成自然中文</h3>
+            <p>representation → reconstruction under fidelity → timed delivery</p>
           </div>
           <div class="englishCapabilityRoutes one">
             <a href={`${base}translation/`}>
@@ -86,7 +86,7 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
           <div class="englishCapabilityLead">
             <span>03 · Writing · 30 pts</span>
             <h3>从任务约束主动生成可得分输出</h3>
-            <p>task → content → structure → realization → control → timed delivery</p>
+            <p>task → content → organization → realization → control → timed delivery</p>
           </div>
           <div class="englishCapabilityRoutes one">
             <a href={`${base}writing/`}>
@@ -100,28 +100,28 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
         <section class="englishContextCard lexicalSupply">
           <span>Independent supply lane</span>
           <strong>LexicalOS</strong>
-          <p>词汇不是 English 的“第 4 条能力”。遇到真实 sense / construction / confusable 瓶颈时最小跳转，修完立即回原任务。</p>
+          <p>词汇不是 English 的“第 4 条能力”。遇到真实 sense / construction / confusable 瓶颈时最小跳转，修完回原任务。</p>
           <a href={`${base}vocabulary/`}>进入 Vocabulary →</a>
         </section>
 
         <section class="englishContextCard">
           <span>Runtime rule</span>
           <strong>Perform → Triage → Exit / Repair</strong>
-          <p>稳定就走；偶发且已理解的错不制造债。只有 recurring / high-cost / high-value failure 才升级深复盘。</p>
+          <p>稳定就走；偶发且已理解的错不制造债。只有 recurring / high-cost / ambiguous failure 才升级深复盘。</p>
         </section>
 
         <section class="englishContextCard">
           <span>Review budget</span>
           <strong>复盘必须比错误更值钱</strong>
-          <p>错因标签、证据片段、repair check、transfer claim 都只是升级工具，不是每题必须完成的流程。</p>
+          <p>错因标签、证据片段、repair check、transfer state 都是工具，不是每题必须完成的流程。</p>
         </section>
 
         <details class="englishFirstLearning">
           <summary>First Learning / targeted intervention</summary>
           <div>
-            <a href={`${base}objective-learn/`}><strong>Reading family</strong><span>只在真实表现暴露稳定缺口时调用</span></a>
-            <a href={`${base}translation-learn/`}><strong>Translation</strong><span>representation / relation / reconstruction</span></a>
-            <a href={`${base}writing-learn/`}><strong>Writing</strong><span>content / structure / generation</span></a>
+            <a href={`${base}objective-learn/`}><strong>Objective</strong><span>Reading A / Cloze / Part B · 真实表现暴露缺口时调用</span></a>
+            <a href={`${base}translation-learn/`}><strong>Translation</strong><span>representation / fidelity / reconstruction / execution</span></a>
+            <a href={`${base}writing-learn/`}><strong>Writing</strong><span>task / content / organization / realization / control / delivery</span></a>
           </div>
         </details>
       </aside>
@@ -152,28 +152,22 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
       const uncertain = new Set(attempt.uncertain || []);
       const problems = Object.keys(results).filter((id) => ['wrong', 'unanswered'].includes(results[id]) || uncertain.has(id)).length;
       if (!attempt.submitted) {
-        entries.push({ priority: 100, time: timestamp(readingLast.updatedAt || attempt.startedAt), title: readingLast.title || 'Reading A · unfinished attempt', meta: 'Reading · 继续 clean attempt', href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
+        entries.push({ priority: 100, time: timestamp(readingLast.updatedAt || attempt.startedAt), title: readingLast.title || 'Reading A · unfinished attempt', meta: 'Reading A · 继续 clean attempt', href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
       } else if (problems > 0 && attempt.reviewUnlocked !== false) {
-        entries.push({ priority: 82, time: timestamp(attempt.submittedAt || readingLast.updatedAt), title: readingLast.title || 'Reading A · review', meta: `Reading · ${problems} 个真实 problem 等待 triage`, href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
+        entries.push({ priority: 82, time: timestamp(attempt.submittedAt || readingLast.updatedAt), title: readingLast.title || 'Reading A · triage', meta: `Reading A · ${problems} 个 problem 等待 triage`, href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
       }
     }
 
     const translationLast = read('kianos-translation-last-location-v1');
     if (translationLast?.id) {
       const state = String(translationLast.stage || translationLast.state || '').toUpperCase();
-      const priorities = {
-        ATTEMPT: 100,
-        DECISION: 86,
-        DIAGNOSIS: 92,
-        RECONSTRUCT: 96,
-        TRANSFER_PENDING: 35
-      };
+      const priorities = { ATTEMPT: 100, DECISION: 86, DIAGNOSIS: 92, RECONSTRUCT: 96 };
       const priority = priorities[state] || 0;
       if (priority) entries.push({
         priority,
         time: timestamp(translationLast.updatedAt),
         title: translationLast.title || 'Translation',
-        meta: state === 'TRANSFER_PENDING' ? 'Translation · later validation（低于当前 repair）' : `Translation · ${state.toLowerCase().replaceAll('_', ' ')}`,
+        meta: `Translation · ${state.toLowerCase().replaceAll('_', ' ')}`,
         href: translationLast.href || `${base}translation/${encodeURIComponent(translationLast.id)}/`
       });
     }
@@ -181,19 +175,13 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
     const writingLast = read('kianos-writing-last-location-v1');
     if (writingLast?.id) {
       const state = String(writingLast.state || '').toUpperCase();
-      const priorities = {
-        ATTEMPT: 100,
-        REVIEW_PENDING: 90,
-        REPAIR_NEEDED: 96,
-        REPAIR_CHECK_PENDING: 86,
-        TRANSFER_PENDING: 35
-      };
+      const priorities = { ATTEMPT: 100, REVIEW_PENDING: 90, REPAIR_NEEDED: 96, REPAIR_CHECK_PENDING: 86 };
       const priority = priorities[state] || 0;
       if (priority) entries.push({
         priority,
         time: timestamp(writingLast.updatedAt),
         title: writingLast.title || 'Writing',
-        meta: state === 'TRANSFER_PENDING' ? 'Writing · later validation（不抢占当前 performance）' : `Writing · ${state.toLowerCase().replaceAll('_', ' ')}`,
+        meta: `Writing · ${state.toLowerCase().replaceAll('_', ' ')}`,
         href: writingLast.href || `${base}writing/${encodeURIComponent(writingLast.id)}/`
       });
     }
