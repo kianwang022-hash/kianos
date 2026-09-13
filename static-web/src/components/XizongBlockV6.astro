@@ -404,7 +404,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       try { sessionStorage.setItem(`kianos-xizong-layout:${objectId}:${kind}`, String(collapsed)); } catch {}
     };
     ['outline', 'chain'].forEach((kind) => {
-      let collapsed = false; try { collapsed = sessionStorage.getItem(`kianos-xizong-layout:${objectId}:${kind}-collapsed`) === 'true'; } catch {}
+      let collapsed = false; try { collapsed = sessionStorage.getItem(`kianos-xizong-layout:${objectId}:${kind}`) === 'true'; } catch {}
       setCollapsed(kind, collapsed);
       root.querySelector(kind === 'outline' ? '[data-toggle-outline]' : '[data-toggle-chain]')?.addEventListener('click', () => setCollapsed(kind, !layout?.classList.contains(`${kind}-collapsed`)));
     });
