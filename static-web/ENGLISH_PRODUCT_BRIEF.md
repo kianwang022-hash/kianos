@@ -286,9 +286,81 @@ Single-word selection in the English source may offer read-only `Lexical 查词`
 
 ---
 
+## Writing — accepted direction
+
+### Preserve existing functions
+
+Writing keeps its Current learning/runtime semantics:
+- one complete essay is the learner-facing task unit;
+- prompt/task requirements stay visible while writing;
+- planned mode remains available, but Direct mode is equally valid and the system must not force a plan;
+- first meaningful plan/content evidence and the complete first draft are preserved when present;
+- later revision must not overwrite the first draft;
+- no model answer is revealed during clean production;
+- whole-essay Chat review remains available when useful;
+- PASS / ACCEPTABLE is a real exit and creates no manufactured repair/transfer debt;
+- when a real problem exists, feedback should identify the smallest high-value failure rather than rewrite the essay for the learner;
+- learner performs the revision/re-generation;
+- same-prompt correction proves repair, not mastery;
+- protected true-exam material remains protected from engineering/testing consumption;
+- local history/reset/Resume semantics remain available but secondary.
+
+### Mac-wide projection
+
+Use the screen primarily as a writing workspace:
+
+```text
+┌──────────────────────────────────┬──────────────────────────────────────────┐
+│ Prompt / visual / requirements   │ Your Essay                               │
+│                                  │                                          │
+│ role / audience / directions     │                                          │
+│ or chart / image prompt          │                                          │
+│                                  │                                          │
+│ Optional Plan                    │                                          │
+│ [ short real plan ]              │                                          │
+│                                  │                                          │
+│                                  │                        183 words · 18:24 │
+│                                  │                               Submit     │
+└──────────────────────────────────┴──────────────────────────────────────────┘
+```
+
+Mac origin should favor the authoring side, roughly 35–40% prompt / 60–65% essay when practical. Prompt remains visible; the essay editor is the dominant region.
+
+Timed Delivery is a genuine Writing primitive, so the learner surface should expose a quiet task timer together with word count. Timing is diagnostic/execution context, not mastery by itself.
+
+### Plan behavior
+
+Plan is optional and lightweight. Do not project Writing as a mandatory Step 1 → Step 2 → Step 3 course. Direct mode must remain a first-class clean path for a learner who can generate directly.
+
+### Chat boundary / review simplification
+
+Normal product flow is:
+
+```text
+write on the website
+→ send/copy the complete essay to Chat for review when wanted/needed
+→ discuss the essay directly in Chat
+→ Chat identifies/explains the most important issue(s)
+→ learner returns to the Writing workspace and revises / rewrites
+```
+
+Do **not** make structured Chat Return JSON import a normal learner ritual. The existing machine-readable review/repair return may remain as an internal/optional compatibility mechanism only when required for Resume/evidence state, but the learner should not have to copy Chat analysis back into the website merely so the site can display the same diagnosis again.
+
+The website owns the writing artifact/workspace; Chat owns semantic coaching/review. Avoid duplicating Chat's review surface inside the webpage.
+
+After review, the site may simply preserve first draft + current revision + time/word count + basic task state. Deep diagnosis text stays in Chat unless a small machine-readable state is genuinely required.
+
+### Learner-facing simplification
+
+Demote runtime/state-machine labels such as `Clean Attempt / Whole-Essay Review / Smallest Repair / Repair Check / TRANSFER_PENDING / REPAIR_COMPLETE` from the normal learner surface. These may remain internal states without becoming the visible experience.
+
+Stable work exits cheaply. A real problem leads back to Chat discussion and learner revision, not a forced sequence of JSON handoff/import screens.
+
+---
+
 ## Next unresolved English surface
 
-`Writing`
+`First Learning / targeted intervention surfaces`
 
 When discussing each next surface, always report in this order:
 1. original learning/projection intent;
