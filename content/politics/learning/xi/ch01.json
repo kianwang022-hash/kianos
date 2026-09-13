@@ -46,8 +46,74 @@
       "next": "方向和历史方位确定后，第二章进入整套事业最集中的奋斗目标——民族复兴和中国式现代化。"
     }
   ],
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_structures": [
+      {
+        "natural_unit_id": "POL27-CF-XI-C01-S01",
+        "name": "改革开放以来成绩和进步的四项根本原因",
+        "items": [
+          "开辟了中国特色社会主义道路",
+          "形成了中国特色社会主义理论体系",
+          "确立了中国特色社会主义制度",
+          "发展了中国特色社会主义文化"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C01-K03-N01-I01",
+          "POL27-CF-XI-C01-K03-N01-I02",
+          "POL27-CF-XI-C01-K03-N01-I03",
+          "POL27-CF-XI-C01-K03-N01-I04"
+        ]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C01-S02",
+        "name": "新时代的三个意味着",
+        "items": [
+          "中华民族迎来从站起来、富起来到强起来的伟大飞跃，迎来实现民族复兴的光明前景",
+          "科学社会主义在二十一世纪中国焕发强大生机活力，在世界上高高举起中国特色社会主义伟大旗帜",
+          "中国特色社会主义道路、理论、制度、文化不断发展，拓展发展中国家走向现代化的途径并提供新的选择"
+        ],
+        "source_refs": ["POL27-CF-XI-C01-K04"]
+      }
+    ],
+    "active_precision": [
+      {
+        "natural_unit_id": "POL27-CF-XI-C01-S01",
+        "name": "道路—理论—制度—文化的角色",
+        "items": [
+          "道路：实现途径",
+          "理论体系：行动指南",
+          "制度：根本保障",
+          "文化：精神力量"
+        ],
+        "learning_rule": "四项既是根本原因结构，也是四个自信的对象；角色词要能区分。",
+        "source_refs": ["POL27-CF-XI-C01-K03-N01-I02", "POL27-CF-XI-C01-K03-N01-I03", "POL27-CF-XI-C01-K03-N01-I04"]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C01-S01",
+        "name": "四个自信",
+        "items": ["道路自信", "理论自信", "制度自信", "文化自信"],
+        "learning_rule": "作为固定四项完整识别，但优先理解它们分别依托道路、理论、制度、文化。",
+        "source_refs": ["POL27-CF-XI-C01-K03"]
+      }
+    ],
+    "active_boundaries": [
+      {
+        "name": "新时代历史方位 ≠ 基本国情改变",
+        "items": [
+          "变了：中国特色社会主义进入新时代，形成新的历史方位",
+          "没变：我国仍处于并将长期处于社会主义初级阶段"
+        ],
+        "source_refs": ["POL27-CF-XI-C01-K04", "POL27-CF-XI-C01-K05"]
+      }
+    ],
+    "suyi_dispositions": [
+      {"source_ref": "POL27-SY-XI-P063-B130", "disposition": "COMPACT_CROSSCHECK", "reason": "用于新时代方位/初级阶段边界校准，不另开课程。"}
+    ],
+    "source_primary_detail": "第三节一以贯之的展开细节属于 P2；第一轮由乘风连续学习，KianOS 不制造额外常驻背诵对象。"
+  },
   "chapter_compression": {
-    "reconstruction": "历史和人民选择中国特色社会主义 → 改革开放实践验证道路 → 进入新时代形成新历史方位 → 仍处社会主义初级阶段 → 新时代继续一以贯之坚持和发展中国特色社会主义",
-    "review_prompt": "闭卷区分三个词：‘中国特色社会主义’、‘新时代’、‘社会主义初级阶段’分别回答什么问题？"
+    "reconstruction": "历史和人民选择中国特色社会主义 → 改革开放实践形成道路/理论/制度/文化四项根本原因 → 四个自信 → 进入新时代形成新历史方位 → 仍处社会主义初级阶段 → 一以贯之坚持和发展中国特色社会主义",
+    "review_prompt": "闭卷区分：四项根本原因、四个自信、新时代历史方位、社会主义初级阶段分别回答什么问题？"
   }
 }
