@@ -12,6 +12,36 @@ It does **not** yet define learner order, teaching content, Recall, UI, runtime 
 
 ---
 
+## 0｜Exam-first constraint
+
+The SuperSystem has no value merely because it is medically elegant, conceptually higher-level, visually impressive, or architecturally symmetric.
+
+Its only legitimate reason to exist is to improve Kian's probability of reaching the Xizong target:
+
+> **306 西医综合 275+**
+
+Every later Learn / Content / UI decision must therefore pass a strict utility test:
+
+```text
+Does this make first-pass understanding faster or more stable?
+OR
+Does this make second-pass discrimination / cross-System application better?
+OR
+Does this make final-sprint retrieval materially faster and thinner?
+```
+
+If the answer is **no**, the feature/content/review step is not admitted.
+
+Hard rule:
+
+> **Compression that creates more study burden than retrieval/transfer value is negative value and must be deleted, even if the model is intellectually correct.**
+
+This means the SuperSystem is a **performance overlay**, not a new curriculum layer.
+
+It must never create an independent required study quota, independent KP inventory, independent question quota, or independent Memory/review debt.
+
+---
+
 ## 1｜Problem this layer exists to solve
 
 A1, A2 and A3 are each coherent local causal Systems, but important 306 reasoning often crosses their borders before a disease label is known.
@@ -166,7 +196,67 @@ Hard rule:
 
 ---
 
-## 7｜What this layer must NOT become
+## 7｜Phase utility requirement
+
+The same SuperSystem is allowed to have different thickness across exam phases. It must become **thinner as the exam approaches**, never thicker.
+
+### First round｜建模，不加课
+
+Allowed value:
+
+- reduce the cost of understanding why A1/A2/A3 connect;
+- prevent isolated memorization of perfusion, oxygenation, volume and acid–base mechanisms;
+- provide a small orientation frame when entering or crossing Systems.
+
+Forbidden:
+
+- a separate SuperSystem lecture before the three Systems;
+- memorizing a new fact list;
+- delaying the main Lecture/Block path merely to complete integration material.
+
+First-round success means:
+
+> **A123 becomes easier to understand with the overlay than without it, with negligible extra workload.**
+
+### Second round｜判别与迁移
+
+This is expected to be the SuperSystem's highest-value phase.
+
+Allowed value:
+
+- distinguish oxygenation vs O₂-content vs flow/perfusion failure;
+- reason through heart–kidney volume/perfusion feedback;
+- connect respiratory and renal acid–base responses;
+- localize cross-System cases before jumping to disease labels;
+- compress repeated mechanisms instead of reviewing three Systems independently where one shared model is sufficient.
+
+Second-round success means:
+
+> **fewer repeated reviews + faster cross-System localization + better discrimination on mixed questions/cases.**
+
+### Final sprint｜极薄调用骨架
+
+Allowed value:
+
+- one rapid organism-level reconstruction;
+- a few decisive cross-System distinctions;
+- a compact entry point for mixed-case localization.
+
+Forbidden:
+
+- rereading a long SuperSystem document;
+- maintaining an independent recall schedule;
+- adding new details that should have remained in System-level review.
+
+Final-sprint success means:
+
+> **the overlay can be reconstructed quickly enough to save time, not consume it.**
+
+If the final version cannot become substantially thinner than the first-round version, the design has failed progressive compression.
+
+---
+
+## 8｜What this layer must NOT become
 
 The SuperSystem is invalid if it becomes any of the following:
 
@@ -177,13 +267,14 @@ The SuperSystem is invalid if it becomes any of the following:
 - a disease encyclopedia organized by “multi-organ disease”;
 - a second owner for local System formulas, thresholds, diagnoses, drugs or procedures;
 - a UI-first diagram whose semantics do not exist independently of the page;
-- a reason to force all other Xizong Systems into symmetric SuperSystems.
+- a reason to force all other Xizong Systems into symmetric SuperSystems;
+- a fixed extra learning step that must be completed regardless of whether it improves exam performance.
 
 A relation belongs here only when its value comes specifically from integrating **two or more Systems / external interfaces**.
 
 ---
 
-## 8｜Compression test
+## 9｜Compression and score-utility test
 
 This layer earns its existence only if all are true:
 
@@ -191,17 +282,27 @@ This layer earns its existence only if all are true:
 2. **Compression gain:** the useful integration can remain a small mother model + a few cross-System loops/coordinates.
 3. **No duplication:** local medical truth remains in existing System / Block / KP owners.
 4. **Transfer value:** the model helps localize unfamiliar cases before a disease label is known.
-5. **Reversibility:** if real use shows no added retrieval/transfer value, the layer can be removed without damaging A1/A2/A3.
+5. **Phase value:** it has a clear role in first round, second round and/or final sprint, with later phases becoming thinner.
+6. **Net workload benefit:** any added learning time is outweighed by reduced relearning, faster retrieval, better discrimination or fewer cross-System mistakes.
+7. **Reversibility:** if real use shows no added retrieval/transfer/score value, the layer can be removed without damaging A1/A2/A3.
+
+Hard kill rule:
+
+> **If real use shows that Kian must spend noticeable extra time learning/maintaining the SuperSystem but it does not reduce errors, review time or retrieval latency, delete or collapse it.**
 
 If the layer requires a large independent curriculum to feel useful, Logic has failed and should be redesigned rather than expanded.
 
 ---
 
-## 9｜Current Logic decision
+## 10｜Current Logic decision
 
-**Provisional decision: KEEP the A1+A2+A3 SuperSystem concept.**
+**Provisional decision: KEEP the A1+A2+A3 SuperSystem concept only as a performance overlay.**
 
 Reason: A1, A2 and A3 each own a different irreducible actuator in the same organism-level delivery/homeostasis problem, and A3 already explicitly reserves `cardio-pulmonary-renal SuperSystem` for a higher owner instead of pre-building it locally.
+
+But existence is conditional:
+
+> **No proven compression / transfer / exam-phase value → no durable SuperSystem.**
 
 Current working name:
 
@@ -215,16 +316,20 @@ Naming is not yet frozen; semantics above are the Logic owner.
 
 ---
 
-## 10｜Gate to the next layer
+## 11｜Gate to the next layer
 
-Do **not** design Learn / Content / UI until this Logic survives challenge on:
+Do **not** design Content / UI yet.
 
-- whether all three Systems are genuinely required;
-- whether the three loops are sufficient but not bloated;
-- whether important external interfaces are explicit;
-- whether any claimed relation actually belongs to only one existing System;
-- whether the layer creates meaningful compression rather than another navigation level.
+The next layer is **Learn**, and it must solve a stricter problem than “how to teach this model”:
 
-Only after that challenge should the next question be asked:
+> **How can this overlay reduce total study/review cost and improve 275+ exam performance across first round, second round and final sprint without becoming a new course?**
 
-> **Learn｜When and how should Kian encounter, retrieve and use this SuperSystem without adding study burden?**
+Learn is allowed to proceed only if it can define:
+
+- when the overlay appears and when it stays invisible;
+- the minimum learner contact needed in first round;
+- how second-round mixed-question/case evidence should invoke it;
+- how it collapses into an extremely thin final-sprint skeleton;
+- a kill/rollback criterion when real use shows no net value.
+
+Only after Learn is accepted should Content decide exactly what is shown, and only after Content should UI project it.
