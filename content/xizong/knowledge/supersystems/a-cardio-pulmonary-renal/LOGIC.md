@@ -21,7 +21,7 @@ The missing compression is not another organ chapter. It is a whole-body answer 
 1. **Can oxygen enter blood?**
 2. **Can oxygenated blood reach tissue in enough flow?**
 3. **Is the circulating fluid volume/composition compatible with stable perfusion and cellular function?**
-4. **Can CO₂, non-volatile acid, water, electrolytes and metabolic waste be removed or regulated fast enough to keep the internal environment viable?**
+4. **Can CO₂, non-volatile acid, water, electrolytes and renal-excreted solutes be removed or regulated fast enough to keep the internal environment viable?**
 
 Without an integration layer, these relations are repeatedly reconstructed ad hoc across Respiratory, Circulation and Urinary. The SuperSystem exists only if it compresses those repeated cross-System relations without duplicating the Systems themselves.
 
@@ -29,15 +29,17 @@ Without an integration layer, these relations are repeatedly reconstructed ad ho
 
 ## 2｜SuperSystem mission
 
-> **Maintain tissue viability by coupling gas exchange, blood flow and extracellular-fluid regulation into one closed homeostatic loop.**
+> **Maintain tissue viability by coupling gas exchange, blood flow and extracellular-fluid regulation into one core homeostatic loop with explicit interfaces to the rest of the organism.**
 
 The three Systems contribute different irreducible functions:
 
 - **Respiratory:** load O₂ into blood, remove CO₂, and regulate the respiratory side of acid–base balance.
 - **Circulation:** generate and distribute pressure/flow so blood actually reaches organs and returns to the heart.
-- **Urinary:** regulate extracellular volume, water, electrolytes, bicarbonate/non-volatile acid handling and renal waste excretion; renal perfusion simultaneously depends on the circulation it helps stabilize.
+- **Urinary:** regulate extracellular volume, water, electrolytes, bicarbonate/non-volatile acid handling and renal-solute excretion; renal perfusion simultaneously depends on the circulation it helps stabilize.
 
 None of the three alone owns tissue oxygen delivery or whole-body homeostasis.
+
+A3 is required **not because the kidney is another oxygen-delivery organ**, but because tissue viability depends on a stable circulating medium and because kidney ↔ circulation feedback determines future volume/perfusion while kidney ↔ lung coupling stabilizes acid–base state.
 
 ---
 
@@ -50,21 +52,21 @@ external O₂
 → arterial O₂ content
 → cardiac output + pressure + flow distribution
 → tissue O₂ delivery / cellular use
-→ CO₂ + non-volatile acid + metabolic waste
+→ CO₂ + non-volatile acid + renal-excreted solute load
 → lung removes CO₂
-→ kidney regulates water / Na / K / HCO₃⁻ / H⁺ and waste
+→ kidney regulates water / Na / K / HCO₃⁻ / H⁺ and renal-solute excretion
 → circulating volume + composition are reset
 → venous return / cardiac filling
 → loop repeats
 ```
 
-This is a **closed organism loop**, not three chapters placed side by side.
+This is a **closed core physiological loop with explicit external interfaces**, not three chapters placed side by side and not a complete model of the whole organism.
 
 The minimum high-level relationship is:
 
 ```text
 Tissue delivery = Flow × Blood content
-Homeostatic stability = adequate delivery + adequate waste/gas removal + controlled circulating volume/composition
+Homeostatic stability = adequate delivery + adequate gas/renal-solute removal + controlled circulating volume/composition
 ```
 
 Exact formulas, coefficients and disease-specific thresholds remain in their canonical System / Block owners until the Content layer intentionally projects them.
@@ -94,7 +96,7 @@ The SuperSystem owns this distinction as a cross-System coordinate. It does not 
 cardiac output / arterial pressure
 → renal perfusion
 → renal Na-water handling + RAAS / distal regulation
-→ extracellular / effective circulating volume
+→ extracellular / effective arterial blood volume
 → venous return + preload + vascular load
 → cardiac output / pressure
 ```
@@ -117,9 +119,17 @@ cellular metabolism
 
 Core distinction:
 
-> **respiratory and renal acid–base control are two coupled actuators with different controlled variables and time scales.**
+> **respiratory and renal acid–base control are two coupled actuators acting through PaCO₂ and HCO₃⁻ on the same pH problem, with different response time scales.**
 
 Detailed acid–base rules remain in A2/A3 content owners.
+
+### Why only three loops for now
+
+Pulmonary circulation/right-heart coupling, congestion, edema and other cross-organ phenomena are currently treated as **derived intersections** of Oxygen Delivery and Perfusion↔Volume rather than promoted to a fourth top-level loop.
+
+Hard rule:
+
+> **Do not create another SuperSystem loop unless the existing three repeatedly fail to localize an important cross-System problem without awkward exceptions.**
 
 ---
 
@@ -127,10 +137,10 @@ Detailed acid–base rules remain in A2/A3 content owners.
 
 The SuperSystem should remain compressible to a small coordinate set. Candidate cross-System coordinates are:
 
-- **Flow / perfusion:** CO, organ perfusion, effective arterial circulation.
+- **Flow / perfusion:** CO, organ perfusion, effective arterial blood volume.
 - **Pressure:** systemic arterial pressure and relevant upstream/downstream pressure relationships.
 - **Oxygen state:** PaO₂ / SaO₂ / arterial O₂ content / tissue delivery.
-- **Volume state:** ECF volume / effective circulating volume / venous return.
+- **Volume state:** ECF volume / effective arterial blood volume / venous return.
 - **Gas–acid state:** PaCO₂ / HCO₃⁻ / pH.
 - **Renal response:** renal perfusion / GFR as consequence and regulator interface.
 
@@ -148,6 +158,7 @@ Examples:
 - **metabolic demand / substrate use / CO₂ production** → interfaces with metabolism/endocrine.
 - **autonomic and endocrine control** → may cross into neuro/endocrine owners even when A1/A3 use those signals locally.
 - **systemic inflammation / infection** → may alter vascular tone, permeability, lung function and kidney perfusion but remains owned by the relevant defense/infection domain.
+- **hepatic and other non-renal clearance / metabolism** → remains outside this SuperSystem even when a case alters circulating composition.
 
 Hard rule:
 
@@ -190,7 +201,7 @@ If the layer requires a large independent curriculum to feel useful, Logic has f
 
 **Provisional decision: KEEP the A1+A2+A3 SuperSystem concept.**
 
-Reason: A1, A2 and A3 each own a different irreducible actuator in the same organism-level delivery/homeostasis loop, and A3 already explicitly reserves `cardio-pulmonary-renal SuperSystem` for a higher owner instead of pre-building it locally.
+Reason: A1, A2 and A3 each own a different irreducible actuator in the same organism-level delivery/homeostasis problem, and A3 already explicitly reserves `cardio-pulmonary-renal SuperSystem` for a higher owner instead of pre-building it locally.
 
 Current working name:
 
