@@ -37,12 +37,12 @@
   "mechanical_coordinates": ["preload", "afterload", "contractility", "compliance"],
   "failure_modes": [
     {"id": "pump_weak", "label": "泵弱", "chain": "收缩性下降 → 排空失败 → 前向流量下降 + 上游压力升高"},
-    {"id": "pump_stiff", "label": "泵硬", "chain": "顺应性/主动舒张异常 → 充盈困难 → 充盈压升高 + 储备下降"},
-    {"id": "outflow_obstruction", "label": "出口受阻", "chain": "正向通路受阻 → 上游压力负荷升高 + 下游流量下降"},
+    {"id": "pump_stiff", "label": "充盈受限", "chain": "心肌顺应性/主动舒张异常或心包外部限制 → 充盈困难 → 充盈压升高 + 储备下降"},
     {"id": "valve_failure", "label": "瓣膜故障", "chain": "狭窄或反流 → 压力/容量负荷重新分配 → 心腔重构 + 淤血/低输出"},
-    {"id": "conduit_narrowing_or_block", "label": "管路狭窄 / 阻断", "chain": "阻力升高或通路中断 → 下游灌注下降；急慢性由侧支与组织可救性决定"},
+    {"id": "conduit_narrowing_or_block", "label": "血管阻力 / 管路狭窄或阻断", "chain": "血管阻力升高、固定狭窄或通路中断 → 后负荷/上游压力升高和/或下游灌注下降；急慢性由侧支与组织可救性决定"},
     {"id": "rhythm_or_timing_failure", "label": "节律 / 时序失败", "chain": "起搏、传导、同步或时序异常 → 充盈/射血受损 → 有效流量下降"},
-    {"id": "volume_or_distribution_failure", "label": "容量 / 分布异常", "chain": "有效容量、静脉回流或血流分布异常 → 前负荷/阻力失配 → 组织灌注不足"}
+    {"id": "volume_or_distribution_failure", "label": "容量 / 分布异常", "chain": "有效容量、静脉回流或血流分布异常 → 前负荷/阻力失配 → 组织灌注不足"},
+    {"id": "exchange_or_lymph_failure", "label": "微循环交换 / 淋巴回流异常", "chain": "毛细血管Starling力、通透性或淋巴回流异常 → 组织液交换与回收失衡 → 水肿；全身CO/MAP可暂时正常"}
   ],
   "judgment_axes": [
     "上游淤积 ↔ 下游低灌注",
@@ -199,7 +199,7 @@
   ],
   "cross_system_interfaces": [
     {"topic":"肺栓塞","circulation_role":"B9保留DVT→PE危险接口，B12保留阻塞性休克接口","primary_owner":"respiratory"},
-    {"topic":"DIC","circulation_role":"B4拥有凝血/抗凝/纤溶机制，B12只作休克阶段应用","primary_owner":"hematology"},
+    {"topic":"DIC","circulation_role":"B4拥有凝血/抗凝/纤溶机制，B12拥有当前Source要求的休克-DIC应用；完整独立DIC疾病模型若由血液Source授权则归C/血液，不在A1扩写","primary_owner":"circulation-interface + hematology-if-source-required"},
     {"topic":"感染性休克源控制","circulation_role":"B12保留循环Failure Layer与灌注恢复目标","primary_owner":"infection / source-specific system"},
     {"topic":"肺高压 / 肺心病","circulation_role":"B8/B11只保留右室后负荷与心衰接口","primary_owner":"respiratory"}
   ],
@@ -229,30 +229,30 @@
     "free_reconstruction": [
       "闭卷恢复一圈血：静脉容量池 → 静脉回流 → 心室充盈 → 压力差/瓣膜 → 射血 → 动脉压力与血流分配 → 微循环交换 → 静脉回收 → 再回心。",
       "把节律/电活动、神经—体液—肾容量、冠脉氧供需三条并行控制挂回主循环。",
-      "只用P/Q/R/V与preload/afterload/contractility/compliance解释故障，不先靠病名。",
+      "先用P/Q/R/V与preload/afterload/contractility/compliance定位血流与负荷问题；若主要是组织液交换异常，再调用Starling力、毛细血管通透性与淋巴回流。",
       "调用七种Failure Mode与七条判断轴。",
       "用四条跨Block大桥解释同一机制如何从正常生理变成疾病与最终崩溃。"
     ],
     "reverse_case_algorithm": [
       "第一故障部件：泵 / 阀 / 管路 / 容量 / 节律 / 交换？",
-      "第一变量：P / Q / R / V 哪个先变？",
+      "第一变量：P / Q / R / V 哪个先变；若主要是水肿/交换异常，再看Starling力、通透性与淋巴回流。",
       "血流后果：上游淤血、下游低灌注，还是两者都有？",
       "关键性质：压力/容量、收缩/舒张、供氧/耗氧、急/慢、代偿/失代偿、稳定/不稳定？",
       "当前最危险变量是什么：局部缺血、低输出、充盈失败、恶性节律、全身低灌注还是无有效脉搏？",
       "哪一层证据最能确认？治疗首先要改变哪一个Failure Layer？"
     ],
-    "pass_criterion": "面对陌生病例，能够从第一故障正向推出变量、淤血/低灌注、代偿/重构、证据和治疗靶点；也能从表现反向定位Failure Layer并调用对应Block。"
+    "pass_criterion": "面对陌生病例，能够从第一故障正向推出变量、淤血/低灌注或交换失衡、代偿/重构、证据和治疗靶点；也能从表现反向定位Failure Layer并调用对应Block。"
   },
   "system_exit": {
     "compression_maps": [
-      {"name":"机械面","content":"心动周期 → PV → preload / afterload / contractility / compliance → SV / CO"},
+      {"name":"机械面","content":"心动周期 → PV → preload / afterload / contractility / compliance → SV / CO → 器官血流 → 微循环交换 / 淋巴回流"},
       {"name":"调节面","content":"P/Q/R/V → 神经 → 体液 → 肾容量 → 急性代偿 / 慢性反噬"},
       {"name":"电活动面","content":"AP → 传导 → ECG → Ca²⁺ → 机械射血"},
       {"name":"血管事件面","content":"止血 → 血栓 + 内皮/斑块 → ACS / 外周阻断 → 梗死"},
       {"name":"结构—心衰面","content":"瓣膜 + 心肌/心包 → 压力/容量/充盈/泵异常 → 心衰"},
       {"name":"崩溃面","content":"外周血流 → 休克四Failure Layer → 有无有效脉搏 → 骤停"}
     ],
-    "final_gate": "给一个陌生循环病例，能够正向从第一故障推到变量、淤血/低灌注、代偿、重构、表现和治疗靶点；也能够反向从病例表现定位Failure Layer，并准确调用相应Block，而不在12个章节里随机搜索疾病名称。"
+    "final_gate": "给一个陌生循环病例，能够正向从第一故障推到变量、淤血/低灌注或交换失衡、代偿、重构、表现和治疗靶点；也能够反向从病例表现定位Failure Layer，并准确调用相应Block，而不在12个章节里随机搜索疾病名称。"
   },
   "ownership_boundaries": {
     "system_owns": ["系统母模型","核心变量","Failure Modes","判断轴","Block学习路线与跨Block桥","跨系统接口","证据层","治疗动作层","System Recall / Exit"],

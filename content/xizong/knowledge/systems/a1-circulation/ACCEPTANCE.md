@@ -11,34 +11,126 @@ It does not own medical Core, lane/System learning semantics, Work Cursor, or Ki
 
 ---
 
-## Gate status
+## Current accepted gate status
 
 ```text
 S  PASS
 K  PASS
-L  PASS
-P  PASS
-R  PASS
-E  PASS
+L  PASS — prior accepted claim; fresh re-audit not yet completed
+P  PASS — prior accepted claim; fresh re-audit not yet completed
+R  PASS — prior accepted claim; fresh re-audit not yet completed
+E  PASS — prior accepted claim; fresh re-audit not yet completed
 U  UNTESTED by every real learner path
 ```
 
-Allowed conclusion:
+Allowed current conclusion remains:
 
-> **A1 is Module ready for learner test; U remains UNTESTED by path.**
+> **A1 is Module ready for learner test under the currently accepted S–E evidence; the requested fresh re-acceptance has only newly re-established S/K so far.**
+
+Fresh audit does **not** automatically revoke an existing PASS. A later layer is downgraded only if new evidence actually demonstrates a defect or invalidates the old claim.
 
 This does **not** mean Kian has started Circulation, reached System Recall, or should perform System Exit now.
 
 ---
 
-## Accepted evidence boundary
+## Fresh re-acceptance progress
 
-- **S** — canonical System/Block/KP identity is Current; A1 official System scope is exactly **376** Question Truth IDs; accepted inventory SHA256 `ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be`; precise Question→Knowledge links remain REVIEWED-only rather than inferred.
-- **K** — canonical System + **12 Blocks / 312 stable KPs** were content-closure re-audited from actual medical Core rather than file presence; no unresolved stable medical-Core gap justified expansion.
-- **L** — direct 12-Block route + **87 Logic Groups** cover 312/312 KPs exactly once while preserving canonical learner reading order; B5 intentionally separates stable KP identity from learner order (`KP01–03 → KP07–12 → KP04–06`).
-- **P** — learner projection strips YAML/frontmatter, omits unavailable Outline metadata, and does not seed private holdout years from shared Runtime.
-- **R** — accepted synthetic journey covers clean path, weak Recall, Chat return, private holdout, W/U routing, persistence, idempotency, malformed-input containment and System Exit mechanics. Workflow run `34660072688` passed `validate:xizong` before Astro build; build is compilation evidence, not the reason R passes.
-- **E** — weak Memory admission is evidence-based; Chat repair is `REPAIR_ONLY` and cannot overwrite first Recall/mastery; stable official answers create no W/U debt; wrong/uncertain only enter repair; absent precise KP relation fails safe to Question Truth ID instead of guessing.
+```text
+S  RE-ACCEPTED
+K  RE-ACCEPTED after semantic repair
+L  PENDING fresh attack
+P  PENDING fresh attack
+R  PENDING fresh attack
+E  PENDING fresh attack
+U  real learner only
+```
+
+`PENDING fresh attack` is audit progress, **not** a readiness state and does not mean `UNTESTED/BLOCKED` in the gate ledger.
+
+---
+
+## Fresh S / K evidence
+
+### S｜PASS
+
+Evidence mode: **STRUCTURAL + ADVERSARIAL**  
+Independence: **SELF + AUTHORITATIVE_PROJECT_SOURCE_BOUNDARY**
+
+Fresh Source-boundary attacks included:
+
+- checked the circulation System substrate against the actual Study / Outline scopes rather than inferring completeness from current Block/KP counts;
+- explicitly attacked missing aortic-dissection / aneurysm content and found no independent aortic-disease unit in the Current A1 canonical Study/Outline boundary, so no new A1 Block is authorized by current Source;
+- challenged DIC ownership: A1 B12 already contains the current-source shock/DIC interface, while a complete independent DIC disease model must not be silently invented in A1.
+
+No new Source gap currently requires A1 expansion.
+
+### K｜PASS after repair
+
+Evidence mode: **STRUCTURAL + ADVERSARIAL + EXECUTED_COMPATIBILITY**  
+Independence: **SELF**
+
+Fresh K attack did not start from the old Acceptance answer key. It independently challenged:
+
+- the System mother model;
+- all 12 Block natural units and their negative space;
+- cross-System ownership;
+- pseudo-primitives and missing failure layers.
+
+Fresh verdict:
+
+- **KEEP** all 12 Blocks / 312 stable KPs;
+- B4 normal hemostasis + pathological thrombosis remains a valid A1 Primary; C/Hematology recalls normal hemostasis and owns disease-level bleeding disorders;
+- B5 HTN + atherosclerosis remains one efficient chronic-vascular substrate Block; splitting it would create extra closure/review burden and duplicate the shared atherosclerotic substrate used by B6/B9;
+- B8 myocardium + pericardium remains one useful discrimination unit because intrinsic filling/pump failure versus external pericardial restriction is exam-relevant;
+- **DEMOTE** duplicate System-level `outflow_obstruction` as an independent failure primitive;
+- clarify filling restriction to cover myocardial relaxation/compliance failure **and** external pericardial restriction;
+- broaden the resistance/pathway mode instead of maintaining a duplicate obstruction primitive;
+- **ADD** the previously missing microcirculation-exchange / lymph-return failure already present in B1 Core and System Recall;
+- total System Failure Modes remain **7**: this is a replacement/compression, not architecture growth.
+
+Strongest post-repair falsification included MI/DCM, HFpEF/RCM/tamponade/constriction, valve lesions, high resistance/conduit obstruction, arrhythmia, hemorrhage/distributive shock, and low-oncotic/permeability/lymphatic edema cases. No eighth primitive was required; mixed cases may compose more than one failure mode rather than forcing one exclusive bucket.
+
+Compatibility evidence from the first K-only commit:
+
+- A1 learner contract validation PASS;
+- all existing Xizong validators PASS;
+- Astro build PASS.
+
+A later CI failure after this file temporarily downgraded L/P/R/E was correctly diagnosed as an audit-state modeling error: projection availability is gated by the accepted P claim. The anti-cocoon directive says fresh audit does not automatically revoke existing PASS, so the ledger now preserves accepted L/P/R/E while tracking fresh audit progress separately.
+
+---
+
+## Known cross-System debt discovered by A1 attack
+
+DIC exposed a C/Hematology reconciliation debt:
+
+- A1 owns normal hemostasis/thrombosis mechanics and the current-source shock-DIC application;
+- the C parent System Guide says ITP / coagulation-factor disease / DIC should be learned there;
+- current C H6 realization does not expand a complete DIC model.
+
+Disposition:
+
+> **Record for C fresh audit; do not expand A1 merely to repair another domain's owner debt.**
+
+This debt does not block A1 S/K because A1's own Source-bound requirement is already represented.
+
+---
+
+## Prior L / P / R / E evidence boundary
+
+The previous L/P/R/E evidence remains valid accepted evidence unless a fresh attack finds a material defect. It is not treated as the answer key for the ongoing audit.
+
+Fresh dependency order:
+
+```text
+Content / Learning realization
+→ Projection / Interaction
+→ Runtime
+→ Evidence
+→ real U only when Kian actually uses the path
+```
+
+A discovered downstream defect may reopen the earliest responsible owner; mere absence of a new audit does not revoke current readiness.
 
 ---
 
@@ -57,9 +149,9 @@ Only Kian's real use can change these claims.
 
 ## Reopen rule
 
-Do not reopen A1 S–E because more polish or features can be imagined.
+Reopen only the earliest responsible gate/object when new evidence identifies a concrete defect. Freeze only the affected dependent work; do not use A1 re-acceptance to mutate independent sibling Systems.
 
-Reopen only when new Source, learner, runtime, or acceptance evidence identifies a concrete defect and then reopen the earliest responsible gate/stage only.
+Fresh re-acceptance itself does not automatically revoke accepted PASS claims.
 
 ---
 
@@ -77,4 +169,4 @@ Reopen only when new Source, learner, runtime, or acceptance evidence identifies
 
 Private learner/browser/conversation evidence only.
 
-> **S–E PASS cannot manufacture Kian's learning progress or next learner action.**
+> **Engineering readiness cannot manufacture Kian's learning progress or next learner action.**

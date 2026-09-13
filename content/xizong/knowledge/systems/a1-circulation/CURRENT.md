@@ -10,34 +10,75 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 ## Work Cursor
 
 **Scope:** A1 Circulation  
-**Active engineering stage:** none — accepted S–E baseline is frozen  
-**Blocker:** none for the accepted engineering path; all real learner U paths remain UNTESTED  
-**Next action:** no engineering work is required unless concrete Source, content, runtime, acceptance, or learner-use evidence reopens a gate. A real learner test is appropriate only when Kian's actual learner state reaches that path.
+**Active engineering stage:** fresh **Content re-acceptance** after S/K closure  
+**Blocker:** none at S/K; accepted L/P/R/E claims remain in Acceptance, but their fresh attacks are still pending  
+**Next action:** audit the actual 12 Block / 312 KP medical Content bottom-up for completeness + minimality. Do not treat stable counts, old Acceptance, validators, or the prior System Guide as the answer key. Only descend/write where a concrete medical, ownership, boundary, confusable, or burden defect is found.
 
-> **Module readiness does not mean Kian has started Circulation, reached System Recall, or should perform System Exit now.**
+Current fresh progress:
+
+- S re-accepted PASS under Source-boundary attack;
+- K re-accepted PASS after repairing the A1 System failure decomposition;
+- 12 Blocks / 312 stable KPs are preserved;
+- no new aortic-disease Block is authorized by Current Source;
+- DIC exposed a C/Hematology debt, but A1's own shock-DIC interface remains sufficient for A1 Source scope;
+- L/P/R/E keep their previously accepted gate claims unless fresh evidence actually invalidates them; they are simply **not yet freshly re-accepted**.
+
+> **Fresh engineering acceptance still does not mean Kian has studied A1 or should perform any learner action now.**
 
 ---
 
-## Frozen / out of scope
+## Active Content audit contract
 
-Unless new evidence identifies a concrete defect:
+For each A1 Block, attack both directions:
 
-- keep A1 S/K/L/P/R/E frozen;
-- do not regenerate the 376-question System scope by model inference;
+```text
+Completeness
+→ missing mechanism / boundary / exception / confusable / transfer support?
+→ Source or question negative space hidden by current taxonomy?
+
+Minimality
+→ duplicate explanation / pseudo-KP / wrong owner / unnecessary learner burden?
+→ can content be merged, routed, deferred or repair-only without losing Knowledge Truth?
+```
+
+Hard rules:
+
+- minimize learner burden, not Knowledge Truth;
+- do not add content merely because it is clinically interesting;
+- current canonical Source boundary controls what A1 must own;
+- cross-System relation does not automatically transfer Primary ownership;
+- Block/KP identity changes require a demonstrated semantic reason, not symmetry;
+- a stable count is evidence of identity, not proof of completeness;
+- question mappings may support attacks but cannot define negative space by themselves;
+- fresh audit progress is separate from accepted gate state: **re-auditing a PASS does not revoke it by itself**.
+
+Only a concrete fresh defect may reopen/downgrade the earliest responsible accepted gate.
+
+---
+
+## Frozen / out of scope during Content audit
+
+Until a concrete defect requires otherwise:
+
+- do not alter A1 question scope by model inference;
 - do not infer Question→Block/KP relations without reviewed authority;
-- do not add medical Core for symmetry or content volume;
+- do not mutate A2/A3 or C merely because A1 discovered a cross-System debt;
+- do not change learner Runtime/UI before a Content defect proves that downstream work depends on it;
 - do not mutate private learner Recall, Wrong/Uncertain, holdout, notes, review state, or mastery;
-- do not modify sibling Systems merely because A1 is independently resumable.
+- do not create a permanent audit subsystem.
 
 ---
 
-## Required reads
+## Required reads for the current stage
 
-For ordinary A1 readiness inspection:
+Normal re-entry:
 
-1. `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md`
+1. this `CURRENT.md`;
+2. `ACCEPTANCE.md` for current gate truth;
+3. the exact Block owner(s) currently under Content attack;
+4. the System Source/learning substrate only when needed to resolve a concrete boundary.
 
-Read `system.json`, exact Block owners, learning support, runtime, or validators only when a concrete acceptance/source/runtime defect requires them.
+Do not reread all history or unrelated Systems as ritual.
 
 ---
 
@@ -64,12 +105,10 @@ Private learner/browser/conversation evidence only. Shared Artifact / Acceptance
 
 ## Fresh-Chat target
 
-Known scope `Xizong A1` should normally recover as:
-
 ```text
 A1 CURRENT
 → A1 ACCEPTANCE
-→ exact owner only if a concrete gate is reopened
+→ exact Block owner under current Content attack
 → work
 ```
 
