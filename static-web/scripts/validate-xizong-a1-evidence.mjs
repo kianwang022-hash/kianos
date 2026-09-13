@@ -85,8 +85,9 @@ assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-inbox-con
 assert(repairBridge.includes("type: 'SYSTEM_WU_PLAN_IMPORTED'"), 'inbox-import-evidence-missing');
 assert(repairBridge.includes("evidence_role: 'REPAIR_ONLY'"), 'inbox-import-promotes-mastery');
 assert(repairBridge.includes('source_question_ids:'), 'inbox-loses-question-provenance');
-assert(repairBridge.includes('if (!writeJson(extensionKey, ext)) return false;'), 'inbox-cleared-before-durable-write');
-assert(repairBridge.indexOf('writeJson(extensionKey, ext)') < repairBridge.indexOf('localStorage.removeItem(inboxKey)'), 'inbox-clear-before-write');
+const durableWriteIndex = repairBridge.indexOf('if (!writeJson(extensionKey, ext)) return false;');
+const durableClearIndex = repairBridge.indexOf('localStorage.removeItem(inboxKey)', durableWriteIndex);
+assert(durableWriteIndex >= 0 && durableClearIndex > durableWriteIndex, 'inbox-clear-before-write');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-cross-tab-return-missing');
 assert(blockPage.includes('<XizongBlockEvidenceGuard block={projection} />'), 'block-evidence-guard-not-mounted');
 assert(blockPage.includes('<XizongRepairInboxBridge block={projection} />'), 'repair-inbox-bridge-not-mounted');
