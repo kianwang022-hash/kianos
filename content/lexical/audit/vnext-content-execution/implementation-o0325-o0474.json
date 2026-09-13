@@ -20,7 +20,15 @@
     "no_change_byte_preserved": true,
     "blocked_owners": [],
     "semantic_escalations": [],
-    "engineering_failures": []
+    "engineering_failures": [],
+    "review_repair_owners_read_back": 3,
+    "review_repair_scope": [
+      380,
+      408,
+      415
+    ],
+    "other_147_owners_untouched": true,
+    "o0475_plus_untouched": true
   },
   "owners": [
     {
@@ -878,7 +886,7 @@
       "operation": "UPGRADE",
       "final_quality": "DEPTH_READY",
       "before_sha256": "736d7e3da005b942ade1fd310b9ff21ccb99859e4dc6747746a9b96c70388c2b",
-      "after_sha256": "dae3fb4d9c77160d8cc82f207438c9c25d904a8e577aa6a53155d084fb6923b7",
+      "after_sha256": "10ec1bf7c5f32ce5d3e49a0e48dd96ca881cdd8f5243bbcb74c53a0d93e17c1d",
       "byte_preserved": false,
       "word_id": "word:bag",
       "active_sense_ids": [
@@ -1326,7 +1334,7 @@
       "operation": "UPGRADE",
       "final_quality": "DEPTH_READY",
       "before_sha256": "8d68b455d93f3422b034432333aec89e573cb766b42b643aa7139afc2e1ec906",
-      "after_sha256": "4f4b4e2ba53283c55f0fa56fe25c3d97915997fc83457b15a3fd60fb911a3b8b",
+      "after_sha256": "956408c391cf091d4ad7cc24ec0c79bcfd89550ea1bab9671f3a027554b2729f",
       "byte_preserved": false,
       "word_id": "word:barn",
       "active_sense_ids": [
@@ -1434,7 +1442,7 @@
       "operation": "UPGRADE",
       "final_quality": "DEPTH_READY",
       "before_sha256": "55c6495e30ce1923ba66e774a801d03e24824c1b11683feeffe4f0d2c496df07",
-      "after_sha256": "7a11227b03b4bef03e4293e045fea429ac331cdcf69a873be2e836115242ab79",
+      "after_sha256": "0e14bf4c994a4634ee0db1f0bd41fe056a80f85c9d6ed4483e5370ad1290ba1a",
       "byte_preserved": false,
       "word_id": "word:basic",
       "active_sense_ids": [
@@ -2474,16 +2482,60 @@
   "validation": {
     "json_parse": "PASS",
     "natural_owner_audit": "PASS",
-    "full_object_readback": "PASS: 150/150",
+    "full_object_readback": "PASS: 150/150 (post-review repair)",
     "no_change_byte_preservation": "PASS: 105/105",
     "upgrade_owner_readback": "PASS: 45/45",
-    "stable_id_reference_closure": "PASS",
+    "stable_id_reference_closure": "PASS (post-review repair)",
     "lexical_transport_tests": "PASS: 22/22",
     "lexical_transport_guard_tests": "PASS: 24/24",
     "static_web_lexical_hydration": "PASS",
     "astro_build": "PASS: 8249 pages",
     "governance_current_audit": "PASS",
     "git_diff_scope": "PASS",
-    "source_row_collision_check": "PASS"
+    "source_row_collision_check": "PASS",
+    "independent_review_residue_readback": "PASS: 3/3",
+    "o0475_plus_untouched": "PASS"
+  },
+  "independent_review_repairs": {
+    "review": "PR #103 Sol independent review",
+    "review_id": 5191830132,
+    "review_commit": "610e73a88e0b256bc9256bfc32873d69c6b2f7c9",
+    "status": "RESOLVED_BY_MECHANICAL_READBACK_REPAIR",
+    "repairs": [
+      {
+        "ordinal": 380,
+        "word": "bag",
+        "issue": "hunting sense leaked into the noun Core cluster",
+        "resolution": "removed sense:bag:116b274e7f6f531b from the 袋子；容器 Core cluster; retained the sense as an active secondary learner sense",
+        "canonical_files": [
+          "content/lexical/canonical/words/shards/o0377-0384.json"
+        ],
+        "owner_file": "content/lexical/words/by-ordinal/o0380.json"
+      },
+      {
+        "ordinal": 408,
+        "word": "barn",
+        "issue": "nuclear-unit residue remained in learner mental_model_cn",
+        "resolution": "changed mental_model_cn from 谷仓；靶恩 to 谷仓；畜棚; retained the deprecated nuclear sense as reference-only",
+        "canonical_files": [
+          "content/lexical/canonical/words/shards/o0401-0408.json"
+        ],
+        "owner_file": "content/lexical/words/by-ordinal/o0408.json"
+      },
+      {
+        "ordinal": 415,
+        "word": "basic",
+        "issue": "the basics of life / 生活必需品 remained under the repaired fundamentals sense",
+        "resolution": "removed that inherited collocation from the learner object; stable collocation identity was not deleted or rewritten",
+        "canonical_files": [
+          "content/lexical/canonical/words/shards/o0409-0416.json"
+        ],
+        "owner_file": "content/lexical/words/by-ordinal/o0415.json"
+      }
+    ],
+    "scope_guard": "Only o0380, o0408, and o0415 were repaired; the other 147 owners and o0475+ were untouched; no semantic split/merge decision was made.",
+    "full_object_readback": "PASS: 150/150",
+    "reference_closure": "PASS",
+    "stable_id_integrity": "PASS: no stable ID changes"
   }
 }
