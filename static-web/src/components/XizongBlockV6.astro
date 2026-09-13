@@ -202,8 +202,14 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
     const groupIndexForKp = (index) => {
-      const ordinal = index + 1;
-      return Math.max(0, groups.findIndex((group) => ordinal >= group.start && ordinal <= group.end));
+      const groupId = kpData[index]?.groupId || '';
+      const found = groups.findIndex((group) => group.groupId === groupId);
+      return found >= 0 ? found : 0;
+    };
+    const firstIndexForGroup = (group) => {
+      const firstKpId = Array.isArray(group?.kpIds) ? group.kpIds[0] : '';
+      const found = kpData.findIndex((kp) => kp.kpId === firstKpId);
+      return found >= 0 ? found : 0;
     };
     const stageLabel = { block_learn: 'Block Learn', logic_group: '学习节', kp_learn: '讲义学习', group_close: '学习节收口', kp_recall: 'KP Recall', block_recall: 'Block Recall', block_complete: 'Block 完成' };
 
@@ -262,8 +268,11 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       root.querySelector('[data-kp-learn-title]')?.replaceChildren(document.createTextNode(learnLabel));
       root.querySelector('[data-kp-recall-title]')?.replaceChildren(document.createTextNode(recallLabel));
       const group = currentGroup();
-      const localPosition = Math.max(1, state.kpIndex - Number(group?.start || 1) + 2);
-      const groupTotal = Math.max(1, Number(group?.end || 1) - Number(group?.start || 1) + 1);
+      const currentKpId = kpData[state.kpIndex]?.kpId || '';
+      const groupKpIds = Array.isArray(group?.kpIds) ? group.kpIds : [];
+      const groupPosition = groupKpIds.indexOf(currentKpId);
+      const localPosition = groupPosition >= 0 ? groupPosition + 1 : 1;
+      const groupTotal = Math.max(1, groupKpIds.length);
       root.querySelector('[data-kp-counter]')?.replaceChildren(document.createTextNode(`本节 ${localPosition}/${groupTotal}`));
       root.querySelector('[data-recall-counter]')?.replaceChildren(document.createTextNode(`${state.kpIndex + 1} / ${totalKp}`));
       save(); syncState();
@@ -290,7 +299,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
       const group = currentGroup();
-      if (group) setKpIndex(group.start - 1);
+      if (group) setKpIndex(firstIndexForGroup(group));
       setStage('kp_learn');
     });
     groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; save(); switchTab('learn'); setStage('logic_group'); }));
@@ -308,7 +317,11 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       state.learned = { ...(state.learned || {}), [kpId]: true };
       button.classList.add('completed'); button.textContent = '已学'; save(); syncState();
       const group = currentGroup();
-      if ((state.kpIndex + 1) >= Number(group?.end || totalKp)) {
+      const currentKpId = kpData[state.kpIndex]?.kpId || kpId;
+      const groupKpIds = Array.isArray(group?.kpIds) ? group.kpIds : [];
+      const groupPosition = groupKpIds.indexOf(currentKpId);
+      const atGroupEnd = groupPosition >= 0 && groupPosition === groupKpIds.length - 1;
+      if (atGroupEnd) {
         window.setTimeout(() => setStage('group_close'), 120);
       } else {
         window.setTimeout(() => setKpIndex(state.kpIndex + 1), 120);
@@ -319,7 +332,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       if (state.groupIndex < groups.length - 1) {
         state.groupIndex += 1;
         const group = currentGroup();
-        if (group) state.kpIndex = group.start - 1;
+        if (group) state.kpIndex = firstIndexForGroup(group);
         save(); setStage('logic_group');
       } else {
         state.kpIndex = 0; save(); setStage('kp_recall');
