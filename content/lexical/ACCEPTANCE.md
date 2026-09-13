@@ -22,7 +22,7 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Natural-Owner/source boundary, accepted learner-controlled Learning + Content contracts, a PASS representative calibration, and the first contiguous vNext Content execution unit `o0001–o0012` closed with 12/12 fresh conclusions. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive current-generation Content conclusions and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U remain unaccepted.**
+> **LexicalOS has a stable Natural-Owner/source boundary, accepted learner-controlled Learning + Content contracts, PASS Gold calibration, and two bounded contiguous vNext Content units covering `o0001–o0024`. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive current-generation conclusions and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U remain unaccepted.**
 
 ---
 
@@ -33,42 +33,33 @@ Current owner architecture remains explicit:
 - 7,946 Word Natural Owners;
 - Relation owners for genuine cross-word semantic truth;
 - same-word polysemy / branch selection remains Word-owned;
-- deterministic lookup/reference stores are not semantic authority;
+- lookup/reference stores are not semantic authority;
 - learner runtime must project Current Natural Owners;
-- legacy/reference semantic fallback is forbidden as live target authority;
-- pack membership is asset metadata, not duplicate lexical semantics;
+- Pack membership is asset metadata, not duplicate semantics;
 - private learner state is not shared semantic truth.
 
-Historical R12–R31 coverage remains durable bounded migration-integrity / defect-sentinel evidence. It is not current learner semantics and must not reopen an endless historical audit loop.
+Historical audit / Fresh-Rebuild material may serve as bounded defect-sentinel, provenance, or candidate evidence only. It cannot become live target authority merely because a previous branch passed.
 
 ---
 
 ## K｜Knowledge — BLOCKED
 
-The 7,946-word content universe still contains known semantic-fidelity and learner-value defects, including missing/weak ordinary Core carriers, familiar-new-sense omissions, construction/phraseology gaps, relation/form ownership errors, overmerge/oversplit, weak learner hierarchy, and projection risk.
+Current-generation contiguous coverage after Batch02 merges is **24 / 7,946**.
 
-Historical discovery coverage is closed through corpus end, but discovery coverage is not K acceptance.
+K remains BLOCKED because the remaining catalog may still contain semantic-fidelity and learner-value defects: weak Core carriers, familiar-new omissions, construction/phraseology gaps, Relation/Form ownership errors, overmerge/oversplit, poor hierarchy, and projection risk.
 
-`content/lexical/CONTENT_ASSET_CONTRACT.md` defines the vNext content target. Current-generation execution has now begun, but **12/7,946 contiguous owners is not full-catalog K**.
+K exit still requires:
 
-K exit requires at minimum:
-
-- every Main Word receives a reliable fresh Content coverage conclusion under the vNext contract;
-- each accepted Word ends as `SAFE_SIMPLE` or `DEPTH_READY`; unresolved truth remains explicit `BLOCKED`;
-- operation history (`NO_CHANGE` / `UPGRADED`) remains separate from final content quality;
-- no known P0 lifecycle/carrier defect remains;
-- known semantic-fidelity debt is resolved or explicitly blocked;
-- simple trustworthy words can safely support Fast Pass without manufacturing learner mastery;
-- rich/high-risk words expose a coherent high-value Depth object;
-- Expansion is trustworthy and learner-worthy rather than thin Core-only or dictionary-dump content;
-- important constructions, phraseology, decision boundaries and material form/register/family distinctions are correctly represented;
-- Relation / Form ownership is coherent against the latest integration truth;
-- final learner projection can faithfully consume accepted Current truth;
-- 7,946/7,946 content coverage does **not** imply 7,946 learner Depth cards;
-- final integrated owner readback, not field/build presence, closes Content judgment;
-- a documented stop rule is reached.
-
-Exact historical batch evidence remains in `content/lexical/audit/` and may be used only as bounded defect-sentinel / candidate evidence rather than semantic target wording.
+- every Main Word receives a fresh Content conclusion under the vNext contract;
+- accepted owners end as `SAFE_SIMPLE` or `DEPTH_READY`; unresolved truth stays `BLOCKED`;
+- `NO_CHANGE / UPGRADED` remains separate from final quality;
+- known lifecycle/carrier and semantic-fidelity debt is resolved or explicitly blocked;
+- rich words expose coherent Core + Active Senses + first-class Expansion;
+- important construction, phraseology, contrast, register, form/pronunciation and family boundaries are trustworthy;
+- Relation / Form ownership is coherent against latest integration truth;
+- final integrated owner readback closes judgment;
+- no full-catalog claim is inferred from build success or historical audit coverage;
+- `7,946/7,946` Content coverage never means `7,946` mandatory learner Depth cards.
 
 ---
 
@@ -76,59 +67,52 @@ Exact historical batch evidence remains in `content/lexical/audit/` and may be u
 
 `content/lexical/LEARNING_CONTRACT.md` is the accepted learner logic.
 
-Key accepted decisions:
+Key decisions remain:
 
 - current learner universe = existing 7,946 Main Words;
-- pack membership is asset metadata, not a duplicate learning system;
-- every Main Word deserves reliable coverage judgment, but not every word deserves full Depth;
-- Kian controls whole-card depth through subjective **Unknown / Fuzzy / Known / Mastered** judgment;
-- card state is not a quantitative mastery score and is distinct from local Repair admission;
-- Recall Map keeps concrete notation such as `3A + 2N + (1+1)V` when useful;
-- Depth preserves rich Core + Senses + first-class Expansion;
-- a sense / construction / phrase / relation / productive object may be individually `+`-ed;
+- every word deserves reliable coverage judgment, not mandatory Depth;
+- Kian controls whole-card Depth through subjective **Unknown / Fuzzy / Known / Mastered** judgment;
+- whole-card state is distinct from local Repair admission;
+- Recall Map may use concrete notation such as `3A + 2N + (1+1)V`;
+- Depth preserves Core + Senses + first-class Expansion;
+- exact local objects may be `+`-ed;
 - Unknown/Fuzzy may reopen the whole card without creating full-card test debt;
 - Repair is admitted mainly by explicit `+` or real Wrong / Uncertain / Slow evidence;
-- Challenge tests the smallest unstable object rather than full-testing every Fuzzy/Unknown word;
-- no fixed daily word/review quota is canonical; high-throughput sub-second / 1–2 second judgments are legitimate;
-- Mastered may fade strongly or disappear from active review until counterevidence;
-- real English transfer evidence outranks repeated isolated button presses;
-- Astro executes low-friction interactions; Chat adaptively orchestrates policy from evidence and Kian's feedback;
-- Kian retains final learner agency and may report overload / underload for dynamic adjustment.
+- Challenge targets the smallest unstable object;
+- no fixed daily word/review quota is canonical;
+- Mastered may fade strongly or retire until counterevidence;
+- real-context transfer evidence outranks repeated isolated button presses;
+- Astro executes low-friction interaction; Chat adaptively orchestrates policy from evidence and Kian's feedback.
 
-This L PASS does not claim that current full-catalog Content, UI, Runtime, or Evidence implementations already realize the model correctly.
+L PASS does not claim current full-catalog Content, UI, Runtime, or Evidence already realizes the model.
 
 ---
 
 ## Content standard｜RULE LAYER FROZEN
 
-`content/lexical/CONTENT_ASSET_CONTRACT.md` freezes these Content requirements:
+`content/lexical/CONTENT_ASSET_CONTRACT.md` owns the vNext target:
 
-- every Main Word gets a fresh content coverage conclusion;
-- `SAFE_SIMPLE` describes trustworthy low-risk content and Fast-Pass eligibility by content, not personal mastery;
-- `DEPTH_READY` describes trustworthy rich/high-risk content that can support a coherent Depth encounter;
-- `BLOCKED` preserves unresolved truth rather than guessing;
-- Core / Word Feel compresses semantics without deleting genuine polysemy;
+- `SAFE_SIMPLE` = trustworthy low-risk content, Fast-Pass eligible by content;
+- `DEPTH_READY` = trustworthy rich/high-risk content ready for a coherent Depth encounter;
+- `BLOCKED` = unresolved truth preserved rather than guessed;
+- Core / Word Feel compresses real semantics instead of concatenating glosses;
 - Active Senses prioritize ordinary current and high-value familiar-new branches;
-- Recall Map is derived from semantics rather than driving sense structure;
-- Expansion is first-class: construction, collocation/phraseology, contrast, register/form/pronunciation/family and useful productive distinctions may remain rich;
-- valid low-value material remains reference-only / Explore rather than being deleted;
-- semantic acceptance closes by direct owner mutation + final-object readback + local receipt;
-- Relation / Form owners crossing ordinal ranges reconcile against latest integration truth.
+- Expansion is first-class;
+- Recall Map is derived from accepted semantics;
+- valid low-value material remains reference-only / Explore;
+- acceptance closes by direct mutation + final-object readback + local receipt;
+- cross-range Relation/Form writes reconcile against latest integration truth.
 
 ---
 
-## Content execution calibration｜PASS
+## Gold calibration — PASS
 
 Receipt: `content/lexical/audit/vnext-content-calibration/gold01-receipt.json`.
-
-Representative closure:
 
 - `ambulance` → `NO_CHANGE + SAFE_SIMPLE`;
 - `abstract` → `UPGRADED + DEPTH_READY`;
 - `access` → `UPGRADED + DEPTH_READY`;
 - `sanction` → `UPGRADED + DEPTH_READY`.
-
-The calibration proved simple Fast-Pass eligibility, rich Expansion, construction/grammar boundaries, and same-word contronym ownership reconciliation.
 
 ---
 
@@ -138,82 +122,77 @@ The calibration proved simple Fast-Pass eligibility, rich Expansion, constructio
 
 Receipt: `content/lexical/audit/vnext-content-execution/batch01-o0001-o0012.json`.
 
-Exact closure:
-
 ```text
-12 / 12 fresh Content conclusions
-8 UPGRADED
-4 NO_CHANGE
-8 DEPTH_READY
-4 SAFE_SIMPLE
+12 / 12 concluded
+8 UPGRADED | 4 NO_CHANGE
+8 DEPTH_READY | 4 SAFE_SIMPLE
 0 BLOCKED
-0 Relation mutations
-0 Form mutations
-0 learner-state mutations
 ```
 
-Key acceptance facts:
+### Batch02 `o0013–o0024` — PASS on branch
 
-- every ordinal `1–12` was concluded exactly once in this current generation;
-- semantic upgrades were written directly before acceptance rather than queued for later repair;
-- all upgraded owners received final integrated readback;
-- unchanged owners were re-read and accepted because Current content was already trustworthy;
-- earlier Fresh-Rebuild Batch02 content was treated only as bounded candidate/provenance evidence and was freshly judged against the current contracts;
-- no Relation/Form cross-range write set was opened;
-- Gold calibration owners outside `o0001–o0012` are **not** silently counted toward contiguous corpus coverage.
+Receipt: `content/lexical/audit/vnext-content-execution/batch02-o0013-o0024.json`.
 
-After merge, the next contiguous cursor is `o0013` and must start from the newly accepted `main@HEAD`, not from this temporary branch.
+```text
+12 / 12 concluded
+7 UPGRADED | 5 NO_CHANGE
+8 DEPTH_READY | 4 SAFE_SIMPLE
+0 BLOCKED
+0 Relation mutations | 0 Form mutations
+0 learner-state mutations | 0 Pack mutations
+```
 
-This PASS validates the first real corpus unit. It does **not** imply full-catalog K PASS.
+Accepted outcomes:
+
+- `abroad` → `UPGRADED + DEPTH_READY`;
+- `abrupt` → `UPGRADED + DEPTH_READY`;
+- `absence` → `UPGRADED + DEPTH_READY`;
+- `absent` → `UPGRADED + DEPTH_READY`;
+- `absolute` → `NO_CHANGE + SAFE_SIMPLE`;
+- `absorb` → `UPGRADED + DEPTH_READY`;
+- `abstract` → `NO_CHANGE + DEPTH_READY`;
+- `absurd` → `NO_CHANGE + SAFE_SIMPLE`;
+- `abundant` → `NO_CHANGE + SAFE_SIMPLE`;
+- `abuse` → `UPGRADED + DEPTH_READY`;
+- `academic` → `UPGRADED + DEPTH_READY`;
+- `academy` → `NO_CHANGE + SAFE_SIMPLE`.
+
+Important fresh-vNext evidence: old Fresh Batch03 had passed `abrupt` unchanged, but current vNext judgment upgraded it because the old three-gloss Core did not provide a predictive organization across sudden / brusque / steep. This demonstrates that historical batch results are evidence, not answer keys.
+
+All mutated owners received final-object readback. No deferred repair queue was created. Historical Batch03 files retained in the branch serve only as bounded provenance/candidate evidence for reused semantic work.
+
+After merge:
+
+> **contiguous current-generation Content coverage = `24 / 7,946`; next cursor = `o0025`.**
+
+Full-catalog K remains BLOCKED.
 
 ---
 
 ## P / R / E｜BLOCKED for unrestricted full-catalog use
 
-Existing learner-facing surfaces and runtime code are provisional downstream assets.
-
-Because K is blocked, existing P/R/E must not constrain Content truth or be treated as accepted merely because they build or render.
-
-They may be reused later if they faithfully implement the accepted upstream decisions.
+Existing learner-facing surfaces/runtime remain provisional downstream assets. They may be reused later only if they faithfully implement accepted upstream Content + Learning truth.
 
 ---
 
 ## U｜UNTESTED for unrestricted full-catalog use
 
-Private learner evidence remains separate.
-
-No repository acceptance state can manufacture Kian's actual vocabulary mastery, Repair queue, or real transfer performance.
+Private learner evidence remains separate. Repository acceptance cannot manufacture Kian's actual familiarity, Repair queue, or transfer performance.
 
 ---
 
 ## Current acceptance sequence
 
 ```text
-S Source / Natural Owner boundary
-✅ PASS
-↓
-L learner-controlled vNext logic
-✅ PASS
-↓
-Content Asset Contract
-✅ rule layer frozen
-↓
-representative Content execution calibration
-✅ PASS
-↓
-7,946-owner bounded Content realization + K re-acceptance
-🚧 Batch01 o0001–o0012 PASS; continue from o0013 after merge
-↓
-P Projection / Interaction re-acceptance
-↓
-R Runtime re-acceptance
-↓
-E Evidence / integration re-acceptance
-↓
-U real learner validation
+S Source / Natural Owner boundary     ✅ PASS
+L learner-controlled vNext logic      ✅ PASS
+Content Asset Contract                ✅ frozen
+Gold calibration                      ✅ PASS
+o0001–o0024 bounded realization       ✅ PASS after Batch02 merge
+remaining 7,922 owners                ← CURRENT
+K full-catalog re-acceptance          ⏳
+P → R → E → U                         ⏳
 ```
-
-Historical audit / stopped Fresh-Rebuild branches may inform bounded defect detection or candidate semantics, but they are not the current construction sequence or semantic authority.
 
 ---
 
@@ -224,12 +203,11 @@ Historical audit / stopped Fresh-Rebuild branches may inform bounded defect dete
 - Word owners → `content/lexical/words/by-ordinal/`
 - Relation owners → `content/lexical/relations/by-id/`
 - owner schema → `content/lexical/schema.json`
-- pack membership metadata → `content/lexical/canonical/packs/`
-- lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
-- content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
+- Pack metadata → `content/lexical/canonical/packs/`
+- Learning semantics → `content/lexical/LEARNING_CONTRACT.md`
+- Content standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
 - vNext execution evidence → `content/lexical/audit/vnext-content-calibration/` and `content/lexical/audit/vnext-content-execution/`
-- historical defect / migration / candidate evidence → other assets under `content/lexical/audit/`
 
 ### Learner Truth
 
-Private browser / packet / conversation evidence only. Shared S/K/L/P/R/E/U state must not be interpreted as Kian's personal word familiarity, repair queue, or mastery.
+Private browser / packet / conversation evidence only.
