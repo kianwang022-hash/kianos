@@ -67,7 +67,13 @@ jobs:
       - name: Validate A3 boundary and provenance
         run: A3_SOURCE_PHASE=boundary node scripts/validate-xizong-a3-source.mjs
       - name: Inspect B Current Core substrate
-        run: node scripts/inspect-xizong-b-core.mjs
+        run: B_CORE_REPORT_PATH=.qa/xizong-b-core-inventory.json node scripts/inspect-xizong-b-core.mjs
+      - name: Upload B Current Core inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-b-core-inventory
+          path: static-web/.qa/xizong-b-core-inventory.json
+          if-no-files-found: error
       - name: Validate A2 runtime contracts
         run: node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs
       - name: Validate shared repair inbox contract
