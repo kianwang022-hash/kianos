@@ -13,13 +13,15 @@ import {
   applyHistoryGlobalFirstReady,
   historyFirstReadyDiagnostics
 } from './politicsHistoryFirstReady.mjs';
+import { applyMaoProjection } from './politicsMaoProjection.mjs';
 
 export { listPoliticsSubjectsCurrent, listPoliticsChapterPathsCurrent };
 
 export function loadPoliticsChapterCurrent(subject, chapter) {
   const firstReady = loadPoliticsChapterFirstReady(subject, chapter);
   const marxism = applyMarxismGlobalFirstReady(firstReady, subject);
-  return applyHistoryGlobalFirstReady(marxism, subject);
+  const history = applyHistoryGlobalFirstReady(marxism, subject);
+  return applyMaoProjection(history, subject);
 }
 
 export function politicsCurrentHealth() {
