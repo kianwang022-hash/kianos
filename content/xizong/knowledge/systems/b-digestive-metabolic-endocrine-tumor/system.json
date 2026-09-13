@@ -1,0 +1,191 @@
+{
+  "schema": "kianos.xizong.system.v1",
+  "status": "FREEZE_CANDIDATE",
+  "semantic_authority": "CHAT_APPROVED_KNOWLEDGE_CANDIDATE",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "canonical_id": "B",
+  "title": "消化·物质代谢·内分泌·肿瘤",
+  "identity": {
+    "block_count": 38,
+    "canonical_kp_count": 600,
+    "block_identity_change": false,
+    "kp_identity_change": false,
+    "kp_split_merge_renumber": false,
+    "legacy_system_id_variants": [
+      "digestive_metabolic_endocrine",
+      "digestive_metabolism_endocrine",
+      "digestive-metabolism-endocrine"
+    ],
+    "rule": "D1-D23, M1-M10 and G1-G5 remain the stable Block identities. Legacy frontmatter/system-id spelling differences are aliases only and are not a reason to rewrite medical Core. Existing KP headings and embedded kianos:kp identities remain the stable KP substrate; this owner does not renumber them."
+  },
+  "ownership": {
+    "system_level_owner": "system.json",
+    "transition_owner": "content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md",
+    "medical_core_owner": "D/M/G canonical Block Markdown under this directory",
+    "logic_index_role": "NOT_YET_ACCEPTED_AT_K_CANDIDATE_STAGE",
+    "rule": "This System owner compresses and routes the existing 38-Block medical Core. It must not become a second textbook, overwrite Block/KP medical truth, infer question mappings, or force legacy frontmatter normalization for symmetry."
+  },
+  "scope_boundary": {
+    "current": "B Digestive / Metabolic / Endocrine / Tumor System only",
+    "owned_here": [
+      "gastrointestinal motility, secretion, digestion and absorption",
+      "upper and lower gastrointestinal disease plus abdominal surgical-space decisions assigned to D Blocks",
+      "hepatic, biliary and pancreatic physiology/pathology/internal-medicine/surgery assigned to D Blocks",
+      "energy balance, nutrition and fed-fasting substrate control",
+      "carbohydrate, lipid, amino-acid/nitrogen, nucleotide, heme/bilirubin and biotransformation metabolism assigned to M Blocks",
+      "endocrine common language plus pancreatic, thyroid, adrenal, calcium/PTH and growth-hormone models assigned to D Blocks",
+      "DNA/RNA/protein information flow, gene regulation, DNA damage/repair, oncogene/tumor-suppressor and molecular-technique foundation assigned to G Blocks",
+      "organ-specific digestive/endocrine tumor interfaces assigned to B"
+    ],
+    "not_owned_here": [
+      "cardio-pulmonary-renal SuperSystem integration",
+      "complete renal water/electrolyte/acid-base model",
+      "complete hematology/coagulation model despite iron/B12/folate/heme interfaces",
+      "complete immune/infection model despite hepatitis/tuberculosis organ interfaces",
+      "reproductive endocrine and pregnancy management",
+      "complete neurologic localization",
+      "complete tumor-general overlay beyond B organ application",
+      "complete modern oncology systemic-therapy guideline layer",
+      "external latest-guideline replacement of current 306 Source Precision"
+    ],
+    "rule": "Cross-System inputs and outputs are explicit interfaces, not permission to duplicate neighboring medical owners."
+  },
+  "mission": "把外源食物和内源储备组织成一套可定位的物质—能量—控制系统：先完成管道推进、消化与吸收，再追踪底物进入肝脏和组织后的ATP生成、储存/动员、氮与胆色素处理，并用内分泌反馈和DNA→RNA→蛋白信息流解释代谢流量、生长与肿瘤。出现症状时，先定位是管腔/黏膜/消化液/吸收、肝胆胰、代谢分流、激素轴还是遗传与克隆控制故障，再进入器官诊疗与Source Precision。",
+  "mental_model": {
+    "mother_model": "食物/底物输入 → 胃肠管道推进与消化腺拆解 → 黏膜选择性吸收 → 门静脉/淋巴进入肝脏与组织 → 碳流产生ATP并在进食/空腹间储存与动员，氮流被利用/解毒，胆红素与外源物被处理 → 激素和反馈持续调节各通路流量 → DNA→RNA→蛋白提供酶与结构执行器；任何一层失效都会通过症状、实验室、影像/内镜/病理和外科空间留下可逆向定位的证据。",
+    "spine": [
+      "运输管道：口腔—食管—胃—小肠—结直肠的推进、储存、混合与排空",
+      "屏障与黏膜：防御、分泌、选择性吸收与局部炎症接口",
+      "消化腺：胃酸/酶、胰液/HCO3-、胆汁/胆盐及小肠分泌",
+      "吸收接口：营养素、水、电解质进入门静脉或淋巴",
+      "ATP发动机：糖酵解/乙酰CoA/TCA/呼吸链与氧化还原",
+      "储存—动员：糖原、TAG、脂蛋白、脂肪酸、酮体与糖异生",
+      "氮与一碳：氨基酸、氨/尿素、一碳单位/SAM与核苷酸供给",
+      "肝脏化学枢纽：门静脉首过、合成、胆汁/胆红素、生物转化与氨解毒",
+      "内分泌控制器：反馈轴、受体、胰岛/甲状腺/肾上腺/PTH/GH调节",
+      "遗传信息系统：DNA→RNA→蛋白、调控、损伤修复与克隆控制",
+      "腹腔与外科空间：腹膜、肝门、胆道、胰周和腹壁决定污染、出血、梗阻与手术路径"
+    ],
+    "parallel_controls": [
+      "进食—空腹—应激状态通过胰岛素/胰高血糖素及反调节激素持续改变底物方向",
+      "胃肠神经、局部反射和胃肠激素持续协调管壁、括约肌、分泌与排空",
+      "肝脏持续在葡萄糖、脂质、氨基酸、胆红素、胆汁酸和外源物之间执行分配与清除",
+      "下丘脑—垂体—靶腺及终末代谢物反馈持续决定激素量、节律和靶器官反应",
+      "DNA复制/表达/修复和原癌—抑癌平衡持续决定蛋白执行器与细胞增殖边界",
+      "内镜/实验室/影像/病理/外科体征从结果端反向定位第一故障与当前危险"
+    ]
+  },
+  "core_variables": [
+    "motility", "sphincter tone", "transit", "acid", "HCO3-", "digestive enzymes", "bile salts", "absorptive surface", "portal flow",
+    "ATP", "ADP", "NADH", "FADH2", "NADPH", "acetyl-CoA", "G-6-P", "glycogen", "TAG", "FFA", "ketone bodies",
+    "CM", "VLDL", "LDL", "HDL", "amino nitrogen", "NH3", "urea", "one-carbon units", "SAM", "purine", "pyrimidine", "PRPP",
+    "bilirubin", "bile acids", "CYP/conjugation", "glucose", "insulin", "glucagon", "T3/T4", "cortisol", "aldosterone", "catecholamine", "PTH", "GH",
+    "DNA", "RNA", "protein", "oncogene", "tumor suppressor", "DNA repair"
+  ],
+  "core_relations": [
+    "digestion breaks luminal macromolecules into absorbable units; absorption moves them across mucosa into portal blood or lymph",
+    "carbohydrate, fatty-acid and amino-acid carbon converge on acetyl-CoA/TCA and reducing equivalents to drive ATP production",
+    "fed state favors uptake, synthesis and storage; fasting/stress favors hepatic output, lipolysis, fatty-acid oxidation and ketone production",
+    "NADH/FADH2 primarily feed oxidative ATP production while NADPH primarily supports reductive synthesis and antioxidant defense",
+    "amino nitrogen must be transferred and detoxified to urea; liver failure can therefore couple nitrogen handling failure to hyperammonemia",
+    "bile salts enable lipid absorption and undergo enterohepatic cycling; bilirubin and bile-acid problems are related but not interchangeable",
+    "endocrine disease is localized by hormone amount + target effect + feedback relation rather than one hormone value in isolation",
+    "DNA→RNA→protein links information flow to enzyme abundance, metabolism and phenotype; repair failure plus oncogene/tumor-suppressor imbalance permits clonal growth",
+    "organ tumors require source cell + wall/depth + spread route + evidence + resectability rather than treating a molecular alteration as the whole diagnosis",
+    "clinical urgency can be dominated by bleeding, perforation, obstruction, sepsis, metabolic crisis or endocrine crisis before etiologic precision"
+  ],
+  "failure_modes": [
+    ["FM1", "管道运动或出口失效", "推进、括约肌或排空异常 → GERD/失弛缓/胃排空障碍/IBS/肠梗阻/疝等通过障碍"],
+    ["FM2", "黏膜屏障破坏", "防御与炎症控制失败 → 胃炎/PUD/GI出血/IBD等黏膜损伤"],
+    ["FM3", "消化液不足、失控或流出受阻", "酸/酶/HCO3-/胆汁系统异常 → 消化失败、胰腺炎、胆道梗阻或脂肪吸收障碍"],
+    ["FM4", "吸收界面失效", "黏膜面积/转运/末端回肠等异常 → 宏量营养与铁/B12/叶酸/Ca/脂溶维生素缺乏"],
+    ["FM5", "ATP与氧化还原失败", "缺氧、呼吸链/线粒体、解偶联或辅因子问题 → 能量与还原状态异常"],
+    ["FM6", "储存—动员与底物分流失败", "糖原、糖异生、脂解、脂肪酸氧化、酮体与蛋白分解失配 → 饥饿/糖尿病等代谢失衡"],
+    ["FM7", "脂质运输、膜与胆固醇通路异常", "脂蛋白与胆固醇/胆汁酸处理异常 → 高脂血症、AS、脂肪肝、胆石及类固醇/VitD接口异常"],
+    ["FM8", "氮代谢和尿素处理失败", "氨基酸氮转运/解毒失败 → 高氨、肝性脑病或相关代谢病"],
+    ["FM9", "核苷酸供给或分解异常", "合成/补救/分解异常 → 痛风、增殖底物异常及抗代谢药靶点"],
+    ["FM10", "肝细胞化学处理失败", "合成、胆红素、胆汁、生物转化或氨解毒失败 → 肝炎/肝硬化/黄疸/凝血与白蛋白异常"],
+    ["FM11", "腹腔污染、出血或通路阻塞", "腹膜/腹部脏器/胆道等空间事件 → 腹膜炎、损伤、胆管炎、结石、脓肿或休克风险"],
+    ["FM12", "激素过多、过少、抵抗或轴定位异常", "反馈轴/靶器官反应异常 → 糖尿病、甲状腺、肾上腺、甲旁腺和GH相关疾病"],
+    ["FM13", "遗传信息与克隆控制失败", "复制/转录/翻译/调控/修复异常或原癌—抑癌失衡 → 分子疾病与器官肿瘤"]
+  ],
+  "judgment_axes": [
+    "管道运动/出口 vs 黏膜屏障 vs 消化液 vs 吸收界面",
+    "消化不足 vs 吸收不足 vs 底物利用/分配异常",
+    "进食态 vs 空腹态 vs 应激态",
+    "ATP供能 vs 还原合成/抗氧化",
+    "糖代谢 vs 脂质代谢 vs 氨基酸/氮 vs 核苷酸/一碳",
+    "肝细胞损伤/合成功能 vs 胆汁淤积/胆道梗阻 vs 门脉高压",
+    "激素过多 vs 过少 vs 靶器官抵抗",
+    "原发靶腺 vs 上游垂体/下丘脑 vs 异位/药源性",
+    "急性代谢/内分泌危象 vs 慢性器官并发症",
+    "炎症/感染 vs 梗阻/穿孔/出血 vs 肿瘤",
+    "肿瘤来源 vs 浸润深度 vs 扩散路径 vs 可切除性",
+    "当前危险处置 vs 306 Source Precision vs 后续长期管理"
+  ],
+  "dependency_dag": [
+    "D1→D2→D3→D4 establishes continuous gastrointestinal input/digestion/absorption",
+    "M1 is the enzyme/cofactor language prerequisite for M2-M10",
+    "M2-M4 establish carbohydrate oxidation/storage/output before fed-fasting integration",
+    "M5-M7 establish lipid transport/cholesterol/fatty-acid/ketone handling",
+    "M8 establishes nitrogen/one-carbon handling before hepatic encephalopathy and parts of M9",
+    "M9 plus M1 supports G1-G5 information-flow and anti-metabolite reasoning",
+    "M10 connects heme/bilirubin/biotransformation to hepatic and biliary disease",
+    "D5-D8 integrate energy/nutrition/endocrine common language into fed-fasting and diabetes",
+    "D9-D15 form upper/lower GI disease and abdominal-space branches after D1-D4",
+    "D16-D20 form liver/biliary/pancreas branches with M8/M10 interfaces",
+    "D21-D23 form thyroid/adrenal/calcium-GH endocrine branches after D6",
+    "G1-G5 provide molecular information/repair/tumor gates before organ-specific tumor application"
+  ],
+  "block_route": [
+    {"id":"D1","label":"D1","title":"胃肠管道控制","kp":6},
+    {"id":"D2","label":"D2","title":"口腔、食管与胃","kp":12},
+    {"id":"D3","label":"D3","title":"胰液、胆汁与小肠消化","kp":11},
+    {"id":"D4","label":"D4","title":"小肠吸收与营养运输","kp":8},
+    {"id":"D5","label":"D5","title":"能量、体温、应激与临床营养","kp":19},
+    {"id":"D6","label":"D6","title":"内分泌共同语言","kp":13},
+    {"id":"D7","label":"D7","title":"进食—空腹与胰岛激素","kp":13},
+    {"id":"D8","label":"D8","title":"糖尿病","kp":25},
+    {"id":"D9","label":"D9","title":"GERD与贲门失弛缓","kp":12},
+    {"id":"D10","label":"D10","title":"胃炎、HP、PUD与上消化道出血","kp":25},
+    {"id":"D11","label":"D11","title":"食管与胃肿瘤","kp":24},
+    {"id":"D12","label":"D12","title":"肠结核、结核性腹膜炎、IBD与IBS","kp":23},
+    {"id":"D13","label":"D13","title":"腹膜感染与腹部损伤","kp":16},
+    {"id":"D14","label":"D14","title":"肠梗阻、急性阑尾炎与腹外疝","kp":28},
+    {"id":"D15","label":"D15","title":"大肠、直肠与肛管","kp":19},
+    {"id":"D16","label":"D16","title":"病毒性肝炎","kp":12},
+    {"id":"D17","label":"D17","title":"肝硬化、门脉高压与肝性脑病","kp":24},
+    {"id":"D18","label":"D18","title":"原发性肝细胞癌 HCC","kp":15},
+    {"id":"D19","label":"D19","title":"胆汁、黄疸、胆石、胆道感染与肝脓肿","kp":26},
+    {"id":"D20","label":"D20","title":"急性胰腺炎与胰腺肿瘤","kp":22},
+    {"id":"D21","label":"D21","title":"甲状腺轴及甲状腺内外科","kp":29},
+    {"id":"D22","label":"D22","title":"肾上腺皮质与髓质","kp":15},
+    {"id":"D23","label":"D23","title":"钙调节、甲状旁腺与生长激素","kp":12},
+    {"id":"M1","label":"M1","title":"蛋白质、酶与维生素","kp":17},
+    {"id":"M2","label":"M2","title":"碳氧化、TCA、氧化磷酸化与ATP","kp":15},
+    {"id":"M3","label":"M3","title":"成熟红细胞与磷酸戊糖途径","kp":7},
+    {"id":"M4","label":"M4","title":"糖原与糖异生","kp":10},
+    {"id":"M5","label":"M5","title":"血浆脂蛋白","kp":10},
+    {"id":"M6","label":"M6","title":"胆固醇、磷脂与胆汁酸","kp":11},
+    {"id":"M7","label":"M7","title":"三酰甘油、脂肪酸与酮体","kp":16},
+    {"id":"M8","label":"M8","title":"氨基酸、氨、尿素与一碳单位","kp":18},
+    {"id":"M9","label":"M9","title":"核苷酸代谢与抗代谢物","kp":15},
+    {"id":"M10","label":"M10","title":"血红素、胆红素与生物转化","kp":13},
+    {"id":"G1","label":"G1","title":"核酸与真核基因组","kp":10},
+    {"id":"G2","label":"G2","title":"DNA复制、逆转录与端粒","kp":11},
+    {"id":"G3","label":"G3","title":"转录、RNA加工与翻译","kp":15},
+    {"id":"G4","label":"G4","title":"基因表达调控","kp":10},
+    {"id":"G5","label":"G5","title":"DNA损伤、癌基因、重组与分子技术","kp":13}
+  ],
+  "system_recall": {
+    "gate": "NOT_LEARNER_AUTHORIZED_BY_K",
+    "target": "restore input→digestion/absorption→metabolic routing→hormonal control→information flow, then localize the first failed layer before naming a disease",
+    "rule": "K defines the neutral reconstruction target only. Actual timing and learner authorization belong to L/private Learner Truth."
+  },
+  "source_state": {
+    "official_question_membership": "S_BLOCKED_SEPARATE_DEPENDENCY",
+    "question_count_target_forbidden": true,
+    "question_to_kp_inference_forbidden": true,
+    "rule": "The missing exact B official-question inventory does not alter this medical Knowledge owner and must not be smuggled into K as a guessed 1072-question list."
+  }
+}
