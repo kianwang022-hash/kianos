@@ -3,7 +3,7 @@ name: Lexical Semantic Audit Router Work
 on:
   push:
     branches:
-      - audit/semantic-router-v1
+      - audit-semantic-router-v1
 
 permissions:
   contents: write
@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: audit/semantic-router-v1
+          ref: audit-semantic-router-v1
           fetch-depth: 1
       - name: Router self-test
         run: node content/lexical/tools/semantic-audit-risk-router.mjs --self-test
@@ -46,4 +46,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add content/lexical/semantic-audit/manifests/o0025-o1124.risk.json tmp/lexical-audit/o0025-o1124.blind.jsonl
           git commit -m "chore(lexical): generate audit router backlog [router-output]"
-          git push origin HEAD:audit/semantic-router-v1
+          git push origin HEAD:audit-semantic-router-v1
