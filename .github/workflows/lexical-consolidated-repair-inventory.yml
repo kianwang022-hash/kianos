@@ -7,6 +7,7 @@ on:
     paths:
       - 'tools/lexical_compile_consolidated_repair_inventory.py'
       - 'tools/lexical_compile_consolidated_repair_inventory_entry.py'
+      - 'tools/lexical_compile_current_reconciliation_entry.py'
       - 'tools/lexical_audit_consolidated_repair_inventory.py'
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
@@ -15,6 +16,7 @@ on:
       - 'tools/lexical_historical_round_from_source_lock.py'
       - 'content/lexical/audit/knowledge-reacceptance/batches/**'
       - 'content/lexical/audit/knowledge-reacceptance/post-r31-ownership-overrides.json'
+      - 'content/lexical/audit/knowledge-reacceptance/closure-a-r18-owner-resolutions.json'
       - 'content/lexical/audit/migration-integrity/**'
       - '.github/workflows/lexical-consolidated-repair-inventory.yml'
   pull_request:
@@ -23,6 +25,7 @@ on:
     paths:
       - 'tools/lexical_compile_consolidated_repair_inventory.py'
       - 'tools/lexical_compile_consolidated_repair_inventory_entry.py'
+      - 'tools/lexical_compile_current_reconciliation_entry.py'
       - 'tools/lexical_audit_consolidated_repair_inventory.py'
       - 'tools/lexical_historical_round_bulk_triage.py'
       - 'tools/lexical_historical_round_from_file.py'
@@ -31,6 +34,7 @@ on:
       - 'tools/lexical_historical_round_from_source_lock.py'
       - 'content/lexical/audit/knowledge-reacceptance/batches/**'
       - 'content/lexical/audit/knowledge-reacceptance/post-r31-ownership-overrides.json'
+      - 'content/lexical/audit/knowledge-reacceptance/closure-a-r18-owner-resolutions.json'
       - 'content/lexical/audit/migration-integrity/**'
       - 'content/lexical/LEARNING_CONTRACT.md'
       - 'content/lexical/CONTENT_ASSET_CONTRACT.md'
@@ -48,11 +52,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile deduplicated repair inventory
+      - name: Compile Current-reconciled repair inventory
         shell: bash
         run: |
           unset GITHUB_TOKEN GH_TOKEN
-          python tools/lexical_compile_consolidated_repair_inventory_entry.py \
+          python tools/lexical_compile_current_reconciliation_entry.py \
             --output /tmp/consolidated-repair-inventory.json \
             --summary /tmp/consolidated-repair-inventory-summary.md
 
