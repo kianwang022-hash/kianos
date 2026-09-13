@@ -38,7 +38,7 @@ function forbiddenPaths(value, prefix = '') {
 }
 
 const synthetic = listWritingSyntheticTasks();
-assert.equal(synthetic.length, 2, 'true-exam gate requires exactly two synthetic qualification tasks');
+assert.equal(synthetic.length, 2, 'cold-start calibration currently owns one synthetic Small and one synthetic Big task');
 assert.deepEqual(new Set(synthetic.map((task) => task.kind)), new Set(['small', 'big']));
 
 const currentExamCatalog = listWritingTasks();
@@ -69,7 +69,7 @@ assert.deepEqual(examTask.officialEvidence?.context, sourceTask.context);
 assert.equal(forbiddenPaths(examTask.learnerTask).length, 0, 'clean true-exam learner projection must not leak answers/analysis/model prose');
 
 const routes = listWritingRuntimeTasks();
-assert.equal(routes.length, 3, 'normal learner route should expose two synthetic tasks plus one protected true-exam entry only');
+assert.equal(routes.length, 3, 'current cold-start learner route exposes two synthetic calibration tasks plus one protected true-exam entry');
 assert.deepEqual(routes.slice(0, 2).map((task) => task.id), synthetic.map((task) => task.id));
 assert.equal(routes[2].id, examTask.id);
 assert.equal(loadWritingRuntimeTask(examTask.id).sourceKind, 'exam');
@@ -89,7 +89,10 @@ const home = read('src/pages/writing.astro');
 const route = read('src/pages/writing/[id].astro');
 const gate = read('src/components/WritingProtectedExamGate.astro');
 assert.match(home, /data-true-exam-entry/);
-assert.match(home, /Synthetic Small \+ Big/);
+assert.match(home, /data-writing-task-card/);
+assert.match(home, /completed === tasks\.length/);
+assert.match(home, /finalStates/);
+assert.doesNotMatch(home, /data-synthetic-gate/, 'manual first-learning checkbox must not own true-exam qualification');
 assert.match(route, /WritingProtectedExamGate/);
 assert.match(route, /listWritingRuntimeTasks/);
 assert.match(gate, /PASS_ACCEPTABLE/);
@@ -98,7 +101,7 @@ assert.match(gate, /TRANSFER_PENDING/);
 assert.match(gate, /data-exam-runtime/);
 
 console.log(JSON.stringify({
-  schema: 'kianos.english.writing.true-exam-entry-validation.v1',
+  schema: 'kianos.english.writing.true-exam-entry-validation.v2',
   status: 'PASS',
   checks: {
     canonicalFirstExamSelection: true,
@@ -106,7 +109,8 @@ console.log(JSON.stringify({
     cleanProjectionPreserved: true,
     sourcePromptMaterialContextPreserved: true,
     sharedRuntimeAcceptsExamShapeViaSyntheticFixture: true,
-    syntheticDoubleGateRequired: true,
+    syntheticCompletionUsesRuntimeTerminalEvidence: true,
+    manualGuideCheckboxNotQualificationAuthority: true,
     noProtectedTrueExamAttemptConsumedByValidation: true
   },
   protectedTaskId: examTask.id,
