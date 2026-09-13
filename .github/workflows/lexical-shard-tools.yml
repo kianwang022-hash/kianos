@@ -34,6 +34,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Synthetic safety tests (not semantic K/E/U acceptance)
+        shell: bash
         run: |
           mkdir -p /tmp/lexical-shard-evidence
           python tools/test_lexical_transport_guards.py 2>&1 | tee /tmp/lexical-shard-evidence/tests.txt
