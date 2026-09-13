@@ -39,8 +39,7 @@ Rules:
 - chapter-level historical map remains visible enough to preserve position;
 - only one Natural Unit owns the main stage at a time;
 - all Natural Units remain directly navigable; focus is not a restrictive wizard;
-- main stage uses the larger left area for understanding / relations;
-- right Inspector is secondary: takeaway + next bridge, not a second lecture;
+- main stage uses the largest region for understanding / relations;
 - first-round decisive structure is visible by default;
 - source provenance / exact metadata / engineering state stay out of the main first view;
 - the page should carry the minimum sufficient information to understand the structure, not minimize text for its own sake.
@@ -68,43 +67,91 @@ chapter_compression.causal_chain
 
 No learner-facing political content is invented. Projection reorganizes Current fields only.
 
-## Accepted Mac-wide frame
+## Mac-wide density / width rule — ACCEPTED
+
+Kian explicitly rejected a low-density layout that preserves narrow-screen vertical composition on a wide Mac viewport.
+
+Mac-wide is the design origin, not a stretched mobile/tablet layout.
+
+Default first-round workspace should actively use horizontal width to display simultaneously useful relationships. Prefer:
 
 ```text
-┌────────────────────────────────────────────────────────────────────────────────────────────┐
-│ ← 史纲                 第一章｜近代中国为什么被迫进入民族救亡                               │
-│                                                                                            │
-│  01 鸦片战争前后      02 列强侵略      03 反侵略斗争      04 失败与民族意识觉醒            │
-├────────────────────────────────────────────────────────────────────────────────────────────┤
-│  鸦片战争 → 社会性质变化 → 列强多层侵略 → 持续反抗 → 失败原因暴露 → 民族意识觉醒         │
-│  国情变了 → 主要矛盾和历史任务变了 → 后面的探索都在回应这个新局面                       │
-├──────────────────────────────────────────────────────────────┬─────────────────────────────┤
-│                                                              │                             │
-│  01 · 鸦片战争前后的中国与世界                              │  这一节带走                 │
-│                                                              │                             │
-│  为什么 1840 不是普通年份，                                 │  半殖民地半封建社会         │
-│  而是中国历史性质发生转折的入口？                            │  是后续政治探索共同背景     │
-│                                                              │                             │
-│  国内封建社会衰落              西方资本主义扩张              │  民族独立、人民解放         │
-│           ╲                         ╱                         │  国家富强、人民幸福         │
-│            ╲                       ╱                          │  是近代中国必须解决的任务   │
-│             └────── 正面碰撞 ──────┘                          │                             │
-│                        ↓                                     │─────────────────────────────│
-│                 列强以战争打开市场                           │  接下来                     │
-│                        ↓                                     │                             │
-│               中国社会性质发生变化                           │  社会性质改变以后，         │
-│                        ↓                                     │  看列强怎样把控制具体化。   │
-│          基本国情 / 主要矛盾 / 历史任务形成                  │                             │
-│                                                              │                             │
-│  这里真正要理解的是：一次战争为什么改变了                    │                             │
-│  后续整个近代史的问题结构。                                  │                             │
-├──────────────────────────────────────────────────────────────┴─────────────────────────────┤
-│  去乘风时重点找：                                                                          │
-│  ① 为什么社会性质发生变化？   ② 为什么这个变化进一步改变主要矛盾和历史任务？              │
-│                                                                                            │
-│                                                         [ 去 iPad / MarginNote 学这一节 → ] │
-└────────────────────────────────────────────────────────────────────────────────────────────┘
+current problem / why this matters
+│
+├── largest central cognitive geometry
+│   relation / cause / process / evaluation / hierarchy
+│
+└── takeaway / next bridge
 ```
+
+A useful baseline proportion is approximately:
+
+```text
+22–25%  current problem / orientation
+50–55%  decisive cognitive structure
+22–25%  takeaway / next bridge
+```
+
+This is a composition heuristic, not a fixed CSS contract. A Unit may rebalance columns when its semantic shape demands it.
+
+### Width-use principles
+
+- consume the actual desktop workspace width; do not place a narrow ~1100px article column in the middle of a large display without a semantic reason;
+- prefer horizontal parallelism, horizontal causal flow and side-by-side comparison when the Current relation is genuinely parallel or comparative;
+- use vertical flow only when the semantic relation is truly sequential or hierarchical;
+- do not add decorative cards merely to fill width;
+- increased density means more simultaneously useful relationships, not more chrome or more words;
+- preserve readable line length inside explanatory text even while the overall workspace uses full width;
+- aim for “high information density, low disorder.”
+
+Examples:
+
+```text
+bad wide-screen carryover
+A
+↓
+B
+↓
+C
+↓
+D
+
+better when relation permits
+A + B → C → D
+```
+
+and:
+
+```text
+                ┌ political control
+military breach ├ economic extraction → deeper semi-colonial control
+                └ cultural penetration
+```
+
+For evaluation-shaped Units, use the wide viewport for simultaneous comparison where Current supports it, e.g.:
+
+```text
+what it achieved | what it did not achieve | why it could not
+```
+
+Do not force every History Unit into one arrow-diagram grammar. The shell is stable; the cognitive geometry changes with Current semantics.
+
+## Accepted Mac-wide frame direction
+
+The accepted frame remains one Natural Unit workspace, but its implementation should use the high-density horizontal composition above rather than the earlier low-density vertical sketch.
+
+The learner should be able to see in one desktop view, when content size allows:
+
+```text
+chapter position / line
++ current historical problem
++ decisive relation structure
++ key takeaway
++ next bridge
++ Chengfeng reading focus / action
+```
+
+without repeated reveal interactions.
 
 ## External Learn behavior — ACCEPTED
 
@@ -139,7 +186,7 @@ The bottom action area may simply change to a lightweight optional mental close,
 
 The closure is optional and should not add a confirmation step. It may be read and mentally answered without clicking anything.
 
-In other words, normal first-round learner interaction is intentionally short:
+Normal first-round learner interaction is intentionally short:
 
 ```text
 switch Natural Unit
@@ -189,27 +236,35 @@ This is a design target, not a rule that every Natural Unit must have zero scrol
 
 ---
 
-# C01 Intra-chapter Projection Generalization Check — NEXT
+# C01 Intra-chapter Projection Generalization Check — PASS
 
-Before considering the History Natural Unit shell frozen, project C01-S02 / S03 / S04 through the **same shell** without bespoke page artwork.
+C01-S01 / S02 / S03 / S04 can use the same Natural Unit shell without extra learner steps or bespoke page artwork.
 
-Expected Current shapes:
+Current cognitive shapes remain distinct:
 
 ```text
-S01  Cause → Turning Point
-S02  Cause → Process
-S03  Process → Evaluation
-S04  Cause Layers → Turning Point
+S01  parallel cause → turning point
+S02  cause → multi-layer process
+S03  process → evaluation
+S04  cause layers → turning point
 ```
 
-The shell may change the geometry of the cognitive stage to match the Current semantic shape, but it must not change navigation, source handoff, action placement, or the overall workspace contract.
+Accepted rule:
 
-Pass condition:
+> the shell stays stable; the cognitive geometry changes with the Current semantic shape.
 
-- S02 / S03 / S04 remain understandable without bespoke layouts;
-- no high-value Current field is silently dropped;
-- no generic “card pile” flattening is introduced;
-- no extra learner process is introduced just to accommodate a different semantic shape.
+The Projection must not normalize all four into the same vertical chain or generic card grid.
+
+Pass rationale:
+
+- all four can preserve the same Chapter / Unit navigation, chapter line, action placement and Chengfeng handoff;
+- S02 can use a horizontal branch/process relation rather than a false strict sequence;
+- S03 can use wide comparative evaluation (`achieved / not achieved / why`) rather than a long chain;
+- S04 can preserve causal hierarchy (`root cause / important cause`) before the turning-point relation;
+- no extra learner process is needed;
+- no high-value Current field needs to be dropped.
+
+Next generalization target is a materially different later History chapter, not further bespoke polishing of C01.
 
 ---
 
