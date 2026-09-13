@@ -2,7 +2,7 @@
 
 Status: IN_PROGRESS_EVIDENCE  
 Scope: B — Physiology exact official-question membership  
-Current closed mini-batch: 2013–2016, digestive physiology + energy metabolism / body temperature  
+Current closed mini-batches: **2013–2016 + 2017–2021**, digestive physiology + energy metabolism / body temperature  
 Authority: **evidence ledger only**. `SOURCE.md` remains the B Source owner; `content/xizong/questions/` remains Current Question Truth.
 
 This file must not be used as K/L authority and must not create Question→Block/KP mappings.
@@ -26,7 +26,7 @@ Hard rule:
 
 ---
 
-## 2｜First-party Physiology source regions used in this mini-batch
+## 2｜First-party Physiology source regions used in this audit
 
 Raw source: `27精编生理合集【带导图】.pdf`.
 
@@ -34,12 +34,12 @@ Primary B regions:
 
 - digestive overview / GI motility control — question block around physical PDF P209;
 - oral cavity and esophagus — question block at physical PDF P215;
-- gastric digestion — question block at physical PDF P225;
-- intestinal digestion — `真题解析·肠内消化` in the Current GI section;
-- intestinal absorption — question block at physical PDF P243;
-- energy metabolism and body temperature — Chapter 7, Current question block spanning the late P240s–P254 region.
+- gastric digestion — question block around physical PDF P225–P229;
+- intestinal digestion — Current GI question blocks around physical PDF P230–P239;
+- intestinal absorption — question block around physical PDF P243–P244;
+- energy metabolism and body temperature — Chapter 7, Current question block around physical PDF P245–P255.
 
-Important negative-space rule: a B-owned tested construct may be supported by a general physiology chapter outside these regions. The canonical example in this batch is `2013N1`, taught under transmembrane transport but testing intestinal luminal glucose uptake.
+Important negative-space rule: a B-owned tested construct may be supported by a general physiology chapter outside these regions. Canonical examples are `2013N1` / `2017N1` (intestinal glucose uptake taught with membrane transport), `2020N4` / `2021N136` (B12 absorption mechanism taught with blood), and `2020N5` (hepatic synthetic failure taught with coagulation).
 
 ---
 
@@ -87,13 +87,13 @@ Count: **22 exact qids**.
 
 ### 3.2 Current Question Truth reconciliation
 
-All 22 qids above resolve in Current sharded Question Truth and match the Lecture-attached tested construct closely enough for exact System-membership admission.
+All 22 qids above resolve in Current sharded Question Truth and match the source-tested construct closely enough for exact System-membership admission.
 
 Question Truth classification fields are not used as evidence; they are null/unowned in these Current records. Membership here is reconstructed from first-party Source + Current immutable question identity.
 
 ---
 
-## 4｜Negative-space / collision adjudication
+## 4｜Negative-space / collision adjudication for 2013–2016
 
 ### B-S2P-NEG-001｜2013N1 — INCLUDE despite general-chapter location
 
@@ -142,7 +142,7 @@ Decision: **no Current Source conflict**; discard the temporary concern rather t
 
 ---
 
-## 6｜Mini-batch verdict
+## 6｜Mini-batch verdict: 2013–2016
 
 `S2-PHYS-2013-2016-GI-ENERGY = PASS_BOUNDED`
 
@@ -155,8 +155,136 @@ Meaning:
 - no unresolved blocker remains **inside this mini-batch**;
 - this is **not** an overall Physiology S PASS and **not** a B S PASS.
 
-Next S-only step:
+---
 
-> continue Physiology GI + energy membership for the remaining years, using the same tested-construct / negative-space rule, then audit Physiology endocrine separately.
+## 7｜Closed mini-batch: 2017–2021
+
+### 7.1 Admitted exact qids
+
+Count: **25 exact qids**.
+
+#### 2017 — 5
+
+- `xizong-official-2017-n001` — glucose crossing the intestinal brush border; **B Primary, cross-unit support**.
+- `xizong-official-2017-n008` — intestinal fat absorption; B Primary.
+- `xizong-official-2017-n009` — food oxygen caloric equivalent; B Primary (energy metabolism).
+- `xizong-official-2017-n137` — forms of small-intestinal movement; B Primary.
+- `xizong-official-2017-n141` — sweat physiology; B Primary under thermoregulation.
+
+#### 2018 — 4
+
+- `xizong-official-2018-n007` — gastrin and delayed gastric emptying; B Primary.
+- `xizong-official-2018-n008` — vitamins synthesized by large-intestinal bacteria; B Primary.
+- `xizong-official-2018-n009` — BMR calculation from oxygen consumption / body surface area; B Primary.
+- `xizong-official-2018-n139` — evidence supporting the body-temperature set-point model; B Primary.
+
+#### 2019 — 4
+
+- `xizong-official-2019-n006` — lower esophageal sphincter physiology; B Primary.
+- `xizong-official-2019-n007` — bile salts and fat digestion/absorption; B Primary.
+- `xizong-official-2019-n008` — energy expenditure that cannot ultimately become body heat (external muscular work); B Primary.
+- `xizong-official-2019-n139` — properties/actions/secretion modes of GI hormones; B Primary.
+
+#### 2020 — 6
+
+- `xizong-official-2020-n004` — distal-ileum resection causing megaloblastic anemia through B12 malabsorption; **B Primary, C phenotype interface**.
+- `xizong-official-2020-n005` — cirrhosis causing coagulation disorder through reduced hepatic coagulation-factor synthesis; **B Primary, C coagulation interface**.
+- `xizong-official-2020-n008` — determinant of maximal gastric acid secretory capacity (parietal-cell number); B Primary.
+- `xizong-official-2020-n009` — mixed micelles in intestinal lipid absorption; B Primary.
+- `xizong-official-2020-n010` — strongest non-shivering thermogenic tissue (brown adipose tissue); B Primary.
+- `xizong-official-2020-n139` — factors enhancing gastric emptying after a meal; B Primary.
+
+#### 2021 — 6
+
+- `xizong-official-2021-n008` — physiologic consequence after cholecystectomy relevant to bile concentration/fat digestion; B Primary.
+- `xizong-official-2021-n009` — nutrient whose physical and biological caloric values differ (protein); B Primary.
+- `xizong-official-2021-n118` — GI hormone primarily promoting pancreatic enzyme secretion; B Primary.
+- `xizong-official-2021-n119` — GI hormone primarily promoting pancreatic water/HCO3− secretion; B Primary.
+- `xizong-official-2021-n136` — causes of B12 deficiency through intrinsic-factor / terminal-ileal absorption failure; **B Primary, C phenotype interface**.
+- `xizong-official-2021-n138` — endocrine hormones participating in thermogenesis; B Primary because **thermogenesis is the tested construct**.
+
+### 7.2 Current Question Truth reconciliation
+
+All 25 qids above resolve in Current sharded Question Truth. Their question identities are exact and independent of old classification fields.
+
+The raw Physiology source directly contains these attached official-question identities across the GI, energy/temperature, blood-interface and general-transport regions. Cross-unit admission is therefore evidence-backed rather than inferred from general medical knowledge.
+
+---
+
+## 8｜Negative-space / collision adjudication for 2017–2021
+
+### B-S2P-NEG-007｜2017N1 — INCLUDE; same rule as 2013N1
+
+The question lives with general membrane transport but asks specifically about luminal glucose entry across the intestinal brush border.
+
+Decision: **B Primary**. General transport is the mechanism substrate; the tested organ process is intestinal absorption.
+
+### B-S2P-NEG-008｜2018N1 / 2019N1 / 2020N1 / 2021N1 — EXCLUDE generic control/homeostasis
+
+These questions test generic feedback, steady state, set-point/control, or internal-environment concepts.
+
+Decision: **not B Primary merely because temperature, glucose, hormones or digestion can use those generic control principles**.
+
+`2020N1` is especially useful negative-space evidence: it asks the generic definition of a control-system set point. By contrast `2018N139` explicitly tests the **body-temperature set-point model** and is B energy/temperature Primary.
+
+### B-S2P-NEG-009｜2020N4 — INCLUDE B, do not hand the whole question to C because the answer is “anemia”
+
+The decisive mechanism is loss of terminal-ileal B12 absorption after distal ileal resection. The raw Physiology lecture explicitly reconstructs the `intrinsic factor → ileal B12 absorption → megaloblastic phenotype` chain.
+
+Decision: **B Primary; C Recall/interface for the hematologic phenotype**.
+
+### B-S2P-NEG-010｜2020N5 — INCLUDE B organ-specific interface, not the complete coagulation model
+
+The question asks why a cirrhosis patient develops coagulation disorder. The raw Physiology source explicitly states that the bleeding tendency is mainly due to reduced hepatic synthesis of coagulation factors.
+
+Decision: **B Primary for liver synthetic failure → complication; C retains the complete coagulation-factor cascade and coagulation-disorder model**.
+
+This does not violate `SOURCE.md`: B may own an organ-specific consequence while only recalling the shared coagulation machinery.
+
+### B-S2P-NEG-011｜2021N136 — INCLUDE B absorption etiology, not C full anemia model
+
+The actual decision is which gastric/intrinsic-factor/terminal-ileal failures produce B12 deficiency. The raw Source presents the absorption chain directly.
+
+Decision: **B Primary; C Recall/interface for megaloblastic-anemia phenotype/morphology**.
+
+This differs from deferred `2015N152`, which directly asks which nutrient deficiencies produce megaloblastic anemia and therefore remains a B-vitamin/C-hematology ownership collision until the biochemistry/vitamin boundary is audited.
+
+### B-S2P-NEG-012｜2018N8 / 2021N138 — tested construct outranks entity labels
+
+- `2018N8` mentions vitamins, but tests **large-intestinal bacterial synthesis** → GI physiology, B Primary.
+- `2021N138` lists endocrine hormones, but tests **thermogenic regulation** → energy/temperature, B Primary.
+
+Decision: do not route by option vocabulary.
+
+---
+
+## 9｜Mini-batch verdict: 2017–2021
+
+`S2-PHYS-2017-2021-GI-ENERGY = PASS_BOUNDED`
+
+Meaning:
+
+- 25 exact qids admitted;
+- all 25 resolve in Current Question Truth;
+- two high-risk blood/GI interface cases (`2020N4`, `2021N136`) and one liver/coagulation interface (`2020N5`) were explicitly adjudicated;
+- generic-control false positives were explicitly attacked;
+- no unresolved blocker remains **inside this mini-batch**.
+
+### Running subtotal
+
+`2013–2021 GI + energy/temperature = 47 exact admitted qids`
+
+This subtotal is **not** the final Physiology System scope. Earlier years (2005–2012) and later years (2022–2026) still require the same fresh reconciliation, and Physiology endocrine is a separate S2 sub-batch.
+
+---
+
+## 10｜Next S-only step
+
+Continue:
+
+1. `2005–2012` GI + energy/temperature;
+2. `2022–2026` GI + energy/temperature;
+3. final GI/energy negative-space sweep across all Physiology official questions;
+4. only then start the separate Physiology endocrine membership batch.
 
 K/L/P/R/E remain frozen.
