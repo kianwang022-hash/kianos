@@ -1,0 +1,113 @@
+{
+  "schema": "kianos.lexical.closure_a.r18_owner_resolutions.v1",
+  "purpose": "Resolve the 17 post-R31 R18 ownership ambiguities without inventing duplicate semantic owners. This is Current reconciliation routing, not bulk semantic repair.",
+  "semantic_mutation": 0,
+  "learner_state_mutation": 0,
+  "resolutions": [
+    {
+      "target": "`profile` (`high/low profile`, `raise one’s profile`)",
+      "resolution_type": "WORD",
+      "owner_word_ids": ["word:profile"],
+      "reason": "The learner surface is organized by the noun profile; raise is collocational material, not a competing semantic owner."
+    },
+    {
+      "target": "proposal/propose families",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:proposal", "word:propose"],
+      "reason": "Historical shorthand names a noun/verb lexical family. Preserve both Natural Owners and reconcile them as one family target instead of duplicating one semantic rewrite."
+    },
+    {
+      "target": "`provide A with B`, `provide for`, `provided that`",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:provide", "word:provided"],
+      "reason": "provide owns provide-with/provide-for; lexicalized provided that belongs to the provided form. The grouped historical target legitimately spans both owners."
+    },
+    {
+      "target": "publication/publish",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:publication", "word:publish"],
+      "reason": "Noun/verb family target; both owners are legitimate and must be reconciled without forced single-owner collapse."
+    },
+    {
+      "target": "pursue/pursuit",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:pursue", "word:pursuit"],
+      "reason": "Verb/noun family target; both Current Natural Owners are semantically legitimate."
+    },
+    {
+      "target": "`raise` family (`raise awareness/funds/a question/concern`)",
+      "resolution_type": "WORD",
+      "owner_word_ids": ["word:raise"],
+      "reason": "awareness/funds/question/concern are complements/collocates; the construction family is owned by raise."
+    },
+    {
+      "target": "realize a goal",
+      "resolution_type": "WORD",
+      "owner_word_ids": ["word:realize"],
+      "reason": "Exact American-spelling construction owner exists later in the Current corpus; reconcile to that owner rather than leaving an R18 absence placeholder."
+    },
+    {
+      "target": "rear up/raise",
+      "resolution_type": "COMPOSITE_WORD_RELATION",
+      "owner_word_ids": ["word:rear", "word:raise"],
+      "word_target": "`rear up` — rise onto the hind legs / rise upright; keep as a live rear construction.",
+      "relation_terms": ["rear", "raise"],
+      "relation_target": "`rear` vs `raise` — `rear up` is an intransitive/phrasal rise-upright use; `raise` is the general causative/transitive lift/increase verb. Do not merge the two learner functions.",
+      "reason": "The historical grouped surface mixes a word-local construction with a cross-word selection boundary; split ownership instead of forcing one owner."
+    },
+    {
+      "target": "recognize A as",
+      "resolution_type": "WORD",
+      "owner_word_ids": ["word:recognize"],
+      "reason": "Exact American-spelling owner exists later in Current. British recognise remains a separate spelling/form reconciliation concern and must not absorb this target by accident."
+    },
+    {
+      "target": "relief/relieve families",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:relief", "word:relieve"],
+      "reason": "Noun/verb family target; both owners must be preserved."
+    },
+    {
+      "target": "request/require families",
+      "resolution_type": "WORD_FAMILY",
+      "owner_word_ids": ["word:request", "word:require"],
+      "reason": "The historical shorthand spans two distinct words and their construction families; treat as an explicit multi-owner family reconciliation target, not an ambiguous single owner."
+    },
+    {
+      "target": "project noun vs verb stress",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:project"],
+      "reason": "Same-word noun/verb stress distinction belongs to project form/pronunciation data."
+    },
+    {
+      "target": "protest noun vs verb stress",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:protest"],
+      "reason": "Same-word noun/verb stress distinction belongs to protest form/pronunciation data."
+    },
+    {
+      "target": "queer register and identity",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:queer"],
+      "reason": "Modern identity/register boundary is same-word learner truth and belongs to the queer Word/Identity layer, not a cross-word Relation."
+    },
+    {
+      "target": "record noun vs verb stress",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:record"],
+      "reason": "Same-word noun/verb stress distinction belongs to record form/pronunciation data."
+    },
+    {
+      "target": "refuse noun vs verb stress",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:refuse"],
+      "reason": "True same-spelling heteronym: noun waste vs verb reject. Ownership stays inside refuse form/identity data."
+    },
+    {
+      "target": "research noun vs verb stress",
+      "resolution_type": "WORD_IDENTITY_FORM",
+      "owner_word_ids": ["word:research"],
+      "reason": "Pronunciation/stress information belongs to the research Word/Form owner; semantic noun/verb use remains one systematic-investigation model unless Current evidence requires otherwise."
+    }
+  ]
+}
