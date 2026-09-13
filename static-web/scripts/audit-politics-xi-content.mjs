@@ -75,6 +75,24 @@ function hasAll(haystack, needles) {
   return needles.every((needle) => haystack.includes(needle));
 }
 
+function unitAnswerText(unit) {
+  const direct = String(unit?.answer || asList(unit?.answers).join(' ') || '').trim();
+  if (direct) return direct;
+  const hierarchy = unit?.hierarchy;
+  if (Array.isArray(hierarchy) && hierarchy.length) return textOf(hierarchy);
+  if (hierarchy && typeof hierarchy === 'object' && Object.keys(hierarchy).length) return textOf(hierarchy);
+  return '';
+}
+
+function unitBoundaryText(unit) {
+  return String(
+    unit?.boundary
+    || unit?.hierarchy?.not_role
+    || unit?.hierarchy?.parallel_boundary
+    || ''
+  ).trim();
+}
+
 const requiredSentinels = {
   ch00: ['十个明确', '十四个坚持', '十三个方面成就', '人民至上', '两个结合'],
   ch01: ['实现途径', '行动指南', '根本保障', '精神力量', '三个意味着'],
@@ -137,9 +155,8 @@ for (let index = 0; index <= 17; index += 1) {
 
   for (const unit of unitsOf(raw)) {
     if (!String(unit?.role_question || '').trim()) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:role_question`);
-    const answerText = String(unit?.answer || asList(unit?.answers).join(' ') || '').trim();
-    if (!answerText) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:answer`);
-    if (!String(unit?.boundary || '').trim()) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:boundary`);
+    if (!unitAnswerText(unit)) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:answer_or_hierarchy`);
+    if (!unitBoundaryText(unit)) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:boundary_or_not_role`);
     if (!String(unit?.next || '').trim()) local.push(`THIN_UNIT:${unit?.natural_unit_id || 'UNKNOWN'}:next`);
   }
 
@@ -166,6 +183,7 @@ for (const id of representedUnits) {
 for (const row of regionRows) {
   if (!representedRegions.has(String(row.unified_region_id))) blockers.push({ chapter: 'subject', code: `CANONICAL_REGION_NOT_DECLARED:${row.unified_region_id}` });
   const priority = String(row?.chat_decision?.priority || '');
+  if (!priority && row?.frozen_pilot === true) continue;
   if (!['P0', 'P1', 'P2'].includes(priority)) blockers.push({ chapter: 'subject', code: `UNKNOWN_PRIORITY:${row.unified_region_id}:${priority || 'EMPTY'}` });
   if (priority === 'P2' && row?.p2_provisional !== true) blockers.push({ chapter: 'subject', code: `P2_NOT_PROVISIONAL:${row.unified_region_id}` });
 }
@@ -180,8 +198,16 @@ if (sourceReview?.review_snapshot?.node_registry_canonical_row_digest_sha256 !==
   blockers.push({ chapter: 'subject', code: 'SOURCE_REVIEW_SNAPSHOT_STALE' });
 }
 
-const priorityCounts = Object.fromEntries(['P0', 'P1', 'P2'].map((p) => [p, regionRows.filter((row) => String(row?.chat_decision?.priority || '') === p).length]));
+const priorityCounts = {
+  P0: regionRows.filter((row) => String(row?.chat_decision?.priority || '') === 'P0').length,
+  P1: regionRows.filter((row) => String(row?.chat_decision?.priority || '') === 'P1').length,
+  P2: regionRows.filter((row) => String(row?.chat_decision?.priority || '') === 'P2').length,
+  FROZEN_PILOT: regionRows.filter((row) => row?.frozen_pilot === true && !String(row?.chat_decision?.priority || '')).length
+};
 if (!priorityCounts.P0 || !priorityCounts.P1 || !priorityCounts.P2) blockers.push({ chapter: 'subject', code: `PRIORITY_SHAPE_DRIFT:${JSON.stringify(priorityCounts)}` });
+if (Object.values(priorityCounts).reduce((sum, value) => sum + value, 0) !== regionRows.length) {
+  blockers.push({ chapter: 'subject', code: `PRIORITY_ACCOUNTING_DRIFT:${JSON.stringify(priorityCounts)}` });
+}
 
 const report = {
   status: blockers.length ? 'BLOCKED' : 'PASS',
