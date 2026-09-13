@@ -1,0 +1,37 @@
+{
+  "schema": "kianos.politics.learning.ethics_evidence_review.v1",
+  "status": "ACCEPTED",
+  "scope": "ETHICS_C00_C06_EVIDENCE",
+  "model_audit": {
+    "chapters": 7,
+    "unit_return_configs": 20,
+    "question_evidence_slots": 164,
+    "checks": 209,
+    "failures": 0
+  },
+  "first_real_failure": {
+    "code": "ethics_e_event_repair_source_anchor",
+    "meaning": "Ethics Wrong/Uncertain events preserved attempt meaning but lacked stable repair-source provenance because the generic Evidence enhancer was not mounted for Ethics-Law."
+  },
+  "repair": {
+    "owner": "static-web/src/pages/politics/[subject]/[chapter].astro",
+    "change": "Mount the existing generic PoliticsEvidenceEnhancer for ethics_law in addition to Mao/Xi.",
+    "schema_changed": false,
+    "duplicated_logic": false
+  },
+  "browser_evidence": {
+    "checks": 28,
+    "failures": 0,
+    "clean_stable_no_debt": true,
+    "wrong_uncertain_distinct": true,
+    "repair_source_provenance": true,
+    "first_attempt_immutable": true,
+    "return_packet_provenance_survives_later_navigation": true,
+    "persistence_failure_fails_closed": true
+  },
+  "boundaries": {
+    "mastery_claim": "NONE",
+    "later_transfer": "NOT_EXECUTED_IN_FIRST_ROUND_E",
+    "user_validation": "UNTESTED_REAL_USER_ONLY"
+  }
+}
