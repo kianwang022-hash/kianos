@@ -4,6 +4,104 @@ Status: CURRENT
 
 This file owns durable Politics learning semantics. It defines how Current Politics content should be learned and projected. It does not own source facts, exam questions, or private learner state.
 
+## 0. Exam objective function — the reason this lane exists
+
+Politics is not being built to become a complete political-theory knowledge system. Its learner-facing purpose is narrower:
+
+> **Help Kian reach a reliable 70+ Politics score, with 75+ as the working target, while consuming the least study time compatible with durable exam performance.**
+
+Every Politics learning, content, UI, Runtime, Review, Memory, and engineering decision is subordinate to that outcome.
+
+The optimization target is therefore not maximum coverage, maximum explanation, maximum source integration, or maximum product polish. It is:
+
+```text
+expected exam points gained or protected
+÷
+learner time + future review debt + switching/friction cost
+```
+
+A learner-facing action or asset earns its place only when it materially improves at least one of:
+
+1. answer accuracy;
+2. discrimination of confusable options/statements;
+3. retrieval speed under exam conditions;
+4. transfer from known principles to unfamiliar material;
+5. analysis-answer generation later in the preparation cycle;
+6. repair efficiency after real Wrong / Uncertain evidence.
+
+If it does none of these, it is not required merely because the architecture can support it.
+
+### 0.1 Score architecture
+
+Current preparation uses a reliability-first score model for the national Politics paper:
+
+```text
+70+ floor strategy
+≈ objective 40+ / 50
++ analysis 30+ / 50
+
+75+ working strategy
+≈ objective 42–44 / 50
++ analysis 31–34 / 50
+```
+
+These are **planning targets, not score guarantees**. The reason to bias early learning toward objective accuracy is that objective scoring is deterministic and depends heavily on exact distinctions, relations, chronology, scope and option discrimination. Analysis performance becomes a separate later output task; it must not force first-round study to become premature recitation.
+
+If the official exam structure materially changes, this score model must be revalidated rather than treated as timeless truth.
+
+### 0.2 Phase responsibility — do not make every phase do everything
+
+Politics learning is deliberately asymmetric across time:
+
+1. **First-round understanding / objective engine**  
+   Build the smallest coherent model needed to understand Chengfeng, distinguish options and use Xiao1000 as transfer evidence. Heavy answer-template memorization is out of scope here.
+2. **Consolidation / evidence repair**  
+   Revisit Wrong / Uncertain evidence, compress recurring distinctions and admit only justified Memory/Precision debt.
+3. **Analysis-output phase**  
+   Use approved later-phase recitation/current-affairs sources to build source-grounded answer frameworks, fixed formulations and material-to-principle output skill. This is a real score channel and must not be left as a vague consequence of first-round understanding.
+4. **Mock / final compression**  
+   Train time-bounded retrieval, whole-paper switching, answer completion and last-mile high-yield memory.
+
+A strong first round should make later memorization smaller and more structured; it does not eliminate later memorization.
+
+### 0.3 Hard stop / anti-overengineering rule
+
+Engineering is allowed only to reduce learner cost or protect score-relevant behavior.
+
+Once a learner path is technically sufficient for real use:
+
+```text
+real study / U evidence
+>
+more architecture
+>
+more polish
+```
+
+Do not delay actual study in order to perfect a schema, page, component family, semantic asset, or governance layer whose incremental exam value has not been demonstrated.
+
+Before expanding a reference implementation, ask:
+
+- What concrete learner friction or score failure does this prevent?
+- How much future study/review time does it remove?
+- Could the same gain be achieved by simply studying or doing questions?
+- What real-use evidence would justify keeping or deleting it?
+
+If those questions do not have a convincing answer, stop building.
+
+### 0.4 Compression means fewer future operations
+
+A Politics compression asset is valuable only when it removes future learner work. Useful compression should reduce at least one of:
+
+- rereading source pages;
+- rebuilding the same relation from scratch;
+- repeated confusion between near-neighbor options;
+- time spent locating the repair source;
+- future memorization volume;
+- time needed to generate a structured analysis answer later.
+
+Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.
+
 ## 1. Product model
 
 Politics follows the repository-wide causal chain:
@@ -25,9 +123,11 @@ The learner path may cross Chat, Astro, and the original iPad/MarginNote lecture
 
 The active first-round chain is:
 
-`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure → Xiao1000 verification in Astro/KianOS web → wrong/uncertain source repair → Unit/Block compression → later Memory/Mock`
+`Chat/Astro Orientation → Chengfeng Natural Unit continuous learning on original iPad/MarginNote lecture surface → natural checkpoint/closure when it adds retrieval value → Xiao1000 verification in Astro/KianOS web → wrong/uncertain source repair → Unit/Block compression when it removes future work → later Memory/analysis-output/Mock`
 
 This supersedes learner-facing flows that treat Suyi, Chengfeng, and Xiao1000 as parallel courses, and it also supersedes any implementation that turns Astro into a substitute continuous Chengfeng lecture reader.
+
+A checkpoint is not mandatory after every small source fragment. Preserve Chengfeng continuity and interrupt only at a genuine Natural Unit/natural subsection closure or when retrieval/verification value justifies the switch. A simple stable Unit may move almost directly from source closure to Xiao1000 verification.
 
 ### Source roles
 
@@ -74,13 +174,14 @@ It must not duplicate the Chengfeng source into a second AI textbook or a second
 
 1. **Chapter Orientation** — where this chapter sits, what question it solves, and how its major parts connect.
 2. **NU Teaching Bridge** — a short `FROM_PREVIOUS → WHY_NOW → CORE_PROBLEM → NEXT` transition before/inside the owning Natural Unit.
-3. **Compression** — reconstructs a completed Unit/Block/Chapter into a small number of durable relations.
+3. **Compression** — reconstructs a completed Unit/Block/Chapter into a small number of durable relations and should reduce later rereading/reconstruction cost.
 4. **Repair Guidance** — sends a wrong/uncertain answer back to the smallest sufficient owning source location.
 
-Only create an asset when it improves learning. Do not materialize empty module structures for completeness.
+Only create an asset when it improves learning or removes future work. Do not materialize empty module structures for completeness.
 
 ## 4. First-round interaction principles
 
+- **Score/time first:** the shortest path that preserves exam-relevant understanding, discrimination and transfer beats a richer path with no demonstrated score benefit.
 - **One mainline only:** the learner should feel that they are continuously learning Chengfeng, not switching among three teachers or maintaining two lecture readers.
 - **Original-surface continuity:** continuous Chengfeng reading/study belongs to the original iPad/MarginNote lecture surface. Astro surrounds that action; it does not absorb it.
 - **Low friction:** stable correct understanding should pass quickly. Extra content appears only when it adds value.
@@ -90,6 +191,7 @@ Only create an asset when it improves learning. Do not materialize empty module 
 - **Repair depth matches failure depth:** a hat/wording confusion should not reopen an entire Natural Unit; a broken concept relation may reopen a Teaching Bridge; a broken unit model may reopen the owning Chengfeng unit on its original source surface.
 - **Question-bank subordination:** question counts, unlock counts, and coverage must not dominate first-round attention hierarchy.
 - **Memory later:** first-round display should not make static memory counts a primary task. Precision/Memory becomes prominent when the learning phase actually requires it.
+- **No mandatory ritual:** Orientation, Recall, closure, source handoff and UI state transitions are tools, not ceremonies. Skip or compress them when they do not materially improve retrieval or transfer.
 - **No learner-facing scheduler internals:** fixed labels such as D1/D3/D7/D14 are not an active Politics learner contract. Review should present useful tasks and reasons, not scheduler implementation details.
 
 ## 5. Xiao1000 verification and repair
@@ -134,7 +236,7 @@ A question may test more than one knowledge node. Repair therefore distinguishes
 
 The current learning chain repairs the **current-unit failure** first. Cross-unit hits are retained as evidence/context, not used to inflate the current Unit.
 
-## 6. Review / Memory / Mock
+## 6. Review / Memory / Analysis Output / Mock
 
 Review is evidence-driven and may use elapsed time, but no fixed Politics cadence is frozen as learner-facing truth.
 
@@ -146,7 +248,8 @@ Later review may include:
 - wrong/uncertain question retest;
 - exact source repair;
 - later precision-memory work;
-- Mock transfer.
+- analysis-answer framework / material-to-principle output practice;
+- timed Mock transfer.
 
 The learner should see **what to do and why**, not scheduler internals.
 
@@ -160,10 +263,11 @@ A rich explanation, a useful analogy, or a Chat-generated relation is not by its
 
 Memory candidates should preferentially come from a **designated memory source/handbook** when one is available and approved for the learner. The designated source is a memory-admission/cross-check source, not a replacement continuous course. If that source has not been bound or inspected, mark handbook alignment as pending; never claim that a point appears there from model memory.
 
-A source-grounded candidate becomes durable review debt only when at least one of these is true:
+A source-grounded candidate becomes durable review debt when at least one of these is true:
 
-1. the designated memory source explicitly confirms it as a fixed retention target; or
-2. Wrong/Uncertain evidence shows that exact retention of this source-grounded boundary/hat/list/identity/timeline/legal wording is needed.
+1. the designated memory/analysis-output source explicitly confirms it as a fixed retention target;
+2. Wrong/Uncertain evidence shows that exact retention of this source-grounded boundary/hat/list/identity/timeline/legal wording is needed; or
+3. the later analysis-output phase requires that exact source-grounded formulation/framework for reliable written production.
 
 Default non-admission cases include:
 
@@ -175,6 +279,25 @@ Default non-admission cases include:
 Precision is narrower still. A question may produce conceptual repair without producing any Precision candidate.
 
 Optional chapter-level `*.memory.json` sidecars may hold sparse, source-grounded candidates without making them first-round learner-facing content. Sidecars exist only where validation demonstrates a real need; do not materialize them across every chapter for schema completeness.
+
+### 6.2 Analysis-output is a separate score channel
+
+First-round understanding and Xiao1000 performance do not by themselves prove that the learner can produce high-scoring analysis answers.
+
+Later analysis preparation must deliberately train:
+
+```text
+material cue
+→ identify owning principle / political position
+→ choose a small answer framework
+→ retrieve source-grounded formulation
+→ connect formulation back to the material
+→ produce complete time-bounded prose
+```
+
+The later phase may proactively admit source-grounded formulations from an approved recitation/current-affairs source even before a Wrong event, because written production has different retrieval requirements from multiple-choice recognition.
+
+Do not import the full later recitation burden into first-round Chengfeng study merely to feel safe.
 
 ## 7. Astro boundary
 
