@@ -67,7 +67,7 @@ jobs:
               'complexity':'rich_polysemy',
               'sentinels':['GLOSS_LIST_CORE_NOT_PREDICTIVE','OF_OWN_ACCORD_AND_GRANT_BRANCH_NEED_ROUTING'],
               'material_changes':[
-                  'Replace the weak “agreement or granting” gloss pair with a structured agreement/match versus formal-grant model.',
+                  'Replace the weak agreement-or-granting gloss pair with a structured agreement/match versus formal-grant model.',
                   'Promote in accord with, of one’s own accord, accord with, and accord something to someone as explicit retrieval frames.'
               ],
               'core_concept':{
@@ -98,8 +98,7 @@ jobs:
 
           for n in range(38,65):
               if n in upgrades:
-                  row = old[n]
-                  row = json.loads(json.dumps(row))
+                  row = json.loads(json.dumps(old[n]))
                   row.pop('relations', None)
                   owners.append(row)
               else:
@@ -131,11 +130,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          BATCH="$PWD/content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json"
           python .tmp-lexical-tools/lexical_fresh_rebuild_batch.py \
-            content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json \
+            "$BATCH" \
             --report content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-apply.json
           python .tmp-lexical-tools/lexical_fresh_rebuild_batch.py \
-            content/lexical/audit/vnext-content-execution/wave03-shard01-o0037-o0064-input.json \
+            "$BATCH" \
             --report /tmp/wave03-shard01-verify.json --verify-accepted
 
       - name: Validate JSON corpus
