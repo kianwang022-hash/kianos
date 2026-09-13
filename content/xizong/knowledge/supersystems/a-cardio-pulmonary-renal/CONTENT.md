@@ -1,207 +1,185 @@
 # A · Cardio–Pulmonary–Renal Macro-Domain Content
 
-Status: **CONTENT CANDIDATE · fresh SELF+ADVERSARIAL audit · UI/LEARN NOT ADMITTED**  
+Status: **CONTENT FROZEN · fresh SELF+ADVERSARIAL re-acceptance · LEARN/UI NOT ADMITTED**  
 Logic owner: `LOGIC.md`  
-Medical Core owners remain A1/A2/A3 System + Block/KP owners.
+Medical Core remains fully owned by A1/A2/A3 System + Block/KP owners and named external domains.
 
-This file is intentionally small. Its job is not to teach heart, lung and kidney again. It defines the **minimum learner-meaningful cross-System compression** that may later be projected if doing so reduces total study/review cost for the 306 西医综合 275+ target.
+## 0｜Fresh Content verdict
 
-## 0｜Content admission rule
+The strongest minimality attack was to delete all proposed A-level teaching and ask what medical truth was actually lost.
 
-A-level Content is admitted only when all are true:
+Result:
 
-- the relation genuinely crosses child-System boundaries;
-- the child Core already preserves all detailed medical truth;
-- one compact representation reduces reconstruction, confusion or repeated review;
-- the learner does not need a second Lecture to understand it;
-- deleting the A-level representation would make cross-System retrieval materially worse.
+> **No new A-level teaching course is required.**
 
-Hard boundary:
+A1/A2/A3 already contain the detailed cross-System mechanisms needed for 306. Creating another explanatory layer would mostly restate child Content and increase learner burden.
+
+Therefore:
+
+```text
+Default learner-facing A Content = 0
+```
+
+A-level Content is restricted to **optional reactivation cues + owner routing**. These cues introduce no new medical truth; they only help recover or route already-owned knowledge when cross-System reasoning makes that useful.
+
+Hard rule:
 
 > **Minimize learner burden, not Knowledge Truth.**
 
-Anything not admitted here remains with its canonical child/external owner. Absence from A-level Content never means semantic deletion.
+Omission from A-level projection never deletes or deprecates child knowledge.
 
 ---
 
-## 1｜Learner-facing compression candidate A · Oxygen delivery localization
+## 1｜Eligible reactivation cue · A1 ↔ A2
 
-### Minimum model
+Short cue only:
 
-```text
-lung oxygenation
-→ arterial O₂ state / content
-× circulation flow / distribution
-→ tissue O₂ delivery
-```
+> **Poor tissue O₂ delivery can come from oxygenation, O₂-carrying content, flow/distribution, or tissue-use/demand problems; do not collapse them into one “hypoxia” bucket.**
 
-### One discrimination worth preserving
-
-When a case says “hypoxia / poor oxygen delivery”, do not collapse these into one problem:
-
-```text
-1. oxygenation failure
-   → lung / ventilation–exchange problem
-
-2. O₂-content failure
-   → Hb / carrying-capacity problem; PaO₂ may be normal
-
-3. flow / perfusion failure
-   → cardiac output or blood-flow distribution problem
-
-4. tissue-use / demand mismatch
-   → external metabolic / systemic interface
-```
-
-### Canonical routing
+Owner routing:
 
 - pulmonary exchange / PaO₂ / SaO₂ / gas transport → **A2 Block 2**;
 - CO / pressure / flow distribution / perfusion → **A1 circulation Core**;
 - Hb / RBC mass → **C / Hematology**;
 - tissue metabolic demand / utilization → **B / metabolic interface** when required.
 
-### Burden ceiling
+Why no A-level lesson:
 
-Do **not** add:
+A2 Block 2 already teaches the oxygenation/Hb/tissue-use distinctions and explicitly calls circulation for pulmonary flow, CO and tissue-delivery interface. Re-teaching that chain at A level would be duplicate Content.
 
-- a second gas-transport lesson;
-- a second circulation lesson;
-- a memorization list of causes;
-- an independent A-level question set.
-
-The useful A-level content is the localization distinction itself.
+Disposition: **KEEP as optional reactivation/localization cue; DELETE standalone A-level teaching module.**
 
 ---
 
-## 2｜Learner-facing compression candidate B · Perfusion ↔ volume feedback
+## 2｜Eligible reactivation cue · A1 ↔ A3
 
-### Minimum model
+Short cue only:
 
-```text
-CO / arterial pressure
-→ renal perfusion
-→ renal perfusion/NaCl sensing
-→ RAAS + renal Na-water response
-→ effective circulating volume
-→ venous return / preload / vascular load
-→ future circulation
-```
+> **Circulation sets renal perfusion; kidney Na-water/RAAS responses help set the future circulation volume state. Congestion can coexist with low effective arterial circulation.**
 
-### Two discriminations worth preserving
+Owner routing:
 
-**A. cause and compensation are bidirectional**
+- circulation regulation / preload / afterload / heart failure / shock → **A1 B2 / B11 / B12**;
+- renal perfusion sensing / RAAS renal side / Na-water handling / AKI-CKD consequences → **A3 B1 / B4 / B7**.
 
-```text
-circulation sets renal perfusion
-↔
-kidney helps set the future volume state of circulation
-```
+Why no A-level lesson:
 
-**B. total fluid excess does not guarantee effective perfusion**
+A1 B2 already includes the kidney-fluid system in long-term ECF/blood-volume regulation, while A3 owns the renal side. The only potential A-level value is later reactivation/deduplication, not first teaching.
 
-```text
-congestion / edema can coexist with
-low effective arterial circulation and renal Na-water retention
-```
-
-This is why heart failure can show both congestion and continued renal retention without contradiction.
-
-### Canonical routing
-
-- circulation regulation, preload/afterload, heart failure, shock → **A1 B2 / B11 / B12** as appropriate;
-- renal perfusion sensing, RAAS renal side, Na-water handling, AKI/CKD consequences → **A3 B1 / B4 / B7** as appropriate.
-
-### Burden ceiling
-
-Do **not** build another RAAS chapter, another heart-failure chapter or another AKI chapter.
-
-A-level value is only the closed feedback representation that avoids relearning the same loop from two separate directions.
+Disposition: **KEEP as optional feedback cue; DELETE standalone RAAS/cardiorenal teaching module.**
 
 ---
 
-## 3｜Routing-only seam · CO₂ / acid–base
+## 3｜Routing-only seam · A2 ↔ A3
 
-The A2↔A3 relation is real, but it does **not** earn a standalone A-level teaching module.
+Short cue only:
 
-Minimum routing cue:
-
-```text
-PaCO₂ = respiratory component
-HCO₃⁻ / H⁺ handling = renal-metabolic component
-→ same pH / compensation / mixed-process problem
-```
+> **PaCO₂ is the respiratory side of the acid–base problem; HCO₃⁻/H⁺ handling is the renal-metabolic side.**
 
 Canonical owner:
 
 > **A3 Block 5 remains the unique complete Primary for acid–base integration.**
 
-A2 provides the respiratory PaCO₂ input. A-level Content may point across the seam but must not recreate expected-compensation, AG/delta or mixed-disorder teaching.
+A2 supplies the PaCO₂ / respiratory input. Expected compensation, AG/delta and mixed-disorder diagnosis are not repeated here.
 
-Disposition: **DEMOTE to routing/compression only.**
+Disposition: **DEMOTE to routing-only. No A-level acid–base teaching module.**
 
 ---
 
-## 4｜Important cross-System knowledge deliberately NOT promoted to A-level learner Content
+## 4｜Secondary cross-System relations: preserved, not promoted
 
-| Valid relation | Why it matters | Canonical owner / destination | A-level disposition |
-| --- | --- | --- | --- |
-| pulmonary HTN / PE / RV load | links pulmonary vascular resistance to right-heart hemodynamics | A2 R9 Primary + A1 mechanics Recall | backend/indexable route; no new module |
-| K⁺ / Ca²⁺ → cardiac excitability / ECG | high-value danger and confusable interface | A3 B5 + A1 electrical/ECG Core | retrieval/repair route only |
-| shock → renal hypoperfusion / AKI | common cross-organ consequence | A1 B12 + A3 B7 | composition; no parent course |
-| CKD volume overload / cardiopulmonary consequences | important systemic consequence | A3 B7 + route to A1/A2 | child-owned; later routing only |
-| heart failure → pulmonary congestion | classic cardio-pulmonary consequence | A1 B11 with A2 interface | composition; no duplicate teaching |
-| chronic respiratory disorder ↔ renal compensation | genuine acid–base coupling | A3 B5 Primary + A2 input | routing-only seam |
-| anemia with normal PaO₂ but low O₂ content | critical oxygen-delivery confusable | C/Hematology + A2 gas-transport language | external interface, not A medical Core |
-| sepsis / MODS | crosses circulation, lung, kidney plus inflammation/metabolism | C/B + affected A child owners | outside A-only Content |
+| Valid relation | Canonical owner / destination | A-level disposition |
+| --- | --- | --- |
+| pulmonary HTN / PE / RV load | A2 R9 Primary + A1 mechanics Recall | backend/indexable route only |
+| K⁺ / Ca²⁺ → cardiac excitability / ECG | A3 B5 + A1 electrical/ECG Core | retrieval/repair route only |
+| shock → renal hypoperfusion / AKI | A1 B12 + A3 B7 | composition; no parent course |
+| CKD volume overload / cardiopulmonary consequences | A3 B7 + route to A1/A2 | child-owned; route only |
+| heart failure → pulmonary congestion | A1 B11 + A2 interface | composition; no duplicate teaching |
+| chronic respiratory disorder ↔ renal compensation | A3 B5 Primary + A2 input | routing-only seam |
+| anemia with normal PaO₂ but low O₂ content | C/Hematology + A2 gas-transport language | external interface |
+| sepsis / MODS | C/B + affected A child owners | outside A-only Content |
 
-Semantic reconciliation rule:
+Semantic reconciliation:
 
-> **DEMOTE / omit from A-level surface ≠ delete.** Every valid relation above stays canonical in the named owner and may be surfaced later only when learner evidence requires it.
+> **DEMOTE / omit from A-level surface ≠ delete.**
+
+All valid information remains canonical in the named owner. A-level UI/repair may route to it later without moving medical ownership upward.
 
 ---
 
 ## 5｜Coverage Floor
 
-A-level Content is complete enough only if it preserves access to:
+Content is accepted only because the complete Knowledge Truth remains available through the child/external owners above.
 
-- the two admitted compression models;
-- the acid–base routing seam;
-- all important secondary cross-System relations through explicit owner routing;
-- external Hb/RBC, metabolic-demand, autonomic/endocrine, inflammation/infection interfaces without stealing their ownership;
-- child medical Core in full even when the A-level projection is highly selective.
+Coverage requires:
 
-Question mapping may support later verification but may not define this floor; reviewed Question→Knowledge relations are not exhaustive enough to prove negative space is empty.
+- A1/A2/A3 child Core remains intact;
+- the three pairwise interface families remain routable;
+- important secondary relations have explicit destinations;
+- external Hb/RBC, metabolic-demand, autonomic/endocrine and inflammation/infection inputs retain their own owners;
+- sparse reviewed Question→Knowledge relations are never treated as proof that negative space is empty.
+
+No canonical knowledge is removed by making A-level projection thin.
 
 ---
 
 ## 6｜Burden Ceiling
 
-A-level Content must remain dramatically smaller than any child System.
-
-It creates:
+A-level Content creates:
 
 - **0 new KP identities**;
-- **0 independent facts that require a separate memorization queue**;
+- **0 new medical Primary**;
+- **0 independent fact list**;
 - **0 independent question quota**;
 - **0 mandatory Recall schedule**;
-- **0 new medical Primary**;
-- **0 requirement that all three seams receive equal learner-facing space**.
+- **0 completion requirement**;
+- **0 requirement to expose all three seams at once**.
 
-A future projection is allowed to show even less than this file. Backend/canonical richness may exceed learner-facing richness.
+The three short cues above are **eligible**, not mandatory. Learn/UI may show none, one, or several depending on phase and learner evidence.
 
-If this Content becomes long enough to feel like a fourth course, it has failed.
+Stable-correct learners must never be forced to re-read child knowledge through A merely to satisfy architecture.
 
 ---
 
-## 7｜Content acceptance questions before Learn/UI
+## 7｜Strongest Content attacks survived
 
-Before freezing Content, attack it with these questions:
+### Completeness attack
 
-1. Can either learner-facing compression be deleted with no material loss in cross-System retrieval?
-2. Is any sentence merely repeating what one child already teaches sufficiently?
-3. Are there high-value cross-System confusables missing from the routing table?
-4. Does any omitted relation silently lose its canonical owner or learner repair path?
-5. Does the content help second-round/final-sprint compression more than it adds first-round burden?
-6. Could the eventual learner-facing version be substantially smaller than this canonical Content file?
+Pulmonary hemodynamics/right heart, electrolyte→ECG, shock→AKI, CKD cardiopulmonary consequences, heart-failure congestion, anemia/O₂-content and sepsis/MODS were all used as negative-space attacks.
 
-Only after those survive should Learn/UI decide **when or whether** the learner sees any of it.
+Verdict: important, but each retains an explicit canonical owner; none requires a new A-level teaching block.
+
+### Minimality attack
+
+Delete the proposed A-level oxygen-delivery and perfusion-volume mini-lessons entirely.
+
+Verdict: child Knowledge Truth remains complete. Therefore the explanatory mini-lessons were **negative compression** and were removed. Only short retrieval/routing cues survive.
+
+### Ownership attack
+
+Cross-System relation does not automatically earn parent ownership.
+
+Verdict: complete acid–base stays A3 B5; pulmonary vascular/right-heart stays A2 R9; AKI/CKD stays A3 B7; shock stays A1 B12.
+
+---
+
+## 8｜Frozen Content decision
+
+```text
+A-level canonical Content is NOT a fourth course.
+Default learner-facing A Content = 0.
+Only three short cross-System reactivation/routing cues are eligible for later projection:
+  A1↔A2: oxygen-delivery localization cue
+  A1↔A3: perfusion↔volume feedback cue
+  A2↔A3: acid–base routing cue
+All detailed medicine stays in child/external owners.
+Secondary seams remain routable but are not promoted.
+```
+
+Next stage must not ask “how do we show all of this?”
+
+It must ask:
+
+> **Learn/UI｜In which real learner states, if any, does surfacing one of these cues save more time/errors than staying invisible?**
+
+If no such state exists, the correct UI projection is no A-level learning surface.
