@@ -1,11 +1,11 @@
 # Politics History C01 — Cognitive Projection Pilot
 
-Status: ACTIVE DESIGN PILOT  
+Status: HISTORY GRAMMAR FROZEN / IMPLEMENTATION NOT STARTED  
 Parent: `static-web/POLITICS_PRODUCT_BRIEF.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Current content owner: `content/politics/learning/history/ch01.json`
 
-This file owns the learner-visible design decisions for the History C01 Cognitive Projection pilot. It does not change Politics Learning Logic, Current Content, Natural Unit ownership/order, Xiao1000 ownership, Evidence, Repair, or Return semantics.
+This file owns the learner-visible design decisions for the History C01 Cognitive Projection pilot and the accepted History grammar inferred from cross-chapter generalization. It does not change Politics Learning Logic, Current Content, Natural Unit ownership/order, Xiao1000 ownership, Evidence, Repair, or Return semantics.
 
 ---
 
@@ -236,9 +236,11 @@ This is a design target, not a rule that every Natural Unit must have zero scrol
 
 ---
 
-# C01 Intra-chapter Projection Generalization Check — PASS
+# History Projection Grammar — FROZEN
 
-C01-S01 / S02 / S03 / S04 can use the same Natural Unit shell without extra learner steps or bespoke page artwork.
+## C01 intra-chapter generalization — PASS
+
+C01-S01 / S02 / S03 / S04 use the same Natural Unit shell without extra learner steps or bespoke page artwork.
 
 Current cognitive shapes remain distinct:
 
@@ -255,16 +257,73 @@ Accepted rule:
 
 The Projection must not normalize all four into the same vertical chain or generic card grid.
 
-Pass rationale:
+## Cross-chapter generalization — C06 PASS
 
-- all four can preserve the same Chapter / Unit navigation, chapter line, action placement and Chengfeng handoff;
-- S02 can use a horizontal branch/process relation rather than a false strict sequence;
-- S03 can use wide comparative evaluation (`achieved / not achieved / why`) rather than a long chain;
-- S04 can preserve causal hierarchy (`root cause / important cause`) before the turning-point relation;
-- no extra learner process is needed;
-- no high-value Current field needs to be dropped.
+History C06 (`content/politics/learning/history/ch06.json`) is materially denser than C01 and introduces additional semantic shapes:
 
-Next generalization target is a materially different later History chapter, not further bespoke polishing of C01.
+```text
+process
+boundary
+mechanism
+cause_layers
+historical_gain
+turning_point
+```
+
+The accepted Mac-wide grammar still carries these without a new learner workflow or bespoke page artwork.
+
+Representative dispositions:
+
+```text
+C06-S04
+parallel mechanisms
+→ shared long-war / organizational capability
+→ turning point
++ explicit boundary
+
+C06-S05
+cause layers | historical gains | postwar turning point
+```
+
+The Mac viewport should expose genuinely parallel mechanisms side by side rather than serializing them into a false sequence.
+
+Example semantic principle:
+
+```text
+全面抗战路线
+持久战判断
+敌后战场 / 根据地
+统一战线中的团结 + 独立自主
+群众工作 / 根据地建设 / 党的建设
+            ↓
+共同形成长期抗战能力
+```
+
+Do not render this as `机制1 → 机制2 → 机制3...` unless Current actually expresses sequence.
+
+For `cause_layers + historical_gain + turning_point`, wide composition may use simultaneous columns rather than vertical stacking when this preserves the Current relation more clearly.
+
+## Frozen History grammar vocabulary
+
+History Projection may express Current through a bounded vocabulary of semantic geometries such as:
+
+```text
+chronology / stage line
+parallel causes
+causal chain
+multi-layer process
+turning point
+cause hierarchy
+evaluation comparison
+boundary compare
+parallel mechanisms
+historical gains / significance
+next-stage bridge
+```
+
+This is not a requirement that each Unit use every geometry. Projection chooses only structures actually supported by Current.
+
+History grammar is now sufficiently generalized for implementation planning. Do not continue bespoke polishing of History before the other Politics subject grammars are reviewed.
 
 ---
 
