@@ -125,8 +125,102 @@
       "next": "第二章把目标和道路搭好以后，第三章追问最根本的政治保证：谁领导这套事业。"
     }
   ],
+  "content_support": {
+    "role": "BACKEND_CONTENT_COMPLETENESS_NOT_SECOND_LECTURE",
+    "active_structures": [
+      {
+        "natural_unit_id": "POL27-CF-XI-C02-S01",
+        "name": "中国梦的本质与现代化战略安排",
+        "items": [
+          "中国梦的本质：国家富强、民族振兴、人民幸福",
+          "国家富强、民族振兴是人民幸福的前提和保障；人民幸福是根本目的、归宿、出发点和落脚点",
+          "第一步：到2035年基本实现社会主义现代化",
+          "第二步：到21世纪中叶把我国建设成为富强民主文明和谐美丽的社会主义现代化强国"
+        ],
+        "source_refs": ["POL27-CF-XI-C02-K01-N02", "POL27-CF-XI-C02-K01-N02-I01", "POL27-CF-XI-C02-K01-N02-I02", "POL27-CF-XI-C02-K03-N01", "POL27-CF-XI-C02-K03-N02"]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C02-K05",
+        "name": "中国式现代化的五个中国特色",
+        "items": [
+          "人口规模巨大的现代化——显著特征",
+          "全体人民共同富裕的现代化——本质特征",
+          "物质文明和精神文明相协调的现代化——崇高追求",
+          "人与自然和谐共生的现代化——鲜明特点",
+          "走和平发展道路的现代化——突出特征"
+        ],
+        "source_refs": [
+          "POL27-CF-XI-C02-K05-N01-I01",
+          "POL27-CF-XI-C02-K05-N01-I02",
+          "POL27-CF-XI-C02-K05-N01-I03",
+          "POL27-CF-XI-C02-K05-N01-I04",
+          "POL27-CF-XI-C02-K05-N01-I05"
+        ]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C02-K06",
+        "name": "中国式现代化的本质要求",
+        "items": [
+          "坚持中国共产党领导",
+          "坚持中国特色社会主义",
+          "实现高质量发展",
+          "发展全过程人民民主",
+          "丰富人民精神世界",
+          "实现全体人民共同富裕",
+          "促进人与自然和谐共生",
+          "推动构建人类命运共同体",
+          "创造人类文明新形态"
+        ],
+        "source_refs": ["POL27-CF-XI-C02-K06-N01-TBL01"]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C02-K08",
+        "name": "推进中国式现代化的五项重大原则",
+        "items": [
+          "坚持和加强党的全面领导",
+          "坚持中国特色社会主义道路",
+          "坚持以人民为中心的发展思想",
+          "坚持深化改革开放",
+          "坚持发扬斗争精神"
+        ],
+        "source_refs": ["POL27-CF-XI-C02-K08", "POL27-SY-XI-P066-B082"]
+      },
+      {
+        "natural_unit_id": "POL27-CF-XI-C02-K09",
+        "name": "推进中国式现代化要正确处理的六个重大关系",
+        "items": [
+          "顶层设计与实践探索",
+          "战略与策略",
+          "守正与创新",
+          "效率与公平",
+          "活力与秩序",
+          "自立自强与对外开放"
+        ],
+        "source_refs": ["POL27-CF-XI-C02-K09", "POL27-SY-XI-P066-B086", "POL27-SY-XI-P066-B090", "POL27-SY-XI-P066-B097"]
+      }
+    ],
+    "active_boundaries": [
+      {
+        "name": "四组高频固定结构不可互换",
+        "items": [
+          "中国特色：回答中国式现代化是什么样",
+          "本质要求：回答根本上必须坚持和实现什么",
+          "重大原则：回答推进过程中必须怎样把握",
+          "重大关系：回答复杂张力怎样辩证处理"
+        ],
+        "source_refs": ["POL27-CF-XI-C02-K05", "POL27-CF-XI-C02-K06", "POL27-CF-XI-C02-K08", "POL27-CF-XI-C02-K09"]
+      }
+    ],
+    "suyi_dispositions": [
+      {"source_ref": "POL27-SY-XI-P066-B082", "disposition": "PROMOTE_EXACT_STRUCTURE", "reason": "Chengfeng shard only保留重大原则 owner，苏一节点提供完整五项，补 backend 不另开课程。"},
+      {"source_ref": "POL27-SY-XI-P066-B086", "disposition": "PROMOTE_EXACT_STRUCTURE", "reason": "补重大关系 1–2。"},
+      {"source_ref": "POL27-SY-XI-P066-B090", "disposition": "PROMOTE_EXACT_STRUCTURE", "reason": "补重大关系 3–4。"},
+      {"source_ref": "POL27-SY-XI-P066-B097", "disposition": "PROMOTE_EXACT_STRUCTURE", "reason": "补重大关系 5–6。"}
+    ],
+    "source_primary_detail": "中国式现代化长期探索史、人类文明新形态的展开和各条目论证仍由乘风连续学习承载；KianOS 只保留考试需要的层级、固定结构和边界。"
+  },
   "chapter_compression": {
     "reconstruction": "民族复兴/中国梦（目标） → 战略安排（阶段） → 中国式现代化（道路） → 中国特色（是什么样） → 本质要求（根本上必须做到什么） → 文明新形态（意义） → 重大原则（推进怎么把握） → 重大关系（复杂关系怎么处理）",
-    "review_prompt": "闭卷不要背清单，先把‘中国特色、本质要求、重大原则、重大关系’四类表述分别归到正确问题上。"
+    "review_prompt": "闭卷先归类，再准确说出：中国特色、本质要求、重大原则、重大关系各是哪一组。"
   }
 }
