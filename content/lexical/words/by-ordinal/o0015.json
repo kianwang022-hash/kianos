@@ -6,14 +6,53 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:15ab5e0ce9f21a7d8b01",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "缺席工作/学校/某地",
+        "pattern": "absence from + place/activity"
+      },
+      {
+        "construction_id": "construction:15ab5e0ce9f21a7d8b02",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "在某人不在时",
+        "pattern": "in/during someone's absence"
+      },
+      {
+        "construction_id": "construction:15ab5e0ce9f21a7d8b03",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "在缺少/不存在……的情况下；由于没有……",
+        "pattern": "in the absence of + person/thing/evidence/condition"
+      }
+    ],
     "content_hash": "3afcad88870e038a4bcf8139ed0173ede4f91412e351c3941effd50ef1fc7b01",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "缺席，缺乏",
-      "core_meaning_en": "the state of being away or not present",
-      "mental_model_cn": "缺席，缺乏",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "缺席；不在场",
+          "label_en": "the state or period of not being present",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:absence:3e4a58fe8eed57ba"
+          ]
+        },
+        {
+          "label_cn": "缺乏；不存在",
+          "label_en": "the lack or nonexistence of something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:absence:0da5aabdb1705dae"
+          ]
+        }
+      ],
+      "core_meaning_cn": "某人/某物本应存在却不在场、不存在或缺失",
+      "core_meaning_en": "the non-presence of a person or the lack/nonexistence of a thing that could otherwise be present",
+      "mental_model_cn": "先问“缺的是谁/什么”：人不在 = absence from / in someone's absence；条件或证据不存在 = in the absence of / absence of。",
+      "mental_model_en": "identify what is missing: a person being away versus a thing, condition, or evidence not existing"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,17 +83,18 @@
             "phrase": "in the absence of + sth"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "缺席，不在",
-        "definition_en": "the state of being away from a place or person",
+        "confidence": "high",
+        "definition_cn": "缺席；不在场；不在某处的一段时间",
+        "definition_en": "the fact or period of not being present where someone is expected to be",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:absence:3e4a58fe8eed57ba",
-        "sense_label_en": "the state of being away from a place or person",
+        "sense_label_en": "not being present",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Common frames include absence from work/school and in/during someone's absence."
       },
       {
         "collocations": [
@@ -68,17 +108,18 @@
             "phrase": "absence of evidence"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "缺乏，没有",
+        "confidence": "high",
+        "definition_cn": "缺乏；没有；不存在",
         "definition_en": "the lack or nonexistence of something",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:absence:0da5aabdb1705dae",
-        "sense_label_en": "the lack or nonexistence of something",
+        "sense_label_en": "lack or nonexistence",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "In the absence of can mean because a person, thing, condition, or evidence is not present or does not exist."
       }
     ],
     "verification_summary": {
@@ -179,7 +220,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0009-0016.json",
     "source_content_hash": "3afcad88870e038a4bcf8139ed0173ede4f91412e351c3941effd50ef1fc7b01",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }

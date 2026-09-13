@@ -6,35 +6,57 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:23acad3e94f6b8d20101",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "学术研究/写作/职业/成绩等",
+        "pattern": "academic + research/writing/career/performance/achievement"
+      },
+      {
+        "construction_id": "construction:23acad3e94f6b8d20102",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "纯属理论问题；现实上没有实际影响",
+        "pattern": "purely academic; an academic question/argument"
+      }
+    ],
     "content_hash": "228ed06d70b9c803571771b401e00cccdffa58647d9bbe32a0449b3634c87ee6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "学术的；学院的；不切实际的",
-          "label_en": "relating to education, especially at a college or university; not practical or not likely to produce a practical result",
+          "label_cn": "学术/学校教育相关的",
+          "label_en": "relating to education, scholarship, study, or universities",
           "pos": "adjective",
           "sense_ids": [
-            "sense:academic:ed40215658295c39",
+            "sense:academic:ed40215658295c39"
+          ]
+        },
+        {
+          "label_cn": "纯理论的；无实际影响的",
+          "label_en": "theoretical and not practically consequential",
+          "pos": "adjective",
+          "sense_ids": [
             "sense:academic:f38a7e62a4c35915"
           ]
         },
         {
           "label_cn": "大学教师；学者",
-          "label_en": "a person who teaches or does research at a college or university",
+          "label_en": "a person who teaches or researches at a college or university",
           "pos": "noun",
           "sense_ids": [
             "sense:academic:f80f4988ad015c68"
           ]
         }
       ],
-      "core_meaning_cn": "学术的；学者",
-      "core_meaning_en": "related to education and scholarship",
-      "mental_model_cn": "学术的；学者",
-      "mental_model_en": ""
+      "core_meaning_cn": "围绕学校、大学、学习与学术研究；另有“只停留在理论上、无实际影响”的分支",
+      "core_meaning_en": "connected with education and scholarship; separately, theoretical rather than practically consequential; as a noun, a university scholar or teacher",
+      "mental_model_cn": "先分两条 adjective：academic research = 学术/教育；purely academic = 只在理论上。noun an academic = 学者/大学教师。",
+      "mental_model_en": "separate study/scholarship from 'purely theoretical', then keep the noun academic as a person branch"
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -102,15 +124,15 @@
             "phrase": "academic performance"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "学术的；学院的",
-        "definition_en": "relating to education, especially at a college or university",
+        "confidence": "high",
+        "definition_cn": "学术的；学校/大学教育相关的；与学习和研究有关的",
+        "definition_en": "relating to education, especially colleges and universities, or to studying, scholarship, and research",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:academic:ed40215658295c39",
-        "sense_label_en": "relating to education, especially at a college or university",
+        "sense_label_en": "related to education and scholarship",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -126,15 +148,15 @@
             "phrase": "a distinguished academic"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "大学教师；学者",
+        "confidence": "high",
+        "definition_cn": "大学教师；学者；高校研究人员",
         "definition_en": "a person who teaches or does research at a college or university",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:academic:f80f4988ad015c68",
-        "sense_label_en": "a person who teaches or does research at a college or university",
+        "sense_label_en": "university scholar or teacher",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -150,17 +172,18 @@
             "phrase": "an academic question"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "不切实际的",
-        "definition_en": "not practical or not likely to produce a practical result",
+        "confidence": "high",
+        "definition_cn": "纯理论的；与实际结果无关的；现实意义不大的",
+        "definition_en": "based on theory or possibilities rather than practical effects or consequences",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:academic:f38a7e62a4c35915",
-        "sense_label_en": "not practical or not likely to produce a practical result",
+        "sense_label_en": "theoretical rather than practical",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "A strong cue is purely academic; the meaning is not simply 'scholarly'."
       }
     ],
     "verification_summary": {
@@ -285,7 +308,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0017-0024.json",
     "source_content_hash": "228ed06d70b9c803571771b401e00cccdffa58647d9bbe32a0449b3634c87ee6",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch03",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
   }
 }
