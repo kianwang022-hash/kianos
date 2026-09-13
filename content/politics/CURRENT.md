@@ -9,9 +9,9 @@ This file does not own Source Truth, subject Acceptance detail, lane learning/in
 
 ## Lane Work Cursor
 
-**Active engineering scope:** none — Politics Functional First and all five subject engineering paths are closed through Evidence.  
-**Blocker:** none at the engineering layer.  
-**Next action:** real Kian learner use. Do not manufacture more lane/subject engineering merely because more can be tested or more Chengfeng detail exists.
+**Active learning-engineering scope:** none — Politics Functional First and all five subject engineering paths are closed through Evidence.  
+**Blocker:** none at the learning-engineering layer.  
+**Learning-engineering next action:** real Kian learner use. Do not manufacture more lane/subject semantic engineering merely because more can be tested or more Chengfeng detail exists.
 
 Frozen shared learner journey:
 
@@ -27,7 +27,33 @@ Orientation / current Natural Unit
 
 Hard stop:
 
-> Politics engineering is closed through E. New work now requires real learner friction, source change, question evidence, or another concrete defect with a responsible owner.
+> Politics learning engineering is closed through E. New semantic work now requires real learner friction, source change, question evidence, or another concrete defect with a responsible owner.
+
+### Separate product / UI implementation track
+
+The learner-facing UI/product design has already been discussed and frozen. The separate Politics Cognitive Projection Asset Compilation lane has also completed.
+
+Current productization state:
+
+```text
+UI / product design            FROZEN
+Projection asset compilation   COMPLETE
+53 chapter owners              ACCOUNTED
+160 Current NU owners          ACCOUNTED
+151 PASS / 9 REFERENCE_ONLY    ACCEPTED
+Projection BLOCKED             0
+UI implementation              NOT STARTED
+Learner validation / U         UNTESTED
+```
+
+Current implementation handoff:
+
+- status / consumer boundary → `static-web/POLITICS_PRODUCT_STATUS.md`;
+- accepted detailed UI decisions → `static-web/POLITICS_PRODUCT_BRIEF.md` + subject design files;
+- derived Projection ledger → `content/politics/projection/manifest.json`;
+- anti-drift guard → `static-web/scripts/validate-politics-cognitive-projection-assets.mjs` in `Static Web Politics QA`.
+
+UI implementation may proceed as a visual/product track **without reopening S/K/L/P/R/E**, provided it preserves accepted learning semantics, Runtime/Evidence behavior, source ownership and Return rules. UI/Codex must consume the compiled Projection layer for cognitive shape rather than re-inferring subject geometry from raw Current chapter JSON.
 
 ---
 
@@ -112,6 +138,9 @@ If a real defect appears, reopen only the earliest responsible owner/gate. `U` i
 ### Acceptance Truth
 `content/politics/ACCEPTANCE.md` owns Politics-wide integration/reconciliation claims. Each subject's readiness is owned by its local `ACCEPTANCE.md`.
 
+### Product / Projection status
+`static-web/POLITICS_PRODUCT_STATUS.md` owns the current UI/Projection-compilation handoff state only. It does not change subject Acceptance truth.
+
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only. Repository state cannot manufacture study, mastery, transfer, or U.
 
@@ -121,7 +150,9 @@ Private browser / Return Packet / conversation evidence only. Repository state c
 
 ```text
 Politics CURRENT
-→ all five subject engineering paths already closed through E
-→ prefer real learner use
+→ all five subject learning-engineering paths already closed through E
+→ product/UI design frozen + Projection assets compiled
+→ semantic work: prefer real learner use
+→ UI work: consume POLITICS_PRODUCT_STATUS + compiled Projection assets
 → if concrete friction/evidence appears, route to the earliest responsible local owner
 ```
