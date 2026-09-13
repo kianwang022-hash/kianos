@@ -1,140 +1,146 @@
-# Writing｜Current Learning Asset
+# Writing｜第一次学习主干
 
-> **Role**：Writing 的 Current learner-facing canonical learning asset。  
-> **目标**：面对陌生题目，能从任务约束独立生成一篇相关、完整、可推进、语言可控并能按时交付的英文文本。  
-> **第一次学习**：先看 Global Map；只有不稳的 primitive 才进入对应 Core Block。六个 primitive 是能力 owner，不是六道必须打卡的流程。  
-> **Task modes**：Small Writing / Big Writing 是同一套主干的两种考试 specialization，不是两门独立课程。  
-> **Practice**：Integrated walkthrough / synthetic drill 是练习，不是 primitive。  
-> **完整知识保全**：上一版高密度资产完整保存在 `content/english/modules/writing/learning.reference.md`，身份是 **repair/reference reservoir**。主路径压缩不等于删除有效知识。  
-> **Runtime**：完整作文是正式 attempt/review unit；stable work 可以直接结束，真实高价值 failure 才进入 repair。Repair 不自动制造 transfer debt。
+> **目标**：面对陌生题目，能独立写出一篇相关、完整、能推进、语言可控、并且按时交付的英文文本。  
+> **怎么用这份内容**：先看 Global Map，再只进入自己不稳的部分。会的直接跳，不需要把六块当成六节必修课。  
+> **Small / Big Writing**：共用同一条能力主干，只是任务形态不同。  
+> **更深内容**：长例子、旧版 Active Checks、边界情况和细分训练保存在 `learning.reference.md`，真正卡住时再下钻。
 
 ---
 
-# A｜Global Map：写作到底是在做什么
+# A｜Global Map：一篇作文到底是怎么长出来的
 
-Writing 不是“背模板再换主题词”，而是一次从任务约束到英文成品的主动生成：
+Writing 不是“背一个模板，再换几个主题词”。
+
+真正的主干只有六步：
 
 ```text
 TASK / GENRE FULFILLMENT
-看懂必须完成什么
+先弄清楚：我要完成什么任务？
 ↓
 CONTENT GENERATION
-产生足够、相关、可展开的内容
+决定：我到底要说什么？
 ↓
 ORGANIZATION / DEVELOPMENT
-让信息按清楚关系推进
+安排：这些内容怎么一步步往前走？
 ↓
 ENGLISH REALIZATION
-用自己能控制的英语实现
+实现：怎样用自己能控制的英语写出来？
 ↓
 REGISTER + HIGH-VALUE ERROR CONTROL
-压住真正影响任务、意义和可读性的风险
+控制：哪些地方真的会影响任务、意义和可读性？
 ↓
 TIMED DELIVERY
-在考试时间里完整交付并及时离开
+交付：怎样在考试时间里写完、检查、离开？
 ```
 
-六个 canonical primitives：
+把它压成一句话：
 
-1. **Task / genre fulfillment**
-2. **Content generation**
-3. **Organization / development**
-4. **English realization**
-5. **Register + high-value error control**
-6. **Timed delivery**
+> **先知道要完成什么，再决定说什么、怎么推进、怎么用稳定英语实现，最后只检查真正会掉分的地方。**
 
-这六层用于学习、诊断和 repair ownership；考试时不需要逐项默念。
-
-一个更实用的考试内核是：
-
-> **先知道自己要完成什么，再决定说什么、怎么推进、用什么稳定英语实现，最后只检查真正会掉分的地方。**
-
-如果当前表现已经稳定，框架应该退到后台。
+考试时不需要逐项默念。框架越熟，显式步骤越少。
 
 ---
 
-# B｜Six Core Primitives：按需进入，不制造课程债务
+# B｜Six Core Primitives：六个真正值得学的能力块
 
-下面每一块都回答一个真实问题。例子全部是 synthetic，用来教动作，不消耗 protected true-exam material。
+下面每一块都回答一个现实问题。
 
-## B1｜Task / Genre Fulfillment
+例子全部是 synthetic，只用于建立动作，不消耗真题新鲜度。
 
-第一个问题不是“开头用什么句型”，而是：
+## B1｜Task / Genre Fulfillment｜先把题目变成“任务”
 
-> **我以什么身份，对谁，完成什么 communicative / interpretive job？**
+### 核心问题
 
-最小 Task Brief：
+> **我是谁？写给谁？为什么写？必须完成哪些动作？**
 
-```text
-ROLE / IDENTITY
-AUDIENCE
-PURPOSE
-REQUIRED MOVES
-CONSTRAINTS
-SUCCESS CONDITION
-```
+不是先问：
 
-### Synthetic Small example
+> “这个题用什么开头？”
 
-Prompt 假设要求：你是学生会成员，给国际学生写邮件，邀请他们参加校园文化活动，并说明时间、地点和为什么值得参加。
-
-真正的 Task Brief 不是“写一封邀请信”，而是：
+### 一眼模型
 
 ```text
-ROLE       student organizer
-AUDIENCE   international students
-PURPOSE    invite them to attend
-MOVE 1     what the event is
-MOVE 2     when / where
-MOVE 3     why it is worth attending
-MOVE 4     clear invitation / next step
-REGISTER   friendly + polite, not ceremonial
+ROLE        我以什么身份写？
+AUDIENCE    写给谁？
+PURPOSE     想完成什么？
+REQUIRED    必须覆盖哪些信息 / 动作？
+CONSTRAINT  有什么形式、材料、语域限制？
+SUCCESS     写完以后，什么才算任务真的完成？
 ```
 
-如果正文只写了活动很好、校园很美，却没给时间地点，语言再漂亮也没有完成任务。
+### 代表例子｜Small Writing
 
-### Synthetic Big example
+假设任务是：你是学生组织者，给国际学生写邮件，邀请他们参加校园文化活动，并说明时间、地点和参加价值。
 
-假设材料表现的是：两个人同时拥有工具，一个只收藏，一个持续使用并改进成果。
-
-不要把任务压成“写 perseverance”。更好的 brief 是：
+把题目压成：
 
 ```text
-OBSERVATION      same resource, different use
-INTERPRETATION   value comes from active use rather than possession alone
-JOB              explain why this matters and develop the implication
+身份      student organizer
+对象      international students
+目的      invite them to attend
+必须写    活动是什么 / 时间地点 / 为什么值得参加 / 明确邀请
+语域      friendly + polite
 ```
 
-**核心边界**：Task reading 负责确定“必须完成什么”，不是提前把正文写成模板。
+如果正文只写“活动很精彩、校园很美”，却没有时间和地点，语言再漂亮也没有完成任务。
 
-**Repair trigger**：漏 required move、误判 audience / purpose、形式不符、把可选信息当硬要求、Big Writing 的 interpretation 脱离材料。
+### 代表例子｜Big Writing
 
-**带走一句**：
+假设材料表现：两个人拥有同样的工具，一个只收藏，一个持续使用并改进成果。
+
+弱压缩：
+
+```text
+主题 = perseverance
+```
+
+更好的任务理解：
+
+```text
+观察      same resource, different use
+关系      possession ≠ value
+解释      value comes from active use
+任务      说明这种关系为什么重要，并展开它的后果
+```
+
+### 常见坑
+
+- 把“题型名称”当成任务；
+- 漏掉 required move；
+- 写了很多相关内容，但没有完成 communicative job；
+- Big Writing 一看到材料就跳到一个大而空的主题词；
+- 为了套模板，把题目真正要求改掉。
+
+### 带走一句
 
 > **写前先把题目压成任务，不要把题目翻译成模板。**
 
 ---
 
-## B2｜Content Generation
+## B2｜Content Generation｜从“主题词”变成真正可写的内容
 
-Content 的问题是：
+### 核心问题
 
-> **我到底要说什么，而且这些内容是否相关、具体、可展开？**
+> **下一段、下一句，到底要新增什么？**
 
-一个可用 content atom 至少要比主题词多一个真实关系或信息：
+“我知道这个题在讲什么”不等于“我有东西可写”。
+
+### 一眼模型
+
+一个可用的 content atom，至少比主题词多一个真实关系：
 
 ```text
 WHY       为什么成立
 HOW       通过什么机制
 RESULT    导致什么结果
 CONTRAST  相反情况怎样
-EXAMPLE   哪类场景体现
-BOUNDARY  什么条件下成立
-ACTION    因此怎么做
-DETAIL    读者还需要什么
+EXAMPLE   什么场景能体现
+BOUNDARY  在什么条件下成立 / 不成立
+ACTION    因此应该怎么做
+DETAIL    读者还需要知道什么
 ```
 
-### 从 topic label 到可写内容
+### 主题词为什么不够
 
 弱：
 
@@ -144,36 +150,36 @@ Technology changes our life.
 We should use technology well.
 ```
 
-三句其实只是在重复同一个 topic。
+看起来有三句，其实只重复一个意思。
 
-更强的 content chain：
+更强：
 
 ```text
 CLAIM      digital tools can reduce routine decision costs
 HOW        they organize information and remove repetitive steps
 RESULT     users can spend more attention on judgment-heavy work
-BOUNDARY   this benefit falls when users trust automated outputs blindly
+BOUNDARY   the benefit falls when users trust automated outputs blindly
 ```
 
-这样后面每一句都有可推进的东西。
+这时每一句都在增加新信息。
 
 ### Small Writing 的 content
 
-Small Writing 不追求“思想深度”，而追求 **useful completeness**。
+Small Writing 不追求“思想深刻”，而追求 **useful completeness**。
 
-例如投诉邮件真正需要的 atoms 可能只是：
+例如投诉邮件真正需要的内容可能只是：
 
 ```text
-what happened
-when / where it happened
-why it matters
-what remedy you are asking for
-how the reader can respond
+发生了什么
+什么时候 / 在哪里
+为什么影响了你
+你希望对方怎么处理
+对方怎么联系 / 回复你
 ```
 
-多写两句空泛礼貌话，不如补一个真正帮助对方行动的 detail。
+多写两句空泛礼貌话，不如补一个能帮助对方行动的具体信息。
 
-### Selection rule
+### 选什么，不选什么
 
 考试容量有限，优先保留：
 
@@ -184,44 +190,43 @@ how the reader can respond
 + 彼此不重复
 ```
 
-**Repair trigger**：只有主题词、观点重复、空泛口号、required move 没具体 detail、Big Writing 第二段没有 mechanism / result / contrast 等可展开内容。
+### 常见坑
 
-**带走一句**：
+- 只有主题词，没有关系；
+- 三句话都在换词重复；
+- 观点很大，但没有 mechanism / result；
+- 举例只是“有一个例子”，却没说明它如何支撑观点；
+- Small Writing 缺 useful detail；
+- Big Writing 第二段写成口号堆积。
+
+### 带走一句
 
 > **不要问“还能说什么”，先问“下一句能新增什么”。**
 
 ---
 
-## B3｜Organization / Development
+## B3｜Organization / Development｜让文章真正往前走
 
-Structure 不是固定三段式；底层对象是：
+### 核心问题
+
+> **这一句比上一句多告诉了读者什么？**
+
+结构不是“三段式”本身，而是信息如何推进。
+
+### 一眼模型
 
 ```text
 PARAGRAPH ROLE
+这一段负责什么？
+↓
 INFORMATION ORDER
+读者按什么顺序最容易理解？
+↓
 INFORMATION GAIN
+每一步有没有增加新信息？
 ```
 
-判断一段是否必要：
-
-> **删掉它以后，任务会缺哪个功能？**
-
-判断一句是否在发展：
-
-> **它比上一句新增了什么信息？**
-
-### Information gain
-
-坏链条：
-
-```text
-claim
-→ same claim
-→ stronger wording of same claim
-→ slogan
-```
-
-例如：
+### 假推进
 
 ```text
 Practice is important.
@@ -230,72 +235,95 @@ Without practice, success is impossible.
 Therefore, we should value practice.
 ```
 
-看似四句，信息几乎没有增长。
+字越来越多，信息几乎没有增长。
 
-更好的推进：
+### 真推进
 
 ```text
-claim      regular practice turns abstract knowledge into usable skill
-mechanism  repeated retrieval exposes where understanding is unstable
-result     later performance becomes faster and less dependent on cues
-boundary   repetition without feedback can also stabilize the wrong pattern
+claim      regular practice turns knowledge into usable skill
+mechanism  repeated retrieval exposes unstable understanding
+result     feedback can then target those weak points
+boundary   repetition without feedback may stabilize the wrong pattern
 ```
 
-### Paragraph role
+### Paragraph Role
 
-一段常见的有效 role 不是“第二段”，而是：
+一段常见的有效功能可以是：
 
-- explain the claim；
-- show mechanism；
-- develop consequence；
-- introduce contrast / boundary；
-- turn analysis into action / implication。
+- 提出判断；
+- 解释为什么；
+- 展开机制；
+- 写结果；
+- 引入边界 / 对比；
+- 给出例子；
+- 推到行动或启示。
 
-连接词不能替代真实 relation。`Moreover` 放在两句重复话中间，不会自动产生 development。
+如果删掉这一段，文章几乎什么都不缺，它很可能只是占字数。
 
-### Material → meaning bridge
+### Big Writing 的关键桥
 
-Big Writing 最危险的跳跃之一：
+最危险的跳跃：
 
 ```text
 看到材料
 → 直接喊一个大主题
 ```
 
-需要补的桥是：
+真正需要的是：
 
 ```text
 OBSERVATION
-→ what relation does the material show?
-→ INTERPRETATION
-→ why does that relation matter?
-→ DEVELOPMENT
+材料实际展示了什么关系？
+↓
+INTERPRETATION
+这个关系意味着什么？
+↓
+DEVELOPMENT
+为什么成立 / 会带来什么 / 有什么边界？
 ```
 
-**Repair trigger**：段落没有 role、信息绕圈、support point 彼此重复、material→meaning 缺桥、后一句不推进前一句。
+### 常见坑
 
-**带走一句**：
+- 第二段其实只是第一段换词；
+- 连接词很多，真实 relation 很少；
+- 一个例子塞进来，但和主张没有桥；
+- 一段里同时做太多事，主线不清；
+- material → theme 跳得太远。
 
-> **结构的本质不是段数，而是每一步都有信息增量。**
+### 带走一句
+
+> **结构的本质不是段数，而是信息增量。**
 
 ---
 
-## B4｜English Realization
+## B4｜English Realization｜先把意思稳稳落地，再谈高级
 
-Writing 不是 Translation 的逆过程。长期目标是：
+### 核心问题
+
+> **我已经知道想说什么了，怎样用自己能控制的英语把它写出来？**
+
+Writing 不是 Translation 的逆过程。
+
+### 一眼模型
 
 ```text
-content atom / proposition
-→ 自己能控制的 English realization
+content atom
+→ proposition
+→ relation
+→ stable English
 ```
 
-### 先压 proposition，再写英语
+先保证命题和关系，再决定句子有多复杂。
 
-如果脑中的中文是：
+### 先压 proposition
+
+脑中的中文可能是：
 
 > 在信息极其丰富而且工具越来越智能的今天，人们真正缺少的并不总是更多信息，而是判断哪些信息值得相信并据此行动的能力。
 
-不要强迫自己一次做成一个巨长句。先压成：
+不要强迫自己一次写成一个巨长句。
+
+先压成：
 
 ```text
 information is abundant
@@ -304,15 +332,15 @@ the bottleneck is often judgment, not access
 people must decide what to trust and act on
 ```
 
-然后选择自己能稳定控制的实现，例如：
+然后写成自己能稳定控制的版本：
 
 > Information is increasingly easy to obtain. The harder task is often deciding what deserves trust and what should guide action.
 
-信息保住了，风险却更低。
+信息没有丢，风险却低很多。
 
 ### Relation first
 
-先确定关系，再决定句型：
+先确定关系，再选表达：
 
 ```text
 cause       because / since / X leads to Y
@@ -324,49 +352,59 @@ mechanism   by doing X / through X
 example     for example / one case is...
 ```
 
-不是为了用从句而用从句。
+不是为了“用从句”而用从句。
 
-### Load management
+### 句子负荷过高怎么办
 
-一句写到中间已经不确定主语、谓语或从句边界，优先降载：
+一句写到中间，如果已经不确定主语、谓语或从句边界：
 
 ```text
 拆句
-缩 modifier
-换稳定 construction
-删低价值 ornament
-保住 proposition
+→ 缩短 modifier
+→ 换熟悉 construction
+→ 删低价值 ornament
+→ 保住 proposition
 ```
 
-### Lexical boundary
+### 词汇边界
 
-如果 failure 是 sense / phrase / construction / collocation / contrast / confusable，长期知识回到 **LexicalOS canonical owner**。Writing 只保留当前真实 production evidence，不建第二套词库。
+如果长期问题是词义、搭配、构式、熟词新义、confusable 等，知识本体回到 LexicalOS；Writing 只记录“真实输出时调用失败了”。
 
-**Repair trigger**：内容清楚却无法实现、句子负荷失控、relation 写错、反复 lexical retrieval failure、中译英式结构真实影响可靠性。
+### 常见坑
 
-**带走一句**：
+- 先想一个“高级句型”，再硬塞内容；
+- 中文意图太大，英文句子失控；
+- 为了复杂而复杂，最后 relation 写错；
+- 卡在一个高级词上，整篇停止；
+- 英文形式变漂亮，但命题变了。
+
+### 带走一句
 
 > **先保证命题能稳定落地，再谈句子有多高级。**
 
 ---
 
-## B5｜Register + High-Value Error Control
+## B5｜Register + High-Value Error Control｜只管真正重要的风险
 
-控制的目标不是“把所有差异都改成老师版本”，而是避免可预防的高价值失分。
+### 核心问题
+
+> **什么地方会让任务失败、意思变掉、读者卡住，或者明显掉分？**
+
+不是所有“可以改得更好”的地方都值得改。
 
 ### Register 不是“越客气越正式”
 
-假设你给同学发活动提醒：
+给同学发活动提醒：
 
 > Please be informed that your esteemed presence is sincerely requested...
 
-语法未必错，但关系完全不自然。
+语法未必错，但关系非常不自然。
 
-更合适可能是：
+更合适：
 
 > Just a reminder that the event starts at 2 p.m. on Friday. I hope you can join us.
 
-而给机构正式询问时：
+给机构正式询问：
 
 > Could you please let me know whether registration is still open?
 
@@ -374,56 +412,61 @@ example     for example / one case is...
 
 > I want to know if I can still sign up.
 
-更符合 audience relation。
+更符合情境。
 
-Register 看的是：
+### 一眼模型
+
+Register 主要看：
 
 ```text
-directness
-politeness
-context
-emotional distance
-word choice
-opening / closing convention
+对谁说
+→ 多直接
+→ 多礼貌
+→ 多正式
+→ 应不应该有 opening / closing convention
 ```
 
-### High-value error scan
+### 高价值检查顺序
 
-优先控制：
+优先看：
 
-- task/form omission；
-- sentence boundary / unfinished sentence；
-- subject–verb；
-- time / tense relation；
-- number / pronoun / obvious article risk；
-- obvious collocation / word-choice error；
-- relation word 与真实逻辑冲突；
-- register 与 audience 明显不匹配；
-- spelling。
-
-不要把最后检查变成“重写整篇”。
+1. 任务有没有漏；
+2. 句子有没有断裂 / 未完成；
+3. 主谓、时态关系、单复数、代词是否明显出错；
+4. relation word 有没有和真实逻辑冲突；
+5. collocation / word choice 有没有明显影响理解；
+6. register 是否和对象严重不匹配；
+7. 拼写和明显形式错误。
 
 例如：
 
 > Although online tools are convenient, **so** users should remain cautious.
 
-真正的问题不是“不够高级”，而是 relation structure 冲突。修掉这种高价值错误，比把 `important` 换成 `indispensable` 更值。
+真正的问题不是“不够高级”，而是 relation structure 冲突。
 
-纯风格偏好、两个都成立的措辞、只会让句子“更高级”的修改，不自动形成 repair。
+修掉它，比把 `important` 换成 `indispensable` 更值。
 
-**Repair trigger**：错误真实影响任务、意义、可读性或得分可靠性，或同类风险重复出现。
+### 常见坑
 
-**带走一句**：
+- 最后两分钟重写整篇；
+- 把风格偏好当成错误；
+- 为了“高级”换掉本来稳定的词；
+- 语域和对象完全错位；
+- 真正影响意义的逻辑错误反而没检查。
+
+### 带走一句
 
 > **先修会让读者误解、卡住或直接失分的错误。**
 
 ---
 
-## B6｜Timed Delivery
+## B6｜Timed Delivery｜考试要的是完整成品，不是无限优化
 
-Writing 最终测的是有限时间内能否完整交付，而不是无限时间下能否不断润色。
+### 核心问题
 
-最小 execution model：
+> **怎样在时间有限时写完，而且后半篇不崩？**
+
+### 一眼模型
 
 ```text
 bounded planning
@@ -433,7 +476,7 @@ bounded planning
 → stop when sufficient
 ```
 
-### Planning 的 stop rule
+### Planning 什么时候该停
 
 计划只需要降低后续生成成本：
 
@@ -443,27 +486,25 @@ Task / Core Message
 + paragraph roles
 ```
 
-如果你还在不断补关键词、句型和“高级表达”，但正文没有开始，planning 已经反过来消耗 execution。
+如果还在不断补关键词、句型和“高级表达”，但正文迟迟没有开始，planning 已经变成负担。
 
-### Stuck recovery
-
-卡在一句：
+### 卡住时怎么恢复
 
 ```text
 想不起高级词
 → 换简单词
 
 句子越写越长
-→ 在稳定 proposition 边界拆开
+→ 在 proposition 边界拆开
 
-不知道怎么接
-→ 回到 paragraph role：下一步需要 mechanism / result / example / contrast 中哪一个？
+不知道下一句写什么
+→ 回到 paragraph role：下一步需要 why / how / result / example / contrast 中哪一个？
 
 最后时间不足
-→ 先保证 required move / conclusion / complete sentence，再放弃低价值 ornament
+→ 先补 required move / conclusion / complete sentence，再放弃低价值修饰
 ```
 
-优先级：
+### 优先级
 
 ```text
 TASK / MEANING
@@ -472,32 +513,38 @@ TASK / MEANING
 > STYLE
 ```
 
-### Stop when sufficient
+### 什么时候应该离开
 
-满足这些条件就该离开：
+满足这些条件，就应该前进：
 
 ```text
 任务完成
 核心内容够
-段落 role 清楚
+段落功能清楚
 没有明显高风险语言错误
-register 基本合适
-完整性满足要求
+语域基本合适
+文章完整
 ```
 
 “还能再润色一点”不是继续停留的理由。
 
-**Repair trigger**：planning 过长、后半篇控制持续下滑、经常没写完/没时间检查、总为高级词停笔、计时条件下重复暴露同一 bottleneck。
+### 常见坑
 
-**带走一句**：
+- planning 过长；
+- 前半篇写太慢，后半篇失控；
+- 总为高级词停笔；
+- 最后一分钟仍在改风格，而不是补完整性；
+- 每篇都写不完，却把原因归结成“词汇不够高级”。
 
-> **在考试里，完整稳定的成品永远优先于未完成的高级版本。**
+### 带走一句
+
+> **完整稳定的成品，永远优先于未完成的高级版本。**
 
 ---
 
-# C｜Task-Mode Specialization：Small / Big 不是额外 primitive
+# C｜Task-Mode Specialization：Small / Big 只是不同任务形态
 
-共享主干仍然是：
+共享主干不变：
 
 ```text
 Task
@@ -508,9 +555,13 @@ Task
 → Delivery
 ```
 
+区别在于：**什么算任务完成。**
+
 ## C1｜Small Writing
 
-Small Writing 核心是 **communicative completeness**：
+Small Writing 核心是 **communicative completeness**。
+
+### 一眼模型
 
 ```text
 AUDIENCE
@@ -521,28 +572,42 @@ AUDIENCE
 → CLEAR NEXT STEP / CLOSE
 ```
 
-常见 function 如 request / recommend / invite / inform / apologize / thank / inquire / report problem 只是任务表面变化。长期稳定的是：
+request / recommend / invite / inform / apologize / thank / inquire 等只是表面类型。
 
-> 这个读者需要什么信息？我要完成什么动作？语域该多直接？
+真正稳定的问题只有三个：
+
+> **这个读者需要什么信息？我要完成什么动作？我要多直接、多礼貌？**
 
 ### Synthetic mini-walkthrough
 
-任务：向课程负责人申请延期，并解释原因、提出新的提交时间。
+任务：向课程负责人申请延期，说明原因，并提出新的提交时间。
 
-薄骨架可以是：
+薄骨架：
 
 ```text
-purpose        request a short extension
-reason         concise, relevant, credible
-proposal       specific new deadline
-close          appreciation + willingness to comply
+purpose      request a short extension
+reason       concise + relevant
+proposal     specific new deadline
+close        appreciation + willingness to comply
 ```
 
-这已经足够开始写，不需要先背一整封“申请信模板”。
+这已经足够开始写，不需要先背一整封“延期申请模板”。
+
+### Small Writing 最常见的高价值失败
+
+- required move 漏掉；
+- useful detail 不足；
+- 对象 / 语域错位；
+- 客套很多，真正信息很少；
+- 结尾没有明确下一步。
+
+---
 
 ## C2｜Big Writing
 
-Big Writing 核心是从 material 到可展开判断：
+Big Writing 核心是：**从材料里的真实关系，推出一个可展开的判断。**
+
+### 一眼模型
 
 ```text
 OBSERVE / READ
@@ -555,84 +620,87 @@ OBSERVE / READ
 
 ### Synthetic mini-walkthrough
 
-材料：一个团队拥有很多数据，却因为成员各自保存、互不共享而反复做同样工作。
+材料：一个团队拥有大量数据，但成员各自保存、互不共享，结果反复做同样的工作。
 
 弱 Core Message：
 
 > Cooperation is important.
 
-更可展开：
+更强：
 
 > Resources create value only when a group can coordinate their use; isolated possession can increase duplication rather than efficiency.
 
-为什么更强：它保留了材料中的 **resource + coordination + duplication** 关系，后面自然可以展开 mechanism / result / remedy。
+为什么更强？
 
-Observation 与 Interpretation 必须区分；Core Message 应 grounded、specific、developable，而不是只剩 `persistence / technology / cooperation` 这类 topic label。
+因为它保留了材料真正展示的关系：
 
-详细 task-mode 长尾、function detail、旧 examples 和 starter leaves 继续由 `learning.reference.md` 保存，只有真实 failure 再调用。
+```text
+resource
++ coordination
++ duplication
++ efficiency
+```
+
+后面自然能展开 mechanism / result / remedy。
+
+### Big Writing 最常见的高价值失败
+
+- observation 和 interpretation 混在一起；
+- Core Message 太大、太空；
+- 主题词能背，但没有 mechanism；
+- 第二段没有 information gain；
+- 例子和材料核心关系脱节。
+
+### 带走一句
+
+> **Small 先完成沟通任务；Big 先守住材料关系。**
 
 ---
 
-# D｜Skill Map：诊断地址，不是第一次学习进度表
+# D｜Skill Map：卡住时再定位
 
-Skill Map 给 failure 一个稳定地址、汇聚跨题 evidence、帮助 Chat 定位 owner；不是让 learner 把几十个节点刷到 100%。
-
-## T｜Task / Genre
+这张图不是第一次学习进度表，只在你真的遇到问题时用。
 
 ```text
+T｜Task / Genre
 T1 Role / Audience
 T2 Purpose
 T3 Required Moves
 T4 Constraints / Form
 T5 Success Condition
-```
 
-## G｜Content Generation
-
-```text
+G｜Content Generation
 G1 Relevance
 G2 Sufficiency
 G3 Specificity
-G4 WHY / HOW / RESULT / CONTRAST / EXAMPLE / BOUNDARY
+G4 Why / How / Result / Contrast / Example / Boundary
 G5 Selection
 G6 Small useful details
 G7 Big Core Message
-```
 
-## S｜Organization / Development
-
-```text
+S｜Organization / Development
 S1 Paragraph role
 S2 Information order
 S3 Local coherence
 S4 Information gain
 S5 Material → meaning bridge
 S6 Closing / implication
-```
 
-## L｜English Realization
-
-```text
+L｜English Realization
 L1 Proposition → English
 L2 Relation realization
 L3 Stable sentence construction
 L4 Sentence load
-L5 Lexical production → LexicalOS canonical knowledge
-```
+L5 Lexical production → LexicalOS
 
-## C｜Control / Register
-
-```text
+C｜Control / Register
 C1 Audience register
 C2 Task/form control
 C3 High-value grammar control
 C4 Collocation / word-choice risk
 C5 Final error scan
-```
 
-## E｜Execution
-
-```text
+E｜Execution
 E1 Bounded planning
 E2 Continuous drafting
 E3 Recovery / simplification
@@ -640,169 +708,165 @@ E4 Time-pressure stability
 E5 Stop rule
 ```
 
-Small/Big-specific leaves 可以继续存在于 `learning.reference.md`，但不提升为新的 base primitive。
+如果一个问题只是“一次没写漂亮”，不需要急着给它建立长期标签。
 
 ---
 
 # E｜Synthetic Practice：练动作，不建立第二个题库
 
-Synthetic material 用于第一次建立动作、targeted repair 和不值得消耗 unseen exam 的 probe。
+Synthetic material 只在三种时候最有价值：
 
-高价值 practice：
+1. 第一次建立动作；
+2. 真题不值得消耗时做定向练习；
+3. repair 后需要重新整合时。
 
-- **Task Brief**：只给 prompt，30–60 秒压出 audience / purpose / required moves；
-- **Atom upgrade**：把一个 topic label 改成 claim + mechanism/result；
-- **Information gain**：判断四句中哪一句真的推进；
-- **Observation vs Interpretation**：先写材料事实，再写能被事实支持的含义；
-- **Core-message competition**：比较三个主题句，选最 grounded + developable 的；
-- **Proposition → English**：同一内容写一个稳定版本，不追求唯一答案；
-- **Register shift**：同一请求分别写给同学 / 教师 / 机构；
-- **Recovery drill**：故意给一个过长句，练拆分而不丢 proposition；
-- **完整 synthetic Small / Big**：cold start 或 repair 后需要整合时再做。
+高价值形式：
 
-完整 Writing Attempt 仍以一篇作文为 unit。不要把 Writing 变成几百道 micro-drill 或碎片刷卡系统。
+- **Task Brief**：30–60 秒压出 audience / purpose / required moves；
+- **Atom Upgrade**：把 topic label 改成 claim + mechanism / result；
+- **Information Gain**：判断哪一句真的推进；
+- **Observation vs Interpretation**：先写材料事实，再写含义；
+- **Core Message Competition**：比较几个主题句，选最 grounded + developable 的；
+- **Proposition → English**：同一内容写一个稳定版本；
+- **Register Shift**：同一请求分别写给同学 / 教师 / 机构；
+- **Recovery Drill**：把一个失控长句拆成稳定表达；
+- **完整 synthetic Small / Big**：只在需要整合时做。
 
-Cold start learner 通常值得先各做一篇 synthetic Small / Big，证明自己能从 prompt 独立走到成文，再保护性地进入 fresh true-exam；这是一种 calibration recommendation，不是 checkbox ceremony。
+完整作文仍然是一篇作文，不要把 Writing 变成几百道碎片练习。
 
 ---
 
-# F｜Material Routing：丰富内容保留，但不制造 learner debt
+# F｜参考材料怎么用：参考，不接管生成
 
-## F1｜Current canonical
+## Model Essay
 
-本文件拥有最小充分 learner model、六 primitive、task-mode specialization、代表性 examples、diagnostic map 与 runtime/evidence boundary。
+Model essay 最适合在你先完成自己的 first draft 之后看。
 
-## F2｜Deep reference reservoir
-
-`learning.reference.md` 保存旧版全部高密度知识：更长 examples、Active Checks、Small/Big function detail、starter leaves、synthetic drills、edge cases 与材料路由。
-
-Learner-facing 主路径的合并 / 降级不等于 semantic deletion。
-
-## F3｜Teacher / method material
-
-默认身份是 Repair Reservoir。老师有很多题型、主题、模板，不意味着 KianOS 复制同样课程目录。
-
-## F4｜Model essay / template
-
-Model essay 只能在 clean first draft 之后作为 reference：比较 task completeness、development、natural realization 和少量 reusable components。它不是唯一 authority，也不替代 learner generation。
-
-模板只保留薄 skeleton。Personal reusable components 应从真实成功输出中长出来，而不是先背整篇后把所有题塞进去。
-
-## F5｜Training material freshness
+看它时比较：
 
 ```text
-synthetic        教学 / repair / micro-probe
-exposed exam     已做过，可用于普通 repair
-protected unseen 保留 clean attempt / calibration / strong transfer value
+任务有没有更完整
+内容怎样推进
+哪些表达更自然
+有没有少量值得复用的 component
 ```
 
-不要为了展示 framework、关闭状态或跑验收而消耗 protected unseen。
+不要问：
+
+> “我怎么把自己这篇改得和范文一模一样？”
+
+范文不是唯一答案。
+
+## Template
+
+模板最多保留薄骨架，例如：
+
+```text
+Small: purpose → required moves → next step / close
+Big: observation → interpretation → development → implication
+```
+
+不要先背满正文再往不同题目里塞。
+
+## 深层内容
+
+`learning.reference.md` 保存更长的例子、旧版 Active Checks、task-mode 长尾和 edge cases。
+
+主路径没写进去，不等于被删除；只是第一次学习不需要全部承担。
 
 ---
 
-# G｜HOW YOU LEARN IT：performance first，review conditional
+# G｜HOW YOU LEARN IT：先会写，再让问题决定学什么
 
 第一次进入 Writing：
 
 ```text
 Global Map
-→ 快扫六个 primitive
-→ 会的直接跳
-→ 不稳的看具体 example / mechanism
-→ synthetic Small / Big 在需要时整合
+→ 快扫六个能力块
+→ 会的跳过
+→ 不稳的看模型 + 例子
+→ 需要整合时做 synthetic Small / Big
 → real Writing
 ```
 
-之后主线不是“每篇重学 Guide”，而是：
+之后主线应该越来越短：
 
 ```text
-whole-essay clean attempt
-→ preserve first meaningful plan + first draft
-→ fast triage
-→ PASS / EXIT
-   or
-→ meaningful problem → optional whole-essay Chat diagnosis
-→ smallest repair
-→ learner re-generation when useful
-→ return to Writing
+完整写一篇
+→ 快速判断是否够好
+→ 够好：结束
+→ 真有问题：找最早、最关键的失败点
+→ 做最小修复
+→ 自己重新生成受影响部分
+→ 回到正常 Writing
 ```
 
-原则：
+几个重要边界：
 
-- stable adequate work 可以结束，不欠 cosmetic repair；
-- Chat review 在 calibration 阶段可以频繁，但未来每篇 essay 不欠完整 Chat ritual；
-- first meaningful failure 是 causal heuristic，不要求反复循环直到所有 downstream issue 都各建一张卡；
-- genuinely independent high-value failures 可以保留多个；
-- same-prompt rewrite = repair evidence，不是 mastery；
-- `not mastery` ≠ 必须安排新测试；
-- repair 不自动进入 transfer；
-- only reusable / recurring / high-cost target 才 admission；
-- pending target 是 backend observation state，不召唤 learner task；
-- Lexical durable knowledge 回 LexicalOS。
+- 一次正确不等于永远掌握，但也不等于必须安排额外测试；
+- 同题改对说明 repair 生效，不说明 mastery；
+- 一次性措辞偏好不值得长期复习；
+- LexicalOS 负责长期词汇知识；
+- 真正值得长期跟踪的是重复、昂贵、会影响得分和稳定性的失败。
+
+最终希望形成的是：
+
+> **看题 → 有内容 → 有推进 → 用稳定英语写出来 → 快速检查 → 按时离开。**
 
 ---
 
-# H｜First-Learning Projection Semantics
+# H｜First-Learning Projection Semantics｜系统边界（第一次学习可跳过）
 
-页面只需要做到：
+以下内容不是给 learner 第一次阅读的正文，而是为了保证页面以后怎么实现都不改学习语义。
 
-1. 首先看见六层 Global Map；
-2. 六个 primitive 都可直接进入、也可跳过；
-3. Small / Big specialization 可发现，但不冒充 base primitive；
-4. examples 与 mental model 一起呈现，不把内容只剩抽象标签；
+1. Global Map 必须先于细节；
+2. 六个 primitive 都可以直接进入，也可以跳过；
+3. Small / Big 可发现，但不能冒充额外 primitive；
+4. examples 与 mental model 一起出现，不能把页面裁成只剩标签；
 5. Skill Map / deep reference 默认按需展开；
-6. Active Check 如果存在，只是 optional productive practice，不得成为 mandatory gate；
-7. learner 的 check response 不写入共享 canonical，也不冒充 mastery evidence；
+6. Active Check 只能是可选练习，不能成为 mandatory gate；
+7. learner 的练习回答不写入共享 canonical，也不冒充 mastery；
 8. protected true-exam prompt 不在 first-learning 页面提前泄漏；
-9. 可以随时离开 Guide 返回 Productive Runtime。
-
-UI 不需要把每个 semantic node 做成独立页面、卡片或状态。
+9. learner 可以随时离开 Guide 返回 Productive Runtime。
 
 ---
 
-# I｜True-Exam Entry：保护 fresh material，不制造 ceremony
+# I｜True-Exam Entry：保护 fresh material，不制造仪式
 
-Fresh true-exam 是有限 diagnostic capital。
+Fresh true-exam 是有限的 diagnostic capital。
 
-Cold start 推荐进入真题前至少证明一次：
+Cold start 时，进入真题前最好先证明两件事：
 
-- Small：能自己拆 audience / purpose / required moves，生成 useful detail，并完成一篇 synthetic；
-- Big：能从 material 形成 grounded Core Message，展开真实 information gain，并完成一篇 synthetic。
+- **Small**：能自己拆 audience / purpose / required moves，并独立写完一篇 synthetic；
+- **Big**：能从 material 形成 grounded Core Message，并独立写完一篇 synthetic。
 
-这不是要求把 Guide 全读完，也不是因为 checkbox 未打勾就永远禁止真题。真正的 gate 是：
+这不是要求把 Guide 全读完，也不是 checkbox gate。
 
-> **我是否已经能在没有 model/template takeover 的情况下，从完整 synthetic prompt 独立生成一篇基本完整文本？**
+真正的问题只有一个：
 
-工程 validator 不得通过提交 protected true-exam 来证明这个 gate。
+> **我能不能在没有 model / template 接管的情况下，从完整 prompt 独立生成一篇基本完整文本？**
+
+工程验收不得通过消耗 protected true-exam 来证明这一点。
 
 ---
 
-# J｜Writing Runtime v2 — aligned with current English Logic
+# J｜Writing Runtime v2｜系统边界（第一次学习可跳过）
 
-**Parent authority:** `content/english/LEARNING_CONTRACT.md`  
-**Boundary:** Runtime 负责 attempt / state / repair / evidence interaction，不把 content taxonomy 变成 learner ritual。
+**Parent authority:** `content/english/LEARNING_CONTRACT.md`
 
-## J1｜Attempt / review unit
-
-正式 Writing Attempt 以**一篇完整作文**为 learner-facing unit。内部 evidence 可以细到 task requirement、planning atom、paragraph、sentence、lexical span、revision event、timing event。
-
-> **Evidence granularity may be smaller than Review granularity.**
-
-Whole essay 是 diagnostic context envelope；repair scope 可以更小。
-
-## J2｜First meaningful evidence
+正式 Writing Attempt 以**一篇完整作文**为 learner-facing unit。
 
 至少保护：
 
 ```text
 prompt
-+ first meaningful plan / direct-plan mode
++ first meaningful plan / direct mode
 + first draft
 ```
 
-revision 不能覆盖 first draft。只有 first evidence 才能判断 Task / Content / Structure / Language 的问题是不是 learner 自己产生的。
+revision 不能覆盖 first draft。
 
-## J3｜State semantics
+状态语义：
 
 ```text
 ATTEMPT
@@ -819,82 +883,20 @@ learner re-generation when useful
   ↓
 REPAIR_COMPLETE
   ↓
-optional TRANSFER_PENDING only if memory admission is justified
+optional TRANSFER_PENDING only when justified
 ```
 
-Stable acceptable work 不制造 transfer debt。Repair 完成也不自动制造 transfer debt。
+关键边界：
 
-## J4｜Diagnosis / cascade
+- stable acceptable work 不制造 repair / transfer debt；
+- Chat 先看完整 first draft，再缩到最小 independent failure set；
+- 上游 failure 足以解释的 downstream effects 不独立制造复习债务；
+- 同 prompt rewrite 成功只证明 repair 生效，不证明 mastery；
+- durable target 只给 reusable / recurring / expensive / still-unstable failure；
+- pending target 是后台观察状态，不召唤 learner task；
+- later normal Writing 自然测试同一 underlying demand 时，才获得更强 evidence；
+- Writing 只记录 lexical production failure，长期 lexical knowledge 继续由 LexicalOS 拥有。
 
-Chat 先看完整 first draft，再找最小 independent failure set。
+Resume 只把 learner 带回真正未完成的高价值动作；passed work、Guide position、dormant pending target 都不应把 learner 拖回去。
 
-> **可由上游 failure 解释的 downstream effects 不独立制造复习债务。**
-
-修完上游后仍然独立存在的高价值 downstream failure 才值得成为另一个 repair object。
-
-## J5｜Re-generation
-
-Repair 的目标不是让 Chat 重写 essay，而是让 learner 重新生成受影响 scope。Model essay / reference 不得覆盖 first draft。
-
-> **同 prompt rewrite 成功只证明 repair 生效，不证明 mastery。**
-
-## J6｜Memory / transfer admission
-
-Admission 只给 reusable / recurring / expensive / still-unstable target。
-
-不 admission：一次性措辞偏好、无得分价值差异、看懂后即可解决的小失误、LexicalOS-owned durable knowledge。
-
-`TRANSFER_PENDING` 是 backend observation state：
-
-```text
-pending target
-≠ learner owes an action
-```
-
-Later normal Writing 恰好测试同一 underlying demand 时，系统才有机会获得 fresh evidence。
-
-## J7｜Evidence hierarchy
-
-```text
-看懂 feedback
-< same-prompt learner regeneration
-< later independent success
-< fresh prompt success on same demand
-< repeated stable timed performance
-```
-
-但 evidence hierarchy 不是 scheduler。`correct once ≠ mastery` 也不等于必须安排一次新的 test。
-
-## J8｜Lexical ownership
-
-Writing 可记录 production failure evidence；sense / phrase / construction / collocation / contrast / confusable 的 canonical durable knowledge 继续由 LexicalOS owner 管理。不要建立第二套 lexical debt。
-
-## J9｜Resume
-
-Resume 优先级：
-
-1. unfinished complete attempt；
-2. already-active meaningful repair / regeneration；
-3. naturally relevant validation；
-4. otherwise next high-value Writing task。
-
-Passed work、Guide position、dormant pending claims 不应把 learner 拖回去。
-
-## J10｜FFV learner journey
-
-```text
-Writing Home
-→ targeted First Learning when needed OR Productive Runtime
-→ complete attempt
-→ preserve first evidence
-→ PASS / ACCEPTABLE and continue
-   or
-→ whole-essay Chat diagnosis
-→ smallest repair
-→ learner re-generation
-→ repair complete
-→ return to performance
-→ leave / refresh / resume to highest-value unfinished action
-```
-
-达到这条链真实可用后，Writing FFV 就停止扩架构；视觉与微交互 polish 交给后续实现，不得改变本文件语义。
+达到这条链真实可用后，Writing Functional First 停止扩架构；视觉与微交互可以继续实现，但不得改变本文件的学习语义。
