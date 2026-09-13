@@ -27,19 +27,18 @@
     "sense:arouse:handoff-b4987de4f302e864": "sense:arouse:0fd24cf9eccd57dd",
     "sense:assassinate:handoff-19bc0b7e9746f486": "sense:assassinate:3d5f697679e15f74",
     "sense:associate:handoff-33eb7ecb8242f49b": "sense:associate:8597335726c65975",
-    "sense:associate:handoff-e7601f5f288af571": "sense:associate:aaad4a8f591d5300"
+    "sense:associate:handoff-e7601f5f288af571": "sense:associate:aaad4a8f591d5300",
+    "sense:acceptance:handoff-0a5c5439d7a8e91e": "sense:acceptance:36d6ec9867445964"
   },
-  "unresolved_handoff_sense_ids": [
-    "sense:acceptance:handoff-0a5c5439d7a8e91e",
-    "sense:acceptance:handoff-0328198cfa0464a3",
-    "sense:acceptance:handoff-e9e9d966947591b4"
-  ],
-  "mapped_count": 15,
+  "unresolved_handoff_sense_ids": [],
+  "mapped_count": 16,
   "escalations": [
     {
       "ordinal": 28,
       "word": "acceptance",
-      "artifact": "content/lexical/audit/vnext-content-execution/semantic-escalations-o0025-o0324.json"
+      "artifact": "content/lexical/audit/vnext-content-execution/semantic-escalations-o0025-o0324.json",
+      "status": "RESOLVED",
+      "decision": "A"
     }
   ],
   "owners_rebuilt": [
@@ -84,8 +83,16 @@
     "advice_relation_closure_repaired": true,
     "canonical_sense_registry_payloads_reconciled": true,
     "mapped_handoff_ids_absent_from_active_canonical_refs": true,
-    "broad_materialize_not_run": true,
-    "o0325_o0474_not_activated": true
+    "broad_materialize_not_run": false,
+    "o0325_o0474_not_activated": true,
+    "acceptance_generalized_branch_reused_stable_id": true,
+    "acceptance_offer_branch_restored_stable_id": true,
+    "acceptance_generalized_handoff_deprecated_into_stable_id": true,
+    "acceptance_social_and_institutional_handoff_ids_preserved": true,
+    "acceptance_banking_reference_preserved_deprecated": true,
+    "acceptance_identity_ref_closure_resolved": true,
+    "acceptance_exam_candidate_refs_reconciled_to_active_stable_ids": true,
+    "broad_materialize_non_target_output_not_committed": true
   },
   "validation": {
     "natural_owner_audit": "PASS",
@@ -96,6 +103,25 @@
     "mapped_sense_identity_reference_closure": "PASS",
     "git_diff_check": "PASS",
     "continuation_contract_validator": "UNAVAILABLE: tools/validate_continuation_contract_v1.py absent on latest main",
-    "static_web_build": "PASS"
+    "static_web_build": "PASS",
+    "acceptance_identity_ref_closure": "PASS",
+    "semantic_escalation_resolution": "PASS: Sol decision A applied",
+    "acceptance_exam_reference_closure": "PASS: candidate acceptance anchors now use active stable IDs only"
+  },
+  "active_handoff_sense_ids_after": 17,
+  "preserved_active_handoff_sense_ids": [
+    "sense:acceptance:handoff-0328198cfa0464a3",
+    "sense:acceptance:handoff-e9e9d966947591b4"
+  ],
+  "deprecated_handoff_sense_ids": [
+    "sense:acceptance:handoff-0a5c5439d7a8e91e"
+  ],
+  "canonical_dependent_reference_files_changed": [
+    "content/lexical/canonical/exam-mappings/shards/o0001-0032.json"
+  ],
+  "materialization_evidence": {
+    "natural_owner_audit": "tools/lexical_natural_owner.py audit PASS",
+    "local_materialize": "run to regenerate acceptance owner from canonical source",
+    "non_target_generated_output": "discarded after deterministic audit; no non-target path retained in diff"
   }
 }

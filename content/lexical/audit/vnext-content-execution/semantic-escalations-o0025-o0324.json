@@ -1,6 +1,6 @@
 {
   "schema": "kianos.lexical.semantic_escalation_artifact.v1",
-  "status": "PENDING_SOL_DECISION",
+  "status": "RESOLVED_SOL_DECISION",
   "scope": [
     25,
     324
@@ -67,7 +67,23 @@
           "effect": "keep handoff-0a5 as a distinct generalized branch and retain both stable historical references"
         }
       ],
-      "status": "BLOCKED_PENDING_SOL_DECISION"
+      "status": "RESOLVED",
+      "resolution": {
+        "decision": "A",
+        "decision_name": "merge_into_36d6_with_explicit_extension",
+        "resolved_by": "ChatGPT/Sol",
+        "authority_evidence": "PR #95 review comment submitted 2026-09-13T18:10:38Z",
+        "identity_mapping": {
+          "sense:acceptance:handoff-0a5c5439d7a8e91e": "sense:acceptance:36d6ec9867445964",
+          "sense:acceptance:handoff-0328198cfa0464a3": "preserve_active_new_branch",
+          "sense:acceptance:handoff-e9e9d966947591b4": "preserve_active_new_branch",
+          "sense:acceptance:90cafc9ec9555ecc": "restore_active_stable_branch",
+          "sense:acceptance:fb11ed57a25354cd": "preserve_deprecated_reference_only"
+        },
+        "canonical_effect": "Generalized acceptance/recognition/being-accepted uses stable 36d6; offer/proposal agreement uses stable 90caf; social and institutional branches remain active handoff identities; banking remains deprecated.",
+        "semantic_mutation_authorized": true,
+        "scope_guard": "acceptance only; no other owner semantics reopened; o0325-o0474 not activated"
+      }
     }
   ]
 }
