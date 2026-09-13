@@ -60,6 +60,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
+      - name: Validate A1 fresh Projection contracts
+        run: node scripts/validate-xizong-a1-projection.mjs
       - name: Validate A3 owner and inventory
         run: A3_SOURCE_PHASE=owner node scripts/validate-xizong-a3-source.mjs
       - name: Validate A3 Current Question Truth resolution
