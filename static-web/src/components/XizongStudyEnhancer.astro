@@ -49,7 +49,6 @@ const kps = block?.kpRecords || [];
     const chainList = chain?.querySelector('ol');
     if (chain && dock.parentElement !== chain) chain.insertBefore(dock, chainList || chain.firstChild);
 
-    const learnCards = [...root.querySelectorAll('[data-kp-learn-card]')];
     const recallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const lectureButton = dock.querySelector('[data-lecture-read]');
     const locator = dock.querySelector('[data-source-locator]');
@@ -62,11 +61,8 @@ const kps = block?.kpRecords || [];
     const savePersonal = () => { try { localStorage.setItem(personalKey, JSON.stringify(personal)); } catch {} };
     const currentStage = () => [...root.querySelectorAll('[data-study-stage]')].find((node) => !node.hidden)?.getAttribute('data-study-stage') || '';
     const currentIndex = () => {
-      const stage = currentStage();
-      const learn = learnCards.findIndex((card) => !card.hidden);
-      if (learn >= 0 && stage === 'kp_learn') return learn;
       const recall = recallCards.findIndex((card) => !card.hidden);
-      if (recall >= 0 && stage === 'kp_recall') return recall;
+      if (recall >= 0 && currentStage() === 'kp_recall') return recall;
       return Math.max(0, Math.min(kpRows.length - 1, Number(readStudy().kpIndex || 0)));
     };
     const currentRow = () => kpRows[currentIndex()] || kpRows[0] || null;
@@ -78,10 +74,8 @@ const kps = block?.kpRecords || [];
       return personal.kp[row.kpId];
     };
     const currentScrollSurface = () => {
-      const stage = currentStage();
-      if (stage === 'kp_learn') return learnCards[currentIndex()] || null;
-      if (stage === 'kp_recall') return recallCards[currentIndex()]?.querySelector('.portedRecallAnswer:not([hidden])') || recallCards[currentIndex()] || null;
-      return null;
+      if (currentStage() !== 'kp_recall') return null;
+      return recallCards[currentIndex()]?.querySelector('.portedRecallAnswer:not([hidden])') || recallCards[currentIndex()] || null;
     };
 
     const applyCompletionGate = () => {
@@ -143,7 +137,7 @@ const kps = block?.kpRecords || [];
         return;
       }
       const stage = currentStage();
-      if (['ArrowUp', 'ArrowDown'].includes(event.key) && ['kp_learn', 'kp_recall'].includes(stage)) {
+      if (['ArrowUp', 'ArrowDown'].includes(event.key) && stage === 'kp_recall') {
         const surface = currentScrollSurface();
         if (surface) {
           event.preventDefault();
@@ -154,7 +148,7 @@ const kps = block?.kpRecords || [];
       if (event.key === 'Enter') {
         if (stage === 'block_learn') root.querySelector('[data-stage-next="logic_group"]')?.click();
         else if (stage === 'logic_group') root.querySelector('[data-enter-group]')?.click();
-        else if (stage === 'kp_learn') learnCards[currentIndex()]?.querySelector('[data-kp-learned]')?.click();
+        else if (stage === 'kp_learn') root.querySelector('[data-group-lecture-done]')?.click();
         else if (stage === 'group_close') root.querySelector('[data-group-close-next]')?.click();
         else if (stage === 'kp_recall') recallCards[currentIndex()]?.querySelector('[data-kp-reveal]:not([hidden])')?.click();
         return;
@@ -170,5 +164,5 @@ const kps = block?.kpRecords || [];
 
 <style>
   .xv6PersonalDock{display:grid;gap:8px;padding:10px 11px;border-bottom:1px solid var(--study-line);background:#fff}.xv6PersonalDock>header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:0 0 6px!important;border:0!important}.xv6PersonalDock>header div{min-width:0}.xv6PersonalDock>header span,.xv6DockLocator>span,.xv6DockComment>span{display:block;color:var(--study-green);font-size:8px;font-weight:850;letter-spacing:.06em}.xv6PersonalDock>header strong{display:block;overflow:hidden;margin-top:2px;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.xv6PersonalDock>header small{align-self:end;color:var(--study-muted);font-size:8px}.xv6DockLocator{display:grid;gap:3px;padding:7px;border-radius:8px;background:var(--study-surface-muted)}.xv6DockLocator code{overflow:hidden;color:var(--study-muted);font-size:8px;line-height:1.45;white-space:normal}.xv6DockLecture{display:grid;gap:3px}.xv6DockLecture button{min-height:28px;border:1px solid var(--study-line);border-radius:7px;background:#fff;color:var(--study-green);font-size:9px;font-weight:800}.xv6DockLecture button.active{border-color:var(--study-green);background:var(--study-green-soft)}.xv6DockLecture small{color:var(--study-faint);font-size:8px;line-height:1.35}.xv6DockComment{display:grid;gap:4px}.xv6DockComment textarea{width:100%;resize:vertical;min-height:42px;padding:7px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;line-height:1.45}
-  @media(min-width:1100px){.xv6Block .portedStudyLayout{grid-template-columns:220px minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.chain-collapsed{grid-template-columns:220px minmax(0,1fr) 0}.xv6Block .portedKpWorkspace{min-height:0}.xv6Block .portedKpCards{height:calc(100vh - 225px);min-height:520px;max-height:760px;padding:8px 10px}.xv6Block .portedKpCard,.xv6Block .portedKpRecallCard{display:flex;height:100%;max-width:none;flex-direction:column}.xv6Block .portedKpCard>header,.xv6Block .portedKpRecallCard>header{padding:11px 15px 9px}.xv6Block .portedKpCard>footer,.xv6Block .portedKpRecallCard>footer{margin-top:auto}.xv6Block .xv6KpCore,.xv6Block .portedRecallAnswer{overflow:auto}.xv6Block .portedStudyChain{min-width:0}}
+  @media(min-width:1100px){.xv6Block .portedStudyLayout{grid-template-columns:220px minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.chain-collapsed{grid-template-columns:220px minmax(0,1fr) 0}.xv6Block .portedKpWorkspace{min-height:0}.xv6Block .portedKpCards{height:calc(100vh - 225px);min-height:520px;max-height:760px;padding:8px 10px}.xv6Block .portedKpRecallCard{display:flex;height:100%;max-width:none;flex-direction:column}.xv6Block .portedKpRecallCard>header{padding:11px 15px 9px}.xv6Block .portedKpRecallCard>footer{margin-top:auto}.xv6Block .portedRecallAnswer{overflow:auto}.xv6Block .portedStudyChain{min-width:0}}
 </style>
