@@ -233,7 +233,10 @@ try {
   check(await cdp.evaluate(visibleStageExpr) === 'block_recall', 'all_groups_release_block_recall');
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
   learnedCount = Object.values(state?.learned || {}).filter(Boolean).length;
-  check(learnedCount === totalKp && Object.keys(state?.ratings || {}).length === totalKp, 'all_kps_have_learning_and_recall_evidence', `${learnedCount}/${totalKp}`);
+  const recalledCount = Object.keys(state?.ratings || {}).length;
+  const allKpIds = await cdp.evaluate(`Array.from(document.querySelectorAll('[data-kp-recall-card]')).map(card=>card.getAttribute('data-kp-id'))`);
+  const missingRecallIds = allKpIds.filter((id) => !state?.ratings?.[id]);
+  check(learnedCount === totalKp && recalledCount === totalKp, 'all_kps_have_learning_and_recall_evidence', `learned=${learnedCount}/${totalKp};recalled=${recalledCount}/${totalKp};missing=${missingRecallIds.join(',')}`);
 
   // Block completion requires Block Recall + Block-level original Lecture confirmation.
   await cdp.evaluate(clickExpr('[data-stage-target="block_complete"]'));

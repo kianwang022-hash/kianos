@@ -374,9 +374,9 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
         save(); syncState();
         const group = currentGroup();
         const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
-        const position = ids.indexOf(kpId);
-        if (position >= 0 && position < ids.length - 1) {
-          const nextIndex = indexForKpId(ids[position + 1]);
+        const firstMissingId = ids.find((id) => !state.ratings?.[id]);
+        if (firstMissingId) {
+          const nextIndex = indexForKpId(firstMissingId);
           if (nextIndex >= 0) window.setTimeout(() => setKpIndex(nextIndex), 120);
         } else {
           window.setTimeout(() => setStage('group_close'), 120);
