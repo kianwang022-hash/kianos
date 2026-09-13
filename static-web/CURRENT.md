@@ -156,6 +156,7 @@ These are interaction baselines, not universal mastery semantics; the owning dom
 
 **Program:** KianOS learner-surface productization  
 **Active stage:** `1 · PROJECTION AUDIT`  
+**Active audit surface:** English Translation  
 **Implementation owner:** none until the active audit produces a disposition  
 **Chat/Sol role:** audit + migration owner  
 **Active implementation PR:** none  
@@ -182,11 +183,9 @@ move to the next surface or hand the exact implementation brief to Codex
 
 ### Audit order
 
-Start with English because its learner model differs materially from Politics/Xizong and should establish the workbook family without forcing it onto knowledge-heavy domains.
-
 ```text
-1. Writing
-2. Translation
+1. Writing ✅
+2. Translation ← active
 3. Objective — Reading A
 4. Objective — Cloze
 5. Objective — Part B
@@ -200,11 +199,46 @@ Start with English because its learner model differs materially from Politics/Xi
 
 Order may change when a bounded dependency justifies it; record the reason here rather than inferring from branch activity.
 
-### Already-known audit evidence
+### Closed audit receipt｜Writing
 
-**Writing:** Current English Logic says task/performance first; First Learning is complete-but-skippable repair reservoir; formal learner unit is one complete essay. Existing `WritingWorkspace.astro` already has useful task-first bones. The old `writing-learn.astro` over-centers six primitives as a learner route. **Audit not yet closed**: likely KEEP core Runtime interaction + OPTIMIZE/REBUILD First-Learning projection, but inspect as one combined learner journey before final disposition.
+**Disposition: `OPTIMIZE` — preserve the good Runtime bones; reproject the learner journey rather than rebuilding Writing semantics.**
 
-**Politics question workbench:** Kian explicitly prefers the prior 4173/local question interaction. Treat this as a **MIGRATE candidate**, not a redesign target. Chat/Sol must first reconcile interaction + 1,148 refined explanation asset against Current Politics truth. Codex receives only the reconciled result.
+Evidence:
+
+- English Logic is performance-first; clean tasks dominate learner time; First Learning is a complete-but-skippable repair reservoir, not a course checklist.
+- formal Writing learner unit is one complete essay.
+- Current `WritingWorkspace.astro` already has the correct structural core: Prompt stays visible, Plan may be skipped through Direct mode, complete Draft is the dominant work object, PASS is a real exit, and meaningful failure alone opens smallest Repair / re-generation.
+- Current Writing Home preserves the right semantic route but overexposes engineering/runtime explanation, status chrome, small text and card-like blocks relative to Kian's Dense Calm preference.
+- Current `writing-learn.astro` over-centers the six primitives as a visible learner route even though those primitives should mainly behave as quiet coaching/repair coordinates around real Writing performance.
+
+Carry-forward / change boundary:
+
+```text
+KEEP
+- whole-essay task-first Runtime
+- visible Prompt during work
+- Direct mode / optional Plan
+- first Draft as primary evidence/work surface
+- PASS exits cleanly
+- smallest-repair / return semantics
+
+OPTIMIZE
+- Writing Home hierarchy: Resume / real Task first; engineering metadata quiet
+- larger comfortable learner text and less card/status clutter
+- task/work surface should dominate Mac landscape
+- integrate or expose six primitives as on-demand Coach / Repair reservoir
+
+DO NOT
+- turn six primitives into mandatory chapters
+- create a second Writing state machine
+- invent new mastery/transfer meaning
+```
+
+No Legacy migration is required for Writing. Implementation brief waits until the broader English Projection Audit determines which workbook primitives should be shared with Translation / Objective instead of prematurely designing Writing in isolation.
+
+### Protected / already-known audit evidence
+
+**Politics question workbench:** Kian explicitly prefers the prior 4173/local question interaction. Treat as a **MIGRATE candidate**, not a redesign target. Chat/Sol must first reconcile interaction + 1,148 refined explanation asset against Current Politics truth. Codex receives only the reconciled result.
 
 **KP / Recall interaction:** Kian explicitly likes the prior Space / 1–4 / Enter / ←→ grammar. Treat as a **MIGRATE/KEEP baseline** across compatible Current Recall surfaces unless an owning contract proves a conflict.
 
