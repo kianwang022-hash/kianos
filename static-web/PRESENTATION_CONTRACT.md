@@ -337,11 +337,11 @@ If a Lexical Challenge is rendered as ordinary A–D choices, it should use the 
 Shortcut ownership follows the **active semantic object**:
 
 ```text
-Recall / KP active        → Recall grammar
-A–D Question active       → Question grammar
+Recall / KP active          → Recall grammar
+A–D Question active         → Question grammar
 Lexical Depth target active → Depth grammar
-Spatial Challenge active  → spatial Challenge grammar
-text field focused        → typing wins; learning shortcuts suspended
+Spatial Challenge active    → spatial Challenge grammar
+text field focused          → typing wins; learning shortcuts suspended
 ```
 
 Do not solve conflicts by adding modifier-key rituals. Resolve them through clear active state and visible affordance.
@@ -350,35 +350,54 @@ Do not solve conflicts by adding modifier-key rituals. Resolve them through clea
 
 ## 7B｜Legacy reference firewall
 
-Legacy may be consulted when it contains a demonstrably better interaction, layout, test, or recoverable content candidate. It is **evidence / reference only** unless a Current owner explicitly promotes reconciled material.
+Legacy may contain valuable interaction or recoverable content, but it is **not an implementation source that Codex is expected to interpret**.
+
+Ownership rule:
+
+```text
+raw Legacy
+→ Chat/Sol bounded archaeology + reconciliation
+→ Current-facing interaction brief OR promoted Current asset
+→ Codex implementation
+```
+
+Never:
+
+```text
+Codex
+→ roam old repos / old localhost / historical branches
+→ infer which old behavior or owner is still valid
+→ wire learner UI directly to historical assets
+```
+
+Chat/Sol owns the migration boundary because it has the project-context responsibility needed to distinguish useful interaction from obsolete authority.
+
+For a useful legacy **interaction**:
+
+1. inspect the exact legacy implementation/tests;
+2. extract the behavior worth preserving;
+3. reconcile it against Current Learning / Interaction / Evidence contracts;
+4. express the result as a clean Current-facing Product Brief or contract addition;
+5. Codex implements that brief against Current runtime/data.
+
+For useful legacy **content/data**:
+
+1. recover exact identity / bytes / provenance;
+2. reconcile against the correct Current canonical owner;
+3. deliberately promote/materialize through that owner;
+4. only the promoted Current asset may become learner-facing input.
 
 Hard firewall:
 
-```text
-Current Truth
-→ may consult bounded legacy evidence
-→ re-implement / reconcile against Current contracts
-→ materialize accepted result in Current
-
-NOT
-
-Current runtime
-→ fetch / fall back / link directly into historical branches, legacy repos,
-  old schedulers, generated workbenches or stale semantic owners
-```
-
-Rules:
-
 1. learner-facing Current runtime must not depend on a legacy repository path, historical branch, old localhost path, or historical generated asset as a hidden fallback;
-2. a useful legacy **interaction** may be reproduced near-1:1, but its data must bind to Current canonical truth, Current identity, Current evidence semantics and Current surface ownership;
-3. useful legacy **content/data** must be exactly recovered, reconciled and deliberately promoted before it becomes Current learner material;
-4. legacy scheduler/due logic, mastery semantics, routes, owner hierarchies or state machines do not return merely because the old UI used them;
-5. no “Current missing → silently show old asset” behavior is allowed on the learner surface;
-6. historical repository/commit/path references are allowed in governance notes, provenance and bounded tests; they are not runtime APIs;
-7. once useful behavior or content is reconciled into Current, the Current owner becomes the durable source. The historical copy remains provenance/reference only;
-8. any deliberate compatibility migration must be one-way, explicit, testable and semantically bounded. It may not establish the legacy store as a second live owner.
+2. legacy scheduler/due logic, mastery semantics, routes, owner hierarchies or state machines do not return merely because an old UI used them;
+3. no `Current missing → silently show old asset` behavior is allowed;
+4. historical paths are allowed in governance/provenance/tests, not as learner-runtime APIs;
+5. once useful behavior/content is reconciled into Current, Current becomes the durable source;
+6. any compatibility migration must be one-way, explicit, testable and semantically bounded;
+7. if legacy reconciliation is unresolved, implementation stops **before Codex Handoff** rather than asking Codex to guess.
 
-The purpose of consulting Legacy is to avoid throwing away proven good interaction—not to reopen historical architecture or let asset drift leak back into the learner system.
+The purpose of consulting Legacy is to preserve proven good interaction without reopening historical architecture or asset drift.
 
 ---
 
@@ -408,7 +427,7 @@ Examples:
 
 - Politics may project conceptual relation maps, historical stage strips, hierarchy, boundaries, and Xiao1000 attempts;
 - Xizong may project mechanism chains, Block/System relations, clinical discrimination, Visual Gates, and precision objects;
-- English Reading may center passage/task structure and argument/evidence interaction;
+- English may project task-first workbook surfaces where source material / prompt / learner output dominate and coaching remains conditional;
 - LexicalOS may center sense competition, construction, contrast, and transfer challenge.
 
 What is shared is the contract:
@@ -440,7 +459,6 @@ Before a learner-facing KianOS web path may claim mature Projection quality, ver
 10. typography and density support sustained work without tiny-text / giant-whitespace pseudo-minimalism;
 11. global navigation and status chrome do not dominate the Cognitive Stage;
 12. the same domain semantics would remain correct if the specific Astro components were replaced;
-13. high-frequency actions follow the shared input grammar unless a visible semantic exception is justified;
-14. learner runtime has no hidden Legacy fallback or historical asset dependency.
+13. any legacy-derived behavior/data has crossed the Chat-owned Migration Gate and is now expressed through Current-facing authority rather than a raw historical dependency.
 
 A screenshot, pretty component set, or successful build cannot by itself satisfy this contract. Real learner U remains governed by `LEARNING_ACCEPTANCE.md`.
