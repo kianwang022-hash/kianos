@@ -358,12 +358,81 @@ Stable work exits cheaply. A real problem leads back to Chat discussion and lear
 
 ---
 
+## First Learning / targeted intervention — accepted direction
+
+### Preserve existing function
+
+Keep all validated First Learning knowledge and task-specific structure:
+- Objective keeps Global Map plus Reading A / Cloze / Part B cores and deeper Skill Map/reference material;
+- Translation keeps Global Map + Representation / Reconstruction / Execution with Fidelity / deeper repair material available on demand;
+- Writing keeps the six genuine primitives, Small / Big specialization, synthetic practice and deeper Skill Map/reference material;
+- learner may leave First Learning and return to productive runtime at any point when the missing capability is already sufficient;
+- no manual page completion, checkbox or chapter order becomes learner truth/mastery merely because content exists.
+
+First Learning remains a **complete-but-skippable repair reservoir**, not a prerequisite course.
+
+### Entry model
+
+Normal entry should be from a real task need whenever possible:
+
+```text
+real Reading / Cloze / Part B / Translation / Writing problem
+→ exact relevant First Learning node
+→ learn only enough to resolve the current missing capability
+→ return to the exact interrupted task
+```
+
+Do not force:
+
+```text
+English Home
+→ First Learning catalogue
+→ module
+→ chapter hunting
+→ target node
+```
+
+Browse/catalog access may remain as a secondary reference route, but it should not become the dominant learner path.
+
+### Return behavior
+
+Targeted intervention must preserve origin context. A learner who entered from `2018 Text 2 · Q27` should have an obvious return action back to that exact task/object rather than being dumped at English Home.
+
+The same applies to a Translation segment or Writing task. Cross-surface learning support earns its cost only when return is cheap and precise.
+
+### Mac-wide projection
+
+A targeted node may use a narrow local navigation rail plus one dominant content stage:
+
+```text
+┌──────────────────────────────┬────────────────────────────────────────────┐
+│ Reading A                    │ Evidence Boundary                          │
+│                              │                                            │
+│ Global Map                   │ focused explanation / examples             │
+│ Question Demand              │                                            │
+│ Evidence Boundary  ←         │                                            │
+│ Option Proposition           │                                            │
+│ Adjudication                 │                                            │
+│ Deep Skills                  │                                            │
+│                              │                                            │
+│ ← Return to 2018 Text 2 Q27  │                         已经够用，返回 →   │
+└──────────────────────────────┴────────────────────────────────────────────┘
+```
+
+Do not make the rail a giant course-progress dashboard. It is orientation/reference only. The target node and exact return are the primary experience.
+
+### Chat relationship
+
+Chat may explain or deepen the same targeted issue directly when that is lower friction. First Learning pages remain durable canonical reference/teaching assets; Chat is not required merely because a page exists, and the page should not duplicate a live Chat conversation unnecessarily.
+
+---
+
 ## Next unresolved English surface
 
-`First Learning / targeted intervention surfaces`
+`English Home / Resume / navigation / return behavior`
 
-When discussing each next surface, always report in this order:
-1. original learning/projection intent;
-2. all important existing learner-visible functions;
-3. what is preserved vs changed;
-4. Mac-wide target sketch.
+When discussing this final English family surface, first report:
+1. what the current English Home/Resume already does;
+2. what current Logic requires Home/Resume to mean;
+3. what is preserved vs removed/demoted;
+4. the Mac-wide target sketch and cross-surface return behavior.
