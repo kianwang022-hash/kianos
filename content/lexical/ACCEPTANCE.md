@@ -22,7 +22,7 @@ U  UNTESTED for unrestricted full-catalog learner use
 
 Allowed conclusion:
 
-> **LexicalOS has a stable Natural-Owner/source boundary, a re-accepted learner-controlled Learning Contract, a frozen vNext Content Asset Contract, and a PASS representative Content execution calibration. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive a current-generation Content conclusion and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U cannot be claimed from existing implementation alone.**
+> **LexicalOS has a stable Natural-Owner/source boundary, accepted learner-controlled Learning + Content contracts, a PASS representative calibration, and the first contiguous vNext Content execution unit `o0001–o0012` closed with 12/12 fresh conclusions. Full-catalog Knowledge remains BLOCKED until all 7,946 Main Words receive current-generation Content conclusions and known semantic/ownership debt is closed. Downstream unrestricted P/R/E and real learner U remain unaccepted.**
 
 ---
 
@@ -49,7 +49,7 @@ The 7,946-word content universe still contains known semantic-fidelity and learn
 
 Historical discovery coverage is closed through corpus end, but discovery coverage is not K acceptance.
 
-`content/lexical/CONTENT_ASSET_CONTRACT.md` defines the vNext content target. `content/lexical/audit/vnext-content-calibration/gold01-receipt.json` proves the bounded execution model on representative content shapes; it does **not** close full-catalog K.
+`content/lexical/CONTENT_ASSET_CONTRACT.md` defines the vNext content target. Current-generation execution has now begun, but **12/7,946 contiguous owners is not full-catalog K**.
 
 K exit requires at minimum:
 
@@ -111,10 +111,9 @@ This L PASS does not claim that current full-catalog Content, UI, Runtime, or Ev
 - Active Senses prioritize ordinary current and high-value familiar-new branches;
 - Recall Map is derived from semantics rather than driving sense structure;
 - Expansion is first-class: construction, collocation/phraseology, contrast, register/form/pronunciation/family and useful productive distinctions may remain rich;
-- Recognition / Discrimination / Production demand may be represented sparsely when materially useful;
 - valid low-value material remains reference-only / Explore rather than being deleted;
-- a large Chat ownership range does not justify deferred audit→queue→later-repair execution;
-- Relation / Form owners crossing ordinal ranges must reconcile against the latest integration truth.
+- semantic acceptance closes by direct owner mutation + final-object readback + local receipt;
+- Relation / Form owners crossing ordinal ranges reconcile against latest integration truth.
 
 ---
 
@@ -129,16 +128,43 @@ Representative closure:
 - `access` → `UPGRADED + DEPTH_READY`;
 - `sanction` → `UPGRADED + DEPTH_READY`.
 
-The calibration demonstrates:
+The calibration proved simple Fast-Pass eligibility, rich Expansion, construction/grammar boundaries, and same-word contronym ownership reconciliation.
 
-- a simple word can be accepted as Fast-Pass eligible without forcing richer learner work;
-- rich polysemy can preserve Core + high-value senses + first-class Expansion;
-- grammar/construction boundaries can be made directly learnable;
-- same-word contronym truth can be reconciled back to the Word owner while a legacy Relation becomes reference-only compatibility evidence;
-- previous Fresh-Rebuild semantic work may be reused only after fresh vNext final-object readback;
-- local direct-write/readback/receipt closure works without a deferred repair queue.
+---
 
-This PASS authorizes bounded corpus Content execution. It does not authorize unrestricted learner P/R/E/U or full-catalog K PASS.
+## vNext contiguous Content execution｜ACTIVE
+
+### Batch01 `o0001–o0012` — PASS
+
+Receipt: `content/lexical/audit/vnext-content-execution/batch01-o0001-o0012.json`.
+
+Exact closure:
+
+```text
+12 / 12 fresh Content conclusions
+8 UPGRADED
+4 NO_CHANGE
+8 DEPTH_READY
+4 SAFE_SIMPLE
+0 BLOCKED
+0 Relation mutations
+0 Form mutations
+0 learner-state mutations
+```
+
+Key acceptance facts:
+
+- every ordinal `1–12` was concluded exactly once in this current generation;
+- semantic upgrades were written directly before acceptance rather than queued for later repair;
+- all upgraded owners received final integrated readback;
+- unchanged owners were re-read and accepted because Current content was already trustworthy;
+- earlier Fresh-Rebuild Batch02 content was treated only as bounded candidate/provenance evidence and was freshly judged against the current contracts;
+- no Relation/Form cross-range write set was opened;
+- Gold calibration owners outside `o0001–o0012` are **not** silently counted toward contiguous corpus coverage.
+
+After merge, the next contiguous cursor is `o0013` and must start from the newly accepted `main@HEAD`, not from this temporary branch.
+
+This PASS validates the first real corpus unit. It does **not** imply full-catalog K PASS.
 
 ---
 
@@ -176,7 +202,7 @@ representative Content execution calibration
 ✅ PASS
 ↓
 7,946-owner bounded Content realization + K re-acceptance
-← CURRENT
+🚧 Batch01 o0001–o0012 PASS; continue from o0013 after merge
 ↓
 P Projection / Interaction re-acceptance
 ↓
@@ -201,8 +227,8 @@ Historical audit / stopped Fresh-Rebuild branches may inform bounded defect dete
 - pack membership metadata → `content/lexical/canonical/packs/`
 - lane learning semantics → `content/lexical/LEARNING_CONTRACT.md`
 - content quality standard → `content/lexical/CONTENT_ASSET_CONTRACT.md`
-- vNext calibration evidence → `content/lexical/audit/vnext-content-calibration/`
-- historical defect / migration evidence → `content/lexical/audit/`
+- vNext execution evidence → `content/lexical/audit/vnext-content-calibration/` and `content/lexical/audit/vnext-content-execution/`
+- historical defect / migration / candidate evidence → other assets under `content/lexical/audit/`
 
 ### Learner Truth
 

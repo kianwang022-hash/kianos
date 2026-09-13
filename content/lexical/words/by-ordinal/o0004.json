@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:626620612ef278f5b1e2",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "遵守规则、协议或决定",
+        "pattern": "abide by + rule/agreement/decision"
+      },
+      {
+        "construction_id": "construction:4e97e07fd4baba7669f0",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "无法忍受某人/某事/做某事",
+        "pattern": "can't/cannot abide + sb/sth/doing"
+      }
+    ],
     "content_hash": "142ebb7f270064327d472b60a2034a349dfce27d84599f322358970687a9ef02",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "忍受；遵守",
-      "core_meaning_en": "to tolerate or follow",
-      "mental_model_cn": "忍受；遵守",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "遵守；遵循",
+          "label_en": "accept or obey a rule, agreement, or decision",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:abide:409cb3dccccf5e87"
+          ]
+        },
+        {
+          "label_cn": "（多用于否定）无法忍受",
+          "label_en": "be unable to tolerate or strongly dislike",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:abide:a76278b84da9503c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "在现代英语里主要出现在两个固定框架：abide by“遵守”，can't abide“受不了”",
+      "core_meaning_en": "in modern English, chiefly survives in abide by 'obey/accept' and can't abide 'cannot tolerate'",
+      "mental_model_cn": "不要把 abide 当普通“忍受”动词裸用：优先识别 abide by 和 can't/cannot abide 两个骨架。",
+      "mental_model_en": "treat modern abide as construction-led: abide by versus can't/cannot abide"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -23,6 +55,35 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "遵守；遵循（规则、协议、决定等）",
+        "definition_en": "to accept, obey, or act in accordance with a rule, agreement, decision, or instruction",
+        "governing_pattern": "abide by + n",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:abide:409cb3dccccf5e87",
+        "sense_label_en": "accept or obey a rule, agreement, or decision",
+        "sort_order": 0,
+        "transitivity": "vi",
+        "usage_note": "Formal/neutral and strongly construction-bound: normally abide by something.",
+        "source_evidence": [
+          {
+            "external_evidence": [
+              {
+                "source_type": "authoritative_learner_dictionary",
+                "source_name": "Cambridge Dictionary",
+                "source_locator": "https://dictionary.cambridge.org/dictionary/english/abide-by",
+                "role": "current_usage_and_pattern_verification"
+              }
+            ],
+            "semantic_auditor_approved": true,
+            "verification_status": "auditor_verified"
+          }
+        ]
+      },
       {
         "collocations": [
           {
@@ -44,17 +105,18 @@
             "phrase": "abide the delay"
           }
         ],
-        "confidence": "medium",
-        "definition_cn": "忍受，容忍",
-        "definition_en": "to tolerate or put up with something or somebody unpleasant",
-        "governing_pattern": "vt. + object",
-        "level": "L1",
+        "confidence": "high",
+        "definition_cn": "（通常用于 can't/cannot/couldn't）无法忍受；非常不喜欢",
+        "definition_en": "to be unable to tolerate or to strongly dislike someone or something, especially in can't/cannot abide",
+        "governing_pattern": "can't/cannot abide + sb/sth/doing",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:abide:a76278b84da9503c",
-        "sense_label_en": "to tolerate or put up with something or somebody unpleasant",
-        "sort_order": 0,
-        "transitivity": "vt"
+        "sense_label_en": "cannot tolerate; strongly dislike",
+        "sort_order": 1,
+        "transitivity": "vt",
+        "usage_note": "Much more natural in negative frames such as can't/cannot abide than as a free positive verb."
       }
     ],
     "verification_summary": {
@@ -78,31 +140,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:abide:409cb3dccccf5e87",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "遵守，遵循",
-      "definition_en": "to comply with or act in accordance with a rule, decision, or instruction",
-      "semantic_key": "974860fa44756af22d119a358a550f37f7f72d1cb3782bd2faa809f593a828e8",
-      "semantic_key_history": [
-        "c38940c51f2ebac61cdc04b13a17f328fe7a20fa8f0e74fb4c1f8957129d684f"
-      ],
-      "legacy_aliases": [
-        "abide:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "abide:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 6,
-      "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:abide:f837d5d00d3b5dd9",
       "status": "deprecated",
@@ -133,7 +170,7 @@
     "senses": [
       {
         "sense_id": "sense:abide:409cb3dccccf5e87",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6,
         "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
@@ -217,7 +254,9 @@
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0001-0008.json",
     "source_content_hash": "142ebb7f270064327d472b60a2034a349dfce27d84599f322358970687a9ef02",
-    "semantic_delta": 0,
-    "materializer": "tools/lexical_natural_owner.py"
+    "semantic_delta": 1,
+    "materializer": "tools/lexical_natural_owner.py",
+    "fresh_rebuild_batch": "batch02",
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
   }
 }

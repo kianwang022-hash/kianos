@@ -1,0 +1,62 @@
+{
+  "schema": "kianos.lexical.fresh_rebuild_batch.v1",
+  "batch_id": "batch02",
+  "status": "CHAT_REVIEWED_FRESH_REBUILD_INPUT",
+  "purpose": "First contiguous coverage batch after Gold01: calibrate fresh pass versus real upgrade on o0001-o0012 without inheriting historical target wording.",
+  "coverage": {
+    "ordinal_start": 1,
+    "ordinal_end": 12,
+    "owner_count": 12,
+    "contiguous": true
+  },
+  "legacy_semantic_authority": false,
+  "fresh_authority": {
+    "current_natural_owners": true,
+    "learning_contract": true,
+    "content_asset_contract": true,
+    "fresh_semantic_judgment": true
+  },
+  "external_verification": [
+    {
+      "source_name": "Cambridge Dictionary / English Grammar Today",
+      "source_locator": "https://dictionary.cambridge.org/us/grammar/british-grammar/a-an-the",
+      "role": "a_an_sound_boundary_and_indefinite_article"
+    },
+    {
+      "source_name": "Cambridge Dictionary",
+      "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/a",
+      "role": "a_one_each_per_and_quantity_uses"
+    },
+    {
+      "source_name": "Cambridge Dictionary",
+      "source_locator": "https://dictionary.cambridge.org/dictionary/english/abide-by",
+      "role": "abide_by_current_usage"
+    },
+    {
+      "source_name": "Cambridge Grammar",
+      "source_locator": "https://dictionary.cambridge.org/us/grammar/british-grammar/word-patterns-able",
+      "role": "able_to_infinitive_pattern"
+    },
+    {
+      "source_name": "Cambridge Grammar",
+      "source_locator": "https://dictionary.cambridge.org/grammar/british-grammar/word-patterns-ability",
+      "role": "ability_to_infinitive_pattern"
+    },
+    {
+      "source_name": "Cambridge Dictionary",
+      "source_locator": "https://dictionary.cambridge.org/dictionary/english/abound-in-with",
+      "role": "abound_subject_construction"
+    },
+    {
+      "source_name": "Cambridge Grammar",
+      "source_locator": "https://dictionary.cambridge.org/grammar/british-grammar/about",
+      "role": "about_topic_approximation_and_be_about_to"
+    }
+  ],
+  "parts": [
+    "batch02.part01.json",
+    "batch02.part02.json",
+    "batch02.part03.json",
+    "batch02.part04.json"
+  ]
+}
