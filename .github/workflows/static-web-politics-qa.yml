@@ -64,6 +64,8 @@ jobs:
         run: node scripts/audit-politics-scoped-source.mjs
       - name: Audit History batch content closure
         run: node scripts/audit-politics-history-content.mjs
+      - name: Audit Ethics content closure
+        run: node scripts/audit-politics-ethics-content.mjs
       - name: Audit History global first-ready parity
         run: node scripts/audit-politics-history-first-ready.mjs
       - name: Audit History Runtime closure
