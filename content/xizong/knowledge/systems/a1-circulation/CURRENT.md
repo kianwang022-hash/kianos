@@ -11,8 +11,8 @@ This file does not own medical Core, lane learning semantics, Acceptance Truth, 
 
 **Scope:** A1 — Circulation  
 **Active engineering stage:** fresh **Runtime Loop** re-acceptance  
-**Blocker:** none upstream; second executed browser run required after one Runtime closure defect was repaired  
-**Next action:** rerun the standard Xizong QA browser journey against the repaired Logic Group closure semantics. If the full real-browser journey passes, close R and activate E. Do not perform U.
+**Blocker:** none upstream; executed browser verification rerun required after two Runtime defects were repaired  
+**Next action:** run the standard Xizong QA browser journey against both Runtime repairs. If the complete real-browser path passes, close R and activate E. Do not perform U.
 
 Current fresh progress:
 
@@ -22,7 +22,7 @@ K        RE-ACCEPTED after semantic repair
 L        RE-ACCEPTED
 Content  CLOSED
 P        RE-ACCEPTED after Projection repair
-R        ACTIVE — one executed defect repaired; verification rerun next
+R        ACTIVE — two executed Runtime defects repaired; full verification rerun next
 E        downstream-frozen behind R
 U        real learner only / external workflow
 ```
@@ -59,64 +59,71 @@ Durable executable journey:
 
 It launches Astro preview + headless Chrome through CDP and writes `.qa/xizong-a1-browser-runtime.json`. It is part of the standard Xizong QA workflow after the Astro build.
 
-### First real-browser run
+### Browser run 1｜QA #352 / `34769191043`
 
-QA #352 / run `34769191043` reached the Runtime journey after all static/shared regressions and the Astro build had passed.
+The journey passed clean start, Logic Group entry, no manufactured learning, early Recall/Reveal rejection, current-group-only Lecture contact, mid-group refresh/resume, first-group closure and early Block Recall rejection.
 
-The browser journey successfully proved, in order:
+It then exposed Runtime defect R1:
 
-- clean Block starts at orientation with no manufactured completion;
-- Block → Logic Group → group-level original-Lecture stage transitions;
-- entering a Logic Group creates no learning evidence;
-- early KP Recall navigation is rejected;
-- early `Reveal Core` is rejected;
-- confirming one Logic Group's original-Lecture contact marks only that group's KPs (`4/19` in B2) learned;
-- learned KP reveal becomes available;
-- first Recall evidence persists;
-- refresh restores mid-group Recall state;
-- the first Logic Group closes after Recall;
-- early Block Recall after only one Logic Group is rejected;
-- completing all Logic Group UI transitions releases Block Recall.
+> Logic Group closure depended on rating the final-position KP rather than proving every KP in that Logic Group had Recall evidence.
 
-The run then exposed a real Runtime gap before R could PASS:
-
-> Group closure was triggered by **rating the final-position KP**, not by proving **every KP in that Logic Group had Recall evidence**.
-
-This meant arrow navigation could theoretically skip a middle KP and still close the group by rating the final KP.
-
-### Runtime repair
-
-The shared `XizongBlockV6.astro` transition now uses:
-
-```text
-rate current KP
-→ search current Logic Group for first KP with no Recall rating
-→ if one exists: return to that first gap
-→ only when none remain: enter group_close
-```
-
-The same bounded repair also improved the browser evidence report to print learned / recalled totals and missing KP IDs on failure.
-
-Repair commit landed on main as:
+Repair landed as:
 
 `83b2ffbd313557451e4ec8fb454236d331b160d4` — `xizong: require complete Logic Group recall before closure`
 
-The one-off repair workflow has been retired. The normal QA/browser journey is now the only verification path.
+Current transition:
+
+```text
+rate current KP
+→ find first current-group KP without Recall evidence
+→ if found: return to that gap
+→ only if none remain: group_close
+```
+
+### Browser run 2｜QA #353 / `34769447361`
+
+The repaired journey progressed further and explicitly proved:
+
+- **19/19 B2 KPs formally contacted**;
+- **19/19 B2 KPs recalled**;
+- no missing Recall IDs;
+- Block Recall stayed locked before all group evidence;
+- Block Recall completion advanced to Block close.
+
+It then exposed Runtime defect R2:
+
+> `XizongBlockV6` and `XizongStudyEnhancer` both controlled the Block-complete button. The Block runtime could briefly enable completion after KP + Block Recall while `lectureRead=false`, then the enhancer disabled it on the next observer frame. Submission was still guarded, but the learner-facing affordance had a transient false-ready state.
+
+Repair landed as:
+
+`2e5cde38fee9d78f9a0841fa766b6d3e3696d05f` — `xizong: unify Block completion prerequisite gate`
+
+`XizongBlockV6.canComplete()` now directly requires the same browser-local original-Lecture confirmation used by the shared guard:
+
+```text
+all KP formal learning contact
++ all KP Recall evidence
++ Block Recall complete
++ original Lecture one-pass confirmation
+→ Block complete may become available
+```
+
+The one-off repair workflow has been retired. Normal QA/browser execution is the only verification path.
 
 ---
 
 ## R fresh-audit contract
 
-The verification rerun must still prove the complete path:
+The full rerun must prove the complete path without another semantic gap:
 
 1. clean Block with zero manufactured progress;
 2. Logic Group entry without implicit learning evidence;
 3. early KP Recall / Reveal rejection;
 4. current-group-only formal Lecture contact;
-5. **all-KP evidence required before Logic Group closure**;
+5. all-KP Recall evidence required before Logic Group closure;
 6. refresh/resume preserving stage/group/KP state;
 7. full-Block Recall gate;
-8. Block completion requiring original-Lecture confirmation + KP Recall + Block Recall;
+8. Block completion requiring original-Lecture confirmation + KP Recall + Block Recall with no transient false-ready state;
 9. Continue return to the last real route;
 10. System Recall unavailable before all 12 Blocks and available after engineering fixture completion;
 11. explicit holdout required before official System sweep;
@@ -167,5 +174,5 @@ A1 CURRENT
 → A1 ACCEPTANCE
 → normal Xizong QA browser Runtime journey
 → if PASS: R close → E active
-→ if FAIL: smallest responsible runtime owner
+→ if FAIL: smallest responsible Runtime owner
 ```
