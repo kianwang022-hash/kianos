@@ -51,6 +51,19 @@ function unitCandidates(source) {
   return candidates;
 }
 
+function currentOwnedUnitIds(source) {
+  const ids = [];
+  const add = (id) => {
+    if (typeof id === 'string' && id.trim() && !ids.includes(id)) ids.push(id);
+  };
+
+  for (const id of source?.source_bindings?.natural_unit_ids || []) add(id);
+  for (const unit of unitCandidates(source)) {
+    for (const embeddedId of unit?.embedded_natural_unit_ids || []) add(embeddedId);
+  }
+  return ids;
+}
+
 function findUnit(source, unitId) {
   const direct = unitCandidates(source).filter((item) => item?.natural_unit_id === unitId);
   if (direct.length === 1) return direct[0];
@@ -221,14 +234,14 @@ for (const [subjectKey, subjectMeta] of Object.entries(manifest.subjects || {}))
       fail(`${relativeProjectionPath}: chapter_id ${projection.chapter_id} != Current ${source.chapter_id}`);
     }
 
-    const currentUnitIds = source.source_bindings?.natural_unit_ids;
-    if (!Array.isArray(currentUnitIds)) {
+    if (!Array.isArray(source.source_bindings?.natural_unit_ids)) {
       fail(`${relativeProjectionPath}: Current source_bindings.natural_unit_ids missing`);
       continue;
     }
+    const currentUnitIds = currentOwnedUnitIds(source);
     const projectedUnitIds = Array.isArray(projection.units) ? projection.units.map((unit) => unit.unit_id) : [];
     if (!sameMembers(projectedUnitIds, currentUnitIds)) {
-      fail(`${relativeProjectionPath}: projected Natural Unit owner set differs from Current source_bindings`);
+      fail(`${relativeProjectionPath}: projected Natural Unit owner set differs from Current explicit + embedded owners`);
     }
 
     walkRefs(projection.chapter_context, (ref, label) => resolveRef(ref, source, null, `${relativeProjectionPath}:${label}`), 'chapter_context');
