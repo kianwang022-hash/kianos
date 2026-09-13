@@ -62,6 +62,8 @@ jobs:
         run: node scripts/validate-xizong-learning.mjs
       - name: Validate A1 fresh Projection contracts
         run: node scripts/validate-xizong-a1-projection.mjs
+      - name: Validate A1 fresh Evidence contracts
+        run: node scripts/validate-xizong-a1-evidence.mjs
       - name: Validate A3 owner and inventory
         run: A3_SOURCE_PHASE=owner node scripts/validate-xizong-a3-source.mjs
       - name: Validate A3 Current Question Truth resolution
@@ -104,4 +106,13 @@ jobs:
         with:
           name: xizong-a1-browser-runtime
           path: static-web/.qa/xizong-a1-browser-runtime.json
+          if-no-files-found: warn
+      - name: Execute A1 browser Evidence journey
+        run: node scripts/test-xizong-a1-evidence-journey.mjs
+      - name: Upload A1 browser Evidence artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-a1-browser-evidence
+          path: static-web/.qa/xizong-a1-browser-evidence.json
           if-no-files-found: warn
