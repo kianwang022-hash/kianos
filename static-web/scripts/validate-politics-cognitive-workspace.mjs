@@ -66,13 +66,25 @@ for (const fastPath of [
 
 for (const visualRule of [
   'directReasoningWorkspace',
-  'data-direct-reasoning-flow',
+  'data-direct-relation-field',
   'core reasoning is primary content',
   "deck.querySelector('.mapTabs')?.remove()",
   'panel.hidden = false',
-  'buildDirectReasoningFlow(panel)',
-  'inspectorPrimaryAnchor'
-]) requireText(bridge, visualRule, 'direct-visible reasoning bridge');
+  'promoteDirectRelations(panel)',
+  'Preserve the Map\'s own topology',
+  'data-node-deepening',
+  'inspectorPrimaryAnchor',
+  '.workspaceState{display:none}',
+  '.suyiNote{display:none!important}'
+]) requireText(bridge, visualRule, 'topology-preserving direct-visible bridge');
+
+for (const forbiddenProjection of [
+  'buildDirectReasoningFlow',
+  'directReasoningColumn',
+  'EDGE_DERIVED_LANDSCAPE_FLOW'
+]) {
+  if (bridge.includes(forbiddenProjection)) fail(`projection still coerces Map into generic flow: ${forbiddenProjection}`);
+}
 
 requireText(page, "subject === 'marxism'", 'route calibration');
 requireText(page, "chapter === 'ch00'", 'route calibration');
@@ -83,7 +95,9 @@ for (const rule of [
   'Primary environment: Mac landscape workspace',
   'Cognitive Stage',
   'Contextual Inspector',
-  'Space expresses simultaneous relationships; state transitions express learning sequence.'
+  'Space expresses simultaneous relationships; state transitions express learning sequence.',
+  'cards/borders should represent a real interaction or semantic boundary',
+  'comfortable readable type'
 ]) requireText(presentation, rule, 'presentation contract');
 
 const chapter = loadPoliticsChapterCurrent('marxism', 'ch00');
@@ -110,13 +124,21 @@ if ((s02.raw.learning_semantics.framework_maps || []).length !== 2) {
   fail('C00 S02 must preserve two distinct framework maps');
 }
 
+const valueMap = (s02.raw.learning_semantics.framework_maps || []).find((map) => map.id === 'MARX-C00-S02-MAP-VALUE-01');
+if (!valueMap) fail('C00 S02 contemporary-value map missing');
+const valueEdges = valueMap.edges || [];
+if (valueEdges.length !== 3 || !valueEdges.every((edge) => edge.from === 'contemporary_value')) {
+  fail('C00 S02 contemporary-value hub topology changed');
+}
+
 console.log('POLITICS_COGNITIVE_WORKSPACE_PASS');
 console.log(JSON.stringify({
   chapter: chapter.title,
   semanticUnits: semanticUnits.length,
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
-  primaryReasoning: 'DIRECT_VISIBLE_NO_CLICK',
-  mapProjection: 'EDGE_DERIVED_LANDSCAPE_FLOW',
+  primaryReasoning: 'DIRECT_VISIBLE_SEMANTIC_EDGES',
+  mapProjection: 'TOPOLOGY_PRESERVED_RELATIONS_FIRST',
+  secondaryDepth: 'NODE_GLOSSARY_AND_RELATION_CHAIN_OPTIONAL',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
 }, null, 2));
