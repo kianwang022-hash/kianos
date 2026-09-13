@@ -11,8 +11,8 @@ This file does not own medical Core, lane learning semantics, Acceptance Truth, 
 
 **Scope:** A1 — Circulation  
 **Active engineering stage:** fresh **Runtime Loop** re-acceptance  
-**Blocker:** none at S/K/L, Content Closure, or P  
-**Next action:** execute realistic browser-local A1 learner journeys against the freshly accepted Projection: Logic Group lecture handoff → group Recall/closure → Block Recall/completion → resume/return → System Recall gating. Attack early jumps, refresh/resume, malformed/stale local state, and completion prerequisites. Do not perform U.
+**Blocker:** none upstream; second executed browser run required after one Runtime closure defect was repaired  
+**Next action:** rerun the standard Xizong QA browser journey against the repaired Logic Group closure semantics. If the full real-browser journey passes, close R and activate E. Do not perform U.
 
 Current fresh progress:
 
@@ -22,7 +22,7 @@ K        RE-ACCEPTED after semantic repair
 L        RE-ACCEPTED
 Content  CLOSED
 P        RE-ACCEPTED after Projection repair
-R        ACTIVE fresh attack
+R        ACTIVE — one executed defect repaired; verification rerun next
 E        downstream-frozen behind R
 U        real learner only / external workflow
 ```
@@ -33,52 +33,98 @@ U        real learner only / external workflow
 
 ## P closure receipt
 
-Fresh Projection / Interaction audit inspected the actual A1 learner-facing implementation rather than canonical strings alone.
+Fresh Projection / Interaction audit found and repaired three real learner-facing defects:
 
-Three real Projection defects were found and repaired:
+1. **KP-by-KP app switching** → replaced by Logic Group continuous original-Lecture contact followed by group Recall/closure;
+2. **future-stage / answer leakage** → shared stage guard now fails closed before unearned KP Reveal/Recall, Block Recall/completion and System Recall/sweep;
+3. **governance chrome on learner surface** → canonical/source/hash/current metadata remains in repository truth but is hidden from the primary Xizong learner chrome.
 
-1. **KP-by-KP app switching** — the old Block projection sent the learner back to the Lecture per KP. It now preserves Logic Group continuity: `学习节定位 → MarginNote 原讲义连续完成这一节 → 本节 KP Recall → 本节 closure → 下一学习节`.
-2. **future-stage / answer leakage** — later learner stages could be navigated to before prerequisite learning contact. Shared stage guards now fail closed before KP Reveal/Recall, Block Recall/completion, and System Recall/sweep when prerequisite learner evidence is absent.
-3. **governance chrome on the learner surface** — Xizong now keeps `Canonical projection / sha / Source path / System Current` and source-foot governance metadata out of the primary learner chrome while preserving provenance in canonical owners/validators.
-
-Durable contract:
-
-- `static-web/scripts/validate-xizong-a1-projection.mjs`
-- wired into `.github/workflows/static-web-xizong-qa.yml`
+Durable contract: `static-web/scripts/validate-xizong-a1-projection.mjs`.
 
 Regression reconciliation:
 
-- QA #345 proved the new A1 Projection contract itself PASS and exposed stale A2 validator expectations;
-- A2 validator was updated to the shared Logic Group continuity/stage-guard semantics;
-- QA #346 then passed A2 and exposed the same stale expectation in A3;
-- A3 validator was updated without changing A3 medical/Learning owners;
-- **QA #347 (`34768893981`) completed SUCCESS**, including A1 learner contract, A1 fresh Projection contracts, A2/A3 shared runtime regressions, B probes, shared repair-inbox contracts, and Astro build.
+- QA #345: A1 fresh Projection PASS; stale A2 probe exposed;
+- QA #346: A2 PASS; stale A3 probe exposed;
+- **QA #347 / run `34768893981`: SUCCESS** across A1 Projection, A2/A3 shared regressions, B probes, repair inbox and Astro build.
 
-P fresh verdict: **PASS**. The defect owner was Projection/interaction; no L or medical Content rollback was required.
+P fresh verdict: **PASS**.
+
+---
+
+## R executed-browser evidence so far
+
+Durable executable journey:
+
+`static-web/scripts/test-xizong-a1-browser-journey.mjs`
+
+It launches Astro preview + headless Chrome through CDP and writes `.qa/xizong-a1-browser-runtime.json`. It is part of the standard Xizong QA workflow after the Astro build.
+
+### First real-browser run
+
+QA #352 / run `34769191043` reached the Runtime journey after all static/shared regressions and the Astro build had passed.
+
+The browser journey successfully proved, in order:
+
+- clean Block starts at orientation with no manufactured completion;
+- Block → Logic Group → group-level original-Lecture stage transitions;
+- entering a Logic Group creates no learning evidence;
+- early KP Recall navigation is rejected;
+- early `Reveal Core` is rejected;
+- confirming one Logic Group's original-Lecture contact marks only that group's KPs (`4/19` in B2) learned;
+- learned KP reveal becomes available;
+- first Recall evidence persists;
+- refresh restores mid-group Recall state;
+- the first Logic Group closes after Recall;
+- early Block Recall after only one Logic Group is rejected;
+- completing all Logic Group UI transitions releases Block Recall.
+
+The run then exposed a real Runtime gap before R could PASS:
+
+> Group closure was triggered by **rating the final-position KP**, not by proving **every KP in that Logic Group had Recall evidence**.
+
+This meant arrow navigation could theoretically skip a middle KP and still close the group by rating the final KP.
+
+### Runtime repair
+
+The shared `XizongBlockV6.astro` transition now uses:
+
+```text
+rate current KP
+→ search current Logic Group for first KP with no Recall rating
+→ if one exists: return to that first gap
+→ only when none remain: enter group_close
+```
+
+The same bounded repair also improved the browser evidence report to print learned / recalled totals and missing KP IDs on failure.
+
+Repair commit landed on main as:
+
+`83b2ffbd313557451e4ec8fb454236d331b160d4` — `xizong: require complete Logic Group recall before closure`
+
+The one-off repair workflow has been retired. The normal QA/browser journey is now the only verification path.
 
 ---
 
 ## R fresh-audit contract
 
-Fresh R must execute material state transitions in a real browser/runtime environment, not infer readiness from source-string checks.
+The verification rerun must still prove the complete path:
 
-At minimum prove:
+1. clean Block with zero manufactured progress;
+2. Logic Group entry without implicit learning evidence;
+3. early KP Recall / Reveal rejection;
+4. current-group-only formal Lecture contact;
+5. **all-KP evidence required before Logic Group closure**;
+6. refresh/resume preserving stage/group/KP state;
+7. full-Block Recall gate;
+8. Block completion requiring original-Lecture confirmation + KP Recall + Block Recall;
+9. Continue return to the last real route;
+10. System Recall unavailable before all 12 Blocks and available after engineering fixture completion;
+11. explicit holdout required before official System sweep;
+12. malformed browser-local state falls back without manufacturing progress.
 
-1. clean Block starts with no manufactured learning evidence;
-2. entering a Logic Group does not itself mark its KPs learned;
-3. direct navigation to KP Recall / answer reveal before formal Lecture contact fails closed;
-4. confirming one Logic Group's original-Lecture contact marks only that group's KPs formally contacted;
-5. Recall/rating progresses only within the current Logic Group and closes the group only after its KPs are actually recalled;
-6. refresh restores the real stage/group/KP state without inventing progress;
-7. Block Recall remains unavailable until all Logic Groups have formal learning contact + KP Recall;
-8. Block completion requires the approved completion evidence, including original-Lecture confirmation and Block Recall;
-9. Continue returns to the last real route/state;
-10. System Recall remains unavailable until all 12 A1 Blocks are genuinely marked complete in engineering-test state;
-11. state/version guards fail closed on stale or malformed evidence rather than silently accepting it.
+Engineering fixture state may reach late transitions, but it remains test evidence only and never becomes Kian's Learner Truth.
 
-Fresh R may use engineering fixture state to reach late transitions, but those fixtures are test evidence only and must never be written as Kian's Learner Truth.
-
-If R finds a learner-facing sequencing defect, reopen P/L only at the smallest responsible owner. Otherwise close R and activate E.
+If the rerun finds another concrete Runtime defect, repair the smallest responsible Runtime/Projection owner and repeat. If it passes, close R and activate E.
 
 ---
 
@@ -119,7 +165,7 @@ Private learner/browser/conversation evidence only.
 ```text
 A1 CURRENT
 → A1 ACCEPTANCE
-→ exact shared/A1 runtime owner(s) named by the failing transition
-→ execute realistic browser journey
-→ work
+→ normal Xizong QA browser Runtime journey
+→ if PASS: R close → E active
+→ if FAIL: smallest responsible runtime owner
 ```
