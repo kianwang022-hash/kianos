@@ -81,7 +81,7 @@ The validator is part of `Static Web Politics QA` and checks, at minimum:
 - every Projection `source.path` exists;
 - stored `source.blob_sha` still matches the exact Current source bytes;
 - Current chapter files and manifest chapter files reconcile;
-- each chapter's projected Natural Unit owner set reconciles with Current `source_bindings.natural_unit_ids` while allowing Projection-specific display ordering;
+- each chapter's projected Natural Unit owner set reconciles with Current explicit `source_bindings.natural_unit_ids` **plus any Current-owned `embedded_natural_unit_ids`**, while allowing Projection-specific display ordering;
 - PASS / REFERENCE_ONLY / BLOCKED counts reconcile with the manifest;
 - Current field references and selectors resolve rather than silently widening/falling back;
 - `first_round_exact` contains Current references rather than synthesized learner content;
