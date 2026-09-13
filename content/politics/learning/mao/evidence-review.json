@@ -1,0 +1,78 @@
+{
+  "schema": "kianos.politics.mao_evidence_review.v1",
+  "status": "PASS",
+  "scope": "mao C00-C08 current first-round evidence semantics",
+  "reviewed_head": "f838f8a470478793df68c950a490363bbe8d6f62",
+  "gate": "E",
+  "mode": ["EXECUTED", "ADVERSARIAL", "STRUCTURAL"],
+  "independence": "FRESH_AUDITOR",
+  "first_failure": {
+    "code": "mao_e_event_keeps_repair_source_anchor",
+    "classification": "EVIDENCE_DEFECT",
+    "finding": "Wrong/Uncertain events preserved subject/chapter/unit/question/outcome/choice/answer but did not preserve the owning repair-source locator independently of mutable last_location.",
+    "upstream_reopened": false
+  },
+  "repair": {
+    "scope": "Mao only",
+    "component": "static-web/src/components/PoliticsEvidenceEnhancer.astro",
+    "behavior": "Enrich the matching newest WRONG/UNCERTAIN evidence event with repair_source_anchor and Current source-owner ids derived from the owning Mao Unit.",
+    "does_not_change": [
+      "Mao Source/Knowledge/Content/Learning/Projection",
+      "first-attempt value",
+      "question source truth",
+      "mastery semantics",
+      "Xi or Ethics-Law evidence behavior"
+    ]
+  },
+  "executed_evidence": {
+    "static_web_politics_qa": {
+      "run_number": 553,
+      "run_id": 34771525967,
+      "status": "PASS"
+    },
+    "politics_functional_first_journey": {
+      "run_number": 65,
+      "run_id": 34771525987,
+      "status": "PASS",
+      "shared_politics_journey": "PASS",
+      "mao_runtime_journey": "PASS",
+      "mao_evidence_model_audit": "PASS",
+      "mao_evidence_browser_journey": "PASS"
+    },
+    "model_audit": {
+      "scope": "MAO_C00_C08_EVIDENCE_MODEL",
+      "chapter_count": 9,
+      "unit_return_configs": 17,
+      "question_evidence_slots": 107,
+      "check_count": 181,
+      "failure_count": 0
+    },
+    "browser_journey_assertions": [
+      "clean STABLE first attempts create no Wrong/Uncertain repair debt",
+      "STABLE and Unit Return explicitly preserve no-mastery semantics",
+      "WRONG first-attempt truth survives repair and cannot be overwritten",
+      "UNCERTAIN remains distinct even when the selected answer is correct",
+      "repair-source anchor and stable source-owner ids travel with the evidence event",
+      "Return Packet event provenance remains correct after last_location moves to another Mao chapter",
+      "forced first-attempt persistence failure is visible and fails closed",
+      "failed persistence cannot manufacture a first attempt, close the Unit, or advance the cursor to UNIT_RETURN"
+    ]
+  },
+  "accepted_evidence_semantics": {
+    "first_attempt": "IMMUTABLE_ONCE_RECORDED",
+    "wrong_uncertain": "DISTINCT_DURABLE_REPAIR_EVIDENCE",
+    "stable": "THIS_PASS_STABILITY_ONLY",
+    "repair": "DOES_NOT_REWRITE_FIRST_ATTEMPT_OR_IMPLY_MASTERY",
+    "mastery_claim": "NONE",
+    "repair_provenance": "EVENT_LOCAL_NOT_DERIVED_FROM_MUTABLE_LAST_LOCATION",
+    "out_of_scope_evidence": "REJECTED",
+    "persistence_failure": "FAIL_CLOSED",
+    "private_state": "BROWSER_RETURN_PACKET_ONLY_NOT_SHARED_CURRENT"
+  },
+  "boundaries": {
+    "user_validation": "UNTESTED_NOT_INFERRED",
+    "later_transfer": "LATER_PHASE_NOT_EXECUTED_IN_FIRST_ROUND_E",
+    "later_transfer_rule": "Future fresh/holdout evidence may strengthen or challenge earlier evidence but must append/reconcile rather than overwrite first-attempt truth.",
+    "module_claim": "READY_FOR_LEARNER_TEST_NOT_LEARNER_VALIDATED"
+  }
+}
