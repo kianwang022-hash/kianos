@@ -123,6 +123,14 @@ function sameArray(a, b) {
   return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((value, index) => value === b[index]);
 }
 
+function sameMembers(a, b) {
+  if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+  const aSet = new Set(a);
+  const bSet = new Set(b);
+  if (aSet.size !== a.length || bSet.size !== b.length || aSet.size !== bSet.size) return false;
+  return [...aSet].every((value) => bSet.has(value));
+}
+
 function assertReferenceOnly(unit, label) {
   if (unit.current_problem !== null) fail(`${label}: REFERENCE_ONLY current_problem must be null`);
   for (const key of ['primary_geometry', 'secondary_reasoning', 'boundaries', 'first_round_exact', 'takeaway']) {
@@ -219,8 +227,8 @@ for (const [subjectKey, subjectMeta] of Object.entries(manifest.subjects || {}))
       continue;
     }
     const projectedUnitIds = Array.isArray(projection.units) ? projection.units.map((unit) => unit.unit_id) : [];
-    if (!sameArray(projectedUnitIds, currentUnitIds)) {
-      fail(`${relativeProjectionPath}: projected unit order/accounting differs from Current source_bindings`);
+    if (!sameMembers(projectedUnitIds, currentUnitIds)) {
+      fail(`${relativeProjectionPath}: projected Natural Unit owner set differs from Current source_bindings`);
     }
 
     walkRefs(projection.chapter_context, (ref, label) => resolveRef(ref, source, null, `${relativeProjectionPath}:${label}`), 'chapter_context');
