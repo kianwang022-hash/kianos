@@ -14,8 +14,8 @@ This file owns current acceptance claims for the independently continued Xi subj
 ```text
 S  PASS
 K  PASS
-L  UNTESTED   ← earliest unresolved if whole-module acceptance resumes
-P  UNTESTED   ← downstream-frozen
+L  PASS
+P  UNTESTED   ← earliest unresolved
 R  UNTESTED   ← downstream-frozen
 E  UNTESTED   ← downstream-frozen
 U  UNTESTED   ← learner-only
@@ -29,142 +29,181 @@ C00–C17 Current content closure  PASS
 
 Allowed conclusion:
 
-> **Xi has a fresh, source-grounded S/K content closure for C00–C17 under the Current Politics content contract. It is not yet accepted as a complete learner-ready module because L/P/R/E remain untested for this subject, and U requires real Kian use.**
+> **Xi has accepted Current Source/Knowledge content and a freshly re-accepted whole-book Learning Logic for C00–C17. Projection, Xi-specific Runtime/Evidence and real learner validation remain unaccepted.**
 
-Do not promote this to module-ready or learner-validated.
+Do not promote this to module-ready or learner-validated before P/R/E are independently accepted and U comes from real Kian use.
 
 ---
 
-## 2026-09-13 fresh Source/Knowledge content closure
+## S/K + Content closure｜accepted upstream
 
-This was not a schema-completeness pass. Existing `CHAPTER_PROJECTION_COMPLETE` state was treated as prior artifact evidence, not the semantic answer key.
+The 2026-09-13 fresh Source/Knowledge review treated previous projection-complete state as prior artifact evidence rather than an answer key.
+
+Fresh content disposition:
+
+```text
+C00–C17  REPAIRED
+18 reviewed / 18 repaired / 0 keep / 0 blocked
+Content closure PASS
+```
+
+The common upstream defect was over-compression: Xi already had a strong hierarchy-first skeleton, but many exam-facing fixed identities, role maps, lists and confusable boundaries had disappeared from backend content. Those were restored without turning KianOS into a second Chengfeng course.
+
+Current source boundary remains:
+
+```text
+Chengfeng  continuous first-round mainline + primary semantic source
+Suyi       compact framework / exactness / past-exam cross-check only
+Xiao1000   verification and transfer evidence, not first-learning order
+KianOS     hierarchy / role / boundary / selective precision companion
+```
+
+Current Xi contains 60 canonical Natural Units:
+
+```text
+ordinary P0  6
+ordinary P1  36
+ordinary P2  12
+C02 frozen-pilot units without ordinary priority field  6
+```
+
+P2 remains canonical/source-bound but may stay source-primary/deferred. P0/P1 ownership is not render entitlement or permanent Memory admission.
+
+### Bounded upstream provenance decisions
+
+- C02 uses Suyi only as a compact exactness cross-check for the five major principles and six major relations; Chengfeng remains semantic owner.
+- C08's basic-political-system / People's Political Consultative Conference passage is bound to the real Current owner `POL27-CF-XI-C08-K06-N01-TBL01`; nonexistent `K06-N02` is rejected.
+
+Executed upstream evidence:
+
+- Static Web Politics QA #521 (`34763032552`) → PASS
+- 18/18 chapters, 60/60 canonical Natural Units, 0 content blocker
+- Current source-review snapshot valid
+- Politics coverage / Xiao1000 chapter routing / scoped source loading / Current bindings / Astro build → PASS
+- Politics Functional First Journey #34 (`34763032553`) → PASS as shared integration evidence only
+
+---
+
+## L｜Fresh Learning Logic re-acceptance — PASS
+
+Review owner: `content/politics/learning/xi/learning-review.json`  
+Reviewed base: `6e14b8597096739a72aec3805feddba29f9506ea`  
+Mode: `FRESH_LEARNING_LOGIC_REACCEPTANCE`
 
 Fresh disposition:
 
 ```text
-C00–C17  REPAIRED
+C00 KEEP
+C01 KEEP
+C02 KEEP
+C03 KEEP
+C04 KEEP
+C05 KEEP
+C06 KEEP
+C07 KEEP
+C08 KEEP
+C09 KEEP
+C10 KEEP
+C11 KEEP
+C12 KEEP
+C13 KEEP
+C14 KEEP
+C15 KEEP
+C16 KEEP
+C17 KEEP
 
-18 chapters reviewed
-18 repaired
-0 keep
+18 reviewed
+18 keep
+0 repair
 0 blocked
 ```
 
-The common defect was over-compression: Xi already had a strong hierarchy-first teaching skeleton, but reducing first-round display density had also removed many exam-facing fixed identities, role maps, lists and confusable boundaries from backend content.
+No chapter was rewritten merely to manufacture delta.
 
-The repair preserved the hierarchy-first learner logic while restoring the high-value semantic objects needed for objective-question discrimination. P2 remained canonical but was not automatically promoted into active first-round memory debt.
-
-### Representative repaired structures
-
-- C00 → three major questions, `十个明确 / 十四个坚持 / 十三个方面成就` role identities, `六个必须坚持`, `两个结合` boundary.
-- C01 → road / theory system / institution / culture role map; New Era vs primary-stage boundary.
-- C02 → China Dream essence, modernization stage arrangement, characteristics / essential requirements / major principles / major relations.
-- C03 → party leadership: most essential feature / greatest advantage / highest political leadership force / fundamental guarantee.
-- C04 → people stance, exact mass-line formulation, life-line/root-work-line identity, common-prosperity boundary.
-- C05 → reform/opening hats, total reform goal, institutional-construction mainline, economic-system-reform focus.
-- C06–C10 → economic/development structure, education-science-talent roles, democracy-system tiers, rule-of-law layers, civilization characteristics.
-- C11–C13 → livelihood hats and governance forms, Two Mountains relation, overall national-security role map.
-- C14–C17 → Strong Army spirit/core/guarantee, One Country Two Systems boundaries, diplomacy role chain, strict-governance/self-revolution identity groups.
-
----
-
-## Canonical ownership / priority boundary
-
-Current Xi contains 60 canonical Natural Units.
-
-Ordinary priority-labeled regions:
+### Accepted whole-subject learner architecture
 
 ```text
-P0  6
-P1  36
-P2  12
+theory identity / method
+→ direction + New Era historical position
+→ national rejuvenation / Chinese modernization
+→ Party leadership as fundamental guarantee
+→ people-centered fundamental standpoint
+→ reform and opening as driving force
+→ economic development + education/science/talent support
+→ democracy / rule of law / culture / livelihood-social governance / ecology
+→ security / military / reunification / diplomacy
+→ strict Party governance / self-revolution
 ```
 
-In addition, 6 C02 regions are pre-existing canonical frozen-pilot semantic decisions and do not carry the ordinary `chat_decision.priority` field.
+The governing Xi first-round rule is:
 
-This is accepted Current ownership, not a missing-priority repair target. P2 remains canonical/source-bound but may stay source-primary/deferred.
+> **先分层级和身份，再做固定表述精确化。**
 
----
+This matters because Xi has the highest density of fixed roles/hats in Politics. Learning PASS therefore required proving that restored content does not silently turn into a memorization wall.
 
-## Source boundary
+### Learning acceptance criteria
 
-`source-review.json` records:
+1. **Hierarchy first** — each chapter establishes role/layer before demanding fixed-formulation precision.
+2. **Canonical integrity** — all 60 Natural Units remain Chengfeng-owned; Xiao1000 does not reorganize first learning.
+3. **Why-now continuity** — adjacent Units explain why the next concept is needed rather than appearing as neighboring lists.
+4. **Cross-chapter continuity** — C00–C17 reconstruct as one architecture from theory identity/method to self-revolution.
+5. **Exam discrimination** — confusable role words are explicitly separated by semantic object and level.
+6. **Compression quality** — chapter compression reconstructs role relations rather than merely shortening source text.
+7. **Minimality** — dense `content_support` is backend completeness; it does not automatically create learner operations, first-round recall, or Memory debt.
 
-- `CURRENT_REVIEW_COMPLETE`;
-- no blocking P0/P1 owner gap;
-- a source snapshot tied to the Current node-registry canonical-row digest;
-- Chengfeng remains semantic and continuous-learning authority;
-- Suyi remains compact framework/exactness/past-exam cross-check only;
-- P2 is not promoted merely for asset completeness;
-- noisy or low-discrimination detail remains source-primary rather than guessed.
+### Strongest fresh attacks
 
-### Bounded exactness / provenance decisions
+**C02 — four-list collision risk**  
+`中国特色 / 本质要求 / 重大原则 / 重大关系` could become four parallel recitation blocks. Current Logic keeps them as four different questions: `是什么 / 根本上必须做到什么 / 推进时怎样把握 / 复杂张力怎样处理`.
 
-C02 uses Suyi only as a compact exactness cross-check for the five major principles and six major relations. Chengfeng K08/K09 remains the semantic owner; Suyi does not become a second course.
+**C07 — C06 duplication risk**  
+The opening New Development Philosophy Unit could repeat the previous chapter and add friction. Fresh readback found it functions only as a short bridge explaining why education-science-talent belongs under innovation/high-quality development, not as a duplicate first lesson.
 
-C08 fresh audit exposed one false source owner: `POL27-CF-XI-C08-K06-N02` does not exist. The Current shard stores the basic-political-system / People’s Political Consultative Conference passage inside the real owner `POL27-CF-XI-C08-K06-N01-TBL01`; the repaired asset now points there instead of preserving an invented child ID.
+**C15 — Taiwan role-chain overload risk**  
+The ten-item overall-strategy structure is Xi's strongest memorization-wall candidate. Current first-learning path remains `一国两制原则框架 → 港澳治理 → 台湾统一路径`; the ten items are organized by semantic role and detailed expansion stays Chengfeng-primary.
 
----
+**C17 — Party-leadership duplication risk**  
+C03 already owns `谁领导 / 根本政治保证`. C17 instead owns `领导力量怎样长期保持先进性、纯洁性和执政能力`, so strict governance / anti-corruption / self-revolution form a distinct self-renewal chain rather than repeating C03.
 
-## Executed closure evidence
+### Material delta
 
-Tested content head: `6c235b38c4cb096b72c51a6055c476d1cdd361af`
+```text
+NO_CHAPTER_LOGIC_REWRITE_REQUIRED
+```
 
-**Static Web Politics QA**
-- run #521 (`34763032552`) → **PASS**
-- `Audit Xi fresh content closure` → **PASS**
-- 18/18 chapters → 0 blocker
-- 60/60 canonical Xi Natural Units represented
-- canonical ownership priorities accepted as 6 P0 / 36 P1 / 12 P2 + 6 frozen pilot
-- source-review snapshot → valid
-- canonical Politics coverage → PASS
-- Xiao1000 semantic chapter routing → PASS
-- scoped Politics source loading → PASS
-- existing History/Ethics/Mao/Marxism/K03 checks → PASS
-- Politics Current bindings → PASS
-- production Astro build → PASS
-
-**Politics Functional First Journey**
-- run #34 (`34763032553`) → **PASS**
-- shared integration evidence only; it is not re-labeled as Xi-specific Runtime/Evidence acceptance.
-
-This proves the repaired Xi S/K content assets close cleanly against Current ownership and do not break shared Politics integration. It does **not** accept Xi L/P/R/E.
+A rewrite would add learner operations without a demonstrated gain in hierarchy, discrimination or transfer.
 
 ---
 
-## Content closure boundary
+## L boundary / negative space
 
-Content closure means:
+L PASS does **not** mean:
 
-- every canonical Xi Natural Unit is represented by Current C00–C17 assets;
-- all 18 chapters received a fresh semantic judgment;
-- fresh review found no remaining blocking high-value P0/P1 identity/role/fixed-structure/boundary omission for the present first-round path;
-- declared content source refs resolve against Current owners;
-- source-review snapshot is current;
-- P2 stays bounded rather than being inflated into mandatory recall;
-- high-value content is represented without converting Chengfeng into KianOS.
+- every restored fixed identity should appear on the page at once;
+- every P0/P1 item becomes active recall or Memory debt;
+- C02/C15/C17 dense structures should be memorized wholesale in round one;
+- chapter `review_prompt` is a mandatory ritual;
+- Chengfeng has moved into Astro as a continuous reader;
+- Xi Projection is accepted simply because the underlying Learning assets are good;
+- shared Politics Runtime/Functional First can be relabeled as Xi R/E acceptance;
+- Kian has studied, transferred or mastered any Xi content.
 
-Content closure does **not** mean:
-
-- every Chengfeng sentence, table, date, meeting, policy list or exact wording is duplicated;
-- every canonical unit becomes permanent active recall;
-- the Xi learning path has been freshly accepted;
-- UI/projection has been accepted for Xi;
-- Xi-specific Runtime or Evidence journeys have been executed;
-- Kian has learned or validated any Xi chapter.
+Dense backend content remains subordinate to the current cognitive action. Whether the actual page preserves that restraint is the responsibility of P.
 
 ---
 
 ## Stage boundary
 
 ```text
-S/K            CLOSED for Current C00–C17 content
-L              UNTESTED / earliest unresolved if module acceptance resumes
-P/R/E          downstream-frozen
+S/K            PASS
+Content        PASS
+L              PASS
+P              UNTESTED / earliest unresolved
+R/E            downstream-frozen
 U              UNTESTED / learner-only
 ```
 
-The current book-by-book Politics content program may therefore leave Xi without reopening these eighteen chapters merely for polish.
+Next legitimate Xi whole-module work is **P｜Projection**. Do not reopen accepted S/K/L without new source truth, question evidence, real learner friction, or a concrete upstream defect.
 
 ---
 
@@ -172,8 +211,10 @@ The current book-by-book Politics content program may therefore leave Xi without
 
 ### Artifact Truth
 - teaching assets → `content/politics/learning/xi/ch00.json` … `ch17.json`
+- subject map → `content/politics/learning/xi/subject-map.json`
 - semantic review → `content/politics/learning/xi/semantic-review.json`
 - source review → `content/politics/learning/xi/source-review.json`
+- Learning review → `content/politics/learning/xi/learning-review.json`
 - shared Politics contracts → `content/politics/LEARNING_CONTRACT.md` + `content/politics/INTERACTION_CONTRACT.md`
 
 ### Acceptance Truth
@@ -182,4 +223,4 @@ This file.
 ### Learner Truth
 Private browser / Return Packet / conversation evidence only.
 
-> **Fresh S/K content closure is not the same thing as whole-module readiness or learner validation.**
+> **Accepted Learning Logic is not Xi Projection/Runtime/Evidence acceptance, mastery, or U evidence.**
