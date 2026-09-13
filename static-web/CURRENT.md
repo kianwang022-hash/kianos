@@ -104,6 +104,53 @@ Codex / implementation work should preserve all current semantic/runtime contrac
 
 ---
 
+## Protected legacy interaction reference｜Politics Question Workbench
+
+Politics productization must **not** redesign the question-practice interaction from memory or from the current minimal Astro quiz alone.
+
+A materially more complete learner interaction is recoverable from the prior Local site and is now a protected reference for the later Politics UI stage:
+
+- recovery repository: `kianwang022-hash/kianos-site-v238-recovery@local-main`;
+- compiled learner implementation: `public/kianos/assets/PoliticsWorkbench-DbVipmSG.js`;
+- frozen UX contract evidence: `tests/politics-final-learner-ux-polish.test.mjs` plus the related Politics workbench/runtime tests;
+- source-recovery authority: `kianwang022-hash/kianos-legacy@local-main/content/politics/RECOVERY_CONTRACT.md`.
+
+The legacy question workbench demonstrably included these high-value behaviors:
+
+```text
+Normal / Fast mode
++ keyboard 1–4 / Enter
++ fast single-choice correct → near-immediate continue
++ wrong answer → stay for review
++ result headline
+→ 一句话带走 (takeaway)
+→ learner answer vs canonical answer / selection delta
+→ optional failure-cause mark + personal note
++ bounded knowledge-review pane
+→ AI-refined 理解这道题 (chat_explanation)
+→ exact / derived source references
+→ collapsible Xiao original explanation
++ fixed low-friction Next
++ optional original-question image check
+```
+
+The prior Source Recovery Contract also pins a **1,148-record final-explanation artifact** (`politics_question_explanation_final_freeze_candidate.v1.json`, historical SHA256 `e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec`) alongside the 1,148 canonical objective questions. Its durable Current role still requires exact reconciliation; provenance or historical existence alone is not permission to fabricate or silently promote it.
+
+### Migration rule
+
+When Politics reaches UI productization:
+
+1. first compare the Current question runtime against this legacy Workbench behavior;
+2. preserve the **interaction quality and information hierarchy** near-1:1 wherever they remain compatible with Current Politics contracts;
+3. bind the rebuilt surface to **Current canonical Question Truth, Current source ownership, and Current evidence/repair semantics** rather than reviving legacy semantic/runtime authority;
+4. explicitly locate/recover/reconcile the 1,148 refined explanation payload before claiming the legacy dual-layer explanation experience has been preserved;
+5. do **not** reduce the accepted target to a single generic `q.explanation` merely because the current minimal `PoliticsChapterRuntime.astro` can render one explanation field;
+6. do not import legacy overdue/scheduler/learning-surface behavior when it conflicts with Current Politics Learning / Interaction contracts.
+
+This is a **protected interaction reference, not a second Current**. The goal is to preserve a proven high-quality learner experience while letting Current owners continue to own truth.
+
+---
+
 ## Domain maturity boundary
 
 UI work must not pretend every domain has identical semantic maturity.
