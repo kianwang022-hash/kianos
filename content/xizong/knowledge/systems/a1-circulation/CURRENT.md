@@ -10,102 +10,103 @@ This file does not own medical Core, lane learning semantics, Acceptance Truth, 
 ## Work Cursor
 
 **Scope:** A1 — Circulation  
-**Active engineering stage:** fresh **Runtime + Evidence execution** on the current shared contract  
-**Blocker:** none known; current code must complete standard executed QA before closure  
-**Next action:** execute the standard Xizong QA now that the legacy A1 learner validator has been aligned to Logic Group formal-contact semantics. Require both the real A1 browser Runtime journey and browser Evidence journey to pass; then close R/E and stop before U.
+**Active engineering stage:** **CLOSED through Evidence**  
+**Blocker:** none  
+**Next action:** none in engineering. Wait for real learner use; U remains external and untested.
 
-Current fresh progress:
+Current state:
 
 ```text
-S        RE-ACCEPTED
-K        RE-ACCEPTED after semantic repair
-L        RE-ACCEPTED
+S        PASS
+K        PASS
+L        PASS
 Content  CLOSED
-P        RE-ACCEPTED after Projection repair
-R        REVALIDATION EXECUTING
-E        EXECUTES IMMEDIATELY AFTER R IN SAME QA
-U        real learner only / external workflow
+P        PASS
+R        PASS
+E        PASS
+U        UNTESTED / real learner only
 ```
 
-> Engineering evidence must not manufacture learner progress. U is explicitly owned elsewhere.
+> Engineering evidence must not manufacture learner progress. U is explicitly owned by real learner use.
 
 ---
 
-## Why R was re-opened
+## Final Runtime / Evidence closure
 
-A prior browser run closed R on an older Runtime:
+Fresh current-contract execution closed the remaining A1 engineering work on PR #100.
 
-- QA #355 / run `34769821351` → SUCCESS;
-- `xizong-a1-browser-runtime` passed 39 executed checks.
+Accepted execution receipt:
 
-Afterward the shared Runtime retired a redundant Block-level `原讲义一轮 · 已确认` checkbox. Logic Group original-Lecture contact already records formal contact for every owned KP, so the duplicate confirmation was not a distinct learning event.
+- branch head: `97ec341f3fe510fd0cb4b5e2aeffa94a292fa6ff`;
+- `Static Web Xizong QA #365` / run `34775611247` → **SUCCESS**;
+- A1 learner / Projection / persistence-evidence contracts → PASS;
+- Astro build → PASS;
+- A1 headless browser Runtime journey → **PASS**;
+- A1 Runtime evidence artifact upload → PASS;
+- A1 Evidence validation → **PASS**;
+- A1 headless browser Evidence journey → **PASS**;
+- A1 Evidence artifact upload → PASS;
+- evidence build / final static build → PASS.
 
-Current completion chain is now:
+The fresh Runtime failure immediately before closure was real, not a historical runner artifact. The browser journey proved every fine-grained learning transition was already correct but the final Block-completion check remained locked. The responsible defect was a hidden legacy `lectureRead` localStorage dependency still present in `XizongBlockV6.astro` after the duplicate Block-level Lecture confirmation had already been removed from the learner surface.
+
+Final completion contract is now exactly:
 
 ```text
 all Logic Group formal Lecture contacts
-→ all KP Recall evidence
+→ all owned KP Recall evidence
 → Block Recall
 → Block Complete
 ```
 
-The Runtime still fails closed on missing formal contact, missing KP Recall, or missing Block Recall; it simply does not ask for the same Lecture contact twice.
-
-Because this changed a completion prerequisite, the latest code requires a new executed R result rather than inheriting QA #355.
+There is no separate Block-level `lectureRead` confirmation and no hidden `lectureRead` completion gate.
 
 ---
 
-## R defects repaired during this fresh cycle
+## What was actually fixed in the fresh R cycle
 
-1. **Logic Group premature closure** — closure now checks for the first missing Recall inside the current group and refuses to close until every owned KP has Recall evidence.
-2. **stale keyboard transition** — Enter now follows the current Logic Group Lecture handoff/return path rather than a retired per-KP learn button.
-3. **duplicate Block-level Lecture confirmation** — removed after Logic Group contact became the canonical formal-learning evidence.
-4. **stale learner validator expectation** — `validate-xizong-learning.mjs` now checks the current formal-contact + Recall + Block Recall completion contract and explicitly rejects reintroduction of the legacy `lectureRead` gate.
+1. Logic Group closure fails closed until every owned KP in the group has Recall evidence.
+2. Keyboard / stage transitions follow the current Logic Group Lecture handoff and return path.
+3. Duplicate Block-level original-Lecture confirmation remains removed.
+4. Learner validators explicitly enforce formal-contact + KP Recall + Block Recall semantics and reject reintroduction of legacy `lectureRead`.
+5. Final `canComplete()` no longer depends on obsolete `circulationLectureRead:*` localStorage state.
 
 Durable Runtime journey:
 
 `static-web/scripts/test-xizong-a1-browser-journey.mjs`
 
-It must prove clean start, Logic Group handoff, early-stage guards, complete group Recall, refresh/resume, Block completion, Continue, System Recall gating, holdout gating and malformed-state containment on the current code.
+Durable Evidence journey:
+
+- `static-web/scripts/validate-xizong-a1-evidence.mjs`
+- `static-web/scripts/test-xizong-a1-evidence-journey.mjs`
 
 ---
 
-## E execution boundary
+## Engineering closure rule — satisfied
 
-The same standard QA now includes:
-
-- `static-web/scripts/validate-xizong-a1-evidence.mjs`;
-- `static-web/scripts/test-xizong-a1-evidence-journey.mjs`.
-
-Fresh E must prove:
-
-1. repeated real Recall attempts are append-preserved, including repeated identical ratings;
-2. latest convenience state can change without erasing historical Recall evidence;
-3. Memory / Chat repair evidence is repair-only and never rewrites original Recall/mastery;
-4. stable-correct question evidence creates no repair debt;
-5. only Wrong / Uncertain enters repair routing;
-6. precise repair requires REVIEWED Question→Block/KP relation; unresolved relations remain unresolved;
-7. private full-paper holdout is excluded from ordinary sweep evidence;
-8. stale Block/System versions invalidate or quarantine incompatible evidence;
-9. System→Block repair inbox is write-before-clear, idempotent and cross-tab safe;
-10. repair return preserves original question/Recall evidence;
-11. malformed evidence/state fails closed.
-
-Existing A2/A3 evidence architecture is regression evidence, not a substitute for the A1 executed journey.
-
----
-
-## Closure rule
-
-If standard QA passes both A1 browser journeys on this exact contract:
+The required closeout sequence has now executed on one fresh code revision:
 
 ```text
-R → fresh PASS
-E → fresh PASS
-U → untouched / external real learner workflow
+R browser Runtime journey PASS
+→ Evidence validation PASS
+→ E browser Evidence journey PASS
 ```
 
-Then this engineering fresh re-acceptance stops. No visual-polish expansion, no U simulation, no further medical rewrite without contradictory evidence.
+Therefore A1 engineering stops here:
+
+```text
+R PASS → E PASS → U UNTESTED
+```
+
+Do not reopen A1 for visual polish, simulated U, old-SHA red runs, or historical governance debt. Reopen only when fresh contradictory evidence identifies a concrete defect at the earliest responsible gate.
+
+---
+
+## U boundary
+
+U is intentionally **UNTESTED** here.
+
+A real learner session may later produce U evidence. CI, browser fixtures, validators, seeded localStorage, or engineering simulations cannot promote U to PASS and cannot be written as Kian's learner progress.
 
 ---
 
@@ -118,7 +119,7 @@ Then this engineering fresh re-acceptance stops. No visual-polish expansion, no 
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared policy → `content/xizong/knowledge/learner/study-policy.json`
 - A1 Learning support → `content/xizong/knowledge/learner/a1-circulation-learning.json`
-- Projection/Runtime/Evidence → Xizong surfaces under `static-web/`
+- Projection / Runtime / Evidence → Xizong surfaces under `static-web/`
 
 ### Acceptance Truth
 
@@ -130,12 +131,11 @@ Private learner/browser/conversation evidence only.
 
 ---
 
-## Fresh-Chat target
+## Fresh-chat target
 
 ```text
-A1 CURRENT
-→ standard Xizong QA
-→ both A1 browser journeys PASS
-→ write final R/E Acceptance receipt
-→ stop before U
+A1 ENGINEERING CLOSED
+→ S/K/L/P/R/E accepted
+→ U UNTESTED
+→ no further A1 engineering action unless fresh contradictory evidence appears
 ```
