@@ -14,13 +14,17 @@ It does not own medical Core, lane learning semantics, System-scoped readiness, 
 
 Current independently continued Systems own their own readiness evidence:
 
-| Scope | Acceptance owner | Current headline |
-| --- | --- | --- |
-| A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` | S–E PASS; U UNTESTED by real learner path |
-| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` | S–E PASS; Module ready for learner test; U UNTESTED by real learner path |
-| A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` | S BLOCKED on exact 243-question scope recovery; System-level K and downstream gates UNTESTED |
+| Scope | Acceptance owner |
+| --- | --- |
+| A1 Circulation | `content/xizong/knowledge/systems/a1-circulation/ACCEPTANCE.md` |
+| A2 Respiratory | `content/xizong/knowledge/systems/a2-respiratory/ACCEPTANCE.md` |
+| A3 Urinary | `content/xizong/knowledge/systems/a3-urinary/ACCEPTANCE.md` |
 
-The table is routing only. The local files are the canonical evidence ledgers and must not be synchronized by copying their detailed evidence here.
+This table is **routing only**. It must not cache child gate status, readiness headlines, blocker text, counts, or other System-scoped Acceptance claims.
+
+To answer a System's current readiness, read that System's local `ACCEPTANCE.md` (and its local `CURRENT.md` when the Work Cursor is relevant). A child System advancing does **not** require this parent file to be synchronized unless the routing path itself changes.
+
+Superseded child claims belong in Git history / the child's own evidence history; they must not remain here as live-looking parent summaries.
 
 ---
 
@@ -68,6 +72,6 @@ Private learner/browser/conversation evidence only.
 
 ## Change rule
 
-Do not add a System summary to this file merely because another System becomes active.
+Do not add a System status summary to this file merely because another System becomes active or advances through gates.
 
-When a System qualifies for independent continuation, give that System the narrow local Acceptance owner and leave this file focused on genuinely lane-wide evidence.
+When a System qualifies for independent continuation, give that System the narrow local Acceptance owner and leave this file focused on genuinely lane-wide evidence and routing only.
