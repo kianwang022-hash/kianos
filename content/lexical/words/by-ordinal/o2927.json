@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9e4a913aabf3f708ee9607284837e598664a37759303cad522ecbd8268a9c311",
+    "constructions": [
+      {
+        "construction_id": "construction:472abd7c0a89422b539a",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "首次航行",
+        "pattern": "maiden voyage"
+      }
+    ],
+    "content_hash": "fccc706f2ccbe955b755f9d8cb67d4b4a244c2d241ff6808d163accee080aba6",
     "core_concept": {
       "core_clusters": [
         {
@@ -58,6 +66,20 @@
         "transitivity": "nonverb"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "初次的；首次的",
+        "definition_en": "first or initial",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:maiden:b1f9e917fab15690",
+        "sense_label_en": "first or initial",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:855139c45c637e635440",
@@ -102,33 +124,7 @@
     "word_id": "word:maiden"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:maiden:b1f9e917fab15690",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "初次的；首次的",
-      "definition_en": "first or initial; serving to set in motion",
-      "semantic_key": "f391baa27a46b338e92e24b4e12c68250e4b99de8b8e87bd8946230cb06f93c7",
-      "semantic_key_history": [
-        "fa2fa79e77f82f5eab8f002ca38c8bb7ad2c25f53c3d49597e4918bf568e4fa4"
-      ],
-      "legacy_aliases": [
-        "maiden:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "maiden:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8146,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -147,7 +143,7 @@
       },
       {
         "sense_id": "sense:maiden:b1f9e917fab15690",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8146,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -206,7 +202,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2921-2928.json",
-    "source_content_hash": "9e4a913aabf3f708ee9607284837e598664a37759303cad522ecbd8268a9c311",
+    "source_content_hash": "fccc706f2ccbe955b755f9d8cb67d4b4a244c2d241ff6808d163accee080aba6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

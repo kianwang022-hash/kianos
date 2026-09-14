@@ -1,0 +1,122 @@
+{
+  "schema": "kianos.lexical.identity_reconciliation_readback.v1",
+  "status": "PASS_WITH_SEMANTIC_ESCALATIONS",
+  "baseline_origin_main": "afc26768182cbfc083c58905c9f9b045d831d0be",
+  "scope": [
+    2875,
+    3124
+  ],
+  "handoff": "content/lexical/semantic-review/o2875-o3124.md",
+  "classifications": {
+    "REUSE_EXISTING_STABLE": {
+      "rule": "reuse stable branch",
+      "owners": [
+        2885,
+        2913,
+        2914,
+        2916,
+        2917,
+        2927,
+        2928,
+        2932,
+        2956,
+        2960,
+        2964,
+        2965,
+        2991,
+        3000,
+        3009,
+        3021,
+        3029,
+        3090,
+        3092,
+        3097,
+        3104,
+        3113
+      ]
+    },
+    "NEW_SEMANTIC_BRANCH": {
+      "rule": "authorized new branch only",
+      "owners": []
+    },
+    "ESCALATE_IDENTITY": {
+      "owners": [
+        2949,
+        2967,
+        3063
+      ]
+    }
+  },
+  "reactivated_or_reconciled_sense_ids": [
+    "sense:loosen:f3075e9d356c5153",
+    "sense:lyric:2edfa555013351e5",
+    "sense:lyric:c89b8c3b3b6f522d",
+    "sense:machine:84d13fc757445df4",
+    "sense:machine:f961e8486cfa589d",
+    "sense:mad:0580d1745cb15eb1",
+    "sense:mad:379787419721525f",
+    "sense:madam:3d6b2f6a4f4a5fce",
+    "sense:maiden:b1f9e917fab15690",
+    "sense:mail:d3106f144c4b5444",
+    "sense:mail:ed97d47b8ff65d51",
+    "sense:maintenance:6232eeafe8c75b32",
+    "sense:maintenance:7f4eec1f3b8f52c9",
+    "sense:marble:b435b52935b257bc",
+    "sense:marine:c05916f9e2e15ff5",
+    "sense:marriage:70c6bd82298557cf",
+    "sense:married:42b156f6a7fe5b15",
+    "sense:mean:950e964b21775a76",
+    "sense:mechanism:1a28cfb2a77550a2",
+    "sense:meet:7d8ee826bcf35e12",
+    "sense:mental:a8556a67481251e9",
+    "sense:mere:435d174c314a5ba1",
+    "sense:mob:f883f02f338953fa",
+    "sense:mobilise:a56579073fc85c2d",
+    "sense:modern:586cb2b636065508",
+    "sense:mold:29d5afb722265474",
+    "sense:mold:3cde933c4e9851dc",
+    "sense:mold:4fbc9666d5ab57ef",
+    "sense:monkey:fc110889a6e75522"
+  ],
+  "new_stable_sense_ids": [],
+  "reference_closure": "PASS",
+  "relation_owner_changes": [],
+  "form_identity_closure": {
+    "status": "PASS",
+    "word_owner_files": []
+  },
+  "readback_assertions": {
+    "stable_word_identity_preserved": true,
+    "active_sense_registry_closed": true,
+    "merged_into_not_left_on_active_senses": true,
+    "handoff_generated_ids_absent": true,
+    "o3125_plus_not_activated": true,
+    "escalations_isolated": true
+  },
+  "natural_owner_audit": {
+    "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
+    "status": "PASS",
+    "semantic_delta": 0,
+    "source": {
+      "canonical_manifest": "content/lexical/canonical/manifest.json",
+      "canonical_manifest_sha256": "c83c1c943df1b3ba5350e7fcf63c790c8041dc477b0ca4c3d9ffd38c9f23b214",
+      "word_count_expected": 7946,
+      "word_count_read": 7946
+    },
+    "materialized": {
+      "word_owner_count": 7946,
+      "relation_owner_count": 369,
+      "word_reconstruction_failures": 0,
+      "lookup_word_ids": 7946
+    },
+    "invariants": {
+      "unique_word_ids": true,
+      "unique_ordinals": true,
+      "exact_word_reconstruction": true,
+      "semantic_delta_zero": true,
+      "lookup_closure": true
+    },
+    "blockers": [],
+    "warnings": []
+  }
+}

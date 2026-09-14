@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "f32d54db0508400d6b22adac6eaedf276ba10cc81fe1e110e027fd65911d1225",
+    "constructions": [
+      {
+        "construction_id": "construction:b08fca943b036387a2e6",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "放松；变得不那么紧张",
+        "pattern": "loosen up"
+      }
+    ],
+    "content_hash": "916e92a8fb4e3f033c3fdf99d1d703ca3fec6738880e60428f002b1170a2a94a",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "松开，变松",
@@ -77,6 +85,20 @@
         "sense_label_en": "to make something less tight or firm",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "变松；松弛",
+        "definition_en": "to become less tight, firm, fixed, or strict",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:loosen:f3075e9d356c5153",
+        "sense_label_en": "to become less tight, firm, fixed, or strict",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -139,31 +161,7 @@
     "word_id": "word:loosen"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:loosen:f3075e9d356c5153",
-      "status": "merged",
-      "merged_into_sense_id": "sense:loosen:e726b21dd61656d7",
-      "pos": "verb",
-      "definition_cn": "变松，松弛",
-      "definition_en": "to become less tight or firm",
-      "semantic_key": "f6e63ca071a8e4537cc759531fe51c176fdc53b139e2d484bb45073008bbb29a",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "loosen:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "loosen:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 8037,
-      "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -175,8 +173,8 @@
       },
       {
         "sense_id": "sense:loosen:f3075e9d356c5153",
-        "status": "merged",
-        "merged_into_sense_id": "sense:loosen:e726b21dd61656d7",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8037,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
       }
@@ -247,7 +245,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2881-2888.json",
-    "source_content_hash": "f32d54db0508400d6b22adac6eaedf276ba10cc81fe1e110e027fd65911d1225",
+    "source_content_hash": "916e92a8fb4e3f033c3fdf99d1d703ca3fec6738880e60428f002b1170a2a94a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

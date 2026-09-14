@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8b947bca9c1c9901148c3f3c2c390f04910650b999d0f02523df9c35032c3f72",
+    "content_hash": "43dd0117e91838eddd28d173c1dc8564161d12ce4aad0cab3e7ba4325dd6b2f9",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "机器或机构",
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "机器；机械装置",
+        "definition_en": "a mechanical or electrical device that uses power to perform or assist in a human task",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:machine:84d13fc757445df4",
+        "sense_label_en": "a mechanical or electrical device that uses power to perform or assist in a human task",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "机构；组织",
+        "definition_en": "an intricate organization that accomplishes its goals efficiently",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:machine:f961e8486cfa589d",
+        "sense_label_en": "an intricate organization that accomplishes its goals efficiently",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -70,31 +99,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:machine:84d13fc757445df4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "机器，机械",
-      "definition_en": "any mechanical or electrical device that transmits or modifies energy to perform or assist in the performance of human tasks",
-      "semantic_key": "3fb3a6c5a67c848c5e5ad9529537972009bc50327440984f9aefa79e82a836b8",
-      "semantic_key_history": [
-        "9e26d80f78b4fe5a46098b9d0d9ee28235659aaffc592b300165b11907a34334"
-      ],
-      "legacy_aliases": [
-        "machine:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "machine:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8113,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:machine:9795ae4c4e055ba3",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -118,31 +122,6 @@
       "source_row": 8114,
       "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:machine:f961e8486cfa589d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "机构，组织",
-      "definition_en": "an intricate organization that accomplishes its goals efficiently",
-      "semantic_key": "5d713fa51e3b2953b5c1afae564b173df0087970303730530a7bf743aa286210",
-      "semantic_key_history": [
-        "02e43c1a2c3c8a34c10854a36906e10f14615f8eed456fd17c1e271c4c6e9cc8"
-      ],
-      "legacy_aliases": [
-        "machine:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "machine:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8115,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -156,7 +135,7 @@
       },
       {
         "sense_id": "sense:machine:84d13fc757445df4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8113,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -170,7 +149,7 @@
       },
       {
         "sense_id": "sense:machine:f961e8486cfa589d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8115,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -231,7 +210,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
-    "source_content_hash": "8b947bca9c1c9901148c3f3c2c390f04910650b999d0f02523df9c35032c3f72",
+    "source_content_hash": "43dd0117e91838eddd28d173c1dc8564161d12ce4aad0cab3e7ba4325dd6b2f9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
