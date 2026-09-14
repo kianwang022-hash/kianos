@@ -1,0 +1,148 @@
+{
+  "schema": "kianos.lexical.identity_reconciliation_readback.v1",
+  "status": "PASS",
+  "baseline_origin_main": "f1a5b54f2511234eed148c44b629fac7d83e917a",
+  "scope": [
+    1625,
+    1874
+  ],
+  "handoff": "content/lexical/semantic-review/o1625-o1874.md",
+  "classifications": {
+    "REUSE_EXISTING_STABLE": {
+      "rule": "reuse continuous active/deprecated/merged stable branch; no generated replacement",
+      "owners": [
+        1650,
+        1720,
+        1770,
+        1798
+      ]
+    },
+    "NEW_SEMANTIC_BRANCH": {
+      "rule": "deterministic stable ID created only for an authorized genuinely new branch",
+      "owners": [
+        1647,
+        1657,
+        1662,
+        1671,
+        1683,
+        1684,
+        1689,
+        1699,
+        1720,
+        1723,
+        1730,
+        1770,
+        1783,
+        1792,
+        1804,
+        1814,
+        1818,
+        1822,
+        1823,
+        1829,
+        1849,
+        1854,
+        1867,
+        1874
+      ]
+    },
+    "ESCALATE_IDENTITY": {
+      "owners": []
+    }
+  },
+  "reactivated_or_reconciled_sense_ids": [
+    "sense:endorse:7575fe23e0268e13",
+    "sense:endure:99ce12b9126c5015",
+    "sense:engine:6bad5491fd513ac5",
+    "sense:enlarge:3b28c4dc844b1a48",
+    "sense:entail:1a7bd968f5b1bdca",
+    "sense:entry:ffe0cb9ae2eb1722",
+    "sense:envelope:53928979bd6237cd",
+    "sense:epidemic:711511c15a572388",
+    "sense:equivalent:f4484729e8e8c1cc",
+    "sense:estimate:b7cafb7c04495797",
+    "sense:estimate:ccbb6e9dca608e6b",
+    "sense:ethnic:388358b45c3a604d",
+    "sense:evening:ef9883df04bb6a50",
+    "sense:execute:0f800f9693f55d36",
+    "sense:execute:62954842c09d29f8",
+    "sense:exotic:1cd2f630d80f727d",
+    "sense:expense:e41de343df261127",
+    "sense:expire:335279e31bab5316",
+    "sense:explore:39b4229b0b6063fd",
+    "sense:extension:905f056268039807",
+    "sense:external:8eab6f8c006abd2c",
+    "sense:extract:5a1258a0cf92f9d2",
+    "sense:extraordinary:ea2a623568e83b45",
+    "sense:fable:64992c412c1ed3c7",
+    "sense:faithful:0541aeeba97f1bd0",
+    "sense:familiar:82cd3c7a38d278de",
+    "sense:farther:11a1d63c673ecbf3",
+    "sense:fatal:fad7651a4240bcd6"
+  ],
+  "new_stable_sense_ids": [
+    "sense:endorse:7575fe23e0268e13",
+    "sense:engine:6bad5491fd513ac5",
+    "sense:enlarge:3b28c4dc844b1a48",
+    "sense:entail:1a7bd968f5b1bdca",
+    "sense:entry:ffe0cb9ae2eb1722",
+    "sense:envelope:53928979bd6237cd",
+    "sense:epidemic:711511c15a572388",
+    "sense:equivalent:f4484729e8e8c1cc",
+    "sense:estimate:ccbb6e9dca608e6b",
+    "sense:ethnic:388358b45c3a604d",
+    "sense:evening:ef9883df04bb6a50",
+    "sense:execute:62954842c09d29f8",
+    "sense:exotic:1cd2f630d80f727d",
+    "sense:expense:e41de343df261127",
+    "sense:explore:39b4229b0b6063fd",
+    "sense:extension:905f056268039807",
+    "sense:external:8eab6f8c006abd2c",
+    "sense:extract:5a1258a0cf92f9d2",
+    "sense:extraordinary:ea2a623568e83b45",
+    "sense:fable:64992c412c1ed3c7",
+    "sense:faithful:0541aeeba97f1bd0",
+    "sense:familiar:82cd3c7a38d278de",
+    "sense:farther:11a1d63c673ecbf3",
+    "sense:fatal:fad7651a4240bcd6"
+  ],
+  "reference_closure": "PASS",
+  "relation_owner_changes": [],
+  "form_identity_closure": {
+    "status": "PASS",
+    "word_owner_files": []
+  },
+  "readback_assertions": {
+    "stable_word_identity_preserved": true,
+    "active_sense_registry_closed": true,
+    "merged_into_not_left_on_active_senses": true,
+    "handoff_generated_ids_absent": true,
+    "o1875_plus_not_activated": true
+  },
+  "natural_owner_audit": {
+    "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
+    "status": "PASS",
+    "semantic_delta": 0,
+    "source": {
+      "canonical_manifest": "content/lexical/canonical/manifest.json",
+      "canonical_manifest_sha256": "c83c1c943df1b3ba5350e7fcf63c790c8041dc477b0ca4c3d9ffd38c9f23b214",
+      "word_count_expected": 7946,
+      "word_count_read": 7946
+    },
+    "materialized": {
+      "word_owner_count": 7946,
+      "relation_owner_count": 369,
+      "word_reconstruction_failures": 0,
+      "lookup_word_ids": 7946
+    },
+    "invariants": {
+      "unique_word_ids": true,
+      "unique_ordinals": true,
+      "exact_word_reconstruction": true,
+      "semantic_delta_zero": true,
+      "lookup_closure": true
+    },
+    "blockers": [],
+    "warnings": []
+  }
+}

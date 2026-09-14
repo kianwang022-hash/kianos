@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "9a093fdf5b6d4147cb967a6a579a7ef4d8b8b1361b5eb74683e86e5b062d87e5",
+    "content_hash": "9a7d69937b90fe19b98cb2c2ae9e33849be39cbaf2b1b1bce93fad0e4646b6fd",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "估计",
@@ -75,7 +75,50 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "估计、估算",
+        "definition_en": "a calculation or judgement of an amount or value",
+        "governing_pattern": "",
+        "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "noun/verb pronunciation boundary",
+          "paired_form": "estimate",
+          "surface_lemma": "estimate"
+        },
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:estimate:ccbb6e9dca608e6b",
+        "sense_label_en": "a calculation or judgement of an amount or value",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "估计、估算",
+        "definition_en": "to calculate or judge an amount or value approximately",
+        "governing_pattern": "",
+        "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "noun/verb pronunciation boundary",
+          "paired_form": "estimate",
+          "surface_lemma": "estimate"
+        },
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:estimate:b7cafb7c04495797",
+        "sense_label_en": "to calculate or judge an amount or value approximately",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -173,31 +216,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:estimate:b7cafb7c04495797",
-      "status": "merged",
-      "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
-      "pos": "verb",
-      "definition_cn": "估计，估算",
-      "definition_en": "to calculate approximately the value, amount, or size of something",
-      "semantic_key": "b056b5890fdfb2e68c154d425dc80b25b24eee8ef7a5c1a021a79a958615e2cd",
-      "semantic_key_history": [
-        "a8e1ef753bc5969ff7950c5adbfef01291a8f020d43a9941a8bb06d2623b184e"
-      ],
-      "legacy_aliases": [
-        "estimate:l1:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "estimate:l1:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4738,
-      "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
       "status": "merged",
       "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
@@ -273,8 +291,8 @@
       },
       {
         "sense_id": "sense:estimate:b7cafb7c04495797",
-        "status": "merged",
-        "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4738,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
       },
@@ -290,6 +308,13 @@
         "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4740,
+        "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
+      },
+      {
+        "sense_id": "sense:estimate:ccbb6e9dca608e6b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4758,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
       }
     ],
@@ -384,7 +409,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1713-1720.json",
-    "source_content_hash": "9a093fdf5b6d4147cb967a6a579a7ef4d8b8b1361b5eb74683e86e5b062d87e5",
+    "source_content_hash": "9a7d69937b90fe19b98cb2c2ae9e33849be39cbaf2b1b1bce93fad0e4646b6fd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

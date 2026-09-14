@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "886bf42597e82728ada6c7de541285e298e18e52839da9f051ab351bbc5cd3ca",
+    "content_hash": "4aba879321dc95df82e64ca0f95cade1be6244eb60ede2dbd6c80675251baa52",
     "core_concept": {
       "core_clusters": [
         {
@@ -63,6 +63,15 @@
             ],
             "meaning_cn": "忠实的朋友",
             "phrase": "a faithful friend"
+          },
+          {
+            "collocation_id": "collocation:06be3eefb81f089c884b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:faithful:9fe7c3ad9c475bec:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "忠实的叙述、复制品或翻译",
+            "phrase": "faithful account/reproduction/translation"
           }
         ],
         "confidence": "medium",
@@ -123,6 +132,20 @@
         "sense_id": "sense:faithful:552e76d256745cf7",
         "sense_label_en": "a loyal follower or supporter",
         "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "忠实准确的、符合原文的",
+        "definition_en": "accurate or true to the original",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:faithful:0541aeeba97f1bd0",
+        "sense_label_en": "accurate or true to the original",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -209,9 +232,17 @@
         "merged_into_sense_id": null,
         "source_row": 5062,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:faithful:0541aeeba97f1bd0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5090,
+        "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
       }
     ],
     "active_collocations": [
+      "collocation:06be3eefb81f089c884b",
       "collocation:621a636924930d72cfd1",
       "collocation:791a04596845f58c91a6",
       "collocation:c44be2f73998bf37f354",
@@ -243,6 +274,11 @@
       {
         "id": "collocation:e6797eb3e0066b39e515",
         "source_row": 19527,
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:06be3eefb81f089c884b",
+        "source_row": 21424,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
       }
     ],
@@ -277,7 +313,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1849-1856.json",
-    "source_content_hash": "886bf42597e82728ada6c7de541285e298e18e52839da9f051ab351bbc5cd3ca",
+    "source_content_hash": "4aba879321dc95df82e64ca0f95cade1be6244eb60ede2dbd6c80675251baa52",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
