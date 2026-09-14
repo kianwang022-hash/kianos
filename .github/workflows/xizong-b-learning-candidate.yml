@@ -1,6 +1,7 @@
 name: Xizong B Learning Candidate
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -16,6 +17,7 @@ permissions:
 jobs:
   materialize:
     if: >-
+      github.event_name == 'workflow_dispatch' ||
       github.event_name == 'push' ||
       (github.event_name == 'issue_comment' &&
        github.event.issue.number == 135 &&
