@@ -5,8 +5,8 @@
   "content_version": "politics_xiao1000_learner_explanations_2026-09-14",
   "data_file": "content/politics/derived/xiao1000-learner-explanations/asset.v1.json.gz",
   "data_encoding": "gzip(utf-8 JSON)",
-  "derived_payload_sha256": "958f0581deeb9708797884b97eee4f3d69158d3fa58bcdbf2a1e0c7b70070fcd",
-  "compressed_asset_sha256": "236f7992a0753de547a1a6db96983fab1d08f1dc146ad45aba0c9d6820989e56",
+  "derived_payload_sha256": "5d655c3eb070af52d600e508f9fa1b3c683450e289882c9523af271bd3113f75",
+  "compressed_asset_sha256": "6d761c99b29011e3c290ca1925d9a0e52a53de8c67d4d7996c772e74cdd62087",
   "record_count": 1148,
   "subject_counts": {
     "marx": 396,
@@ -34,9 +34,7 @@
     "legacy_question_id",
     "subject",
     "takeaway",
-    "chat_explanation",
-    "xiao_reference",
-    "historical_quality"
+    "chat_explanation"
   ],
   "excluded_question_truth_fields": [
     "canonical_answer",
@@ -58,9 +56,45 @@
     "legacy_question_id_unique": 1148,
     "missing_takeaway": 0,
     "missing_chat_explanation": 0,
-    "missing_xiao_reference_text": 0,
     "prior_answer_identity_correction_sentinels_checked": 5,
-    "prior_answer_identity_correction_sentinels_match_current": true
+    "prior_answer_identity_correction_sentinels_match_current": true,
+    "exact_current_ids": 1148,
+    "duplicate_ids": 0,
+    "missing_ids": 0,
+    "unbound_ids": 0,
+    "two_field_strings_compared_verbatim": 2296,
+    "forbidden_record_fields": 0
   },
-  "promotion_receipt": "content/politics/derived/xiao1000-learner-explanations/PROMOTION_RECEIPT.md"
+  "promotion_receipt": "content/politics/derived/xiao1000-learner-explanations/PROMOTION_RECEIPT.md",
+  "identity_fields": [
+    "question_id",
+    "legacy_question_id",
+    "subject"
+  ],
+  "learner_facing_fields": [
+    "takeaway",
+    "chat_explanation"
+  ],
+  "excluded_source_provenance_fields": [
+    "xiao_reference",
+    "source_blocks",
+    "historical_quality"
+  ],
+  "serialization": {
+    "json": "UTF-8; ensure_ascii=false; sort_keys=true; compact separators; one trailing LF; records sorted by question_id",
+    "gzip": "RFC 1952; deflate level 9; mtime=0; no filename; OS=255",
+    "derived_payload_sha256_scope": "exact decompressed UTF-8 JSON bytes, including trailing LF",
+    "compressed_asset_sha256_scope": "exact committed asset.v1.json.gz bytes"
+  },
+  "reconciliation": {
+    "issue": 138,
+    "date": "2026-09-14",
+    "mode": "MECHANICAL_REPACK_FROM_AUTHENTICATED_EXISTING_CONTENT",
+    "base_main": "9e4e706b8f3b6b6861e68b900c19db21974f3b1c",
+    "prior_asset_sha256": "dcefd135cf6c711909627a76ed23c055ec2839b7dc7f36ba9fb4bfd079c80883",
+    "prior_asset_status": "INVALID_GZIP",
+    "new_explanations_generated": 0,
+    "semantic_reaudit": false,
+    "question_truth_modified": false
+  }
 }
