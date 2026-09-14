@@ -3,7 +3,7 @@
 Role: **learner-facing productization Work Cursor / router only**  
 Program: **#113 — 三科实现收口 → Global Home**  
 Current integrated execution: **#148 — Three-subject frame-baseline full landing → Astra polish**  
-Master semantics: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+**
+Master execution: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.1+**
 
 本文件不复制 Content、Learning、Evidence 或 learner progress。精确领域 Truth/Acceptance 在各科 canonical owners；Current 只负责告诉执行器现在该沿哪条产品化路线继续。
 
@@ -78,6 +78,6 @@ faithful frame landing
 
 ## 旧入口与档案
 
-`CODEX_THREE_SUBJECT_IMPLEMENTATION.md`、`CODEX_POLITICS_BROWSER_EXECUTION.md` 仍是兼容路由。Master v3 继续拥有完整领域执行语义；本 Current + #148 是 **2026-09-14 最新 composition / execution-cadence override**。
+`CODEX_THREE_SUBJECT_IMPLEMENTATION.md`、`CODEX_POLITICS_BROWSER_EXECUTION.md` 仍是兼容路由。Master v3.1 拥有当前整站执行语义；本 Current + #148 是 **2026-09-14 最新 composition / execution-cadence authority**。
 
 继续前读取最新 main、#113、#148、actual active PR/diff，并保留独立 Lexical、Xizong B–F 等不重叠内容线。
