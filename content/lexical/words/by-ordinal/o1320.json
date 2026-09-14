@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "994da0afac9163cff0b0532123205bdebe1808dab096fe5d2dd29a30d6c46fcb",
+    "content_hash": "1e04da45c9da516c7fac8cd1fe77d582ffa64dfdb29ab961b9da69283bc55f73",
     "core_concept": {
       "core_clusters": [
         {
@@ -79,6 +79,12 @@
         "definition_en": "arid land with little or no vegetation",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "note": "noun desert (arid land) and verb desert (abandon) have different stress",
+          "surface_lemma": "desert"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:desert:ec2ccc8aff3e5f9d",
@@ -112,6 +118,12 @@
         "definition_en": "to leave behind; abandon",
         "governing_pattern": "vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "note": "noun desert (arid land) and verb desert (abandon) have different stress",
+          "surface_lemma": "desert"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:desert:929a5a2a0d965cbe",
@@ -129,6 +141,15 @@
             ],
             "meaning_cn": "得到应有的报应",
             "phrase": "get one's just deserts"
+          },
+          {
+            "collocation_id": "collocation:daf83862caf9c379829f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:desert:47e9708c0d0159b3:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "应得的后果；该短语有 dessert-like pronunciation",
+            "phrase": "just deserts"
           }
         ],
         "confidence": "medium",
@@ -281,6 +302,7 @@
       "collocation:7d70c6172d7b55c8be41",
       "collocation:8cc500669a7ec5fd5290",
       "collocation:abc33762ab2adc20d6e7",
+      "collocation:daf83862caf9c379829f",
       "collocation:fd29e3857a9d65ec50e5"
     ],
     "facts": [
@@ -330,6 +352,11 @@
         "id": "collocation:fd29e3857a9d65ec50e5",
         "source_row": 21419,
         "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
+      },
+      {
+        "id": "collocation:daf83862caf9c379829f",
+        "source_row": 21552,
+        "source_path": "content/lexical/canonical/collocations/shards/o1313-1344.json"
       }
     ],
     "exam-mappings": [],
@@ -368,7 +395,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1313-1320.json",
-    "source_content_hash": "994da0afac9163cff0b0532123205bdebe1808dab096fe5d2dd29a30d6c46fcb",
+    "source_content_hash": "1e04da45c9da516c7fac8cd1fe77d582ffa64dfdb29ab961b9da69283bc55f73",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

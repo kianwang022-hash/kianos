@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1ec4ef93fdc2c71c77161489cf8e06eaf2abc49be0717265fbfa9fb88691280f",
+    "content_hash": "d7ff378a17a74605b90d03ddbeef33615b36125704066cc80044ba0ff966c193",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "递送，交付",
@@ -112,6 +112,30 @@
         "sense_label_en": "to save someone from sin or evil",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4aa9ca79f94c1b741b54",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:deliver:ee67ffdf8078d954:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "履行承诺或约定",
+            "phrase": "deliver on a promise/commitment"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "接生；分娩",
+        "definition_en": "to assist with or give birth to a baby",
+        "governing_pattern": "deliver a baby",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:deliver:ee67ffdf8078d954",
+        "sense_label_en": "to assist with or give birth to a baby",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -157,11 +181,19 @@
         "merged_into_sense_id": null,
         "source_row": 3607,
         "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
+      },
+      {
+        "sense_id": "sense:deliver:ee67ffdf8078d954",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3670,
+        "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
       }
     ],
     "active_collocations": [
       "collocation:18bab7f1869fe5dfbc7b",
       "collocation:22a41427afca95e3e451",
+      "collocation:4aa9ca79f94c1b741b54",
       "collocation:e650ce9a6fe836b437ff",
       "collocation:e6dca2a6dd26599cc14f",
       "collocation:f2182421d671b8dc8f32"
@@ -191,6 +223,11 @@
       {
         "id": "collocation:f2182421d671b8dc8f32",
         "source_row": 20513,
+        "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
+      },
+      {
+        "id": "collocation:4aa9ca79f94c1b741b54",
+        "source_row": 21497,
         "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
       }
     ],
@@ -225,7 +262,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1281-1288.json",
-    "source_content_hash": "1ec4ef93fdc2c71c77161489cf8e06eaf2abc49be0717265fbfa9fb88691280f",
+    "source_content_hash": "d7ff378a17a74605b90d03ddbeef33615b36125704066cc80044ba0ff966c193",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
