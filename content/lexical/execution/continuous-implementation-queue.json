@@ -1,21 +1,47 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 1,
-  "last_refreshed_main": "eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe",
-  "contiguous_implemented_frontier": "o3124",
-  "active_package": "o3125-o3374",
-  "package_status": "INTEGRATION_PENDING",
+  "generation": 3,
+  "last_refreshed_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
+  "contiguous_implemented_frontier": "o3374",
+  "active_package": null,
+  "package_status": "READY_FOR_BOUNDED_CORRECTIVE_IMPLEMENTATION",
   "package_baseline": "eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe",
-  "package_commit": "32c4e910280f51129352597624bf1f2e7b6e13cd",
-  "merged_main_commit": "eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe",
+  "package_commit": "33dd04da239cabb7e235d98699096965f0730eee",
+  "merged_main_commit": "36cca65fb0910c00401c4b92a86417ec4ac5dffb",
   "NO_CHANGE_verified": 207,
   "UPGRADE_applied": 43,
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": null,
-  "scope": {
+  "reconciliation_scope": {
     "start": 3125,
     "end": 3374,
-    "handoff": "content/lexical/semantic-review/o3125-o3374.md"
+    "production_handoff": "content/lexical/semantic-review/o3125-o3374.md",
+    "audit_packs": [
+      "content/lexical/semantic-audit/o3025-o3224.audit.md",
+      "content/lexical/semantic-audit/o3225-o3424.audit.md"
+    ],
+    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
+    "baseline_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
+    "delta_count": 39,
+    "new_semantic_branches": 7,
+    "identity_escalations": 0,
+    "new_relation_ids": 0,
+    "remote_dependency_ordinals": [941, 4764],
+    "status": "RECONCILED"
+  },
+  "corrective_package": {
+    "scope": {
+      "start": 3125,
+      "end": 3374
+    },
+    "delta_count": 39,
+    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
+    "status": "AUTHORIZED_NOT_STARTED"
+  },
+  "future_package": {
+    "start": 3375,
+    "end": 3624,
+    "status": "NOT_ACTIVATED"
   }
 }

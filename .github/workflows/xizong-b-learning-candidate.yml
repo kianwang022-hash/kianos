@@ -1,36 +1,28 @@
 name: Xizong B Learning Candidate
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
     paths:
       - 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
       - '.github/workflows/xizong-b-learning-candidate.yml'
-  issue_comment:
-    types: [created]
 
 permissions:
   contents: write
-  issues: read
 
 jobs:
   materialize:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'push' ||
-      (github.event_name == 'issue_comment' &&
-       github.event.issue.number == 135 &&
-       contains(github.event.comment.body, '[materialize-b-learning]'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Current
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Build audited B learning candidate
         working-directory: static-web
         run: node scripts/build-xizong-b-learning-candidate.mjs
+
       - name: Fail closed on write set
         shell: bash
         run: |
@@ -39,6 +31,7 @@ jobs:
           printf '%s\n' "${changed[@]}"
           test "${#changed[@]}" -eq 1
           test "${changed[0]}" = 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+
       - name: Commit candidate owner
         shell: bash
         run: |

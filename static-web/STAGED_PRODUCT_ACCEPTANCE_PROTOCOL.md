@@ -1,87 +1,43 @@
-# KianOS 三科 Productization｜阶段执行与人工验收协议
+# KianOS 三科整站执行与人工验收协议
 
-Status: **ACTIVE PROGRAM PROTOCOL**  
-Parent: #113  
-Execution master: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+
+Status: **ACTIVE INTEGRATED ACCEPTANCE PROTOCOL**  
+Program: #113 · Execution: #148  
+Master: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.2+  
+本文件沿用原路径，取代其旧的逐Stage人工暂停规则；不另建流程层。
 
-## 1｜为什么分 Stage
+## 1｜自动连续施工，人类统一体验
 
-Stage 只用于控制上下文、并发写入和停止点，不是把 Astra 变成逐条执行脚本。每个 Stage 给 Astra：目标、Current authority、不可破坏的 learning/evidence/product invariants、验收出口和 stop rule。**实现路径、代码定位、局部重构、真实 bug 发现、浏览器自查与普通视觉 polish 由 Astra 自主判断。**
+Kian一次授权#148的整站目标，Astra负责恢复全局、确定真实依赖与唯一writer、复用代码、忠实落实选定文字框、发现并修复scope内问题、统一polish和程序/浏览器验收。实现路径不是机械SOP，也不逐页请示。
 
-不得把 Stage Issue 当成 step-by-step SOP；也不得因为 Astra 能力强就越过 Stage，自动进入下一科。
+#139–#143仅保存Workbench、Politics、English、当前Xizong A、Global Home各自能力/验收责任。机器阶段可连续推进；不因上一个Issue尚未人工接受/merge而禁止构建下一个独立或有合法pin依赖的页面。不能为了进入Global Home提前填写SUBJECT_CLOSED_FOR_HOME。
 
-## 2｜每 Stage 的四层闭环
+## 2｜保留四种不同证据
 
-### A. Astra autonomous execution
+- **实现与SELF检查**：真实route/代码、实际SHA、测试数据和可复现结果；旧PASS保留在旧SHA，受影响改动必须回归。不要把“不重写”误成“不重测”。
+- **独立技术/产品review**：检查diff、source/状态owner、frame对应状态、行为与负控制、真实截图。读过builder回执不等于独立复跑；未检查的范围明确未检查。
+- **Kian产品接受**：统一整站预览上的少量真实体验；只判断机器不能替代的学习手感、层级、密度、点击负担、导航/Return和内容表达。不能把assistant审美意见自动记成Kian已接受/拒绝。
+- **learner truth / U**：真实学习证据独立。隔离产品测试、假定已学fixture、点击网页、自动脚本不生成真实已学/掌握/U。
 
-Astra 先从最新 `main` 恢复 Program 全局位置，再读取当前 Stage 所需 owners。它必须理解当前工作对 #113、前序 Stage、下一 Stage、并行 Lexical/Xizong Content lanes 的关系，然后自主施工。
+这些证据可以在一次连续施工中逐步形成，最终统一审核；不能混称完成。
 
-要求：
-- 优先复用已完成证据，不重复已经 PASS 的浏览器/语义工作；
-- 主动检查实际 route/loader/state/browser，不只执行清单；
-- 发现 scope 内的新真实缺陷可直接修复；
-- 发现 scope 外问题则记录 identity/影响/是否阻断，不顺手扩张；
-- 普通实现与 L1/L2 polish 自主，L3 结构替代遵守 master 的 bounded alternative 规则。
+## 3｜最终KIAN FULL-SITE HUMAN GATE
 
-### B. Technical / semantic review
+提交一个已实际检查的可达预览，说明是本机production preview还是部署，不把runner内localhost/本地文件路径当远程链接。准备隔离测试状态，保留真实learner storage；不要求用户先完成真实课程才能测试网站。
 
-Astra 完成后不直接把“我做完了”当事实。由独立 review 读取 diff、Current、测试/截图/trace 和失败边界，判断：
-- 是否真的满足本 Stage Exit；
-- 有没有覆盖错误 owner、伪造证据、重复既有工程；
-- CI 红灯属于本 Stage regression、共享上游、还是无关治理；
-- 哪些结论是自动测试，哪些仍需人看。
+选少量代表路径覆盖：Politics工作台及NU/source往返；英语完整任务对象与Guide返回；西综A的System/Block/LG/KP/Recall/repair；Global Home三科Resume。每项写清打开位置、几步操作、所判断的体验与Reject条件。自动检查承担其他组合，不要求用户逐题/逐章、核hash或跑CI。
 
-机械 hash/build/validator 检查属于这一层，不让 Kian 手工抄命令证明。
+同数据/状态/viewport比较前后；P10 clean不能替代Setup，短内容不能强塞满屏，长内容不能削薄。Human反馈应改负责的通用renderer/工作区，不把一次视觉意见升级成全库内容重审。
 
-### C. Kian Human Product Gate
+普通小问题自动修复并回归；结构替代保留baseline，必要人类选择才中途询问。最终Gate不是只能开一次且不能修正，而是不制造例行的逐页审批。
 
-人工核查必须产生产品判断，不做机器已经能做的劳动。默认只在 learner-facing Stage 进行；纯 metadata/content packaging Stage 可以由 review 后让 Kian只做 merge/不merge授权。
+## 4｜真正需要停下的情况
 
-人工 gate 重点：
-- 真实学习时“第一眼该看什么”是否正确；
-- 信息密度、阅读节奏、点击负担是否符合日用；
-- Guide / Recall / question / repair 是否像真实学习而不是工程 demo；
-- 精确 Return / Continue 是否符合人的预期；
-- Astra 的视觉/局部 composition 是否优于底线且未损失逻辑；
-- 是否存在自动测试很难发现的“能用但很烦”“逻辑没错但呈现不对”。
+当前权限/环境确实不足且无合法路径；Current与构图关系无法裁决的冲突；破坏性数据迁移；必须由人选择的 materially different 结构体验。指出受影响范围、证据和建议，不用旧红灯或尝试方法失败制造全站死锁。
 
-不要求 Kian读完整 diff、运行 CI、核对 hash 或逐实例验收。
+普通bug、CSS、明确归属CI、可安全对账的分支属于执行工作。缺owner内容按局部保护并记录真实缺口，继续不依赖它的页面；不猜配、不删除检查、不豁免真实required checks。额度/会话中断保存checkpoint，不假称后台继续。
 
-### D. Merge / closure
+## 5｜最终接受与落库
 
-A+B+C 所需门槛满足后，Kian授权 merge。merge 后读回 `main`，更新 Stage/Program Current，关闭本 Stage；随后才创建/启动下一 Stage execution context。learner `U` 仍只来自真实使用，Product Gate 不自动等于 U。
+技术证据、独立review与Kian必要产品接受齐备后，按依赖顺序请求一次明确落库授权；不得自行merge。保持#117有界历史，可使用一个依赖型集成PR，不要求用户搬运patch或逐提交放行。未合并工作不得称main Truth。
 
-## 3｜全局状态回读格式
-
-任何阶段回执、局部 bug 或 CI 讨论，先恢复以下全局位置，再回答局部：
-
-```text
-Program: #113
-Current Stage: #...
-Previous accepted/merged stages: ...
-Current artifact/PR: ...
-What is already proven and must not be redone: ...
-Current blocker(s): ...
-Parallel lanes that remain independent: Lexical / Xizong B–F / ...
-Next Stage (locked until current closure): ...
-Human gate needed now?: yes/no + exact reason
-```
-
-禁止看到一个错误就把整个三科任务缩成那个错误；也禁止只读用户最新贴的一段回执而丢掉 Program authority、内容演化边界或后续 Stage。
-
-## 4｜各 Stage 的人工 gate
-
-- **Stage 0 #138**：机械资产 reconciliation。独立 review + CI 判断即可；Kian只决定是否 merge，不需要手工验证 1148 条/hash。
-- **Stage 1 #139**：Kian亲自走一次短的肖1000日用路径：setup/一道单选/一道多选/一次 Wrong 或 Uncertain/备注保存或刷新/Next 与 exact Return；重点看手感、信息层级、是否有多余说明。自动测试负责其余组合。
-- **Stage 2 #140**：Kian看五科各一个代表 cognitive workspace，并完整走一次 `Home/Continue → NU → Chengfeng handoff → first-ready Xiao → repair/source → Return`；判断五科是否“一个网站、五种认知”而非卡片模板。
-- **Stage 3 #141**：Kian至少实际体验 Reading A、Cloze/Part B 中一类、Translation、Writing 各一个代表任务，并打开三份 Guide；重点判断完整任务几何、输入/阅读手感、Guide 是否好找但不挡路、Resume/Return 是否自然。
-- **Stage 4 #142**：Kian完整走一个代表 System 的 `Guide → Block/LG → lecture handoff → KP Recall → closure/question/repair`，再快速看另外两个 System 的异质页面；判断逻辑是否真的被表达、Recall 是否无泄露、内容密度是否可学习。
-- **Stage 5 #143**：Kian从 Global Home 分别 Resume 三科，再返回 Home；判断整站统一感、Continue 语义、跨科跳转和最终视觉。此 gate 是最终产品接受，不重做各科详细 QA。
-
-人工 gate 发现问题时，按问题责任回到当前 Stage 修正；不自动回滚整个 Program，也不把视觉意见升级成内容重审。
-
-## 5｜额度策略
-
-Astra 用在高价值部分：理解现有工程、真实浏览器、复杂状态、局部产品判断、debug、polish。纯 hash/metadata/tombstone/governance 机械修复优先交普通执行或独立小任务，不消耗 Astra 重新装载整科上下文。
-
-每次只启动当前 Stage；完成后释放上下文。下一 Stage 从 Program + Current + merged receipts 恢复，不要求 Kian复制前一阶段所有日志。
+准确记录未决能力范围（例如保护禁用题目），不能因测试绿就宣布全量可用。落main并读回后才更新对应验收/关闭任务；按BRANCH_LIFECYCLE只退役已安全完成的分支。Lexical升级、西综B–F后续内容不被这次整站接受冻结。

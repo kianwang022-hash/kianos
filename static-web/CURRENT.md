@@ -1,48 +1,36 @@
 # KianOS Static-Web Current
 
 Role: **learner-facing productization Work Cursor / router only**  
-Program: **#113 — 三科实现收口 → Global Home**  
-Single execution entry: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+**
+Program: #113 · Integrated execution: **#148**  
+Single master: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.2+**
 
-本文件不复制 Content、Learning、Evidence 或 learner progress。精确领域 Truth/Acceptance 在各科 canonical owners；本次定稿是文档对账，不是新一轮 UI 验收。
+## Current task / Next
 
-## 当前施工路由
+继续一个完整的三科网站集成任务：**忠实文字框落地 → Astra整站polish → 程序/浏览器验证 → 一次FULL-SITE HUMAN GATE**。不是逐页自由重设计，也不是每个内部Stage请求用户复制下一条指令。
 
-| 范围 | 当前产品工作 | 独立状态/细节 |
+Composition baseline：`design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`。原不可变指针和档案保持不变；按同一页面状态对账。P10为clean attempt、P11为submitted，不能用P10替代pre-session Setup。
+
+Latest domain Current / Learning / Question Truth / Evidence / Runtime仍管语义。旧原肖解析、OCR fallback、due、失效ownership/状态规则不随构图恢复。
+
+## 当前范围
+
+| Family | 本轮产品化任务 | 精确责任 |
 | --- | --- | --- |
-| Politics | post-closure productization；当前活动 Draft **#117 / politics-legacy-parity-migration** 只做肖1000工作台 parity，之后仍需核对其余五科认知/Home 等完整 family | `POLITICS_PRODUCT_STATUS.md`；#116；`POLITICS_LEGACY_FUNCTION_PARITY.md` |
-| English | Functional First 闭合后的整套 productization 与 Mac/browser acceptance 待完成；含三份完整、可跳过的 Guide | `ENGLISH_PRODUCT_STATUS.md` |
-| Xizong | Current-eligible A1/A2/A3 的 System/Block/LG/KP/Recall/题目与 Guide 展示；不扩张 B–F 内容建设 | `XIZONG_PRODUCT_STATUS.md` |
-| Global Home | 三科达到实际 `SUBJECT_CLOSED_FOR_HOME` 后做最终整合；基础 shared navigation/Return 从一开始保持可用 | master §0、§10 |
+| Politics | #117工作台有效实现与构图；Home、五科认知/NU、Chengfeng/source/repair/Return | `POLITICS_PRODUCT_STATUS.md`、`POLITICS_LEGACY_FUNCTION_PARITY.md`；#116/#139/#140 |
+| English | Home/Resume、全部Current任务族、三份Guide、Lexical只读handoff | `ENGLISH_PRODUCT_STATUS.md`；#141 |
+| Xizong | 本轮A1/A2/A3的Guide/System/Block/LG/KP/Recall/question/repair/Return | `XIZONG_PRODUCT_STATUS.md`与系统Current/Acceptance；#142 |
+| Global | 三科接口/合法surfaces机器可集成后完成Home/shared shell/跨科回归 | #143；不要求先虚报各科人工接受或先自merge |
 
-继续前查询 actual PR 状态。#117 已合并/被正式接替时跟随最新 Current，不永远锁死这个编号。不要把 #117 的存在解释成 Politics Learning 未收口；也不要把 #117 完成解释成整个 Politics 网站完成。
+## 续接已有工作
 
-#115 的 learner-explanation promotion 已由 #124 完成；Current derived asset 是数据源，**原肖1000解析不是 learner-facing surface**。后续仅核对 exact-ID consumer/保护态/浏览器，不能再次迁移或重生成全部解析。
+读取actual #117 head/receipt与#148，而不是回到旧的“patch未推送、#144未合并”叙事。#144包装修复已落main。#117已有正式资料与P10/P11构图工作；其证据只对对应SHA/样本成立。保留实现与历史证据，修改相关层后正常回归，不从零重写，也不禁止重跑测试。
 
-## 本轮定稿后的固定方向
+#117回执中的1148 explanation binding与1127可练/21缺NU owner保护是两种不同覆盖口径。按Current程序重新计算，不硬编码、不中性化缺口，不把eligible workbench误报成全题/全政治已完成。
 
-- Logic/Content/状态权限、source ownership、exact Return 不变；领域合法前置不能用“反仪式”删除。
-- baseline-first，视觉 polish 自主，局部 composition 有界；最多一个隔离的结构 alternative 需 Kian 接受，不默认全站重设计。
-- reusable grammar/renderers，程序全量校验、代表样本浏览器压力测；不逐内容人工装修/签字。
-- 西综 System Guide、英语三份 Guide 是随时可进入的体系参考，不是每次必走流程，也不只在失败后才有资格看。
-- 细腻状态过渡，无飞入/弹簧/表演动画；Mac Dense Calm，三科统一产品语言而非同一页面模板。
+## 执行/验收责任
 
-## 执行与审查
+#139–#143是内部能力与验收账本，不再是人工串行STOP。独立内容线（Lexical升级、西综B–F）继续；本轮不进入B–F内容/预设计，不冻结未来内容演化。
 
-```text
-最新 Current / master / actual PR
-→ 读懂完整当前任务族闭环
-→ 有界实现与复用 renderer
-→ 程序校验 + 代表真实浏览器/截图
-→ 同 PR 修正
-→ independent review / Kian 必要结构视觉选择
-→ 经授权 merge + main readback + 分支退役
-```
+同一UI写集一个writer；不接管正在运行的writer。可用依赖型integration branch保留#117有界差异并连续施工，不必先自行merge。未合并依赖明确pin，不当main Truth。普通实现/测试/布局适配由Astra完成；真实权限/语义冲突/破坏性迁移/需人选择的结构才升级。
 
-不要新开重叠的大 static-web PR；不影响独立的 B Learning、Lexical 等内容线。main 无关推进不自动使分支失效，只对相关 authority/写集/依赖对账。Codex 不自行 merge；U 只能来自真实 Kian 使用。
-
-## 旧入口与档案
-
-`CODEX_THREE_SUBJECT_IMPLEMENTATION.md`、`CODEX_POLITICS_BROWSER_EXECUTION.md` 已退为兼容路由，不再与 master 竞争执行权。
-
-全量 v2.1 文字框：`design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`；原 baseline 指针保持不变。旧详细 Product/Design 文档保留其中仍有效的具体设计；旧 `ACTIVE DISCUSSION / History pilot first / do not implement yet / next unresolved Home` 只属阶段历史，不重新启动这些设计环节。具体兼容缺口（如 Xizong 全卷 runtime）仍须诚实处理，不能一并抹成已完成。
+阶段检查、机器integration readiness、独立review、Kian视觉接受和learner truth分别记录。只有证据和最终授权真实到位才声明接受/落库；**不自行merge、不制造learner U**。人工Gate检查真实学习手感，不让Kian核hash/CI。详细执行与退出规则只由master及`STAGED_PRODUCT_ACCEPTANCE_PROTOCOL.md`承担。

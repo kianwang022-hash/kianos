@@ -3,138 +3,167 @@
 Role: independently continued Xizong System Work Cursor + restart entry  
 Parent: `content/xizong/CURRENT.md`
 
-This file does not own medical Core, Xizong learning semantics, Acceptance Truth, or Kian's learner progress.
+This file does not own medical Core, Xizong Learning semantics, Acceptance Truth, or Kian's learner progress.
 
 ---
 
 ## Work Cursor
 
 **Scope:** B — Digestive / Metabolic / Endocrine / Tumor  
-**Active / earliest unresolved eligible gate:** `L — Learning` on the accepted medical Knowledge→Learning chain.  
-**S status:** BLOCKED only on the separate exact official-question-membership sub-boundary required for the later System question sweep.  
+**Active / earliest unresolved eligible gate:** `L — Learning`, fresh independent acceptance only.  
+**S status:** BLOCKED only on the separate exact official-question-membership sub-boundary required for the later official System question sweep.  
 **K status:** PASS — 38 stable Blocks / 600 stable KPs + accepted Current System model.  
-**L status:** UNTESTED / ACTIVE.  
+**L status:** UNTESTED / ACTIVE — construction Phases 0–5 are complete; Phase 6 independent acceptance is active.  
 **P/R/E:** downstream-frozen behind L.  
 **U:** real learner validation only; not eligible.  
-**Engineering blocker:** Phase-3 semantic review itself is complete, but the single derived Learning owner has not yet been materialized from the accepted Phase-3 compiler. Exact B official-question membership remains a separate parallel Source blocker for the later official System sweep.  
-**Execution task:** GitHub Issue `#135` — `Xizong B — rebuild Learning Logic to A1-quality before Projection`.  
-**Phase 0:** PASS — A1-quality calibration completed on `D1 / M2 / D10 / D14 / D21 / G5`; durable evidence is `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`.  
-**Phase 1:** PASS — old seven-Arc serial route retired as learner-order authority; accepted construction direction is a causal readiness DAG + low-switching default route + six non-gating Partial-System Reconstruction checkpoints. Durable evidence is `content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md`.  
-**Phase 2:** PASS — 38/38 Block learning-control review completed; focus 38 KEEP, stop-line 38 UPGRADE, dependencies/hooks made explicit. Durable evidence is `content/xizong/knowledge/learner/B_PHASE2_BLOCK_CONTROL.md`.  
-**Phase 3:** ACTIVE — **SEMANTIC REVIEW COMPLETE / MATERIALIZATION PENDING**. Fresh review covers 38/38 Blocks and 600/600 stable KPs; final semantic partition is 170 natural Logic Groups with no medical KP identity change. Durable evidence is `content/xizong/knowledge/learner/B_PHASE3_LOGIC_GROUP_REACCEPTANCE.md`.  
-**Next action:** complete **Issue #135 Phase 3 materialization + read-back only**. Run the bounded `Xizong B Learning Candidate` workflow via its `workflow_dispatch` entry, then verify the generated single owner is 38 Blocks / 600 KPs / 170 LGs, uses the Phase-1 DAG route, preserves G5 learner order `KP01–05 → KP12–13 → KP06–11`, and contains no old generic goal/closure boilerplate. **Do not start Phase 4 until that read-back passes.**
+**Execution task:** GitHub Issue `#135` — `Xizong B — rebuild Learning Logic to A1-quality before Projection`.
+
+```text
+Phase 0  A1-quality calibration                         PASS
+Phase 1  Route / dependency / intermediate compression PASS
+Phase 2  38-Block learning-control review              PASS
+Phase 3  600-KP / 170-LG semantic re-acceptance        PASS
+Phase 4  Progressive compression closure               PASS
+Phase 5  Cross-surface + negative-space audit          PASS
+Phase 6  Fresh independent L acceptance                ACTIVE
+```
+
+**Next action:** execute **Issue #135 Phase 6 only**. Do not start Projection compilation, Runtime, Evidence or learner validation until fresh independent L acceptance closes.
 
 ---
 
-## Accepted Knowledge substrate
+## Frozen Knowledge substrate
 
-Frozen unless contradictory evidence appears:
+Unless contradictory medical evidence separately reopens K:
 
-- System Knowledge owner → `system.json`;
+- `system.json` remains the System Knowledge owner;
 - 38 canonical Blocks = D1–D23 + M1–M10 + G1–G5;
 - 600 stable KP identities;
 - no Block/KP split, merge or renumbering;
-- legacy Block frontmatter `system_id` spelling variants are aliases, not permission to rewrite medical Core;
-- mother model = input/digestion/absorption → metabolic routing and hepatic processing → endocrine control → DNA/RNA/protein execution and clonal control → reverse localization from clinical evidence;
-- 13 accepted Failure Modes and explicit System negative space;
-- the old System Guide is reference/substrate, not a parallel Current System owner;
-- missing exact official-question membership does not alter medical Knowledge and may not be replaced by a guessed `1072` list.
-
-Knowledge evidence:
-
-- marker repair run `34763908768` → PASS;
-- Xizong QA `34764075042` (#325) → PASS including B Knowledge contracts and Astro build.
+- old System Guide is reference/substrate only;
+- exact official-question membership remains a separate S boundary and must not be guessed/count-fit.
 
 ---
 
-## Active L contract
+## Accepted Learning construction entering Phase 6
 
-B Learning must implement the inherited Xizong learner model rather than replay the old Guide's historical surface assumptions.
+Single B Learning owner:
 
-### Fixed lane surface ownership
+`content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+
+Current accepted construction state:
 
 ```text
-KianOS System / Block orientation + selective cue
-→ iPad / MarginNote original Lecture continuous learning
-→ KianOS active retrieval / Logic Group closure
-→ Block Recall
+stable Blocks = 38
+stable KPs = 600
+Logic Groups = 170
+route = CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT
+KP coverage = exact once per Block
+medical identity changes = 0
+G5 learner order = KP01–05 → KP12–13 → KP06–11
 ```
 
-Surface roles:
-
-- **iPad / MarginNote** — primary continuous original Lecture/source reading, figures/tables, annotation, source-local examples and Lecture-attached questions;
-- **KianOS** — System/Block orientation, current causal target, attention boundary, selective cues, active Recall, Logic Group closure, Block/System compression, Wrong/Uncertain routing and later review;
-- **Chat** — adaptive explanation, linking and smallest-sufficient repair.
-
-Hard L boundaries:
-
-- do not turn B's rich Block Markdown into a second primary Lecture reader merely because it contains complete medical Core;
-- Block is the main continuous first-learning unit; Logic Group is the local continuity/closure unit; KP is stable identity, not automatically the interaction granularity;
-- causal learner order may reorganize stable KP identities without renumbering/redefining them;
-- active Recall follows relevant formal Lecture contact rather than preceding it;
-- System Recall is never authorized by engineering readiness and occurs only after Kian has actually completed the System;
-- Lecture-attached questions stay with the original Lecture/MarginNote workflow;
-- later official B System questions enter after real System learning + pre-question System Recall;
-- precise Question→Block/KP repair routing remains reviewed-only;
-- S exact official-question membership must close before the official System sweep can actually load/execute.
-
-### L construction target
-
-The accepted construction must define:
-
-- causal Block route / branch dependencies;
-- Logic Groups covering every stable KP exactly once for learning continuity;
-- per-Block first-pass focus and explicit stop-line;
-- per-Logic-Group cognition-specific goal and falsifiable closure;
-- Block Recall skeleton;
-- non-gating partial-System reconstruction and final System reconstruction target;
-- cross-surface handoff semantics;
-- downstream official-question timing without inventing qid inventory.
-
-Do not modify medical KP content just to make L easier.
-
-### Active Phase-3 closure rule
-
-Phase-3 semantics are compiled in `static-web/scripts/build-xizong-b-learning-candidate.mjs` at commit `6fe522e121dad8c544d4453c4b778fd2afa290d3`.
-
-The compiler hard-checks:
+### First-pass ownership
 
 ```text
-38 Blocks
-600 stable KPs
-170 final Logic Groups
-exact-once KP ownership per Block
-learner order may differ from stable KP order
+KianOS bounded orientation / cue
+→ one whole-LG original Lecture contact in iPad / MarginNote
+→ one normal return to KianOS
+→ active KP retrieval
+→ LG closure
+→ Block Recall after all LGs
+→ optional non-gating PSR at natural checkpoints
+→ final System Reconstruction only after actual 38-Block learning
 ```
 
-The current derived `b-digestive-metabolic-endocrine-tumor-learning.json` is still the old 150-LG materialization and therefore may **not** be treated as Phase-3 truth.
+- **MarginNote/original Lecture** owns continuous first exposure, figures/tables, source-local examples, annotation and Lecture-attached questions.
+- **KianOS** owns orientation, selective cue, retrieval, closure, compression, W/U routing and later review.
+- **Chat** owns adaptive explanation and smallest-sufficient repair, then returns to the interrupted mainline.
+- No KP-by-KP normal app bouncing.
+- Precision / Visual / Reserve / Connection context is conditional only.
+- Engineering/audit/readiness metadata is backend-only.
 
-Do not create a half-upgraded parallel owner and do not mark Phase 3 PASS merely because semantic review is complete. Closure requires materializing the single owner and reading it back against the Phase-3 exit checks.
+### Route / compression
 
-The bounded materializer now supports `workflow_dispatch` through PR `#145` / merge `a7db07eb74226c63ee34f12935a3f3fde034372e` because connector-authored events did not execute Actions in this session.
+- old seven serial Arcs are retired as learner-order authority;
+- route = causal readiness DAG + low-switching default path;
+- 6 PSRs remain explicitly non-gating and create no canonical unit, score, completion state or Memory debt;
+- Block Recall audit = `29 KEEP / 9 UPGRADE / 0 BLOCKED`;
+- final System Reconstruction reuses canonical `system.json#mental_model / core_relations / failure_modes / judgment_axes`;
+- no fifth compulsory learner hierarchy is required beyond `System → Block → Logic Group → KP`.
+
+### Cross-System handoff
+
+Formal coarse target owners are explicit for A1 circulation, A2 respiratory, A3 urinary, C heme/immune/infection, E reproductive/breast and O9 tumor-general. Finer Block/KP routing may not be inferred without reviewed authority.
+
+General membrane/signaling and general injury/inflammation/repair-fibrosis language are `ASSUMED_BASELINE`: reactivate if already learned, otherwise Chat performs the smallest sufficient repair; no invented deferred owner or Memory debt is created.
 
 ---
 
-## Parallel S blocker｜do not resume archaeology
+## Durable receipts
 
-The exact official-question membership remains unresolved. S may PASS only when one Current owner contains stable exact question IDs, every ID resolves Current Question Truth, collision/negative-space decisions are explicit, and reconstruction provenance is honest.
+- Phase 0 → `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`
+- Phase 1 → `content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md`
+- Phase 2 → `content/xizong/knowledge/learner/B_PHASE2_BLOCK_CONTROL.md`
+- Phase 3 → `content/xizong/knowledge/learner/B_PHASE3_LOGIC_GROUP_REACCEPTANCE.md`
+- Phase 4 → `content/xizong/knowledge/learner/B_PHASE4_PROGRESSIVE_COMPRESSION.md`
+- Phase 5 → `content/xizong/knowledge/learner/B_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md`
 
-Forbidden shortcuts:
+Phase-5 materialization:
 
-- reproduce `1072` by count fitting;
-- keyword/stem guessing as hidden classification;
-- broad historical branch/Library archaeology after the already-completed bounded recovery;
-- infer precise Question→Block/KP relations from System membership.
-
-Until S closes, only the **official System sweep execution/evidence chain** is frozen. Do not use this sub-blocker to halt independent Learning work.
+```text
+workflow = Xizong B Phase 5 Surface Audit
+run      = 34870873385 (#1) PASS
+owner commit = 3409cd9f1b1afe440f3bc3f803362795d04032a7
+construction_status = PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE
+negative_space_violations_remaining = 0
+```
 
 ---
 
-## Future P boundary
+## Phase 6｜Fresh independent L acceptance
 
-B still uses the historical D/M/G directory layout, while the mature shared Xizong loader expects a later projectable structure only after `P PASS`.
+Phase 6 is an **acceptance audit, not another construction pass**.
 
-That is a Projection concern, not permission to reorganize medical Core during L. Decide projection only after L is accepted.
+The fresh auditor must not treat the builder's Phase 0–5 receipts or Issue checklist as an answer key. Inspect Current medical/System owners, the final single B Learning owner, inherited `LEARNING_CONTRACT.md` / `study-policy.json`, and representative positive/negative-space cases directly.
+
+Required adversarial challenges include:
+
+- teacher/file/question order masquerading as learner order;
+- uniform KP-count grouping masquerading as Logic Groups;
+- generic goal/closure templates;
+- generic stop-lines or hidden future-content leakage;
+- intermediate categories masquerading as compulsory learner units;
+- orphan / vague Connection Hooks;
+- over-large or ceremonial singleton LGs;
+- unrealistic Block→System compression jumps;
+- KianOS becoming a second Lecture;
+- premature Recall or System cognition;
+- Weak/Uncertain automatically hijacking the mainline;
+- engineering metadata leaking into learner-facing semantics;
+- builder overfitting B to A1 wording/shape instead of semantic quality.
+
+The auditor must generate at least one plausible alternative learner route/surface allocation and challenge the accepted construction against it.
+
+### Phase 6 exit gate
+
+Only if fresh independent audit finds no material L defect:
+
+```text
+single B Learning owner = accepted / CURRENT
+L = PASS
+P becomes eligible
+```
+
+If it fails, reopen only the earliest responsible construction phase; do not bulk-redesign downstream layers.
+
+---
+
+## Parallel S boundary
+
+Exact official-question membership is still unresolved. It does not block Phase 6 Learning acceptance, but it blocks later official System question-sweep execution/evidence until one Current exact qid owner closes honestly.
+
+Forbidden shortcuts remain count fitting, keyword/stem guessing, broad historical archaeology and inferred Question→Block/KP relations.
 
 ---
 
@@ -145,15 +174,9 @@ That is a Projection concern, not permission to reorganize medical Core during L
 - owner map → `content/xizong/knowledge/manifest.json`
 - B System Knowledge → `content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json`
 - B medical Core → canonical D/M/G Block Markdown under this directory
-- transitional/reference System Guide → `content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md`
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared execution policy → `content/xizong/knowledge/learner/study-policy.json`
-- single derived B Learning owner target → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
-- Phase 0 calibration evidence → `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`
-- Phase 1 route decision evidence → `content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md`
-- Phase 2 Block-control evidence → `content/xizong/knowledge/learner/B_PHASE2_BLOCK_CONTROL.md`
-- Phase 3 LG semantic evidence → `content/xizong/knowledge/learner/B_PHASE3_LOGIC_GROUP_REACCEPTANCE.md`
-- Phase 0–3 Learning compiler → `static-web/scripts/build-xizong-b-learning-candidate.mjs`
+- single B Learning owner → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
