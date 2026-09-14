@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "5a5df85848fae4cd5127c6299518e4a75c1a82adf2e05ab534a0ad2ac4e6f793",
+    "content_hash": "f23c683b1aa5b813869f0051457dedebef34f774d1e8ecbcb30f8b6abc21facd",
     "core_concept": {
       "core_clusters": [
         {
@@ -161,7 +161,22 @@
         "sense_id": "sense:order:577ac013a49856e4",
         "sense_label_en": "a degree in a continuum of size or quantity",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "order here means arrangement, sequence, or orderliness; it is not a magnitude continuum."
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "订购；下订单",
+        "definition_en": "to place an order",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:order:e55bda7c9bde5349",
+        "sense_label_en": "to place an order",
+        "sort_order": 1,
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -186,6 +201,20 @@
         "sense_label_en": "a commercial document used to request someone to supply something",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "订购；要求供应",
+        "definition_en": "to request something to be made or supplied",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:order:ffad803668555128",
+        "sense_label_en": "to request something to be made or supplied",
+        "sort_order": 2,
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -272,58 +301,7 @@
     "word_id": "word:order"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:order:e55bda7c9bde5349",
-      "status": "merged",
-      "merged_into_sense_id": "sense:order:8e7011caed4b5ed1",
-      "pos": "verb",
-      "definition_cn": "订货",
-      "definition_en": "place an order",
-      "semantic_key": "e4823b4f4fb9802377041077660d92712c9981b3257c1893f563b44d949b316e",
-      "semantic_key_history": [
-        "8ed1bde3065a4fb818eef84cb2001e94179a91dd1b105bcb0199789d6cfde435"
-      ],
-      "legacy_aliases": [
-        "order:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "order:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9349,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:order:ffad803668555128",
-      "status": "merged",
-      "merged_into_sense_id": "sense:order:8e7011caed4b5ed1",
-      "pos": "verb",
-      "definition_cn": "订购",
-      "definition_en": "request something to be made or supplied",
-      "semantic_key": "c4bf19c886a84292d19fe53b15486cbaddd73dc456b45e1a254b4806a75698aa",
-      "semantic_key_history": [
-        "05d5cce1959fcfd90aba2e60270e3b09a18142b9bf5b9eaaa533e80c1e0c2e3d"
-      ],
-      "legacy_aliases": [
-        "order:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "order:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9350,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -356,15 +334,15 @@
       },
       {
         "sense_id": "sense:order:e55bda7c9bde5349",
-        "status": "merged",
-        "merged_into_sense_id": "sense:order:8e7011caed4b5ed1",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9349,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       },
       {
         "sense_id": "sense:order:ffad803668555128",
-        "status": "merged",
-        "merged_into_sense_id": "sense:order:8e7011caed4b5ed1",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9350,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       }
@@ -452,7 +430,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3361-3368.json",
-    "source_content_hash": "5a5df85848fae4cd5127c6299518e4a75c1a82adf2e05ab534a0ad2ac4e6f793",
+    "source_content_hash": "f23c683b1aa5b813869f0051457dedebef34f774d1e8ecbcb30f8b6abc21facd",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
