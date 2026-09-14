@@ -86,10 +86,13 @@ for (const forbiddenProjection of [
   if (bridge.includes(forbiddenProjection)) fail(`projection still coerces Map into generic flow: ${forbiddenProjection}`);
 }
 
-requireText(page, "subject === 'marxism'", 'route calibration');
-requireText(page, "chapter === 'ch00'", 'route calibration');
-requireText(page, 'PoliticsCognitiveWorkspace', 'route calibration');
-requireText(page, 'PoliticsChapterRuntime', 'fallback runtime');
+// #148 mounts the exact compiled native frame for every chapter. Legacy
+// component contracts above remain provenance, not a second learner Runtime.
+requireText(page, 'PoliticsFrameWorkspace chapter={data}', 'Current frame route');
+requireText(page, 'PoliticsPracticeBridge chapter={data}', 'Current Workbench Return');
+const frame = read('src/components/PoliticsFrameWorkspace.astro');
+for (const marker of ['loadPoliticsFrameProjection','primary_geometry','secondary_reasoning','chengfeng_handoff','data-frame-unit','data-frame-handoff']) requireText(frame, marker, 'Current native frame');
+if (page.includes('<PoliticsChapterRuntime') || page.includes('<PoliticsCognitiveWorkspace ')) fail('retired embedded quiz remounted alongside Workbench');
 
 for (const rule of [
   'Primary environment: Mac landscape workspace',

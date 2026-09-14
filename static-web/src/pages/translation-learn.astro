@@ -1,11 +1,13 @@
 ---
 import fs from 'node:fs';
+import path from 'node:path';
 import crypto from 'node:crypto';
 import { marked } from 'marked';
 import Base from '../layouts/Base.astro';
 
 const sourcePath = 'content/english/modules/translation/learning.md';
-const sourceUrl = new URL(`../../../${sourcePath}`, import.meta.url);
+const repoRoot = process.env.KIANOS_REPO_ROOT || path.resolve(process.cwd(), '..');
+const sourceUrl = path.join(repoRoot, sourcePath);
 const markdown = fs.readFileSync(sourceUrl, 'utf8');
 const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
 const base = import.meta.env.BASE_URL;
@@ -43,7 +45,7 @@ async function renderChunk(key) {
   return source ? await marked.parse(source, { gfm: true, breaks: false }) : '';
 }
 
-const referenceMarkdown = fs.readFileSync(new URL('../../../content/english/modules/translation/learning.reference.md', import.meta.url), 'utf8');
+const referenceMarkdown = fs.readFileSync(path.join(repoRoot, 'content/english/modules/translation/learning.reference.md'), 'utf8');
 const referenceHtml = await marked.parse(referenceMarkdown, {gfm:true, breaks:false});
 const introHtml = await marked.parse(intro, { gfm: true, breaks: false });
 const coreSections = await Promise.all(coreKeys.map(async (key) => ({ key, html: await renderChunk(key) })));

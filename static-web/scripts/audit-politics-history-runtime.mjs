@@ -38,11 +38,11 @@ function syntheticSnapshot(config, override = {}) {
   };
 }
 
-if (!chapterPage.includes("import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro'")) {
-  failures.push({ code: 'HISTORY_RUNTIME_RETURN_ENHANCER_NOT_IMPORTED' });
+if (!chapterPage.includes("import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.astro'")) {
+  failures.push({ code: 'HISTORY_RUNTIME_CURRENT_BRIDGE_NOT_IMPORTED' });
 }
-if (!chapterPage.includes('<PoliticsUnitReturnEnhancer chapter={data} />')) {
-  failures.push({ code: 'HISTORY_RUNTIME_RETURN_ENHANCER_NOT_MOUNTED' });
+if (!chapterPage.includes('<PoliticsPracticeBridge chapter={data} base={base} />')) {
+  failures.push({ code: 'HISTORY_RUNTIME_CURRENT_BRIDGE_NOT_MOUNTED' });
 }
 for (const hook of ['data-politics-unit-return', 'data-unit-return-repair', 'data-unit-return-continue']) {
   if (!returnEnhancer.includes(hook)) failures.push({ code: 'HISTORY_RUNTIME_RETURN_HOOK_MISSING', hook });

@@ -1,0 +1,17 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import { listWritingSyntheticTasks } from '@runtime/lib/englishWritingSynthetic.mjs';
+const writing=listWritingSyntheticTasks()[0].id;
+---
+<Base title="KianOS · 整站体验" description="" active="home" hideLead={true}>
+<section class="humanGate"><span>PR #154 · #148</span><h1>KIAN FULL-SITE HUMAN GATE</h1><p>独立本机体验站。Politics / 西综使用正式 Current；以下 English 链接使用隔离样题，与正式网页共享实现。操作不会写入你的 4337 / 4173 学习记录，也不作为 learner U。</p>
+<ol>
+<li><h2><a href="/politics/marxism/ch00/">Politics：从一个 NU 到配套题</a></h2><p>关系 → 乘风定位 → 工作台 → 结果与解析 → source → 原题。检查阅读顺序和精确返回。</p></li>
+<li><h2><a href="/reading/fixture-reading/">English：完整文章 + 完整题纸</a></h2><p>选两题，分别滚动两区；打开 Guide 再返回；选取 equipment 查 Lexical 再返回。对照 <a href="/cloze/fixture-cloze/">20 行 Cloze</a> 与 <a href="/reading-b/fixture-ordering/">Part B 排序</a>。</p></li>
+<li><h2><a href="/translation/fixture-translation/">Translation</a> / <a href={`/writing/${writing}/`}>Writing</a></h2><p>完整 source 与写作区同时使用；Writing 可选 Direct，保存第一版后自行修订。打开 Guide 后回到刚才输入的位置。</p></li>
+<li><h2><a href="/xizong/circulation/">西综：系统 → 学习节 → Recall</a></h2><p>进入 B02，按学习节定位原讲义，再确认本节接触完成。看中性题面、展开完整 Core，检查切换与阅读手感。本隔离站的测试操作不代表正式学习。</p></li>
+<li><h2><a href="/">回 Global Home，分别继续三科</a></h2><p>先在各科留下一次实际操作，再回首页。应回到你刚才的任务；只访问过的空页面不应占据 Continue。</p></li>
+</ol><p>找不到任务、信息被压碎或遮挡、查阅后丢位置，或者仍不愿每天打开它，都应退回修改。</p>
+</section>
+</Base>
+<style>.humanGate{max-width:1000px;margin:20px auto;font-size:18px;line-height:1.8}.humanGate>span{color:var(--study-muted);font-size:14px}.humanGate h1{font-size:30px}.humanGate ol{padding-left:26px}.humanGate li{padding:14px 0;border-bottom:1px solid var(--study-line)}.humanGate h2{font-size:21px;margin:0}.humanGate p{margin:8px 0}.humanGate a{color:var(--study-green)}</style>

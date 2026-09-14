@@ -1,3 +1,6 @@
+// #148 Current uses native frames + #117 Workbench; retained code below audits the retired embedded consumer only.
+import { runCurrentPoliticsFrame } from './politics-frame-test-entry.mjs';
+await runCurrentPoliticsFrame({ subject: 'mao', formal: false });
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';

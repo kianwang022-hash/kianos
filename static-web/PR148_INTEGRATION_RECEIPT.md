@@ -1,6 +1,6 @@
 # #148 integrated execution receipt
 
-Status: IN PROGRESS — Pass A. No full-site acceptance, independent review, learner U or merge claimed.
+Status: IN PROGRESS — integrated browser/QA closure. No full-site acceptance, independent review, learner U or merge claimed.
 
 ## Identity / writer / scope
 
@@ -31,3 +31,11 @@ Status: IN PROGRESS — Pass A. No full-site acceptance, independent review, lea
 ## Next concrete action
 
 Finish English native workspace composition and regression; then consume exact A1/A2/A3 Projection/Core owners to restore X01–X11 without B–F content/UI. Build Global Home only after these interfaces are integrable. Run relevant validators + one production build and isolated family/state/stress browser matrix. Stop once at FULL-SITE HUMAN GATE; do not merge.
+
+## Integration checkpoint 0035cd4a + latest-main reconciliation
+
+- A1/A2/A3 native System/Block/Recall/authoring and Global Resume now implemented. English full sheet, four Part B geometries, Translation, Writing Direct/optional plan + separate revision, three complete Guides and read-only Lexical exact Return are present.
+- Latest main fc78254b safely merged. Its independent B Projection addition does not widen #148: the consumer validates only exact A1/A2/A3 slots with maintained v1 resolver, without reading B content. No content owners were changed.
+- All corpus accounting PASS, production 8251 pages PASS. New isolated family/state/browser checks are being sealed. Existing formal Politics 23-group script reused and passed after the frame selector reconciliation.
+- Old CI had a build-root bug (fixed) and assertions requiring the retired embedded Politics quiz. Integration routes use #117 Workbench; browser jobs now verify native frame/NU handoff plus the reused formal Workbench matrix, while keeping content/model/evidence audits and historical scripts. No retired learner behavior restored to appease a test.
+- Remaining before Human Gate: final production screenshots and review, integrated fixture preview, CI readback, final receipt. No merge or learner U claimed.

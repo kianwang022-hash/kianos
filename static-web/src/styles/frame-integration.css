@@ -166,3 +166,11 @@ body[data-xizong-neutral=true] #main-content .xv6Block .portedStudyMain{display:
 :root body #main-content .xse .xseOption.wrong{background:#faeae7!important}
 :root body #main-content .xse .xseOption b{color:#376c50}
 :root body #main-content .xseWorkspace{border-radius:5px;border:0;border-top:1px solid var(--study-line);padding:18px 0}
+
+/* Recall controls retain the native workspace affordance. */
+:root body #main-content [data-kp-reveal],:root body #main-content [data-block-frame-reveal]{font:inherit;font-size:16px;background:#2d6b52;border:1px solid #2d6b52;border-radius:5px;color:#fff;padding:10px 18px;cursor:pointer}
+:root body #main-content .portedStudyOutline button{font-size:14px;line-height:1.5}
+:root body #main-content .portedStudyOutline button small{font-size:12px}
+:root body #main-content .portedStudyChain [data-chain-step] b{font-size:14px}
+:root body #main-content .portedStudyChain [data-chain-step] small{font-size:12px}
+:root body #main-content [data-block-save-feedback]{padding:12px 18px;background:#fff3e5;color:#85561c;font-size:16px}
