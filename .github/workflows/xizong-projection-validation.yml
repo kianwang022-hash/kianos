@@ -1,0 +1,73 @@
+name: Xizong Projection Validation
+on:
+  push:
+    branches: [work/xizong-projection-validation-20260914]
+    paths:
+      - 'content/xizong/**'
+      - '.github/workflows/xizong-projection-validation.yml'
+  pull_request:
+    paths:
+      - 'content/xizong/**'
+      - '.github/workflows/xizong-projection-validation.yml'
+permissions:
+  contents: read
+jobs:
+  projection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            content/xizong
+      - name: Execute existing validator and self-test
+        id: baseline
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/xizong-validation
+          python3 content/xizong/projection/tools/validate_projection.py --self-test 2>&1 | tee /tmp/xizong-validation/baseline.log
+      - name: Capture exact scoped inputs for reproducible validation
+        if: always()
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, shutil, subprocess
+          root = pathlib.Path.cwd()
+          out = pathlib.Path('/tmp/xizong-validation/inputs')
+          proj = pathlib.Path('content/xizong/projection')
+          files = {p for p in proj.rglob('*') if p.is_file()}
+          for p in proj.rglob('*.projection.json'):
+              a = json.loads(p.read_text())
+              files.update(pathlib.Path(s['path']) for s in a.get('sources', []))
+          for p in ['content/xizong/knowledge/manifest.json', 'content/xizong/knowledge/learner/identity-aliases.json', 'content/xizong/knowledge/learner/study-policy.json']:
+              files.add(pathlib.Path(p))
+          for folder in ['a1-circulation', 'a2-respiratory', 'a3-urinary']:
+              for name in ['system.json', 'CURRENT.md', 'ACCEPTANCE.md']:
+                  files.add(pathlib.Path('content/xizong/knowledge/systems') / folder / name)
+          inventory = []
+          for p in sorted(files):
+              if not p.is_file():
+                  raise SystemExit(f'Missing input: {p}')
+              resolved = p.resolve()
+              if not resolved.is_relative_to(root):
+                  raise SystemExit(f'Out of scope path: {p}')
+              dest = out / p
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(p, dest)
+              sha = subprocess.check_output(['git','hash-object',str(p)], text=True).strip()
+              inventory.append({'path': str(p), 'blob_sha': sha, 'bytes': p.stat().st_size})
+          pathlib.Path('/tmp/xizong-validation/input-inventory.json').write_text(json.dumps({'commit': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(), 'files': inventory}, indent=2))
+          print(f'Captured {len(inventory)} exact scoped inputs')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-projection-validation
+          path: /tmp/xizong-validation
+          retention-days: 7
+      - name: Preserve baseline verdict
+        if: steps.baseline.outcome != 'success'
+        run: exit 1
