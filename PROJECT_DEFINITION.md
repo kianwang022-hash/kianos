@@ -24,11 +24,12 @@ Its purpose is not to maximize files, pages, automation, metadata, or governance
 - clear ownership of current truth;
 - strict separation between product state, validation evidence, and Kian's real learner state;
 - bounded recovery cost as the repository grows;
-- maintainability that does not degrade simply because the system has been used for months.
+- maintainability that does not degrade simply because the system has been used for months;
+- evolvability in which normal content / learning-asset change can usually be absorbed without rewriting the product or runtime architecture.
 
 Compact product statement:
 
-> **KianOS is a long-lived, restartable, federated, concurrent personal learning operating system with bounded context recovery, strict truth separation, dependency-driven scheduling, and evidence-based learning quality.**
+> **KianOS is a long-lived, restartable, federated, concurrent, evolvable personal learning operating system with bounded context recovery, strict truth separation, dependency-driven scheduling, and evidence-based learning quality.**
 
 ---
 
@@ -177,6 +178,46 @@ The implementation of this requirement is owned downstream by:
 
 This Project Definition owns only the requirement that engineering proxies must never substitute for learning closure.
 
+## R10｜Content evolvability — normal content change must not require product rewrites
+
+KianOS must remain easy to change as learning content, question assets, relationships, learning-support metadata and projection needs evolve.
+
+Normal content evolution should usually follow:
+
+```text
+canonical Content / Learning asset changes
+→ Projection / representation asset changes when needed
+→ validation
+→ existing product/runtime consumes the new Current asset
+```
+
+not:
+
+```text
+content changes
+→ page-specific code rewrite
+→ duplicated domain logic inside UI
+→ runtime schema becomes the hidden content owner
+```
+
+Architecture must therefore preserve a useful separation between:
+
+- stable identity / ownership;
+- evolving domain semantics and learning assets;
+- stage/state-specific Projection;
+- reusable product/workspace/runtime behavior.
+
+Hard requirements:
+
+- stable canonical identity should survive ordinary presentation/content refinement when the semantic object itself remains the same;
+- domain semantics must not be trapped inside page-specific conditions or component structure as a hidden second owner;
+- optional enrichment may appear or disappear without requiring sibling assets to imitate it merely for schema symmetry;
+- absent semantic support remains absent rather than being guessed by a renderer;
+- repeated passes/stages should reuse the same canonical cognition where possible instead of duplicating first-pass, second-pass and late-review copies;
+- a real change in Learning Logic, task geometry, surface ownership, evidence meaning, or domain semantics may legitimately reopen upstream design and require Product/Runtime change.
+
+This requirement does **not** mean pre-building every future feature. It means choosing boundaries so that foreseeable content evolution is usually an asset change rather than an architecture migration.
+
 ---
 
 # 4｜Project invariants
@@ -213,6 +254,12 @@ Every durable new governance layer, file class, registry, cursor, manifest, auto
 
 If no requirement owner exists, the complexity is presumptively unnecessary.
 
+## I7｜Stable product boundary, evolving assets
+
+Routine change in content, questions, learning support, relations, or projection detail should normally be absorbed by the responsible Current asset layer rather than by duplicating domain truth into page/runtime code.
+
+A product/runtime rewrite is justified when the learner behavior, task geometry, surface ownership, evidence semantics, or true domain model changes—not merely because one content object gained, lost, reordered, or refined learner-facing structure.
+
 ---
 
 # 5｜Non-goals
@@ -227,7 +274,8 @@ KianOS is **not** intended to become:
 - a system where every possible future requirement is pre-built in advance;
 - a second learner-tracking truth inside shared engineering Current;
 - a collection of multiple status dashboards that all summarize the same facts;
-- a place where legacy or migration completeness is valued above current learning usability.
+- a place where legacy or migration completeness is valued above current learning usability;
+- a product whose learner pages must be manually rewritten whenever ordinary Current content or projection assets change.
 
 A feature may still exist when a real requirement justifies it; it does not become a default goal merely because it is technically possible.
 
@@ -298,6 +346,14 @@ If the likely answer is that these problems will recur, the architecture is not 
 For learner-facing modules, the strongest readiness language must match actual learning evidence.
 
 A build, page, content inventory, or simulated journey may support a gate, but may not replace the learning-acceptance standard or real user validation where required.
+
+## T7｜Content Change Absorption Test
+
+Take a representative accepted learner surface and change only its legitimate Current content/projection assets—for example add or remove a relation, reorder a cognitive object, add a reviewed comparison, refine a question explanation, or add an optional enrichment—without changing the learner action itself.
+
+The architecture should normally permit that change to reach the learner through asset/projection updates plus validation, without requiring page-specific domain rewrites or a new runtime state machine.
+
+If routine content evolution repeatedly requires special-case UI code, duplicated semantic copies, or schema migrations unrelated to learner behavior, the architecture fails this test.
 
 ---
 
