@@ -491,19 +491,19 @@ function fm(text, key) {
 }
 function orderOf(text, filename) {
   const order = fm(text, 'order');
-  if (order && /^[DMG]\\d{1,2}$/i.test(order)) return order.toUpperCase();
+  if (order && /^[DMG]\d{1,2}$/i.test(order)) return order.toUpperCase();
   const blockId = fm(text, 'block_id');
   if (blockId) {
-    const direct = blockId.match(/^([DMG])(\\d{1,2})$/i);
+    const direct = blockId.match(/^([DMG])(\d{1,2})$/i);
     if (direct) return `${direct[1].toUpperCase()}${Number(direct[2])}`;
-    const normalized = blockId.match(/(?:^|-)([dmg])(\\d{1,2})$/i);
+    const normalized = blockId.match(/(?:^|-)([dmg])(\d{1,2})$/i);
     if (normalized) return `${normalized[1].toUpperCase()}${Number(normalized[2])}`;
   }
-  const byName = filename.match(/(?:^|_)([DMG])(\\d{1,2})(?:_|\\b)/i);
+  const byName = filename.match(/(?:^|_)([DMG])(\d{1,2})(?:_|\b)/i);
   return byName ? `${byName[1].toUpperCase()}${Number(byName[2])}` : null;
 }
 function centerQuestion(text) {
-  const patterns = [/^>\\s*\\*\\*中心问题\\*\\*[：:]\\s*(.+)$/m,/^>\\s*\\*\\*中心问题[：:]\\*\\*\\s*(.+)$/m,/^>\\s*\\*\\*中心问题\\*\\*[：:]?\\s*(.+)$/m];
+  const patterns = [/^>\s*\*\*中心问题\*\*[：:]\s*(.+)$/m,/^>\s*\*\*中心问题[：:]\*\*\s*(.+)$/m,/^>\s*\*\*中心问题\*\*[：:]?\s*(.+)$/m];
   for (const pattern of patterns) { const m = text.match(pattern); if (m?.[1]) return m[1].trim(); }
   return '';
 }
@@ -514,7 +514,7 @@ for (const dir of ['d-d1-d23','m-m1-m10','g-g1-g5']) {
     const full = path.join(bRoot, dir, filename);
     const text = fs.readFileSync(full, 'utf8');
     const order = orderOf(text, filename);
-    const kpCount = [...text.matchAll(/^##\\s+KP\\d+[｜|]/gm)].length;
+    const kpCount = [...text.matchAll(/^##\s+KP\d+[｜|]/gm)].length;
     sourceFiles.push({order,text,kpCount});
   }
 }
