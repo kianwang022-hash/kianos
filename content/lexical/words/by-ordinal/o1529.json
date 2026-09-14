@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a5f2a93f7800da343e497a4138d93c04fc96348e28ae87879fe71b29503d95e3",
+    "content_hash": "438986c76608379ae67d09bcbe705490cfa5e19a9b76a39b9ca4dde8f54cadca",
     "core_concept": {
       "core_clusters": [
         {
@@ -64,6 +64,30 @@
         "sense_label_en": "a place where waste is dumped",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5a91d896917ed7ed251c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dump:d14e5d3ca7785d20:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "倾倒废物、转储数据或抛售股票",
+            "phrase": "dump waste/data/shares"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "倾倒、丢弃或抛售",
+        "definition_en": "to get rid of, discard, or dump something",
+        "governing_pattern": "dump sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dump:d14e5d3ca7785d20",
+        "sense_label_en": "to get rid of, discard, or dump something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -161,31 +185,6 @@
       "source_row": 4281,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:dump:d14e5d3ca7785d20",
-      "status": "merged",
-      "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
-      "pos": "verb",
-      "definition_cn": "倒垃圾",
-      "definition_en": "to dispose of waste",
-      "semantic_key": "78b46f1b94aad7a603b9d262c455187a7580cdfe3697fa799b4096b6e0a84720",
-      "semantic_key_history": [
-        "24a6acfb61428760a40cec801bad95393d87d18fc6e3270712c37530546e6121"
-      ],
-      "legacy_aliases": [
-        "dump:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dump:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4283,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -220,13 +219,14 @@
       },
       {
         "sense_id": "sense:dump:d14e5d3ca7785d20",
-        "status": "merged",
-        "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4283,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       }
     ],
     "active_collocations": [
+      "collocation:5a91d896917ed7ed251c",
       "collocation:637bdf8fe9b65f802547",
       "collocation:f63f76a7ce1307d7b97e"
     ],
@@ -261,6 +261,11 @@
         "id": "collocation:f66481457852315d0afb",
         "source_row": 20882,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:5a91d896917ed7ed251c",
+        "source_row": 21614,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       }
     ],
     "exam-mappings": [],
@@ -294,7 +299,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1529-1536.json",
-    "source_content_hash": "a5f2a93f7800da343e497a4138d93c04fc96348e28ae87879fe71b29503d95e3",
+    "source_content_hash": "438986c76608379ae67d09bcbe705490cfa5e19a9b76a39b9ca4dde8f54cadca",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

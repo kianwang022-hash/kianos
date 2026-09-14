@@ -15,7 +15,7 @@
         "pattern": "drum up support/business/interest"
       }
     ],
-    "content_hash": "0617b63f5bd68a8fec9283b164ad8f3a32cba0038ce7c7d433ad78aef8a16428",
+    "content_hash": "b7f36c0b823c657a9f45cf113d1b2e936ad6a85b3ff380581761e3fc80e1a51d",
     "core_concept": {
       "core_clusters": [
         {
@@ -65,6 +65,30 @@
         "sense_label_en": "play (a tune) on a drum",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:132db94395283801d145",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:drum:7978f4d5afc05559:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "击鼓/打鼓",
+            "phrase": "beat/play the drum"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "鼓；鼓声",
+        "definition_en": "a percussion instrument or its sound",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:drum:7978f4d5afc05559",
+        "sense_label_en": "a percussion instrument or its sound",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -110,31 +134,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 4244,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:drum:7978f4d5afc05559",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "鼓",
-      "definition_en": "a musical percussion instrument; usually consists of a hollow cylinder with a membrane stretched across each end",
-      "semantic_key": "7abd831acbd12e841595eb94d05bc2a2f4d5542c4a668c31ced239cfbaff3efd",
-      "semantic_key_history": [
-        "f869216fe89313b9bc2a148eb0b7aa34ec7fd57208ef453776ad697c47f4198f"
-      ],
-      "legacy_aliases": [
-        "drum:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "drum:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4246,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
     },
@@ -232,7 +231,7 @@
       },
       {
         "sense_id": "sense:drum:7978f4d5afc05559",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4246,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -260,7 +259,8 @@
       }
     ],
     "active_collocations": [
-      "collocation:0507a793f3c82f4933f5"
+      "collocation:0507a793f3c82f4933f5",
+      "collocation:132db94395283801d145"
     ],
     "facts": [],
     "collocations": [
@@ -287,6 +287,11 @@
       {
         "id": "collocation:f0f5b09da7ba07613e31",
         "source_row": 20408,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:132db94395283801d145",
+        "source_row": 21613,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       }
     ],
@@ -321,7 +326,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1513-1520.json",
-    "source_content_hash": "0617b63f5bd68a8fec9283b164ad8f3a32cba0038ce7c7d433ad78aef8a16428",
+    "source_content_hash": "b7f36c0b823c657a9f45cf113d1b2e936ad6a85b3ff380581761e3fc80e1a51d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

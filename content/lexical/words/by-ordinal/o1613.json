@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e52f8e07d6cab62257d0b5321e1c7aa79207438883dfcf7717b8020289b7c8af",
+    "constructions": [
+      {
+        "construction_id": "construction:4898d34e206cd46b8e50",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "send a message by email",
+        "pattern": "email sb / send an email"
+      }
+    ],
+    "content_hash": "c3bc319a495a9d21bf982974b52134a281e19dbff20ac1a9f34cff96cd8902df",
     "core_concept": {
       "core_clusters": [
         {
@@ -59,17 +67,26 @@
             ],
             "meaning_cn": "电子邮件地址",
             "phrase": "email address"
+          },
+          {
+            "collocation_id": "collocation:b4d48d93c9c61027e055",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:email:79d2652205815d1c:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "一封电子邮件",
+            "phrase": "an email"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "电子邮件；电子信函",
-        "definition_en": "a system for sending messages electronically",
+        "definition_cn": "电子邮件；一封邮件",
+        "definition_en": "a message sent by email",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:email:79d2652205815d1c",
-        "sense_label_en": "a system for sending messages electronically",
+        "sense_label_en": "a message sent by email",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -149,6 +166,7 @@
       "collocation:1894859333f1c8288094",
       "collocation:4c3852b0542be8469705",
       "collocation:4e05a8de5035555795aa",
+      "collocation:b4d48d93c9c61027e055",
       "collocation:dc361f9acd922cace191"
     ],
     "facts": [],
@@ -171,6 +189,11 @@
       {
         "id": "collocation:dc361f9acd922cace191",
         "source_row": 18636,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:b4d48d93c9c61027e055",
+        "source_row": 21490,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
       }
     ],
@@ -200,7 +223,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1609-1616.json",
-    "source_content_hash": "e52f8e07d6cab62257d0b5321e1c7aa79207438883dfcf7717b8020289b7c8af",
+    "source_content_hash": "c3bc319a495a9d21bf982974b52134a281e19dbff20ac1a9f34cff96cd8902df",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

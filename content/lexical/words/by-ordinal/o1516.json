@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "291d9e3bfc14ae160cf9ce8141a1d4f7feb15a117f666a23900841ce06555c7d",
+    "content_hash": "2e13709c5cca3026baf941e2460bf703990fcae83ed7f1e9dd323de3bc528ab1",
     "core_concept": {
       "core_clusters": [
         {
@@ -149,6 +149,30 @@
         "sense_label_en": "a secret place for leaving or collecting something",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:02f6d57fbd2eb284e9d3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:drop:55368f684b715a6c:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "价格、水平或温度下降",
+            "phrase": "prices/levels/temperature drop"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "下降、减少（价格、水平或温度）",
+        "definition_en": "to fall or decrease in price, level, or temperature",
+        "governing_pattern": "prices/levels drop",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:drop:55368f684b715a6c",
+        "sense_label_en": "to fall or decrease in price, level, or temperature",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -178,38 +202,12 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:drop:55368f684b715a6c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "落下；下降",
-      "definition_en": "to fall or decrease suddenly",
-      "semantic_key": "e044a76a7853c1b774b050ba1ee82e4297eb5190ef8900811d9db259b0d2c872",
-      "semantic_key_history": [
-        "0f7ec6ea73e0acdc200cae8098d737643acf7c468ef4316b8297368d492bb595"
-      ],
-      "legacy_aliases": [
-        "drop:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "drop:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4230,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:drop:55368f684b715a6c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4230,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -244,6 +242,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:02f6d57fbd2eb284e9d3",
       "collocation:5df34855bc60580859df",
       "collocation:9b278fe7fde9cf63c7d8",
       "collocation:cb16c593b147ff69e265",
@@ -287,6 +286,11 @@
         "id": "collocation:fbf15e4f1f71cfd4fe27",
         "source_row": 21315,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:02f6d57fbd2eb284e9d3",
+        "source_row": 21612,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       }
     ],
     "exam-mappings": [],
@@ -325,7 +329,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1513-1520.json",
-    "source_content_hash": "291d9e3bfc14ae160cf9ce8141a1d4f7feb15a117f666a23900841ce06555c7d",
+    "source_content_hash": "2e13709c5cca3026baf941e2460bf703990fcae83ed7f1e9dd323de3bc528ab1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

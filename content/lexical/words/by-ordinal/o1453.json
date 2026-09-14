@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4152196c34787926cc7fd7b53ff37310f9318ff80324218cba1f5a3ce57c39de",
+    "content_hash": "d9b3d1b89f04b22d90b57894822b3fa4443dd36931bc2f25faf4b4e0cdcd0bca",
     "core_concept": {
       "core_clusters": [
         {
@@ -120,6 +120,30 @@
         "sense_label_en": "to dig a ditch",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:994f281273a5bbe6f510",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ditch:dd47e8ae4ca95ae2:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "抛弃计划/伙伴",
+            "phrase": "ditch a plan/partner"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "抛弃、摆脱或甩掉",
+        "definition_en": "to abandon or get rid of someone or something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:ditch:dd47e8ae4ca95ae2",
+        "sense_label_en": "to abandon or get rid of someone or something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -142,33 +166,7 @@
     "word_id": "word:ditch"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:ditch:dd47e8ae4ca95ae2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "抛弃",
-      "definition_en": "to abandon or get rid of something or someone",
-      "semantic_key": "573b29fb0add8620cbcbbb1c38c51e8e600415605d28d3a687b0b28d965b4354",
-      "semantic_key_history": [
-        "0a1a6ad81a3519325312db613a1f2cb52740e3e67b4ed4f8257a753eafe5fb93"
-      ],
-      "legacy_aliases": [
-        "ditch:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "ditch:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4027,
-      "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -194,7 +192,7 @@
       },
       {
         "sense_id": "sense:ditch:dd47e8ae4ca95ae2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4027,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
@@ -203,6 +201,7 @@
     "active_collocations": [
       "collocation:309f5746fc41ca277fe0",
       "collocation:4da33008e9aa52982eb3",
+      "collocation:994f281273a5bbe6f510",
       "collocation:b1526a8fdec6a004077b",
       "collocation:df407a9b71f2ca7d97e5"
     ],
@@ -242,6 +241,11 @@
         "id": "collocation:df407a9b71f2ca7d97e5",
         "source_row": 18893,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:994f281273a5bbe6f510",
+        "source_row": 21367,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
       }
     ],
     "exam-mappings": [],
@@ -280,7 +284,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1449-1456.json",
-    "source_content_hash": "4152196c34787926cc7fd7b53ff37310f9318ff80324218cba1f5a3ce57c39de",
+    "source_content_hash": "d9b3d1b89f04b22d90b57894822b3fa4443dd36931bc2f25faf4b4e0cdcd0bca",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

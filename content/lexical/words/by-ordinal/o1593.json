@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "dc767f9d11b98685050e59e785f1f5546ee6da801238408a71f7b5c24a81edc6",
+    "content_hash": "8bc0bc9f2d01ce4049c2ad0df37e2b6b474a78e65d6f2783175c326caae341a9",
     "core_concept": {
       "core_clusters": [
         {
@@ -89,6 +89,30 @@
         "sense_id": "sense:electric:8b788bf04ecc58de",
         "sense_label_en": "a car powered by electricity",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d8016f7680eac244b43f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:electric:75a50699ac580c0d:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "电动汽车或设备",
+            "phrase": "electric car/device"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "电的；用电驱动的",
+        "definition_en": "powered by or producing electricity",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:electric:75a50699ac580c0d",
+        "sense_label_en": "powered by or producing electricity",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -201,9 +225,17 @@
         "merged_into_sense_id": null,
         "source_row": 4458,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+      },
+      {
+        "sense_id": "sense:electric:75a50699ac580c0d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4471,
+        "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
       }
     ],
     "active_collocations": [
+      "collocation:d8016f7680eac244b43f",
       "collocation:dedb7cf5a00728265ea3",
       "collocation:f7bf1d5224321b4d30ac"
     ],
@@ -233,6 +265,11 @@
       {
         "id": "collocation:f7bf1d5224321b4d30ac",
         "source_row": 20978,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:d8016f7680eac244b43f",
+        "source_row": 21280,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
       }
     ],
@@ -272,7 +309,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1593-1600.json",
-    "source_content_hash": "dc767f9d11b98685050e59e785f1f5546ee6da801238408a71f7b5c24a81edc6",
+    "source_content_hash": "8bc0bc9f2d01ce4049c2ad0df37e2b6b474a78e65d6f2783175c326caae341a9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

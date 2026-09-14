@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "dea6537109a013cb7a98d0799cb768c5c72a685fb329417e624bd8fdf3f26505",
+    "content_hash": "cb893080c405681705ce32600e012dd3d97c1c443bb35beaaf2feb90b7d8cd31",
     "core_concept": {
       "core_clusters": [
         {
@@ -157,6 +157,30 @@
         "sense_label_en": "a machine for sowing seeds in rows",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cc575460c7587ac39eac",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:drill:13e11e9d1379537b:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "钻机/钻头",
+            "phrase": "a drill/drill bit"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "钻头、钻机或工具",
+        "definition_en": "a tool or machine for making holes",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:drill:13e11e9d1379537b",
+        "sense_label_en": "a tool or machine for making holes",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -186,38 +210,12 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:drill:13e11e9d1379537b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "钻头，钻孔机",
-      "definition_en": "a tool for making holes in hard materials",
-      "semantic_key": "a1b236fca88807b993454f8ab520f161e086f446f83a40d39379d6eb601b9f2e",
-      "semantic_key_history": [
-        "313378b53e54d9582d0473b5dde0531a73ae1f3f6839d0879418277710d15a03"
-      ],
-      "legacy_aliases": [
-        "drill:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "drill:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4201,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:drill:13e11e9d1379537b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4201,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -257,7 +255,8 @@
       "collocation:2b48d74e2896a0322926",
       "collocation:2f525bf01ec8cc6d5d6b",
       "collocation:9857da510252c28c767e",
-      "collocation:a74dcf8f716aae59e7f9"
+      "collocation:a74dcf8f716aae59e7f9",
+      "collocation:cc575460c7587ac39eac"
     ],
     "facts": [
       {
@@ -306,6 +305,11 @@
         "id": "collocation:fac70e77ec33eb07cca4",
         "source_row": 21224,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:cc575460c7587ac39eac",
+        "source_row": 21617,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       }
     ],
     "exam-mappings": [],
@@ -339,7 +343,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1505-1512.json",
-    "source_content_hash": "dea6537109a013cb7a98d0799cb768c5c72a685fb329417e624bd8fdf3f26505",
+    "source_content_hash": "cb893080c405681705ce32600e012dd3d97c1c443bb35beaaf2feb90b7d8cd31",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

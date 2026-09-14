@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "9d0385b83ffc765afedd6fefba959108f2adeed20bd254ba75b9e8ad7e7354ed",
+    "content_hash": "96fa054333d11ea2f56975155fb7df848c78d762331461701e094d2046f49c92",
     "core_concept": {
       "core_clusters": [
         {
@@ -109,6 +109,15 @@
             ],
             "meaning_cn": "模糊的记忆",
             "phrase": "a dim memory"
+          },
+          {
+            "collocation_id": "collocation:4252aeeac98076c156aa",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dim:76462dec96b5518c:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "对某事持不乐观看法",
+            "phrase": "take a dim view of sth"
           }
         ],
         "confidence": "medium",
@@ -121,6 +130,30 @@
         "sense_id": "sense:dim:76462dec96b5518c",
         "sense_label_en": "not clear in the mind or memory",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2e1f596473432cae49a5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dim:a56340103d645dfd:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "前景/机会暗淡",
+            "phrase": "dim prospects/chances"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "暗淡、无望的",
+        "definition_en": "unlikely to succeed or improve",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:dim:a56340103d645dfd",
+        "sense_label_en": "unlikely to succeed or improve",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -198,10 +231,19 @@
         "merged_into_sense_id": null,
         "source_row": 3846,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      },
+      {
+        "sense_id": "sense:dim:a56340103d645dfd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3911,
+        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       }
     ],
     "active_collocations": [
+      "collocation:2e1f596473432cae49a5",
       "collocation:3679eedb66401c25848e",
+      "collocation:4252aeeac98076c156aa",
       "collocation:582e1eeb67e60ee7d2ca",
       "collocation:a3ad1db99551f7c03bfe",
       "collocation:bc999f27b48e2b860084"
@@ -226,6 +268,16 @@
       {
         "id": "collocation:bc999f27b48e2b860084",
         "source_row": 15973,
+        "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      },
+      {
+        "id": "collocation:2e1f596473432cae49a5",
+        "source_row": 21529,
+        "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      },
+      {
+        "id": "collocation:4252aeeac98076c156aa",
+        "source_row": 21530,
         "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
       }
     ],
@@ -265,7 +317,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1377-1384.json",
-    "source_content_hash": "9d0385b83ffc765afedd6fefba959108f2adeed20bd254ba75b9e8ad7e7354ed",
+    "source_content_hash": "96fa054333d11ea2f56975155fb7df848c78d762331461701e094d2046f49c92",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
