@@ -14,11 +14,15 @@ const questions = catalog.questions || [];
 const units = catalog.units || [];
 const ids = questions.map((question) => question.id);
 const uniqueIds = new Set(ids);
+const diagnostics = catalog.diagnostics || {};
 
 if (catalog.schema !== 'kianos.politics.practice_catalog.v1') fail('schema');
 if (questions.length !== 1148) fail(`question_count:${questions.length}`);
 if (uniqueIds.size !== 1148) fail(`unique_question_count:${uniqueIds.size}`);
 if (!units.length) fail('units_missing');
+if (Number(diagnostics.unresolvedPracticeOwnerCount || 0) !== 0) {
+  fail(`unresolved_practice_owners:${JSON.stringify((diagnostics.unresolvedPracticeOwners || []).slice(0, 30))}`);
+}
 
 const unitByKey = new Map(units.map((unit) => [unit.key, unit]));
 for (const question of questions) {
@@ -53,6 +57,11 @@ console.log(JSON.stringify({
   status: 'PASS',
   questionCount: questions.length,
   unitCount: units.length,
+  activeQuestionOwnerCount: diagnostics.activeQuestionOwnerCount,
+  activeQuestionOwnerDuplicateCount: diagnostics.activeQuestionOwnerDuplicateCount,
+  referenceOnlyNaturalUnitCount: diagnostics.referenceOnlyNaturalUnitCount,
+  recoveredReferenceOnlyQuestionCount: diagnostics.recoveredReferenceOnlyQuestionCount,
+  unresolvedPracticeOwnerCount: diagnostics.unresolvedPracticeOwnerCount,
   refinedExplanationStatus: catalog.refinedExplanationStatus,
   refinedReady,
   refinedBlocked: questions.length - refinedReady,
