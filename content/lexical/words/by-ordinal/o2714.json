@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "391b453eb25be217c4d8d463476b0b59b34b7a9922c86bf23fede008f3bc89ef",
+    "constructions": [
+      {
+        "construction_id": "construction:ca79f9bfd9fcee619da4",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "……的领域或王国",
+        "pattern": "the kingdom/realm of sth"
+      }
+    ],
+    "content_hash": "dfb2fd1f3f9943b5300ff4bea9c511d6fe437a4afca1d694eebee8feb5de8681",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "王国或领域",
@@ -39,7 +47,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "王国",
+        "definition_cn": "王国；国家",
         "definition_en": "a country with a king as head of state",
         "governing_pattern": "",
         "level": "L1",
@@ -48,6 +56,34 @@
         "sense_id": "sense:kingdom:58b7190c1b0b5781",
         "sense_label_en": "a country with a king as head of state",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "领域；范围",
+        "definition_en": "a domain in which something is dominant",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:kingdom:e7e09680bfda58e3",
+        "sense_label_en": "a domain in which something is dominant",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（生物分类的）界",
+        "definition_en": "a major rank in the biological classification of living organisms",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:kingdom:e1c383fb6ad5c544",
+        "sense_label_en": "a major rank in the biological classification of living organisms",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -103,31 +139,6 @@
       "source_row": 7493,
       "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:kingdom:e7e09680bfda58e3",
-      "status": "merged",
-      "merged_into_sense_id": "sense:kingdom:58b7190c1b0b5781",
-      "pos": "noun",
-      "definition_cn": "领域，范围",
-      "definition_en": "a domain in which something is dominant",
-      "semantic_key": "cfa886d899cc3f77670b4f8e03f22d3e1f3c0bb806ed181eebb30d108eb175d9",
-      "semantic_key_history": [
-        "7e0d9facb892d10ceb38f369e97a78d0a6c28d9fc68effbfe19f4bc1a3ff7d74"
-      ],
-      "legacy_aliases": [
-        "kingdom:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "kingdom:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7495,
-      "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -148,9 +159,16 @@
       },
       {
         "sense_id": "sense:kingdom:e7e09680bfda58e3",
-        "status": "merged",
-        "merged_into_sense_id": "sense:kingdom:58b7190c1b0b5781",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7495,
+        "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:kingdom:e1c383fb6ad5c544",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7517,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
       }
     ],
@@ -212,7 +230,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2713-2720.json",
-    "source_content_hash": "391b453eb25be217c4d8d463476b0b59b34b7a9922c86bf23fede008f3bc89ef",
+    "source_content_hash": "dfb2fd1f3f9943b5300ff4bea9c511d6fe437a4afca1d694eebee8feb5de8681",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

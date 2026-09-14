@@ -8,78 +8,56 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "deduct A from B",
-        "codex_reviewed": true,
-        "definition_cn": "从 B 中扣除 A",
-        "definition_en": "subtract A from B",
-        "dimensions": {},
+        "construction_id": "construction:f0076763b44e9d5adc1a",
         "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:current-semantic-review:deduct:747c60c384cd",
-            "evidence_status": "semantic_auditor_verified",
-            "source_labels": [
-              "Current Core",
-              "governing pattern review"
-            ],
-            "source_locator": "word:deduct",
-            "source_path": "content/lexical/words/by-ordinal/o1259.json",
-            "source_type": "current_owner_review"
-          }
-        ],
-        "fact_id": "deep:constructions:deduct:747c60c384cd83864001",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "从……中扣除……",
-        "module": "constructions",
-        "pattern": "deduct A from B",
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:deduct:69d5cb7efc015db4",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading",
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "semantic_auditor_verified",
-        "writing_safe": true
+        "level": "L2",
+        "meaning_cn": "扣除、从总额中减去",
+        "pattern": "deduct A from B"
       }
     ],
-    "content_hash": "3395ac381ddf4ade2df19f85b0abc1e8afa33dd99564620660c3dfb63838e273",
+    "content_hash": "20bbd37145bafc9d5b75f9bc2ef972648e48915614c9d4322543963be8c864b1",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "扣除，减去",
       "core_meaning_en": "to subtract or take away",
-      "mental_model_cn": "从一个总量里拿走一部分",
-      "mental_model_en": "subtract one amount from a larger total"
+      "mental_model_cn": "扣除，减去",
+      "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "construction:deep:constructions:deduct:747c60c384cd83864001"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "扣除、减去",
+        "definition_en": "to subtract or take an amount away from a total",
+        "governing_pattern": "deduct A from B",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:deduct:69d5cb7efc015db4",
+        "sense_label_en": "to subtract or take an amount away from a total",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
         "confusables": "no_valid_content",
-        "constructions": "completed",
+        "constructions": "no_valid_content",
         "secondary_senses": "no_valid_content",
         "semantic_contrast": "no_valid_content",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 1,
+      "published_fact_count": 0,
       "rejected_fact_count": 0,
       "runtime_model_calls": false
     },
@@ -113,31 +91,6 @@
       "source_row": 3538,
       "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:deduct:69d5cb7efc015db4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "扣除，减去",
-      "definition_en": "to subtract an amount from a total",
-      "semantic_key": "f190c1fcb0ee1bd6dbc43a47b884ae49005d2d63db7c508736aa6e887421da33",
-      "semantic_key_history": [
-        "d581f5a05c7ca573f71342c0534903b229aff3fb883362ab08b6f3024f0c5cd9"
-      ],
-      "legacy_aliases": [
-        "deduct:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "deduct:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3539,
-      "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -151,7 +104,7 @@
       },
       {
         "sense_id": "sense:deduct:69d5cb7efc015db4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3539,
         "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
@@ -170,6 +123,19 @@
         "source_row": 9838,
         "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
       }
+    ],
+    "exam-mappings": [],
+    "packs": [
+      {
+        "id": "membership:173a643b22ec67ee163e",
+        "source_row": 2364,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      },
+      {
+        "id": "membership:403626a6c918a32b4c95",
+        "source_row": 14699,
+        "source_path": "content/lexical/canonical/packs/shards/o1249-1280.json"
+      }
     ]
   },
   "lookup_refs": [
@@ -184,8 +150,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
-    "source_content_hash": "3395ac381ddf4ade2df19f85b0abc1e8afa33dd99564620660c3dfb63838e273",
-    "semantic_delta": 1,
+    "source_content_hash": "20bbd37145bafc9d5b75f9bc2ef972648e48915614c9d4322543963be8c864b1",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

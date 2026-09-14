@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "572f80d8e2e3f8853994fc0d2b6206ba57f47a880c4517a349394affb571ef22",
+    "constructions": [
+      {
+        "construction_id": "construction:f5b6eb9243661e56b199",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "对某事物免疫或不受其影响",
+        "pattern": "immune to sth"
+      }
+    ],
+    "content_hash": "e9008a4382d52be0a927eff68782018e8ede70b43670650eb297b4eabd39103d",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "免疫的；不受影响的",
@@ -22,7 +30,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "免疫的；对疾病有抵抗力的",
+        "definition_en": "protected against a particular disease by the body's immune system",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:immune:ae33ccb6fb395d94",
+        "sense_label_en": "protected against a particular disease by the body's immune system",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "不受影响的；不易受伤害的",
+        "definition_en": "not affected by something, especially criticism or unpleasant events",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:immune:2b85fa463e5e5d39",
+        "sense_label_en": "not affected by something, especially criticism or unpleasant events",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -70,56 +107,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:immune:2b85fa463e5e5d39",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "不受影响的",
-      "definition_en": "not affected by something, especially criticism or unpleasant events",
-      "semantic_key": "ec661e8332bb8f453d631e39d0cde29945bc91b786fcfd1f27ae99130492005c",
-      "semantic_key_history": [
-        "6e425dc509bc619434c46d3b2854a51c77e9a4290650a12920d73aa72cca8a2c"
-      ],
-      "legacy_aliases": [
-        "immune:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "immune:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 6834,
-      "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:immune:ae33ccb6fb395d94",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "免疫的，有免疫力的",
-      "definition_en": "protected against a particular disease by the body's immune system",
-      "semantic_key": "3a5e464f7b06f279cc60ac0fd35168a3e6c89a8fa65349d454014b4fede2cbb2",
-      "semantic_key_history": [
-        "86b68a349b5374e101dd625167743c96a414f33bce7b742425a7612cafccf105"
-      ],
-      "legacy_aliases": [
-        "immune:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "immune:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 6835,
-      "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:immune:d3d0e6d6b3565e8e",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -156,14 +143,14 @@
       },
       {
         "sense_id": "sense:immune:2b85fa463e5e5d39",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6834,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
       },
       {
         "sense_id": "sense:immune:ae33ccb6fb395d94",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6835,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
@@ -231,7 +218,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2457-2464.json",
-    "source_content_hash": "572f80d8e2e3f8853994fc0d2b6206ba57f47a880c4517a349394affb571ef22",
+    "source_content_hash": "e9008a4382d52be0a927eff68782018e8ede70b43670650eb297b4eabd39103d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

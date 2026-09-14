@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "236a0c80cff5f9763384e0a39b0c994de74093f43084a7b356236d79dcce199a",
+    "constructions": [
+      {
+        "construction_id": "construction:62c3c487f2b3526f290a",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "因某事对某人处以罚款",
+        "pattern": "fine sb (for sth)"
+      }
+    ],
+    "content_hash": "9a28a34b8ac4547bfa8ccfdfa42f0b92ac0bfaff0d4543d41ed6ef9ce7de1973",
     "core_concept": {
       "core_clusters": [
         {
@@ -236,6 +244,34 @@
         "sense_label_en": "used to show acceptance or agreement, sometimes reluctantly",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "罚款；罚金",
+        "definition_en": "money extracted as a penalty",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fine:0e138a8659565207",
+        "sense_label_en": "money extracted as a penalty",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "对某人处以罚款",
+        "definition_en": "punish by a fine",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:fine:1ae40ec85b055141",
+        "sense_label_en": "punish by a fine",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -259,56 +295,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:fine:0e138a8659565207",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "作为惩罚而收取的钱；罚款",
-      "definition_en": "money extracted as a penalty",
-      "semantic_key": "a8b774fb948108754268b48edb0a8910f9bb469b9bdd8c3d53742be6c14cb8a7",
-      "semantic_key_history": [
-        "fe7720732dba66121fd41c13ad569f241d5b773af291e664ba10f36ea88d0ac6"
-      ],
-      "legacy_aliases": [
-        "fine:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "fine:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5317,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:fine:1ae40ec85b055141",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "处以罚款",
-      "definition_en": "punish by a fine",
-      "semantic_key": "8f05f2a455d7de461ed2af10f3ef0703737a8ef8f4ef8d71997713bda25af1db",
-      "semantic_key_history": [
-        "8c06c5511319b2b38d3c05c4aa4623510f830339bf38ce17726d2c0e0824f4fe"
-      ],
-      "legacy_aliases": [
-        "fine:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "fine:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5318,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:fine:57e923accc845573",
       "status": "deprecated",
@@ -339,14 +325,14 @@
     "senses": [
       {
         "sense_id": "sense:fine:0e138a8659565207",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5317,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       },
       {
         "sense_id": "sense:fine:1ae40ec85b055141",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5318,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
@@ -517,7 +503,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1929-1936.json",
-    "source_content_hash": "236a0c80cff5f9763384e0a39b0c994de74093f43084a7b356236d79dcce199a",
+    "source_content_hash": "9a28a34b8ac4547bfa8ccfdfa42f0b92ac0bfaff0d4543d41ed6ef9ce7de1973",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

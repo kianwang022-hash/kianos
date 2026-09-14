@@ -13,9 +13,16 @@
         "level": "L1",
         "meaning_cn": "条件是；只要",
         "pattern": "on condition that + clause"
+      },
+      {
+        "construction_id": "construction:becbb27335b15dfc7aaf",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "train or accustom someone, or become accustomed to a condition",
+        "pattern": "condition sb to do sth / be conditioned to sth/doing"
       }
     ],
-    "content_hash": "5e2c660376c7d7f49f13c65dd4c42de410932bc53b235a7730be945f4bc6c001",
+    "content_hash": "5601f00f95865f07313358bd1667c7c6130b95beda30818d76a464cef474b22b",
     "core_concept": {
       "core_clusters": [
         {
@@ -165,6 +172,30 @@
         "sense_label_en": "to train or accustom someone or something to behave in a certain way or ",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:26ae428908d8abe9ebf8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:condition:88cb1eadbc391efe:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "疾病或健康问题",
+            "phrase": "medical condition"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "疾病或健康问题",
+        "definition_en": "an illness or health problem",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:condition:88cb1eadbc391efe",
+        "sense_label_en": "an illness or health problem",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -217,10 +248,18 @@
         "merged_into_sense_id": null,
         "source_row": 2800,
         "source_path": "content/lexical/canonical/senses/shards/o0961-0992.json"
+      },
+      {
+        "sense_id": "sense:condition:88cb1eadbc391efe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2812,
+        "source_path": "content/lexical/canonical/senses/shards/o0961-0992.json"
       }
     ],
     "active_collocations": [
       "collocation:0e883003eef52fd61c66",
+      "collocation:26ae428908d8abe9ebf8",
       "collocation:2a6a6680624688e43fd1",
       "collocation:42c4545e3638cec0c9d3",
       "collocation:8472277fec67305b635e",
@@ -263,6 +302,11 @@
         "id": "collocation:e91e6ed0fb00f5272743",
         "source_row": 19754,
         "source_path": "content/lexical/canonical/collocations/shards/o0961-0992.json"
+      },
+      {
+        "id": "collocation:26ae428908d8abe9ebf8",
+        "source_row": 21469,
+        "source_path": "content/lexical/canonical/collocations/shards/o0961-0992.json"
       }
     ],
     "exam-mappings": [],
@@ -301,7 +345,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0985-0992.json",
-    "source_content_hash": "5e2c660376c7d7f49f13c65dd4c42de410932bc53b235a7730be945f4bc6c001",
+    "source_content_hash": "5601f00f95865f07313358bd1667c7c6130b95beda30818d76a464cef474b22b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

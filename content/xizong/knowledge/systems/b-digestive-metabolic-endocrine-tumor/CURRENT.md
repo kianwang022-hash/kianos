@@ -17,7 +17,9 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 **P/R/E:** downstream-frozen behind L.  
 **U:** real learner validation only; not eligible.  
 **Engineering blocker:** none for L. Exact B official-question membership remains a named parallel Source blocker and must be closed before the later official System question sweep can execute.  
-**Next action:** construct and validate B-specific Learning support: causal Block route, Logic Group continuity/closure, first-pass focus/stop-line/Recall skeleton and cross-surface handoff under the lane rule `KianOS orientation → original Lecture in iPad/MarginNote → KianOS retrieval/closure`.
+**Execution task:** GitHub Issue `#135` — `Xizong B — rebuild Learning Logic to A1-quality before Projection`. The Issue tracks phased execution only; it does not own Learning Truth or Acceptance Truth.  
+**Phase 0:** PASS — A1-quality calibration completed on `D1 / M2 / D10 / D14 / D21 / G5`; durable evidence is `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`.  
+**Next action:** execute **Issue #135 Phase 1 only** — re-evaluate the current B route / seven Arcs as hypotheses; establish justified `REQUIRES / BENEFITS_FROM / INDEPENDENT_BRANCH / RETURNS_TO-REACTIVATES` relations and decide whether B actually needs a learner-facing intermediate compression layer. Do not start the 38-Block bulk upgrade, full LG rebuild, Projection compilation, Runtime or Evidence work until Phase 1 passes.
 
 ---
 
@@ -123,7 +125,8 @@ That is a Projection concern, not permission to reorganize medical Core during L
 - transitional/reference System Guide → `content/xizong/knowledge/system-guides/西综消化_物质代谢_内分泌_System_Guide_v2_生化完整整合版.md`
 - lane Learning constitution → `content/xizong/LEARNING_CONTRACT.md`
 - shared execution policy → `content/xizong/knowledge/learner/study-policy.json`
-- future B learning support → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+- B Learning candidate → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+- Phase 0 calibration evidence → `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 

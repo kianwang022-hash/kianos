@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "0d3ac7eb551e6e491a914da609a16456142e3af23138cd8d737d98e3ae1a284d",
+    "constructions": [
+      {
+        "construction_id": "construction:54465444ef176227f82d",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "become known or appear in a role",
+        "pattern": "emerge as sth"
+      }
+    ],
+    "content_hash": "53084f3d7d02d8dec5f5afb5c97d5c6dd3e9793e2bdba892ea204b2a5a4dd480",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "出现",
@@ -55,6 +63,20 @@
         "sense_label_en": "to come out into view, as from concealment",
         "sort_order": 0,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "变得已知或明显；作为……出现",
+        "definition_en": "to become known or apparent, or emerge as something",
+        "governing_pattern": "emerge as",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:emerge:d357172d2c965981",
+        "sense_label_en": "to become known or apparent, or emerge as something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -78,31 +100,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:emerge:d357172d2c965981",
-      "status": "merged",
-      "merged_into_sense_id": "sense:emerge:82fe243b33f957de",
-      "pos": "verb",
-      "definition_cn": "变得明显；被知晓",
-      "definition_en": "to become known or apparent",
-      "semantic_key": "2492c34587948d3313232d3ea7082cde3b8687fdfd9f3276cc265ea24fe3c55b",
-      "semantic_key_history": [
-        "08559400966b14e452f148294c55b2f7d263d982dc53322ce8590693f8acb62b"
-      ],
-      "legacy_aliases": [
-        "emerge:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "emerge:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4515,
-      "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:emerge:dd77f3968b4b5316",
       "status": "merged",
@@ -140,8 +137,8 @@
       },
       {
         "sense_id": "sense:emerge:d357172d2c965981",
-        "status": "merged",
-        "merged_into_sense_id": "sense:emerge:82fe243b33f957de",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4515,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
       },
@@ -231,7 +228,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1617-1624.json",
-    "source_content_hash": "0d3ac7eb551e6e491a914da609a16456142e3af23138cd8d737d98e3ae1a284d",
+    "source_content_hash": "53084f3d7d02d8dec5f5afb5c97d5c6dd3e9793e2bdba892ea204b2a5a4dd480",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

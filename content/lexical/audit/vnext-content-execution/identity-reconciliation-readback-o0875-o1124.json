@@ -1,0 +1,165 @@
+{
+  "schema": "kianos.lexical.identity_reconciliation_readback.v1",
+  "status": "PASS",
+  "baseline_origin_main": "db8164bd491a07f09ff88934672b333ff7c169ff",
+  "scope": [
+    875,
+    1124
+  ],
+  "handoff": "content/lexical/semantic-review/o0875-o1124.md",
+  "classifications": {
+    "REUSE_EXISTING_STABLE": {
+      "rule": "reuse continuous active/deprecated/merged stable branch; no generated replacement",
+      "owners": [
+        876,
+        885,
+        891,
+        905,
+        917,
+        920,
+        921,
+        928,
+        929,
+        930,
+        934,
+        935,
+        945,
+        946,
+        962,
+        979,
+        984,
+        985,
+        986,
+        995,
+        998,
+        999,
+        1000,
+        1001,
+        1006,
+        1027,
+        1053,
+        1061,
+        1064,
+        1072,
+        1086,
+        1087,
+        1088,
+        1091,
+        1092,
+        1099,
+        1110,
+        1117
+      ]
+    },
+    "NEW_SEMANTIC_BRANCH": {
+      "rule": "deterministic stable ID created only for a handoff-authorized genuinely new branch",
+      "owners": [
+        877,
+        980,
+        988,
+        1033,
+        1082
+      ]
+    },
+    "ESCALATE_IDENTITY": {
+      "owners": []
+    }
+  },
+  "reactivated_or_reconciled_sense_ids": [
+    "sense:cock:e21d2be2bf68509e",
+    "sense:code:426c4c9da5ccb6aa",
+    "sense:coke:516d4bcf71e55991",
+    "sense:coke:c8a2da09f19a51bb",
+    "sense:collect:41f31f80671352bb",
+    "sense:collect:e6be65b9923f5624",
+    "sense:combine:8ab7ee43547d5389",
+    "sense:commercial:28a89c388adf55b7",
+    "sense:committee:148dd4cc81d455b6",
+    "sense:commodity:c9e606463ba15013",
+    "sense:community:6fdb4f37905f56a5",
+    "sense:commute:a03105aadbf15a69",
+    "sense:compact:7e14e5c97acd58fb",
+    "sense:compact:b6aac88cccc25b3e",
+    "sense:comparative:82e553d78d51569e",
+    "sense:compare:aae78fe3842d506e",
+    "sense:compare:dfe3200d8db8562c",
+    "sense:competition:6547d64293775f65",
+    "sense:competitive:d35dc234c9eb5460",
+    "sense:comprehend:1218ee28568756d1",
+    "sense:comprehend:5f7c3416084a5c47",
+    "sense:concert:43e8cb33a2895e0c",
+    "sense:concession:94792b3b2f6b9c46",
+    "sense:concrete:16553867ac595ec0",
+    "sense:concurrent:0c5e84c3f2eb529b",
+    "sense:condemn:012f4b6a3a505508",
+    "sense:condition:88cb1eadbc391efe",
+    "sense:confident:bb31ff57e798518d",
+    "sense:confine:3ec742797c75560d",
+    "sense:confirm:d405c3c77fe55e3d",
+    "sense:conflict:bbf6c432f6a65e2a",
+    "sense:conform:e9dce6937b545516",
+    "sense:congratulation:091f76af30c359f7",
+    "sense:consistent:b687b5c8e54a55c8",
+    "sense:constituent:e1a90a9a697c4fc5",
+    "sense:continent:021fd9d1516a5443",
+    "sense:contrast:71c48e8ae6f85591",
+    "sense:contrive:fcb10ce20434507b",
+    "sense:converge:656ff5c160bf5c6c",
+    "sense:cool:946333cf8ae7d199",
+    "sense:cop:ae0cfb710d695d3a",
+    "sense:cope:5d10974250595c40",
+    "sense:copper:a6c70db7399859b0",
+    "sense:cord:e34a12ae7bd85c6f",
+    "sense:cordial:aebef2d27ca457d2",
+    "sense:cordial:b77cf23d6ba3546a",
+    "sense:correct:059900f5ec4d5d8a",
+    "sense:costume:830af5a9abcd5296",
+    "sense:council:866bf05af39d5b90"
+  ],
+  "new_stable_sense_ids": [
+    "sense:code:426c4c9da5ccb6aa",
+    "sense:concession:94792b3b2f6b9c46",
+    "sense:condition:88cb1eadbc391efe",
+    "sense:constituent:e1a90a9a697c4fc5",
+    "sense:cool:946333cf8ae7d199"
+  ],
+  "reference_closure": "PASS",
+  "relation_owner_changes": [],
+  "form_identity_closure": {
+    "status": "PASS",
+    "word_owner_files": []
+  },
+  "readback_assertions": {
+    "stable_word_identity_preserved": true,
+    "active_sense_registry_closed": true,
+    "merged_into_not_left_on_active_senses": true,
+    "handoff_generated_ids_absent": true,
+    "o1125_plus_not_activated": true
+  },
+  "natural_owner_audit": {
+    "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
+    "status": "PASS",
+    "semantic_delta": 0,
+    "source": {
+      "canonical_manifest": "content/lexical/canonical/manifest.json",
+      "canonical_manifest_sha256": "c83c1c943df1b3ba5350e7fcf63c790c8041dc477b0ca4c3d9ffd38c9f23b214",
+      "word_count_expected": 7946,
+      "word_count_read": 7946
+    },
+    "materialized": {
+      "word_owner_count": 7946,
+      "relation_owner_count": 369,
+      "word_reconstruction_failures": 0,
+      "lookup_word_ids": 7946
+    },
+    "invariants": {
+      "unique_word_ids": true,
+      "unique_ordinals": true,
+      "exact_word_reconstruction": true,
+      "semantic_delta_zero": true,
+      "lookup_closure": true
+    },
+    "blockers": [],
+    "warnings": []
+  }
+}

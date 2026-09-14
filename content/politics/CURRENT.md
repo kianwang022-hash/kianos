@@ -42,9 +42,19 @@ Projection asset compilation   COMPLETE
 160 Current NU owners          ACCOUNTED
 151 PASS / 9 REFERENCE_ONLY    ACCEPTED
 Projection BLOCKED             0
-UI implementation              READY / NOT YET EXECUTED
+Xiao1000 learner explanations  PROMOTED — 1148 Current-derived records
+UI implementation              IN PROGRESS — Draft PR #117
+Current bounded slice          Xiao1000 Workbench functional parity
 Learner validation / U         UNTESTED
 ```
+
+Current implementation surface:
+
+- Issue #116 owns the full Politics Legacy functional-parity contract;
+- Draft PR #117 is the active overlapping `static-web/**` production slice;
+- the former #115 content-promotion dependency is now closed: the authenticated 1148-record `takeaway + chat_explanation + Xiao original-reference` layer lives at `content/politics/derived/xiao1000-learner-explanations/`;
+- remaining #115 work is downstream exact-ID consumer / browser acceptance only; it does not reopen Politics Learning/Projection or alter Current Xiao1000 Question Truth;
+- full parity, real Mac acceptance and learner `U` are **not** claimed yet.
 
 Hard product chain:
 
@@ -87,7 +97,7 @@ For Politics UI work, route through:
 7. only Current refs explicitly selected by that Projection owner;
 8. touched Runtime / Evidence / Repair / Return implementation.
 
-Codex must not rediscover subject grammar from raw chapter JSON or use Legacy archaeology as implementation input.
+Codex must not rediscover subject grammar from raw chapter JSON or use Legacy archaeology as implementation input except for the bounded historical Workbench reference explicitly authorized by the parity contract.
 
 ---
 
@@ -137,7 +147,9 @@ Chat       adaptive semantic repair when earned
 - Politics integration Acceptance → `content/politics/ACCEPTANCE.md` + local subject `ACCEPTANCE.md`;
 - UI/product task state → `static-web/POLITICS_PRODUCT_STATUS.md`;
 - UI optimization safety method → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
+- full Legacy functional-parity migration contract → Issue #116 + `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`;
 - derived Projection ledger → `content/politics/projection/manifest.json`;
+- derived Xiao1000 learner explanation owner → `content/politics/derived/xiao1000-learner-explanations/manifest.json`;
 - learner truth / U → real Kian use only.
 
 ---
@@ -148,8 +160,11 @@ Chat       adaptive semantic repair when earned
 Politics CURRENT
 → learning engineering already closed through E
 → UI design frozen + Projection assets compiled
-→ semantic work: prefer real learner use
+→ Xiao1000 learner explanation content promoted; runtime consumer/browser acceptance remains downstream
+→ active implementation: Draft PR #117 under Issue #116
+→ semantic work: prefer real learner use unless a concrete defect reopens an owner
 → UI work: Product Status → UI Review Protocol → contracts/design → exact Projection owner → touched Runtime/Evidence
-→ bounded implementation → Mac screenshot review → zero-semantic-diff closure
+→ continue same bounded PR when write-set overlaps
+→ Mac screenshot review → zero-semantic-diff closure
 → after accepted rollout: STOP engineering by default → real Kian use
 ```

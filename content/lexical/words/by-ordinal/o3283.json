@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "58025028e5fb972be04c382d3f6ea4d54977fa00995f69a3528dcf5ead0c4b35",
+    "content_hash": "e2f7847e02320f235e7f9a40d21e7bccba24d4f7d7c3cabade24d9a3c96b7fd5",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "坚果或金属紧固件",
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "坚果",
+        "definition_en": "a fruit consisting of a hard shell and a seed, often eaten",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:nut:714a7247c4be53cc",
+        "sense_label_en": "a fruit consisting of a hard shell and a seed, often eaten",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "螺母；螺帽",
+        "definition_en": "a small metal block with a hole for screwing onto a bolt",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:nut:87a6121fb9775270",
+        "sense_label_en": "a small metal block with a hole for screwing onto a bolt",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,56 +73,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:nut:714a7247c4be53cc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "坚果",
-      "definition_en": "a fruit consisting of a hard shell and a seed, often eaten",
-      "semantic_key": "b5fc05139ad80dd49be6b5ea00ee4e1537f7cb29327770211b0def2eaee96892",
-      "semantic_key_history": [
-        "c3313338756b228245f64f1530e54873628eb63ed9cb61daf6f4210ef13bd445"
-      ],
-      "legacy_aliases": [
-        "nut:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "nut:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9116,
-      "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:nut:87a6121fb9775270",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "螺帽，螺母",
-      "definition_en": "a small metal block with a hole for screwing onto a bolt",
-      "semantic_key": "aaa5f72c0c9b0e5aabee284f3dd3dde8cf96bb5cdbc48470edd1e1e7d7d0bc6b",
-      "semantic_key_history": [
-        "9d8a4f3a3b549ecc93bfb75cf504bd21698922944da090d60896d2e7c6f8a08c"
-      ],
-      "legacy_aliases": [
-        "nut:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "nut:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9117,
-      "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:nut:9707b83a258759dc",
       "status": "deprecated",
@@ -149,14 +128,14 @@
     "senses": [
       {
         "sense_id": "sense:nut:714a7247c4be53cc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9116,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
       },
       {
         "sense_id": "sense:nut:87a6121fb9775270",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9117,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
@@ -236,7 +215,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3281-3288.json",
-    "source_content_hash": "58025028e5fb972be04c382d3f6ea4d54977fa00995f69a3528dcf5ead0c4b35",
+    "source_content_hash": "e2f7847e02320f235e7f9a40d21e7bccba24d4f7d7c3cabade24d9a3c96b7fd5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

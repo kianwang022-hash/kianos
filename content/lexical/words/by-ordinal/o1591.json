@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "cf43cd8d5ee6d0f546fbf5c4646f46efea2be2d08a4075a2cd5b565da73386d4",
+    "constructions": [
+      {
+        "construction_id": "construction:49d61c3b050245823057",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "elder/older usage boundary",
+        "pattern": "elder vs older"
+      }
+    ],
+    "content_hash": "74f2ee70ee79e6fabea289854f56b3ba3cbbade43c55a0b4ec622123b906f239",
     "core_concept": {
       "core_clusters": [
         {
@@ -76,17 +84,26 @@
             ],
             "meaning_cn": "哥哥",
             "phrase": "the elder brother"
+          },
+          {
+            "collocation_id": "collocation:eaf863763bd206292442",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:elder:423261ec25395a41:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "哥哥或姐姐",
+            "phrase": "elder brother/sister"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "年长的（尤指同名父子中的父辈）",
-        "definition_en": "used of the older of two persons of the same name especially used to distinguish a father from his son",
+        "definition_cn": "（两者中）年长的，尤指亲属之间，通常作定语",
+        "definition_en": "older of two people, especially relatives, usually attributive",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:elder:423261ec25395a41",
-        "sense_label_en": "used of the older of two persons of the same name especially used to dis",
+        "sense_label_en": "older of two people, especially relatives, usually attributive",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -195,7 +212,8 @@
       "collocation:20741caac8203877729d",
       "collocation:70379ce906c0954babd0",
       "collocation:a618f2cbe48522b59f1a",
-      "collocation:ddf914173894dbbbb78a"
+      "collocation:ddf914173894dbbbb78a",
+      "collocation:eaf863763bd206292442"
     ],
     "facts": [],
     "collocations": [
@@ -217,6 +235,11 @@
       {
         "id": "collocation:ddf914173894dbbbb78a",
         "source_row": 18794,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:eaf863763bd206292442",
+        "source_row": 21281,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
       }
     ],
@@ -246,7 +269,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1585-1592.json",
-    "source_content_hash": "cf43cd8d5ee6d0f546fbf5c4646f46efea2be2d08a4075a2cd5b565da73386d4",
+    "source_content_hash": "74f2ee70ee79e6fabea289854f56b3ba3cbbade43c55a0b4ec622123b906f239",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

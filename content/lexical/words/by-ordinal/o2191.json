@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d465e4dfdfb2b94ed2a6a1bb680bba04748fbc788f55088aa2b9d64657d42787",
+    "constructions": [
+      {
+        "construction_id": "construction:a855f4ac492b6cc7100e",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "因某事感谢某人",
+        "pattern": "be grateful to sb for sth"
+      }
+    ],
+    "content_hash": "d08dfc526a7a973b96e84d7bef785ddc93f6bd0fd5e053893a82631e8fe76ab6",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "感激的",
@@ -55,30 +63,6 @@
         "sense_label_en": "feeling or showing gratitude",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c6436bbab443cadf1ef1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:grateful:c4402a0a89665701:collocation:0"
-            ],
-            "meaning_cn": "宜人的阴凉",
-            "phrase": "a grateful shade"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "令人愉快的，舒适的",
-        "definition_en": "giving pleasure or comfort",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:grateful:c4402a0a89665701",
-        "sense_label_en": "giving pleasure or comfort",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -101,7 +85,31 @@
     "word_id": "word:grateful"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:grateful:c4402a0a89665701",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "令人愉快的，舒适的",
+      "definition_en": "giving pleasure or comfort",
+      "semantic_key": "02a8239764565855adfadceee208280ff94930f7cc4815e97d1e304ef3968b8e",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "grateful:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "grateful:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 6110,
+      "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -113,7 +121,7 @@
       },
       {
         "sense_id": "sense:grateful:c4402a0a89665701",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6110,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -121,7 +129,6 @@
     ],
     "active_collocations": [
       "collocation:0a7a6416eea207eccaa3",
-      "collocation:c6436bbab443cadf1ef1",
       "collocation:eec388955a1afe820894"
     ],
     "facts": [],
@@ -178,7 +185,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2185-2192.json",
-    "source_content_hash": "d465e4dfdfb2b94ed2a6a1bb680bba04748fbc788f55088aa2b9d64657d42787",
+    "source_content_hash": "d08dfc526a7a973b96e84d7bef785ddc93f6bd0fd5e053893a82631e8fe76ab6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

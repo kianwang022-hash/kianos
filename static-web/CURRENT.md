@@ -1,218 +1,48 @@
 # KianOS Static-Web Current
 
-Role: learner-facing website / UI Work Cursor + fresh-Chat restart entry  
-Parent: root `CURRENT.md`  
-Program issue: #113 `KianOS 三科收口 → Global Home`
+Role: **learner-facing productization Work Cursor / router only**  
+Program: **#113 — 三科实现收口 → Global Home**  
+Single execution entry: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+**
 
-This file is now a **compact productization router**. Domain cognition/content/evidence remain with their canonical owners; detailed product decisions remain in each subject Product Brief / Status. Historical design-stage wording in older briefs does not override this Current.
+本文件不复制 Content、Learning、Evidence 或 learner progress。精确领域 Truth/Acceptance 在各科 canonical owners；本次定稿是文档对账，不是新一轮 UI 验收。
 
----
+## 当前施工路由
 
-## UI lifecycle｜FROZEN
+| 范围 | 当前产品工作 | 独立状态/细节 |
+| --- | --- | --- |
+| Politics | post-closure productization；当前活动 Draft **#117 / politics-legacy-parity-migration** 只做肖1000工作台 parity，之后仍需核对其余五科认知/Home 等完整 family | `POLITICS_PRODUCT_STATUS.md`；#116；`POLITICS_LEGACY_FUNCTION_PARITY.md` |
+| English | Functional First 闭合后的整套 productization 与 Mac/browser acceptance 待完成；含三份完整、可跳过的 Guide | `ENGLISH_PRODUCT_STATUS.md` |
+| Xizong | Current-eligible A1/A2/A3 的 System/Block/LG/KP/Recall/题目与 Guide 展示；不扩张 B–F 内容建设 | `XIZONG_PRODUCT_STATUS.md` |
+| Global Home | 三科达到实际 `SUBJECT_CLOSED_FOR_HOME` 后做最终整合；基础 shared navigation/Return 从一开始保持可用 | master §0、§10 |
 
-```text
-Current authority / accepted Product + Projection
-→ bounded Codex implementation
-→ real browser journeys + Mac screenshots
-→ independent Chat/Pro product / semantic review
-→ Codex iterates same bounded PR
-→ Kian accepts genuine structural / aesthetic choices
-→ zero-semantic-diff gate
-→ merge + main readback + branch retirement
-```
+继续前查询 actual PR 状态。#117 已合并/被正式接替时跟随最新 Current，不永远锁死这个编号。不要把 #117 的存在解释成 Politics Learning 未收口；也不要把 #117 完成解释成整个 Politics 网站完成。
 
-**Chat / Pro owns:** Current authority interpretation, Product / Projection freeze, contract-level escalation, independent screenshot/journey review and final reconciliation.
+#115 的 learner-explanation promotion 已由 #124 完成；Current derived asset 是数据源，**原肖1000解析不是 learner-facing surface**。后续仅核对 exact-ID consumer/保护态/浏览器，不能再次迁移或重生成全部解析。
 
-**Codex owns:** bounded repo-native production implementation, Astro/CSS/JS, adapters/components/tokens/responsiveness, browser iteration/screenshots, tests/build and short-lived PR lifecycle.
+## 本轮定稿后的固定方向
 
-**Kian owns:** genuine structural/aesthetic acceptance and real learner-use feedback.
+- Logic/Content/状态权限、source ownership、exact Return 不变；领域合法前置不能用“反仪式”删除。
+- baseline-first，视觉 polish 自主，局部 composition 有界；最多一个隔离的结构 alternative 需 Kian 接受，不默认全站重设计。
+- reusable grammar/renderers，程序全量校验、代表样本浏览器压力测；不逐内容人工装修/签字。
+- 西综 System Guide、英语三份 Guide 是随时可进入的体系参考，不是每次必走流程，也不只在失败后才有资格看。
+- 细腻状态过渡，无飞入/弹簧/表演动画；Mac Dense Calm，三科统一产品语言而非同一页面模板。
 
-Codex does not own Learning flow, domain truth, Evidence/mastery semantics, new semantic ontology or learner progress.
-
----
-
-## Shared learner-facing baseline｜FROZEN
-
-**Dense Calm / Mac wide**:
-
-- comfortable readable type;
-- medium/high useful density with low disorder;
-- important structure visible by default when the Mac viewport can carry it;
-- use typography / alignment / spatial relation before card/panel piles;
-- no tiny text + giant whitespace minimalism;
-- stable/correct paths extremely fast;
-- Wrong / meaningful Uncertain may increase interface weight only because new information becomes useful;
-- preserve task/native cognition geometry rather than forcing one universal template;
-- preserve context and exact return across source / Chat / cross-lane handoff;
-- engineering/runtime metadata stays off the normal learner surface.
-
-Preference / style authority:
-
-- `static-web/KIAN_UI_PREFERENCES.md`
-- `static-web/UI_STYLE_BRIEF.md`
-- `static-web/PRESENTATION_CONTRACT.md`
-
-Domain Product / Learning / Interaction owners outrank visual taste when a real semantic conflict exists.
-
----
-
-# Three-subject product design status｜FROZEN
-
-## English
-
-**Status:** Product / Interaction design frozen. Functional First engineering closed through E; U remains real-use-only.
-
-Current status owner:
-
-- `static-web/ENGLISH_PRODUCT_STATUS.md`
-
-Detailed design owner:
-
-- `static-web/ENGLISH_PRODUCT_BRIEF.md`
-
-Frozen family:
+## 执行与审查
 
 ```text
-English Home / meaningful Resume
-Reading A
-Cloze
-Part B
-Translation
-Writing
-First Learning / targeted intervention
-Lexical read-only handoff / exact return
+最新 Current / master / actual PR
+→ 读懂完整当前任务族闭环
+→ 有界实现与复用 renderer
+→ 程序校验 + 代表真实浏览器/截图
+→ 同 PR 修正
+→ independent review / Kian 必要结构视觉选择
+→ 经授权 merge + main readback + 分支退役
 ```
 
-Task-native geometry remains distinct. The remaining work is productization implementation + browser/Mac acceptance, not another family-design discussion.
+不要新开重叠的大 static-web PR；不影响独立的 B Learning、Lexical 等内容线。main 无关推进不自动使分支失效，只对相关 authority/写集/依赖对账。Codex 不自行 merge；U 只能来自真实 Kian 使用。
 
-## Politics
+## 旧入口与档案
 
-**Status:** UI / Product design frozen; Cognitive Projection compilation complete; UI implementation ready.
+`CODEX_THREE_SUBJECT_IMPLEMENTATION.md`、`CODEX_POLITICS_BROWSER_EXECUTION.md` 已退为兼容路由，不再与 master 竞争执行权。
 
-Current status owner:
-
-- `static-web/POLITICS_PRODUCT_STATUS.md`
-
-Safety protocol:
-
-- `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`
-
-Detailed design owner:
-
-- `static-web/POLITICS_PRODUCT_BRIEF.md`
-- five accepted subject design files
-
-Compiled representation:
-
-```text
-53 chapter Projection owners
-160 Current Natural Unit owners accounted
-151 PASS
-9 REFERENCE_ONLY
-0 BLOCKED
-```
-
-Implementation must consume compiled Projection and preserve Chengfeng iPad/MarginNote continuous-learning ownership, Xiao1000 Workbench interaction burden, first-attempt Evidence and exact Repair/Return.
-
-## Xizong
-
-**Status:** Product / Interaction design frozen; Projection v1 frozen / validated for current eligible A1/A2/A3; downstream renderer/Mac acceptance open.
-
-Current status owner:
-
-- `static-web/XIZONG_PRODUCT_STATUS.md`
-
-Detailed design owners:
-
-- `static-web/XIZONG_PRODUCT_BRIEF.md`
-- `static-web/XIZONG_HOME_DESIGN.md`
-- `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md`
-- `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md`
-- `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md`
-
-Projection v1 receipt:
-
-- `content/xizong/projection/V1_FREEZE_RECONCILIATION_RECEIPT.md`
-
-Current eligible Projection scope:
-
-```text
-A1 / A2 / A3
-3 SystemProjection + 38 BlockProjection = 41 assets
-805 canonical KP identities
-396 resolved bindings
-86 / 86 mutation + control tests PASS
-```
-
-B–F eligibility remains owned by their own Current learning gates. Do not treat them as hidden Projection debt or reopen accepted product design merely for symmetry.
-
----
-
-# Current program cursor
-
-**Program:** three-subject learner-surface closure → Global Home  
-**Product-discussion state:** CLOSED for English / Politics / Xizong at current accepted scope  
-**Implementation state:** subject productization remains to be executed / visually accepted where not already implemented  
-**Global Home:** FINAL PHASE after three subject closures  
-**Active production UI PR:** none designated by this router  
-**Blocker:** none at program-routing level.
-
-Default execution order may be chosen by implementation readiness and write-set safety; product discussion is not the blocker.
-
-Current principle:
-
-```text
-subject accepted Product / Projection
-→ Codex implementation
-→ browser/screenshots
-→ independent review
-→ Kian acceptance
-→ subject closed for Home
-```
-
-Do not reopen a subject's Product Brief merely because its current production page is old. Old implementation is an implementation delta, not proof that the design is unresolved.
-
----
-
-# Global Home｜LAST
-
-Only after English / Politics / Xizong reach `SUBJECT_CLOSED_FOR_HOME` should the final Global Home / shared-shell integration begin.
-
-Target responsibility remains intentionally narrow:
-
-```text
-KianOS
-→ one meaningful Continue / Resume
-→ Xizong
-→ English
-→ Politics
-→ optional real attention items
-```
-
-Lexical remains a secondary independent supply/tool lane rather than a fourth exam subject.
-
-Global Home must not expose repository/build/acceptance status, invent cross-subject learning debt, or force subject internals into one shared template.
-
----
-
-# Historical hygiene
-
-The following stage narratives are superseded as Current routing statements, even when their detailed design content remains useful:
-
-- `ENGLISH_PRODUCT_BRIEF.md` header `ACTIVE DISCUSSION BRIEF` and footer `Next unresolved English surface`;
-- `POLITICS_PRODUCT_BRIEF.md` header `ACTIVE DISCUSSION BRIEF`, `Core unresolved Politics UI problem`, `ACTIVE DESIGN TARGET`, and History-pilot-first rollout language;
-- `XIZONG_PRODUCT_BRIEF.md` header wording that says Projection calibration is still open;
-- Issue #90 Gold-page order / Reading-A-first navigation;
-- Issue #112 bulk A1–A3 rich-upgrade task after the later Projection v1 freeze reconciliation.
-
-Detailed accepted decisions inside those documents are not discarded. Only their old stage/cursor claims are superseded by the current Status owners and this router.
-
-Fresh restart:
-
-```text
-main@HEAD
-→ static-web/CURRENT.md
-→ exact subject *_PRODUCT_STATUS.md
-→ detailed Product / Projection owner only as needed
-→ exact active implementation PR
-```
+全量 v2.1 文字框：`design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`；原 baseline 指针保持不变。旧详细 Product/Design 文档保留其中仍有效的具体设计；旧 `ACTIVE DISCUSSION / History pilot first / do not implement yet / next unresolved Home` 只属阶段历史，不重新启动这些设计环节。具体兼容缺口（如 Xizong 全卷 runtime）仍须诚实处理，不能一并抹成已完成。

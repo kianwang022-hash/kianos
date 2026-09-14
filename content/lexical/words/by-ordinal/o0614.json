@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f2295e9265cd8add414eaeba64a5967c7399495865727a70b55907bb58f211f7",
+    "content_hash": "d5d20ce489a26581c951adcedda4351dfd3ea85217f11a63fc9fb9475945bacf",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "建造或创建（具体或抽象事物）",
@@ -62,7 +62,46 @@
       }
     ],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "建造、创建（具体或抽象事物）",
+        "definition_en": "to construct or create a physical or abstract thing",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:build:69af13e1b9155bd5",
+        "sense_label_en": "to construct or create a physical or abstract thing",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:189dbb0ca5c2a146ab32",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:build:4757e28254b95cf0:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "逐渐增加或增强",
+            "phrase": "build up"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "逐渐增加或增强",
+        "definition_en": "to increase or strengthen something over time",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:build:4757e28254b95cf0",
+        "sense_label_en": "to increase or strengthen something over time",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -84,56 +123,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:build:4757e28254b95cf0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "增强；积累",
-      "definition_en": "to increase or strengthen something over time",
-      "semantic_key": "baf9290c6f7634ab0bf3a77302b9af38fa8eefb5ae7456667538c7d384b0e38c",
-      "semantic_key_history": [
-        "f273a1c68a0227a676fa74880b56447c19896297e27e305d3e5d227d2a6215e5"
-      ],
-      "legacy_aliases": [
-        "build:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "build:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1718,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:build:69af13e1b9155bd5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "建造；建筑",
-      "definition_en": "to make something by putting parts or materials together",
-      "semantic_key": "da499ab966650df0cf85325096c06fe23ae62c0623004386c96a7ea3ebf53e44",
-      "semantic_key_history": [
-        "88674fdbbfca05236ec82037d29207772a37771d43894420a0496217ce2cb8a0"
-      ],
-      "legacy_aliases": [
-        "build:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "build:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1719,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:build:899864407f69516b",
       "status": "deprecated",
@@ -189,14 +178,14 @@
     "senses": [
       {
         "sense_id": "sense:build:4757e28254b95cf0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1718,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       },
       {
         "sense_id": "sense:build:69af13e1b9155bd5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1719,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
@@ -216,7 +205,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:189dbb0ca5c2a146ab32"
+    ],
     "facts": [
       {
         "id": "deep:secondary_senses:build:b8bff625564c58fb",
@@ -259,6 +250,11 @@
         "id": "collocation:e544cebd654334c95a5b",
         "source_row": 19419,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:189dbb0ca5c2a146ab32",
+        "source_row": 21591,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
     "exam-mappings": [],
@@ -287,7 +283,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0609-0616.json",
-    "source_content_hash": "f2295e9265cd8add414eaeba64a5967c7399495865727a70b55907bb58f211f7",
+    "source_content_hash": "d5d20ce489a26581c951adcedda4351dfd3ea85217f11a63fc9fb9475945bacf",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

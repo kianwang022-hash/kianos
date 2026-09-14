@@ -21,6 +21,17 @@
     "regions": {"path": "content/politics/source/politics_unified_regions.v1.jsonl", "sha256": "2e2cfa21d189fce984f97bcaea714875e51309ccef4522e42d0d5847e5ca2054", "records": 160, "role": "CANONICAL_CONTINUOUS_NATURAL_UNIT_REGISTRY"},
     "source_nodes": {"path": "content/politics/source/source_node_registry.v2.jsonl", "sha256": "0675bb9378d23cb50de483abe093bc71196e8a5955b8945bf728f76637d2dc38", "records": 19528, "role": "CANONICAL_SOURCE_NODE_REGISTRY"}
   },
+  "derived_assets": {
+    "xiao1000_learner_explanations": {
+      "role": "DERIVED_LEARNER_FACING_POST_SUBMISSION_EXPLANATION",
+      "manifest": "content/politics/derived/xiao1000-learner-explanations/manifest.json",
+      "records": 1148,
+      "binding": "EXACT_STABLE_QUESTION_ID_ONLY",
+      "derived_payload_sha256": "958f0581deeb9708797884b97eee4f3d69158d3fa58bcdbf2a1e0c7b70070fcd",
+      "historical_source_sha256": "e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec",
+      "question_truth_owner": "content/politics/source/xiao_2027_questions.jsonl"
+    }
+  },
   "learning": {
     "owner_root": "content/politics/learning/",
     "authority": "CHAT_APPROVED_TEACHING_PROJECTION",
@@ -50,6 +61,7 @@
   "readiness": {
     "source_materialized": true,
     "question_inventory_verified": true,
+    "xiao1000_learner_explanations_promoted": true,
     "continuous_natural_unit_registry_verified": true,
     "learning_contract_current": true,
     "all_subject_content_projection_complete": true,

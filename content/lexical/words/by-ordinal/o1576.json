@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "1c372ee31186fcdd1b2fadf8dd7f29082129a15d30bfe9bbac3e2b2fa4f77bb7",
+    "constructions": [
+      {
+        "construction_id": "construction:d828a8a06712b3fa253d",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "从某日起生效",
+        "pattern": "effective from/on a date"
+      }
+    ],
+    "content_hash": "51f7e792f43097860a749d71452387f92c3ad2d7bae4b3ba123f686503220425",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "有效的；生效的",
@@ -25,7 +33,32 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:20383a78c51fbb2a2504",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:effective:27790f7b5f6a5932:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "有效的方法或措施",
+            "phrase": "effective method/measure"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "有效的；产生预期结果的",
+        "definition_en": "producing the intended result",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:effective:27790f7b5f6a5932",
+        "sense_label_en": "producing the intended result",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -94,31 +127,6 @@
     }
   ],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:effective:27790f7b5f6a5932",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "有效的，起作用的",
-      "definition_en": "producing the result that is wanted or intended",
-      "semantic_key": "b6fbf7cdc0ffa9afd6dfb0aed7c160d81d3a307da83b5c36772c95e6e16025cb",
-      "semantic_key_history": [
-        "e21efa0880cd5ed8c2835ec88bbbd8a971538b6706734a0bfd339ba381d93a93"
-      ],
-      "legacy_aliases": [
-        "effective:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "effective:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4413,
-      "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:effective:3ac2efef18055eb1",
       "status": "deprecated",
@@ -199,7 +207,7 @@
     "senses": [
       {
         "sense_id": "sense:effective:27790f7b5f6a5932",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4413,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
@@ -226,7 +234,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:20383a78c51fbb2a2504"
+    ],
     "facts": [
       {
         "id": "deep:word_family:effective:e85ae912306a60d3",
@@ -258,6 +268,11 @@
       {
         "id": "collocation:afc5ff9bdd7d8311d5f1",
         "source_row": 14900,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:20383a78c51fbb2a2504",
+        "source_row": 21278,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
       }
     ],
@@ -297,7 +312,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1569-1576.json",
-    "source_content_hash": "1c372ee31186fcdd1b2fadf8dd7f29082129a15d30bfe9bbac3e2b2fa4f77bb7",
+    "source_content_hash": "51f7e792f43097860a749d71452387f92c3ad2d7bae4b3ba123f686503220425",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

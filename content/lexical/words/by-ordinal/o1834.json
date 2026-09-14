@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1ceb1d9be9d9fcd0596832f75d8f0258c5e18eda9249ae0dc8c4fc279527c2c2",
+    "content_hash": "9c0c80149aed5a6d1fab1d61d029cc414e53e08dfc42b82d46c55742250251b0",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "方面，面",
@@ -59,7 +59,17 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee04255b278de8da8cad",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:facet:c02ae992ac1556e3:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "问题的一个方面",
+            "phrase": "facet of the problem/issue"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "方面；侧面；部分",
         "definition_en": "one part, aspect, or feature of a subject, situation, problem, or personality that has many parts",
@@ -130,7 +140,8 @@
     ],
     "active_collocations": [
       "collocation:1c418f8575cd96de5ac8",
-      "collocation:7262c6991e3c9767407e"
+      "collocation:7262c6991e3c9767407e",
+      "collocation:ee04255b278de8da8cad"
     ],
     "facts": [],
     "collocations": [
@@ -142,6 +153,11 @@
       {
         "id": "collocation:7262c6991e3c9767407e",
         "source_row": 9660,
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:ee04255b278de8da8cad",
+        "source_row": 21425,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
       }
     ],
@@ -176,7 +192,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1833-1840.json",
-    "source_content_hash": "1ceb1d9be9d9fcd0596832f75d8f0258c5e18eda9249ae0dc8c4fc279527c2c2",
+    "source_content_hash": "9c0c80149aed5a6d1fab1d61d029cc414e53e08dfc42b82d46c55742250251b0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

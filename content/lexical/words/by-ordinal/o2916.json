@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "caf1dc7ad23550fab4b7cf3ba002aed515d6d54f2c2aa4faf7752e6cf053422e",
+    "content_hash": "5f3a685263ba02285195167849ce1d1840719062a30e073f48b66c71edebcfb8",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,20 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "生气的；恼火的",
+        "definition_en": "very angry",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:mad:0580d1745cb15eb1",
+        "sense_label_en": "very angry",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:65a89b2f1fbfa360ab46",
@@ -53,8 +67,23 @@
         "pos": "adjective",
         "sense_id": "sense:mad:ad6efbeea26c59c7",
         "sense_label_en": "very foolish",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "疯狂的；精神错乱的",
+        "definition_en": "mentally ill; insane",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:mad:379787419721525f",
+        "sense_label_en": "mentally ill; insane",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "traditional mental-state use; register and sensitivity boundary applies."
       }
     ],
     "verification_summary": {
@@ -78,56 +107,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:mad:0580d1745cb15eb1",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "生气的；恼火的",
-      "definition_en": "very angry",
-      "semantic_key": "5a42839d7b1b81af5a4c4d7380aa42509d593f12c998c5adf62899a73d1dfaf5",
-      "semantic_key_history": [
-        "891f7f9565a04245d7cde52653c21613aab3dafa57e19dcf64c15b6b55cd7268"
-      ],
-      "legacy_aliases": [
-        "mad:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "mad:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8118,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:mad:379787419721525f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "疯狂的；精神错乱的",
-      "definition_en": "mentally ill; insane",
-      "semantic_key": "0acaafa782dda68d4aaccd2fad412c0ba46bc716c1aa57cd6192a831834d240a",
-      "semantic_key_history": [
-        "709d585baaad73c71b288ab6c2f31f41fa1d0f66a44a0a9c5fe6fc9f1747d761"
-      ],
-      "legacy_aliases": [
-        "mad:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "mad:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8119,
-      "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:mad:525e59c528525a3e",
       "status": "deprecated",
@@ -158,14 +137,14 @@
     "senses": [
       {
         "sense_id": "sense:mad:0580d1745cb15eb1",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8118,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
       },
       {
         "sense_id": "sense:mad:379787419721525f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8119,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
@@ -252,7 +231,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2913-2920.json",
-    "source_content_hash": "caf1dc7ad23550fab4b7cf3ba002aed515d6d54f2c2aa4faf7752e6cf053422e",
+    "source_content_hash": "5f3a685263ba02285195167849ce1d1840719062a30e073f48b66c71edebcfb8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

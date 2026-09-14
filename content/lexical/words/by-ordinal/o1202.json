@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "88108c210e5efcb10e5d16ff81d868a6185ce30380798ead0bf9958ac4ea7cb3",
+    "constructions": [
+      {
+        "construction_id": "construction:db6d5a8bd50fb900e143",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "reduce use, spending, or amount",
+        "pattern": "cut down on sth / cut back on sth"
+      }
+    ],
+    "content_hash": "cb598a88b4843f102059c625c0eead3dcfc5f0e96aff940fe2146eeac913e8a6",
     "core_concept": {
       "core_clusters": [
         {
@@ -97,6 +105,33 @@
             ],
             "meaning_cn": "削减某物",
             "phrase": "cut + sth"
+          },
+          {
+            "collocation_id": "collocation:5808b680b183da621b13",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cut:9ee5eb24984c5bbf:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "切断、隔绝或停止供应",
+            "phrase": "cut off"
+          },
+          {
+            "collocation_id": "collocation:592bdce01995a186dd52",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cut:9ee5eb24984c5bbf:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "减少某事物",
+            "phrase": "cut down on"
+          },
+          {
+            "collocation_id": "collocation:e39aa5c911283d418f7a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cut:9ee5eb24984c5bbf:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "削减或减少",
+            "phrase": "cut back (on)"
           }
         ],
         "confidence": "medium",
@@ -303,9 +338,12 @@
       }
     ],
     "active_collocations": [
+      "collocation:5808b680b183da621b13",
+      "collocation:592bdce01995a186dd52",
       "collocation:5ebbd9ece02c53d52a5e",
       "collocation:cd626920c4749948dd7d",
       "collocation:dbe91dd823ec25f3aa81",
+      "collocation:e39aa5c911283d418f7a",
       "collocation:ec34164500bb5e1d6dad",
       "collocation:ef1f0bb3d0e02cdc4664",
       "collocation:f7d4690d0a7a5fe3804a"
@@ -341,6 +379,21 @@
         "id": "collocation:f7d4690d0a7a5fe3804a",
         "source_row": 20983,
         "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:5808b680b183da621b13",
+        "source_row": 21543,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:592bdce01995a186dd52",
+        "source_row": 21544,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:e39aa5c911283d418f7a",
+        "source_row": 21546,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
       }
     ],
     "exam-mappings": [],
@@ -369,7 +422,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
-    "source_content_hash": "88108c210e5efcb10e5d16ff81d868a6185ce30380798ead0bf9958ac4ea7cb3",
+    "source_content_hash": "cb598a88b4843f102059c625c0eead3dcfc5f0e96aff940fe2146eeac913e8a6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -101,27 +101,71 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "a4d345044f50eb7cb53789c845dd001652b83488ec2fd2de36bfde520682491e",
+    "content_hash": "7429714b8a9531562b0284277d57ea1fdb057d3929fb6b0c3e3d28f588c895e6",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "确保某事发生或为真",
       "core_meaning_en": "to make certain that something happens or is true",
-      "mental_model_cn": "把事情或结果推进到确定成立",
-      "mental_model_en": "make an event, fact, or result certain"
+      "mental_model_cn": "确保某事发生或为真",
+      "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": false,
+    "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:ensure:62dce6e5ee8a0b67",
       "construction:deep:constructions:ensure:af4da17d55936ea1",
       "deep:deep:constructions:ensure:62dce6e5ee8a0b67",
-      "deep:deep:constructions:ensure:af4da17d55936ea1",
-      "relation:deep:semantic_contrast:assure:13a7b0a90e80dae6"
+      "deep:deep:constructions:ensure:af4da17d55936ea1"
     ],
     "secondary_senses": [],
-    "semantic_neighbors": [],
+    "semantic_neighbors": [
+      {
+        "boundary": "ensure 强调确保事情/结果；assure 典型地接人，表示使某人确信",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表确定",
+          "collocation": "ensure success / ensure that ...；assure sb / assure sb that ...",
+          "core_meaning": "保证/确保",
+          "exam_trap": "宾语类型",
+          "register": "均正式可用",
+          "semantic_prosody": "中性",
+          "strength": "ensure重结果",
+          "syntax": "ensure sth/that；assure sb/assure sb that",
+          "writing_safety": "不可机械互换"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00664507-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00664507-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:assure:13a7b0a90e80dae6",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "be careful or certain to do something; make certain of something",
+        "source_sense_id": "sense:ensure:a314f9bd48035553",
+        "target_sense_id": "sense:assure:94973edd976759ac",
+        "target_word": "assure",
+        "task_tags": ["reading", "cloze", "writing"],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    ],
     "senses": [
       {
         "collocations": [
@@ -158,6 +202,13 @@
         "definition_en": "to make certain that something will happen or be the case",
         "governing_pattern": "vt. + that-clause / vt. + object",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "ensure vs assure vs insure: ensure a result; assure a person; insure against risk",
+          "paired_form": "ensure",
+          "surface_lemma": "ensure"
+        },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:ensure:a314f9bd48035553",
@@ -167,17 +218,17 @@
       }
     ],
     "verification_summary": {
-      "candidate_fact_count": 4,
+      "candidate_fact_count": 3,
       "deep_modules": {
         "confusables": "no_valid_content",
         "constructions": "completed",
         "secondary_senses": "no_valid_content",
-        "semantic_contrast": "completed",
+        "semantic_contrast": "no_valid_content",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 3,
+      "published_fact_count": 2,
       "rejected_fact_count": 0,
       "runtime_model_calls": false
     },
@@ -279,8 +330,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1665-1672.json",
-    "source_content_hash": "a4d345044f50eb7cb53789c845dd001652b83488ec2fd2de36bfde520682491e",
-    "semantic_delta": 1,
+    "source_content_hash": "7429714b8a9531562b0284277d57ea1fdb057d3929fb6b0c3e3d28f588c895e6",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

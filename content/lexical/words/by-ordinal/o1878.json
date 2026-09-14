@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "449f3faa9d64d3d18fc0e34008dc5c6081d154ab3776e56bd158b3c2b0e1a031",
+    "constructions": [
+      {
+        "construction_id": "construction:4e236e04aebe23c038dc",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "对某事负有责任或过错",
+        "pattern": "at fault / one's fault"
+      }
+    ],
+    "content_hash": "d7e1cdf4425b59c527cb095dff6835b6aac7fff44880d1845dd3ae5ef08ff24b",
     "core_concept": {
       "core_clusters": [
         {
@@ -57,6 +65,20 @@
         "sense_id": "sense:fault:b07d1cea8074503a",
         "sense_label_en": "a defect or imperfection in something",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "过错；责任",
+        "definition_en": "responsibility for a bad situation or event",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:fault:629a4c7886d75858",
+        "sense_label_en": "responsibility for a bad situation or event",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -110,31 +132,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 5157,
-      "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:fault:629a4c7886d75858",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "过错，责任",
-      "definition_en": "responsibility for a bad situation or event",
-      "semantic_key": "4ba453a6c7fe6cb834671cb7a171fc295df1d6368e5efd81395f29c53aac51b8",
-      "semantic_key_history": [
-        "9f3b4fcfb98b7095a0b28079c31975bd7910469cfc91a26b93c5e62c29fa27ed"
-      ],
-      "legacy_aliases": [
-        "fault:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "fault:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5158,
       "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
       "reference_only": true
     },
@@ -200,7 +197,7 @@
       },
       {
         "sense_id": "sense:fault:629a4c7886d75858",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5158,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
@@ -295,7 +292,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1873-1880.json",
-    "source_content_hash": "449f3faa9d64d3d18fc0e34008dc5c6081d154ab3776e56bd158b3c2b0e1a031",
+    "source_content_hash": "d7e1cdf4425b59c527cb095dff6835b6aac7fff44880d1845dd3ae5ef08ff24b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

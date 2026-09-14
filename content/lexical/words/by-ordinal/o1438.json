@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "593526bb454691299ab518f08b4931eec67a2d17792d503b32b57e671306464b",
+    "content_hash": "6c82bbe3e2e8e4cdb4ae0bb4725bb519bc26c7b6377586435a8bc5136d20cf1b",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "消散；驱散；浪费",
@@ -112,6 +112,30 @@
         "sense_label_en": "to live a life of pleasure, especially with respect to alcoholic consump",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2f5b1ceb679c300946fd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dissipate:1ca36e2d0e395bf3:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "挥霍或耗尽资源/能量/财富",
+            "phrase": "dissipate resources/energy/wealth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "挥霍、耗尽或使资源/能量消散",
+        "definition_en": "to squander, use up, or disperse resources, energy, or wealth",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dissipate:1ca36e2d0e395bf3",
+        "sense_label_en": "to squander, use up, or disperse resources, energy, or wealth",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -134,38 +158,12 @@
     "word_id": "word:dissipate"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:dissipate:1ca36e2d0e395bf3",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "浪费；挥霍",
-      "definition_en": "to waste or squander money, energy, or time",
-      "semantic_key": "b026b03110cdc4b384f395dc7fd45b798de2b4bbb2d2dc316bb3441bc51dfe99",
-      "semantic_key_history": [
-        "e7efeb44b7c5db135599fb972c284cb46c87f8e0ca016079cb4eac90de6270e6"
-      ],
-      "legacy_aliases": [
-        "dissipate:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dissipate:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3983,
-      "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:dissipate:1ca36e2d0e395bf3",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3983,
         "source_path": "content/lexical/canonical/senses/shards/o1409-1440.json"
@@ -195,6 +193,7 @@
     "active_collocations": [
       "collocation:01ad80a6232bc19959c7",
       "collocation:2a4c444d6cfafb7a2632",
+      "collocation:2f5b1ceb679c300946fd",
       "collocation:5fa25cb76632aa9d1363",
       "collocation:7c6d5172eb944bf6525c",
       "collocation:c0ca72cf03dcbe5a5f8e"
@@ -235,6 +234,11 @@
         "id": "collocation:dee18954106da2712ed2",
         "source_row": 18867,
         "source_path": "content/lexical/canonical/collocations/shards/o1409-1440.json"
+      },
+      {
+        "id": "collocation:2f5b1ceb679c300946fd",
+        "source_row": 21623,
+        "source_path": "content/lexical/canonical/collocations/shards/o1409-1440.json"
       }
     ],
     "exam-mappings": [],
@@ -268,7 +272,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1433-1440.json",
-    "source_content_hash": "593526bb454691299ab518f08b4931eec67a2d17792d503b32b57e671306464b",
+    "source_content_hash": "6c82bbe3e2e8e4cdb4ae0bb4725bb519bc26c7b6377586435a8bc5136d20cf1b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "735a729b43d6708c9a18b10a5d7572eadb81b959f739fce8b3a4afdee1ae2a9c",
+    "content_hash": "49a03f4d70d8028c8b1d7fae2ef49ac139c587940d2d54d3bc4971d2bf81d182",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
           "sense_ids": [
             "sense:bloom:1100beff27b1587c",
             "sense:bloom:8becddc5a8d35aff"
+          ]
+        },
+        {
+          "label_cn": "科学义",
+          "label_en": "rapid mass growth, especially of algae",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bloom:59f4a8888835099d"
           ]
         }
       ],
@@ -127,6 +135,30 @@
         "sense_label_en": "to cause to bloom or flourish",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:15f686ef0b13013cbcd7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bloom:59f4a8888835099d:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "藻华",
+            "phrase": "algal bloom"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（科学、生态）大量快速生长，尤指藻华",
+        "definition_en": "rapid mass growth, especially an algal bloom",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bloom:59f4a8888835099d",
+        "sense_label_en": "rapid mass growth, especially an algal bloom",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -179,9 +211,17 @@
         "merged_into_sense_id": null,
         "source_row": 1381,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
+      },
+      {
+        "sense_id": "sense:bloom:59f4a8888835099d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1482,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
     "active_collocations": [
+      "collocation:15f686ef0b13013cbcd7",
       "collocation:b4fb4eaf9e08335021ed",
       "collocation:fbc2a80b85fdc3ed3fe4",
       "collocation:fe203ddf4d6745e677d1"
@@ -201,6 +241,11 @@
       {
         "id": "collocation:fe203ddf4d6745e677d1",
         "source_row": 21488,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:15f686ef0b13013cbcd7",
+        "source_row": 21491,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -235,7 +280,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0513-0520.json",
-    "source_content_hash": "735a729b43d6708c9a18b10a5d7572eadb81b959f739fce8b3a4afdee1ae2a9c",
+    "source_content_hash": "49a03f4d70d8028c8b1d7fae2ef49ac139c587940d2d54d3bc4971d2bf81d182",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

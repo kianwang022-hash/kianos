@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e7381bb5782d557cbadf0eef354a42cdd75bc722e97ff271b392833e550113e3",
+    "constructions": [
+      {
+        "construction_id": "construction:ede118b36cee1bb41fed",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "same lexical meaning; regional spelling variant, not a duplicate sense",
+        "pattern": "catalog/catalogue"
+      }
+    ],
+    "content_hash": "5b9c4881e79b02dbb976d422c565bcb047444469564bddb0f8de11a4b62a1d15",
     "core_concept": {
       "core_clusters": [
         {
@@ -66,6 +74,13 @@
         "definition_en": "a book or list of items",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "catalog is standard AmE; catalogue is standard BrE/international spelling",
+          "paired_form": "catalogue",
+          "surface_lemma": "catalog"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:catalog:ce40caa03c9e5baf",
@@ -210,7 +225,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0705-0712.json",
-    "source_content_hash": "e7381bb5782d557cbadf0eef354a42cdd75bc722e97ff271b392833e550113e3",
+    "source_content_hash": "5b9c4881e79b02dbb976d422c565bcb047444469564bddb0f8de11a4b62a1d15",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

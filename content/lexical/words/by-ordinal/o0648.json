@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "df9eade7f60db85df94bb96fe260731dfa8c9c6b2b7bbe9261f31c03c14f07c5",
+    "content_hash": "ac72323f5528c33a6593b420b8a3fbf5388405fda6f286d8ab7b17c5ad94bd0f",
     "core_concept": {
       "core_clusters": [
         {
@@ -121,6 +121,39 @@
         "sense_label_en": "a telegram sent abroad",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:702992b7f5a4496db11e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cable:cbd3023b7f245b7f:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "有线电视",
+            "phrase": "cable TV/cable television"
+          },
+          {
+            "collocation_id": "collocation:d59619d2dcd1e7e47ad6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cable:cbd3023b7f245b7f:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "数据线或电力电缆",
+            "phrase": "data/power cable"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "结实的绳索或电缆",
+        "definition_en": "a strong rope or wire, especially one made of twisted wires",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cable:cbd3023b7f245b7f",
+        "sense_label_en": "a strong rope or wire, especially one made of twisted wires",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -143,33 +176,7 @@
     "word_id": "word:cable"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:cable:cbd3023b7f245b7f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "由绞合金属丝制成的粗绳",
-      "definition_en": "a very strong thick rope made of twisted wires",
-      "semantic_key": "4f4928f5b728fd099c469435dcab37a7993c7d4d3b542d665937e51c50829a89",
-      "semantic_key_history": [
-        "92b84d18cc2abd7dcfcc3ca001bcba9661fa77c3623ba4ec17f3884086941acc"
-      ],
-      "legacy_aliases": [
-        "cable:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cable:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1832,
-      "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -195,7 +202,7 @@
       },
       {
         "sense_id": "sense:cable:cbd3023b7f245b7f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1832,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
@@ -204,7 +211,9 @@
     "active_collocations": [
       "collocation:00c84ee65cc1e3a39e76",
       "collocation:1d5c542b6b636f144245",
+      "collocation:702992b7f5a4496db11e",
       "collocation:96cdd4db240e6693cbd9",
+      "collocation:d59619d2dcd1e7e47ad6",
       "collocation:f96720baca14c93af2bb"
     ],
     "facts": [],
@@ -232,6 +241,16 @@
       {
         "id": "collocation:f96720baca14c93af2bb",
         "source_row": 21131,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:702992b7f5a4496db11e",
+        "source_row": 21248,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:d59619d2dcd1e7e47ad6",
+        "source_row": 21254,
         "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
       }
     ],
@@ -271,7 +290,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0641-0648.json",
-    "source_content_hash": "df9eade7f60db85df94bb96fe260731dfa8c9c6b2b7bbe9261f31c03c14f07c5",
+    "source_content_hash": "ac72323f5528c33a6593b420b8a3fbf5388405fda6f286d8ab7b17c5ad94bd0f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "b4dd420667a1fd4e74453db5ea9976bec94b852d29a5b8a03db01da0e0d8a361",
+    "constructions": [
+      {
+        "construction_id": "construction:f56c79003897a4f601f8",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "提出一个想法或方案供讨论",
+        "pattern": "float an idea/proposal"
+      }
+    ],
+    "content_hash": "8600f1f7ca5fb1ac15bacd4d2c4bb79461ff56dd18915e27284ba536768131e1",
     "core_concept": {
       "core_clusters": [
         {
@@ -137,6 +145,20 @@
         "sense_label_en": "the number of shares outstanding and available for trading",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "提出；试探性地提出想法或方案",
+        "definition_en": "to suggest an idea or proposal for discussion",
+        "governing_pattern": "float an idea/proposal",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:float:335b7105a3b7e1db",
+        "sense_label_en": "to suggest an idea or proposal for discussion",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -188,6 +210,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5439,
+        "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:float:335b7105a3b7e1db",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5521,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
       }
     ],
@@ -261,7 +290,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1961-1968.json",
-    "source_content_hash": "b4dd420667a1fd4e74453db5ea9976bec94b852d29a5b8a03db01da0e0d8a361",
+    "source_content_hash": "8600f1f7ca5fb1ac15bacd4d2c4bb79461ff56dd18915e27284ba536768131e1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
