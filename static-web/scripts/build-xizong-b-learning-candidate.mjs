@@ -555,6 +555,53 @@ const finalSystemReconstruction = {
   forbidden:['recite Block titles as System Recall','use teacher/file/question order as reconstruction order','turn PSR into a mastery gate or Memory debt','duplicate a second System medical model inside Learning owner']
 };
 
+const surfaceHandoffContract = {
+  primary_sequence:[
+    'KianOS bounded System/Block/Logic-Group orientation and selective cue',
+    'one bounded whole-Logic-Group original Lecture contact in iPad / MarginNote',
+    'one normal return to KianOS after the relevant formal Lecture contact',
+    'active KP retrieval in accepted learner order',
+    'cognition-specific Logic Group closure',
+    'Block Recall only after all Block Logic Groups close'
+  ],
+  normal_switching_rule:'Do not bounce KP-by-KP between KianOS and MarginNote during normal first learning. One whole-LG Lecture contact followed by one normal return is the default; extra source returns are only for learner-requested source checks, visuals or smallest-sufficient repair.',
+  lecture_owns:['continuous explanation','figures and tables','source-local examples','annotation context','Lecture-attached questions'],
+  kianos_owns:['orientation','current causal target','attention boundary','selective cue','active retrieval','Logic Group closure','Block/System compression','Wrong/Uncertain routing','later review'],
+  chat_owns:['adaptive explanation when the model is unclear','mechanism linking','smallest-sufficient repair','personalized clarification','cross-System reasoning when needed'],
+  recall_timing:{kp:'AFTER_RELEVANT_FORMAL_LECTURE_CONTACT',logic_group:'AFTER_WHOLE_LG_LECTURE_CONTACT',block:'AFTER_ALL_BLOCK_LGS_CLOSE',psr:'NATURAL_CHECKPOINT_ONLY_AND_SKIPPABLE',system:'ONLY_AFTER_ALL_38_BLOCKS_ARE_ACTUALLY_LEARNED'},
+  context_visibility:{always:['what is being learned now','current mechanism / causal question','main prompt','forward/back movement'],conditional:['Precision','Visual Gate / source locator','Reserve learning','Connection Hook / Boundary','Lecture or attached-question locator'],backend_only:['readiness relations','construction_receipts','semantic_acceptance','partition_rationale','cognitive_job codes','system_truth_refs','coverage/audit/migration/status metadata']},
+  repair_return:{trigger:'model unclear, learner request, or meaningful Wrong/Uncertain gap',scope:'smallest sufficient object or boundary',chat_evidence_is_mastery:false,return_rule:'after repair, return to the interrupted B mainline; do not open a whole future Block unless that Block is the accepted owner'},
+  memory_interruption:{rule:'first Recall instability or Weak/Uncertain evidence may be recorded without automatically stopping the mainline indefinitely',connection_hook_memory:'Connection Hooks do not enter normal Memory before formal target-owner learning',precision_rule:'important current-owner Precision may start memory on first pass, but Precision must not become a permanent always-visible panel'}
+};
+
+const crossSystemHandoff = {
+  rule:'Readiness labels are backend routing metadata. They may not become learner-facing Connection Hooks unless a formal Current target owner is named below; assumed-baseline concepts are reactivated or minimally repaired, not scheduled as invented future owners.',
+  formal_target_owners:{
+    circulation:'content/xizong/knowledge/systems/a1-circulation/',
+    respiratory:'content/xizong/knowledge/systems/a2-respiratory/',
+    urinary:'content/xizong/knowledge/systems/a3-urinary/',
+    hematology_immunity_infection:'content/xizong/knowledge/systems/c-hematology-immunity-infection/',
+    reproductive_breast:'content/xizong/knowledge/systems/e-reproductive-breast/',
+    tumor_general:'content/xizong/knowledge/overlays/o9-tumor-general/'
+  },
+  explicit_routes:[
+    {from:'D12',concept:'tuberculosis common model',target_owner:'content/xizong/knowledge/systems/a2-respiratory/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'D13',concept:'shock / hemodynamic-stability interface',target_owner:'content/xizong/knowledge/systems/a1-circulation/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'D17',concept:'pressure-flow / portal-hemodynamic interface',target_owner:'content/xizong/knowledge/systems/a1-circulation/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'D22',concept:'circulation interface',target_owner:'content/xizong/knowledge/systems/a1-circulation/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'D22,D23',concept:'renal / volume / VitD-CKD interface',target_owner:'content/xizong/knowledge/systems/a3-urinary/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'D4,M3,M8,M10',concept:'anemia / hemolysis / megaloblastic interface',target_owner:'content/xizong/knowledge/systems/c-hematology-immunity-infection/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'},
+    {from:'G5 and tumor-bearing organ Logic Groups',concept:'tumor-general morphology and behavior',target_owner:'content/xizong/knowledge/overlays/o9-tumor-general/',granularity:'OVERLAY_OWNER'},
+    {from:'B endocrine exclusions',concept:'reproductive / pregnancy endocrine management',target_owner:'content/xizong/knowledge/systems/e-reproductive-breast/',granularity:'SYSTEM_LEVEL_UNTIL_REVIEWED_FINER_OWNER'}
+  ],
+  assumed_baseline:[
+    {concept:'membrane / electrical / common signal-transduction language',learner_behavior:'reactivate if already learned; otherwise Chat smallest-sufficient repair; do not create a deferred owner, mastery gate or Memory debt'},
+    {concept:'general injury / inflammation / repair-fibrosis language',learner_behavior:'reactivate if already learned; otherwise Chat smallest-sufficient repair; do not invent a Block/KP owner or future learner schedule'}
+  ],
+  fine_grain_rule:'When a finer reviewed external Block/KP owner is absent, the System/Overlay target above is the maximum routing precision allowed. Runtime/Projection must not infer a finer mapping from titles, proximity or model intuition.',
+  connection_hook_rule:'A learner-facing deferred Connection Hook requires one formal target owner and must be re-surfaced when that owner is entered. Assumed-baseline concepts are not Connection Hooks and create no future review debt.'
+};
+
 function fm(text, key) {
   const match = text.match(new RegExp(`^${key}:\\s*([^\\n]+)$`, 'm'));
   return match ? match[1].trim().replace(/^['"]|['"]$/g, '') : null;
@@ -628,17 +675,19 @@ if (new Set(defaultRoute).size !== 38 || defaultRoute.length !== 38) throw new E
 if (Object.keys(blocks).length !== 38) throw new Error('B_L_BLOCK_TOTAL_INVALID');
 
 const output = {
-  schema:'kianos.xizong.system_learning_support.v1',status:'L_CANDIDATE',construction_status:'PHASE4_COMPRESSION_CLOSED_PENDING_CROSS_SURFACE_AUDIT',authority:'CURRENT_PHASE0_4_COMPILED_LEARNING_CONSTRUCTION',system_id:'digestive-metabolic-endocrine-tumor',canonical_id:'B',scope:'ALL_38_CANONICAL_BLOCKS_SYSTEM_BELOW_ONLY',study_policy:'content/xizong/knowledge/learner/study-policy.json',medical_core_owner:'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/',system_knowledge_owner:'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json',
-  construction_receipts:['content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md','content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md','content/xizong/knowledge/learner/B_PHASE2_BLOCK_CONTROL.md','content/xizong/knowledge/learner/B_PHASE3_LOGIC_GROUP_REACCEPTANCE.md','content/xizong/knowledge/learner/B_PHASE4_PROGRESSIVE_COMPRESSION.md'],
+  schema:'kianos.xizong.system_learning_support.v1',status:'L_CANDIDATE',construction_status:'PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE',authority:'CURRENT_PHASE0_5_COMPILED_LEARNING_CONSTRUCTION',system_id:'digestive-metabolic-endocrine-tumor',canonical_id:'B',scope:'ALL_38_CANONICAL_BLOCKS_SYSTEM_BELOW_ONLY',study_policy:'content/xizong/knowledge/learner/study-policy.json',medical_core_owner:'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/',system_knowledge_owner:'content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/system.json',
+  construction_receipts:['content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md','content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md','content/xizong/knowledge/learner/B_PHASE2_BLOCK_CONTROL.md','content/xizong/knowledge/learner/B_PHASE3_LOGIC_GROUP_REACCEPTANCE.md','content/xizong/knowledge/learner/B_PHASE4_PROGRESSIVE_COMPRESSION.md','content/xizong/knowledge/learner/B_PHASE5_CROSS_SURFACE_NEGATIVE_SPACE.md'],
   role:'FIRST_PASS_ATTENTION_CONTINUITY_RECALL_AND_CLOSURE_SUPPORT_ONLY',rule:'This is the single B learner-support owner. It organizes stable Block/KP identities into a causal readiness graph and fresh-reviewed Logic Groups without restating or overriding medical Core. It does not manufacture learner progress, question membership, or Question→Knowledge relations.',
   identity:{stable_block_count:38,stable_kp_count:600,logic_group_count:170,logic_group_coverage:'EXACTLY_ONCE_PER_BLOCK; LEARNER_ORDER_MAY_DIFFER_FROM_STABLE_KP_ORDER',stable_block_or_kp_identity_change:false},
   surface_ownership:{continuous_primary:'iPad / MarginNote original Lecture/source',kianos:'System/Block orientation, attention boundary, selective cue, active retrieval, Logic Group closure, Block/System compression, W/U routing and later review',chat:'adaptive explanation, linking and smallest-sufficient repair',hard_rule:'KianOS must not become a second continuous Lecture reader. Normal first-pass handoff is KianOS orientation → bounded whole-Logic-Group original Lecture contact in MarginNote → KianOS retrieval/closure.'},
+  surface_handoff_contract:surfaceHandoffContract,
+  cross_system_handoff:crossSystemHandoff,
   first_pass_chain:['System orientation in KianOS','enter current Block / Logic Group with focus and explicit stop-line','continuous whole-Logic-Group original Lecture contact in iPad / MarginNote','return once to KianOS after relevant formal Lecture contact','active KP retrieval in the accepted learner order','cognition-specific Logic Group closure','Block Recall after all Block groups close','short non-gating Partial-System Reconstruction when a natural branch checkpoint closes','after all 38 Blocks are actually learned: pre-question System Recall','official B System question sweep only after S exact qid membership closes and learner-selected whole-paper holdout is excluded','Wrong / Uncertain smallest-sufficient repair through reviewed relations only','short post-question System reconstruction'],
   system_route:{mode:'CAUSAL_READINESS_DAG_WITH_LOW_SWITCHING_DEFAULT',legality_owner:'readiness relations below; default_route does not manufacture prerequisites',default_route:defaultRoute,tumor_gate:{definition:'G1–G5 molecular branch complete + O9 pathology tumor-general model available',rule:'Only tumor-bearing Logic Groups require/reactivate the Tumor Gate when a mixed organ Block contains substantial non-tumor learning.'},readiness,partial_system_reconstructions:partialSystemReconstructions,checkpoint_rule:'PSR is a short partial-System reconstruction only: no new canonical unit, mastery score, completion gate, or Memory debt.',flex_rule:'Any Block may move earlier once its hard prerequisites are satisfied when original-Lecture continuity materially reduces friction; stable Block/KP identity never changes.'},
   compression:{block_recall:{field:'blocks.*.recall_spine',rule:'Block Recall is a compressed causal/localization/decision model, never a replay of all Logic Group labels or KP prompts.',audit:{reviewed:38,keep:29,upgraded:9,upgraded_blocks:['D8','D11','D12','D14','D15','D19','D20','D21','D22']}},partial_system_reconstruction:{count:6,rule:'PSR is non-gating and creates no canonical unit, score, completion state or Memory debt.',source:'system_route.partial_system_reconstructions'},final_system_reconstruction:finalSystemReconstruction},
   question_stage:{timing:'AFTER_REAL_SYSTEM_LEARNING_AND_PRE_QUESTION_SYSTEM_RECALL',exact_membership_gate:'S_BLOCKED_UNTIL_CURRENT_B_QUESTION_SCOPE_ACCEPTED',question_order_owns_learning:false,lecture_attached_questions:'remain with original Lecture / MarginNote',repair:'Wrong / Uncertain only; precise Block/KP routing uses reviewed relations only',whole_paper_holdout:'learner-selected and private; excluded wholesale from ordinary System sweep'},
   memory_and_precision:{rule:'Recall weakness may enter selective Memory; important current-owner Precision is identified and begins memory on first pass, but first instability does not stall the mainline indefinitely.',connection_hooks:'Cross-Block/cross-System knowledge may be postponed only with an explicit target owner; hidden knowledge must not disappear.'},
-  semantic_acceptance:{phase3_status:'PASS_BY_FRESH_SEMANTIC_REVIEW',reviewed_blocks:38,reviewed_stable_kps:600,final_logic_groups:170,boilerplate_goal_closure_remaining:0,known_mixed_task_groups_remaining:0,learner_order_exception:{G5:['KP01–KP05','KP12–KP13','KP06–KP11']},phase4_status:'PASS_BY_PROGRESSIVE_COMPRESSION_AUDIT',block_recall_audit:{reviewed:38,keep:29,upgraded:9,blocked:0},psr_audit:{count:6,non_gating:6,staged_refresh_psrs:['PSR-2_METABOLIC_NETWORK','PSR-3_ENDOCRINE_CONTROL','PSR-6_INFORMATION_TUMOR']},final_system_reconstruction:'SYSTEM_GROUNDED_AND_EXPLICIT',extra_compulsory_hierarchy_required:false,note:'This is still not L PASS. Cross-surface/negative-space audit and fresh independent L acceptance remain downstream.'},blocks
+  semantic_acceptance:{phase3_status:'PASS_BY_FRESH_SEMANTIC_REVIEW',reviewed_blocks:38,reviewed_stable_kps:600,final_logic_groups:170,boilerplate_goal_closure_remaining:0,known_mixed_task_groups_remaining:0,learner_order_exception:{G5:['KP01–KP05','KP12–KP13','KP06–KP11']},phase4_status:'PASS_BY_PROGRESSIVE_COMPRESSION_AUDIT',block_recall_audit:{reviewed:38,keep:29,upgraded:9,blocked:0},psr_audit:{count:6,non_gating:6,staged_refresh_psrs:['PSR-2_METABOLIC_NETWORK','PSR-3_ENDOCRINE_CONTROL','PSR-6_INFORMATION_TUMOR']},final_system_reconstruction:'SYSTEM_GROUNDED_AND_EXPLICIT',extra_compulsory_hierarchy_required:false,phase5_status:'PASS_BY_CROSS_SURFACE_NEGATIVE_SPACE_AUDIT',cross_surface_audit:{surface_ownership:'PASS',whole_lg_handoff:'PASS',conditional_context_visibility:'PASS',backend_metadata_visibility:'BACKEND_ONLY',chat_repair_return:'PASS',cross_system_owner_routing:'SYSTEM_LEVEL_FAIL_CLOSED_FINE_GRAIN'},negative_space_violations_remaining:0,note:'This is still not L PASS. Fresh independent L acceptance remains downstream.'},blocks
 };
 fs.writeFileSync(outPath, `${JSON.stringify(output,null,2)}\n`, 'utf8');
-console.log(`B Learning Phase-4 compression candidate built | Blocks=${Object.keys(blocks).length} | KPs=600 | LogicGroups=${logicGroupCount} | PSRs=${partialSystemReconstructions.length} | path=${path.relative(repoRoot,outPath)}`);
+console.log(`B Learning Phase-5 surface-safe candidate built | Blocks=${Object.keys(blocks).length} | KPs=600 | LogicGroups=${logicGroupCount} | PSRs=${partialSystemReconstructions.length} | path=${path.relative(repoRoot,outPath)}`);
