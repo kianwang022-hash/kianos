@@ -5,43 +5,54 @@ import { listPoliticsSubjectsCurrent } from '../../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
 const subjects = listPoliticsSubjectsCurrent();
-
-const chapterCount = subjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
 const firstSubject = subjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
 const firstHref = firstSubject && firstChapter ? `${base}politics/${firstSubject.subject}/${firstChapter.code}/` : `${base}politics/`;
 const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title}` : '开始政治学习';
 ---
 <Base
-  title="政治"
+  title="Politics"
+  kicker="考研政治"
   active="politics"
 >
   <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
 
-  <section class="politicsSubjects">
-    {subjects.map((subject) => (
-      <article class="politicsSubjectCard">
+  <section class="politicsSubjects" aria-label="政治五科入口">
+    {subjects.map((subject, subjectIndex) => (
+      <article class="politicsSubjectLane">
         <header>
-          <div><span>{subject.shape}</span><h2>{subject.label}</h2></div>
-          
+          <span>{String(subjectIndex + 1).padStart(2, '0')}</span>
+          <h2>{subject.label}</h2>
+          <strong>{subject.shape}</strong>
         </header>
         <p>{subject.description}</p>
-        <a class="subjectEntry" href={`${base}politics/${subject.subject}/${subject.chapters[0].code}/`}>进入 →</a>
-        <details><summary>章节跳转</summary><nav>
-          {subject.chapters.map((chapter, index) => (
-            <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
-              <span>{String(index + 1).padStart(2,'0')}</span>
-              <strong>{chapter.title}</strong>
-              <b>→</b>
-            </a>
-          ))}
-        </nav></details>
+        <a class="subjectEntry" href={`${base}politics/${subject.subject}/${subject.chapters[0].code}/`}>进入 <b aria-hidden="true">→</b></a>
+        <details>
+          <summary>章节跳转</summary>
+          <nav>
+            {subject.chapters.map((chapter, index) => (
+              <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
+                <span>{String(index + 1).padStart(2,'0')}</span>
+                <strong>{chapter.title}</strong>
+                <b aria-hidden="true">→</b>
+              </a>
+            ))}
+          </nav>
+        </details>
       </article>
     ))}
   </section>
 </Base>
 
 <style>
-.politicsSubjects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:32px;border-top:1px solid var(--study-line);padding-top:26px}.politicsSubjectCard h2{font-size:24px;margin:6px 0}.politicsSubjectCard header span{font-size:14px;color:var(--study-muted)}.politicsSubjectCard p{font-size:16px;line-height:1.7;color:var(--study-muted)}.subjectEntry{display:inline-block;font-size:17px;color:var(--study-green);margin:8px 0 20px}.politicsSubjectCard summary{font-size:14px;cursor:pointer;color:var(--study-muted)}.politicsSubjectCard nav{display:grid;gap:10px;margin-top:15px}.politicsSubjectCard nav a{display:flex;gap:7px;color:inherit;text-decoration:none;font-size:15px;line-height:1.5}.politicsSubjectCard nav a span{color:var(--study-faint)}.politicsSubjectCard nav a b{margin-left:auto}
-@media(max-width:1100px){.politicsSubjects{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){.politicsSubjects{grid-template-columns:1fr 1fr}}@media(max-width:440px){.politicsSubjects{grid-template-columns:1fr}}
+.politicsSubjects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:hidden;margin-top:16px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-surface);box-shadow:0 14px 38px rgba(22,31,27,.04)}
+.politicsSubjectLane{display:grid;grid-template-rows:auto auto auto 1fr;align-content:start;min-width:0;min-height:286px;padding:22px 20px 18px;border-left:1px solid var(--study-line);transition:background 140ms ease}.politicsSubjectLane:first-child{border-left:0}.politicsSubjectLane:hover{background:#fafcfb}
+.politicsSubjectLane header{display:grid;gap:4px}.politicsSubjectLane header>span{color:var(--study-faint);font-size:11px;font-weight:760;letter-spacing:.08em}.politicsSubjectLane h2{margin:0;font-size:25px;line-height:1.18;letter-spacing:-.035em}.politicsSubjectLane header>strong{margin-top:3px;color:var(--study-green);font-size:14px;line-height:1.5;font-weight:760}
+.politicsSubjectLane>p{min-height:66px;margin:14px 0 12px;color:var(--study-muted);font-size:14px;line-height:1.6}
+.subjectEntry{display:inline-flex;width:max-content;align-items:center;gap:8px;margin:2px 0 19px;color:var(--study-green);font-size:16px;font-weight:780;text-decoration:none}.subjectEntry:hover{text-decoration:underline;text-underline-offset:4px}
+.politicsSubjectLane details{align-self:end;padding-top:14px;border-top:1px solid var(--study-line)}.politicsSubjectLane summary{color:var(--study-muted);font-size:13px;font-weight:700;cursor:pointer;list-style:none}.politicsSubjectLane summary::-webkit-details-marker{display:none}.politicsSubjectLane summary::after{content:' +';color:var(--study-faint)}.politicsSubjectLane details[open] summary::after{content:' −'}
+.politicsSubjectLane nav{display:grid;gap:8px;margin-top:13px;max-height:270px;overflow:auto;padding-right:4px}.politicsSubjectLane nav a{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:7px;align-items:start;color:inherit;text-decoration:none;font-size:13px;line-height:1.45}.politicsSubjectLane nav a:hover{color:var(--study-green)}.politicsSubjectLane nav a>span{color:var(--study-faint);font-size:11px}.politicsSubjectLane nav a>strong{font-weight:650}.politicsSubjectLane nav a>b{color:var(--study-faint)}
+@media(max-width:1180px){.politicsSubjects{grid-template-columns:repeat(3,minmax(0,1fr))}.politicsSubjectLane{border-top:1px solid var(--study-line)}.politicsSubjectLane:nth-child(-n+3){border-top:0}.politicsSubjectLane:nth-child(4){border-left:0}}
+@media(max-width:760px){.politicsSubjects{grid-template-columns:1fr 1fr}.politicsSubjectLane{border-top:1px solid var(--study-line)}.politicsSubjectLane:nth-child(-n+2){border-top:0}.politicsSubjectLane:nth-child(odd){border-left:0}}
+@media(max-width:480px){.politicsSubjects{grid-template-columns:1fr}.politicsSubjectLane{min-height:0;border-left:0!important}.politicsSubjectLane:nth-child(n){border-top:1px solid var(--study-line)}.politicsSubjectLane:first-child{border-top:0}.politicsSubjectLane>p{min-height:0}}
 </style>
