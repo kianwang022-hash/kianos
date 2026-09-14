@@ -1,0 +1,27 @@
+{
+  "schema": "kianos.xizong.cognitive_projection.manifest.v1",
+  "status": "CALIBRATION_ACTIVE",
+  "runtime_authority": false,
+  "baseline_commit": "2f1974bf8b270393626fef95472c64dbe1c81f7d",
+  "contract": "content/xizong/projection/PROJECTION_CONTRACT.md",
+  "projection_root": "content/xizong/projection",
+  "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
+  "freshness_policy": "Every referenced source is pinned by path + blob SHA. Any mismatch makes only dependent assets STALE pending targeted recompile.",
+  "content_copy_policy": "Prefer refs/selectors over copied medical prose. Projection owns representation metadata, not canonical medical truth.",
+  "calibration_batch_01": {
+    "goal": "Prove multi-object, optional-enrichment, multi-source and multi-view expressivity before full A1/A2/A3 compilation.",
+    "assets": [
+      {"system_id":"circulation","block_id":"circulation-b01","path":"a1-circulation/blocks/b01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"circulation","block_id":"circulation-b07","path":"a1-circulation/blocks/b07.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"circulation","block_id":"circulation-b10","path":"a1-circulation/blocks/b10.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"circulation","block_id":"circulation-b11","path":"a1-circulation/blocks/b11.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"respiratory","block_id":"respiratory-r01","path":"a2-respiratory/blocks/r01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"urinary","block_id":"urinary-b01","path":"a3-urinary/blocks/b01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
+      {"system_id":"urinary","block_id":"urinary-b05","path":"a3-urinary/blocks/b05.projection.json","status":"CALIBRATION_DERIVED_CURRENT"}
+    ],
+    "count": 7,
+    "runtime_blockers_outside_scope": [
+      "Question attempts must become append-preserved / phase-aware before multi-pass question Runtime productization."
+    ]
+  }
+}

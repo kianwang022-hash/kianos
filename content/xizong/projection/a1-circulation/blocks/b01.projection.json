@@ -1,0 +1,36 @@
+{
+  "schema":"kianos.xizong.cognitive_projection.block.v1",
+  "status":"CALIBRATION_DERIVED_CURRENT",
+  "system_id":"circulation",
+  "block_id":"circulation-b01",
+  "sources":[
+    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block1_正常机械循环_学习阅读版_v7_最终执行版.md","blob_sha":"8568c5d170be506620b4bbeffb1b6c0a14f18b5d"},
+    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a1-circulation-learning.json","blob_sha":"de71f997b53d51bc867715b69cdbe748ed9c7fc9"}
+  ],
+  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"circulation-b01"},
+  "learning_support":{
+    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b01/first_pass_focus"}},
+    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b01/stop_line"}},
+    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b01/recall_spine"}},
+    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b01/logic_groups"}}
+  },
+  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"circulation-b01"},
+  "objects":[
+    {"object_id":"circulation-b01-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
+    {"object_id":"circulation-b01-mechanism-spine","role":"CHAIN","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"整个 B1 先只留下这一条 Mechanism Spine：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
+    {"object_id":"circulation-b01-formula-language","role":"MAP","geometry":"FORMULA_STRIP","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"四个公式是这条链的最小变量语言：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"SECONDARY_STAGE"},
+    {"object_id":"circulation-b01-framework","role":"MAP","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"总 Framework"}},"stage_role":"PRIMARY_STAGE"}
+  ],
+  "enrichment_bindings":[],
+  "views":{
+    "BLOCK_ORIENT":{"object_ids":["circulation-b01-problem","circulation-b01-mechanism-spine","circulation-b01-formula-language","circulation-b01-framework"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"]},
+    "LOGIC_GROUP_ORIENT":{"object_ids":["circulation-b01-problem"],"learning_support_keys":["logic_groups"],"context_policy":"OWNED_ONLY"},
+    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"source_locator_policy":"CURRENT_ONLY_NO_GUESS"},
+    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY"},
+    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","context_policy":"OWNED_ONLY"},
+    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"context_policy":"TIMING_AWARE_OWNED_ONLY"},
+    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["circulation-b01-problem"],"show_logic_group_map":true},
+    "BLOCK_RECALL_REVEAL":{"object_ids":["circulation-b01-problem","circulation-b01-framework"],"learning_support_keys":["recall_spine","logic_groups"]}
+  },
+  "calibration_notes":["Tests Chain + FormulaStrip + Framework without copying canonical KP Core.","No A1-specific Visual/Precision sidecar is manufactured for symmetry."]
+}

@@ -1,0 +1,46 @@
+{
+  "schema":"kianos.xizong.cognitive_projection.block.v1",
+  "status":"CALIBRATION_DERIVED_CURRENT",
+  "system_id":"respiratory",
+  "block_id":"respiratory-r01",
+  "sources":[
+    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md","blob_sha":"52451919e516a2099e273a27ee10f54417b2bb53"},
+    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a2-respiratory-learning.json","blob_sha":"783171737dd12066fdb27db9856807724aef3965"},
+    {"id":"cues","kind":"SELECTIVE_CUES","path":"content/xizong/knowledge/learner/a2-respiratory-learning-cues.json","blob_sha":"7f0a6e10e6742c32517fa55796852f149b71bc16"},
+    {"id":"pathways","kind":"PATHWAYS","path":"content/xizong/knowledge/learner/a2-respiratory-pathways.json","blob_sha":"3e400c87246ad4e85537596f277909413501a3d5"}
+  ],
+  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"respiratory-r01"},
+  "learning_support":{
+    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/respiratory-r01/first_pass_focus"}},
+    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/respiratory-r01/stop_line"}},
+    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/respiratory-r01/recall_spine"}},
+    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/respiratory-r01/logic_groups"}}
+  },
+  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"respiratory-r01"},
+  "objects":[
+    {"object_id":"respiratory-r01-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
+    {"object_id":"respiratory-r01-ventilation-mechanics","role":"CHAIN","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"肺不是主动开合的气泵。真正的过程是：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
+    {"object_id":"respiratory-r01-framework","role":"MAP","geometry":"NETWORK","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"1｜总 Framework"}},"stage_role":"PRIMARY_STAGE"},
+    {"object_id":"respiratory-r01-formula-language","role":"MAP","geometry":"FORMULA_STRIP","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"四个组织公式"}},"stage_role":"SECONDARY_STAGE"},
+    {"object_id":"respiratory-r01-measurement-language","role":"MAP","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"Unit A｜先建立肺功能测量语言"}},"stage_role":"PRIMARY_STAGE"}
+  ],
+  "enrichment_bindings":[
+    {"binding_id":"a2-r01-lg01-visual","kind":"INDEX_REF","source_id":"cues","index":"visual_bindings","item_id":"a2-r01-lg01-visual","anchor":{"logic_group_id":"respiratory-r01-lg01"},"semantic_role":"HANDOFF","stage_role":"CONTEXT","timing_semantics":"PRESERVE_SOURCE_POLICY"},
+    {"binding_id":"a2-r01-lg04-visual","kind":"INDEX_REF","source_id":"cues","index":"visual_bindings","item_id":"a2-r01-lg04-visual","anchor":{"logic_group_id":"respiratory-r01-lg04"},"semantic_role":"HANDOFF","stage_role":"CONTEXT","timing_semantics":"PRESERVE_SOURCE_POLICY"},
+    {"binding_id":"a2-r01-kp01-precision","kind":"INDEX_REF","source_id":"cues","index":"precision_index","item_id":"a2-r01-kp01-precision","anchor":{"kp_id":"respiratory-r01-kp01"},"semantic_role":"EXACT","stage_role":"CONTEXT","timing_semantics":"PRESERVE_SOURCE_POLICY"},
+    {"binding_id":"a2-r01-kp02-precision","kind":"INDEX_REF","source_id":"cues","index":"precision_index","item_id":"a2-r01-kp02-precision","anchor":{"kp_id":"respiratory-r01-kp02"},"semantic_role":"EXACT","stage_role":"CONTEXT","timing_semantics":"PRESERVE_SOURCE_POLICY"},
+    {"binding_id":"a2-r01-obstruction-to-r03","kind":"INDEX_REF","source_id":"pathways","index":"connections","item_id":"a2-r01-obstruction-to-r03","anchor":{"logic_group_id":"respiratory-r01-lg04"},"semantic_role":"REFERENCE","stage_role":"CONTEXT","timing_semantics":"SOURCE_CUE_NOW_TARGET_REACTIVATION_LATER"},
+    {"binding_id":"a2-r01-obstruction-to-r04","kind":"INDEX_REF","source_id":"pathways","index":"connections","item_id":"a2-r01-obstruction-to-r04","anchor":{"logic_group_id":"respiratory-r01-lg04"},"semantic_role":"REFERENCE","stage_role":"CONTEXT","timing_semantics":"SOURCE_CUE_NOW_TARGET_REACTIVATION_LATER"}
+  ],
+  "views":{
+    "BLOCK_ORIENT":{"object_ids":["respiratory-r01-problem","respiratory-r01-measurement-language","respiratory-r01-ventilation-mechanics","respiratory-r01-framework","respiratory-r01-formula-language"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"],"enrichment_policy":"ANCHOR_AND_TIMING_ONLY"},
+    "LOGIC_GROUP_ORIENT":{"object_ids":["respiratory-r01-problem"],"learning_support_keys":["logic_groups"],"enrichment_policy":"ANCHOR_AND_TIMING_ONLY"},
+    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"enrichment_policy":"VISUAL_LOCATOR_IF_CURRENT_OWNED","source_locator_policy":"CURRENT_ONLY_NO_GUESS"},
+    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY","enrichment_policy":"NO_ANSWER_LEAK"},
+    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","enrichment_policy":"ANCHOR_AND_TIMING_ONLY"},
+    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"enrichment_policy":"ANCHOR_AND_TIMING_ONLY"},
+    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["respiratory-r01-problem"],"show_logic_group_map":true,"enrichment_policy":"NO_ANSWER_LEAK"},
+    "BLOCK_RECALL_REVEAL":{"object_ids":["respiratory-r01-problem","respiratory-r01-framework"],"learning_support_keys":["recall_spine","logic_groups"],"enrichment_policy":"ANCHOR_AND_TIMING_ONLY"}
+  },
+  "calibration_notes":["Proves optional Visual/Precision/Connection support can attach by reviewed item id without changing the base Block schema.","Projection references cue/pathway items; it does not copy their medical answers or infer absent enrichment for A1/A3."]
+}
