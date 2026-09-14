@@ -1,6 +1,6 @@
 # Xizong System Completion — accepted surface design
 
-Status: **ACTIVE SURFACE DESIGN — HIGH-THROUGHPUT QUESTION SWEEP ACCEPTED, FINAL VISUAL COMPOSITION STILL UNDER DISCUSSION**  
+Status: **ACTIVE SURFACE DESIGN — QUESTION SWEEP + SYSTEM RECALL ACCEPTED, FINAL ENTRY / VISUAL COMPOSITION STILL UNDER DISCUSSION**  
 Parent: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Review safety: `static-web/XIZONG_UI_REVIEW_PROTOCOL.md`
 
@@ -27,7 +27,7 @@ Keep the existing hard prerequisites and Evidence semantics:
 - stable/correct work stays cheap;
 - Wrong and learner-marked items are retained for later review when correctness is being revealed;
 - precise Block/KP repair uses reviewed repository relations only; missing relations remain missing;
-- post-question System Recall remains distinguishable from pre-question System Recall.
+- post-question System Recall remains distinguishishable from pre-question System Recall.
 
 ## 2｜Official Question Sweep is a high-throughput workbench — ACCEPTED
 
@@ -297,11 +297,11 @@ Prefer a stable spatial composition such as:
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ System · Questions   progress   Fast Sweep   Result visibility   review state│
 ├───────────────────┬──────────────────────────────────────────────────────────┤
-│ Question Map      │ Current Question                                          │
+│ Question Map      │ Current Question                                         │
 │ compact state map │ question meta + fixed Mark control                       │
 │ current / done /  │ stem                                                     │
-│ wrong / marked    │ options                                                   │
-│ or answered/mark  │ stable answer zone                                        │
+│ wrong / marked    │ options                                                  │
+│ or answered/mark  │ stable answer zone                                       │
 └───────────────────┴──────────────────────────────────────────────────────────┘
 ```
 
@@ -323,32 +323,142 @@ UI goals:
 
 Exact Question Map density, top status composition, Quick Review panel width, typography and visual styling remain open for screenshot-driven design.
 
-## 10｜System Recall / holdout / post-question stages — accepted responsibility, visual details still open
+## 10｜System Recall workspace — ACCEPTED
 
-Keep the established System Completion responsibilities:
+System Recall is a protected **System reconstruction workspace**, not a modal floating over the answer-bearing System Guide and not an empty page with one sentence in the middle.
+
+The same System cognitive asset is reused across learning states:
 
 ```text
-pre-question System Recall
-→ whole-paper holdout setup / confirmation
-→ high-throughput official question sweep or later whole-paper run
-→ concentrated Wrong / Marked handling as needed after correctness is available
-→ post-question System Recall
+System Guide         = complete orientation
+System Recall Front  = protected reconstruction state
+System Recall Reveal = compressed Current reconstruction / verification
 ```
 
-System Recall should remain a protected reconstruction state rather than showing the System Guide behind a recall prompt.
+Pre-question and post-question System Recall use the same workspace / cognitive asset with different phase labels and Evidence phases.
 
-Current System-level recall assets must be projected from each System's own Current semantics; do not force A1's circulation geometry onto A2/A3.
+### 10.1 Recall Front
 
-The final detailed visual composition of System Recall and the post-question completion state remains under discussion.
+Before Reveal, the whole learner workspace must remain answer-safe.
 
-## 11｜Implementation boundary
+Mac composition may use a restrained Reconstruction Desk:
+
+```text
+┌───────────────────────┬──────────────────────────────────────────────────────┐
+│ RECONSTRUCTION        │ System neutral recall prompt                         │
+│                       │                                                      │
+│ 系统主链              │ learner reconstruction / scratch area               │
+│ 并行控制              │ optional, not mandatory to fill                     │
+│ Failure 定位          │                                                      │
+│ 病例判断顺序          │                                  Space → 核对模型    │
+└───────────────────────┴──────────────────────────────────────────────────────┘
+```
+
+The left labels describe the **dimensions to reconstruct**, not their answer contents.
+
+Do not expose before Reveal:
+
+- mother/spine contents;
+- variables / relations;
+- Failure chains;
+- judgment-axis answers;
+- Block routes when they would function as answer scaffolding beyond the accepted neutral prompt;
+- answer-bearing System Guide content behind a translucent dialog.
+
+The reconstruction scratch area is optional. Kian may reconstruct mentally, verbally, on paper, or in the surface; UI must not require typed content as a gate.
+
+### 10.2 Recall Reveal
+
+After a genuine reconstruction attempt, use Mac width to restore the System's own Current compressed model rather than a generic three-card summary.
+
+Possible Current-supported regions include, only when owned by that System:
+
+```text
+System spine / mother model
+parallel controls
+core variables / coordinates / relations
+Failure Modes / failure views
+judgment axes
+reverse-case algorithm
+Current System Recall free-reconstruction objects
+Block route / cross-Block bridges when Current explicitly owns them
+```
+
+Presentation may use map / chain / coordinate / failure / decision geometry according to the actual System semantics.
+
+A1 Circulation must not define A2/A3 geometry. For example:
+
+- A1 may spatialize circulation spine + parallel controls + P/Q/R/V / mechanical coordinates + Failure / judgment logic;
+- A2 may spatialize air → airway → pump/thorax → alveoli → membrane → VA/Q → Hb → tissue plus its respiratory localization axes;
+- A3 may spatialize perfusion → filtration → tubular handling → concentration/hormonal control → fluid/electrolyte/acid-base → urine evidence → urinary outlet plus its renal localization axes.
+
+No System may receive a relation merely because another System's Recall view uses that category.
+
+### 10.3 Dense Calm requirement
+
+A neutral Recall Front must not become visually barren. Use task structure, readable typography, reconstruction workspace, stable alignment and subtle dividers to create an intentional desktop surface without leaking answers.
+
+After Reveal, semantic density should come from the System's actual Current cognition rather than decorative cards or artificial whitespace.
+
+### 10.4 Interaction
+
+Keep interaction low-friction:
+
+```text
+Space = reveal / hide System model
+C     = focus optional scratch area
+Enter = after Reveal, complete this System Recall phase
+```
+
+No double confirmation or typed-response requirement.
+
+### 10.5 Pre / Post reuse
+
+Before questions:
+
+```text
+SYSTEM RECALL · BEFORE QUESTIONS
+```
+
+After questions / needed repair:
+
+```text
+SYSTEM RECALL · AFTER QUESTIONS
+```
+
+The post-question purpose is to remove concrete question cues again and verify that the learner still owns a coherent System model rather than only remembered question patterns.
+
+Existing Evidence semantics distinguishing `PRE_QUESTION / MID_SWEEP / POST_QUESTION` remain authoritative.
+
+## 11｜Current whole-paper implementation boundary
+
+Current `static-web` has an accepted **System Question Sweep** loader from each System's reviewed question scope. It also has a browser-private whole-paper **holdout** mechanism that excludes selected years wholesale from ordinary System sweeps.
+
+Current does **not yet have a separate learner-facing whole-paper runtime/page** in the accepted Xizong implementation.
+
+Therefore product discussion may design a later whole-paper workbench using Current immutable year/number question identities, but must not describe such a surface as already implemented or Runtime-accepted.
+
+This means:
+
+```text
+System Completion
+→ owns System Recall + that System's question sweep
+
+Xizong-wide Practice / Questions
+→ is the appropriate future owner for whole-paper runs
+```
+
+Holdout exists specifically to protect those future whole-paper runs from being silently consumed by System-by-System practice.
+
+## 12｜Implementation boundary
 
 Do not implement this design yet.
 
 Before Codex work:
 
 ```text
-freeze remaining Mac visual composition
+freeze remaining question-entry / whole-paper product composition
+→ freeze final Mac visual composition
 → confirm any required compatibility migration from current correct/uncertain evidence semantics
 → review hidden-result / whole-paper result-reveal evidence compatibility
 → preserve existing Runtime / Evidence / Repair / Return invariants
