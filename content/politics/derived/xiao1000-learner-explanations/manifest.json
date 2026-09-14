@@ -1,0 +1,66 @@
+{
+  "schema": "kianos.politics.xiao1000_learner_explanation_manifest.v1",
+  "status": "CURRENT_DERIVED_LEARNER_FACING_ASSET",
+  "owner_root": "content/politics/derived/xiao1000-learner-explanations/",
+  "content_version": "politics_xiao1000_learner_explanations_2026-09-14",
+  "data_file": "content/politics/derived/xiao1000-learner-explanations/asset.v1.json.gz",
+  "data_encoding": "gzip(utf-8 JSON)",
+  "derived_payload_sha256": "958f0581deeb9708797884b97eee4f3d69158d3fa58bcdbf2a1e0c7b70070fcd",
+  "compressed_asset_sha256": "236f7992a0753de547a1a6db96983fab1d08f1dc146ad45aba0c9d6820989e56",
+  "record_count": 1148,
+  "subject_counts": {
+    "marx": 396,
+    "mao": 115,
+    "ethics": 166,
+    "history": 251,
+    "xi": 220
+  },
+  "binding": {
+    "field": "question_id",
+    "rule": "EXACT_STABLE_QUESTION_ID_ONLY",
+    "question_truth_owner": "content/politics/source/xiao_2027_questions.jsonl",
+    "question_truth_sha256": "67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d",
+    "missing_or_unbound": "FAIL_CLOSED"
+  },
+  "historical_source": {
+    "filename": "politics_question_explanation_final_freeze_candidate.v1.json",
+    "sha256": "e48d2b06ec1747f97451d147dc172a9b2acf9219d19c5f274c539dc400efbdec",
+    "schema_version": "politics_chat_question_explanation_final_pro_audited_freeze_candidate_v1",
+    "package_status": "FINAL_PRO_AUDIT_PASS_FREEZE_CANDIDATE",
+    "total_records": 1148
+  },
+  "admitted_fields": [
+    "question_id",
+    "legacy_question_id",
+    "subject",
+    "takeaway",
+    "chat_explanation",
+    "xiao_reference",
+    "historical_quality"
+  ],
+  "excluded_question_truth_fields": [
+    "canonical_answer",
+    "stem",
+    "options"
+  ],
+  "promotion_policy": {
+    "mode": "IDENTITY_LEVEL_PROMOTION",
+    "authorized_by_user_on": "2026-09-14",
+    "no_fresh_1148_political_reaudit": true,
+    "historical_qa_labels_are_provenance_only": true,
+    "question_and_answer_truth_remains_current_owned": true,
+    "source_blocks_are_not_promoted_from_legacy": true
+  },
+  "verification": {
+    "source_sha256_exact_match": true,
+    "historical_record_count_exact": true,
+    "runtime_question_id_unique": 1148,
+    "legacy_question_id_unique": 1148,
+    "missing_takeaway": 0,
+    "missing_chat_explanation": 0,
+    "missing_xiao_reference_text": 0,
+    "prior_answer_identity_correction_sentinels_checked": 5,
+    "prior_answer_identity_correction_sentinels_match_current": true
+  },
+  "promotion_receipt": "content/politics/derived/xiao1000-learner-explanations/PROMOTION_RECEIPT.md"
+}

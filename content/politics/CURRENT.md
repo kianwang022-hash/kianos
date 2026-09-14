@@ -42,6 +42,7 @@ Projection asset compilation   COMPLETE
 160 Current NU owners          ACCOUNTED
 151 PASS / 9 REFERENCE_ONLY    ACCEPTED
 Projection BLOCKED             0
+Xiao1000 learner explanations  PROMOTED — 1148 Current-derived records
 UI implementation              IN PROGRESS — Draft PR #117
 Current bounded slice          Xiao1000 Workbench functional parity
 Learner validation / U         UNTESTED
@@ -51,8 +52,8 @@ Current implementation surface:
 
 - Issue #116 owns the full Politics Legacy functional-parity contract;
 - Draft PR #117 is the active overlapping `static-web/**` production slice;
-- #117 intentionally implements the non-#115-dependent Current-native Xiao1000 Workbench parity first;
-- Issue #115 remains a bounded dependency for `takeaway + chat_explanation` promotion and does not reopen Politics Learning/Projection or block unrelated Politics implementation;
+- the former #115 content-promotion dependency is now closed: the authenticated 1148-record `takeaway + chat_explanation + Xiao original-reference` layer lives at `content/politics/derived/xiao1000-learner-explanations/`;
+- remaining #115 work is downstream exact-ID consumer / browser acceptance only; it does not reopen Politics Learning/Projection or alter Current Xiao1000 Question Truth;
 - full parity, real Mac acceptance and learner `U` are **not** claimed yet.
 
 Hard product chain:
@@ -148,6 +149,7 @@ Chat       adaptive semantic repair when earned
 - UI optimization safety method → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
 - full Legacy functional-parity migration contract → Issue #116 + `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`;
 - derived Projection ledger → `content/politics/projection/manifest.json`;
+- derived Xiao1000 learner explanation owner → `content/politics/derived/xiao1000-learner-explanations/manifest.json`;
 - learner truth / U → real Kian use only.
 
 ---
@@ -158,6 +160,7 @@ Chat       adaptive semantic repair when earned
 Politics CURRENT
 → learning engineering already closed through E
 → UI design frozen + Projection assets compiled
+→ Xiao1000 learner explanation content promoted; runtime consumer/browser acceptance remains downstream
 → active implementation: Draft PR #117 under Issue #116
 → semantic work: prefer real learner use unless a concrete defect reopens an owner
 → UI work: Product Status → UI Review Protocol → contracts/design → exact Projection owner → touched Runtime/Evidence
