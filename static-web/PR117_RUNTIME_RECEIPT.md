@@ -10,7 +10,7 @@ Program #113: Stage 0 #138 has a reviewed-for-submission artifact in PR #144, bu
 
 This local execution task, owning `/Users/ben/KianOSBeta-issue117`, is the #117 branch writer for this handoff. The app inventory showed no other active execution task; branch workflow runs were completed, and repeated remote readbacks held at `6820d20cfa5064a70acbc0275d2211b116cd1657`. That remote tip is an ancestor of the existing local Runtime commits. The later temporary workflow churn described in the historical receipt below is no longer the current remote tip.
 
-Existing implementation `8d60b722`, receipt/screenshots `b0edfbef`, and the exported handoff patch remain preserved. Latest main was merged into the task branch without conflicts; no prior Runtime patch was recreated. Publication uses an ordinary fast-forward push to the existing #117 branch, never force push. No second overlapping PR or branch writer is introduced.
+Existing implementation `8d60b722`, receipt/screenshots `b0edfbef`, and the exported handoff patch remain preserved. Latest main was merged into the task branch without conflicts; no prior Runtime patch was recreated. Publication uses an ordinary fast-forward push to the existing #117 branch, never force push. No second overlapping PR or branch writer is introduced. The optional isolated-test workflow originally added in our unpublished implementation was omitted from the final tree because the GitHub credential lacks workflow scope; its history remains locally preserved, and all runnable test scripts/evidence remain included. No existing remote workflow was removed.
 
 ### Incremental implementation and evidence
 
