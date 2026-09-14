@@ -13,6 +13,7 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
       <div class="politicsHeroActions">
         <button type="button" class="primary" data-start-session>按当前范围开始</button>
         <button type="button" data-resume-session hidden>继续上次题组</button>
+        <button type="button" data-finish-paused hidden>结束本组</button>
       </div>
     </div>
     <div class="politicsHeadlineStats" aria-label="当前训练范围">
@@ -144,7 +145,7 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
   </section>
 
   <section class="politicsSessionComplete" data-session-complete hidden>
-    <span>本组完成</span>
+    <span data-complete-label>本组完成</span>
     <h2 data-complete-title></h2>
     <div class="completeStats">
       <strong data-complete-score></strong>

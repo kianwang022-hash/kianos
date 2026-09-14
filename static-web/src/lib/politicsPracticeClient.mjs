@@ -81,7 +81,7 @@ export function initPoliticsPractice(root) {
   const scopeSummary = () => {
     const count = eligible().length;
     text('[data-scope-summary]', `当前范围 ${count} 题`);
-    text('[data-available-count]', count); text('[data-target-count]', controls.count.value);
+    text('[data-available-count]', count); text('[data-target-count]', Math.min(count, Number(controls.count.value)));
     const unavailable = (catalog.unavailable || []).filter((q) => controls.subject.value === 'all' || q.subject === controls.subject.value).length;
     text('[data-practice-unavailable]', `${unavailable} 题尚无可用的学习单元绑定，暂不开放练习。`);
     hide('[data-practice-unavailable]', !unavailable);
@@ -216,13 +216,16 @@ export function initPoliticsPractice(root) {
     root.toggleAttribute('data-completed', session?.status === 'completed');
     hide('[data-practice-session]', !active()); hide('[data-session-complete]', session?.status !== 'completed');
     hide('[data-resume-session]', session?.status !== 'paused');
+    hide('[data-finish-paused]', session?.status !== 'paused');
     hide('[data-practice-setup]', active() || session?.status === 'completed');
     $$('[data-start-session], [data-start-session-inline]').forEach((b) => { b.disabled = active() || session?.status === 'paused' || blocked; });
     scopeSummary();
     if (active()) renderQuestion();
     if (session?.status === 'completed') {
       const rows = Object.values(session.results), correct = rows.filter((r) => r.correct).length;
-      text('[data-complete-title]', `${rows.length} 题完成`); text('[data-complete-score]', `${correct} / ${rows.length} 正确`);
+      text('[data-complete-label]', session.endedEarly ? '本组已结束' : '本组完成');
+      text('[data-complete-title]', session.endedEarly ? `已答 ${rows.length} 题 · ${session.ids.length - rows.length} 题未作答` : `${rows.length} 题完成`);
+      text('[data-complete-score]', rows.length ? `${correct} / ${rows.length} 正确` : '本组尚未作答');
       text('[data-complete-time]', `总用时 ${seconds(rows.reduce((sum, r) => sum + r.elapsedMs, 0) / 1000)}`);
       text('[data-complete-wrong]', `错题 ${rows.length - correct} · 不确定 ${rows.filter((r) => r.uncertain).length}`);
       const counts = Object.fromEntries(['memory', 'understanding', 'options', 'careless'].map((c) => [c, session.ids.filter((id) => meta.causes?.[id] === c).length]));
@@ -316,6 +319,13 @@ export function initPoliticsPractice(root) {
   on('[data-start-session], [data-start-session-inline]', 'click', start);
   on('[data-resume-session]', 'click', () => { if (blocked) return; saveSession({ ...session, status: 'active' }); clearError(); render(); });
   on('[data-exit-session]', 'click', pause);
+  on('[data-finish-paused]', 'click', () => {
+    if (blocked || busy || session?.status !== 'paused' || session.pending) return;
+    ensureWritable();
+    if (!window.confirm('结束本组？已答记录和备注会保留；未答题不会记为已完成。')) return;
+    saveSession({ ...session, status: 'completed', endedEarly: true, completedAt: iso() });
+    clearError(); render();
+  });
   on('[data-start-another]', 'click', () => { if (session?.status !== 'completed') return; root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false); $$('[data-start-session], [data-start-session-inline]').forEach((b) => { b.disabled = false; }); $('[data-learned-scope]').checked = false; });
   on('[data-submit]', 'click', submit); on('[data-next-question]', 'click', nextQuestion);
   on('[data-retry-save]', 'click', () => { ensureWritable(); flushPending(); });

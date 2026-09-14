@@ -126,6 +126,16 @@ try {
   const samples=[longestFace,longestExplanation,...catalog.subjects.map(s=>ready.find(q=>q.subject===s.id&&q.type==='multiple'))];
   for(const q of samples){const {p,context,errors}=await pageFor('/politics/practice/?question='+q.id);await start(p);await clean(p);await shot(p,`clean-${q.id}`);await answer(p,q.answer);await verifyResult(p,q);await shot(p,`result-${q.id}`);const s=p.locator('[data-review-sources] details').first();if(await s.count()){await s.locator('summary').click();await p.evaluate(()=>scrollTo(0,document.body.scrollHeight));await shot(p,`source-${q.id}`);}
     await p.setViewportSize({width:700,height:900});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);pass(`formal Mac content/source coverage and narrow overflow: ${q.id}`);await context.close();}
+  {
+    const {p,context}=await pageFor('/politics/practice/?question=X1000-MARX-S-001');await start(p);await answer(p,'A');
+    await p.fill('[data-note]','提前结束也保留');await p.click('[data-exit-session]');const first=await read(p,K.attempts),evidence=await read(p,K.evidence);
+    await failStorage(p,K.session);await p.click('[data-finish-paused]');assert.equal((await read(p,K.session)).status,'paused');assert.deepEqual(await read(p,K.attempts),first);
+    await p.evaluate(()=>{window.__fail=null;});await p.click('[data-finish-paused]');await p.reload();await p.locator('[data-session-complete]').waitFor({state:'visible'});
+    assert.match(await p.locator('[data-complete-title]').innerText(),/已答 1 题 · 4 题未作答/);assert.deepEqual(await read(p,K.attempts),first);assert.deepEqual(await read(p,K.evidence),evidence);assert.equal((await read(p,K.meta)).notes['X1000-MARX-S-001'],'提前结束也保留');await shot(p,'ended-early');
+    await p.goto(base+'/politics/practice/?question=X1000-HISTORY-M-001');await p.click('[data-start-another]');await start(p);await clean(p);assert.equal((await current(p)).id,'X1000-HISTORY-M-001');
+    await p.click('[data-exit-session]');await p.click('[data-finish-paused]');assert.match(await p.locator('[data-complete-title]').innerText(),/已答 0 题 · 5 题未作答/);assert.equal(await p.locator('[data-complete-score]').innerText(),'本组尚未作答');assert.deepEqual(await read(p,K.attempts),first);
+    pass('explicit early end preserves attempts/notes/evidence, records unanswered honestly, survives failure/refresh and allows a new exact scope');await context.close();
+  }
   report.status='PASS';
 }catch(e){report.status='FAIL';report.error=e.stack;console.error(e);process.exitCode=1;}
 finally{report.implementationSha256=Object.fromEntries(['politicsPractice.mjs','politicsPracticeClient.mjs','politicsPracticeView.mjs','politicsPracticeBridge.mjs'].map(f=>[f,createHash('sha256').update(fs.readFileSync('src/lib/'+f)).digest('hex')]));fs.writeFileSync(path.join(out,'formal-journeys.json'),JSON.stringify(report,null,2));await browser.close();}
