@@ -28,6 +28,35 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Repair Phase-3 parser escaping
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('static-web/scripts/build-xizong-b-learning-candidate.mjs')
+          lines = p.read_text(encoding='utf-8').splitlines(keepends=True)
+          markers = (
+              'if (order && /',
+              'const direct = blockId.match(/',
+              'const normalized = blockId.match(/',
+              'const byName = filename.match(/',
+              'const patterns = [/',
+              'const kpCount = [...text.matchAll(/',
+          )
+          changed = 0
+          out = []
+          for line in lines:
+              if any(marker in line for marker in markers):
+                  fixed = line.replace('\\\\', '\\')
+                  if fixed != line:
+                      changed += 1
+                  line = fixed
+              out.append(line)
+          if changed != 6:
+              raise SystemExit(f'B_L_PARSER_REPAIR_COUNT_MISMATCH:{changed}')
+          p.write_text(''.join(out), encoding='utf-8')
+          print(f'B parser regex literals repaired: {changed}')
+          PY
       - name: Build audited B learning candidate
         working-directory: static-web
         run: node scripts/build-xizong-b-learning-candidate.mjs
@@ -37,14 +66,17 @@ jobs:
           git config core.quotePath false
           mapfile -t changed < <(git status --short | sed -E 's/^.. //')
           printf '%s\n' "${changed[@]}"
-          test "${#changed[@]}" -eq 1
-          test "${changed[0]}" = 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
-      - name: Commit candidate owner
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - name: Commit repaired compiler and candidate owner
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
-          git commit -m 'xizong: materialize B learning support candidate'
+          git add -- \
+            'static-web/scripts/build-xizong-b-learning-candidate.mjs' \
+            'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+          git commit -m 'xizong: materialize B Phase 3 learning owner'
           git pull --rebase origin main
           git push origin HEAD:main
