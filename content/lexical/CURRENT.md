@@ -4,19 +4,19 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 
 ## Current mainline
 
-**Latest completed bounded implementation:** `o2625–o2874`.
+**Latest completed bounded implementation:** `o2875–o3124`.
 
 Accepted landing:
 
-- semantic authority: `content/lexical/semantic-review/o2625-o2874.md`;
-- implementation PR: **#132**;
-- merge commit: `afc26768182cbfc083c58905c9f9b045d831d0be`;
+- semantic authority: `content/lexical/semantic-review/o2875-o3124.md`;
+- implementation PR: **#133**;
+- merge commit: `eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe`;
 - exact scope: 250 owners;
-- `NO_CHANGE`: 219 / 219 byte-preserved;
-- `UPGRADE`: 31 / 31 mechanically applied;
+- `NO_CHANGE`: 220 / 220 byte-preserved;
+- `UPGRADE`: 27 / 30 mechanically applied; 3 identity escalations remain pending Sol;
 - `BLOCKED`: 0;
 - semantic escalations: 0;
-- identity reconciliation: 25 `REUSE_EXISTING_STABLE` + 4 `NEW_SEMANTIC_BRANCH` + 0 `ESCALATE_IDENTITY`;
+- identity reconciliation: 22 `REUSE_EXISTING_STABLE` + 0 `NEW_SEMANTIC_BRANCH` + 3 `ESCALATE_IDENTITY`;
 - Relation closure: PASS;
 - Form closure: PASS;
 - full final-object readback: PASS;
@@ -26,24 +26,24 @@ Prior bounded implementation packages through `o0474` are already historical lan
 
 ## Catalog execution
 
-**ACTIVE — bounded implementation and integration only for `o2875–o3124`.**
+**ACTIVE — bounded implementation and integration only for `o3125–o3374`.**
 
 Semantic authority is exactly:
 
-`content/lexical/semantic-review/o2875-o3124.md`
+`content/lexical/semantic-review/o3125-o3374.md`
 
 This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o2625+`.
 
-The prior package is integrated at `main@afc26768`; this activation is limited to the next 250-owner handoff. It does not activate `o3125+`.
+The prior package is integrated at `main@eb842dc6`; this activation is limited to the next 250-owner handoff. It does not activate `o3375+`.
 
-Local bounded implementation is now mechanically applied and read back for all 250 owners (`220 NO_CHANGE`, `27 UPGRADE applied`, `3 identity escalations`, `0 BLOCKED`); integration/CI remains pending on this package branch. No `o3125+` activation has occurred.
+Local bounded implementation is now mechanically applied and read back for all 250 owners (`207 NO_CHANGE`, `43 UPGRADE`, `0 BLOCKED`); integration/CI remains pending on this package branch. No `o3375+` activation has occurred.
 
 ## Exact next action
 
-The active lexical range is exactly `o2875–o3124`; do not activate `o3125+` from the executor side.
+The active lexical range is exactly `o3125–o3374`; do not activate `o3375+` from the executor side.
 
 1. Complete bounded CI/integration for this package and read back the merged main.
-2. Preserve the 3 handoff identity escalations as unresolved until Sol decides; after merge, refresh `main` before any later activation and do not activate `o3125+` from this package.
+2. After merge, refresh `main` before any later activation and do not activate `o3375+` from this package.
 
 ## Frozen identity rule
 
