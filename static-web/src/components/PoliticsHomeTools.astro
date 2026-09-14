@@ -1,14 +1,15 @@
 ---
-const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
+const { firstHref, firstLabel = '继续政治学习' } = Astro.props;
+const politicsPath = `${import.meta.env.BASE_URL}politics/`.replace(/\/+/g, '/');
 ---
-<section class="politicsHomeTools" data-politics-home-tools data-has-handoff="false">
-  <a class="politicsContinue" data-politics-continue href={firstHref}>
-    <span class="politicsHomeEyebrow">Continue</span>
+<section class="politicsHomeTools" data-politics-home-tools data-politics-path={politicsPath} data-has-handoff="false" data-has-resume="false" hidden>
+  <a class="politicsContinue" data-politics-continue hidden href={firstHref}>
+    <span class="politicsHomeEyebrow">继续学习</span>
     <span class="politicsContinueBody">
       <strong data-politics-continue-title>{firstLabel}</strong>
-      <small data-politics-continue-meta>从第一章进入；之后自动回到最近打开的位置。</small>
+      <small data-politics-continue-meta>返回上次的学习位置。</small>
     </span>
-    <b aria-hidden="true">Continue →</b>
+    <b aria-hidden="true">继续 →</b>
   </a>
   <section class="politicsHandoff" hidden>
     <div>
@@ -27,49 +28,66 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
     const evidenceKey = 'kianos-politics-evidence-v1';
     const localStudyDay = () => new Date().toLocaleDateString('en-CA');
     const readJson = (key, fallback) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; } catch { return fallback; }
+      try { return JSON.parse(localStorage.getItem(key) || 'null') ?? fallback; } catch { return fallback; }
     };
-
-    const last = readJson(lastKey, null);
-    const continueLink = root.querySelector('[data-politics-continue]');
-    if (last?.href && (last.unit_id || last.question_id || last.action) && continueLink instanceof HTMLAnchorElement) {
-      const target = new URL(last.href, location.origin);
-      if (target.origin === location.origin && target.pathname.startsWith('/politics/')) continueLink.href = target.href;
-      const title = root.querySelector('[data-politics-continue-title]');
-      const meta = root.querySelector('[data-politics-continue-meta]');
-      if (title) title.textContent = last.title || `${last.subject || ''} ${last.chapter || ''}`.trim() || '继续政治学习';
-      if (meta) meta.textContent = `${last.subject || 'Politics'} · ${last.chapter || ''} · 继续当前任务`;
-    }
-
+    // A location is one object: never combine a rejected destination with its title.
+    // Reading Home must not create, repair or overwrite private learner state.
+    const validResume = () => {
+      const last = readJson(lastKey, null);
+      if (!last || typeof last.href !== 'string' || !last.href.trim()
+        || ![last.unit_id, last.question_id, last.action].some(value => typeof value === 'string' && value.trim())) return null;
+      try {
+        const target = new URL(last.href, location.origin);
+        const prefix = root.dataset.politicsPath || '/politics/';
+        if (target.origin !== location.origin || target.username || target.password || !target.pathname.startsWith(prefix)) return null;
+        return { last, href: target.pathname + target.search + target.hash };
+      } catch { return null; }
+    };
+    // The handoff is a projection of meaningful repair evidence, not every event today.
     const todayEvents = () => {
       const events = readJson(evidenceKey, []);
       const day = localStudyDay();
-      return Array.isArray(events) ? events.filter((event) => event?.study_day === day) : [];
+      return Array.isArray(events) ? events.filter(event => event?.study_day === day
+        && (event.outcome === 'WRONG' || event.outcome === 'UNCERTAIN')) : [];
     };
-
     const buildPacket = () => ({
       schema: 'kianos.politics.return_packet.v1',
       study_day: localStudyDay(),
       exported_at: new Date().toISOString(),
-      last_location: readJson(lastKey, null),
+      last_location: validResume()?.last ?? null,
       events: todayEvents()
     });
-
-    const renderSummary = () => {
-      const summary = root.querySelector('[data-politics-handoff-summary]');
-      if (!summary) return;
+    const render = () => {
+      const resume = validResume();
+      const continueLink = root.querySelector('[data-politics-continue]');
+      if (continueLink instanceof HTMLAnchorElement) {
+        continueLink.hidden = !resume;
+        if (resume) {
+          continueLink.href = resume.href;
+          const { last } = resume;
+          const title = root.querySelector('[data-politics-continue-title]');
+          const meta = root.querySelector('[data-politics-continue-meta]');
+          if (title) title.textContent = last.title || '继续政治学习';
+          if (meta) meta.textContent = last.action === 'EXTERNAL_LEARN'
+            ? '回到本单元定位，在 iPad / MarginNote 继续乘风原讲义。'
+            : '返回上次的题目或单元位置。';
+        }
+      }
       const events = todayEvents();
       const handoff = root.querySelector('.politicsHandoff');
       if (handoff instanceof HTMLElement) handoff.hidden = !events.length;
-      root.dataset.hasHandoff = events.length ? 'true' : 'false';
-      const wrong = events.filter((event) => event.outcome === 'WRONG').length;
-      const uncertain = events.filter((event) => event.outcome === 'UNCERTAIN').length;
-      summary.textContent = events.length
+      root.dataset.hasHandoff = String(events.length > 0);
+      root.dataset.hasResume = String(Boolean(resume));
+      root.hidden = !resume && !events.length;
+      const summary = root.querySelector('[data-politics-handoff-summary]');
+      const wrong = events.filter(event => event.outcome === 'WRONG').length;
+      const uncertain = events.filter(event => event.outcome === 'UNCERTAIN').length;
+      if (summary) summary.textContent = events.length
         ? `今天 ${events.length} 条需要处理 · ${wrong} Wrong · ${uncertain} Uncertain。`
         : '今天还没有需要带回 Chat 的政治证据。';
+      root.dataset.politicsHomeReady = 'true';
     };
-
-    root.querySelector('[data-politics-copy-handoff]')?.addEventListener('click', async (event) => {
+    root.querySelector('[data-politics-copy-handoff]')?.addEventListener('click', async event => {
       const button = event.currentTarget;
       const text = JSON.stringify(buildPacket(), null, 2);
       try {
@@ -80,14 +98,19 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       }
       window.setTimeout(() => { button.textContent = "Copy Today's Handoff"; }, 1200);
     });
-
-    renderSummary();
+    render();
+    // Back/forward cache and another study tab may change the real interrupted task.
+    addEventListener('pageshow', render);
+    addEventListener('storage', event => {
+      if (event.key === null || event.key === lastKey || event.key === evidenceKey) render();
+    });
   }
 </script>
 
 <style>
   .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);overflow:hidden;margin-top:10px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-surface);box-shadow:0 12px 34px rgba(22,31,27,.045)}
   .politicsHomeTools[data-has-handoff="false"] .politicsContinue{grid-column:1/-1}
+  .politicsHomeTools[data-has-resume="false"] .politicsHandoff{grid-column:1/-1;border-left:0}
   .politicsContinue{display:grid;grid-template-columns:86px minmax(0,1fr) auto;align-items:center;gap:18px;min-height:112px;padding:20px 24px;color:inherit;text-decoration:none;transition:background 140ms ease}
   .politicsContinue:hover{background:#f7faf8}
   .politicsHomeEyebrow{color:var(--study-green);font-size:12px;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
