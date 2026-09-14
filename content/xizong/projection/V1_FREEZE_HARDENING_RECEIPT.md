@@ -1,6 +1,7 @@
 # Xizong Cognitive Projection v1 — Independent Freeze Hardening Receipt
 
 Status: **CANDIDATE — FINAL PR CI REQUIRED BEFORE FREEZE CLAIM**  
+Final validation PR: `#111`  
 Base Current closure inspected: `main@5ddfd87d8b757c25d134f2bba4eb7aa6a19fc3b1`  
 Original full compilation: `3cb882691ace183d46f771b910b354d0419e9d07`  
 Source/Product snapshot immediately before compilation: `49acc3e850c25e4ef70b764860e2d93ba544e7f0`
