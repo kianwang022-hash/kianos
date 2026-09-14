@@ -1,73 +1,55 @@
 # Politics Product / Projection Status
 
-Status: **UI DESIGN FROZEN · COGNITIVE PROJECTION ASSETS COMPILED · UI IMPLEMENTATION IN PROGRESS — PR #117**  
+Status: **LEARNING CLOSED THROUGH E · UI DESIGN FROZEN · COGNITIVE PROJECTION COMPILED · POST-CLOSURE UI/PARITY IMPLEMENTATION IN PROGRESS — PR #117**  
 Role: current Politics productization task contract / implementation handoff  
 Lane cursor: `content/politics/CURRENT.md`  
 UI safety method: `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`  
+Execution frames: `static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md` **v2.1+**  
 Design detail owner: `static-web/POLITICS_PRODUCT_BRIEF.md` + five subject design files  
-Derived asset owner: `content/politics/projection/manifest.json`  
+Projection owner: `content/politics/projection/manifest.json`  
+Xiao1000 learner-explanation owner: `content/politics/derived/xiao1000-learner-explanations/manifest.json`  
 Shared presentation grammar: `static-web/PRESENTATION_CONTRACT.md`  
 Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
 Style owner: `static-web/UI_STYLE_BRIEF.md`
 
-This file owns the **current Politics UI/productization task setting** after design freeze and Projection compilation. It supersedes only stale stage/cursor wording in older design/UI cursor documents (for example `ACTIVE DESIGN TARGET`, `History C01 pilot first`, `Politics learning projection REBUILD`, or `mass Projection not yet compiled`). It does not replace or reinterpret accepted subject UI decisions, Politics Learning/Interaction semantics, Current Content, Runtime, Evidence, learner progress, or `U`.
+This file owns the **current Politics UI/productization task setting**. It does not reopen or reinterpret accepted Politics Content, Learning, Projection, Runtime/Evidence semantics or learner `U`.
 
 ---
 
-# 0｜Current task name and success condition
+# 0｜Current task identity
 
-The current task is:
+Politics five-subject Learning engineering is already closed:
 
-> **Politics Projection Optimization / Mac-wide Productization Implementation**
+```text
+Marxism    S/K/L/P/R/E PASS · U UNTESTED
+History    S/K/L/P/R/E PASS · U UNTESTED
+Mao        S/K/L/P/R/E PASS · U UNTESTED
+Xi         S/K/L/P/R/E PASS · U UNTESTED
+Ethics-Law S/K/L/P/R/E PASS · U UNTESTED
+```
 
-It is **not** a new Projection design project and **not** a new Politics learning-system build.
+The current task is **post-closure Politics Mac-wide productization / useful-function parity**, not a new Learning or Projection project.
 
 Current execution cursor:
 
 ```text
-Issue #116 full functional-parity contract
+accepted Politics Product / Projection
+→ Issue #116 post-closure functional-parity contract
 → Draft PR #117 ACTIVE
-→ bounded Current-native Xiao1000 Workbench parity slice
-→ #115 is a bounded submitted-result explanation dependency
-→ CI / browser / independent parity audit / Mac acceptance remain open
+→ Current-native Xiao1000 Workbench parity
+→ promoted learner-explanation exact-ID consumer
+→ browser / Mac-wide / independent parity acceptance
 ```
 
-PR #117 is the current overlapping Politics `static-web/**` production surface. Continue that PR instead of opening a competing large Politics Workbench implementation branch. Its existence does not claim full Politics productization or learner `U` closure.
+The former #115 content-promotion dependency is **completed** via merged PR #124. The authenticated 1148-record `takeaway + chat_explanation + xiao_reference` layer now lives in Current-derived content. Do not treat stale #115 wording as a blocker or restart semantic migration.
 
-Correct causal chain:
-
-```text
-Current Politics Content / Learning Logic
-        ↓ semantic authority
-accepted subject-specific Projection semantics
-        ↓
-53 compiled chapter Projection owners
-        ↓
-160 Current Natural Unit owners accounted
-        ↓
-existing Runtime / Evidence / Repair / Return
-        ↓
-Mac-wide UI implementation / optimization
-```
-
-Forbidden reset:
-
-```text
-raw Current chapter JSON
-→ UI / Codex re-interprets the subject
-→ invents a cleaner page / cognitive shape
-→ reconnects Runtime afterward
-```
-
-The Politics UI task is complete only when the already-accepted learner experience is implemented against the compiled Projection layer, real Mac-wide browser geometry has been reviewed, all protected Runtime/Evidence/Return behavior still passes, and the implementation receives a **zero-semantic-diff** acceptance.
-
-Repository/browser completion still does not manufacture learner validation. `U` remains real Kian use only.
+PR #117 is the current overlapping Politics `static-web/**` production surface. Continue it instead of opening a competing large Politics Workbench PR. Its existence does **not** mean Politics Learning is unclosed and does not block Kian from beginning real Politics study.
 
 ---
 
 # 1｜Current closure and authority boundary
 
-Politics learner-facing design is frozen at the product/subject-grammar level. The separate Cognitive Projection Asset Compilation lane has completed from fresh Current reads.
+Politics learner-facing Product/subject grammar is frozen. Cognitive Projection compilation is complete:
 
 ```text
 Current Politics Content
@@ -80,10 +62,8 @@ Current Politics Content
         ↓
 subject-specific cognitive geometry preserved
         ↓
-ready for the already-designed Mac-wide UI to consume
+Mac-wide UI consumer / productization
 ```
-
-Subject accounting:
 
 | Subject | Chapters | Current NU owners | PASS | REFERENCE_ONLY | BLOCKED |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -101,38 +81,40 @@ Current Content
 = semantic authority
 
 content/politics/projection/**
-= accepted derived learner-facing representation layer
+= accepted derived learner-facing cognitive representation
+
+content/politics/derived/xiao1000-learner-explanations/**
+= accepted derived question-bound learner-facing explanation layer
 
 Politics Runtime / Evidence / Repair / Return
-= executable learner behavior and evidence semantics
+= executable learner behavior + evidence semantics
 
 Politics UI implementation
-= consumer / presentation optimization layer
+= consumer / presentation / low-friction optimization
 ```
 
 Hard consumer rules:
 
 - Current Content remains semantic authority;
-- UI/Codex consumes `content/politics/projection/**` for cognitive shape;
-- UI resolves only Current refs selected by the Projection owner;
-- empty/null Projection values are not permission to synthesize missing teaching content;
-- selector scope must not be widened;
-- `first_round_exact` may only render accepted Current-owned first-round exact objects;
-- `REFERENCE_ONLY` owners remain non-teaching payloads;
-- Chengfeng continuous learning remains `IPAD_MARGINNOTE`;
-- unsupported or stale Projection fails closed instead of falling back to raw-Current shape inference;
-- Runtime, Evidence, question ownership and learner progress are unchanged by UI productization.
+- UI consumes compiled Projection for cognitive shape rather than re-inferring from raw chapter JSON;
+- UI resolves only Current refs selected by Projection owners;
+- null/empty/unsupported/stale does not authorize synthetic teaching content;
+- `REFERENCE_ONLY` remains non-teaching;
+- `first_round_exact` remains Current-owned;
+- Chengfeng continuous learning remains original iPad/MarginNote;
+- promoted Xiao1000 explanation content binds by exact stable question ID and never becomes Question Truth;
+- Runtime/Evidence/question ownership/learner state do not change merely because UI is productized.
 
 ---
 
-# 2｜Frozen learner journey that UI implementation must preserve
+# 2｜Frozen learner journey
 
 Shared first-round Politics journey:
 
 ```text
 Politics Home / meaningful Continue
 → subject / chapter / current Natural Unit orientation
-→ Chengfeng continuous study on original iPad / MarginNote surface
+→ Chengfeng continuous study on original iPad / MarginNote
 → return / optional close or checkpoint
 → Xiao1000 clean verification in Astro
 → stable correct → continue cheaply
@@ -142,8 +124,6 @@ Politics Home / meaningful Continue
    → exact return to interrupted question / Unit path
 → next question / Natural Unit / meaningful Resume
 ```
-
-Later phases may add selective Memory, compression, analysis-output practice and Mock transfer only when their owning phase makes them learner-relevant.
 
 Protected surface ownership:
 
@@ -158,111 +138,122 @@ Chat       adaptive semantic repair when earned
 `Source ownership ≠ Surface ownership.`  
 `Engineering state ≠ learner state.`
 
-No visual/product change may silently turn Astro into a second continuous Chengfeng reader, make Xiao1000 organize first learning, or expose later-stage learning merely because Runtime supports it.
+No UI change may silently turn Astro into a second Chengfeng continuous reader, make Xiao1000 organize first learning, or expose later-stage learning simply because Runtime supports it.
 
 ---
 
-# 3｜What this task may optimize
+# 3｜Minimum-sufficient learner action / No mandatory ritual
 
-Normal Politics UI work is restricted to three product problems. These are the Politics-adapted equivalents of the current Xizong optimization model.
+Politics Product inherits the cross-subject rule in `CODEX_THREE_SUBJECT_IMPLEMENTATION.md` v2.1:
 
-## 3.1 Projection loss → `RESTORE_FROM_PROJECTION`
+```text
+Construct → Attack → Survive / Change → Freeze
 
-The compiled Projection already owns a learner-facing semantic object, but the current renderer/UI drops it, over-compresses it, hides it behind unnecessary interaction, or falls back to a lossy generic adapter.
+UI = minimum-sufficient learner action
+```
 
-Restore from:
+Every new persistent `panel / step / gate / checkpoint / confirmation / chrome` must answer:
+
+- what real exam loss / cognition loss / learner friction does it prevent?
+- what future operation does it remove rather than create?
+- can it be deleted, merged or demoted without reducing learning value or Evidence integrity?
+- does stable/correct work stay cheap?
+- is backend richness being projected into unnecessary learner burden?
+
+If deletion preserves value and evidence, do not make the action mandatory.
+
+> `Shorter text alone is not compression.` Presentation simplification must not delete necessary semantic structure or create a second course that Kian has to operate.
+
+This rule applies especially to Recall-like confirmations, diagnosis panels, Memory widgets, framework chrome and Workbench post-answer blocks.
+
+---
+
+# 4｜Allowed UI optimization classes
+
+Normal Politics UI work uses only these bounded categories unless a real defect reopens an upstream owner.
+
+## 4.1 `RESTORE_FROM_PROJECTION`
+
+The compiled Projection owns a useful learner-facing semantic object but the current UI drops, hides or over-compresses it.
+
+Restore through:
 
 ```text
 manifest
 → exact chapter Projection owner
-→ only the Current refs explicitly selected by that owner
+→ only refs selected by that owner
 ```
 
-Examples include restoring accepted History cause/evaluation/turning-point geometry, Marxism topology or simultaneous multi-map visibility, Mao role/theory-response geometry, Xi hierarchy/identity/boundary structure, or Ethics-Law evaluation/concept/scene geometry.
+Do not bypass Projection and reconstruct a new cognitive shape from raw Current.
 
-Do **not** bypass the Projection layer and reconstruct a new shape from raw chapter JSON.
+## 4.2 `OPTIMIZE` / `DEMOTE`
 
-## 3.2 Projection friction → `OPTIMIZE` / `DEMOTE`
+The semantic object/behavior is right but presentation creates unnecessary learner cost.
 
-The semantic object and learner behavior are already correct, but the presentation creates avoidable learner cost.
+Examples:
 
-Valid targets include:
-
-- baseline useful structure hidden behind needless tabs/details/reveal controls;
+- baseline useful structure hidden behind needless tabs/details;
 - narrow article-column carryover on a wide Mac;
-- permanent method/keyboard/source/runtime chrome competing with the cognitive task;
-- excessive card/panel fragmentation;
-- repeated architecture explanations;
-- later precision/reference material shown too early;
-- unnecessary confirmation or navigation steps;
-- duplicated content between Astro and Chengfeng;
-- context loss across iPad ↔ Astro ↔ Chat handoff/return.
+- permanent method/runtime chrome competing with cognition;
+- excessive card fragmentation;
+- later precision/reference shown too early;
+- unnecessary confirmations;
+- duplicated teaching between Astro and Chengfeng;
+- context loss across iPad ↔ Astro ↔ Chat.
 
 Demotion changes prominence/timing, not ownership or capability.
 
-## 3.3 Projection geometry → `OPTIMIZE`
+## 4.3 Geometry optimization
 
-Semantics and interaction are correct, but the Mac-wide surface does not express the Current/Projection relation clearly enough.
+Use Mac width for genuine semantic relations:
 
-Valid work includes:
-
-- horizontal parallelism when Current relations are genuinely parallel;
+- parallelism when Current objects are parallel;
 - side-by-side comparison when discrimination matters;
-- simultaneous visibility when multiple first-round maps are equally useful and fit the viewport;
-- persistent chapter/Unit context when it prevents relocation cost;
-- relation drawing / hierarchy / timeline / matrix / comparison geometry supported by the compiled Projection;
-- bounded/local scrolling when density is real.
+- simultaneous maps when both are first-round useful;
+- persistent local context when relocation cost is real;
+- timeline/matrix/hierarchy/relation drawing when Projection supports it;
+- local scrolling when density is real.
 
-This is spatial/representation engineering, not semantic editing.
+This is representation engineering, not semantic editing.
 
 ---
 
-# 4｜Mac-wide product principles
+# 5｜Mac-wide product principles
 
-Mac wide landscape is the Politics design origin. iPad/MarginNote remains the companion surface for continuous Chengfeng study. Narrow layouts are responsive fallback, not the source of the primary information architecture.
+Mac landscape is the design origin. iPad/MarginNote remains companion surface for continuous Chengfeng study. Narrow layouts are fallback, not the source of information architecture.
 
 Hard spatial rule:
 
-> **Use width to keep simultaneously useful cognitive relations visible; use interaction to switch real cognitive objects or learner states, not to recover baseline information that should already be visible.**
+> **Use width to keep simultaneously useful cognitive relations visible; use interaction to switch genuine cognitive objects/states, not to recover baseline information that should already be visible.**
 
-Politics Mac-wide implementation should prefer:
+Prefer:
 
 - comfortable readable learner text;
 - high useful density with low disorder;
-- wide relation visibility rather than narrow centered article columns;
-- horizontal comparison/parallelism where semantics support it;
-- stable local context when it materially helps orientation;
-- typography, alignment, spacing and relation drawing before decorative cards;
-- progressive disclosure only for genuinely secondary/deep/reference material or protected answer content;
-- local scrolling when needed instead of semantic deletion.
+- wide relation visibility instead of narrow centered articles;
+- horizontal comparison/parallelism when semantics support it;
+- stable local context when useful;
+- typography/alignment/spacing/relation drawing before decorative cards;
+- progressive disclosure only for genuinely secondary/deep/reference or answer-protected content;
+- local scrolling instead of semantic deletion.
 
-Accepted density rule:
-
-> **Presentation compression ≠ semantic compression.**
-
-Do not delete or over-summarize accepted first-round semantic levels merely to fit one viewport. One-viewport fit is not a product goal when it would thin a genuine high-density learner object.
+**Presentation compression ≠ semantic compression.** One-viewport fit is not a goal if it thins a real high-density learner object.
 
 ---
 
-# 5｜Frozen Politics learner-facing surface family
-
-These are responsibility families, not mandatory separate URLs. Several states may share one continuous workspace.
+# 6｜Frozen learner-facing surface family
 
 ## A｜Politics Home
-
-Responsibilities:
 
 ```text
 meaningful Continue
 → free entry into five Politics subjects
-→ real Wrong / Uncertain handoff only when useful
+→ real Wrong / Uncertain attention only when useful
 ```
 
-Do not foreground repository readiness, chapter engineering counts, source health, fake learner percentages, or repeated method explanations.
+No repository readiness, engineering counts, source health, fake progress or repeated method explanations.
 
-## B｜Subject / Chapter / Natural Unit Learning Workspace
-
-Responsibilities:
+## B｜Subject / Chapter / Natural Unit workspace
 
 ```text
 subject/chapter position
@@ -273,71 +264,80 @@ subject/chapter position
 + next bridge
 ```
 
-Only one Natural Unit owns the main cognitive stage at a time; all relevant Units remain freely navigable. Focus is not permission to create a restrictive wizard.
+One NU owns the main cognitive stage at a time; other Units remain freely reachable. Shared shell does not authorize one shared cognitive template.
 
-The shell may stay stable; cognitive geometry varies by subject and compiled Projection shape.
+## C｜External Learn companion / Return
 
-## C｜External Learn companion / Return state
+During Chengfeng continuous learning:
 
-When Chengfeng continuous learning is active:
+- iPad/MarginNote owns source reading;
+- Mac remains desk-side cognitive companion;
+- current Unit identity/problem/compact anchor/locator may remain visible when useful;
+- return does not require a new ritual page;
+- optional close stays lightweight/non-ceremonial.
 
-- iPad/MarginNote owns the continuous source reading;
-- Mac remains the desk-side cognitive companion;
-- current Unit identity/problem/compact relation anchor/locator may remain visible when useful;
-- returning does not require a new learner page;
-- optional close/reconstruction stays lightweight and non-ceremonial.
+## D｜Xiao1000 Workbench
 
-## D｜Xiao1000 Question Workbench
+Protected mature surface. Current exact implementation frames live in `CODEX_THREE_SUBJECT_IMPLEMENTATION.md` v2.1 P10/P11.
 
-This is a protected mature surface, not a Cognitive Projection redesign target.
+Clean attempt must preserve:
 
-Preserve materially:
+- full-width stem;
+- 2×2 Mac options when lengths permit, adaptive otherwise;
+- Normal/Fast;
+- single/multiple safety;
+- Favorite / Uncertain / mark-for-discussion;
+- no correctness leak before submit;
+- optional original-image check where actually materialized;
+- no fixed knowledge-review pane before submission.
 
-- full-width clean question attempt;
-- 2×2 Mac options when appropriate;
-- Normal / Fast behavior;
-- Uncertain / favorite / mark;
-- no correctness leak before submission;
-- historical submitted-result information architecture;
-- `一句话带走`, answer delta, optional cause/note, refined explanation/source/original Xiao explanation where legally available;
-- Next / Return behavior;
-- zero new mandatory `结构 / 易混 / diagnosis` process.
+Submitted result preserves:
 
-Allowed work: visual modernization, exact Current binding and low-friction Mac-wide polish only.
+```text
+left summary/evidence
+→ result
+→ takeaway
+→ learner answer vs formal answer
+→ missing/extra when relevant
+→ optional cause / note
+
+right knowledge review
+→ chat_explanation
+→ Current/Chengfeng source when available
+→ xiao_reference
+→ Next / exact Return
+```
+
+The learner-facing explanation asset is now Current-derived after PR #124. Consumer rules:
+
+- bind exact stable question ID;
+- Current Question Truth remains separate;
+- fail closed if missing/unbound/stale;
+- no OCR fallback;
+- no newly regenerated “AI explanation” replacement;
+- no Legacy runtime fallback.
+
+Do not add mandatory `结构 / 易混 / diagnosis` blocks or one cognitive map per question.
 
 ## E｜Wrong / Uncertain Repair + Return
-
-Responsibilities:
 
 ```text
 first meaningful failure
 → smallest sufficient repair object/source
 → owning Chengfeng source and/or Chat when needed
 → preserve original evidence
-→ exact return to interrupted Unit/question
+→ exact return
 ```
 
-No repair success may rewrite first-attempt truth or manufacture mastery.
+Repair success does not rewrite first attempt or manufacture mastery.
 
-## F｜Later-phase Review / Memory / Analysis-output / Mock
+## F｜Later Review / Memory / Analysis-output / Mock
 
-These capabilities remain phase-owned. They are **not** generic sidebar widgets and are not automatically in scope for first-round UI implementation.
-
-If touched later:
-
-- Memory remains selective;
-- exact/fixed wording enters only under its Current/source/evidence rules;
-- analysis-output is a separate score channel, not proof of first-round understanding;
-- later review should become more compressed, not longer;
-- Mock/transfer remains distinct from first-round repair.
+Phase-owned only. Not generic sidebar widgets and not automatically in first-round UI scope.
 
 ---
 
-# 6｜Subject-specific cognitive geometry is frozen
-
-Shared shell does not authorize a shared subject template.
-
-Politics implementation must preserve these accepted grammar families:
+# 7｜Subject-specific cognitive geometry is frozen
 
 ```text
 Marxism
@@ -356,281 +356,235 @@ Ethics-Law
 concept identity / normative boundary / evaluation / situational application
 ```
 
-Do not normalize them into one generic card grid, one universal vertical chain, one article template, or one decorative dashboard.
-
-The compiled Projection owners decide which semantic shapes actually exist in each chapter/Unit.
+Do not normalize these into one card grid, one universal vertical chain, one article template or one decorative dashboard. The compiled Projection owners determine which semantic shapes actually exist.
 
 ---
 
-# 7｜Mandatory optimization-first review method
+# 8｜Required review/read path
 
-Before a local implementation recommendation/change, follow `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`.
-
-Required order:
+Before a local implementation recommendation/change:
 
 ```text
 A. whole-flow position
-B. existing accepted behavior / exact Projection asset
-C. KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE audit
-D. Mac-wide implementation / visual recommendation
-E. upstream + downstream safety check
-F. browser screenshot / real geometry review
-G. zero-semantic-diff acceptance
+B. exact accepted behavior / Projection asset
+C. KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE
+D. minimum-sufficient interaction attack
+E. Mac-wide implementation
+F. upstream/downstream safety
+G. browser screenshot / real geometry
+H. zero-semantic-diff acceptance
 ```
 
-Do not lead with a replacement mockup. Do not add an implicit fifth audit category called “replace because a cleaner UI can be imagined.”
-
-A genuine redesign/reopen requires fresh contradictory evidence and must identify the earliest responsible owner/gate.
-
----
-
-# 8｜Required read path for each implementation slice
-
-Use the smallest **complete live path**, not the smallest local component.
+Read the smallest complete live path:
 
 ```text
-1. `content/politics/CURRENT.md`
-2. this `POLITICS_PRODUCT_STATUS.md`
-3. `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`
-4. `content/politics/LEARNING_CONTRACT.md`
-5. `content/politics/INTERACTION_CONTRACT.md`
-6. `static-web/PRESENTATION_CONTRACT.md`
-7. `static-web/KIAN_UI_PREFERENCES.md`
-8. `static-web/UI_STYLE_BRIEF.md`
-9. relevant accepted subject design file
-10. `content/politics/projection/manifest.json`
-11. exact chapter `*.projection.json`
-12. only the Current refs explicitly selected by that Projection owner
-13. existing Runtime / Evidence / Repair / Return implementation touched by the slice
-14. scoped Acceptance owner when needed to distinguish closed semantics from open visual polish
+1. content/politics/CURRENT.md
+2. this POLITICS_PRODUCT_STATUS.md
+3. static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md v2.1+
+4. static-web/POLITICS_UI_REVIEW_PROTOCOL.md
+5. content/politics/LEARNING_CONTRACT.md + INTERACTION_CONTRACT.md
+6. PRESENTATION_CONTRACT + Kian UI/style preferences
+7. relevant accepted subject design
+8. content/politics/projection/manifest.json + exact chapter projection
+9. only Current refs selected by that projection
+10. touched Runtime/Evidence/Repair/Return
+11. for Workbench: Current Xiao1000 Question Truth + promoted learner-explanation manifest/receipt
 ```
 
-For Xiao1000 Workbench work, also read only the bounded historical Workbench reference named in `POLITICS_PRODUCT_BRIEF.md`. Raw Legacy is not a general research source or semantic authority.
-
-Codex is not asked to rediscover Politics learner logic, subject grammar, historical architecture or semantic ownership.
+Raw Legacy is not general semantic authority. For Workbench parity, only the bounded historical reference explicitly admitted by the parity contract may be consulted.
 
 ---
 
 # 9｜Implementation roles
 
-## Sol / Chat
+## Chat / Pro
 
-Owns:
-
-- Current/Projection/Runtime authority reconciliation before a slice;
-- whole-flow review;
-- KEEP / OPTIMIZE / RESTORE_FROM_PROJECTION / DEMOTE classification;
-- product interpretation of already-frozen UI decisions;
-- semantic-diff challenge;
-- browser screenshot/journey review;
-- acceptance reconciliation and Current/status updates.
-
-Does **not** silently rewrite Politics content or manufacture learner progress.
+Owns Current/Projection/Runtime reconciliation, whole-flow review, product interpretation, semantic-diff challenge, screenshot/journey review and final reconciliation.
 
 ## Codex
 
-Owns:
-
-- production Astro/CSS/JS implementation;
-- reusable components/view adapters/tokens/responsiveness;
-- consuming compiled Projection assets exactly as bounded;
-- browser iteration/screenshots;
-- build/tests/cleanup;
-- one bounded implementation branch / Draft PR lifecycle;
-- same-PR iteration after review.
+Owns production Astro/CSS/JS, adapters/components/tokens/responsiveness, exact consumer wiring, browser iteration/screenshots, tests/build and bounded PR lifecycle.
 
 Codex must not:
 
 - infer new political semantics from raw Current;
-- perform Legacy archaeology outside a named bounded Workbench reference;
-- change Current Content, Learning Logic, Runtime/Evidence semantics or learner state to make UI implementation easier;
-- create fallback teaching content when Projection is null/unsupported/stale.
+- change Content/Learning/Evidence/learner state to make UI easier;
+- synthesize fallback teaching content;
+- convert available capabilities into mandatory ritual without surviving minimum-sufficient attack.
 
 ## Kian
 
-Owns genuine structural/aesthetic product acceptance and real learner `U` evidence.
+Owns genuine structural/aesthetic acceptance and real learner `U` evidence.
 
 ---
 
-# 10｜Politics implementation program
+# 10｜Current implementation program
 
-Politics is already past design and asset-compilation stages. The remaining program is implementation + real geometry acceptance.
+Politics is past design and asset compilation. Remaining work is downstream productization/parity + real geometry acceptance.
 
 ```text
-Phase 0  Authority / baseline sync
-         CURRENT + PRODUCT_STATUS + UI_REVIEW_PROTOCOL
-         + accepted designs + manifest + exact Projection owner
-         + touched Runtime/Evidence
+Phase 0  authority/baseline sync
+         → latest main + CURRENT + this Status + v2.1 frames
 
-Phase 1  Bounded implementation foundation
-         → shared Politics Mac-wide workspace shell
-         → Projection consumer / view adapters
-         → no raw-Current cognitive-shape inference
-         → preserve existing Runtime / Evidence / Repair / Return
+Phase 1  bounded implementation foundation
+         → shared Mac-wide shell / Projection consumer
+         → preserve Runtime/Evidence/Return
 
-Phase 2  Five-grammar pressure test before mass rollout
-         → at least one representative learner workspace from each subject
-         → Marxism / History / Mao / Xi / Ethics-Law
-         → prove the shared shell can carry different compiled cognitive geometries
-         → no one-off page artwork as the default solution
+Phase 2  five-grammar pressure test
+         → Marxism / History / Mao / Xi / Ethics-Law representative workspaces
+         → shared shell carries different cognition without flattening
 
-Phase 3  Protected interaction surfaces
-         → Politics Home / meaningful Continue integration
-         → Chengfeng handoff / return continuity
-         → Xiao1000 Workbench preservation + visual modernization
-         → Wrong/Uncertain Repair / exact Return
-
-Phase 4  Real Mac-wide browser acceptance
-         → screenshots of representative five-subject workspaces
+Phase 3  protected interaction surfaces
          → Home / Continue
-         → Workbench clean attempt + submitted result
-         → Wrong/Uncertain repair + return
-         → Sol review
-         → Kian structural / aesthetic acceptance
-         → Codex iterates the SAME PR/slice
+         → Chengfeng handoff / Return
+         → Xiao1000 Workbench clean + submitted result
+         → exact-ID promoted explanation consumer
+         → Wrong/Uncertain Repair / Return
 
-Phase 5  Data-driven expansion
-         → expand accepted implementation across all 53 chapter Projection owners
+Phase 4  real Mac browser acceptance
+         → representative screenshots / journeys
+         → independent review
+         → Kian genuine aesthetic/structural choices
+         → same-PR fixes
+
+Phase 5  data-driven expansion
+         → all eligible 53 chapter Projection owners
          → no manual semantic redesign chapter-by-chapter
 
-Phase 6  Final zero-semantic-diff closure
-         → Projection anti-drift validator PASS
-         → Politics existing content/projection/runtime/evidence QA PASS
+Phase 6  zero-semantic-diff closure
+         → Projection anti-drift PASS
+         → Politics content/projection/runtime/evidence QA PASS
+         → Workbench exact-ID / answer-gating PASS
          → Astro build PASS
-         → responsive fallback sanity
+         → responsive sanity
          → no learner-process expansion
-         → merge / advance UI Current
+         → authorized merge / Current readback / branch retirement
 ```
 
-The exact branch/PR slicing may remain bounded by implementation risk; do not force one giant PR merely because the product program is one coherent lane. Each slice must preserve the same authority/read/acceptance rules.
+Current overlapping production PR: **#117**. Refresh it from latest main and continue the same bounded slice; do not open a competing Workbench PR.
 
 ---
 
-# 11｜Durable Projection anti-drift guard
+# 11｜Durable guards
 
-Derived Projection assets are guarded by:
+Projection anti-drift remains guarded by:
 
 `static-web/scripts/validate-politics-cognitive-projection-assets.mjs`
 
-The validator is part of `Static Web Politics QA` and checks, at minimum:
+It must continue checking Projection files/source hashes/chapter reconciliation/NU owner accounting/selectors/first-round exact/Chengfeng handoff/REFERENCE_ONLY/zero BLOCKED as defined by Current contracts.
 
-- every manifest Projection file exists and is `DERIVED_CURRENT`;
-- every Projection `source.path` exists;
-- stored `source.blob_sha` still matches exact Current source bytes;
-- Current chapter files and manifest chapter files reconcile;
-- each chapter's projected Natural Unit owner set reconciles with explicit `source_bindings.natural_unit_ids` plus Current-owned `embedded_natural_unit_ids`, while allowing Projection-specific display ordering;
-- PASS / REFERENCE_ONLY / BLOCKED counts reconcile with the manifest;
-- Current field refs/selectors resolve rather than silently widening/falling back;
-- `first_round_exact` contains Current refs rather than synthesized learner content;
-- Chengfeng handoff remains `IPAD_MARGINNOTE`;
-- `REFERENCE_ONLY` remains non-teaching payload;
-- compiled Current contains no unresolved `BLOCKED` unit.
+Workbench parity must additionally prove:
 
-A Current Content change that makes a derived Projection stale must fail closed until the affected Projection is intentionally recompiled.
+- Current Question Truth binding;
+- exact stable question ID explanation binding;
+- clean attempt answer protection;
+- first-attempt protection;
+- no scheduler resurrection;
+- exact Return/Resume;
+- promoted explanation missing/stale fail-closed behavior.
+
+A Current content change that makes a derived Projection/asset stale must fail closed until intentionally reconciled.
 
 ---
 
-# 12｜Acceptance matrix for a Politics UI slice
+# 12｜Acceptance matrix
 
 A slice is not accepted merely because it looks better.
 
 ## Semantic / Projection
 
-- exact compiled Projection owner consumed;
-- no new subject semantics invented;
-- no accepted semantic object silently dropped;
-- no `REFERENCE_ONLY` promotion;
+- exact Projection owner consumed;
+- no invented subject semantics;
+- no accepted object silently dropped;
+- no REFERENCE_ONLY promotion;
 - no first-round exact widening;
-- no stale/raw-Current fallback;
-- subject-specific cognitive geometry preserved.
+- no stale/raw fallback;
+- subject-specific geometry preserved.
 
 ## Learning / Interaction
 
 - Chengfeng remains external-primary;
-- baseline first-round useful structure is visible without unnecessary reveal tax;
-- clean Xiao1000 attempt stays answer-protected;
-- stable correct remains cheap;
-- Wrong/Uncertain remains the only repair-triggering path where Current says so;
-- no new ritual confirmation/diagnosis/process burden.
+- baseline useful structure visible without needless reveal tax;
+- clean Workbench answer-protected;
+- stable correct cheap;
+- Wrong/Uncertain repair remains narrow;
+- no new ritual confirmation/diagnosis/process burden;
+- each new persistent action survives minimum-sufficient deletion/merge challenge.
 
 ## Runtime / Evidence / Return
 
-- existing stage gating preserved;
-- first-attempt evidence preserved;
-- repair does not rewrite original evidence/mastery;
-- exact return/resume remains executable;
+- stage gating preserved;
+- first attempt preserved;
+- repair does not rewrite mastery;
+- exact return/resume executable;
 - private learner state remains private;
-- later-phase capabilities are not exposed early merely because they exist.
+- later-phase capability not exposed early just because it exists.
 
-## Mac-wide product quality
+## Mac-wide quality
 
-- uses width for useful relations, not decorative chrome;
+- width used for useful relations, not decorative chrome;
 - readable type + high useful density + low disorder;
-- parallel/comparative relations are not serialized falsely;
-- no generic card-grid flattening across subjects;
-- important baseline structure is not hidden merely for visual tidiness;
-- responsive fallback exists without redefining the Mac-first information architecture.
+- parallel relations not falsely serialized;
+- no generic card-grid flattening;
+- important baseline structure not hidden merely for tidiness;
+- responsive fallback does not redefine Mac-first IA.
 
 ## Executed acceptance
 
 - real browser screenshots reviewed;
-- Projection asset validator PASS;
+- Projection validator PASS;
+- Workbench parity/explanation consumer tests PASS where in scope;
 - existing Politics QA/regressions PASS;
 - Astro build PASS;
-- no semantic/content/runtime/evidence changes unless a separately reopened owner explicitly authorizes them.
+- no semantic/content/runtime/evidence change without separately reopened owner.
 
-## Learner truth
-
-- engineering/UI acceptance ≠ learner validation;
-- screenshots/CI/synthetic journeys cannot set `U PASS`.
+Engineering/UI acceptance ≠ learner validation. `U` remains real Kian use only.
 
 ---
 
-# 13｜Frozen now vs open now
+# 13｜Frozen vs open
 
 ## Frozen
 
-- Politics first-round learner chain and surface ownership;
-- all five subject learning/projection grammars;
-- Politics Home product direction;
-- Natural Unit workspace principles;
+- five-subject Learning through E;
+- first-round learner chain and surface ownership;
+- all five subject cognition grammars;
+- Home direction;
+- NU workspace principles;
 - Chengfeng iPad/MarginNote continuous-learning ownership;
 - Xiao1000 Workbench information architecture / interaction burden;
-- Wrong/Uncertain repair and Return semantics;
+- Wrong/Uncertain repair / Return semantics;
 - Mac-wide primary environment;
-- Dense Calm / high-density-low-disorder presentation principle;
-- click/state-change principle: interaction switches genuine cognitive object/state, not baseline information disclosure;
-- compiled 53-chapter / 160-owner Projection layer;
-- UI consumes compiled Projection rather than re-inferring cognitive shape from raw Current;
-- optimization-first + whole-flow-before-local-review method;
-- Projection anti-drift validator;
-- UI implementation → screenshots → same-slice iteration → zero-semantic-diff closure sequence.
+- Dense Calm / high-density-low-disorder;
+- Minimum-sufficient learner action / No mandatory ritual;
+- compiled 53-chapter / 160-owner Projection;
+- promoted Xiao1000 learner-explanation Current asset;
+- UI consumes compiled/Current-derived owners rather than re-inferring or regenerating;
+- implementation → screenshots → same-slice fixes → zero-semantic-diff closure.
 
 ## Open only at implementation/polish level
 
 - exact component/code structure;
-- exact CSS/grid proportions within accepted Mac-wide geometry;
-- token-level visual polish within shared style/preferences;
+- CSS/grid proportions within accepted geometry;
+- token-level polish;
 - responsive fallback details;
 - bounded PR/slice partitioning;
-- which representative chapter/Unit is most useful for each subject implementation pressure test;
-- browser-discovered visual friction that does not change accepted learning semantics.
+- representative chapter/Unit choice for pressure test;
+- browser-discovered friction that does not change accepted Learning semantics.
 
-Anything beyond these implementation/polish questions requires a named fresh defect and an explicit reopen of the earliest responsible owner/gate.
+Anything beyond these requires a named fresh defect and explicit reopen of the earliest responsible owner/gate.
 
 ---
 
 # 14｜Stop rule
 
-Politics semantic Projection expansion is closed.
-
-After accepted UI implementation and zero-semantic-diff merge:
+After accepted UI/parity implementation and zero-semantic-diff merge:
 
 ```text
 STOP default Politics product engineering
 → real Kian learner use
-→ collect real friction / Wrong / Uncertain / return evidence
+→ collect real friction / Wrong / Uncertain / Return evidence
 → reopen only the earliest responsible owner when concrete evidence requires it
 ```
 
-Do not continue adding Projection structures, UI panels, Memory widgets, or governance layers merely because more can be built.
+Do not continue adding Projection structures, panels, Memory widgets or governance layers merely because more can be built.
