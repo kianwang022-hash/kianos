@@ -11,6 +11,24 @@ VERSION='1.2.0'
 B_SID='digestive-metabolic-endocrine-tumor'
 legacy.VERSION=VERSION
 
+def b_stable_id(raw: str | None) -> str | None:
+    """Resolve only exact Current B IDs or explicitly admitted legacy aliases."""
+    if not raw: return None
+    value=raw.strip()
+    direct=re.fullmatch(r'([DMG])0?(\d{1,2})',value,re.I)
+    if direct:
+        return f'{direct[1].upper()}{int(direct[2])}'
+    legacy_alias=re.fullmatch(r'(?:digestive|dme)-([dmg])0?(\d{1,2})',value,re.I)
+    if legacy_alias:
+        return f'{legacy_alias[1].upper()}{int(legacy_alias[2])}'
+    return None
+
+def b_filename_id(path: str) -> str | None:
+    """Exact filename token fallback only; never semantic/title fuzzy matching."""
+    name=PurePosixPath(path).name
+    m=re.search(r'(?:^|_)([DMG])0?(\d{1,2})(?=_|\.md$)',name,re.I)
+    return f'{m[1].upper()}{int(m[2])}' if m else None
+
 class Validator(legacy.Validator):
     def build_owners(self, manifest: dict) -> None:
         systems=shape(manifest.get('systems'),dict,'systems')
@@ -47,8 +65,18 @@ class Validator(legacy.Validator):
         for path in candidates:
             text=self.repo.text(path); front=text.split('\n---',1)[0] if text.startswith('---\n') else ''
             fm=re.search(r'^block_id:\s*(\S+)\s*$',front,re.M)
-            if fm and re.fullmatch(r'[DMG]\d{1,2}',fm[1]):
-                require(fm[1] not in by_id,'OWNER',f'B duplicate Block {fm[1]}'); by_id[fm[1]]=(path,text)
+            fm_id=b_stable_id(fm[1]) if fm else None
+            file_id=b_filename_id(path)
+            if fm:
+                require(fm_id is not None,'OWNER',f'B unrecognized explicit Block alias {fm[1]} in {path}')
+                if file_id is not None:
+                    require(file_id==fm_id,'OWNER',f'B frontmatter/filename Block mismatch {path}: {fm_id} vs {file_id}')
+                stable=fm_id
+            else:
+                require(file_id is not None,'OWNER',f'B canonical file has no exact Block identity token: {path}')
+                stable=file_id
+            require(stable not in by_id,'OWNER',f'B duplicate Block {stable}')
+            by_id[stable]=(path,text)
 
         for row in route:
             bid=row['id']; require(bid in by_id,'OWNER',f'B canonical file missing for {bid}')
