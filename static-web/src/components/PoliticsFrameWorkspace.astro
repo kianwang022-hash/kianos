@@ -1,6 +1,7 @@
 ---
 import Value from './PoliticsFrameValue.astro';
 import { loadPoliticsFrameProjection } from '../lib/politicsFrameProjection.mjs';
+import '../styles/politics-frame-grammar.css';
 const { chapter, base='/' } = Astro.props;
 const frame=loadPoliticsFrameProjection(chapter.subject,chapter.code||chapter.chapter);
 const roles={theory_response:'理论回答',current_structure:'当前结构',current_relation:'关键关系',parallel_theory_responses:'共同问题的并行回答',identity_hierarchy:'身份定位',role_summary:'当前对象',current_owned_structure:'当前结构',cause:'起因',turning_point:'转折',process:'过程',evaluation:'评价',cause_layers:'原因层级',from_previous:'从前一段到这里',historical_position:'历史位置',mechanism:'并行机制',historical_gain:'历史成果',historical_meaning:'历史意义',before:'此前',program:'纲领',core_contradiction:'核心矛盾',failure_causes:'失败原因',conditions:'条件',failure_lesson:'教训',teaching_relations:'关系与边界',framework_maps:'',relation_chains:'推理深化',concept_identity:'概念',application_rule:'情境判断',current_owned_precision:'准确把握'};
@@ -45,12 +46,13 @@ const roles={theory_response:'理论回答',current_structure:'当前结构',cur
     const links=[...root.querySelectorAll('[data-frame-unit-link]')];
     const key='kianos-politics-last-location-v1';
     function show(id){
-      const target=units.find(u=>u.getAttribute('data-frame-unit')===id || u.querySelector(`[id="${id}"]`));
+      const target=units.find(u=>u.getAttribute('data-frame-unit')===id || [...u.querySelectorAll('[id]')].some(element=>element.id===id));
       if(!target)return;
       units.forEach(u=>u.toggleAttribute('hidden',u!==target));
       links.forEach(a=>a.setAttribute('aria-current',String(a.getAttribute('data-frame-unit-link')===target.getAttribute('data-frame-unit'))));
     }
-    function fromHash(){const id=decodeURIComponent(location.hash.slice(1));if(id)show(id);}
+    function fromHash(){try{const id=decodeURIComponent(location.hash.slice(1));if(id)show(id);}catch{}}
+    if(units.length)show(units[0].getAttribute('data-frame-unit'));
     links.forEach(a=>a.addEventListener('click',()=>show(a.getAttribute('data-frame-unit-link'))));
     addEventListener('hashchange',fromHash);fromHash();
     root.querySelectorAll('[data-frame-handoff]').forEach(button=>button.addEventListener('click',()=>{

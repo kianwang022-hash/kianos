@@ -1,0 +1,18 @@
+/* Native Politics grammar from accepted Projection roles; never infer edges. */
+:root body.surfaceBody-politics #main-content .frameMap {container: politics-map / inline-size;}
+@container politics-map (min-width:800px) {
+  :root body.surfaceBody-politics #main-content .frameMap .frameGraph:not(:has([data-graph-rank="4"])) {grid-template-columns:repeat(var(--graph-ranks),minmax(0,1fr));gap:44px;align-items:stretch;}
+  :root body.surfaceBody-politics #main-content .frameMap .frameGraph:not(:has([data-graph-rank="4"])) .frameGraphRank {display:flex;flex-direction:column;justify-content:center;gap:22px;width:100%;justify-self:stretch;}
+}
+/* Role matrices carry parallel identities, not an invented causal sequence. */
+:root body.surfaceBody-politics #main-content :is(.role-identity_hierarchy,.role-role_summary,.role-concept_identity)>.frameValues {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px 30px;align-items:start;}
+:root body.surfaceBody-politics #main-content :is(.role-identity_hierarchy,.role-role_summary,.role-concept_identity)>.frameValues>.frameValue {border-top:2px solid #9aae9f;padding-top:14px;}
+:root body.surfaceBody-politics #main-content :is(.role-identity_hierarchy,.role-role_summary,.role-concept_identity) .field-role {display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+:root body.surfaceBody-politics #main-content :is(.role-identity_hierarchy,.role-role_summary,.role-concept_identity) .field-role>p {font-size:21px;font-weight:700;margin:0;}
+/* History keeps explicit cause / turning-point / process roles simultaneous. */
+:root body.surfaceBody-politics #main-content .subject-history .frameGeometry {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 30px;}
+:root body.surfaceBody-politics #main-content .subject-history .frameGeometry>.frameRole {padding-top:14px;border-top:2px solid #9aae9f;}
+:root body.surfaceBody-politics #main-content .subject-history .frameGeometry>.frameRole:only-child {grid-column:1/-1;}
+@media(max-width:700px) {
+  :root body.surfaceBody-politics #main-content .subject-history .frameGeometry {grid-template-columns:1fr;}
+}

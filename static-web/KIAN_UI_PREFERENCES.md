@@ -56,6 +56,10 @@ Kian dislikes:
 
 These are taste constraints, not instructions to clone Apple, Raycast, Arc, or any named product.
 
+### Explicit typography correction — 2026-09-15
+
+Kian rejected the reviewed Politics typography and requested the clear **Chinese sans-serif / 黑体, with stronger bold emphasis and larger text**, associated with reading this Chat webpage. Use that reading feel rather than claiming or copying a proprietary ChatGPT typeface. Headings / key relations should be clearly heavier; sustained prose should remain readable, not indiscriminately bold. Inspect actual rendered Chinese glyphs and fallback fonts, not only the CSS family declaration. Apply the shared preference progressively by subject; do not change unreviewed subjects merely to claim global consistency.
+
 ### Preserve semantic density in intrinsically dense learning surfaces
 
 - Do **not** simplify, thin out, or split apart a high-density learning asset merely to make a Guide, mockup, diagram, or one-screen composition look cleaner.
@@ -140,11 +144,11 @@ For exam work:
 
 ## 6｜Explicit discussion / design-process preferences
 
-When discussing a KianOS UI surface with Kian:
+When discussing or implementing a KianOS UI surface with Kian:
 
 1. **Read the full current chain first** — Logic / Projection / Runtime / Repair / Return / existing functions — before proposing a redesign.
 2. Do not start from generic UX taste or from a single current component.
-3. Discuss **one surface / task type at a time** rather than dumping the whole system at once.
+3. **Execute and report by subject / complete task family, not one page per user confirmation** (explicit correction, 2026-09-15). The worker owns internal page/state inspection and screenshot iteration. Concrete examples may still focus on a relevant surface; this does not turn them into separate user-gated work packages.
 4. Before proposing changes, clearly explain the **important existing functions** so Kian can judge what would be preserved or lost.
 5. Use simple, visual, Mac-wide ASCII sketches when useful, but never treat a simplified sketch as permission to reduce the source asset's information density or detail level.
 6. Keep explanations concrete and colloquial; do not bury the decision under architecture language.
