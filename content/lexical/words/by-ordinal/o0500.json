@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "06d1c4add5816f4b369b1306d371186f501c8de2d125f45f6b8409d500374fae",
+    "content_hash": "5ef6e2a73c09ba70f5d12823bee3a879d26eb63dca59b6987000c66b226495c8",
     "core_concept": {
       "core_clusters": [
         {
@@ -24,6 +24,14 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:black:005d483938a850ce"
+          ]
+        },
+        {
+          "label_cn": "熟悉新义",
+          "label_en": "illicit, secret, or prohibited in compounds",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:black:ed9b69ecbc2254ca"
           ]
         }
       ],
@@ -105,6 +113,30 @@
         "sense_label_en": "having the darkest color",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b17dd659cd3e458dbfa",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:black:ed9b69ecbc2254ca:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "非法经济",
+            "phrase": "black economy"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（组合词中）非法的、秘密的或被禁止的",
+        "definition_en": "in compounds, illicit, secret, or prohibited",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:black:ed9b69ecbc2254ca",
+        "sense_label_en": "in compounds, illicit, secret, or prohibited",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -143,9 +175,17 @@
         "merged_into_sense_id": null,
         "source_row": 1324,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
+      },
+      {
+        "sense_id": "sense:black:ed9b69ecbc2254ca",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1365,
+        "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
       }
     ],
     "active_collocations": [
+      "collocation:0b17dd659cd3e458dbfa",
       "collocation:23684b2c52d5c8483a3e",
       "collocation:d7a254c12b590f8c3341",
       "collocation:e351a0ccd1d8cbdcc64c",
@@ -171,6 +211,11 @@
       {
         "id": "collocation:e3908efd7216d2903a3c",
         "source_row": 19257,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:0b17dd659cd3e458dbfa",
+        "source_row": 21381,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
@@ -200,7 +245,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0497-0504.json",
-    "source_content_hash": "06d1c4add5816f4b369b1306d371186f501c8de2d125f45f6b8409d500374fae",
+    "source_content_hash": "5ef6e2a73c09ba70f5d12823bee3a879d26eb63dca59b6987000c66b226495c8",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d18bae83b438922590f515d3070e4b570a8c8039be393b0aa63a0cddb8328226",
+    "content_hash": "8c5f9d839c6fb8d53c773543be9ff83c18a9807f1404a46c3b6d08a6ea2a2807",
     "core_concept": {
       "core_clusters": [
         {
@@ -146,6 +146,30 @@
         "sense_label_en": "a shade of white the color of bleached bones",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c2b787e2646ba16df620",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bone:b73a9a2aae83536d:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "集中学习或复习某事",
+            "phrase": "bone up on sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用功学习（非正式）",
+        "definition_en": "to study or review something intensively",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:bone:b73a9a2aae83536d",
+        "sense_label_en": "to study or review something intensively",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -168,33 +192,7 @@
     "word_id": "word:bone"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:bone:b73a9a2aae83536d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "专心致志",
-      "definition_en": "to study hard (informal)",
-      "semantic_key": "b75f58c2c04e30f02cd996eb16a9c35fb4ad15fac04afeba70c4d22492e81de3",
-      "semantic_key_history": [
-        "6790410a653708f6fdb1ce51a0551157b4f3360b4e0e481a27c52d999751ff75"
-      ],
-      "legacy_aliases": [
-        "bone:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bone:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1454,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -220,7 +218,7 @@
       },
       {
         "sense_id": "sense:bone:b73a9a2aae83536d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1454,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -238,7 +236,8 @@
       "collocation:3dffc1d5bbfae7f23f89",
       "collocation:68af5503a1cbcba772b0",
       "collocation:71727851f28077fdee80",
-      "collocation:8f0df86cbe5839f2e35c"
+      "collocation:8f0df86cbe5839f2e35c",
+      "collocation:c2b787e2646ba16df620"
     ],
     "facts": [],
     "collocations": [
@@ -270,6 +269,11 @@
       {
         "id": "collocation:8f0df86cbe5839f2e35c",
         "source_row": 12138,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:c2b787e2646ba16df620",
+        "source_row": 21499,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -304,7 +308,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0537-0544.json",
-    "source_content_hash": "d18bae83b438922590f515d3070e4b570a8c8039be393b0aa63a0cddb8328226",
+    "source_content_hash": "8c5f9d839c6fb8d53c773543be9ff83c18a9807f1404a46c3b6d08a6ea2a2807",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

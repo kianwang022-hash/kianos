@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "25f374e5eafd328f38c384486044353de12cdf0dcad01578906bba475a8b09f2",
+    "constructions": [
+      {
+        "construction_id": "construction:2a07eb4db7d7bcd2669f",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "borrow receives temporarily; lend gives temporarily",
+        "pattern": "borrow vs lend"
+      }
+    ],
+    "content_hash": "dfcaa45991608d93b6491f043684e9bb960d33cf84664b59f7a0e2ebcd674e00",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "暂时取用某物并打算归还",
@@ -42,6 +50,15 @@
             ],
             "meaning_cn": "借钱",
             "phrase": "borrow money"
+          },
+          {
+            "collocation_id": "collocation:10b76b85bbff41219ca4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:borrow:bd3ff5438e6555c4:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "从另一来源借用或采用词语、想法、风格或方法",
+            "phrase": "borrow from sth"
           }
         ],
         "confidence": "medium",
@@ -122,6 +139,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:10b76b85bbff41219ca4",
       "collocation:61d47b04a3be850b12c0",
       "collocation:901602bb0aa5f167f269"
     ],
@@ -140,6 +158,11 @@
       {
         "id": "collocation:e5d8f363b4246ba7c445",
         "source_row": 19465,
+        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
+      },
+      {
+        "id": "collocation:10b76b85bbff41219ca4",
+        "source_row": 21252,
         "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
       }
     ],
@@ -169,7 +192,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0545-0552.json",
-    "source_content_hash": "25f374e5eafd328f38c384486044353de12cdf0dcad01578906bba475a8b09f2",
+    "source_content_hash": "dfcaa45991608d93b6491f043684e9bb960d33cf84664b59f7a0e2ebcd674e00",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

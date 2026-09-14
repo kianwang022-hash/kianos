@@ -95,7 +95,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "cc22611530e0d3d6dbe692fb4c7463699280f445b5cc738202dee1c21396a125",
+    "content_hash": "bd2e0841ae5962b21ff9f6018cbeca0d5c87aff256eca28c54a3ef347c2f3716",
     "core_concept": {
       "core_clusters": [
         {
@@ -218,6 +218,30 @@
         "sense_label_en": "a series of actions to win an election",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:26520b84f2695b2f086e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:campaign:c3d1928460d45a5a:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "为支持或反对某事而开展运动",
+            "phrase": "campaign for/against sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "开展或参加持续的运动",
+        "definition_en": "to organize or take part in a sustained campaign, especially campaign for or against something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:campaign:c3d1928460d45a5a",
+        "sense_label_en": "to organize or take part in a sustained campaign, especially campaign for or against something",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -247,33 +271,7 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:campaign:c3d1928460d45a5a",
-      "status": "merged",
-      "merged_into_sense_id": "sense:campaign:70b28b1a33c35a36",
-      "pos": "verb",
-      "definition_cn": "参加竞选，从事运动",
-      "definition_en": "run, stand, or compete for an office or a position",
-      "semantic_key": "9f37e56b4ddcd4c8807152eab3f2125357dd92d3e75de58449a5dcf0ad7dab4f",
-      "semantic_key_history": [
-        "134e4a7f0a61a74f243ab6f9358c07b27a52a72210232370be91e8dd1b785ce4"
-      ],
-      "legacy_aliases": [
-        "campaign:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "campaign:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1871,
-      "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -299,13 +297,14 @@
       },
       {
         "sense_id": "sense:campaign:c3d1928460d45a5a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:campaign:70b28b1a33c35a36",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1871,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
       }
     ],
     "active_collocations": [
+      "collocation:26520b84f2695b2f086e",
       "collocation:4698688a3e55bd91074e",
       "collocation:6815e4d1b3e68ed0e1e2",
       "collocation:7e17cd0942ffaf9ced4f",
@@ -364,6 +363,11 @@
         "id": "collocation:e9f4b0cb9f51e35b7647",
         "source_row": 19820,
         "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:26520b84f2695b2f086e",
+        "source_row": 21246,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
       }
     ],
     "exam-mappings": [],
@@ -407,7 +411,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0657-0664.json",
-    "source_content_hash": "cc22611530e0d3d6dbe692fb4c7463699280f445b5cc738202dee1c21396a125",
+    "source_content_hash": "bd2e0841ae5962b21ff9f6018cbeca0d5c87aff256eca28c54a3ef347c2f3716",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

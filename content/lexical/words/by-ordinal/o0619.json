@@ -7,16 +7,14 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2caeb464958d9714a679ce29c046d894e23455cf119bff06ae04634fce47cbbe",
+    "content_hash": "1de21b20e61c9eee7e13b749a6da9b38434b87ce9b45e7931d52b1726dd24ba6",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "通过公告发布",
           "label_en": "to make public by bulletin",
           "pos": "verb",
-          "sense_ids": [
-            "sense:bulletin:eb5bf9d3367d5fdc"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "简短的官方报告或公告",
@@ -33,28 +31,18 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f4e16ecb19151062512b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bulletin:eb5bf9d3367d5fdc:collocation:0"
-            ],
-            "meaning_cn": "发布新闻公告",
-            "phrase": "bulletin the news"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "通过公告发布",
-        "definition_en": "to make public by bulletin",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
+        "definition_cn": "简短的官方报告或公告",
+        "definition_en": "a brief official report or announcement",
+        "governing_pattern": "",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:bulletin:eb5bf9d3367d5fdc",
-        "sense_label_en": "to make public by bulletin",
-        "sort_order": 0,
-        "transitivity": "vt"
+        "pos": "noun",
+        "sense_id": "sense:bulletin:55ce6bc92e245570",
+        "sense_label_en": "a brief official report or announcement",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -79,27 +67,25 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:bulletin:55ce6bc92e245570",
+      "stable_sense_id": "sense:bulletin:eb5bf9d3367d5fdc",
       "status": "deprecated",
       "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "简短的报告，尤指为立即发布或广播而发布的官方声明",
-      "definition_en": "a brief report, especially an official statement issued for immediate publication or broadcast",
-      "semantic_key": "e9306ceb1fa3458bc65af2ab47c717af68c3835b85a501a7cf2167c7c6ee47e1",
-      "semantic_key_history": [
-        "7927f9fb5e2f2605a4eb5046bf7ff48d30efc4733086e90150a2bac6e8a97452"
-      ],
+      "pos": "verb",
+      "definition_cn": "通过公告发布",
+      "definition_en": "to make public by bulletin",
+      "semantic_key": "b9b42944b31f0641646e2c420bce9b93ec408e39916e8a7776bf153576db88b8",
+      "semantic_key_history": [],
       "legacy_aliases": [
-        "bulletin:l1:1"
+        "bulletin:l2:2"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "bulletin:l1:1",
+          "legacy_sense_id": "bulletin:l2:2",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1735,
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 1736,
       "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
       "reference_only": true
     }
@@ -108,22 +94,20 @@
     "senses": [
       {
         "sense_id": "sense:bulletin:55ce6bc92e245570",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1735,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       },
       {
         "sense_id": "sense:bulletin:eb5bf9d3367d5fdc",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1736,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
-    "active_collocations": [
-      "collocation:f4e16ecb19151062512b"
-    ],
+    "active_collocations": [],
     "facts": [],
     "collocations": [
       {
@@ -173,7 +157,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0617-0624.json",
-    "source_content_hash": "2caeb464958d9714a679ce29c046d894e23455cf119bff06ae04634fce47cbbe",
+    "source_content_hash": "1de21b20e61c9eee7e13b749a6da9b38434b87ce9b45e7931d52b1726dd24ba6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

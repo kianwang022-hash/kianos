@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "015fdc7583a1e65122599a92e4aaa707252356436d45edc641d80d8f2a5a8597",
+    "content_hash": "45fdb3419ac04c224502f124675b8abfd48e398696201461f0fc666f13e561e4",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,6 +16,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:boost:965f22c6d7905424"
+          ]
+        },
+        {
+          "label_cn": "名词",
+          "label_en": "an increase, help, or improvement",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:boost:d790f50263e6e5b3"
           ]
         }
       ],
@@ -64,6 +72,30 @@
         "sense_label_en": "increase or raise",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9d25fa0084020eb9f301",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:boost:d790f50263e6e5b3:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "对信心或增长的提振",
+            "phrase": "a boost to confidence/growth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "增加、帮助或改善；提振",
+        "definition_en": "an increase, help, or improvement",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:boost:d790f50263e6e5b3",
+        "sense_label_en": "an increase, help, or improvement",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -192,9 +224,17 @@
         "merged_into_sense_id": "sense:boost:965f22c6d7905424",
         "source_row": 1470,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
+      },
+      {
+        "sense_id": "sense:boost:d790f50263e6e5b3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1485,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
     "active_collocations": [
+      "collocation:9d25fa0084020eb9f301",
       "collocation:bd6789dcbdc4a5ec3a7f",
       "collocation:d0e0bc389b58a5a0468e"
     ],
@@ -223,6 +263,11 @@
       {
         "id": "collocation:d0e0bc389b58a5a0468e",
         "source_row": 17654,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:9d25fa0084020eb9f301",
+        "source_row": 21497,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -267,7 +312,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0537-0544.json",
-    "source_content_hash": "015fdc7583a1e65122599a92e4aaa707252356436d45edc641d80d8f2a5a8597",
+    "source_content_hash": "45fdb3419ac04c224502f124675b8abfd48e398696201461f0fc666f13e561e4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

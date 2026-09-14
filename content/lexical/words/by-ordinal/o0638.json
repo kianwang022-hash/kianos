@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "11b459fd55577c39eb9ff8c08b13538bbd9466c63560e8618e6821f8cdac214f",
+    "content_hash": "3eaf4b83c5db0087199feba50df74ffe53b4813602b9cfc769e6aca3cf813cb9",
     "core_concept": {
       "core_clusters": [
         {
@@ -121,6 +121,30 @@
         "sense_label_en": "to split a piece of food almost in half and spread it flat for cooking",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bd6ff411f3e963f5902d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:butterfly:f36b4158896151c0:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "紧张不安的感觉",
+            "phrase": "butterflies in one's stomach"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "蝴蝶",
+        "definition_en": "an insect with a slender body and large often colorful wings",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:butterfly:f36b4158896151c0",
+        "sense_label_en": "an insect with a slender body and large often colorful wings",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -143,33 +167,7 @@
     "word_id": "word:butterfly"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:butterfly:f36b4158896151c0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "蝴蝶",
-      "definition_en": "an insect with a slender body and large often colorful wings, active during the day",
-      "semantic_key": "ad97d26fd953de7d2c5097a0b6f901d03c6bc94462a044a4e814417226473e7c",
-      "semantic_key_history": [
-        "7af8621df947a1f819fa41b2ab9cfb4b623f68775c5f20ffa44ad96a76a0c088"
-      ],
-      "legacy_aliases": [
-        "butterfly:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "butterfly:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1797,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -195,7 +193,7 @@
       },
       {
         "sense_id": "sense:butterfly:f36b4158896151c0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1797,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
@@ -205,7 +203,8 @@
       "collocation:0ed809d382f58cd316ff",
       "collocation:105e26975a73e93f55f4",
       "collocation:4140cc8c37688d8e55bd",
-      "collocation:749260a1d567300eb533"
+      "collocation:749260a1d567300eb533",
+      "collocation:bd6ff411f3e963f5902d"
     ],
     "facts": [],
     "collocations": [
@@ -232,6 +231,11 @@
       {
         "id": "collocation:8da5cf5ac3f7e93da114",
         "source_row": 12016,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:bd6ff411f3e963f5902d",
+        "source_row": 21601,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -261,7 +265,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0633-0640.json",
-    "source_content_hash": "11b459fd55577c39eb9ff8c08b13538bbd9466c63560e8618e6821f8cdac214f",
+    "source_content_hash": "3eaf4b83c5db0087199feba50df74ffe53b4813602b9cfc769e6aca3cf813cb9",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

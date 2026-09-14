@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c56c1c1d93bc1a207f5f439e7197078635b3c78875178e44f424e13caa067c8a",
+    "content_hash": "cb9e445ad2320f3951a651b3f425722eb48341310bbf248b3c6a4320f8040c66",
     "core_concept": {
       "core_clusters": [
         {
@@ -24,8 +24,15 @@
           "pos": "verb",
           "sense_ids": [
             "sense:blaze:43e0a92fb1f25871",
-            "sense:blaze:352898407c6e59b2",
-            "sense:blaze:9992835f1cc75b67"
+            "sense:blaze:352898407c6e59b2"
+          ]
+        },
+        {
+          "label_cn": "比喻义",
+          "label_en": "to pioneer a new path or method",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:blaze:c44f9f860e587071"
           ]
         }
       ],
@@ -117,25 +124,25 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:d57c4280d79a86f8aa15",
+            "collocation_id": "collocation:e6020514886709a5e55a",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:blaze:9992835f1cc75b67:collocation:0"
+              "sense:blaze:c44f9f860e587071:collocation:handoff-o0475-o0674"
             ],
-            "meaning_cn": "开辟道路，作标记",
+            "meaning_cn": "开创一条新道路或方法",
             "phrase": "blaze a trail"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在树皮上刻痕",
-        "definition_en": "to mark a tree by cutting a strip of bark",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
+        "definition_cn": "开创道路或方法",
+        "definition_en": "to pioneer or open a new path, method, or approach",
+        "governing_pattern": "",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:blaze:9992835f1cc75b67",
-        "sense_label_en": "to mark a tree by cutting a strip of bark",
-        "sort_order": 3,
+        "sense_id": "sense:blaze:c44f9f860e587071",
+        "sense_label_en": "to pioneer or open a new path, method, or approach",
+        "sort_order": 4,
         "transitivity": "vt"
       }
     ],
@@ -159,7 +166,31 @@
     "word_id": "word:blaze"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:blaze:9992835f1cc75b67",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "在树皮上刻痕",
+      "definition_en": "to mark a tree by cutting a strip of bark",
+      "semantic_key": "d19b66be92598f0a422684d36833b1480699333d53f1da5a3ef5974add87ca52",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "blaze:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "blaze:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 1349,
+      "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -185,17 +216,24 @@
       },
       {
         "sense_id": "sense:blaze:9992835f1cc75b67",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1349,
+        "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
+      },
+      {
+        "sense_id": "sense:blaze:c44f9f860e587071",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1366,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
       }
     ],
     "active_collocations": [
       "collocation:79238d26477c28846994",
       "collocation:c351933c8e95a2ef2b36",
-      "collocation:d57c4280d79a86f8aa15",
-      "collocation:d7bd8f2aebe870641065"
+      "collocation:d7bd8f2aebe870641065",
+      "collocation:e6020514886709a5e55a"
     ],
     "facts": [],
     "collocations": [
@@ -217,6 +255,11 @@
       {
         "id": "collocation:d7bd8f2aebe870641065",
         "source_row": 18245,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:e6020514886709a5e55a",
+        "source_row": 21397,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
@@ -256,7 +299,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0505-0512.json",
-    "source_content_hash": "c56c1c1d93bc1a207f5f439e7197078635b3c78875178e44f424e13caa067c8a",
+    "source_content_hash": "cb9e445ad2320f3951a651b3f425722eb48341310bbf248b3c6a4320f8040c66",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

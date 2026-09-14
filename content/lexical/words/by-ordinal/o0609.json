@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "cdace847c49b556f5ad9ec1cab09162edfb2838937e548fbb1a2cc4b705f0505",
+    "content_hash": "c41fa67f870aa333e41b86ced03bb41c024d9ec2a9b0d456ed80d7e6fc54ec74",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "植物上的芽或花蕾",
@@ -22,7 +22,32 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f805b1c8088818f15261",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bud:2206e9761e685926:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "花蕾",
+            "phrase": "a flower bud"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "芽；花蕾或叶芽",
+        "definition_en": "an undeveloped flower or leaf shoot",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bud:2206e9761e685926",
+        "sense_label_en": "an undeveloped flower or leaf shoot",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,31 +69,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:bud:2206e9761e685926",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "芽，花蕾",
-      "definition_en": "a small swelling on a plant stem that will develop into a flower or leaf",
-      "semantic_key": "daa0593b5dc343723ce650043027e8c38b1c73b0f4bc79e5bc6413179f11e1ca",
-      "semantic_key_history": [
-        "81835b8756240fc1b408194dd2c8aec64b5084215f2626872f64e35fa88b7488"
-      ],
-      "legacy_aliases": [
-        "bud:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bud:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1694,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:bud:3b9a9fd6bce15ef3",
       "status": "deprecated",
@@ -124,7 +124,7 @@
     "senses": [
       {
         "sense_id": "sense:bud:2206e9761e685926",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1694,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
@@ -144,7 +144,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:f805b1c8088818f15261"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -165,6 +167,11 @@
       {
         "id": "collocation:838b7cf265b4b73a9905",
         "source_row": 11147,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:f805b1c8088818f15261",
+        "source_row": 21605,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -204,7 +211,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0609-0616.json",
-    "source_content_hash": "cdace847c49b556f5ad9ec1cab09162edfb2838937e548fbb1a2cc4b705f0505",
+    "source_content_hash": "c41fa67f870aa333e41b86ced03bb41c024d9ec2a9b0d456ed80d7e6fc54ec74",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

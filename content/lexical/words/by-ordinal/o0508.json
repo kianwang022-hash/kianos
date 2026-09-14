@@ -7,9 +7,18 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a2c4a4face866c16f3b4d73bff0e6d564ea05e469422d55caeed3e356fac54e1",
+    "content_hash": "f6529cf0da9c417a1015d08d1c6c57853b5edf67253eea8f6b0e26f968c13591",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "比喻义",
+          "label_en": "without hope or unlikely to improve",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:bleak:46a67fd4bbde01d1"
+          ]
+        }
+      ],
       "core_meaning_cn": "阴冷荒凉；无望",
       "core_meaning_en": "cold, gloomy, and without hope",
       "mental_model_cn": "阴冷荒凉；无望",
@@ -55,6 +64,30 @@
         "sense_label_en": "unpleasantly cold and damp",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3aa2a61ff9f2400c6a86",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:bleak:46a67fd4bbde01d1:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "黯淡的未来、前景或展望",
+            "phrase": "bleak future/prospects/outlook"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "无希望的、令人沮丧的或不太可能改善的",
+        "definition_en": "without hope, depressing, or unlikely to improve",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:bleak:46a67fd4bbde01d1",
+        "sense_label_en": "without hope, depressing, or unlikely to improve",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -86,9 +119,17 @@
         "merged_into_sense_id": null,
         "source_row": 1350,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
+      },
+      {
+        "sense_id": "sense:bleak:46a67fd4bbde01d1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1367,
+        "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
       }
     ],
     "active_collocations": [
+      "collocation:3aa2a61ff9f2400c6a86",
       "collocation:8534af425946d0ee20f2",
       "collocation:ab9d296c052ab18000d1"
     ],
@@ -102,6 +143,11 @@
       {
         "id": "collocation:ab9d296c052ab18000d1",
         "source_row": 14546,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:3aa2a61ff9f2400c6a86",
+        "source_row": 21383,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
@@ -136,7 +182,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0505-0512.json",
-    "source_content_hash": "a2c4a4face866c16f3b4d73bff0e6d564ea05e469422d55caeed3e356fac54e1",
+    "source_content_hash": "f6529cf0da9c417a1015d08d1c6c57853b5edf67253eea8f6b0e26f968c13591",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
