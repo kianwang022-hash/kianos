@@ -6,7 +6,7 @@ export const PRACTICE_KEYS = Object.freeze({
   evidence: 'kianos-politics-evidence-v1'
 });
 const emptyMeta = () => ({ schema: 'kianos.politics.practice_meta.v1', favorites: {}, discussion: {}, causes: {}, notes: {}, latestOutcome: {} });
-const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.round(Math.max(0, n)) % 60).padStart(2, '0')}`;
+const seconds = (n) => `${Math.floor(Math.max(0, n) / 60)}:${String(Math.floor(Math.max(0, n)) % 60).padStart(2, '0')}`;
 const iso = () => new Date().toISOString();
 const sorted = (s) => [...s].sort().join('');
 
@@ -210,6 +210,7 @@ export function initPoliticsPractice(root) {
   };
   const render = () => {
     root.toggleAttribute('data-active', active());
+    root.toggleAttribute('data-completed', session?.status === 'completed');
     hide('[data-practice-session]', !active()); hide('[data-session-complete]', session?.status !== 'completed');
     hide('[data-resume-session]', session?.status !== 'paused');
     hide('[data-practice-setup]', active() || session?.status === 'completed');
@@ -312,7 +313,7 @@ export function initPoliticsPractice(root) {
   on('[data-start-session], [data-start-session-inline]', 'click', start);
   on('[data-resume-session]', 'click', () => { if (blocked) return; saveSession({ ...session, status: 'active' }); clearError(); render(); });
   on('[data-exit-session]', 'click', pause);
-  on('[data-start-another]', 'click', () => { if (session?.status !== 'completed') return; hide('[data-session-complete]'); hide('[data-practice-setup]', false); $$('[data-start-session], [data-start-session-inline]').forEach((b) => { b.disabled = false; }); $('[data-learned-scope]').checked = false; });
+  on('[data-start-another]', 'click', () => { if (session?.status !== 'completed') return; root.removeAttribute('data-completed'); hide('[data-session-complete]'); hide('[data-practice-setup]', false); $$('[data-start-session], [data-start-session-inline]').forEach((b) => { b.disabled = false; }); $('[data-learned-scope]').checked = false; });
   on('[data-submit]', 'click', submit); on('[data-next-question]', 'click', nextQuestion);
   on('[data-retry-save]', 'click', () => { ensureWritable(); flushPending(); });
   on('[data-favorite], [data-discussion], [data-result-favorite], [data-result-discussion-toggle]', 'click', (event) => {
@@ -370,7 +371,7 @@ export function initPoliticsPractice(root) {
     if (session && (session.runtimeVersion !== 2 || session.revision !== catalog.revision || !Array.isArray(session.ids) || !session.ids.length || session.ids.some((id) => !qById.has(id)) || !Number.isInteger(session.index) || session.index < 0 || session.index >= session.ids.length || !['active', 'paused', 'completed'].includes(session.status))) throw new Error('原题组版本或内容已变化，无法安全恢复。记录已保留，请先对账原题组。');
     const params = new URLSearchParams(location.search);
     if (params.has('session')) {
-      if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');
+      if (!session || params.get('session') !== session.id || params.get('question') !== question()?.id || !['active', 'paused', 'completed'].includes(session.status)) throw new Error('返回目标已过期或与当前题组不符；没有跳到其他题。');
       if (session.status === 'paused') saveSession({ ...session, status: 'active' });
     } else if (params.has('unit') || params.has('question')) {
       const targetQuestion = params.has('question') ? qById.get(params.get('question')) : null;

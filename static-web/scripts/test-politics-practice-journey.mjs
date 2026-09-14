@@ -8,7 +8,8 @@ import { PRACTICE_KEYS as K } from '../src/lib/politicsPracticeClient.mjs';
 import { publicPracticeCatalog, practiceReviewPayload } from '../src/lib/politicsPracticeView.mjs';
 
 const root = process.cwd(), port = Number(process.env.PRACTICE_QA_PORT || 4339);
-const base = `http://127.0.0.1:${port}`, out = path.resolve(root, '../output/playwright/issue117');
+const completionOnly = process.env.PRACTICE_QA_ONLY === 'completion';
+const base = `http://127.0.0.1:${port}`, out = path.resolve(root, completionOnly ? '../output/playwright/issue139-completion' : '../output/playwright/issue117');
 fs.mkdirSync(out, { recursive: true });
 const report = { scope: '#117 isolated synthetic runtime/browser SELF only', commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), viewport: { width: 1440, height: 900 }, currentAsset: 'BLOCKED_UPSTREAM_CURRENT_ASSET_RECONCILIATION', learnerU: 'NOT_TESTED', checks: [] };
 const pass = (name) => { report.checks.push({ name, status: 'PASS' }); console.log(`PASS ${name}`); };
@@ -54,12 +55,13 @@ async function installFailure(page, key, finalSession = false) {
 }
 try {
   for (let i = 0; i < 100; i++) { try { if ((await fetch(base + '/politics/practice/')).ok) break; } catch {} if (i === 99) throw new Error(serverLog); await sleep(150); }
+  browser = await chromium.launch({ headless: !process.env.PRACTICE_QA_HEADED });
+  if (!completionOnly) {
   const publicText = JSON.stringify(publicPracticeCatalog(catalog));
   assert.ok(!publicText.includes('PROTECTED')); assert.ok(!publicText.includes('SOURCE_ONLY'));
   const polluted = structuredClone(catalog); polluted.questions[0].xiao_reference = 'forbidden'; polluted.questions[0].originalExplanation = 'forbidden';
   assert.ok(!JSON.stringify(practiceReviewPayload(polluted, polluted.questions[0].id)).includes('forbidden'));
   pass('explicit clean/review serialization allowlists');
-  browser = await chromium.launch({ headless: !process.env.PRACTICE_QA_HEADED });
   {
     const { page, ctx, errors } = await pageFor();
     await page.click('[data-start-session]'); assert.equal(await read(page, K.session), null);
@@ -213,6 +215,35 @@ try {
     await start(page);
     assert.equal((await read(page, K.session)).ids[0], 'SYNTHETIC-M-2');
     pass('question deep link starts exact known question without rewriting learner history'); await ctx.close();
+  }
+  }
+  {
+    const { page, ctx, errors } = await pageFor('/politics/practice/?unit=fixture/ch01/NU2');
+    await page.selectOption('[data-filter-type]', 'single');
+    await start(page);
+    for (let i = 0; i < 2; i++) { await answer(page, 'B'); await page.click('[data-next-question]'); }
+    await page.locator('[data-session-complete]').waitFor({ state: 'visible' });
+    const completed = await read(page, K.session), first = await read(page, K.attempts);
+    const exact = page.url();
+    await page.reload(); await page.locator('[data-session-complete]').waitFor({ state: 'visible' });
+    assert.equal(await page.locator('[data-practice-error]').isVisible(), false);
+    assert.equal(await page.locator('[data-start-session]').isVisible(), false);
+    assert.equal(await page.locator('.politicsMode').isVisible(), false);
+    assert.deepEqual(await read(page, K.session), completed);
+    assert.deepEqual(await read(page, K.attempts), first);
+    await screenshot(page, 'completed-refresh');
+    pass('completed exact URL refresh preserves summary and immutable attempts');
+    await page.goto(exact.replace(/question=[^&]+/, 'question=STALE-COMPLETED-TARGET'));
+    assert.match(await page.locator('[data-practice-error]').innerText(), /返回目标已过期/);
+    assert.deepEqual(await read(page, K.session), completed);
+    pass('completed session still rejects stale exact-question return');
+    await page.goto(exact); await page.click('[data-start-another]');
+    await page.selectOption('[data-filter-type]', 'single'); await start(page);
+    const next = await read(page, K.session);
+    assert.notEqual(next.id, completed.id); assert.equal(next.status, 'active');
+    assert.deepEqual(await read(page, K.attempts), first);
+    assert.deepEqual(errors, []);
+    pass('start another after completed refresh keeps earlier first attempts'); await ctx.close();
   }
   report.status = 'PASS';
 } catch (e) { report.status = 'FAIL'; report.error = e.stack; console.error(e); process.exitCode = 1; }

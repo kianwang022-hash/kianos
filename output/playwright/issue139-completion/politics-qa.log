@@ -1,0 +1,29 @@
+
+> qa:politics
+> npm run validate:politics && npm run build
+
+
+> validate:politics
+> node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs && node scripts/validate-politics-practice-parity.mjs
+
+POLITICS_RUNTIME_QA_PASS
+{"subjects":5,"chapters":53,"units":151,"sourceOwners":448,"questions":1156,"unresolvedSources":0,"unresolvedQuestions":0,"sourceRegistryRows":19528,"questionRows":1172,"chengfengPrimarySurface":"IPAD_MARGINNOTE_ORIGINAL_LECTURE","xiao1000PrimarySurface":"ASTRO_KIANOS_WEB"}
+POLITICS_K03_PILOT_AUDIT
+{"status":"PASS","owner":{"naturalUnitId":"POL27-CF-MARX-C02-K03","regionId":"POL27-REGION-PILOT-MARX-REG-01","frozenPilot":true,"questionCount":15,"questionIds":["X1000-MARX-M-026","X1000-MARX-M-027","X1000-MARX-M-028","X1000-MARX-M-029","X1000-MARX-M-030","X1000-MARX-M-035","X1000-MARX-M-045","X1000-MARX-M-046","X1000-MARX-M-047","X1000-MARX-M-048","X1000-MARX-M-049","X1000-MARX-M-074","X1000-MARX-S-028","X1000-MARX-S-029","X1000-MARX-S-039"]},"questionNodeEvidence":{"mappedQuestionCount":15,"nodeCount":4,"nodeEdgeCount":16,"multiNodeQuestions":["X1000-MARX-M-048"],"learnerState":"PENDING_ATTEMPT_EVIDENCE","emitsMasteryStates":false},"parentRegionOverlap":{"parentNaturalUnitId":"POL27-CF-MARX-C02-S01","sharedCount":4,"sharedQuestionIds":["X1000-MARX-M-026","X1000-MARX-M-035","X1000-MARX-M-047","X1000-MARX-M-048"],"k03OnlyCount":11},"resolvedQuestionRows":15,"missingQuestionRows":[]}
+POLITICS_REPAIR_MEMORY_QA_PASS
+{"memorySidecars":1,"repairSidecars":1}
+POLITICS_REPAIR_MEMORY_QA_PASS
+{"memorySidecars":1,"repairSidecars":1}
+file:///Users/ben/KianOSBeta-issue117/static-web/src/lib/politicsPractice.mjs:98
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH');
+          ^
+
+Error: POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH
+    at buildLearnerExplanationIndex (file:///Users/ben/KianOSBeta-issue117/static-web/src/lib/politicsPractice.mjs:98:11)
+    at buildPoliticsPracticeCatalogCurrent (file:///Users/ben/KianOSBeta-issue117/static-web/src/lib/politicsPractice.mjs:252:19)
+    at file:///Users/ben/KianOSBeta-issue117/static-web/scripts/validate-politics-practice-parity.mjs:10:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:639:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.7.0

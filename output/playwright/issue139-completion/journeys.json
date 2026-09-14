@@ -1,0 +1,30 @@
+{
+  "scope": "#139 Stage 1 incremental synthetic completion checks; formal Current integration blocked",
+  "commit": "28d9a300dba5eed7dbf71f83a235df31c6ebf3e5",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "currentAsset": "BLOCKED_UPSTREAM_CURRENT_ASSET_RECONCILIATION",
+  "learnerU": "NOT_TESTED",
+  "checks": [
+    {
+      "name": "completed exact URL refresh preserves summary and immutable attempts",
+      "status": "PASS"
+    },
+    {
+      "name": "completed session still rejects stale exact-question return",
+      "status": "PASS"
+    },
+    {
+      "name": "start another after completed refresh keeps earlier first attempts",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "implementation_sha256": {
+    "static-web/src/lib/politicsPracticeClient.mjs": "064e16719ae25f3f5e8a6352eb6c42b35e612b7d90abf397a6968e16e7af09c8",
+    "static-web/src/components/PoliticsPracticeWorkbench.astro": "774b96f1a17fc43763414abe4f8b9aa61fabc2cbd53110ba41447dde71ed2bf7",
+    "static-web/scripts/test-politics-practice-journey.mjs": "c1f8b2dfc991cd76fcf6ebd9ae24d6b060b30629a777b4cf6a177ae7afa25084"
+  }
+}

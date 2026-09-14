@@ -1,4 +1,52 @@
-# #117 — isolated Workbench Runtime / browser receipt
+# #117 — Workbench Runtime / browser receipt
+
+## Stage 1 #139 handoff — 2026-09-14
+
+Status: **HANDOFF READY · FORMAL CURRENT INTEGRATION BLOCKED · STAGE 1 EXIT NOT MET**.
+
+Program #113: Stage 0 #138 has a reviewed-for-submission artifact in PR #144, but #144 is still OPEN/unmerged. Latest fetched main is `947bd82004090e6b534d5c438c9416fb81c29c6b` and still has the previous learner-explanation manifest/invalid asset. Stage 1 remains the only execution scope; Stage 2 #140 is locked. Lexical and Xizong B–F content work is independent and untouched.
+
+### Single writer and preserved implementation
+
+This local execution task, owning `/Users/ben/KianOSBeta-issue117`, is the #117 branch writer for this handoff. The app inventory showed no other active execution task; branch workflow runs were completed, and repeated remote readbacks held at `6820d20cfa5064a70acbc0275d2211b116cd1657`. That remote tip is an ancestor of the existing local Runtime commits. The later temporary workflow churn described in the historical receipt below is no longer the current remote tip.
+
+Existing implementation `8d60b722`, receipt/screenshots `b0edfbef`, and the exported handoff patch remain preserved. Latest main was merged into the task branch without conflicts; no prior Runtime patch was recreated. Publication uses an ordinary fast-forward push to the existing #117 branch, never force push. No second overlapping PR or branch writer is introduced.
+
+### Incremental implementation and evidence
+
+The prior 19 synthetic combinations remain recorded below and were not rerun. Code inspection found a separate completion bug: completing a session retained an exact session/question URL, but refresh rejected that URL solely because status was `completed`. The client now restores that exact completed summary, still rejecting a different session/question. The completed screen uses the existing compact header and hides setup controls that cannot usefully act there. “Start another” restores setup explicitly. Timer seconds now floor consistently across minute boundaries.
+
+Only three new browser checks were run, using the existing isolated fixture, production-built component and a visible Chromium window at 1440×900:
+
+1. Completed exact-URL refresh preserves summary, session bytes and immutable first attempts; no inert setup controls remain.
+2. A stale completed-question target is still rejected without replacing saved state.
+3. Starting another session after refresh preserves prior first-attempt records.
+
+Result: **3/3 PASS**. Command: `PRACTICE_QA_ONLY=completion PRACTICE_QA_HEADED=1 npm run test:politics-practice`. The test filter writes a separate output directory and does not overwrite the existing 19-check report. Source hashes are included in the new report.
+
+- [Incremental machine report](../output/playwright/issue139-completion/journeys.json)
+- [Completed refresh screenshot](../output/playwright/issue139-completion/completed-refresh.png)
+- [Current Politics QA log](../output/playwright/issue139-completion/politics-qa.log)
+- [Production build log](../output/playwright/issue139-completion/production-build.log)
+
+`npm run qa:politics` was executed: existing Current bindings/K03/repair-memory passed, then formal practice validation failed with `POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH`. A separate `npm run build` was executed and reached the formal review-resource generator, failing at the same strict asset gate. These are **FAIL/BLOCKED**, not PASS. No #144 branch asset was injected or promoted locally to bypass the Current prerequisite.
+
+### Formal integration still pending
+
+After #144 actually enters main: reconcile the accepted asset and its exact decoded/compressed hash contract in the consumer; enumerate formal IDs/source/NU bindings; run formal P-J1–8 and negative controls; inspect actual long/correct/wrong/uncertain Mac content; run Politics QA and the complete production build. No formal-data or independent product review evidence is claimed yet.
+
+### KIAN HUMAN GATE — NOT OPEN
+
+There is no successfully built formal Current Workbench to open yet. The isolated synthetic build is engineering evidence only, not a substitute human acceptance surface. Once the dependency lands and formal tests pass, provide a live formal route plus 3–6 product-focused interactions covering setup, single/multiple, Wrong/Uncertain, note/refresh, and exact Return, with explicit reject conditions. Do not ask Kian to re-run hashes or CI.
+
+No merge, #140 work, real learner-state mutation, deployment or learner U. Keep #117 Draft and Stage 1 incomplete while waiting for the admitted upstream asset.
+
+---
+
+## Preserved historical synthetic receipt
+
+The following section records the earlier implementation/evidence and its then-current blocker/writer situation; the Stage 1 readback above supersedes its continuation instructions.
+
 
 Status: **SELF SYNTHETIC PASS · FORMAL CURRENT ASSET BLOCKED · NOT MERGED**
 
