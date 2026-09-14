@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1b2d6a6f78c259a10f5c5b91805ae409026d7468b5c97f980b97bbe89789f941",
+    "content_hash": "44fd7d32c9eaa962a76a3f317375ea0c2b18fc37cf74693fa542ccbda6082dc4",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "勇敢的；勇敢面对",
@@ -22,7 +22,46 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "勇敢的",
+        "definition_en": "courageous and able to face danger or difficulty",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:brave:dbf6281478c35150",
+        "sense_label_en": "courageous and able to face danger or difficulty",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f9a5f4fbec17c2185cba",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:brave:06a0da5e7a2051bc:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "勇敢面对某事",
+            "phrase": "brave sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "勇敢面对、忍受",
+        "definition_en": "to face or endure danger or difficulty courageously",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:brave:06a0da5e7a2051bc",
+        "sense_label_en": "to face or endure danger or difficulty courageously",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -44,31 +83,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:brave:06a0da5e7a2051bc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "勇敢地面对",
-      "definition_en": "face or endure with courage",
-      "semantic_key": "6a409462632680f2e1f82d9abd5219ebea432fde21e79a925119d2652524d061",
-      "semantic_key_history": [
-        "2e22019b1c4d009438e2dc430c4b10e95a3bb6293906d66abd366123805ac362"
-      ],
-      "legacy_aliases": [
-        "brave:l1:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "brave:l1:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1573,
-      "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:brave:5d20a2b82b485d7a",
       "status": "deprecated",
@@ -143,38 +157,13 @@
       "source_row": 1576,
       "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:brave:dbf6281478c35150",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "勇敢的；无畏的",
-      "definition_en": "possessing or displaying courage; able to face and deal with danger or fear without flinching",
-      "semantic_key": "6848e08b59611f08e24df352578af421e6366cd0854f6cd78569407f82fdd4c8",
-      "semantic_key_history": [
-        "de63d07e5a21aebc06395d2ab4377e0d01eb778bcdebbc2d4ea30a7f1e8a5d27"
-      ],
-      "legacy_aliases": [
-        "brave:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "brave:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1577,
-      "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:brave:06a0da5e7a2051bc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1573,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
@@ -202,13 +191,15 @@
       },
       {
         "sense_id": "sense:brave:dbf6281478c35150",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1577,
         "source_path": "content/lexical/canonical/senses/shards/o0545-0576.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:f9a5f4fbec17c2185cba"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -240,6 +231,11 @@
         "id": "collocation:fb2699d6d9498a58d371",
         "source_row": 21250,
         "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
+      },
+      {
+        "id": "collocation:f9a5f4fbec17c2185cba",
+        "source_row": 21264,
+        "source_path": "content/lexical/canonical/collocations/shards/o0545-0576.json"
       }
     ],
     "exam-mappings": [],
@@ -268,7 +264,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0569-0576.json",
-    "source_content_hash": "1b2d6a6f78c259a10f5c5b91805ae409026d7468b5c97f980b97bbe89789f941",
+    "source_content_hash": "44fd7d32c9eaa962a76a3f317375ea0c2b18fc37cf74693fa542ccbda6082dc4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

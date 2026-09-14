@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fe6cb1a341f6fc0775e05fb4a9e0bcb693e4de2bdff9596441d856896b2a0f7e",
+    "content_hash": "d7a82964b791e127d00bec5ffc9a3d279bfab7487d452f83b78951899f096a06",
     "core_concept": {
       "core_clusters": [
         {
@@ -61,6 +61,24 @@
             ],
             "meaning_cn": "验血",
             "phrase": "blood test"
+          },
+          {
+            "collocation_id": "collocation:694aa2e8f3c0892d7471",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blood:4169a2894ed15c94:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "敌意或嫌隙",
+            "phrase": "bad blood"
+          },
+          {
+            "collocation_id": "collocation:e19f1e10a672ed406284",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blood:4169a2894ed15c94:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "故意且冷酷无情地",
+            "phrase": "in cold blood"
           }
         ],
         "confidence": "medium",
@@ -203,9 +221,11 @@
     "active_collocations": [
       "collocation:3b7793fafb781f8f73e4",
       "collocation:41205c7dd23e9d5aa55f",
+      "collocation:694aa2e8f3c0892d7471",
       "collocation:acd79b43127c13a64b62",
       "collocation:be55644e4ecc70fb28ef",
-      "collocation:c911ac3104f331c35943"
+      "collocation:c911ac3104f331c35943",
+      "collocation:e19f1e10a672ed406284"
     ],
     "facts": [],
     "collocations": [
@@ -232,6 +252,16 @@
       {
         "id": "collocation:c911ac3104f331c35943",
         "source_row": 16986,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:694aa2e8f3c0892d7471",
+        "source_row": 21495,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:e19f1e10a672ed406284",
+        "source_row": 21501,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -266,7 +296,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0513-0520.json",
-    "source_content_hash": "fe6cb1a341f6fc0775e05fb4a9e0bcb693e4de2bdff9596441d856896b2a0f7e",
+    "source_content_hash": "d7a82964b791e127d00bec5ffc9a3d279bfab7487d452f83b78951899f096a06",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "53d08b52d11c7984aa5b23ab7e2e3fcf70731ffda98d3a689074da6ec3c0b5a4",
+    "content_hash": "2bfc40c8d63edee02d8c7295728b6fe29ae794928fee1dc4e7300a3442f1cfa0",
     "core_concept": {
       "core_clusters": [
         {
@@ -32,6 +32,14 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:bronze:b28ec834f6465719"
+          ]
+        },
+        {
+          "label_cn": "比赛排名",
+          "label_en": "a bronze medal or third place",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bronze:18a5fe0e01cfb595"
           ]
         }
       ],
@@ -109,6 +117,30 @@
         "sense_label_en": "having the color of bronze",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0a85998e254fab5af350",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bronze:18a5fe0e01cfb595:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "赢得铜牌或第三名",
+            "phrase": "win/take bronze"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "铜牌；第三名",
+        "definition_en": "a bronze medal or third place",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bronze:18a5fe0e01cfb595",
+        "sense_label_en": "a bronze medal or third place",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -154,9 +186,17 @@
         "merged_into_sense_id": null,
         "source_row": 1659,
         "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      },
+      {
+        "sense_id": "sense:bronze:18a5fe0e01cfb595",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1696,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
       }
     ],
     "active_collocations": [
+      "collocation:0a85998e254fab5af350",
       "collocation:0c48d9dd4725692adc00",
       "collocation:8c25f207ec9ad60d72fc"
     ],
@@ -170,6 +210,11 @@
       {
         "id": "collocation:8c25f207ec9ad60d72fc",
         "source_row": 11887,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:0a85998e254fab5af350",
+        "source_row": 21502,
         "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
       }
     ],
@@ -204,7 +249,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0593-0600.json",
-    "source_content_hash": "53d08b52d11c7984aa5b23ab7e2e3fcf70731ffda98d3a689074da6ec3c0b5a4",
+    "source_content_hash": "2bfc40c8d63edee02d8c7295728b6fe29ae794928fee1dc4e7300a3442f1cfa0",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

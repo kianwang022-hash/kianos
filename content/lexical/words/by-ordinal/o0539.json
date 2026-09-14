@@ -7,9 +7,26 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1a02f7d7adf55bc52469a0fa25502717d0be6be496beaec27fde87111206ca51",
+    "content_hash": "8d068ac85a12afe14777ad8d2cdd8f02419914f8de2767ceaecdc8933521658a",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "书；书籍",
+          "label_en": "a published written work",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:book:dc22001c492a52e2"
+          ]
+        },
+        {
+          "label_cn": "预订、安排",
+          "label_en": "to reserve in advance",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:book:c1c2b4b8407c5470"
+          ]
+        }
+      ],
       "core_meaning_cn": "书或记录，或预订",
       "core_meaning_en": "a written work or a record, or to reserve something",
       "mental_model_cn": "书或记录，或预订",
@@ -22,7 +39,46 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "书；书籍",
+        "definition_en": "a written work or composition that has been published",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:book:dc22001c492a52e2",
+        "sense_label_en": "a written work or composition that has been published",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:68755cb228c09286790c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:book:c1c2b4b8407c5470:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "预订房间、票或桌位",
+            "phrase": "book a room/ticket/table"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "预订、安排",
+        "definition_en": "to reserve or arrange something in advance",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:book:c1c2b4b8407c5470",
+        "sense_label_en": "to reserve or arrange something in advance",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -93,56 +149,6 @@
       "source_row": 1459,
       "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:book:c1c2b4b8407c5470",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "预订",
-      "definition_en": "to reserve something for future use",
-      "semantic_key": "5366a361606ffbdd27b55672e18b0c1ae7f14ce805919c5cede6aeba8383a489",
-      "semantic_key_history": [
-        "a52d787842548fb81b6870e23f82bee64d3c99151759136c286b4540e25ad693"
-      ],
-      "legacy_aliases": [
-        "book:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "book:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1460,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:book:dc22001c492a52e2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "书，书籍",
-      "definition_en": "a written work or composition that has been published",
-      "semantic_key": "00d2d6e4bf02d08c578759bc7c54169621a50766f985b7f50a790893d99c6805",
-      "semantic_key_history": [
-        "a460dd65b577bda68e2553db5350e1c6d55337043d8c45ca0d147239b45ccd49"
-      ],
-      "legacy_aliases": [
-        "book:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "book:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1461,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -163,20 +169,22 @@
       },
       {
         "sense_id": "sense:book:c1c2b4b8407c5470",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1460,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       },
       {
         "sense_id": "sense:book:dc22001c492a52e2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1461,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:68755cb228c09286790c"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -197,6 +205,11 @@
       {
         "id": "collocation:d5cdf8bcd3d11af1222c",
         "source_row": 18087,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:68755cb228c09286790c",
+        "source_row": 21494,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -226,7 +239,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0537-0544.json",
-    "source_content_hash": "1a02f7d7adf55bc52469a0fa25502717d0be6be496beaec27fde87111206ca51",
+    "source_content_hash": "8d068ac85a12afe14777ad8d2cdd8f02419914f8de2767ceaecdc8933521658a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6693096487383bf60ab64be0b327caa7549a6bb297023ff0224504eb55eaf5e2",
+    "content_hash": "4fe838bcabeea32c562bc00d52c63f9bd51fd2c336719607246b85d641e7552a",
     "core_concept": {
       "core_clusters": [
         {
@@ -170,6 +170,39 @@
         "sense_label_en": "a small butterfly of the family Lycaenidae",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ba7895467b36f7ea3366",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blue:bf1e2c403f9d5fe0:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "感到忧郁",
+            "phrase": "feel blue"
+          },
+          {
+            "collocation_id": "collocation:c7e973ecf6d20613f1fa",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blue:bf1e2c403f9d5fe0:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "出乎意料地",
+            "phrase": "out of the blue"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "悲伤的、忧郁的",
+        "definition_en": "sad or depressed",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:blue:bf1e2c403f9d5fe0",
+        "sense_label_en": "sad or depressed",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -192,33 +225,7 @@
     "word_id": "word:blue"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:blue:bf1e2c403f9d5fe0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "忧郁的",
-      "definition_en": "sad or melancholy",
-      "semantic_key": "614abc41ed6f88af34fa0240ba59b451baa2a48927e6b86e8450aa86a4ff8731",
-      "semantic_key_history": [
-        "70123d6e8cfe32058044b4835f27d03940b41c0d7a182ef806c4cdcefd60c581"
-      ],
-      "legacy_aliases": [
-        "blue:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "blue:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1395,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -251,7 +258,7 @@
       },
       {
         "sense_id": "sense:blue:bf1e2c403f9d5fe0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1395,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -270,7 +277,9 @@
       "collocation:7f4ebd040fa4266fe458",
       "collocation:7f6068b6dad2cfe03d57",
       "collocation:a74955402fed3b1ae7c3",
-      "collocation:b744afe997671c6f1ba4"
+      "collocation:b744afe997671c6f1ba4",
+      "collocation:ba7895467b36f7ea3366",
+      "collocation:c7e973ecf6d20613f1fa"
     ],
     "facts": [],
     "collocations": [
@@ -308,6 +317,16 @@
         "id": "collocation:dd0f33afd0c0a386ab2c",
         "source_row": 18706,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:ba7895467b36f7ea3366",
+        "source_row": 21498,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:c7e973ecf6d20613f1fa",
+        "source_row": 21500,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
     "exam-mappings": [],
@@ -336,7 +355,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0521-0528.json",
-    "source_content_hash": "6693096487383bf60ab64be0b327caa7549a6bb297023ff0224504eb55eaf5e2",
+    "source_content_hash": "4fe838bcabeea32c562bc00d52c63f9bd51fd2c336719607246b85d641e7552a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

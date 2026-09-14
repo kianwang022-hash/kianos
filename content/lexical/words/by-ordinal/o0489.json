@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "009f2899a67a6f20ecee4e6bc9b2216cde80d08bfa35542504602bee9b069a73",
+    "constructions": [
+      {
+        "construction_id": "construction:6b1f74cd65277d58c12e",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "bound to do expresses likelihood or inevitability; bound by expresses constraint or obligation",
+        "pattern": "be bound to do sth vs be bound by sth"
+      }
+    ],
+    "content_hash": "e3ec97897f0a59018848fa7826085000064709da27197ea2c39810118c6b2807",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "捆绑，约束",
@@ -138,6 +146,15 @@
             ],
             "meaning_cn": "受某事物约束",
             "phrase": "be bound by sth"
+          },
+          {
+            "collocation_id": "collocation:93b817249af3a3d83642",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bind:6736c8a7a83053bd:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "一定会、很可能或注定做某事",
+            "phrase": "be bound to do sth"
           }
         ],
         "confidence": "medium",
@@ -249,6 +266,7 @@
       "collocation:3d0788e431357c60ff87",
       "collocation:4373c76e8915172979f8",
       "collocation:7161404241c8b6f5dbfd",
+      "collocation:93b817249af3a3d83642",
       "collocation:b0d39b486fefb515da29",
       "collocation:f7e0671377a3e2aeb534"
     ],
@@ -288,6 +306,11 @@
         "id": "collocation:f7e0671377a3e2aeb534",
         "source_row": 20986,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:93b817249af3a3d83642",
+        "source_row": 21389,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
     "exam-mappings": [],
@@ -321,7 +344,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0489-0496.json",
-    "source_content_hash": "009f2899a67a6f20ecee4e6bc9b2216cde80d08bfa35542504602bee9b069a73",
+    "source_content_hash": "e3ec97897f0a59018848fa7826085000064709da27197ea2c39810118c6b2807",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

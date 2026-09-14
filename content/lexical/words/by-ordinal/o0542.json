@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0c9eae3e24b426ca91c0c8c1c40492a5d7acf03cc92b2c69574caec453fbcec9",
+    "content_hash": "6902515f6d4a1bd5c135392a60e09ca851b78e9a7f3bc32e97d559680d549e21",
     "core_concept": {
       "core_clusters": [
         {
@@ -112,6 +112,44 @@
         "sense_label_en": "to dismiss someone from a job or place",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "靴子",
+        "definition_en": "footwear covering the foot and lower leg",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:boot:57f0f0874dc65f39",
+        "sense_label_en": "footwear covering the foot and lower leg",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b2337839bd43696f8ee",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:boot:e21f09ea7ecc5ad8:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "启动计算机或系统",
+            "phrase": "boot a computer/system"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "启动计算机或系统",
+        "definition_en": "to start a computer or system",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:boot:e21f09ea7ecc5ad8",
+        "sense_label_en": "to start a computer or system",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -134,63 +172,12 @@
     "word_id": "word:boot"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:boot:57f0f0874dc65f39",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "靴子",
-      "definition_en": "a type of footwear covering the foot and lower leg",
-      "semantic_key": "33b458eeaf909b1e401ac802239db5c4769128590dfc70814b53334904a3d5ce",
-      "semantic_key_history": [
-        "2d72e753a7f4c833ec5cbb5836b996f87b626109a0227217819a44bc580dfd67"
-      ],
-      "legacy_aliases": [
-        "boot:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "boot:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1471,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:boot:e21f09ea7ecc5ad8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "启动（计算机）",
-      "definition_en": "to start a computer",
-      "semantic_key": "0bc2d646797e094631f96740ed966263be5ef5b7a06f7adb4b89669c50b907eb",
-      "semantic_key_history": [
-        "d39af7c926b996d869f4c49d1559eb9eb488bb14c14c9ea21e741cbfd73f2b24"
-      ],
-      "legacy_aliases": [
-        "boot:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "boot:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1473,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:boot:57f0f0874dc65f39",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1471,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -204,7 +191,7 @@
       },
       {
         "sense_id": "sense:boot:e21f09ea7ecc5ad8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1473,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -225,6 +212,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:0b2337839bd43696f8ee",
       "collocation:3086c83e577a0b780870",
       "collocation:31b1bf8e9ca52ce7a303",
       "collocation:649cc10e08c0d23b83a3"
@@ -260,6 +248,11 @@
         "id": "collocation:f72c884cf9e6f7f540d2",
         "source_row": 20932,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:0b2337839bd43696f8ee",
+        "source_row": 21489,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
     "exam-mappings": [],
@@ -293,7 +286,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0537-0544.json",
-    "source_content_hash": "0c9eae3e24b426ca91c0c8c1c40492a5d7acf03cc92b2c69574caec453fbcec9",
+    "source_content_hash": "6902515f6d4a1bd5c135392a60e09ca851b78e9a7f3bc32e97d559680d549e21",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

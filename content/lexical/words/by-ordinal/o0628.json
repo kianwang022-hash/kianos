@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "9520d05c43ebb65c8fb46978773b01fb33c5ccd46037021c79e1e24ced569910",
+    "constructions": [
+      {
+        "construction_id": "construction:208ad865a06aad0dc4c5",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "become exhausted through overwork or stress",
+        "pattern": "be burned/burnt out"
+      }
+    ],
+    "content_hash": "9b575f5d5ed11fd325dc37f7561d02fa6c800385e387eb9c843abaeaaa594a96",
     "core_concept": {
       "core_clusters": [
         {
@@ -61,6 +69,15 @@
             ],
             "meaning_cn": "怒火中烧",
             "phrase": "burn with anger"
+          },
+          {
+            "collocation_id": "collocation:6d17726480920305d440",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:burn:a33e54c41916554a:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "耗尽；因过劳或压力而精疲力竭",
+            "phrase": "burn out"
           }
         ],
         "confidence": "medium",
@@ -212,6 +229,7 @@
     "active_collocations": [
       "collocation:2ea8a95a79cbaf3154be",
       "collocation:561fd8c568c0844da160",
+      "collocation:6d17726480920305d440",
       "collocation:8628a018a12bebc0bab9",
       "collocation:9855406365e9e21d3826",
       "collocation:e1567cfe67de55838459",
@@ -247,6 +265,11 @@
       {
         "id": "collocation:f4e7f1104d007c7ff313",
         "source_row": 20741,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:6d17726480920305d440",
+        "source_row": 21595,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -286,7 +309,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0625-0632.json",
-    "source_content_hash": "9520d05c43ebb65c8fb46978773b01fb33c5ccd46037021c79e1e24ced569910",
+    "source_content_hash": "9b575f5d5ed11fd325dc37f7561d02fa6c800385e387eb9c843abaeaaa594a96",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

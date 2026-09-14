@@ -7,9 +7,18 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "866ce70c5b674fd105f45cb587a482723218c6ec7f7ceb302f5513ed46639210",
+    "content_hash": "5f3ab60fda6792465ce4d23bd57ff5408e107c91c383670240b3f80879ff9ace",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "排版义",
+          "label_en": "a typographic mark for a list item",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bullet:25d2aa7eea5c4e1e"
+          ]
+        }
+      ],
       "core_meaning_cn": "子弹",
       "core_meaning_en": "a projectile fired from a gun",
       "mental_model_cn": "子弹",
@@ -55,6 +64,30 @@
         "sense_label_en": "a small metal object that is shot from a gun",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7813cdc1ec8554e39134",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bullet:25d2aa7eea5c4e1e:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "项目符号",
+            "phrase": "bullet point"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "项目符号；项目符号点",
+        "definition_en": "a typographic bullet or bullet point marking an item in a list",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bullet:25d2aa7eea5c4e1e",
+        "sense_label_en": "a typographic bullet or bullet point marking an item in a list",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -86,10 +119,18 @@
         "merged_into_sense_id": null,
         "source_row": 1734,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
+      },
+      {
+        "sense_id": "sense:bullet:25d2aa7eea5c4e1e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1808,
+        "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
     "active_collocations": [
       "collocation:2f814a2580b55ceb92bc",
+      "collocation:7813cdc1ec8554e39134",
       "collocation:7878cd91f1bcfae366b7"
     ],
     "facts": [],
@@ -102,6 +143,11 @@
       {
         "id": "collocation:7878cd91f1bcfae366b7",
         "source_row": 10189,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:7813cdc1ec8554e39134",
+        "source_row": 21596,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -131,7 +177,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0617-0624.json",
-    "source_content_hash": "866ce70c5b674fd105f45cb587a482723218c6ec7f7ceb302f5513ed46639210",
+    "source_content_hash": "5f3ab60fda6792465ce4d23bd57ff5408e107c91c383670240b3f80879ff9ace",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

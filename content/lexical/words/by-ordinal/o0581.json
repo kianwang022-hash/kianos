@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3113a796441d1b1963fa6120fae0bd3c3e7495278b18362e5f58e591d2dca956",
+    "content_hash": "c6e9327f81d63972cf0a2c3f641dee94e5b17b7b0ab3676c42e9465bc0d38593",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,6 +27,14 @@
             "sense:breed:9c8f72155fec53fa",
             "sense:breed:44f40427ee775f7f",
             "sense:breed:74b47172cd315242"
+          ]
+        },
+        {
+          "label_cn": "生物义",
+          "label_en": "animals or plants reproduce",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:breed:007427b9f9779ed3"
           ]
         }
       ],
@@ -162,6 +170,30 @@
         "sense_label_en": "give rise to; cause",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a15be2cf93fe259af7ed",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:breed:007427b9f9779ed3:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "动物或植物繁殖",
+            "phrase": "animals/plants breed"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（动物或植物）繁殖、生育",
+        "definition_en": "for animals or plants to reproduce",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:breed:007427b9f9779ed3",
+        "sense_label_en": "for animals or plants to reproduce",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -221,12 +253,20 @@
         "merged_into_sense_id": null,
         "source_row": 1612,
         "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      },
+      {
+        "sense_id": "sense:breed:007427b9f9779ed3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1694,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
       }
     ],
     "active_collocations": [
       "collocation:2c84bf3ef5e24c6105b3",
       "collocation:421628f308710a1500a0",
       "collocation:6e972c6c8d32cf4a9fe0",
+      "collocation:a15be2cf93fe259af7ed",
       "collocation:b0f427531900f354e893",
       "collocation:cfef19f0f6e602d82df0"
     ],
@@ -255,6 +295,11 @@
       {
         "id": "collocation:cfef19f0f6e602d82df0",
         "source_row": 17566,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:a15be2cf93fe259af7ed",
+        "source_row": 21510,
         "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
       }
     ],
@@ -299,7 +344,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0577-0584.json",
-    "source_content_hash": "3113a796441d1b1963fa6120fae0bd3c3e7495278b18362e5f58e591d2dca956",
+    "source_content_hash": "c6e9327f81d63972cf0a2c3f641dee94e5b17b7b0ab3676c42e9465bc0d38593",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

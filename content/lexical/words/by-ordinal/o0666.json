@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2d434c23b9668d6f1cb8b54359706c65f9cc0c0cc50effebbc4efc32c11d6e97",
+    "content_hash": "0ec90100a82bde8045a61ebcbd79848a9087321733a5e983186080e2cc69f8fa",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "取消；使无效",
@@ -22,7 +22,46 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "取消安排的事件、订单或计划",
+        "definition_en": "to decide that an arranged event, order, or plan will not happen",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cancel:0397a7880ee15644",
+        "sense_label_en": "to decide that an arranged event, order, or plan will not happen",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9116b7c087da222a0a32",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cancel:9434cefdb06151bd:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "抵消、中和",
+            "phrase": "cancel out"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使某物无效、作废",
+        "definition_en": "to make something no longer valid or effective",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cancel:9434cefdb06151bd",
+        "sense_label_en": "to make something no longer valid or effective",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -44,56 +83,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:cancel:0397a7880ee15644",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "取消（计划中的活动）",
-      "definition_en": "to decide that something planned will not happen",
-      "semantic_key": "47a1432a627059382131ddd997e3c24d614ea21e77c8a7d90d8878dfeacbf5ca",
-      "semantic_key_history": [
-        "6c58564bdd441496647bfd077b00aeea149669a303071341e3926e699dab34dc"
-      ],
-      "legacy_aliases": [
-        "cancel:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cancel:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1881,
-      "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:cancel:9434cefdb06151bd",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "使无效；废除",
-      "definition_en": "to declare something null and void; to make ineffective",
-      "semantic_key": "9c102227cf1bf031e351342b127d60e435a63b2c4b8ec955a0922fe3c90a83d5",
-      "semantic_key_history": [
-        "a4d793d1c0e63973472aa7bab37855f8f5a179c938f37a480f62bf379b7fe4ea"
-      ],
-      "legacy_aliases": [
-        "cancel:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cancel:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1882,
-      "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:cancel:b2444d54139a5f5e",
       "status": "deprecated",
@@ -174,14 +163,14 @@
     "senses": [
       {
         "sense_id": "sense:cancel:0397a7880ee15644",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1881,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
       },
       {
         "sense_id": "sense:cancel:9434cefdb06151bd",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1882,
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
@@ -208,7 +197,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:9116b7c087da222a0a32"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -249,6 +240,11 @@
       {
         "id": "collocation:da83887d6807780e05f9",
         "source_row": 18486,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:9116b7c087da222a0a32",
+        "source_row": 21250,
         "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
       }
     ],
@@ -293,7 +289,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0665-0672.json",
-    "source_content_hash": "2d434c23b9668d6f1cb8b54359706c65f9cc0c0cc50effebbc4efc32c11d6e97",
+    "source_content_hash": "0ec90100a82bde8045a61ebcbd79848a9087321733a5e983186080e2cc69f8fa",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

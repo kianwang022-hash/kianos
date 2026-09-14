@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b3941484779050fb78ac0f489f76f032944d57ea805b87230922bbfec13b4f98",
+    "content_hash": "c4ca9b7140bd68e111a454aa9cc547771c97163cc6bea26b566e5460e86d6513",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
           "pos": "adverb",
           "sense_ids": [
             "sense:bright:89ba8c71793451e8"
+          ]
+        },
+        {
+          "label_cn": "比喻义",
+          "label_en": "hopeful or promising",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:bright:3cdf826c612eda37"
           ]
         }
       ],
@@ -149,6 +157,30 @@
         "sense_label_en": "in a bright manner",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:dc23720c08e0ebc56224",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bright:3cdf826c612eda37:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "光明的未来或前景",
+            "phrase": "bright future/prospects"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "有希望的、有前途的或成功的",
+        "definition_en": "hopeful, promising, or likely to succeed",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:bright:3cdf826c612eda37",
+        "sense_label_en": "hopeful, promising, or likely to succeed",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -208,6 +240,13 @@
         "merged_into_sense_id": null,
         "source_row": 1636,
         "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
+      },
+      {
+        "sense_id": "sense:bright:3cdf826c612eda37",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1695,
+        "source_path": "content/lexical/canonical/senses/shards/o0577-0608.json"
       }
     ],
     "active_collocations": [
@@ -215,7 +254,8 @@
       "collocation:4671fec4525c5e31132f",
       "collocation:70a5e3b2d8cace372a2e",
       "collocation:941d167c938c03c8a1ba",
-      "collocation:9bc72365c98cfe210314"
+      "collocation:9bc72365c98cfe210314",
+      "collocation:dc23720c08e0ebc56224"
     ],
     "facts": [
       {
@@ -248,6 +288,11 @@
       {
         "id": "collocation:9bc72365c98cfe210314",
         "source_row": 13268,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:dc23720c08e0ebc56224",
+        "source_row": 21511,
         "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
       }
     ],
@@ -282,7 +327,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0585-0592.json",
-    "source_content_hash": "b3941484779050fb78ac0f489f76f032944d57ea805b87230922bbfec13b4f98",
+    "source_content_hash": "c4ca9b7140bd68e111a454aa9cc547771c97163cc6bea26b566e5460e86d6513",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

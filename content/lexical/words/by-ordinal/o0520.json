@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "4dd40922a1733d362c15a83de08626f937203405618c3372249ae1de0d35ec40",
+    "constructions": [
+      {
+        "construction_id": "construction:d93f0e2f2379d3e46c36",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "爆炸或使…爆炸",
+        "pattern": "blow up"
+      }
+    ],
+    "content_hash": "6bef4db73aedc76a775edd34ce44ac4fcecb5c99d09ee051a8cc60c8acaa0832",
     "core_concept": {
       "core_clusters": [
         {
@@ -114,6 +122,30 @@
         "sense_label_en": "to produce flowers",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d5e0561ccd77e33b67a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blow:35cde6267fa6535f:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "对…的打击",
+            "phrase": "a blow to ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "重击；打击、挫折或震惊",
+        "definition_en": "a hard hit, or a figurative setback or shock",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:blow:35cde6267fa6535f",
+        "sense_label_en": "a hard hit, or a figurative setback or shock",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -137,31 +169,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:blow:35cde6267fa6535f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "打击，殴打",
-      "definition_en": "a powerful stroke with the fist or a weapon",
-      "semantic_key": "b4399c9dab38cde7373c6d3dac225958d87aff88657f760ddaf87e3675e04fa0",
-      "semantic_key_history": [
-        "8f5d821f0d47bd305c52c99a15a84164ee534db5c0728c8c14d333ef0149fe83"
-      ],
-      "legacy_aliases": [
-        "blow:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "blow:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1386,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:blow:3fdfc92a30265db4",
       "status": "merged",
@@ -224,7 +231,7 @@
       },
       {
         "sense_id": "sense:blow:35cde6267fa6535f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1386,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
@@ -259,6 +266,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:1d5e0561ccd77e33b67a",
       "collocation:23a80d9e68d0e9ecb899",
       "collocation:25917e951ae8989b7d38",
       "collocation:379839bbdb4994ebdf38",
@@ -305,6 +313,11 @@
         "id": "collocation:dc260877435b7867b4e5",
         "source_row": 18628,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:1d5e0561ccd77e33b67a",
+        "source_row": 21492,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
     "exam-mappings": [],
@@ -333,7 +346,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0513-0520.json",
-    "source_content_hash": "4dd40922a1733d362c15a83de08626f937203405618c3372249ae1de0d35ec40",
+    "source_content_hash": "6bef4db73aedc76a775edd34ce44ac4fcecb5c99d09ee051a8cc60c8acaa0832",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

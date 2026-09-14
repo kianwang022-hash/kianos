@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "cee6735e5a30d7f2b158965bb86f16d0cc5f6ef38f1c4f2be41bc9bbf0dec49a",
+    "content_hash": "4a5d040ebb415d4122b1467d082653664b7db1a0f61f4953217398cec20bff57",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,14 @@
           "pos": "adverb",
           "sense_ids": [
             "sense:bolt:75d84015d3495a68"
+          ]
+        },
+        {
+          "label_cn": "自然现象",
+          "label_en": "a flash or stroke of lightning",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bolt:5304c11f0e494bdc"
           ]
         }
       ],
@@ -152,6 +160,30 @@
         "sense_label_en": "suddenly, straight upright",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1125cf0c3d764efc9aad",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bolt:5304c11f0e494bdc:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "闪电",
+            "phrase": "lightning bolt"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "闪电；雷电的一道光",
+        "definition_en": "a flash or stroke of lightning",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bolt:5304c11f0e494bdc",
+        "sense_label_en": "a flash or stroke of lightning",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -204,9 +236,17 @@
         "merged_into_sense_id": null,
         "source_row": 1443,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
+      },
+      {
+        "sense_id": "sense:bolt:5304c11f0e494bdc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1483,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
     "active_collocations": [
+      "collocation:1125cf0c3d764efc9aad",
       "collocation:557ad3e4e965b0f8937d",
       "collocation:7d2b4a6c38eb8128bae9",
       "collocation:8b65d88e4bc9952d6492",
@@ -238,6 +278,11 @@
       {
         "id": "collocation:e20a490cb4ed65eecfb1",
         "source_row": 19119,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:1125cf0c3d764efc9aad",
+        "source_row": 21490,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -272,7 +317,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0529-0536.json",
-    "source_content_hash": "cee6735e5a30d7f2b158965bb86f16d0cc5f6ef38f1c4f2be41bc9bbf0dec49a",
+    "source_content_hash": "4a5d040ebb415d4122b1467d082653664b7db1a0f61f4953217398cec20bff57",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

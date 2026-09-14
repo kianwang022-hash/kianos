@@ -15,7 +15,7 @@
         "pattern": "buffer sb/sth against/from sth"
       }
     ],
-    "content_hash": "55020a2cf2c96d5fafc43f773e8bd4854a78bd9ff512b5127fb8213e418e34ff",
+    "content_hash": "0b7b54feed7a0c9fb9892da52c43581e17edcdbe47a54f20007fce258d636e3c",
     "core_concept": {
       "core_clusters": [
         {
@@ -137,6 +137,30 @@
         "sense_label_en": "a power tool used to polish surfaces",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bdf679408311fc3f5d88",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:buffer:27f84c02f72d5d0e:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "数据缓冲区",
+            "phrase": "data buffer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（计算机）临时数据存储区",
+        "definition_en": "a temporary data-storage area in a computer's memory",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:buffer:27f84c02f72d5d0e",
+        "sense_label_en": "a temporary data-storage area in a computer's memory",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -159,38 +183,12 @@
     "word_id": "word:buffer"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:buffer:27f84c02f72d5d0e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "缓冲区",
-      "definition_en": "a temporary storage area in a computer's memory",
-      "semantic_key": "4af84f17dd3a0769050e20bd3bbee0c96baebd0e7cb8e565bf1e64e53851e705",
-      "semantic_key_history": [
-        "9acd32795b3b10f997bd02d6da62e6a48ce7c1575402d81d0458b2102e86adf6"
-      ],
-      "legacy_aliases": [
-        "buffer:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "buffer:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1702,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:buffer:27f84c02f72d5d0e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1702,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
@@ -227,6 +225,7 @@
     "active_collocations": [
       "collocation:68fbd58294a71ffbd1e5",
       "collocation:7b9a47708086b2eea297",
+      "collocation:bdf679408311fc3f5d88",
       "collocation:d243022458c2ee4afa3d"
     ],
     "facts": [],
@@ -249,6 +248,11 @@
       {
         "id": "collocation:fea9d925724de27f2e47",
         "source_row": 21534,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:bdf679408311fc3f5d88",
+        "source_row": 21602,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -273,7 +277,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0609-0616.json",
-    "source_content_hash": "55020a2cf2c96d5fafc43f773e8bd4854a78bd9ff512b5127fb8213e418e34ff",
+    "source_content_hash": "0b7b54feed7a0c9fb9892da52c43581e17edcdbe47a54f20007fce258d636e3c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
