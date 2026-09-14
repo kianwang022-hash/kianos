@@ -7,16 +7,14 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b55d1e1d9aa24d1e6fb42d7a2c1ebbe629f95acd5af0fa4c1c6cde0835543658",
+    "content_hash": "edae78db1484255c90b7d3e1b2cb0b771c580e95c78c8d21cc4a29b32c4d9c1d",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "一...就...",
           "label_en": "as soon as",
           "pos": "conjunction",
-          "sense_ids": [
-            "sense:directly:c19aa67890d15f64"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "直接地；立即",
@@ -33,26 +31,16 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5c56ceb940ba84d1b7c9",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:directly:c19aa67890d15f64:collocation:0"
-            ],
-            "meaning_cn": "他一来到",
-            "phrase": "directly he came"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "一...就...",
-        "definition_en": "as soon as",
+        "definition_cn": "直接地；立即地；坦率地",
+        "definition_en": "in a direct, immediate, or candid manner",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "conjunction",
-        "sense_id": "sense:directly:c19aa67890d15f64",
-        "sense_label_en": "as soon as",
+        "pos": "adverb",
+        "sense_id": "sense:directly:2a91a53595e044ff",
+        "sense_label_en": "in a direct, immediate, or candid manner",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -154,6 +142,29 @@
       "reference_only": true
     },
     {
+      "stable_sense_id": "sense:directly:c19aa67890d15f64",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "conjunction",
+      "definition_cn": "一...就...",
+      "definition_en": "as soon as",
+      "semantic_key": "bc8ba73c1e4bab8c337d1bdce203c5f74ba77940bbbd775605aa57973e535240",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "directly:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "directly:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 3878,
+      "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
+      "reference_only": true
+    },
+    {
       "stable_sense_id": "sense:directly:f3021c44e8615a31",
       "status": "merged",
       "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
@@ -204,7 +215,7 @@
       },
       {
         "sense_id": "sense:directly:c19aa67890d15f64",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 3878,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
@@ -215,11 +226,16 @@
         "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
         "source_row": 3879,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      },
+      {
+        "sense_id": "sense:directly:2a91a53595e044ff",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3914,
+        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       }
     ],
-    "active_collocations": [
-      "collocation:5c56ceb940ba84d1b7c9"
-    ],
+    "active_collocations": [],
     "facts": [],
     "collocations": [
       {
@@ -289,7 +305,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1393-1400.json",
-    "source_content_hash": "b55d1e1d9aa24d1e6fb42d7a2c1ebbe629f95acd5af0fa4c1c6cde0835543658",
+    "source_content_hash": "edae78db1484255c90b7d3e1b2cb0b771c580e95c78c8d21cc4a29b32c4d9c1d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

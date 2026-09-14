@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "196001d8541ffe1e655ed6268a2232a789fe70483d000a5a38a90108e7f4c749",
+    "constructions": [
+      {
+        "construction_id": "construction:f88fde06907e96018382",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "从某物提炼精华",
+        "pattern": "distil the essence/key points from sth"
+      }
+    ],
+    "content_hash": "8bf0792470b7b2374de908646293d5a1604bda8e7736ce3a9fc187d2e859e23d",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "通过加热冷却净化或提取物质，或提取精华",
@@ -54,6 +62,27 @@
         "sense_id": "sense:distil:1a0a30f3db1d579f",
         "sense_label_en": "to make a liquid pure by heating it until it becomes a gas and then cool",
         "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "提炼出精华或要点",
+        "definition_en": "to extract the essential meaning or substance",
+        "governing_pattern": "",
+        "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "distil/distill BrE/AmE spelling boundary",
+          "paired_form": "distil",
+          "surface_lemma": "distil"
+        },
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:distil:ac9191854bf55619",
+        "sense_label_en": "to extract the essential meaning or substance",
+        "sort_order": 999,
         "transitivity": "vt"
       }
     ],
@@ -102,31 +131,6 @@
       "source_row": 3999,
       "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:distil:ac9191854bf55619",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "提取...的精华",
-      "definition_en": "to extract the essential meaning or most important parts of something",
-      "semantic_key": "16247b5b55107fecf1724e197c533e99e6532bd2b6e4bc491e415a1a542ee442",
-      "semantic_key_history": [
-        "a2467b6dc393da7298c053a0795b99e7b5509cfb759acf82b91be113fd41a6e8"
-      ],
-      "legacy_aliases": [
-        "distil:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "distil:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4000,
-      "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -147,7 +151,7 @@
       },
       {
         "sense_id": "sense:distil:ac9191854bf55619",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4000,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
@@ -206,7 +210,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1441-1448.json",
-    "source_content_hash": "196001d8541ffe1e655ed6268a2232a789fe70483d000a5a38a90108e7f4c749",
+    "source_content_hash": "8bf0792470b7b2374de908646293d5a1604bda8e7736ce3a9fc187d2e859e23d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

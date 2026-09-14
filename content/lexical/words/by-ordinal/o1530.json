@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "87b937203bf7c5036e9cd828344aaf33e283c1b81a4c56bb10dbe157abc8e5cc",
+    "content_hash": "a598ce6997baa42ca0a97502318d188d9194995c8587dea3ff662b515272a0d7",
     "core_concept": {
       "core_clusters": [
         {
@@ -49,11 +49,53 @@
         "definition_en": "a copy that corresponds to an original exactly",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "noun/adjective vs verb pronunciation boundary",
+          "paired_form": "duplicate",
+          "surface_lemma": "duplicate"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:duplicate:5fb074af9fc15f4c",
         "sense_label_en": "a copy that corresponds to an original exactly",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "复制、重复",
+        "definition_en": "to copy or repeat something",
+        "governing_pattern": "duplicate sth",
+        "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "noun/adjective vs verb pronunciation boundary",
+          "paired_form": "duplicate",
+          "surface_lemma": "duplicate"
+        },
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:duplicate:1e81616e39d35fc0",
+        "sense_label_en": "to copy or repeat something",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "复制的、完全相同的",
+        "definition_en": "exactly like an original",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:duplicate:35ee7195c53fa3fb",
+        "sense_label_en": "exactly like an original",
+        "sort_order": 1000,
         "transitivity": "nonverb"
       }
     ],
@@ -78,31 +120,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:duplicate:1e81616e39d35fc0",
-      "status": "merged",
-      "merged_into_sense_id": "sense:duplicate:5fb074af9fc15f4c",
-      "pos": "verb",
-      "definition_cn": "复制，复印",
-      "definition_en": "make a copy of something exactly",
-      "semantic_key": "da81a8d3400dfc14fa5a78c46e81b6bca907942e97492d02a9d8ff53340f3219",
-      "semantic_key_history": [
-        "cbd5ddc88498908a40cb752c6cb271646cb1ea6b9510138a9d6aeb308b830e03"
-      ],
-      "legacy_aliases": [
-        "duplicate:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "duplicate:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4284,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:duplicate:1f54a9d8ee15542b",
       "status": "merged",
@@ -158,8 +175,8 @@
     "senses": [
       {
         "sense_id": "sense:duplicate:1e81616e39d35fc0",
-        "status": "merged",
-        "merged_into_sense_id": "sense:duplicate:5fb074af9fc15f4c",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4284,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
@@ -182,6 +199,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4287,
+        "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:duplicate:35ee7195c53fa3fb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4305,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       }
     ],
@@ -242,7 +266,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1529-1536.json",
-    "source_content_hash": "87b937203bf7c5036e9cd828344aaf33e283c1b81a4c56bb10dbe157abc8e5cc",
+    "source_content_hash": "a598ce6997baa42ca0a97502318d188d9194995c8587dea3ff662b515272a0d7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

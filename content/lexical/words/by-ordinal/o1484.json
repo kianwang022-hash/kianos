@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "22ed28d600db6896b0eac7c090b78036452bfa0574e0c5cf5a769087b8549af6",
+    "content_hash": "1eaa5cb7091a61110a5666e0423872bba61a702a35ad16f1a5551ffeb8bfcbc1",
     "core_concept": {
       "core_clusters": [
         {
@@ -80,6 +80,30 @@
         "sense_label_en": "to take a dose of medicine",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e36c894a2780eb4e8eff",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dose:b7e83a8c502306d8:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "一剂药",
+            "phrase": "a dose of medicine"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（药物或物质的）一定剂量",
+        "definition_en": "a measured amount of medicine or another substance",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dose:b7e83a8c502306d8",
+        "sense_label_en": "a measured amount of medicine or another substance",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -151,11 +175,19 @@
         "merged_into_sense_id": null,
         "source_row": 4110,
         "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      },
+      {
+        "sense_id": "sense:dose:b7e83a8c502306d8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4180,
+        "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
       }
     ],
     "active_collocations": [
       "collocation:13fc488e5e159392465d",
-      "collocation:28fed8d59e752d1e488d"
+      "collocation:28fed8d59e752d1e488d",
+      "collocation:e36c894a2780eb4e8eff"
     ],
     "facts": [],
     "collocations": [
@@ -177,6 +209,11 @@
       {
         "id": "collocation:ac73fb085ca234e62dbc",
         "source_row": 14616,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:e36c894a2780eb4e8eff",
+        "source_row": 21625,
         "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
       }
     ],
@@ -211,7 +248,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1481-1488.json",
-    "source_content_hash": "22ed28d600db6896b0eac7c090b78036452bfa0574e0c5cf5a769087b8549af6",
+    "source_content_hash": "1eaa5cb7091a61110a5666e0423872bba61a702a35ad16f1a5551ffeb8bfcbc1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

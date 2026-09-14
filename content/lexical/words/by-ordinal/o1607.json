@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "fdc324d57dfd08ebd97c5c4ecd8ba210ae4608c5e8498024d42c3e7946b5afc3",
+    "constructions": [
+      {
+        "construction_id": "construction:34c3c8a4da98288eaec6",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "符合资格",
+        "pattern": "eligible for sth / eligible to do sth"
+      }
+    ],
+    "content_hash": "c5a44dd4c9ff30f36148347d8660e2206fbc92ff4bea012c8450ac6c22bf16af",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "有资格或被允许被选中",
@@ -22,7 +30,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "符合资格的",
+        "definition_en": "qualified or entitled to take part or receive something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:eligible:d87b9e9f8cb75257",
+        "sense_label_en": "qualified or entitled to take part or receive something",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -68,31 +91,6 @@
       "source_row": 4485,
       "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:eligible:d87b9e9f8cb75257",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "有资格的；合格的",
-      "definition_en": "qualified for or allowed or worthy of being chosen",
-      "semantic_key": "8793d9a3404141f4b16d23ae8fe863e60dd163bc500fe125f9d92a313dcf4667",
-      "semantic_key_history": [
-        "8dbc2d5aa680af97a1939c04afbdd2042f23a9f8457726a323ca5e2dc6366b32"
-      ],
-      "legacy_aliases": [
-        "eligible:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "eligible:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4486,
-      "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -106,7 +104,7 @@
       },
       {
         "sense_id": "sense:eligible:d87b9e9f8cb75257",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4486,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
@@ -162,7 +160,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1601-1608.json",
-    "source_content_hash": "fdc324d57dfd08ebd97c5c4ecd8ba210ae4608c5e8498024d42c3e7946b5afc3",
+    "source_content_hash": "c5a44dd4c9ff30f36148347d8660e2206fbc92ff4bea012c8450ac6c22bf16af",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
