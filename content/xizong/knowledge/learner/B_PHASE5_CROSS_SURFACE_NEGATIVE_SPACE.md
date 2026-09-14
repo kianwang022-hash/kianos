@@ -1,9 +1,9 @@
 # B Phase 5 Cross-Surface + Negative-Space Audit
 
-Status: **AUDIT COMPLETE / BOUNDED CONTRACT REPAIR PENDING MATERIALIZATION**  
+Status: **PASS — cross-surface ownership and negative space accepted/materialized**  
 Scope: `B — Digestive / Metabolic / Endocrine / Tumor`  
 Execution task: GitHub Issue `#135`  
-Single Learning owner target: `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+Single Learning owner: `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
 
 This file is durable audit/acceptance evidence only. It is **not** a Projection design and not a second Learning owner.
 
@@ -18,15 +18,15 @@ Phase 5 compared the accepted B Learning owner against:
 - `content/xizong/knowledge/manifest.json`;
 - accepted Phase 0–4 B receipts and the single current B Learning owner.
 
-No medical Core, Block/KP identity, 170-LG partition, readiness DAG, Block Recall or PSR semantic boundary is reopened here.
+No medical Core, Block/KP identity, 170-LG partition, readiness DAG, Block Recall or PSR semantic boundary was reopened.
 
 ---
 
 ## 2｜Fresh cross-surface verdict
 
-### Already correct — KEEP
+### Existing structure kept
 
-The current owner already enforces the important sequence:
+The accepted owner already had the correct high-level first-pass order:
 
 ```text
 KianOS orientation / bounded cue
@@ -40,75 +40,30 @@ KianOS orientation / bounded cue
 → official System questions later
 ```
 
-It also already states:
+It already preserved MarginNote as continuous first-learning primary, kept Lecture-attached questions source-local, denied question-order ownership of learning, kept precise Question→Knowledge routing reviewed-only, kept PSR non-gating and prevented engineering readiness from authorizing learner progress.
 
-- MarginNote/original Lecture is the continuous first-learning primary;
-- KianOS must not become a second continuous Lecture reader;
-- Lecture-attached questions remain with original Lecture / MarginNote;
-- official question order does not own learning order;
-- Question→Knowledge repair routing is reviewed-only;
-- PSR creates no canonical unit, score, completion state or Memory debt;
-- final System Reconstruction is learner-authorized only after all 38 Blocks are actually learned;
-- Weak / Recall instability may enter selective Memory but must not stall the mainline indefinitely.
+### Two bounded contract gaps repaired
 
-### Two material contract gaps — REPAIR
+#### A｜Surface visibility / handoff
 
-#### Gap A｜Surface visibility / handoff was implicit rather than executable
+The final owner now contains `surface_handoff_contract` and explicitly enforces:
 
-The owner said what each surface owns, but did not explicitly prevent a future Projection from:
+- one bounded whole-LG Lecture contact followed by one normal return;
+- no normal KP-by-KP app bouncing;
+- figures/tables, source-local examples, annotation context and Lecture-attached questions remain owned by original Lecture / MarginNote;
+- KianOS owns orientation, selective cue, retrieval, closure and compression rather than continuous explanation;
+- Precision / Visual / Reserve / Connection / Lecture locator are conditional context only;
+- `readiness`, construction receipts, semantic acceptance, partition rationale, cognitive-job codes, system-truth refs and audit/status metadata are backend-only;
+- KP Recall follows formal Lecture contact, LG closure follows whole-LG contact, Block Recall follows all Block LG closures, PSR is skippable/non-gating, System Recall waits for actual 38-Block learning;
+- Chat repair is smallest-sufficient and returns to the interrupted B mainline;
+- first instability may be recorded without indefinitely stopping the mainline;
+- Connection Hooks do not enter ordinary Memory before formal target-owner learning.
 
-- bouncing Kian between KianOS and MarginNote KP-by-KP;
-- duplicating source figures/tables/examples into a second continuous reader;
-- showing Precision / Visual / Reserve / Connection context continuously;
-- surfacing backend fields merely because they exist in JSON.
+#### B｜Cross-System handoff
 
-**Repair:** add one explicit `surface_handoff_contract` defining whole-LG contact, one normal return, source-local ownership, conditional context visibility, backend-only fields, Recall timing, Chat repair and return-to-mainline behavior.
+The final owner now contains `cross_system_handoff`.
 
-#### Gap B｜Several cross-System readiness labels were too vague to become learner-facing Hooks
-
-Examples include conceptual labels such as `external inflammation/shock interfaces`, `external repair/fibrosis`, `circulation/renal interfaces` and `P0 signal-transduction language`.
-
-These are acceptable as backend readiness descriptions, but **not** as learner-facing Connection Hooks unless a formal Current target owner exists. Shared policy requires deferred/connection knowledge to have a real target owner and forbids invented precise routing.
-
-**Repair:** add `cross_system_handoff` with:
-
-- formal System/Overlay target owners resolved from Current manifest;
-- explicit routes for respiratory TB, circulation/renal, hematology, reproductive and O9 tumor-general interfaces;
-- a separate `assumed_baseline` class for already-learned general mechanism language such as membrane/signaling or general injury/inflammation/repair;
-- rule that baseline gaps use Chat smallest-sufficient repair and do not manufacture a deferred owner or Memory debt;
-- rule that System-level owner routing is allowed when finer Block/KP routing lacks reviewed authority; Runtime may not invent a finer mapping.
-
----
-
-## 3｜Negative-space attack
-
-The accepted/repaired owner must fail closed against all of the following:
-
-| Attack | Verdict |
-|---|---|
-| KianOS becomes a second textbook | forbidden |
-| KP-by-KP app switching during normal first learning | forbidden |
-| pre-Lecture active Recall as default first exposure | forbidden |
-| closure before whole-LG formal Lecture contact | forbidden |
-| Block Recall before all Block LG closures | forbidden |
-| PSR as mastery gate / score / completion / Memory debt | forbidden |
-| System Recall because engineering is ready | forbidden |
-| question order as learner order | forbidden |
-| guessed B official qids | forbidden |
-| inferred Question→KP relation | forbidden |
-| Wrong/Uncertain automatically derails mainline indefinitely | forbidden |
-| Connection Hook admitted to normal Memory before target-owner learning | forbidden |
-| permanent display of Precision/Visual/Reserve/Connection | forbidden |
-| engineering metadata rendered on primary learner surface | forbidden |
-| Learning owner duplicates medical Core / second System mother model | forbidden |
-| vague external-interface label rendered as a target owner | forbidden |
-| Projection/page/card structure treated as Learning semantics | forbidden |
-
----
-
-## 4｜Formal cross-System owner registry
-
-System-level routing is deliberately coarse when exact Block/KP routing is not reviewed.
+Formal coarse target owners are resolved from Current manifest:
 
 ```text
 circulation    → content/xizong/knowledge/systems/a1-circulation/
@@ -119,31 +74,81 @@ reproductive   → content/xizong/knowledge/systems/e-reproductive-breast/
 tumor-general  → content/xizong/knowledge/overlays/o9-tumor-general/
 ```
 
-This registry is a handoff boundary, not permission to invent a more precise owner. A reviewed finer owner may replace the coarse route later without changing B medical truth.
+Reviewed routes cover respiratory TB, shock/hemodynamic, renal/VitD, hematology, reproductive and O9 tumor-general interfaces.
 
-General membrane/signaling and general injury/inflammation/repair language remain `ASSUMED_BASELINE` unless/until Current provides an accepted finer owner. They may be reactivated if already learned or repaired minimally in Chat; they may not silently create new learner scheduling.
+General membrane/electrical/signal-transduction and general injury/inflammation/repair-fibrosis language are explicitly `ASSUMED_BASELINE`, not fabricated deferred owners. If missing, Chat may perform the smallest sufficient repair; no future owner, mastery gate or Memory debt is manufactured.
+
+When a finer reviewed external Block/KP owner is absent, the System/Overlay owner is the maximum routing precision allowed. Runtime/Projection may not infer finer ownership from titles, proximity or model intuition.
 
 ---
 
-## 5｜Phase 5 materialization exit gate
+## 3｜Negative-space result
 
-Phase 5 may PASS only after the single B Learning owner contains and read-backs:
+Fresh attack result:
 
 ```text
-surface_handoff_contract.primary_sequence = whole-LG Lecture contact + one normal return
-source-local figures/tables/examples/attached questions owned by MarginNote
-conditional context visibility for Precision/Visual/Reserve/Connection
-backend-only visibility rule for readiness/audit/coverage/status metadata
-Chat repair = smallest sufficient + explicit return to interrupted mainline
-cross_system_handoff formal target registry present
-assumed baseline separated from deferred Connection Hooks
-no invented fine-grained cross-System owner
-question / Memory / PSR / System-Recall negative-space rules preserved
-construction_status = PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE
-38 Blocks / 600 KPs / 170 LGs unchanged
+material violations found before repair = 2 contract gaps
+material violations remaining          = 0
 ```
 
-Only then:
+The final Learning owner now fails closed against:
+
+- KianOS as a continuous second textbook;
+- KP-by-KP normal app switching;
+- pre-Lecture active Recall as first exposure;
+- LG closure before whole-LG Lecture contact;
+- Block Recall before all Block LGs close;
+- PSR as mastery gate / score / completion / Memory debt;
+- System Recall authorized by engineering readiness;
+- teacher/file/question order as learner authority;
+- guessed B official qids or inferred Question→KP relations;
+- indefinite Weak/Uncertain derailment of the mainline;
+- Connection Hooks entering ordinary Memory before target-owner learning;
+- permanent Precision/Visual/Reserve/Connection display;
+- engineering metadata on the primary learner surface;
+- duplicate medical Core / second System mother model;
+- vague external-interface labels becoming learner-facing target owners;
+- Projection/page/card structure substituting for Learning semantics.
+
+---
+
+## 4｜Materialization evidence
+
+Bounded materializer:
+
+```text
+workflow = Xizong B Phase 5 Surface Audit
+run      = 34870873385 (#1)
+result   = SUCCESS
+owner commit = 3409cd9f1b1afe440f3bc3f803362795d04032a7
+```
+
+Read-back of the single owner confirms:
+
+```text
+stable Blocks = 38
+stable KPs = 600
+Logic Groups = 170
+construction_status = PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE
+surface_handoff_contract present
+cross_system_handoff present
+PSR non-gating preserved
+question_order_owns_learning = false
+phase5_status = PASS_BY_CROSS_SURFACE_NEGATIVE_SPACE_AUDIT
+negative_space_violations_remaining = 0
+```
+
+Medical identity and the accepted Phase 0–4 Learning semantics remain unchanged.
+
+---
+
+## 5｜Phase 5 verdict
+
+**PASS.**
+
+Phase 5 establishes that the accepted Learning construction has coherent surface ownership, executable handoff timing, explicit return-to-mainline semantics and no known material negative-space violation.
+
+This is still **not overall L PASS**. Fresh independent L acceptance remains Phase 6.
 
 ```text
 Phase 5 = PASS
