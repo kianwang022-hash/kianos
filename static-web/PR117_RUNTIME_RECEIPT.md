@@ -1,5 +1,70 @@
 # #117 — Workbench Runtime / browser receipt
 
+## ACTIVE VISUAL AUTHORITY — frozen v2.1 P10 / P11 rollback
+
+Status: **SELF FRAME-TO-VIEW PASS · KIAN HUMAN GATE OPEN · VISUAL ACCEPTANCE PENDING · NOT MERGED**.
+
+Kian stopped free composition polish and explicitly selected `design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md` **P10 / P11** as this Stage's visual/composition authority. That decision supersedes the earlier local polish section below, including its delta-before-takeaway order. The earlier candidate remains historical comparison evidence and is not the active design direction.
+
+The archive supplies spatial responsibilities, order, simultaneous visibility and density. **Latest Current / #117 retains all semantics.** The archive's superseded `xiao_reference` slot is deliberately not restored; only admitted `takeaway + chat_explanation` are learner-facing. No OCR, due, mandatory diagnosis or fabricated image/reference capability.
+
+Implementation: `3c0e18eb1bea589a6c1d511466ff06dc0ab00509`. Last local comparison candidate: `dac2a852`; last published head before this update: `a1a399b3`. Latest observed main `c50aff9a` advanced only independent Xizong B candidate work after the prior read; no Politics/Current/Workbench dependency changed. No main merge or unrelated edits were needed. Same sole #117 branch writer. [Identity / frozen-file hash / unchanged Runtime hashes](../output/playwright/issue139-frame-rollback/identity.json).
+
+### Frame-to-view mapping
+
+| Frozen source | Current implementation and preserved relationship | Evidence |
+| --- | --- | --- |
+| **P10**, archive §7 / line 681; `POLITICS_PRODUCT_BRIEF.md` → Clean attempt | One full-width clean face. Scope/progress, Normal/Fast and Favorite/Uncertain/discussion occupy the upper workbar; verified metadata follows, then full stem, Mac 2×2 options, quiet timer/input hint and Submit below. No knowledge pane or correctness fields on clean. Existing hooks/handlers moved without rewriting Runtime. | clean; Fast/Uncertain; pending-save lock |
+| **P11 left**, archive §7 / line 710; brief → Submitted result | Result → takeaway → learner/formal answers → missing/extra → optional cause/note. Existing annotations remain available. Approximately 32/68 desktop regions; left evidence stays alongside a long right-side source. | correct; multiple Wrong; long source |
+| **P11 right**, same section | Full `chat_explanation` → Current sources → Next / exact Unit Return action row. Actions remain reachable at the foot of the right region. Original-practice return still uses the existing exact session/question bridge. No new third pane or legacy reference field. | full-text comparisons; note/refresh/source round trip |
+| §2 frame interpretation / §4 Mac acceptance | ASCII boxes are not rendered as nested cards. Existing fonts and neutral/accent system remain; 20px question, 17px explanation, 16px source. Two-column wide layout and narrow fallback are checked. No subject-specific content decoration. | viewport matrix and computed font readback |
+
+The compact pre-session setup from the last local candidate is unchanged in this rollback; P10/P11 govern the active clean/submitted surfaces. No new setup composition or structural alternative was introduced after the freeze.
+
+### Affected verification
+
+`POLISH_PHASE=after node scripts/test-politics-practice-polish.mjs` — **6 bounded browser scenarios PASS** using the same formal tasks and fresh isolated macOS Chromium contexts:
+
+- learned-scope guard, clean protection, full correct review, note/refresh/immutable first attempt/source exact Return/Next;
+- Fast multiple explicit submission and missing B / extra C; narrow result;
+- full long explanation/source; final action row and left evidence remain reachable/visible together;
+- unowned target still blocked without substitution;
+- relocated P10 controls retain Fast stable advancement and Uncertain review;
+- relocated controls still lock during a failed pending storage transaction, with no advancement.
+
+The original **23 formal browser PASS** remains preserved; its script was not rewritten or rerun. `static-web/src/lib`, routes, Politics content and that formal script are unchanged against `a1a399b3`. No change to 1127/21 admission, Current hashes, first attempt, Evidence, persistence or Return semantics.
+
+`npm run qa:politics` — **PASS**, including Current/K03/repair-memory/admission checks and full production build (**8250 pages**). [QA/build log](../output/playwright/issue139-frame-rollback/politics-qa.log). Fresh-head CI is read back in PR #117.
+
+Environment: actual `darwin`, Chromium `141.0.7390.37`, DPR 1 isolated contexts, computed system font stack with PingFang SC fallback. Screenshots/checks cover 1440×900, 1728×1117, 1920×1080, 1024×768, 820px fallback and 700px negative overflow coverage. A 1152×720 effective CSS viewport checks the 125%-zoom layout equivalent; native browser zoom itself is **NOT_RUN**, not claimed as measured. [Machine report / computed font / component hash](../output/playwright/issue139-frame-rollback/after-checks.json).
+
+### Same-task before / after
+
+“Before” is the immediately preceding local candidate (`dac2a852`), copied byte-for-byte from its actual captures. The archived document remains the design authority, not these before images.
+
+| Real task | Before | Frozen-frame result |
+| --- | --- | --- |
+| Marx S-001 clean | [Before](../output/playwright/issue139-frame-rollback/before-clean.png) | [P10](../output/playwright/issue139-frame-rollback/after-clean.png) |
+| Marx S-001 correct | [Before](../output/playwright/issue139-frame-rollback/before-correct.png) | [P11](../output/playwright/issue139-frame-rollback/after-correct.png) |
+| History M-001 Wrong | [Before](../output/playwright/issue139-frame-rollback/before-multiple-wrong.png) | [P11 Wrong](../output/playwright/issue139-frame-rollback/after-multiple-wrong.png) |
+| Marx M-151 long explanation | [Before](../output/playwright/issue139-frame-rollback/before-long-explanation.png) | [P11 long](../output/playwright/issue139-frame-rollback/after-long-explanation.png) |
+| Marx M-151 source | [Before](../output/playwright/issue139-frame-rollback/before-long-source.png) | [Evidence + source + actions](../output/playwright/issue139-frame-rollback/after-long-source.png) |
+
+### KIAN HUMAN GATE — frozen frame acceptance
+
+The actual local production preview remains **http://127.0.0.1:4337/politics/practice/**. Refresh the existing tab to load this composition; no content revision or private state schema changed. To switch samples, use “退出题组” → “结束本组”; if the last summary is displayed, choose “再开一组”.
+
+1. **Same Marx S-001, P10:** `/politics/practice/?question=X1000-MARX-S-001`. Confirm learned scope and start. Check that scope/progress/mode/signals sit above one complete question face and Submit sits below. Reject a clean knowledge sidebar, leaked result or missing hard-to-reach controls.
+2. **Same correct result, P11:** submit A. Check left result → takeaway → answers/notes beside right explanation → sources → actions. Add a note, refresh, visit the Unit and return to the original question. Reject a changed information order, lost note or incorrect Return.
+3. **Same multiple Wrong:** `/politics/practice/?question=X1000-HISTORY-M-001`, Fast, select A+C and submit. Check left missing B / extra C and right explanation simultaneously. Reject premature multi-submit, unclear delta or a new diagnosis requirement.
+4. **Same long source:** `/politics/practice/?question=X1000-MARX-M-151`, submit ABCD and expand the first source. Check that full source, left evidence and final Next/Return remain usable together. Reject hidden/clipped content, a third workspace or unreachable actions.
+
+Stop at this gate. Kian visual acceptance and independent review remain pending. No merge, no #140, no learner U, no other Politics/English/Xizong implementation. The #117 worktree/preview stays active; unrelated dirty work and learner profiles remain untouched.
+
+---
+
+## Superseded local polish receipt — history only
+
 ## Human Gate feedback — bounded product polish
 
 Status: **SELF AFFECTED-UI PASS · KIAN VISUAL ACCEPTANCE PENDING · NOT MERGED**.
