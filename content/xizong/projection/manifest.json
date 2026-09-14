@@ -1,27 +1,102 @@
 {
   "schema": "kianos.xizong.cognitive_projection.manifest.v1",
-  "status": "CALIBRATION_ACTIVE",
+  "status": "FULL_A1_A2_A3_COMPILED_PENDING_VALIDATION",
   "runtime_authority": false,
-  "baseline_commit": "2f1974bf8b270393626fef95472c64dbe1c81f7d",
+  "source_baseline_commit": "2def94eb8a11ede16b503da6b33c7a03e6e91967",
   "contract": "content/xizong/projection/PROJECTION_CONTRACT.md",
   "projection_root": "content/xizong/projection",
   "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
-  "freshness_policy": "Every referenced source is pinned by path + blob SHA. Any mismatch makes only dependent assets STALE pending targeted recompile.",
-  "content_copy_policy": "Prefer refs/selectors over copied medical prose. Projection owns representation metadata, not canonical medical truth.",
-  "calibration_batch_01": {
-    "goal": "Prove multi-object, optional-enrichment, multi-source and multi-view expressivity before full A1/A2/A3 compilation.",
-    "assets": [
-      {"system_id":"circulation","block_id":"circulation-b01","path":"a1-circulation/blocks/b01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"circulation","block_id":"circulation-b07","path":"a1-circulation/blocks/b07.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"circulation","block_id":"circulation-b10","path":"a1-circulation/blocks/b10.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"circulation","block_id":"circulation-b11","path":"a1-circulation/blocks/b11.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"respiratory","block_id":"respiratory-r01","path":"a2-respiratory/blocks/r01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"urinary","block_id":"urinary-b01","path":"a3-urinary/blocks/b01.projection.json","status":"CALIBRATION_DERIVED_CURRENT"},
-      {"system_id":"urinary","block_id":"urinary-b05","path":"a3-urinary/blocks/b05.projection.json","status":"CALIBRATION_DERIVED_CURRENT"}
+  "freshness_policy": {
+    "SYSTEM_CORE": "RESOLVE_BINDING",
+    "MEDICAL_CORE": "STRICT_BLOB when used by DERIVED_FRAGMENT",
+    "LEARNING_SUPPORT": "RESOLVE_BINDING",
+    "SELECTIVE_CUES": "RESOLVE_BINDING",
+    "PATHWAYS": "RESOLVE_BINDING",
+    "EXTERNAL_SOURCE_CONTRACT": "STRICT_BLOB",
+    "rule": "File packaging is not semantic dependency. Shared structured sources revalidate exact pointers/items instead of causing sibling-wide stale fan-out."
+  },
+  "binding_policy": {
+    "current_refs_only": true,
+    "fuzzy_runtime_resolution": false,
+    "optional_index_match_zero_is_legal": true,
+    "owner_ref_does_not_copy_core": true
+  },
+  "coverage": {
+    "systems": 3,
+    "blocks": 38,
+    "total_projection_assets": 41,
+    "expected": {"A1": 12, "A2": 12, "A3": 14},
+    "rich_calibration_blocks": [
+      "circulation-b01",
+      "circulation-b07",
+      "circulation-b10",
+      "circulation-b11",
+      "respiratory-r01",
+      "urinary-b01",
+      "urinary-b05"
     ],
-    "count": 7,
-    "runtime_blockers_outside_scope": [
-      "Question attempts must become append-preserved / phase-aware before multi-pass question Runtime productization."
-    ]
-  }
+    "remaining_blocks": "BASELINE_CURRENT over the same schema; eligible for later local richer Projection upgrades without schema or Runtime rewrite."
+  },
+  "systems": {
+    "circulation": {
+      "canonical_id": "A1",
+      "system_projection": "a1-circulation/system.projection.json",
+      "block_count": 12,
+      "blocks": [
+        "a1-circulation/blocks/b01.projection.json",
+        "a1-circulation/blocks/b02.projection.json",
+        "a1-circulation/blocks/b03.projection.json",
+        "a1-circulation/blocks/b04.projection.json",
+        "a1-circulation/blocks/b05.projection.json",
+        "a1-circulation/blocks/b06.projection.json",
+        "a1-circulation/blocks/b07.projection.json",
+        "a1-circulation/blocks/b08.projection.json",
+        "a1-circulation/blocks/b09.projection.json",
+        "a1-circulation/blocks/b10.projection.json",
+        "a1-circulation/blocks/b11.projection.json",
+        "a1-circulation/blocks/b12.projection.json"
+      ]
+    },
+    "respiratory": {
+      "canonical_id": "A2",
+      "system_projection": "a2-respiratory/system.projection.json",
+      "block_count": 12,
+      "blocks": [
+        "a2-respiratory/blocks/r01.projection.json",
+        "a2-respiratory/blocks/r02.projection.json",
+        "a2-respiratory/blocks/r03.projection.json",
+        "a2-respiratory/blocks/r04.projection.json",
+        "a2-respiratory/blocks/r05.projection.json",
+        "a2-respiratory/blocks/r06.projection.json",
+        "a2-respiratory/blocks/r07.projection.json",
+        "a2-respiratory/blocks/r08.projection.json",
+        "a2-respiratory/blocks/r09.projection.json",
+        "a2-respiratory/blocks/r10.projection.json",
+        "a2-respiratory/blocks/r11.projection.json",
+        "a2-respiratory/blocks/r12.projection.json"
+      ]
+    },
+    "urinary": {
+      "canonical_id": "A3",
+      "system_projection": "a3-urinary/system.projection.json",
+      "block_count": 14,
+      "blocks": [
+        "a3-urinary/blocks/b01.projection.json",
+        "a3-urinary/blocks/b02.projection.json",
+        "a3-urinary/blocks/b03.projection.json",
+        "a3-urinary/blocks/b04.projection.json",
+        "a3-urinary/blocks/b05.projection.json",
+        "a3-urinary/blocks/b06.projection.json",
+        "a3-urinary/blocks/b07.projection.json",
+        "a3-urinary/blocks/b08.projection.json",
+        "a3-urinary/blocks/b09.projection.json",
+        "a3-urinary/blocks/b10.projection.json",
+        "a3-urinary/blocks/b11.projection.json",
+        "a3-urinary/blocks/b12.projection.json",
+        "a3-urinary/blocks/b13.projection.json",
+        "a3-urinary/blocks/b14.projection.json"
+      ]
+    }
+  },
+  "separate_runtime_blocker": "Question attempts must become append-preserved and phase-aware before multi-pass question Runtime productization."
 }

@@ -1,18 +1,16 @@
 # Xizong Cognitive Projection Contract
 
-Status: **CALIBRATION ACTIVE — NOT YET RUNTIME AUTHORITY**  
+Status: **FULL A1/A2/A3 COMPILATION — VALIDATION / FREEZE CANDIDATE**  
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Root evolvability requirement: `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1  
 Shared presentation grammar: `static-web/PRESENTATION_CONTRACT.md`
 
-This contract owns the **derived cognitive Projection layer** between Current Xizong medical/learning assets and learner-facing workspaces.
-
-It does not own medical truth, learning order, question truth, learner evidence, Runtime semantics, or UI styling.
+This contract owns the derived cognitive Projection layer between Current Xizong medical/learning assets and learner-facing workspaces. It does not own medical truth, learning order, question truth, learner evidence, Runtime semantics, or UI styling.
 
 ## 1｜Purpose
 
-Projection exists so that normal content evolution is usually absorbed as an asset recompile rather than a page rewrite:
+Projection exists so normal content evolution is usually absorbed as asset revalidation/recompile rather than a page rewrite:
 
 ```text
 Current medical / learning owners
@@ -26,107 +24,178 @@ Hard rule:
 
 > **Projection organizes Current semantics; it does not become a second medical owner.**
 
-A Projection asset may say *what semantic role an existing Current object plays, how it may be spatialized, and in which learner state it is visible*. It may not silently author a new mechanism, comparison, boundary, source locator, Question→Knowledge relation, or treatment rule.
+It may describe semantic role, useful cognitive geometry and state visibility. It may not author a new mechanism, comparison, boundary, source locator, Question→Knowledge relation, treatment rule or learner evidence.
 
-## 2｜Calibration scope
+## 2｜Compiled scope
 
-The first calibration batch intentionally spans heterogeneous Current Blocks:
+Current compilation covers the full currently productized A Systems:
+
+```text
+A1 Circulation   1 SystemProjection + 12 BlockProjection
+A2 Respiratory   1 SystemProjection + 12 BlockProjection
+A3 Urinary       1 SystemProjection + 14 BlockProjection
+
+Total            3 SystemProjection + 38 BlockProjection = 41 assets
+```
+
+Seven heterogeneous calibration Blocks retain richer explicitly compiled geometry:
 
 - A1 B1 — mechanism chain + formula language + framework;
-- A1 B7 — decision/inference + comparison + boundary + mechanism chains;
+- A1 B7 — inference + four-valve comparison + boundary;
 - A1 B10 — stability-first decision algorithm + ECG boundary;
-- A1 B11 — feedback loop + directional failure model + wet/cold decision coordinate;
-- A2 R1 — measurement + mechanics + resistance + Visual/Precision/Connection enrichment;
+- A1 B11 — feedback loop + wet/cold decision coordinate;
+- A2 R1 — measurement/mechanics + Visual/Precision/Connection enrichment;
 - A3 B1 — spatial/directional/measurement/control map + source handoff;
-- A3 B5 — five-variable coordinate + priority/acid-base algorithms + narrow external-source provenance.
+- A3 B5 — five-variable coordinate + priority/acid-base algorithm + narrow external-source provenance.
 
-Calibration proves schema expressivity only. These assets are not permission for Runtime/Codex implementation until the schema is separately frozen.
+The remaining 31 Blocks are legal baseline projections over the same schema:
+
+```text
+canonical Current Block Guide owner
++ first-pass focus / stop line
++ recall spine
++ Logic Group map
++ external handoff policy
++ protected KP / Block Recall views
++ optional Current enrichment where the System owns it
+```
+
+Baseline does **not** mean semantically thin or incomplete: the full canonical Guide/Core remains the medical owner and is projected intact. It means no extra specialized geometry is invented until Current-supported benefit justifies a local richer Projection upgrade.
 
 ## 3｜Granularity and identity
 
-Initial durable granularity:
+Durable granularity:
 
 ```text
 SystemProjection
 BlockProjection
 ```
 
-Calibration currently materializes only representative `BlockProjection` assets. KP/LG identities remain canonical owners and are referenced rather than copied into one projection file per KP.
+KP/LG identities remain canonical owners and are referenced rather than copied into one projection file per KP.
 
-Stable identity rules:
+Rules:
 
 - `system_id`, `block_id`, `logic_group_id`, `kp_id` resolve against Current canonical owners;
 - page layout changes do not create new canonical identity;
-- if a semantic owner splits/merges/moves, that is an upstream change and Projection must be rebuilt after the responsible owner is reconciled;
-- Projection object IDs are stable presentation identities inside one canonical scope, not medical identities.
+- semantic split/merge/move is an upstream owner change and must be reconciled there first;
+- Projection object IDs are presentation identities inside one canonical scope, not new medical identities.
 
-## 4｜Source registry and freshness
+## 4｜Source registry and binding-aware freshness
 
-Every Projection asset declares the exact Current source files it depends on with blob SHA.
+Every Projection source declares path + baseline blob SHA for provenance. Whether a source blob change invalidates the asset depends on semantic dependency, not file packaging.
 
-A source may be:
+Source kinds include:
 
-- `MEDICAL_CORE` — canonical System/Block medical content;
-- `LEARNING_SUPPORT` — approved first-pass focus, Logic Groups, closure, recall spine;
-- `SELECTIVE_CUES` — reviewed Visual/Precision trigger index;
-- `PATHWAYS` — reviewed Connection/Failure projection support;
-- `EXTERNAL_SOURCE_CONTRACT` — admitted narrow supplementary authority;
-- another explicitly approved Current owner.
+- `SYSTEM_CORE` — Current `system.json`;
+- `MEDICAL_CORE` — canonical Block medical content used for explicit derived fragments;
+- `LEARNING_SUPPORT` — focus/LG/closure/recall support;
+- `SELECTIVE_CUES` — reviewed Visual/Precision index;
+- `PATHWAYS` — reviewed Connection/Failure support;
+- `EXTERNAL_SOURCE_CONTRACT` — admitted narrow supplementary authority.
 
-Freshness is fail-closed:
+### `STRICT_BLOB`
+
+Use when Projection contains explicit derived fragments from a scope-local text owner, or when a narrow external-source contract change itself requires re-audit.
+
+Default:
 
 ```text
-referenced source blob changes
-→ dependent Projection = STALE
-→ targeted recompile / review
-→ only then DERIVED_CURRENT again
+MEDICAL_CORE used by DERIVED_FRAGMENT → STRICT_BLOB
+EXTERNAL_SOURCE_CONTRACT             → STRICT_BLOB
 ```
 
-A renderer must never silently keep using stale Projection merely because it can still parse the file.
+A mismatch makes that dependent asset `STALE` until targeted review/recompile.
+
+### `RESOLVE_BINDING`
+
+Use for structured Current owners where Projection stores exact pointers/item selectors rather than copying the whole source.
+
+Default:
+
+```text
+SYSTEM_CORE
+LEARNING_SUPPORT
+SELECTIVE_CUES
+PATHWAYS
+→ RESOLVE_BINDING
+```
+
+A shared file may change because a sibling Block changed. That must not falsely stale every dependent asset.
+
+```text
+blob changed
+→ re-resolve this asset's exact binding(s)
+→ exact pointer/item/filter remains valid → PASS / REVALIDATED
+→ binding removed/renamed/type-invalid → STALE / FAIL
+```
+
+This rule is required by R10 Content Evolvability: **file packaging ≠ semantic dependency**.
 
 ## 5｜Binding model
 
-Projection should prefer **references over copied learner content**.
-
-Allowed binding kinds:
+Prefer references over copied learner content.
 
 ### `FIELD_REF`
-Exact structured field in a Current JSON/frontmatter owner.
+Exact structured field in Current JSON/frontmatter.
 
-Typical selector:
+Supported selectors include:
 
-```json
-{"source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b01/recall_spine"}}
-```
-
-For Markdown frontmatter, `FRONTMATTER_FIELD` is allowed.
+- `JSON_POINTER`;
+- `FRONTMATTER_FIELD`.
 
 ### `OWNER_REF`
-Stable canonical owner identity, e.g. a Block/LG/KP. The consumer resolves content from the canonical owner rather than from Projection.
+Stable canonical owner identity. Current roles used by baseline BlockProjection include:
+
+- `CENTER_QUESTION`;
+- `CANONICAL_GUIDE`;
+- canonical Block/LG/KP/KP-set identity.
+
+`OWNER_REF` means the consumer resolves the Current owner; Projection does not copy its medical body.
 
 ### `DERIVED_FRAGMENT`
-A structurally selected fragment of a Current text owner when the source is not already structured enough for direct field binding.
+Structurally selected fragment from a Current text owner when Current is not already structured enough.
 
-Allowed calibration selectors include:
+Supported selectors:
 
-- `MARKER_ID` — explicit Current marker such as `kianos:framework id=...`;
-- `HEADING_EXACT` — exact heading section;
-- `LABELED_BLOCKQUOTE` — exact labelled blockquote such as `中心问题`;
-- `STRUCTURE_AFTER_ANCHOR` — exact textual anchor + structure type/occurrence for a table/code block/list inside the same source section.
+- `MARKER_ID`;
+- `HEADING_EXACT`;
+- `LABELED_BLOCKQUOTE`;
+- `STRUCTURE_AFTER_ANCHOR`.
 
-Derived fragments must retain source path + blob SHA. Selectors fail closed if no exact Current match exists. No fuzzy semantic search is allowed at Runtime.
+Selectors fail closed. Runtime must never perform fuzzy semantic search to rescue a broken selector.
 
 ### `INDEX_REF`
-Exact reviewed item ID inside an enrichment index such as Visual, Precision or Pathways.
+Exact reviewed item ID inside an enrichment index.
+
+### `INDEX_MATCH`
+Deterministic filtering over a reviewed Current index. It is allowed only over explicit Current-owned fields and exact equality predicates, e.g.:
+
+```json
+{"kind":"INDEX_MATCH","index":"precision_index","where":{"anchor.block_id":"respiratory-r05"}}
+```
+
+or Connection direction:
+
+```json
+{"index":"connections","where":{"source.block_id":"respiratory-r05"}}
+{"index":"connections","where":{"target.block_id":"respiratory-r05"}}
+```
+
+Rules:
+
+- no fuzzy matching;
+- no semantic widening;
+- zero matches is legal for optional enrichment;
+- the renderer may expose only the matched Current objects and must preserve their timing semantics.
 
 ### `EXTERNAL_CONTRACT_REF`
-Reference to an admitted external-source contract. It carries provenance/scope permission only; it must not copy the external source into a second content owner or widen the admitted scope.
+Reference to an admitted external-source contract. It carries provenance/scope permission only; it may not copy/widen the external source into a second learner owner.
 
-## 6｜Semantic role vs geometry
+## 6｜Role vs geometry
 
 Keep two dimensions separate.
 
-`role` answers **what cognitive job this object performs**. Calibration uses shared Presentation roles where applicable:
+`role` answers what cognitive job an object performs:
 
 ```text
 PROBLEM
@@ -141,9 +210,7 @@ CLOSURE
 REFERENCE
 ```
 
-Xizong may add a domain role only when cognition genuinely requires it.
-
-`geometry` answers **how that owned semantic object can be spatialized on Mac**. Calibration geometry vocabulary:
+`geometry` answers how Current semantics may be spatialized on Mac:
 
 ```text
 SEQUENCE
@@ -158,7 +225,7 @@ SPATIAL_MAP
 TEXT_STRUCTURE
 ```
 
-Geometry is presentation metadata, not medical truth. A future geometry change must normally be possible without changing the medical owner.
+Geometry is presentation metadata, not medical truth. A geometry upgrade should normally not require changing the canonical medical owner.
 
 ## 7｜Multi-object Block rule
 
@@ -167,19 +234,19 @@ A Block is a scope containing cognitive objects, **not one projection shape**.
 ```text
 BlockProjection
 ├─ objects[]
-├─ Logic Group binding
-├─ KP-set binding
+├─ learning-support bindings
+├─ Logic Group / KP identity bindings
 ├─ optional enrichment bindings
 └─ views
 ```
 
-One Block may legitimately contain Chain + Compare + Boundary + Decision/Map + Formula objects when Current supports them. Do not force one `projection_shape` per Block merely to simplify rendering.
+One Block may carry Chain + Compare + Boundary + Map + Formula objects when Current supports them. Never force one `projection_shape` per Block merely to simplify rendering.
 
 ## 8｜Views and multi-pass compatibility
 
-Projection should reuse the same canonical cognition across learner states.
+The same canonical cognition is reused across learner states.
 
-Calibration view vocabulary:
+Current Block views:
 
 ```text
 BLOCK_ORIENT
@@ -192,78 +259,74 @@ BLOCK_RECALL_FRONT
 BLOCK_RECALL_REVEAL
 ```
 
-A `view` selects already-bound objects / support fields and their learner-facing role. It does not duplicate medical text.
-
-Future passes may add views such as:
+Current System views:
 
 ```text
-SECOND_PASS_REVIEW
-LATE_REVIEW
+SYSTEM_GUIDE
+SYSTEM_RECALL_FRONT
+SYSTEM_RECALL_REVEAL
 ```
 
-but **calibration must not pre-author second-pass content**. Later discrimination, distractor, condition-mutation, case or cross-System assets require their own accepted authority before they can project.
+A view selects bound Current objects/support; it does not duplicate medical text.
+
+Future passes may add `SECOND_PASS_REVIEW` / `LATE_REVIEW`, but this compilation does not pre-author second-pass discrimination, distractor, condition-mutation, case or cross-System content. Those require accepted Current authority first.
 
 ## 9｜Neutral-front safety
 
-Protected recall states are workspace-wide.
+Protected Recall is workspace-wide.
 
-`KP_RECALL_FRONT`, `BLOCK_RECALL_FRONT`, and future System Recall Front must not expose answer-bearing title/Core/Precision/Visual/inspector content through any Projection object, route label, tooltip or side region.
+Any view with `protection: NEUTRAL_FRONT` may expose only explicitly non-answer-bearing objects. It must not leak canonical Guide/Core, recall spine, Precision, answer-bearing Visual, Failure answer or hidden title through sidebars, route labels, inspectors, tooltips or shortcuts.
 
-A view may explicitly declare `protection: NEUTRAL_FRONT`; consumers must fail closed if an object not admitted to that front is requested.
+A2 optional enrichment therefore uses `NO_ANSWER_LEAK` on protected views.
 
 ## 10｜Optional enrichment is first-class
 
-Current Systems need not own symmetrical sidecars.
-
-Rules:
+Systems do not need symmetrical sidecars.
 
 ```text
 reviewed enrichment exists → Projection may bind it
-reviewed enrichment absent → field/object stays absent
+reviewed enrichment absent → stays absent
 ```
 
-Do not manufacture placeholder Precision, Visual, Connection, source-local or pathway files just so A1/A2/A3 look structurally identical.
+A2 may bind Visual/Precision/Connection; A1/A3 do not manufacture placeholders. A3 B5 may bind a narrow external-source contract without turning every Block into a multi-source object.
 
-A2 Visual/Precision/Pathway support and A3 B5 external-source support are calibration tests for this rule.
+## 11｜Mac / Dense Calm boundary
 
-## 11｜Mac layout boundary
+Projection preserves semantic structure needed by the accepted Mac-wide product but does not become CSS.
 
-Projection may preserve **semantic layout intent** needed by the accepted Mac-wide product, e.g.:
+Allowed semantic intent includes cognitive role/geometry and primary/context relationship. Projection must not own pixels, colors, font sizes, shadows, card radii or theme styling.
 
-```text
-PRIMARY_STAGE
-SECONDARY_STAGE
-CONTEXT
-REFERENCE
-SIDE_BY_SIDE
-FULL_WIDTH
-```
+Mac acceptance remains downstream and must follow Kian's preferences:
 
-Projection must not encode CSS pixels, colors, font sizes, rounded-card decisions, or theme styling. Those remain Product/UI implementation responsibilities governed by Kian's Mac/Dense Calm preferences.
-
-The schema must retain enough semantic structure for a Mac renderer to avoid giant whitespace/card piles, but content assets do not become CSS.
+- wide-landscape design origin;
+- larger comfortable text and strong contrast;
+- medium/high useful density with low disorder;
+- no giant-whitespace minimalism;
+- no default card/panel pile;
+- stable/correct path extremely fast;
+- important first-round structure visible without unnecessary clicks;
+- real screenshots required for aesthetic acceptance.
 
 ## 12｜Question boundary
 
-Cognitive Projection is not a second question database.
+Cognitive Projection is not a second question database. Official Question Truth, explanations and reviewed Question→Knowledge relations remain in dedicated owners. Question workbenches may compose those owners with Cognitive Projection; Block/System Projection may not copy official questions or answers.
 
-Official Question Truth, explanations and reviewed Question→Knowledge relations remain in their dedicated owners. Question workbenches may combine those owners with Cognitive Projection at Runtime/Projection composition time, but Block Projection must not copy official questions or answers.
+## 13｜Validation / freeze tests
 
-## 13｜Calibration acceptance tests
+Production freeze requires validator evidence for:
 
-A schema calibration passes only if all are true:
+1. identity resolution;
+2. binding-aware freshness;
+3. no invention / exact selectors;
+4. optional enrichment without fake symmetry;
+5. multi-object Block support;
+6. state reuse without copied medical summaries;
+7. workspace-wide neutral-front safety;
+8. R10 local-change absorption / no false sibling stale fan-out;
+9. full manifest coverage: A1 12 + A2 12 + A3 14 Blocks and 3 System projections.
 
-1. **Identity** — all System/Block/LG/KP references resolve to stable Current identity.
-2. **Freshness** — changed source hash makes the dependent derived asset stale.
-3. **No invention** — Current-absent relations/cues/locators remain absent.
-4. **Optional enrichment** — enriched and non-enriched Systems are both legal without fake symmetry.
-5. **Multi-object Block** — one Block can carry multiple cognitive shapes without special-case page code.
-6. **State reuse** — Orient/Recall/Closure views reuse the same owned cognition rather than copied summaries.
-7. **Neutral-front safety** — protected Recall fronts remain answer-safe across the whole workspace.
-8. **R10 Content Change Absorption** — a legitimate content/projection-support change should normally require only the affected asset recompile + targeted validation, not named-topic branching in Astro/Runtime.
+## 14｜Separate Runtime blocker
 
-## 14｜Runtime blocker outside this lane
+Question attempt history is not solved by this layer. Before multi-pass question Runtime productization, attempts must become append-preserved and phase-aware rather than overwriting first-pass evidence with a later result.
 
-Question attempt history is a separate Runtime/Evidence compatibility requirement. The future multi-pass question model must append-preserve attempts/phases rather than overwrite first-pass evidence with a later result.
-
-This calibration lane does not change learner state, question Runtime, evidence semantics, Astro/CSS/JS, or S/K/L/P/R/E/U acceptance.
+This Projection compilation changes no learner state, question Runtime, Evidence semantics, Astro/CSS/JS, or S/K/L/P/R/E/U acceptance.

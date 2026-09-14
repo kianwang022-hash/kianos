@@ -1,0 +1,38 @@
+name: Xizong Projection Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/xizong/projection/**'
+      - 'content/xizong/knowledge/systems/a1-circulation/**'
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/knowledge/systems/a3-urinary/**'
+      - 'content/xizong/knowledge/learner/a1-circulation-learning.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-pathways.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-learning.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json'
+  pull_request:
+    paths:
+      - 'content/xizong/projection/**'
+      - 'content/xizong/knowledge/systems/a1-circulation/**'
+      - 'content/xizong/knowledge/systems/a2-respiratory/**'
+      - 'content/xizong/knowledge/systems/a3-urinary/**'
+      - 'content/xizong/knowledge/learner/a1-circulation-learning.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
+      - 'content/xizong/knowledge/learner/a2-respiratory-pathways.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-learning.json'
+      - 'content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Validate Xizong cognitive projection
+        run: python3 content/xizong/projection/tools/validate_projection.py --self-test
