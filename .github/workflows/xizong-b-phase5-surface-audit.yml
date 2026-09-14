@@ -1,0 +1,74 @@
+name: Xizong B Phase 5 Surface Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/scripts/apply-xizong-b-phase5-surface-audit.mjs'
+      - '.github/workflows/xizong-b-phase5-surface-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Apply Phase 5 surface contract
+        working-directory: static-web
+        run: node scripts/apply-xizong-b-phase5-surface-audit.mjs
+      - name: Rebuild single B Learning owner
+        working-directory: static-web
+        run: node scripts/build-xizong-b-learning-candidate.mjs
+      - name: Validate Phase 5 owner
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const p = 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json';
+          const o = JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail = (m)=>{ throw new Error(m); };
+          if (o.identity?.stable_block_count !== 38) fail('B_P5_BLOCKS');
+          if (o.identity?.stable_kp_count !== 600) fail('B_P5_KPS');
+          if (o.identity?.logic_group_count !== 170) fail('B_P5_LGS');
+          if (o.construction_status !== 'PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE') fail('B_P5_STATUS');
+          const s = o.surface_handoff_contract;
+          if (!s || !String(s.normal_switching_rule).includes('Do not bounce KP-by-KP')) fail('B_P5_SWITCHING');
+          if (!s.lecture_owns?.includes('figures and tables') || !s.lecture_owns?.includes('Lecture-attached questions')) fail('B_P5_LECTURE_OWNER');
+          if (!s.context_visibility?.conditional?.includes('Precision') || !s.context_visibility?.backend_only?.includes('readiness relations')) fail('B_P5_VISIBILITY');
+          if (s.recall_timing?.system !== 'ONLY_AFTER_ALL_38_BLOCKS_ARE_ACTUALLY_LEARNED') fail('B_P5_SYSTEM_TIMING');
+          if (s.repair_return?.scope !== 'smallest sufficient object or boundary') fail('B_P5_REPAIR_SCOPE');
+          const x = o.cross_system_handoff;
+          if (!x?.formal_target_owners?.circulation || !x?.formal_target_owners?.tumor_general) fail('B_P5_CROSS_OWNER');
+          if (!Array.isArray(x.assumed_baseline) || x.assumed_baseline.length !== 2) fail('B_P5_BASELINE');
+          if (!String(x.fine_grain_rule).includes('must not infer a finer mapping')) fail('B_P5_FINE_GRAIN');
+          if (o.semantic_acceptance?.phase5_status !== 'PASS_BY_CROSS_SURFACE_NEGATIVE_SPACE_AUDIT') fail('B_P5_ACCEPTANCE');
+          if (o.semantic_acceptance?.negative_space_violations_remaining !== 0) fail('B_P5_NEGATIVE_SPACE');
+          if (o.system_route?.partial_system_reconstructions?.some(x=>x.non_gating !== true)) fail('B_P5_PSR_GATE');
+          if (o.question_stage?.question_order_owns_learning !== false) fail('B_P5_QUESTION_ORDER');
+          console.log('B Phase 5 owner validation PASS');
+          NODE
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          git config core.quotePath false
+          mapfile -t changed < <(git status --short | sed -E 's/^.. //')
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+      - name: Commit Phase 5 compiler and owner
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- \
+            'static-web/scripts/build-xizong-b-learning-candidate.mjs' \
+            'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+          git commit -m 'xizong: materialize B Phase 5 surface-safe owner'
+          git pull --rebase origin main
+          git push origin HEAD:main
