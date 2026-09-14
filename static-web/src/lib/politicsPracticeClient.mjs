@@ -82,6 +82,9 @@ export function initPoliticsPractice(root) {
     const count = eligible().length;
     text('[data-scope-summary]', `当前范围 ${count} 题`);
     text('[data-available-count]', count); text('[data-target-count]', controls.count.value);
+    const unavailable = (catalog.unavailable || []).filter((q) => controls.subject.value === 'all' || q.subject === controls.subject.value).length;
+    text('[data-practice-unavailable]', `${unavailable} 题尚无可用的学习单元绑定，暂不开放练习。`);
+    hide('[data-practice-unavailable]', !unavailable);
     $$('[data-mode-value]').forEach((b) => {
       b.classList.toggle('active', b.dataset.modeValue === controls.mode.value);
       b.setAttribute('aria-pressed', String(b.dataset.modeValue === controls.mode.value));
@@ -375,7 +378,7 @@ export function initPoliticsPractice(root) {
       if (session.status === 'paused') saveSession({ ...session, status: 'active' });
     } else if (params.has('unit') || params.has('question')) {
       const targetQuestion = params.has('question') ? qById.get(params.get('question')) : null;
-      if (params.has('question') && !targetQuestion) throw new Error('原题链接无效；没有替换成其他题。');
+      if (params.has('question') && !targetQuestion) throw new Error((catalog.unavailable || []).some((q) => q.id === params.get('question')) ? '本题尚无可用的学习单元绑定，暂不开放练习；没有替换成其他题。' : '原题链接无效；没有替换成其他题。');
       const u = uByKey.get(params.get('unit') || targetQuestion?.unitKey);
       if (targetQuestion && u?.key !== targetQuestion.unitKey) throw new Error('原题与学习单元不匹配；未开始。');
       if (targetQuestion && session && ['active', 'paused'].includes(session.status)) throw new Error('已有未完成题组，请使用原题组的继续入口。');

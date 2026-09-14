@@ -3,6 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { buildPoliticsPracticeCatalogCurrent } from '../src/lib/politicsPractice.mjs';
+import { practiceReady, publicPracticeCatalog, practiceReviewPayload } from '../src/lib/politicsPracticeView.mjs';
+import { gunzipSync } from 'node:zlib';
 
 const staticRoot = path.resolve(process.cwd());
 const componentPath = path.join(staticRoot, 'src/components/PoliticsPracticeWorkbench.astro');
@@ -22,9 +24,18 @@ if (uniqueIds.size !== 1148) fail(`unique_question_count:${uniqueIds.size}`);
 if (!units.length) fail('units_missing');
 if (catalog.refinedExplanationStatus !== 'CURRENT_DERIVED_LEARNER_FACING_ASSET') fail(`refined_status:${catalog.refinedExplanationStatus || 'missing'}`);
 if (Number(catalog.refinedExplanationCount || 0) !== 1148) fail(`refined_count:${catalog.refinedExplanationCount || 0}`);
-if (Number(diagnostics.unresolvedPracticeOwnerCount || 0) !== 0) {
-  fail(`unresolved_practice_owners:${JSON.stringify((diagnostics.unresolvedPracticeOwners || []).slice(0, 30))}`);
-}
+// Source training_ready is verified question content, not NU admission.
+// Require every canonical-owned question; quarantine only IDs genuinely absent
+// from Current ownership. A dropped renderer/first-ready owner still fails.
+const repoRoot = path.resolve(process.env.KIANOS_REPO_ROOT || '..');
+const regionRows = fs.readFileSync(path.join(repoRoot, 'content/politics/source/politics_unified_regions.v1.jsonl'), 'utf8').trim().split('\n').map(JSON.parse);
+const ownedIds = new Set(regionRows.filter((r) => r.status === 'canonical').flatMap((r) => r.xiao_question_refs || []));
+const blocked = questions.filter((q) => !ownedIds.has(q.id));
+if (diagnostics.unresolvedPracticeOwnerCount !== blocked.length) fail('current_owner_coverage');
+const original = JSON.parse(gunzipSync(fs.readFileSync(path.join(repoRoot, 'content/politics/derived/xiao1000-learner-explanations/asset.v1.json.gz'))));
+const explanations = new Map(original.records.map((r) => [r.question_id, r]));
+const publicCatalog = publicPracticeCatalog(catalog);
+if (publicCatalog.questions.length !== questions.length - blocked.length || publicCatalog.unavailable.length !== blocked.length) fail('admission_inventory');
 
 const unitByKey = new Map(units.map((unit) => [unit.key, unit]));
 for (const question of questions) {
@@ -34,12 +45,23 @@ for (const question of questions) {
   if (question.options.some((option, index) => option.label !== String.fromCharCode(65 + index) || !option.text)) fail(`question_option_shape:${question.id}`);
   if (!/^[A-D]+$/.test(question.answer)) fail(`question_answer:${question.id}`);
   if (!question.refined?.takeaway || !question.refined?.chatExplanation) fail(`refined_binding:${question.sourceId}`);
+  const exact = explanations.get(question.sourceId);
+  if (!exact || exact.takeaway !== question.refined.takeaway || exact.chat_explanation !== question.refined.chatExplanation) fail(`refined_content_changed:${question.id}`);
   if (Object.prototype.hasOwnProperty.call(question, 'xiaoReference')) fail(`learner_xiao_reference_leak:${question.id}`);
   if (Object.prototype.hasOwnProperty.call(question, 'originalExplanation')) fail(`learner_original_explanation_leak:${question.id}`);
+  if (!ownedIds.has(question.id)) {
+    if (practiceReady(question) || question.unitKey || question.unitHref || publicCatalog.questions.some((q) => q.id === question.id)) fail(`unowned_question_admitted:${question.id}`);
+    let rejected = false;
+    try { practiceReviewPayload(catalog, question.id); } catch { rejected = true; }
+    if (!rejected) fail(`unowned_review_admitted:${question.id}`);
+    continue;
+  }
   const unit = unitByKey.get(question.unitKey);
   if (!unit) fail(`unit_binding:${question.id}`);
   if (!unit.questionIds.includes(question.id)) fail(`unit_question_inventory:${question.id}`);
   if (!unit.returnConfig?.expected_question_ids?.includes(question.id)) fail(`return_config:${question.id}`);
+  const review = practiceReviewPayload(catalog, question.id);
+  if (review.answer !== question.answer || review.source.length !== unit.source.length) fail(`review_payload:${question.id}`);
 }
 
 const component = fs.readFileSync(componentPath, 'utf8') + fs.readFileSync(path.join(staticRoot, 'src/lib/politicsPracticeClient.mjs'), 'utf8');
@@ -78,6 +100,9 @@ console.log(JSON.stringify({
   referenceOnlyNaturalUnitCount: diagnostics.referenceOnlyNaturalUnitCount,
   recoveredReferenceOnlyQuestionCount: diagnostics.recoveredReferenceOnlyQuestionCount,
   unresolvedPracticeOwnerCount: diagnostics.unresolvedPracticeOwnerCount,
+  admittedQuestionCount: publicCatalog.questions.length,
+  protectedUnownedQuestionCount: blocked.length,
+  protectedQuestionIds: blocked.map((q) => q.id),
   refinedExplanationStatus: catalog.refinedExplanationStatus,
   refinedExplanationContentVersion: catalog.refinedExplanationContentVersion,
   refinedReady: questions.filter((question) => question.refined?.takeaway && question.refined?.chatExplanation).length,

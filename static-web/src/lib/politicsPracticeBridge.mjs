@@ -26,6 +26,15 @@ export function installPoliticsPracticeBridge() {
     const config = configs.find((c) => c.expected_question_ids.includes(id));
     if (!config || session?.runtimeVersion !== 2 || params.get('practiceSession') !== session.id || session.ids?.[session.index] !== id || !['active', 'paused'].includes(session.status)) throw new Error('返回目标已过期；原题组未被替换，请回工作台核对。');
     link.href = `${base}politics/practice/?session=${encodeURIComponent(session.id)}&question=${encodeURIComponent(id)}`;
+    // A valid Workbench repair return must expose its exact source, even when
+    // the chapter's cognitive workspace previously showed another unit/state.
+    const source = document.getElementById(config.source_anchor);
+    const unit = source?.closest('[data-workspace-unit]');
+    if (unit) {
+      document.querySelector(`[data-workspace-unit-tab="${unit.dataset.unitIndex}"]`)?.click();
+      unit.dispatchEvent(new CustomEvent('politics:resume-state', { bubbles: true, detail: { state: 'EXTERNAL_LEARN' } }));
+    }
+    if (source) requestAnimationFrame(() => source.scrollIntoView({ block: 'nearest' }));
   } catch (e) {
     link.hidden = true;
     panel.querySelector('[data-practice-return-error]').textContent = e.message;

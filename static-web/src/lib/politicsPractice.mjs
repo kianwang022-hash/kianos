@@ -71,6 +71,20 @@ function buildAssetIndex() {
   return new Map(Object.entries(payload.assets || {}));
 }
 
+export function decodePoliticsExplanationBytes(manifest, compressed) {
+  if (!/^[a-f0-9]{64}$/.test(manifest.compressed_asset_sha256 || '') || sha256(compressed) !== manifest.compressed_asset_sha256) {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH');
+  }
+  let decoded;
+  try { decoded = gunzipSync(compressed); }
+  catch { throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_GZIP_INVALID'); }
+  // Stage 0 defines this as the exact decompressed UTF-8 byte stream, including LF.
+  if (!/^[a-f0-9]{64}$/.test(manifest.derived_payload_sha256 || '') || sha256(decoded) !== manifest.derived_payload_sha256) {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_PAYLOAD_SHA_MISMATCH');
+  }
+  return decoded;
+}
+
 function buildLearnerExplanationIndex() {
   if (!exists(LEARNER_EXPLANATION_MANIFEST)) {
     throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_MANIFEST_MISSING:${LEARNER_EXPLANATION_MANIFEST}`);
@@ -92,24 +106,7 @@ function buildLearnerExplanationIndex() {
     throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_ASSET_MISSING:${dataFile || 'missing'}`);
   }
 
-  const compressed = readBuffer(dataFile);
-  const expectedCompressedSha = clean(manifest.compressed_asset_sha256);
-  if (expectedCompressedSha && sha256(compressed) !== expectedCompressedSha) {
-    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH');
-  }
-
-  let decoded;
-  try {
-    decoded = gunzipSync(compressed);
-  } catch {
-    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_GZIP_INVALID');
-  }
-
-  // The manifest's compressed SHA pins the exact committed runtime bytes. The
-  // pre-gzip payload SHA is promotion provenance and was produced before the
-  // final gzip serialization; runtime acceptance therefore validates the exact
-  // compressed bytes plus parsed shape/count/IDs instead of reinterpreting that
-  // receipt field as a second byte-stream checksum.
+  const decoded = decodePoliticsExplanationBytes(manifest, readBuffer(dataFile));
   let payload;
   try {
     payload = JSON.parse(decoded.toString('utf8'));
@@ -125,12 +122,16 @@ function buildLearnerExplanationIndex() {
 
   const rows = new Map();
   for (const row of records) {
+    const fields = ['question_id', 'legacy_question_id', 'subject', 'takeaway', 'chat_explanation'];
+    if (!row || Object.keys(row).length !== fields.length || fields.some((field) => typeof row[field] !== 'string')) {
+      throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_FIELDS');
+    }
     const id = clean(row?.question_id);
     if (!id) throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_ID_MISSING');
     if (rows.has(id)) throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_ID_DUPLICATE:${id}`);
-    const takeaway = clean(row?.takeaway);
-    const chatExplanation = clean(row?.chat_explanation);
-    if (!takeaway || !chatExplanation) {
+    const takeaway = row.takeaway;
+    const chatExplanation = row.chat_explanation;
+    if (!takeaway.trim() || !chatExplanation.trim()) {
       throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_INCOMPLETE:${id}`);
     }
     rows.set(id, { takeaway, chatExplanation });
