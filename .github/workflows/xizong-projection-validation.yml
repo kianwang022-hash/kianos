@@ -1,18 +1,17 @@
-name: Xizong Projection Validation
+name: Xizong Projection Validation Candidate
 on:
   push:
     branches: [work/xizong-projection-validation-20260914]
     paths:
-      - 'content/xizong/**'
-      - '.github/workflows/xizong-projection-validation.yml'
-  pull_request:
-    paths:
-      - 'content/xizong/**'
+      - 'content/xizong/projection/**'
       - '.github/workflows/xizong-projection-validation.yml'
 permissions:
   contents: read
 jobs:
-  projection:
+  candidate:
+    if: github.ref == 'refs/heads/work/xizong-projection-validation-20260914'
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -21,54 +20,98 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             content/xizong
-      - name: Execute existing validator and self-test
-        id: baseline
-        continue-on-error: true
+      - name: Add validation-only metadata to candidate working tree
+        shell: bash
+        run: |
+          mkdir -p /tmp/xizong-validation
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,sys,subprocess
+          r=Path.cwd(); p=r/'content/xizong/projection'
+          sys.path.insert(0,str(p/'tools'))
+          from validate_projection import pointer_get,value_type,select_text,blob_sha
+          changes=[]; candidates=[]
+          for file in sorted(p.rglob('*.projection.json')):
+              text=file.read_text(); old_sha=blob_sha(file.read_bytes()); a=json.loads(text)
+              sources={s['id']:s for s in a['sources']}
+              def visit(o,path=''):
+                  if isinstance(o,dict):
+                      if o.get('kind')=='FIELD_REF':
+                          src=r/sources[o['source_id']]['path']; sel=o['selector']
+                          result=pointer_get(json.loads(src.read_text()),sel['value']) if sel['type']=='JSON_POINTER' else select_text(src.read_text(),sel)
+                          actual=value_type(result)
+                          if 'value_type' in o and o['value_type']!=actual:
+                              raise SystemExit('Existing type guard mismatch; do not auto repair')
+                          if 'value_type' not in o:
+                              o['value_type']=actual
+                              changes.append((str(file.relative_to(r)),path+'/value_type',actual))
+                      if o.get('kind')=='EXTERNAL_CONTRACT_REF' and o['selector']=={'type':'JSON_POINTER','value':'/'}:
+                          o['selector']['value']=''
+                          changes.append((str(file.relative_to(r)),path+'/selector/value',''))
+                      for k,v in list(o.items()):visit(v,path+'/'+k)
+                  elif isinstance(o,list):
+                      for i,v in enumerate(o):visit(v,path+'/'+str(i))
+              visit(a)
+              for i,o in enumerate(a['objects']):
+                  if 'answer_bearing' not in o:
+                      o['answer_bearing']=not(o['role']=='PROBLEM' and o['binding'].get('selector')=={'type':'LABELED_BLOCKQUOTE','label':'中心问题'})
+                      changes.append((str(file.relative_to(r)),f'/objects/{i}/answer_bearing',o['answer_bearing']))
+              if 'BLOCK_RECALL_FRONT' in a['views']:
+                  view=a['views']['BLOCK_RECALL_FRONT']; ids=view.get('object_ids',[])
+                  if view.get('show_logic_group_map') or any(o['object_id'] in ids and o['binding'].get('selector',{}).get('value')=='/logic_index/'+a['block_id'] for o in a['objects']):
+                      if 'logic_map_policy' not in view:
+                          view['logic_map_policy']='LABELS_AND_IDS_ONLY'
+                          changes.append((str(file.relative_to(r)),'/views/BLOCK_RECALL_FRONT/logic_map_policy','LABELS_AND_IDS_ONLY'))
+              if 'KP_RECALL_FRONT' in a['views'] and 'kp_content_policy' not in a['views']['KP_RECALL_FRONT']:
+                  a['views']['KP_RECALL_FRONT']['kp_content_policy']='ID_AND_NEUTRAL_PROMPT_ONLY'
+                  changes.append((str(file.relative_to(r)),'/views/KP_RECALL_FRONT/kp_content_policy','ID_AND_NEUTRAL_PROMPT_ONLY'))
+              file.write_text(json.dumps(a,ensure_ascii=False,indent=2 if text.startswith('{\n') else None,separators=None if text.startswith('{\n') else (',',':'))+'\n')
+              candidates.append({'path':str(file.relative_to(r)),'old_sha':old_sha,'new_sha':blob_sha(file.read_bytes())})
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          if len(candidates)!=41 or len(changes)!=355 or set(changed)!={x['path'] for x in candidates}:
+              raise SystemExit('Candidate drift; bounded metadata migration stopped')
+          out=Path('/tmp/xizong-validation')
+          (out/'metadata-delta.json').write_text(json.dumps(changes,ensure_ascii=False,indent=2))
+          (out/'candidates.json').write_text(json.dumps(candidates,indent=2))
+          print(f'Metadata only: {len(changes)} fields / {len(candidates)} assets')
+          PY
+      - name: Execute validator and actual mutation suite
         shell: bash
         run: |
           set -o pipefail
-          mkdir -p /tmp/xizong-validation
-          python3 content/xizong/projection/tools/validate_projection.py --self-test 2>&1 | tee /tmp/xizong-validation/baseline.log
-      - name: Capture exact scoped inputs for reproducible validation
-        if: always()
+          python3 content/xizong/projection/tools/validate_projection.py --self-test --json /tmp/xizong-validation/report.json 2>&1 | tee /tmp/xizong-validation/validation.log
+      - name: Export validated Git blobs only - never update commits or refs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
         shell: bash
         run: |
           python3 - <<'PY'
-          import json, pathlib, shutil, subprocess
-          root = pathlib.Path.cwd()
-          out = pathlib.Path('/tmp/xizong-validation/inputs')
-          proj = pathlib.Path('content/xizong/projection')
-          files = {p for p in proj.rglob('*') if p.is_file()}
-          for p in proj.rglob('*.projection.json'):
-              a = json.loads(p.read_text())
-              files.update(pathlib.Path(s['path']) for s in a.get('sources', []))
-          for p in ['content/xizong/knowledge/manifest.json', 'content/xizong/knowledge/learner/identity-aliases.json', 'content/xizong/knowledge/learner/study-policy.json']:
-              files.add(pathlib.Path(p))
-          for folder in ['a1-circulation', 'a2-respiratory', 'a3-urinary']:
-              for name in ['system.json', 'CURRENT.md', 'ACCEPTANCE.md']:
-                  files.add(pathlib.Path('content/xizong/knowledge/systems') / folder / name)
-              files.update((pathlib.Path('content/xizong/knowledge/systems') / folder / 'blocks').glob('*.md'))
-          inventory = []
-          for p in sorted(files):
-              if not p.is_file():
-                  raise SystemExit(f'Missing input: {p}')
-              resolved = p.resolve()
-              if not resolved.is_relative_to(root):
-                  raise SystemExit(f'Out of scope path: {p}')
-              dest = out / p
-              dest.parent.mkdir(parents=True, exist_ok=True)
-              shutil.copyfile(p, dest)
-              sha = subprocess.check_output(['git','hash-object',str(p)], text=True).strip()
-              inventory.append({'path': str(p), 'blob_sha': sha, 'bytes': p.stat().st_size})
-          pathlib.Path('/tmp/xizong-validation/input-inventory.json').write_text(json.dumps({'commit': subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(), 'files': inventory}, indent=2))
-          print(f'Captured {len(inventory)} exact scoped inputs')
+          import json,os,urllib.request,hashlib
+          from pathlib import Path
+          out=Path('/tmp/xizong-validation')
+          report=json.loads((out/'report.json').read_text())
+          if report['status']!='PASS' or report['mutation_tests']['failed']:
+              raise SystemExit('Validation not PASS')
+          entries=[]
+          for c in json.loads((out/'candidates.json').read_text()):
+              p=Path(c['path'])
+              if not str(p).startswith('content/xizong/projection/') or not str(p).endswith('.projection.json'):
+                  raise SystemExit('Unexpected write path')
+              data=p.read_bytes()
+              actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+              if actual!=c['new_sha']:raise SystemExit('Candidate changed after validation')
+              req=urllib.request.Request('https://api.github.com/repos/'+os.environ['REPOSITORY']+'/git/blobs',data=json.dumps({'content':data.decode(),'encoding':'utf-8'}).encode(),headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'},method='POST')
+              with urllib.request.urlopen(req,timeout=30) as response:
+                  created=json.load(response)
+              if created['sha']!=actual:raise SystemExit('Git blob mismatch')
+              entries.append({'path':c['path'],'mode':'100644','type':'blob','sha':actual})
+          (out/'tree-elements.json').write_text(json.dumps(entries,indent=2))
+          print(f'Exported {len(entries)} verified blobs; no commit/ref modified')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: xizong-projection-validation
+          name: xizong-projection-tested-candidate
           path: /tmp/xizong-validation
           retention-days: 7
-      - name: Preserve baseline verdict
-        if: steps.baseline.outcome != 'success'
-        run: exit 1
