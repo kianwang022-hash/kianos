@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -346,14 +347,20 @@ def apply(s):
     decision=locate(s,"decision","decision:l1:1"); s.put_existing(1248,decision,cn="经过考虑作出的选择或结论",en="a choice or conclusion reached after consideration",level="L1",pattern="make/reach a decision; decision to do sth")
     decline=locate(s,"decline","decline:l1:2"); s.add_construction(1253,"decline to do sth","politely refuse to do something")
     deduce=locate(s,"deduce","deduce:l1:1"); s.put_existing(1258,deduce,cn="从证据推断出结论",en="to infer or reach a conclusion from evidence",pos="verb",level="L1",pattern="deduce sth from sth")
-    deduct=locate(s,"deduct","deduct:l1:1"); s.put_existing(1259,deduct,cn="扣除、减去",en="to subtract or take an amount away from a total",pos="verb",level="L1",pattern="deduct A from B")
+    deduct=locate(s,"deduct","deduct:l1:1"); s.put_existing(1259,deduct,cn="扣除、减去",en="to subtract or take an amount away from a total",pos="verb",level="L1",pattern="deduct A from B"); s.add_construction(1259,"deduct A from B","扣除、从总额中减去")
     deep=ensure_branch(s,1262,"deep",[],"intellectual or abstract depth","adjective","深刻、深入的；涉及严肃理解或思考的","profound, thorough, or involving serious understanding or thought",level="L2"); s.add_colloc(1262,deep,"deep understanding/thought/analysis","深入理解、深思或深度分析")
-    default=locate(s,"default","default:l1:2"); s.put_existing(1264,default,cn="预设的选项或设置",en="a preset option or setting in a computer program",level="L1",pattern="default setting/value/option; by default")
+    default=locate(s,"default","default:l1:2"); s.put_existing(1264,default,cn="预设的选项或设置",en="a preset option or setting in a computer program",level="L1",pattern="default setting/value/option; by default"); s.add_construction(1264,"by default","在预设情况下")
     defense=locate(s,"defense","defense:l1:1"); s.add_overlay(1268,defense,{"case_sensitive":False,"identity_type":"form_boundary","surface_lemma":"defense","paired_form":"defence","note":"defense is standard AmE; defence is standard BrE"})
     delegate_n=locate(s,"delegate","delegate:l1:1"); delegate_v=locate(s,"delegate","delegate:l1:2")
     for sid_ in (delegate_n,delegate_v): s.add_overlay(1279,sid_,{"case_sensitive":False,"identity_type":"pronunciation_boundary","surface_lemma":"delegate","note":"noun delegate and verb delegate have different stress"})
     for alias,cn,en in [("delicate:l1:2","脆弱、容易损坏的","easily broken or damaged; fragile"),("delicate:l2:3","需要谨慎或敏感处理的","requiring careful or sensitive handling; subtle"),("delicate:l3:4","容易受伤的","easily hurt; susceptible to injury")]:
         sid_=locate(s,"delicate",alias); s.put_existing(1282,sid_,cn=cn,en=en,level="L2")
+    baseline_owner=json.loads(subprocess.check_output(["git","show",f"{BASELINE_ORIGIN_MAIN}:content/lexical/words/by-ordinal/o1282.json"]))
+    secondary_senses=copy.deepcopy(baseline_owner["record"].get("secondary_senses",[]))
+    for secondary in secondary_senses:
+        if isinstance(secondary.get("fact_id"), str) and secondary["fact_id"].startswith("deep:"):
+            secondary["fact_id"]="secondary:"+secondary["fact_id"]
+    s.record(1282)["secondary_senses"]=secondary_senses; s.mark(1282)
     delicious=locate(s,"delicious","delicious:l1:1"); s.put_existing(1283,delicious,cn="美味的；气味令人愉悦的",en="very pleasant to taste or smell",level="L1")
     deliver=ensure_branch(s,1285,"deliver",[],"deliver a baby","verb","接生；分娩","to assist with or give birth to a baby",level="L2",pattern="deliver a baby"); s.add_colloc(1285,deliver,"deliver on a promise/commitment","履行承诺或约定")
     delivery=locate(s,"delivery","delivery:l1:1"); s.put_existing(1286,delivery,cn="把货物、信件或物品送到目的地",en="the act of taking or sending goods, messages, or items to a destination",level="L1")
