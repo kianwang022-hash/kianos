@@ -17,7 +17,8 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 **P/R/E:** downstream-frozen behind L.  
 **U:** real learner validation only; not eligible.  
 **Engineering blocker:** none for L. Exact B official-question membership remains a named parallel Source blocker and must be closed before the later official System question sweep can execute.  
-**Next action:** construct and validate B-specific Learning support: causal Block route, Logic Group continuity/closure, first-pass focus/stop-line/Recall skeleton and cross-surface handoff under the lane rule `KianOS orientation → original Lecture in iPad/MarginNote → KianOS retrieval/closure`.
+**Execution task:** GitHub Issue `#135` — `Xizong B — rebuild Learning Logic to A1-quality before Projection`. The Issue tracks phased execution only; it does not own Learning Truth or Acceptance Truth.  
+**Next action:** execute **Issue #135 Phase 0 only** — gold-standard Learning calibration on `D1 / M2 / D10 / D14 / D21 / G5`. Do not bulk-upgrade the remaining 32 Blocks, do not treat the current 150 Logic Groups or 7 Arcs as target counts/shapes, and do not compile B Projection assets until the Phase 0 exit gate passes.
 
 ---
 
