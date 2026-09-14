@@ -7,12 +7,12 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "554ace95192470e486d9ee2fc99f1254ab93aad0c8b1f0d2c426377d8e95964f",
+    "content_hash": "d1005016c5fdbe5f9e3c99d5815e5baeb8ef99be58c11687355031eb6bdbe208",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "大数目，具体为十亿或万亿，取决于语境",
-      "core_meaning_en": "a large number, specifically 10^9 or 10^12 depending on context",
-      "mental_model_cn": "大数目，具体为十亿或万亿，取决于语境",
+      "core_meaning_cn": "十亿（10^9）",
+      "core_meaning_en": "the modern number 1,000,000,000 (10^9)",
+      "mental_model_cn": "十亿（10^9）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,6 +42,15 @@
             ],
             "meaning_cn": "十亿美元",
             "phrase": "a billion dollars"
+          },
+          {
+            "collocation_id": "collocation:2e3648fc11439b047843",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:billion:e5df053d4214526b:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "十亿（10^9）",
+            "phrase": "a billion (modern)"
           }
         ],
         "confidence": "medium",
@@ -54,30 +63,6 @@
         "sense_id": "sense:billion:e5df053d4214526b",
         "sense_label_en": "the number 1,000,000,000 (10^9)",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:990b50290a6f086818d7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:billion:05aba1212c995be8:collocation:0"
-            ],
-            "meaning_cn": "一万亿（英式）",
-            "phrase": "one billion (British)"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "万亿（10^12），英式用法",
-        "definition_en": "the number 1,000,000,000,000 (10^12) in British usage",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "numeral",
-        "sense_id": "sense:billion:05aba1212c995be8",
-        "sense_label_en": "the number 1,000,000,000,000 (10^12) in British usage",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -101,12 +86,38 @@
     "word_id": "word:billion"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:billion:05aba1212c995be8",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "numeral",
+      "definition_cn": "万亿（10^12），英式用法",
+      "definition_en": "the number 1,000,000,000,000 (10^12) in British usage",
+      "semantic_key": "b6b01f216f41126b303dc0d57de8f4e4c106e2f7038027eea1b9d4716491cbee",
+      "semantic_key_history": [
+        "a88ed4f7fab58061d8c3fb8b1ff5c05933f84a4dd169de5a5fa6161ab3d940c6"
+      ],
+      "legacy_aliases": [
+        "billion:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "billion:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 1289,
+      "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:billion:05aba1212c995be8",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1289,
         "source_path": "content/lexical/canonical/senses/shards/o0481-0512.json"
@@ -121,7 +132,7 @@
     ],
     "active_collocations": [
       "collocation:2ab1832e86505888983c",
-      "collocation:990b50290a6f086818d7",
+      "collocation:2e3648fc11439b047843",
       "collocation:ebfb84111768297145ab"
     ],
     "facts": [],
@@ -139,6 +150,11 @@
       {
         "id": "collocation:ebfb84111768297145ab",
         "source_row": 19995,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:2e3648fc11439b047843",
+        "source_row": 21382,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
@@ -173,7 +189,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0481-0488.json",
-    "source_content_hash": "554ace95192470e486d9ee2fc99f1254ab93aad0c8b1f0d2c426377d8e95964f",
+    "source_content_hash": "d1005016c5fdbe5f9e3c99d5815e5baeb8ef99be58c11687355031eb6bdbe208",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

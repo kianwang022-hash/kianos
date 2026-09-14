@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "f6562fc3661d005f570e44c70e10436628b3bd3a6cc49e919cfc2b8f8bd9de4a",
+    "content_hash": "487f0766f21c5adbb19ec0297558113a3f49a744106abde4e72a571aa5662cf3",
     "core_concept": {
       "core_clusters": [
         {
@@ -72,17 +72,13 @@
           "label_cn": "特好的；第一流的",
           "label_en": "excellent; first-rate",
           "pos": "adjective",
-          "sense_ids": [
-            "sense:bully:4f8c5dcafab75cb5"
-          ]
+          "sense_ids": []
         },
         {
           "label_cn": "十分；非常",
           "label_en": "very; extremely",
           "pos": "adverb",
-          "sense_ids": [
-            "sense:bully:509862733c8657d0"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "欺凌者；欺负",
@@ -128,50 +124,26 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:91e31637497d5af56467",
+            "collocation_id": "collocation:ccd1d51dd90f32df781f",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:bully:4f8c5dcafab75cb5:collocation:0"
+              "sense:bully:d34a38d16ec6503e:collocation:handoff-o0475-o0674"
             ],
-            "meaning_cn": "（讽刺）干得好；真棒",
-            "phrase": "bully for you"
+            "meaning_cn": "欺凌某人迫使其做某事",
+            "phrase": "bully sb into doing"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "特好的；第一流的",
-        "definition_en": "excellent; first-rate",
+        "definition_cn": "恐吓、欺凌或骚扰某人",
+        "definition_en": "to intimidate or harass someone, often using power to force them",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:bully:4f8c5dcafab75cb5",
-        "sense_label_en": "excellent; first-rate",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9304c025ab855dc03510",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:bully:509862733c8657d0:collocation:0"
-            ],
-            "meaning_cn": "极好的",
-            "phrase": "bully good"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "十分；非常",
-        "definition_en": "very; extremely",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "sense_id": "sense:bully:509862733c8657d0",
-        "sense_label_en": "very; extremely",
-        "sort_order": 2,
-        "transitivity": "nonverb"
+        "pos": "verb",
+        "sense_id": "sense:bully:d34a38d16ec6503e",
+        "sense_label_en": "to intimidate or harass someone, often using power to force them",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -196,27 +168,48 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:bully:d34a38d16ec6503e",
+      "stable_sense_id": "sense:bully:4f8c5dcafab75cb5",
       "status": "deprecated",
       "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "欺负；恐吓；胁迫",
-      "definition_en": "to use superior strength or influence to intimidate someone, typically to force them to do something",
-      "semantic_key": "d154db79cd45db758d1e161af153601748565d563445b0ae6dacd6ddfa1ca3ce",
-      "semantic_key_history": [
-        "3f8383ba4392ca5db6716d17875a9be75847bb6970374a4dac543ca042ceeb61"
-      ],
+      "pos": "adjective",
+      "definition_cn": "特好的；第一流的",
+      "definition_en": "excellent; first-rate",
+      "semantic_key": "5970a3df4308e49fb42b026c5c8289f714688f7be63a111a65506ccd0dcce371",
+      "semantic_key_history": [],
       "legacy_aliases": [
-        "bully:l1:2"
+        "bully:l3:4"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "bully:l1:2",
+          "legacy_sense_id": "bully:l3:4",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1740,
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 1738,
+      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:bully:509862733c8657d0",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adverb",
+      "definition_cn": "十分；非常",
+      "definition_en": "very; extremely",
+      "semantic_key": "dcdb939503a30708db48d6182a5f30cc99512b2aa3f2f2d8590a89368a53f45d",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "bully:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "bully:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 1739,
       "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
       "reference_only": true
     },
@@ -257,21 +250,21 @@
       },
       {
         "sense_id": "sense:bully:4f8c5dcafab75cb5",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1738,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       },
       {
         "sense_id": "sense:bully:509862733c8657d0",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 1739,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       },
       {
         "sense_id": "sense:bully:d34a38d16ec6503e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 1740,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
@@ -286,8 +279,7 @@
     ],
     "active_collocations": [
       "collocation:61c9fe45906e37646ee0",
-      "collocation:91e31637497d5af56467",
-      "collocation:9304c025ab855dc03510"
+      "collocation:ccd1d51dd90f32df781f"
     ],
     "facts": [
       {
@@ -326,6 +318,11 @@
         "id": "collocation:dd664257ea9c5de0141a",
         "source_row": 18739,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:ccd1d51dd90f32df781f",
+        "source_row": 21603,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
     "exam-mappings": [],
@@ -349,7 +346,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0617-0624.json",
-    "source_content_hash": "f6562fc3661d005f570e44c70e10436628b3bd3a6cc49e919cfc2b8f8bd9de4a",
+    "source_content_hash": "487f0766f21c5adbb19ec0297558113a3f49a744106abde4e72a571aa5662cf3",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

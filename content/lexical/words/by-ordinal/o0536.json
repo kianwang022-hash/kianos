@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "846ec5e3cad5a846fc1eb2b494a274d77cb54805dc2e2f793ad8f5b601f89492",
+    "content_hash": "b69f5bd2b7a3d0fba9d9c7a0f616acec6a77026755a8dc39b05608e196529e8a",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
           "sense_ids": [
             "sense:bond:c7129e6014405022",
             "sense:bond:4cc665d216615af3"
+          ]
+        },
+        {
+          "label_cn": "科学义",
+          "label_en": "the force linking atoms, especially chemically",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bond:d9e89666fd5fa640"
           ]
         }
       ],
@@ -164,6 +172,30 @@
         "sense_label_en": "to stick together or make things stick together",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:427866ebd69f33359feb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bond:d9e89666fd5fa640:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "化学键",
+            "phrase": "chemical bond"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（科学）原子之间的结合力或连接",
+        "definition_en": "the force or link holding atoms together, especially a chemical bond",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bond:d9e89666fd5fa640",
+        "sense_label_en": "the force or link holding atoms together, especially a chemical bond",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -216,10 +248,18 @@
         "merged_into_sense_id": null,
         "source_row": 1450,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
+      },
+      {
+        "sense_id": "sense:bond:d9e89666fd5fa640",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1484,
+        "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
     "active_collocations": [
       "collocation:14c4f999ffb86afd7fb8",
+      "collocation:427866ebd69f33359feb",
       "collocation:5e253b0e70debc0c9281",
       "collocation:797a4626bb30b7a83d96",
       "collocation:c130aa02538dbd96204c",
@@ -262,6 +302,11 @@
       {
         "id": "collocation:f9356081a5e3b65672df",
         "source_row": 21111,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:427866ebd69f33359feb",
+        "source_row": 21493,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       }
     ],
@@ -311,7 +356,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0529-0536.json",
-    "source_content_hash": "846ec5e3cad5a846fc1eb2b494a274d77cb54805dc2e2f793ad8f5b601f89492",
+    "source_content_hash": "b69f5bd2b7a3d0fba9d9c7a0f616acec6a77026755a8dc39b05608e196529e8a",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

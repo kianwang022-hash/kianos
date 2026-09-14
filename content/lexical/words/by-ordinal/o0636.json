@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "01eeca6bfb2ed7d944e01401cac09fe2895d3613d3998476d9a02528c3fa6de4",
+    "content_hash": "f21c8f7accf1f32e50e4231eef2fff5052da3d2b33ff286584fe6cbfea27c695",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:butcher:101bad18f8335e97"
+          ]
+        },
+        {
+          "label_cn": "比喻动词",
+          "label_en": "to ruin or do something very badly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:butcher:e6761b2566e21401"
           ]
         }
       ],
@@ -137,6 +145,30 @@
         "sense_label_en": "a brutal indiscriminate murderer",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe6be547009fa2fa7ac1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:butcher:e6761b2566e21401:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "把歌曲、发音或表演弄得很糟",
+            "phrase": "butcher a song/pronunciation/performance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "把某事搞砸、糟蹋或做得很差",
+        "definition_en": "to ruin or mangle something by doing it very badly",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:butcher:e6761b2566e21401",
+        "sense_label_en": "to ruin or mangle something by doing it very badly",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -189,13 +221,21 @@
         "merged_into_sense_id": null,
         "source_row": 1791,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
+      },
+      {
+        "sense_id": "sense:butcher:e6761b2566e21401",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1809,
+        "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
     "active_collocations": [
       "collocation:207c035c39984d1b33db",
       "collocation:21638d4778613ff6557d",
       "collocation:9700aafbd2a5e50cae47",
-      "collocation:d348ec3bddd00821690c"
+      "collocation:d348ec3bddd00821690c",
+      "collocation:fe6be547009fa2fa7ac1"
     ],
     "facts": [],
     "collocations": [
@@ -217,6 +257,11 @@
       {
         "id": "collocation:d348ec3bddd00821690c",
         "source_row": 17858,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:fe6be547009fa2fa7ac1",
+        "source_row": 21606,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       }
     ],
@@ -251,7 +296,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0633-0640.json",
-    "source_content_hash": "01eeca6bfb2ed7d944e01401cac09fe2895d3613d3998476d9a02528c3fa6de4",
+    "source_content_hash": "f21c8f7accf1f32e50e4231eef2fff5052da3d2b33ff286584fe6cbfea27c695",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

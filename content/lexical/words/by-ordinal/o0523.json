@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "14cbcd1c49dfaae3edac6a487e5983f4ab1265e51e206723eceee4258d96f497",
+    "constructions": [
+      {
+        "construction_id": "construction:f34f0ce7b5a14165442c",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "笨拙或偶然地进入、卷入某事",
+        "pattern": "blunder into sth"
+      }
+    ],
+    "content_hash": "d7a2687cacd575b07a2e43a23829d6736661a6a54134f46459b9d3d6ac4d2610",
     "core_concept": {
       "core_clusters": [
         {
@@ -87,6 +95,20 @@
         "sense_label_en": "to move clumsily or stumble",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "犯严重或愚蠢的错误",
+        "definition_en": "to make a serious or stupid mistake",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:blunder:ea94906166df56c1",
+        "sense_label_en": "to make a serious or stupid mistake",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -134,31 +156,6 @@
       "source_row": 1400,
       "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:blunder:ea94906166df56c1",
-      "status": "merged",
-      "merged_into_sense_id": "sense:blunder:0efe92c987615121",
-      "pos": "verb",
-      "definition_cn": "犯大错",
-      "definition_en": "to make a stupid mistake",
-      "semantic_key": "3eecf5017b740110ef00f3147b7c2da03cdb8513acd2b6e82b0f1922fc44bf55",
-      "semantic_key_history": [
-        "07aa43d2db70c1f24b4b8fe5eb3caeec0578c67a7c55f238451b8cab055ebbbb"
-      ],
-      "legacy_aliases": [
-        "blunder:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "blunder:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1403,
-      "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -186,8 +183,8 @@
       },
       {
         "sense_id": "sense:blunder:ea94906166df56c1",
-        "status": "merged",
-        "merged_into_sense_id": "sense:blunder:0efe92c987615121",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1403,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
@@ -250,7 +247,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0521-0528.json",
-    "source_content_hash": "14cbcd1c49dfaae3edac6a487e5983f4ab1265e51e206723eceee4258d96f497",
+    "source_content_hash": "d7a2687cacd575b07a2e43a23829d6736661a6a54134f46459b9d3d6ac4d2610",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

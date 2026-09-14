@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "40f462bf1f1208df50bb64e98d4b86a52606d7149f3f43400fadcd3528f17e33",
+    "constructions": [
+      {
+        "construction_id": "construction:443275ce6e2d37504cf8",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "fit in or harmonize; combine gradually, distinct from transitive mixing",
+        "pattern": "blend in / blend with or into"
+      }
+    ],
+    "content_hash": "dfb154d55fdb7c3521e4bca127dc12a8874faa7de5609e4043cad5bdff475f42",
     "core_concept": {
       "core_clusters": [
         {
@@ -59,6 +67,24 @@
             ],
             "meaning_cn": "混合原料",
             "phrase": "blend ingredients"
+          },
+          {
+            "collocation_id": "collocation:de4d79abf416294c2edb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blend:16c1c13e3f335ef5:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "融入、不显眼",
+            "phrase": "blend in"
+          },
+          {
+            "collocation_id": "collocation:85cb53510f7fe47b21b0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blend:16c1c13e3f335ef5:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "与…协调或逐渐混合",
+            "phrase": "blend with/into"
           }
         ],
         "confidence": "medium",
@@ -139,7 +165,9 @@
     "active_collocations": [
       "collocation:37c5aedb676f96d621ff",
       "collocation:80bcc96577f11284fd4a",
-      "collocation:9a518657a25eb712064c"
+      "collocation:85cb53510f7fe47b21b0",
+      "collocation:9a518657a25eb712064c",
+      "collocation:de4d79abf416294c2edb"
     ],
     "facts": [],
     "collocations": [
@@ -156,6 +184,16 @@
       {
         "id": "collocation:9a518657a25eb712064c",
         "source_row": 13150,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:85cb53510f7fe47b21b0",
+        "source_row": 21387,
+        "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
+      },
+      {
+        "id": "collocation:de4d79abf416294c2edb",
+        "source_row": 21394,
         "source_path": "content/lexical/canonical/collocations/shards/o0481-0512.json"
       }
     ],
@@ -195,7 +233,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0505-0512.json",
-    "source_content_hash": "40f462bf1f1208df50bb64e98d4b86a52606d7149f3f43400fadcd3528f17e33",
+    "source_content_hash": "dfb154d55fdb7c3521e4bca127dc12a8874faa7de5609e4043cad5bdff475f42",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a75f6b167e29cb9470bc945d54b0b05df2c1ff6e87a1c2a270ae0fa83cefe630",
+    "constructions": [
+      {
+        "construction_id": "construction:0eb5dae22519ab79ff12",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "dismiss or review/improve knowledge",
+        "pattern": "brush aside / brush up on"
+      }
+    ],
+    "content_hash": "a0cb819ce10f8296e234c3ca4d2d416678b1181dc61ceaf8186633003e4ad830",
     "core_concept": {
       "core_clusters": [
         {
@@ -105,6 +113,24 @@
             ],
             "meaning_cn": "梳头",
             "phrase": "brush one's hair"
+          },
+          {
+            "collocation_id": "collocation:3f7b4eadd72673c42965",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:brush:06bd8a02d28a5cd2:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "不理会、驳回",
+            "phrase": "brush aside"
+          },
+          {
+            "collocation_id": "collocation:1b44c4b336046f499f3d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:brush:06bd8a02d28a5cd2:collocation:handoff-o0475-o0674"
+            ],
+            "meaning_cn": "提高或复习某项知识或技能",
+            "phrase": "brush up on sth"
           }
         ],
         "confidence": "medium",
@@ -303,6 +329,8 @@
     "active_collocations": [
       "collocation:0755acc006a5bd7ae55d",
       "collocation:100558f604a6afb92f4e",
+      "collocation:1b44c4b336046f499f3d",
+      "collocation:3f7b4eadd72673c42965",
       "collocation:6bff6b58975d7bdda783",
       "collocation:6f8bb7bc8c7304588c22",
       "collocation:724a616835ed51f18204",
@@ -369,6 +397,16 @@
         "id": "collocation:eca73abb92f9e90765f2",
         "source_row": 20058,
         "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:1b44c4b336046f499f3d",
+        "source_row": 21503,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
+      },
+      {
+        "id": "collocation:3f7b4eadd72673c42965",
+        "source_row": 21504,
+        "source_path": "content/lexical/canonical/collocations/shards/o0577-0608.json"
       }
     ],
     "exam-mappings": [],
@@ -397,7 +435,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0601-0608.json",
-    "source_content_hash": "a75f6b167e29cb9470bc945d54b0b05df2c1ff6e87a1c2a270ae0fa83cefe630",
+    "source_content_hash": "a0cb819ce10f8296e234c3ca4d2d416678b1181dc61ceaf8186633003e4ad830",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
