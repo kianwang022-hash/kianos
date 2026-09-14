@@ -19,7 +19,8 @@ This file does not own medical Core, Xizong learning semantics, Acceptance Truth
 **Engineering blocker:** none for L. Exact B official-question membership remains a named parallel Source blocker and must be closed before the later official System question sweep can execute.  
 **Execution task:** GitHub Issue `#135` — `Xizong B — rebuild Learning Logic to A1-quality before Projection`. The Issue tracks phased execution only; it does not own Learning Truth or Acceptance Truth.  
 **Phase 0:** PASS — A1-quality calibration completed on `D1 / M2 / D10 / D14 / D21 / G5`; durable evidence is `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`.  
-**Next action:** execute **Issue #135 Phase 1 only** — re-evaluate the current B route / seven Arcs as hypotheses; establish justified `REQUIRES / BENEFITS_FROM / INDEPENDENT_BRANCH / RETURNS_TO-REACTIVATES` relations and decide whether B actually needs a learner-facing intermediate compression layer. Do not start the 38-Block bulk upgrade, full LG rebuild, Projection compilation, Runtime or Evidence work until Phase 1 passes.
+**Phase 1:** PASS — the old seven-Arc serial route is retired as learner-order authority; accepted construction direction is a causal readiness DAG + low-switching default route + six non-gating Partial-System Reconstruction checkpoints. Durable decision evidence is `content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md`.  
+**Next action:** execute **Issue #135 Phase 2 only** — fresh 38-Block learning-control review using selective `KEEP / UPGRADE / REPARTITION / BLOCKED` on `first_pass_focus`, explicit Current-grounded `stop_line`, runnable `recall_spine`, justified prerequisites/hooks and Block-level Logic Group partition rationale. Work from the accepted Phase-1 DAG; do not start full per-LG semantic rebuild, Projection compilation, Runtime or Evidence work until Phase 2 passes.
 
 ---
 
@@ -127,6 +128,7 @@ That is a Projection concern, not permission to reorganize medical Core during L
 - shared execution policy → `content/xizong/knowledge/learner/study-policy.json`
 - B Learning candidate → `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
 - Phase 0 calibration evidence → `content/xizong/knowledge/learner/B_PHASE0_LEARNING_CALIBRATION.md`
+- Phase 1 route decision evidence → `content/xizong/knowledge/learner/B_PHASE1_ROUTE_DECISION.md`
 - Current Question Truth → `content/xizong/questions/`
 - reviewed Question→Knowledge relations → `content/xizong/question-relations/`
 
