@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4cfa5166922fa35efeafe00cc0e2a928358b49deedc9a4cd60a1592a6fc317c1",
+    "content_hash": "1a226d177f5e4efb05a0838594d482709eebeaff69a608a2275233b41fe94ebc",
     "core_concept": {
       "core_clusters": [
         {
@@ -64,6 +64,30 @@
         "sense_label_en": "a performance of music by players or singers",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:42c341c5d4e3be5df1c0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:concert:43e8cb33a2895e0c:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "协同地；与……一致行动",
+            "phrase": "in concert (with)"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "一致行动；协调",
+        "definition_en": "agreement or coordinated action",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:concert:43e8cb33a2895e0c",
+        "sense_label_en": "agreement or coordinated action",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -87,31 +111,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:concert:43e8cb33a2895e0c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "一致；协作",
-      "definition_en": "agreement in action or opinion",
-      "semantic_key": "95f77a0b02b068d445b7cfe3131df27761fd01ed3eaff6a832bae195e4b59e36",
-      "semantic_key_history": [
-        "a1255fa929892511028e05172e8e348515a1bba4ee1fe38dcb03982c2f661a38"
-      ],
-      "legacy_aliases": [
-        "concert:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "concert:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2774,
-      "source_path": "content/lexical/canonical/senses/shards/o0961-0992.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:concert:735da76ab5725971",
       "status": "deprecated",
@@ -149,7 +148,7 @@
       },
       {
         "sense_id": "sense:concert:43e8cb33a2895e0c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2774,
         "source_path": "content/lexical/canonical/senses/shards/o0961-0992.json"
@@ -164,7 +163,8 @@
     ],
     "active_collocations": [
       "collocation:0c94a8c2d3e7619ae871",
-      "collocation:17d3d8a7612cfe3e32eb"
+      "collocation:17d3d8a7612cfe3e32eb",
+      "collocation:42c341c5d4e3be5df1c0"
     ],
     "facts": [],
     "collocations": [
@@ -186,6 +186,11 @@
       {
         "id": "collocation:f5db5049d051bddd7313",
         "source_row": 20820,
+        "source_path": "content/lexical/canonical/collocations/shards/o0961-0992.json"
+      },
+      {
+        "id": "collocation:42c341c5d4e3be5df1c0",
+        "source_row": 21470,
         "source_path": "content/lexical/canonical/collocations/shards/o0961-0992.json"
       }
     ],
@@ -230,7 +235,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0977-0984.json",
-    "source_content_hash": "4cfa5166922fa35efeafe00cc0e2a928358b49deedc9a4cd60a1592a6fc317c1",
+    "source_content_hash": "1a226d177f5e4efb05a0838594d482709eebeaff69a608a2275233b41fe94ebc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

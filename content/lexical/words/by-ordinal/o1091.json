@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "270676ca18b52582a01f28c88211d7bf95b7d69dfa316a7ea37dd3ffd9881f6e",
+    "content_hash": "225c3808182e43d852e4d27eb1149d213685bda9c660c8f26b6cd9e2334d164f",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "粗线或电线，或木材计量单位",
@@ -54,6 +54,48 @@
         "sense_id": "sense:cord:dd656da44246584e",
         "sense_label_en": "a length of twisted threads or fibers",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d9ad1bbc740ffa1ed63",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cord:e34a12ae7bd85c6f:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "电源线",
+            "phrase": "power/electrical cord"
+          },
+          {
+            "collocation_id": "collocation:68a5e634b067b012c638",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cord:e34a12ae7bd85c6f:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "脊髓",
+            "phrase": "spinal cord"
+          },
+          {
+            "collocation_id": "collocation:5dd87fab71276efd324c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cord:e34a12ae7bd85c6f:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "脐带",
+            "phrase": "umbilical cord"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "电线、电源线；带保护层的柔软导线",
+        "definition_en": "a thin flexible wire with a protective covering, used to connect electrical equipment",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:cord:e34a12ae7bd85c6f",
+        "sense_label_en": "a thin flexible wire with a protective covering, used to connect electrical equipment",
+        "sort_order": 999,
         "transitivity": "nonverb"
       }
     ],
@@ -127,31 +169,6 @@
       "source_row": 3056,
       "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:cord:e34a12ae7bd85c6f",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "电线，电缆",
-      "definition_en": "a thin flexible wire with a protective covering, used to connect electrical equipment",
-      "semantic_key": "c47f936f814437eaad6de251f2fff62e83b2d586d8699c3c30526ab5e65ce950",
-      "semantic_key_history": [
-        "88939d10b16ae838b6609c0156e576b9780d31d982c80ff96b36af7bdb92fb27"
-      ],
-      "legacy_aliases": [
-        "cord:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cord:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3058,
-      "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -179,14 +196,17 @@
       },
       {
         "sense_id": "sense:cord:e34a12ae7bd85c6f",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3058,
         "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json"
       }
     ],
     "active_collocations": [
+      "collocation:1d9ad1bbc740ffa1ed63",
       "collocation:20d0fdd211a6c96f2292",
+      "collocation:5dd87fab71276efd324c",
+      "collocation:68a5e634b067b012c638",
       "collocation:9ce901390423527e8e03"
     ],
     "facts": [],
@@ -219,6 +239,21 @@
       {
         "id": "collocation:c0a47447d4ef6814a7e3",
         "source_row": 16279,
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+      },
+      {
+        "id": "collocation:1d9ad1bbc740ffa1ed63",
+        "source_row": 21556,
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+      },
+      {
+        "id": "collocation:5dd87fab71276efd324c",
+        "source_row": 21559,
+        "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
+      },
+      {
+        "id": "collocation:68a5e634b067b012c638",
+        "source_row": 21560,
         "source_path": "content/lexical/canonical/collocations/shards/o1089-1120.json"
       }
     ],
@@ -253,7 +288,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1089-1096.json",
-    "source_content_hash": "270676ca18b52582a01f28c88211d7bf95b7d69dfa316a7ea37dd3ffd9881f6e",
+    "source_content_hash": "225c3808182e43d852e4d27eb1149d213685bda9c660c8f26b6cd9e2334d164f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

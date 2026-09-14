@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e352485013060dfbe4f85286b758ff86d98d6cb9417a5bd1e6131494385a48cc",
+    "content_hash": "9516fce0992edc2bc4e68c03dc036e0deb15c0a0a96d3415489701fcc140a8c2",
     "core_concept": {
       "core_clusters": [
         {
@@ -85,6 +85,30 @@
         "sense_label_en": "obscene terms for penis",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:145e3e6aba728b4a4501",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cock:e21d2be2bf68509e:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "歪头或竖起耳朵以集中注意",
+            "phrase": "cock one's head/ear"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（鸟等）倾斜或竖起；注意地偏向一侧",
+        "definition_en": "to tilt or raise the head or ear attentively; also to tilt to one side",
+        "governing_pattern": "cock one's head/ear",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cock:e21d2be2bf68509e",
+        "sense_label_en": "to tilt or raise the head or ear attentively; also to tilt to one side",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -132,31 +156,6 @@
       "source_row": 2499,
       "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:cock:e21d2be2bf68509e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "使倾斜；使翘起",
-      "definition_en": "tilt or slant to one side",
-      "semantic_key": "2e0c6d29eba7466dd7a783fec5f484164ab031b993b89057b3f2f00ba9228413",
-      "semantic_key_history": [
-        "616a7d0a042a3e3e205da331c6f422af2075b2f73896516e201bb195670e414c"
-      ],
-      "legacy_aliases": [
-        "cock:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "cock:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2500,
-      "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -191,14 +190,15 @@
       },
       {
         "sense_id": "sense:cock:e21d2be2bf68509e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2500,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
       }
     ],
     "active_collocations": [
-      "collocation:0e02efb34119c34d95d2"
+      "collocation:0e02efb34119c34d95d2",
+      "collocation:145e3e6aba728b4a4501"
     ],
     "facts": [],
     "collocations": [
@@ -210,6 +210,11 @@
       {
         "id": "collocation:c4bdaacce1a60c2c1922",
         "source_row": 16656,
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+      },
+      {
+        "id": "collocation:145e3e6aba728b4a4501",
+        "source_row": 21371,
         "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
       }
     ],
@@ -244,7 +249,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0873-0880.json",
-    "source_content_hash": "e352485013060dfbe4f85286b758ff86d98d6cb9417a5bd1e6131494385a48cc",
+    "source_content_hash": "9516fce0992edc2bc4e68c03dc036e0deb15c0a0a96d3415489701fcc140a8c2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
