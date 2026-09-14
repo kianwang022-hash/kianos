@@ -1,0 +1,137 @@
+{
+  "scope": "#139 formal Current data / isolated browser state / SELF",
+  "commit": "6cae33eac3891b88267325ee78b983460bfd80a7",
+  "catalogRevision": "1dad0bf024f2c4fda9c9bb9051ab228a3a0a71a98084cea51d7c771b6c8172fb",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "total": 1148,
+  "admitted": 1127,
+  "protected": [
+    "X1000-MAO-S-038",
+    "X1000-MAO-S-039",
+    "X1000-MAO-S-040",
+    "X1000-MAO-M-005",
+    "X1000-MAO-M-025",
+    "X1000-MAO-M-039",
+    "X1000-MAO-M-040",
+    "X1000-MAO-M-045",
+    "X1000-XI-S-053",
+    "X1000-XI-S-086",
+    "X1000-XI-M-008",
+    "X1000-XI-M-061",
+    "X1000-XI-M-111",
+    "X1000-HISTORY-S-067",
+    "X1000-HISTORY-S-108",
+    "X1000-HISTORY-S-109",
+    "X1000-HISTORY-S-110",
+    "X1000-HISTORY-S-111",
+    "X1000-HISTORY-M-061",
+    "X1000-ETHICS-M-055",
+    "X1000-ETHICS-M-056"
+  ],
+  "learnerU": "NOT_TESTED",
+  "checks": [
+    {
+      "name": "1148 exact content bindings; every admitted production review resource; canonical-unowned IDs protected; both byte hashes fail closed",
+      "status": "PASS"
+    },
+    {
+      "name": "P-J1/3/4/7: formal Normal/correct/Wrong/full explanations, immutable refresh, note failure guards and source exact Return",
+      "status": "PASS"
+    },
+    {
+      "name": "P-J2: formal multiple toggles, Fast still explicit submit, missing/extra delta",
+      "status": "PASS"
+    },
+    {
+      "name": "P-J5: formal Fast stable advances only after save; Wrong and meaningful Uncertain stay",
+      "status": "PASS"
+    },
+    {
+      "name": "P-J6/7: real-ID wrong/favorite re-entry; independent signals; completed refresh; correction preserves first attempt",
+      "status": "PASS"
+    },
+    {
+      "name": "P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale source return rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "formal storage transaction failure/reload/idempotent retry: kianos-politics-attempts-v1",
+      "status": "PASS"
+    },
+    {
+      "name": "formal storage transaction failure/reload/idempotent retry: kianos-politics-practice-meta-v1",
+      "status": "PASS"
+    },
+    {
+      "name": "formal storage transaction failure/reload/idempotent retry: kianos-politics-evidence-v1",
+      "status": "PASS"
+    },
+    {
+      "name": "formal storage transaction failure/reload/idempotent retry: kianos-politics-practice-session-v1",
+      "status": "PASS"
+    },
+    {
+      "name": "formal review missing rejects submission without advancing",
+      "status": "PASS"
+    },
+    {
+      "name": "formal review stale rejects submission without advancing",
+      "status": "PASS"
+    },
+    {
+      "name": "formal review unbound rejects submission without advancing",
+      "status": "PASS"
+    },
+    {
+      "name": "formal review incomplete rejects submission without advancing",
+      "status": "PASS"
+    },
+    {
+      "name": "unowned formal deep link protects content and never substitutes another question",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-MARX-M-110",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-MARX-M-151",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-MARX-M-001",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-HISTORY-M-001",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-MAO-M-001",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-XI-M-001",
+      "status": "PASS"
+    },
+    {
+      "name": "formal Mac content/source coverage and narrow overflow: X1000-ETHICS-M-001",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit early end preserves attempts/notes/evidence, records unanswered honestly, survives failure/refresh and allows a new exact scope",
+      "status": "PASS"
+    }
+  ],
+  "requestsFailed": [],
+  "status": "PASS",
+  "implementationSha256": {
+    "politicsPractice.mjs": "9f81e690f1e562e0127c7d6665076aeb24bd88fa3b6bf13a4fddb488793ece2d",
+    "politicsPracticeClient.mjs": "4efa0f8ea698c435f57fab25e6333026742e3960fa283069355e70277a1357f1",
+    "politicsPracticeView.mjs": "87693dd2919553f23ce9aad1f5f40620b953e6608e7020fa52ef5a86250fd60f",
+    "politicsPracticeBridge.mjs": "c95613d45aae32e97d04814ecb1cd08720f3b98155bbea217a91a8303d43198b"
+  }
+}

@@ -1,0 +1,27 @@
+
+> test:politics-practice-formal
+> node scripts/test-politics-practice-formal.mjs
+
+PASS 1148 exact content bindings; every admitted production review resource; canonical-unowned IDs protected; both byte hashes fail closed
+PASS P-J1/3/4/7: formal Normal/correct/Wrong/full explanations, immutable refresh, note failure guards and source exact Return
+PASS P-J2: formal multiple toggles, Fast still explicit submit, missing/extra delta
+PASS P-J5: formal Fast stable advances only after save; Wrong and meaningful Uncertain stay
+PASS P-J6/7: real-ID wrong/favorite re-entry; independent signals; completed refresh; correction preserves first attempt
+PASS P-J8: real NU entry → submitted/source/refresh → exact original session/question; stale source return rejected
+PASS formal storage transaction failure/reload/idempotent retry: kianos-politics-attempts-v1
+PASS formal storage transaction failure/reload/idempotent retry: kianos-politics-practice-meta-v1
+PASS formal storage transaction failure/reload/idempotent retry: kianos-politics-evidence-v1
+PASS formal storage transaction failure/reload/idempotent retry: kianos-politics-practice-session-v1
+PASS formal review missing rejects submission without advancing
+PASS formal review stale rejects submission without advancing
+PASS formal review unbound rejects submission without advancing
+PASS formal review incomplete rejects submission without advancing
+PASS unowned formal deep link protects content and never substitutes another question
+PASS formal Mac content/source coverage and narrow overflow: X1000-MARX-M-110
+PASS formal Mac content/source coverage and narrow overflow: X1000-MARX-M-151
+PASS formal Mac content/source coverage and narrow overflow: X1000-MARX-M-001
+PASS formal Mac content/source coverage and narrow overflow: X1000-HISTORY-M-001
+PASS formal Mac content/source coverage and narrow overflow: X1000-MAO-M-001
+PASS formal Mac content/source coverage and narrow overflow: X1000-XI-M-001
+PASS formal Mac content/source coverage and narrow overflow: X1000-ETHICS-M-001
+PASS explicit early end preserves attempts/notes/evidence, records unanswered honestly, survives failure/refresh and allows a new exact scope

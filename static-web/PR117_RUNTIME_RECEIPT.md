@@ -1,45 +1,83 @@
 # #117 — Workbench Runtime / browser receipt
 
-## Stage 1 #139 handoff — 2026-09-14
+## Stage 1 #139 — formal Current engineering acceptance
 
-Status: **HANDOFF READY · FORMAL CURRENT INTEGRATION BLOCKED · STAGE 1 EXIT NOT MET**.
+Status: **SELF FORMAL PASS · KIAN HUMAN GATE OPEN · INDEPENDENT REVIEW / KIAN ACCEPTANCE PENDING · NOT MERGED**.
 
-Program #113: Stage 0 #138 has a reviewed-for-submission artifact in PR #144, but #144 is still OPEN/unmerged. Latest fetched main is `947bd82004090e6b534d5c438c9416fb81c29c6b` and still has the previous learner-explanation manifest/invalid asset. Stage 1 remains the only execution scope; Stage 2 #140 is locked. Lexical and Xizong B–F content work is independent and untouched.
+Program #113 remains the full three-subject program. Stage 0 #138 landed through PR #144 at `57d580c4a468510eb23bbc9522cc576a5f75ab8b`. This Stage finishes only #117 Workbench; #140 remains locked. Independent Lexical and Xizong content lanes were not edited. This receipt supersedes the historical asset-blocked handoff below; it does not claim learner U or completion of the whole Politics product.
 
-### Single writer and preserved implementation
+### Identity, ownership and reconciliation
 
-This local execution task, owning `/Users/ben/KianOSBeta-issue117`, is the #117 branch writer for this handoff. The app inventory showed no other active execution task; branch workflow runs were completed, and repeated remote readbacks held at `6820d20cfa5064a70acbc0275d2211b116cd1657`. That remote tip is an ancestor of the existing local Runtime commits. The later temporary workflow churn described in the historical receipt below is no longer the current remote tip.
+- Runtime implementation: `6cae33eac3891b88267325ee78b983460bfd80a7` (formal integration `c893565c`, explicit early-end fix `6cae33ea`).
+- Latest integrated main: `19a1a69973ce47fd84a757f503f2226ffc5ec1ad`. Its change after #144 is only the independent Lexical `o6375-o6624.md` addition. Both main merges were conflict-free.
+- Existing PR #117 branch: `politics-legacy-parity-migration`; pre-publication remote tip `7b37abd2aa0c35252f30298a4fe452dbe3a1d89a`. The same local task/worktree is the sole writer, with no remote rewrite or second PR.
+- Preserved: original Runtime commit `8d60b722`, original **19 synthetic PASS**, receipt/screenshots `b0edfbef`, and completion fix `00821141` with **3 incremental synthetic PASS**. These suites were not reconstructed or rerun during this formal pass.
+- Exact Current content diff against main: zero. No question, answer, ownership record, explanation, gzip, manifest or receipt was regenerated or edited in Stage 1.
 
-Existing implementation `8d60b722`, receipt/screenshots `b0edfbef`, and the exported handoff patch remain preserved. Latest main was merged into the task branch without conflicts; no prior Runtime patch was recreated. Publication uses an ordinary fast-forward push to the existing #117 branch, never force push. No second overlapping PR or branch writer is introduced. The optional isolated-test workflow originally added in our unpublished implementation was omitted from the final tree because the GitHub credential lacks workflow scope; its history remains locally preserved, and all runnable test scripts/evidence remain included. No existing remote workflow was removed.
+### Scope decisions and fixes
 
-### Incremental implementation and evidence
+1. The consumer now enforces both Stage 0 byte identities: compressed bytes and exact decompressed UTF-8 bytes. Missing or stale hashes fail closed. The five-field record shape is checked; learner `takeaway` and `chat_explanation` strings are retained verbatim.
+2. Formal enumeration exposed **21 objective IDs without a canonical Current NU owner**. All **1148** explanations bind exactly to Question Truth, but only **1127** have legal practice/Return ownership. Master v3's affected-object fail-closed rule applies: preserve full content internally, exclude these 21 from learner practice and static review endpoints, and explain unavailable deep links without substituting another question. No legacy suggested mappings were promoted.
+3. The validator independently enumerates `content/politics/source/politics_unified_regions.v1.jsonl` canonical owners. It requires every canonically owned question to retain a valid rendered unit, question inventory and Return config; the only protected IDs are those absent from that authority. This is not a hardcoded 21-ID exemption. A renderer dropping a legitimate owner still fails.
+4. Formal Mac browsing found that Workbench source Return could leave the cognitive chapter on its previous unit/orientation state. The existing bridge now selects the exact unit and requests its existing `EXTERNAL_LEARN` state, while preserving the original session/question link. No cognitive layout/state machine was redesigned.
+5. Added explicit “结束本组” after pausing: preserve existing attempts/notes/evidence, distinguish answered and unanswered counts, reject a failed save, and allow a new exact scope only after explicit closure. This fixes the prior trap where pausing prevented ever changing scope until every question was answered. The configured count now displays the actual available batch size.
+6. Fixed the setup confirmation checkbox's CSS specificity so its control and explanation remain on the same line. Retained fullwidth clean question, two-region submitted view, optional notes/causes, low-friction Next and complete source text.
 
-The prior 19 synthetic combinations remain recorded below and were not rerun. Code inspection found a separate completion bug: completing a session retained an exact session/question URL, but refresh rejected that URL solely because status was `completed`. The client now restores that exact completed summary, still rejecting a different session/question. The completed screen uses the existing compact header and hides setup controls that cannot usefully act there. “Start another” restores setup explicitly. Timer seconds now floor consistently across minute boundaries.
+### Executed formal evidence
 
-Only three new browser checks were run, using the existing isolated fixture, production-built component and a visible Chromium window at 1440×900:
+`PRACTICE_QA_HEADED=1 npm run test:politics-practice-formal` — **23 grouped checks PASS** on the actual production build, with formal Current content and fresh isolated Chromium contexts at 1440×900; all long-content samples also checked at 700×900. No uncaught browser exceptions in the sampled page checks; no failed network requests. Primary learner browser/storage was never opened or written.
 
-1. Completed exact-URL refresh preserves summary, session bytes and immutable first attempts; no inert setup controls remain.
-2. A stale completed-question target is still rejected without replacing saved state.
-3. Starting another session after refresh preserves prior first-attempt records.
+| Formal evidence | Result |
+| --- | --- |
+| Full 1148 inventory, two byte hashes and negative hash controls; all 1127 generated review resources exact; all 21 unowned endpoints HTTP 404 | PASS |
+| P-J1 / P-J3 / P-J4: Normal clean → correct/Wrong, exact two-field explanation, full Current source, note failure and source round trip | PASS |
+| P-J2: multiple toggle, explicit submit even in Fast, missing B / extra C | PASS |
+| P-J5: Fast stable advances after save; Wrong / meaningful Uncertain stays | PASS |
+| P-J6 / P-J7: wrong/favorite re-entry, distinct signals, completed refresh, immutable first attempt | PASS |
+| P-J8: actual NU entry → Workbench → source/refresh → exact original question/session, including saved chapter on another unit; stale Return rejected | PASS |
+| Four separate attempts/meta/evidence/session write failures, reload and idempotent retry | PASS |
+| Explicit early end, zero-answer and partial-answer summaries, failure/refresh, records preserved, next exact scope | PASS |
+| Missing/stale/unbound/incomplete review payloads; protected unowned deep link | PASS |
+| Longest question face, longest explanation and multiple questions across all five modules; complete source text and narrow overflow | PASS |
 
-Result: **3/3 PASS**. Command: `PRACTICE_QA_ONLY=completion PRACTICE_QA_HEADED=1 npm run test:politics-practice`. The test filter writes a separate output directory and does not overwrite the existing 19-check report. Source hashes are included in the new report.
+- [Formal report, source hashes, exact protected IDs](../output/playwright/issue139/formal-journeys.json)
+- [Formal browser command log](../output/playwright/issue139/formal-browser.log)
+- [Clean](../output/playwright/issue139/clean-single.png), [correct](../output/playwright/issue139/correct.png), [multiple Wrong](../output/playwright/issue139/multiple-wrong.png), [Uncertain](../output/playwright/issue139/uncertain.png)
+- [Long face](../output/playwright/issue139/clean-X1000-MARX-M-110.png), [long explanation](../output/playwright/issue139/result-X1000-MARX-M-151.png), [expanded source](../output/playwright/issue139/source-X1000-MARX-M-151.png)
+- [Exact second-unit source Return](../output/playwright/issue139/source-second-unit-return.png), [note-save failure](../output/playwright/issue139/note-failure.png), [protected target](../output/playwright/issue139/protected-unbound.png), [early-end summary](../output/playwright/issue139/ended-early.png)
+- [Preserved 19 synthetic checks](../output/playwright/issue117/journeys.json); [three completion checks](../output/playwright/issue139-completion/journeys.json)
 
-- [Incremental machine report](../output/playwright/issue139-completion/journeys.json)
-- [Completed refresh screenshot](../output/playwright/issue139-completion/completed-refresh.png)
-- [Current Politics QA log](../output/playwright/issue139-completion/politics-qa.log)
-- [Production build log](../output/playwright/issue139-completion/production-build.log)
+`npm run qa:politics` — **PASS**: Politics Current bindings, K03 frozen pilot, repair-memory, strict formal Workbench parity, and complete Astro production build (**8250 pages**). [Log](../output/playwright/issue139/politics-qa.log).
 
-`npm run qa:politics` was executed: existing Current bindings/K03/repair-memory passed, then formal practice validation failed with `POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH`. A separate `npm run build` was executed and reached the formal review-resource generator, failing at the same strict asset gate. These are **FAIL/BLOCKED**, not PASS. No #144 branch asset was injected or promoted locally to bypass the Current prerequisite.
+`python3 content/politics/derived/xiao1000-learner-explanations/validate.py` — **PASS**, 1148 unique exact IDs, missing/unbound zero, two learner fields; `test_validation.py` — **14/14 PASS**. [Log](../output/playwright/issue139/asset-validation.log). Historical-source string comparison is explicitly NOT_RUN in this Stage; Stage 0 already performed that reconciliation, and this pass compares the consumer's strings to the admitted asset instead of re-auditing content.
 
-### Formal integration still pending
+Final source identities remain:
+- gzip SHA-256: `6d761c99b29011e3c290ca1925d9a0e52a53de8c67d4d7996c772e74cdd62087`
+- decoded payload SHA-256: `5d655c3eb070af52d600e508f9fa1b3c683450e289882c9523af271bd3113f75`
+- Question Truth SHA-256: `67cdd96c6fe53eb8b5e879c9e9ed487f58cea60c648e53cd720bd8a2fda9e40d`
 
-After #144 actually enters main: reconcile the accepted asset and its exact decoded/compressed hash contract in the consumer; enumerate formal IDs/source/NU bindings; run formal P-J1–8 and negative controls; inspect actual long/correct/wrong/uncertain Mac content; run Politics QA and the complete production build. No formal-data or independent product review evidence is claimed yet.
+### Remaining boundaries / review
 
-### KIAN HUMAN GATE — NOT OPEN
+- **Current NU ownership blocker:** the 21 IDs listed in the formal report cannot enter a legal practice → source → NU Return journey until the canonical content owner admits their bindings. Their explanations are present; this is not the old SHA/manifest blocker. No all-1148-practicable claim is made. All currently eligible formal journeys pass, and the unavailable subset is explicitly protected.
+- Existing conditional source/image and reviewed finer-point-filter capabilities remain conditional; no OCR, answer-unsafe image fallback or invented mapping was introduced. Other Politics pages and all #140 families remain outside this acceptance.
+- Independent technical/product review and Kian acceptance are **PENDING**. SELF evidence does not replace either gate. Keep #117 Draft; no merge, deployment, issue closure or learner U.
+- Fresh-head CI is read back in PR #117. The prior SHA-related shared-build failures are obsolete after this implementation. The known independent Governance Anti-Entropy missing Xizong `continuation.json` / `acceptance-status.json` remains outside this write set; classify any fresh failure from its actual log, not its old label.
 
-There is no successfully built formal Current Workbench to open yet. The isolated synthetic build is engineering evidence only, not a substitute human acceptance surface. Once the dependency lands and formal tests pass, provide a live formal route plus 3–6 product-focused interactions covering setup, single/multiple, Wrong/Uncertain, note/refresh, and exact Return, with explicit reject conditions. Do not ask Kian to re-run hashes or CI.
+### KIAN HUMAN GATE
 
-No merge, #140 work, real learner-state mutation, deployment or learner U. Keep #117 Draft and Stage 1 incomplete while waiting for the admitted upstream asset.
+Actual local **production preview**, kept running for review: http://127.0.0.1:4337/politics/practice/ . This is the task worktree build, not a Production deployment. Use one browser tab. If opening another sample with an active session, use “退出题组” → “结束本组” first; on the next sample choose “再开一组” if the prior summary is shown; the app deliberately refuses silent replacement.
+
+1. Open `/politics/practice/?question=X1000-MARX-S-001`, choose five questions, confirm the range was learned, start Normal. Check whether the first glance goes straight to question/options. Reject answer/explanation leakage, confusing scope or awkward checkbox placement.
+2. Submit, then read the two regions and expand a Current source. Check that result, takeaway and full explanation have a useful reading order. Reject clipped content, mandatory diagnosis or source text that cannot be found.
+3. On a submitted question, add a short note, refresh, go to the learning unit, then click “返回工作台原题”. Check continuity. Reject a different unit/question, lost note, changed selection or unexpected new session.
+4. After “退出题组” → “结束本组”, open `/politics/practice/?question=X1000-HISTORY-M-001`. In Fast select A+C and submit. Check deliberate multi-select and visible missing/extra delta. Reject automatic submission on the first option or unclear selection changes.
+5. Reopen a five-question Marx S-001 session after “退出题组” → “结束本组”, select Fast and answer A; it should advance. On the next question mark Uncertain before answering. Check that confident progress feels quick but uncertainty gives space to review. Reject skipping Wrong/Uncertain results or requiring optional cause/note to continue.
+
+Next action is independent review plus these five product checks on #117, then an explicit merge decision. Do not start #140.
+
+### Worktree / closure disposition
+
+The #117 worktree and port 4337 preview remain active for human review; task-generated build/dependencies and transient CLI output remain local. Only named evidence files are committed. Original handoff patch/history is retained. Primary `/Users/ben/KianOSBeta` dirty `runtime/current-runtime.json`, unrelated worktrees and unknown stashes are untouched. The merged #144 remote branch is already absent; its contained local branch/worktree is retired after removing only its generated build/dependency directories.
 
 ---
 
