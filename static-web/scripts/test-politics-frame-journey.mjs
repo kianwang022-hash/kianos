@@ -1,10 +1,15 @@
 import assert from 'node:assert/strict';import fs from'node:fs';import path from'node:path';import{spawn}from'node:child_process';import{chromium}from'playwright';import{buildPoliticsPracticeCatalogCurrent}from'../src/lib/politicsPractice.mjs';import{practiceReady}from'../src/lib/politicsPracticeView.mjs';
+import { testPoliticsHome } from './test-politics-home-journey.mjs';
 const base=process.env.SITE_FRAME_URL||'http://127.0.0.1:4368',out=path.resolve('../output/playwright/issue148/politics-frame');fs.mkdirSync(out,{recursive:true});
 const server=process.env.SITE_FRAME_URL?null:spawn(process.execPath,['node_modules/astro/astro.js','preview','--host','127.0.0.1','--port','4368'],{stdio:'ignore'});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));const report={scope:'Current five native frames -> Workbench; isolated state; SELF',checks:[],errors:[]};let browser;
 try{
  for(let i=0;i<60;i++){try{if((await fetch(base+'/politics/')).ok)break}catch{}await sleep(250)}
  const catalog=buildPoliticsPracticeCatalogCurrent('/');browser=await chromium.launch();
+ if(process.env.POLITICS_FRAME_FORMAL==='1'){
+  const sample=catalog.questions.find(q=>q.subject==='marxism'&&practiceReady(q));assert.ok(sample);
+  await testPoliticsHome({browser,base,out,report,sample});
+ }
  for(const subject of ['marxism','mao','history','xi','ethics_law']){
   if(process.env.POLITICS_FRAME_SUBJECT&&process.env.POLITICS_FRAME_SUBJECT!==subject)continue;
   const q=catalog.questions.find(q=>q.subject===subject&&practiceReady(q));assert.ok(q);
