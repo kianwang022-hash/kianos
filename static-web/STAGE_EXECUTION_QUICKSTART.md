@@ -1,30 +1,57 @@
-# KianOS Stage Execution Quickstart
+# KianOS Integrated Productization Quickstart
 
-Use with `STAGED_PRODUCT_ACCEPTANCE_PROTOCOL.md` and the v3 Astra master.
+Use with `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.1+, `static-web/CURRENT.md`, #113 and #148.
 
-## Global rule
+## Current rule
 
-A Stage Issue is a **scope boundary, not an implementation recipe**. Astra must restore the whole #113 Program position first, then autonomously inspect code/browser/tests and choose implementation details inside the current Stage.
+The active execution is **#148 — Three-subject frame-baseline full landing → Astra polish**.
 
-## Required opening line for each Astra Stage
+The former Stage Issues #138–#143 remain useful as **acceptance ledgers / bookkeeping owners**, but they are no longer mandatory human stop points. Kian should not need to copy a new engineering prompt after every internal sub-stage.
+
+The frozen v2.1 text-frame archive is the active composition baseline:
+
+`static-web/design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`
+
+Latest Current / Learning / Question Truth / Evidence / Runtime still own semantics and state. Do not restore superseded historical semantics merely because the frame archive contains them.
+
+## Astra opening instruction
 
 ```text
-Restore the full #113 program context before acting. Read latest main, static-web/CURRENT.md,
-CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md, STAGED_PRODUCT_ACCEPTANCE_PROTOCOL.md,
-and the current Stage Issue. Treat the Stage as scope/invariants/exit, not a step-by-step SOP.
-Preserve accepted evidence; do not redo PASS work. Proactively find and fix in-scope defects,
-run real browser checks, and make bounded product/visual judgments. Record out-of-scope issues
-without expanding into them. Stop at the Stage exit and return evidence plus what Kian should
-personally inspect before merge.
+Restore the full #113 / #148 program context before acting. Read latest main,
+static-web/CURRENT.md, CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md v3.1+,
+this protocol, the archived three-subject frames, and actual active PR/diff.
+
+Treat the archived frames as composition authority and Current as semantic authority.
+Preserve accepted evidence and existing Runtime; do not redo proven work from zero.
+Continue autonomously through faithful frame landing, integrated polish and machine/browser
+acceptance across Politics, English, Current-eligible Xizong A1/A2/A3 and final Global Home.
+
+Do not stop Kian at internal engineering boundaries unless there is a real Current↔frame conflict,
+an unresolved structural product choice, or materially different learner experiences that require
+a human choice. Do not self-merge and do not manufacture learner U.
 ```
 
-## Human checkpoints
+## Human checkpoint
 
-Astra's final Stage receipt must always contain a short `KIAN HUMAN GATE` section with:
-- exactly which live route/build Kian should open;
-- 3–6 concrete interactions to perform;
-- what subjective/product question each interaction is checking;
-- what would count as reject vs accept;
-- no shell commands unless Kian specifically asks for engineering inspection.
+Default human review is **one KIAN FULL-SITE HUMAN GATE at the end**, not one gate per engineering Stage.
 
-The human gate is not a substitute for CI or independent review, and CI is not a substitute for the human gate.
+That gate should contain only a small representative set of real learning journeys that let Kian judge:
+
+- learning ergonomics and density;
+- reading order and simultaneous visibility;
+- task-native geometry;
+- navigation / Resume / exact Return;
+- whether the site feels like a daily-use Mac knowledge workstation rather than a generic SaaS shell.
+
+No shell commands, hash checking or workflow triage should be assigned to Kian unless Kian explicitly asks for engineering inspection.
+
+## Stop exceptions
+
+Pause before the final gate only when one of these is true:
+
+1. Current semantics genuinely conflict with the archived composition and neither authority resolves the conflict;
+2. a new structural product choice is not covered by Current/frame rules;
+3. Kian must choose between materially different learner experiences;
+4. a real blocker prevents safe continuation without inventing content/state/ownership.
+
+Ordinary bugs, CSS, responsive fixes, branch reconciliation, CI failures with clear ownership, and in-scope browser defects are Astra work, not Kian micro-gates.
