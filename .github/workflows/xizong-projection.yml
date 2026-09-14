@@ -2,7 +2,10 @@ name: Xizong Projection Validation
 
 on:
   push:
-    branches: [main, work/xizong-projection-validation-20260914]
+    branches:
+      - main
+      - work/xizong-projection-validation-20260914
+      - 'xizong-projection-*'
     paths:
       - 'content/xizong/projection/**'
       - 'content/xizong/knowledge/**'
@@ -23,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
           persist-credentials: false
           sparse-checkout: |
             content/xizong
@@ -33,6 +36,11 @@ jobs:
           set -o pipefail
           mkdir -p /tmp/xizong-projection-report
           python3 -B content/xizong/projection/tools/validate_projection.py --self-test --json /tmp/xizong-projection-report/report.json 2>&1 | tee /tmp/xizong-projection-report/validation.log
+      - name: Validate freeze accounting and provenance
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 -B content/xizong/projection/tools/validate_projection_acceptance.py --self-test --json /tmp/xizong-projection-report/acceptance.json 2>&1 | tee /tmp/xizong-projection-report/acceptance.log
       - name: Verify protected sources were not mutated and record tested commit
         shell: bash
         run: |
@@ -43,7 +51,11 @@ jobs:
           r=json.loads(p.read_text())
           r['tested_commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
           r['protected_source_worktree_unchanged']=True
-          r['test_code_blobs']={x:subprocess.check_output(['git','hash-object',x],text=True).strip() for x in ['content/xizong/projection/tools/validate_projection.py','content/xizong/projection/tools/test_projection.py']}
+          r['test_code_blobs']={x:subprocess.check_output(['git','hash-object',x],text=True).strip() for x in [
+              'content/xizong/projection/tools/validate_projection.py',
+              'content/xizong/projection/tools/test_projection.py',
+              'content/xizong/projection/tools/validate_projection_acceptance.py',
+          ]}
           p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
           PY
       - uses: actions/upload-artifact@v4
