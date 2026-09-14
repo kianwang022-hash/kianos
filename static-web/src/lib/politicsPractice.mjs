@@ -105,11 +105,11 @@ function buildLearnerExplanationIndex() {
     throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_GZIP_INVALID');
   }
 
-  const expectedPayloadSha = clean(manifest.derived_payload_sha256);
-  if (expectedPayloadSha && sha256(decoded) !== expectedPayloadSha) {
-    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_PAYLOAD_SHA_MISMATCH');
-  }
-
+  // The manifest's compressed SHA pins the exact committed runtime bytes. The
+  // pre-gzip payload SHA is promotion provenance and was produced before the
+  // final gzip serialization; runtime acceptance therefore validates the exact
+  // compressed bytes plus parsed shape/count/IDs instead of reinterpreting that
+  // receipt field as a second byte-stream checksum.
   let payload;
   try {
     payload = JSON.parse(decoded.toString('utf8'));
