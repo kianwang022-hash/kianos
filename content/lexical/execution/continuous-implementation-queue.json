@@ -1,10 +1,10 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 2,
-  "last_refreshed_main": "fdebd691badeea3625b4c337595e60305a604fc8",
+  "generation": 3,
+  "last_refreshed_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
   "contiguous_implemented_frontier": "o3374",
   "active_package": null,
-  "package_status": "WAITING_FOR_SOL_RECONCILIATION",
+  "package_status": "READY_FOR_BOUNDED_CORRECTIVE_IMPLEMENTATION",
   "package_baseline": "eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe",
   "package_commit": "33dd04da239cabb7e235d98699096965f0730eee",
   "merged_main_commit": "36cca65fb0910c00401c4b92a86417ec4ac5dffb",
@@ -21,7 +21,23 @@
       "content/lexical/semantic-audit/o3025-o3224.audit.md",
       "content/lexical/semantic-audit/o3225-o3424.audit.md"
     ],
-    "status": "WAITING_FOR_SOL_RECONCILIATION"
+    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
+    "baseline_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
+    "delta_count": 39,
+    "new_semantic_branches": 7,
+    "identity_escalations": 0,
+    "new_relation_ids": 0,
+    "remote_dependency_ordinals": [941, 4764],
+    "status": "RECONCILED"
+  },
+  "corrective_package": {
+    "scope": {
+      "start": 3125,
+      "end": 3374
+    },
+    "delta_count": 39,
+    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
+    "status": "AUTHORIZED_NOT_STARTED"
   },
   "future_package": {
     "start": 3375,
