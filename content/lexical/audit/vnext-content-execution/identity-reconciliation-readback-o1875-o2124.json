@@ -1,0 +1,142 @@
+{
+  "schema": "kianos.lexical.identity_reconciliation_readback.v1",
+  "status": "PASS",
+  "baseline_origin_main": "bcf6577c996cb1cdd444527d04312dcdfeb10a5b",
+  "scope": [
+    1875,
+    2124
+  ],
+  "handoff": "content/lexical/semantic-review/o1875-o2124.md",
+  "classifications": {
+    "REUSE_EXISTING_STABLE": {
+      "rule": "reuse continuous active/deprecated/merged stable branch; no generated replacement",
+      "owners": [
+        1875,
+        1878,
+        1881,
+        1882,
+        1892,
+        1896,
+        1904,
+        1908,
+        1922,
+        1927,
+        1931,
+        1933,
+        1959,
+        1967,
+        1971,
+        1973,
+        1977,
+        1997,
+        2009,
+        2025,
+        2030,
+        2049,
+        2054,
+        2084,
+        2110,
+        2121
+      ]
+    },
+    "NEW_SEMANTIC_BRANCH": {
+      "rule": "deterministic stable ID created only for an authorized genuinely new branch",
+      "owners": [
+        1963,
+        2002,
+        2038,
+        2044
+      ]
+    },
+    "ESCALATE_IDENTITY": {
+      "owners": []
+    }
+  },
+  "reactivated_or_reconciled_sense_ids": [
+    "sense:fate:6c859870a9685876",
+    "sense:fault:629a4c7886d75858",
+    "sense:favorable:55dde777dee35daa",
+    "sense:favorite:2c8e257bd7065487",
+    "sense:federal:ad55e40b3d5756c0",
+    "sense:feed:2d342ec3a3c9589c",
+    "sense:feed:666d1ed334275fdc",
+    "sense:fence:3b9ef8f43b5e5ba6",
+    "sense:festival:8a8e40b5274b529d",
+    "sense:festival:8e45f8d48f1a5142",
+    "sense:fill:b0f8ff137d9659b2",
+    "sense:finance:3a1981408a2053e8",
+    "sense:finance:70052fa5c48e597f",
+    "sense:fine:0e138a8659565207",
+    "sense:fine:1ae40ec85b055141",
+    "sense:finish:33b794d9e1e15874",
+    "sense:finish:c5585bd8f4c75a3a",
+    "sense:flesh:01e8bc62861f58f7",
+    "sense:float:335b7105a3b7e1db",
+    "sense:flour:d68773d12fab538c",
+    "sense:fluctuate:8b75d0ff82e85c85",
+    "sense:fluid:5fd1d72bc8b157fb",
+    "sense:fluid:a504a5117ab25e73",
+    "sense:focus:dea89f4a4f285aee",
+    "sense:focus:eda414b7199f549d",
+    "sense:foreigner:796b0801ebdf56ab",
+    "sense:forge:03ba0107613942c5",
+    "sense:formation:120ef01088ac5e56",
+    "sense:formation:d8b593efec555678",
+    "sense:found:4ac77dc17bb452e5",
+    "sense:fox:4ab695341e485b06",
+    "sense:franchise:2d740d1ccdb80539",
+    "sense:freeze:9fe6106e61acf851",
+    "sense:friction:c97bf09de02d57c7",
+    "sense:fright:70501ca1e3eb5d0b",
+    "sense:fuss:54ef0b7a7217570d",
+    "sense:fuss:edde53f2e6415405",
+    "sense:gender:dd65af03c7dc5945",
+    "sense:gentle:3e6627f89e925d9c",
+    "sense:gentle:b9bfe7ccd20552c9"
+  ],
+  "new_stable_sense_ids": [
+    "sense:float:335b7105a3b7e1db",
+    "sense:forge:03ba0107613942c5",
+    "sense:franchise:2d740d1ccdb80539",
+    "sense:freeze:9fe6106e61acf851"
+  ],
+  "reference_closure": "PASS",
+  "relation_owner_changes": [],
+  "form_identity_closure": {
+    "status": "PASS",
+    "word_owner_files": []
+  },
+  "readback_assertions": {
+    "stable_word_identity_preserved": true,
+    "active_sense_registry_closed": true,
+    "merged_into_not_left_on_active_senses": true,
+    "handoff_generated_ids_absent": true,
+    "o2125_plus_not_activated": true
+  },
+  "natural_owner_audit": {
+    "schema": "kianos.lexical.natural_owner_cutover_audit.v1",
+    "status": "PASS",
+    "semantic_delta": 0,
+    "source": {
+      "canonical_manifest": "content/lexical/canonical/manifest.json",
+      "canonical_manifest_sha256": "c83c1c943df1b3ba5350e7fcf63c790c8041dc477b0ca4c3d9ffd38c9f23b214",
+      "word_count_expected": 7946,
+      "word_count_read": 7946
+    },
+    "materialized": {
+      "word_owner_count": 7946,
+      "relation_owner_count": 369,
+      "word_reconstruction_failures": 0,
+      "lookup_word_ids": 7946
+    },
+    "invariants": {
+      "unique_word_ids": true,
+      "unique_ordinals": true,
+      "exact_word_reconstruction": true,
+      "semantic_delta_zero": true,
+      "lookup_closure": true
+    },
+    "blockers": [],
+    "warnings": []
+  }
+}
