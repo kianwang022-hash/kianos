@@ -1,11 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PoliticsHomeTools from '../../components/PoliticsHomeTools.astro';
-import { listPoliticsSubjectsCurrent, politicsCurrentHealth } from '../../lib/politicsCurrent.mjs';
+import { listPoliticsSubjectsCurrent } from '../../lib/politicsCurrent.mjs';
 
 const base = import.meta.env.BASE_URL;
 const subjects = listPoliticsSubjectsCurrent();
-const health = politicsCurrentHealth();
+
 const chapterCount = subjects.reduce((sum, subject) => sum + subject.chapters.length, 0);
 const firstSubject = subjects[0];
 const firstChapter = firstSubject?.chapters?.[0];
@@ -14,23 +14,8 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
 ---
 <Base
   title="政治"
-  kicker="内容已经成熟，开始直接学习"
-  description="一条主线：先定位 → 乘风连续学习 → 小闭合 → 肖1000验证 → 错了才精准回源。"
   active="politics"
 >
-  <section class="politicsCurrentStrip">
-    <div>
-      <p class="pageKicker">当前学习方式</p>
-      <h2>你不用先看第二套框架</h2>
-      <p>苏一的框架价值已经吸收到导学层。正文仍然以乘风为唯一连续主线；肖1000只负责验证，不会反过来安排学习顺序。</p>
-    </div>
-    <aside>
-      <strong>{health.status === 'ready' ? 'Current 已接通' : '部分源待解析'}</strong>
-      <span>{subjects.length} 科 · {chapterCount} 个学习章节</span>
-      <span>答对快走 · 错了最小修复</span>
-    </aside>
-  </section>
-
   <PoliticsHomeTools firstHref={firstHref} firstLabel={firstLabel} />
 
   <section class="politicsSubjects">
@@ -38,10 +23,11 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
       <article class="politicsSubjectCard">
         <header>
           <div><span>{subject.shape}</span><h2>{subject.label}</h2></div>
-          <b>{subject.chapters.length} 章</b>
+          
         </header>
         <p>{subject.description}</p>
-        <nav>
+        <a class="subjectEntry" href={`${base}politics/${subject.subject}/${subject.chapters[0].code}/`}>进入 →</a>
+        <details><summary>章节跳转</summary><nav>
           {subject.chapters.map((chapter, index) => (
             <a href={`${base}politics/${subject.subject}/${chapter.code}/`}>
               <span>{String(index + 1).padStart(2,'0')}</span>
@@ -49,15 +35,13 @@ const firstLabel = firstChapter ? `${firstSubject.label} · ${firstChapter.title
               <b>→</b>
             </a>
           ))}
-        </nav>
+        </nav></details>
       </article>
     ))}
   </section>
 </Base>
 
 <style>
-  .politicsCurrentStrip{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end;padding:26px 28px;border:1px solid var(--study-line);border-radius:16px;background:#fff;box-shadow:var(--study-shadow)}
-  .politicsCurrentStrip h2{margin:4px 0 7px;font-size:28px}.politicsCurrentStrip p:not(.pageKicker){max-width:72ch;margin:0;color:var(--study-muted);font-size:14px;line-height:1.7}.politicsCurrentStrip aside{display:grid;gap:3px;min-width:205px;padding-left:22px;border-left:1px solid var(--study-line)}.politicsCurrentStrip aside strong{color:var(--study-green);font-size:13px}.politicsCurrentStrip aside span{color:var(--study-faint);font-size:10px}
-  .politicsSubjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.politicsSubjectCard{padding:22px;border:1px solid var(--study-line);border-radius:14px;background:#fff}.politicsSubjectCard>header{display:flex;align-items:start;justify-content:space-between;gap:14px}.politicsSubjectCard header span{color:var(--study-green);font-size:9px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsSubjectCard h2{margin:5px 0 0;font-size:24px}.politicsSubjectCard>header>b{color:var(--study-faint);font-size:11px}.politicsSubjectCard>p{min-height:44px;color:var(--study-muted);font-size:13px;line-height:1.6}.politicsSubjectCard nav{display:grid;gap:4px;margin-top:15px}.politicsSubjectCard nav a{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 10px;border-radius:9px;text-decoration:none;color:#34453e}.politicsSubjectCard nav a:hover{background:var(--study-green-soft);color:var(--study-green)}.politicsSubjectCard nav a>span{color:var(--study-faint);font-size:9px;font-weight:800}.politicsSubjectCard nav a>strong{min-width:0;font-size:12px;line-height:1.45}.politicsSubjectCard nav a>b{font-size:12px}
-  @media(max-width:860px){.politicsCurrentStrip{grid-template-columns:1fr}.politicsCurrentStrip aside{padding:14px 0 0;border-left:0;border-top:1px solid var(--study-line)}.politicsSubjects{grid-template-columns:1fr}}
+.politicsSubjects{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:32px;border-top:1px solid var(--study-line);padding-top:26px}.politicsSubjectCard h2{font-size:24px;margin:6px 0}.politicsSubjectCard header span{font-size:14px;color:var(--study-muted)}.politicsSubjectCard p{font-size:16px;line-height:1.7;color:var(--study-muted)}.subjectEntry{display:inline-block;font-size:17px;color:var(--study-green);margin:8px 0 20px}.politicsSubjectCard summary{font-size:14px;cursor:pointer;color:var(--study-muted)}.politicsSubjectCard nav{display:grid;gap:10px;margin-top:15px}.politicsSubjectCard nav a{display:flex;gap:7px;color:inherit;text-decoration:none;font-size:15px;line-height:1.5}.politicsSubjectCard nav a span{color:var(--study-faint)}.politicsSubjectCard nav a b{margin-left:auto}
+@media(max-width:1100px){.politicsSubjects{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){.politicsSubjects{grid-template-columns:1fr 1fr}}@media(max-width:440px){.politicsSubjects{grid-template-columns:1fr}}
 </style>

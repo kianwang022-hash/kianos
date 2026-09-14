@@ -34,6 +34,13 @@ export function installPoliticsPracticeBridge() {
       document.querySelector(`[data-workspace-unit-tab="${unit.dataset.unitIndex}"]`)?.click();
       unit.dispatchEvent(new CustomEvent('politics:resume-state', { bubbles: true, detail: { state: 'EXTERNAL_LEARN' } }));
     }
+    if (source) {
+      const frameUnit = source.closest('[data-frame-unit]');
+      if (frameUnit) {
+        document.querySelectorAll('[data-frame-unit]').forEach(unit => { unit.hidden = unit !== frameUnit; });
+        document.querySelectorAll('[data-frame-unit-link]').forEach(link => link.setAttribute('aria-current', String(link.dataset.frameUnitLink === frameUnit.dataset.frameUnit)));
+      }
+    }
     if (source) requestAnimationFrame(() => source.scrollIntoView({ block: 'nearest' }));
   } catch (e) {
     link.hidden = true;

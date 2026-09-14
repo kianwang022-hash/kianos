@@ -1,0 +1,68 @@
+---
+import Value from './PoliticsFrameValue.astro';
+import { loadPoliticsFrameProjection } from '../lib/politicsFrameProjection.mjs';
+const { chapter, base='/' } = Astro.props;
+const frame=loadPoliticsFrameProjection(chapter.subject,chapter.code||chapter.chapter);
+const roles={theory_response:'理论回答',current_structure:'当前结构',current_relation:'关键关系',parallel_theory_responses:'共同问题的并行回答',identity_hierarchy:'身份定位',role_summary:'当前对象',current_owned_structure:'当前结构',cause:'起因',turning_point:'转折',process:'过程',evaluation:'评价',cause_layers:'原因层级',from_previous:'从前一段到这里',historical_position:'历史位置',mechanism:'并行机制',historical_gain:'历史成果',historical_meaning:'历史意义',before:'此前',program:'纲领',core_contradiction:'核心矛盾',failure_causes:'失败原因',conditions:'条件',failure_lesson:'教训',teaching_relations:'关系与边界',framework_maps:'',relation_chains:'推理深化',concept_identity:'概念',application_rule:'情境判断',current_owned_precision:'准确把握'};
+---
+<section class={`politicsFrame subject-${chapter.subject}`} data-politics-frame data-politics-runtime data-subject={chapter.subject} data-chapter={chapter.code||chapter.chapter} data-title={chapter.title}>
+  <header class="frameLocation"><a href={`${base}politics/`}>政治</a><span> / {chapter.subjectMeta.label}</span><h1>{chapter.title}</h1></header>
+  <nav class="frameUnitNav" aria-label="本章自然单元">{frame.units.map((unit,i)=><a href={`#source-${unit.unit_id}`} data-frame-unit-link={unit.unit_id}>{i+1} · {unit.title}</a>)}</nav>
+  <div class="frameChapterContext"><Value value={frame.context.current_problem} />{frame.context.stage_context.map(x=><Value value={x.content} />)}</div>
+  {frame.units.map((unit,i)=>{
+    const runtimeUnit=chapter.units.find(x=>x.unitId===unit.unit_id || x.representedNaturalUnitIds?.includes(unit.unit_id));
+    return <article data-politics-unit data-frame-unit={unit.unit_id} data-unit-id={runtimeUnit?.unitId||unit.unit_id} id={`unit-${i+1}`} hidden={i!==0}>
+      <h2 class="frameProblem">{unit.current_problem}</h2>
+      <div class="frameCognition">
+        <main class="framePrimary">
+          <div class="frameGeometry">{unit.primary_geometry.map(geometry=><section class={`frameRole role-${geometry.role}`} data-projection-role={geometry.role}>{roles[geometry.role] && <h3>{roles[geometry.role]}</h3>}<Value value={geometry.content} role={geometry.role}/></section>)}</div>
+          {unit.secondary_reasoning.map(geometry=><section class={`frameRole role-${geometry.role}`}><h3>{roles[geometry.role]}</h3><Value value={geometry.content} role={geometry.role}/></section>)}
+          {unit.boundaries.length>0 && <section class="frameBoundaries"><h3>关键边界</h3><Value value={unit.boundaries}/></section>}
+          {unit.first_round_exact.length>0 && <section><h3>准确把握</h3><Value value={unit.first_round_exact}/></section>}
+        </main>
+        <aside class="frameCompanion">
+          {unit.takeaway.length>0 && <section><h3>带走这条关系</h3><Value value={unit.takeaway}/></section>}
+          {unit.next_bridge && <section><h3>接下来</h3><Value value={unit.next_bridge}/></section>}
+          <section id={`source-${runtimeUnit?.unitId||unit.unit_id}`} data-politics-external-source>
+            <h3>乘风 · iPad / MarginNote</h3>
+            <Value value={unit.chengfeng_handoff.source_locator||unit.title}/>
+            <Value value={unit.chengfeng_handoff.look_for}/>
+            <p class="frameQuiet">在原讲义连续学这一单元，回来可直接进入配套题。</p>
+            <button type="button" data-frame-handoff>保留此处位置</button>
+            <p data-frame-save role="status"></p>
+          </section>
+          {unit.optional_closure && <section><h3>学完了？脑中过一遍</h3><Value value={unit.optional_closure}/></section>}
+        </aside>
+      </div>
+    </article>;
+  })}
+  <details class="frameChapterClose"><summary>整章回看</summary>{frame.context.chapter_geometries.map(x=><Value value={x.content}/>)}</details>
+</section>
+<script>
+  const root=document.querySelector('[data-politics-frame]');
+  if(root){
+    const units=[...root.querySelectorAll('[data-frame-unit]')];
+    const links=[...root.querySelectorAll('[data-frame-unit-link]')];
+    const key='kianos-politics-last-location-v1';
+    function show(id){
+      const target=units.find(u=>u.getAttribute('data-frame-unit')===id || u.querySelector(`[id="${id}"]`));
+      if(!target)return;
+      units.forEach(u=>u.toggleAttribute('hidden',u!==target));
+      links.forEach(a=>a.setAttribute('aria-current',String(a.getAttribute('data-frame-unit-link')===target.getAttribute('data-frame-unit'))));
+    }
+    function fromHash(){const id=decodeURIComponent(location.hash.slice(1));if(id)show(id);}
+    links.forEach(a=>a.addEventListener('click',()=>show(a.getAttribute('data-frame-unit-link'))));
+    addEventListener('hashchange',fromHash);fromHash();
+    root.querySelectorAll('[data-frame-handoff]').forEach(button=>button.addEventListener('click',()=>{
+      const unit=button.closest('[data-frame-unit]');const source=button.closest('[data-politics-external-source]');const status=source.querySelector('[data-frame-save]');
+      try{localStorage.setItem(key,JSON.stringify({subject:root.getAttribute('data-subject'),chapter:root.getAttribute('data-chapter'),title:root.getAttribute('data-title'),unit_id:unit.getAttribute('data-unit-id'),action:'EXTERNAL_LEARN',href:`${location.pathname}#${source.id}`,observed_at:new Date().toISOString()}));status.textContent='位置已保存，回来继续。';}
+      catch{status.textContent='位置未保存，请保持本页打开后重试。';}
+    }));
+    try{const last=JSON.parse(localStorage.getItem(key)||'null');if(!location.hash && last?.href?.split('#')[0]===location.pathname && last.unit_id)show(`source-${last.unit_id}`);}catch{}
+  }
+</script>
+<style is:global>
+.politicsFrame{max-width:1760px;margin:auto;font-size:17px;line-height:1.7}.frameLocation{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.frameLocation h1{font-size:24px;margin:0}.frameLocation a{color:var(--study-green)}.frameUnitNav{display:flex;flex-wrap:wrap;gap:4px 18px;margin:18px 0;border-bottom:1px solid var(--study-line);padding-bottom:12px}.frameUnitNav a{font-size:15px;color:var(--study-muted);text-decoration:none}.frameUnitNav a[aria-current=true]{color:var(--study-green);text-decoration:underline;text-underline-offset:6px}.frameChapterContext{color:var(--study-muted);font-size:15px;max-width:110ch}.frameChapterContext p{margin:4px 0}.frameChapterContext .frameValues{display:flex;flex-wrap:wrap;gap:6px 22px}.frameProblem{font-size:25px;line-height:1.5;max-width:70ch;margin:24px 0 20px}.frameCognition{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,24%);gap:32px}.framePrimary{min-width:0}.frameCompanion{border-left:1px solid var(--study-line);padding-left:24px}.frameCompanion section+section{margin-top:22px}.politicsFrame p{margin:6px 0;overflow-wrap:anywhere}.politicsFrame h3{font-size:17px;margin:0 0 9px;font-weight:680}.frameRole{margin-bottom:22px}.frameRole>h3{color:var(--study-muted);font-size:14px}.frameValues{display:grid;gap:12px}.frameValues.parallel{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:24px}.frameTopology{display:grid;grid-template-columns:repeat(var(--columns),minmax(0,1fr));gap:18px}.frameTopologyLevel{display:flex;flex-direction:column;justify-content:center;gap:18px}.frameTopology article{border-top:2px solid #7c9d8e;padding-top:10px}.frameTopology article p{font-size:16px}.frameEdges{margin-top:14px;color:var(--study-muted);font-size:14px}.frameSteps{display:flex;gap:26px;padding-left:20px}.frameSteps li{flex:1;min-width:0}.frameBoundaries{border-top:1px solid var(--study-line);padding-top:16px}.boundary{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}.boundary .field-distinction{grid-column:1/-1}.frameFieldLabel{font-size:14px;color:var(--study-muted)}.frameField+.frameField{margin-top:8px}.field-items>.frameValues{gap:6px}.frameQuiet{font-size:14px;color:var(--study-muted)}.frameCompanion button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--study-line);background:transparent;border-radius:5px;color:var(--study-green);cursor:pointer}.frameChapterClose{margin-top:28px;padding-top:14px;border-top:1px solid var(--study-line)}.frameChapterClose summary{cursor:pointer;color:var(--study-muted)}.frameChapterClose[open]>div{margin-top:14px}.politicsFrame :focus-visible{outline:3px solid #76958a;outline-offset:4px}
+@media(max-width:1050px){.frameCognition{grid-template-columns:1fr}.frameCompanion{border-left:0;border-top:1px solid var(--study-line);padding:18px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.frameCompanion section+section{margin-top:0}.frameTopology{grid-template-columns:repeat(2,minmax(0,1fr))}.frameSteps{display:block}}
+@media(max-width:650px){.frameCompanion,.frameTopology,.boundary{grid-template-columns:1fr}.frameLocation h1{font-size:21px}.frameProblem{font-size:22px}}
+</style>

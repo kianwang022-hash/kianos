@@ -80,7 +80,6 @@ const questionId = (question, index) => String(question.id || question.question_
             data-question={id}
             data-index={index}
             data-answer={JSON.stringify(question.answer ?? '')}
-            hidden={index !== 0}
           >
             <header>
               <span>Question {question.ordinal || index + 1}</span>
@@ -302,17 +301,18 @@ const questionId = (question, index) => String(question.id || question.question_
       });
     };
 
-    const setCurrent = (index) => {
+    const setCurrent = (index, scroll = true) => {
       state.currentIndex = Math.max(0, Math.min(questions.length - 1, Number(index) || 0));
       questions.forEach((item, itemIndex) => {
         const active = itemIndex === state.currentIndex;
-        item.hidden = !active;
+        item.hidden = false;
         item.classList.toggle('is-current', active);
       });
       navButtons.forEach((button, itemIndex) => button.classList.toggle('active', itemIndex === state.currentIndex));
       if (progress) progress.textContent = `Q${state.currentIndex + 1} / ${questions.length}`;
       if (prev) prev.disabled = state.currentIndex <= 0;
       if (next) next.disabled = state.currentIndex >= questions.length - 1;
+      if (scroll) questions[state.currentIndex]?.scrollIntoView({block:'nearest'});
       save();
     };
 
@@ -454,7 +454,7 @@ const questionId = (question, index) => String(question.id || question.question_
       renderReviewNav();
       renderHistory();
       renderSessionControls();
-      setCurrent(state.currentIndex || 0);
+      setCurrent(state.currentIndex || 0, false);
     };
 
     navButtons.forEach((button, index) => button.addEventListener('click', () => setCurrent(index)));
@@ -484,6 +484,8 @@ const questionId = (question, index) => String(question.id || question.question_
 
     questions.forEach((question) => {
       const id = qid(question);
+      question.addEventListener('pointerdown', () => setCurrent(questions.indexOf(question), false));
+      question.addEventListener('focusin', () => setCurrent(questions.indexOf(question), false));
       question.querySelectorAll('[data-option]').forEach((option) => option.addEventListener('click', () => {
         if (state.submitted) return;
         const choice = option.getAttribute('data-option') || '';
@@ -738,6 +740,7 @@ const questionId = (question, index) => String(question.id || question.question_
 
     document.addEventListener('keydown', (event) => {
       const target = event.target;
+      if (event.isComposing || event.keyCode === 229) return;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
@@ -754,7 +757,7 @@ const questionId = (question, index) => String(question.id || question.question_
         questions[state.currentIndex]?.querySelector('.portedUncertain')?.click();
         return;
       }
-      const choice = event.key.toUpperCase();
+      const choice = /^[1-4]$/.test(event.key) ? String.fromCharCode(64+Number(event.key)) : event.key.toUpperCase();
       if (/^[A-D]$/.test(choice)) {
         questions[state.currentIndex]?.querySelector(`[data-option="${choice}"]`)?.click();
       }

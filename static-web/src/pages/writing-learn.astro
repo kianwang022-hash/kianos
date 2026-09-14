@@ -38,6 +38,7 @@ const layerCards = [
   sourceHash={projection.sourceHash}
   objectId="english:writing:first-learning"
   active="home"
+  showLead={false}
 >
   <section class="writingLearnShell" data-writing-learning>
     <header class="writingHero">
@@ -92,7 +93,7 @@ const layerCards = [
         const previous = index === 0 ? 'global-map' : blocks[index - 1].id;
         const next = index === blocks.length - 1 ? 'modes' : blocks[index + 1].id;
         return (
-          <section class="writingPanel" data-writing-panel={block.id} hidden>
+          <section class="writingPanel" data-writing-panel={block.id}>
             <div class="writingPanelHeader compact">
               <div><span>Primitive · {index + 1}/6</span><h2>{block.title}</h2></div>
               <p>只学到能返回完整 Writing。需要更深的例子与 micro-drill 时再调用 reference reservoir / Chat。</p>
@@ -107,7 +108,7 @@ const layerCards = [
         );
       })}
 
-      <section class="writingPanel" data-writing-panel="modes" hidden>
+      <section class="writingPanel" data-writing-panel="modes">
         <div class="writingPanelHeader">
           <div><span>Specialization</span><h2>Small / Big：同一主干的两种任务模式</h2></div>
           <p>这里学习真实分叉，不重复学习六个公共 primitive。</p>
@@ -120,7 +121,7 @@ const layerCards = [
         </footer>
       </section>
 
-      <section class="writingPanel" data-writing-panel="practice" hidden>
+      <section class="writingPanel" data-writing-panel="practice">
         <div class="writingPanelHeader">
           <div><span>Practice / Entry</span><h2>需要时练，再进入真实 Writing</h2></div>
           <p>Synthetic 是 calibration / repair 工具，不是长期题库；页面不再用手工 checkbox 冒充真实完成证据。</p>
@@ -158,14 +159,14 @@ const layerCards = [
     function showPanel(id, { updateHash = true } = {}) {
       const target = routeIds.includes(id) ? id : 'global-map';
       panels.forEach((panel) => {
-        panel.hidden = panel.getAttribute('data-writing-panel') !== target;
+        panel.hidden = false;
       });
       routeButtons.forEach((button) => {
         button.classList.toggle('isActive', button.getAttribute('data-writing-route') === target);
       });
       try { localStorage.setItem(positionKey, target); } catch {}
       if (updateHash) history.replaceState(null, '', `#${target}`);
-      root.querySelector(`[data-writing-panel="${target}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      root.querySelector(`[data-writing-panel="${target}"]`)?.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
 
     routeButtons.forEach((button) => {

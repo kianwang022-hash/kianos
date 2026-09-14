@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
+import EnglishGuideBridge from '../components/EnglishGuideBridge.astro';
 import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
 import '../styles/english.css';
+import '../styles/frame-integration.css';
 
 const {
   title,
@@ -90,6 +92,7 @@ const navItems = [
           <div><h1>{title}</h1>{description && <p class="pageDescription">{description}</p>}</div>
         </section>
       )}
+      {isEnglishRoute && <EnglishGuideBridge base={base} />}
       <slot />
     </main>
   </body>

@@ -10,12 +10,19 @@ const markdown = fs.readFileSync(sourceUrl, 'utf8');
 const sourceHash = crypto.createHash('sha256').update(markdown).digest('hex');
 const base = import.meta.env.BASE_URL;
 
-const chunks = markdown.split(/(?=^# [A-H](?:\d)?｜)/gm);
+const chunks = [];
+let buffer = []; let fence = null;
+for(const line of markdown.split('\n')) {
+  const marker = /^\s*(`{3,}|~{3,})/.exec(line);
+  if(marker) { if(!fence) fence=marker[1][0];else if(fence===marker[1][0]) fence=null; }
+  if(!fence && /^# [A-H](?:\d)?｜/.test(line)) { chunks.push(buffer.join('\n'));buffer=[]; }
+  buffer.push(line);
+}
+chunks.push(buffer.join('\n'));
 const intro = chunks.shift() || '';
 const chunkMap = new Map();
 for (const chunk of chunks) {
-  const match = chunk.match(/^# ([A-H](?:\d)?)｜/m);
-  if (match) chunkMap.set(match[1], chunk);
+ const match=chunk.match(/^# ([A-H](?:\d)?)｜/m);if(match)chunkMap.set(match[1],chunk);
 }
 
 const nav = [

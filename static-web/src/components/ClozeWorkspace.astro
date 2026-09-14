@@ -19,6 +19,7 @@ function optionEntries(options) {
     <div class="clozeProgress"><strong data-cloze-progress>1 / {item.questions.length}</strong><span>整篇完成后统一提交</span></div>
   </header>
 
+  <p data-cloze-save-status role="status" hidden></p>
   <section class="clozeLayout">
     <article class="clozePassage" data-objective-material>
       <header><span>PASSAGE</span><strong>上下文始终保持可见</strong></header>
@@ -36,8 +37,8 @@ function optionEntries(options) {
           const id = String(question.id || question.question_id || `q${index + 1}`);
           const options = optionEntries(question.options);
           return (
-            <section class="clozeQuestion" data-objective-question={id} data-objective-index={index} hidden={index !== 0}>
-              <p data-objective-prompt>{question.prompt || `Blank ${index + 1}`}</p>
+            <section class="clozeQuestion" data-objective-question={id} data-objective-index={index}>
+              <header class="clozeRowHead"><p data-objective-prompt>{question.prompt || `Blank ${index + 1}`}</p><button type="button" data-row-uncertain aria-label={`Blank ${index+1} Uncertain`}>△</button></header>
               <div class="clozeOptions">
                 {options.map((option) => (
                   <button type="button" data-cloze-option data-objective-option data-value={option.label}>
@@ -105,7 +106,12 @@ function optionEntries(options) {
       } catch { return blankState(); }
     };
     let state = read();
-    const save = () => localStorage.setItem(storageKey, JSON.stringify(state));
+    let savedState=JSON.stringify(state);
+    const save = () => {
+      const status=root.querySelector('[data-cloze-save-status]');
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); savedState=JSON.stringify(state); status.hidden=true;return true; }
+      catch { state=JSON.parse(savedState);status.hidden=false;status.textContent='未保存，刚才的操作未提交。请重试或保持本页打开。';return false; }
+    };
 
     const formalOf = (row) => {
       try { return normalizeAnswer(JSON.parse(row.getAttribute('data-answer') || '""')); }
@@ -114,7 +120,11 @@ function optionEntries(options) {
 
     const render = () => {
       rows.forEach((row, index) => {
-        row.hidden = index !== active;
+        row.hidden = false;
+        row.classList.toggle('is-current',index===active);
+        const signal=row.querySelector('[data-row-uncertain]');
+        signal.setAttribute('aria-pressed',String((state.uncertain||[]).includes(idOf(row))));
+        signal.disabled=Boolean(state.submitted);
         const id = idOf(row);
         row.querySelectorAll('[data-cloze-option]').forEach((button) => {
           const value = button.getAttribute('data-value') || '';
@@ -173,7 +183,10 @@ function optionEntries(options) {
       }
     };
 
-    rows.forEach((row) => {
+    rows.forEach((row,index) => {
+      row.addEventListener('pointerdown',()=>{active=index;render();});
+      row.addEventListener('focusin',()=>{active=index;render();});
+      row.querySelector('[data-row-uncertain]')?.addEventListener('click',()=>{active=index;uncertainButton.click();});
       row.querySelectorAll('[data-cloze-option]').forEach((button) => {
         button.addEventListener('click', () => {
           if (state.submitted) return;
@@ -200,7 +213,12 @@ function optionEntries(options) {
     });
     root.querySelector('[data-cloze-prev]')?.addEventListener('click', () => { active = Math.max(0, active - 1); render(); });
     root.querySelector('[data-cloze-next]')?.addEventListener('click', () => { active = Math.min(rows.length - 1, active + 1); render(); });
-    jumps.forEach((jump, index) => jump.addEventListener('click', () => { active = index; render(); }));
+    jumps.forEach((jump, index) => jump.addEventListener('click', () => { active = index; render(); rows[index]?.scrollIntoView({block:'nearest'}); }));
+    root.addEventListener('keydown',event=>{
+      if(event.isComposing || event.keyCode===229 || event.target.closest('input,textarea,select,[contenteditable=true]'))return;
+      const choice=/^[1-4]$/.test(event.key)?String.fromCharCode(64+Number(event.key)):event.key.toUpperCase();
+      if(/^[A-D]$/.test(choice)){event.preventDefault();rows[active]?.querySelector(`[data-value="${choice}"]`)?.click();}
+    });
 
     submit?.addEventListener('click', () => {
       if (state.submitted || root.getAttribute('data-objective-answers-ready') !== 'true') return;
@@ -214,7 +232,7 @@ function optionEntries(options) {
       state.results = results;
       state.submitted = true;
       state.submittedAt = now();
-      save();
+      if (!save()) { render();return; }
       render();
       root.dispatchEvent(new CustomEvent('kianos:objective-submitted', { bubbles: true }));
     });

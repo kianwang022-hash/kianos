@@ -1,0 +1,36 @@
+---
+const { value, role = '' } = Astro.props;
+const omitted = new Set(['id','natural_unit_id','source_refs','source_evidence','learning_priority']);
+const labels = {role:'身份',not_role:'不是',upstream:'上承',downstream:'下接',learning_rule:'把握方式',parallel_boundary:'并列边界',meaning:'',detail:'',text:'',fact:'',relation:'',problem:'',items:'',groups:'',name:'',title:'',label:'',left:'',right:'',distinction:''};
+const heading = value && !Array.isArray(value) && typeof value === 'object' ? value.title || value.name || value.label : '';
+const maps = value?.nodes && value?.edges;
+const levels = new Map();
+if (maps) {
+  value.nodes.forEach(n=>levels.set(n.id,0));
+  for(let i=0;i<value.nodes.length;i++) for(const e of value.edges) levels.set(e.to,Math.max(levels.get(e.to)||0,(levels.get(e.from)||0)+1));
+}
+const columns = maps ? [...new Set(levels.values())].sort((a,b)=>a-b) : [];
+---
+{value == null ? null : typeof value === 'string' || typeof value === 'number' ? <p>{value}</p> : Array.isArray(value) ? (
+  <div class:list={['frameValues', {parallel: ['mechanism','parallel_theory_responses','teaching_relations','framework_maps'].includes(role)}]}>
+    {value.map(item=><div class="frameValue"><Astro.self value={item} role={role} /></div>)}
+  </div>
+) : maps ? (
+  <section class="frameMap">
+    {heading && <h3>{heading}</h3>}
+    <div class="frameTopology" style={`--columns:${columns.length}`}>
+      {columns.map(level=><div class="frameTopologyLevel">{value.nodes.filter(n=>levels.get(n.id)===level).map(node=><article><strong>{node.label}</strong><p>{node.meaning}</p>{node.detail && <p>{node.detail}</p>}</article>)}</div>)}
+    </div>
+    <div class="frameEdges">{value.edges.map(edge=><p><b>{value.nodes.find(n=>n.id===edge.from)?.label}</b><span> — {edge.relation} → </span><b>{value.nodes.find(n=>n.id===edge.to)?.label}</b></p>)}</div>
+  </section>
+) : value?.steps ? (
+  <section><h3>{heading}</h3><ol class="frameSteps">{value.steps.map(s=><li><Astro.self value={s.text ?? s} /></li>)}</ol></section>
+) : (
+  <section class:list={['frameObject', {boundary: value.left && value.right}]}>
+    {heading && <h3>{heading}</h3>}
+    {Object.entries(value).filter(([key])=>!omitted.has(key)&&!['title','name','label'].includes(key)).map(([key,v])=><div class={`frameField field-${key}`}>
+      {(labels[key] ?? key) && <strong class="frameFieldLabel">{labels[key] ?? key}</strong>}
+      <Astro.self value={v} role={key} />
+    </div>)}
+  </section>
+)}

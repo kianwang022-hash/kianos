@@ -17,6 +17,7 @@ export function getStaticPaths() {
 const item = loadClozeById(Astro.props.objectId);
 ---
 <Base
+  showLead={false}
   title={item.title}
   kicker="English · Cloze"
   description="Slot Demand → Constraints → Candidate Contrast → Best Fit"

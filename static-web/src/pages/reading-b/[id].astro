@@ -17,6 +17,7 @@ export function getStaticPaths() {
 const item = loadReadingBById(Astro.props.objectId);
 ---
 <Base
+  showLead={false}
   title={item.title}
   kicker="English · Reading B"
   description="Discourse Skeleton → Required Role → Candidate Role → Global Reconciliation"

@@ -25,6 +25,7 @@ const { readingId } = Astro.props;
 const reading = loadReadingById(readingId);
 ---
 <Base
+  showLead={false}
   title={reading.title}
   kicker="English · Current"
   description=""

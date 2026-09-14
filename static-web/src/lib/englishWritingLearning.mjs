@@ -34,7 +34,11 @@ function extractTopLevel(markdown, startPattern) {
   const start = lines.findIndex((line) => startPattern.test(line));
   if (start < 0) throw new Error(`WRITING_LEARNING_SECTION_MISSING:${startPattern}`);
   let end = lines.length;
+  let fence = null;
   for (let index = start + 1; index < lines.length; index += 1) {
+    const marker = /^\s*(`{3,}|~{3,})/.exec(lines[index]);
+    if(marker){if(!fence)fence=marker[1][0];else if(marker[1][0]===fence)fence=null;continue;}
+    if(fence)continue;
     if (headingLevel(lines[index]) === 1) {
       end = index;
       break;
@@ -56,7 +60,11 @@ function extractLevelTwo(markdown, startPattern) {
   const start = lines.findIndex((line) => startPattern.test(line));
   if (start < 0) throw new Error(`WRITING_LEARNING_SUBSECTION_MISSING:${startPattern}`);
   let end = lines.length;
+  let fence = null;
   for (let index = start + 1; index < lines.length; index += 1) {
+    const marker = /^\s*(`{3,}|~{3,})/.exec(lines[index]);
+    if(marker){if(!fence)fence=marker[1][0];else if(marker[1][0]===fence)fence=null;continue;}
+    if(fence)continue;
     const level = headingLevel(lines[index]);
     if (level !== null && level <= 2) {
       end = index;
