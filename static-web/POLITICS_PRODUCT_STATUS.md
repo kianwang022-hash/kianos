@@ -1,6 +1,6 @@
 # Politics Product / Projection Status
 
-Status: **UI DESIGN FROZEN · COGNITIVE PROJECTION ASSETS COMPILED · UI IMPLEMENTATION READY**  
+Status: **UI DESIGN FROZEN · COGNITIVE PROJECTION ASSETS COMPILED · UI IMPLEMENTATION IN PROGRESS — PR #117**  
 Role: current Politics productization task contract / implementation handoff  
 Lane cursor: `content/politics/CURRENT.md`  
 UI safety method: `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`  
@@ -21,6 +21,18 @@ The current task is:
 > **Politics Projection Optimization / Mac-wide Productization Implementation**
 
 It is **not** a new Projection design project and **not** a new Politics learning-system build.
+
+Current execution cursor:
+
+```text
+Issue #116 full functional-parity contract
+→ Draft PR #117 ACTIVE
+→ bounded Current-native Xiao1000 Workbench parity slice
+→ #115 is a bounded submitted-result explanation dependency
+→ CI / browser / independent parity audit / Mac acceptance remain open
+```
+
+PR #117 is the current overlapping Politics `static-web/**` production surface. Continue that PR instead of opening a competing large Politics Workbench implementation branch. Its existence does not claim full Politics productization or learner `U` closure.
 
 Correct causal chain:
 
