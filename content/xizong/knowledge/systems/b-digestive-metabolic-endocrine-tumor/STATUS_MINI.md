@@ -2,61 +2,62 @@
 
 Branch: `xizong-b-fresh-s-reset`
 Gate: `S — Source`
-Current sub-gate: `S2 — Physiology endocrine exact official-question membership`
+Current sub-gate: `S2 — Pathology exact official-question membership`
 Authority: working engineering cursor only; `SOURCE.md` remains B Source owner; Project Source/Lecture remains medical Source Truth.
 
 ## Stable assets
 
 - Existing System / 38 Blocks / 600 canonical KPs are hard assets for later K/L; do not rebuild them here.
-- K/L/P/R/E are frozen until S closes.
+- K/L/P/R/E are frozen until overall S closes.
 - Question membership is System scope evidence only; it must not create Question→Block/KP mappings.
 
-## Closed Physiology GI + energy/temperature
+## Physiology — CLOSED / PASS_BOUNDED
 
-Source-region exact membership:
-- 2005–2012: `34` exact qids — PASS_BOUNDED
-- 2013–2016: `22` exact qids — PASS_BOUNDED
-- 2017–2021: `25` exact qids — PASS_BOUNDED
-- 2022–2026: `15` exact qids — PASS_BOUNDED
-- subtotal: `96` exact admitted qids
+Final Physiology B membership 2005–2026:
 
-Whole-Physiology negative-space closure:
-- `2005–2012` — PASS_BOUNDED; `0` added
-- `2013–2021` — PASS_BOUNDED; `0` added
-- `2022–2026` — PASS_BOUNDED; `0` added
+```text
+GI + energy/temperature         96
+Endocrine                       60
+Vitamin/one-carbon cross-unit    1  (2015N152)
+-----------------------------------
+unique Physiology B total      157
+```
 
-Therefore:
+Closure conditions completed:
+- exact qid resolution in Current Question Truth;
+- Current Physiology Source reconciliation;
+- whole-Physiology negative-space sweeps;
+- renal / neuro / autonomic / circulation / blood / reproductive / generic-signaling collision attacks;
+- no thermogenesis/endocrine duplicate counting;
+- final folate/B12→megaloblastic boundary adjudicated as B biochemical etiology Primary / C phenotype interface.
 
-`GI + energy/temperature exact membership 2005–2026 = 96; negative-space CLOSED.`
+Primary closure evidence:
+- `SOURCE_AUDIT_PHYSIOLOGY_CLOSURE.md`
+- `SOURCE_AUDIT_PHYSIOLOGY_ENDOCRINE_2005_2012.md`
+- `SOURCE_AUDIT_PHYSIOLOGY_ENDOCRINE_2013_2021.md`
+- `SOURCE_AUDIT_PHYSIOLOGY_ENDOCRINE_2022_2026.md`
+- `SOURCE_AUDIT_PHYSIOLOGY_ENDOCRINE_NEGATIVE_SPACE.md`
+- plus the previously closed GI/energy evidence shards.
 
-Evidence:
-- `SOURCE_AUDIT_PHYSIOLOGY_2005_2012.md`
-- `SOURCE_AUDIT_PHYSIOLOGY.md`
-- `SOURCE_AUDIT_PHYSIOLOGY_2022_2026.md`
-- `SOURCE_AUDIT_PHYSIOLOGY_NEGATIVE_SPACE_2005_2012.md`
-- `SOURCE_AUDIT_PHYSIOLOGY_NEGATIVE_SPACE_2013_2021.md`
-- `SOURCE_AUDIT_PHYSIOLOGY_NEGATIVE_SPACE_2022_2026.md`
+The count `157` is an evidence result, never a target for other subjects.
 
-## Current task — Physiology endocrine
+## Current task — Pathology
 
-Build exact B-System membership for Current Physiology endocrine questions across 2005–2026.
+Construct B-System exact official-question membership from Current Pathology Source and Current Question Truth.
 
-Primary Current Source regions:
-- endocrine general language / secretion modes / pituitary control;
-- calcium-regulating hormones / active vitamin D;
-- GH / IGF;
-- insulin / glucagon / incretin physiology;
-- thyroid hormone;
-- glucocorticoid / adrenal physiology.
+Primary B Pathology regions expected to include:
+- GI organ pathology: esophagus / stomach / intestine / appendix / liver / biliary / pancreas as supported;
+- endocrine pathology: thyroid / islet and other B-assigned endocrine-organ pathology to Current Source depth;
+- organ-specific B tumors;
+- tumor-general material remains O9 Primary and must not be silently imported into B except explicit organ application / interface.
 
 Method:
-1. extract exact official qids from Current Physiology Source and resolve them in Current Question Truth;
-2. classify by tested construct, not hormone names appearing as options;
-3. dedupe thermogenesis questions already owned by GI+energy (`2015N154`, `2021N138`, `2024N139`, etc.);
-4. attack renal / blood / neuro / reproduction / generic-signaling collisions;
-5. close endocrine negative space before declaring overall Physiology S2.
-
-Known carry-forward candidates include `2006N132`, `2011N155`, `2012N156`, `2026N15` plus the 2013–2025 endocrine chapter tags already visible in Current Lecture.
+1. recover exact official qids from Current Pathology Source regions;
+2. resolve every included qid in Current Question Truth;
+3. classify by tested construct, not organ-word occurrence;
+4. attack inflammatory/infectious, hematologic, reproductive, renal and O9 tumor-general collisions;
+5. run whole-Pathology negative-space / false-negative sweep;
+6. close Pathology only with deterministic unique membership and no unresolved material boundary.
 
 ## Hard stop
 
