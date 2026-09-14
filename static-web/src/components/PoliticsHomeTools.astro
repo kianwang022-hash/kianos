@@ -1,15 +1,18 @@
 ---
 const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 ---
-<section class="politicsHomeTools" data-politics-home-tools>
-  <a class="politicsContinue" data-politics-continue hidden href={firstHref}>
-    <span>Continue</span>
-    <strong data-politics-continue-title>{firstLabel}</strong>
-    <small data-politics-continue-meta>从 Current 章节入口开始；之后自动回到最近打开的章节。</small>
+<section class="politicsHomeTools" data-politics-home-tools data-has-handoff="false">
+  <a class="politicsContinue" data-politics-continue href={firstHref}>
+    <span class="politicsHomeEyebrow">Continue</span>
+    <span class="politicsContinueBody">
+      <strong data-politics-continue-title>{firstLabel}</strong>
+      <small data-politics-continue-meta>从第一章进入；之后自动回到最近打开的位置。</small>
+    </span>
+    <b aria-hidden="true">Continue →</b>
   </a>
   <section class="politicsHandoff" hidden>
     <div>
-      <span>Daily handoff</span>
+      <span class="politicsHomeEyebrow">Today</span>
       <strong>Wrong / Uncertain</strong>
       <p data-politics-handoff-summary>今天还没有需要带回 Chat 的政治证据。</p>
     </div>
@@ -31,7 +34,7 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
     const continueLink = root.querySelector('[data-politics-continue]');
     if (last?.href && (last.unit_id || last.question_id || last.action) && continueLink instanceof HTMLAnchorElement) {
       const target = new URL(last.href, location.origin);
-      if (target.origin === location.origin && target.pathname.startsWith('/politics/')) { continueLink.href = target.href; continueLink.hidden = false; }
+      if (target.origin === location.origin && target.pathname.startsWith('/politics/')) continueLink.href = target.href;
       const title = root.querySelector('[data-politics-continue-title]');
       const meta = root.querySelector('[data-politics-continue-meta]');
       if (title) title.textContent = last.title || `${last.subject || ''} ${last.chapter || ''}`.trim() || '继续政治学习';
@@ -56,7 +59,9 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
       const summary = root.querySelector('[data-politics-handoff-summary]');
       if (!summary) return;
       const events = todayEvents();
-      root.querySelector('.politicsHandoff').hidden = !events.length;
+      const handoff = root.querySelector('.politicsHandoff');
+      if (handoff instanceof HTMLElement) handoff.hidden = !events.length;
+      root.dataset.hasHandoff = events.length ? 'true' : 'false';
       const wrong = events.filter((event) => event.outcome === 'WRONG').length;
       const uncertain = events.filter((event) => event.outcome === 'UNCERTAIN').length;
       summary.textContent = events.length
@@ -81,6 +86,18 @@ const { firstHref, firstLabel = '开始政治学习' } = Astro.props;
 </script>
 
 <style>
-  .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:12px}.politicsContinue,.politicsHandoff{padding:18px 20px;border-bottom:1px solid var(--study-line);background:transparent;color:inherit}.politicsContinue{display:grid;gap:4px;text-decoration:none}.politicsContinue>span,.politicsHandoff span{color:var(--study-green);font-size:13px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.politicsContinue strong,.politicsHandoff strong{font-size:18px}.politicsContinue small{color:var(--study-faint);line-height:1.5}.politicsHandoff{display:flex;align-items:center;justify-content:space-between;gap:16px}.politicsHandoff>div{display:grid;gap:4px}.politicsHandoff p{margin:0;color:var(--study-muted);font-size:15px;line-height:1.55}.politicsHandoff button{padding:9px 12px;border:1px solid currentColor;border-radius:9px;background:#fff;color:inherit;font:inherit;font-size:15px;font-weight:760;cursor:pointer;white-space:nowrap}
-  @media(max-width:760px){.politicsHomeTools{grid-template-columns:1fr}.politicsHandoff{align-items:stretch;flex-direction:column}.politicsHandoff button{white-space:normal}}
+  .politicsHomeTools{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);overflow:hidden;margin-top:10px;border:1px solid var(--study-line);border-radius:14px;background:var(--study-surface);box-shadow:0 12px 34px rgba(22,31,27,.045)}
+  .politicsHomeTools[data-has-handoff="false"] .politicsContinue{grid-column:1/-1}
+  .politicsContinue{display:grid;grid-template-columns:86px minmax(0,1fr) auto;align-items:center;gap:18px;min-height:112px;padding:20px 24px;color:inherit;text-decoration:none;transition:background 140ms ease}
+  .politicsContinue:hover{background:#f7faf8}
+  .politicsHomeEyebrow{color:var(--study-green);font-size:12px;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
+  .politicsContinueBody{display:grid;gap:4px;min-width:0}
+  .politicsContinue strong,.politicsHandoff strong{font-size:20px;line-height:1.35;letter-spacing:-.02em}
+  .politicsContinue small{color:var(--study-muted);font-size:14px;line-height:1.55}
+  .politicsContinue>b{color:var(--study-green);font-size:15px;font-weight:780;white-space:nowrap}
+  .politicsHandoff{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:18px;padding:20px 22px;border-left:1px solid var(--study-line);background:var(--study-surface-muted)}
+  .politicsHandoff>div{display:grid;gap:4px}.politicsHandoff p{margin:0;color:var(--study-muted);font-size:14px;line-height:1.5}
+  .politicsHandoff button{padding:9px 12px;border:1px solid var(--study-line-strong);border-radius:8px;background:#fff;color:var(--study-ink);font:inherit;font-size:14px;font-weight:740;cursor:pointer;white-space:nowrap}.politicsHandoff button:hover{border-color:#9fb8ac;background:#f8faf9}
+  @media(max-width:900px){.politicsHomeTools{grid-template-columns:1fr}.politicsContinue{grid-column:1!important}.politicsHandoff{border-top:1px solid var(--study-line);border-left:0}}
+  @media(max-width:620px){.politicsContinue{grid-template-columns:1fr;gap:8px}.politicsContinue>b{justify-self:start}.politicsHandoff{grid-template-columns:1fr;align-items:stretch}.politicsHandoff button{white-space:normal}}
 </style>
