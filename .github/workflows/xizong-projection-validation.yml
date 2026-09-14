@@ -47,6 +47,7 @@ jobs:
           for folder in ['a1-circulation', 'a2-respiratory', 'a3-urinary']:
               for name in ['system.json', 'CURRENT.md', 'ACCEPTANCE.md']:
                   files.add(pathlib.Path('content/xizong/knowledge/systems') / folder / name)
+              files.update((pathlib.Path('content/xizong/knowledge/systems') / folder / 'blocks').glob('*.md'))
           inventory = []
           for p in sorted(files):
               if not p.is_file():
