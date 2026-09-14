@@ -1,115 +1,42 @@
 # Xizong Product / UI Status
 
-Status: **PRODUCT / INTERACTION DESIGN FROZEN · PROJECTION V1 FROZEN / VALIDATED FOR CURRENT ELIGIBLE A1/A2/A3 · PRODUCTIZATION IMPLEMENTATION / MAC ACCEPTANCE OPEN**  
-Role: current Xizong learner-facing productization status / Codex handoff router  
-Lane cursor: `content/xizong/CURRENT.md`  
-Detailed design owner: `static-web/XIZONG_PRODUCT_BRIEF.md` + accepted surface design files  
-Projection authority: `content/xizong/projection/PROJECTION_CONTRACT.md` + `content/xizong/projection/manifest.json`  
-Projection freeze receipt: `content/xizong/projection/V1_FREEZE_RECONCILIATION_RECEIPT.md`  
-Shared presentation grammar: `static-web/PRESENTATION_CONTRACT.md`  
-Preference owner: `static-web/KIAN_UI_PREFERENCES.md`  
-Style owner: `static-web/UI_STYLE_BRIEF.md`
+Status: **PRODUCT / INTERACTION ACCEPTED · ELIGIBLE PROJECTION V1 FROZEN · RENDERER / MAC ACCEPTANCE OPEN**  
+Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.0+ §3–4、§7–11**  
+Domain router: `content/xizong/CURRENT.md`  
+Safety: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
-This file supersedes only stale stage/cursor wording in `XIZONG_PRODUCT_BRIEF.md`, especially wording that says Projection calibration is still open. It does not replace accepted detailed product decisions, medical Content, Learning semantics, Runtime/Evidence semantics or scoped System Acceptance.
+## 当前范围与边界
 
-## Current product closure
+此轮核对的 eligible Projection 是 A1/A2/A3：3 System +38 Block，805 KP identities/396 bindings；原 v1 receipt 记录86 mutation/control测试。它们是既有资产验证证据，**不等于这轮浏览器/视觉/U 验收**。当前范围持续由 local Current/Acceptance 与 manifest 决定，B–F 未获允许的不为站点对称提前加入。
 
-The learner-facing Xizong product family has already been discussed and accepted at responsibility / interaction / Mac-wide composition level:
+已闭合的 Learning/Runtime 是 UI 优化 baseline。读取 `content/xizong/LEARNING_CONTRACT.md`、`knowledge/learner/study-policy.json` 和精确 owner，不能因“反仪式”取消真实正式接触/主动 Recall/completion 条件。
 
-```text
-Xizong Home
-System Guide / orientation
-Block / Logic Group workspace
-MarginNote Lecture handoff / return
-KP Recall
-Logic Group closure
-Block Recall
-System Recall / completion
-System question workbench
-Wrong / meaningful Uncertain repair / return
-Xizong-wide whole-paper direction
-```
+## 完整产品 family，不仅 Guide
 
-Detailed owners:
+System Guide → Block orientation → LG orientation → 原讲义整 LG 连续学习 → 一次真实返回 → KP Recall Front/Reveal → LG closure → Block Recall → Block Complete → selective After Learn；System 实际学完后还有 System Recall/题目sweep/修复/题后重建。
 
-- `static-web/XIZONG_HOME_DESIGN.md`
-- `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md`
-- `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md`
-- `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md`
+保留原文件：
 
-No normal downstream implementation task should reopen those product decisions without fresh contradictory evidence.
+- `XIZONG_PRODUCT_BRIEF.md`
+- `XIZONG_HOME_DESIGN.md`
+- `XIZONG_SYSTEM_GUIDE_DESIGN.md`
+- `XIZONG_BLOCK_WORKSPACE_DESIGN.md`
+- `XIZONG_SYSTEM_COMPLETION_DESIGN.md`
 
-## Projection v1 closure
+旧阶段标题不能把已接受设计重开；具体尚未实现的全卷 runtime/phase-aware attempt 兼容边界仍是真实待核对项，不能用文档冻结冒充完成。
 
-Current eligible Projection scope is frozen and executable-validated:
+## 展示与 Guide 最新明确要求
 
-```text
-A1 Circulation   12 BlockProjection
-A2 Respiratory   12 BlockProjection
-A3 Urinary       14 BlockProjection
+`content/xizong/projection/PROJECTION_CONTRACT.md` + manifest + `V1_FREEZE_RECONCILIATION_RECEIPT.md` 管资产。一个 Block 可有多个认知对象；KP Reveal 仍须完整 canonical Core。7 rich calibration Blocks 以外的 baseline 引用不是“所有内容已图形化”的证明。
 
-3 SystemProjection + 38 BlockProjection = 41 assets
-PASS 38 / REFERENCE_ONLY 0 / BLOCKED 0
-FRESH 38 / STALE 0 / BLOCKED 0
-805 canonical KP identities
-396 resolved bindings
-86 / 86 mutation + control tests PASS
-```
+改 reusable role/geometry/结构化正文 renderer，不按题名/疾病/KP 手工做页面。合法内容变化重验/编译，真正新类型只处理其影响；程序全量coverage，视觉按代表类型/状态/长内容抽验，不逐个805KP签字。
 
-B–F are explicitly outside the current v1 eligible scope under their own Current authority. They are not hidden Projection debt and must not be bulk-projected merely for symmetry.
+System Guide 是首次建立体系与后续重新定位的持久参考，稳定低摩擦入口/精确返回；非每次必经页、非 read-complete 证据。完整认知密度可滚动，不削成摘要。Block/LG/KP/Memory/Reserve 等逻辑内容也按合法状态承载，不只优化顶层 Guide。
 
-The v1 freeze receipt explicitly says not to restart bulk A1/A2/A3 Projection compilation unless a Current owner change makes a specific asset stale or downstream content-to-view review identifies a concrete local gap.
+## 保护与执行
 
-## Frozen learner/product model
+neutral front 是整个 workspace 的权限，不仅主卡片；Core/标题/源图/Precision/dock 不得侧漏。A2 enrichment 时机与 source ownership 不因共用组件而丢失；没有的 sidecar 不造。
 
-First pass remains:
+Fast 与 Hidden 独立；西综 Mark 可稍后回看，不等于 Politics Uncertain 必须停留。holdout 保留；precise repair 只用 reviewed relation。Guide/查阅不得覆盖 first evidence/Resume。
 
-```text
-System orientation
-→ Block
-→ Logic Group orientation
-→ original Lecture continuously in iPad / MarginNote
-→ one return
-→ KP Recall for that Logic Group
-→ Logic Group closure
-→ next Logic Group
-→ Block Recall
-→ Block Complete
-```
-
-Later eligible System flow remains:
-
-```text
-System Recall
-→ official System question sweep
-→ Wrong / meaningful Uncertain smallest repair
-→ post-question System reconstruction
-```
-
-Hard boundaries:
-
-- original Lecture remains the continuous first-learning owner;
-- KianOS is not a second medical textbook;
-- neutral Recall fronts remain answer-safe;
-- stable/correct paths stay cheap;
-- one Block may contain multiple cognitive objects/geometries;
-- generic renderer must not embed named medical truth;
-- engineering readiness never equals learner progress.
-
-## Current handoff
-
-```text
-accepted Xizong Product / Interaction design
-+ frozen validated Projection v1 for current eligible scope
-+ existing Runtime / Evidence / Repair / Return
-+ Kian UI preferences / shared style
-→ bounded Codex renderer / UI implementation
-→ real Mac browser screenshots / behavior evidence
-→ independent Chat/Pro architecture + product review
-→ same-PR fixes
-→ Kian acceptance
-→ zero-semantic-diff merge
-→ Xizong SUBJECT_CLOSED_FOR_HOME for the implemented eligible product scope
-```
-
-Future System eligibility continues under each System's own S/K/L/P/R/E governance. It does not reopen already-frozen product design by default.
+活动 UI PR 以 static-web Current/#113 为准；不修改独立 B Learning 或医学 Core。浏览器、独立审查、合法落库完成以后才可声明当前 eligible family `SUBJECT_CLOSED_FOR_HOME`；U 仍真实使用。旧状态原文在 `design-archive/2026-09-14/XIZONG_STATUS_BEFORE_V3.md`。

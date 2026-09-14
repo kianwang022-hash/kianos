@@ -1,274 +1,59 @@
 # KianOS UI Style Brief
 
-Status: ACTIVE DISCUSSION / SHARED VISUAL OWNER  
-Scope: all learner-facing `static-web/` surfaces  
-Parent: `static-web/PRESENTATION_CONTRACT.md` + `static-web/CURRENT.md`  
-Preference owner: `static-web/KIAN_UI_PREFERENCES.md`
+Status: **CURRENT SHARED VISUAL DIRECTION — BOUNDED IMPLEMENTATION CALIBRATION**  
+Scope: learner-facing static-web  
+Preference owner: `KIAN_UI_PREFERENCES.md`  
+Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+  
+Semantic parent: `PRESENTATION_CONTRACT.md` + domain Product/Learning/Interaction owners
 
-This file owns the shared visual-language and aesthetic constraints for KianOS learner-facing UI. It does **not** own domain learning logic, task geometry, evidence/mastery semantics, source truth, or learner progress.
+## 1｜目标气质
 
-The purpose is to prevent each lane / Codex implementation from inventing its own visual language while still allowing task-native layouts to differ.
+**专业知识工作台的内容组织 + 现代桌面产品的完成度。** 这不是“学术/现代”的数字比例，也不是对某品牌的复制。内容、模型、题目、写作是主角；导航和软件自身退后。
 
-Before substantial learner-facing UI design or Codex implementation, read `KIAN_UI_PREFERENCES.md` together with this file. The preference owner distinguishes **explicit Kian preferences** from **assistant design hypotheses**; do not silently promote a hypothesis into a hard visual requirement.
+设计原点是 Mac 横屏：中高有用信息密度、低混乱、足够大且有对比的字、明显层级、稳定阅读节奏。横向面积用于同时有用的上下文，不用于更多 badge/dashboard。窄窗口可靠降级，不反过来规定桌面布局。
 
----
+避免 tiny learner text、巨型 Hero/空白、默认卡片堆、每段圆角框、装饰渐变/高饱和多色、工程状态、假进度和游戏化学习债务。
 
-## 1｜Primary environment
+## 2｜自主选择与边界
 
-Design origin is **Mac wide landscape desktop**.
+当前字体/色值不是必须先让 Kian 逐项审批的 blocker。Astra 可在代表任务上建立一次一致的 font stack/字号/spacing/neutral-accent/control tokens，再跨科复用；不能每页一套，也不能借此推翻已接受的成熟构图。
 
-- Use horizontal space intentionally for simultaneous context / work.
-- Do not design mobile-first and then stretch the result across a Mac screen.
-- Narrower responsive layouts are fallback/degradation paths only.
-- Main learner workspaces may use most of the available viewport width when cognition benefits from it; avoid a narrow centered document column surrounded by wasted whitespace.
+优先现有可用、合法字体与系统栈；先解决正文和题目读得舒服。具体字号/行距/列宽由真实长内容、Mac viewport 与浏览器结果决定，不以 8–10px 主内容换“高密度”，也不放大标题制造“高级感”。
 
----
+偏克制的 neutral base + 一个协调 accent family，状态还有文字/形状辅助，不仅靠颜色。作答前 selected 只表示我的选择，不能使用暗示正确的样式。对错/Uncertain/保存失败各有清楚、克制的区别。
 
-## 2｜Visual character｜Dense Calm
+普通 polish 自主；大幅更换整体风格或结构按 master L3。Professional 不等于陈旧后台，modern 不等于卡片墙。
 
-Target character:
+## 3｜组织优先级
 
-> **Dense Calm — restrained, readable, high-information, structurally clear, low-fatigue.**
+先用 typography → alignment → rhythm/indentation/grouping → thin rules/subtle backgrounds；确有语义/交互边界才用 card/border。阴影只为真实浮层，圆角克制一致。
 
-KianOS should feel closer to a refined professional workbook / native desktop productivity tool than a dashboard, marketing site, or decorative study app.
+重要模型和第一轮有用内容直接可见；不得为“干净”移进一串 accordion。深层参考、非当前时机内容与受保护答案按领域规则显示，不为填满页面而补空 category。
 
-Required qualities:
+Guide 可有密度、有长内容、可滚动；不是一屏摘要。英文长阅读行长受控，考试选项保留纸面扫描感，写作输入像 authoring workspace 而非后台表单。
 
-- minimal but not empty;
-- visually calm but not low-information;
-- large / comfortable learner text;
-- strong hierarchy and contrast;
-- useful density without crowding;
-- clear spatial relationships;
-- restrained decoration;
-- interactions should feel direct and obvious;
-- the task/content should dominate over KianOS chrome.
+## 4｜控件与反馈
 
-Avoid:
+主/次/quiet action 区别明确但不夸张。Focus/keyboard focus 可见；pointer 与键盘同语义；输入框、select、contenteditable、中文输入法组合输入优先于学习快捷键。快捷提示可发现但不长期占大面积。
 
-- persistently tiny text;
-- giant blank whitespace used as “minimalism”;
-- card/panel piles;
-- every object boxed into a rounded rectangle;
-- flashy gradients / saturated multi-color decoration;
-- playful SaaS dashboard aesthetics;
-- over-animated transitions;
-- excessive badges, pills, counters and status chips;
-- large engineering/runtime banners;
-- visual novelty that slows repeated daily use.
+保留滚动/选中/任务位置，稳定路径不跳布局。Save/loading/disabled/error/fail-closed 状态清楚且可恢复；不能为 Fast 吞掉保存失败，也不能让退出静默丢草稿。破坏性 reset 仍保留必要安全边界，不套用“少确认”。
 
----
+## 5｜Motion
 
-## 3｜Hierarchy before decoration
+允许服务状态理解的细腻 hover/focus/选择、局部展开、submit/reveal、必要 linked-object 定位；不延迟下一题，不抢滚动或焦点。
 
-Prefer these tools, in this order:
+禁止 spring/bounce、页面飞入、大面积滑动、逐卡 stagger、滚动炫技与纯表演动画。Respect reduced motion。内容加载后尽量不跳布局，反馈不能漏出尚未允许的答案。
 
-1. typography;
-2. alignment;
-3. spacing/rhythm;
-4. indentation / grouping;
-5. divider / line / subtle background;
-6. border or card only when a real semantic / interaction boundary exists;
-7. color only when it carries meaning.
+## 6｜统一语言，不统一模板
 
-Do not use a card simply because a component already exists.
+三科共享排版/间距/控件/焦点/错误和返回质量；Reading 全文+全题、Cloze 全20行、Part B 全图、Translation 源文+输出、Writing prompt+authoring、西综/政治认知模型各守原生几何。
 
-A learner should first notice:
+Home：meaningful Continue、稳定科目/任务入口、安静的 Guide/工具；不是方法说明墙、全部章节目录或工程 dashboard。Guide 的低摩擦入口遵守 master §4，不能只是被折叠隐藏的帮助链接。
 
-```text
-what I am doing
-→ the material / prompt / question / answer space
-→ the next meaningful action
-```
+## 7｜主题范围与验收
 
-and only then notice KianOS navigation/chrome.
+新 dark-mode 工程不作为本轮前置或目标；已存在的有效主题/可访问性不删除。实际用到的主题均保持基本可读性。
 
----
+实现 → 实际浏览器 → 代表截图/互动自查 → 修明显缺陷 → 复测。不是满足固定几轮就合格，也不无止境美化。截图覆盖 Mac 主场景、问题/保护态、长内容与窄窗。有限机器测试不能替代真实视觉审查；Kian 尚未接受的结构 alternative 不推广。
 
-## 4｜Typography direction
-
-Exact font family remains to be selected before final Codex handoff; do not freeze a specific typeface yet.
-
-However, the typographic behavior is already constrained:
-
-- body text must be comfortably readable for long sessions;
-- English long-form reading gets generous line-height and a readable measure;
-- question/options must not drop into tiny 8–10px learner text;
-- metadata may be smaller, but cannot become the primary way the page communicates;
-- headings should be compact and structural, not oversized marketing hero text;
-- numbers / timers / progress should be quiet and stable;
-- exam-like surfaces should preserve paper-like scanability rather than look like app cards.
-
-Default principle:
-
-> **Readable first, compact second, decorative last.**
-
----
-
-## 5｜Color direction
-
-Exact palette remains open for final visual selection.
-
-Frozen behavior:
-
-- use a restrained neutral base;
-- one primary accent family is preferred over multiple competing brand colors;
-- color should mainly communicate interaction/state, not decorate empty space;
-- selected-before-submit must not look “correct”;
-- correct / wrong / uncertain need distinct but restrained treatments;
-- do not rely on color alone for correctness or state;
-- avoid saturated Arc-like visual noise.
-
-The current green family may be retained, refined, or replaced during final palette choice; its existence in current CSS is not itself design authority.
-
----
-
-## 6｜Surface geometry
-
-Shared visual language does **not** mean identical layouts.
-
-Task geometry follows cognition:
-
-- Reading A: passage + full question sheet;
-- Cloze: complete passage + full 20-row exam-paper answer sheet;
-- Part B: full material / candidate inventory / complete map;
-- Translation: source + learner translation;
-- Writing: prompt + dominant authoring area;
-- Xizong / Politics: maps, chains, recall, question workbench, external-source companion surfaces as defined by their product briefs.
-
-The visual system should unify:
-
-- typography;
-- spacing;
-- controls;
-- selected / focus / correct / wrong / uncertain states;
-- header / breadcrumb / return behavior;
-- buttons / inputs / textareas;
-- secondary details;
-
-It must **not** flatten different cognitive objects into one component template.
-
----
-
-## 7｜Controls and interaction styling
-
-Controls should feel lightweight, desktop-native and repeatable.
-
-- primary action is obvious but not oversized;
-- secondary actions are visually quieter;
-- destructive/reset/debug actions stay out of the main action line;
-- keyboard shortcuts may be shown as subtle hints, not large badges;
-- focused/selected state should be crisp and visible;
-- selected answer before submit uses a quiet outline/check treatment and never correctness color;
-- buttons should not all look equally important;
-- text inputs / textareas should feel like writing/answer surfaces, not form-builder widgets.
-
-For high-frequency exam work, prefer direct click / key interaction over modal confirmation rituals.
-
----
-
-## 8｜Borders / radius / shadows
-
-Use restraint.
-
-- border radius should be modest and consistent;
-- large rounded “floating cards” are not the default visual unit;
-- shadows should be subtle and rare, mainly for true elevation / overlay;
-- flat alignment/dividers are preferred for exam sheets and dense workspaces;
-- in-place repair/review should expand naturally within the existing sheet rather than spawn floating cards everywhere.
-
----
-
-## 9｜Motion
-
-Motion is supportive, not expressive.
-
-Allowed:
-
-- short focus/selection transitions;
-- small in-place reveal/expand;
-- smooth but not theatrical scroll-to-linked-object when useful.
-
-Avoid:
-
-- decorative entrance animations;
-- large sliding panels for ordinary task changes;
-- motion that delays answer/next-item throughput;
-- bouncy / playful interaction language.
-
----
-
-## 10｜Home / shell aesthetic
-
-KianOS Home and lane Homes should look like a coherent desktop learning workspace, not an analytics dashboard.
-
-Prioritize:
-
-```text
-Continue / Resume
-→ lane / task entry
-→ secondary tools
-```
-
-Avoid foregrounding:
-
-- build SHA;
-- runtime health;
-- engineering status;
-- large progress dashboards without real learner evidence;
-- decorative KPI cards.
-
-Navigation should be thin, stable and predictable.
-
----
-
-## 11｜Reference taste boundary
-
-General taste direction from Kian's prior feedback is now owned explicitly by `KIAN_UI_PREFERENCES.md`.
-
-Current shared visual consequences include:
-
-- restrained / simple / logical interfaces;
-- larger readable type and stronger contrast;
-- Apple-like low-friction interaction quality without cloning Apple;
-- Raycast-level restraint is broadly acceptable;
-- avoid visually loud, overly colorful, flashy Arc-like treatment;
-- avoid interfaces that are either too empty or too tiny/dense to read comfortably.
-
-When this summary and the preference owner differ, the **latest explicit preference in `KIAN_UI_PREFERENCES.md` wins** unless a domain semantic contract requires otherwise.
-
----
-
-## 12｜Unresolved visual choices before Codex implementation
-
-Must be deliberately chosen/frozen before first production UI PR:
-
-1. exact font stack / typography scale;
-2. exact neutral + accent palette;
-3. border-radius / divider / elevation token set;
-4. global spacing scale;
-5. shared top navigation / breadcrumb visual treatment;
-6. primary / secondary / quiet button treatment;
-7. selected / focus / correct / wrong / uncertain state tokens;
-8. form / textarea styling;
-9. final Home visual composition;
-10. dark mode: explicitly in-scope or deferred.
-
-Do not ask Codex to invent these independently per page.
-
----
-
-## 13｜Codex acceptance
-
-A learner-facing implementation is not visually accepted merely because it is functional.
-
-For each bounded UI PR, require:
-
-- real Mac-wide browser screenshots;
-- clean-attempt screenshot;
-- problem/review screenshot where applicable;
-- narrow fallback screenshot;
-- comparison against `KIAN_UI_PREFERENCES.md` + this Style Brief + the lane Product Brief;
-- Sol/Kian product review before merge.
-
-Aesthetics are part of product acceptance, but never permission to alter learning semantics.
+本文件不改变 Learning、Content、Evidence、几何保护或 learner U。旧视觉简报原文存 `design-archive/2026-09-14/UI_STYLE_BEFORE_V3.md`，其“先审批所有 tokens 才能开工”阶段要求已退出执行。
