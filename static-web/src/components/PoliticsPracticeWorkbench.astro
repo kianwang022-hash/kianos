@@ -1,0 +1,638 @@
+---
+const { catalog, base = '/' } = Astro.props;
+const serializedCatalog = JSON.stringify(catalog).replace(/</g, '\u003c');
+---
+<section class="politicsPractice" data-politics-practice>
+  <header class="practiceTopline">
+    <div>
+      <a href={`${base}politics/`}>← Politics</a>
+      <span>肖1000 · Current Workbench</span>
+      <h1>训练</h1>
+    </div>
+    <div class="practiceTopActions">
+      <button type="button" data-resume-session hidden>继续上次题组</button>
+      <a href={`${base}politics/`}>返回政治</a>
+    </div>
+  </header>
+
+  <section class="practiceSetup" data-practice-setup>
+    <div class="practiceFilters">
+      <label>科目<select data-filter-subject><option value="all">全部</option></select></label>
+      <label>章节<select data-filter-chapter><option value="all">全部章节</option></select></label>
+      <label>Natural Unit<select data-filter-unit><option value="all">本章全部 Unit</option></select></label>
+      <label>题型<select data-filter-type><option value="all">全部题型</option><option value="single">单选</option><option value="multiple">多选</option></select></label>
+      <label>模式<select data-filter-mode><option value="practice">练习</option><option value="random">随机</option><option value="wrong">错题</option><option value="favorite">收藏</option></select></label>
+      <label>题数<select data-filter-count><option>5</option><option>10</option><option selected>20</option><option>40</option></select></label>
+      <label>操作<select data-interaction-mode><option value="NORMAL">Normal</option><option value="FAST">Fast</option></select></label>
+    </div>
+    <div class="practiceSetupFooter">
+      <p data-scope-summary>按 Current Question Truth 选择训练范围。</p>
+      <button type="button" class="primary" data-start-session>开始题组</button>
+    </div>
+  </section>
+
+  <section class="practiceSession" data-practice-session hidden>
+    <header class="sessionBar">
+      <div>
+        <span data-session-scope>当前题组</span>
+        <strong><b data-session-current>0</b> / <b data-session-total>0</b></strong>
+      </div>
+      <div class="sessionProgress"><i data-session-progress></i></div>
+      <button type="button" data-exit-session>退出题组</button>
+    </header>
+
+    <div class="practiceDesk">
+      <nav class="questionMap" aria-label="题目导航" data-question-map></nav>
+      <main class="questionStage">
+        <article class="questionCard" data-question-card>
+          <header class="questionMeta">
+            <div><span data-question-location></span><small data-question-type></small></div>
+            <div class="questionMarks">
+              <button type="button" data-favorite aria-pressed="false">☆ 收藏</button>
+              <button type="button" data-uncertain aria-pressed="false">△ 不确定</button>
+              <button type="button" data-discussion aria-pressed="false">◇ 待讨论</button>
+              <button type="button" data-original-face hidden>查看原题图</button>
+            </div>
+          </header>
+
+          <h2 data-question-stem></h2>
+          <div class="questionOptions" data-question-options></div>
+          <div class="questionFooter">
+            <span data-question-timer>0:00</span>
+            <small>1–4 选项 · Enter 提交 / 下一题</small>
+            <button type="button" class="primary" data-submit>提交</button>
+          </div>
+          <div class="practiceError" data-practice-error role="alert" hidden></div>
+        </article>
+
+        <section class="submittedResult" data-submitted-result hidden>
+          <div class="resultSummary">
+            <header><span>本题结果</span><strong data-result-status></strong></header>
+            <section class="takeaway" data-takeaway-block hidden>
+              <h3>一句话带走</h3>
+              <p data-takeaway></p>
+            </section>
+            <p class="refinedPending" data-refined-pending hidden>本题的 learner-facing 精炼解析尚未进入 Current；不会用 OCR 原解析冒充。</p>
+            <dl class="answerDelta">
+              <div><dt>你的答案</dt><dd data-result-selected></dd></div>
+              <div><dt>正式答案</dt><dd data-result-answer></dd></div>
+              <div data-result-delta-row hidden><dt>差异</dt><dd data-result-delta></dd></div>
+            </dl>
+            <section class="causePicker" data-cause-picker hidden>
+              <span>哪里出了问题？（可选）</span>
+              <div>
+                <button type="button" data-cause="memory">没记住</button>
+                <button type="button" data-cause="understanding">没想明白</button>
+                <button type="button" data-cause="options">选项没辨清</button>
+                <button type="button" data-cause="careless">看错 / 粗心</button>
+              </div>
+            </section>
+            <label class="attemptNote"><span>备注</span><textarea rows="4" data-note placeholder="今晚想问 Chat / 自己卡住的点……"></textarea><small data-note-status></small></label>
+          </div>
+
+          <div class="knowledgeReview">
+            <header><span>知识回看</span><button type="button" class="primary" data-next-question>下一题 →</button></header>
+            <section data-chat-explanation-block hidden>
+              <h3>理解这道题</h3>
+              <p data-chat-explanation></p>
+            </section>
+            <section class="reviewSources">
+              <h3>对应来源</h3>
+              <div data-review-sources></div>
+            </section>
+            <details class="xiaoReference" data-xiao-reference>
+              <summary data-xiao-label>查看肖1000原解析</summary>
+              <p data-xiao-text></p>
+            </details>
+            <a class="returnUnit" data-return-unit href="#">← 返回当前 Natural Unit</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="sessionComplete" data-session-complete hidden>
+    <span>题组完成</span>
+    <h2 data-complete-title></h2>
+    <div class="completeStats">
+      <strong data-complete-score></strong>
+      <span data-complete-time></span>
+      <span data-complete-wrong></span>
+    </div>
+    <div><button type="button" class="primary" data-start-another>再开一组</button><a href={`${base}politics/`}>返回 Politics</a></div>
+  </section>
+
+  <script type="application/json" data-politics-practice-catalog set:html={serializedCatalog}></script>
+</section>
+
+<script>
+  import { recordPoliticsFirstAttempt } from '../lib/politicsUnitReturn.mjs';
+
+  const root = document.querySelector('[data-politics-practice]');
+  if (root instanceof HTMLElement) {
+    const catalogNode = root.querySelector('[data-politics-practice-catalog]');
+    const catalog = JSON.parse(catalogNode?.textContent || '{}');
+    const questions = Array.isArray(catalog.questions) ? catalog.questions : [];
+    const units = Array.isArray(catalog.units) ? catalog.units : [];
+    const chapters = Array.isArray(catalog.chapters) ? catalog.chapters : [];
+    const subjects = Array.isArray(catalog.subjects) ? catalog.subjects : [];
+    const questionById = new Map(questions.map((question) => [question.id, question]));
+    const unitByKey = new Map(units.map((unit) => [unit.key, unit]));
+
+    const ATTEMPT_KEY = 'kianos-politics-attempts-v1';
+    const META_KEY = 'kianos-politics-practice-meta-v1';
+    const SESSION_KEY = 'kianos-politics-practice-session-v1';
+    const LAST_KEY = 'kianos-politics-last-location-v1';
+    const EVIDENCE_KEY = 'kianos-politics-evidence-v1';
+
+    const readJson = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
+      catch { return fallback; }
+    };
+    const saveJson = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; }
+      catch { return false; }
+    };
+    const localStudyDay = () => new Date().toLocaleDateString('en-CA');
+    const nowIso = () => new Date().toISOString();
+    const formatSeconds = (seconds) => {
+      const value = Math.max(0, Math.round(Number(seconds || 0)));
+      return `${Math.floor(value / 60)}:${String(value % 60).padStart(2, '0')}`;
+    };
+
+    const selectors = {
+      subject: root.querySelector('[data-filter-subject]'),
+      chapter: root.querySelector('[data-filter-chapter]'),
+      unit: root.querySelector('[data-filter-unit]'),
+      type: root.querySelector('[data-filter-type]'),
+      mode: root.querySelector('[data-filter-mode]'),
+      count: root.querySelector('[data-filter-count]'),
+      interaction: root.querySelector('[data-interaction-mode]')
+    };
+
+    let meta = readJson(META_KEY, { schema: 'kianos.politics.practice_meta.v1', favorites: {}, discussion: {}, causes: {}, notes: {}, latestOutcome: {} });
+    let attemptSnapshot = readJson(ATTEMPT_KEY, { schema: 'kianos.politics.attempt_snapshot.v1', units: {} });
+    let session = readJson(SESSION_KEY, null);
+    let selected = new Set();
+    let uncertain = false;
+    let answerChanges = 0;
+    let questionStartedAt = Date.now();
+    let timerId = null;
+    let noteTimer = null;
+
+    const currentQuestion = () => session?.status === 'active' ? questionById.get(session.ids?.[session.index] || '') || null : null;
+    const currentUnit = () => unitByKey.get(currentQuestion()?.unitKey || '') || null;
+
+    const populateSubjects = () => {
+      for (const row of subjects) {
+        const option = document.createElement('option');
+        option.value = row.id;
+        option.textContent = row.label;
+        selectors.subject?.append(option);
+      }
+    };
+
+    const refreshChapterOptions = () => {
+      if (!(selectors.chapter instanceof HTMLSelectElement)) return;
+      const subject = selectors.subject?.value || 'all';
+      selectors.chapter.innerHTML = '<option value="all">全部章节</option>';
+      for (const row of chapters.filter((chapter) => subject === 'all' || chapter.subject === subject)) {
+        const option = document.createElement('option');
+        option.value = row.key;
+        option.textContent = `${row.title} · ${row.questionIds.length}题`;
+        selectors.chapter.append(option);
+      }
+      refreshUnitOptions();
+    };
+
+    const refreshUnitOptions = () => {
+      if (!(selectors.unit instanceof HTMLSelectElement)) return;
+      const subject = selectors.subject?.value || 'all';
+      const chapter = selectors.chapter?.value || 'all';
+      selectors.unit.innerHTML = '<option value="all">当前范围全部 Unit</option>';
+      for (const row of units.filter((unit) => (subject === 'all' || unit.subject === subject) && (chapter === 'all' || `${unit.subject}/${unit.chapter}` === chapter))) {
+        const option = document.createElement('option');
+        option.value = row.key;
+        option.textContent = row.title;
+        selectors.unit.append(option);
+      }
+      renderScopeSummary();
+    };
+
+    const baseFilteredQuestions = () => {
+      const subject = selectors.subject?.value || 'all';
+      const chapter = selectors.chapter?.value || 'all';
+      const unit = selectors.unit?.value || 'all';
+      const type = selectors.type?.value || 'all';
+      return questions.filter((question) => {
+        if (subject !== 'all' && question.subject !== subject) return false;
+        if (chapter !== 'all' && `${question.subject}/${question.chapter}` !== chapter) return false;
+        if (unit !== 'all' && question.unitKey !== unit) return false;
+        if (type !== 'all' && question.type !== type) return false;
+        return true;
+      });
+    };
+
+    const filteredQuestions = () => {
+      const mode = selectors.mode?.value || 'practice';
+      const baseRows = baseFilteredQuestions();
+      if (mode === 'wrong') return baseRows.filter((question) => meta.latestOutcome?.[question.id] === 'WRONG');
+      if (mode === 'favorite') return baseRows.filter((question) => Boolean(meta.favorites?.[question.id]));
+      return baseRows;
+    };
+
+    const renderScopeSummary = () => {
+      const summary = root.querySelector('[data-scope-summary]');
+      if (!summary) return;
+      const rows = filteredQuestions();
+      const mode = selectors.mode?.value || 'practice';
+      const modeLabel = { practice: '练习', random: '随机', wrong: '错题', favorite: '收藏' }[mode] || mode;
+      summary.textContent = `${modeLabel} · 当前可用 ${rows.length} 题；范围来自 Current Question Truth / Natural Unit ownership。`;
+    };
+
+    const shuffled = (rows) => {
+      const copy = [...rows];
+      for (let index = copy.length - 1; index > 0; index -= 1) {
+        const target = Math.floor(Math.random() * (index + 1));
+        [copy[index], copy[target]] = [copy[target], copy[index]];
+      }
+      return copy;
+    };
+
+    const showError = (message) => {
+      const node = root.querySelector('[data-practice-error]');
+      if (!node) return;
+      node.textContent = String(message || '');
+      node.removeAttribute('hidden');
+    };
+    const clearError = () => root.querySelector('[data-practice-error]')?.setAttribute('hidden', '');
+
+    const startSession = () => {
+      let pool = filteredQuestions();
+      const mode = selectors.mode?.value || 'practice';
+      if (mode === 'random') pool = shuffled(pool);
+      const target = Math.max(1, Number(selectors.count?.value || 20));
+      const ids = pool.slice(0, target).map((question) => question.id);
+      if (!ids.length) { showError('当前筛选没有可开始的题目。'); return; }
+      session = {
+        schema: 'kianos.politics.practice_session.v1',
+        id: `politics-${Date.now()}`,
+        status: 'active',
+        ids,
+        index: 0,
+        startedAt: nowIso(),
+        totalElapsedSeconds: 0,
+        correctCount: 0,
+        wrongCount: 0,
+        uncertainCount: 0,
+        scope: {
+          subject: selectors.subject?.value || 'all',
+          chapter: selectors.chapter?.value || 'all',
+          unit: selectors.unit?.value || 'all',
+          type: selectors.type?.value || 'all',
+          mode,
+          interaction: selectors.interaction?.value || 'NORMAL'
+        }
+      };
+      if (!saveJson(SESSION_KEY, session)) { showError('题组没有保存下来，未开始。请恢复浏览器本地存储后重试。'); return; }
+      renderSession();
+    };
+
+    const updateLastLocation = (question) => {
+      if (!question) return;
+      saveJson(LAST_KEY, {
+        subject: question.subject,
+        chapter: question.chapter,
+        title: `${question.subjectLabel} · ${question.chapterTitle}`,
+        unit_id: question.unitId,
+        action: 'VERIFY',
+        question_id: question.id,
+        href: window.location.pathname,
+        observed_at: nowIso()
+      });
+    };
+
+    const resetQuestionState = () => {
+      selected = new Set();
+      uncertain = false;
+      answerChanges = 0;
+      questionStartedAt = Date.now();
+      if (timerId) window.clearInterval(timerId);
+      timerId = window.setInterval(renderTimer, 1000);
+    };
+
+    const renderTimer = () => {
+      const node = root.querySelector('[data-question-timer]');
+      if (node) node.textContent = formatSeconds((Date.now() - questionStartedAt) / 1000);
+    };
+
+    const renderSession = () => {
+      root.querySelector('[data-practice-setup]')?.toggleAttribute('hidden', Boolean(session?.status === 'active'));
+      root.querySelector('[data-session-complete]')?.toggleAttribute('hidden', session?.status !== 'completed');
+      root.querySelector('[data-practice-session]')?.toggleAttribute('hidden', session?.status !== 'active');
+      const resume = root.querySelector('[data-resume-session]');
+      if (resume) resume.toggleAttribute('hidden', !['active', 'paused'].includes(session?.status || ''));
+      if (session?.status === 'active') { resetQuestionState(); renderQuestion(); }
+      else if (session?.status === 'completed') renderComplete();
+      else renderScopeSummary();
+    };
+
+    const renderQuestionMap = () => {
+      const map = root.querySelector('[data-question-map]');
+      if (!(map instanceof HTMLElement) || !session) return;
+      map.innerHTML = '';
+      session.ids.forEach((id, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = String(index + 1).padStart(2, '0');
+        button.className = index === session.index ? 'active' : index < session.index ? 'done' : '';
+        if (meta.favorites?.[id]) button.dataset.favorite = 'true';
+        button.addEventListener('click', () => {
+          if (index > session.index) return;
+          session.index = index;
+          saveJson(SESSION_KEY, session);
+          resetQuestionState();
+          renderQuestion();
+        });
+        map.append(button);
+      });
+    };
+
+    const renderQuestion = () => {
+      const question = currentQuestion();
+      if (!question || !session) return;
+      const unit = currentUnit();
+      updateLastLocation(question);
+      clearError();
+      root.querySelector('[data-submitted-result]')?.setAttribute('hidden', '');
+      root.querySelector('[data-question-card]')?.removeAttribute('hidden');
+      const current = root.querySelector('[data-session-current]');
+      const total = root.querySelector('[data-session-total]');
+      const progress = root.querySelector('[data-session-progress]');
+      const scope = root.querySelector('[data-session-scope]');
+      if (current) current.textContent = String(session.index + 1);
+      if (total) total.textContent = String(session.ids.length);
+      if (progress instanceof HTMLElement) progress.style.width = `${(session.index / session.ids.length) * 100}%`;
+      if (scope) scope.textContent = `${question.subjectLabel} · ${question.chapterTitle} · ${question.unitTitle}`;
+      const location = root.querySelector('[data-question-location]');
+      if (location) location.textContent = `${question.subjectLabel} · ${question.chapterTitle} · ${question.unitTitle}`;
+      const type = root.querySelector('[data-question-type]');
+      if (type) type.textContent = question.type === 'multiple' ? '多选题' : '单选题';
+      const stem = root.querySelector('[data-question-stem]');
+      if (stem) stem.textContent = question.stem;
+      const options = root.querySelector('[data-question-options]');
+      if (options instanceof HTMLElement) {
+        options.innerHTML = '';
+        for (const option of question.options || []) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.option = option.label;
+          const key = document.createElement('b');
+          key.textContent = option.label;
+          const text = document.createElement('span');
+          text.textContent = option.text;
+          button.append(key, text);
+          button.addEventListener('click', () => chooseOption(option.label));
+          options.append(button);
+        }
+      }
+      const favorite = root.querySelector('[data-favorite]');
+      if (favorite) {
+        favorite.setAttribute('aria-pressed', meta.favorites?.[question.id] ? 'true' : 'false');
+        favorite.textContent = meta.favorites?.[question.id] ? '★ 已收藏' : '☆ 收藏';
+      }
+      const discussion = root.querySelector('[data-discussion]');
+      if (discussion) {
+        discussion.setAttribute('aria-pressed', meta.discussion?.[question.id] ? 'true' : 'false');
+        discussion.textContent = meta.discussion?.[question.id] ? '◆ 待讨论' : '◇ 待讨论';
+      }
+      const uncertainty = root.querySelector('[data-uncertain]');
+      if (uncertainty) { uncertainty.setAttribute('aria-pressed', 'false'); uncertainty.textContent = '△ 不确定'; }
+      const original = root.querySelector('[data-original-face]');
+      if (original) original.toggleAttribute('hidden', !question.originalFace?.materialized);
+      const submit = root.querySelector('[data-submit]');
+      if (submit) submit.removeAttribute('disabled');
+      renderQuestionMap();
+      renderTimer();
+      if (unit?.returnConfig?.expected_question_ids?.length === 0) showError('Current Unit 没有可验证的题目绑定；已阻止伪造题组。');
+    };
+
+    const chooseOption = (label) => {
+      const question = currentQuestion();
+      if (!question || root.querySelector('[data-question-card]')?.hasAttribute('hidden')) return;
+      const previous = [...selected].sort().join('');
+      if (question.type === 'single') selected = new Set([label]);
+      else if (selected.has(label)) selected.delete(label); else selected.add(label);
+      const next = [...selected].sort().join('');
+      if (previous && previous !== next) answerChanges += 1;
+      root.querySelectorAll('[data-question-options] [data-option]').forEach((button) => {
+        button.classList.toggle('selected', selected.has(button.getAttribute('data-option')));
+      });
+      if (question.type === 'single' && session?.scope?.interaction === 'FAST') submitAnswer();
+    };
+
+    const answerDelta = (selectedAnswer, formalAnswer) => {
+      const selectedSet = new Set(selectedAnswer.split('').filter(Boolean));
+      const formalSet = new Set(formalAnswer.split('').filter(Boolean));
+      const missing = [...formalSet].filter((letter) => !selectedSet.has(letter));
+      const extra = [...selectedSet].filter((letter) => !formalSet.has(letter));
+      return [missing.length ? `漏选 ${missing.join('、')}` : '', extra.length ? `多选 ${extra.join('、')}` : ''].filter(Boolean).join('；');
+    };
+
+    const appendEvidence = (question, outcome, selectedAnswer) => {
+      if (!['WRONG', 'UNCERTAIN'].includes(outcome)) return true;
+      const events = readJson(EVIDENCE_KEY, []);
+      const next = Array.isArray(events) ? [...events] : [];
+      next.push({ subject: question.subject, chapter: question.chapter, chapter_title: question.chapterTitle, unit_id: question.unitId, question_id: question.id, source: 'xiao1000', outcome, selected: selectedAnswer, correct_answer: question.answer, study_day: localStudyDay(), observed_at: nowIso() });
+      return saveJson(EVIDENCE_KEY, next.slice(-1000));
+    };
+
+    const submitAnswer = () => {
+      const question = currentQuestion();
+      const unit = currentUnit();
+      if (!question || !unit || !session || !selected.size) return;
+      const selectedAnswer = [...selected].sort().join('');
+      const correct = selectedAnswer === String(question.answer || '').split('').sort().join('');
+      const outcome = correct ? (uncertain ? 'UNCERTAIN' : 'STABLE') : 'WRONG';
+      const elapsedSeconds = Math.round((Date.now() - questionStartedAt) / 1000);
+      const firstAttempt = recordPoliticsFirstAttempt(attemptSnapshot, unit.returnConfig, { question_id: question.id, outcome, selected: selectedAnswer, correct_answer: question.answer, study_day: localStudyDay(), observed_at: nowIso() });
+      const nextSnapshot = firstAttempt.store;
+      if (firstAttempt.recorded && !saveJson(ATTEMPT_KEY, nextSnapshot)) { showError('本轮 first attempt 没有保存下来；为保护证据，当前题不推进。'); return; }
+      attemptSnapshot = nextSnapshot;
+      meta.latestOutcome = { ...(meta.latestOutcome || {}), [question.id]: outcome };
+      if (!saveJson(META_KEY, meta) || !appendEvidence(question, outcome, selectedAnswer)) { showError('本轮学习标记没有可靠保存；当前题不推进。'); return; }
+      session.totalElapsedSeconds = Number(session.totalElapsedSeconds || 0) + elapsedSeconds;
+      if (correct) session.correctCount = Number(session.correctCount || 0) + 1; else session.wrongCount = Number(session.wrongCount || 0) + 1;
+      if (outcome === 'UNCERTAIN') session.uncertainCount = Number(session.uncertainCount || 0) + 1;
+      if (!saveJson(SESSION_KEY, session)) { showError('题组状态保存失败；当前题不推进。'); return; }
+      if (timerId) window.clearInterval(timerId);
+      renderResult({ question, unit, selectedAnswer, correct, outcome });
+    };
+
+    const renderResult = ({ question, unit, selectedAnswer, correct, outcome }) => {
+      root.querySelector('[data-question-card]')?.setAttribute('hidden', '');
+      root.querySelector('[data-submitted-result]')?.removeAttribute('hidden');
+      const status = root.querySelector('[data-result-status]');
+      if (status) status.textContent = correct ? (outcome === 'UNCERTAIN' ? '△ 答对了，但你标了不确定' : '✓ 正确') : '× 错误';
+      root.querySelector('[data-submitted-result]')?.setAttribute('data-outcome', outcome.toLowerCase());
+      const selectedNode = root.querySelector('[data-result-selected]');
+      const answerNode = root.querySelector('[data-result-answer]');
+      if (selectedNode) selectedNode.textContent = selectedAnswer;
+      if (answerNode) answerNode.textContent = question.answer;
+      const delta = answerDelta(selectedAnswer, question.answer);
+      const deltaRow = root.querySelector('[data-result-delta-row]');
+      if (deltaRow) deltaRow.toggleAttribute('hidden', !delta);
+      const deltaNode = root.querySelector('[data-result-delta]');
+      if (deltaNode) deltaNode.textContent = delta;
+
+      const takeawayBlock = root.querySelector('[data-takeaway-block]');
+      const chatBlock = root.querySelector('[data-chat-explanation-block]');
+      const pending = root.querySelector('[data-refined-pending]');
+      const hasRefined = Boolean(question.refined?.takeaway && question.refined?.chatExplanation);
+      if (takeawayBlock) takeawayBlock.toggleAttribute('hidden', !hasRefined);
+      if (chatBlock) chatBlock.toggleAttribute('hidden', !hasRefined);
+      if (pending) pending.toggleAttribute('hidden', hasRefined);
+      const takeaway = root.querySelector('[data-takeaway]');
+      if (takeaway) takeaway.textContent = question.refined?.takeaway || '';
+      const chat = root.querySelector('[data-chat-explanation]');
+      if (chat) chat.textContent = question.refined?.chatExplanation || '';
+
+      const cause = root.querySelector('[data-cause-picker]');
+      if (cause) cause.toggleAttribute('hidden', correct && outcome !== 'UNCERTAIN');
+      root.querySelectorAll('[data-cause]').forEach((button) => button.classList.toggle('active', meta.causes?.[question.id] === button.getAttribute('data-cause')));
+      const note = root.querySelector('[data-note]');
+      if (note instanceof HTMLTextAreaElement) note.value = meta.notes?.[question.id] || '';
+      const noteStatus = root.querySelector('[data-note-status]');
+      if (noteStatus) noteStatus.textContent = '';
+
+      const sources = root.querySelector('[data-review-sources]');
+      if (sources instanceof HTMLElement) {
+        sources.innerHTML = '';
+        for (const source of unit.source || []) {
+          const article = document.createElement('article');
+          const heading = document.createElement('strong');
+          heading.textContent = source.title || '乘风对应来源';
+          const locator = document.createElement('code');
+          locator.textContent = source.id || '';
+          article.append(heading, locator);
+          if (source.text) {
+            if (source.text.length > 420) {
+              const details = document.createElement('details');
+              const summary = document.createElement('summary');
+              summary.textContent = '展开完整内容';
+              const text = document.createElement('p');
+              text.textContent = source.text;
+              details.append(summary, text);
+              article.append(details);
+            } else {
+              const text = document.createElement('p'); text.textContent = source.text; article.append(text);
+            }
+          }
+          sources.append(article);
+        }
+        if (!unit.source?.length) { const p = document.createElement('p'); p.textContent = '当前 Unit 没有可直接展示的精确来源文本；保持 question-scoped，不猜来源。'; sources.append(p); }
+      }
+      const xiaoLabel = root.querySelector('[data-xiao-label]');
+      const xiaoText = root.querySelector('[data-xiao-text]');
+      if (xiaoLabel) xiaoLabel.textContent = `▸ 查看肖1000${question.xiaoReference?.label || '原解析'}`;
+      if (xiaoText) xiaoText.textContent = question.xiaoReference?.text || '本题当前没有可展示的肖1000解析。';
+      const returnUnit = root.querySelector('[data-return-unit]');
+      if (returnUnit instanceof HTMLAnchorElement) returnUnit.href = question.unitHref || window.location.pathname;
+    };
+
+    const nextQuestion = () => {
+      if (!session || session.status !== 'active') return;
+      if (session.index >= session.ids.length - 1) {
+        session.status = 'completed'; session.completedAt = nowIso();
+        if (!saveJson(SESSION_KEY, session)) { showError('题组完成状态保存失败；暂不退出当前题。'); return; }
+        renderSession(); return;
+      }
+      session.index += 1;
+      if (!saveJson(SESSION_KEY, session)) { showError('下一题位置保存失败；暂不推进。'); return; }
+      resetQuestionState(); renderQuestion();
+    };
+
+    const renderComplete = () => {
+      if (!session) return;
+      const title = root.querySelector('[data-complete-title]');
+      const score = root.querySelector('[data-complete-score]');
+      const time = root.querySelector('[data-complete-time]');
+      const wrong = root.querySelector('[data-complete-wrong]');
+      if (title) title.textContent = `${session.ids.length} 题完成`;
+      if (score) score.textContent = `${session.correctCount || 0} / ${session.ids.length} 正确`;
+      if (time) time.textContent = `总用时 ${formatSeconds(session.totalElapsedSeconds || 0)}`;
+      if (wrong) wrong.textContent = `Wrong ${session.wrongCount || 0} · Uncertain ${session.uncertainCount || 0}`;
+    };
+
+    const saveMeta = () => { if (!saveJson(META_KEY, meta)) showError('学习标记保存失败。'); renderScopeSummary(); };
+
+    root.querySelector('[data-start-session]')?.addEventListener('click', startSession);
+    root.querySelector('[data-start-another]')?.addEventListener('click', () => { session = null; localStorage.removeItem(SESSION_KEY); renderSession(); });
+    root.querySelector('[data-resume-session]')?.addEventListener('click', () => { if (session?.status === 'paused') { session.status = 'active'; saveJson(SESSION_KEY, session); } renderSession(); });
+    root.querySelector('[data-exit-session]')?.addEventListener('click', () => { if (!session) return; session.status = 'paused'; saveJson(SESSION_KEY, session); renderSession(); });
+    root.querySelector('[data-submit]')?.addEventListener('click', submitAnswer);
+    root.querySelector('[data-next-question]')?.addEventListener('click', nextQuestion);
+
+    root.querySelector('[data-favorite]')?.addEventListener('click', () => {
+      const question = currentQuestion(); if (!question) return;
+      meta.favorites = { ...(meta.favorites || {}), [question.id]: !meta.favorites?.[question.id] };
+      saveMeta(); renderQuestion();
+    });
+    root.querySelector('[data-uncertain]')?.addEventListener('click', (event) => {
+      uncertain = !uncertain;
+      const button = event.currentTarget;
+      if (button instanceof HTMLElement) { button.setAttribute('aria-pressed', uncertain ? 'true' : 'false'); button.textContent = uncertain ? '▲ 已标不确定' : '△ 不确定'; }
+    });
+    root.querySelector('[data-discussion]')?.addEventListener('click', () => {
+      const question = currentQuestion(); if (!question) return;
+      meta.discussion = { ...(meta.discussion || {}), [question.id]: !meta.discussion?.[question.id] };
+      saveMeta(); renderQuestion();
+    });
+    root.querySelectorAll('[data-cause]').forEach((button) => button.addEventListener('click', () => {
+      const question = currentQuestion(); if (!question) return;
+      const value = button.getAttribute('data-cause') || '';
+      meta.causes = { ...(meta.causes || {}), [question.id]: meta.causes?.[question.id] === value ? '' : value };
+      saveMeta();
+      root.querySelectorAll('[data-cause]').forEach((candidate) => candidate.classList.toggle('active', meta.causes?.[question.id] === candidate.getAttribute('data-cause')));
+    }));
+    root.querySelector('[data-note]')?.addEventListener('input', (event) => {
+      const question = currentQuestion(); const target = event.target;
+      if (!question || !(target instanceof HTMLTextAreaElement)) return;
+      const status = root.querySelector('[data-note-status]'); if (status) status.textContent = '待保存';
+      if (noteTimer) window.clearTimeout(noteTimer);
+      noteTimer = window.setTimeout(() => { meta.notes = { ...(meta.notes || {}), [question.id]: target.value }; const ok = saveJson(META_KEY, meta); if (status) status.textContent = ok ? '已保存' : '保存失败'; }, 350);
+    });
+
+    for (const key of ['subject', 'type', 'mode', 'count', 'interaction']) selectors[key]?.addEventListener('change', () => { if (key === 'subject') refreshChapterOptions(); else renderScopeSummary(); });
+    selectors.chapter?.addEventListener('change', refreshUnitOptions);
+    selectors.unit?.addEventListener('change', renderScopeSummary);
+
+    window.addEventListener('keydown', (event) => {
+      if (!session || session.status !== 'active' || event.metaKey || event.ctrlKey || event.altKey || event.isComposing || event.repeat) return;
+      const target = event.target;
+      if (target instanceof HTMLElement && (target.matches('input, textarea, select, button') || target.isContentEditable)) return;
+      const question = currentQuestion(); if (!question) return;
+      if (!root.querySelector('[data-submitted-result]')?.hasAttribute('hidden')) { if (event.key === 'Enter') { event.preventDefault(); nextQuestion(); } return; }
+      if (event.key === 'Enter') { event.preventDefault(); if (selected.size) submitAnswer(); return; }
+      const option = question.options?.[Number(event.key) - 1];
+      if (option && ['1', '2', '3', '4'].includes(event.key)) { event.preventDefault(); chooseOption(option.label); }
+    });
+
+    window.addEventListener('pagehide', () => {
+      if (noteTimer) window.clearTimeout(noteTimer);
+      const question = currentQuestion(); const note = root.querySelector('[data-note]');
+      if (question && note instanceof HTMLTextAreaElement && note.value !== (meta.notes?.[question.id] || '')) { meta.notes = { ...(meta.notes || {}), [question.id]: note.value }; saveJson(META_KEY, meta); }
+    });
+
+    populateSubjects(); refreshChapterOptions(); renderSession();
+  }
+</script>
+
+<style>
+  .politicsPractice{display:grid;gap:16px}.practiceTopline{display:flex;align-items:end;justify-content:space-between;gap:24px;padding-bottom:16px;border-bottom:1px solid var(--study-line)}.practiceTopline>div:first-child{display:grid;gap:4px}.practiceTopline a{color:var(--study-muted);font-size:14px;text-decoration:none}.practiceTopline span{color:var(--study-green);font-size:12px;font-weight:800;letter-spacing:.05em}.practiceTopline h1{margin:0;font-size:32px}.practiceTopActions{display:flex;gap:8px;align-items:center}.practiceTopActions button,.practiceTopActions a,.practiceSetup button,.sessionBar button,.questionMarks button,.questionFooter button,.knowledgeReview button,.sessionComplete button{min-height:40px;padding:8px 12px;border:1px solid var(--study-line);border-radius:9px;background:#fff;color:inherit;font:inherit;font-weight:720;cursor:pointer}.primary{background:var(--study-green)!important;border-color:var(--study-green)!important;color:#fff!important}
+  .practiceSetup{display:grid;gap:14px;padding:18px 20px;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.practiceFilters{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}.practiceFilters label{display:grid;gap:6px;color:var(--study-muted);font-size:13px}.practiceFilters select{width:100%;min-height:42px;padding:8px;border:1px solid var(--study-line);border-radius:8px;background:#fff;color:inherit;font:inherit;font-size:14px}.practiceSetupFooter{display:flex;align-items:center;justify-content:space-between;gap:16px}.practiceSetupFooter p{margin:0;color:var(--study-muted);font-size:14px}
+  .practiceSession{display:grid;gap:12px}.sessionBar{display:grid;grid-template-columns:auto minmax(160px,1fr) auto;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--study-line)}.sessionBar>div:first-child{display:flex;gap:12px;align-items:baseline}.sessionBar span{color:var(--study-muted);font-size:13px}.sessionProgress{height:4px;background:var(--study-line);overflow:hidden;border-radius:99px}.sessionProgress i{display:block;height:100%;background:var(--study-green);transition:width .18s ease}.practiceDesk{display:grid;grid-template-columns:82px minmax(0,1fr);gap:18px;align-items:start}.questionMap{position:sticky;top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:5px;max-height:72vh;overflow:auto}.questionMap button{min-height:34px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--study-faint);font:inherit;font-size:12px;cursor:pointer}.questionMap button.active{border-color:var(--study-green);color:var(--study-green);font-weight:800}.questionMap button.done{color:var(--study-muted);background:var(--study-green-soft)}.questionMap button[data-favorite="true"]::after{content:'★';font-size:8px;margin-left:2px}.questionStage{min-width:0}.questionCard{display:grid;gap:20px;padding:10px 0}.questionMeta{display:flex;justify-content:space-between;gap:16px;align-items:center}.questionMeta>div:first-child{display:grid;gap:3px}.questionMeta span{font-size:14px;font-weight:760}.questionMeta small{color:var(--study-faint)}.questionMarks{display:flex;gap:6px;flex-wrap:wrap}.questionMarks button[aria-pressed="true"]{border-color:var(--study-green);color:var(--study-green);background:var(--study-green-soft)}.questionCard h2{max-width:92ch;margin:6px 0 2px;font-size:20px;line-height:1.65;font-weight:720}.questionOptions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px}.questionOptions button{display:grid;grid-template-columns:32px minmax(0,1fr);gap:9px;align-items:start;min-height:68px;padding:14px 16px;border:1px solid var(--study-line);border-radius:10px;background:#fff;color:inherit;text-align:left;font:inherit;font-size:16px;line-height:1.55;cursor:pointer}.questionOptions button b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--study-green-soft);color:var(--study-green)}.questionOptions button.selected{border-color:var(--study-green);box-shadow:0 0 0 1px var(--study-green) inset}.questionFooter{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;border-top:1px solid var(--study-line);padding-top:14px}.questionFooter>span{font-variant-numeric:tabular-nums;font-weight:780}.questionFooter small{color:var(--study-faint)}.practiceError{padding:10px 12px;border-left:3px solid #a54d3b;background:#fff7f4;color:#7d3426;font-size:14px}
+  .submittedResult{display:grid;grid-template-columns:minmax(280px,32%) minmax(0,1fr);gap:28px;border-top:1px solid var(--study-line);padding-top:18px}.resultSummary,.knowledgeReview{min-width:0;display:grid;align-content:start;gap:16px}.resultSummary>header,.knowledgeReview>header{display:flex;align-items:center;justify-content:space-between;gap:12px}.resultSummary>header span,.knowledgeReview>header span{color:var(--study-muted);font-size:13px}.resultSummary>header strong{font-size:22px}.submittedResult[data-outcome="wrong"] .resultSummary>header strong{color:#9a402f}.submittedResult[data-outcome="uncertain"] .resultSummary>header strong{color:#8b6a21}.takeaway{padding:14px 0;border-top:1px solid var(--study-line);border-bottom:1px solid var(--study-line)}.takeaway h3,.knowledgeReview h3{margin:0 0 7px;font-size:15px}.takeaway p,.knowledgeReview p{margin:0;font-size:15px;line-height:1.7}.refinedPending{margin:0;padding:10px 0;color:var(--study-muted);font-size:13px;line-height:1.6}.answerDelta{display:grid;gap:8px;margin:0}.answerDelta>div{display:grid;grid-template-columns:76px 1fr;gap:10px}.answerDelta dt{color:var(--study-faint);font-size:12px}.answerDelta dd{margin:0;font-weight:720}.causePicker{display:grid;gap:8px}.causePicker>span{font-size:13px;color:var(--study-muted)}.causePicker>div{display:flex;flex-wrap:wrap;gap:6px}.causePicker button{padding:7px 9px;border:1px solid var(--study-line);border-radius:8px;background:#fff}.causePicker button.active{border-color:var(--study-green);color:var(--study-green);background:var(--study-green-soft)}.attemptNote{display:grid;gap:6px}.attemptNote>span{font-size:13px;color:var(--study-muted)}.attemptNote textarea{resize:vertical;min-height:90px;padding:10px;border:1px solid var(--study-line);border-radius:8px;font:inherit;font-size:14px;line-height:1.55}.attemptNote small{color:var(--study-faint)}.knowledgeReview{padding-left:26px;border-left:1px solid var(--study-line)}.reviewSources{display:grid;gap:10px}.reviewSources>div{display:grid;gap:10px}.reviewSources article{display:grid;gap:5px;padding:12px 0;border-top:1px solid var(--study-line)}.reviewSources article strong{font-size:14px}.reviewSources code{font-size:11px;color:var(--study-faint);overflow-wrap:anywhere}.reviewSources p{font-size:14px}.reviewSources details summary,.xiaoReference summary{cursor:pointer;color:var(--study-green);font-size:13px;font-weight:720}.xiaoReference{padding-top:10px;border-top:1px solid var(--study-line)}.returnUnit{display:inline-flex;justify-self:start;color:var(--study-green);font-size:14px;text-decoration:none;font-weight:720}.sessionComplete{display:grid;gap:14px;padding:32px 0}.sessionComplete>span{color:var(--study-green);font-size:13px;font-weight:800}.sessionComplete h2{margin:0;font-size:28px}.completeStats{display:flex;gap:20px;align-items:baseline}.completeStats strong{font-size:24px}.completeStats span{color:var(--study-muted)}.sessionComplete>div:last-child{display:flex;gap:10px;align-items:center}.sessionComplete a{color:var(--study-green);text-decoration:none;font-weight:720}
+  @media(max-width:1180px){.practiceFilters{grid-template-columns:repeat(4,minmax(0,1fr))}.submittedResult{grid-template-columns:minmax(240px,36%) minmax(0,1fr)}}
+  @media(max-width:860px){.practiceTopline,.questionMeta,.practiceSetupFooter{align-items:stretch;flex-direction:column}.practiceFilters{grid-template-columns:repeat(2,minmax(0,1fr))}.practiceDesk{grid-template-columns:1fr}.questionMap{position:static;display:flex;max-height:none;overflow:auto}.questionMap button{min-width:40px}.questionOptions{grid-template-columns:1fr}.submittedResult{grid-template-columns:1fr}.knowledgeReview{padding-left:0;border-left:0;border-top:1px solid var(--study-line);padding-top:16px}.sessionBar{grid-template-columns:1fr}.questionFooter{grid-template-columns:1fr}}
+</style>
