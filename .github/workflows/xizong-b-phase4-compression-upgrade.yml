@@ -1,0 +1,81 @@
+name: Xizong B Phase 4 Compression Upgrade
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static-web/scripts/apply-xizong-b-phase4-compression.mjs'
+      - '.github/workflows/xizong-b-phase4-compression-upgrade.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply bounded Phase 4 compression patch
+        run: node static-web/scripts/apply-xizong-b-phase4-compression.mjs
+
+      - name: Materialize single B Learning owner
+        working-directory: static-web
+        run: node scripts/build-xizong-b-learning-candidate.mjs
+
+      - name: Validate Phase 4 compression closure
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const p = 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json';
+          const x = JSON.parse(fs.readFileSync(p, 'utf8'));
+          const assert = (ok, msg) => { if (!ok) throw new Error(msg); };
+          assert(x.identity.stable_block_count === 38, 'B_P4_BLOCK_COUNT');
+          assert(x.identity.stable_kp_count === 600, 'B_P4_KP_COUNT');
+          assert(x.identity.logic_group_count === 170, 'B_P4_LG_COUNT');
+          assert(x.construction_status === 'PHASE4_COMPRESSION_CLOSED_PENDING_CROSS_SURFACE_AUDIT', 'B_P4_STATUS');
+          assert(x.semantic_acceptance?.phase4_status === 'PASS_BY_PROGRESSIVE_COMPRESSION_AUDIT', 'B_P4_ACCEPTANCE');
+          assert(x.semantic_acceptance?.block_recall_audit?.reviewed === 38, 'B_P4_RECALL_REVIEW');
+          assert(x.semantic_acceptance?.block_recall_audit?.upgraded === 9, 'B_P4_RECALL_UPGRADES');
+          assert(x.system_route?.partial_system_reconstructions?.length === 6, 'B_P4_PSR_COUNT');
+          assert(x.system_route.partial_system_reconstructions.every((p)=>p.non_gating === true), 'B_P4_PSR_NON_GATING');
+          for (const id of ['PSR-2_METABOLIC_NETWORK','PSR-3_ENDOCRINE_CONTROL','PSR-6_INFORMATION_TUMOR']) {
+            const psr = x.system_route.partial_system_reconstructions.find((p)=>p.id===id);
+            assert(Array.isArray(psr?.incremental_refreshes) && psr.incremental_refreshes.length > 0, `B_P4_INCREMENTAL_${id}`);
+          }
+          assert(x.compression?.final_system_reconstruction?.source_of_truth?.includes('system.json#mental_model'), 'B_P4_SYSTEM_TRUTH');
+          assert(x.compression?.final_system_reconstruction?.hierarchy_rule?.includes('System → Block → Logic Group → KP'), 'B_P4_HIERARCHY');
+          for (const id of ['D8','D11','D12','D14','D15','D19','D20','D21','D22']) {
+            assert(x.blocks?.[id]?.recall_spine, `B_P4_RECALL_MISSING_${id}`);
+          }
+          assert(x.blocks.D8.recall_spine.includes('胰岛素不足/抵抗'), 'B_P4_D8_MODEL');
+          assert(x.blocks.D14.recall_spine.includes('管腔梗阻 vs 局部炎症'), 'B_P4_D14_MODEL');
+          assert(x.blocks.D19.recall_spine.includes('疼痛+黄疸+发热'), 'B_P4_D19_MODEL');
+          assert(x.blocks.D22.recall_spine.includes('肾素/ACTH反馈定位'), 'B_P4_D22_MODEL');
+          assert(x.semantic_acceptance?.extra_compulsory_hierarchy_required === false, 'B_P4_EXTRA_HIERARCHY');
+          console.log('B Phase 4 compression validation PASS');
+          NODE
+
+      - name: Fail closed on write set
+        shell: bash
+        run: |
+          git config core.quotePath false
+          mapfile -t changed < <(git status --short | sed -E 's/^.. //')
+          printf '%s\n' "${changed[@]}"
+          test "${#changed[@]}" -eq 2
+          printf '%s\n' "${changed[@]}" | grep -Fx 'static-web/scripts/build-xizong-b-learning-candidate.mjs'
+          printf '%s\n' "${changed[@]}" | grep -Fx 'content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'
+
+      - name: Commit Phase 4 compiler and owner
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- static-web/scripts/build-xizong-b-learning-candidate.mjs content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json
+          git commit -m 'xizong: materialize B Phase 4 compression owner'
+          git pull --rebase origin main
+          git push origin HEAD:main
