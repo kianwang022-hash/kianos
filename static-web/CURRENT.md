@@ -40,7 +40,7 @@ Kian 最新决定：**停止 page-by-page free composition，也停止让 Kian �
 ## #117 / Politics Workbench 当前事实
 
 - #144 Stage 0 asset reconciliation 已进入 main；
-- #117 已完成 formal Current engineering pass：1148 explanation exact binding；1127 题具合法 Current NU ownership 可练；21 题因缺 canonical Current NU owner fail closed，不猜配；23 formal browser groups PASS；Politics QA / production build PASS；
+- #117 已完成 formal Current engineering pass：1148 explanation exact binding；1127 题具合法 Current NU ownership可练；21 题因缺 canonical Current NU owner fail closed，不猜配；23 formal browser groups PASS；Politics QA / production build PASS；
 - #117 的 Human Gate 暴露的是 **composition drift / sparse generic layout**，不是 Runtime 失败；
 - 因此 #117 不从头重做工程，而是在 #148 下按 v2.1 P10/P11 等 frame 恢复 composition，再复用既有 Runtime/QA 证据做受影响回归。
 
