@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e01aeca83aa68b7599655b3a4d57447c067b8341aa2bd92371c3c5430490b850",
+    "constructions": [
+      {
+        "construction_id": "construction:983638313f8c9ead0b58",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使某物变干",
+        "pattern": "dry sth"
+      }
+    ],
+    "content_hash": "038adea7e8685cfbbab1829af4563997e50c3ab40b49d057ab2c1cc634c356f1",
     "core_concept": {
       "core_clusters": [
         {
@@ -105,6 +113,20 @@
         "sense_label_en": "become dry or drier",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使某物变干",
+        "definition_en": "to make something dry",
+        "governing_pattern": "dry sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dry:12e9356b77415c84",
+        "sense_label_en": "to make something dry",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -128,31 +150,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:dry:12e9356b77415c84",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "把…弄干",
-      "definition_en": "remove the moisture from and make dry",
-      "semantic_key": "61cfb634a2e0a02e8119bf7e442ad16fdd6a396e452e4ea6e587b516c51cc223",
-      "semantic_key_history": [
-        "38cffa745ca949d524b9d5359d4e48d701d350d6b38b45a03b0e744ca30e1dbd"
-      ],
-      "legacy_aliases": [
-        "dry:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dry:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4252,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:dry:56178d508d255de7",
       "status": "deprecated",
@@ -208,7 +205,7 @@
     "senses": [
       {
         "sense_id": "sense:dry:12e9356b77415c84",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4252,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
@@ -312,7 +309,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1521-1528.json",
-    "source_content_hash": "e01aeca83aa68b7599655b3a4d57447c067b8341aa2bd92371c3c5430490b850",
+    "source_content_hash": "038adea7e8685cfbbab1829af4563997e50c3ab40b49d057ab2c1cc634c356f1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

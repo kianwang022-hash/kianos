@@ -7,24 +7,20 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a59ffa787bd5ee7445a8c093391ebf51406a0888df8b38901d290b062bf78b48",
+    "content_hash": "88c666fe5764e5a6fbddf98b52768fb7688e194d7899eccd54c388f27340038c",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "精神上的痛苦或极度疼痛；危难，困境；扣押财物以抵债",
           "label_en": "psychological suffering or extreme pain; a state of adversity or danger; the seizure of property as security for a debt",
           "pos": "noun",
-          "sense_ids": [
-            "sense:distress:32a17b2c69c157ae"
-          ]
+          "sense_ids": []
         },
         {
           "label_cn": "亏本出售的",
           "label_en": "sold at a loss (of goods)",
           "pos": "adjective",
-          "sense_ids": [
-            "sense:distress:b772a8c0728e5b6e"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "痛苦或困境",
@@ -41,42 +37,42 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:623c47a0db51382f1d8c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:distress:c10e34a27247937c:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "处于痛苦、危险或困境中",
+            "phrase": "in distress"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "扣押财物以抵债",
-        "definition_en": "the seizure of property as security for a debt",
+        "definition_cn": "极度痛苦、悲伤或困境",
+        "definition_en": "severe suffering, pain, or trouble",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:distress:32a17b2c69c157ae",
-        "sense_label_en": "the seizure of property as security for a debt",
+        "sense_id": "sense:distress:c10e34a27247937c",
+        "sense_label_en": "severe suffering, pain, or trouble",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:36adc3c1c7e07414715d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:distress:b772a8c0728e5b6e:collocation:0"
-            ],
-            "meaning_cn": "亏本出售的商品",
-            "phrase": "distress merchandise"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "亏本出售的",
-        "definition_en": "sold at a loss (of goods)",
-        "governing_pattern": "",
-        "level": "L3",
+        "definition_cn": "使痛苦、忧虑或悲伤",
+        "definition_en": "to cause someone severe pain, worry, or sadness",
+        "governing_pattern": "distress sb",
+        "level": "L2",
         "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:distress:b772a8c0728e5b6e",
-        "sense_label_en": "sold at a loss (of goods)",
+        "pos": "verb",
+        "sense_id": "sense:distress:0f75eb7cefd3d001",
+        "sense_label_en": "to cause someone severe pain, worry, or sadness",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -100,6 +96,29 @@
   },
   "relation_refs": [],
   "reference_senses": [
+    {
+      "stable_sense_id": "sense:distress:32a17b2c69c157ae",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "扣押财物以抵债",
+      "definition_en": "the seizure of property as security for a debt",
+      "semantic_key": "306ff3c4e73b6823ace0c6f98222f8c61b743cc5afdbedc593a183128902e8ff",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "distress:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "distress:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 4009,
+      "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+      "reference_only": true
+    },
     {
       "stable_sense_id": "sense:distress:4099b4ac1cc051ff",
       "status": "deprecated",
@@ -174,13 +193,36 @@
       "source_row": 4012,
       "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
       "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:distress:b772a8c0728e5b6e",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "亏本出售的",
+      "definition_en": "sold at a loss (of goods)",
+      "semantic_key": "ad2466e6d03e7723ce8552976602746822870ae7d357a58ec6939240a36e3240",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "distress:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "distress:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 4013,
+      "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:distress:32a17b2c69c157ae",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4009,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
@@ -208,14 +250,28 @@
       },
       {
         "sense_id": "sense:distress:b772a8c0728e5b6e",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4013,
+        "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:distress:0f75eb7cefd3d001",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4084,
+        "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:distress:c10e34a27247937c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4085,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
       }
     ],
     "active_collocations": [
-      "collocation:36adc3c1c7e07414715d"
+      "collocation:623c47a0db51382f1d8c"
     ],
     "facts": [],
     "collocations": [
@@ -253,6 +309,11 @@
         "id": "collocation:fc9f5066b0501d49e28b",
         "source_row": 21363,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:623c47a0db51382f1d8c",
+        "source_row": 21365,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
       }
     ],
     "exam-mappings": [],
@@ -286,7 +347,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1441-1448.json",
-    "source_content_hash": "a59ffa787bd5ee7445a8c093391ebf51406a0888df8b38901d290b062bf78b48",
+    "source_content_hash": "88c666fe5764e5a6fbddf98b52768fb7688e194d7899eccd54c388f27340038c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

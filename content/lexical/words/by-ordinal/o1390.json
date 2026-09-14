@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "ea08576f95098d607be93ebdf6ab80be98af7a967267fb96f41c0c2d166ae744",
+    "constructions": [
+      {
+        "construction_id": "construction:6fbd5142be79d36e6ee7",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "使用或短暂进入资源、储备或文本",
+        "pattern": "dip into savings/resources/a book"
+      }
+    ],
+    "content_hash": "bc5883959a5e5d518f5c8c162e3cd518c01730f7169d16885b7781858853c878",
     "core_concept": {
       "core_clusters": [
         {
@@ -155,6 +163,30 @@
         "sense_label_en": "a thick sauce into which food is dipped",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cbf1aa4071d9c6569736",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dip:932518ae64d23285:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "销售额/价格下降",
+            "phrase": "a dip in sales/prices"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "短暂下降或减少",
+        "definition_en": "a brief decline in prices, sales, levels, or amount",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dip:932518ae64d23285",
+        "sense_label_en": "a brief decline in prices, sales, levels, or amount",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -207,6 +239,13 @@
         "merged_into_sense_id": null,
         "source_row": 3861,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      },
+      {
+        "sense_id": "sense:dip:932518ae64d23285",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3913,
+        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       }
     ],
     "active_collocations": [
@@ -215,7 +254,8 @@
       "collocation:1966c8f0199f890c45b2",
       "collocation:2ffe12fcfcfa1d2668ed",
       "collocation:414958b1365f001ecb0c",
-      "collocation:68e5998a6a9d887cec6a"
+      "collocation:68e5998a6a9d887cec6a",
+      "collocation:cbf1aa4071d9c6569736"
     ],
     "facts": [],
     "collocations": [
@@ -247,6 +287,11 @@
       {
         "id": "collocation:68e5998a6a9d887cec6a",
         "source_row": 8865,
+        "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
+      },
+      {
+        "id": "collocation:cbf1aa4071d9c6569736",
+        "source_row": 21532,
         "source_path": "content/lexical/canonical/collocations/shards/o1377-1408.json"
       }
     ],
@@ -281,7 +326,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1385-1392.json",
-    "source_content_hash": "ea08576f95098d607be93ebdf6ab80be98af7a967267fb96f41c0c2d166ae744",
+    "source_content_hash": "bc5883959a5e5d518f5c8c162e3cd518c01730f7169d16885b7781858853c878",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

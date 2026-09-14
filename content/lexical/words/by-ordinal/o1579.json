@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "44705cce6d9f9ae195c4fb0293a5122371bd7806141f1a0d9e961d13713af28d",
+    "constructions": [
+      {
+        "construction_id": "construction:f28f3bae595ca866113c",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "an attempt to do something",
+        "pattern": "an effort to do sth"
+      }
+    ],
+    "content_hash": "fec577d6a66f2d72796805fd6e7139330c0a0e88206408bd2311bc567595fa63",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "努力",
@@ -42,17 +50,26 @@
             ],
             "meaning_cn": "为了做某事",
             "phrase": "in an effort to + do sth"
+          },
+          {
+            "collocation_id": "collocation:feed960834d21265353e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:effort:5567cc49d30558c6:collocation:handoff-o1375-o1624"
+            ],
+            "meaning_cn": "运动、搜寻或救援行动",
+            "phrase": "campaign/search/rescue effort"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "努力；费力",
-        "definition_en": "the use of physical or mental energy to do something; hard work",
+        "definition_cn": "努力；为目标作出的尝试或行动",
+        "definition_en": "use of energy or an organized attempt to achieve something",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:effort:5567cc49d30558c6",
-        "sense_label_en": "the use of physical or mental energy to do something; hard work",
+        "sense_label_en": "use of energy or an organized attempt to achieve something",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -123,7 +140,8 @@
     ],
     "active_collocations": [
       "collocation:f92bbc3ce2920f12d0e6",
-      "collocation:fb84fb315b21003dd409"
+      "collocation:fb84fb315b21003dd409",
+      "collocation:feed960834d21265353e"
     ],
     "facts": [],
     "collocations": [
@@ -140,6 +158,11 @@
       {
         "id": "collocation:fb84fb315b21003dd409",
         "source_row": 21277,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:feed960834d21265353e",
+        "source_row": 21282,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
       }
     ],
@@ -179,7 +202,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1577-1584.json",
-    "source_content_hash": "44705cce6d9f9ae195c4fb0293a5122371bd7806141f1a0d9e961d13713af28d",
+    "source_content_hash": "fec577d6a66f2d72796805fd6e7139330c0a0e88206408bd2311bc567595fa63",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
