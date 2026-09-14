@@ -42,9 +42,18 @@ Projection asset compilation   COMPLETE
 160 Current NU owners          ACCOUNTED
 151 PASS / 9 REFERENCE_ONLY    ACCEPTED
 Projection BLOCKED             0
-UI implementation              READY / NOT YET EXECUTED
+UI implementation              IN PROGRESS — Draft PR #117
+Current bounded slice          Xiao1000 Workbench functional parity
 Learner validation / U         UNTESTED
 ```
+
+Current implementation surface:
+
+- Issue #116 owns the full Politics Legacy functional-parity contract;
+- Draft PR #117 is the active overlapping `static-web/**` production slice;
+- #117 intentionally implements the non-#115-dependent Current-native Xiao1000 Workbench parity first;
+- Issue #115 remains a bounded dependency for `takeaway + chat_explanation` promotion and does not reopen Politics Learning/Projection or block unrelated Politics implementation;
+- full parity, real Mac acceptance and learner `U` are **not** claimed yet.
 
 Hard product chain:
 
@@ -87,7 +96,7 @@ For Politics UI work, route through:
 7. only Current refs explicitly selected by that Projection owner;
 8. touched Runtime / Evidence / Repair / Return implementation.
 
-Codex must not rediscover subject grammar from raw chapter JSON or use Legacy archaeology as implementation input.
+Codex must not rediscover subject grammar from raw chapter JSON or use Legacy archaeology as implementation input except for the bounded historical Workbench reference explicitly authorized by the parity contract.
 
 ---
 
@@ -137,6 +146,7 @@ Chat       adaptive semantic repair when earned
 - Politics integration Acceptance → `content/politics/ACCEPTANCE.md` + local subject `ACCEPTANCE.md`;
 - UI/product task state → `static-web/POLITICS_PRODUCT_STATUS.md`;
 - UI optimization safety method → `static-web/POLITICS_UI_REVIEW_PROTOCOL.md`;
+- full Legacy functional-parity migration contract → Issue #116 + `static-web/POLITICS_LEGACY_FUNCTION_PARITY.md`;
 - derived Projection ledger → `content/politics/projection/manifest.json`;
 - learner truth / U → real Kian use only.
 
@@ -148,8 +158,10 @@ Chat       adaptive semantic repair when earned
 Politics CURRENT
 → learning engineering already closed through E
 → UI design frozen + Projection assets compiled
-→ semantic work: prefer real learner use
+→ active implementation: Draft PR #117 under Issue #116
+→ semantic work: prefer real learner use unless a concrete defect reopens an owner
 → UI work: Product Status → UI Review Protocol → contracts/design → exact Projection owner → touched Runtime/Evidence
-→ bounded implementation → Mac screenshot review → zero-semantic-diff closure
+→ continue same bounded PR when write-set overlaps
+→ Mac screenshot review → zero-semantic-diff closure
 → after accepted rollout: STOP engineering by default → real Kian use
 ```
