@@ -1,5 +1,57 @@
 # #117 — Workbench Runtime / browser receipt
 
+## Human Gate feedback — bounded product polish
+
+Status: **SELF AFFECTED-UI PASS · KIAN VISUAL ACCEPTANCE PENDING · NOT MERGED**.
+
+Kian confirmed the functional direction and rejected the visual density/hierarchy. This pass implements only that Workbench feedback. The request named three screenshots but contained no image attachments available to this task; the written feedback and freshly reproduced browser states are the evidence used here. The comparison images below are isolated engineering captures, not claimed to be Kian's screenshots.
+
+- Implementation: `0c6ce929f284f8861009c10a656528101387b873`; starting PR head `a1a399b3b7532e38cd89ae983ffe2da9aeff0879`.
+- Fresh main readback: `2076c83c` (only an unrelated Lexical batch advanced after the previously integrated `19a1a699`). No relevant authority/dependency changed and no additional main merge was necessary. Actual PR #117 remained OPEN/Draft with the same writer and branch.
+- **Only `PoliticsPracticeWorkbench.astro` changes product behavior/presentation**: same Legacy setup and two-region result IA. No Runtime refactor, new alternative, other Politics page changes or source/ownership migration.
+- `src/lib`, routes, Politics content and the original 23-check formal script are byte-for-byte unchanged against `a1a399b3`. The 1127 eligible / 21 protected boundary is unchanged. The old 23 formal browser groups were not rerun or rewritten.
+
+### Product adjustments
+
+Setup now uses a compact title/mode strip, wider readable scope controls, mandatory learned-scope confirmation and one visible “开始做题” action. The duplicate start action and explanatory chrome were removed; both existing start selector hooks point to that single control. On the same 1440×900 sample, the header shrank from 171px to 38px and the full setup ends at y=371 rather than y=506. Confirmation and control fonts were retained or enlarged.
+
+Submitted DOM and visual order is **result → learner/formal answer delta → takeaway → full explanation/source**. Answers sit together; headings/weight/spacing separate the levels. The left/right IA and answer, note, signal, Next and Return hooks remain intact. Review prose is 17px (previously 16px), source body remains 16px, question/option text remains large.
+
+Sources stay in the existing secondary, individually expandable list, with quiet summaries and a subtle reference rule. Removed repeated row borders, the main-result tint and redundant review title. Only Next remains sticky during long source reading; the explanation title no longer follows the source as a second toolbar. Source text/IDs remain complete and exact, without cropping, clamping, extra panels or inner scroll areas.
+
+### Affected checks and direct comparison
+
+`POLISH_PHASE=before/after node scripts/test-politics-practice-polish.mjs` uses the same formal IDs in fresh headed Chromium contexts at 1440×900, plus a 700px result check. **Four bounded scenarios PASS**: required range confirmation → clean/correct/full content; note/refresh/immutable first attempt/source exact Return/Next; Fast multiple explicit submission and missing/extra delta; long explanation/full source with reachable Next; protected target remains blocked. No uncaught page exceptions in sampled normal flows.
+
+This is presentation regression evidence; it does not recreate the formal 23-group acceptance suite or learner U.
+
+| Same task | Before | After |
+| --- | --- | --- |
+| Marx S-001 setup | [Before](../output/playwright/issue139-polish/before-setup.png) | [After](../output/playwright/issue139-polish/after-setup.png) |
+| Marx S-001 clean | [Before](../output/playwright/issue139-polish/before-clean.png) | [After](../output/playwright/issue139-polish/after-clean.png) |
+| Marx S-001 correct | [Before](../output/playwright/issue139-polish/before-correct.png) | [After](../output/playwright/issue139-polish/after-correct.png) |
+| History M-001 Wrong | [Before](../output/playwright/issue139-polish/before-multiple-wrong.png) | [After](../output/playwright/issue139-polish/after-multiple-wrong.png) |
+| Marx M-151 long explanation | [Before](../output/playwright/issue139-polish/before-long-explanation.png) | [After](../output/playwright/issue139-polish/after-long-explanation.png) |
+| Marx M-151 expanded source | [Before](../output/playwright/issue139-polish/before-long-source.png) | [After](../output/playwright/issue139-polish/after-long-source.png) |
+| Narrow Wrong | [Before](../output/playwright/issue139-polish/before-narrow-wrong.png) | [After](../output/playwright/issue139-polish/after-narrow-wrong.png) |
+
+[Before report](../output/playwright/issue139-polish/before-checks.json), [after report / component hash](../output/playwright/issue139-polish/after-checks.json).
+
+`npm run qa:politics` — **PASS**, including unchanged Current/K03/repair-memory/1127+21 parity checks and full production build (**8250 pages**). [Log](../output/playwright/issue139-polish/politics-qa.log). Fresh-head CI readback is recorded in PR #117.
+
+### KIAN HUMAN GATE — compare the same tasks
+
+Local production preview remains at http://127.0.0.1:4337/politics/practice/ . Refresh the existing page to load the new presentation; this change does not replace its stored session or content revision. When switching samples, use “退出题组” → “结束本组”; if the previous summary appears on a new link, choose “再开一组”.
+
+1. **Same Marx S-001 setup:** `/politics/practice/?question=X1000-MARX-S-001`, choose five and confirm the learned range. Does confirming and starting now feel direct? Reject if the range is unclear, text became hard to read or the setup still feels dominated by chrome.
+2. **Same correct result and return:** submit A, read delta → takeaway → explanation, expand a source, add a note and refresh/return to the exact question. Reject competing same-weight headings, source taking over the task, clipped text, changed question or lost note.
+3. **Same History multiple Wrong:** `/politics/practice/?question=X1000-HISTORY-M-001`, Fast, select A+C and submit. Is missing B / extra C obvious before reading the explanation? Reject unclear delta or any change to explicit multiple submission.
+4. **Same long-content stress:** `/politics/practice/?question=X1000-MARX-M-151`, submit ABCD, expand the first source. Is it readable as optional reference while the explanation/Next remain easy to reach? Reject a third main workspace, cropped text, an inner scrolling trap or inaccessible Next.
+
+Next action: Kian compares these four tasks and independent review examines the bounded component diff. **Visual acceptance remains pending; do not merge or enter #140.** Primary learner state, unrelated dirty worktrees and content lanes remain untouched. The #117 preview/worktree stays active for this gate.
+
+---
+
 ## Stage 1 #139 — formal Current engineering acceptance
 
 Status: **SELF FORMAL PASS · KIAN HUMAN GATE OPEN · INDEPENDENT REVIEW / KIAN ACCEPTANCE PENDING · NOT MERGED**.
