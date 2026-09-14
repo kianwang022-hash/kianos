@@ -1,6 +1,6 @@
 # Xizong Product Brief — top-level logic & projection architecture freeze
 
-Status: **TOP-LEVEL LOGIC / ARCHITECTURE FROZEN — SURFACE DETAILS STILL UNDER DISCUSSION**  
+Status: **PRODUCT / INTERACTION BASELINE ACCEPTED — PROJECTION CALIBRATION + FINAL MAC VISUAL HANDOFF STILL OPEN**  
 Parent UI cursor: `static-web/CURRENT.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Lane router: `content/xizong/CURRENT.md`  
@@ -12,6 +12,8 @@ Style owner: `static-web/UI_STYLE_BRIEF.md`
 This file records accepted learner-visible Xizong product and Projection architecture decisions before Codex implementation. It does **not** change medical Content, Learning Logic, Evidence semantics, learner progress, or the S/K/L/P/R/E/U status of any System.
 
 For any mature Xizong surface discussion, `XIZONG_UI_REVIEW_PROTOCOL.md` is a mandatory companion read before local UI recommendation. Product decisions live here; the protocol owns the whole-flow-before-local-optimization review method.
+
+The detailed surface owners in §6 now own accepted composition/interaction decisions. They must not be treated as still-undiscussed merely because an earlier version of this brief said so. Product acceptance, Projection validation, implementation acceptance and real Mac visual acceptance remain separate.
 
 ---
 
@@ -97,9 +99,9 @@ Before drawing a replacement UI or proposing a new surface model, Sol / Chat mus
 
 A simplified ASCII mockup is allowed only **after** this audit and represents spatial organization, not permission to replace an accepted high-density asset with a thinner summary.
 
-## Relationship to later Projection asset compilation
+## Relationship to Projection asset compilation
 
-The later Cognitive Projection Asset Compilation stage is also **optimization-first**.
+The Cognitive Projection Asset Compilation stage is also **optimization-first**.
 
 Its job is to materialize stable ViewModels for the already accepted cognition and product decisions, analogous to the Politics compilation lane. It may improve representation metadata and recover Current semantics currently lost by the renderer, but it must not reinterpret a closed learner loop as a blank-slate content-design task.
 
@@ -196,6 +198,8 @@ Current
 ```
 
 Projection upgrade therefore means **presentation/representation engineering**, not medical-content rewriting.
+
+Root `PROJECT_DEFINITION.md` R10 and `ARCHITECTURE.md` §7.1 own content evolvability. This brief inherits them: ordinary content refinement should normally be absorbed by assets/Projection, not named-topic page branches. A new view label alone does not implement a new learning behavior or authorize an Evidence change.
 
 ---
 
@@ -296,9 +300,18 @@ These examples are **pressure-test categories**, not frozen medical Projection c
 
 ---
 
-# 6｜Frozen learner-facing surface family
+# 6｜Accepted learner-facing surface family and detail owners
 
-The Xizong product family is frozen at the following responsibility level. These do not have to be separate URLs; several may be states of one workspace.
+The responsibilities below remain shared product boundaries. Exact accepted surface decisions live once in these owners; follow their open/accepted distinctions rather than reproducing their rules here.
+
+| Surface | Detailed product owner |
+| --- | --- |
+| Xizong Home | `static-web/XIZONG_HOME_DESIGN.md` |
+| System Guide | `static-web/XIZONG_SYSTEM_GUIDE_DESIGN.md` |
+| Block / Logic Group / handoff / KP Recall / Block Recall / After Learn | `static-web/XIZONG_BLOCK_WORKSPACE_DESIGN.md` |
+| System Recall / question interaction / hidden results / review | `static-web/XIZONG_SYSTEM_COMPLETION_DESIGN.md` |
+
+These do not have to be separate URLs; several may be states of one workspace. Accepted responsibility/composition is not final styling or screenshot acceptance.
 
 ## A｜Xizong Home
 
@@ -311,6 +324,8 @@ meaningful Continue
 ```
 
 Do not foreground engineering counts, repository readiness, fake progress or permanent method explanation.
+
+The accepted Mac Home composition and conditional attention region are owned by `XIZONG_HOME_DESIGN.md`.
 
 ## B｜System Guide / Orientation
 
@@ -326,6 +341,8 @@ understand the Current System-level model
 System Guide is a learner-facing Guide, not a chapter catalogue and not a thin poster. It may be high-density and extend beyond one viewport.
 
 System Recall / System Exit stays later-stage and must not compete with first-pass orientation before learner eligibility.
+
+The accepted Block Route / System Canvas / conditional Context direction is owned by `XIZONG_SYSTEM_GUIDE_DESIGN.md`.
 
 ## C｜Block Workspace
 
@@ -348,7 +365,7 @@ Logic Group orientation
 → group closure
 ```
 
-Do not regress to KP-by-KP app switching.
+Do not regress to KP-by-KP app switching. Accepted geometry and cue timing are owned by `XIZONG_BLOCK_WORKSPACE_DESIGN.md`, not pending rediscovery.
 
 ## D｜KP Recall Workspace
 
@@ -361,13 +378,15 @@ Responsibilities:
 - preserve the owning Logic Group context;
 - collect Recall evidence without turning scoring UI into the medical model.
 
+The accepted Front / Reveal and whole-workspace answer-protection decisions are in `XIZONG_BLOCK_WORKSPACE_DESIGN.md` §9. Xizong's post-Reveal rating gate is not removed by a more permissive shared shortcut example.
+
 ## E｜Block Recall
 
 Responsibility:
 
 > reconstruct / run the Block model after the owned Logic Groups close, rather than rereading all KP.
 
-Exact UI remains open for surface-level discussion.
+Accepted Front / Reconstruction and completion separation are in `XIZONG_BLOCK_WORKSPACE_DESIGN.md` §11. Final styling remains open; the learner behavior is not an undiscussed blank slate.
 
 ## F｜System Completion / later System stage
 
@@ -380,7 +399,9 @@ System Recall
 → post-question System reconstruction
 ```
 
-The exact System Recall / official-question UI remains open.
+Accepted high-throughput question interaction, independent result visibility, learner marking, bounded Quick Review and System Recall composition are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md`.
+
+These product decisions do not prove that the new question behavior is already implemented. Compatibility with current Evidence/Runtime must be resolved before adopting it.
 
 ## G｜After-Learn
 
@@ -391,7 +412,23 @@ Includes existing responsibilities such as:
 - bounded Chat repair / review handoff;
 - evidence-preserving return.
 
-Do not redesign these from scratch merely for visual consistency; preserve mature Runtime/Evidence behavior and optimize learner-facing Projection.
+Accepted timing and distinct Memory / Reserve / Chat Repair responsibilities are in `XIZONG_BLOCK_WORKSPACE_DESIGN.md` §12. Do not redesign these from scratch merely for visual consistency.
+
+## H｜Xizong-wide practice / whole-paper product direction
+
+Whole-paper practice belongs to Xizong-wide Practice, not to one System's completion page. System practice and whole-paper practice should reuse the question workbench where their native task semantics permit it.
+
+The accepted entry model separates three decisions:
+
+```text
+question scope: by System / whole paper
+answer speed: normal / fast
+result visibility: hidden / immediate
+```
+
+Speed/result interaction and protection are owned by `XIZONG_SYSTEM_COMPLETION_DESIGN.md` §§3–9. Whole-paper runs default to hidden results. A paper ending does not itself authorize a score/answer reveal: the learner chooses whether to inspect results. Whole-paper navigation/order must come from Current Question Truth, not System route order.
+
+Paper completion/review stays in the same task context rather than forcing a separate dashboard. Final entry/completion styling and score-calculation/Evidence compatibility remain open. Do not infer question count, option count or earned points from illustrative Chat mockup numbers.
 
 ---
 
@@ -428,13 +465,21 @@ On Mac wide:
 
 ---
 
-# 9｜Projection compilation stage — later, not now
+# 9｜Projection compilation — independently owned, validation-gated
 
-Do **not** mass-compile Xizong Cognitive Projection assets before the product/surface design is frozen.
+Kian has assigned bulk expression-layer work to a separate **Xizong Cognitive Projection Asset Compilation Lane**. Product/UI discussion should not duplicate that lane's per-Block writes.
 
-After the UI family is accepted, open a separate bounded Projection Compilation lane analogous to Politics.
+Canonical compilation owners:
 
-Expected compilation responsibilities:
+- binding/schema/responsibility rules → `content/xizong/projection/PROJECTION_CONTRACT.md`;
+- coverage/accounting → `content/xizong/projection/manifest.json`;
+- calibration evidence and remaining validation dependency → `content/xizong/projection/CALIBRATION_BATCH_01.md`, or the successor explicitly named by the compilation owner.
+
+Read their latest Current state. Do not infer an active worker, a completed validator, a frozen schema or a finished batch merely from the existence of this assignment.
+
+The accepted calibration assets are not by themselves production-schema or full-compilation acceptance. Bulk production remains conditional on exact binding/freshness/visibility validation and the applicable schema-freeze evidence.
+
+Expected compilation responsibilities remain:
 
 ```text
 read Current System / learning-support / Block Core / existing Projection contract
@@ -444,123 +489,122 @@ read Current System / learning-support / Block Core / existing Projection contra
 → no medical semantic mutation
 ```
 
-Likely ViewModel families to design later:
+System / Block / Logic Group / KP-Recall responsibilities may be represented without requiring one file per KP. Exact field names, selectors, schema revisions and compiler rules belong to the Projection contract, not a second schema maintained in this brief.
 
-```text
-SystemProjection
-BlockProjection
-LogicGroupProjection
-KPProjection / RecallProjection
-```
-
-Possible presentation-only fields may include:
-
-```text
-projection_shape
-spatial_groups
-visible_relations
-context_roles
-state_visibility
-handoff_locators
-```
-
-These field names are not frozen implementation schema yet. Their **responsibility boundary** is frozen: presentation metadata may organize existing semantics but may not invent new domain truth.
+The compiler may encode semantic role, geometry intent and state visibility. Shared font/palette/spacing tokens remain with `UI_STYLE_BRIEF.md`; the compiler must not turn each Block into a hard-coded pixel page.
 
 ---
 
-# 10｜Design / implementation sequence
+# 10｜Program sequence and parallel boundaries
 
-Frozen program order:
+The construction dependencies remain:
 
 ```text
-Phase 1  freeze Xizong learning/product architecture
-Phase 2  freeze learner-facing surfaces one by one
-         Home
-         → System Guide
-         → Block Workspace
-         → KP Recall
-         → Block Recall
-         → System Recall / Questions
-         → After-Learn
-
-Phase 3  pressure-test Block workspace against materially different Blocks
-         at minimum use examples such as B1 + B7 + B10 + B11
-         without assuming one cognitive geometry
-
-Phase 4  freeze Xizong Product / Projection Design
-
-Phase 5  separate Cognitive Projection Asset Compilation lane
-         Current → stable Projection assets
-
-Phase 6  Codex implementation
-         Astro / CSS / JS consumes Current-facing Projection assets
-         Codex does not rediscover learner logic or archaeology
-
-Phase 7  real Mac-wide browser screenshots
-         → Sol review
-         → Kian structural / aesthetic acceptance
-         → same-PR iteration
-         → zero-semantic-diff gate
+accepted learning/product responsibilities
+→ representative cognitive-shape calibration
+→ validated/frozen Projection contract
+→ eligible Current asset compilation
+→ bounded implementation consuming those assets
+→ real browser / Mac screenshot review
+→ semantic/evidence regression checks
+→ scoped product/user acceptance
 ```
 
-No Codex implementation begins merely because this top-level architecture is frozen.
+Product/UI finalization and compilation may now progress in parallel where they do not depend on each other's unresolved decisions:
+
+```text
+Product / UI lane
+  accepted surface reconciliation
+  → shared visual choices + dense/long-content layout decisions
+  → precise implementation brief + screenshot acceptance criteria
+
+Projection lane
+  calibration validation / mutation tests
+  → production contract freeze
+  → eligible System/Block compilation + handoff
+```
+
+Boundaries:
+
+- Product/UI does not edit per-Block Projection assets to compete with the compilation lane.
+- Compilation does not invent learner flows, replace medical content or decide final visual tokens.
+- Neither lane claims that the other has executed merely because a handoff was written.
+- A real cross-lane contract defect is reported to its exact owner; unrelated scope work need not stop.
+- Independent English / Politics / Lexical / Xizong construction is not rescheduled by this brief.
+
+Before the corresponding implementation begins, reconcile:
+
+1. the exact accepted surface and shared visual choices;
+2. its required validated Projection inputs;
+3. Current Runtime / Evidence / Repair / Return compatibility;
+4. the bounded write-set and real screenshot/test plan.
+
+Question compatibility has an additional explicit dependency: append-preserved attempt history, result exposure and learner-mark semantics must be reviewed under the responsible Runtime/Evidence owners before the new multi-pass / hidden-result question product is implemented. This is not a blocker for unrelated Guide asset compilation or independent visual specification.
+
+Codex still owns production Astro/CSS/JS, browser iteration and the bounded implementation PR. Product/UI discussion does not silently start production implementation.
 
 ---
 
-# 11｜Future design read path
+# 11｜Current-first design read path
 
-For ordinary Xizong UI discussion, first read the mandatory review protocol and then use Current-first reads:
+For ordinary Xizong UI discussion, read only the exact relevant owners:
 
 ```text
-static-web/XIZONG_UI_REVIEW_PROTOCOL.md
-→ content/xizong/LEARNING_CONTRACT.md
-→ relevant System K owner (`system.json`)
-→ relevant System L owner (`*-learning.json`)
-→ exact Block medical Core when needed
-→ existing Current Logic Projection / Projection acceptance
-→ existing Runtime / Evidence component for the surface
-→ product discussion
+XIZONG_UI_REVIEW_PROTOCOL
++ KIAN_UI_PREFERENCES / UI_STYLE_BRIEF
+→ the applicable detailed surface owner in §6
+→ Current Learning / System / Block / support owners needed for that surface
+→ existing Projection / Runtime / Evidence / Repair / Return behavior
+→ recommendation
 ```
 
-For a mature/accepted surface, **do not stop after the upstream owners**. Existing Projection/Runtime is part of the product baseline and must be read before a replacement recommendation.
+For mature/accepted behavior, **do not stop after upstream Content or a design document** when making implementation or runtime-quality claims. Inspect the actual behavior/implementation appropriate to the claim.
 
-Do not default to retired System Guides, Legacy repos, historical branches, old audit sidecars or old Chat narratives.
+For compilation, continue through the exact owners in §9 rather than rediscovering its schema from this product brief.
 
-Historical material may be used only for an explicitly bounded migration/recovery/reference task and never silently becomes semantic authority.
+Do not default to retired System Guides, Legacy repos, historical branches, old audit sidecars or old Chat narratives. Historical material may be used only for an explicitly bounded migration/recovery/reference task and never silently becomes semantic authority.
 
 ---
 
-# 12｜What is frozen now vs still open
+# 12｜Accepted vs still open
 
-## Frozen now
+## Accepted product baseline
 
-- external-primary first-pass learner chain;
-- System → Block → Logic Group → continuous MarginNote Lecture → KP Recall → group closure → Block Recall semantics;
-- **whole-flow-before-local-optimization review protocol**;
-- **optimization-first UI method: accepted Current Projection/Runtime is the baseline, not a blank-slate target**;
-- **KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE audit before recommendation**;
-- **reopen/redesign only on fresh concrete upstream defect evidence**;
-- Mac-wide primary environment;
-- high-density / low-disorder Guide principle;
-- Content authority vs Projection asset-upgrade boundary;
-- Current → Cognitive Projection → ViewModel → Mac UI → existing Runtime architecture;
-- stable shell roles + variable cognition-specific geometry;
-- seven learner-facing surface responsibility families;
-- protected existing Logic Projection behaviors;
-- UI-before-compilation-before-Codex program sequence;
-- no mass asset upgrade until surface family is discussed/frozen.
+- external-primary first-pass learner chain and stable canonical identities;
+- whole-flow-before-local-optimization and KEEP / OPTIMIZE / RESTORE_FROM_CURRENT / DEMOTE method;
+- the detailed Home, System Guide and Block-family responsibilities/composition recorded in §6 owners;
+- protected KP/Block/System Recall with complete Current content at the appropriate Reveal state;
+- timing-sensitive Visual / Precision / Connection / Reserve, not generic permanent widgets;
+- System-question normal/fast input, learner-controlled marking and independent hidden/immediate result policy;
+- Xizong-wide rather than single-System ownership for whole-paper practice;
+- Mac-wide design origin, useful density, readable text and low interaction cost;
+- content evolvability inherited from root R10, without duplicate canonical cognition for each learning pass;
+- independent Product/UI and Projection work, joined only at actual implementation dependencies.
 
-## Still open
+## Still open — do not convert to PASS from this document
 
-- exact System Guide geometry and visual composition;
-- exact Block Workspace geometry;
-- exact KP Recall post-Reveal composition;
-- how Visual / Precision / Reserve objects enter each Current state;
-- exact Block Recall representation;
-- exact later System Recall / official-question composition;
-- specific Xizong Cognitive Projection schema;
-- reusable Xizong cognitive primitive/component vocabulary;
-- responsive fallback details;
-- final styling and aesthetic acceptance.
+- final shared font stack / typography scale, palette, spacing, control/state tokens and dark-mode scope (`UI_STYLE_BRIEF.md` §12);
+- exact Mac measurements, dense-content composition, responsive fallback and final aesthetics;
+- remaining whole-paper entry/completion presentation and score/Evidence compatibility;
+- exact production Projection schema/validation/coverage as owned by the compilation lane;
+- multi-attempt question history and hidden-result/marking compatibility with Current Runtime/Evidence;
+- actual renderer/runtime adoption and complete return/resume regression;
+- real Mac screenshots, Kian visual acceptance and real learner use.
 
-These remain discussion targets and must not be inferred by Codex from this file.
+A conversation agreement, JSON file, structural receipt or green build must not be reported as completing these separate checks.
+
+## Mac acceptance scenarios to resolve in the visual handoff
+
+These scenarios operationalize existing preferences; they are not a report of executed browser tests or a new learning gate.
+
+| Scenario | What must be demonstrated |
+| --- | --- |
+| Short and long Current content | The short object is intentional rather than padded with fake content; the long object retains useful semantics and readable type. |
+| Chain + comparison + boundary in one Block | Simultaneous relations remain clear without a universal card stack or one-shape-per-Block shortcut. |
+| Context absent / present | No permanent empty rail; opening help must not lose the original task, reading location or meaningful controls. |
+| Guide vs Recall Front/Reveal | Rich orientation and protected retrieval can coexist; no title/map/context answer leak merely to fill space. |
+| Fast questions, visible vs hidden results | No post-correctness certainty ritual; hidden results must not leak via icons, color, counts, filters or correctness-dependent progression. |
+| Backtrack / Chat / source return / reload | Return targets and real private state are preserved; navigation itself must not manufacture a learning attempt. |
+| Narrow Mac window / readable zoom | Reduce layout complexity before shrinking learner text or dropping content; exact fallback is reviewed visually. |
+
+Use real Current objects and actual browser screenshots for the implementation review. These criteria do not replace Kian's aesthetic judgment or authorize changing domain learning/evidence semantics.
