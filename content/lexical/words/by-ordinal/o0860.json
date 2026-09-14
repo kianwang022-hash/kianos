@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "6a93623ba5d430b81e0eb9749e997cbc7d91222a3faef9208bc0f0fb5e69beff",
+    "constructions": [
+      {
+        "construction_id": "construction:b34de6364af39737d410",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "use clothes for garments; for one item use a piece/article/item of clothing",
+        "pattern": "clothes are plural"
+      }
+    ],
+    "content_hash": "650c05cb7c7536debbeaad5e078f92db2cce13827dacaa9da030c21f96e89113",
     "core_concept": {
       "core_clusters": [
         {
@@ -22,10 +30,7 @@
           "label_cn": "给…穿衣；覆盖，笼罩",
           "label_en": "provide with clothes or put clothes on; cover as if with clothing",
           "pos": "verb",
-          "sense_ids": [
-            "sense:clothes:841b5d89cce053b2",
-            "sense:clothes:9b6f2071c0a451d6"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "穿在身上的衣物",
@@ -73,54 +78,6 @@
         "sense_label_en": "clothing in general",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:844dad4125cc6a6448d2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:clothes:841b5d89cce053b2:collocation:0"
-            ],
-            "meaning_cn": "给自己穿衣",
-            "phrase": "clothe oneself"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "给…穿衣",
-        "definition_en": "provide with clothes or put clothes on",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:clothes:841b5d89cce053b2",
-        "sense_label_en": "provide with clothes or put clothes on",
-        "sort_order": 1,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8eaeeaec29ce49da1a73",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:clothes:9b6f2071c0a451d6:collocation:0"
-            ],
-            "meaning_cn": "被雪覆盖",
-            "phrase": "clothed in snow"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "覆盖，笼罩",
-        "definition_en": "cover as if with clothing",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:clothes:9b6f2071c0a451d6",
-        "sense_label_en": "cover as if with clothing",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -143,19 +100,66 @@
     "word_id": "word:clothes"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:clothes:841b5d89cce053b2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "给…穿衣",
+      "definition_en": "provide with clothes or put clothes on",
+      "semantic_key": "3ab1097ad77ed6df4e89b32b75bd561353fcc3982b81ad8a76fe27fb4c697527",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "clothes:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "clothes:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 2450,
+      "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:clothes:9b6f2071c0a451d6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "覆盖，笼罩",
+      "definition_en": "cover as if with clothing",
+      "semantic_key": "eda88d6e1cde9a2eb91a15386d7266415cbf8731df3524fda5bbd1b6de2b0a6d",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "clothes:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "clothes:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 2451,
+      "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:clothes:841b5d89cce053b2",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 2450,
         "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json"
       },
       {
         "sense_id": "sense:clothes:9b6f2071c0a451d6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 2451,
         "source_path": "content/lexical/canonical/senses/shards/o0833-0864.json"
@@ -170,8 +174,6 @@
     ],
     "active_collocations": [
       "collocation:72c0e8881a30c6a6c276",
-      "collocation:844dad4125cc6a6448d2",
-      "collocation:8eaeeaec29ce49da1a73",
       "collocation:c35b624d31b5fe0be1d8"
     ],
     "facts": [],
@@ -223,7 +225,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0857-0864.json",
-    "source_content_hash": "6a93623ba5d430b81e0eb9749e997cbc7d91222a3faef9208bc0f0fb5e69beff",
+    "source_content_hash": "650c05cb7c7536debbeaad5e078f92db2cce13827dacaa9da030c21f96e89113",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

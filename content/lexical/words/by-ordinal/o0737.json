@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3f1baf9942aa3f3a4feb0f21a1fff83b955b6cce8c7c8b9645de304d35a51e63",
+    "content_hash": "fdbbbc7f435595cf9c953772ae9a88125eab40289c82decd37fd1db651359d89",
     "core_concept": {
       "core_clusters": [
         {
@@ -59,6 +59,15 @@
             ],
             "meaning_cn": "关注的焦点",
             "phrase": "centre of attention"
+          },
+          {
+            "collocation_id": "collocation:608b428fdf3a706dcc0a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:centre:dd31926863855e47:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "以…为中心",
+            "phrase": "centre on / be centred on"
           }
         ],
         "confidence": "medium",
@@ -66,6 +75,13 @@
         "definition_en": "the middle point or part of something",
         "governing_pattern": "",
         "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "centre is BrE; center is AmE; same noun and verb meanings",
+          "paired_form": "center",
+          "surface_lemma": "centre"
+        },
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:centre:dd31926863855e47",
@@ -180,6 +196,7 @@
     ],
     "active_collocations": [
       "collocation:01b567aab2340a7f9f85",
+      "collocation:608b428fdf3a706dcc0a",
       "collocation:b5cb65f992f7b7d62d63",
       "collocation:cf5d84adc96d03281cca",
       "collocation:fb119e7d7039ce407c3e"
@@ -209,6 +226,11 @@
       {
         "id": "collocation:fb119e7d7039ce407c3e",
         "source_row": 21246,
+        "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
+      },
+      {
+        "id": "collocation:608b428fdf3a706dcc0a",
+        "source_row": 21525,
         "source_path": "content/lexical/canonical/collocations/shards/o0737-0768.json"
       }
     ],
@@ -243,7 +265,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0737-0744.json",
-    "source_content_hash": "3f1baf9942aa3f3a4feb0f21a1fff83b955b6cce8c7c8b9645de304d35a51e63",
+    "source_content_hash": "fdbbbc7f435595cf9c953772ae9a88125eab40289c82decd37fd1db651359d89",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

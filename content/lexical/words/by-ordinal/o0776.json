@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "daf0420e27aae870e891d738f72974b4869a30405f10476334b061102222054b",
+    "constructions": [
+      {
+        "construction_id": "construction:079442aa36e6070a890a",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "BrE can mean pharmacist; general/AmE primarily a chemistry scientist",
+        "pattern": "chemist BrE vs AmE"
+      }
+    ],
+    "content_hash": "094ef5b02e271c6e67db0174baf804c32209f71a350fb81bbac056d90144f932",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "化学家或药剂师",
@@ -33,6 +41,15 @@
             ],
             "meaning_cn": "研究化学家",
             "phrase": "research chemist"
+          },
+          {
+            "collocation_id": "collocation:96aeeac15a637f289248",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:chemist:ea9b6e3a7a4e5e74:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "（英）药房",
+            "phrase": "the chemist's"
           }
         ],
         "confidence": "medium",
@@ -112,7 +129,8 @@
     ],
     "active_collocations": [
       "collocation:04e9e40f92e32159399b",
-      "collocation:2bc461615cbb3bda595a"
+      "collocation:2bc461615cbb3bda595a",
+      "collocation:96aeeac15a637f289248"
     ],
     "facts": [],
     "collocations": [
@@ -124,6 +142,11 @@
       {
         "id": "collocation:2bc461615cbb3bda595a",
         "source_row": 3713,
+        "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
+      },
+      {
+        "id": "collocation:96aeeac15a637f289248",
+        "source_row": 21308,
         "source_path": "content/lexical/canonical/collocations/shards/o0769-0800.json"
       }
     ],
@@ -158,7 +181,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0769-0776.json",
-    "source_content_hash": "daf0420e27aae870e891d738f72974b4869a30405f10476334b061102222054b",
+    "source_content_hash": "094ef5b02e271c6e67db0174baf804c32209f71a350fb81bbac056d90144f932",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

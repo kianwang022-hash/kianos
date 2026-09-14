@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "76c2d667910d25ac37a907f2545fa1cf2d614f5a84bc8cd049fb0524656d162e",
+    "content_hash": "72067ff0baa8a731acbc19ed08e5d539edcf565521a474902de23267ba3ba193",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "环境；情况",
@@ -22,7 +22,41 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:258ddd6f733e2f1d8005",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:circumstance:79f4715682ff5810:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "在这种情况下",
+            "phrase": "under/in the circumstances"
+          },
+          {
+            "collocation_id": "collocation:4bb689f0d947380ec365",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:circumstance:79f4715682ff5810:collocation:handoff-o0675-o0874"
+            ],
+            "meaning_cn": "无论如何都不",
+            "phrase": "under no circumstances"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "影响情形的条件或事实，通常用复数",
+        "definition_en": "a condition or fact affecting a situation, commonly used in the plural",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:circumstance:79f4715682ff5810",
+        "sense_label_en": "a condition or fact affecting a situation, commonly used in the plural",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,31 +78,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:circumstance:79f4715682ff5810",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "环境；条件；情况",
-      "definition_en": "a condition or fact that accompanies or influences an event",
-      "semantic_key": "cb1f7748071d2322fe5dc346b1d9df0757feb405cc120358e2dcc9cf08206dbe",
-      "semantic_key_history": [
-        "98262246a084b0ec5e9fdcc9d32a8fd4a530031d4ba8beeba5fe58a47f356413"
-      ],
-      "legacy_aliases": [
-        "circumstance:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "circumstance:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2310,
-      "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:circumstance:cfc5c4baf1dd5457",
       "status": "deprecated",
@@ -99,7 +108,7 @@
     "senses": [
       {
         "sense_id": "sense:circumstance:79f4715682ff5810",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2310,
         "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"
@@ -112,7 +121,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:258ddd6f733e2f1d8005",
+      "collocation:4bb689f0d947380ec365"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -128,6 +140,16 @@
       {
         "id": "collocation:fc0b61f484050dcd0c0f",
         "source_row": 21321,
+        "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
+      },
+      {
+        "id": "collocation:258ddd6f733e2f1d8005",
+        "source_row": 21557,
+        "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
+      },
+      {
+        "id": "collocation:4bb689f0d947380ec365",
+        "source_row": 21559,
         "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
       }
     ],
@@ -172,7 +194,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0809-0816.json",
-    "source_content_hash": "76c2d667910d25ac37a907f2545fa1cf2d614f5a84bc8cd049fb0524656d162e",
+    "source_content_hash": "72067ff0baa8a731acbc19ed08e5d539edcf565521a474902de23267ba3ba193",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
