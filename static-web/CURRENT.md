@@ -39,15 +39,24 @@ Codex does not own Learning flow, domain truth, Evidence/mastery semantics, new 
 - medium/high useful density with low disorder;
 - important structure visible by default when the Mac viewport can carry it;
 - use typography / alignment / spatial relation before card/panel piles;
-- no tiny text + giant whitespace minimalism;
+- no tiny-text + giant-whitespace minimalism;
 - stable/correct paths extremely fast;
 - Wrong / meaningful Uncertain may increase interface weight only because new information becomes useful;
 - preserve task/native cognition geometry rather than forcing one universal template;
 - preserve context and exact return across source / Chat / cross-lane handoff;
 - engineering/runtime metadata stays off the normal learner surface.
 
-Preference / style authority:
+**Minimum-sufficient learner action / No mandatory ritual**:
 
+- capability exists ≠ learner must operate it once;
+- every persistent panel/step/gate/checkpoint/confirmation must justify concrete learning/evidence value;
+- if deleting/merging it preserves learning value and evidence integrity, it should not remain mandatory;
+- backend richness must not automatically become learner burden;
+- shorter text alone is not compression; do not create a second course merely to make the page look clean.
+
+Execution detail and frame authority:
+
+- `static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md` **v2.1+**
 - `static-web/KIAN_UI_PREFERENCES.md`
 - `static-web/UI_STYLE_BRIEF.md`
 - `static-web/PRESENTATION_CONTRACT.md`
@@ -85,9 +94,12 @@ Lexical read-only handoff / exact return
 
 Task-native geometry remains distinct. The remaining work is productization implementation + browser/Mac acceptance, not another family-design discussion.
 
+`CODEX_THREE_SUBJECT_IMPLEMENTATION.md` v2.1 provides an `EXECUTION_SYNTHESIS` frame for English Home / Guide entry so the unrecovered historical ASCII is not an implementation blocker; it is not claimed as the historical original.
+
 ## Politics
 
-**Status:** UI / Product design frozen; Cognitive Projection compilation complete; **implementation is IN PROGRESS on Draft PR #117 for the bounded Xiao1000 Workbench parity slice**.
+**Learning engineering status:** **CLOSED through E; U UNTESTED.**  
+**Product status:** UI / Product design frozen; Cognitive Projection compilation complete; **post-closure product parity implementation is IN PROGRESS on Draft PR #117**.
 
 Current status owner:
 
@@ -117,9 +129,13 @@ Implementation must consume compiled Projection and preserve Chengfeng iPad/Marg
 Current executable implementation cursor:
 
 - Draft PR #117 — `Politics — Legacy functional parity on Current architecture`;
-- scope is the non-#115-dependent Current-native Xiao1000 Workbench parity slice, not a claim that all Politics productization is complete;
+- this is **post-closure Workbench/product parity**, not proof that Politics Learning/Projection is unresolved and not a blocker to real learner use;
 - Issue #116 owns the full functional-parity contract;
-- Issue #115 remains a **bounded dependency** for `takeaway + chat_explanation` promotion and does not block unrelated Politics implementation.
+- the former Issue #115 content-promotion dependency is **completed** via merged PR #124;
+- the authenticated 1148-record `takeaway + chat_explanation + Xiao original-reference` layer now lives under `content/politics/derived/xiao1000-learner-explanations/`;
+- remaining work is exact-ID consumer wiring, clean/submitted answer-gating, browser/Mac acceptance and full parity accounting.
+
+`CODEX_THREE_SUBJECT_IMPLEMENTATION.md` v2.1 provides an `EXECUTION_SYNTHESIS` frame for Politics clean attempt; historical lost ASCII is not a blocker and is not falsely claimed as recovered.
 
 ## Xizong
 
@@ -159,10 +175,10 @@ B–F eligibility remains owned by their own Current learning gates. Do not trea
 
 **Program:** three-subject learner-surface closure → Global Home  
 **Product-discussion state:** CLOSED for English / Politics / Xizong at current accepted scope  
-**Implementation state:** Politics is actively executing the bounded Workbench parity slice on Draft PR #117; English and current-eligible Xizong productization remain open downstream work.  
+**Implementation state:** Politics is actively executing the bounded post-closure Workbench parity slice on Draft PR #117; English and current-eligible Xizong productization remain open downstream work.  
 **Global Home:** FINAL PHASE after three subject closures  
 **Active production UI PR:** **#117 — Politics Legacy functional parity on Current architecture (DRAFT)**  
-**Blocker:** none at program-routing level. #115 is a bounded Politics submitted-result content dependency only.
+**Program-routing blocker:** none. Politics learner-explanation content promotion is already closed; remaining Workbench work is downstream implementation/acceptance.
 
 While #117 is active, do not open another large overlapping `static-web/**` production PR. Asset-only or clearly non-overlapping work may proceed independently.
 
@@ -170,7 +186,7 @@ Current principle:
 
 ```text
 subject accepted Product / Projection
-→ Codex implementation
+→ minimum-sufficient bounded implementation
 → browser/screenshots
 → independent review
 → Kian acceptance
@@ -210,7 +226,8 @@ The following stage narratives are superseded as Current routing statements, eve
 - `POLITICS_PRODUCT_BRIEF.md` header `ACTIVE DISCUSSION BRIEF`, `Core unresolved Politics UI problem`, `ACTIVE DESIGN TARGET`, and History-pilot-first rollout language;
 - `XIZONG_PRODUCT_BRIEF.md` header wording that says Projection calibration is still open;
 - Issue #90 Gold-page order / Reading-A-first navigation;
-- Issue #112 bulk A1–A3 rich-upgrade task after the later Projection v1 freeze reconciliation.
+- Issue #112 bulk A1–A3 rich-upgrade task after the later Projection v1 freeze reconciliation;
+- Issue #115 as an active content-promotion blocker after merged PR #124.
 
 Detailed accepted decisions inside those documents are not discarded. Only their old stage/cursor claims are superseded by the current Status owners and this router.
 
@@ -219,6 +236,7 @@ Fresh restart:
 ```text
 main@HEAD
 → static-web/CURRENT.md
+→ static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md v2.1+
 → exact subject *_PRODUCT_STATUS.md
 → detailed Product / Projection owner only as needed
 → exact active implementation PR
