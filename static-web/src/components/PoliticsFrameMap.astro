@@ -1,0 +1,102 @@
+---
+// Presentation of an already-selected Current map. No semantic inference.
+const { value } = Astro.props;
+const nodes = Array.isArray(value?.nodes) ? value.nodes : [];
+const edges = Array.isArray(value?.edges) ? value.edges : [];
+const byId = new Map(nodes.map(node => [node.id, node]));
+if (byId.size !== nodes.length || edges.some(edge => !byId.has(edge.from) || !byId.has(edge.to))) {
+  throw new Error('POLITICS_MAP_INVALID_ENDPOINTS');
+}
+const incoming = new Map(nodes.map(node => [node.id, 0]));
+const levels = new Map(nodes.map(node => [node.id, 0]));
+for (const edge of edges) incoming.set(edge.to, incoming.get(edge.to) + 1);
+const queue = nodes.filter(node => incoming.get(node.id) === 0).map(node => node.id);
+let visited = 0;
+while (queue.length) {
+  const id = queue.shift(); visited++;
+  for (const edge of edges.filter(edge => edge.from === id)) {
+    levels.set(edge.to, Math.max(levels.get(edge.to), levels.get(id) + 1));
+    incoming.set(edge.to, incoming.get(edge.to) - 1);
+    if (incoming.get(edge.to) === 0) queue.push(edge.to);
+  }
+}
+// Cyclic relations are retained explicitly, never forced into a false sequence.
+const acyclic = visited === nodes.length;
+const ranks = acyclic ? [...new Set(levels.values())].sort((a,b) => a-b) : [0];
+const heading = value.title || value.name || value.label;
+---
+<section class="frameMap" data-frame-map data-map-node-count={nodes.length} data-map-edge-count={edges.length}>
+  {heading && <h3>{heading}</h3>}
+  <div class="frameGraph" data-frame-graph data-acyclic={String(acyclic)} style={`--graph-ranks:${ranks.length}`}>
+    {acyclic && <svg class="frameGraphSvg" data-graph-svg aria-hidden="true" focusable="false"></svg>}
+    {ranks.map(rank => {
+      const group = acyclic ? nodes.filter(node => levels.get(node.id) === rank) : nodes;
+      return <div class="frameGraphRank" data-graph-rank={rank} data-single={String(group.length===1)} style={`--rank-count:${group.length}`}>
+        {group.map(node => <article class="frameGraphNode" data-graph-node={node.id}>
+          <strong>{node.label}</strong>
+          {node.meaning && <p>{node.meaning}</p>}
+          {node.detail && <p>{node.detail}</p>}
+          {edges.some(edge => edge.from === node.id) && <div class="frameGraphRelations">
+            {edges.filter(edge => edge.from === node.id).map(edge => <p data-graph-edge data-from={edge.from} data-to={edge.to}>
+              <span data-graph-relation>{edge.relation}</span><span aria-hidden="true"> → </span><strong>{byId.get(edge.to).label}</strong>
+            </p>)}
+          </div>}
+        </article>)}
+      </div>;
+    })}
+  </div>
+</section>
+<script>
+  // Connect existing DOM owners after fonts, visibility and viewport settle.
+  // Relationship captions are real HTML and remain available without JS/SVG.
+  const ns = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll('[data-frame-graph]').forEach(graph => {
+    if (!(graph instanceof HTMLElement)) return;
+    const svg = graph.querySelector('[data-graph-svg]');
+    if (!(svg instanceof SVGElement)) { graph.dataset.graphReady = 'text'; return; }
+    let pending = 0;
+    const draw = () => {
+      pending = 0;
+      const box = graph.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      svg.replaceChildren();
+      if (window.innerWidth <= 700) { graph.dataset.graphReady = 'text'; return; }
+      svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+      const ranks = [...graph.querySelectorAll('[data-graph-rank]')];
+      const horizontal = ranks.length > 1 && Math.abs(ranks[1].getBoundingClientRect().left - ranks[0].getBoundingClientRect().left) > 10;
+      const positions = new Map([...graph.querySelectorAll('[data-graph-node]')].map(node => [node.getAttribute('data-graph-node'), node.getBoundingClientRect()]));
+      graph.querySelectorAll('[data-graph-edge]').forEach(edge => {
+        const source = positions.get(edge.getAttribute('data-from'));
+        const target = positions.get(edge.getAttribute('data-to'));
+        if (!source || !target) return;
+        const sx = (horizontal ? source.right + 1 : source.left + source.width / 2) - box.left;
+        const sy = (horizontal ? source.top + source.height / 2 : source.bottom + 1) - box.top;
+        const tx = (horizontal ? target.left - 3 : target.left + target.width / 2) - box.left;
+        const ty = (horizontal ? target.top + target.height / 2 : target.top - 3) - box.top;
+        const path = document.createElementNS(ns, 'path');
+        const mid = horizontal ? (sx + tx) / 2 : (sy + ty) / 2;
+        path.setAttribute('d', horizontal
+          ? `M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ty}, ${tx} ${ty}`
+          : `M ${sx} ${sy} C ${sx} ${mid}, ${tx} ${mid}, ${tx} ${ty}`);
+        path.setAttribute('data-edge-path', '');
+        path.setAttribute('data-from', edge.getAttribute('data-from'));
+        path.setAttribute('data-to', edge.getAttribute('data-to'));
+        const arrow = document.createElementNS(ns, 'path');
+        arrow.setAttribute('d', horizontal ? `M ${tx} ${ty} l -7 -4 v 8 z` : `M ${tx} ${ty} l -4 -7 h 8 z`);
+        arrow.setAttribute('fill', '#658c79');
+        svg.append(path, arrow);
+      });
+      graph.dataset.graphReady = 'true';
+      graph.dataset.graphDirection = horizontal ? 'horizontal' : 'vertical';
+    };
+    const schedule = () => { if (!pending) pending = requestAnimationFrame(draw); };
+    const observer = new ResizeObserver(schedule);
+    observer.observe(graph);
+    graph.querySelectorAll('[data-graph-node]').forEach(node => observer.observe(node));
+    const scope = graph.closest('[data-politics-frame]');
+    if (scope) new MutationObserver(schedule).observe(scope, { subtree:true, attributes:true, attributeFilter:['hidden'] });
+    window.addEventListener('resize', schedule);
+    document.fonts.ready.then(schedule);
+    schedule();
+  });
+</script>
