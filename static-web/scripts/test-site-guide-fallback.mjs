@@ -1,0 +1,8 @@
+import{chromium}from'playwright';import fs from'node:fs';import assert from'node:assert/strict';import{listWritingSyntheticTasks}from'../src/lib/englishWritingSynthetic.mjs';
+const base=process.env.SITE_FRAME_FIXTURE_URL||'http://127.0.0.1:4351';const report={checks:[],scope:'isolated synthetic authoring and complete Current Guides; SELF',learnerU:'NOT_TESTED'};
+const browser=await chromium.launch(),page=await browser.newPage({viewport:{width:1440,height:900}});
+try{
+ await page.goto(base+'/translation/fixture-translation/');await page.locator('[data-attempt-id]').first().fill('隔离译文，Guide 返回必须保留。');const url=page.url();await page.click('[data-task-guide-link]');await page.click('[data-task-guide-link]');assert.equal(page.url(),url);assert.match(await page.locator('[data-attempt-id]').first().inputValue(),/隔离译文/);report.checks.push('Translation Guide exact return keeps authoring');
+ await page.setViewportSize({width:390,height:844});for(const route of['/translation/fixture-translation/','/writing/'+listWritingSyntheticTasks()[0].id+'/','/reading-b/fixture-ordering/','/objective-learn/','/translation-learn/','/writing-learn/','/xizong/circulation/b02/']){assert.ok((await page.goto((route.startsWith('/xizong/')?(process.env.SITE_FRAME_URL||base):base)+route)).ok(),route+' HTTP');assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route);report.checks.push('390px '+route)}
+ report.status='PASS';console.log('PASS',report.checks.length,'Guide / authoring / narrow fallback checks');
+}catch(e){report.failure=e.stack;throw e}finally{fs.writeFileSync('../output/playwright/issue148/supplement-browser.json',JSON.stringify(report,null,2));await browser.close()}

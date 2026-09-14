@@ -41,7 +41,7 @@ try{
  await page.click('[data-objective-submit]');await page.locator('[data-objective-result-summary]').waitFor({state:'visible'});
  assert.equal(await page.locator('[data-objective-score]').textContent(),'20 / 20');
  await shot('english-cloze-full-sheet');pass('Cloze 20 rows / whole submission / IME isolation');
- for(const form of ['gap_fill','ordering','heading_match','comment_match']){
+ for(const form of ['gap_match','ordering','heading_match','comment_match']){
   await go(`${fixture}/reading-b/fixture-${form}/`);
   assert.equal(await page.locator('[data-reading-b-select]').count(),5);
   for(let i=0;i<5;i++)await page.locator('[data-reading-b-select]').nth(i).selectOption('BCDEF'[i]);

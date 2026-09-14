@@ -1,0 +1,206 @@
+{
+  "schema": "kianos.xizong.a1.browser_runtime_journey.v1",
+  "started_at": "2026-09-14T18:18:45.243Z",
+  "checks": [
+    {
+      "name": "chrome_page_target_available",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "a1_system_identity",
+      "pass": true,
+      "detail": "A1/12"
+    },
+    {
+      "name": "clean_block_starts_at_orientation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "clean_block_does_not_manufacture_completion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "block_to_logic_group_transition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "logic_group_to_group_lecture_transition",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "entering_group_does_not_mark_learning",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "early_kp_recall_navigation_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "early_answer_reveal_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "group_lecture_returns_to_recall",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "group_contact_marks_only_current_group",
+      "pass": true,
+      "detail": "4/19"
+    },
+    {
+      "name": "learned_kp_reveal_allowed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "first_recall_persisted",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "refresh_restores_mid_group_recall",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "first_logic_group_closes_after_recall",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "early_block_recall_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_groups_release_block_recall",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "all_kps_have_learning_and_recall_evidence",
+      "pass": true,
+      "detail": "learned=19/19;recalled=19/19;missing="
+    },
+    {
+      "name": "block_complete_before_block_recall_rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "block_recall_completion_advances_to_close",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "legacy_block_lecture_confirmation_removed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "formal_contact_recall_and_block_recall_unlock_completion",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "block_completion_persists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "refresh_preserves_completed_block_state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "home_continue_returns_to_last_block",
+      "pass": true,
+      "detail": "/xizong/circulation/b02/"
+    },
+    {
+      "name": "system_exit_runtime_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "early_system_recall_dialog_stays_closed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "early_system_recall_creates_no_evidence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "completed_system_releases_system_recall",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "system_recall_front_visible_after_prerequisites",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "system_recall_reveal_after_prerequisites",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "system_recall_completion_persists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "a1_question_sweep_available",
+      "pass": true,
+      "detail": "376"
+    },
+    {
+      "name": "system_sweep_locked_without_holdout",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "saved_holdout_unlocks_system_sweep",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "system_question_workspace_executes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "malformed_block_state_falls_back_to_clean_orientation",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "malformed_state_does_not_manufacture_progress",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "finished_at": "2026-09-14T18:19:07.350Z",
+  "status": "PASS",
+  "evidence_class": "EXECUTED_HEADLESS_CHROME_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U",
+  "chrome": "/Users/ben/Library/Caches/ms-playwright/chromium-1243/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "a1": {
+    "blocks": 12,
+    "tested_block": "circulation-b02",
+    "question_count": 376,
+    "holdout_year": 2005
+  }
+}
