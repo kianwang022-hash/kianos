@@ -57,6 +57,17 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
       <span data-session-scope>当前题组</span>
       <div><i data-session-progress></i></div>
       <strong><b data-session-current>0</b> / <b data-session-total>0</b></strong>
+      <div class="practiceAttemptTools">
+        <div class="politicsPracticeMode" data-interaction-mode role="group" aria-label="答题模式">
+          <button type="button" class="active" data-interaction-normal>普通模式</button>
+          <button type="button" data-interaction-fast>快刷模式</button>
+        </div>
+        <div class="politicsOptionalActions" role="group" aria-label="本题标记">
+        <button type="button" class="favorite" data-favorite aria-pressed="false">☆ 收藏</button>
+          <button type="button" data-uncertain aria-pressed="false">△ 不确定</button>
+          <button type="button" data-discussion aria-pressed="false">待讨论</button>
+        </div>
+      </div>
       <button type="button" data-exit-session>退出题组</button>
     </div>
 
@@ -64,24 +75,15 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
       <header class="politicsQuestionMeta">
         <span data-question-location></span>
         <strong>第 <b data-question-number>—</b> 题 · <i data-question-type></i></strong>
-        <div class="politicsPracticeMode" data-interaction-mode role="group" aria-label="答题模式">
-          <button type="button" class="active" data-interaction-normal>普通模式</button>
-          <button type="button" data-interaction-fast>快刷模式</button>
-        </div>
         <small class="politicsQuestionProgress"><b data-question-progress>1</b> / <b data-question-total>0</b></small>
-        <button type="button" class="favorite" data-favorite aria-pressed="false">☆ 收藏</button>
       </header>
 
       <p class="politicsStem" data-question-stem></p>
       <div class="politicsOptions" data-question-options></div>
 
       <div class="politicsSubmitRow">
-        <div class="politicsOptionalActions">
-          <small>可选</small>
-          <button type="button" data-uncertain aria-pressed="false">△ 不确定</button>
-          <button type="button" data-discussion aria-pressed="false">待讨论</button>
-        </div>
         <span class="politicsTimer" data-question-timer>0:00</span>
+        <small class="practiceKeyHint">A–D 选择 · Enter 提交</small>
         <small class="politicsFastHint" data-fast-hint hidden>单选即答；错题停留复盘</small>
         <button type="button" class="politicsConfirmAnswer primary" data-submit>确认答案</button>
       </div>
@@ -93,16 +95,16 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
       <div class="politicsResultLayout">
         <div class="politicsResultSummaryPane">
           <div class="politicsResultHeadline"><span data-result-status></span></div>
+          <section class="politicsResultTakeaway">
+            <h2>一句话带走</h2>
+            <p data-takeaway></p>
+          </section>
           <section class="politicsResultAnswers">
             <strong>你的答案：<b data-result-selected></b></strong>
             <strong>正确答案：<b data-result-answer></b></strong>
             <small data-result-delta-row hidden><span data-result-delta></span></small>
             <p data-result-uncertain hidden>△ 本次作答标记为不确定</p>
             <p data-result-discussion hidden>✓ 已标记，留待讨论</p>
-          </section>
-          <section class="politicsResultTakeaway">
-            <h2>一句话带走</h2>
-            <p data-takeaway></p>
           </section>
           <div class="politicsOptionalActions">
             <button type="button" data-result-favorite aria-pressed="false">☆ 收藏</button>
@@ -125,18 +127,18 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
         </div>
 
         <section class="politicsKnowledgeReview" aria-label="知识回看">
-          <header>
-            <button type="button" class="next primary" data-next-question>下一题</button>
-          </header>
           <section class="politicsChatExplanation" data-chat-explanation-block>
             <h2>理解这道题</h2>
             <p data-chat-explanation></p>
           </section>
           <section class="politicsReviewSources">
-            <h2>需要核对时 · 对应来源</h2>
+            <h2>对应来源</h2>
             <div data-review-sources></div>
           </section>
-          <a class="politicsReturnUnit" data-return-unit href="#">← 返回当前学习单元</a>
+          <div class="politicsReviewActions">
+            <a class="politicsReturnUnit" data-return-unit href="#">← 返回当前学习单元</a>
+            <button type="button" class="next primary" data-next-question>下一题</button>
+          </div>
         </section>
       </div>
     </section>
@@ -205,7 +207,7 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
   .politicsKnowledgeReview>header{position:sticky;top:74px;z-index:1;background:#fff;padding:4px 0}.politicsReview[data-outcome="wrong"] .politicsKnowledgeReview>header{background:#fff9f7}
   @media(max-width:980px){.politicsResultLayout{grid-template-columns:1fr}.politicsWorkbenchHeader{grid-template-columns:1fr}.politicsKnowledgeReview{padding-left:0}}
   @media(max-width:760px){.politicsSessionBar{grid-template-columns:1fr auto}.politicsSessionBar>div{display:none}.politicsStem{font-size:18px}.politicsHeadlineStats{display:none}}
-  /* Human Gate polish: one setup path, two quiet review regions. */
+  /* Retained compact setup; P10/P11 below own the active composition. */
   .politicsWorkbench{gap:12px}
   .politicsWorkbenchHeader{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 0 4px;border:0;border-radius:0;background:none;box-shadow:none}
   .politicsHeroCopy{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.politicsHeroCopy h1{font-size:24px;line-height:1.4}
@@ -222,35 +224,44 @@ const serializedCatalog = JSON.stringify(publicPracticeCatalog(catalog)).replace
   .politicsFilters .practiceLearned{flex:0 1 auto;padding:0;line-height:1.6;font-size:15px}.practiceLearned input{width:18px;height:18px}
   .practiceSetupActions .primary{min-height:44px;min-width:150px;border-radius:7px;font-size:17px;font-weight:650}
   .practiceAvailability{padding-top:3px;line-height:1.6}
+  /* Frozen v2.1 P10/P11: shared clean toolbar; left evidence / right review. */
   .politicsQuestionCard,.politicsReview{border:0;border-radius:8px}
-  .politicsSessionBar{padding:6px 0;border-radius:0;background:none}
+  .politicsSessionBar{grid-template-columns:minmax(240px,1fr) 64px auto auto auto;padding:8px 0;border-radius:0;background:none;gap:12px}
+  .practiceAttemptTools{display:flex!important;align-items:center;gap:16px;height:auto!important;overflow:visible!important;background:none!important;border-radius:0!important}
+  .practiceAttemptTools .politicsOptionalActions{flex-wrap:nowrap;gap:5px}
+  .practiceAttemptTools button{white-space:nowrap;min-height:36px;font-size:14px}
+  .politicsPracticeMode button{font-size:14px}
+  .politicsSessionBar:has(+ [data-question-card][hidden]){grid-template-columns:minmax(0,1fr) 64px auto auto}
+  .politicsSessionBar:has(+ [data-question-card][hidden]) .practiceAttemptTools{display:none!important}
+  .politicsQuestionProgress{display:none}
+  .politicsQuestionMeta{gap:14px}.politicsQuestionMeta>span{padding:0;background:none;font-size:14px;font-weight:500}.politicsQuestionMeta>strong{font-size:15px}
+  .politicsSubmitRow{display:flex;align-items:center;gap:16px}.politicsSubmitRow .primary{margin-left:auto;min-width:110px}
+  .practiceKeyHint{font-size:14px;color:#667a70}.politicsWorkbench:has([data-interaction-fast][aria-pressed="true"]) .practiceKeyHint{display:none}
   .politicsReview,.politicsReview[data-outcome="wrong"]{padding:24px;background:#fff}
-  .practiceQuestionReference{margin-bottom:20px;padding-bottom:12px;border-bottom-color:#edf1ee}
-  .politicsResultLayout{gap:40px}.politicsResultSummaryPane{gap:18px}
+  .practiceQuestionReference{margin-bottom:20px;padding-bottom:12px;border-bottom-color:#e6ece8}
+  .politicsResultLayout{grid-template-columns:minmax(280px,32%) minmax(0,1fr);gap:28px}
+  .politicsResultSummaryPane{gap:17px;align-self:start;position:sticky;top:82px}
   .politicsResultHeadline span{font-size:24px;font-weight:700}
-  .politicsResultAnswers{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px}
-  .politicsResultAnswers strong{font-size:16px;font-weight:500;color:#62766d}.politicsResultAnswers strong b{font-size:18px;font-weight:700;color:var(--politics-ink)}
-  .politicsResultAnswers small,.politicsResultAnswers p{grid-column:1/-1;font-size:15px;line-height:1.6}
-  .politicsResultTakeaway{padding:16px 0 0;border-top:1px solid #e5ece8;border-bottom:0}
-  .politicsResultTakeaway h2{font-size:15px;font-weight:600;color:#60776b}.politicsResultTakeaway p{font-size:17px;line-height:1.85}
-  .politicsKnowledgeReview{display:flow-root;padding-left:0;border-left:0}
-  .politicsKnowledgeReview>header,.politicsReview[data-outcome="wrong"] .politicsKnowledgeReview>header{display:block;float:right;position:sticky;top:74px;background:none;padding:0;margin:0 0 12px 18px}
-  .politicsKnowledgeReview>header .next{position:relative;z-index:1}
-  .politicsChatExplanation h2{margin:6px 110px 24px 0;font-size:18px;font-weight:650}
-  .politicsChatExplanation{padding:0;border:0}.politicsChatExplanation p{font-size:17px;line-height:1.9}
-  .politicsReviewSources{gap:5px;margin-top:24px;padding-top:15px;border-top:1px solid #e5ece8}
-  .politicsReviewSources h2{margin:0 0 2px;color:#6c7d74;font-size:15px;font-weight:500}
-  .politicsReviewSources>div{gap:0}.politicsReviewSources details{padding:6px 0;border:0}
-  .politicsReviewSources summary{font-size:15px;font-weight:500;line-height:1.6;color:#476254}
+  .politicsResultTakeaway{padding:14px 0;border-top:1px solid #e3eae6;border-bottom:1px solid #e3eae6}
+  .politicsResultTakeaway h2{font-size:15px;font-weight:600;color:#456253}.politicsResultTakeaway p{font-size:17px;line-height:1.85}
+  .politicsResultAnswers{display:grid;grid-template-columns:1fr;gap:8px}
+  .politicsResultAnswers strong{font-size:16px;font-weight:500;color:#527060}.politicsResultAnswers strong b{font-size:18px;font-weight:700;color:var(--politics-ink)}
+  .politicsResultAnswers small,.politicsResultAnswers p{font-size:15px;line-height:1.6}
+  .politicsKnowledgeReview{display:flex;flex-direction:column;gap:22px;padding-left:26px;border-left:1px solid #e3eae6}
+  .politicsChatExplanation{padding:0;border:0}.politicsChatExplanation h2{margin:0 0 14px;font-size:18px;font-weight:650}.politicsChatExplanation p{font-size:17px;line-height:1.9}
+  .politicsReviewSources{gap:8px;padding-top:16px;border-top:1px solid #e3eae6}.politicsReviewSources h2{margin:0;font-size:15px;font-weight:600;color:#527060}
+  .politicsReviewSources>div{gap:0}.politicsReviewSources details{padding:7px 0;border:0}.politicsReviewSources summary{font-size:15px;font-weight:500;line-height:1.6;color:#476254}
   .politicsReviewSources details[open] code{display:block;margin:10px 0 6px;padding-left:13px;font-size:12px}
   .politicsReviewSources details[open] p{padding-left:12px;border-left:2px solid #e4ebe6;font-size:16px;line-height:1.85;color:#52675f}
-  .politicsReturnUnit{margin-top:20px;font-size:15px;font-weight:600}
+  .politicsReviewActions{display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;bottom:12px;padding:12px 0 0;border-top:1px solid #e3eae6;background:#fff;z-index:1}
+  .politicsReviewActions .next{min-width:108px;min-height:44px}.politicsReturnUnit{margin:0;font-size:15px;font-weight:600}
   .politicsOptionalActions button,.politicsCausePicker button{border-color:#e0e7e3;font-size:14px;font-weight:500}
   .politicsCausePicker>span,.politicsAttemptNote>span,.politicsAttemptNote small{font-size:14px;font-weight:400}
   .politicsAttemptNote textarea{border-radius:6px;min-height:86px;font-size:16px}
   .politicsReview:focus-visible,.politicsQuestionCard:focus-visible{outline:2px solid #b5cfc2;outline-offset:3px}
-  @media(max-width:1100px){.politicsFilters>div:not(.practiceSetupActions){grid-template-columns:minmax(120px,1fr) minmax(220px,2fr) minmax(220px,2fr)}.politicsResultAnswers{grid-template-columns:1fr}}
-  @media(max-width:980px){.politicsResultLayout{gap:26px}.politicsKnowledgeReview{padding-top:22px;border-top:1px solid #e5ece8}.politicsHeadlineStats{gap:14px}}
-  @media(max-width:760px){.politicsWorkbenchHeader{align-items:flex-start}.politicsMode{gap:22px}.politicsMode button{min-width:auto}.politicsFilters>div:not(.practiceSetupActions){grid-template-columns:1fr 1fr;gap:14px}.politicsFilters>div>label:nth-child(2),.politicsFilters>div>label:nth-child(3){grid-column:1/-1}.politicsFilters .practiceSetupActions{align-items:stretch;flex-direction:column}.practiceSetupActions .primary{margin:0;width:100%}.politicsReview{padding:18px}.politicsResultAnswers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:1200px){.politicsSessionBar{grid-template-columns:minmax(0,1fr) 64px auto auto}.practiceAttemptTools{grid-row:2;grid-column:1/-1;justify-content:flex-end}.politicsSessionBar>[data-exit-session]{grid-column:4;grid-row:1}}
+  @media(max-width:1100px){.politicsFilters>div:not(.practiceSetupActions){grid-template-columns:minmax(120px,1fr) minmax(220px,2fr) minmax(220px,2fr)}}
+  @media(max-width:980px){.politicsResultLayout{grid-template-columns:1fr;gap:24px}.politicsResultSummaryPane{position:static}.politicsKnowledgeReview{padding:22px 0 0;border-left:0;border-top:1px solid #e3eae6}.politicsHeadlineStats{gap:14px}}
+  @media(max-width:760px){.politicsWorkbenchHeader{align-items:flex-start}.politicsMode{gap:22px}.politicsMode button{min-width:auto}.politicsFilters>div:not(.practiceSetupActions){grid-template-columns:1fr 1fr;gap:14px}.politicsFilters>div>label:nth-child(2),.politicsFilters>div>label:nth-child(3){grid-column:1/-1}.politicsFilters .practiceSetupActions{align-items:stretch;flex-direction:column}.practiceSetupActions .primary{margin:0;width:100%}.politicsReview{padding:18px}.politicsSessionBar{grid-template-columns:minmax(0,1fr) auto auto}.politicsSessionBar>[data-exit-session]{grid-column:3}.politicsSessionBar>div:not(.practiceAttemptTools){display:none}.practiceAttemptTools{flex-wrap:wrap;justify-content:flex-start;gap:8px}.politicsSubmitRow{flex-wrap:wrap}.practiceKeyHint{flex-basis:100%;order:3}.politicsReviewActions{gap:12px;flex-wrap:wrap}}
   @media(prefers-reduced-motion:reduce){.politicsWorkbench *{transition:none!important;scroll-behavior:auto!important}}
 </style>
