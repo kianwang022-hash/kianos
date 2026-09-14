@@ -4,6 +4,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { listPoliticsChapterPathsCurrent } from '../src/lib/politicsCurrent.mjs';
 import { loadPoliticsFrameProjection } from '../src/lib/politicsFrameProjection.mjs';
+import { assertPoliticsMapGeometry } from './assert-politics-map-geometry.mjs';
 
 const omitted = new Set(['id','natural_unit_id','source_refs','source_evidence','learning_priority']);
 const normalize = text => String(text ?? '').normalize('NFKC').replace(/\s+/g, '');
@@ -25,8 +26,8 @@ function mapsIn(value) {
 const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 export async function testPoliticsSubjectReadability({browser,base,out,report}) {
   const directory=path.join(out,'subject-readability');fs.mkdirSync(directory,{recursive:true});
-  const result={scope:'Politics whole subject / all Current chapter and PASS NU projections',learnerU:'NOT_TESTED',browser:'CI Chromium, not native Mac',chapters:[],units:0,maps:0,edges:0,stringAssertions:0,fontObservations:[],responsive:[],errors:[]};
-  const files=['src/styles/politics-readable.css','src/styles/politics-frame-grammar.css','src/components/PoliticsFrameWorkspace.astro','src/components/PoliticsFrameValue.astro','src/components/PoliticsFrameMap.astro','scripts/test-politics-subject-readability.mjs'];
+  const result={scope:'Politics whole subject / all Current chapter and PASS NU projections',learnerU:'NOT_TESTED',browser:'CI Chromium, not native Mac',chapters:[],units:0,maps:0,edges:0,stringAssertions:0,geometry:[],fontObservations:[],responsive:[],errors:[]};
+  const files=['src/styles/politics-readable.css','src/styles/politics-frame-grammar.css','src/components/PoliticsFrameWorkspace.astro','src/components/PoliticsFrameValue.astro','src/components/PoliticsFrameMap.astro','scripts/test-politics-subject-readability.mjs','scripts/assert-politics-map-geometry.mjs'];
   result.source_sha256=Object.fromEntries(files.map(file=>[file,sha(file)]));
   const context=await browser.newContext({viewport:{width:1440,height:1000}});
   const page=await context.newPage();page.on('pageerror',error=>result.errors.push(error.message));
@@ -60,7 +61,10 @@ export async function testPoliticsSubjectReadability({browser,base,out,report}) 
           const actualEdges=await rendered.locator('[data-graph-edge]').evaluateAll(edges=>edges.map(edge=>({from:edge.dataset.from,to:edge.dataset.to,relation:edge.querySelector('[data-graph-relation]').textContent})));
           const sortEdges=edges=>edges.map(edge=>JSON.stringify(edge)).sort();
           assert.deepEqual(sortEdges(actualEdges),sortEdges(map.edges.map(edge=>({from:edge.from,to:edge.to,relation:edge.relation}))));
-          if(await rendered.locator('[data-acyclic="true"]').count()){await rendered.locator('[data-graph-ready="true"]').waitFor({state:'attached'});assert.equal(await rendered.locator('[data-edge-path]').count(),map.edges.length);}
+          if(await rendered.locator('[data-acyclic="true"]').count()){
+            await rendered.locator('[data-graph-ready="true"]').waitFor({state:'attached'});assert.equal(await rendered.locator('[data-edge-path]').count(),map.edges.length);
+            result.geometry.push({unit:unit.unit_id,width:1440,...await assertPoliticsMapGeometry(rendered,result.current)});
+          }
           result.maps++;result.edges+=map.edges.length;
         }
         const style=await primary.evaluate(element=>{const body=getComputedStyle(element),heading=getComputedStyle(element.closest('[data-frame-unit]').querySelector('.frameProblem'));return {family:body.fontFamily,size:parseFloat(body.fontSize),headingSize:parseFloat(heading.fontSize),headingWeight:Number(heading.fontWeight),synthesis:heading.fontSynthesis};});
@@ -73,7 +77,6 @@ export async function testPoliticsSubjectReadability({browser,base,out,report}) 
         await page.screenshot({path:path.join(directory,`${row.subject}-${row.chapter}-1440.png`)});
         if(!sampled.has(row.subject)){
           sampled.add(row.subject);representatives.push({row,frame,href});
-          // CDP reports fonts of actual text-bearing elements, not an empty layout container.
           const doc=await cdp.send('DOM.getDocument');
           for(const selector of ['[data-frame-unit]:not([hidden]) .framePrimary p','[data-frame-unit]:not([hidden]) .frameProblem']){
             const {nodeId}=await cdp.send('DOM.querySelector',{nodeId:doc.root.nodeId,selector});assert.ok(nodeId,selector);
@@ -90,7 +93,10 @@ export async function testPoliticsSubjectReadability({browser,base,out,report}) 
     for(const {row,frame,href} of representatives){
       for(const width of [1728,1024,390]){
         await page.setViewportSize({width,height:width===1728?1117:900});await page.goto(href);await page.locator('[data-politics-frame]').waitFor();await settle();
-        for(const unit of frame.units){await page.locator(`[data-frame-unit-link="${unit.unit_id}"]`).click();await settle();await noOverflow(`${row.subject} ${width}px ${unit.unit_id}`);}
+        for(const unit of frame.units){
+          await page.locator(`[data-frame-unit-link="${unit.unit_id}"]`).click();await settle();await noOverflow(`${row.subject} ${width}px ${unit.unit_id}`);
+          if(width>700){const maps=page.locator('[data-frame-unit]:visible [data-frame-map]:has([data-acyclic="true"])');for(let index=0;index<await maps.count();index++)result.geometry.push({unit:unit.unit_id,width,...await assertPoliticsMapGeometry(maps.nth(index),`${unit.unit_id} ${width}px`)});}
+        }
         await page.locator(`[data-frame-unit-link="${frame.units[0].unit_id}"]`).click();await settle();await page.evaluate(()=>scrollTo(0,0));
         await page.screenshot({path:path.join(directory,`${row.subject}-${width}.png`)});result.responsive.push({subject:row.subject,width,units:frame.units.length});
       }
@@ -108,7 +114,7 @@ export async function testPoliticsSubjectReadability({browser,base,out,report}) 
     assert.ok(homeType.length===5&&homeType.every(item=>item.size>=18),JSON.stringify(homeType));result.homeType=homeType;
     assert.deepEqual(await page.evaluate(()=>Object.keys(localStorage).filter(key=>key.startsWith('kianos-politics-'))),[],'Visual navigation must not manufacture learning records');
     assert.deepEqual(result.errors,[]);result.status='PASS';delete result.current;
-    report.checks.push(`Politics whole-subject readability: ${result.chapters.length} chapters / ${result.units} PASS units / ${result.maps} maps / ${result.edges} exact edges / ${result.stringAssertions} selected-content assertions`);
+    report.checks.push(`Politics whole-subject readability: ${result.chapters.length} chapters / ${result.units} PASS units / ${result.maps} maps / ${result.edges} exact edges / ${result.stringAssertions} selected-content assertions / sampled arrow geometry`);
   }catch(error){result.status='FAIL';result.failure=error.stack;await page.screenshot({path:path.join(directory,'failure.png')}).catch(()=>{});throw error;}
   finally{fs.writeFileSync(path.join(directory,'report.json'),JSON.stringify(result,null,2)+'\n');await context.close();}
 }

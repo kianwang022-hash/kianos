@@ -40,8 +40,7 @@ const heading = value.title || value.name || value.label;
       </div>;
     })}
   </div>
-  {/* Complete meaning remains directly visible beside/below its named graph.
-      Separate long explanations from connector height, not from the learner. */}
+  {/* Complete meaning stays visible; long prose must not set connector height. */}
   <div class="frameGraphNotes" aria-label="关系图的完整含义">
     {nodes.filter(node=>node.meaning||node.detail).map(node=><section data-graph-note={node.id}>
       <h4>{node.label}</h4>
@@ -64,33 +63,41 @@ const heading = value.title || value.name || value.label;
       svg.replaceChildren();
       if (window.innerWidth <= 700) { graph.dataset.graphReady = 'text'; return; }
       svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
-      const ranks = [...graph.querySelectorAll('[data-graph-rank]')];
-      const horizontal = ranks.length > 1 && Math.abs(ranks[1].getBoundingClientRect().left - ranks[0].getBoundingClientRect().left) > 10;
-      const positions = new Map([...graph.querySelectorAll('[data-graph-node]')].map(node => [node.getAttribute('data-graph-node'), node.getBoundingClientRect()]));
+      // Centered vertical ranks have different left offsets. Their offset is
+      // NOT evidence of a horizontal graph; use the actual grid tracks.
+      const horizontal = getComputedStyle(graph).gridTemplateColumns.trim().split(/\s+/).length > 1;
+      const positions = new Map([...graph.querySelectorAll('[data-graph-node]')].map(node => [node.getAttribute('data-graph-node'), {box:node.getBoundingClientRect(),rank:Number(node.closest('[data-graph-rank]').getAttribute('data-graph-rank'))}]));
       graph.querySelectorAll('[data-graph-edge]').forEach(edge => {
-        const source = positions.get(edge.getAttribute('data-from'));
-        const target = positions.get(edge.getAttribute('data-to'));
-        if (!source || !target) return;
+        const from = positions.get(edge.getAttribute('data-from'));
+        const to = positions.get(edge.getAttribute('data-to'));
+        if (!from || !to) return;
+        const source=from.box,target=to.box;
         const sx = (horizontal ? source.right + 1 : source.left + source.width / 2) - box.left;
         const sy = (horizontal ? source.top + source.height / 2 : source.bottom + 1) - box.top;
         const tx = (horizontal ? target.left - 3 : target.left + target.width / 2) - box.left;
         const ty = (horizontal ? target.top + target.height / 2 : target.top - 3) - box.top;
         const path = document.createElementNS(ns, 'path');
         const mid = horizontal ? (sx + tx) / 2 : (sy + ty) / 2;
-        path.setAttribute('d', horizontal ? `M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ty}, ${tx} ${ty}` : `M ${sx} ${sy} C ${sx} ${mid}, ${tx} ${mid}, ${tx} ${ty}`);
-        path.setAttribute('data-edge-path', '');path.setAttribute('data-from', edge.getAttribute('data-from'));path.setAttribute('data-to', edge.getAttribute('data-to'));
+        // A direct edge that skips a rank must not pass through an unrelated
+        // intermediate node and visually imply an extra semantic dependency.
+        const skipping = to.rank-from.rank > 1;
+        const d = skipping ? (horizontal
+          ? `M ${sx} ${sy} L ${sx+16} ${sy} L ${sx+16} -12 L ${tx-16} -12 L ${tx-16} ${ty} L ${tx} ${ty}`
+          : `M ${sx} ${sy} L ${sx} ${sy+16} L -12 ${sy+16} L -12 ${ty-16} L ${tx} ${ty-16} L ${tx} ${ty}`)
+          : (horizontal ? `M ${sx} ${sy} C ${mid} ${sy}, ${mid} ${ty}, ${tx} ${ty}` : `M ${sx} ${sy} C ${sx} ${mid}, ${tx} ${mid}, ${tx} ${ty}`);
+        path.setAttribute('d',d);path.setAttribute('data-edge-path','');path.setAttribute('data-from',edge.getAttribute('data-from'));path.setAttribute('data-to',edge.getAttribute('data-to'));path.setAttribute('data-rank-skip',String(skipping));
         const arrow = document.createElementNS(ns, 'path');
         arrow.setAttribute('d', horizontal ? `M ${tx} ${ty} l -7 -4 v 8 z` : `M ${tx} ${ty} l -4 -7 h 8 z`);
-        arrow.setAttribute('fill', '#658c79');svg.append(path, arrow);
+        arrow.setAttribute('fill','#658c79');svg.append(path,arrow);
       });
-      graph.dataset.graphReady = 'true';graph.dataset.graphDirection = horizontal ? 'horizontal' : 'vertical';
+      graph.dataset.graphReady='true';graph.dataset.graphDirection=horizontal?'horizontal':'vertical';
     };
     const schedule = () => { if (!pending) pending = requestAnimationFrame(draw); };
     const observer = new ResizeObserver(schedule);observer.observe(graph);
-    graph.querySelectorAll('[data-graph-node]').forEach(node => observer.observe(node));
-    const scope = graph.closest('[data-politics-frame]');
-    if (scope) new MutationObserver(schedule).observe(scope, { subtree:true, attributes:true, attributeFilter:['hidden'] });
-    window.addEventListener('resize', schedule);document.fonts.ready.then(schedule);schedule();
+    graph.querySelectorAll('[data-graph-node]').forEach(node=>observer.observe(node));
+    const scope=graph.closest('[data-politics-frame]');
+    if(scope)new MutationObserver(schedule).observe(scope,{subtree:true,attributes:true,attributeFilter:['hidden']});
+    window.addEventListener('resize',schedule);document.fonts.ready.then(schedule);schedule();
   });
 </script>
 <style is:global>
