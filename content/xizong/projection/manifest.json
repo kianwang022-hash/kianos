@@ -1,10 +1,31 @@
 {
   "schema": "kianos.xizong.cognitive_projection.manifest.v1",
-  "status": "FULL_A1_A2_A3_COMPILED_PENDING_VALIDATION",
+  "status": "COMPILED_CURRENT_VALIDATED",
   "runtime_authority": false,
   "source_baseline_commit": "2def94eb8a11ede16b503da6b33c7a03e6e91967",
+  "compiled_commit": "3cb882691ace183d46f771b910b354d0419e9d07",
   "contract": "content/xizong/projection/PROJECTION_CONTRACT.md",
   "projection_root": "content/xizong/projection",
+  "validation": {
+    "validator": "content/xizong/projection/tools/validate_projection.py",
+    "projection_workflow": ".github/workflows/xizong-projection.yml",
+    "projection_run_id": 34795172243,
+    "projection_run_conclusion": "success",
+    "projection_evidence": [
+      "coverage: 3 systems / 38 blocks / 41 assets",
+      "freshness: STRICT_BLOB + RESOLVE_BINDING",
+      "neutral_front: PASS",
+      "mutation_self_test: PASS"
+    ],
+    "existing_xizong_qa_run_id": 34795172110,
+    "existing_xizong_qa_conclusion": "success",
+    "existing_xizong_qa_material_checks": [
+      "A1/A2/A3 contract validators",
+      "Astro build",
+      "A1 browser Runtime journey",
+      "A1 browser Evidence journey"
+    ]
+  },
   "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
   "freshness_policy": {
     "SYSTEM_CORE": "RESOLVE_BINDING",
@@ -35,7 +56,8 @@
       "urinary-b01",
       "urinary-b05"
     ],
-    "remaining_blocks": "BASELINE_CURRENT over the same schema; eligible for later local richer Projection upgrades without schema or Runtime rewrite."
+    "baseline_projection_blocks": 31,
+    "baseline_semantics": "Canonical Current Guide + focus/stop + recall spine + Logic Group map + protected views; full medical Core remains canonical and may be locally enriched later without schema rewrite."
   },
   "systems": {
     "circulation": {
@@ -98,5 +120,6 @@
       ]
     }
   },
+  "runtime_adoption": "PENDING_SEPARATE_PRODUCT_IMPLEMENTATION",
   "separate_runtime_blocker": "Question attempts must become append-preserved and phase-aware before multi-pass question Runtime productization."
 }
