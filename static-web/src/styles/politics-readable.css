@@ -13,14 +13,8 @@ body.surfaceBody-politics {
   font-size: 19px;
   line-height: 1.75;
 }
-:root body.surfaceBody-politics #main-content {
-  width: min(1800px, 100%);
-  padding-inline: clamp(22px, 3.4vw, 60px);
-}
-:root body.surfaceBody-politics #main-content :is(h1,h2,h3,h4,p,li,span,small,strong,b,summary,label,button,select,input,textarea,a,dt,dd) {
-  font-family: var(--politics-reading-font);
-  letter-spacing: normal;
-}
+:root body.surfaceBody-politics #main-content {width:min(1800px,100%);padding-inline:clamp(22px,3.4vw,60px);}
+:root body.surfaceBody-politics #main-content :is(h1,h2,h3,h4,p,li,span,small,strong,b,summary,label,button,select,input,textarea,a,dt,dd) {font-family:var(--politics-reading-font);letter-spacing:normal;}
 :root body.surfaceBody-politics #main-content :is(strong,b,h1,h2,h3,h4) {font-weight:700;}
 :root body.surfaceBody-politics #main-content :is(p,li) {overflow-wrap:anywhere;}
 :root body.surfaceBody-politics #main-content :is(button,select,input,textarea) {font-size:17px;line-height:1.6;}
@@ -29,12 +23,7 @@ body.surfaceBody-politics {
 :root body.surfaceBody-politics #main-content .pageDescription {font-size:19px;line-height:1.75;}
 :root body.surfaceBody-politics #main-content .pageKicker {font-size:15px;}
 
-/* Home / subject entry: meaningful positions, not smaller dashboard labels. */
-:root body.surfaceBody-politics #main-content .subjectEntries {gap:24px 40px;}
-:root body.surfaceBody-politics #main-content .subjectEntries h2 {font-size:27px;line-height:1.4;}
-:root body.surfaceBody-politics #main-content .subjectEntries p {font-size:19px;color:var(--study-muted);}
-:root body.surfaceBody-politics #main-content .subjectEntries a {font-size:20px;line-height:1.6;}
-:root body.surfaceBody-politics #main-content .subjectEntries :is(nav b,section>span) {font-size:16px;}
+/* Home positions. Subject entry typography is local to politics/index.astro. */
 :root body.surfaceBody-politics #main-content .politicsContinue strong {font-size:23px;}
 :root body.surfaceBody-politics #main-content .politicsContinue small {font-size:17px;}
 :root body.surfaceBody-politics #main-content .politicsHomeEyebrow {font-size:15px;}
@@ -65,6 +54,8 @@ body.surfaceBody-politics {
 :root body.surfaceBody-politics #main-content .frameQuiet {font-size:16px;color:var(--study-muted);}
 :root body.surfaceBody-politics #main-content [data-frame-save]:empty {display:none;}
 :root body.surfaceBody-politics #main-content [data-politics-external-source] {scroll-margin-top:94px;}
+/* The bridge attaches an inline size; only override its presentation. */
+:root body.surfaceBody-politics #main-content [data-practice-unit-entry] {font-size:17px!important;line-height:1.7;}
 :root body.surfaceBody-politics #main-content .frameBoundaries {margin-top:26px;padding-top:22px;}
 :root body.surfaceBody-politics #main-content .boundary {gap:10px 24px;padding-bottom:16px;}
 :root body.surfaceBody-politics #main-content .boundary :is(.field-left,.field-right) {font-weight:700;}
@@ -81,30 +72,32 @@ body.surfaceBody-politics {
 :root body.surfaceBody-politics #main-content .frameGraphRank[data-single=true] {width:76%;justify-self:center;}
 :root body.surfaceBody-politics #main-content .frameGraphNode {position:relative;z-index:1;min-width:0;border-top:2px solid #658c79;padding:12px 14px;background:var(--study-canvas);}
 :root body.surfaceBody-politics #main-content .frameGraphNode>strong {display:block;font-size:21px;line-height:1.55;}
-:root body.surfaceBody-politics #main-content .frameGraphNode>p {font-size:18px;line-height:1.8;}
-:root body.surfaceBody-politics #main-content .frameGraphRelations {margin-top:14px;padding-top:9px;border-top:1px solid var(--study-line);font-size:16px;line-height:1.7;color:#43564c;}
+:root body.surfaceBody-politics #main-content .frameGraphRelations {margin-top:14px;padding-top:9px;border-top:1px solid var(--study-line);font-size:17px;line-height:1.7;color:#43564c;}
 :root body.surfaceBody-politics #main-content .frameGraphRelations p {margin:6px 0;}
 :root body.surfaceBody-politics #main-content .frameGraphSvg {position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:0;}
 :root body.surfaceBody-politics #main-content .frameGraphSvg path[data-edge-path] {fill:none;stroke:#658c79;stroke-width:1.8;vector-effect:non-scaling-stroke;}
-:root body.surfaceBody-politics #main-content .frameGraphFallback {font-size:17px;line-height:1.8;}
 
-/* Workbench typography only: fast/normal and result gates stay in their owner. */
+/* Workbench: typography and usable toolbar; answer gates remain unchanged. */
 :root body.surfaceBody-politics #main-content .politicsWorkbench {font-family:var(--politics-reading-font);--politics-ink:#202322;}
 :root body.surfaceBody-politics #main-content .politicsHeroCopy h1 {font-size:28px;}
 :root body.surfaceBody-politics #main-content .politicsWorkbench :is(.backLink,.politicsFilters summary,.politicsFilters label span,.politicsQuestionMeta>span,.politicsQuestionMeta>strong,.politicsQuestionProgress,.politicsSessionBar,.politicsPracticeMode button,.politicsOptionalActions button,.practiceKeyHint,.politicsAttemptNote>span,.politicsCausePicker>span,.politicsCausePicker button,.politicsReturnUnit) {font-size:16px;line-height:1.6;}
 :root body.surfaceBody-politics #main-content .politicsWorkbench :is(.politicsFilters select,.politicsFilters .practiceLearned) {font-size:17px;}
-:root body.surfaceBody-politics #main-content .politicsStem {font-size:22px;font-weight:650;line-height:1.85;}
-:root body.surfaceBody-politics #main-content .politicsOptions button {font-size:19px;font-weight:400;line-height:1.8;padding:15px 18px;}
+:root body.surfaceBody-politics #main-content .politicsStem {font-size:22px;font-weight:650;line-height:1.85;color:var(--study-ink);}
+:root body.surfaceBody-politics #main-content .politicsOptions button {font-size:19px;font-weight:400;line-height:1.8;padding:15px 18px;color:var(--study-ink);}
 :root body.surfaceBody-politics #main-content .politicsOptions button b {font-size:18px;}
-:root body.surfaceBody-politics #main-content .politicsResultTakeaway p {font-size:20px;line-height:1.8;}
-:root body.surfaceBody-politics #main-content .politicsKnowledgeReview p {font-size:19px;line-height:1.9;}
+:root body.surfaceBody-politics #main-content .politicsResultTakeaway p {font-size:20px;line-height:1.8;color:var(--study-ink);}
+:root body.surfaceBody-politics #main-content .politicsKnowledgeReview p {font-size:19px;line-height:1.9;color:var(--study-ink);}
 :root body.surfaceBody-politics #main-content :is(.politicsResultTakeaway,.politicsKnowledgeReview) h2 {font-size:21px;}
 :root body.surfaceBody-politics #main-content .politicsResultAnswers :is(strong,p) {font-size:18px;}
 :root body.surfaceBody-politics #main-content .politicsReviewSources :is(strong,p) {font-size:17px;}
 :root body.surfaceBody-politics #main-content .politicsAttemptNote textarea {font-size:18px;line-height:1.8;}
 :root body.surfaceBody-politics #main-content .politicsReviewActions {gap:14px;flex-wrap:wrap;}
-:root body.surfaceBody-politics #main-content .politicsSessionBar {grid-template-columns:minmax(0,1fr) 80px auto;}
-:root body.surfaceBody-politics #main-content .practiceAttemptTools {grid-column:1/-1;flex-wrap:wrap;min-width:0;}
+:root body.surfaceBody-politics #main-content .politicsSessionBar {grid-template-columns:minmax(0,1fr) 80px auto auto;}
+:root body.surfaceBody-politics #main-content .politicsSessionBar>[data-session-scope] {grid-column:1;grid-row:1;}
+:root body.surfaceBody-politics #main-content .politicsSessionBar>div:not(.practiceAttemptTools) {grid-column:2;grid-row:1;}
+:root body.surfaceBody-politics #main-content .politicsSessionBar>strong {grid-column:3;grid-row:1;}
+:root body.surfaceBody-politics #main-content .politicsSessionBar>[data-exit-session] {grid-column:4;grid-row:1;justify-self:end;width:auto;}
+:root body.surfaceBody-politics #main-content .practiceAttemptTools {grid-column:1/-1;grid-row:2;flex-wrap:wrap;min-width:0;justify-content:flex-start;}
 :root body.surfaceBody-politics #main-content .politicsSubmitRow {flex-wrap:wrap;}
 :root body.surfaceBody-politics #main-content .politicsFilters summary {flex-wrap:wrap;}
 :root body.surfaceBody-politics #main-content .politicsFilters summary span {white-space:normal;overflow:visible;text-overflow:clip;}
@@ -113,6 +106,13 @@ body.surfaceBody-politics {
   :root body.surfaceBody-politics #main-content .frameCognition {grid-template-columns:1fr;}
   :root body.surfaceBody-politics #main-content .frameCompanion {border-left:0;border-top:1px solid var(--study-line);padding:24px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}
   :root body.surfaceBody-politics #main-content .frameCompanion section+section {margin-top:0;}
+}
+@media(max-width:760px) {
+  :root body.surfaceBody-politics #main-content .politicsSessionBar {grid-template-columns:minmax(0,1fr) auto;}
+  :root body.surfaceBody-politics #main-content .politicsSessionBar>[data-session-scope] {grid-column:1/-1;grid-row:1;}
+  :root body.surfaceBody-politics #main-content .politicsSessionBar>strong {grid-column:1;grid-row:2;}
+  :root body.surfaceBody-politics #main-content .politicsSessionBar>[data-exit-session] {grid-column:2;grid-row:2;}
+  :root body.surfaceBody-politics #main-content .practiceAttemptTools {grid-row:3;}
 }
 @media(max-width:700px) {
   :root body.surfaceBody-politics #main-content {padding-inline:18px;}
@@ -123,7 +123,6 @@ body.surfaceBody-politics {
   :root body.surfaceBody-politics #main-content .frameGraphRank[data-single=true] {width:100%;}
   :root body.surfaceBody-politics #main-content .frameGraphSvg {display:none;}
   :root body.surfaceBody-politics #main-content .frameGraph {gap:24px;}
-  :root body.surfaceBody-politics #main-content .politicsSessionBar {grid-template-columns:1fr auto;}
   :root body.surfaceBody-politics #main-content .politicsStem {font-size:20px;}
   :root body.surfaceBody-politics #main-content .politicsOptions button {font-size:19px;padding:13px;}
 }
