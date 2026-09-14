@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "390a377e9004857aa576c6839b509211f4d836d9c4ec68a7d515a65a378dacbf",
+    "constructions": [
+      {
+        "construction_id": "construction:950c77111279dc2411aa",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "从……获得灵感",
+        "pattern": "draw/take inspiration from"
+      }
+    ],
+    "content_hash": "59209e603bb045e1e0f23bbf81e963e551ae86ea424b9ae023fb2eb1d55825e1",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "灵感；激励",
@@ -73,6 +81,20 @@
         "sense_label_en": "the act of breathing in",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "灵感；鼓舞",
+        "definition_en": "a sudden good idea or creative impulse",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:inspiration:6a75d61388805bbc",
+        "sense_label_en": "a sudden good idea or creative impulse",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -135,33 +157,7 @@
     "word_id": "word:inspiration"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:inspiration:6a75d61388805bbc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "灵感；妙计",
-      "definition_en": "a sudden good idea or creative impulse",
-      "semantic_key": "638087e1bb85ab9bf503c5d9aa22d4060708676fa3ee0773038af50bead35982",
-      "semantic_key_history": [
-        "8a5105c0846e0aa4b68aebc17f56389838589a43a4273eda98deaee48c82320b"
-      ],
-      "legacy_aliases": [
-        "inspiration:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "inspiration:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7085,
-      "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -173,7 +169,7 @@
       },
       {
         "sense_id": "sense:inspiration:6a75d61388805bbc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7085,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -245,7 +241,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2561-2568.json",
-    "source_content_hash": "390a377e9004857aa576c6839b509211f4d836d9c4ec68a7d515a65a378dacbf",
+    "source_content_hash": "59209e603bb045e1e0f23bbf81e963e551ae86ea424b9ae023fb2eb1d55825e1",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d118f2118da95d651acca8e23e10a5fee7be6bfd82bc808ac72395f09358c9d1",
+    "content_hash": "b3f12cb06a158851e21d07bb0ca15f848a510c94b71a48e2282ed71588a58638",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "系列中的一部分或分期付款",
@@ -36,6 +36,41 @@
         "sense_label_en": "the act of installing something",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "分期付款；分期部分",
+        "definition_en": "one of the parts into which a debt is divided for payment at intervals",
+        "governing_pattern": "",
+        "level": "L1",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "note": "instalment/installment BrE/AmE spelling boundary",
+          "paired_form": "installment",
+          "surface_lemma": "instalment"
+        },
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:instalment:70b51ca92b5e5721",
+        "sense_label_en": "one of the parts into which a debt is divided for payment at intervals",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "连续故事或广播的一集",
+        "definition_en": "one part of a serial story or broadcast",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:instalment:eb0ef4742f5a5c49",
+        "sense_label_en": "one part of a serial story or broadcast",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -58,70 +93,19 @@
     "word_id": "word:instalment"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:instalment:70b51ca92b5e5721",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "分期付款的一期",
-      "definition_en": "one of the parts into which a debt is divided for payment at intervals",
-      "semantic_key": "ac407f89ff55df82a0cc8c8d749bc801dd4e2736fa776a12cd7550cf7ea0068f",
-      "semantic_key_history": [
-        "bea2e3559205af3da63d13c360b9acf16dafea199120d9b46b1fbcc9835a0491"
-      ],
-      "legacy_aliases": [
-        "instalment:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "instalment:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7096,
-      "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:instalment:eb0ef4742f5a5c49",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "连载或广播的一集",
-      "definition_en": "one part of a serial story or broadcast",
-      "semantic_key": "b8825facb540ed0b0163cabdf0d790eba30446d244d91d47fd16dfe58c7dba99",
-      "semantic_key_history": [
-        "8f946e43e15b765fa07843d9e2ebb596fe054319f8cdb5d332aa1900e2e3f95b"
-      ],
-      "legacy_aliases": [
-        "instalment:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "instalment:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7097,
-      "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:instalment:70b51ca92b5e5721",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7096,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
       },
       {
         "sense_id": "sense:instalment:eb0ef4742f5a5c49",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7097,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -174,7 +158,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2561-2568.json",
-    "source_content_hash": "d118f2118da95d651acca8e23e10a5fee7be6bfd82bc808ac72395f09358c9d1",
+    "source_content_hash": "b3f12cb06a158851e21d07bb0ca15f848a510c94b71a48e2282ed71588a58638",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

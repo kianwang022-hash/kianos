@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5d055449e55ef4b35e6c2fc5be6e26f749ab262634e5dedc24e3461c872f219d",
+    "content_hash": "2c77409721bfe9fa970c6a7379a7ac6c147efaa69a81b2921db9658d21ad99c2",
     "core_concept": {
       "core_clusters": [
         {
@@ -96,6 +96,20 @@
         "sense_label_en": "a signal that stops a program temporarily",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "打断；暂时中断",
+        "definition_en": "to stop something for a short time or break the continuity of an activity, process, or event",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:interrupt:968b13d6f085510b",
+        "sense_label_en": "to stop something for a short time or break the continuity of an activity, process, or event",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -119,31 +133,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:interrupt:968b13d6f085510b",
-      "status": "merged",
-      "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
-      "pos": "verb",
-      "definition_cn": "中断，暂停",
-      "definition_en": "to stop something for a short time",
-      "semantic_key": "c98ecd0137c7faa0a4599b1d048382cd9a403c0fcdd938fc868376443efdbc78",
-      "semantic_key_history": [
-        "e4bf1de47765a410b29c0c599e4c919038130fe9df727ae59487d990b109a446"
-      ],
-      "legacy_aliases": [
-        "interrupt:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "interrupt:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7200,
-      "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:interrupt:98c8d956c5d1519a",
       "status": "merged",
@@ -181,8 +170,8 @@
       },
       {
         "sense_id": "sense:interrupt:968b13d6f085510b",
-        "status": "merged",
-        "merged_into_sense_id": "sense:interrupt:cc5596327725503e",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7200,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
       },
@@ -270,7 +259,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2609-2616.json",
-    "source_content_hash": "5d055449e55ef4b35e6c2fc5be6e26f749ab262634e5dedc24e3461c872f219d",
+    "source_content_hash": "2c77409721bfe9fa970c6a7379a7ac6c147efaa69a81b2921db9658d21ad99c2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
