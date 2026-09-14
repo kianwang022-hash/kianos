@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { gunzipSync } from 'node:zlib';
 
 import { listPoliticsSubjectsCurrent, loadPoliticsChapterCurrent } from './politicsCurrent.mjs';
 
@@ -8,14 +10,13 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
   : path.resolve(process.cwd(), '..');
 
 const ROOT = 'content/politics';
-const PROVENANCE = `${ROOT}/source/xiao_2027_explanation_provenance.v1.json`;
 const ASSETS = `${ROOT}/source/xiao_2027_question_assets.json`;
 const REGIONS = `${ROOT}/source/politics_unified_regions.v1.jsonl`;
 const QUESTION_MANIFEST = `${ROOT}/source/questions/manifest.json`;
 const QUESTION_SHARDS = `${ROOT}/source/questions/shards`;
 const PROJECTION_MANIFEST = `${ROOT}/projection/manifest.json`;
 const PROJECTION_ROOT = `${ROOT}/projection`;
-const REFINED = `${ROOT}/question-explanations/current.json`;
+const LEARNER_EXPLANATION_MANIFEST = `${ROOT}/derived/xiao1000-learner-explanations/manifest.json`;
 const QUESTION_WIDTH = 25;
 
 const SOURCE_SUBJECTS = Object.freeze({
@@ -30,9 +31,11 @@ function absolute(relativePath) { return path.join(repoRoot, relativePath); }
 function exists(relativePath) { return fs.existsSync(absolute(relativePath)); }
 function readText(relativePath) { return fs.readFileSync(absolute(relativePath), 'utf8'); }
 function readJson(relativePath) { return JSON.parse(readText(relativePath)); }
+function readBuffer(relativePath) { return fs.readFileSync(absolute(relativePath)); }
 function list(value) { return Array.isArray(value) ? value : (value == null ? [] : [value]); }
 function clean(value) { return String(value || '').trim(); }
 function uniq(values) { return [...new Set(values.filter(Boolean))]; }
+function sha256(value) { return createHash('sha256').update(value).digest('hex'); }
 function parseJsonl(relativePath) {
   if (!exists(relativePath)) return [];
   return readText(relativePath).split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map(JSON.parse);
@@ -58,10 +61,8 @@ function questionType(question = {}) {
   return 'single';
 }
 
-function buildProvenanceIndex() {
-  if (!exists(PROVENANCE)) return new Map();
-  const payload = readJson(PROVENANCE);
-  return new Map(list(payload.records).map((row) => [clean(row.question_id), row]).filter(([id]) => id));
+function questionNumber(sourceId) {
+  return Number(clean(sourceId).match(/_(\d{3})$/)?.[1] || 0);
 }
 
 function buildAssetIndex() {
@@ -70,18 +71,75 @@ function buildAssetIndex() {
   return new Map(Object.entries(payload.assets || {}));
 }
 
-function buildRefinedIndex() {
-  if (!exists(REFINED)) return { status: 'UNAVAILABLE', contentVersion: '', rows: new Map() };
-  const payload = readJson(REFINED);
-  const rows = new Map();
-  for (const row of list(payload.records)) {
-    const id = clean(row.question_id || row.runtime_question_id);
-    if (!id) continue;
-    rows.set(id, row);
+function buildLearnerExplanationIndex() {
+  if (!exists(LEARNER_EXPLANATION_MANIFEST)) {
+    throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_MANIFEST_MISSING:${LEARNER_EXPLANATION_MANIFEST}`);
   }
+
+  const manifest = readJson(LEARNER_EXPLANATION_MANIFEST);
+  if (clean(manifest.schema) !== 'kianos.politics.xiao1000_learner_explanation_manifest.v1') {
+    throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_SCHEMA:${clean(manifest.schema) || 'missing'}`);
+  }
+  if (clean(manifest.status) !== 'CURRENT_DERIVED_LEARNER_FACING_ASSET') {
+    throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_STATUS:${clean(manifest.status) || 'missing'}`);
+  }
+  if (clean(manifest.binding?.field) !== 'question_id' || clean(manifest.binding?.rule) !== 'EXACT_STABLE_QUESTION_ID_ONLY') {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_BINDING_CONTRACT');
+  }
+
+  const dataFile = clean(manifest.data_file);
+  if (!dataFile || !exists(dataFile)) {
+    throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_ASSET_MISSING:${dataFile || 'missing'}`);
+  }
+
+  const compressed = readBuffer(dataFile);
+  const expectedCompressedSha = clean(manifest.compressed_asset_sha256);
+  if (expectedCompressedSha && sha256(compressed) !== expectedCompressedSha) {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_COMPRESSED_SHA_MISMATCH');
+  }
+
+  let decoded;
+  try {
+    decoded = gunzipSync(compressed);
+  } catch {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_GZIP_INVALID');
+  }
+
+  const expectedPayloadSha = clean(manifest.derived_payload_sha256);
+  if (expectedPayloadSha && sha256(decoded) !== expectedPayloadSha) {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_PAYLOAD_SHA_MISMATCH');
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(decoded.toString('utf8'));
+  } catch {
+    throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_JSON_INVALID');
+  }
+
+  const records = Array.isArray(payload) ? payload : list(payload?.records);
+  const expectedCount = Number(manifest.record_count || 0);
+  if (!expectedCount || records.length !== expectedCount) {
+    throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_COUNT:${records.length}:${expectedCount}`);
+  }
+
+  const rows = new Map();
+  for (const row of records) {
+    const id = clean(row?.question_id);
+    if (!id) throw new Error('POLITICS_PRACTICE_LEARNER_EXPLANATION_ID_MISSING');
+    if (rows.has(id)) throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_ID_DUPLICATE:${id}`);
+    const takeaway = clean(row?.takeaway);
+    const chatExplanation = clean(row?.chat_explanation);
+    if (!takeaway || !chatExplanation) {
+      throw new Error(`POLITICS_PRACTICE_LEARNER_EXPLANATION_INCOMPLETE:${id}`);
+    }
+    rows.set(id, { takeaway, chatExplanation });
+  }
+
   return {
-    status: clean(payload.status || 'CURRENT'),
-    contentVersion: clean(payload.content_version),
+    status: clean(manifest.status),
+    contentVersion: clean(manifest.content_version),
+    rowCount: rows.size,
     rows
   };
 }
@@ -147,17 +205,15 @@ function referenceOnlyUnits() {
 
 function regionOwnership() {
   const byQuestion = new Map();
-  const byUnit = new Map();
   for (const row of parseJsonl(REGIONS)) {
     const unitId = clean(row?.natural_unit_id);
     if (!unitId || clean(row?.status) !== 'canonical') continue;
-    byUnit.set(unitId, row);
     for (const questionId of list(row?.xiao_question_refs).map(clean).filter(Boolean)) {
       if (!byQuestion.has(questionId)) byQuestion.set(questionId, []);
       byQuestion.get(questionId).push(row);
     }
   }
-  return { byQuestion, byUnit };
+  return { byQuestion };
 }
 
 function sourceRows(unit = {}) {
@@ -192,9 +248,8 @@ function optionRows(rawOptions) {
 }
 
 export function buildPoliticsPracticeCatalogCurrent(base = '/') {
-  const provenance = buildProvenanceIndex();
   const assets = buildAssetIndex();
-  const refined = buildRefinedIndex();
+  const refined = buildLearnerExplanationIndex();
   const truth = questionTruthRows();
   const referenceOnly = referenceOnlyUnits();
   const regions = regionOwnership();
@@ -258,8 +313,6 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
             if (!activeQuestionOwnerDuplicates.has(questionId)) activeQuestionOwnerDuplicates.set(questionId, [previous.key]);
             activeQuestionOwnerDuplicates.get(questionId).push(record.key);
           }
-          // Current chapter loaders already apply formal first-ready rules where they exist.
-          // A later remaining occurrence is the effective last-necessary active owner.
           activeQuestionOwner.set(questionId, record);
         }
       }
@@ -310,9 +363,10 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
 
     const sourceId = truthRow.sourceId;
     const raw = truthRow.row || {};
-    const provenanceRow = provenance.get(sourceId) || provenance.get(questionId) || null;
     const asset = assets.get(sourceId) || assets.get(questionId) || null;
-    const refinedRow = refined.rows.get(questionId) || refined.rows.get(sourceId) || null;
+    const refinedRow = refined.rows.get(sourceId) || null;
+    if (!refinedRow) throw new Error(`POLITICS_PRACTICE_REFINED_BINDING_MISSING:${sourceId}`);
+
     const subjectMeta = subjectById.get(truthRow.currentSubject) || { label: truthRow.currentSubject };
     const chapterKey = owner ? `${owner.subject}/${owner.chapter}` : '';
     const chapter = owner ? chapterByKey.get(chapterKey) : null;
@@ -320,6 +374,7 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
     questions.push({
       id: questionId,
       sourceId,
+      number: questionNumber(sourceId),
       subject: truthRow.currentSubject,
       subjectLabel: clean(subjectMeta.label || truthRow.currentSubject),
       chapter: owner?.chapter || '',
@@ -334,17 +389,11 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
       stem: clean(raw.stem),
       options: optionRows(raw.options),
       answer: clean(raw.answer),
-      originalExplanation: clean(raw.explanation),
-      xiaoReference: {
-        label: clean(provenanceRow?.learner_label || '原解析'),
-        status: clean(provenanceRow?.status || ''),
-        text: clean(raw.explanation)
-      },
-      refined: refinedRow ? {
-        takeaway: clean(refinedRow.takeaway),
-        chatExplanation: clean(refinedRow.chat_explanation),
+      refined: {
+        takeaway: refinedRow.takeaway,
+        chatExplanation: refinedRow.chatExplanation,
         contentVersion: refined.contentVersion
-      } : null,
+      },
       originalFace: asset ? {
         assetId: clean(asset.asset_id || sourceId),
         relativePath: clean(asset.relative_path),
@@ -354,6 +403,10 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
         materialized: false
       } : null
     });
+  }
+
+  if (questions.length !== refined.rowCount) {
+    throw new Error(`POLITICS_PRACTICE_REFINED_COVERAGE:${questions.length}:${refined.rowCount}`);
   }
 
   const validQuestionIds = new Set(questions.map((question) => question.id));
@@ -368,9 +421,10 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
 
   return {
     schema: 'kianos.politics.practice_catalog.v1',
-    generatedFrom: 'CURRENT_QUESTION_TRUTH+CURRENT_FIRST_READY+REFERENCE_ONLY_PARENT_BINDING',
+    generatedFrom: 'CURRENT_QUESTION_TRUTH+CURRENT_FIRST_READY+REFERENCE_ONLY_PARENT_BINDING+CURRENT_DERIVED_LEARNER_EXPLANATIONS',
     refinedExplanationStatus: refined.status,
     refinedExplanationContentVersion: refined.contentVersion,
+    refinedExplanationCount: refined.rowCount,
     questionCount: questions.length,
     subjects,
     chapters,
@@ -390,7 +444,8 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
       answerGatedInLearnerUI: true,
       firstAttemptUsesCurrentSnapshot: true,
       dueSchedulerExcluded: true,
-      ocrExplanationDoesNotSubstituteRefinedExplanation: true,
+      refinedExplanationExactStableIdOnly: true,
+      learnerFacingOriginalExplanationExcluded: true,
       referenceOnlyDoesNotBecomeIndependentTeachingUnit: true,
       originalQuestionFaceMetadataOnlyUntilBytesAreMaterialized: true
     }
