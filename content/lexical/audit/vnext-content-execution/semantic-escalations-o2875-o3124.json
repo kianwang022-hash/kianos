@@ -1,0 +1,227 @@
+{
+  "schema": "kianos.lexical.semantic_escalation_artifact.v1",
+  "status": "ESCALATIONS_PENDING_SOL",
+  "scope": [
+    2875,
+    3124
+  ],
+  "authority": [
+    "content/lexical/semantic-review/o2875-o3124.md",
+    "content/lexical/CURRENT.md"
+  ],
+  "escalations": [
+    {
+      "ordinal": 2949,
+      "word": "manoeuvre",
+      "operation": "UPGRADE",
+      "status": "ESCALATION_PENDING_SOL",
+      "handoff_original_decision": "ESCALATE_IDENTITY. Current lookup also contains maneuver@o7134. These are regional spelling variants of one lexeme, not two semantic Word owners. Preserve stable sense/relationship continuity and reconcile to one lexical identity with BrE manoeuvre / AmE maneuver; do not auto-merge by spelling alone in executor code.",
+      "current_content": {
+        "target_owner": {
+          "ordinal": 2949,
+          "word": "manoeuvre",
+          "word_id": "word:manoeuvre",
+          "senses": [
+            {
+              "sense_id": "sense:manoeuvre:aca06e94df8e5c34",
+              "pos": "noun",
+              "level": "L1",
+              "definition_cn": "策略；计谋",
+              "definition_en": "a plan for attaining a particular goal",
+              "sort_order": 0
+            },
+            {
+              "sense_id": "sense:manoeuvre:abf3784b9e675dbf",
+              "pos": "noun",
+              "level": "L2",
+              "definition_cn": "军事演习",
+              "definition_en": "a military training exercise",
+              "sort_order": 1
+            },
+            {
+              "sense_id": "sense:manoeuvre:f7132b0c84b45ada",
+              "pos": "noun",
+              "level": "L2",
+              "definition_cn": "熟练的机动动作",
+              "definition_en": "a deliberate coordinated movement requiring dexterity and skill",
+              "sort_order": 2
+            },
+            {
+              "sense_id": "sense:manoeuvre:f5efb4493fe15601",
+              "pos": "verb",
+              "level": "L2",
+              "definition_cn": "用策略；设法",
+              "definition_en": "act in order to achieve a certain goal",
+              "sort_order": 4
+            },
+            {
+              "sense_id": "sense:manoeuvre:1263cbcdb0fa5a07",
+              "pos": "verb",
+              "level": "L2",
+              "definition_cn": "操纵；引导",
+              "definition_en": "direct the course; determine the direction of travelling",
+              "sort_order": 5
+            },
+            {
+              "sense_id": "sense:manoeuvre:4b24b010efea540c",
+              "pos": "noun",
+              "level": "L3",
+              "definition_cn": "战术性行动",
+              "definition_en": "a move made to gain a tactical end",
+              "sort_order": 3
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        },
+        "competing_owner": {
+          "ordinal": 7134,
+          "word": "maneuver",
+          "word_id": "word:maneuver",
+          "senses": [
+            {
+              "sense_id": "sense:maneuver:cc94b473fd605dc0",
+              "pos": "noun",
+              "level": "L1",
+              "definition_cn": "演习, 调遣, 策略",
+              "definition_en": "a deliberate coordinated movement requiring dexterity and skill",
+              "sort_order": 1
+            },
+            {
+              "sense_id": "sense:maneuver:9855ccdd195359cb",
+              "pos": "noun",
+              "level": "L2",
+              "definition_cn": "演习, 调遣, 策略",
+              "definition_en": "a move made to gain a tactical end",
+              "sort_order": 2
+            },
+            {
+              "sense_id": "sense:maneuver:13e3dc0d28de5391",
+              "pos": "noun",
+              "level": "L3",
+              "definition_cn": "演习, 调遣, 策略",
+              "definition_en": "a military training exercise",
+              "sort_order": 3
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        }
+      },
+      "exact_question_for_chatgpt_sol": "Should o2949 manoeuvre and o7134 maneuver be reconciled as one stable lexical identity, and if so which owner/word identity and sense/relation references should be retained under the BrE/AmE spelling boundary?"
+    },
+    {
+      "ordinal": 2967,
+      "word": "marvelous",
+      "operation": "UPGRADE",
+      "status": "ESCALATION_PENDING_SOL",
+      "handoff_original_decision": "ESCALATE_IDENTITY. Current lookup contains both marvelous@o2967 and marvellous@o5960; they are regional spelling variants of one lexeme. Preserve semantic/stable continuity and reconcile to one lexical identity with AmE marvelous / BrE marvellous.",
+      "current_content": {
+        "target_owner": {
+          "ordinal": 2967,
+          "word": "marvelous",
+          "word_id": "word:marvelous",
+          "senses": [
+            {
+              "sense_id": "sense:marvelous:4ea9f5cfcc7d5319",
+              "pos": "adjective",
+              "level": "L1",
+              "definition_cn": "了不起的；极好的",
+              "definition_en": "extremely good or wonderful",
+              "sort_order": 0
+            },
+            {
+              "sense_id": "sense:marvelous:70304c3cdfc15c85",
+              "pos": "adjective",
+              "level": "L2",
+              "definition_cn": "令人惊异的",
+              "definition_en": "causing great surprise or wonder",
+              "sort_order": 1
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        },
+        "competing_owner": {
+          "ordinal": 5960,
+          "word": "marvellous",
+          "word_id": "word:marvellous",
+          "senses": [
+            {
+              "sense_id": "sense:marvellous:32dd2cb973d056f0",
+              "pos": "adjective",
+              "level": "L1",
+              "definition_cn": "极好的；了不起的",
+              "definition_en": "extremely good, impressive, or enjoyable",
+              "sort_order": 0
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        }
+      },
+      "exact_question_for_chatgpt_sol": "Should o2967 marvelous and o5960 marvellous be reconciled as one stable lexical identity, and which owner/word identity and existing sense references should carry the regional spelling relation?"
+    },
+    {
+      "ordinal": 3063,
+      "word": "minimise",
+      "operation": "UPGRADE",
+      "status": "ESCALATION_PENDING_SOL",
+      "handoff_original_decision": "ESCALATE_IDENTITY. Current lookup contains minimise@o3063 and minimize@o5977. They are spelling variants of one lexeme (-ise common in BrE; -ize standard AmE and accepted in some BrE styles), not two semantic Word owners. Preserve stable sense continuity and reconcile identity deliberately.",
+      "current_content": {
+        "target_owner": {
+          "ordinal": 3063,
+          "word": "minimise",
+          "word_id": "word:minimise",
+          "senses": [
+            {
+              "sense_id": "sense:minimise:0e7beea88b505bf0",
+              "pos": "verb",
+              "level": "L1",
+              "definition_cn": "使减到最少，使降到最低限度",
+              "definition_en": "reduce something to the smallest possible amount or degree",
+              "sort_order": 0
+            },
+            {
+              "sense_id": "sense:minimise:3d0e8ad5822c5c1d",
+              "pos": "verb",
+              "level": "L2",
+              "definition_cn": "极度轻视，贬低",
+              "definition_en": "represent something as less important than it really is",
+              "sort_order": 1
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        },
+        "competing_owner": {
+          "ordinal": 5977,
+          "word": "minimize",
+          "word_id": "word:minimize",
+          "senses": [
+            {
+              "sense_id": "sense:minimize:89bbe24d4e875ad9",
+              "pos": "verb",
+              "level": "L1",
+              "definition_cn": "将...减到最少",
+              "definition_en": "make small or insignificant",
+              "sort_order": 1
+            },
+            {
+              "sense_id": "sense:minimize:d11244228ef65142",
+              "pos": "verb",
+              "level": "L2",
+              "definition_cn": "将...减到最少",
+              "definition_en": "cause to seem less serious; play down",
+              "sort_order": 2
+            }
+          ],
+          "constructions": [],
+          "relation_refs": []
+        }
+      },
+      "exact_question_for_chatgpt_sol": "Should o3063 minimise and o5977 minimize be reconciled as one stable lexical identity, and which owner/word identity and stable sense/relation references should be retained for the -ise/-ize boundary?"
+    }
+  ],
+  "note": "Only the three handoff-declared identity ambiguities are isolated; independent mechanical owners continue. Engineering failures are not semantic escalations."
+}
