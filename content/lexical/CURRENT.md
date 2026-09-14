@@ -26,35 +26,25 @@ Prior bounded implementation packages through `o0474` are already historical lan
 
 ## Catalog execution
 
-**PAUSED — no next implementation range is active.**
+**ACTIVE — bounded implementation only for `o0675–o0874`.**
 
-The next eligible completed semantic handoff is currently:
+Semantic authority is exactly:
 
 `content/lexical/semantic-review/o0675-o0874.md`
 
-with status:
-
-`SEMANTIC REVIEW COMPLETE / IMPLEMENTATION NOT YET APPLIED`.
-
-This makes `o0675–o0874` the **next candidate**, not an active executor scope. Do not start it merely because the handoff exists or because PR #119 merged. Activation requires an explicit Current update / authorized continuation from fresh `main@HEAD`.
-
-No `o0875+` implementation is authorized by this Current.
+This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o0875+`.
 
 ## Exact next action
 
-Stop bounded catalog execution here unless explicitly reactivated.
+The active lexical range is exactly `o0675–o0874`; do not activate `o0875+` from the executor side.
 
-When reactivation is authorized:
-
-1. refresh `main@HEAD`;
-2. verify `content/lexical/semantic-review/o0675-o0874.md` is still the earliest eligible completed Production handoff and its owner baseline has not been invalidated by Current drift;
-3. activate **only** `o0675–o0874` in this Current before mutation;
-4. execute mechanically from the handoff rather than redoing semantic review;
-5. keep `NO_CHANGE` owners byte-preserved after exact baseline verification;
-6. reconcile stable identity before creating/retiring any sense ID;
-7. close affected Relation / word-family / exam-mapping / Form references;
-8. run bounded validators, full integrated readback, lexical tests, governance audit and Astro build;
-9. land through one bounded PR, read back `main`, then return Catalog execution to PAUSED before considering a later range.
+1. Read the latest Current Word Natural Owner before mutation.
+2. `NO_CHANGE` owners are byte-preserved and skipped after exact baseline verification.
+3. Apply only the 81 authorized `UPGRADE` decisions; do not add semantic content not present in the handoff.
+4. Reconcile identity before creating or retiring any sense ID.
+5. Reconcile all affected Relation / word-family / exam-mapping / Form references after identity decisions.
+6. Run targeted validators during bounded mechanical shards; then full integrated owner readback + lexical tests + governance audit + Astro build once at package closure.
+7. Push this bounded package for CI/integration; after integration, refresh `main` before activating the next range.
 
 ## Frozen identity rule
 
