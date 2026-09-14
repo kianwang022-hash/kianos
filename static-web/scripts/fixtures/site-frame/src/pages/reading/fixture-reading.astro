@@ -1,0 +1,9 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import '@runtime/styles/reading.css';import '@runtime/styles/reading-interaction.css';import '@runtime/styles/reading-repair.css';import '@runtime/styles/reading-navigation.css';
+import Workspace from '@runtime/components/ReadingWorkspace.astro';
+import Gate from '@runtime/components/ReadingAnswerGate.astro';
+import Last from '@runtime/components/ReadingLastLocation.astro';
+import { reading } from '../../../data.mjs';
+---
+<Base showLead={false} title={reading.title} active="reading"><Last reading={reading}/><Workspace reading={reading}/><Gate/></Base>

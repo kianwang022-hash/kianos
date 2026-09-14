@@ -1,0 +1,3 @@
+import { reading,cloze,forms,partB } from '../../../data.mjs';
+export function getStaticPaths(){return [{family:'reading-answer',item:reading,task:'reading_a'},{family:'cloze-answer',item:cloze,task:'cloze'},...forms.map(form=>({family:'reading-b-answer',item:partB(form),task:'reading_b'}))].map(({family,item,task})=>({params:{family,id:item.objectId},props:{item,task}}));}
+export function GET({props:{item,task}}){return new Response(JSON.stringify({objectId:item.objectId,task,answers:Object.fromEntries(item.questions.map((q,i)=>[q.id,task==='reading_b'?'BCDEF'[i]:'A']))}),{headers:{'Content-Type':'application/json'}});}

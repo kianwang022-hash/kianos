@@ -173,8 +173,11 @@ function validateContractAndUi() {
 
   requireText('contract', contract, 'ATTEMPT');
   requireText('contract', contract, 'PASS');
-  requireText('contract', contract, 'TRANSFER_PENDING');
-  requireText('contract', contract, 'CLOSED');
+  // Current compact learning owner delegates detailed protocol to its explicit reference.
+  const protocol = read('../../content/english/modules/translation/learning.reference.md');
+  requireText('contract', contract, 'learning.reference.md');
+  requireText('reference protocol', protocol, 'TRANSFER_PENDING');
+  requireText('reference protocol', protocol, 'CLOSED');
   requireText('contract', contract, 'Evidence granularity may be smaller than Review granularity.');
   requireText('scanner', scanner, "contract: 'content/english/modules/translation/learning.md'");
   requireText('scanner', scanner, 'MANIFEST_TRANSLATION_OWNER_MISMATCH');
@@ -224,11 +227,11 @@ function validateContractAndUi() {
 
   requireText('home', home, 'Productive lane');
   requireText('home', home, 'translation-learn');
-  requireText('home', home, '具体 Pending 已隐藏');
-  requireText('home', home, '第一版锁定后再揭示待验证点');
+  forbidText('home', home, 'pendingTransferTargets(');
+  forbidText('home', home, 'target.label');
   forbidText('home', home, 'target.underlyingDemand');
   requireText('learn page', learnPage, "['B1', 'B1 · Representation']");
-  requireText('learn page', learnPage, 'Skill Map + Deep Skills');
+  requireText('learn page', learnPage, 'Skill Map + Deep Repair');
   requireText('learn page', learnPage, '系统 / Chat 参考');
 }
 

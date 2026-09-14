@@ -1,17 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import { inspectReadingSources } from '../lib/current.mjs';
-import { inspectTranslationSources } from '../lib/englishTranslation.mjs';
 import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';
-import { inspectWritingSyntheticTasks } from '../lib/englishWritingSynthetic.mjs';
-
+const writingGuide = loadWritingLearningProjection();
+if(writingGuide.status !== 'ready') throw new Error('CURRENT_WRITING_GUIDE_NOT_READY');
+import SiteResume from '../components/SiteResume.astro';
 const base = import.meta.env.BASE_URL;
-const objectiveSource = inspectReadingSources();
-const translation = inspectTranslationSources();
-const writingLearning = loadWritingLearningProjection();
-const writingRuntime = inspectWritingSyntheticTasks();
-
-const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'invalid' ? 'Blocked' : 'Partial';
 ---
 <Base
   title="English"
@@ -19,88 +12,13 @@ const statusLabel = (status) => status === 'ready' ? 'Ready' : status === 'inval
   active="english"
 >
   <section class="englishHub" data-english-hub data-base={base}>
-    <section class="englishResume" data-english-resume hidden>
-      <div>
-        <span>Highest-value next action</span>
-        <strong data-english-resume-title></strong>
-        <small data-english-resume-meta></small>
-      </div>
-      <a class="primaryLink" data-english-resume-link href={`${base}english/`}>继续 →</a>
-    </section>
+    <SiteResume subject="english" />
 
     <div class="englishEntryFamilies">
-      <section><h2>Objective</h2><p>全文与完整题组</p><nav><a href={`${base}reading/`}>Reading A →</a><a href={`${base}cloze/`}>Cloze →</a><a href={`${base}reading-b/`}>Part B →</a></nav><a class="guideLink" href={`${base}objective-learn/`}>Objective Guide</a></section>
-      <section><h2>Translation</h2><p>原文与完整译文工作区</p><nav><a href={`${base}translation/`}>开始翻译 →</a></nav><a class="guideLink" href={`${base}translation-learn/`}>Translation Guide</a></section>
-      <section><h2>Writing</h2><p>Small / Big · Direct / optional Plan</p><nav><a href={`${base}writing/`}>开始写作 →</a></nav><a class="guideLink" href={`${base}writing-learn/`}>Writing Guide</a></section>
+      <section data-capability="objective"><h2>Objective</h2><p>全文与完整题组</p><nav><a href={`${base}reading/`}>Reading A →</a><a href={`${base}cloze/`}>Cloze →</a><a href={`${base}reading-b/`}>Part B →</a></nav><a class="guideLink" href={`${base}objective-learn/`}>Objective Guide</a></section>
+      <section data-capability="translation"><h2>Translation</h2><p>原文与完整译文工作区</p><nav><a href={`${base}translation/`}>开始翻译 →</a></nav><a class="guideLink" href={`${base}translation-learn/`}>Translation Guide</a></section>
+      <section data-capability="writing"><h2>Writing</h2><p>Small / Big · Direct / optional Plan</p><nav><a href={`${base}writing/`}>开始写作 →</a></nav><a class="guideLink" href={`${base}writing-learn/`}>Writing Guide</a></section>
     </div>
     <p class="englishLexicalEntry"><a href={`${base}vocabulary/`}>Lexical 查词 →</a></p>
   </section>
 </Base>
-
-<script>
-  const root = document.querySelector('[data-english-hub]');
-  if (root instanceof HTMLElement) {
-    const base = root.getAttribute('data-base') || '/';
-    const resume = root.querySelector('[data-english-resume]');
-    const title = root.querySelector('[data-english-resume-title]');
-    const meta = root.querySelector('[data-english-resume-meta]');
-    const link = root.querySelector('[data-english-resume-link]');
-
-    const read = (key) => {
-      try { return JSON.parse(localStorage.getItem(key) || 'null'); }
-      catch { return null; }
-    };
-    const timestamp = (value) => Date.parse(value || '') || 0;
-    const entries = [];
-
-    const readingLast = read('kianos-reading-last-location-v1');
-    if (readingLast?.id) {
-      const attempt = read(`kianos-reading-attempt-v1:${readingLast.id}`) || {};
-      const results = attempt.results || {};
-      const uncertain = new Set(attempt.uncertain || []);
-      const problems = Object.keys(results).filter((id) => ['wrong', 'unanswered'].includes(results[id]) || uncertain.has(id)).length;
-      if (!attempt.submitted) {
-        entries.push({ priority: 100, time: timestamp(readingLast.updatedAt || attempt.startedAt), title: readingLast.title || 'Reading A · unfinished attempt', meta: 'Reading A · 继续 clean attempt', href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
-      } else if (problems > 0 && attempt.reviewUnlocked !== false) {
-        entries.push({ priority: 82, time: timestamp(attempt.submittedAt || readingLast.updatedAt), title: readingLast.title || 'Reading A · triage', meta: `Reading A · ${problems} 个 problem 等待 triage`, href: `${base}reading/${encodeURIComponent(readingLast.id)}/` });
-      }
-    }
-
-    const translationLast = read('kianos-translation-last-location-v1');
-    if (translationLast?.id) {
-      const state = String(translationLast.stage || translationLast.state || '').toUpperCase();
-      const priorities = { ATTEMPT: 100, DECISION: 86, DIAGNOSIS: 92, RECONSTRUCT: 96 };
-      const priority = priorities[state] || 0;
-      if (priority) entries.push({
-        priority,
-        time: timestamp(translationLast.updatedAt),
-        title: translationLast.title || 'Translation',
-        meta: `Translation · ${state.toLowerCase().replaceAll('_', ' ')}`,
-        href: translationLast.href || `${base}translation/${encodeURIComponent(translationLast.id)}/`
-      });
-    }
-
-    const writingLast = read('kianos-writing-last-location-v1');
-    if (writingLast?.id) {
-      const state = String(writingLast.state || '').toUpperCase();
-      const priorities = { ATTEMPT: 100, REVIEW_PENDING: 90, REPAIR_NEEDED: 96, REPAIR_CHECK_PENDING: 86 };
-      const priority = priorities[state] || 0;
-      if (priority) entries.push({
-        priority,
-        time: timestamp(writingLast.updatedAt),
-        title: writingLast.title || 'Writing',
-        meta: `Writing · ${state.toLowerCase().replaceAll('_', ' ')}`,
-        href: writingLast.href || `${base}writing/${encodeURIComponent(writingLast.id)}/`
-      });
-    }
-
-    entries.sort((a, b) => b.priority - a.priority || b.time - a.time);
-    const best = entries[0];
-    if (best && resume && title && meta && link) {
-      resume.hidden = false;
-      title.textContent = best.title;
-      meta.textContent = best.meta;
-      link.href = best.href;
-    }
-  }
-</script>

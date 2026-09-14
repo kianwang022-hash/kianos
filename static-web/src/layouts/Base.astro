@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import EnglishLexicalBridge from '../components/EnglishLexicalBridge.astro';
+import ObjectiveResumeTracker from '../components/ObjectiveResumeTracker.astro';
 import EnglishGuideBridge from '../components/EnglishGuideBridge.astro';
 import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
@@ -45,8 +47,8 @@ const navActive = isEnglishRoute ? 'english' : active;
 const navItems = [
   { key: 'xizong', label: '西综', href: `${base}xizong/` },
   { key: 'politics', label: '政治', href: `${base}politics/` },
-  { key: 'lexical', label: 'Vocabulary', href: `${base}vocabulary/` },
-  { key: 'english', label: 'English', href: `${base}english/` }
+  { key: 'english', label: 'English', href: `${base}english/` },
+  { key: 'lexical', label: 'Lexical', href: `${base}vocabulary/` }
 ];
 ---
 <!doctype html>
@@ -68,7 +70,7 @@ const navItems = [
     <header class="productBar">
       <a class="productBrand" href={base} aria-label="KianOS Home">
         <span class="productBrandMark">K</span>
-        <span class="productBrandCopy"><strong>KianOS</strong><small>Learning Runtime</small></span>
+        <span class="productBrandCopy"><strong>KianOS</strong></span>
       </a>
       <nav class="productNav" aria-label="学习模块">
         {navItems.map((item) => <a class={`productNavItem ${navActive === item.key ? 'active' : ''}`} href={item.href}>{item.label}</a>)}
@@ -85,7 +87,8 @@ const navItems = [
         </div>
       </details>
     </header>
-    <main class={`productCanvas surface-${active}${isEnglishRoute ? ' englishCanvas' : ''}`}>
+    <a class="skipLink" href="#main-content">跳到学习内容</a>
+    <main id="main-content" class={`productCanvas surface-${active}${isEnglishRoute ? ' englishCanvas' : ''}`}>
       {showLead && (
         <section class="pageLead">
           <p class="pageKicker">{kicker}</p>
@@ -94,6 +97,7 @@ const navItems = [
       )}
       {isEnglishRoute && <EnglishGuideBridge base={base} />}
       <slot />
+      {isEnglishRoute && <><ObjectiveResumeTracker /><EnglishLexicalBridge /></>}
     </main>
   </body>
 </html>

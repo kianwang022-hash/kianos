@@ -1,7 +1,10 @@
 ---
+import { loadXizongFrame, xizongFrameView } from '../lib/xizongFrameProjection.mjs';
+import XizongFrameValue from './XizongFrameValue.astro';
 const { system, sweep } = Astro.props;
 if (!sweep) throw new Error(`CURRENT_XIZONG_SYSTEM_SWEEP_MISSING:${system?.systemId || 'unknown'}`);
 
+const recallObjects = xizongFrameView(loadXizongFrame(system.systemId), 'SYSTEM_GUIDE').filter(o => !['/mission','/block_route','/mental_model/spine','/failure_modes'].includes(o.binding.selector?.value));
 const recall = system?.systemRecall || {};
 const recallPrompt = typeof recall === 'string'
   ? recall
@@ -70,7 +73,7 @@ const payload = JSON.stringify({
         <h3><span data-sweep-count>{sweep.questionCount}</span> 道系统真题范围已恢复</h3>
         <p data-sweep-summary>锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。</p>
         <div class="xseSweepStats" data-sweep-stats>
-          <span>稳 <b data-stat-stable>0</b></span>
+          <span>答对 <b data-stat-stable>0</b></span>
           <span>不确定 <b data-stat-uncertain>0</b></span>
           <span>错 <b data-stat-wrong>0</b></span>
           <span>剩余 <b data-stat-remaining>—</b></span>
@@ -89,9 +92,12 @@ const payload = JSON.stringify({
         <span data-question-meta>—</span>
         <h3 data-question-progress>—</h3>
       </div>
+      <div class="xseModeControls"><label><input type="checkbox" data-sweep-fast /> Fast</label><label>结果 <select data-sweep-visibility><option value="immediate">即时</option><option value="hidden">隐藏</option></select></label><button type="button" class="secondary" data-sweep-mark aria-pressed="false">M · 标记</button></div>
       <button type="button" class="xseTextButton" data-close-sweep>返回 System</button>
     </header>
 
+    <p data-sweep-save-error role="alert" hidden></p>
+    <div class="xseQuestionLayout"><nav class="xseQuestionMap" data-sweep-map aria-label="Question map"></nav><div>
     <article class="xseQuestion">
       <p class="xseStem" data-question-stem></p>
       <div class="xseOptions" data-question-options></div>
@@ -117,7 +123,7 @@ const payload = JSON.stringify({
         </details>
       </div>
       <div class="xseJudge" data-correct-judge hidden>
-        <button type="button" data-mark-stable>稳，下一题</button>
+        <button type="button" data-mark-stable>下一题</button>
         <button type="button" class="secondary" data-mark-uncertain>正确，但我不确定</button>
       </div>
       <div class="xseJudge" data-uncertain-judge hidden>
@@ -128,10 +134,11 @@ const payload = JSON.stringify({
       </div>
     </section>
 
+    </div></div>
     <section class="xseDone" data-sweep-done hidden>
       <span>System sweep</span>
       <h3>本轮可用题已经扫完</h3>
-      <p>Wrong / Uncertain 已经留下。先把这些证据交给 Chat，再做一次短 System Recall，确认题目没有替代你的模型。</p>
+      <p>本轮作答已保存。按需回看标记或 W/U；有需要时再回 Chat 或做题后 System Recall。</p>
       <div class="xseSweepActions">
         <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>
         <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>
@@ -146,12 +153,14 @@ const payload = JSON.stringify({
         <button value="cancel" aria-label="关闭">×</button>
       </header>
       <section class="xseRecallFront" data-recall-front>
+        <aside class="xseReconstructionDimensions"><span>RECONSTRUCTION</span><p>系统主链</p><p>并行控制</p><p>Failure 定位</p><p>病例判断顺序</p></aside>
         <p>{recallPrompt}</p>
         <div class="xseRecallInstruction">
           <b>现在不要看 System 页。</b>
           <span>先在脑中恢复母链、Failure 定位和陌生病例的判断顺序。能说出来以后再核对。</span>
         </div>
-        <button type="button" data-reveal-recall>我已经回忆，核对</button>
+        <label class="xseRecallScratch">可选草稿 · 也可以口述或纸笔<textarea data-recall-scratch rows="10" placeholder="从记忆重建；无需填写也能核对。"></textarea></label>
+        <button type="button" data-reveal-recall>Space · 核对模型</button>
       </section>
       <section class="xseRecallReveal" data-recall-reveal hidden>
         <div>
@@ -166,6 +175,8 @@ const payload = JSON.stringify({
           <span>Failure Modes</span>
           <ul>{system.failureModes.map((mode) => <li><b>{mode.label}</b>{mode.chain ? `：${mode.chain}` : ''}</li>)}</ul>
         </div>
+        <div class="xseRecallNativeModel">{recallObjects.map(object => <XizongFrameValue value={object.value} geometry={object.geometry} />)}</div>
+        <button type="button" data-hide-recall>收起模型</button>
         <button type="button" data-complete-recall>这次 System Recall 完成</button>
       </section>
     </form>
@@ -190,7 +201,7 @@ const payload = JSON.stringify({
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
     };
     const writeJson = (key, value) => {
-      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { const error=root.querySelector('[data-sweep-save-error]'); if(error){error.hidden=false;error.textContent='本机保存失败，当前操作未完成；请恢复存储后重试。';} return false; }
     };
 
     let recallState = readJson(recallKey, { completedAt: null });
@@ -241,6 +252,37 @@ const payload = JSON.stringify({
     let currentQuestion = null;
     let currentSelection = new Set();
     let currentCorrect = false;
+    let advanceTimer;
+    const fastControl=root.querySelector('[data-sweep-fast]');
+    const visibilityControl=root.querySelector('[data-sweep-visibility]');
+    const markControl=root.querySelector('[data-sweep-mark]');
+    const map=root.querySelector('[data-sweep-map]');
+    fastControl.checked=Boolean(sweepState.fast);
+    visibilityControl.value=sweepState.visibility==='hidden'?'hidden':'immediate';
+    const hiddenResults=()=>visibilityControl.value==='hidden';
+    const syncMap=()=>{
+      root.dataset.sweepResultVisibility=hiddenResults()?'hidden':'immediate';
+      root.querySelectorAll('[data-copy-wu],[data-copy-wu-done]').forEach(button=>button.disabled=hiddenResults());
+      map.replaceChildren();
+      activeQuestions.forEach((q,index)=>{
+        const button=document.createElement('button');button.type='button';button.textContent=String(index+1);
+        const saved=resultFor(q.questionId);const marked=Boolean(sweepState.marks?.[q.questionId]);
+        button.className=[saved?'answered':'',marked?'marked':'',q===currentQuestion?'current':'',!hiddenResults()&&saved?.status==='wrong'?'wrong':''].join(' ');
+        button.setAttribute('aria-label',`第 ${index+1} 题 · ${saved?'已答':'未答'}${marked?' · 标记':''}`);
+        button.addEventListener('click',()=>renderQuestion(q.questionId));map.append(button);
+      });
+      markControl.setAttribute('aria-pressed',String(Boolean(sweepState.marks?.[currentQuestion?.questionId])));
+    };
+    fastControl.addEventListener('change',()=>{const next={...sweepState,fast:fastControl.checked};if(writeJson(sweepKey,next))sweepState=next;else fastControl.checked=Boolean(sweepState.fast);});
+    visibilityControl.addEventListener('change',()=>{
+      const next={...sweepState,visibility:visibilityControl.value,...(!hiddenResults()?{resultsRevealedAt:new Date().toISOString()}: {})};
+      if(writeJson(sweepKey,next)){sweepState=next;renderQuestion(currentQuestion?.questionId);}else visibilityControl.value=sweepState.visibility||'immediate';
+    });
+    markControl.addEventListener('click',()=>{
+      if(!currentQuestion)return;
+      const next={...sweepState,marks:{...(sweepState.marks||{}),[currentQuestion.questionId]:!sweepState.marks?.[currentQuestion.questionId]}};
+      if(writeJson(sweepKey,next)){sweepState=next;syncMap();}
+    });
 
     const answerLetters = (value) => (String(value || '').toUpperCase().match(/[A-Z]/g) || []).sort();
     const sameLetters = (a, b) => a.length === b.length && a.every((value, index) => value === b[index]);
@@ -256,7 +298,7 @@ const payload = JSON.stringify({
     const counts = () => {
       const results = activeQuestions.map((question) => resultFor(question.questionId)).filter(Boolean);
       return {
-        stable: results.filter((row) => row.status === 'stable').length,
+        stable: results.filter((row) => ['stable','correct'].includes(row.status)).length,
         uncertain: results.filter((row) => row.status === 'uncertain').length,
         wrong: results.filter((row) => row.status === 'wrong').length,
         remaining: activeQuestions.length - results.length
@@ -307,14 +349,14 @@ const payload = JSON.stringify({
     const parseHoldoutInput = () => normalizeHoldout(String(holdoutInput?.value || '').split(/[,，\s]+/).filter(Boolean));
 
     const persistResult = (question, status, selected) => {
-      sweepState.results[question.questionId] = {
-        status,
-        selected: [...selected].sort(),
-        correctAnswer: question.correctAnswer,
-        updatedAt: new Date().toISOString()
-      };
-      writeJson(sweepKey, sweepState);
-      renderStats();
+      const old=sweepState.results[question.questionId];
+      const selection=[...selected].sort();
+      const result={status,selected:selection,correctAnswer:question.correctAnswer,updatedAt:new Date().toISOString()};
+      const kind=old?'SIGNAL_UPDATE':'QUESTION_ATTEMPT';
+      const event={...result,questionId:question.questionId,kind,phase:'SYSTEM_SWEEP',runScope:data.questionInventoryHash,visibility:hiddenResults()?'hidden':'immediate',marked:Boolean(sweepState.marks?.[question.questionId])};
+      const next={...sweepState,results:{...sweepState.results,[question.questionId]:result},attemptHistory:[...(sweepState.attemptHistory||[]),event]};
+      if(!writeJson(sweepKey,next))return false;
+      sweepState=next;renderStats();syncMap();writeJson('kianos-xizong-last-location-v1',{systemId,title:data.title,systemTitle:data.title,href:location.pathname+location.search+location.hash,meaningfulAction:true,observed_at:new Date().toISOString()});return true;
     };
 
     const showRepair = (question) => {
@@ -333,9 +375,10 @@ const payload = JSON.stringify({
       }
     };
 
-    const renderQuestion = () => {
+    const renderQuestion = (questionId = null) => {
+      clearTimeout(advanceTimer);
       activeQuestions = computeActive();
-      currentQuestion = firstUnanswered();
+      currentQuestion = activeQuestions.find(q=>q.questionId===questionId) || firstUnanswered();
       currentSelection = new Set();
       currentCorrect = false;
       answerPanel.hidden = true;
@@ -344,6 +387,11 @@ const payload = JSON.stringify({
       uncertainJudge.hidden = true;
       wrongJudge.hidden = true;
       done.hidden = Boolean(currentQuestion);
+      syncMap();
+      if(currentQuestion){
+        const next={...sweepState,activeQuestionId:currentQuestion.questionId};if(writeJson(sweepKey,next))sweepState=next;
+        if(!workspace.hidden){const url=new URL(location.href);url.searchParams.set('sweep','1');url.searchParams.set('question',currentQuestion.questionId);history.replaceState(null,'',url);}
+      }
 
       if (!currentQuestion) {
         workspace.hidden = false;
@@ -356,7 +404,7 @@ const payload = JSON.stringify({
       root.querySelector('.xseQuestion').hidden = false;
       const answeredCount = activeQuestions.filter((question) => resultFor(question.questionId)).length;
       questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
-      questionProgress.textContent = `本轮 ${answeredCount + 1} / ${activeQuestions.length}`;
+      questionProgress.textContent = `本轮 ${activeQuestions.indexOf(currentQuestion) + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
       selectionHint.textContent = currentQuestion.questionType === 'X' ? '多选题：可选多个选项' : '选择一个答案';
       submit.disabled = true;
@@ -383,44 +431,43 @@ const payload = JSON.stringify({
           }
           [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => node.classList.toggle('selected', currentSelection.has(node.dataset.option || '')));
           submit.disabled = currentSelection.size === 0;
+          if(fastControl.checked && currentQuestion.questionType !== 'X')submitAnswer();
         });
         optionsBox.appendChild(button);
       });
+      const previous=resultFor(currentQuestion.questionId);
+      if(previous){currentSelection=new Set(previous.selected);showAnswer();}
     };
 
-    const submitAnswer = () => {
-      if (!currentQuestion || !currentSelection.size) return;
-      const selected = [...currentSelection].sort();
-      const correct = answerLetters(currentQuestion.correctAnswer);
-      currentCorrect = sameLetters(selected, correct);
-      answerPanel.hidden = false;
-      correctAnswerNode.textContent = correct.join('、');
-      answerResult.textContent = currentCorrect ? '答案正确' : '答案错误';
-      answerResult.classList.toggle('isWrong', !currentCorrect);
-      [...optionsBox.querySelectorAll('.xseOption')].forEach((node) => {
-        const label = node.dataset.option || '';
-        node.disabled = true;
-        node.classList.toggle('correct', correct.includes(label));
-        node.classList.toggle('wrong', currentSelection.has(label) && !correct.includes(label));
+    const showAnswer = () => {
+      if(!currentQuestion)return;
+      const correct=answerLetters(currentQuestion.correctAnswer);
+      currentCorrect=sameLetters([...currentSelection].sort(),correct);
+      submit.disabled=true;
+      optionsBox.querySelectorAll('.xseOption').forEach(node=>{
+        node.disabled=true;node.classList.toggle('selected',currentSelection.has(node.dataset.option));
+        if(!hiddenResults()){node.classList.toggle('correct',correct.includes(node.dataset.option));node.classList.toggle('wrong',currentSelection.has(node.dataset.option)&&!correct.includes(node.dataset.option));}
       });
-      submit.disabled = true;
-      if (currentCorrect) {
-        correctJudge.hidden = false;
-        wrongJudge.hidden = true;
-      } else {
-        persistResult(currentQuestion, 'wrong', currentSelection);
-        showRepair(currentQuestion);
-        correctJudge.hidden = true;
-        wrongJudge.hidden = false;
-      }
-      answerPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if(hiddenResults()){answerPanel.hidden=true;return;}
+      answerPanel.hidden=false;correctAnswerNode.textContent=correct.join('、');
+      answerResult.textContent=currentCorrect?'答案正确':'答案错误';answerResult.classList.toggle('isWrong',!currentCorrect);
+      correctJudge.hidden=!currentCorrect;wrongJudge.hidden=currentCorrect;
+      if(!currentCorrect || resultFor(currentQuestion.questionId)?.status==='uncertain')showRepair(currentQuestion);
+    };
+    const submitAnswer = () => {
+      if(!currentQuestion || !currentSelection.size || resultFor(currentQuestion.questionId))return;
+      const correct=sameLetters([...currentSelection].sort(),answerLetters(currentQuestion.correctAnswer));
+      if(!persistResult(currentQuestion,correct?'correct':'wrong',currentSelection))return;
+      showAnswer();
+      if(hiddenResults())renderQuestion();
+      else if(correct)advanceTimer=setTimeout(()=>renderQuestion(),450);
     };
 
     const nextAfter = (status) => {
       if (!currentQuestion) return;
-      persistResult(currentQuestion, status, currentSelection);
+      clearTimeout(advanceTimer);
       renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      workspace.scrollIntoView({ behavior: 'auto', block: 'start' });
     };
 
     const wuPacket = () => {
@@ -478,7 +525,7 @@ const payload = JSON.stringify({
       writeJson(recallKey, recallState);
       recallDialog?.close();
       renderRecall();
-      root.querySelector('[data-holdout-current]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      root.querySelector('[data-holdout-current]')?.scrollIntoView({ behavior: 'auto', block: 'center' });
     });
 
     saveHoldout?.addEventListener('click', () => {
@@ -500,35 +547,48 @@ const payload = JSON.stringify({
     startSweep?.addEventListener('click', () => {
       if (!recallState.completedAt || !holdoutYears.length) return;
       workspace.hidden = false;
-      renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const requested=new URLSearchParams(location.search).get('question');
+      renderQuestion(requested || sweepState.activeQuestionId);
+      workspace.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
     closeSweep?.addEventListener('click', () => {
+      clearTimeout(advanceTimer);
       workspace.hidden = true;
-      root.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const url=new URL(location.href);url.searchParams.delete('sweep');url.searchParams.delete('question');history.replaceState(null,'',url);
+      root.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
     submit?.addEventListener('click', submitAnswer);
     root.querySelector('[data-mark-stable]')?.addEventListener('click', () => nextAfter('stable'));
     root.querySelector('[data-mark-uncertain]')?.addEventListener('click', () => {
       if (!currentQuestion) return;
-      persistResult(currentQuestion, 'uncertain', currentSelection);
+      clearTimeout(advanceTimer);
+      if(!persistResult(currentQuestion, 'uncertain', currentSelection))return;
       showRepair(currentQuestion);
       correctJudge.hidden = true;
       uncertainJudge.hidden = false;
     });
     root.querySelector('[data-next-uncertain]')?.addEventListener('click', () => {
       renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      workspace.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
     root.querySelector('[data-next-wrong]')?.addEventListener('click', () => {
       renderQuestion();
-      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      workspace.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
     copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
     root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
 
+    document.addEventListener('keydown',event=>{
+      if(workspace.hidden || recallDialog?.open || event.isComposing || event.keyCode===229 || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)return;
+      if(event.key.toLowerCase()==='m'){event.preventDefault();markControl.click();return;}
+      if(/^[1-5]$/.test(event.key)){event.preventDefault();optionsBox.querySelector(`[data-option="${String.fromCharCode(64+Number(event.key))}"]`)?.click();return;}
+      if(event.key==='Enter' && (!(event.target instanceof HTMLButtonElement) || event.target.matches('.xseOption'))){event.preventDefault();if(resultFor(currentQuestion?.questionId))renderQuestion();else submitAnswer();}
+      if(event.code==='Space' && !hiddenResults() && !repairPanel.hidden && !(event.target instanceof HTMLButtonElement)){event.preventDefault();const detail=repairPanel.querySelector('details');detail.open=!detail.open;}
+      if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();const index=activeQuestions.indexOf(currentQuestion)+(event.key==='ArrowLeft'?-1:1);if(activeQuestions[index])renderQuestion(activeQuestions[index].questionId);}
+    });
     renderRecall();
     renderHoldout();
+    if(new URLSearchParams(location.search).get('sweep')==='1')setTimeout(()=>{const fold=root.closest('details');if(fold)fold.open=true;startSweep?.click();},0);
   });
 </script>
 
@@ -536,3 +596,18 @@ const payload = JSON.stringify({
   .xse{display:grid;gap:12px;margin-top:16px}.xseHero,.xseCard,.xseWorkspace{border:1px solid var(--study-line,#d9dde5);border-radius:16px;background:#fff}.xseHero{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:20px;align-items:center;padding:16px 18px}.xseHero span,.xseEyebrow,.xseRecallDialog span,.xseDone>span{color:var(--study-green,#286c57);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xseHero h2{margin:3px 0 0;font-size:23px}.xseHero p,.xseCard p{margin:0;color:var(--study-muted,#6d7873);font-size:12px;line-height:1.6}.xseSteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.xseCard{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;padding:14px}.xseStepNo{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#edf6f2;color:var(--study-green,#286c57);font-weight:900}.xseCardBody{display:grid;gap:8px;align-content:start}.xseCard h3{margin:0;font-size:16px}.xseStatusRow,.xseSweepActions,.xseSubmitRow,.xseJudge{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.xseStatusRow strong{font-size:11px;flex:1 1 140px}.xse button{border:1px solid #246b55;border-radius:9px;background:#286c57;color:#fff;padding:8px 11px;font:750 11px/1.2 system-ui;cursor:pointer}.xse button:hover{filter:brightness(.97)}.xse button:disabled{opacity:.42;cursor:not-allowed}.xse button.secondary,.xseTextButton{background:#fff;color:#286c57}.xseTextButton{border-color:#d7e4df!important;padding:6px 8px!important}.xseHoldoutCurrent{padding:8px 10px;border-radius:9px;background:#f5f7f6;font-size:11px;font-weight:750}.xseHoldoutEditor{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:7px;align-items:center}.xseHoldoutEditor label{font-size:10px;font-weight:800}.xseHoldoutEditor input{min-width:0;border:1px solid #d4dbd7;border-radius:8px;padding:8px 9px;font:500 11px system-ui}.xseCard small{color:#7a8580;font-size:9px}.xseSweepStats{display:flex;gap:6px;flex-wrap:wrap}.xseSweepStats span{padding:5px 7px;border-radius:999px;background:#f3f5f4;font-size:10px}.xseWorkspace{padding:16px 18px}.xseWorkspaceHead{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e3e7e5;padding-bottom:11px}.xseWorkspaceHead span{color:#74807a;font-size:10px}.xseWorkspaceHead h3{margin:3px 0 0;font-size:17px}.xseQuestion{padding:16px 0 4px}.xseStem{margin:0 0 14px;font-size:17px;line-height:1.65;font-weight:680}.xseOptions{display:grid;gap:7px}.xseOption{display:grid!important;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:start;width:100%;text-align:left;background:#fff!important;color:#23302b!important;border-color:#d8dfdc!important;padding:10px 12px!important}.xseOption b{color:#286c57}.xseOption.selected{background:#edf6f2!important;border-color:#5d9682!important}.xseOption.correct{background:#eef7f1!important;border-color:#7aa48f!important}.xseOption.wrong{background:#fff2f0!important;border-color:#d79a92!important}.xseSubmitRow{justify-content:space-between;margin-top:12px}.xseSubmitRow small{color:#75807b}.xseAnswer{margin-top:12px;padding-top:12px;border-top:1px solid #e3e7e5}.xseAnswerTop{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.xseAnswerTop strong{color:#286c57}.xseAnswerTop strong.isWrong{color:#a4473d}.xseRepair{margin-top:10px;padding:11px 12px;border-radius:10px;background:#faf8f3}.xseRepair p{margin:4px 0;font-size:11px;line-height:1.55}.xseRepair summary{cursor:pointer;color:#5c665f;font-size:10px;font-weight:750}.xseJudge{margin-top:11px}.xseDone{padding:18px 0 6px}.xseDone h3{margin:4px 0 6px}.xseDone p{max-width:760px;color:#6d7873;font-size:12px;line-height:1.6}.xseRecallDialog{width:min(780px,calc(100vw - 28px));max-height:calc(100vh - 36px);border:0;border-radius:16px;padding:0;box-shadow:0 20px 80px rgba(20,35,29,.28)}.xseRecallDialog::backdrop{background:rgba(20,29,25,.72);backdrop-filter:blur(3px)}.xseDialogShell{padding:18px}.xseDialogShell>header{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e0e5e2;padding-bottom:10px}.xseDialogShell>header h2{margin:2px 0 0}.xseDialogShell>header button{width:30px;height:30px;padding:0;font-size:18px}.xseRecallFront{display:grid;gap:16px;padding:22px 0 4px}.xseRecallFront>p{font-size:20px;line-height:1.7;font-weight:700}.xseRecallInstruction{display:grid;gap:4px;padding:12px;border-radius:10px;background:#f3f5f4;font-size:12px}.xseRecallReveal{display:grid;gap:12px;padding:16px 0 4px}.xseRecallReveal>div{padding:10px 12px;border-radius:10px;background:#f6f7f6}.xseRecallReveal ol,.xseRecallReveal ul{margin:7px 0 0;padding-left:22px;font-size:12px;line-height:1.55}
   @media(max-width:1050px){.xseSteps{grid-template-columns:1fr}.xseHero{grid-template-columns:1fr}.xseHoldoutEditor{grid-template-columns:1fr}.xseHoldoutEditor button{justify-self:start}}
 </style>
+
+<script>
+const recallDialog=document.querySelector('[data-recall-dialog]');
+if(recallDialog){
+ const hide=()=>{recallDialog.querySelector('[data-recall-front]').hidden=false;recallDialog.querySelector('[data-recall-reveal]').hidden=true;};
+ recallDialog.querySelector('[data-hide-recall]')?.addEventListener('click',hide);
+ recallDialog.addEventListener('keydown',event=>{
+  if(event.isComposing || event.keyCode===229 || event.target instanceof HTMLTextAreaElement || event.target instanceof HTMLInputElement)return;
+  if(event.target instanceof HTMLButtonElement && (event.code==='Space'||event.key==='Enter'))return;
+  if(event.code==='Space'){event.preventDefault();if(recallDialog.querySelector('[data-recall-reveal]').hidden)recallDialog.querySelector('[data-reveal-recall]').click();else hide();}
+  if(event.key.toLowerCase()==='c'){event.preventDefault();recallDialog.querySelector('[data-recall-scratch]').focus();}
+  if(event.key==='Enter'&&!recallDialog.querySelector('[data-recall-reveal]').hidden){event.preventDefault();recallDialog.querySelector('[data-complete-recall]').click();}
+ });
+}
+</script>

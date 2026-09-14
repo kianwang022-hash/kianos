@@ -37,6 +37,7 @@ const packetMeta = {
     </nav>
   </header>
 
+  <button type="button" data-open-chat-tools>需要深挖时，交给 Chat</button>
   <section data-extension-panel="memory">
     <div class="portedMemorySummary">
       <strong data-memory-summary>等待 Recall 状态</strong>
@@ -167,7 +168,7 @@ const packetMeta = {
     )).length;
     const memoryItems = () => {
       const study = readStudy();
-      const rows = kps.map((kp) => ({ ...kp, sourceRating: study.ratings?.[kp.kpId] || '', memoryState: ext.memory?.[kp.kpId] || ratingState(study.ratings?.[kp.kpId]) || '' }));
+      const rows = kps.filter(kp => study.learned?.[kp.kpId] === true).map((kp) => ({ ...kp, sourceRating: study.ratings?.[kp.kpId] || '', memoryState: ext.memory?.[kp.kpId] || ratingState(study.ratings?.[kp.kpId]) || '' }));
       const weak = rows.filter((row) => ['HOT', 'WARM'].includes(row.memoryState));
       return weak.length ? weak : rows.filter((row) => row.sourceRating && row.memoryState !== 'STABLE');
     };
@@ -185,7 +186,7 @@ const packetMeta = {
       const rating = ratingButton.getAttribute('data-rating') || '';
       if (!kpId || !rating || !byId.has(kpId)) return;
       const study = readStudy();
-      if (!study?.learned?.[kpId]) return;
+      if (!study?.learned?.[kpId] || !blockRoot.querySelector('[data-block-save-feedback]')?.hidden) return;
       addEvidence({ type: 'KP_RECALL', kp_id: kpId, rating, evidence_origin: 'USER_RECALL_ATTEMPT' });
       ext.lastRecallRatings = { ...(ext.lastRecallRatings || {}), [kpId]: rating };
       saveExt();
@@ -214,6 +215,7 @@ const packetMeta = {
     function renderMemory() {
       syncRecallEvidence();
       const items = memoryItems();
+      syncCategories();
       ext.memoryIndex = Math.max(0, Math.min(items.length - 1, Number(ext.memoryIndex || 0)));
       if (memorySummary) {
         const hot = items.filter((item) => item.memoryState === 'HOT').length;
@@ -276,8 +278,20 @@ const packetMeta = {
       };
     }).filter((row) => byId.has(row.kpId));
     const activeReview = () => planRows().map((plan) => ({ ...byId.get(plan.kpId), plan })).filter(Boolean);
+    function syncCategories() {
+      const available={memory:memoryItems().length>0,reserve:(packetMeta.reserveItems||[]).length>0,review:activeReview().length>0 || extension.dataset.chatTools==='true'};
+      tabs.forEach(button=>button.hidden=!available[button.getAttribute('data-extension-tab')]);
+      panels.forEach(panel=>{if(!available[panel.getAttribute('data-extension-panel')])panel.hidden=true;});
+      if(panels.every(panel=>panel.hidden)){
+        const first=panels.find(panel=>available[panel.getAttribute('data-extension-panel')]);
+        if(first){first.hidden=false;tabs.forEach(button=>button.classList.toggle('active',button.getAttribute('data-extension-tab')===first.getAttribute('data-extension-panel')));}
+      }
+    }
+    extension.querySelector('[data-open-chat-tools]').addEventListener('click',()=>{extension.dataset.chatTools='true';syncCategories();switchTab('review');});
+
     function renderReview() {
       const items = activeReview();
+      syncCategories();
       ext.reviewIndex = Math.max(0, Math.min(items.length - 1, Number(ext.reviewIndex || 0)));
       if (reviewSummary) reviewSummary.textContent = items.length ? `Chat 返回 ${items.length} 个专项任务` : '还没有导入 Chat 计划';
       reviewQueue?.replaceChildren();

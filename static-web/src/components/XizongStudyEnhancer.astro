@@ -87,7 +87,7 @@ const kps = block?.kpRecords || [];
     const syncReviewVisibility = () => {
       const extension = document.querySelector('[data-study-extension]');
       if (!extension) return;
-      extension.hidden = !['kp_recall', 'block_recall', 'block_complete'].includes(currentStage());
+      extension.hidden = currentStage() !== 'block_complete' && extension.dataset.explicitOpen !== 'true';
     };
 
     const renderDock = () => {
@@ -119,6 +119,7 @@ const kps = block?.kpRecords || [];
     }).observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden', 'disabled', 'class'] });
 
     document.addEventListener('keydown', (event) => {
+      if (event.isComposing || event.keyCode === 229) return;
       const target = event.target;
       const editing = target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]');
       if (editing) {

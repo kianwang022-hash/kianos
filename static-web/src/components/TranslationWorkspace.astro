@@ -40,6 +40,7 @@ const nextHref = translation.navigation?.nextId
     </nav>
   </header>
 
+  <p data-translation-save-feedback role="status" hidden></p>
   <div class="translationColumns">
     <article class="translationSource">
       <header>
@@ -50,9 +51,9 @@ const nextHref = translation.navigation?.nextId
       {translation.context?.subtitle && <p class="translationSubtitle">{translation.context.subtitle}</p>}
 
       <div class="translationSourceBody" data-translation-source-text>
-        {material.map((item) => <p>{item.text}</p>)}
+        {material.map((item) => <p id={prompts.find((prompt) => String(prompt.sourceText || '').trim() === String(item.text || '').trim()) ? `source-${prompts.find((prompt) => String(prompt.sourceText || '').trim() === String(item.text || '').trim()).id}` : undefined} tabindex="-1">{item.text}</p>)}
         {promptSegments.map((item) => (
-          <section class="translationSegment">
+          <section class="translationSegment" id={`source-${item.id}`} tabindex="-1">
             {prompts.length > 1 && <small>Segment {item.ordinal}</small>}
             {item.instruction && <em>{item.instruction}</em>}
             <p>{item.sourceText}</p>
@@ -84,13 +85,12 @@ const nextHref = translation.navigation?.nextId
         <header>
           <span>01 · Clean Attempt</span>
           <h2>完整做完这一套</h2>
-          <p>Review unit 仍是一整套；但每个 Segment 的第一版分别保存，避免证据被一个大文本框压扁。参考译文现在不可见。</p>
+          <p>对照左侧原文，完成全部译文。第一版独立保留；参考译文在交卷后按需打开。</p>
         </header>
         <div class="translationAttemptGrid">
           {prompts.map((item) => (
             <label class="translationAnswerCard" data-attempt-card={item.id}>
-              <span>Segment {item.ordinal}</span>
-              {item.sourceText && <p>{item.sourceText}</p>}
+              <span>Segment {item.ordinal} · <a href={`#source-${item.id}`}>定位原文</a></span>
               <textarea data-attempt-id={item.id} rows="5" placeholder={`Segment ${item.ordinal} 的第一版译文…`}></textarea>
             </label>
           ))}
@@ -285,9 +285,26 @@ const nextHref = translation.navigation?.nextId
     let state = normalizeTranslationState(prompts, saved);
     let transferLedger = normalizeTransferLedger(readJson(TRANSLATION_TRANSFER_STORAGE_KEY, null));
 
+    let committedState = JSON.stringify(state);
+    let committedLedger = JSON.stringify(transferLedger);
     const save = () => {
-      writeJson(storageKey, state);
-      writeJson(TRANSLATION_TRANSFER_STORAGE_KEY, transferLedger);
+      if (JSON.stringify(state) === committedState && JSON.stringify(transferLedger) === committedLedger) return true;
+      const feedback = root.querySelector('[data-translation-save-feedback]');
+      let oldState = null;
+      try {
+        oldState = localStorage.getItem(storageKey);
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        if (JSON.stringify(transferLedger) !== committedLedger) localStorage.setItem(TRANSLATION_TRANSFER_STORAGE_KEY, JSON.stringify(transferLedger));
+        committedState = JSON.stringify(state); committedLedger = JSON.stringify(transferLedger);
+      } catch {
+        try { if (oldState === null) localStorage.removeItem(storageKey); else localStorage.setItem(storageKey, oldState); } catch {}
+        state = JSON.parse(committedState); transferLedger = JSON.parse(committedLedger);
+        if (feedback instanceof HTMLElement) { feedback.hidden = false; feedback.textContent = '本机保存失败。请保留输入，恢复浏览器存储后重试；状态没有前进。'; }
+        return false;
+      }
+      if (feedback instanceof HTMLElement) { feedback.hidden = false; feedback.textContent = '已保存到本机'; }
+      stampLastLocation();
+        return true;
     };
     const stampLastLocation = () => writeJson(lastLocationKey, {
       id: objectId,
@@ -298,7 +315,6 @@ const nextHref = translation.navigation?.nextId
       href: `${base}translation/${encodeURIComponent(objectId)}/`,
       updatedAt: new Date().toISOString()
     });
-    stampLastLocation();
 
     const escapeLine = (value) => String(value || '').replace(/\s+/g, ' ').trim();
     const formatTime = (value) => {
@@ -451,6 +467,7 @@ const nextHref = translation.navigation?.nextId
     };
 
     const render = () => {
+      if (!save()) return;
       root.querySelectorAll('[data-stage]').forEach((section) => {
         section.hidden = section.getAttribute('data-stage') !== state.stage;
       });
@@ -484,7 +501,6 @@ const nextHref = translation.navigation?.nextId
       root.querySelectorAll('[data-toggle-complete-reference]').forEach((button) => {
         button.textContent = state.completeReferenceOpen ? '收起 Reference' : '打开 Reference';
       });
-      save();
     };
 
     const sourceSegmentsText = () => prompts.map((prompt) =>

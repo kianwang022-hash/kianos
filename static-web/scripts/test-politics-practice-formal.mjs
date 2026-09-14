@@ -9,7 +9,7 @@ import { publicPracticeCatalog, practiceReady, practiceReviewPayload } from '../
 import { PRACTICE_KEYS as K } from '../src/lib/politicsPracticeClient.mjs';
 
 const base = process.env.PRACTICE_FORMAL_URL || 'http://127.0.0.1:4337';
-const out = path.resolve('../output/playwright/issue139'); fs.mkdirSync(out, { recursive: true });
+const out = path.resolve(process.env.PRACTICE_FORMAL_OUT || '../output/playwright/issue139'); fs.mkdirSync(out, { recursive: true });
 const catalog = buildPoliticsPracticeCatalogCurrent('/'), ready = catalog.questions.filter(practiceReady);
 const qById = new Map(catalog.questions.map(q => [q.id,q]));
 const report = { scope: '#139 formal Current data / isolated browser state / SELF',
@@ -99,8 +99,8 @@ try {
   }
   {
     const q=qById.get('X1000-MARX-M-001'),unit=catalog.units.find(u=>u.key===q.unitKey);const {p,context}=await pageFor();await p.goto(base+unit.href);
-    await p.locator('[data-workspace-unit-tab="1"]').click();
-    await p.locator('[data-workspace-unit]:not([hidden]) [data-workspace-action="start-learn"]').click();
+    await p.locator('[data-frame-unit-link]').nth(1).click();
+    await p.locator('[data-frame-unit]:not([hidden]) [data-frame-handoff]').click();
     await p.locator(`[data-practice-unit-entry="${unit.key}"]`).click();await start(p);const firstQuestion=await current(p);await answer(p,firstQuestion.answer);
     const session=await read(p,K.session);
     // Deliberately leave chapter memory on another unit before following Return.

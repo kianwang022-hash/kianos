@@ -1,9 +1,17 @@
 function headingRows(markdown) {
-  return [...String(markdown).matchAll(/^(#{2,4})\s+(.+)$/gm)].map((match) => ({
-    index: match.index || 0,
-    level: match[1].length,
-    title: String(match[2] || '').trim()
-  }));
+  const rows = []; let fence = null; let offset = 0;
+  for (const line of String(markdown).split('\n')) {
+    const token = line.match(/^ {0,3}(`{3,}|~{3,})/);
+    if (token) {
+      if (!fence) fence = token[1];
+      else if (token[1][0] === fence[0] && token[1].length >= fence.length && line.trim() === token[1]) fence = null;
+    } else if (!fence) {
+      const heading = line.match(/^(#{2,4})\s+(.+)$/);
+      if (heading) rows.push({index: offset, level: heading[1].length, title: heading[2].trim()});
+    }
+    offset += line.length + 1;
+  }
+  return rows;
 }
 
 function removeNestedSection(markdown, predicate) {

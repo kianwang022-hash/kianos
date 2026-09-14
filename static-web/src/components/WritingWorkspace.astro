@@ -29,6 +29,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     </nav>
   </header>
 
+  <p data-writing-save-feedback role="status" hidden></p>
   <div class="writingRuntimeColumns">
     <article class="writingPrompt">
       <header><span>Prompt stays visible</span><h2>Task</h2></header>
@@ -62,6 +63,19 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
         <span>No model answer in clean runtime</span>
         <span>Protected true exam · not consumed</span>
       </div>
+      <section data-writing-plan-tools>
+        <div class="writingPlanMode">
+          <label><input type="radio" name="writing-plan-mode" value="planned" data-plan-mode checked /> <span><strong>Compact plan</strong><small>用自己的 Task/Core Message、content atoms、信息顺序。</small></span></label>
+          <label><input type="radio" name="writing-plan-mode" value="direct" data-plan-mode /> <span><strong>Direct mode</strong><small>已经能直接生成时，不为了系统强行制造“计划”。</small></span></label>
+        </div>
+
+        <label class="writingField" data-plan-field>
+          <span>First meaningful plan / content</span>
+          <small>{task.planningPrompt}</small>
+          <textarea rows="7" data-plan-draft placeholder="写你真正会用的短计划，不写完整模板。"></textarea>
+        </label>
+
+      </section>
       <details class="writingProvenance">
         <summary>Runtime provenance</summary>
         <code>{task.sourcePath}</code>
@@ -74,23 +88,12 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       <section class="writingStage" data-runtime-stage="attempt">
         <header>
           <span>01 · Clean Attempt</span>
-          <h2>先生成，再评价</h2>
-          <p>正式 learner-facing 单位是一整篇。先留下 first meaningful planning/content evidence，再锁定第一版；页面不做假评分，也不提前给范文。</p>
+          <h2>写下完整第一版</h2>
+          <p>先完成自己的整篇表达；左侧短计划可选。第一版锁定后会独立保留。</p>
         </header>
 
-        <div class="writingPlanMode">
-          <label><input type="radio" name="writing-plan-mode" value="planned" data-plan-mode checked /> <span><strong>Compact plan</strong><small>用自己的 Task/Core Message、content atoms、信息顺序。</small></span></label>
-          <label><input type="radio" name="writing-plan-mode" value="direct" data-plan-mode /> <span><strong>Direct mode</strong><small>已经能直接生成时，不为了系统强行制造“计划”。</small></span></label>
-        </div>
-
-        <label class="writingField" data-plan-field>
-          <span>First meaningful plan / content</span>
-          <small>{task.planningPrompt}</small>
-          <textarea rows="7" data-plan-draft placeholder="写你真正会用的短计划，不写完整模板。"></textarea>
-        </label>
-
         <label class="writingField">
-          <span>First draft · complete essay</span>
+          <span>First draft · <output data-writing-word-count>0 words</output> · <output data-writing-timer title="本页可见、首次输入后计时；不作为学习判断">00:00</output></span>
           <small>{task.draftPrompt}</small>
           <textarea rows="18" data-essay-draft placeholder="在这里完成第一版整篇作文…"></textarea>
         </label>
@@ -110,11 +113,10 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       </section>
 
       <section class="writingStage" data-runtime-stage="review" hidden>
-        <header>
-          <span>02 · Whole-Essay Review</span>
-          <h2>让 Chat 判断 PASS，或者只找 first meaningful failure</h2>
-          <p>PASS 是真实出口。若要修，只返回最早且足以解释重要下游问题的一层 + 最小 repair；不先给 model essay，不为“还能更高级”制造债务。</p>
-        </header>
+        <header><span>First draft saved</span><h2>回看第一版，按需修订</h2><p>第一版完整保留。可以自行修订，也可以把问题交给 Chat；保存工件不会被当成评分或能力判定。</p></header>
+        <label class="writingField"><span>Revision · 完整修订稿</span><textarea rows="18" data-authoring-revision placeholder="按需修改这篇作文；第一版不会被覆盖。"></textarea></label>
+        <div class="writingActions"><button type="button" class="primary" data-save-authoring-revision>保存修订</button><button type="button" data-copy-discussion>复制全文给 Chat 讨论</button><a href={`${base}writing/`}>返回 Writing →</a><small data-authoring-status role="status"></small></div>
+        <details class="writingReviewProtocol"><summary>已有明确 Chat 判断时，导入结构化回执</summary>
         <div class="writingActions">
           <button type="button" class="primary" data-copy-review>复制 Review Packet</button>
           <small data-copy-review-status>把 packet 发给 Chat；它包含 prompt、first planning evidence 和 first draft。</small>
@@ -127,6 +129,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
           <button type="button" class="primary" data-import-review>导入 Chat 判断 →</button>
           <small data-review-status>PASS 直接结束；REPAIR_NEEDED 才进入最小重生成。</small>
         </div>
+        </details>
       </section>
 
       <section class="writingStage" data-runtime-stage="repair" hidden>
@@ -221,6 +224,24 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     try { saved = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch {}
     let record = normalizeWritingRecord(task, saved);
 
+    // Quiet authoring time is a private utility, separate from evidence/verdicts.
+    const timerKey = `kianos-writing-clock-v1:${task.id}`;
+    let elapsedMs = 0; let clockActive = false; let tickAt = performance.now();
+    try { elapsedMs = Math.max(0, Number(JSON.parse(localStorage.getItem(timerKey) || '0')) || 0); } catch {}
+    const clockOutput = root.querySelector('[data-writing-timer]');
+    const tickClock = () => {
+      const now = performance.now();
+      if (clockActive && !document.hidden && record.state === WRITING_STATES.ATTEMPT) elapsedMs += Math.min(now - tickAt, 2000);
+      tickAt = now;
+      const seconds = Math.floor(elapsedMs / 1000);
+      if (clockOutput) clockOutput.textContent = `${String(Math.floor(seconds / 60)).padStart(2,'0')}:${String(seconds % 60).padStart(2,'0')}`;
+    };
+    root.addEventListener('input', event => { if (event.target.matches('[data-plan-draft],[data-essay-draft]')) clockActive = true; });
+    const persistClock = () => { tickClock(); if (elapsedMs > 0) try { localStorage.setItem(timerKey,JSON.stringify(elapsedMs)); } catch {} };
+    setInterval(tickClock, 1000); tickClock();
+    document.addEventListener('visibilitychange',persistClock); window.addEventListener('pagehide',persistClock);
+    root.querySelector('[data-lock-first]')?.addEventListener('click',persistClock);
+
     const stageMap = {
       [WRITING_STATES.ATTEMPT]: 'attempt',
       [WRITING_STATES.REVIEW_PENDING]: 'review',
@@ -245,10 +266,35 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     const regeneration = root.querySelector('[data-regeneration]');
     const reviewReturnBox = root.querySelector('[data-review-return]');
     const repairReturnBox = root.querySelector('[data-repair-return]');
+    const revisionBox = root.querySelector('[data-authoring-revision]');
+    const authoringKey = `kianos-writing-authoring-v1:${task.id}`;
+    let authoring = null;
+    try { authoring = JSON.parse(localStorage.getItem(authoringKey) || 'null'); } catch {}
+    const matchingAuthoring = () => authoring?.taskId === task.id && authoring?.firstSubmittedAt === record.firstSubmittedAt;
+    root.querySelector('[data-save-authoring-revision]')?.addEventListener('click', () => {
+      if (!(revisionBox instanceof HTMLTextAreaElement) || !revisionBox.value.trim() || !record.firstDraft) return;
+      const next = {schema:'kianos.writing.authoring.v1',taskId:task.id,firstSubmittedAt:record.firstSubmittedAt,revisions:[...(matchingAuthoring() ? authoring.revisions : []),{text:revisionBox.value,savedAt:new Date().toISOString()}]};
+      try { localStorage.setItem(authoringKey,JSON.stringify(next)); authoring=next; setStatus('[data-authoring-status]','修订已保存；第一版未改变。'); }
+      catch { setStatus('[data-authoring-status]','保存失败，请保留当前修订文字后重试。',true); }
+    });
+    root.querySelector('[data-copy-discussion]')?.addEventListener('click', async () => {
+      const text = `Writing discussion · ${task.title}\n\nTask\n${JSON.stringify(task.learnerTask,null,2)}\n\nFirst draft\n${record.firstDraft}\n\nRevision (learner authored)\n${revisionBox?.value || ''}\n\n请围绕我提出的具体问题讨论；不要替我写范文，也不要凭这份工件伪造学习结论。`;
+      try { await navigator.clipboard.writeText(text); setStatus('[data-authoring-status]','全文已复制，回 Chat 后说明你想讨论的问题。'); }
+      catch { window.prompt('复制讨论材料',text); }
+    });
 
+    let committedRecord = JSON.stringify(record);
     function persist() {
+      if (JSON.stringify(record) === committedRecord) return true;
       record.updatedAt = new Date().toISOString();
-      try { localStorage.setItem(storageKey, JSON.stringify(record)); } catch {}
+      const feedback = root.querySelector('[data-writing-save-feedback]');
+      try { localStorage.setItem(storageKey, JSON.stringify(record)); committedRecord = JSON.stringify(record); }
+      catch {
+        record = JSON.parse(committedRecord);
+        if (feedback instanceof HTMLElement) { feedback.hidden = false; feedback.textContent = '未能保存到本机。请保留当前页面和输入，恢复浏览器存储后重试；本次状态没有前进。'; }
+        return false;
+      }
+      if (feedback instanceof HTMLElement) { feedback.hidden = false; feedback.textContent = '已保存到本机'; }
       try {
         localStorage.setItem(lastLocationKey, JSON.stringify({
           id: task.id,
@@ -258,6 +304,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
           updatedAt: record.updatedAt
         }));
       } catch {}
+      return true;
     }
 
     function setStatus(selector, text, bad = false) {
@@ -308,12 +355,16 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     }
 
     function render() {
+      if (!persist()) return;
+      const planTools = root.querySelector('[data-writing-plan-tools]');
+      if (planTools instanceof HTMLElement) planTools.hidden = record.state !== WRITING_STATES.ATTEMPT;
       const visible = stageMap[record.state] || 'attempt';
       root.querySelectorAll('[data-runtime-stage]').forEach((node) => {
         if (node instanceof HTMLElement) node.hidden = node.getAttribute('data-runtime-stage') !== visible;
       });
       const label = root.querySelector('[data-stage-label]');
       if (label) label.textContent = stageLabels[record.state] || record.state;
+      if (revisionBox instanceof HTMLTextAreaElement && document.activeElement !== revisionBox && record.state === WRITING_STATES.REVIEW_PENDING) revisionBox.value = matchingAuthoring() ? authoring.revisions.at(-1)?.text || record.firstDraft : record.firstDraft;
       renderFrozen();
       renderDiagnosis();
       renderTransfer();
@@ -327,7 +378,12 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
       });
       const planField = root.querySelector('[data-plan-field]');
       if (planField instanceof HTMLElement) planField.hidden = record.planMode === 'direct';
-      persist();
+      updateWordCount();
+    }
+
+    function updateWordCount() {
+      const output = root.querySelector('[data-writing-word-count]');
+      if (output && essay instanceof HTMLTextAreaElement) output.textContent = `${essay.value.trim().match(/\S+/g)?.length || 0} words`;
     }
 
     async function copyPacket(packet, statusSelector, label) {
@@ -359,6 +415,7 @@ const payload = JSON.stringify(task).replace(/</g, '\\u003c');
     essay?.addEventListener('input', () => {
       if (essay instanceof HTMLTextAreaElement && record.state === WRITING_STATES.ATTEMPT) {
         record.draftEssay = essay.value;
+        updateWordCount();
         persist();
       }
     });

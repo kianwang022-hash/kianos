@@ -23,8 +23,16 @@ const { reading } = Astro.props;
       href: window.location.pathname,
       observed_at: new Date().toISOString()
     };
-    if (value.id) {
-      try { localStorage.setItem('kianos-reading-last-location-v1', JSON.stringify(value)); } catch {}
-    }
+    document.querySelector('[data-local-port="reading"]')?.addEventListener('click', event => {
+      if (!(event.target instanceof Element) || !event.target.closest('button')) return;
+      setTimeout(()=>{
+        try {
+          const attempt=JSON.parse(localStorage.getItem(`kianos-reading-attempt-v1:${value.id}`)||'null');
+          if(!attempt || (!attempt.submitted && !Object.values(attempt.answers||{}).some(Boolean)))return;
+          value.href=location.pathname+location.search+location.hash;value.observed_at=new Date().toISOString();
+          localStorage.setItem('kianos-reading-last-location-v1',JSON.stringify(value));
+        } catch {}
+      },0);
+    });
   }
 </script>

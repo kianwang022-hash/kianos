@@ -1,6 +1,7 @@
 ---
 import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
+import XizongFrameProtection from '../../../components/XizongFrameProtection.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
 import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
 import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
@@ -38,7 +39,7 @@ const projection = {
   kpRecords: block.kpRecords.map((kp) => ({ ...kp, detailHtml: marked.parse(projectKpCore(kp.detailMarkdown), { gfm: true }) }))
 };
 ---
-<Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
+<Base showLead={false} title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
   <XizongLastLocation system={system} block={block} />
   <XizongBlockV6 block={projection} />
   <XizongRuntimeStageGuard system={system} block={block} />
@@ -48,4 +49,5 @@ const projection = {
   <XizongMemoryReviewV6 block={projection} />
   <XizongBlockEvidenceGuard block={projection} />
   <XizongRepairInboxBridge block={projection} />
+  <XizongFrameProtection block={projection} />
 </Base>

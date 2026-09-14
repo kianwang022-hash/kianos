@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Lexical 参考" active="lexical"><nav><a data-lexical-exact-return hidden>← 返回原任务</a></nav><p data-lookup-status role="status">正在核对 Current 词条…</p><section class="lexicalReadOnly" data-lexical-reference></section></Base>
+<script>
+const root=document.querySelector('[data-lexical-reference]');
+if(root){
+ const params=new URLSearchParams(location.search);const ordinal=params.get('ordinal'),object=params.get('object');
+ const status=document.querySelector('[data-lookup-status]');
+ try{const back=new URL(params.get('return')||'',location.origin);if(back.origin===location.origin&&/^\/(reading|cloze|reading-b|translation|writing)\//.test(back.pathname)){const link=document.querySelector('[data-lexical-exact-return]');link.href=back.pathname+back.search+back.hash;link.hidden=false;}}catch{}
+ (async()=>{
+  try{
+   if(!/^\d+$/.test(ordinal||'')||!object)throw new Error('词条身份不完整');
+   const response=await fetch(`/vocabulary/${ordinal}/`);if(!response.ok)throw new Error('Current 词条暂不可读取');
+   const doc=new DOMParser().parseFromString(await response.text(),'text/html');
+   const runtime=doc.querySelector('[data-local-port=vocabulary]');if(runtime?.getAttribute('data-vocab-object')!==object)throw new Error('Current 词条身份不匹配');
+   const content=runtime.querySelector('[data-vocab-details]');if(!content)throw new Error('词条正文缺失');
+   content.removeAttribute('hidden');
+   // Reuse the Current renderer's complete reference body without executing its learner Runtime.
+   content.querySelectorAll('script,button,.portedVocabLocalNote,.portedVocabWordHeader aside').forEach(node=>node.remove());
+   root.append(content);status.textContent='Current 只读参考 · 不记录掌握或修补状态';
+  }catch(error){status.textContent=error.message||'读取失败；可以返回原任务重试。';}
+ })();
+}
+</script>
+<style>.lexicalReadOnly{margin-top:20px}.lexicalReadOnly :global(p),.lexicalReadOnly :global(li){font-size:17px;line-height:1.75}.lexicalReadOnly :global(button){display:none}</style>

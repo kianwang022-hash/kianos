@@ -1,5 +1,10 @@
 ---
+import { loadXizongFrame, xizongFrameView } from '../lib/xizongFrameProjection.mjs';
+import XizongFrameValue from './XizongFrameValue.astro';
 const { block } = Astro.props;
+const frame = loadXizongFrame(block.blockId);
+// Canonical Guide is rendered by the complete Current orientation below; LG maps by the rail.
+const richObjects = xizongFrameView(frame, 'BLOCK_ORIENT').filter(object => object.binding.kind === 'DERIVED_FRAGMENT' && object.role !== 'PROBLEM' && !String(block.blockLearnMarkdown || '').includes(String(object.value).trim()));
 const base = import.meta.env.BASE_URL;
 const kps = block?.kpRecords || [];
 const groups = block?.logicGroups || [];
@@ -66,10 +71,11 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
           </div>
           {block.recallSpine && <div class="xv6BlockSpine"><span>先抓住这条主线</span><strong>{block.recallSpine}</strong></div>}
           {block.stopLine && <p class="xv6LaterCue"><span>后面再展开</span>{block.stopLine}</p>}
-          <details class="xv6BlockOrientation">
-            <summary>需要时看完整 Block 定位</summary>
+          <section class="xv6BlockOrientation" data-frame-path={frame.path}>
+            <h3>Block 定位</h3>
             <article class="portedStudyArticle markdown" set:html={block.blockLearnHtml}></article>
-          </details>
+          </section>
+          {richObjects.length > 0 && <section class="xv6CurrentGeometry" aria-label="Current 模型">{richObjects.map(object => <section data-frame-object={object.object_id}><XizongFrameValue value={object.value} geometry={object.geometry} /></section>)}</section>}
           {!hasTimedVisuals && block.visualGateHtml && <details class="xv6VisualGate"><summary>需要时看原图</summary><div class="markdown" set:html={block.visualGateHtml}></div></details>}
           <footer class="portedStudyStageAction"><span>先知道这块为什么存在，不在这里重读讲义。</span><button type="button" class="portedPrimaryAction" data-stage-next="logic_group">进入第一个学习节</button></footer>
         </section>
@@ -92,7 +98,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
             <div><strong>在原讲义里连续完成这一学习节</strong><p>不要按 KP 来回切换 App。先顺着原讲义把这一组机制完整学完，再一次回来做本节 Recall。</p></div>
             <span data-group-lecture-source>{firstGroupSource}</span>
           </div>
-          <details class="xv6GroupKpMap">
+          <details class="xv6GroupKpMap" open>
             <summary>回来后要 Recall 的 KP 路标</summary>
             <p data-group-lecture-kps>{firstGroupKps.map((kp) => kp.displayId).join(' · ') || '本学习节对应 KP'}</p>
           </details>
@@ -146,6 +152,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
           <p data-block-complete-detail>需要完成每个学习节的原讲义接触、KP Recall，并做一次 Block Recall。</p>
           <button type="button" class="portedPrimaryAction" data-block-complete disabled>确认 Block 第一轮完成</button>
           <small>这里只记录本机学习状态。</small>
+          <a href={`${base}xizong/${block.systemId}/`}>返回所属 System →</a>
         </section>
       </section>
 
@@ -197,9 +204,14 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false };
     try { state = { ...state, ...(JSON.parse(localStorage.getItem(storageKey) || 'null') || {}) }; } catch {}
 
-    const save = () => { try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch {} };
-    const learnedCount = () => Object.values(state.learned || {}).filter(Boolean).length;
-    const recallCount = () => Object.keys(state.ratings || {}).length;
+    let committedState = JSON.stringify(state);
+    const saveFeedback = document.createElement('p'); saveFeedback.hidden = true; saveFeedback.setAttribute('role','status'); saveFeedback.dataset.blockSaveFeedback = ''; root.prepend(saveFeedback);
+    const save = () => {
+      try { localStorage.setItem(storageKey, JSON.stringify(state)); committedState = JSON.stringify(state); saveFeedback.hidden = true; return true; }
+      catch { state = JSON.parse(committedState); saveFeedback.hidden = false; saveFeedback.textContent = '本机保存失败，本次检查点没有前进。请恢复存储后重试。'; return false; }
+    };
+    const learnedCount = () => kpData.filter(kp => state.learned?.[kp.kpId] === true).length;
+    const recallCount = () => kpData.filter(kp => ['known','fuzzy','unknown','mastered'].includes(state.ratings?.[kp.kpId])).length;
     const canComplete = () => totalKp > 0 && learnedCount() >= totalKp && recallCount() >= totalKp && Boolean(state.blockRecallDone);
     const currentGroup = () => groups[Math.max(0, Math.min(groups.length - 1, Number(state.groupIndex || 0)))] || groups[0];
     const groupIndexForKp = (index) => {
@@ -285,7 +297,8 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     const setKpIndex = (index) => {
       state.kpIndex = Math.max(0, Math.min(totalKp - 1, Number(index) || 0));
       state.groupIndex = groupIndexForKp(state.kpIndex);
-      kpRecallCards.forEach((card, itemIndex) => { card.hidden = itemIndex !== state.kpIndex; });
+      save();
+      kpRecallCards.forEach((card, itemIndex) => { card.hidden = itemIndex !== state.kpIndex; if (!card.hidden) { card.querySelector('[data-kp-answer]').hidden = true; card.querySelector('[data-kp-rating]').hidden = true; card.querySelector('[data-kp-reveal]').hidden = false; } });
       const recallLabel = kpRecallCards[state.kpIndex]?.querySelector('h3')?.textContent || '';
       root.querySelector('[data-kp-recall-title]')?.replaceChildren(document.createTextNode(recallLabel));
       const group = currentGroup();
@@ -312,8 +325,10 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
 
     const setStage = (stage) => {
       state.stage = stage || 'block_learn';
+      save();
       stages.forEach((panel) => { panel.hidden = panel.getAttribute('data-study-stage') !== state.stage; });
       const kpMode = state.stage === 'kp_recall';
+      if (kpMode) setKpIndex(state.kpIndex);
       if (kpRail) kpRail.hidden = !kpMode;
       if (groupRail) groupRail.hidden = kpMode;
       root.querySelectorAll('[data-chain-step]').forEach((item) => item.classList.toggle('viewing', item.getAttribute('data-chain-step') === state.stage));
@@ -332,7 +347,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     root.querySelector('[data-enter-group]')?.addEventListener('click', () => {
       const group = currentGroup();
       if (group) state.kpIndex = firstIndexForGroup(group);
-      save(); setStage('kp_learn');
+      if (!save()) return; setStage('kp_learn');
     });
     root.querySelector('[data-group-lecture-done]')?.addEventListener('click', () => {
       const group = currentGroup();
@@ -341,10 +356,10 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
       ids.forEach((id) => { learned[id] = true; });
       state.learned = learned;
       state.kpIndex = firstUnrecalledIndexForGroup(group);
-      save(); setStage('kp_recall');
+      if (!save()) return; setStage('kp_recall');
     });
-    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
-    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => { state.groupIndex = Number(button.getAttribute('data-outline-open') || 0); const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); save(); switchTab('learn'); setStage('logic_group'); }));
+    groupRailButtons.forEach((button, index) => button.addEventListener('click', () => { state.groupIndex = index; const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); if (!save()) return; switchTab('learn'); setStage('logic_group'); }));
+    root.querySelectorAll('[data-outline-open]').forEach((button) => button.addEventListener('click', () => { state.groupIndex = Number(button.getAttribute('data-outline-open') || 0); const group = currentGroup(); if (group) state.kpIndex = firstIndexForGroup(group); if (!save()) return; switchTab('learn'); setStage('logic_group'); }));
 
     const stepRecall = (delta) => {
       const ids = currentGroup()?.kpIds || [];
@@ -371,7 +386,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
         const value = button.getAttribute('data-rating') || '';
         state.ratings = { ...(state.ratings || {}), [kpId]: value };
         card.querySelectorAll('[data-rating]').forEach((candidate) => candidate.classList.toggle('selected', candidate === button));
-        save(); syncState();
+        if (!save()) return; syncState();
         const group = currentGroup();
         const ids = Array.isArray(group?.kpIds) ? group.kpIds : [];
         const firstMissingId = ids.find((id) => !state.ratings?.[id]);
@@ -389,14 +404,14 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
         state.groupIndex += 1;
         const group = currentGroup();
         if (group) state.kpIndex = firstIndexForGroup(group);
-        save(); setStage('logic_group');
+        if (!save()) return; setStage('logic_group');
       } else {
-        save(); setStage('block_recall');
+        if (!save()) return; setStage('block_recall');
       }
     });
 
-    root.querySelector('[data-block-recall-complete]')?.addEventListener('click', (event) => { state.blockRecallDone = true; event.currentTarget.textContent = 'Block Recall 已完成'; event.currentTarget.classList.add('completed'); save(); syncState(); setStage('block_complete'); });
-    root.querySelector('[data-block-complete]')?.addEventListener('click', (event) => { if (!canComplete()) return; state.completed = true; event.currentTarget.textContent = 'Block 第一轮已完成'; save(); syncState(); });
+    root.querySelector('[data-block-recall-complete]')?.addEventListener('click', (event) => { state.blockRecallDone = true; if (!save()) return; event.currentTarget.textContent = 'Block Recall 已完成'; event.currentTarget.classList.add('completed'); save(); syncState(); setStage('block_complete'); });
+    root.querySelector('[data-block-complete]')?.addEventListener('click', (event) => { if (!canComplete()) return; state.completed = true; if (!save()) return; event.currentTarget.textContent = 'Block 第一轮已完成'; save(); syncState(); });
 
     const setCollapsed = (kind, collapsed) => {
       layout?.classList.toggle(`${kind}-collapsed`, collapsed);
@@ -410,6 +425,7 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     });
 
     document.addEventListener('keydown', (event) => {
+      if (event.isComposing || event.keyCode === 229) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
       if (state.stage !== 'kp_recall') return;

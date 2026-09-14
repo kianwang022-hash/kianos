@@ -1,0 +1,8 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workspace from '@runtime/components/VocabularyWordRuntime.astro';
+import { listLexicalOrdinals,loadLexicalWordByOrdinal } from '@runtime/lib/lexical.mjs';
+export function getStaticPaths(){return listLexicalOrdinals().map(ordinal=>({params:{ordinal:String(ordinal)}}));}
+const answer=loadLexicalWordByOrdinal(Number(Astro.params.ordinal));
+---
+<Base title={answer.record.word} active="lexical"><Workspace answer={answer}/></Base>

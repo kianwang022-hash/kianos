@@ -43,6 +43,8 @@ async function renderChunk(key) {
   return source ? await marked.parse(source, { gfm: true, breaks: false }) : '';
 }
 
+const referenceMarkdown = fs.readFileSync(new URL('../../../content/english/modules/translation/learning.reference.md', import.meta.url), 'utf8');
+const referenceHtml = await marked.parse(referenceMarkdown, {gfm:true, breaks:false});
 const introHtml = await marked.parse(intro, { gfm: true, breaks: false });
 const coreSections = await Promise.all(coreKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
 const diagnosticSections = await Promise.all(diagnosticKeys.map(async (key) => ({ key, html: await renderChunk(key) })));
@@ -102,6 +104,8 @@ const runtimeSections = await Promise.all(runtimeKeys.map(async (key) => ({ key,
           ))}
         </div>
       </details>
+
+      <details class="translationReferenceSection"><summary><div><span>深层参考</span><strong>完整能力与 Runtime 参考文档</strong></div><small>按需查阅；当前首次学习路径以本页主干为准，不增加学习步骤。</small></summary><div class="translationReferenceBody markdownBody" set:html={referenceHtml}></div></details>
 
       <a class="translationExit" href={`${base}translation/`}>
         <span>First Learning Exit</span>

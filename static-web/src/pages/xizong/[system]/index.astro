@@ -19,7 +19,7 @@ const system = loadXizongSystem(systemId);
 const pathways = loadXizongPathways(system);
 const questionSweep = loadXizongSystemQuestionSweep(system);
 ---
-<Base title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
+<Base showLead={false} title={system.title} kicker={`西医综合 · ${system.canonicalId} · System Learn`} description={system.mission} sourcePath={system.sourcePath} sourceHash={system.sourceHash} objectId={`xizong:${system.systemId}`} active="xizong">
   <XizongLastLocation system={system} />
   <XizongSystemV6 system={system} pathways={pathways} />
   {questionSweep && (

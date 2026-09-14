@@ -22,11 +22,19 @@ const { system, block = null } = Astro.props;
       blockSlug: node.getAttribute('data-block-slug') || '',
       blockLabel: node.getAttribute('data-block-label') || '',
       blockTitle: node.getAttribute('data-block-title') || '',
-      href: window.location.pathname,
+      href: window.location.pathname + window.location.search + window.location.hash,
+      meaningfulAction: true,
       observed_at: new Date().toISOString()
     };
-    if (value.systemId) {
+    const save = () => {
+      value.href = location.pathname + location.search + location.hash;
+      value.observed_at = new Date().toISOString();
       try { localStorage.setItem('kianos-xizong-last-location-v1', JSON.stringify(value)); } catch {}
-    }
+    };
+    document.querySelector('[data-xizong-v6-block]')?.addEventListener('click', event => {
+      if (!(event.target instanceof Element) || !event.target.closest('button')) return;
+      setTimeout(save, 0);
+    });
+    document.querySelector('[data-xizong-keep-position]')?.addEventListener('click', save);
   }
 </script>

@@ -1,6 +1,7 @@
 ---
 const { item } = Astro.props;
 const storageKey = `kianos-cloze-attempt-v1:${item.objectId}`;
+const blankParts = text => String(text).split(/(_{2,}\d{1,2}_{2,})/g).map(value => { const match = /^_{2,}(\d{1,2})_{2,}$/.exec(value); const index = match ? item.questions.findIndex((question,i)=>Number(question.ordinal || i+1)===Number(match[1])) : -1; return {text:value,index}; });
 const sourceLabel = [item.year, item.code, item.section].filter(Boolean).join(' · ');
 
 function optionEntries(options) {
@@ -23,7 +24,7 @@ function optionEntries(options) {
   <section class="clozeLayout">
     <article class="clozePassage" data-objective-material>
       <header><span>PASSAGE</span><strong>上下文始终保持可见</strong></header>
-      {item.material.length ? item.material.map((block) => <p data-objective-material-block>{block.text}</p>) : <p data-objective-material-block class="clozeMaterialFallback">Current set 没有可投影的整篇正文；请不要把这组退化成孤立词汇题。</p>}
+      {item.material.length ? item.material.map((block) => <p data-objective-material-block>{blankParts(block.text).map(part=>part.index<0?part.text:<button class="clozeSourceBlank" type="button" data-cloze-source-blank={part.index} aria-label={`定位 Blank ${part.index+1}`}>{part.index+1}</button>)}</p>) : <p data-objective-material-block class="clozeMaterialFallback">Current set 没有可投影的整篇正文；请不要把这组退化成孤立词汇题。</p>}
     </article>
 
     <aside class="clozeDecision">
@@ -82,6 +83,7 @@ function optionEntries(options) {
     const uncertainButton = root.querySelector('[data-cloze-uncertain]');
     const submit = root.querySelector('[data-objective-submit]');
     let active = 0;
+    root.querySelectorAll('[data-cloze-source-blank]').forEach(button=>button.addEventListener('click',()=>{active=Number(button.getAttribute('data-cloze-source-blank'));render();rows[active]?.scrollIntoView({block:'nearest'});rows[active]?.querySelector('[data-cloze-option]')?.focus({preventScroll:true});}));
 
     const normalizeAnswer = (value) => Array.isArray(value)
       ? value.map(String)

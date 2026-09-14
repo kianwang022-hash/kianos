@@ -1,0 +1,8 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workspace from '@runtime/components/WritingWorkspace.astro';
+import { listWritingSyntheticTasks,loadWritingSyntheticTask } from '@runtime/lib/englishWritingSynthetic.mjs';
+export function getStaticPaths(){return listWritingSyntheticTasks().map(task=>({params:{id:task.id}}));}
+const task=loadWritingSyntheticTask(Astro.params.id);
+---
+<Base showLead={false} title={task.title} active="english"><Workspace task={task}/></Base>

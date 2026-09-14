@@ -1,0 +1,9 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workspace from '@runtime/components/ReadingBWorkspace.astro';
+import Gate from '@runtime/components/ObjectiveAnswerGate.astro';
+import { forms,partB } from '../../../data.mjs';
+export function getStaticPaths(){return forms.map(form=>({params:{id:`fixture-${form}`},props:{form}}));}
+const item=partB(Astro.props.form);
+---
+<Base showLead={false} title={item.title} active="reading_b"><Workspace item={item}/><Gate task="reading_b" answerRoute="reading-b-answer"/></Base>

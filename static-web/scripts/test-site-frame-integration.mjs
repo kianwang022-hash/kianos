@@ -1,0 +1,97 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { chromium } from 'playwright';
+import { listWritingSyntheticTasks } from '../src/lib/englishWritingSynthetic.mjs';
+import { loadXizongBlock } from '../src/lib/xizong.mjs';
+const production=process.env.SITE_FRAME_URL||'http://127.0.0.1:4348';
+const fixture=process.env.SITE_FRAME_FIXTURE_URL||'http://127.0.0.1:4349';
+const out=path.resolve('../output/playwright/issue148');fs.mkdirSync(out,{recursive:true});
+const report={scope:'#148 integration / isolated browser contexts / synthetic English / SELF',checks:[],errors:[],learnerU:'NOT_TESTED'};
+const pass=name=>{report.checks.push(name);console.log('PASS',name)};
+const browser=await chromium.launch({headless:!process.env.HEADED});
+const context=await browser.newContext({viewport:{width:1440,height:900}});
+const page=await context.newPage();page.on('pageerror',error=>report.errors.push(error.message));
+const go=async(url)=>{await page.goto(url);await page.waitForTimeout(250)};
+const shot=name=>page.screenshot({path:path.join(out,`${name}.png`)});
+const get=key=>page.evaluate(key=>JSON.parse(localStorage.getItem(key)||'null'),key);
+const overflow=()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth);
+try{
+ await go(`${fixture}/reading/fixture-reading/`);
+ assert.equal(await page.locator('[data-question]:visible').count(),5);
+ assert.equal(await page.locator('[data-reading-answers-ready=true]').count(),0);
+ const columns=await page.locator('.portedReadingColumns').evaluate(e=>({columns:getComputedStyle(e).gridTemplateColumns,panes:[...e.children].map(e=>({height:e.clientHeight,scroll:e.scrollHeight,overflow:getComputedStyle(e).overflowY}))}));
+ assert.equal(columns.panes.every(p=>p.overflow==='auto'),true);
+ await page.locator('[data-question]').first().locator('[data-option=A]').click();
+ await page.locator('[data-question]').nth(3).locator('[data-option=B]').click();
+ await page.reload();assert.equal((await get('kianos-reading-attempt-v1:fixture-reading')).answers['reading-q4'],'B');
+ await page.locator('.portedReadingQuestions').evaluate(e=>e.scrollTop=250);
+ await shot('english-reading-full-sheet');
+ const taskURL=page.url();await page.click('[data-task-guide-link]');await page.locator('.objectiveLearnContent').waitFor();
+ await page.click('[data-task-guide-link]');assert.equal(page.url(),taskURL);assert.equal((await get('kianos-reading-attempt-v1:fixture-reading')).answers['reading-q4'],'B');
+ pass('Reading full five-question sheet / independent panes / refresh / Guide exact return');
+ await go(`${fixture}/cloze/fixture-cloze/`);
+ assert.equal(await page.locator('.clozeQuestion:visible').count(),20);
+ for(let i=0;i<20;i++)await page.locator('.clozeQuestion').nth(i).locator('[data-value=A]').click();
+ await page.keyboard.press('Tab');
+ await page.evaluate(()=>document.activeElement?.blur());
+ const before=await get('kianos-cloze-attempt-v1:fixture-cloze');
+ await page.evaluate(()=>document.dispatchEvent(new KeyboardEvent('keydown',{key:'b',code:'KeyB',isComposing:true,bubbles:true})));
+ assert.deepEqual(await get('kianos-cloze-attempt-v1:fixture-cloze'),before);
+ await page.click('[data-objective-submit]');await page.locator('[data-objective-result-summary]').waitFor({state:'visible'});
+ assert.equal(await page.locator('[data-objective-score]').textContent(),'20 / 20');
+ await shot('english-cloze-full-sheet');pass('Cloze 20 rows / whole submission / IME isolation');
+ for(const form of ['gap_fill','ordering','heading_match','comment_match']){
+  await go(`${fixture}/reading-b/fixture-${form}/`);
+  assert.equal(await page.locator('[data-reading-b-select]').count(),5);
+  for(let i=0;i<5;i++)await page.locator('[data-reading-b-select]').nth(i).selectOption('BCDEF'[i]);
+  await page.click('[data-objective-submit]');await page.locator('[data-objective-result-summary]').waitFor({state:'visible'});
+  if(form==='ordering')assert.equal(await page.locator('[data-reading-b-fixed]').count(),2);
+  assert.equal(await overflow(),true);await shot(`english-part-b-${form}`);pass(`Part B ${form} native form / full response / no horizontal overflow`);
+ }
+ await go(`${fixture}/translation/fixture-translation/`);
+ for(let i=0;i<5;i++)await page.locator('[data-attempt-id]').nth(i).fill(`隔离测试第一版译文 ${i+1}，保留原句意义与关系。`);
+ await page.reload();assert.match(await page.locator('[data-attempt-id]').first().inputValue(),/隔离测试/);
+ await page.click('[data-freeze-first]');await page.locator('[data-stage=decision]').waitFor({state:'visible'});
+ await page.click('[data-pass-clean]');await page.locator('[data-stage=passed]').waitFor({state:'visible'});
+ pass('Translation complete five-part first evidence / persistence / genuine clean PASS exit');
+ const writing=listWritingSyntheticTasks()[0].id;
+ await go(`${fixture}/writing/${writing}/`);
+ await page.check('[data-plan-mode][value=direct]');
+ assert.equal(await page.locator('[data-plan-field]').isVisible(),false);
+ await page.fill('[data-essay-draft]','Dear volunteers,\nThank you for helping us with the library trial. Please record each loan and return the equipment before closing time. Your observations will help us improve the service.\nBest regards,\nThe coordinator');
+ await shot('english-writing-dominant-authoring');
+ await page.reload();assert.match(await page.locator('[data-essay-draft]').inputValue(),/Dear volunteers/);
+ await page.click('[data-lock-first]');await page.locator('[data-runtime-stage=review]').waitFor({state:'visible'});
+ const first=await get(`kianos-writing-runtime-v1:${writing}`);assert.match(first.firstDraft,/Dear volunteers/);
+ await page.click('[data-task-guide-link]');await page.locator('.writingLearnShell').waitFor();await page.click('[data-task-guide-link]');
+ assert.equal((await get(`kianos-writing-runtime-v1:${writing}`)).firstDraft,first.firstDraft);
+ pass('Writing Direct / dominant draft / first evidence / full Guide return');
+ await go(`${production}/xizong/circulation/b02/`);
+ assert.equal(await page.locator('.xv6BlockOrientation').evaluate(e=>e.tagName),'SECTION');
+ await page.click('[data-stage-next=logic_group]');await page.click('[data-enter-group]');assert.equal(await page.locator('.xv6GroupKpMap').getAttribute('open'),'');
+ // Isolated QA action, never primary learner evidence.
+ await page.click('[data-group-lecture-done]');await page.waitForTimeout(100);
+ assert.equal(await page.locator('[data-xizong-v6-block]').getAttribute('data-frame-neutral'),'true');
+ const block=loadXizongBlock('circulation','b02');const firstKp=block.kpRecords[0];
+ assert.equal((await page.locator('body').ariaSnapshot()).includes(firstKp.title),false);
+ assert.ok(await page.locator('[data-kp-recall-card]:visible').evaluate(e=>e.getBoundingClientRect().width)>700, 'neutral Front must retain a usable Mac-wide workspace');
+ await shot('xizong-kp-neutral-front');
+ await page.locator('[data-kp-recall-card]:visible [data-kp-reveal]').click();
+ assert.equal(await page.locator('[data-kp-recall-card]:visible [data-kp-answer]').isVisible(),true);
+ assert.ok((await page.locator('[data-kp-recall-card]:visible [data-kp-answer]').innerText()).length>200);
+ await shot('xizong-kp-complete-core');
+ await page.locator('[data-kp-recall-card]:visible [data-rating=known]').click();
+ await page.reload();assert.equal(await page.locator('[data-xizong-v6-block]').getAttribute('data-frame-neutral'),'true');
+ pass('Xizong formal contact / workspace-wide neutral front / complete Core reveal / next KP refresh');
+ await go(`${production}/`);assert.equal(await page.locator('[data-site-resume-subject=xizong]').isVisible(),true);
+ await page.locator('[data-site-resume-subject=xizong]').click();assert.match(page.url(),/circulation\/b02/);pass('Global Home meaningful Xizong Resume');
+ for(const system of ['circulation','respiratory','urinary']){
+  await go(`${production}/xizong/${system}/`);assert.equal(await overflow(),true);await shot(`xizong-${system}-system`);
+  const width=await page.locator('.xv6SystemMain').evaluate(e=>e.getBoundingClientRect().width);assert.ok(width>800);pass(`${system} two-region System Guide`);
+ }
+ await page.setViewportSize({width:390,height:844});
+ for(const url of [`${fixture}/reading/fixture-reading/`,`${fixture}/cloze/fixture-cloze/`,`${production}/politics/marxism/ch00/`,`${production}/xizong/respiratory/`,`${production}/`]){await go(url);assert.equal(await overflow(),true,url);}
+ pass('390px fallback: Reading / Cloze / Politics / Xizong / Global');
+ assert.deepEqual(report.errors,[]);pass('No uncaught browser errors');
+}catch(error){report.failure=error.stack;throw error;}finally{fs.writeFileSync(path.join(out,'integration-browser.json'),JSON.stringify(report,null,2)+'\n');await browser.close();}

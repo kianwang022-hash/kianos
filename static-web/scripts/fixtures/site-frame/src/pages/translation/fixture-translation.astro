@@ -1,0 +1,8 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workspace from '@runtime/components/TranslationWorkspace.astro';
+import Guard from '@runtime/components/TranslationPersistenceGuard.astro';
+import Evidence from '@runtime/components/TranslationEvidenceGuard.astro';
+import { translation } from '../../../data.mjs';
+---
+<Base showLead={false} title={translation.title} active="english"><Guard/><Workspace translation={translation} reference={{references:[],availableCount:0,totalCount:5}}/><Evidence/></Base>

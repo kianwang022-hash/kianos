@@ -11,7 +11,7 @@ if(bar){
  const task=guides.find(([route])=>path.startsWith(`${base}${route}/`));
  const link=bar.querySelector('a');
  const isTask=url=>url.origin===location.origin && guides.some(([route])=>url.pathname.startsWith(`${base}${route}/`));
- const scrollSelectors=['.portedReadingPassage','.portedReadingQuestions','.clozePassage','.clozeDecision','.translationSource','.translationWork'];
+ const scrollSelectors=['.portedReadingPassage','.portedReadingQuestions','.clozePassage','.clozeDecision','.translationSource','.translationWork','.writingPrompt','.writingWork'];
  const storageKey='kianos:guide-return:v1';
  if(guide){
   const raw=new URLSearchParams(location.search).get('return');

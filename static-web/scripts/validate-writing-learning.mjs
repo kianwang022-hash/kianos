@@ -70,9 +70,9 @@ requireCheck(page.includes('kianos:writing:first-learning:position:v2'), 'PRIVAT
 // Discoverability: English exposes the 30-point Writing lane and targeted first-learning route.
 requireCheck(home.includes('href={`${base}english/`}'), 'HOME_ENGLISH_ENTRY_MISSING');
 requireCheck(englishHub.includes("import { loadWritingLearningProjection } from '../lib/englishWritingLearning.mjs';"), 'ENGLISH_HUB_NOT_BOUND_TO_WRITING_PROJECTION');
-requireCheck(englishHub.includes('data-capability="writing"') && englishHub.includes('href={`${base}writing/`}') && englishHub.includes('Writing · 30 pts'), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
+requireCheck(englishHub.includes('data-capability="writing"') && englishHub.includes('href={`${base}writing/`}') && englishHub.includes('<h2>Writing</h2>'), 'WRITING_SCORE_LANE_NOT_DISCOVERABLE');
 requireCheck(englishHub.includes('href={`${base}writing-learn/`}'), 'WRITING_FIRST_LEARNING_NOT_DISCOVERABLE');
-requireAny(englishHub, ['First Learning / targeted intervention', 'First Learning'], 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');
+requireAny(englishHub, ['Writing Guide'], 'TARGETED_FIRST_LEARNING_CONTEXT_MISSING');
 requireCheck(!englishHub.includes('S/K/L · accepted') && !englishHub.includes('U · learner validation'), 'ACCEPTANCE_DASHBOARD_LEAKED_TO_ENGLISH_HUB');
 
 // First-learning UI must not pretend to own Runtime/Evidence state semantics.

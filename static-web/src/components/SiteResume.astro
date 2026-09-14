@@ -1,0 +1,24 @@
+---
+const { subject = null } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const subjects = [{id:'politics',label:'政治'}, {id:'english',label:'English'}, {id:'xizong',label:'西综'}].filter(item=>!subject || item.id===subject);
+---
+<section class="siteResume" data-site-resume data-base={base} hidden aria-label="继续学习">
+  <h2>继续学习</h2><div>{subjects.map(item=><a data-site-resume-subject={item.id} hidden><span>{item.label}</span><strong></strong><b>继续 →</b></a>)}</div>
+</section>
+<script>
+import { readSiteResumes } from '../lib/siteResume.mjs';
+for (const root of document.querySelectorAll('[data-site-resume]')) {
+  const render = () => {
+    let rows = {}; try { rows = readSiteResumes(localStorage,location.origin,root.getAttribute('data-base') || '/'); } catch {}
+    let count = 0;
+    root.querySelectorAll('[data-site-resume-subject]').forEach(link=>{
+      const row=rows[link.getAttribute('data-site-resume-subject')];link.hidden=!row;
+      if(row){link.href=row.href;link.querySelector('strong').textContent=row.title;count++;}
+    });
+    root.hidden=!count;
+  };
+  render();addEventListener('pageshow',render);addEventListener('storage',render);
+}
+</script>
+<style>.siteResume{margin:18px 0 30px;padding-bottom:22px;border-bottom:1px solid var(--study-line)}.siteResume h2{font-size:17px;font-weight:600;color:var(--study-muted);margin:0 0 12px}.siteResume>div{display:flex;gap:28px;flex-wrap:wrap}.siteResume a{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;flex:1 1 300px;max-width:580px;text-decoration:none;color:inherit;padding:14px 0}.siteResume a span{font-size:14px;color:var(--study-muted)}.siteResume a strong{font-size:19px;line-height:1.5;font-weight:600}.siteResume a b{font-size:15px;color:var(--study-green);white-space:nowrap}</style>

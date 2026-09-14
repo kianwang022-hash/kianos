@@ -1,5 +1,10 @@
 ---
+import { loadXizongFrame, xizongFrameView } from '../lib/xizongFrameProjection.mjs';
+import XizongFrameValue from './XizongFrameValue.astro';
 const { system, pathways } = Astro.props;
+const frame = loadXizongFrame(system.systemId);
+const renderedPointers = new Set(['/mission','/mental_model/spine','/mental_model/parallel_controls','/core_variables','/core_relations','/failure_modes','/judgment_axes','/block_route']);
+const additionalModel = xizongFrameView(frame,'SYSTEM_GUIDE').filter(object => !renderedPointers.has(object.binding.selector?.value));
 const base = import.meta.env.BASE_URL;
 const variableLabel = (item) => typeof item === 'string' ? item : String(item?.label || item?.id || '');
 const recall = system?.systemRecall;
@@ -31,6 +36,29 @@ const failureViews = pathways?.systemFailureViews || {};
         <small>{block.kpCount} KP</small>
       </a>)}
     </nav>
+  <div class="xv6SystemContext">
+    <section class="xv6SelectedBlock">
+      <span>Selected Block</span>
+      <b data-selected-label>{firstBlock?.label}</b>
+      <h3 data-selected-title>{firstBlock?.title}</h3>
+      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP${firstBlock.outlineCount > 0 ? ` · Outline ${firstBlock.outlineCount}` : ''}` : ''}</p>
+      <button type="button" data-open-selected>Enter · 进入当前 Block</button>
+    </section>
+
+    <section class="xv6RecallCompact" data-system-section="recall">
+      <span>System Recall</span>
+      <h3>陌生病例先恢复系统</h3>
+      <blockquote>{recallPrompt}</blockquote>
+      {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
+    </section>
+
+    <section class="xv6SystemKeys">
+      <span>Keyboard</span>
+      <p><kbd>↑</kbd><kbd>↓</kbd> 选择 Block</p>
+      <p><kbd>Enter</kbd> 进入</p>
+      <p><kbd>M</kbd> 母模型 · <kbd>F</kbd> Failure · <kbd>R</kbd> Recall</p>
+    </section>
+  </div>
     <footer><kbd>↑</kbd><kbd>↓</kbd> 选 Block · <kbd>Enter</kbd> 进入</footer>
   </aside>
 
@@ -41,6 +69,7 @@ const failureViews = pathways?.systemFailureViews || {};
         <h2>{system.title}</h2>
       </div>
       <p>{system.mission}</p>
+      <button type="button" data-xizong-keep-position>保留此处位置</button>
     </header>
 
     <section class="xv6Panel xv6MotherPanel" data-system-section="mother">
@@ -66,6 +95,7 @@ const failureViews = pathways?.systemFailureViews || {};
       </article>
     </section>
 
+    {additionalModel.length > 0 && <section class="xv6Panel" data-frame-path={frame.path}>{additionalModel.map(object => <section data-frame-object={object.object_id}><XizongFrameValue value={object.value} geometry={object.geometry} /></section>)}</section>}
     <section class="xv6Panel" data-system-section="failure">
       <header><span>Failure Modes</span><h3>点一个故障，看整条链哪里先坏</h3></header>
       <div class="xv6FailureGrid">
@@ -99,29 +129,7 @@ const failureViews = pathways?.systemFailureViews || {};
     </details>
   </main>
 
-  <aside class="xv6SystemContext">
-    <section class="xv6SelectedBlock">
-      <span>Selected Block</span>
-      <b data-selected-label>{firstBlock?.label}</b>
-      <h3 data-selected-title>{firstBlock?.title}</h3>
-      <p data-selected-meta>{firstBlock ? `${firstBlock.kpCount} KP${firstBlock.outlineCount > 0 ? ` · Outline ${firstBlock.outlineCount}` : ''}` : ''}</p>
-      <button type="button" data-open-selected>Enter · 进入当前 Block</button>
-    </section>
 
-    <section class="xv6RecallCompact" data-system-section="recall">
-      <span>System Recall</span>
-      <h3>陌生病例先恢复系统</h3>
-      <blockquote>{recallPrompt}</blockquote>
-      {recallSteps.length > 0 && <ol>{recallSteps.map((item) => <li>{typeof item === 'string' ? item : JSON.stringify(item)}</li>)}</ol>}
-    </section>
-
-    <section class="xv6SystemKeys">
-      <span>Keyboard</span>
-      <p><kbd>↑</kbd><kbd>↓</kbd> 选择 Block</p>
-      <p><kbd>Enter</kbd> 进入</p>
-      <p><kbd>M</kbd> 母模型 · <kbd>F</kbd> Failure · <kbd>R</kbd> Recall</p>
-    </section>
-  </aside>
 
   <script type="application/json" data-system-block-payload set:html={JSON.stringify(system.blocks.map((block) => ({
     label: block.label,

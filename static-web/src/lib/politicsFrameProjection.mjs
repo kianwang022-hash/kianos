@@ -1,8 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { fileURLToPath } from 'node:url';
-const root = fileURLToPath(new URL('../../../', import.meta.url));
+const root = process.env.KIANOS_REPO_ROOT ? path.resolve(process.env.KIANOS_REPO_ROOT) : path.resolve(process.cwd(), '..');
 const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const list = x => Array.isArray(x) ? x : x == null ? [] : [x];
 export function resolvePoliticsFrameRef(ref, source, unit) {

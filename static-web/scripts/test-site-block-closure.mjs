@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';import fs from'node:fs';import {chromium}from'playwright';import{loadXizongBlock}from'../src/lib/xizong.mjs';
+const base=process.env.SITE_FRAME_URL||'http://127.0.0.1:4348',out='../output/playwright/issue148',report={checks:[],errors:[],scope:'formal A1/A2 objects; isolated synthetic contact/actions, SELF; no learner U'};const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:900}});page.on('pageerror',e=>report.errors.push(e.message));const pass=x=>{report.checks.push(x);console.log('PASS',x)};
+try{
+const block=loadXizongBlock('circulation','b02');await page.goto(`${base}/xizong/circulation/b02/`);await page.click('[data-stage-next=logic_group]');await page.click('[data-enter-group]');
+await page.evaluate(()=>{window.originalSet=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k.startsWith('kianos-xizong-astro-v2:'))throw new DOMException('isolated','QuotaExceededError');return originalSet.call(this,k,v)}});await page.click('[data-group-lecture-done]');assert.equal(await page.locator('[data-study-stage=kp_learn]').isVisible(),true);assert.equal(await page.locator('[data-block-save-feedback]').isVisible(),true);await page.evaluate(()=>Storage.prototype.setItem=originalSet);pass('Failed lecture-contact save stays at lecture and cannot create completion');
+let rated=0;
+for(let group=0;group<block.logicGroups.length;group++){
+ if(group>0)await page.click('[data-enter-group]');
+ await page.click('[data-group-lecture-done]');
+ for(const id of block.logicGroups[group].kpIds){
+ const card=page.locator('[data-kp-recall-card]:visible');await card.locator('[data-kp-reveal]').click();await card.locator(`[data-rating=${rated++===0?'fuzzy':'mastered'}]`).click();await page.waitForTimeout(160);
+ }
+ assert.equal(await page.locator('[data-study-stage=group_close]').isVisible(),true);await page.click('[data-group-close-next]');
+}
+assert.equal(await page.locator('[data-study-stage=block_recall]').isVisible(),true);assert.equal(await page.locator('.xv6RecallSpine').isVisible(),false);await page.screenshot({path:`${out}/xizong-block-recall-front.png`});await page.click('[data-block-frame-reveal]');assert.equal(await page.locator('.xv6GroupReview').getAttribute('open'),'');await page.click('[data-block-recall-complete]');await page.click('[data-block-complete]');await page.reload();
+const stored=await page.evaluate(id=>JSON.parse(localStorage.getItem('kianos-xizong-astro-v2:xizong:'+id)),block.blockId);assert.equal(stored.completed,true);assert.equal(Object.keys(stored.ratings).length,block.kpRecords.length);pass('Full formal Block: all LG lecture contacts, full Core recalls, closures, neutral Block Recall, explicit completion and refresh');
+assert.equal(await page.locator('[data-study-extension]').isVisible(),true);assert.equal(await page.locator('[data-extension-tab=memory]').isVisible(),true);assert.equal(await page.locator('[data-extension-tab=review]').isVisible(),false);await page.click('[data-memory-reveal]');await page.click('[data-memory-response=STABLE]');assert.equal(await page.locator('[data-extension-tab=memory]').isVisible(),false);pass('After Learn only real weak Memory; stable exit removes it; no empty Chat queue');
+await page.goto(`${base}/xizong/respiratory/r02/`);await page.click('[data-stage-next=logic_group]');await page.click('[data-enter-group]');assert.ok((await page.locator('[data-group-lecture-source]').innerText()).length>15);await page.click('[data-group-lecture-done]');assert.equal(await page.locator('[data-frame-neutral=true]').count(),1);await page.locator('[data-kp-recall-card]:visible [data-kp-reveal]').click();await page.screenshot({path:`${out}/xizong-a2-core.png`});pass('A2 native lecture locator, protected Front and full Core');
+assert.deepEqual(report.errors,[]);
+}catch(e){report.failure=e.stack;throw e}finally{fs.writeFileSync(`${out}/block-closure-browser.json`,JSON.stringify(report,null,2));await browser.close()}

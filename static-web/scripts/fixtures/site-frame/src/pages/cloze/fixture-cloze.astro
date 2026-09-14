@@ -1,0 +1,7 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workspace from '@runtime/components/ClozeWorkspace.astro';
+import Gate from '@runtime/components/ObjectiveAnswerGate.astro';
+import { cloze } from '../../../data.mjs';
+---
+<Base showLead={false} title={cloze.title} active="cloze"><Workspace item={cloze}/><Gate task="cloze" answerRoute="cloze-answer"/></Base>

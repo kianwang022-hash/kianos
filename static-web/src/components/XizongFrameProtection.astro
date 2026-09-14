@@ -1,0 +1,50 @@
+---
+const { block } = Astro.props;
+---
+<div data-xizong-front-heading hidden><strong>{block.label} · Recall</strong><span>先恢复，再核对完整 Current 模型</span></div>
+<script>
+const root=document.querySelector('[data-xizong-v6-block]');
+const heading=document.querySelector('[data-xizong-front-heading]');
+if(root && heading){
+ root.prepend(heading);
+ const pageTitle=document.title;
+ const blockStage=root.querySelector('[data-study-stage="block_recall"]');
+ const details=[...blockStage.querySelectorAll('details')];
+ const reveal=document.createElement('button');reveal.type='button';reveal.textContent='核对 Block 模型';reveal.dataset.blockFrameReveal='';
+ blockStage.querySelector('.xv6RecallPromptBox').append(reveal);
+ const neutralLabels=document.createElement('nav');neutralLabels.className='xizongNeutralRail';neutralLabels.setAttribute('aria-label','Logic Group position');
+ root.querySelectorAll('[data-group-target]').forEach((button,index)=>{const span=document.createElement('span');span.textContent=`LG ${String(index+1).padStart(2,'0')}`;neutralLabels.append(span);});
+ heading.append(neutralLabels);
+ let blockRevealed=false;
+ const sync=()=>{
+  const stage=root.querySelector('[data-study-stage]:not([hidden])');
+  if(stage!==blockStage)blockRevealed=false;
+  const card=stage?.querySelector('[data-kp-recall-card]:not([hidden])');
+  const kpFront=stage?.getAttribute('data-study-stage')==='kp_recall' && card?.querySelector('[data-kp-answer]')?.hidden;
+  const blockFront=stage===blockStage && !blockRevealed;
+  const neutral=Boolean(kpFront||blockFront);
+  if(root.dataset.frameNeutral!==String(neutral))root.dataset.frameNeutral=String(neutral);
+  if(document.body.dataset.xizongNeutral!==String(neutral))document.body.dataset.xizongNeutral=String(neutral);
+  if(heading.hidden===neutral)heading.hidden=!neutral;
+  const nextTitle=neutral?`${root.getAttribute('data-block-label')} · Recall · KianOS`:pageTitle;
+  if(document.title!==nextTitle)document.title=nextTitle;
+  for(const node of details) { if(node.hidden===blockRevealed)node.hidden=!blockRevealed; if(!blockRevealed && node.open)node.open=false; }
+  const buttonLabel=blockRevealed?'收起模型，重新提取':'核对 Block 模型';if(reveal.textContent!==buttonLabel)reveal.textContent=buttonLabel;
+ };
+ reveal.addEventListener('click',()=>{blockRevealed=!blockRevealed;details.forEach(node=>node.open=blockRevealed);sync();});
+ const observer=new MutationObserver(sync);observer.observe(root,{subtree:true,attributes:true,attributeFilter:['hidden']});sync();
+}
+</script>
+<style is:global>
+[data-xizong-front-heading]{padding:14px 18px;border-bottom:1px solid var(--study-line);font-size:19px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+[data-xizong-front-heading]>span{font-size:15px;color:var(--study-muted)}
+.xizongNeutralRail{display:flex;gap:18px;font-size:14px;color:var(--study-muted)}
+body[data-xizong-neutral=true] [data-frame-neutral=true]>.portedStudyHeader,
+body[data-xizong-neutral=true] .portedStudyOutline,
+body[data-xizong-neutral=true] .portedStudyChain,
+body[data-xizong-neutral=true] [data-study-extension],
+body[data-xizong-neutral=true] [data-xizong-study-dock],
+body[data-xizong-neutral=true] [data-kp-recall-card]>header>span{display:none!important}
+body[data-xizong-neutral=true] #main-content .portedStudyLayout{grid-template-columns:minmax(0,1fr)}
+body[data-xizong-neutral=true] #main-content .portedStudyMain{max-width:1100px;width:100%;margin:auto;box-sizing:border-box}
+</style>

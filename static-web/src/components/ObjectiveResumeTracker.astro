@@ -1,0 +1,15 @@
+<script>
+const objective = document.querySelector('[data-objective-root]');
+if (objective) {
+  const key = objective.getAttribute('data-objective-storage-key');
+  const meaningful = value => value && (value.submitted || Object.values(value.answers || {}).some(Boolean));
+  for (const eventName of ['click','input','change']) objective.addEventListener(eventName,()=>{
+    setTimeout(()=>{
+      try {
+        const state = JSON.parse(localStorage.getItem(key) || 'null');
+        if (meaningful(state)) localStorage.setItem('kianos-objective-last-action-v1',JSON.stringify({id:objective.getAttribute('data-objective-object'),title:objective.querySelector('[data-objective-title]')?.textContent || document.title.split(' · KianOS')[0],href:location.pathname+location.search+location.hash,updatedAt:new Date().toISOString()}));
+      } catch {}
+    },0);
+  },true);
+}
+</script>
