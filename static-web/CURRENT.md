@@ -87,7 +87,7 @@ Task-native geometry remains distinct. The remaining work is productization impl
 
 ## Politics
 
-**Status:** UI / Product design frozen; Cognitive Projection compilation complete; UI implementation ready.
+**Status:** UI / Product design frozen; Cognitive Projection compilation complete; **implementation is IN PROGRESS on Draft PR #117 for the bounded Xiao1000 Workbench parity slice**.
 
 Current status owner:
 
@@ -113,6 +113,13 @@ Compiled representation:
 ```
 
 Implementation must consume compiled Projection and preserve Chengfeng iPad/MarginNote continuous-learning ownership, Xiao1000 Workbench interaction burden, first-attempt Evidence and exact Repair/Return.
+
+Current executable implementation cursor:
+
+- Draft PR #117 — `Politics — Legacy functional parity on Current architecture`;
+- scope is the non-#115-dependent Current-native Xiao1000 Workbench parity slice, not a claim that all Politics productization is complete;
+- Issue #116 owns the full functional-parity contract;
+- Issue #115 remains a **bounded dependency** for `takeaway + chat_explanation` promotion and does not block unrelated Politics implementation.
 
 ## Xizong
 
@@ -152,12 +159,12 @@ B–F eligibility remains owned by their own Current learning gates. Do not trea
 
 **Program:** three-subject learner-surface closure → Global Home  
 **Product-discussion state:** CLOSED for English / Politics / Xizong at current accepted scope  
-**Implementation state:** subject productization remains to be executed / visually accepted where not already implemented  
+**Implementation state:** Politics is actively executing the bounded Workbench parity slice on Draft PR #117; English and current-eligible Xizong productization remain open downstream work.  
 **Global Home:** FINAL PHASE after three subject closures  
-**Active production UI PR:** none designated by this router  
-**Blocker:** none at program-routing level.
+**Active production UI PR:** **#117 — Politics Legacy functional parity on Current architecture (DRAFT)**  
+**Blocker:** none at program-routing level. #115 is a bounded Politics submitted-result content dependency only.
 
-Default execution order may be chosen by implementation readiness and write-set safety; product discussion is not the blocker.
+While #117 is active, do not open another large overlapping `static-web/**` production PR. Asset-only or clearly non-overlapping work may proceed independently.
 
 Current principle:
 
