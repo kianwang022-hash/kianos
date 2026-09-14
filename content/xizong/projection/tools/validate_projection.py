@@ -29,6 +29,18 @@ def b_filename_id(path: str) -> str | None:
     m=re.search(r'(?:^|_)([DMG])0?(\d{1,2})(?=_|\.md$)',name,re.I)
     return f'{m[1].upper()}{int(m[2])}' if m else None
 
+def b_kp_ordinals(text: str, bid: str, expected: int) -> tuple[list[int], list[str]]:
+    """B K accepted stable kianos:kp markers own KP identity; do not re-infer it from Markdown fence parsing."""
+    markers=re.findall(r'<!--\s*kianos:kp\s+id=["\']([^"\']+)["\']\s*-->',text)
+    require(len(markers)==expected and len(set(markers))==expected,'OWNER',f'B {bid}: stable KP marker count/uniqueness mismatch')
+    ordinals=[]
+    for marker in markers:
+        m=re.search(r'(?:^|-)kp0*(\d+)$',marker,re.I)
+        require(m is not None,'OWNER',f'B {bid}: stable KP marker has no exact ordinal suffix: {marker}')
+        ordinals.append(int(m[1]))
+    require(Counter(ordinals)==Counter(range(1,expected+1)),'OWNER',f'B {bid}: stable KP marker ordinal gap/duplicate')
+    return ordinals,markers
+
 class Validator(legacy.Validator):
     def build_owners(self, manifest: dict) -> None:
         systems=shape(manifest.get('systems'),dict,'systems')
@@ -82,13 +94,8 @@ class Validator(legacy.Validator):
             bid=row['id']; require(bid in by_id,'OWNER',f'B canonical file missing for {bid}')
             path,text=by_id[bid]
             require(PurePosixPath(path).parent.name==dirs[bid[0]],'OWNER',f'B canonical directory mismatch {bid}')
-            kps=[]
-            for _,level,title in headings(text):
-                m=re.match(r'^KP(\d+)[｜|]\s*(.+)$',title) if 2<=level<=4 else None
-                if m: kps.append(int(m[1]))
-            require(type(row.get('kp')) is int and len(kps)==row['kp'] and set(kps)==set(range(1,row['kp']+1)),'OWNER',f'B {bid}: KP identity/count/gap mismatch')
-            markers=re.findall(r'<!--\s*kianos:kp\s+id=["\']([^"\']+)["\']\s*-->',text)
-            require(len(markers)==row['kp'] and len(set(markers))==row['kp'],'OWNER',f'B {bid}: stable KP marker mismatch')
+            require(type(row.get('kp')) is int and row['kp']>0,'OWNER',f'B {bid}: invalid System KP count')
+            kps,markers=b_kp_ordinals(text,bid,row['kp'])
             lb=shape(learning_blocks.get(bid),dict,f'B learning {bid}')
             order=shape(lb.get('learner_order'),list,f'{bid}.learner_order')
             lgmap=shape(lb.get('logic_groups'),dict,f'{bid}.logic_groups')
@@ -99,7 +106,7 @@ class Validator(legacy.Validator):
                 require(isinstance(ran,list) and len(ran)==2 and all(type(x) is int for x in ran) and 1<=ran[0]<=ran[1]<=row['kp'],'OWNER',f'{bid}: bad LG range {gid}')
                 require(nonempty(g.get('label')) and nonempty(g.get('goal')) and nonempty(g.get('closure')),'OWNER',f'{bid}: incomplete LG {gid}')
                 coverage.extend(range(ran[0],ran[1]+1)); groups.append({'id':gid,'label':g['label'],'kp':ran})
-            require(Counter(coverage)==Counter(kps),'OWNER',f'{bid}: LG overlap/gap')
+            require(Counter(coverage)==Counter(kps),'OWNER',f'{bid}: LG overlap/gap against stable KP identities')
             self.blocks[bid]={'system_id':B_SID,'path':path,'text':text,'row':row,'groups':groups,'kp_ids':markers,'learner_order':order}
 
     def owner_ref(self,asset,binding):
