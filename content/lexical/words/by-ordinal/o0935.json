@@ -144,7 +144,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "af80726b5eaa41a3da94146d2180bd66f31ec772d04da42bd37ab8940e3b3dfc",
+    "content_hash": "c391e40af5e27bd3285df71eea576afde9852a291d610bd79ce96c9d254a3c66",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "检查相似或不同之处",
@@ -168,7 +168,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "比较，考察相似点和差异",
+        "definition_en": "to examine and note similarities or differences",
+        "governing_pattern": "compare A with/to B",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:compare:dfe3200d8db8562c",
+        "sense_label_en": "to examine and note similarities or differences",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把一物比作另一物",
+        "definition_en": "to liken one thing to another as similar, equal, or analogous",
+        "governing_pattern": "compare A to B",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:compare:aae78fe3842d506e",
+        "sense_label_en": "to liken one thing to another as similar, equal, or analogous",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -280,31 +309,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:compare:aae78fe3842d506e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "认为或描述为相似、相等或类似",
-      "definition_en": "consider or describe as similar, equal, or analogous",
-      "semantic_key": "c0c0b1d4de0323e2549d0ec3994bfbf0ebd5ab0e32dba23060547b031a336850",
-      "semantic_key_history": [
-        "4ae269b9cb40cb51c74f8e9a82a9e1c028e4305e54b5d2a592d90b8729e62c57"
-      ],
-      "legacy_aliases": [
-        "compare:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "compare:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2668,
-      "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:compare:c743b0e5104a58c0",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -328,31 +332,6 @@
       "source_row": 2669,
       "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:compare:dfe3200d8db8562c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "检查并注意相似或不同之处",
-      "definition_en": "examine and note the similarities or differences of",
-      "semantic_key": "02cbaf6cad1a45f8e2ca965035e40b7ed61b8a32cdad0171f7113ebffcdd9cd9",
-      "semantic_key_history": [
-        "b45fd82f37bef3fe949e5a491fffbd632f56a51a8ebd6bd3f55d7d4167260526"
-      ],
-      "legacy_aliases": [
-        "compare:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "compare:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2670,
-      "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -373,7 +352,7 @@
       },
       {
         "sense_id": "sense:compare:aae78fe3842d506e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2668,
         "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json"
@@ -387,7 +366,7 @@
       },
       {
         "sense_id": "sense:compare:dfe3200d8db8562c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2670,
         "source_path": "content/lexical/canonical/senses/shards/o0929-0960.json"
@@ -494,7 +473,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0929-0936.json",
-    "source_content_hash": "af80726b5eaa41a3da94146d2180bd66f31ec772d04da42bd37ab8940e3b3dfc",
+    "source_content_hash": "c391e40af5e27bd3285df71eea576afde9852a291d610bd79ce96c9d254a3c66",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

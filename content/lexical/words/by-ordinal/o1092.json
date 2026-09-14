@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "01f6291434eb36a7fe77e666432658e5cdb50e957b2a846f37f2b0c13ec6f37f",
+    "content_hash": "f2138bb08004d9bd21061e9bf2070734df2f8c40e989cd3e8511bb72a63957e2",
     "core_concept": {
       "core_clusters": [
         {
@@ -22,9 +22,7 @@
           "label_cn": "甜饮料；兴奋剂",
           "label_en": "a sweetened, usually fruit-flavored drink; a stimulant",
           "pos": "noun",
-          "sense_ids": [
-            "sense:cordial:aebef2d27ca457d2"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "热忱的；兴奋剂",
@@ -62,39 +60,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "热忱的；诚恳的",
-        "definition_en": "warm and friendly; sincere",
+        "definition_cn": "热情、友好、真诚的",
+        "definition_en": "warm, friendly, and sincere",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:cordial:b77cf23d6ba3546a",
-        "sense_label_en": "warm and friendly; sincere",
+        "sense_label_en": "warm, friendly, and sincere",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7871496e801dd68ae392",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:cordial:aebef2d27ca457d2:collocation:0"
-            ],
-            "meaning_cn": "酸橙甜饮料",
-            "phrase": "lime cordial"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "甜饮料；兴奋剂",
-        "definition_en": "a sweetened, usually fruit-flavored drink; a stimulant",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:cordial:aebef2d27ca457d2",
-        "sense_label_en": "a sweetened, usually fruit-flavored drink; a stimulant",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -118,12 +92,36 @@
     "word_id": "word:cordial"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:cordial:aebef2d27ca457d2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "甜饮料；兴奋剂",
+      "definition_en": "a sweetened, usually fruit-flavored drink; a stimulant",
+      "semantic_key": "60d390e093a83d05e6eacd9d9875ab4695917fc72b2a1273cb8747e1cb6f05b3",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "cordial:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "cordial:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 3059,
+      "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:cordial:aebef2d27ca457d2",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 3059,
         "source_path": "content/lexical/canonical/senses/shards/o1089-1120.json"
@@ -138,7 +136,6 @@
     ],
     "active_collocations": [
       "collocation:0de47ac62b9fd7dd6e70",
-      "collocation:7871496e801dd68ae392",
       "collocation:9b05304723abcf60b803"
     ],
     "facts": [],
@@ -195,7 +192,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1089-1096.json",
-    "source_content_hash": "01f6291434eb36a7fe77e666432658e5cdb50e957b2a846f37f2b0c13ec6f37f",
+    "source_content_hash": "f2138bb08004d9bd21061e9bf2070734df2f8c40e989cd3e8511bb72a63957e2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

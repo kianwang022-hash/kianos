@@ -4,19 +4,19 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 
 ## Current mainline
 
-**Latest completed bounded implementation:** `o0475–o0674`.
+**Latest completed bounded implementation:** `o0675–o0874`.
 
 Accepted landing:
 
-- semantic authority: `content/lexical/semantic-review/o0475-o0674.md`;
-- implementation PR: **#119**;
-- merge commit: `d5157db4ff52da92e32abfcd7fa81407c59808cd`;
+- semantic authority: `content/lexical/semantic-review/o0675-o0874.md`;
+- implementation PR: **#120**;
+- merge commit: `db8164bd491a07f09ff88934672b333ff7c169ff`;
 - exact scope: 200 owners;
-- `NO_CHANGE`: 125 / 125 byte-preserved;
-- `UPGRADE`: 75 / 75 mechanically applied;
+- `NO_CHANGE`: 119 / 119 byte-preserved;
+- `UPGRADE`: 81 / 81 mechanically applied;
 - `BLOCKED`: 0;
 - semantic escalations: 0;
-- identity reconciliation: 61 `REUSE_EXISTING_STABLE` + 14 `NEW_SEMANTIC_BRANCH` + 0 `ESCALATE_IDENTITY`;
+- identity reconciliation: 80 `REUSE_EXISTING_STABLE` + 1 `NEW_SEMANTIC_BRANCH` + 0 `ESCALATE_IDENTITY`;
 - Relation closure: PASS;
 - Form closure: PASS;
 - full final-object readback: PASS;
@@ -26,21 +26,21 @@ Prior bounded implementation packages through `o0474` are already historical lan
 
 ## Catalog execution
 
-**ACTIVE — bounded implementation only for `o0675–o0874`.**
+**ACTIVE — bounded implementation only for `o0875–o1124`.**
 
 Semantic authority is exactly:
 
-`content/lexical/semantic-review/o0675-o0874.md`
+`content/lexical/semantic-review/o0875-o1124.md`
 
-This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o0875+`.
+This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o1125+`.
 
 ## Exact next action
 
-The active lexical range is exactly `o0675–o0874`; do not activate `o0875+` from the executor side.
+The active lexical range is exactly `o0875–o1124`; do not activate `o1125+` from the executor side.
 
 1. Read the latest Current Word Natural Owner before mutation.
 2. `NO_CHANGE` owners are byte-preserved and skipped after exact baseline verification.
-3. Apply only the 81 authorized `UPGRADE` decisions; do not add semantic content not present in the handoff.
+3. Apply only the 94 authorized `UPGRADE` decisions; do not add semantic content not present in the handoff.
 4. Reconcile identity before creating or retiring any sense ID.
 5. Reconcile all affected Relation / word-family / exam-mapping / Form references after identity decisions.
 6. Run targeted validators during bounded mechanical shards; then full integrated owner readback + lexical tests + governance audit + Astro build once at package closure.

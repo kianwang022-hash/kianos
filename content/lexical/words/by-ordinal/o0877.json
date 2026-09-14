@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "718ed395c2a21ff9a35c7b1171825fb2d62aa5be6cf19b4a805afd80a9a4645a",
+    "content_hash": "278b445f508b4acd221b543a3ccfcecccac96bfe92fc58dc854c287a4045c0dc",
     "core_concept": {
       "core_clusters": [
         {
@@ -173,6 +173,30 @@
         "sense_label_en": "to attach a code to something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:09f4323faa652fa04d02",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:code:426c4c9da5ccb6aa:collocation:handoff-o0875-o1124"
+            ],
+            "meaning_cn": "用某种编程语言编写代码",
+            "phrase": "code in Python/Java"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "编写计算机代码或程序",
+        "definition_en": "to write or create computer code or a program",
+        "governing_pattern": "code in + language",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:code:426c4c9da5ccb6aa",
+        "sense_label_en": "to write or create computer code or a program",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -225,9 +249,17 @@
         "merged_into_sense_id": null,
         "source_row": 2504,
         "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
+      },
+      {
+        "sense_id": "sense:code:426c4c9da5ccb6aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2558,
+        "source_path": "content/lexical/canonical/senses/shards/o0865-0896.json"
       }
     ],
     "active_collocations": [
+      "collocation:09f4323faa652fa04d02",
       "collocation:160b1613ff46cc80cb8c",
       "collocation:1aaadfe68eba886bc3c3",
       "collocation:3832ace208ee5e1e0587",
@@ -278,6 +310,11 @@
         "id": "collocation:f95bd60a9c4d794e512b",
         "source_row": 21125,
         "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
+      },
+      {
+        "id": "collocation:09f4323faa652fa04d02",
+        "source_row": 21370,
+        "source_path": "content/lexical/canonical/collocations/shards/o0865-0896.json"
       }
     ],
     "exam-mappings": [],
@@ -321,7 +358,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o0873-0880.json",
-    "source_content_hash": "718ed395c2a21ff9a35c7b1171825fb2d62aa5be6cf19b4a805afd80a9a4645a",
+    "source_content_hash": "278b445f508b4acd221b543a3ccfcecccac96bfe92fc58dc854c287a4045c0dc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
