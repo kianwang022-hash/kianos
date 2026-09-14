@@ -6,51 +6,8 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [
-      {
-        "boundary": "by default",
-        "codex_reviewed": true,
-        "definition_cn": "在没有另行选择、指定或行动时，按默认状态/规则发生",
-        "definition_en": "automatically under the preset or fallback state when no alternative is chosen or specified",
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:current-semantic-review:default:28e85a4f7abe",
-            "evidence_status": "semantic_auditor_verified",
-            "source_labels": [
-              "Current Core",
-              "high-value phrase review"
-            ],
-            "source_locator": "word:default",
-            "source_path": "content/lexical/words/by-ordinal/o1264.json",
-            "source_type": "current_owner_review"
-          }
-        ],
-        "fact_id": "deep:constructions:default:28e85a4f7abe1e02df03",
-        "family_sources": [],
-        "label_en": "by default",
-        "level": null,
-        "meaning_cn": "默认地；在没有其他选择/指定时",
-        "module": "constructions",
-        "pattern": "by default",
-        "pos": "phrase",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:default:836aee9f2d66537d",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "reading",
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "semantic_auditor_verified",
-        "writing_safe": true
-      }
-    ],
-    "content_hash": "8d9eacf43dc1fef1b102af6d3faf1b01cadef9401e9f7517221a5685998d54ac",
+    "constructions": [],
+    "content_hash": "8c48a6157b3cb13afa65584004f7604c9326e8b7c6fb4408539b1f938a452296",
     "core_concept": {
       "core_clusters": [
         {
@@ -73,16 +30,14 @@
       ],
       "core_meaning_cn": "未履行义务或预设选项",
       "core_meaning_en": "failure to fulfill an obligation or the preset option",
-      "mental_model_cn": "没有另行选择、指定或履行时，落到预设状态或违约结果",
-      "mental_model_en": "the state or consequence that applies when no alternative is chosen or an obligation is not met"
+      "mental_model_cn": "未履行义务或预设选项",
+      "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [
-      "construction:deep:constructions:default:28e85a4f7abe1e02df03"
-    ],
+    "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -156,20 +111,34 @@
         "sense_label_en": "loss due to not showing up",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "预设的选项或设置",
+        "definition_en": "a preset option or setting in a computer program",
+        "governing_pattern": "default setting/value/option; by default",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:default:836aee9f2d66537d",
+        "sense_label_en": "a preset option or setting in a computer program",
+        "sort_order": 999,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
-      "candidate_fact_count": 3,
+      "candidate_fact_count": 2,
       "deep_modules": {
         "confusables": "no_valid_content",
-        "constructions": "completed",
+        "constructions": "no_valid_content",
         "secondary_senses": "no_valid_content",
         "semantic_contrast": "no_valid_content",
         "word_family": "no_valid_content"
       },
       "default_review_target": "word",
       "object_queue_mode": "optional_specialist",
-      "published_fact_count": 1,
+      "published_fact_count": 0,
       "rejected_fact_count": 1,
       "runtime_model_calls": false
     },
@@ -178,33 +147,7 @@
     "word_id": "word:default"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:default:836aee9f2d66537d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "默认值",
-      "definition_en": "a preset option in a computer program",
-      "semantic_key": "7d082b837396de810a0008bde33a6ca9bf46d704dabc828262022c02b141537b",
-      "semantic_key_history": [
-        "2f259e93ebb2686aefaedc40b4e08724c6021e9433e0b8e0b7cc6fe8da409e8d"
-      ],
-      "legacy_aliases": [
-        "default:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "default:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3551,
-      "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -223,7 +166,7 @@
       },
       {
         "sense_id": "sense:default:836aee9f2d66537d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3551,
         "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
@@ -295,8 +238,8 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
-    "source_content_hash": "8d9eacf43dc1fef1b102af6d3faf1b01cadef9401e9f7517221a5685998d54ac",
-    "semantic_delta": 1,
+    "source_content_hash": "8c48a6157b3cb13afa65584004f7604c9326e8b7c6fb4408539b1f938a452296",
+    "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
 }

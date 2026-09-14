@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "600c30d124d8d5b39bde04d17fd0caea2d336c2810da9d601f02f81426cebad7",
+    "content_hash": "93e0c5166a1332512a30e238470c7980e6ce91c366e707829f14209d3e77365e",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "拦水坝或阻挡",
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "拦水坝；阻挡水流的屏障",
+        "definition_en": "a barrier constructed to contain the flow of water or keep out the sea",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dam:16734267ddbb54b4",
+        "sense_label_en": "a barrier constructed to contain the flow of water or keep out the sea",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "筑坝、阻挡水流",
+        "definition_en": "to obstruct with, or as if with, a dam",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dam:e715e609bbaf5349",
+        "sense_label_en": "to obstruct with, or as if with, a dam",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -44,56 +73,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:dam:16734267ddbb54b4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "为控制水流或防海而建造的屏障",
-      "definition_en": "a barrier constructed to contain the flow of water or to keep out the sea",
-      "semantic_key": "f61aa681a7b4dc3677a593b361f26015674b7eebad6ead52c094e98443d39105",
-      "semantic_key_history": [
-        "feb2e2fff21d34d8a236b97fc055b8be7c652208a0e7254da6004fada23c9cbb"
-      ],
-      "legacy_aliases": [
-        "dam:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dam:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3403,
-      "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:dam:e715e609bbaf5349",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "用坝阻挡；抑制",
-      "definition_en": "obstruct with, or as if with, a dam",
-      "semantic_key": "0b7c6c91bb42ae4c6e40bda15c2824e0c5181adad5795fbac0d80500752e3109",
-      "semantic_key_history": [
-        "36b8117a451b30d0dddfe4c07fd5cd7ab8bb2c72c3123eff4b3be9a6f38733a7"
-      ],
-      "legacy_aliases": [
-        "dam:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dam:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3404,
-      "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:dam:e771d2ba59165530",
       "status": "deprecated",
@@ -124,14 +103,14 @@
     "senses": [
       {
         "sense_id": "sense:dam:16734267ddbb54b4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3403,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
       },
       {
         "sense_id": "sense:dam:e715e609bbaf5349",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3404,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
@@ -204,7 +183,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1201-1208.json",
-    "source_content_hash": "600c30d124d8d5b39bde04d17fd0caea2d336c2810da9d601f02f81426cebad7",
+    "source_content_hash": "93e0c5166a1332512a30e238470c7980e6ce91c366e707829f14209d3e77365e",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

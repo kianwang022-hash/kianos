@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "a6a864007893c2f8d003e6a7da472a0457ea8ff2a325d1dcd20e8bf746b5810b",
+    "constructions": [
+      {
+        "construction_id": "construction:b0cefe7dabd794e5d61c",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "reach a highest or final point",
+        "pattern": "culminate in sth / culminate at a point"
+      }
+    ],
+    "content_hash": "27bc6bda82b9f227037216677407d190bf9ac697d7f361a9e3bb6d5f91c3a5bb",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "达到高潮；最终达到",
@@ -22,7 +30,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "达到最高点或最终阶段",
+        "definition_en": "to reach a final or climactic stage",
+        "governing_pattern": "culminate in sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:culminate:f637600946f85e9c",
+        "sense_label_en": "to reach a final or climactic stage",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -68,31 +91,6 @@
       "source_row": 3319,
       "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:culminate:f637600946f85e9c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "达到顶点；以…告终",
-      "definition_en": "to reach a final or climactic stage, often after a process",
-      "semantic_key": "033b0ce34dd010dc2ff843b6425dbc839a505bb9da14d6c13ca07ee7a83676b1",
-      "semantic_key_history": [
-        "b8b947e44f5246073bf0bd6e226e05ca9dc8a9fa35b642fdda219a91a00f769b"
-      ],
-      "legacy_aliases": [
-        "culminate:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "culminate:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3320,
-      "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -106,7 +104,7 @@
       },
       {
         "sense_id": "sense:culminate:f637600946f85e9c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3320,
         "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json"
@@ -152,7 +150,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1177-1184.json",
-    "source_content_hash": "a6a864007893c2f8d003e6a7da472a0457ea8ff2a325d1dcd20e8bf746b5810b",
+    "source_content_hash": "27bc6bda82b9f227037216677407d190bf9ac697d7f361a9e3bb6d5f91c3a5bb",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

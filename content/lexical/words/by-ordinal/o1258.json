@@ -57,7 +57,7 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "f44383ab3f73d207dfa554fc7771868603bad6691a10754c13d4fe3233e6fede",
+    "content_hash": "b2222287085d82c6c00bf506d4f6a2517f863ffa43fc54622f36ea6c5eeaac29",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "通过推理得出结论",
@@ -75,7 +75,22 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "从证据推断出结论",
+        "definition_en": "to infer or reach a conclusion from evidence",
+        "governing_pattern": "deduce sth from sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:deduce:ee7a2e049f3a54e7",
+        "sense_label_en": "to infer or reach a conclusion from evidence",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -96,38 +111,12 @@
     "word_id": "word:deduce"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:deduce:ee7a2e049f3a54e7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "推断；演绎",
-      "definition_en": "to conclude by reasoning",
-      "semantic_key": "e22c9eb6b51d851f01a24228d4f2f7aabd4c85ec87f8b244518d679ba490a2aa",
-      "semantic_key_history": [
-        "d3402f6cacbab57d23af599fcac7bd73b654dda7df526f4f2dbcf288c765c7d4"
-      ],
-      "legacy_aliases": [
-        "deduce:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "deduce:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3537,
-      "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:deduce:ee7a2e049f3a54e7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3537,
         "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
@@ -194,7 +183,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1257-1264.json",
-    "source_content_hash": "f44383ab3f73d207dfa554fc7771868603bad6691a10754c13d4fe3233e6fede",
+    "source_content_hash": "b2222287085d82c6c00bf506d4f6a2517f863ffa43fc54622f36ea6c5eeaac29",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
