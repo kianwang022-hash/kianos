@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "c1c6d66115546c3b25236383a0cc81e6ddaa94bd0488b75ac0978a4a4c0ed6d3",
+    "constructions": [
+      {
+        "construction_id": "construction:104959653136c0171a37",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "拿某事开玩笑",
+        "pattern": "joke about sth"
+      }
+    ],
+    "content_hash": "a7deea56ea2be1494a0e27c11626232958bf5ff941308398c4e81697028dce4d",
     "core_concept": {
       "core_clusters": [
         {
@@ -64,6 +72,20 @@
         "sense_label_en": "a humorous anecdote or remark intended to provoke laughter",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "开玩笑；说笑话",
+        "definition_en": "to say or do something humorous, or not be serious",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:joke:e9d029ee1c09553a",
+        "sense_label_en": "to say or do something humorous, or not be serious",
+        "sort_order": 1,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -136,31 +158,6 @@
       "source_row": 7376,
       "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:joke:e9d029ee1c09553a",
-      "status": "merged",
-      "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
-      "pos": "verb",
-      "definition_cn": "开玩笑；说笑话",
-      "definition_en": "tell jokes; speak humorously",
-      "semantic_key": "4b1d2ffd9e15ca51ab619b8faa7685840fca84d0d30195cd8df39477be8a884e",
-      "semantic_key_history": [
-        "2406a54a94f73901ae862eaf31871825457dfeff308a3e8fc983e9b621a1007c"
-      ],
-      "legacy_aliases": [
-        "joke:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "joke:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7377,
-      "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -188,8 +185,8 @@
       },
       {
         "sense_id": "sense:joke:e9d029ee1c09553a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7377,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       }
@@ -267,7 +264,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o2673-2680.json",
-    "source_content_hash": "c1c6d66115546c3b25236383a0cc81e6ddaa94bd0488b75ac0978a4a4c0ed6d3",
+    "source_content_hash": "a7deea56ea2be1494a0e27c11626232958bf5ff941308398c4e81697028dce4d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
