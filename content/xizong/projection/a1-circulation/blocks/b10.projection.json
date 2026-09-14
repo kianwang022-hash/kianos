@@ -1,37 +1,215 @@
 {
-  "schema":"kianos.xizong.cognitive_projection.block.v1",
-  "status":"CALIBRATION_DERIVED_CURRENT",
-  "system_id":"circulation",
-  "block_id":"circulation-b10",
-  "sources":[
-    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block10_心律失常_学习阅读版_v2_最终执行版.md","blob_sha":"ff2db06fde366d999567669d75523ffd6d552185"},
-    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a1-circulation-learning.json","blob_sha":"de71f997b53d51bc867715b69cdbe748ed9c7fc9"}
+  "schema": "kianos.xizong.cognitive_projection.block.v1",
+  "status": "CALIBRATION_DERIVED_CURRENT",
+  "system_id": "circulation",
+  "block_id": "circulation-b10",
+  "sources": [
+    {
+      "id": "core",
+      "kind": "MEDICAL_CORE",
+      "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block10_心律失常_学习阅读版_v2_最终执行版.md",
+      "blob_sha": "ff2db06fde366d999567669d75523ffd6d552185"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/a1-circulation-learning.json",
+      "blob_sha": "de71f997b53d51bc867715b69cdbe748ed9c7fc9"
+    }
   ],
-  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"circulation-b10"},
-  "learning_support":{
-    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b10/first_pass_focus"}},
-    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b10/stop_line"}},
-    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b10/recall_spine"}},
-    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b10/logic_groups"}}
+  "canonical_scope": {
+    "kind": "OWNER_REF",
+    "owner_type": "BLOCK",
+    "id": "circulation-b10"
   },
-  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"circulation-b10"},
-  "objects":[
-    {"object_id":"circulation-b10-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b10-stability-algorithm","role":"MAP","geometry":"TREE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"先用这一条算法进入全文"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b10-perfusion-boundary","role":"BOUNDARY","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"最重要边界"}},"stage_role":"CONTEXT"},
-    {"object_id":"circulation-b10-main-chain","role":"CHAIN","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"整篇只保留一条主线"}},"stage_role":"SECONDARY_STAGE"},
-    {"object_id":"circulation-b10-framework","role":"MAP","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"MARKER_ID","value":"circulation-b10-framework-main"}},"stage_role":"PRIMARY_STAGE"}
+  "learning_support": {
+    "first_pass_focus": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b10/first_pass_focus"
+      },
+      "value_type": "string"
+    },
+    "stop_line": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b10/stop_line"
+      },
+      "value_type": "string"
+    },
+    "recall_spine": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b10/recall_spine"
+      },
+      "value_type": "string"
+    },
+    "logic_groups": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b10/logic_groups"
+      },
+      "value_type": "object"
+    }
+  },
+  "kp_set": {
+    "kind": "OWNER_REF",
+    "owner_type": "KP_SET",
+    "block_id": "circulation-b10"
+  },
+  "objects": [
+    {
+      "object_id": "circulation-b10-problem",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "中心问题"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": false
+    },
+    {
+      "object_id": "circulation-b10-stability-algorithm",
+      "role": "MAP",
+      "geometry": "TREE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "HEADING_EXACT",
+          "value": "先用这一条算法进入全文"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b10-perfusion-boundary",
+      "role": "BOUNDARY",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "最重要边界"
+        }
+      },
+      "stage_role": "CONTEXT",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b10-main-chain",
+      "role": "CHAIN",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "HEADING_EXACT",
+          "value": "整篇只保留一条主线"
+        }
+      },
+      "stage_role": "SECONDARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b10-framework",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "MARKER_ID",
+          "value": "circulation-b10-framework-main"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    }
   ],
-  "enrichment_bindings":[],
-  "views":{
-    "BLOCK_ORIENT":{"object_ids":["circulation-b10-problem","circulation-b10-stability-algorithm","circulation-b10-perfusion-boundary","circulation-b10-main-chain","circulation-b10-framework"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"]},
-    "LOGIC_GROUP_ORIENT":{"object_ids":["circulation-b10-problem"],"learning_support_keys":["logic_groups"],"context_policy":"OWNED_ONLY"},
-    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"source_locator_policy":"CURRENT_ONLY_NO_GUESS"},
-    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY"},
-    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","context_policy":"OWNED_ONLY"},
-    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"context_policy":"TIMING_AWARE_OWNED_ONLY"},
-    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["circulation-b10-problem"],"show_logic_group_map":true},
-    "BLOCK_RECALL_REVEAL":{"object_ids":["circulation-b10-problem","circulation-b10-stability-algorithm","circulation-b10-framework"],"learning_support_keys":["recall_spine","logic_groups"]}
+  "enrichment_bindings": [],
+  "views": {
+    "BLOCK_ORIENT": {
+      "object_ids": [
+        "circulation-b10-problem",
+        "circulation-b10-stability-algorithm",
+        "circulation-b10-perfusion-boundary",
+        "circulation-b10-main-chain",
+        "circulation-b10-framework"
+      ],
+      "learning_support_keys": [
+        "first_pass_focus",
+        "stop_line",
+        "logic_groups"
+      ]
+    },
+    "LOGIC_GROUP_ORIENT": {
+      "object_ids": [
+        "circulation-b10-problem"
+      ],
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "OWNED_ONLY"
+    },
+    "EXTERNAL_HANDOFF": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "source_locator_policy": "CURRENT_ONLY_NO_GUESS"
+    },
+    "KP_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "block_object_ids": [],
+      "kp_content_policy": "ID_AND_NEUTRAL_PROMPT_ONLY"
+    },
+    "KP_RECALL_REVEAL": {
+      "kp_content_policy": "CANONICAL_CORE_FULL",
+      "context_policy": "OWNED_ONLY"
+    },
+    "GROUP_CLOSURE": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "TIMING_AWARE_OWNED_ONLY"
+    },
+    "BLOCK_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [
+        "circulation-b10-problem"
+      ],
+      "show_logic_group_map": true,
+      "logic_map_policy": "LABELS_AND_IDS_ONLY"
+    },
+    "BLOCK_RECALL_REVEAL": {
+      "object_ids": [
+        "circulation-b10-problem",
+        "circulation-b10-stability-algorithm",
+        "circulation-b10-framework"
+      ],
+      "learning_support_keys": [
+        "recall_spine",
+        "logic_groups"
+      ]
+    }
   },
-  "calibration_notes":["Tests a decision-first Block where patient stability precedes complete rhythm naming.","The ECG/perfusion boundary remains a Current-owned boundary rather than renderer logic."]
+  "calibration_notes": [
+    "Tests a decision-first Block where patient stability precedes complete rhythm naming.",
+    "The ECG/perfusion boundary remains a Current-owned boundary rather than renderer logic."
+  ]
 }

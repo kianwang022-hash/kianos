@@ -1,37 +1,219 @@
 {
-  "schema":"kianos.xizong.cognitive_projection.block.v1",
-  "status":"CALIBRATION_DERIVED_CURRENT",
-  "system_id":"circulation",
-  "block_id":"circulation-b07",
-  "sources":[
-    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md","blob_sha":"4b8fc8938e415d5840c55bb6e331161afc353399"},
-    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a1-circulation-learning.json","blob_sha":"de71f997b53d51bc867715b69cdbe748ed9c7fc9"}
+  "schema": "kianos.xizong.cognitive_projection.block.v1",
+  "status": "CALIBRATION_DERIVED_CURRENT",
+  "system_id": "circulation",
+  "block_id": "circulation-b07",
+  "sources": [
+    {
+      "id": "core",
+      "kind": "MEDICAL_CORE",
+      "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block7_风湿_IE与四瓣膜病_学习阅读版_v1_Batch4冻结版.md",
+      "blob_sha": "4b8fc8938e415d5840c55bb6e331161afc353399"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/a1-circulation-learning.json",
+      "blob_sha": "de71f997b53d51bc867715b69cdbe748ed9c7fc9"
+    }
   ],
-  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"circulation-b07"},
-  "learning_support":{
-    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b07/first_pass_focus"}},
-    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b07/stop_line"}},
-    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b07/recall_spine"}},
-    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b07/logic_groups"}}
+  "canonical_scope": {
+    "kind": "OWNER_REF",
+    "owner_type": "BLOCK",
+    "id": "circulation-b07"
   },
-  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"circulation-b07"},
-  "objects":[
-    {"object_id":"circulation-b07-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b07-valve-inference","role":"CHAIN","geometry":"TREE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"瓣膜病不要从四篇病名开始背。先固定这条推导链：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b07-four-valve-compare","role":"COMPARE","geometry":"MATRIX","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"四瓣膜直接放回一张坐标：","structure_type":"TABLE","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b07-acute-chronic-boundary","role":"BOUNDARY","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"急慢性边界"}},"stage_role":"CONTEXT"},
-    {"object_id":"circulation-b07-framework","role":"MAP","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"总 Framework"}},"stage_role":"PRIMARY_STAGE"}
+  "learning_support": {
+    "first_pass_focus": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b07/first_pass_focus"
+      },
+      "value_type": "string"
+    },
+    "stop_line": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b07/stop_line"
+      },
+      "value_type": "string"
+    },
+    "recall_spine": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b07/recall_spine"
+      },
+      "value_type": "string"
+    },
+    "logic_groups": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b07/logic_groups"
+      },
+      "value_type": "object"
+    }
+  },
+  "kp_set": {
+    "kind": "OWNER_REF",
+    "owner_type": "KP_SET",
+    "block_id": "circulation-b07"
+  },
+  "objects": [
+    {
+      "object_id": "circulation-b07-problem",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "中心问题"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": false
+    },
+    {
+      "object_id": "circulation-b07-valve-inference",
+      "role": "CHAIN",
+      "geometry": "TREE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "STRUCTURE_AFTER_ANCHOR",
+          "anchor": "瓣膜病不要从四篇病名开始背。先固定这条推导链：",
+          "structure_type": "CODE_BLOCK",
+          "occurrence": 1
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b07-four-valve-compare",
+      "role": "COMPARE",
+      "geometry": "MATRIX",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "STRUCTURE_AFTER_ANCHOR",
+          "anchor": "四瓣膜直接放回一张坐标：",
+          "structure_type": "TABLE",
+          "occurrence": 1
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b07-acute-chronic-boundary",
+      "role": "BOUNDARY",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "急慢性边界"
+        }
+      },
+      "stage_role": "CONTEXT",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b07-framework",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "HEADING_EXACT",
+          "value": "总 Framework"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    }
   ],
-  "enrichment_bindings":[],
-  "views":{
-    "BLOCK_ORIENT":{"object_ids":["circulation-b07-problem","circulation-b07-valve-inference","circulation-b07-four-valve-compare","circulation-b07-acute-chronic-boundary","circulation-b07-framework"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"]},
-    "LOGIC_GROUP_ORIENT":{"object_ids":["circulation-b07-problem"],"learning_support_keys":["logic_groups"],"context_policy":"OWNED_ONLY"},
-    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"source_locator_policy":"CURRENT_ONLY_NO_GUESS"},
-    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY"},
-    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","context_policy":"OWNED_ONLY"},
-    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"context_policy":"TIMING_AWARE_OWNED_ONLY"},
-    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["circulation-b07-problem"],"show_logic_group_map":true},
-    "BLOCK_RECALL_REVEAL":{"object_ids":["circulation-b07-problem","circulation-b07-four-valve-compare","circulation-b07-framework"],"learning_support_keys":["recall_spine","logic_groups"]}
+  "enrichment_bindings": [],
+  "views": {
+    "BLOCK_ORIENT": {
+      "object_ids": [
+        "circulation-b07-problem",
+        "circulation-b07-valve-inference",
+        "circulation-b07-four-valve-compare",
+        "circulation-b07-acute-chronic-boundary",
+        "circulation-b07-framework"
+      ],
+      "learning_support_keys": [
+        "first_pass_focus",
+        "stop_line",
+        "logic_groups"
+      ]
+    },
+    "LOGIC_GROUP_ORIENT": {
+      "object_ids": [
+        "circulation-b07-problem"
+      ],
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "OWNED_ONLY"
+    },
+    "EXTERNAL_HANDOFF": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "source_locator_policy": "CURRENT_ONLY_NO_GUESS"
+    },
+    "KP_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "block_object_ids": [],
+      "kp_content_policy": "ID_AND_NEUTRAL_PROMPT_ONLY"
+    },
+    "KP_RECALL_REVEAL": {
+      "kp_content_policy": "CANONICAL_CORE_FULL",
+      "context_policy": "OWNED_ONLY"
+    },
+    "GROUP_CLOSURE": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "TIMING_AWARE_OWNED_ONLY"
+    },
+    "BLOCK_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [
+        "circulation-b07-problem"
+      ],
+      "show_logic_group_map": true,
+      "logic_map_policy": "LABELS_AND_IDS_ONLY"
+    },
+    "BLOCK_RECALL_REVEAL": {
+      "object_ids": [
+        "circulation-b07-problem",
+        "circulation-b07-four-valve-compare",
+        "circulation-b07-framework"
+      ],
+      "learning_support_keys": [
+        "recall_spine",
+        "logic_groups"
+      ]
+    }
   },
-  "calibration_notes":["Proves one Block can own decision/inference + Compare + Boundary + Framework simultaneously.","The four-valve matrix is bound to an existing Current table; Projection does not regenerate its medical cells."]
+  "calibration_notes": [
+    "Proves one Block can own decision/inference + Compare + Boundary + Framework simultaneously.",
+    "The four-valve matrix is bound to an existing Current table; Projection does not regenerate its medical cells."
+  ]
 }

@@ -8,23 +8,38 @@
   "projection_root": "content/xizong/projection",
   "validation": {
     "validator": "content/xizong/projection/tools/validate_projection.py",
+    "test_suite": "content/xizong/projection/tools/test_projection.py",
+    "validator_version": "1.1.0",
+    "scope": "ASSET_BINDINGS_AND_DECLARATIVE_VISIBILITY_ONLY",
+    "evidence_mode": "EXECUTED + ADVERSARIAL",
+    "independence": "SELF",
+    "tested_commit": "8055864098ae2feee7c1ee8794d676eda33c6ae9",
     "projection_workflow": ".github/workflows/xizong-projection.yml",
-    "projection_run_id": 34795172243,
+    "projection_run_id": 34796838978,
     "projection_run_conclusion": "success",
     "projection_evidence": [
-      "coverage: 3 systems / 38 blocks / 41 assets",
-      "freshness: STRICT_BLOB + RESOLVE_BINDING",
-      "neutral_front: PASS",
-      "mutation_self_test: PASS"
+      "coverage: 3 systems / 38 blocks / 41 assets / 805 canonical KP identities",
+      "396 resolved bindings",
+      "freshness: STRICT_BLOB + exact typed RESOLVE_BINDING",
+      "declarative neutral-front allowlists: PASS; browser safety not claimed",
+      "mutation/control tests: 86/86 PASS",
+      "local B7 stale/missing/type changes: only B7 fails, other 40 assets PASS",
+      "protected canonical source worktree unchanged"
     ],
+    "mutation_tests": {"total": 86, "passed": 86, "failed": 0, "storage": "IN_MEMORY_ONLY"},
+    "receipt": "content/xizong/projection/FULL_COMPILATION_RECEIPT.md",
+    "previous_projection_run_id": 34795172243,
+    "previous_projection_evidence_limit": "Historical baseline/helper checks did not prove OWNER_REF resolution or all neutral-front channels; superseded by the executed v1.1.0 checks for the named scope.",
     "existing_xizong_qa_run_id": 34795172110,
     "existing_xizong_qa_conclusion": "success",
+    "existing_xizong_qa_tested_commit": "3cb882691ace183d46f771b910b354d0419e9d07",
     "existing_xizong_qa_material_checks": [
       "A1/A2/A3 contract validators",
       "Astro build",
       "A1 browser Runtime journey",
       "A1 browser Evidence journey"
-    ]
+    ],
+    "not_claimed": ["medical_semantic_acceptance", "browser_answer_leak_safety", "Mac_visual_acceptance", "runtime_adoption", "learner_progress", "S_K_L_P_R_E_U_promotion"]
   },
   "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
   "freshness_policy": {

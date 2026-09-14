@@ -1,13 +1,12 @@
 # Xizong Cognitive Projection — Full A1/A2/A3 Compilation Receipt
 
-Status: **FULL COMPILATION VALIDATED — RUNTIME ADOPTION / MAC UI ACCEPTANCE PENDING**  
+Status: **FULL A1/A2/A3 ACCOUNTING + EXECUTED ASSET VALIDATION — SEMANTIC / RENDERER / MAC ACCEPTANCE NOT INFERRED**  
 Compilation commit: `3cb882691ace183d46f771b910b354d0419e9d07`  
+Validated code/assets: `8055864098ae2feee7c1ee8794d676eda33c6ae9`  
 Projection contract: `content/xizong/projection/PROJECTION_CONTRACT.md`  
 Current manifest: `content/xizong/projection/manifest.json`
 
-## 1｜What is complete
-
-A1 / A2 / A3 Cognitive Projection assets are fully compiled for the currently productized Xizong Systems:
+## 1｜Compiled scope
 
 ```text
 A1 Circulation   1 SystemProjection + 12 BlockProjection
@@ -15,15 +14,16 @@ A2 Respiratory   1 SystemProjection + 12 BlockProjection
 A3 Urinary       1 SystemProjection + 14 BlockProjection
 
 Total            3 SystemProjection + 38 BlockProjection = 41 assets
+Canonical KP identities resolved: 805
 ```
 
-Every numbered Block in A1/A2/A3 has a durable Projection owner under `content/xizong/projection/**`.
+Every numbered Block in this A1/A2/A3 manifest has a durable Projection owner. B and other future Systems are outside this validation claim; repository existence is not compilation eligibility.
 
-This compilation does **not** change canonical medical Core, stable Block/KP identity, Question Truth, learner evidence, Runtime state or S/K/L/P/R/E/U claims.
+This work does not modify canonical medical Core, stable Block/KP identity, Question Truth, learner evidence, Runtime state, learning order or S/K/L/P/R/E/U claims.
 
 ## 2｜Projection richness model
 
-Seven deliberately heterogeneous Blocks were compiled with richer explicit Current-supported cognitive geometry during schema calibration:
+Seven heterogeneous calibration Blocks retain explicit Current-supported geometry:
 
 ```text
 A1 B1   mechanism chain + formula language + framework
@@ -35,46 +35,36 @@ A3 B1   spatial/directional/measurement/control map + source handoff
 A3 B5   five-variable coordinate + priority/acid-base algorithm + narrow external-source provenance
 ```
 
-The remaining 31 Blocks use the same schema in `BASELINE_CURRENT` form:
+The remaining 31 Blocks use `BASELINE_CURRENT` references to:
 
 ```text
-canonical Current Block Guide owner
+canonical Current Block Guide
 + first-pass focus / stop line
 + recall spine
 + Logic Group map
 + external handoff policy
 + protected Recall views
-+ optional reviewed enrichment where Current owns it
++ optional reviewed enrichment
 ```
 
-This is deliberate. Full coverage must not require invented diagrams merely for visual symmetry. A future richer Projection for one Block is a local asset upgrade, not a schema or page rewrite.
+Coverage does not require invented diagrams for symmetry. It also does not prove that the 31 baseline representations have already received the same rich spatial treatment as the seven calibration examples. A complete reference to a Guide is not proof that the eventual renderer presents its full useful semantics well.
 
-## 3｜Architecture result
+## 3｜Architecture result and limits
 
-One BlockProjection/SystemProjection responsibility model survived A1/A2/A3 without named-topic schema branching.
+At the asset level, one BlockProjection/SystemProjection family accommodates A1/A2/A3 without named-topic page branches:
 
-Confirmed properties:
+- multiple cognitive objects per Block;
+- role separate from geometry;
+- medical text referenced rather than copied into a second owner;
+- optional A2 cues/pathways without fake A1/A3 sidecars;
+- A3 B5 external admission retained as narrow provenance;
+- reusable view references rather than separately authored first-pass/Recall medical bodies.
 
-- one Block may contain multiple cognitive objects rather than one global `projection_shape`;
-- semantic role and Mac geometry remain separate;
-- canonical medical text is referenced rather than copied into a second owner;
-- A2 Visual / Precision / Connection enrichment is optional and does not force A1/A3 symmetry;
-- A3 B5 external-source support remains narrow provenance/scope authority rather than a second acid-base learner owner;
-- future first-pass / Recall / later-pass views can reuse the same canonical cognition rather than duplicating content systems.
+These are structural properties. They do not establish clinical correctness, semantic suitability of every geometry, completeness of all learner-visible content, or production renderer compliance.
 
-## 4｜Important calibration correction — binding-aware freshness
+## 4｜Binding-aware freshness
 
-The first freshness idea treated any referenced source-file blob change as automatic staleness. Calibration proved that would violate R10 when several Blocks share one structured learning-support file.
-
-Example failure mode:
-
-```text
-edit A1 B2 learning support
-→ shared a1-circulation-learning.json blob changes
-→ naive whole-file freshness would falsely stale B1/B7/B10/B11
-```
-
-Final policy therefore separates:
+The policy separates:
 
 ```text
 STRICT_BLOB
@@ -88,24 +78,22 @@ RESOLVE_BINDING
 - PATHWAYS
 ```
 
-For shared structured owners:
+Shared structured source changes require exact typed re-resolution rather than automatic sibling-wide staleness:
 
 ```text
 file changes
-→ re-resolve this asset's exact JSON pointer / reviewed item / exact match filter
-→ binding still valid → revalidated, not stale
-→ binding removed/invalid → stale/fail
+→ resolve this asset's exact pointer / reviewed item / filter
+→ valid binding → revalidated
+→ removed / invalid binding → fail the dependent asset
 ```
 
-Hard rule retained:
+**File packaging ≠ semantic dependency.**
 
-> **File packaging ≠ semantic dependency.**
+A same-type text edit being resolvable is not semantic approval. The Current medical/learning owner remains responsible for the changed meaning. Strict-source re-pinning still requires targeted review/recompile, not blind hash refresh.
 
-This is the key R10 Content Evolvability result from the full compilation.
+## 5｜Optional enrichment
 
-## 5｜A2 automatic enrichment binding
-
-A2 BlockProjection may use exact `INDEX_MATCH` over Current reviewed indexes:
+A2 binds reviewed indexes by item ID or exact owning-Block predicates:
 
 ```text
 precision_index  where anchor.block_id == current Block
@@ -114,142 +102,137 @@ connections      where source.block_id == current Block
 connections      where target.block_id == current Block
 ```
 
-`INDEX_MATCH` permits exact equality over explicit Current fields only. No fuzzy or AI semantic matching is allowed. Zero matches is a legal optional-enrichment result.
+The validator returns actual matched objects, checks supported filter fields, ownership/endpoints, declared anchors and timing policy. A real zero-match optional result is legal; a misspelled predicate is not a valid substitute for absence. A3 B5 external admission remains strict-pinned provenance, not learner answer content.
 
-This lets future reviewed A2 cues/links become consumable without named-topic Astro branching while preserving Current timing semantics.
+## 6｜Executed validation evidence — 2026-09-14
 
-## 6｜Validation evidence
+### Historical baseline, not sufficient proof
 
-### Dedicated Projection validation
+Original Projection run `34795172243` at `3cb882691ace183d46f771b910b354d0419e9d07` reported success. Replaying the old validator also produced green results in runs `34795361200` and `34795494921`.
 
-Workflow:
+Fresh negative probes exposed real detection gaps despite that green baseline:
 
-`Xizong Projection Validation`
+- `OWNER_REF` returned success without resolving the canonical owner;
+- `INDEX_MATCH` did not validate/return the actual match set;
+- removing the protection flag could bypass the old front check;
+- answer-bearing support/KP policies could evade the object-only visibility check;
+- missing pins and falsely safe-tagged bindings were insufficiently guarded;
+- a broken anchored selector could be rescued by an unrelated later structure.
 
-Run:
+Therefore the previous receipt's broad interpretation of `neutral_front: PASS` and helper self-tests is superseded for these claims. The old run remains historical evidence of the old checks, not proof of the stronger requirements.
 
-`34795172243`
+### Current executable validator
 
-Head:
+Entrypoint:
 
-`3cb882691ace183d46f771b910b354d0419e9d07`
+```text
+python3 -B content/xizong/projection/tools/validate_projection.py --self-test --json report.json
+```
 
-Conclusion:
+Version: `1.1.0`  
+Evidence mode: **EXECUTED + ADVERSARIAL**  
+Independence: **SELF**  
+Validation scope: **ASSET_BINDINGS_AND_DECLARATIVE_VISIBILITY_ONLY**
 
-**SUCCESS**
+Code blobs:
 
-Executed validator output:
+```text
+validate_projection.py  827a8e3671ad3168f5d0b293996d8bbb68f5c5e4
+test_projection.py      ba18312a728bf1cb4b7c8a87047f3d798a619bcc
+```
+
+Execution chain:
+
+1. Exact scoped Current inputs were downloaded from Actions and verified against their Git blob inventory.
+2. The revised validator and suite passed locally on all 41 assets.
+3. Candidate run `34796520999` passed the same suite. All 41 generated candidate asset blobs were individually matched to the locally tested bytes.
+4. Canonical read-only workflow `.github/workflows/xizong-projection.yml` then ran against the **committed tree** at `8055864098ae2feee7c1ee8794d676eda33c6ae9`.
+
+Committed-tree run: **`34796838978`**  
+Job: **`103831476051`**  
+Conclusion: **SUCCESS**  
+Report artifact: **`10330221073`**, `xizong-projection-report`
+
+Actual output:
 
 ```text
 XIZONG_PROJECTION_VALIDATION: PASS
-coverage: 3 systems / 38 blocks / 41 assets
-freshness: STRICT_BLOB + RESOLVE_BINDING
-neutral_front: PASS
-mutation_self_test: PASS
+coverage: 3 systems / 38 blocks / 41 assets / 805 KP identities
+mutation/control tests: 86/86 passed; failed=0
+boundary: asset validation only; no browser/runtime/medical/learner acceptance claim
 ```
 
-The mutation self-test proves at minimum:
+The valid baseline resolves **396 bindings**. The workflow also verified that `content/xizong/knowledge` had no tracked or untracked worktree changes after testing. Mutations are in-memory overlays, not edited source files.
 
-- changing unrelated A1 B2 shared learning support does not falsely break B1 binding;
-- removing B1's actually referenced `recall_spine` is detected;
-- Block-local strict Medical Core does not fan out as a false dependency across sibling assets;
-- `INDEX_MATCH` requires a non-empty exact predicate.
+### What the 86 checks exercise
 
-### Existing Xizong QA
+- full Current manifest and all seven heterogeneous calibration examples;
+- schema/ID collisions, unsupported fields and inline-answer injection;
+- canonical System/Block/KP/LG ownership;
+- exact source IDs, required pins, strict staleness and type guards;
+- exact JSON pointers, escaped keys and invalid array indexes;
+- Markdown heading/marker/anchor uniqueness, fence boundaries and adjacent structures;
+- required protected views, source-derived allowlists, support/context/handoff/provenance channels;
+- optional index IDs, predicates, matched objects, anchors and timing;
+- external admission scope/hash restrictions;
+- full accounting, duplicate/missing/unlisted assets;
+- positive controls for valid absence, lawful revalidation and presentation-object changes.
 
-Workflow run:
+### Locality controls — actual full-validator outcomes
 
-`34795172110`
+| Mutation/control | Observed outcome |
+| --- | --- |
+| Change unrelated B2 metadata in shared learning JSON | All 41 pass |
+| Edit B7 referenced text without changing its value type | All 41 re-resolve successfully |
+| Remove B7 `recall_spine` | Only B7 fails; other 40 pass |
+| Change B7 `recall_spine` from string to object | Only B7 fails; other 40 pass |
+| Change B7 strict Core bytes | Only B7 is STALE; other 40 pass |
+| Re-pin the reviewed test-only B7 revision | All 41 pass without changing page code |
+| Change A3 B5 external admission bytes | Only A3 B5 is STALE; other 40 pass |
+| Reorder/add a presentation object using an existing Current binding | All 41 pass |
+| Add answer/closure fields to a route item | Testable neutral payload still emits IDs/labels only |
 
-Head:
+The re-pin test establishes mechanics, not permission to skip semantic review. The route test establishes the declarative projection helper, not production DOM behavior.
 
-`3cb882691ace183d46f771b910b354d0419e9d07`
+## 7｜Bounded metadata corrections
 
-Conclusion:
+Across 41 Projection assets, the migration makes **355 validation-metadata edits**:
 
-**SUCCESS**
+- add exact resolved `FIELD_REF.value_type`;
+- make object `answer_bearing` explicit where omitted;
+- constrain accepted Block Recall maps with `LABELS_AND_IDS_ONLY`;
+- make `ID_AND_NEUTRAL_PROMPT_ONLY` explicit on KP fronts;
+- correct A3 B5's external-contract root pointer from `"/"` to `""`.
 
-Material checks include:
+No medical prose, stable medical identity, original question, learner order or learner evidence is rewritten. Source hashes were not blindly refreshed to make tests green.
 
-- A1 learner / Projection / Evidence contracts;
-- A2 Runtime contracts;
-- A3 owner / Question Truth / boundary / Runtime / Evidence contracts;
-- shared repair inbox contract;
-- Astro build;
-- A1 browser Runtime journey;
-- A1 browser Evidence journey.
+The temporary input-capture/candidate-export workflow is removed from the final tree. The existing canonical Projection workflow is reused with read-only permissions; no automatic source migration or write-back runs in ordinary CI.
 
-Therefore the Projection compilation did not break the accepted existing learning/runtime loop at this commit.
+## 8｜Existing Runtime evidence stays separate
 
-## 7｜Neutral-front safety
+Historical Xizong QA run `34795172110` at `3cb882691ace183d46f771b910b354d0419e9d07` passed its A1/A2/A3 contracts, Astro build and A1 Runtime/Evidence journeys. That is evidence about that earlier implementation/commit.
 
-Protected Projection views explicitly keep answer-bearing cognition out of:
+This validation task does not promote it into proof that a new renderer consumes Projection, nor into current browser answer-leak safety. The production Runtime and private learner state were not modified here.
 
-```text
-SYSTEM_RECALL_FRONT
-KP_RECALL_FRONT
-BLOCK_RECALL_FRONT
-```
+## 9｜Not claimed
 
-The validator rejects answer-bearing objects in a `NEUTRAL_FRONT` view. A2 optional enrichment additionally fails closed under `NO_ANSWER_LEAK` in protected Recall states.
+This receipt does not claim:
 
-This asset-level protection complements, but does not replace, later whole-workspace browser validation after the new renderer consumes Projection.
+- B or every future System is compiled/validated;
+- medical-semantic acceptance or complete source-to-view semantic coverage;
+- production Astro adoption or all learner-visible geometry fully upgraded;
+- DOM/tooltip/accessibility/keyboard neutral-front safety;
+- Mac aesthetics or responsive acceptance;
+- question attempt-history migration or whole-paper Runtime;
+- new S/K/L/P/R/E/U PASS or Kian learner progress;
+- independent-auditor evidence from SELF-authored tests.
 
-## 8｜What is NOT complete
+The former calibration validator dependency is closed **for the executed asset/binding/declarative-visibility scope**. Schema extension and downstream adoption still need their own applicable acceptance evidence.
 
-This receipt does **not** claim:
+## 10｜Next dependency
 
-- Astro currently consumes the new Projection assets;
-- the new Home/System/Block/System-Question product designs are implemented;
-- final Mac-wide visual styling is accepted;
-- responsive fallback is accepted;
-- learner Runtime/Evidence semantics have been migrated to a new schema;
-- whole-paper Runtime exists;
-- Kian has learned these Blocks;
-- real-use U acceptance.
+Do not restart A1/A2/A3 bulk production merely because this validation finishes. The assets already exist.
 
-Current Projection assets are **validated product inputs**, not proof of downstream product implementation.
+Use these validated inputs for the next bounded content-to-projection/consumer compatibility review. Address concrete gaps only; do not reopen medical Core or repeat historical archaeology without cause. Then the separately authorized implementation lane may consume them and perform real browser/Mac acceptance.
 
-## 9｜Separate Runtime blocker retained
-
-Before multi-pass question productization, question attempts must become append-preserved / phase-aware rather than `questionId → latest result` overwrite semantics.
-
-Needed conceptual evidence shape:
-
-```text
-question
-├─ FIRST_PASS attempt
-├─ SECOND_PASS attempt
-└─ WHOLE_PAPER attempt
-```
-
-Marking, result visibility and reveal timing must remain compatible with the accepted learner-facing question design. This requires a dedicated Runtime/Evidence review before implementation and is not solved by Cognitive Projection.
-
-## 10｜Next program stage
-
-The full Projection compilation is now suitable for an **independent architecture review** before Codex adoption.
-
-Recommended next chain:
-
-```text
-independent Pro architecture stress-test
-→ resolve any genuine schema/R10 defects only
-→ Codex implements renderer/workspaces against Projection assets
-→ real Mac-wide browser screenshots
-→ Sol structural/UI review
-→ Kian aesthetic + workflow acceptance
-→ iterate same implementation scope
-→ only then runtime/product acceptance
-```
-
-Mac screenshot acceptance must enforce the existing user preference owners, especially:
-
-- Mac wide landscape as design origin;
-- Dense Calm, not giant-whitespace minimalism;
-- larger comfortable type and strong contrast;
-- useful density and visible structure without card piles;
-- important first-round information visible by default;
-- stable/correct paths extremely fast;
-- cognitive geometry drives layout rather than decorative chrome.
-
-This receipt closes **Projection compilation**, not downstream UI/product implementation.
+Question attempt history remains a separate Runtime/Evidence task: later attempts must not overwrite first-pass evidence, and marking/result exposure must remain compatible with the accepted hidden/immediate question design. This is not a blocker for unrelated Guide asset validation.

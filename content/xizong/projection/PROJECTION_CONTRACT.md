@@ -1,6 +1,6 @@
 # Xizong Cognitive Projection Contract
 
-Status: **FULL A1/A2/A3 COMPILATION — VALIDATION / FREEZE CANDIDATE**  
+Status: **A1/A2/A3 ASSET VALIDATOR EXECUTED — DOWNSTREAM SEMANTIC / RENDERER ACCEPTANCE NOT CLAIMED**  
 Parent product: `static-web/XIZONG_PRODUCT_BRIEF.md`  
 Learning authority: `content/xizong/LEARNING_CONTRACT.md`  
 Root evolvability requirement: `PROJECT_DEFINITION.md` R10 + `ARCHITECTURE.md` §7.1  
@@ -48,7 +48,7 @@ Seven heterogeneous calibration Blocks retain richer explicitly compiled geometr
 - A3 B1 — spatial/directional/measurement/control map + source handoff;
 - A3 B5 — five-variable coordinate + priority/acid-base algorithm + narrow external-source provenance.
 
-The remaining 31 Blocks are legal baseline projections over the same schema:
+The remaining 31 Blocks are baseline projections over the same schema:
 
 ```text
 canonical Current Block Guide owner
@@ -60,7 +60,7 @@ canonical Current Block Guide owner
 + optional Current enrichment where the System owns it
 ```
 
-Baseline does **not** mean semantically thin or incomplete: the full canonical Guide/Core remains the medical owner and is projected intact. It means no extra specialized geometry is invented until Current-supported benefit justifies a local richer Projection upgrade.
+Baseline preserves references to complete canonical Guide/Core rather than authoring a shortened medical owner. This is an asset representation, not evidence that a renderer already displays every useful section well. Richness/completeness of the eventual learner projection still requires content-to-view review and browser acceptance.
 
 ## 3｜Granularity and identity
 
@@ -104,7 +104,7 @@ MEDICAL_CORE used by DERIVED_FRAGMENT → STRICT_BLOB
 EXTERNAL_SOURCE_CONTRACT             → STRICT_BLOB
 ```
 
-A mismatch makes that dependent asset `STALE` until targeted review/recompile.
+A mismatch makes that dependent asset `STALE` until targeted review/recompile. Missing hashes or changing a derived-fragment source to `RESOLVE_BINDING` cannot bypass the guard.
 
 ### `RESOLVE_BINDING`
 
@@ -129,30 +129,35 @@ blob changed
 → binding removed/renamed/type-invalid → STALE / FAIL
 ```
 
-This rule is required by R10 Content Evolvability: **file packaging ≠ semantic dependency**.
+This rule is required by R10 Content Evolvability: **file packaging ≠ semantic dependency**. A same-type text change is mechanically resolvable, not automatically a medically or pedagogically accepted change. Upstream authority still owns its meaning.
 
 ## 5｜Binding model
 
 Prefer references over copied learner content.
 
 ### `FIELD_REF`
-Exact structured field in Current JSON/frontmatter.
 
-Supported selectors include:
+Exact structured field in Current JSON/frontmatter. Requires `value_type` matching the resolved value (`string`, `object`, `array`, `number`, or `boolean`). A consumer must not treat pointer existence alone as type compatibility.
+
+Supported selectors:
 
 - `JSON_POINTER`;
 - `FRONTMATTER_FIELD`.
 
+The empty string `""` is the JSON root pointer; `"/"` selects an empty-string key and is not a root alias. Array indexes and `~0` / `~1` escapes are exact. Frontmatter selection returns the selected field's source text, not an inferred YAML object.
+
 ### `OWNER_REF`
+
 Stable canonical owner identity. Current roles used by baseline BlockProjection include:
 
 - `CENTER_QUESTION`;
 - `CANONICAL_GUIDE`;
 - canonical Block/LG/KP/KP-set identity.
 
-`OWNER_REF` means the consumer resolves the Current owner; Projection does not copy its medical body.
+`OWNER_REF` means the consumer resolves the Current owner; Projection does not copy its medical body. Resolution must check System/Block identity, exact canonical file, LG ownership and KP membership. The validator follows the Current loader's numbered-Block/KP join; unsupported owner topology requires an explicit adapter, not silent flattening.
 
 ### `DERIVED_FRAGMENT`
+
 Structurally selected fragment from a Current text owner when Current is not already structured enough.
 
 Supported selectors:
@@ -162,12 +167,14 @@ Supported selectors:
 - `LABELED_BLOCKQUOTE`;
 - `STRUCTURE_AFTER_ANCHOR`.
 
-Selectors fail closed. Runtime must never perform fuzzy semantic search to rescue a broken selector.
+Selectors fail closed. Runtime must never perform fuzzy semantic search to rescue a broken selector. Headings/markers/anchors must be unambiguous and outside code fences. Markers must adjoin their owning section. An anchored structure must be adjacent, not rescued from a later unrelated section; current v1 uses occurrence 1. Empty or malformed structures fail.
 
 ### `INDEX_REF`
-Exact reviewed item ID inside an enrichment index.
+
+Exact unique reviewed item ID inside an enrichment index. Returned values and declared anchors must resolve to Current-owned endpoints.
 
 ### `INDEX_MATCH`
+
 Deterministic filtering over a reviewed Current index. It is allowed only over explicit Current-owned fields and exact equality predicates, e.g.:
 
 ```json
@@ -185,11 +192,14 @@ Rules:
 
 - no fuzzy matching;
 - no semantic widening;
+- supported filter fields and owning scope must be checked;
+- return the actual matching objects, not an unconditional boolean;
 - zero matches is legal for optional enrichment;
-- the renderer may expose only the matched Current objects and must preserve their timing semantics.
+- the renderer may expose only matched Current objects and must preserve timing semantics.
 
 ### `EXTERNAL_CONTRACT_REF`
-Reference to an admitted external-source contract. It carries provenance/scope permission only; it may not copy/widen the external source into a second learner owner.
+
+Reference to an admitted external-source contract. It carries provenance/scope permission only; it may not copy/widen the external source into a second learner owner. Requires a strict source pin, `DO_NOT_WIDEN_ADMITTED_SCOPE`, and provenance-only learner-content policy.
 
 ## 6｜Role vs geometry
 
@@ -198,34 +208,16 @@ Keep two dimensions separate.
 `role` answers what cognitive job an object performs:
 
 ```text
-PROBLEM
-MAP
-CHAIN
-COMPARE
-BOUNDARY
-EXACT
-HANDOFF
-RECALL
-CLOSURE
-REFERENCE
+PROBLEM MAP CHAIN COMPARE BOUNDARY EXACT HANDOFF RECALL CLOSURE REFERENCE
 ```
 
 `geometry` answers how Current semantics may be spatialized on Mac:
 
 ```text
-SEQUENCE
-LOOP
-MATRIX
-AXES
-TREE
-NETWORK
-TABLE
-FORMULA_STRIP
-SPATIAL_MAP
-TEXT_STRUCTURE
+SEQUENCE LOOP MATRIX AXES TREE NETWORK TABLE FORMULA_STRIP SPATIAL_MAP TEXT_STRUCTURE
 ```
 
-Geometry is presentation metadata, not medical truth. A geometry upgrade should normally not require changing the canonical medical owner.
+Geometry is presentation metadata, not medical truth. A geometry upgrade should normally not require changing the canonical medical owner. Known role/geometry names do not prove their semantic suitability for a particular source fragment.
 
 ## 7｜Multi-object Block rule
 
@@ -267,17 +259,25 @@ SYSTEM_RECALL_FRONT
 SYSTEM_RECALL_REVEAL
 ```
 
-A view selects bound Current objects/support; it does not duplicate medical text.
+A view selects bound Current objects/support; it does not duplicate medical text. Every referenced object/support/handoff must exist in the same asset. Unknown presentation channels cannot silently expose payload.
 
-Future passes may add `SECOND_PASS_REVIEW` / `LATE_REVIEW`, but this compilation does not pre-author second-pass discrimination, distractor, condition-mutation, case or cross-System content. Those require accepted Current authority first.
+Future passes may add `SECOND_PASS_REVIEW` / `LATE_REVIEW`, but this compilation does not pre-author second-pass discrimination, distractor, condition-mutation, case or cross-System content. Those require accepted Current authority first. A new view label does not implement a learning behavior or alter Evidence.
 
 ## 9｜Neutral-front safety
 
-Protected Recall is workspace-wide.
+Protected Recall is workspace-wide. Each cognitive object declares an explicit boolean `answer_bearing`. A false flag alone is never sufficient evidence of safety.
 
-Any view with `protection: NEUTRAL_FRONT` may expose only explicitly non-answer-bearing objects. It must not leak canonical Guide/Core, recall spine, Precision, answer-bearing Visual, Failure answer or hidden title through sidebars, route labels, inspectors, tooltips or shortcuts.
+The named Recall Front states remain protected even if a producer omits their `protection` flag; omission must fail validation rather than disable validation.
 
-A2 optional enrichment therefore uses `NO_ANSWER_LEAK` on protected views.
+The current declarative allowlist is:
+
+- `SYSTEM_RECALL_FRONT`: only the Current System's `/system_recall/neutral_front` binding;
+- `KP_RECALL_FRONT`: `ID_AND_NEUTRAL_PROMPT_ONLY`, no Block answer objects;
+- `BLOCK_RECALL_FRONT`: Current center question and the already accepted optional LG label map; `logic_map_policy: LABELS_AND_IDS_ONLY` restricts that map to IDs/labels, never its closures, goals, KP answers or future added answer fields.
+
+No protected view may expose canonical Guide/Core, recall spine, Precision, answer-bearing Visual, Failure answer, source/provenance payload or answer-type title through a second channel. Learning-support and handoff payloads are forbidden on the Front. Enriched assets require explicit `NO_ANSWER_LEAK` front policy.
+
+The asset validator checks declarations and provides a bounded testable neutral payload projection. It does not execute the production browser renderer. DOM, accessibility text, tooltips, hidden inspectors, keyboard actions and real runtime-state transitions still require downstream browser tests.
 
 ## 10｜Optional enrichment is first-class
 
@@ -313,20 +313,38 @@ Cognitive Projection is not a second question database. Official Question Truth,
 
 ## 13｜Validation / freeze tests
 
-Production freeze requires validator evidence for:
+The executable asset entrypoint is:
 
-1. identity resolution;
-2. binding-aware freshness;
-3. no invention / exact selectors;
-4. optional enrichment without fake symmetry;
-5. multi-object Block support;
-6. state reuse without copied medical summaries;
-7. workspace-wide neutral-front safety;
-8. R10 local-change absorption / no false sibling stale fan-out;
-9. full manifest coverage: A1 12 + A2 12 + A3 14 Blocks and 3 System projections.
+```text
+python3 content/xizong/projection/tools/validate_projection.py --self-test --json <report-path>
+```
+
+The companion `test_projection.py` runs adversarial mutations and positive controls through the real validator, using in-memory overlays rather than altering canonical source files. Tests check both named rejection classes and local failure scopes.
+
+Asset validation covers:
+
+1. System/Block/LG/KP identity resolution;
+2. binding-aware freshness and required pins/types;
+3. exact selector resolution, ambiguity and unsupported fields;
+4. optional enrichment resolution without fake symmetry;
+5. multi-object shape and scoped reference integrity;
+6. state-view reference integrity;
+7. declarative neutral-front allowlists;
+8. R10 local stale/revalidation behavior with unaffected siblings still passing;
+9. manifest coverage reconciled to Current owners, not hard-coded topic counts.
+
+Executed evidence belongs to `FULL_COMPILATION_RECEIPT.md` and the actual CI run/report. Test implementation and self-review remain `SELF` evidence, not an independent audit.
+
+A passing suite does **not** by itself freeze all production semantics. No-invention in medical meaning, preservation of all useful learner content, renderer compliance, Runtime/Evidence integration, visual acceptance and real learning require their own evidence. Re-pinning in the mutation fixture tests recovery mechanics; it is not authorization to blindly re-pin changed medical content in production.
 
 ## 14｜Separate Runtime blocker
 
 Question attempt history is not solved by this layer. Before multi-pass question Runtime productization, attempts must become append-preserved and phase-aware rather than overwriting first-pass evidence with a later result.
 
-This Projection compilation changes no learner state, question Runtime, Evidence semantics, Astro/CSS/JS, or S/K/L/P/R/E/U acceptance.
+This Projection validation changes no learner state, question Runtime, Evidence semantics, Astro/CSS/JS, or S/K/L/P/R/E/U acceptance.
+
+## 15｜Validation metadata revision 1.1.0
+
+The bounded migration adds `FIELD_REF.value_type`, explicit object `answer_bearing`, restricted front `logic_map_policy`, and explicit KP neutral policy where previously implicit. It also corrects A3 B5's external-contract root pointer from `"/"` to `""`.
+
+No canonical medical text, existing stable medical identity, learner order or question evidence is rewritten. Producers and future consumers must honor these declared constraints; ignoring them is not compatible adoption. The schema family remains v1 with this explicit validation-metadata revision, not an automatic claim that previously unchecked v1 files satisfy the new requirements.

@@ -2,37 +2,53 @@ name: Xizong Projection Validation
 
 on:
   push:
-    branches: [main]
+    branches: [main, work/xizong-projection-validation-20260914]
     paths:
       - 'content/xizong/projection/**'
-      - 'content/xizong/knowledge/systems/a1-circulation/**'
-      - 'content/xizong/knowledge/systems/a2-respiratory/**'
-      - 'content/xizong/knowledge/systems/a3-urinary/**'
-      - 'content/xizong/knowledge/learner/a1-circulation-learning.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-learning.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-pathways.json'
-      - 'content/xizong/knowledge/learner/a3-urinary-learning.json'
-      - 'content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json'
+      - 'content/xizong/knowledge/**'
+      - '.github/workflows/xizong-projection.yml'
   pull_request:
     paths:
       - 'content/xizong/projection/**'
-      - 'content/xizong/knowledge/systems/a1-circulation/**'
-      - 'content/xizong/knowledge/systems/a2-respiratory/**'
-      - 'content/xizong/knowledge/systems/a3-urinary/**'
-      - 'content/xizong/knowledge/learner/a1-circulation-learning.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-learning.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-learning-cues.json'
-      - 'content/xizong/knowledge/learner/a2-respiratory-pathways.json'
-      - 'content/xizong/knowledge/learner/a3-urinary-learning.json'
-      - 'content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json'
+      - 'content/xizong/knowledge/**'
+      - '.github/workflows/xizong-projection.yml'
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Validate Xizong cognitive projection
-        run: python3 content/xizong/projection/tools/validate_projection.py --self-test
+          persist-credentials: false
+          sparse-checkout: |
+            content/xizong
+      - name: Validate exact bindings and adversarial mutations
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/xizong-projection-report
+          python3 -B content/xizong/projection/tools/validate_projection.py --self-test --json /tmp/xizong-projection-report/report.json 2>&1 | tee /tmp/xizong-projection-report/validation.log
+      - name: Verify protected sources were not mutated and record tested commit
+        shell: bash
+        run: |
+          test -z "$(git status --porcelain --untracked-files=all -- content/xizong/knowledge)"
+          python3 - <<'PY'
+          import json, pathlib, subprocess
+          p=pathlib.Path('/tmp/xizong-projection-report/report.json')
+          r=json.loads(p.read_text())
+          r['tested_commit']=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          r['protected_source_worktree_unchanged']=True
+          r['test_code_blobs']={x:subprocess.check_output(['git','hash-object',x],text=True).strip() for x in ['content/xizong/projection/tools/validate_projection.py','content/xizong/projection/tools/test_projection.py']}
+          p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: xizong-projection-report
+          path: /tmp/xizong-projection-report
+          retention-days: 14

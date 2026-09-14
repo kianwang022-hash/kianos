@@ -1,37 +1,219 @@
 {
-  "schema":"kianos.xizong.cognitive_projection.block.v1",
-  "status":"CALIBRATION_DERIVED_CURRENT",
-  "system_id":"circulation",
-  "block_id":"circulation-b11",
-  "sources":[
-    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md","blob_sha":"7dc2ac10835d1f6305c518fff4a01f2501579a7a"},
-    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a1-circulation-learning.json","blob_sha":"de71f997b53d51bc867715b69cdbe748ed9c7fc9"}
+  "schema": "kianos.xizong.cognitive_projection.block.v1",
+  "status": "CALIBRATION_DERIVED_CURRENT",
+  "system_id": "circulation",
+  "block_id": "circulation-b11",
+  "sources": [
+    {
+      "id": "core",
+      "kind": "MEDICAL_CORE",
+      "path": "content/xizong/knowledge/systems/a1-circulation/blocks/Block11_心力衰竭_学习阅读版_v2_最终执行版.md",
+      "blob_sha": "7dc2ac10835d1f6305c518fff4a01f2501579a7a"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/a1-circulation-learning.json",
+      "blob_sha": "de71f997b53d51bc867715b69cdbe748ed9c7fc9"
+    }
   ],
-  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"circulation-b11"},
-  "learning_support":{
-    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b11/first_pass_focus"}},
-    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b11/stop_line"}},
-    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b11/recall_spine"}},
-    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b11/logic_groups"}}
+  "canonical_scope": {
+    "kind": "OWNER_REF",
+    "owner_type": "BLOCK",
+    "id": "circulation-b11"
   },
-  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"circulation-b11"},
-  "objects":[
-    {"object_id":"circulation-b11-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b11-vicious-loop","role":"CHAIN","geometry":"LOOP","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"先建立脑内模型：心衰不是“心脏停了”"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b11-framework","role":"MAP","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"MARKER_ID","value":"circulation-b11-framework-main"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"circulation-b11-wet-cold-coordinate","role":"MAP","geometry":"AXES","binding":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/circulation-b11/logic_groups/circulation-b11-lg05"}},"stage_role":"SECONDARY_STAGE","note":"Geometry follows the Current-owned '湿/冷四象限' learning object; Projection does not synthesize quadrant medical contents."},
-    {"object_id":"circulation-b11-upstream-downstream-boundary","role":"BOUNDARY","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"这条链直接解释两个看似矛盾的现象：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"CONTEXT"}
+  "learning_support": {
+    "first_pass_focus": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b11/first_pass_focus"
+      },
+      "value_type": "string"
+    },
+    "stop_line": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b11/stop_line"
+      },
+      "value_type": "string"
+    },
+    "recall_spine": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b11/recall_spine"
+      },
+      "value_type": "string"
+    },
+    "logic_groups": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/circulation-b11/logic_groups"
+      },
+      "value_type": "object"
+    }
+  },
+  "kp_set": {
+    "kind": "OWNER_REF",
+    "owner_type": "KP_SET",
+    "block_id": "circulation-b11"
+  },
+  "objects": [
+    {
+      "object_id": "circulation-b11-problem",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "中心问题"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": false
+    },
+    {
+      "object_id": "circulation-b11-vicious-loop",
+      "role": "CHAIN",
+      "geometry": "LOOP",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "HEADING_EXACT",
+          "value": "先建立脑内模型：心衰不是“心脏停了”"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b11-framework",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "MARKER_ID",
+          "value": "circulation-b11-framework-main"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b11-wet-cold-coordinate",
+      "role": "MAP",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/blocks/circulation-b11/logic_groups/circulation-b11-lg05"
+        },
+        "value_type": "object"
+      },
+      "stage_role": "SECONDARY_STAGE",
+      "note": "Geometry follows the Current-owned '湿/冷四象限' learning object; Projection does not synthesize quadrant medical contents.",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "circulation-b11-upstream-downstream-boundary",
+      "role": "BOUNDARY",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "STRUCTURE_AFTER_ANCHOR",
+          "anchor": "这条链直接解释两个看似矛盾的现象：",
+          "structure_type": "CODE_BLOCK",
+          "occurrence": 1
+        }
+      },
+      "stage_role": "CONTEXT",
+      "answer_bearing": true
+    }
   ],
-  "enrichment_bindings":[],
-  "views":{
-    "BLOCK_ORIENT":{"object_ids":["circulation-b11-problem","circulation-b11-vicious-loop","circulation-b11-upstream-downstream-boundary","circulation-b11-framework","circulation-b11-wet-cold-coordinate"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"]},
-    "LOGIC_GROUP_ORIENT":{"object_ids":["circulation-b11-problem"],"learning_support_keys":["logic_groups"],"context_policy":"OWNED_ONLY"},
-    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"source_locator_policy":"CURRENT_ONLY_NO_GUESS"},
-    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY"},
-    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","context_policy":"OWNED_ONLY"},
-    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"context_policy":"TIMING_AWARE_OWNED_ONLY"},
-    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["circulation-b11-problem"],"show_logic_group_map":true},
-    "BLOCK_RECALL_REVEAL":{"object_ids":["circulation-b11-problem","circulation-b11-framework","circulation-b11-wet-cold-coordinate"],"learning_support_keys":["recall_spine","logic_groups"]}
+  "enrichment_bindings": [],
+  "views": {
+    "BLOCK_ORIENT": {
+      "object_ids": [
+        "circulation-b11-problem",
+        "circulation-b11-vicious-loop",
+        "circulation-b11-upstream-downstream-boundary",
+        "circulation-b11-framework",
+        "circulation-b11-wet-cold-coordinate"
+      ],
+      "learning_support_keys": [
+        "first_pass_focus",
+        "stop_line",
+        "logic_groups"
+      ]
+    },
+    "LOGIC_GROUP_ORIENT": {
+      "object_ids": [
+        "circulation-b11-problem"
+      ],
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "OWNED_ONLY"
+    },
+    "EXTERNAL_HANDOFF": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "source_locator_policy": "CURRENT_ONLY_NO_GUESS"
+    },
+    "KP_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "block_object_ids": [],
+      "kp_content_policy": "ID_AND_NEUTRAL_PROMPT_ONLY"
+    },
+    "KP_RECALL_REVEAL": {
+      "kp_content_policy": "CANONICAL_CORE_FULL",
+      "context_policy": "OWNED_ONLY"
+    },
+    "GROUP_CLOSURE": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "TIMING_AWARE_OWNED_ONLY"
+    },
+    "BLOCK_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [
+        "circulation-b11-problem"
+      ],
+      "show_logic_group_map": true,
+      "logic_map_policy": "LABELS_AND_IDS_ONLY"
+    },
+    "BLOCK_RECALL_REVEAL": {
+      "object_ids": [
+        "circulation-b11-problem",
+        "circulation-b11-framework",
+        "circulation-b11-wet-cold-coordinate"
+      ],
+      "learning_support_keys": [
+        "recall_spine",
+        "logic_groups"
+      ]
+    }
   },
-  "calibration_notes":["Tests a feedback/compensation Block plus a later decision coordinate in the same canonical Block.","Wet/cold AXES is anchored in Current learning support; quadrant content may not be invented by the renderer."]
+  "calibration_notes": [
+    "Tests a feedback/compensation Block plus a later decision coordinate in the same canonical Block.",
+    "Wet/cold AXES is anchored in Current learning support; quadrant content may not be invented by the renderer."
+  ]
 }
