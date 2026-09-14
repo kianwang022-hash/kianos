@@ -4,19 +4,19 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 
 ## Current mainline
 
-**Latest completed bounded implementation:** `o1125–o1374`.
+**Latest completed bounded implementation:** `o1375–o1624`.
 
 Accepted landing:
 
-- semantic authority: `content/lexical/semantic-review/o1125-o1374.md`;
-- implementation PR: **#122**;
-- merge commit: `81abe3ca297649c99f27ed32992f17e366dba95c`;
+- semantic authority: `content/lexical/semantic-review/o1375-o1624.md`;
+- implementation PR: **#123**;
+- merge commit: `f1a5b54f2511234eed148c44b629fac7d83e917a`;
 - exact scope: 250 owners;
-- `NO_CHANGE`: 183 / 183 byte-preserved;
-- `UPGRADE`: 67 / 67 mechanically applied;
+- `NO_CHANGE`: 172 / 172 byte-preserved;
+- `UPGRADE`: 78 / 78 mechanically applied;
 - `BLOCKED`: 0;
 - semantic escalations: 0;
-- identity reconciliation: 34 `REUSE_EXISTING_STABLE` + 8 `NEW_SEMANTIC_BRANCH` + 0 `ESCALATE_IDENTITY`;
+- identity reconciliation: 34 `REUSE_EXISTING_STABLE` + 25 `NEW_SEMANTIC_BRANCH` + 0 `ESCALATE_IDENTITY`;
 - Relation closure: PASS;
 - Form closure: PASS;
 - full final-object readback: PASS;
@@ -26,25 +26,25 @@ Prior bounded implementation packages through `o0474` are already historical lan
 
 ## Catalog execution
 
-**ACTIVE — bounded implementation only for `o1375–o1624`.**
+**ACTIVE — bounded implementation and integration only for `o1625–o1874`.**
 
 Semantic authority is exactly:
 
-`content/lexical/semantic-review/o1375-o1624.md`
+`content/lexical/semantic-review/o1625-o1874.md`
 
-This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o1625+`.
+This activation is authorized for the current continuous mechanical lane only. It does not reactivate the full Catalog, grant K/P/R/E/U acceptance, alter learner state, or authorize `o1875+`.
 
-Local bounded implementation is mechanically closed and pending integration: 172 `NO_CHANGE` owners are byte-preserved, 78 `UPGRADE` owners are applied, full-object readback is PASS, and no semantic escalation is open. This does not activate `o1625+`.
+The prior package is integrated at `main@f1a5b54f`; this activation is limited to the next 250-owner handoff. It does not activate `o1875+`.
 
-The prior package is integrated at `main@81abe3ca`; this activation is limited to the next 250-owner handoff. It does not activate `o1625+`.
+Local bounded implementation is closed pending integration: `205 NO_CHANGE` owners are byte-preserved, `45 UPGRADE` owners are mechanically applied, `BLOCKED = 0`, and semantic escalations = `0`. The final-object, identity/reference, Natural Owner, tests, JSON, diff, and Astro build checks passed. This does not mark the package complete on `main` or activate `o1875+`.
 
 ## Exact next action
 
-The active lexical range is exactly `o1375–o1624`; do not activate `o1625+` from the executor side.
+The active lexical range is exactly `o1625–o1874`; do not activate `o1875+` from the executor side.
 
 1. Read the latest Current Word Natural Owner before mutation.
-2. Preserve the 172 byte-preserved `NO_CHANGE` owners and the 78 applied `UPGRADE` owners through final review.
-3. Push this bounded package for CI/integration; after merge, refresh `main` before any later activation and do not activate `o1625+` from this package.
+2. Preserve the 205 byte-preserved `NO_CHANGE` owners and apply only the 45 authorized `UPGRADE` decisions.
+3. Push this bounded package for CI/integration; after merge, refresh `main` before any later activation and do not activate `o1875+` from this package.
 
 ## Frozen identity rule
 
