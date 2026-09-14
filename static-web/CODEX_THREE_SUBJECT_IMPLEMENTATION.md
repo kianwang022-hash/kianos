@@ -1,13 +1,13 @@
 # Codex 执行提示词｜三科 Mac-wide 落地 · 对话决策与文字框版
 
-Version: **v2 · 2026-09-14**  
+Version: **v2.1 · 2026-09-14**  
 Status: **RECONCILED EXECUTION HANDOFF — NOT IMPLEMENTATION / VISUAL ACCEPTANCE**  
-Program: #113；政治题后精炼解析依赖：#115  
+Program: #113；Politics Xiao1000 learner-explanation Current promotion 已由 PR #124 落地  
 Current router: `static-web/CURRENT.md`
 
-本文件是执行提示词，包括共同要求、三科专用要求、原文文字框摘录与验收规则。不是新的知识库、学习合同、证据数据库或另一份产品状态总表。
+本文件是执行提示词，包括共同要求、三科专用要求、原文文字框摘录、implementation synthesis frame 与验收规则。不是新的知识库、学习合同、证据数据库或另一份产品状态总表。
 
-本轮设计文件核对基线：`main@885020ee4375f7c02c99e88feee8102a7abe35ff`。执行时读取最新 main；这里的 SHA 只固定本次摘录来源，不是永久施工基线。
+本轮设计文件核对基线：`main@885020ee4375f7c02c99e88feee8102a7abe35ff`。执行时读取最新 main；这里的 SHA 只固定本次设计摘录来源，不是永久施工基线。Politics 题后 learner-explanation 资产的后续 Current 事实以最新 main 与 PR #124 promotion receipt 为准。
 
 ## 0｜先读：本对话的决定优先，以及证据边界
 
@@ -36,16 +36,16 @@ Kian 本轮明确要求：
 
 三科讨论都属于同一个长对话，不能再编造“三个最新 Chat”的标题、时间或定位。
 
-本轮可核对的是：当前上下文仍可见的用户原话、已取回的历史记录线索、以及下面逐项标注的**详细设计文件原文**。长对话有被折叠/未返回的消息，检索未恢复全部逐字聊天。因此本文件**不宣称已逐句遍历整个原始 transcript，也不把仓库摘录冒充原聊天逐字稿**。
+本轮可核对的是：当前上下文仍可见的用户原话、已取回的历史记录线索、以及下面逐项标注的**详细设计文件原文**。原始导出存在中段页面缺失，因此本文件仍**不宣称已逐句遍历整个原始 transcript，也不把仓库摘录或新绘制 implementation frame 冒充原聊天逐字稿**。
 
 来源标签：
 
 - `USER_EXPLICIT_VISIBLE`：本对话当前可直接核对的用户原话。
 - `DESIGN_VERBATIM`：从指定详细设计 owner 原样摘取的文字框/流程块；不是重新绘制。
 - `DESIGN_BEHAVIOR`：该 owner 的明确行为说明；不能冒充原 ASCII 框。
-- `ORIGINAL_FRAME_NOT_RECOVERED`：原框没有恢复，保留已知决定，不编一个“最终原版”。
+- `EXECUTION_SYNTHESIS`：原历史 ASCII 没有完整恢复，但产品职责与行为已经由 accepted owner / 用户明确决定闭合；本文件据此给出的**非历史** implementation frame。它可以用于施工与截图验收，但不能声称“这就是当时原聊天定稿框”。
 
-具体来源不足只限制该项的“原文恢复/精确视觉接受”声明，不自动重开三科产品模型。若后续取得原聊天原框，以 Kian 最后确认的版本替换对应摘录；不要叠加第四套方案。
+来源不足只限制“历史逐字恢复”的声明，不自动制造产品 blocker。若 accepted 行为已经充分，使用 `EXECUTION_SYNTHESIS` 施工；以后若取得真正原框，只在发现实质冲突时按 Kian 最后明确决定纠正，不叠加第四套方案。
 
 ### 0.3 本对话可见的硬约束
 
@@ -64,6 +64,38 @@ Kian 本轮明确要求：
 | “而且是一句话解析和ai精炼解析，不是我们村的pdfocr生成的” | 政治 takeaway、chat_explanation 与 PDF/OCR 原解析是不同内容层。 |
 
 这些原话锚点不是完整 transcript。详细技术行为以以下科目原文及对应 owner 对账，不从一句原话扩大语义授权。
+
+### 0.4 Minimum-sufficient learner action｜No mandatory ritual
+
+原对话在三科重新验收时形成的跨科规则必须直接约束 UI 实施，而不是只存在于设计背景里：
+
+```text
+Construct → Attack → Survive / Change → Freeze
+```
+
+三层最小充分问题：
+
+```text
+Logic   = 是否是最小充分模型？
+Content = 是否是最小充分学习资产？
+UI      = 是否是最小充分学习动作？
+```
+
+对每个新增 learner-facing `panel / step / gate / checkpoint / confirmation / persistent chrome`，先反向攻击：
+
+- 它具体防止什么失分、认知丢失或真实学习摩擦？
+- 它减少什么未来学习/复习操作，而不是制造第二套操作？
+- 删除、合并或降级它后，内容保真、Evidence 和 exact return 是否仍完整？
+- 能否在 stable/correct path 一键经过或完全不打扰？
+- 这是 learner 真正需要的动作，还是把 backend richness 错投影成 learner burden？
+
+默认规则：**如果删除一个额外动作后学习价值与证据完整性不下降，就不让它成为 mandatory learner action。** Capability 可以存在，不等于用户必须操作一遍。
+
+同时：
+
+> **Shorter text alone is not compression. A beautiful framework that creates an extra course is negative compression.**
+
+因此不能用“更短、更干净”为理由删薄高价值内容，也不能把完整内容重新包装成一套需要额外学习/点击的第二课程。目标是减少不必要动作，不是减少必要信息。
 
 ---
 
@@ -137,7 +169,7 @@ ASCII box ≠ 带边框的大卡片
 
 `frame ID + exact source section → 当前语义/资产引用 → route/component → 正常态/问题态/保护态 → 截图和行为证据`。
 
-没找到原框，报告对应编号的缺口，不重画后声称“原版已确认”。不能只做一张漂亮首屏就跳过题后、长内容、返回或保护态。
+`EXECUTION_SYNTHESIS` frame 也必须进入 frame-to-view 对账，但验收的是 accepted behavior 与空间职责，不是“与历史 ASCII 像素一致”。不能只做一张漂亮首屏就跳过题后、长内容、返回或保护态。
 
 ---
 
@@ -349,11 +381,34 @@ G ...                                Fixed D
 
 这是**局部学习入口**，不是把整套导学缩为一个故障节点的授权。完整Task Guides / Global Map / validated First Learning资产仍可浏览且可跳过，保留框架、例子、边界、详细层级；`logic-projection`等既有导学须按当前真实owner定位，不能只凭旧文件名猜路径或拿运行状态页面冒充教学资产。Return回exact原题/句段/作文，不丢上下文。
 
-## E07｜English Home / 完整Guide总入口的原框恢复边界
+## E07｜English Home / 完整Guide总入口 — execution synthesis
 
-`ORIGINAL_FRAME_NOT_RECOVERED`：本轮未取回这两类页面最后确认的完整聊天文字框。English Home/Resume的产品方向已经确认，不因框未取回重开设计；但不能把后来新增的PRODUCT_STATUS总结或本次新绘图称为原始定稿框。
+来源：`ENGLISH_PRODUCT_STATUS.md` + `ENGLISH_PRODUCT_BRIEF.md` 已接受职责；`EXECUTION_SYNTHESIS`。历史长对话的最终 Home ASCII 未完整恢复，但产品职责已闭合，因此**不再把缺原框当施工 blocker**，也不把下面这张框声称为历史原稿。
 
-实施先保持已确认的meaningful Resume、Reading family/Translation/Writing入口、完整可跳导学、Lexical独立工具与exact return；Resume是最高价值真实未完成工作，不是最近打开或due看板。具体Home空间稿的“与原聊天逐字一致”验收保留未证实，不伪造。未恢复部分不得暗中用新UI默认替代。
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ English                                                                      │
+│                                                                              │
+│ Continue                                                                     │
+│ <highest-value real unfinished / resumable task>               Continue →    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Objective / Reading family        Translation                 Writing          │
+│ Reading A · Cloze · Part B        full source + workspace    Small / Big      │
+│ Enter →                           Enter →                    Enter →           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ Guides / First Learning                                LexicalOS               │
+│ complete · skippable · targeted                        read-only supply        │
+│ exact return to owning task                            exact return            │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+实施约束：
+
+- Continue = 最高价值真实未完成/未解决工作，不是最近打开、工程状态、due 或虚构进度；没有真实 Resume 时安静消失/降级。
+- 三个考试工作家族是主入口，不做巨大“课程卡”；Reading A/Cloze/Part B 保留自己原生几何。
+- 完整 Guide / First Learning 是可浏览、可跳过、可由真实题目问题进入的支持层；不能藏到 debug/status，也不能压成只剩一个故障节点。
+- LexicalOS 是独立供给工具；只读查询不制造 learner state。
+- Home 负责入口与 Resume，不重复每个工作区内部的教学、Evidence 或进度面板。
 
 English全family回执须覆盖Home/Resume、E01–E06、所有Part B forms、Writing Small/Big与Direct/Plan、Lexical return；部分截图通过不等于全族完成。
 
@@ -362,6 +417,22 @@ English全family回执须覆盖Home/Resume、E01–E06、所有Part B forms、Wr
 # 7｜Politics：执行要求与文字框
 
 读：`content/politics/CURRENT.md` → `POLITICS_PRODUCT_STATUS.md` → `POLITICS_UI_REVIEW_PROTOCOL.md` → Learning/Interaction contracts → 下列详细设计 → Projection manifest/exact chapter → 仅其选择的Current refs → touched Runtime/Evidence/Repair/Return。
+
+### Politics status boundary｜Learning closed, post-closure parity open
+
+不要把活动 UI PR 解释成 Politics 学习系统未收口：
+
+```text
+Politics five-subject Learning engineering   S/K/L/P/R/E CLOSED
+Politics real learner U                      ELIGIBLE / UNTESTED
+Politics Product / UI                        downstream implementation / acceptance
+Legacy useful-function parity                post-closure migration
+└─ Xiao1000 Workbench                        #117 / its successor
+```
+
+#117 及其后继只负责恢复/对齐仍有价值的 learner-facing Workbench capability；它们**不重新打开 Politics Learning / Projection，也不阻塞 Kian 开始真实政治学习**。
+
+题后 learner-explanation 内容 promotion 已由 **PR #124** 合并进入 Current。Issue #115 的旧开放元数据不得继续当作内容 blocker；执行读取 latest main 的 promoted derived asset / manifest / promotion receipt，再完成 Workbench exact-ID consumer、浏览器和 Mac acceptance。
 
 编写时53章/160 NU、151 PASS/9 REFERENCE_ONLY是既有资产基线，执行再核实，不硬编码计数。160 owner不是160独立课程页面。不得从raw chapter重猜五科认知几何。
 
@@ -607,11 +678,34 @@ rail是身份/定位，不自动代表严格因果。当前list完整、可读�
 
 保留同一对象的概念、最近边界、应用关系，不能拆成反复点击的孤立卡。核心≠原则、两组法治结构等按原owner呈现，不猜补source缺口。
 
-## P10｜肖1000 clean attempt：保留，不新设计
+## P10｜肖1000 clean attempt — execution synthesis
 
-来源：`POLITICS_PRODUCT_BRIEF.md` → Xiao1000 / Clean attempt；DESIGN_BEHAVIOR。本轮未恢复其原始完整ASCII题面框，不拿新绘图冒充。
+来源：`POLITICS_PRODUCT_BRIEF.md` → Xiao1000 / Clean attempt 的 accepted behavior；`EXECUTION_SYNTHESIS`。历史完整 ASCII 题面框未恢复，但行为职责充分，因此不再是 implementation gap。
 
-明确已定行为：全宽题干、长度允许时Mac 2×2选项、verified text及可选原图查看、Favorite、Uncertain、mark-for-discussion、Normal/Fast及单/多选提交、提交前不泄答案。**不要为干净题面新增固定左/右知识分区。**
+```text
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Xiao1000 · <scope / progress>     Normal / Fast      ☆ Favorite  △ Uncertain │
+│                                                     ◇ Mark for discussion    │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ <verified question meta>                                      [查看原题图]*   │
+│                                                                              │
+│ <full-width stem; natural readable line length>                              │
+│                                                                              │
+│ A  <option>                              B  <option>                         │
+│                                                                              │
+│ C  <option>                              D  <option>                         │
+│                                                                              │
+│ <timer / quiet input hint>                                      Submit / →   │
+└──────────────────────────────────────────────────────────────────────────────┘
+```
+
+实施约束：
+
+- 2×2只在选项长度允许时使用；长选项自然换行/重排，不为了“像框”挤字。
+- clean attempt 绝不出现 correctness、formal answer、takeaway、chat_explanation、Xiao原解析或固定知识复盘栏。
+- 选中态只表示 learner selection，不暗示正确。
+- Normal/Fast、单/多选提交、Favorite、Uncertain、discussion mark、计时/改答轨迹与可选原题图按 Current Runtime 真能力实现；缺 capability 明示，不伪造。
+- 如已有 compact question/session navigator，可保留在不压窄主题面、不泄结果的前提下；本框不授权新增固定左右知识分区。
 
 ## P11｜肖1000 submitted result：保留原左右信息架构
 
@@ -643,11 +737,15 @@ chat_explanation  → AI 精炼解析 / 理解这道题
 xiao_reference    → 独立的肖1000原解析 / 有明确来源的补充解析
 ```
 
-上面字段映射是本轮对用户纠正与Legacy字段证据的明确对账，不声称是早期原ASCII框。
+这三层现在都必须按 Current 身份消费，不能再把“待迁移”当默认状态：
 
-#115处理前两项历史资产恢复/Current promotion。执行先读取其最新状态：未迁入时，题后完整收口有真实依赖；不把OCR的explanation切第一句当takeaway，不重生成1148条当历史恢复，不将空字段标为“保留成功”。缺失时fail closed是安全行为，**不是产品完成**。其他不依赖的学习UI可以继续。
+- PR #124 已把经身份验证的 1148-record learner-facing explanation layer promotion 到 Current derived asset；
+- 当前 Question Truth 仍由 `content/politics/source/xiao_2027_questions.jsonl` 独占；promoted payload 不拥有 stem/options/canonical answer；
+- consumer 按 exact stable question ID 绑定；missing/unbound/stale 时 fail closed；
+- 不把 OCR explanation 切第一句当 takeaway，不重新生成一套“AI解析”，不回退 Legacy runtime；
+- implementation 必须核对 promoted manifest / promotion receipt 的当前路径与版本，不把 Issue #115 仍为 open 的元数据当 blocker。
 
-历史1148数量、SHA与251 pending均应在#115核对最新证据；旧计数不证明当前状态，不为UI任务擅自重开全政治语义审核。迁入后按exact question ID、题面/选项/答案核对绑定，不复制Question Truth、旧scheduler/due/mastery或私有历史作答。
+当前 UI 剩余工作是 consumer wiring、clean/submitted answer-gating、浏览器/截图与 Mac acceptance；不是重新做 1148 题政治语义审核。
 
 ### 政治推进与验收
 
@@ -924,15 +1022,16 @@ PRE/POST/MID Evidence phase保留；工程就绪不代表Kian该立即做SystemR
 ## 必测矩阵
 
 1. **覆盖和精确绑定**：当前scope所有route/owner有accounting；manifest/shards/ID、optional/null/REFERENCE_ONLY、missing/stale/unsupported依原contract处理。没有就是明确缺席，不能raw推断fallback。
-2. **文字框落实**：frame ID→实际DOM/截图；完整题组不是隐藏在DOM就算，必要关系不只存在JSON里。框外已有重要能力也要保留。
+2. **文字框落实**：frame ID→实际DOM/截图；完整题组不是隐藏在DOM就算，必要关系不只存在JSON里。`EXECUTION_SYNTHESIS` 验收 accepted behavior / 空间职责，不冒充历史原框。框外已有重要能力也要保留。
 3. **内容保真**：受保护source前后hash/diff、限定/否定/例外/固定表述、并行vs顺序、题目/首稿/首答不丢。不得把原文做全量重复拷贝来凑完整。
-4. **R10压力**：隔离fixture/in-memory测试长标题/长解释、更多合法对象、optional缺席、真实不同geometry；不改production知识制造测试；普通变动不需named-topic分支，按真实依赖粒度局部失效。
-5. **正常路径**：选择/提交/下一项、自由回退、空任务、无题NU、有效退出；正确快走且保存可靠。
-6. **异常路径**：Wrong/Uncertain/Marked、重复提交、刷新/back-forward、storage失败、stale/坏local state；不覆盖first attempt，不制造已保存。
-7. **保护态**：clean/Recall Front/Hidden在正常DOM、焦点、屏幕阅读语义、侧栏、排序/计数/跳题差异均不泄答案。资产静态校验不能替浏览器。
-8. **Repair/Return/Resume**：source/Chat/FirstLearning/Lexical后exact return，滚动/焦点/任务保留；PASS/dormant pending不制造债或错误Resume。
-9. **输入与视觉**：§4/§5的viewport/125%/IME/快捷键/reduced-motion；全页不意外横溢出，宽矩阵允许有说明的局部滚动，控件不跑屏外。
-10. **跨科与build**：shared改动回归其他科代表surface，domain QA与Astro build实际执行；不以某一科绿灯外推全部三科。
+4. **最小充分交互攻击**：对新增持久 panel/step/gate/checkpoint/confirmation 做 deletion/merge challenge；若去掉后学习价值与Evidence不下降，不得成为 mandatory learner action。稳定正确路径不得因系统能力丰富而变重。
+5. **R10压力**：隔离fixture/in-memory测试长标题/长解释、更多合法对象、optional缺席、真实不同geometry；不改production知识制造测试；普通变动不需named-topic分支，按真实依赖粒度局部失效。
+6. **正常路径**：选择/提交/下一项、自由回退、空任务、无题NU、有效退出；正确快走且保存可靠。
+7. **异常路径**：Wrong/Uncertain/Marked、重复提交、刷新/back-forward、storage失败、stale/坏local state；不覆盖first attempt，不制造已保存。
+8. **保护态**：clean/Recall Front/Hidden在正常DOM、焦点、屏幕阅读语义、侧栏、排序/计数/跳题差异均不泄答案。资产静态校验不能替浏览器。
+9. **Repair/Return/Resume**：source/Chat/FirstLearning/Lexical后exact return，滚动/焦点/任务保留；PASS/dormant pending不制造债或错误Resume。
+10. **输入与视觉**：§4/§5的viewport/125%/IME/快捷键/reduced-motion；全页不意外横溢出，宽矩阵允许有说明的局部滚动，控件不跑屏外。
+11. **跨科与build**：shared改动回归其他科代表surface，domain QA与Astro build实际执行；不以某一科绿灯外推全部三科。
 
 政治复用Projection anti-drift validator及五科适用R/E journeys；英语复用Objective/Translation/Writing guards/journeys；西综复用当前validate_projection.py/test_projection.py及companion acceptance。新增检测行为配negative+positive tests，不删失败mutation或弱化断言。保护true-exam/holdout；用准入工程素材或明确synthetic fixtures。
 
@@ -954,7 +1053,7 @@ PRE/POST/MID Evidence phase保留；工程就绪不代表Kian该立即做SystemR
 
 `surface/frame → implemented+tested / unchanged+verified / blocked(reason) / out-of-scope → source ref → candidate SHA → tests/screenshots → acceptance pending`。
 
-**缺素材、缺原框、缺runtime compatibility、缺真人选择是不同阻塞。**只挡实际依赖；不猜补、不无期限考古、不以“安全缺省”伪报完成。长任务中断写清已提交/已测/首个剩余动作，恢复时续接不重做。
+**缺素材、缺runtime compatibility、缺真人选择与“历史原ASCII未恢复”是不同事情。** accepted behavior 已足够且有 `EXECUTION_SYNTHESIS` 时，历史原框未恢复本身不再阻塞施工；真实素材/Runtime缺口仍只挡实际依赖。不得猜补、不无期限考古、不以“安全缺省”伪报完成。
 
 Codex交付可审查PR需：授权surface有完整accounting，实际代码已提交，受保护路径/语义diff清楚，测试与截图可复现，真实阻塞明示。不得自行merge、关闭#113、标U为PASS或替Kian接受审美。
 
@@ -964,34 +1063,41 @@ Codex交付可审查PR需：授权surface有完整accounting，实际代码已�
 
 ---
 
-# 11｜本轮提示词纠偏与未恢复项
+# 11｜本轮提示词纠偏与历史原框边界
 
-| 旧提示词/总结容易造成的误读 | 本版处理 |
+| 旧提示词/总结容易造成的误读 | v2.1处理 |
 | --- | --- |
 | “仓库Status最新，所以一定比用户之前决定更正确” | §0规定本对话最后明确决定优先；Status不能制造产品接受。 |
 | 再定位三个其他Chat | 三科同一对话；不再编造线程定位。 |
 | 提示词有Mac/测试规则就足够 | 内嵌E/P/X具体原文字框及行为；实施必须frame-to-view对账。 |
 | ASCII三个框＝三张大卡片 | §2明确为空间职责、非装饰边框与固定留白。 |
 | 内容只读＝表达资产永久不可改 | §3允许已确认要求的有界纯呈现候选，语义变更另交owner。 |
-| 政治题库已搬＝一句话/AI解析已搬 | P11单独绑定takeaway/chat_explanation/xiao_reference；#115作为真实依赖。 |
-| 缺失可安全省略＝已保留功能、可以收工 | 安全缺省与产品闭合分开，缺关键资产明确blocked。 |
+| capability存在＝learner必须操作一次 | §0.4升为最小充分交互硬规则；No mandatory ritual。 |
+| 原ASCII没恢复＝该surface不能施工 | E07/P10提供明确标注的`EXECUTION_SYNTHESIS`；历史身份与施工充分性分开。 |
+| Politics有活动PR＝Politics学习工程未收口 | §7明确S/K/L/P/R/E已闭合；#117是post-closure parity。 |
+| Politics题库已搬＝一句话/AI解析已搬 | PR #124已独立完成learner-explanation Current promotion；P11按exact-ID消费，仍禁止OCR冒充。 |
+| Issue #115仍open＝内容promotion仍blocked | 以latest main + PR #124 / promotion receipt为准；旧Issue元数据不能覆盖落地主线。 |
+| 缺失可安全省略＝已保留功能、可以收工 | 安全缺省与产品闭合分开，真实关键素材/Runtime缺口仍明确blocked。 |
 | 所有科都用fast下一题/相同close门槛 | 按E/P/X原有认知与证据分工，不抹平差异。 |
 | 产品已定＝视觉token、whole-paper runtime也全部完成 | 记录真实待验/兼容边界，不重开设计也不虚报实现。 |
 
-原框恢复仍有明确限制：长对话未全部逐字取回；E07的English Home/完整Guide总入口完整聊天框、P10的clean attempt完整聊天ASCII未恢复。本文件没有新绘图填充这些空白。其明确产品行为仍保留，但“原聊天原框已全量恢复”这一声明不成立。其他DESIGN_VERBATIM也只声明与详细设计文件摘录一致，不声明已找到每一次用户确认的原始消息。
+历史逐字恢复仍有边界：E07 English Home 与 P10 clean attempt 的**历史最终 ASCII**没有从损坏的对话导出中完整取回；v2.1 不伪造这个事实。但 accepted product behavior 已足够，所以本文件给出标注为 `EXECUTION_SYNTHESIS` 的施工框，今后不再把“缺历史原框”当作 UI implementation blocker。其他 `DESIGN_VERBATIM` 只声明与详细设计 owner 摘录一致，不宣称已找到每一次用户确认的原始消息。
 
-本文件没有改变知识内容/学习证据，也没有启动Codex、完成迁移、运行UI测试或取得Kian视觉接受。
+本文件没有改变知识内容/学习证据，也没有启动Codex、完成UI迁移、运行本轮UI测试或取得Kian视觉接受。
 
 ## 启动短指令
 
 ```text
 执行 kianwang022-hash/kianos 的 Issue #113 当前实施项。
 读取最新 main 的 static-web/CURRENT.md 与
-static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md（v2或其后继）。
+static-web/CODEX_THREE_SUBJECT_IMPLEMENTATION.md（v2.1或其后继）。
 按当前科目读取内嵌E/P/X文字框及对应详细设计/Current资产。
 本对话Kian最后明确决定优先于旧提示词/状态总结；不重开已定产品。
-复用活动PR；没有当前实施项时先Politics。
-政治题后内容单独核对#115，不能OCR冒充takeaway/AI精炼解析。
+遵守 Minimum-sufficient learner action / No mandatory ritual；backend richness 不自动变 learner burden。
+复用活动PR；没有当前实施项时按#113最新调度。
+Politics Learning 已闭合；#117/后继是 post-closure parity，不阻塞真实学习。
+Politics题后learner-explanation 已由PR #124 promotion到Current；按exact-ID消费，不能OCR冒充takeaway/AI精炼解析，也不能因#115旧open状态重复迁移。
 遵守Mac/Dense Calm、完整内容、保护态、真实测试/截图与exact return。
+E07/P10使用标注的EXECUTION_SYNTHESIS施工，不声称是历史原ASCII。
 有界实际施工并提交可独立审查PR；真实缺口逐项说明，不自行merge。
 ```
