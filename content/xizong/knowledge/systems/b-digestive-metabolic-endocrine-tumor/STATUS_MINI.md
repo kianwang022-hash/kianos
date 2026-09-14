@@ -2,7 +2,7 @@
 
 Branch: `xizong-b-fresh-s-reset`
 Gate: `S — Source`
-Current sub-gate: `S2 — Internal Medicine exact official-question membership`
+Current sub-gate: `S2 — Internal Medicine old-era / 2026 reconstruction + negative-space closure`
 Authority: working engineering cursor only; `SOURCE.md` remains B Source owner; Project Source/Lecture remains medical Source Truth.
 
 ## Stable assets
@@ -34,43 +34,47 @@ G5 molecular from tumor pages    4
 unique Pathology-derived B total 75
 ```
 
-Closure included:
-- second-pass Current tag readback (`2014N133`, `2014N167`, `2025N153` recovered);
-- 2026 bounded Current reconstruction (`2026N36`, `N37`, `N39`);
-- G5-vs-O9 adjudication (`2013N48`, `2016N51`, `2016N166`, `2024N148` → B G5);
-- general injury/repair, infection, other-organ and tumor-general false-positive attacks;
-- deterministic dedupe.
-
 Evidence owner: `SOURCE_AUDIT_PATHOLOGY_CLOSURE.md`.
 
 Counts are evidence results, never reconstruction targets.
 
-## Current task — Internal Medicine
+## Internal Medicine — Current-source batches CLOSED_BOUNDED
 
-Construct B-System exact official-question membership from Current Internal Medicine Source and Current Question Truth.
+### Endocrine 2013–2025
 
-Primary B Internal regions expected to include:
-- esophageal / gastric / intestinal disease and GI bleeding as assigned to B;
-- liver disease, cirrhosis, portal hypertension, hepatic encephalopathy, HCC interfaces to Current Source depth;
-- biliary / pancreatic medical disease where Internal Medicine is Source owner;
-- diabetes and B-assigned endocrine disease (thyroid / adrenal / calcium-PTH / GH) to Current Source depth;
-- B organ-specific tumor diagnosis/medical-management interfaces where actually taught.
+`SOURCE_AUDIT_INTERNAL_ENDOCRINE_CURRENT.md`
 
-Hard boundaries:
-- renal water/electrolyte/acid-base/CKD-MBD complete model → A3;
-- complete hematology/coagulation → C;
-- complete infection/immune → owning System;
-- reproductive endocrine → E/later;
-- tumor-general → O9;
-- Surgery-owned operative decisions remain Surgery, not imported from an Internal differential merely because the same disease appears.
+- `77` unique exact qids.
+- Graves / hypothyroidism / primary aldosteronism / pheochromocytoma / Cushing / endocrine-common localization / diabetes represented.
+- `2019N52` repaired as a source-adjacency false positive: hepatic encephalopathy, not endocrine.
 
-Method:
-1. recover exact official qids from Current Internal Medicine Source regions;
-2. resolve every included qid in Current Question Truth;
-3. judge by tested construct, not disease-name occurrence;
-4. reconstruct older years where current Lecture tags are sparse;
-5. run whole-Internal negative-space and neighboring-System collision attacks;
-6. dedupe against the already closed Physiology/Pathology qids before subject closure.
+### GI / liver / pancreas 2013–2025
+
+`SOURCE_AUDIT_INTERNAL_GI_CURRENT.md`
+
+- `110` unique exact Internal-evidence qids.
+- GERD / gastritis / PUD-UGIB / intestinal TB-TB peritonitis / IBD / IBS / hepatic encephalopathy / HCC medical layer / cirrhosis / acute pancreatitis represented.
+- Surgery-oriented qids printed as cross-links were deliberately deferred to Surgery S2 rather than double-counted here.
+
+Current-source Internal subtotal:
+
+```text
+endocrine  77
+GI/liver  110
+-------------
+subtotal   187
+```
+
+`187` is not final Internal unique closure yet.
+
+## Current task
+
+1. reconstruct older sparse Internal Medicine B membership (especially 2005–2012) against Current Source;
+2. reconstruct 2026 Current Question Truth where the readable Internal Lecture lacks stable 2026 tags;
+3. whole-Internal negative-space / false-negative sweep;
+4. attack renal / hematology / infection / reproductive / O9 / Surgery-owner collisions;
+5. dedupe against closed Physiology / Pathology and the later Surgery tranche;
+6. only then declare Internal Medicine PASS_BOUNDED.
 
 ## Hard stop
 
