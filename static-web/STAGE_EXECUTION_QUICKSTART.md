@@ -1,57 +1,26 @@
 # KianOS Integrated Productization Quickstart
 
-Use with `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.1+, `static-web/CURRENT.md`, #113 and #148.
+现有路径保留，唯一完整任务说明：`CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.2+**。Program #113，执行 #148，Current为`static-web/CURRENT.md`。
 
-## Current rule
-
-The active execution is **#148 — Three-subject frame-baseline full landing → Astra polish**.
-
-The former Stage Issues #138–#143 remain useful as **acceptance ledgers / bookkeeping owners**, but they are no longer mandatory human stop points. Kian should not need to copy a new engineering prompt after every internal sub-stage.
-
-The frozen v2.1 text-frame archive is the active composition baseline:
-
-`static-web/design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`
-
-Latest Current / Learning / Question Truth / Evidence / Runtime still own semantics and state. Do not restore superseded historical semantics merely because the frame archive contains them.
-
-## Astra opening instruction
+## 一条续接指令
 
 ```text
-Restore the full #113 / #148 program context before acting. Read latest main,
-static-web/CURRENT.md, CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md v3.1+,
-this protocol, the archived three-subject frames, and actual active PR/diff.
-
-Treat the archived frames as composition authority and Current as semantic authority.
-Preserve accepted evidence and existing Runtime; do not redo proven work from zero.
-Continue autonomously through faithful frame landing, integrated polish and machine/browser
-acceptance across Politics, English, Current-eligible Xizong A1/A2/A3 and final Global Home.
-
-Do not stop Kian at internal engineering boundaries unless there is a real Current↔frame conflict,
-an unresolved structural product choice, or materially different learner experiences that require
-a human choice. Do not self-merge and do not manufacture learner U.
+继续 kianwang022-hash/kianos 的 #148。
+读取最新 Current、三科 master v3.2+、已选完整文字框及实际活动PR/head/receipt。
+先恢复全局任务与三科完整闭环，沿真实依赖读取当前任务族，不逐内容重审。
+复用已有#117代码和证据；同一写集一个writer，必要时用明确pin的依赖型集成分支。
+忠实落实Politics、English、本轮Xizong A1/A2/A3，再整合Global Home；
+在既定构图上自主polish，持续做受影响测试和真实浏览器自查。
+内部Stage是能力/验收账本，不需要Kian逐页复制指令或人工放行。
+完整规则见master与STAGED_PRODUCT_ACCEPTANCE_PROTOCOL.md。
+最终交一个可达整站预览、集成回执和KIAN FULL-SITE HUMAN GATE。
+不自行merge，不把未合并依赖当main，不制造learner U。
 ```
 
-## Human checkpoint
+## 续接边界
 
-Default human review is **one KIAN FULL-SITE HUMAN GATE at the end**, not one gate per engineering Stage.
+一次完整任务不承诺无限上下文或后台运行。普通实现问题自主处理；真实权限/环境阻断、不可裁决的语义冲突、破坏性迁移或结构产品选择才升级。资源中断保存准确checkpoint，继续同一任务，不重开讨论。
 
-That gate should contain only a small representative set of real learning journeys that let Kian judge:
+文字框按同一页面状态使用；P10不是Setup。旧PASS不是新head的自动证明；不重做实现，但受影响功能正常回归。词汇和未来系统内容继续演化，renderer不按实例写死。
 
-- learning ergonomics and density;
-- reading order and simultaneous visibility;
-- task-native geometry;
-- navigation / Resume / exact Return;
-- whether the site feels like a daily-use Mac knowledge workstation rather than a generic SaaS shell.
-
-No shell commands, hash checking or workflow triage should be assigned to Kian unless Kian explicitly asks for engineering inspection.
-
-## Stop exceptions
-
-Pause before the final gate only when one of these is true:
-
-1. Current semantics genuinely conflict with the archived composition and neither authority resolves the conflict;
-2. a new structural product choice is not covered by Current/frame rules;
-3. Kian must choose between materially different learner experiences;
-4. a real blocker prevents safe continuation without inventing content/state/ownership.
-
-Ordinary bugs, CSS, responsive fixes, branch reconciliation, CI failures with clear ownership, and in-scope browser defects are Astra work, not Kian micro-gates.
+人工最终判断学习体验，不检查工程日志。预览必须确实可达，隔离测试状态不能写成Kian真实学习进度。旧逐Stage停止指令不再适用于#148。
