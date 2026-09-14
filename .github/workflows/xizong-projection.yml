@@ -2,14 +2,18 @@ name: Xizong Projection Validation
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'xizong-projection-*'
     paths:
+      - '.github/workflows/xizong-projection.yml'
       - 'content/xizong/projection/**'
       - 'content/xizong/knowledge/systems/**'
       - 'content/xizong/knowledge/learner/**'
       - 'content/xizong/knowledge/manifest.json'
   pull_request:
     paths:
+      - '.github/workflows/xizong-projection.yml'
       - 'content/xizong/projection/**'
       - 'content/xizong/knowledge/systems/**'
       - 'content/xizong/knowledge/learner/**'
