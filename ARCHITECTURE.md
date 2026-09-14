@@ -1,7 +1,7 @@
 # KianOS Architecture
 
 Status: CURRENT — accepted top-level architecture
-Version: 1.1
+Version: 1.2
 
 This document defines **how KianOS is structurally organized to satisfy the project requirements**.
 
@@ -17,7 +17,7 @@ PROJECT_DEFINITION.md
 → temporary worker / branch execution
 ```
 
-Architecture is downstream of Project Definition. If this structure fails Fresh Chat, Truth Separation, Parallel Chat, or Three-month Entropy tests, Architecture changes; the Requirement does not bend to preserve implementation convenience.
+Architecture is downstream of Project Definition. If this structure fails Fresh Chat, Truth Separation, Parallel Chat, Three-month Entropy, Learning Closure, or Content Change Absorption tests, Architecture changes; the Requirement does not bend to preserve implementation convenience.
 
 ---
 
@@ -343,6 +343,105 @@ Artifact exists
 ≠ Kian learned it
 ```
 
+## 7.1 Content-evolution architecture
+
+To satisfy Project Requirement R10, KianOS separates **stable identity / ownership** from **evolving content and representation** and from **reusable product/runtime behavior**.
+
+Default flow:
+
+```text
+Canonical / Natural Owner
+        ↓
+Learning-support / reviewed relation / question assets when applicable
+        ↓
+Cognitive Projection asset / semantic presentation objects
+        ↓
+shared or domain-appropriate learner workspace / renderer
+        ↓
+Runtime / Evidence / Return
+```
+
+This is a responsibility chain, not a requirement that every lane use the same file schema or renderer.
+
+### Stable identity vs mutable realization
+
+When the semantic object remains the same, ordinary refinement should preserve its stable identity even if the following evolve:
+
+- wording / explanation depth;
+- learner ordering inside an approved boundary;
+- cognitive geometry / projection metadata;
+- optional Visual / Precision / Boundary / Connection enrichment;
+- question explanation / reviewed relation detail;
+- stage-specific visibility or compression.
+
+Identity must not be renumbered or replaced merely because a page layout or projection shape changes.
+
+If the semantic object itself splits, merges, changes meaning, or moves ownership, that is a real upstream change and must be handled by the responsible owner rather than hidden behind compatibility code.
+
+### Asset-driven change by default
+
+Routine content evolution should normally be absorbed here:
+
+```text
+Current asset changes
+→ rebuild / update affected Projection asset when needed
+→ targeted validation
+→ existing workspace consumes the result
+```
+
+Shared/product code must not encode current domain content as a hidden ontology merely because hard-coding is convenient.
+
+Avoid patterns such as:
+
+```text
+if specific named topic → special semantic truth in page code
+if one current asset is absent → renderer guesses the missing relation
+all sibling assets must copy optional fields for schema symmetry
+```
+
+Domain-specific renderers/components remain legitimate when the **cognitive geometry itself** is genuinely domain-specific. The prohibition is against moving canonical truth or ordinary content variation into implementation code.
+
+### Optional enrichment is first-class
+
+A lane/scope may have additional reviewed assets—e.g. Visual, Precision, Connection, pathway, comparison, case, source-local or other projection support—without forcing every sibling to manufacture matching files.
+
+Rules:
+
+- supported enrichment may project;
+- unsupported enrichment stays absent;
+- absence must not be filled by inference;
+- a new enrichment class should integrate through a bounded semantic role/capability when possible rather than requiring page-by-page branching;
+- only add a shared abstraction when multiple real learner needs justify it.
+
+### Multi-stage / multi-pass reuse
+
+Where one canonical cognitive object is reused across learning stages or later passes, prefer state-specific Projection over duplicated content owners.
+
+Conceptually:
+
+```text
+same canonical cognition
+├─ ORIENT / first learning
+├─ RECALL / closure
+├─ later REVIEW / application / transfer
+└─ late compressed use
+```
+
+The domain Learning Contract decides which stages/passes actually exist and what they mean. Architecture only requires that a later pass should not need a duplicate canonical knowledge system merely because its learner-facing representation becomes thinner, more discriminative, more applied, or more selective.
+
+### When Product / Runtime must change
+
+An asset-only update is **not** sufficient when the change alters:
+
+- Learning Logic or natural learner unit;
+- task geometry / interaction semantics;
+- surface ownership or cross-surface handoff;
+- evidence meaning / attempt semantics;
+- canonical identity/ownership;
+- a genuine domain behavior that no accepted runtime capability can express.
+
+Then reopen the earliest responsible construction stage and re-walk affected downstream stages. R10 protects evolvability; it does not authorize semantic changes to bypass stage gates.
+
 ---
 
 # 8｜Dependency-driven concurrency and write boundaries
@@ -424,7 +523,7 @@ The guard is intentionally narrow and should only expand when a real repeated fa
 
 Additional checks are added only when observed failures justify them.
 
-The lint exists to defend requirements R1–R8, not to create a second governance platform.
+The lint exists to defend requirements R1–R10, not to create a second governance platform.
 
 ---
 
@@ -447,6 +546,9 @@ Every durable architecture choice must map to at least one real Project Requirem
 | history excluded from normal fallback | R3, R8 |
 | lightweight entropy lint | R8 |
 | temporary branches not truth owners | R4, R6, R8 |
+| stable identity + asset-driven content evolution | R4, R8, R10 |
+| optional enrichment without sibling schema mimicry | R4, R8, R10 |
+| multi-stage projection reuse instead of duplicate canonical content | R4, R9, R10 |
 
 If a proposed durable abstraction cannot name a Project Requirement it satisfies, it should not be added by default.
 
@@ -489,6 +591,23 @@ Continued use should not recreate ballooning Current/continuation files, duplica
 
 Learner-facing readiness claims still require the learning construction and acceptance standards; governance simplification and concurrency must not weaken learning evidence or allow downstream stages to outrun unresolved dependencies.
 
+## A7｜Content Change Absorption Test
+
+For a representative accepted surface, make a legitimate Current-only content/projection change that does not alter learner behavior—for example add/remove/reorder a semantic object, add an optional reviewed enrichment, refine a relation, or change stage visibility.
+
+PASS requires that the normal change path is primarily:
+
+```text
+responsible asset owner
+→ affected Projection/representation
+→ validation
+→ existing learner surface
+```
+
+without copying domain truth into page code, forcing unrelated sibling schema changes, or inventing a new Runtime state machine.
+
+A legitimate cognition/interaction/evidence change may require Product/Runtime work; the test fails only when **ordinary asset evolution** repeatedly does.
+
 ---
 
 # 13｜Change discipline
@@ -510,3 +629,5 @@ observed blocker / repeated failure
 If that chain cannot be shown, keep the simpler structure.
 
 No learning content, source semantics, learner evidence, or unrelated runtime behavior should be rewritten merely because governance ownership changes.
+
+Likewise, no learner page or runtime state machine should be rewritten merely because ordinary Current content/projection assets evolve; first ask whether the responsible asset layer can absorb the change under R10.
