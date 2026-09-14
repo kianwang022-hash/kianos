@@ -421,6 +421,8 @@ export function buildPoliticsPracticeCatalogCurrent(base = '/') {
 
   return {
     schema: 'kianos.politics.practice_catalog.v1',
+    revision: sha256(JSON.stringify({ questions, units })),
+    reviewBase: `${base}politics/practice-review/`,
     generatedFrom: 'CURRENT_QUESTION_TRUTH+CURRENT_FIRST_READY+REFERENCE_ONLY_PARENT_BINDING+CURRENT_DERIVED_LEARNER_EXPLANATIONS',
     refinedExplanationStatus: refined.status,
     refinedExplanationContentVersion: refined.contentVersion,

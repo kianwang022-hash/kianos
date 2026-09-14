@@ -1,0 +1,39 @@
+name: Politics Workbench Isolated Runtime
+on:
+  pull_request:
+    paths:
+      - 'static-web/src/components/PoliticsPractice*.astro'
+      - 'static-web/src/lib/politicsPractice*.mjs'
+      - 'static-web/src/lib/politicsUnitReturn.mjs'
+      - 'static-web/src/pages/politics/**'
+      - 'static-web/src/layouts/**'
+      - 'static-web/src/styles/**'
+      - 'static-web/scripts/test-politics-practice-journey.mjs'
+      - 'static-web/scripts/fixtures/politics-practice/**'
+      - 'static-web/package.json'
+      - '.github/workflows/static-web-politics-practice.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: static-web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund --package-lock=false
+      - run: npm install --no-save --no-audit --no-fund --package-lock=false playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:politics-practice
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: politics-practice-synthetic-${{ github.sha }}
+          path: output/playwright/issue117/
+          retention-days: 7
