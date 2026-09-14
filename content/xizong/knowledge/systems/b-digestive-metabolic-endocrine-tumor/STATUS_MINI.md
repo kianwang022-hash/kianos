@@ -24,20 +24,21 @@ Evidence shards:
 - `SOURCE_AUDIT_PHYSIOLOGY.md`
 - `SOURCE_AUDIT_PHYSIOLOGY_2022_2026.md`
 
-## Current task
+## Whole-Physiology negative-space sweep
 
-Whole-Physiology negative-space sweep across 2005–2026:
+Closed:
+- `2005–2012` — PASS_BOUNDED; `0` new GI/energy qids; evidence `SOURCE_AUDIT_PHYSIOLOGY_NEGATIVE_SPACE_2005_2012.md`.
 
-1. scan Physiology Question Truth outside the obvious GI / energy-temperature question regions;
-2. find any B-owned GI/energy tested construct that the 96-qid source-region audit missed;
-3. explicitly reject neighboring-system / generic-physiology false positives;
-4. compare/dedupe against the 96 admitted qids;
-5. close only when no unresolved GI/energy candidate remains.
+Current task:
+- scan `2013–2021` Physiology Question Truth outside the obvious GI / energy-temperature regions;
+- identify any missed B-owned GI/energy tested construct;
+- explicitly reject neighboring-system / generic-physiology false positives;
+- dedupe against the existing `47` admitted qids from 2013–2021.
 
-Then, and only then:
-
-- start the separate Physiology endocrine exact-membership batch;
-- after endocrine closes, evaluate overall Physiology S2 closure.
+Planned next:
+- negative-space `2022–2026`;
+- then separate Physiology endocrine exact-membership batch;
+- only after endocrine closure evaluate overall Physiology S2.
 
 ## Hard stop
 
