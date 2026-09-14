@@ -1,9 +1,12 @@
 {
   "schema": "kianos.xizong.cognitive_projection.manifest.v1",
-  "status": "COMPILED_CURRENT_VALIDATED",
+  "schema_version": "kianos.xizong.cognitive_projection.v1.1",
+  "status": "V1_FREEZE_CANDIDATE_RECONCILED",
   "runtime_authority": false,
   "source_baseline_commit": "2def94eb8a11ede16b503da6b33c7a03e6e91967",
+  "source_current_head": "49acc3e850c25e4ef70b764860e2d93ba544e7f0",
   "compiled_commit": "3cb882691ace183d46f771b910b354d0419e9d07",
+  "current_reconciliation_head": "7f7bd34225ce8d82daeadde59fe137cc323c11e8",
   "contract": "content/xizong/projection/PROJECTION_CONTRACT.md",
   "projection_root": "content/xizong/projection",
   "validation": {
@@ -26,8 +29,15 @@
       "local B7 stale/missing/type changes: only B7 fails, other 40 assets PASS",
       "protected canonical source worktree unchanged"
     ],
-    "mutation_tests": {"total": 86, "passed": 86, "failed": 0, "storage": "IN_MEMORY_ONLY"},
+    "mutation_tests": {
+      "total": 86,
+      "passed": 86,
+      "failed": 0,
+      "storage": "IN_MEMORY_ONLY"
+    },
     "receipt": "content/xizong/projection/FULL_COMPILATION_RECEIPT.md",
+    "acceptance_validator": "content/xizong/projection/tools/validate_projection_acceptance.py",
+    "acceptance_result": "PASS_REQUIRED_BY_CI",
     "previous_projection_run_id": 34795172243,
     "previous_projection_evidence_limit": "Historical baseline/helper checks did not prove OWNER_REF resolution or all neutral-front channels; superseded by the executed v1.1.0 checks for the named scope.",
     "existing_xizong_qa_run_id": 34795172110,
@@ -39,7 +49,77 @@
       "A1 browser Runtime journey",
       "A1 browser Evidence journey"
     ],
-    "not_claimed": ["medical_semantic_acceptance", "browser_answer_leak_safety", "Mac_visual_acceptance", "runtime_adoption", "learner_progress", "S_K_L_P_R_E_U_promotion"]
+    "not_claimed": [
+      "medical_semantic_acceptance",
+      "browser_answer_leak_safety",
+      "Mac_visual_acceptance",
+      "runtime_adoption",
+      "learner_progress",
+      "S_K_L_P_R_E_U_promotion"
+    ]
+  },
+  "eligibility_accounting": {
+    "rule": "Projection eligibility requires Current medical/System authority plus accepted System-specific learning support sufficient for derived compilation; repository file existence alone is not eligibility.",
+    "compiled": [
+      {
+        "canonical_id": "A1",
+        "system_id": "circulation",
+        "status": "ELIGIBLE_COMPILED",
+        "block_count": 12,
+        "owner_root": "content/xizong/knowledge/systems/a1-circulation/"
+      },
+      {
+        "canonical_id": "A2",
+        "system_id": "respiratory",
+        "status": "ELIGIBLE_COMPILED",
+        "block_count": 12,
+        "owner_root": "content/xizong/knowledge/systems/a2-respiratory/"
+      },
+      {
+        "canonical_id": "A3",
+        "system_id": "urinary",
+        "status": "ELIGIBLE_COMPILED",
+        "block_count": 14,
+        "owner_root": "content/xizong/knowledge/systems/a3-urinary/"
+      }
+    ],
+    "not_eligible": [
+      {
+        "canonical_id": "B",
+        "scope": "digestive-metabolic-endocrine-tumor",
+        "status": "NOT_ELIGIBLE",
+        "reason": "Current marks Learning ACTIVE/UNTESTED and P/R/E downstream-frozen; the current learning file is L_CANDIDATE, not accepted Projection authority.",
+        "owner_root": "content/xizong/knowledge/systems/b-digestive-metabolic-endocrine-tumor/"
+      },
+      {
+        "canonical_id": "C",
+        "scope": "hematology-immunity-infection",
+        "status": "NOT_ELIGIBLE",
+        "reason": "Current System root does not yet provide the accepted System-level plus System-specific learning authority required for derived Projection compilation.",
+        "owner_root": "content/xizong/knowledge/systems/c-hematology-immunity-infection/"
+      },
+      {
+        "canonical_id": "D",
+        "scope": "neuro-sensory-motor-orthopedics",
+        "status": "NOT_ELIGIBLE",
+        "reason": "Current System root does not yet provide the accepted System-level plus System-specific learning authority required for derived Projection compilation.",
+        "owner_root": "content/xizong/knowledge/systems/d-neuro-sensory-motor-orthopedics/"
+      },
+      {
+        "canonical_id": "E",
+        "scope": "reproductive-breast",
+        "status": "NOT_ELIGIBLE",
+        "reason": "Current System root does not yet provide the accepted System-level plus System-specific learning authority required for derived Projection compilation.",
+        "owner_root": "content/xizong/knowledge/systems/e-reproductive-breast/"
+      },
+      {
+        "canonical_id": "F",
+        "scope": "remaining-clinical",
+        "status": "NOT_ELIGIBLE",
+        "reason": "Current System root does not yet provide the accepted System-level plus System-specific learning authority required for derived Projection compilation.",
+        "owner_root": "content/xizong/knowledge/systems/f-remaining-clinical/"
+      }
+    ]
   },
   "null_policy": "Absent or unresolved Current semantics stay absent. Consumers must not synthesize missing medical relations, cues, locators or enrichment.",
   "freshness_policy": {
@@ -61,7 +141,21 @@
     "systems": 3,
     "blocks": 38,
     "total_projection_assets": 41,
-    "expected": {"A1": 12, "A2": 12, "A3": 14},
+    "expected": {
+      "A1": 12,
+      "A2": 12,
+      "A3": 14
+    },
+    "eligible_block_accounting": {
+      "PASS": 38,
+      "REFERENCE_ONLY": 0,
+      "BLOCKED": 0
+    },
+    "stale_accounting": {
+      "FRESH": 38,
+      "STALE": 0,
+      "BLOCKED": 0
+    },
     "rich_calibration_blocks": [
       "circulation-b01",
       "circulation-b07",
@@ -77,7 +171,11 @@
   "systems": {
     "circulation": {
       "canonical_id": "A1",
+      "system_source": "content/xizong/knowledge/systems/a1-circulation/system.json",
+      "owner_root": "content/xizong/knowledge/systems/a1-circulation/",
       "system_projection": "a1-circulation/system.projection.json",
+      "system_disposition": "PASS",
+      "stale_status": "FRESH",
       "block_count": 12,
       "blocks": [
         "a1-circulation/blocks/b01.projection.json",
@@ -92,11 +190,29 @@
         "a1-circulation/blocks/b10.projection.json",
         "a1-circulation/blocks/b11.projection.json",
         "a1-circulation/blocks/b12.projection.json"
+      ],
+      "block_accounting": [
+        {"block_id": "circulation-b01", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a1-circulation/blocks/b01.projection.json"},
+        {"block_id": "circulation-b02", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b02.projection.json"},
+        {"block_id": "circulation-b03", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b03.projection.json"},
+        {"block_id": "circulation-b04", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b04.projection.json"},
+        {"block_id": "circulation-b05", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b05.projection.json"},
+        {"block_id": "circulation-b06", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b06.projection.json"},
+        {"block_id": "circulation-b07", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a1-circulation/blocks/b07.projection.json"},
+        {"block_id": "circulation-b08", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b08.projection.json"},
+        {"block_id": "circulation-b09", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b09.projection.json"},
+        {"block_id": "circulation-b10", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a1-circulation/blocks/b10.projection.json"},
+        {"block_id": "circulation-b11", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a1-circulation/blocks/b11.projection.json"},
+        {"block_id": "circulation-b12", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a1-circulation/blocks/b12.projection.json"}
       ]
     },
     "respiratory": {
       "canonical_id": "A2",
+      "system_source": "content/xizong/knowledge/systems/a2-respiratory/system.json",
+      "owner_root": "content/xizong/knowledge/systems/a2-respiratory/",
       "system_projection": "a2-respiratory/system.projection.json",
+      "system_disposition": "PASS",
+      "stale_status": "FRESH",
       "block_count": 12,
       "blocks": [
         "a2-respiratory/blocks/r01.projection.json",
@@ -111,11 +227,29 @@
         "a2-respiratory/blocks/r10.projection.json",
         "a2-respiratory/blocks/r11.projection.json",
         "a2-respiratory/blocks/r12.projection.json"
+      ],
+      "block_accounting": [
+        {"block_id": "respiratory-r01", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a2-respiratory/blocks/r01.projection.json"},
+        {"block_id": "respiratory-r02", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r02.projection.json"},
+        {"block_id": "respiratory-r03", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r03.projection.json"},
+        {"block_id": "respiratory-r04", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r04.projection.json"},
+        {"block_id": "respiratory-r05", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r05.projection.json"},
+        {"block_id": "respiratory-r06", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r06.projection.json"},
+        {"block_id": "respiratory-r07", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r07.projection.json"},
+        {"block_id": "respiratory-r08", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r08.projection.json"},
+        {"block_id": "respiratory-r09", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r09.projection.json"},
+        {"block_id": "respiratory-r10", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r10.projection.json"},
+        {"block_id": "respiratory-r11", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r11.projection.json"},
+        {"block_id": "respiratory-r12", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a2-respiratory/blocks/r12.projection.json"}
       ]
     },
     "urinary": {
       "canonical_id": "A3",
+      "system_source": "content/xizong/knowledge/systems/a3-urinary/system.json",
+      "owner_root": "content/xizong/knowledge/systems/a3-urinary/",
       "system_projection": "a3-urinary/system.projection.json",
+      "system_disposition": "PASS",
+      "stale_status": "FRESH",
       "block_count": 14,
       "blocks": [
         "a3-urinary/blocks/b01.projection.json",
@@ -132,6 +266,22 @@
         "a3-urinary/blocks/b12.projection.json",
         "a3-urinary/blocks/b13.projection.json",
         "a3-urinary/blocks/b14.projection.json"
+      ],
+      "block_accounting": [
+        {"block_id": "urinary-b01", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a3-urinary/blocks/b01.projection.json"},
+        {"block_id": "urinary-b02", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b02.projection.json"},
+        {"block_id": "urinary-b03", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b03.projection.json"},
+        {"block_id": "urinary-b04", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b04.projection.json"},
+        {"block_id": "urinary-b05", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "RICH_CURRENT", "asset": "a3-urinary/blocks/b05.projection.json"},
+        {"block_id": "urinary-b06", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b06.projection.json"},
+        {"block_id": "urinary-b07", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b07.projection.json"},
+        {"block_id": "urinary-b08", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b08.projection.json"},
+        {"block_id": "urinary-b09", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b09.projection.json"},
+        {"block_id": "urinary-b10", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b10.projection.json"},
+        {"block_id": "urinary-b11", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b11.projection.json"},
+        {"block_id": "urinary-b12", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b12.projection.json"},
+        {"block_id": "urinary-b13", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b13.projection.json"},
+        {"block_id": "urinary-b14", "disposition": "PASS", "stale_status": "FRESH", "projection_level": "BASELINE_CURRENT", "asset": "a3-urinary/blocks/b14.projection.json"}
       ]
     }
   },
