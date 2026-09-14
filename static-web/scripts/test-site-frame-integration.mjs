@@ -68,20 +68,22 @@ try{
  assert.equal((await get(`kianos-writing-runtime-v1:${writing}`)).firstDraft,first.firstDraft);
  pass('Writing Direct / dominant draft / first evidence / full Guide return');
  await go(`${production}/politics/`);
- assert.equal(await page.locator('[data-politics-continue]:visible').count(),1);
+ await page.locator('[data-politics-home-ready="true"]').waitFor({state:'attached'});
+ assert.equal(await page.locator('[data-politics-continue]:visible').count(),0);
  assert.equal(await page.locator('.politicsHandoff:visible').count(),0);
- assert.match(await page.locator('[data-politics-continue]').getAttribute('href'),/\/politics\//);
+ assert.equal(await page.locator('.subjectEntry:visible').count(),5);
  await page.evaluate(()=>{
   const day=new Date().toLocaleDateString('en-CA');
   localStorage.setItem('kianos-politics-last-location-v1',JSON.stringify({href:'/politics/marxism/ch00/',unit_id:'qa-home-resume',subject:'马原',chapter:'C00',title:'QA · exact Politics resume'}));
   localStorage.setItem('kianos-politics-evidence-v1',JSON.stringify([{study_day:day,outcome:'WRONG'}]));
  });
  await page.reload();
+ await page.locator('[data-politics-home-ready="true"]').waitFor({state:'attached'});
  assert.equal(await page.locator('[data-politics-continue-title]').textContent(),'QA · exact Politics resume');
  assert.equal(await page.locator('.politicsHandoff:visible').count(),1);
  assert.match(await page.locator('[data-politics-handoff-summary]').textContent(),/1 Wrong/);
  assert.equal(await overflow(),true);await shot('politics-home-dense-calm');
- pass('Politics Home default start / exact resume / evidence-only Today / Mac-wide launch surface');
+ pass('Politics Home empty state / exact resume / evidence-only Today / Mac-wide launch surface');
  await go(`${production}/politics/marxism/ch00/`); await page.locator('[data-frame-handoff]:visible').click();
  await go(`${production}/xizong/circulation/b02/`);
  assert.equal(await page.locator('.xv6BlockOrientation').evaluate(e=>e.tagName),'SECTION');
