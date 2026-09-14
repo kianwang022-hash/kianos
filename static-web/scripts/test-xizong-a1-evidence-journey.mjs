@@ -101,8 +101,8 @@ try {
   const executable = chromeExecutable();
   chrome = spawn(executable, ['--headless=new', '--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage', `--remote-debugging-port=${DEBUG_PORT}`, `--user-data-dir=${profile}`, 'about:blank'], { stdio: ['ignore', 'ignore', 'pipe'] });
   await waitForHttp(`http://127.0.0.1:${DEBUG_PORT}/json/version`);
-  const targets = await (await fetch(`http://127.0.0.1:${DEBUG_PORT}/json/list`)).json();
-  const pageTarget = targets.find((target) => target.type === 'page');
+  let pageTarget;
+  for (let i=0;i<50 && !pageTarget;i++) { const targets=await (await fetch(`http://127.0.0.1:${DEBUG_PORT}/json/list`)).json(); pageTarget=targets.find(target=>target.type==='page'); if (!pageTarget) await sleep(100); }
   check(Boolean(pageTarget?.webSocketDebuggerUrl), 'chrome_page_target_available');
   cdp = new CDP(pageTarget.webSocketDebuggerUrl);
   await cdp.connect(); await cdp.send('Page.enable'); await cdp.send('Runtime.enable');

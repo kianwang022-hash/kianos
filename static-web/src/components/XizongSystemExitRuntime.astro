@@ -460,7 +460,7 @@ const payload = JSON.stringify({
       if(!persistResult(currentQuestion,correct?'correct':'wrong',currentSelection))return;
       showAnswer();
       if(hiddenResults())renderQuestion();
-      else if(correct)advanceTimer=setTimeout(()=>renderQuestion(),450);
+      else if(correct && fastControl.checked)advanceTimer=setTimeout(()=>renderQuestion(),450);
     };
 
     const nextAfter = (status) => {

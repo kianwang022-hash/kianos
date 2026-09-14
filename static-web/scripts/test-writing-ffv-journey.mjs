@@ -131,6 +131,7 @@ async function cleanPassJourney(browser, task) {
     check(Boolean(record?.firstDraft), 'clean_first_draft_is_preserved');
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'review_pending_has_no_transfer_attention');
 
+    await page.locator('.writingReviewProtocol > summary').click();
     await page.locator('[data-review-return]').fill(JSON.stringify(reviewPass(task.id)));
     await page.locator('[data-import-review]').click();
     await page.locator('[data-runtime-stage="passed"]').waitFor({ state: 'visible' });
@@ -146,7 +147,7 @@ async function cleanPassJourney(browser, task) {
     check(record?.state === 'PASS_ACCEPTABLE' && Boolean(record?.firstDraft), 'pass_survives_refresh_with_first_evidence');
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
-    check(await page.locator('[data-english-resume]').isHidden(), 'passed_writing_does_not_drag_resume_backward');
+    check(await page.locator('[data-site-resume-subject=english]').isHidden(), 'passed_writing_does_not_drag_resume_backward');
   } finally {
     await context.close();
   }
@@ -165,6 +166,7 @@ async function repairReturnJourney(browser, task) {
     await page.locator('[data-lock-first]').click();
     await page.locator('[data-runtime-stage="review"]').waitFor({ state: 'visible' });
 
+    await page.locator('.writingReviewProtocol > summary').click();
     await page.locator('[data-review-return]').fill(JSON.stringify(reviewRepair(task.id)));
     await page.locator('[data-import-review]').click();
     await page.locator('[data-runtime-stage="repair"]').waitFor({ state: 'visible' });
@@ -175,7 +177,7 @@ async function repairReturnJourney(browser, task) {
     check(await page.locator('[data-writing-evidence-panel]').isHidden(), 'active_repair_has_no_transfer_attention');
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
-    await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
+    await page.locator('[data-site-resume-subject=english]').waitFor({ state: 'visible' });
     check((await page.locator('[data-english-resume-meta]').textContent())?.includes('repair needed'), 'english_resume_surfaces_active_writing_repair');
     check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes(task.id), 'english_resume_returns_to_exact_writing_task');
 
@@ -201,7 +203,7 @@ async function repairReturnJourney(browser, task) {
     check((await readWritingRecord(page, task.id))?.state === 'REPAIR_COMPLETE', 'repair_complete_survives_refresh');
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
-    check(await page.locator('[data-english-resume]').isHidden(), 'completed_repair_does_not_become_resume_debt');
+    check(await page.locator('[data-site-resume-subject=english]').isHidden(), 'completed_repair_does_not_become_resume_debt');
 
     // Backend-rich pending states must remain silent until normal work naturally makes them relevant.
     await setJson(page, 'kianos-writing-last-location-v1', {
@@ -231,38 +233,19 @@ async function repairReturnJourney(browser, task) {
       updatedAt: '2026-09-13T10:01:00.000Z'
     });
     await page.reload({ waitUntil: 'domcontentloaded' });
-    check(await page.locator('[data-english-resume]').isHidden(), 'dormant_pending_states_do_not_summon_resume');
+    check(await page.locator('[data-site-resume-subject=english]').isHidden(), 'dormant_pending_states_do_not_summon_resume');
 
-    // Cross-lane resume is priority-based, not last-page based.
-    await setJson(page, 'kianos-translation-last-location-v1', {
-      id: 'translation-reconstruct-fixture',
-      title: 'Translation · unfinished reconstruction',
-      state: 'RECONSTRUCT',
-      href: '/translation/',
-      updatedAt: '2026-09-13T10:02:00.000Z'
-    });
-    await setJson(page, 'kianos-writing-last-location-v1', {
-      id: task.id,
-      title: task.title,
-      state: 'REVIEW_PENDING',
-      href: `/writing/${encodeURIComponent(task.id)}/`,
-      updatedAt: '2026-09-13T10:03:00.000Z'
-    });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-title]').textContent())?.includes('Translation'), 'higher_value_translation_reconstruction_beats_writing_review');
-
-    await setJson(page, 'kianos-writing-last-location-v1', {
-      id: task.id,
-      title: task.title,
-      state: 'ATTEMPT',
-      href: `/writing/${encodeURIComponent(task.id)}/`,
-      updatedAt: '2026-09-13T10:04:00.000Z'
-    });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.locator('[data-english-resume]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-title]').textContent()) === task.title, 'unfinished_clean_attempt_has_highest_resume_priority');
-
+    // Resume requires an actual unfinished artifact and uses its latest action,
+    // not a pointer-only claim or an invented cross-task priority.
+    await setJson(page, 'kianos-translation-last-location-v1', {id:'translation-reconstruct-fixture',title:'Translation · unfinished reconstruction',href:'/translation/translation-reconstruct-fixture/',updatedAt:'2026-09-13T10:02:00.000Z'});
+    await setJson(page, 'kianos-translation-attempt-v2:translation-reconstruct-fixture', {stage:'reconstruct',drafts:{q1:'isolated unfinished translation'}});
+    await page.reload({waitUntil:'domcontentloaded'});
+    check((await page.locator('[data-site-resume-subject=english] strong').textContent())?.includes('Translation'), 'unfinished_translation_has_real_resume_artifact');
+    const resumed = await readWritingRecord(page, task.id);
+    await setJson(page, `kianos-writing-runtime-v1:${task.id}`, {...resumed,state:'ATTEMPT',draftEssay:'isolated new unfinished draft'});
+    await setJson(page, 'kianos-writing-last-location-v1', {id:task.id,title:task.title,href:`/writing/${encodeURIComponent(task.id)}/`,updatedAt:'2026-09-13T10:04:00.000Z'});
+    await page.reload({waitUntil:'domcontentloaded'});
+    check((await page.locator('[data-site-resume-subject=english] strong').textContent())===task.title,'latest_actual_unfinished_work_is_resumable');
     await clearEnglishResumeFixtures(page);
   } finally {
     await context.close();

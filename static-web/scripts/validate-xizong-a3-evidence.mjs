@@ -125,7 +125,7 @@ assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-
 
 assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
 assert(exitUi.includes('const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));'), 'holdout-not-excluded-from-active-sweep');
-assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'stable-correct-evidence-not-distinct');
+assert(exitUi.includes("results.filter((row) => ['stable','correct'].includes(row.status))"), 'stable-correct-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'uncertain')"), 'uncertain-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'wrong')"), 'wrong-evidence-not-distinct');
 assert(exitUi.includes("['wrong', 'uncertain'].includes(result.status)"), 'stable-correct-forced-into-repair');

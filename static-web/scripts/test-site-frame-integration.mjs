@@ -67,6 +67,7 @@ try{
  await page.click('[data-task-guide-link]');await page.locator('.writingLearnShell').waitFor();await page.click('[data-task-guide-link]');
  assert.equal((await get(`kianos-writing-runtime-v1:${writing}`)).firstDraft,first.firstDraft);
  pass('Writing Direct / dominant draft / first evidence / full Guide return');
+ await go(`${production}/politics/marxism/ch00/`); await page.locator('[data-frame-handoff]:visible').click();
  await go(`${production}/xizong/circulation/b02/`);
  assert.equal(await page.locator('.xv6BlockOrientation').evaluate(e=>e.tagName),'SECTION');
  await page.click('[data-stage-next=logic_group]');await page.click('[data-enter-group]');assert.equal(await page.locator('.xv6GroupKpMap').getAttribute('open'),'');
@@ -86,6 +87,7 @@ try{
  pass('Xizong formal contact / workspace-wide neutral front / complete Core reveal / next KP refresh');
  await go(`${production}/`);assert.equal(await page.locator('[data-site-resume-subject=xizong]').isVisible(),true);
  await page.locator('[data-site-resume-subject=xizong]').click();assert.match(page.url(),/circulation\/b02/);pass('Global Home meaningful Xizong Resume');
+ for(const subject of ['politics','english']){await go(`${production}/`);const link=page.locator(`[data-site-resume-subject=${subject}]`);await link.waitFor({state:'visible'});const href=await link.getAttribute('href');await link.click();assert.equal(new URL(page.url()).pathname+new URL(page.url()).search+new URL(page.url()).hash,href);}pass('Global Home actual Politics and English Resume / exact destinations');
  for(const system of ['circulation','respiratory','urinary']){
   await go(`${production}/xizong/${system}/`);assert.equal(await overflow(),true);await shot(`xizong-${system}-system`);
   const width=await page.locator('.xv6SystemMain').evaluate(e=>e.getBoundingClientRect().width);assert.ok(width>800);pass(`${system} two-region System Guide`);

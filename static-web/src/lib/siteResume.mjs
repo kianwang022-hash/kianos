@@ -20,12 +20,12 @@ export function readSiteResumes(storage, origin, base = '/') {
   const writing = read('kianos-writing-last-location-v1');
   if (writing?.id) {
     const record = read(`kianos-writing-runtime-v1:${writing.id}`);
-    if (record && (record.draftEssay || record.draftPlan || record.firstDraft)) english.push(writing);
+    if (record && ['ATTEMPT','REVIEW_PENDING','REPAIR_NEEDED','REPAIR_CHECK_PENDING'].includes(record.state) && (record.draftEssay || record.draftPlan || record.firstDraft)) english.push(writing);
   }
   const translation = read('kianos-translation-last-location-v1');
   if (translation?.id) {
     const record = read(`kianos-translation-attempt-v2:${translation.id}`);
-    if (record && (Object.values(record.drafts || {}).some(Boolean) || Object.values(record.firstAttempts || {}).some(Boolean))) english.push(translation);
+    if (record && !['passed','repair-complete','transfer-pending'].includes(record.stage) && (Object.values(record.drafts || {}).some(Boolean) || Object.values(record.firstAttempts || {}).some(Boolean))) english.push(translation);
   }
   const reading = read('kianos-reading-last-location-v1');
   if (reading?.id) {

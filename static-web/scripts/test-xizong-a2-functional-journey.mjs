@@ -34,61 +34,32 @@ async function blockResumeAndEvidenceJourney(page) {
   await page.goto(`${BASE}/xizong/respiratory/r01/`, { waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
-  check(await root.locator('[data-kp-learn-card]').count() === 15, 'r01_kp_count_15');
-
+  check(await root.locator('[data-kp-recall-card]').count() === 15, 'r01_full_kp_count_15');
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-enter-group]').click();
-  const firstLearn = root.locator('[data-kp-learn-card]:not([hidden])');
-  const firstKp = await firstLearn.locator('[data-kp-learned]').getAttribute('data-kp-learned');
-  check(Boolean(firstKp), 'first_kp_identity_present');
-  await firstLearn.locator('[data-kp-learned]').click();
-  await page.waitForTimeout(180);
-  const studyKey = 'kianos-xizong-astro-v2:xizong:respiratory-r01';
-  let state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.learned?.[firstKp] === true, 'first_kp_learning_persisted');
-  check(state?.stage === 'kp_learn', 'progresses_within_learn_stage');
-  const savedIndex = state.kpIndex;
+  const studyKey='kianos-xizong-astro-v2:xizong:respiratory-r01';
+  // Attempt a premature stage jump through the real capture guard.
+  await root.locator('[data-stage-target="kp_recall"]').evaluate(e=>e.click());
+  check(await root.locator('[data-study-stage="kp_learn"]').isVisible(),'premature_recall_keeps_formal_contact_gate');
+  await root.locator('[data-group-lecture-done]').click();
+  await page.reload({waitUntil:'domcontentloaded'});
+  const recall=root.locator('[data-kp-recall-card]:visible');
+  const firstKp=await recall.getAttribute('data-kp-id');
+  let state=await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),studyKey);
+  check(state.learned[firstKp]===true && state.stage==='kp_recall','group_contact_and_recall_refresh');
+  await recall.locator('[data-kp-reveal]').click();await recall.locator('[data-rating="mastered"]').click();
+  state=await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),studyKey);
+  check(state.ratings[firstKp]==='mastered','formal_recall_evidence_persists');
+  const allKpIds=await root.locator('[data-kp-recall-card]').evaluateAll(cards=>cards.map(c=>c.dataset.kpId));
+  await page.evaluate(({key,ids})=>localStorage.setItem(key,JSON.stringify({stage:'block_complete',learned:Object.fromEntries(ids.slice(1).map(id=>[id,true])),ratings:Object.fromEntries(ids.map(id=>[id,'mastered'])),blockRecallDone:true,completed:false})),{key:studyKey,ids:allKpIds});
+  await page.reload({waitUntil:'domcontentloaded'});check(await root.locator('[data-block-complete]').isDisabled(),'missing_formal_contact_blocks_completion');
+  await page.evaluate(({key,ids})=>{const s=JSON.parse(localStorage.getItem(key));s.learned=Object.fromEntries(ids.map(id=>[id,true]));localStorage.setItem(key,JSON.stringify(s));},{key:studyKey,ids:allKpIds});
+  await page.reload({waitUntil:'domcontentloaded'});
+  check(await root.locator('[data-lecture-read]').count()===0,'no_second_block_lecture_ritual');
+  await root.locator('[data-block-complete]').click();
+  check((await page.evaluate(k=>JSON.parse(localStorage.getItem(k)),studyKey)).completed,'block_completion_persists_after_all_evidence');
+  await page.goto(`${BASE}/xizong/`);check((await page.locator('[data-site-resume-subject=xizong]').getAttribute('href')).includes('/respiratory/r01/'),'home_resume_exact_block');
 
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_learn' && state?.kpIndex === savedIndex, 'refresh_restores_stage_and_kp');
-
-  await root.locator('[data-stage-target="kp_recall"]').click();
-  const recall = root.locator('[data-kp-recall-card]:not([hidden])');
-  await recall.locator('[data-kp-reveal]').click();
-  const attemptedKp = await recall.getAttribute('data-kp-id');
-  await recall.locator('[data-rating="mastered"]').click();
-  await page.waitForTimeout(80);
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(!state?.ratings?.[attemptedKp], 'premature_recall_cannot_manufacture_evidence');
-
-  const allKpIds = await root.locator('[data-kp-recall-card]').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
-  await page.evaluate(({ key, kpIds }) => {
-    const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
-    const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
-    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, learned, ratings, blockRecallDone: true, completed: false }));
-    localStorage.setItem('kianos-xizong-personal-v1:xizong:respiratory-r01', JSON.stringify({ lectureRead: false, kp: {} }));
-  }, { key: studyKey, kpIds: allKpIds });
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  const complete = root.locator('[data-block-complete]');
-  check(await complete.isDisabled(), 'lecture_evidence_keeps_completion_disabled');
-  await complete.evaluate((button) => {
-    button.disabled = false;
-    button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-  });
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.completed !== true, 'capture_guard_rejects_completion_without_lecture');
-
-  await root.locator('[data-lecture-read]').click();
-  await page.waitForTimeout(60);
-  check(!(await complete.isDisabled()), 'lecture_confirmation_unlocks_completion');
-  await complete.click();
-  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.completed === true, 'block_completion_persists_after_all_evidence');
-
-  await page.goto(`${BASE}/xizong/`, { waitUntil: 'domcontentloaded' });
-  const continueLink = page.locator('[data-xizong-continue]');
-  check((await continueLink.getAttribute('href') || '').includes('/xizong/respiratory/r01/'), 'home_continue_returns_to_recent_block');
 }
 
 async function systemQuestionRepairJourney(page) {
@@ -122,20 +93,10 @@ async function systemQuestionRepairJourney(page) {
   await exit.locator('[data-holdout-input]').fill(String(holdoutYear));
   await exit.locator('[data-save-holdout]').click();
 
-  await page.evaluate(({ targetId, heldYear, questions }) => {
-    const active = questions.filter((q) => Number(q.year) !== Number(heldYear));
-    const results = {};
-    for (const q of active) {
-      if (q.questionId === targetId) break;
-      results[q.questionId] = { status: 'stable', selected: [], correctAnswer: q.correctAnswer, updatedAt: new Date().toISOString() };
-    }
-    localStorage.setItem('kianos:xizong:system-question-sweep:respiratory:v1', JSON.stringify({ results }));
-  }, { targetId: target.questionId, heldYear: holdoutYear, questions: payload.questions });
-
   await exit.locator('[data-start-sweep]').click();
-  const workspace = exit.locator('[data-question-workspace]');
-  await workspace.waitFor({ state: 'visible' });
-  check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'reviewed_target_is_current_question');
+  const active=payload.questions.filter(q=>Number(q.year)!==Number(holdoutYear));
+  await exit.locator('[data-sweep-map] button').nth(active.findIndex(q=>q.questionId===target.questionId)).click();
+  check((await exit.locator('[data-question-meta]').textContent()).includes(String(target.number)), 'reviewed_target_is_current_question');
 
   const correctLetters = String(target.correctAnswer || '').toUpperCase().match(/[A-Z]/g) || [];
   for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();

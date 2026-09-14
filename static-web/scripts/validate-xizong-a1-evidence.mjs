@@ -71,7 +71,7 @@ assert(systemGuard.includes("'POST_QUESTION'"), 'system-recall-post-phase-missin
 
 // Stable question evidence stays out of repair. Precise repair requires reviewed relation.
 assert(exitUi.includes("['wrong', 'uncertain'].includes(result.status)"), 'stable-question-forced-to-repair');
-assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'stable-question-evidence-not-distinct');
+assert(exitUi.includes("results.filter((row) => ['stable','correct'].includes(row.status))"), 'stable-question-evidence-not-distinct');
 assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'holdout-not-private-empty-default');
 assert(exitUi.includes('!holdoutYears.includes(Number(question.year))'), 'holdout-not-excluded-from-sweep');
 assert(exitUi.includes('暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'), 'missing-relation-guessed');

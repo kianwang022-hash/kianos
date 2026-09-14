@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import {chromium} from 'playwright';
-const browser=await chromium.launch({headless:false});const page=await browser.newPage({viewport:{width:1440,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const browser=await chromium.launch({headless:!process.env.HEADED});const page=await browser.newPage({viewport:{width:1440,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
- await page.goto('http://127.0.0.1:4349/reading/fixture-reading/');
+ await page.goto((process.env.SITE_FRAME_FIXTURE_URL||'http://127.0.0.1:4349')+'/reading/fixture-reading/');
  await page.locator('[data-question]').first().locator('[data-option=A]').click();
  const before=await page.evaluate(()=>({...localStorage}));
  await page.locator('.portedReadingPassage p').first().evaluate(e=>{const text=e.firstChild;const start=text.textContent.indexOf('equipment');const range=document.createRange();range.setStart(text,start);range.setEnd(text,start+9);getSelection().removeAllRanges();getSelection().addRange(range);document.dispatchEvent(new MouseEvent('mouseup',{bubbles:true}));});

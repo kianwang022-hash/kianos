@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import { chromium,webkit } from 'playwright';
 import { loadXizongSystem } from '../src/lib/xizong.mjs';
 import { listWritingSyntheticTasks } from '../src/lib/englishWritingSynthetic.mjs';
-const base=process.env.SITE_FRAME_URL||'http://127.0.0.1:4348',fixture='http://127.0.0.1:4349';
+const base=process.env.SITE_FRAME_URL||'http://127.0.0.1:4348',fixture=process.env.SITE_FRAME_FIXTURE_URL||'http://127.0.0.1:4349';
 const out='../output/playwright/issue148';const report={checks:[],errors:[],scope:'isolated synthetic local state with formal A1 data; SELF; no learner U'};
 const browser=await chromium.launch({headless:!process.env.HEADED});const ctx=await browser.newContext({viewport:{width:1440,height:900}});const page=await ctx.newPage();page.on('pageerror',e=>report.errors.push(e.message));
 const read=k=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'null'),k);

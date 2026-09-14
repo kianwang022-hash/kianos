@@ -253,7 +253,7 @@ try {
 
   // Continue returns to last real Block route.
   await cdp.navigate(`${BASE}/xizong/`);
-  const continueHref = await cdp.evaluate(`document.querySelector('[data-xizong-continue]')?.getAttribute('href') || ''`);
+  const continueHref = await cdp.evaluate(`document.querySelector('[data-site-resume-subject=xizong]')?.getAttribute('href') || ''`);
   check(continueHref.includes('/xizong/circulation/b02/'), 'home_continue_returns_to_last_block', continueHref);
 
   // System Recall cannot be consumed after only one completed Block.
