@@ -1,0 +1,25 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Exit from '@runtime/components/XizongSystemExitRuntime.astro';
+import Repair from '@runtime/components/XizongSystemRepairReturn.astro';
+import Evidence from '@runtime/components/XizongSystemEvidenceGuard.astro';
+import Guard from '@runtime/components/XizongRuntimeStageGuard.astro';
+import { loadXizongSystemQuestionSweep } from '@runtime/lib/xizongQuestions.mjs';
+import { loadXizongSystem } from '@runtime/lib/xizong.mjs';
+const system=loadXizongSystem('circulation');
+const sweep=loadXizongSystemQuestionSweep(system);
+---
+<Base title="隔离体验 · System Recall" showLead={false} active="xizong"><aside class="demoNotice"><strong>隔离体验 · 后续阶段</strong><p>为了直接检查 System Recall / question / repair 的手感，可以在此体验站模拟 Block 完成条件。不会更新正式站点，不表示你已学会，也不生成 learner U。</p><button data-demo-unlock data-blocks={JSON.stringify(system.blocks.map(b=>b.blockId))}>在隔离站打开 System Recall</button><a href="/human-gate/">返回整站体验</a></aside>
+<details open data-xizong-later-stage><summary>System Recall / question / repair · 正式 Runtime</summary><Exit system={system} sweep={sweep}/><Repair system={system}/><Evidence system={system} sweep={sweep}/></details><Guard system={system}/></Base>
+<script>
+const demo=document.querySelector('[data-demo-unlock]');
+demo?.addEventListener('click',()=>{
+ try{
+  for(const id of JSON.parse(demo.getAttribute('data-blocks'))){const key=`kianos-xizong-astro-v2:xizong:${id}`;const state=JSON.parse(localStorage.getItem(key)||'{}');localStorage.setItem(key,JSON.stringify({...state,completed:true,isolatedHumanGateFixture:true}));}
+  localStorage.setItem('kianos-human-gate-fixture','ISOLATED_DEMO_NOT_LEARNER_U');
+  document.querySelector('[data-xizong-later-stage]').open=true;
+  document.querySelector('[data-start-recall]').click();
+ }catch{demo.textContent='存储不可用，模拟状态未完成；请重试。';}
+});
+</script>
+<style>.demoNotice{max-width:1250px;margin:15px auto;padding:14px 22px;background:#fff8e9;border-bottom:1px solid #d9c99b;color:#564529;font:16px/1.7 system-ui}.demoNotice p{margin:5px 0}.demoNotice button{font:inherit;padding:8px 14px;border:1px solid #997c3e;border-radius:5px;background:#fff;cursor:pointer;margin-right:18px}.demoNotice a{color:inherit}</style>

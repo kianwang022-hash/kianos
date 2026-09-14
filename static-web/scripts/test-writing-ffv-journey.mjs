@@ -178,8 +178,8 @@ async function repairReturnJourney(browser, task) {
 
     await page.goto(`${BASE}/english/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-site-resume-subject=english]').waitFor({ state: 'visible' });
-    check((await page.locator('[data-english-resume-meta]').textContent())?.includes('repair needed'), 'english_resume_surfaces_active_writing_repair');
-    check((await page.locator('[data-english-resume-link]').getAttribute('href'))?.includes(task.id), 'english_resume_returns_to_exact_writing_task');
+    check((await page.locator('[data-site-resume-subject=english] strong').textContent())===task.title, 'english_resume_surfaces_actual_writing_repair');
+    check((await page.locator('[data-site-resume-subject=english]').getAttribute('href'))?.includes(task.id), 'english_resume_returns_to_exact_writing_task');
 
     await page.goto(`${BASE}/writing/${encodeURIComponent(task.id)}/`, { waitUntil: 'domcontentloaded' });
     await page.locator('[data-runtime-stage="repair"]').waitFor({ state: 'visible' });

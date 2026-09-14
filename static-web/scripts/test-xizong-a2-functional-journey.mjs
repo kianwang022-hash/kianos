@@ -53,7 +53,7 @@ async function blockResumeAndEvidenceJourney(page) {
   const allKpIds=await root.locator('[data-kp-recall-card]').evaluateAll(cards=>cards.map(c=>c.dataset.kpId));
   await page.evaluate(({key,ids})=>localStorage.setItem(key,JSON.stringify({stage:'block_complete',learned:Object.fromEntries(ids.slice(1).map(id=>[id,true])),ratings:Object.fromEntries(ids.map(id=>[id,'mastered'])),blockRecallDone:true,completed:false})),{key:studyKey,ids:allKpIds});
   await page.reload({waitUntil:'domcontentloaded'});check(await root.locator('[data-block-complete]').isDisabled(),'missing_formal_contact_blocks_completion');
-  await page.evaluate(({key,ids})=>{const s=JSON.parse(localStorage.getItem(key));s.learned=Object.fromEntries(ids.map(id=>[id,true]));localStorage.setItem(key,JSON.stringify(s));},{key:studyKey,ids:allKpIds});
+  await page.evaluate(({key,ids})=>{const s=JSON.parse(localStorage.getItem(key));s.learned=Object.fromEntries(ids.map(id=>[id,true]));s.stage='block_complete';s.blockRecallDone=true;localStorage.setItem(key,JSON.stringify(s));},{key:studyKey,ids:allKpIds});
   await page.reload({waitUntil:'domcontentloaded'});
   check(await root.locator('[data-lecture-read]').count()===0,'no_second_block_lecture_ritual');
   await root.locator('[data-block-complete]').click();

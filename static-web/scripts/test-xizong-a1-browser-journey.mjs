@@ -196,6 +196,8 @@ try {
   await sleep(180);
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);
   check(Object.keys(state?.ratings || {}).length === 1, 'first_recall_persisted');
+  for(let i=0;i<30 && state.kpIndex===0;i++){await sleep(100);state=await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);}
+  check(state.kpIndex>0,'next_recall_checkpoint_committed_before_refresh');
   const savedIndex = state.kpIndex;
   await cdp.reload();
   state = await cdp.evaluate(`JSON.parse(localStorage.getItem(${js(studyKey)})||'null')`);

@@ -6,7 +6,7 @@ import { loadXizongBlock, loadXizongSystem } from '../src/lib/xizong.mjs';
 import { loadXizongSystemQuestionSweep } from '../src/lib/xizongQuestions.mjs';
 
 const PORT = 4329;
-const DEBUG_PORT = 9229;
+const DEBUG_PORT = Number(process.env.KIANOS_A1_E_DEBUG_PORT || 9229);
 const BASE = `http://127.0.0.1:${PORT}`;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const report = { schema: 'kianos.xizong.a1.browser_evidence_journey.v1', started_at: new Date().toISOString(), checks: [] };
