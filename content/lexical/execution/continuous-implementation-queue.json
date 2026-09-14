@@ -13,6 +13,16 @@
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": "o0675-o0874",
+  "stop_reason": "INTEGRATION_PERMISSION_REQUIRED",
+  "integration_blocker": {
+    "type": "REQUIRED_CHECK_BLOCKED",
+    "check": "current-ownership-audit",
+    "details": [
+      "MISSING_REQUIRED_OWNER:content/xizong/knowledge/learner/continuation.json",
+      "MISSING_REQUIRED_OWNER:content/xizong/knowledge/learner/acceptance-status.json"
+    ],
+    "scope": "pre-existing unrelated Xizong governance debt; not modified by this Lexical package"
+  },
   "scope": {
     "start": 475,
     "end": 674,
