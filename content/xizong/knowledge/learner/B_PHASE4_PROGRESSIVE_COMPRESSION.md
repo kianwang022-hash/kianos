@@ -1,17 +1,17 @@
 # B Phase 4 Progressive Compression Closure
 
-Status: **CONSTRUCTION COMPLETE / MATERIALIZATION PENDING**  
+Status: **PASS — progressive compression accepted and materialized**  
 Scope: `B — Digestive / Metabolic / Endocrine / Tumor`  
 Execution task: GitHub Issue `#135`  
-Single Learning owner target: `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
+Single Learning owner: `content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json`
 
-This file is durable construction/acceptance evidence only. It is **not** a second Learning owner and must not be consumed by Runtime / Projection.
+This file is durable construction / acceptance evidence only. It is **not** a second Learning owner and must not be consumed by Runtime / Projection.
 
 ---
 
-## 1｜Question under audit
+## 1｜Question audited
 
-Phase 4 tests only the progressive compression chain:
+Phase 4 tested only the progressive compression chain:
 
 ```text
 Logic Group closure
@@ -20,9 +20,9 @@ Logic Group closure
 → final System Reconstruction
 ```
 
-Medical Core, stable Block/KP identity and the accepted 170 Logic Groups remain frozen.
+Medical Core, stable Block/KP identity and the accepted 170 Logic Groups stayed frozen.
 
-The quality bar is A1-style compression: later recall must become thinner while preserving the causal / decision model. A heading list is not a Block Recall merely because it is shorter than the source.
+The quality bar was A1-style compression: later recall must become thinner while preserving the causal / localization / decision model. A heading list is not a Block Recall merely because it is shorter than the source.
 
 ---
 
@@ -45,19 +45,19 @@ The following recall spines already preserve a causal, localization, comparison 
 
 ### UPGRADE
 
-The following nine spines were still too close to chapter / disease ordering and are repaired at Phase 4:
+Nine spines were still too close to chapter / disease ordering and were repaired:
 
-- `D8` — replace section order with insulin-deficiency/resistance → acute metabolic consequences → DKA/HHS → chronic vascular injury → evidence → treatment-by-dominant-risk.
-- `D11` — replace organ-tumor chapter order with source/depth/location → symptom → spread → evidence → stage/resectability → organ-specific treatment.
-- `D12` — compress chronic bowel presentations into infection (TB) vs immune inflammation (IBD) vs functional (IBS) discrimination → complications → treatment class.
-- `D14` — unify obstruction / appendicitis / hernia under lumen vs local inflammation vs abdominal-wall outlet → ischemia/peritonitis danger → localization → decompression/reduction/resection/drainage.
-- `D15` — compress colorectal/anorectal learning through symptom → anatomic location → evidence/spread → resection/sphincter decision → anorectal discrimination.
-- `D19` — make pain + jaundice + fever + gallbladder/upstream dilation the localization coordinates, then stone/inflammation/tumor/congenital branching and drainage-first emergency logic.
-- `D20` — organize the Block as three pancreatic failure modes: premature enzyme activation/self-digestion vs ductal mass obstruction vs endocrine hypersecretion.
-- `D21` — reconstruct thyroid cases from function + structure/pain → hyper/hypo/structural/tumor localization → evidence → ordinary treatment/crisis/surgical safety.
-- `D22` — reconstruct adrenal disease from phenotype → hormone-excess axis → biochemical confirmation → feedback localization → dynamic/structural evidence → cause-specific treatment.
+- `D8` — insulin deficiency/resistance → acute metabolic consequences → DKA/HHS → chronic vascular injury → evidence → treatment by dominant risk.
+- `D11` — source/depth/location → symptom → spread → evidence → stage/resectability → organ-specific treatment.
+- `D12` — chronic bowel presentation → infection (TB) vs immune inflammation (IBD) vs functional (IBS) → complications → treatment class.
+- `D14` — lumen obstruction vs local inflammation vs abdominal-wall outlet → ischemia/peritonitis danger → localization → decompression/reduction/resection/drainage.
+- `D15` — symptom → anatomic location → evidence/spread → resection/sphincter decision → anorectal discrimination.
+- `D19` — pain + jaundice + fever + gallbladder/upstream dilation → obstruction localization → stone/inflammation/tumor/congenital branching → drainage-first emergency logic.
+- `D20` — premature enzyme activation/self-digestion vs ductal mass obstruction vs endocrine hypersecretion.
+- `D21` — thyroid function + structure/pain → hyper/hypo/structural/tumor localization → evidence → ordinary treatment/crisis/surgical safety.
+- `D22` — phenotype → hormone-excess axis → biochemical confirmation → feedback localization → dynamic/structural evidence → cause-specific treatment.
 
-No Block Recall is permitted to become a replay of all Logic Group labels or every KP prompt.
+No Block Recall now depends on replaying all Logic Group labels or all KP prompts.
 
 ---
 
@@ -65,15 +65,15 @@ No Block Recall is permitted to become a replay of all Logic Group labels or eve
 
 PSR remains a **non-gating partial System reconstruction**. It does not create a canonical learner unit, score, completion state, mastery gate or Memory debt.
 
-All six checkpoints are retained, but each receives an explicit learner prompt and falsifiable closure tied back to canonical `system.json` truth.
+All six checkpoints are retained and now have explicit System-grounded `prompt + closure` semantics.
 
-### PSR-1 GI input
+### PSR-1｜GI input
 
 Recover food/substrate movement from motility/control through secretion/digestion and selective absorption to portal/lymph entry. Closure requires predicting where a failure would first alter transit, digestion or delivery.
 
-### PSR-2 metabolic network
+### PSR-2｜Metabolic network
 
-The old final-only `M1–M10` checkpoint was too late to reduce cognitive distance. It remains one PSR but gains staged refreshes:
+The former final-only `M1–M10` checkpoint was too late to reduce cognitive distance. It remains **one PSR** but gains staged refreshes:
 
 ```text
 M1–M4  → enzyme language + carbon/ATP/redox + carbohydrate storage/output
@@ -84,27 +84,27 @@ M10    → heme/bilirubin/biotransformation bridge to liver/biliary
 
 These are refresh moments inside PSR-2, not four new hierarchy nodes.
 
-### PSR-3 endocrine control
+### PSR-3｜Endocrine control
 
-It gains an early refresh after `D5–D8` (energy state + common axis + pancreatic control/diabetes) and a final refresh after `D21–D23` (thyroid/adrenal/calcium-GH localization).
+It gains an early refresh after `D5–D8` and a final refresh after `D21–D23`, both using the common localization rule `hormone amount + target effect + feedback relation`.
 
-### PSR-4 GI / abdominal clinical
+### PSR-4｜GI / abdominal clinical
 
 Reconstruct from presenting pattern to first failed layer: movement/outlet, mucosal/inflammatory, bleeding/perforation/obstruction, abdominal-space emergency, or organ tumor.
 
-### PSR-5 hepatobiliary / pancreas
+### PSR-5｜Hepatobiliary / pancreas
 
 Reconstruct hepatocyte injury → structural/synthetic/portal failure → tumor vs biliary obstruction/jaundice → pancreatic enzyme/tumor failure, with urgency overriding etiologic precision when bleeding, sepsis or obstruction dominates.
 
-### PSR-6 information / tumor
+### PSR-6｜Information / tumor
 
-It gains a molecular-half refresh after `G1–G5`; full closure still requires the external `O9 pathology tumor-general model`. This prevents the molecular branch from floating as an isolated list while preserving the rule that molecular completion alone is not the whole Tumor Gate.
+It gains a molecular-half refresh after `G1–G5`; full closure still requires the external `O9 pathology tumor-general model`. Molecular completion alone is not the complete Tumor Gate.
 
 ---
 
 ## 4｜Final System Reconstruction contract
 
-The final reconstruction must reuse canonical System truth rather than duplicating a second System model.
+The final reconstruction reuses canonical System truth rather than duplicating a second System medical model.
 
 Source of truth:
 
@@ -120,9 +120,9 @@ Required learner reconstruction has four passes:
 1. **Forward flow** — food/substrate input → digestion/absorption → portal/lymph → ATP/storage/mobilization/nitrogen/hepatic processing → endocrine control → DNA/RNA/protein execution.
 2. **Control overlay** — fed/fasting/stress state, GI local/neural/hormonal control, hepatic routing, endocrine feedback and information/repair control.
 3. **Reverse localization** — from symptoms/labs/imaging/endoscopy/pathology identify the first failed layer before naming a disease.
-4. **Urgency override** — bleeding, perforation, obstruction, sepsis, metabolic/endocrine crisis can determine the immediate action before etiologic precision.
+4. **Urgency override** — bleeding, perforation, obstruction, sepsis, metabolic/endocrine crisis can determine immediate action before etiologic precision.
 
-Closure is model-level, not catalogue-level: the learner need not recite 38 Block names or 170 LG labels, but must be able to regenerate the System mother model, distinguish its main failure families, choose the relevant judgment axes and reopen the appropriate Block when precision is needed.
+Closure is model-level, not catalogue-level: the learner need not recite 38 Block names or 170 LG labels, but must be able to regenerate the mother model, distinguish the main Failure-Mode families, choose the relevant judgment axes and reopen the appropriate Block when 306 Source Precision is needed.
 
 ---
 
@@ -140,28 +140,40 @@ PSR is an execution checkpoint inside System compression, not a semantic owner b
 
 ---
 
-## 6｜Materialization gate
+## 6｜Materialization and read-back closure
 
-Phase 4 is not PASS until the accepted compression repair is compiled into the **single** B Learning owner and read back.
+The accepted compression repair was compiled into the **single** B Learning owner and read back from `main`.
 
-Required read-back:
+Successful bounded materialization:
 
 ```text
-38 Block Recalls present
-29 KEEP / 9 upgraded spines represented
-6 PSRs remain non-gating
-PSR-2 staged refreshes present
-PSR-3 staged refreshes present
-PSR-6 molecular-half + O9 final closure present
-final_system_reconstruction present and System-grounded
-construction_status = PHASE4_COMPRESSION_CLOSED_PENDING_CROSS_SURFACE_AUDIT
-medical Block/KP identity unchanged
-logic_group_count = 170
+workflow = Xizong B Phase 4 Compression Upgrade
+run      = 34865917902 (#1)
+result   = SUCCESS
+commit   = 6b50bd2f854f7a440ecd4c0547838be1167963aa
 ```
 
-Only then:
+Read-back confirmed:
+
+```text
+stable Blocks = 38
+stable KPs = 600
+Logic Groups = 170
+Block Recall audit = 29 KEEP / 9 UPGRADE / 0 BLOCKED
+PSR count = 6
+all PSRs non-gating = true
+staged refreshes = PSR-2 / PSR-3 / PSR-6
+final_system_reconstruction = System-grounded and explicit
+extra compulsory hierarchy required = false
+construction_status = PHASE4_COMPRESSION_CLOSED_PENDING_CROSS_SURFACE_AUDIT
+medical Block/KP identity change = false
+```
+
+Therefore:
 
 ```text
 Phase 4 = PASS
-Phase 5 = ACTIVE
+Phase 5 = ELIGIBLE / NEXT
 ```
+
+This still does **not** constitute overall `L PASS`. Cross-surface / negative-space audit and fresh independent L acceptance remain downstream.
