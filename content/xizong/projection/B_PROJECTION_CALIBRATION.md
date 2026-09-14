@@ -45,10 +45,18 @@ The existing A1/A2/A3 Projection architecture is reusable and is **not** reopene
 - one Block may carry multiple cognitive objects;
 - `OWNER_REF` / `FIELD_REF` over Current owners;
 - protected `KP_RECALL_FRONT` / `BLOCK_RECALL_FRONT` / `SYSTEM_RECALL_FRONT`;
-- full canonical Core after Recall Reveal rather than AI summary;
+- full canonical KP Core after legitimate Recall Reveal rather than AI summary;
 - external-primary handoff policy;
 - optional enrichment stays optional;
 - Mac/Dense-Calm boundary remains downstream from asset semantics.
+
+### B-specific projection constraint
+
+The **architecture** is reused, but not every existing A baseline view composition is copied literally.
+
+A1/A2/A3 baseline assets may expose a whole `CANONICAL_GUIDE` object in `BLOCK_ORIENT`. B's canonical Block Markdown is substantially richer and can include extensive KP/Core teaching detail. Projecting the whole B Markdown at orientation would conflict with the accepted B Learning rule that MarginNote/original Lecture is the continuous teaching owner and KianOS is bounded orientation/retrieval/compression support.
+
+Therefore B `BLOCK_ORIENT` must **not** render the whole canonical Block Markdown by default. Complete canonical KP Core remains available only at the legitimate KP Recall Reveal / repair state from its medical owner. Projection is protecting accepted L, not deleting medical content.
 
 ### OPTIMIZE / EXTEND FOR B
 
@@ -130,7 +138,7 @@ OWNER_REF / LOGIC_GROUP_SET
 → returns only accepted [{id,label}] for the owning Block
 ```
 
-Use that safe label map for protected Block Recall scaffolding. Full `logic_groups` remains Learning support for ORIENT / GROUP_CLOSURE / revealed states only.
+Use that safe label map for navigation and protected Block Recall scaffolding. Full `logic_groups` remains Learning support for ORIENT / GROUP_CLOSURE / revealed states only.
 
 This also gives future Systems a safe non-duplicated LG map without inventing a second semantic owner.
 
@@ -180,7 +188,7 @@ Runtime later selects an exact eligible checkpoint; Projection must not turn all
 
 B's `system.json#/system_recall/target` is answer-bearing enough that it must **not** be used as the protected neutral front.
 
-Projection should support a shared generic neutral System-Recall instruction at renderer level (for example, attempt reconstruction before Reveal) without authoring B medical content. The B asset's `SYSTEM_RECALL_FRONT` therefore needs an explicit generic-neutral policy rather than leaking the target/spine.
+Projection should support a shared generic neutral System-Recall instruction at renderer level (for example, attempt reconstruction before Reveal) without authoring B medical content. The B asset's `SYSTEM_RECALL_FRONT` therefore carries no B answer-bearing object; the shared renderer later supplies the generic attempt instruction.
 
 `SYSTEM_RECALL_REVEAL` may then expose the accepted final reconstruction support from the B Learning owner plus canonical System objects.
 
@@ -199,7 +207,7 @@ SYSTEM_CORE      → B system.json
 LEARNING_SUPPORT → accepted B Learning owner
 ```
 
-No copied shortened medical Core is required for baseline. `OWNER_REF / CANONICAL_GUIDE` keeps the complete canonical Block available after legitimate Reveal/orientation without creating a second medical owner.
+Baseline B Projection does **not** copy a shortened medical Core and does not place the entire canonical Block Markdown into first-view orientation.
 
 ### Learning support
 
@@ -212,23 +220,37 @@ recall_spine
 logic_groups
 ```
 
-and may additionally bind `learner_order` as Projection routing metadata. Readiness relations remain backend-only under the accepted L surface contract.
+`learner_order` remains available through the accepted Learning owner / adapter for LG sequencing. `readiness` relations remain backend-only under the accepted L surface contract.
 
 ### Baseline objects
 
 ```text
 problem        → BLOCK CENTER_QUESTION
-canonical guide→ BLOCK CANONICAL_GUIDE
 recall spine   → Learning recall_spine
 safe Logic Map → OWNER_REF LOGIC_GROUP_SET (ids + labels only)
 ```
 
+The canonical Block owner remains authoritative and resolvable for KP Reveal / repair, but the whole document is **not** a default `BLOCK_ORIENT` object for B.
+
 Full LG goal/closure remains Learning support, not a neutral-map payload.
 
-### Views
+### BLOCK_ORIENT
+
+Default B orientation exposes only what the current cognitive action needs:
 
 ```text
-BLOCK_ORIENT
+center problem
++ first_pass_focus
++ stop_line / bounded current scope
++ safe LG map
++ any explicitly reviewed Current orientation object added later
+```
+
+It must not become a second continuous Lecture.
+
+### Other views
+
+```text
 LOGIC_GROUP_ORIENT
 EXTERNAL_HANDOFF
 KP_RECALL_FRONT
@@ -238,7 +260,7 @@ BLOCK_RECALL_FRONT
 BLOCK_RECALL_REVEAL
 ```
 
-The accepted Xizong Block Workspace behavior is preserved.
+The accepted Xizong Block Workspace behavior is preserved. `KP_RECALL_REVEAL` continues to resolve the **complete canonical Current KP Core**; semantic completeness is preserved without front-loading the whole Block document before learning.
 
 ---
 
@@ -248,7 +270,7 @@ The baseline/multi-object schema was challenged against seven unlike B Blocks.
 
 ### D1｜normal mechanism/control
 
-Needs causal sequence + control comparison + molecular execution. Baseline supports full Guide + LG semantics + Block recall spine without forcing one universal geometry. **PASS.**
+Needs causal sequence + control comparison + molecular execution. Current focus/stop/LG map are sufficient for bounded orientation; actual teaching stays in the original Lecture, and complete Current Core returns after Recall Reveal. **PASS.**
 
 ### M2｜biochemical energy-flow
 
@@ -256,7 +278,7 @@ Needs carbon flow / reducing equivalents / electron-proton-ATP coordination and 
 
 ### D8｜large clinical decision Block
 
-Needs distinct acute crisis, chronic injury, diagnosis/function and treatment-decision objects. Multi-object Block rule prevents one giant generic shape. Whole-LG handoff prevents reading 25 KP as isolated cards. **PASS.**
+Needs distinct acute crisis, chronic injury, diagnosis/function and treatment-decision objects. Multi-object Block rule prevents one giant generic shape. Whole-LG handoff prevents reading 25 KP as isolated cards. The whole long D8 Markdown must not become the Mac primary reader. **PASS.**
 
 ### D15｜anatomic/surgical decision + true boundaries
 
@@ -268,7 +290,7 @@ Nine LGs must not become one sequence. Projection can alternate foundation / pro
 
 ### D21｜endocrine function × structure × surgery
 
-The central model requires simultaneous function axis, morphology axis, evidence axis, intervention and safety. Shared Block shell plus local multi-object geometry supports this without making the System-wide renderer thyroid-specific. **PASS.**
+The central model requires simultaneous function axis, morphology axis, evidence axis, intervention and safety. Shared Block shell plus local multi-object geometry supports this without making the System-wide renderer thyroid-specific or turning the 29-KP Markdown into a competing Lecture. **PASS.**
 
 ### G5｜learner-order exception
 
@@ -276,7 +298,7 @@ Projection must follow `learner_order = KP01–05 → KP12–13 → KP06–11`, 
 
 ### Calibration conclusion
 
-No B Block forces a new Projection schema or a new learner hierarchy. The existing schema is semantically sufficient once B owner resolution and neutral-map/front safety are extended.
+No B Block forces a new Projection schema or a new learner hierarchy. The existing schema is semantically sufficient once B owner resolution, B orientation composition and neutral-map/front safety are extended.
 
 ---
 
@@ -313,11 +335,11 @@ A failing B asset must not silently downgrade or remove a previously passing A a
 ## 9｜P0 / P1 verdict
 
 ```text
-P0 authority + adapter audit      PASS
-P1 System / heterogeneous Block calibration PASS
-P2 atomic full compile            ACTIVE NEXT
+P0 authority + adapter audit                 PASS
+P1 System / heterogeneous Block calibration  PASS
+P2 atomic full compile                        ACTIVE NEXT
 P3 validator + adversarial closure coupled to P2 landing
-P4 fresh P acceptance             FROZEN
+P4 fresh P acceptance                         FROZEN
 ```
 
-No K/L reopen is justified. The next legal action is the atomic B asset compile against this calibration.
+No K/L reopen is justified. The next legal action is the atomic B asset compile against this calibrated B-specific Projection boundary.
