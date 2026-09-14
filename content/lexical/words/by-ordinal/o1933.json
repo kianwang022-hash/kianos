@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "8f805eaa16c8aaba127478074c4afb2725ce14517c7d841b8e0ee5deb1b962c1",
+    "content_hash": "97b9cdb871ba2e2a0881e7d41bf877ba2fb16ae973e09a8bd72ae92b243df351",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "完成或结束",
@@ -75,7 +75,36 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "完成；结束",
+        "definition_en": "to complete something or bring it to an end",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:finish:c5585bd8f4c75a3a",
+        "sense_label_en": "to complete something or bring it to an end",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "结尾；最后部分",
+        "definition_en": "the end or last part of something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:finish:33b794d9e1e15874",
+        "sense_label_en": "the end or last part of something",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -119,31 +148,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 5329,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:finish:33b794d9e1e15874",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "结束；最后部分",
-      "definition_en": "the end or last part of something",
-      "semantic_key": "d1901baea11d32200127487e371a28941c3ae375c90179ff461f968a6f298b1b",
-      "semantic_key_history": [
-        "49c5cffb0c90b7fc0ff6a49b5aff2cbfd42b080484f45f8957e971ef6ebb8e4b"
-      ],
-      "legacy_aliases": [
-        "finish:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "finish:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5330,
       "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
       "reference_only": true
     },
@@ -196,31 +200,6 @@
       "source_row": 5332,
       "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:finish:c5585bd8f4c75a3a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "完成；结束",
-      "definition_en": "to complete something or bring it to an end",
-      "semantic_key": "79e9c992916d817c7aed9abc806e11fb95eddaec75c869b62ae3309ec3ccda16",
-      "semantic_key_history": [
-        "4c37bf69a3f1ea539a375749bb1e7ba7e4630fdd24a293b902eae3dac1ec67be"
-      ],
-      "legacy_aliases": [
-        "finish:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "finish:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5333,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -234,7 +213,7 @@
       },
       {
         "sense_id": "sense:finish:33b794d9e1e15874",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5330,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
@@ -255,7 +234,7 @@
       },
       {
         "sense_id": "sense:finish:c5585bd8f4c75a3a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5333,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
@@ -342,7 +321,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1929-1936.json",
-    "source_content_hash": "8f805eaa16c8aaba127478074c4afb2725ce14517c7d841b8e0ee5deb1b962c1",
+    "source_content_hash": "97b9cdb871ba2e2a0881e7d41bf877ba2fb16ae973e09a8bd72ae92b243df351",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

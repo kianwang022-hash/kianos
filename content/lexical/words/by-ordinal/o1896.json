@@ -116,7 +116,7 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "25dcef22cab8d2362abef3974b76dea41e987d9d596f8c78c63e784dd117fdc3",
+    "content_hash": "8959c5c4f2fba04f943038525f948245ed4ba7f33a8d63a86f249fd27cc3c106",
     "core_concept": {
       "core_clusters": [
         {
@@ -210,6 +210,34 @@
         "sense_label_en": "food for domestic animals",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "不断供应；输入",
+        "definition_en": "supply something continuously",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:feed:666d1ed334275fdc",
+        "sense_label_en": "supply something continuously",
+        "sort_order": 999,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "流入；汇入",
+        "definition_en": "flow into",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:feed:2d342ec3a3c9589c",
+        "sense_label_en": "flow into",
+        "sort_order": 999,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -233,56 +261,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:feed:2d342ec3a3c9589c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
-      "pos": "verb",
-      "definition_cn": "流入",
-      "definition_en": "flow into",
-      "semantic_key": "e7b2cc63fdb948120f0b2960ea07927d63c8750efa23ba6d486d81f3f1036e4a",
-      "semantic_key_history": [
-        "e79bb2a142eaee362e11457c79b2862f6e284dc403b5f03b4e30cd70d022d7b2"
-      ],
-      "legacy_aliases": [
-        "feed:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "feed:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5205,
-      "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:feed:666d1ed334275fdc",
-      "status": "merged",
-      "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
-      "pos": "verb",
-      "definition_cn": "供给；输入",
-      "definition_en": "supply (something) continuously",
-      "semantic_key": "b60b43dc064e141441728417bd11ff8ed5d23375af71ebda3ee9fa976a3fbcfe",
-      "semantic_key_history": [
-        "2b72c0d4a628f8fe6af6a72d05c0e8a373b2b67c2345a131d6dcd97a5794d84d"
-      ],
-      "legacy_aliases": [
-        "feed:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "feed:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5207,
-      "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:feed:b193293ab8f15495",
       "status": "merged",
@@ -313,8 +291,8 @@
     "senses": [
       {
         "sense_id": "sense:feed:2d342ec3a3c9589c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 5205,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
       },
@@ -327,8 +305,8 @@
       },
       {
         "sense_id": "sense:feed:666d1ed334275fdc",
-        "status": "merged",
-        "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 5207,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
       },
@@ -447,7 +425,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o1889-1896.json",
-    "source_content_hash": "25dcef22cab8d2362abef3974b76dea41e987d9d596f8c78c63e784dd117fdc3",
+    "source_content_hash": "8959c5c4f2fba04f943038525f948245ed4ba7f33a8d63a86f249fd27cc3c106",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
