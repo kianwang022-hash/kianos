@@ -1,45 +1,279 @@
 {
-  "schema":"kianos.xizong.cognitive_projection.block.v1",
-  "status":"CALIBRATION_DERIVED_CURRENT",
-  "system_id":"urinary",
-  "block_id":"urinary-b05",
-  "sources":[
-    {"id":"core","kind":"MEDICAL_CORE","path":"content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md","blob_sha":"54da6727803de8c760efeef085ee0a5e27609bba"},
-    {"id":"learning","kind":"LEARNING_SUPPORT","path":"content/xizong/knowledge/learner/a3-urinary-learning.json","blob_sha":"f3f4fba9445b0fe17b0c254d3df798359e2cdf50"},
-    {"id":"external_contract","kind":"EXTERNAL_SOURCE_CONTRACT","path":"content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json","blob_sha":"4cda137b373aed9ee37b7ac191b37b5928a9d9b6"}
+  "schema": "kianos.xizong.cognitive_projection.block.v1",
+  "status": "CALIBRATION_DERIVED_CURRENT",
+  "system_id": "urinary",
+  "block_id": "urinary-b05",
+  "sources": [
+    {
+      "id": "core",
+      "kind": "MEDICAL_CORE",
+      "path": "content/xizong/knowledge/systems/a3-urinary/blocks/泌尿系统_Block5_水钠钾钙与酸碱整合_学习阅读版_v1_最终执行版.md",
+      "blob_sha": "54da6727803de8c760efeef085ee0a5e27609bba"
+    },
+    {
+      "id": "learning",
+      "kind": "LEARNING_SUPPORT",
+      "path": "content/xizong/knowledge/learner/a3-urinary-learning.json",
+      "blob_sha": "f3f4fba9445b0fe17b0c254d3df798359e2cdf50"
+    },
+    {
+      "id": "external_contract",
+      "kind": "EXTERNAL_SOURCE_CONTRACT",
+      "path": "content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json",
+      "blob_sha": "4cda137b373aed9ee37b7ac191b37b5928a9d9b6"
+    }
   ],
-  "canonical_scope":{"kind":"OWNER_REF","owner_type":"BLOCK","id":"urinary-b05"},
-  "learning_support":{
-    "first_pass_focus":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/urinary-b05/first_pass_focus"}},
-    "stop_line":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/urinary-b05/stop_line"}},
-    "recall_spine":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/urinary-b05/recall_spine"}},
-    "logic_groups":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/urinary-b05/logic_groups"}}
+  "canonical_scope": {
+    "kind": "OWNER_REF",
+    "owner_type": "BLOCK",
+    "id": "urinary-b05"
   },
-  "kp_set":{"kind":"OWNER_REF","owner_type":"KP_SET","block_id":"urinary-b05"},
-  "handoff_bindings":[
-    {"binding_id":"urinary-b05-study-refs","kind":"FIELD_REF","source_id":"core","selector":{"type":"FRONTMATTER_FIELD","value":"study_refs"},"semantic_role":"HANDOFF","surface":"MULTI_SOURCE","policy":"PRESERVE_CURRENT_LOCATOR_AND_ACTION"}
-  ],
-  "provenance_bindings":[
-    {"binding_id":"urinary-b05-acid-base-source-gap","kind":"EXTERNAL_CONTRACT_REF","source_id":"external_contract","selector":{"type":"JSON_POINTER","value":"/"},"scope_policy":"DO_NOT_WIDEN_ADMITTED_SCOPE","learner_content_policy":"PROVENANCE_ONLY_CANONICAL_B5_REMAINS_LEARNER_OWNER"}
-  ],
-  "objects":[
-    {"object_id":"urinary-b05-problem","role":"PROBLEM","geometry":"TEXT_STRUCTURE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"LABELED_BLOCKQUOTE","label":"中心问题"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"urinary-b05-five-variable-coordinate","role":"MAP","geometry":"AXES","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"体液失衡最容易混乱，是因为一句“缺水”可能同时涉及五个不同变量：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"urinary-b05-priority-algorithm","role":"MAP","geometry":"TREE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"STRUCTURE_AFTER_ANCHOR","anchor":"固定判断顺序：","structure_type":"CODE_BLOCK","occurrence":1}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"urinary-b05-framework","role":"MAP","geometry":"SEQUENCE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"MARKER_ID","value":"urinary-b05-framework-main"}},"stage_role":"PRIMARY_STAGE"},
-    {"object_id":"urinary-b05-ownership-boundary","role":"BOUNDARY","geometry":"TABLE","binding":{"kind":"DERIVED_FRAGMENT","source_id":"core","selector":{"type":"HEADING_EXACT","value":"2｜Ownership 与动作边界"}},"stage_role":"CONTEXT"},
-    {"object_id":"urinary-b05-acid-base-diagnostic-closure","role":"CLOSURE","geometry":"SEQUENCE","binding":{"kind":"FIELD_REF","source_id":"learning","selector":{"type":"JSON_POINTER","value":"/blocks/urinary-b05/logic_groups/urinary-b05-lg06"}},"stage_role":"SECONDARY_STAGE","note":"Expected-compensation/AG/delta semantics are learner-owned by canonical B5; the external contract is provenance/scope authority only."}
-  ],
-  "enrichment_bindings":[],
-  "views":{
-    "BLOCK_ORIENT":{"object_ids":["urinary-b05-problem","urinary-b05-five-variable-coordinate","urinary-b05-priority-algorithm","urinary-b05-framework","urinary-b05-ownership-boundary"],"learning_support_keys":["first_pass_focus","stop_line","logic_groups"],"provenance_policy":"HIDDEN_UNLESS_REFERENCE_NEEDED"},
-    "LOGIC_GROUP_ORIENT":{"object_ids":["urinary-b05-problem"],"learning_support_keys":["logic_groups"],"context_policy":"OWNED_ONLY"},
-    "EXTERNAL_HANDOFF":{"learning_support_keys":["logic_groups"],"handoff_binding_ids":["urinary-b05-study-refs"],"source_locator_policy":"CURRENT_ONLY_NO_GUESS","external_contract_policy":"SUPPLEMENTARY_NOT_PRIMARY_SURFACE"},
-    "KP_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","block_object_ids":[],"kp_content_policy":"ID_AND_NEUTRAL_PROMPT_ONLY","provenance_policy":"HIDDEN"},
-    "KP_RECALL_REVEAL":{"kp_content_policy":"CANONICAL_CORE_FULL","context_policy":"OWNED_ONLY","external_contract_policy":"NO_SECOND_OWNER"},
-    "GROUP_CLOSURE":{"learning_support_keys":["logic_groups"],"context_policy":"TIMING_AWARE_OWNED_ONLY"},
-    "BLOCK_RECALL_FRONT":{"protection":"NEUTRAL_FRONT","object_ids":["urinary-b05-problem"],"show_logic_group_map":true},
-    "BLOCK_RECALL_REVEAL":{"object_ids":["urinary-b05-problem","urinary-b05-five-variable-coordinate","urinary-b05-priority-algorithm","urinary-b05-framework","urinary-b05-acid-base-diagnostic-closure"],"learning_support_keys":["recall_spine","logic_groups"]}
+  "learning_support": {
+    "first_pass_focus": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/urinary-b05/first_pass_focus"
+      },
+      "value_type": "string"
+    },
+    "stop_line": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/urinary-b05/stop_line"
+      },
+      "value_type": "string"
+    },
+    "recall_spine": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/urinary-b05/recall_spine"
+      },
+      "value_type": "string"
+    },
+    "logic_groups": {
+      "kind": "FIELD_REF",
+      "source_id": "learning",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": "/blocks/urinary-b05/logic_groups"
+      },
+      "value_type": "object"
+    }
   },
-  "calibration_notes":["Tests a multi-source Block without promoting supplementary external sources into a learner-facing second owner.","The same schema handles five-variable coordinates, priority algorithm and ownership boundary; no urinary-specific top-level schema branch is introduced."]
+  "kp_set": {
+    "kind": "OWNER_REF",
+    "owner_type": "KP_SET",
+    "block_id": "urinary-b05"
+  },
+  "handoff_bindings": [
+    {
+      "binding_id": "urinary-b05-study-refs",
+      "kind": "FIELD_REF",
+      "source_id": "core",
+      "selector": {
+        "type": "FRONTMATTER_FIELD",
+        "value": "study_refs"
+      },
+      "semantic_role": "HANDOFF",
+      "surface": "MULTI_SOURCE",
+      "policy": "PRESERVE_CURRENT_LOCATOR_AND_ACTION",
+      "value_type": "string"
+    }
+  ],
+  "provenance_bindings": [
+    {
+      "binding_id": "urinary-b05-acid-base-source-gap",
+      "kind": "EXTERNAL_CONTRACT_REF",
+      "source_id": "external_contract",
+      "selector": {
+        "type": "JSON_POINTER",
+        "value": ""
+      },
+      "scope_policy": "DO_NOT_WIDEN_ADMITTED_SCOPE",
+      "learner_content_policy": "PROVENANCE_ONLY_CANONICAL_B5_REMAINS_LEARNER_OWNER"
+    }
+  ],
+  "objects": [
+    {
+      "object_id": "urinary-b05-problem",
+      "role": "PROBLEM",
+      "geometry": "TEXT_STRUCTURE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "LABELED_BLOCKQUOTE",
+          "label": "中心问题"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": false
+    },
+    {
+      "object_id": "urinary-b05-five-variable-coordinate",
+      "role": "MAP",
+      "geometry": "AXES",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "STRUCTURE_AFTER_ANCHOR",
+          "anchor": "体液失衡最容易混乱，是因为一句“缺水”可能同时涉及五个不同变量：",
+          "structure_type": "CODE_BLOCK",
+          "occurrence": 1
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "urinary-b05-priority-algorithm",
+      "role": "MAP",
+      "geometry": "TREE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "STRUCTURE_AFTER_ANCHOR",
+          "anchor": "固定判断顺序：",
+          "structure_type": "CODE_BLOCK",
+          "occurrence": 1
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "urinary-b05-framework",
+      "role": "MAP",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "MARKER_ID",
+          "value": "urinary-b05-framework-main"
+        }
+      },
+      "stage_role": "PRIMARY_STAGE",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "urinary-b05-ownership-boundary",
+      "role": "BOUNDARY",
+      "geometry": "TABLE",
+      "binding": {
+        "kind": "DERIVED_FRAGMENT",
+        "source_id": "core",
+        "selector": {
+          "type": "HEADING_EXACT",
+          "value": "2｜Ownership 与动作边界"
+        }
+      },
+      "stage_role": "CONTEXT",
+      "answer_bearing": true
+    },
+    {
+      "object_id": "urinary-b05-acid-base-diagnostic-closure",
+      "role": "CLOSURE",
+      "geometry": "SEQUENCE",
+      "binding": {
+        "kind": "FIELD_REF",
+        "source_id": "learning",
+        "selector": {
+          "type": "JSON_POINTER",
+          "value": "/blocks/urinary-b05/logic_groups/urinary-b05-lg06"
+        },
+        "value_type": "object"
+      },
+      "stage_role": "SECONDARY_STAGE",
+      "note": "Expected-compensation/AG/delta semantics are learner-owned by canonical B5; the external contract is provenance/scope authority only.",
+      "answer_bearing": true
+    }
+  ],
+  "enrichment_bindings": [],
+  "views": {
+    "BLOCK_ORIENT": {
+      "object_ids": [
+        "urinary-b05-problem",
+        "urinary-b05-five-variable-coordinate",
+        "urinary-b05-priority-algorithm",
+        "urinary-b05-framework",
+        "urinary-b05-ownership-boundary"
+      ],
+      "learning_support_keys": [
+        "first_pass_focus",
+        "stop_line",
+        "logic_groups"
+      ],
+      "provenance_policy": "HIDDEN_UNLESS_REFERENCE_NEEDED"
+    },
+    "LOGIC_GROUP_ORIENT": {
+      "object_ids": [
+        "urinary-b05-problem"
+      ],
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "OWNED_ONLY"
+    },
+    "EXTERNAL_HANDOFF": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "handoff_binding_ids": [
+        "urinary-b05-study-refs"
+      ],
+      "source_locator_policy": "CURRENT_ONLY_NO_GUESS",
+      "external_contract_policy": "SUPPLEMENTARY_NOT_PRIMARY_SURFACE"
+    },
+    "KP_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "block_object_ids": [],
+      "kp_content_policy": "ID_AND_NEUTRAL_PROMPT_ONLY",
+      "provenance_policy": "HIDDEN"
+    },
+    "KP_RECALL_REVEAL": {
+      "kp_content_policy": "CANONICAL_CORE_FULL",
+      "context_policy": "OWNED_ONLY",
+      "external_contract_policy": "NO_SECOND_OWNER"
+    },
+    "GROUP_CLOSURE": {
+      "learning_support_keys": [
+        "logic_groups"
+      ],
+      "context_policy": "TIMING_AWARE_OWNED_ONLY"
+    },
+    "BLOCK_RECALL_FRONT": {
+      "protection": "NEUTRAL_FRONT",
+      "object_ids": [
+        "urinary-b05-problem"
+      ],
+      "show_logic_group_map": true,
+      "logic_map_policy": "LABELS_AND_IDS_ONLY"
+    },
+    "BLOCK_RECALL_REVEAL": {
+      "object_ids": [
+        "urinary-b05-problem",
+        "urinary-b05-five-variable-coordinate",
+        "urinary-b05-priority-algorithm",
+        "urinary-b05-framework",
+        "urinary-b05-acid-base-diagnostic-closure"
+      ],
+      "learning_support_keys": [
+        "recall_spine",
+        "logic_groups"
+      ]
+    }
+  },
+  "calibration_notes": [
+    "Tests a multi-source Block without promoting supplementary external sources into a learner-facing second owner.",
+    "The same schema handles five-variable coordinates, priority algorithm and ownership boundary; no urinary-specific top-level schema branch is introduced."
+  ]
 }
