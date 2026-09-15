@@ -4,7 +4,9 @@ import {
   ensureXizongQuestionSweepState,
   recordXizongQuestionAttempt,
   startNextXizongQuestionRound,
-  nextXizongStudyPhase
+  nextXizongStudyPhase,
+  deriveXizongSecondPassQuestionIds,
+  deriveXizongQuestionIdsForCurrentRound
 } from '../src/lib/xizongQuestionAttempts.mjs';
 
 let idCounter = 0;
@@ -82,9 +84,11 @@ state = startNextXizongQuestionRound(state, ['q1', 'q2'], {
   makeId
 });
 assert.equal(state.round.studyPhase, 'SECOND_PASS');
+assert.equal(state.round.queueMode, 'TARGETED');
 assert.equal(state.round.ordinal, 2);
 assert.deepEqual(state.results, {});
 assert.equal(JSON.stringify(state.attemptHistory), firstRoundHistory, 'next round rewrote attempt history');
+assert.deepEqual(deriveXizongQuestionIdsForCurrentRound(state, context.questions, context.holdoutYears), ['q1', 'q2']);
 
 state = recordXizongQuestionAttempt(state, {
   question: context.questions[0],
@@ -126,15 +130,60 @@ state = startNextXizongQuestionRound(state, ['q1', 'q2'], {
   makeId
 });
 assert.equal(state.round.studyPhase, 'LATE_REVIEW');
+assert.equal(state.round.queueMode, 'FULL_RESWEEP');
 assert.equal(state.round.ordinal, 3);
 assert.equal(nextXizongStudyPhase('LATE_REVIEW'), 'LATE_REVIEW');
+
+// Representative queue calibration: Stable is skipped by default; W/U re-enter;
+// held-out questions remain excluded; mapping presence is irrelevant to queue membership.
+const representativeQuestions = [
+  { questionId: 'stable-simple', year: 2024, number: 10, questionType: 'A1', correctAnswer: 'A', relation: { primaryKpId: 'KP01' } },
+  { questionId: 'uncertain-unmapped', year: 2024, number: 11, questionType: 'A1', correctAnswer: 'B' },
+  { questionId: 'wrong-case', year: 2024, number: 12, questionType: 'A2', correctAnswer: 'C', relation: { primaryKpId: 'KP09' } },
+  { questionId: 'wrong-multiselect', year: 2024, number: 13, questionType: 'X', correctAnswer: 'AC' },
+  { questionId: 'wrong-heldout', year: 2025, number: 14, questionType: 'A1', correctAnswer: 'D' }
+];
+const representativeHistory = [
+  { type: 'QUESTION_ATTEMPT', question_id: 'stable-simple', study_phase: 'FIRST_PASS', status: 'stable' },
+  { type: 'QUESTION_ATTEMPT', question_id: 'uncertain-unmapped', study_phase: 'FIRST_PASS', status: 'uncertain' },
+  { type: 'QUESTION_ATTEMPT', question_id: 'wrong-case', study_phase: 'FIRST_PASS', status: 'wrong' },
+  { type: 'QUESTION_ATTEMPT', question_id: 'wrong-multiselect', study_phase: 'FIRST_PASS', status: 'wrong' },
+  { type: 'QUESTION_ATTEMPT', question_id: 'wrong-heldout', study_phase: 'FIRST_PASS', status: 'wrong' }
+];
+const representativeState = {
+  attemptHistory: representativeHistory,
+  results: {},
+  round: { id: 'round-2', studyPhase: 'SECOND_PASS', queueMode: 'TARGETED', ordinal: 2 }
+};
+assert.deepEqual(
+  deriveXizongSecondPassQuestionIds(representativeState, representativeQuestions, [2025]),
+  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
+  'targeted queue should include W/U regardless of mapping and exclude Stable/holdout'
+);
+assert.deepEqual(
+  deriveXizongQuestionIdsForCurrentRound(representativeState, representativeQuestions, [2025]),
+  ['uncertain-unmapped', 'wrong-case', 'wrong-multiselect']
+);
+const fullRepresentative = {
+  ...representativeState,
+  round: { ...representativeState.round, queueMode: 'FULL_RESWEEP' }
+};
+assert.deepEqual(
+  deriveXizongQuestionIdsForCurrentRound(fullRepresentative, representativeQuestions, [2025]),
+  ['stable-simple', 'uncertain-unmapped', 'wrong-case', 'wrong-multiselect'],
+  'explicit full re-sweep should include all non-holdout questions'
+);
 
 console.log([
   'Xizong Question Attempt model PASS',
   'LegacyBootstrap=preserved+idempotent',
   'CurrentResults=round-scoped',
   'AttemptHistory=append-preserved',
-  'SameQuestion=FIRST_PASS→SECOND_PASS',
+  'SecondPassDefault=targeted-W/U',
+  'StableDefault=excluded',
+  'MissingMapping=non-blocking',
+  'QuestionForms=A1+A2+X',
+  'FullResweep=explicit-opt-in',
   'RepairSemantics=separate-by-design',
   'LateReview=repeatable',
   'WholePaper=NOT_CLAIMED'

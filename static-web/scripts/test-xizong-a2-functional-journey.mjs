@@ -217,29 +217,19 @@ async function systemQuestionRepairJourney(page) {
   }
   check(await exit.locator('[data-sweep-done]').isVisible(), 'first_pass_real_ui_reaches_done_surface');
   check((await exit.locator('[data-study-phase]').textContent() || '').includes('一轮'), 'done_surface_reports_first_pass');
-  check((await exit.locator('[data-start-next-round]').textContent() || '').includes('第二轮'), 'done_surface_offers_second_pass_without_new_runtime');
+  check((await exit.locator('[data-start-next-round]').textContent() || '').includes('重点队列'), 'done_surface_offers_targeted_second_pass');
+  check(await exit.locator('[data-start-next-round-full]').isVisible(), 'done_surface_keeps_explicit_full_resweep_option');
   await exit.locator('[data-start-next-round]').click();
 
   const secondRoundStart = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
   const preservedAfterRoundStart = (secondRoundStart.attemptHistory || []).filter((event) => event.question_id === target.questionId);
   check(secondRoundStart.round?.studyPhase === 'SECOND_PASS' && secondRoundStart.round?.ordinal === 2, 'second_pass_round_started_in_same_runtime');
+  check(secondRoundStart.round?.queueMode === 'TARGETED', 'second_pass_defaults_to_targeted_queue');
   check(Object.keys(secondRoundStart.results || {}).length === 0, 'next_round_resets_only_session_results');
   check(preservedAfterRoundStart.length === 1 && JSON.stringify(preservedAfterRoundStart[0]) === firstAttemptSnapshot, 'next_round_preserves_first_attempt');
-
-  // Walk round 2 through the same Runtime until the reviewed target re-enters.
-  // Every prior second-pass result is a real browser attempt, not fixture state.
-  let secondPassTargetReached = false;
-  for (let guard = 0; guard <= payload.questions.length; guard += 1) {
-    const question = await currentPayloadQuestion();
-    if (!question) break;
-    if (question.questionId === target.questionId) {
-      secondPassTargetReached = true;
-      break;
-    }
-    await answerCurrentStable();
-  }
-  check(secondPassTargetReached, 'same_question_reenters_in_second_pass');
   check((await exit.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reports_second_pass');
+  check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'targeted_second_pass_opens_prior_uncertain_immediately');
+  check((await exit.locator('[data-sweep-count]').textContent() || '').trim() === '1', 'stable_first_pass_questions_excluded_from_default_second_pass');
 
   for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
   await exit.locator('[data-submit-answer]').click();

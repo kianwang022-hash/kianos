@@ -124,7 +124,8 @@ assert(systemGuard.includes('localStorage.removeItem(inboxKey)'), 'stale-system-
 assert(systemGuard.includes('localStorage.removeItem(sweepKey)'), 'stale-system-sweep-not-invalidated');
 
 assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'learner-holdout-not-private-empty-default');
-assert(exitUi.includes('const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));'), 'holdout-not-excluded-from-active-sweep');
+assert(exitUi.includes('const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));'), 'holdout-not-excluded-from-active-sweep');
+assert(exitUi.includes('deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])'), 'phase-aware-active-sweep-not-derived');
 assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'stable-correct-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'uncertain')"), 'uncertain-evidence-not-distinct');
 assert(exitUi.includes("results.filter((row) => row.status === 'wrong')"), 'wrong-evidence-not-distinct');
