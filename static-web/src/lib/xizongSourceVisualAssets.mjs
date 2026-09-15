@@ -1,47 +1,105 @@
-import p55Url from '../assets/xizong/source-visuals/a2-r03-lg01/p55.webp?url';
-import p60Url from '../assets/xizong/source-visuals/a2-r03-lg01/p60.webp?url';
-import p63Url from '../assets/xizong/source-visuals/a2-r03-lg01/p63.webp?url';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const PATHOLOGY_SOURCE_SHA = '7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f';
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
 
-const bundles = Object.freeze({
-  'a2-r03-lg01-visual': Object.freeze({
-    sourceSha256: PATHOLOGY_SOURCE_SHA,
-    completenessPolicy: 'FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING',
-    assets: Object.freeze([
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi54:r067191-059388-604717-938331',
-        sourcePage: 55,
-        usageLabel: 'P55 · 正常气道 → 肺腺泡定位',
-        alt: '病理讲义 P55：传导部、呼吸部与肺腺泡的连续定位原图',
-        src: p55Url,
-        width: 420,
-        height: 555,
-        derivedAssetSha256: 'd755619e3b711effbaff75c818cf25d56585655bbd338ab92362a1e84bb80a83'
-      }),
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi59:r067191-593881-547125-873005',
-        sourcePage: 60,
-        usageLabel: 'P60 · 慢支气道壁病理',
-        alt: '病理讲义 P60：慢性支气管炎气道壁病理变化原图',
-        src: p60Url,
-        width: 420,
-        height: 197,
-        derivedAssetSha256: '026d4a76477fedcded32732765ac20951048a8ef21a135b1228fee919b3a8b37'
-      }),
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi62:r076789-053449-623914-451349',
-        sourcePage: 63,
-        usageLabel: 'P63 · 肺气肿腺泡分型',
-        alt: '病理讲义 P63：肺气肿在肺腺泡内的分型位置原图',
-        src: p63Url,
-        width: 420,
-        height: 247,
-        derivedAssetSha256: 'd767568499deb8db5d55b95beb0bde0f5db753e44b1dabbff263526820171b58'
-      })
-    ])
-  })
+const MANIFEST_ROOT = 'content/xizong/knowledge/learner';
+const MANIFEST_SUFFIX = '-source-visuals.json';
+
+// Vite owns emitted asset URLs. Current content manifests own which reviewed
+// assets belong to which Visual cue. Adding a new content pack must not require
+// another disease/System-specific renderer import.
+const assetUrls = import.meta.glob('../assets/xizong/source-visuals/**/*.{webp,png,jpg,jpeg}', {
+  eager: true,
+  query: '?url',
+  import: 'default'
 });
+
+function absolute(relativePath) {
+  return path.join(repoRoot, relativePath);
+}
+
+function safeAssetPath(value, cueId) {
+  const normalized = String(value || '').replaceAll('\\', '/').replace(/^\/+/, '');
+  if (!normalized || normalized.includes('..')) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_PATH_INVALID:${cueId}`);
+  }
+  return normalized;
+}
+
+function normalizeAsset(asset, cueId) {
+  const assetPath = safeAssetPath(asset?.asset_path, cueId);
+  const viteKey = `../assets/xizong/source-visuals/${assetPath}`;
+  const src = assetUrls[viteKey];
+  if (!src) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_MISSING:${cueId}:${assetPath}`);
+  }
+
+  const sourceObjectId = String(asset?.source_object_id || '');
+  if (!sourceObjectId) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_OBJECT_MISSING:${cueId}:${assetPath}`);
+  }
+
+  return Object.freeze({
+    sourceObjectId,
+    sourcePage: Number(asset?.source_page || 0) || null,
+    usageRole: String(asset?.usage_role || ''),
+    usageLabel: String(asset?.usage_label || ''),
+    alt: String(asset?.alt || ''),
+    src,
+    width: Number(asset?.width || 0) || null,
+    height: Number(asset?.height || 0) || null,
+    sourceCropSha256: String(asset?.source_crop_sha256 || ''),
+    derivedAssetSha256: String(asset?.derived_asset_sha256 || '')
+  });
+}
+
+function loadBundles() {
+  const root = absolute(MANIFEST_ROOT);
+  if (!fs.existsSync(root)) return Object.freeze({});
+
+  const files = fs.readdirSync(root)
+    .filter((name) => name.endsWith(MANIFEST_SUFFIX))
+    .sort();
+
+  const bundles = {};
+  for (const fileName of files) {
+    const manifestPath = `${MANIFEST_ROOT}/${fileName}`;
+    const raw = JSON.parse(fs.readFileSync(absolute(manifestPath), 'utf8'));
+
+    if (raw?.schema !== 'kianos.xizong.source_visual_bundles.v1') {
+      throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_MANIFEST_SCHEMA_INVALID:${fileName}`);
+    }
+    if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_APPROVED')) {
+      throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_MANIFEST_AUTHORITY_INVALID:${fileName}`);
+    }
+
+    for (const bundle of Array.isArray(raw?.bundles) ? raw.bundles : []) {
+      const cueId = String(bundle?.cue_id || '');
+      if (!cueId) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_CUE_ID_MISSING:${fileName}`);
+      if (bundles[cueId]) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_CUE_DUPLICATE:${cueId}`);
+
+      const assets = (Array.isArray(bundle?.assets) ? bundle.assets : [])
+        .map((asset) => normalizeAsset(asset, cueId));
+      if (!assets.length) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_BUNDLE_EMPTY:${cueId}`);
+
+      bundles[cueId] = Object.freeze({
+        sourceSha256: String(bundle?.source_sha256 || ''),
+        completenessPolicy: String(bundle?.completeness_policy || 'FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING'),
+        selectionPolicy: String(raw?.selection_policy || 'SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE'),
+        contentCompleteness: String(raw?.completeness || 'PARTIAL_BY_DESIGN_EXTENSIBLE'),
+        manifestPath,
+        assets: Object.freeze(assets)
+      });
+    }
+  }
+
+  return Object.freeze(bundles);
+}
+
+const bundles = loadBundles();
 
 export function sourceVisualBundleForCue(cueId) {
   return bundles[String(cueId || '')] || null;
