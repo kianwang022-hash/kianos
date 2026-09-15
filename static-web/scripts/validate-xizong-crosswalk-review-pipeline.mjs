@@ -17,7 +17,8 @@ check(defaultQueue.semantic_authority === 'NONE_PACKET_ONLY', 'queue_has_no_sema
 check(defaultQueue.candidate_count > 0, 'default_queue_has_review_candidates', String(defaultQueue.candidate_count));
 check(defaultQueue.candidates.every((row) => row.mapping_decision === 'NEEDS_CHAT_MAPPING_REVIEW'), 'default_queue_only_uses_needs_review_routing_hint');
 check(defaultQueue.candidates.every((row) => row.relation_exists === false), 'default_queue_excludes_already_reviewed_relations');
-check(defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n127'), 'known_needs_review_candidate_is_present');
+check(defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n132'), 'known_unmapped_needs_review_candidate_is_present');
+check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n127'), 'newly_reviewed_candidate_drops_out_automatically');
 check(!defaultQueue.candidates.some((row) => row.question_id === 'xizong-official-2005-n036'), 'no_safe_match_not_silently_promoted');
 
 const explicit = buildXizongCrosswalkReviewQueue({
