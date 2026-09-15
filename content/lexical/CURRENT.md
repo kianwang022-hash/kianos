@@ -4,75 +4,100 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 
 ## Current mainline
 
-**Latest completed bounded mechanical implementation:** `o3125–o3374`.
+**Latest completed bounded mechanical implementation frontier:** `o3374`.
 
-Merged landing:
+Original `o3125–o3374` landing:
 
 - original semantic authority: `content/lexical/semantic-review/o3125-o3374.md`;
-- implementation PR: **#134**;
-- merge commit: `36cca65fb0910c00401c4b92a86417ec4ac5dffb`;
+- original implementation PR: **#134**;
+- original merge commit: `36cca65fb0910c00401c4b92a86417ec4ac5dffb`;
 - exact scope: 250 owners;
-- original package: `207 NO_CHANGE`, `43 UPGRADE`, `0 BLOCKED`;
-- original identity reconciliation: 41 reused stable branches + 2 handoff-authorized new semantic branches + 0 identity escalations;
-- original Relation/Form/reference closure, full final-object readback, Natural Owner audit, lexical transport/JSON/Astro/`git diff --check`: PASS.
+- original package: `207 NO_CHANGE`, `43 UPGRADE`, `0 BLOCKED`.
 
-Independent post-implementation audit later found bounded deltas inside that landed range. Sol has now reconciled those deltas into one executable corrective authority rather than reopening the full 250-owner Production review.
+Independent post-implementation audit later found 39 bounded deltas inside that landed range. Sol reconciled all 39 into one executable corrective authority, and that corrective package is now integrated into `main`.
+
+Corrective landing:
+
+- executable semantic authority: `content/lexical/semantic-reconciliation/o3125-o3374.md`;
+- corrective implementation PR: **#161**;
+- corrective merge commit: `c1e7de5946c337f76fa6b15ed107a70de1178008`;
+- execution receipt: `content/lexical/audit/vnext-content-execution/reconciled-corrective-o3125-o3374.json`;
+- reconciled deltas implemented: `39 / 39`;
+- explicitly authorized `NEW_SEMANTIC_BRANCH`: `7 / 7`;
+- `ESCALATE_IDENTITY`: `0`;
+- new Relation IDs: `0`;
+- exact remote reciprocal writes: `compel@o0941`, `subjective@o4764` only;
+- integrated learner-object readback for all 39 delta owners: PASS;
+- stable Sense identity/reference closure: PASS;
+- Relation reciprocity/anchor closure: PASS;
+- Form/lookup closure: PASS;
+- Natural Owner audit: PASS (`7946 / 7946`, zero reconstruction failures, lookup closure true);
+- lexical tests / JSON / `git diff --check` / Astro build: PASS.
+
+The mechanically implemented contiguous frontier therefore remains exactly `o3374`; this corrective package repairs truth inside that already-landed frontier and does not extend it.
 
 ## Sol reconciliation
 
-**COMPLETE — 39 / 39 audit deltas adjudicated.**
+**COMPLETE AND IMPLEMENTED — 39 / 39 audit deltas adjudicated and merged.**
 
-Single semantic authority for the correction:
+Corrective semantic authority:
 
 `content/lexical/semantic-reconciliation/o3125-o3374.md`
 
 Frozen reconciliation baseline: `main@a87cba5b7ba90bff0300d5116b0c8a9ed495a993`.
 
-Reconciled accounting:
+Final reconciled accounting:
 
 - `27` Audit `FLIP_TO_UPGRADE` findings;
 - `7` Audit `REFINE_UPGRADE` findings;
 - `5` implementation-readback drift findings;
-- `7` explicitly authorized `NEW_SEMANTIC_BRANCH` targets;
+- `7` explicitly authorized and now materialized `NEW_SEMANTIC_BRANCH` targets;
 - `0` terminal `ESCALATE_IDENTITY`;
 - `0` new Relation IDs;
 - two exact shared-owner reciprocal writes only: `compel@o0941`, `subjective@o4764`.
 
-Relevant evidence remains:
+The seven corrective stable Sense identities materialized by the merged executor are:
 
-- `content/lexical/semantic-audit/o3025-o3224.audit.md` — implemented overlap `o3125–o3224`;
-- `content/lexical/semantic-audit/o3225-o3424.audit.md` — implemented overlap `o3225–o3374`; its `o3375–o3424` portion remains pre-implementation evidence only.
+- `must` epistemic modal → `sense:must:706d6af7e59fa738`;
+- `negative` technical quantitative/electrical → `sense:negative:5cc6dbd81d0fd7bc`;
+- `negative` diagnostic/test-result → `sense:negative:cc441018154e0fe2`;
+- `network` transitive IT networking → `sense:network:e7cf4fac46bf4e02`;
+- `neutral` scientific neutral state → `sense:neutral:6cca8482c8c51b61`;
+- `open` receptive/willing → `sense:open:09ca93e57a985d3e`;
+- `open` exposed/susceptible → `sense:open:b5e91f426a9b69f7`.
+
+Relevant audit evidence remains provenance / future sentinel evidence:
+
+- `content/lexical/semantic-audit/o3025-o3224.audit.md` — implemented overlap `o3125–o3224` is closed by the merged corrective package;
+- `content/lexical/semantic-audit/o3225-o3424.audit.md` — implemented overlap `o3225–o3374` is closed by the merged corrective package; its `o3375–o3424` portion remains pre-implementation audit evidence only.
 
 ## Catalog execution
 
-**READY_FOR_BOUNDED_CORRECTIVE_IMPLEMENTATION — corrective package authorized but not yet started.**
+Catalog execution: PAUSED
 
-The contiguous mechanically implemented frontier remains exactly `o3374`.
+**CORRECTIVE_INTEGRATED — no next catalog package is active.**
 
-The only executable semantic authority is:
+The `o3125–o3374` corrective authority has been mechanically fulfilled and merged. There is no remaining executor action inside that package unless a later Current authority explicitly reopens a bounded defect.
 
-`content/lexical/semantic-reconciliation/o3125-o3374.md`
+`o3375–o3624` is **NOT_ACTIVATED**.
 
-Luna/Codex may now open one bounded corrective implementation package for those 39 reconciled deltas. Executor responsibilities are mechanical only: preserve/reuse/reactivate/merge the exact stable identities Sol resolved; generate stable IDs only for the seven explicitly authorized new semantic branches; perform only the two exact remote reciprocal writes; and return any material drift or unexpected identity ambiguity to Sol.
+Neither the existence of pre-implementation audit evidence nor successful completion of PR #161 authorizes Production, semantic implementation, package claiming, or cursor advance for `o3375+`.
 
-`o3375–o3624` is **NOT_ACTIVATED**. Completing this corrective package does not automatically advance the catalog frontier or authorize the next Production package.
+The next catalog range may be activated only by a later explicit Current update after the merged readback has been accepted as the starting state for that decision. Do not infer activation from old audit packs, branch names, semantic-review artifacts, execution queues, or chat history.
 
 ## Exact next action
 
-1. Refresh `main@HEAD` and verify this Current cursor still points to the same reconciliation authority.
-2. Read `content/lexical/semantic-reconciliation/o3125-o3374.md`, `CONTENT_ASSET_CONTRACT.md`, and `CONTENT_EXECUTION.md`.
-3. Compare the 39 target owners plus exact dependencies against the authority baseline; isolate any material drift instead of improvising.
-4. Create one bounded corrective implementation branch/package for the 39 delta owners plus only the authorized remote dependency writes at `o0941` and `o4764`.
-5. Apply the reconciled desired states mechanically. No semantic re-review and no opportunistic cleanup.
-6. Run full final integrated learner-object readback of all 39 delta owners and exact shared dependencies, stable identity/reference closure, Relation/Form closure, Natural Owner audit, lexical tests/JSON, `git diff --check`, and Astro build as required by the execution contract.
-7. Merge only after that bounded correction closes cleanly; then reread merged `main` and reconcile this Current cursor.
-8. Do not activate `o3375+` from the executor side.
+1. Treat `main@HEAD` plus this Current cursor as the restart authority.
+2. Treat PR #161 / merge `c1e7de5946c337f76fa6b15ed107a70de1178008` and `reconciled-corrective-o3125-o3374.json` as the completed corrective implementation record.
+3. Do **not** reopen the 39 reconciled deltas, rerun their semantic review, or create another corrective executor absent new bounded evidence.
+4. Do **not** activate, claim, or implement `o3375–o3624` from executor initiative.
+5. The next Production/catalog step requires a separate explicit Current activation decision. Until that happens, Catalog execution remains PAUSED and the frontier remains `o3374`.
 
 ## Frozen identity rule
 
 Semantic correction does **not** imply sense-identity replacement.
 
-For every executable correction, use exactly one of:
+For any future explicitly authorized correction, use exactly one of:
 
 ```text
 REUSE_EXISTING_STABLE
@@ -80,15 +105,15 @@ NEW_SEMANTIC_BRANCH
 ESCALATE_IDENTITY
 ```
 
-The current reconciliation authority has already resolved the known scope to seven `NEW_SEMANTIC_BRANCH` targets and zero `ESCALATE_IDENTITY` targets. Executor must not invent additional new branches or identity escalations silently.
+For the completed `o3125–o3374` corrective package, Sol resolved the scope to seven `NEW_SEMANTIC_BRANCH` targets and zero `ESCALATE_IDENTITY` targets, and PR #161 implemented that ledger exactly.
 
-Rules:
+Rules remain:
 
 - reuse an existing stable sense ID whenever semantic continuity exists, even when learner-facing wording changes materially;
-- deprecated stable senses may be reactivated when the reconciliation authority restores that same semantic branch;
-- explicit survivor/merge/demotion decisions in the reconciliation authority are binding;
+- deprecated stable senses may be reactivated only when current semantic authority restores that same branch;
+- explicit survivor/merge/demotion decisions in semantic authority are binding;
 - do not deprecate an active stable sense merely because a generated replacement is convenient;
-- create a new sense ID only for one of the seven genuinely new semantic branches explicitly authorized by Sol;
+- create a new sense ID only when current semantic authority explicitly authorizes a genuinely new semantic branch;
 - unexpected split / merge / competing stable-ID ownership, uncertain Relation truth, or unclear Form/identity boundaries return to Sol rather than being guessed by the executor;
 - never use a generated `handoff-*` sense ID as the default replacement for a reusable stable branch;
 - every active Relation / word-family / exam-mapping / Form reference must close against final active identity or an explicitly valid reference-only identity.
@@ -101,7 +126,7 @@ Rules:
 - bounded execution mechanics → `content/lexical/CONTENT_EXECUTION.md`;
 - Acceptance Truth → `content/lexical/ACCEPTANCE.md`;
 - independent semantic audit governance → `content/lexical/INDEPENDENT_SEMANTIC_AUDIT_CONTRACT.md` + Issue #106;
-- Sol corrective semantic authority → `content/lexical/semantic-reconciliation/o3125-o3374.md`;
+- completed Sol corrective semantic authority → `content/lexical/semantic-reconciliation/o3125-o3374.md`;
 - current catalog Work Cursor → **this file only**.
 
 Historical audit / Wave / Fresh branches, old Issues, retired execution receipts and branch-local Current files are provenance or defect-sentinel evidence only. They do not activate work.
@@ -115,14 +140,11 @@ Catalog implementation, semantic review, independent audit, Sol reconciliation, 
 ```text
 main@HEAD
 → content/lexical/CURRENT.md
-→ if WAITING_FOR_SOL_RECONCILIATION: executor stops
-→ if READY_FOR_BOUNDED_CORRECTIVE_IMPLEMENTATION: exact reconciliation authority + CONTENT_ASSET_CONTRACT + CONTENT_EXECUTION
-→ drift check on exact target/dependencies
-→ bounded corrective canonical apply
-→ integrated readback / validators
-→ bounded PR
-→ main readback
-→ reconcile Current again
+→ if Catalog execution: PAUSED: no Production/catalog executor may claim a new range
+→ completed corrective truth = PR #161 + merged receipt
+→ frontier remains o3374
+→ o3375–o3624 remains NOT_ACTIVATED
+→ wait for a separate explicit Current activation decision before any next package
 ```
 
 Never infer the next action from an old Issue title, branch name, PR receipt, audit count or chat history.
