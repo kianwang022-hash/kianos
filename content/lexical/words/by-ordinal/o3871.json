@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f3662d2923ee937afeb97a3aca672b364957cee2c87501ef5966c916cd02ae85",
+    "content_hash": "1933f57a675227b2518917433d0669fce0cce8caaef20ed4d8748361be4d16c9",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,18 +28,28 @@
             "sense:punch:543f71a35864530b",
             "sense:punch:91bec9abc085513b"
           ]
+        },
+        {
+          "label_cn": "打孔；冲孔",
+          "label_en": "make a hole with a punch",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:punch:f5ac51b2784d1854"
+          ]
         }
       ],
-      "core_meaning_cn": "拳打；打孔；潘趣酒",
-      "core_meaning_en": "to strike with the fist; a tool for making holes; a mixed drink",
-      "mental_model_cn": "拳打；打孔；潘趣酒",
+      "core_meaning_cn": "拳打；打孔/冲孔；打孔器；潘趣饮料",
+      "core_meaning_en": "to punch with a fist or make a hole; a punch tool; punch drink",
+      "mental_model_cn": "拳打；打孔/冲孔；打孔器；潘趣饮料",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -53,15 +63,6 @@
             ],
             "meaning_cn": "用拳打某人的脸",
             "phrase": "punch sb in the face"
-          },
-          {
-            "collocation_id": "collocation:a0fcfd8963b8d62a4f45",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:punch:490b0e36c9ae5e12:collocation:1"
-            ],
-            "meaning_cn": "打一个洞",
-            "phrase": "punch a hole"
           },
           {
             "collocation_id": "collocation:3c06f457d986ce0aa45e",
@@ -146,16 +147,49 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "潘趣酒",
-        "definition_en": "an iced mixed drink usually containing alcohol",
+        "definition_cn": "潘趣饮料；混合饮料（可含酒精也可不含）",
+        "definition_en": "a mixed drink, often fruit- or juice-based, that may be alcoholic or non-alcoholic",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:punch:91bec9abc085513b",
-        "sense_label_en": "an iced mixed drink usually containing alcohol",
+        "sense_label_en": "a mixed drink, often fruit- or juice-based, that may be alcoholic or non-alcoholic",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0fcfd8963b8d62a4f45",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:punch:490b0e36c9ae5e12:collocation:1"
+            ],
+            "meaning_cn": "打一个洞",
+            "phrase": "punch a hole"
+          },
+          {
+            "collocation_id": "collocation:56b63c18dd5d77860ca8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:punch:f5ac51b2784d1854:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "在纸上打孔",
+            "phrase": "punch holes in paper"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "打孔；冲孔",
+        "definition_en": "to make a hole or indentation in something using a punch, tool, or similar action",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:punch:f5ac51b2784d1854",
+        "sense_label_en": "to make a hole or indentation in something using a punch, tool, or similar action",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -239,6 +273,13 @@
         "merged_into_sense_id": null,
         "source_row": 10770,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      },
+      {
+        "sense_id": "sense:punch:f5ac51b2784d1854",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10773,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       }
     ],
     "active_collocations": [
@@ -246,6 +287,7 @@
       "collocation:30a35eaadb1e07ca6572",
       "collocation:3aa372b343a04e19d516",
       "collocation:3c06f457d986ce0aa45e",
+      "collocation:56b63c18dd5d77860ca8",
       "collocation:a0fcfd8963b8d62a4f45",
       "collocation:cce28df50b587b0d1e5d"
     ],
@@ -269,6 +311,11 @@
       {
         "id": "collocation:3c06f457d986ce0aa45e",
         "source_row": 5089,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:56b63c18dd5d77860ca8",
+        "source_row": 21615,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {

@@ -7,12 +7,37 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6c19e769ea3410f9000f4d3eedb1ae6fc7652dea5202161be162f8bb983e324f",
+    "content_hash": "96197b3176370771755baf1b24f7a57da8c60cf67c0d8f868811f2436492f4a2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "财产；属性",
-      "core_meaning_en": "something owned; a characteristic or attribute",
-      "mental_model_cn": "财产；属性",
+      "core_clusters": [
+        {
+          "label_cn": "财产；所有物",
+          "label_en": "property or something owned",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:9a1058a3861c5a35"
+          ]
+        },
+        {
+          "label_cn": "性质；属性",
+          "label_en": "a characteristic or attribute",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:e8f9398f1bf15486"
+          ]
+        },
+        {
+          "label_cn": "舞台/影视道具",
+          "label_en": "a stage or film property/prop",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:property:a56f18865e615218"
+          ]
+        }
+      ],
+      "core_meaning_cn": "财产；性质/属性",
+      "core_meaning_en": "something owned; a characteristic or property",
+      "mental_model_cn": "财产；性质/属性",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -20,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:property:94cd08b099c4815f"
+      "deep:deep:secondary_senses:property:94cd08b099c4815f",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [
       {
@@ -119,6 +145,30 @@
         "sense_label_en": "a movable object used on a stage or movie set",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5e6c8c86b3f2e4322333",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:property:e8f9398f1bf15486:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "材料的性质",
+            "phrase": "properties of materials"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "性质；属性；特性",
+        "definition_en": "a characteristic, quality, or attribute of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:property:e8f9398f1bf15486",
+        "sense_label_en": "a characteristic, quality, or attribute of something",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -141,33 +191,7 @@
     "word_id": "word:property"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:property:e8f9398f1bf15486",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "性质；属性",
-      "definition_en": "a characteristic or attribute of something",
-      "semantic_key": "5051d088447a99f27ad6d4f8d625543c9165bf4aeca16946a880c719e79fce04",
-      "semantic_key_history": [
-        "1d2ab3512d0d2b5c4cab89c46dc57cc55443fab8de107c9bad407a71421eede2"
-      ],
-      "legacy_aliases": [
-        "property:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "property:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10672,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -186,7 +210,7 @@
       },
       {
         "sense_id": "sense:property:e8f9398f1bf15486",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10672,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -195,6 +219,7 @@
     "active_collocations": [
       "collocation:4680297086be0104c414",
       "collocation:555a9255a3697d12e5f9",
+      "collocation:5e6c8c86b3f2e4322333",
       "collocation:b798651026d2aac08558"
     ],
     "facts": [
@@ -218,6 +243,11 @@
       {
         "id": "collocation:555a9255a3697d12e5f9",
         "source_row": 7198,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:5e6c8c86b3f2e4322333",
+        "source_row": 21626,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {

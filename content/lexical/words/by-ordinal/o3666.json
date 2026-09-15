@@ -7,12 +7,12 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0db032cb3ec85d27b2c6a3f38c06829f45adb9f4615a71eb907114b01388b325",
+    "content_hash": "5bf7426847cb91ab17d859b43e40d3dd943b8c91154b0c7c4d15f792ed239b0b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "擦亮，磨光；润色，使完美",
-          "label_en": "to make something smooth and shiny by rubbing; to improve something such as a piece of writing or a performance by making small changes",
+          "label_cn": "擦亮；润色",
+          "label_en": "polish or refine",
           "pos": "verb",
           "sense_ids": [
             "sense:polish:7739caa4ae9d55e0",
@@ -20,34 +20,43 @@
           ]
         },
         {
-          "label_cn": "上光剂，擦光剂；光泽；波兰人",
-          "label_en": "a substance used to make things smooth and shiny; the quality of being smooth and shiny; a person from Poland",
+          "label_cn": "上光剂；光泽",
+          "label_en": "polish substance or a polished shine",
           "pos": "noun",
           "sense_ids": [
             "sense:polish:9905efcead9455ea",
-            "sense:polish:5fc63fe5c9cc5970",
-            "sense:polish:39482ccccdc650b0"
+            "sense:polish:5fc63fe5c9cc5970"
           ]
         },
         {
-          "label_cn": "波兰的",
-          "label_en": "relating to Poland, its people, or their language",
+          "label_cn": "Polish：波兰的",
+          "label_en": "Polish: relating to Poland, its people, or language",
           "pos": "adjective",
           "sense_ids": [
             "sense:polish:63c9b12482d25587"
           ]
+        },
+        {
+          "label_cn": "Polish：波兰语",
+          "label_en": "the Polish language",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:polish:3009903b120be624"
+          ]
         }
       ],
-      "core_meaning_cn": "擦亮；润色",
-      "core_meaning_en": "to make something smooth and shiny by rubbing; to improve or refine",
-      "mental_model_cn": "擦亮；润色",
+      "core_meaning_cn": "擦亮/润色；Polish=波兰的/波兰语",
+      "core_meaning_en": "polish = shine/refine; capitalized Polish = Poland adjective or language",
+      "mental_model_cn": "擦亮/润色；Polish=波兰的/波兰语",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -194,36 +203,30 @@
         "sense_id": "sense:polish:63c9b12482d25587",
         "sense_label_en": "relating to Poland, its people, or their language",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Capitalized Polish is the adjective relating to Poland, its people, or language; it is not the person noun. A person is a Pole."
       },
       {
         "collocations": [
           {
-            "collocation_id": "collocation:515467c0da677f09985b",
+            "collocation_id": "collocation:67ffa7a270593e3b6323",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
-              "sense:polish:39482ccccdc650b0:collocation:0"
+              "sense:polish:3009903b120be624:collocation:forward-o3625-o3874"
             ],
-            "meaning_cn": "波兰人（复数）",
-            "phrase": "the Poles"
+            "meaning_cn": "说波兰语",
+            "phrase": "speak Polish"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "波兰人",
-        "definition_en": "a person from Poland",
+        "definition_cn": "波兰语",
+        "definition_en": "the Polish language",
         "governing_pattern": "",
-        "level": "L3",
-        "lexical_identity_overlay": {
-          "case_sensitive": true,
-          "identity_type": "capitalized_proper_lexeme",
-          "lexical_identity_id": "identity:62acd0acd2e8b26153f0",
-          "recommended_disposition": null,
-          "surface_lemma": "Polish"
-        },
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:polish:39482ccccdc650b0",
-        "sense_label_en": "a person from Poland",
+        "sense_id": "sense:polish:3009903b120be624",
+        "sense_label_en": "the Polish language",
         "sort_order": 5,
         "transitivity": "nonverb"
       }
@@ -245,15 +248,81 @@
     },
     "word": "polish",
     "word_family": [],
-    "word_id": "word:polish"
+    "word_id": "word:polish",
+    "form_identity": {
+      "form_type": "same_spelling_case_conditioned_lexeme_pronunciation",
+      "spelling": "polish",
+      "identity_rule": "same_word_owner_case_conditioned_roles",
+      "boundary": "lowercase polish (shine/refine; polish substance) and capitalized Polish (Poland adjective/language) are distinguished by case and pronunciation; a person from Poland is a Pole",
+      "variants": [
+        {
+          "variant_id": "form:polish:lowercase",
+          "surface": "polish",
+          "case": "lowercase",
+          "pos": [
+            "verb",
+            "noun"
+          ],
+          "ipa_bre": "/ˈpɒl.ɪʃ/",
+          "ipa_ame": "/ˈpɑː.lɪʃ/",
+          "learner_key": "POL-ish",
+          "role": "shine/refine or polish substance"
+        },
+        {
+          "variant_id": "form:polish:capitalized",
+          "surface": "Polish",
+          "case": "capitalized",
+          "pos": [
+            "adjective",
+            "noun"
+          ],
+          "ipa_bre": "/ˈpəʊ.lɪʃ/",
+          "ipa_ame": "/ˈpoʊ.lɪʃ/",
+          "learner_key": "PO-lish",
+          "role": "Poland adjective or Polish language; person noun = Pole"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:polish:39482ccccdc650b0",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "波兰人",
+      "definition_en": "a person from Poland",
+      "semantic_key": "98d964c53ee914f5a45d4c7c2cc1bfdb4a64d2d5834c41f8fc43696c64bf04be",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "polish:l3:6"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "polish:l3:6",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-16T00:30:00Z",
+      "source_row": 10214,
+      "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
-        "sense_id": "sense:polish:39482ccccdc650b0",
+        "sense_id": "sense:polish:3009903b120be624",
         "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10254,
+        "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json"
+      },
+      {
+        "sense_id": "sense:polish:39482ccccdc650b0",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 10214,
         "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json"
@@ -298,7 +367,7 @@
       "collocation:079dfb5bffd932d76632",
       "collocation:14688508094fefba8dc0",
       "collocation:3d3e282bbba8672bdcee",
-      "collocation:515467c0da677f09985b",
+      "collocation:67ffa7a270593e3b6323",
       "collocation:77cdf3869bef7eb610cd",
       "collocation:7d4e73dfb2374ae092d8",
       "collocation:8c19e82e2e1be20b8ce7",
@@ -324,6 +393,11 @@
       {
         "id": "collocation:515467c0da677f09985b",
         "source_row": 6864,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
+        "id": "collocation:67ffa7a270593e3b6323",
+        "source_row": 20906,
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
       },
       {

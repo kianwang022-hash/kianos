@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e2892405ff589f1ca0ac9e3a656b4583659675a3e6f74c7f66addf286b449bc0",
+    "content_hash": "63920a7ed72b5b3db0e6e1a34766ce9ce4c733e35a316f448085f0a0719c4a6b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "职业；声明",
-      "core_meaning_en": "a type of job that requires special training; a formal declaration",
-      "mental_model_cn": "职业；声明",
+      "core_clusters": [
+        {
+          "label_cn": "职业；专业",
+          "label_en": "a trained or skilled occupation/profession",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profession:fa33664877415888"
+          ]
+        },
+        {
+          "label_cn": "公开声明；信仰表白",
+          "label_en": "a formal declaration or profession of belief",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profession:670c410a0e095f46"
+          ]
+        }
+      ],
+      "core_meaning_cn": "职业；专业；正式声明",
+      "core_meaning_en": "a trained occupation/profession; formally, a declaration",
+      "mental_model_cn": "职业；专业；正式声明",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -46,6 +65,30 @@
         "sense_label_en": "an open declaration or avowal of a belief or opinion",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9b3bb2f25dea345cdb99",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:profession:fa33664877415888:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "医学界/法律界",
+            "phrase": "the medical/legal profession"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "职业；专业（尤指需要专门教育、训练或技能的职业）",
+        "definition_en": "a job or career requiring special education, training, or skill, especially a recognized profession",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:profession:fa33664877415888",
+        "sense_label_en": "a job or career requiring special education, training, or skill, especially a recognized profession",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -68,33 +111,7 @@
     "word_id": "word:profession"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:profession:fa33664877415888",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "职业；专业",
-      "definition_en": "a type of job that needs special training and skill, especially one that is respected",
-      "semantic_key": "928a5cff06352e41eaca69e0fd0fde4fab9d7698295d7254e18475dc3c79c5c9",
-      "semantic_key_history": [
-        "134c6f0060359d109673c573647286d6c520ad16b16cb7dab03382547fca04ee"
-      ],
-      "legacy_aliases": [
-        "profession:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profession:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10589,
-      "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -106,14 +123,15 @@
       },
       {
         "sense_id": "sense:profession:fa33664877415888",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10589,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
       }
     ],
     "active_collocations": [
-      "collocation:707dbe095e258b2a34d5"
+      "collocation:707dbe095e258b2a34d5",
+      "collocation:9b3bb2f25dea345cdb99"
     ],
     "facts": [],
     "collocations": [
@@ -125,6 +143,11 @@
       {
         "id": "collocation:707dbe095e258b2a34d5",
         "source_row": 9501,
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:9b3bb2f25dea345cdb99",
+        "source_row": 21518,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
       },
       {

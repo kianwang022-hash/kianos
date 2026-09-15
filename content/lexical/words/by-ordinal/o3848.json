@@ -57,21 +57,29 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "c9bf698c8e8321a80a824e3b053128e92196f9dc029deda0c81679ae2e7f1f3b",
+    "content_hash": "e7a2982dbaa27a8966fd9ec6d77f4d2cf69d1651a2ae257cf430c648e1239561",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "抗议；反对",
-          "label_en": "a strong complaint or disagreement, often public",
+          "label_en": "a public objection or protest",
           "pos": "noun",
           "sense_ids": [
             "sense:protest:adbb5a2ec1aa5567"
           ]
+        },
+        {
+          "label_cn": "抗议；反对",
+          "label_en": "express strong disagreement publicly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:protest:fdac161584ea532b"
+          ]
         }
       ],
-      "core_meaning_cn": "表达反对或异议，或这种表达行为",
-      "core_meaning_en": "to express objection or disagreement, or the act of doing so",
-      "mental_model_cn": "表达反对或异议，或这种表达行为",
+      "core_meaning_cn": "抗议；反对",
+      "core_meaning_en": "a protest or to protest",
+      "mental_model_cn": "抗议；反对",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -81,7 +89,8 @@
     "review_signature": [
       "confusable:horizontal:25e8053a35c2a0909c8f",
       "construction:deep:constructions:protest:975e16abb4c37ca4",
-      "deep:deep:constructions:protest:975e16abb4c37ca4"
+      "deep:deep:constructions:protest:975e16abb4c37ca4",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -109,6 +118,30 @@
         "sense_label_en": "a strong complaint or disagreement, often public",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb08d74d964d018e61bc",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:protest:fdac161584ea532b:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "抗议/反对某事",
+            "phrase": "protest against/about sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "抗议；反对",
+        "definition_en": "to express strong disagreement or objection, especially publicly",
+        "governing_pattern": "vt./vi. + against/about",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:protest:fdac161584ea532b",
+        "sense_label_en": "to express strong disagreement or objection, especially publicly",
+        "sort_order": 1,
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -128,7 +161,36 @@
     },
     "word": "protest",
     "word_family": [],
-    "word_id": "word:protest"
+    "word_id": "word:protest",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation_with_dialect_variation",
+      "spelling": "protest",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "boundary": "noun protest normally has initial stress; verb stress is commonly final in BrE and can vary in AmE, so do not teach one universal verb stress pattern",
+      "variants": [
+        {
+          "variant_id": "form:protest:noun",
+          "surface": "protest",
+          "pos": [
+            "noun"
+          ],
+          "ipa_bre": "/ˈprəʊ.test/",
+          "ipa_ame": "/ˈproʊ.test/",
+          "learner_key": "noun: initial stress"
+        },
+        {
+          "variant_id": "form:protest:verb",
+          "surface": "protest",
+          "pos": [
+            "verb"
+          ],
+          "ipa_bre": "/prəˈtest/",
+          "ipa_ame": "/prəˈtest/ or /ˈproʊ.test/",
+          "learner_key": "verb: final stress common; AmE variation exists"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [
     {
@@ -163,31 +225,6 @@
       "source_row": 10702,
       "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:protest:fdac161584ea532b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "抗议；反对",
-      "definition_en": "to express strong disagreement, especially publicly",
-      "semantic_key": "e9647b16899adea6016206b185d169fcc1ecc3e44cf4089c701ba848972a2796",
-      "semantic_key_history": [
-        "fb2d2796b529b4d490a8c3e98dc003cb329d19c9c14752ee8697673fb64330b3"
-      ],
-      "legacy_aliases": [
-        "protest:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "protest:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10704,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -208,14 +245,15 @@
       },
       {
         "sense_id": "sense:protest:fdac161584ea532b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10704,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       }
     ],
     "active_collocations": [
-      "collocation:7d6a842f7da4857cff41"
+      "collocation:7d6a842f7da4857cff41",
+      "collocation:cb08d74d964d018e61bc"
     ],
     "facts": [
       {
@@ -233,6 +271,11 @@
       {
         "id": "collocation:7d6a842f7da4857cff41",
         "source_row": 10594,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:cb08d74d964d018e61bc",
+        "source_row": 21609,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {

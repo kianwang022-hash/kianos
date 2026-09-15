@@ -7,11 +7,28 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fae32906908ce7951ccbd3e30f0422bbf43fc25cc1f456714726cd88d818f155",
+    "content_hash": "98ce8b3c32a57b1afb94c564cfc23193952936d24ec31b5e32e72a96ec2c5f24",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "利润；盈利",
+          "label_en": "financial gain after costs",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profit:1c9fadfb470553b4"
+          ]
+        },
+        {
+          "label_cn": "获益；受益",
+          "label_en": "gain benefit from something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:profit:f0ec702cc8c057e2"
+          ]
+        }
+      ],
       "core_meaning_cn": "利润；获益",
-      "core_meaning_en": "financial gain or benefit; to gain benefit",
+      "core_meaning_en": "financial profit; to benefit from something",
       "mental_model_cn": "利润；获益",
       "mental_model_en": ""
     },
@@ -19,10 +36,61 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:acb47d1d521649eabb69",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:profit:1c9fadfb470553b4:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "获利；盈利",
+            "phrase": "make a profit"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "利润；盈利",
+        "definition_en": "money or financial gain remaining after costs and expenses are paid",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:profit:1c9fadfb470553b4",
+        "sense_label_en": "money or financial gain remaining after costs and expenses are paid",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a490a5e1354e70e48025",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:profit:f0ec702cc8c057e2:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "从某事中获益",
+            "phrase": "profit from/by sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "获益；受益",
+        "definition_en": "to gain benefit or advantage from something",
+        "governing_pattern": "vi. + from/by",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:profit:f0ec702cc8c057e2",
+        "sense_label_en": "to gain benefit or advantage from something",
+        "sort_order": 1,
+        "transitivity": "vi"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,31 +112,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:profit:1c9fadfb470553b4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "利润，赢利",
-      "definition_en": "money that is made in a business after costs are paid",
-      "semantic_key": "002716c8e9934b202560f2a4c2cc33ad21eac8241c9695f4f431f9c7c5c82023",
-      "semantic_key_history": [
-        "7e71b715334440a46823ecc71e9eb4369d9874266683cf1b4e5aabe6bac561c0"
-      ],
-      "legacy_aliases": [
-        "profit:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profit:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10600,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:profit:d10794932a19537c",
       "status": "deprecated",
@@ -118,38 +161,13 @@
       "source_row": 10602,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:profit:f0ec702cc8c057e2",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "获益，受益",
-      "definition_en": "to gain benefit from something",
-      "semantic_key": "64580831c46b9d2a2aaca0e68b081e7bd2514477d11dd02d3401374a9ca11081",
-      "semantic_key_history": [
-        "98de45b24ab26ea722e3affc175a0c22525d31f9f50df5eae8aa99eef27ef902"
-      ],
-      "legacy_aliases": [
-        "profit:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profit:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10603,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:profit:1c9fadfb470553b4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10600,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -170,13 +188,16 @@
       },
       {
         "sense_id": "sense:profit:f0ec702cc8c057e2",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10603,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:a490a5e1354e70e48025",
+      "collocation:acb47d1d521649eabb69"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -200,8 +221,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {
+        "id": "collocation:a490a5e1354e70e48025",
+        "source_row": 21618,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
         "id": "collocation:a6e744deca245d1eb54c",
         "source_row": 14164,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:acb47d1d521649eabb69",
+        "source_row": 21617,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       }
     ],

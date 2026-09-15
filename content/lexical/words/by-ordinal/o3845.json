@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b76596a438b4e467e883db016a41e1784c4f5921edceb370330308e1147ec182",
+    "content_hash": "2fec543252d7d1c25c5d35d13b5162120bc92f8d63b0bb45dcff2e2941c9c594",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "繁荣的",
-      "core_meaning_en": "successful and wealthy",
-      "mental_model_cn": "繁荣的",
+      "core_clusters": [
+        {
+          "label_cn": "繁荣的；成功富裕的",
+          "label_en": "successful, thriving, and wealthy",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:prosperous:3ebacf2b43325c6c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "繁荣的；成功富裕的",
+      "core_meaning_en": "successful, thriving, and prosperous",
+      "mental_model_cn": "繁荣的；成功富裕的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -21,11 +30,37 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:prosperous:15776b1936ddb73c",
-      "relation:deep:word_family:prosperous:15776b1936ddb73c"
+      "relation:deep:word_family:prosperous:15776b1936ddb73c",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d0e4f2c0da052b6ed153",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:prosperous:3ebacf2b43325c6c:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "繁荣的经济/兴旺的企业",
+            "phrase": "a prosperous economy/business"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "繁荣的；成功的；富裕的",
+        "definition_en": "successful, thriving, and often financially or economically well-off",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:prosperous:3ebacf2b43325c6c",
+        "sense_label_en": "successful, thriving, and often financially or economically well-off",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -86,44 +121,20 @@
     "word_id": "word:prosperous"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:prosperous:3ebacf2b43325c6c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "繁荣的；成功的",
-      "definition_en": "successful and wealthy",
-      "semantic_key": "0ddff84e2bb884951e946eae42589b301b8f6d07943c21ec7a467f96d845490e",
-      "semantic_key_history": [
-        "fbe377e59d581318ca3974c9c6ffa25e7a056ba874d5dc3fc4ee7f5ba65806c8"
-      ],
-      "legacy_aliases": [
-        "prosperous:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "prosperous:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10698,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:prosperous:3ebacf2b43325c6c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10698,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:d0e4f2c0da052b6ed153"
+    ],
     "facts": [
       {
         "id": "deep:word_family:prosperous:15776b1936ddb73c",
@@ -140,6 +151,11 @@
       {
         "id": "collocation:d0d8738bb637d4f9328f",
         "source_row": 17651,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:d0e4f2c0da052b6ed153",
+        "source_row": 21608,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       }
     ],

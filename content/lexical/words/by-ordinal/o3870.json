@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0f621314e9d81707bd54e187702f853e8b2c7a50ccee1017e4cea7e61944c59d",
+    "content_hash": "720463c43e46e3189d7349c0c7b2665900baa33bbd38009cdf703fb633844cee",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "泵送；泵",
-      "core_meaning_en": "to move a fluid or gas by pressure or suction, or a device that does this",
-      "mental_model_cn": "泵送；泵",
+      "core_clusters": [
+        {
+          "label_cn": "泵；抽水机；打气筒",
+          "label_en": "a device moving fluid or gas",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pump:4a77d2e885525f5a"
+          ]
+        },
+        {
+          "label_cn": "用泵抽送；打气",
+          "label_en": "move fluid or gas with a pump",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pump:5d10b6eece8f5349"
+          ]
+        }
+      ],
+      "core_meaning_cn": "泵；泵送/打气",
+      "core_meaning_en": "a pump and to pump fluid/gas",
+      "mental_model_cn": "泵；泵送/打气",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b3a3978e7055012e3704",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pump:4a77d2e885525f5a:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "水泵/气泵",
+            "phrase": "water/air pump"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "泵；抽水机；打气筒",
+        "definition_en": "a mechanical device that moves fluid or gas by pressure or suction",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pump:4a77d2e885525f5a",
+        "sense_label_en": "a mechanical device that moves fluid or gas by pressure or suction",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:61441ef9a0b45f219dad",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pump:5d10b6eece8f5349:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "抽水/打气",
+            "phrase": "pump water/air"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用泵抽送；打气",
+        "definition_en": "to move a fluid or gas using a pump or pumping action",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pump:5d10b6eece8f5349",
+        "sense_label_en": "to move a fluid or gas using a pump or pumping action",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -95,56 +163,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:pump:4a77d2e885525f5a",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "泵；抽水机；打气筒",
-      "definition_en": "a mechanical device that moves fluid or gas by pressure or suction",
-      "semantic_key": "272d1dca07317c2269fcd6355f687831085baa268fcdfd3a11c985a6c560ac27",
-      "semantic_key_history": [
-        "a3b194aba4eee7ac45e95595e345171a2d54b88d2611539990dded8afadba9db"
-      ],
-      "legacy_aliases": [
-        "pump:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pump:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10762,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pump:5d10b6eece8f5349",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "用泵抽送；打气",
-      "definition_en": "to move a fluid or gas by using a pump",
-      "semantic_key": "cb844fda30c97ca77e9d03a658e8252189b67f32e6ddcc66c6859f147e3706d7",
-      "semantic_key_history": [
-        "0b85522ef0f3d9567a81d53303c99397f38bf412415b69224ecb58c86ef80769"
-      ],
-      "legacy_aliases": [
-        "pump:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pump:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10763,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:pump:85734efec1ae55e7",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -213,14 +231,14 @@
       },
       {
         "sense_id": "sense:pump:4a77d2e885525f5a",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10762,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       },
       {
         "sense_id": "sense:pump:5d10b6eece8f5349",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10763,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
@@ -240,7 +258,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:61441ef9a0b45f219dad",
+      "collocation:b3a3978e7055012e3704"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -264,8 +285,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {
+        "id": "collocation:61441ef9a0b45f219dad",
+        "source_row": 21614,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
         "id": "collocation:affd2f0459f7afc61b9b",
         "source_row": 14917,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:b3a3978e7055012e3704",
+        "source_row": 21613,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {

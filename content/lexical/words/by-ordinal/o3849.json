@@ -7,36 +7,46 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "033075ae136a9fb2533151f405b768998e46124800c03d91c7782866f3c7a739",
+    "content_hash": "05c071643350dcca30f643763640af1d7537e5cd21ade40c9a128a9da4290053",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "（计算机）协议；外交礼仪；礼节；行为准则；规程",
-          "label_en": "rules determining the format and transmission of data in computer science; forms of ceremony and etiquette observed by diplomats and heads of state; code of correct conduct",
+          "label_cn": "规程；正式程序；约定规则",
+          "label_en": "an agreed formal procedure or set of rules",
           "pos": "noun",
           "sense_ids": [
             "sense:protocol:5931eb054a3c5098"
           ]
         },
         {
-          "label_cn": "拟定（草案或协议）",
-          "label_en": "draw up a protocol or formal document",
-          "pos": "verb",
+          "label_cn": "计算机/网络协议",
+          "label_en": "data-communication rules/protocol",
+          "pos": "noun",
           "sense_ids": [
-            "sense:protocol:e7853be80998563f"
+            "sense:protocol:98996b77c5705eac"
+          ]
+        },
+        {
+          "label_cn": "外交礼仪",
+          "label_en": "diplomatic etiquette/protocol",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:protocol:772a748c60d25636"
           ]
         }
       ],
-      "core_meaning_cn": "协议；礼仪",
-      "core_meaning_en": "set of rules or formal procedures",
-      "mental_model_cn": "协议；礼仪",
+      "core_meaning_cn": "规程/协议；计算机协议；外交礼仪",
+      "core_meaning_en": "formal procedures/rules; computing protocol; diplomatic protocol",
+      "mental_model_cn": "规程/协议；计算机协议；外交礼仪",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -53,14 +63,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "行为准则；规程",
-        "definition_en": "code of correct conduct",
+        "definition_cn": "规程；协议；正式程序；一套约定规则",
+        "definition_en": "an agreed formal procedure or set of rules for carrying out an activity, study, treatment, safety process, or other organized task",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:protocol:5931eb054a3c5098",
-        "sense_label_en": "code of correct conduct",
+        "sense_label_en": "an agreed formal procedure or set of rules for carrying out an activity, study, treatment, safety process, or other organized task",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -87,6 +97,54 @@
         "sense_label_en": "draw up a protocol or formal document",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bffdf3e0d22ebf721956",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:protocol:98996b77c5705eac:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "网络协议",
+            "phrase": "network protocol"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（计算机/网络）协议",
+        "definition_en": "rules governing the format, transmission, and exchange of data between systems",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:protocol:98996b77c5705eac",
+        "sense_label_en": "rules governing the format, transmission, and exchange of data between systems",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5215bf5d8c0b680810d8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:protocol:772a748c60d25636:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "外交礼仪",
+            "phrase": "diplomatic protocol"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "外交礼仪；礼节",
+        "definition_en": "formal ceremony, etiquette, and rules observed in diplomacy or official occasions",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:protocol:772a748c60d25636",
+        "sense_label_en": "formal ceremony, etiquette, and rules observed in diplomacy or official occasions",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -109,58 +167,7 @@
     "word_id": "word:protocol"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:protocol:772a748c60d25636",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "外交礼仪；礼节",
-      "definition_en": "forms of ceremony and etiquette observed by diplomats and heads of state",
-      "semantic_key": "98fc77a2df80fbcf53d236f50e4c011a06e8b2ac3d977dd67e70b415eb7264cb",
-      "semantic_key_history": [
-        "bd0a4564d99499df9922266ece22180d51088d955bd57df0b8c265615a72931a"
-      ],
-      "legacy_aliases": [
-        "protocol:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "protocol:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10706,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:protocol:98996b77c5705eac",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "（计算机）协议",
-      "definition_en": "rules determining the format and transmission of data in computer science",
-      "semantic_key": "e6a22c9af651e95f63d31f3e10233f5dc5e5c33c0648280b170e55a5c83d5a5c",
-      "semantic_key_history": [
-        "0b60d32ecef098e69c7a4f470bd025f10b1ef7f2987c01fff31c935a285cc976"
-      ],
-      "legacy_aliases": [
-        "protocol:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "protocol:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10707,
-      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -172,14 +179,14 @@
       },
       {
         "sense_id": "sense:protocol:772a748c60d25636",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10706,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
       },
       {
         "sense_id": "sense:protocol:98996b77c5705eac",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10707,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
@@ -194,6 +201,8 @@
     ],
     "active_collocations": [
       "collocation:318d248e00b8859d068d",
+      "collocation:5215bf5d8c0b680810d8",
+      "collocation:bffdf3e0d22ebf721956",
       "collocation:fbf39f71c23c973f7079"
     ],
     "facts": [],
@@ -209,8 +218,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {
+        "id": "collocation:5215bf5d8c0b680810d8",
+        "source_row": 21611,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
         "id": "collocation:5e024e2fab10f74e972b",
         "source_row": 7912,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:bffdf3e0d22ebf721956",
+        "source_row": 21610,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {

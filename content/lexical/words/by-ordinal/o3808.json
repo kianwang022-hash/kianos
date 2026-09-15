@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0d8935dfc83ac21840c3b91ec45bda9429953d4acdbde880eb56252334c6f226",
+    "content_hash": "fc9d0b6360cf9dfdaae4bfe9821ee17fcb820d6aeed29f09e5380e0ee2af6987",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,19 +28,28 @@
           "sense_ids": [
             "sense:profile:f60ae1cbeca15954"
           ]
+        },
+        {
+          "label_cn": "数字平台个人资料/用户档案",
+          "label_en": "an online user/account profile",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profile:a343de06cea2cdf0"
+          ]
         }
       ],
-      "core_meaning_cn": "轮廓或简介",
-      "core_meaning_en": "a side view or outline, or a brief description of someone or something",
-      "mental_model_cn": "轮廓或简介",
+      "core_meaning_cn": "侧面/轮廓；简介/概况；数字平台个人资料",
+      "core_meaning_en": "a side view or profile; a brief description; an online user/account profile",
+      "mental_model_cn": "侧面/轮廓；简介/概况；数字平台个人资料",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:profile:45a77a6f2b07e724"
+      "deep:deep:secondary_senses:profile:45a77a6f2b07e724",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [
       {
@@ -201,6 +210,30 @@
         "sense_label_en": "to describe or represent someone or something in a brief way",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b52bceba9c85c015c128",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:profile:a343de06cea2cdf0:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "用户资料/个人资料页",
+            "phrase": "user profile/profile page"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（网站/应用中的）用户资料页；个人档案",
+        "definition_en": "a page or set of information describing a user, account, or person on an online service",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:profile:a343de06cea2cdf0",
+        "sense_label_en": "a page or set of information describing a user, account, or person on an online service",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -241,6 +274,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
       },
       {
+        "sense_id": "sense:profile:a343de06cea2cdf0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10601,
+        "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
         "sense_id": "sense:profile:c569613b8f3f5b14",
         "status": "active",
         "merged_into_sense_id": null,
@@ -265,6 +305,7 @@
     "active_collocations": [
       "collocation:959c3a308548021d7ab8",
       "collocation:aa325f24d6b351430c19",
+      "collocation:b52bceba9c85c015c128",
       "collocation:b68f2b40b1cf68e0ddc5",
       "collocation:d9332f9728931924c6f3",
       "collocation:fd2dcfde4ce9db44ea1c"
@@ -285,6 +326,11 @@
       {
         "id": "collocation:aa325f24d6b351430c19",
         "source_row": 14421,
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:b52bceba9c85c015c128",
+        "source_row": 21520,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
       },
       {

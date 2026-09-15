@@ -7,23 +7,30 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7be977de9b57200ac870f1a236df54d2fb2460113228f98233224b801125bed6",
+    "content_hash": "15a6c58bbb9f902b602dfac506a12869435918ab6d3dd324f115ac05478e21f5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "杆；竿；相反的极端；极点；波兰人",
-          "label_en": "a long (usually round) rod of wood or metal or plastic; one of two divergent or mutually exclusive opinions; one of two points of intersection of the Earth's axis and the celestial sphere; a native or inhabitant of Poland",
+          "label_cn": "杆；竿；极端；地理/磁/电极",
+          "label_en": "a rod; an extreme; a geographic, magnetic, or electrical pole",
           "pos": "noun",
           "sense_ids": [
             "sense:pole:3db4fbae8b7350f0",
             "sense:pole:0ae47d84e0905fd8",
-            "sense:pole:5cce9fe4124753c5",
+            "sense:pole:5cce9fe4124753c5"
+          ]
+        },
+        {
+          "label_cn": "Pole：波兰人（大写）",
+          "label_en": "Pole: a person from Poland, capitalized",
+          "pos": "noun",
+          "sense_ids": [
             "sense:pole:32f7d63d627d5de3"
           ]
         },
         {
           "label_cn": "用竿支撑；撑篙",
-          "label_en": "to support with a pole; to propel a boat with a pole",
+          "label_en": "support or propel with a pole",
           "pos": "verb",
           "sense_ids": [
             "sense:pole:5e6a083f55025781",
@@ -31,16 +38,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "杆；极点",
-      "core_meaning_en": "a long rod or a point of extreme",
-      "mental_model_cn": "杆；极点",
+      "core_meaning_cn": "杆/极点；Pole=波兰人",
+      "core_meaning_en": "a pole/point of extremity; capitalized Pole = a person from Poland",
+      "mental_model_cn": "杆/极点；Pole=波兰人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -102,25 +111,53 @@
             ],
             "meaning_cn": "北极",
             "phrase": "the North Pole"
+          },
+          {
+            "collocation_id": "collocation:deaccb097b88967e0d0d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pole:5cce9fe4124753c5:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "磁极",
+            "phrase": "magnetic pole"
+          },
+          {
+            "collocation_id": "collocation:185b2f1ab273ee9c4bc3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pole:5cce9fe4124753c5:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "正极/负极",
+            "phrase": "positive/negative pole"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "极点",
-        "definition_en": "one of two points of intersection of the Earth's axis and the celestial sphere",
+        "definition_cn": "极点；（地理、磁、电等系统的）两极之一",
+        "definition_en": "one of two opposite points or ends in a system, especially a geographic, magnetic, or electrical pole",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pole:5cce9fe4124753c5",
-        "sense_label_en": "one of two points of intersection of the Earth's axis and the celestial ",
+        "sense_label_en": "one of two opposite points or ends in a system, especially a geographic, magnetic, or electrical pole",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:8dfb578ef2058ac9a435",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pole:32f7d63d627d5de3:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "波兰人（复数）",
+            "phrase": "the Poles"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "波兰人",
-        "definition_en": "a native or inhabitant of Poland",
+        "definition_cn": "波兰人（Pole，首字母大写）",
+        "definition_en": "a person from Poland; written with a capital P as Pole",
         "governing_pattern": "",
         "level": "L2",
         "lexical_identity_overlay": {
@@ -133,9 +170,10 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pole:32f7d63d627d5de3",
-        "sense_label_en": "a native or inhabitant of Poland",
+        "sense_label_en": "a person from Poland; written with a capital P as Pole",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Capitalized Pole is the person noun; plural Poles. Lowercase pole is not a nationality noun."
       },
       {
         "collocations": [],
@@ -243,13 +281,21 @@
       }
     ],
     "active_collocations": [
+      "collocation:185b2f1ab273ee9c4bc3",
       "collocation:2a6a6d8e2a25c41fb632",
       "collocation:6ed8171b5b3b39bec3b8",
+      "collocation:8dfb578ef2058ac9a435",
       "collocation:a39ba1ad1df37e57bb1c",
-      "collocation:b7025176ac185357d9d5"
+      "collocation:b7025176ac185357d9d5",
+      "collocation:deaccb097b88967e0d0d"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:185b2f1ab273ee9c4bc3",
+        "source_row": 20904,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
       {
         "id": "collocation:2a6a6d8e2a25c41fb632",
         "source_row": 3606,
@@ -261,6 +307,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
       },
       {
+        "id": "collocation:8dfb578ef2058ac9a435",
+        "source_row": 20905,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
         "id": "collocation:a39ba1ad1df37e57bb1c",
         "source_row": 13895,
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
@@ -268,6 +319,11 @@
       {
         "id": "collocation:b7025176ac185357d9d5",
         "source_row": 15518,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
+        "id": "collocation:deaccb097b88967e0d0d",
+        "source_row": 20903,
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
       }
     ],

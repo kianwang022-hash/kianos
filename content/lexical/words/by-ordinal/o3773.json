@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3d9390fa65a25d2f70ed0e2dd3e4e5a34454c7aad9e10c956f73ae0fde0cec91",
+    "content_hash": "6071069e3bf28e601c202c1a11a7419343e2aed6186b60ed0be4957da4c8253c",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,12 +35,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:primary:da892297bd4e9330",
-      "relation:deep:word_family:primary:da892297bd4e9330"
+      "relation:deep:word_family:primary:da892297bd4e9330",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -147,47 +148,7 @@
       "runtime_model_calls": false
     },
     "word": "primary",
-    "word_family": [
-      {
-        "boundary": "prime与primary同源，核心义首要",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:family:primary:prime",
-            "evidence_status": "source_checked",
-            "source_locator": "primary|prime",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:word_family:primary:da892297bd4e9330",
-        "family_sources": [
-          "curated core-card derivative",
-          "local morphology candidate"
-        ],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "word_family",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:primary:fd2cda67363b5b40",
-        "target_sense_id": "sense:prime:e4bd7c2b5af85968",
-        "target_word": "prime",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "word_family": [],
     "word_id": "word:primary"
   },
   "relation_refs": [
@@ -196,6 +157,12 @@
       "owner_path": "content/lexical/relations/by-id/c5/c5297aad6b8e512efd60a132798e8b796f24d3be0e081e1eb1ab92f2c8d291c7.json",
       "field": "semantic_neighbors",
       "index": 0
+    },
+    {
+      "relation_id": "relation:horizontal:7ea7fd4d687d0efe38ce",
+      "owner_path": "content/lexical/relations/by-id/2b/2b8b3931c68599103ac698f19c0c85a88b9f9c6145dc0f9527c7bf8fabc9292a.json",
+      "field": "semantic_neighbors",
+      "index": 1
     }
   ],
   "reference_senses": [],

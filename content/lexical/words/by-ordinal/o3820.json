@@ -95,21 +95,37 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "e4b3d607989db11a13999bf00f610257872dd2b466971388a1243784ce9cf229",
+    "content_hash": "7c93fcefba4f6840418d6b8148c88cf5b0598f1433a361bb7a96237e072704b1",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "诺言，承诺；希望，前途",
-          "label_en": "a statement telling someone that you will definitely do something; signs of future success or good things",
+          "label_cn": "诺言；承诺",
+          "label_en": "a promise or assurance",
           "pos": "noun",
           "sense_ids": [
             "sense:promise:05d0b6dde03d55fd"
           ]
+        },
+        {
+          "label_cn": "承诺；答应",
+          "label_en": "promise or assure someone",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:promise:03e39be070a25a7a"
+          ]
+        },
+        {
+          "label_cn": "希望；前途；潜力",
+          "label_en": "signs of future success or potential",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:promise:87733f89ca3f5d9b"
+          ]
         }
       ],
-      "core_meaning_cn": "承诺，诺言",
-      "core_meaning_en": "a declaration or assurance that one will do something",
-      "mental_model_cn": "承诺，诺言",
+      "core_meaning_cn": "承诺；诺言；也可指前途/潜力",
+      "core_meaning_en": "a promise; to promise; signs of future success",
+      "mental_model_cn": "承诺；诺言；也可指前途/潜力",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -120,7 +136,8 @@
       "construction:deep:constructions:promise:62525902ae37d97a",
       "construction:deep:constructions:promise:df896de76219428f",
       "deep:deep:constructions:promise:62525902ae37d97a",
-      "deep:deep:constructions:promise:df896de76219428f"
+      "deep:deep:constructions:promise:df896de76219428f",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -157,6 +174,54 @@
         "sense_label_en": "a statement telling someone that you will definitely do something",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5f3c5c88742bd45a1e03",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:promise:03e39be070a25a7a:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "承诺做某事",
+            "phrase": "promise to do sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "承诺；答应",
+        "definition_en": "to tell or assure someone that something will happen or that you will do something",
+        "governing_pattern": "vt. + object / to do / that-clause",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:promise:03e39be070a25a7a",
+        "sense_label_en": "to tell or assure someone that something will happen or that you will do something",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:730e50643ab027745c84",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:promise:87733f89ca3f5d9b:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "显示出潜力/前途",
+            "phrase": "show promise"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "希望；前途；成功的迹象",
+        "definition_en": "signs or potential of future success or good results",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:promise:87733f89ca3f5d9b",
+        "sense_label_en": "signs or potential of future success or good results",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -180,31 +245,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:promise:03e39be070a25a7a",
-      "status": "merged",
-      "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
-      "pos": "verb",
-      "definition_cn": "承诺，允诺",
-      "definition_en": "to tell someone that you will definitely do something",
-      "semantic_key": "81119519463339c9f87edc9a3e0fe824da6ac15ee6c409fa323e1d1a6d3c0299",
-      "semantic_key_history": [
-        "5b6537382835a1214a6129b6b93a39eea38873e042060687e21a1afd647c754a"
-      ],
-      "legacy_aliases": [
-        "promise:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "promise:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10631,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:promise:1dae294267b85ac7",
       "status": "merged",
@@ -254,39 +294,14 @@
       "source_row": 10634,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:promise:87733f89ca3f5d9b",
-      "status": "merged",
-      "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
-      "pos": "noun",
-      "definition_cn": "希望，前途",
-      "definition_en": "signs of future success or good things",
-      "semantic_key": "a0ad2bdd01284c1a9a738c6d1110c2b2df1403f35971440d4a1a553dcaa8b29f",
-      "semantic_key_history": [
-        "5e7612f6466f520e7c90f57dd7e0cf60a59eb55b0b85f5068844c154777eda06"
-      ],
-      "legacy_aliases": [
-        "promise:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "promise:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10635,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:promise:03e39be070a25a7a",
-        "status": "merged",
-        "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10631,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
@@ -313,13 +328,15 @@
       },
       {
         "sense_id": "sense:promise:87733f89ca3f5d9b",
-        "status": "merged",
-        "merged_into_sense_id": "sense:promise:05d0b6dde03d55fd",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10635,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
     "active_collocations": [
+      "collocation:5f3c5c88742bd45a1e03",
+      "collocation:730e50643ab027745c84",
       "collocation:7e2ce1bc942cbf08c458",
       "collocation:d5d6649240d2f5f388ff"
     ],
@@ -339,6 +356,16 @@
       {
         "id": "collocation:0c50cd2c16b2c2a823c7",
         "source_row": 1021,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:5f3c5c88742bd45a1e03",
+        "source_row": 21621,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:730e50643ab027745c84",
+        "source_row": 21622,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {

@@ -13,9 +13,29 @@
         "level": "L1",
         "meaning_cn": "把 A 描述/呈现为 B",
         "pattern": "present A as B"
+      },
+      {
+        "construction_id": "construction:9536949148d9ea041e31",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把某物赠予/授予某人",
+        "definition_en": "to give or formally award something to someone",
+        "pattern": "present sb with sth",
+        "boundary": "present sb with sth",
+        "source_sense_id": "sense:present:fd9aa1c9d2865256"
+      },
+      {
+        "construction_id": "construction:1570da9d4e189d7c9028",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "把某物赠予/授予某人",
+        "definition_en": "to give or formally award something to someone",
+        "pattern": "present sth to sb",
+        "boundary": "present sth to sb",
+        "source_sense_id": "sense:present:fd9aa1c9d2865256"
       }
     ],
-    "content_hash": "fb21f1fc242a53fd638b5a28a11c6396e88749b0dc8d008743cea98af5050b12",
+    "content_hash": "7fbe3da20fb4ba354676ebff765eca1a2e043ab4b1e6d024754b2988f929efd0",
     "core_concept": {
       "core_clusters": [
         {
@@ -51,14 +71,15 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "confusable:horizontal:5d51a999c293b9d84bd6",
       "construction:construction:4afada19d74a52e4dd83",
       "deep:deep:word_family:present:a9ce7320f5847d70",
-      "relation:deep:word_family:present:a9ce7320f5847d70"
+      "relation:deep:word_family:present:a9ce7320f5847d70",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -124,14 +145,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "呈现；提出",
-        "definition_en": "to show or offer something for others to consider",
+        "definition_cn": "呈现；提出；赠予；授予",
+        "definition_en": "to show, offer, give, or formally award something",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:present:fd9aa1c9d2865256",
-        "sense_label_en": "to show or offer something for others to consider",
+        "sense_label_en": "to show, offer, give, or formally award something",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -240,7 +261,39 @@
         "writing_safe": true
       }
     ],
-    "word_id": "word:present"
+    "word_id": "word:present",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "present",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "boundary": "noun/adjective present has initial stress; verb present has final stress",
+      "variants": [
+        {
+          "variant_id": "form:present:noun-adjective",
+          "surface": "present",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "ipa_bre": "/ˈprez.ənt/",
+          "ipa_ame": "/ˈprez.ənt/",
+          "learner_key": "PRE-sent",
+          "role": "noun/adjective"
+        },
+        {
+          "variant_id": "form:present:verb",
+          "surface": "present",
+          "pos": [
+            "verb"
+          ],
+          "ipa_bre": "/prɪˈzent/",
+          "ipa_ame": "/prɪˈzent/",
+          "learner_key": "pre-SENT",
+          "role": "verb"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [
     {

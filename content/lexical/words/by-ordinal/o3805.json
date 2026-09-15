@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7eb5e3e81b8e89fb8d515340866444c66aa7e1d149930778b41863ebb12c5ca9",
+    "content_hash": "47f70d3169aa87f0d6ab75849430585c2f66264622678eea3174be87f2adf485",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,20 +26,29 @@
             "sense:professional:bf48477898835de6",
             "sense:professional:8ab2a86e606a5ea2"
           ]
+        },
+        {
+          "label_cn": "专业的；符合职业水准的",
+          "label_en": "showing professional competence or standards",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:professional:168e12db1ec8d37a"
+          ]
         }
       ],
-      "core_meaning_cn": "与职业或专业人士相关的",
-      "core_meaning_en": "relating to a profession or a person who works in a profession",
-      "mental_model_cn": "与职业或专业人士相关的",
+      "core_meaning_cn": "职业的/专业人士的；也指表现得专业、符合职业水准",
+      "core_meaning_en": "relating to a profession; also showing professional competence and standards",
+      "mental_model_cn": "职业的/专业人士的；也指表现得专业、符合职业水准",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:professional:fb0c2205617d4010",
-      "relation:deep:word_family:professional:fb0c2205617d4010"
+      "relation:deep:word_family:professional:fb0c2205617d4010",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -124,6 +133,30 @@
         "sense_label_en": "an athlete who plays for pay",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8c219e735cb30b62cd2f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:professional:168e12db1ec8d37a:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "专业的举止/行为/质量",
+            "phrase": "professional manner/behavior/quality"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "专业的；表现出应有职业水准的",
+        "definition_en": "showing the skill, competence, conduct, or standards expected of a trained professional",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:professional:168e12db1ec8d37a",
+        "sense_label_en": "showing the skill, competence, conduct, or standards expected of a trained professional",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -190,6 +223,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:professional:168e12db1ec8d37a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10600,
+        "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
         "sense_id": "sense:professional:5fedefe4f0a65b17",
         "status": "active",
         "merged_into_sense_id": null,
@@ -213,6 +253,7 @@
     ],
     "active_collocations": [
       "collocation:528c54473b9e9ce2821e",
+      "collocation:8c219e735cb30b62cd2f",
       "collocation:8d9fbf0dd2a2afa0a7b3",
       "collocation:ddd13f5f39c3a1be4279",
       "collocation:de945e3471d87ab3fbd0"
@@ -228,6 +269,11 @@
       {
         "id": "collocation:528c54473b9e9ce2821e",
         "source_row": 6952,
+        "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:8c219e735cb30b62cd2f",
+        "source_row": 21519,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
       },
       {
