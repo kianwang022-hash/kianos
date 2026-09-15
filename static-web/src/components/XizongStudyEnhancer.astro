@@ -129,7 +129,7 @@ const kps = block?.kpRecords || [];
         if (event.key === 'Escape') { event.preventDefault(); target.blur(); }
         return;
       }
-      if (target instanceof HTMLElement && target.closest('button,a,summary,[role="button"]')) return;
+      if (event.key === 'Enter' && target instanceof HTMLElement && target.closest('button,a,summary,[role="button"]')) return;
       const stage = currentStage();
       if (['ArrowUp', 'ArrowDown'].includes(event.key) && stage === 'kp_recall') {
         const surface = currentScrollSurface();

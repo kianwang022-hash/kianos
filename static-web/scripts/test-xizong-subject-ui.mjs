@@ -57,7 +57,7 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
   const studyKey = id => `kianos-xizong-astro-v2:xizong:${id}`;
   const read = key => page.evaluate(key => JSON.parse(localStorage.getItem(key) || 'null'), key);
   const stateStage = () => page.locator('[data-study-stage]:visible').getAttribute('data-study-stage');
-  const sourceHashes = {};
+  const sourceHashes = {}; report.failureViews = [];
   try {
     await go('/xizong/');
     assert.equal(await page.locator('[data-site-resume-subject=xizong]').isVisible(), false);
@@ -82,8 +82,13 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
       assert.equal(await page.locator('[data-system-block]').count(), system.blocks.length);
       const bindings = xizongFrameView(frame, 'SYSTEM_GUIDE');
       assert.ok(bindings.length > 0);
-      await snap(`system-${sid}`); await fontProbe('.xv6Mother', 20, `${sid} System prose`);
-      for (const [id, view] of Object.entries(pathways?.systemFailureViews || {})) {
+      await snap(`system-${sid}`); await fontProbe('.xv6SystemHeroDense p', 20, `${sid} System mission prose`);
+      await fontProbe('.xv6SystemHeroDense h2', 28, `${sid} System heading`);
+      const views = Object.entries(pathways?.systemFailureViews || {}).filter(([, view]) => view && ((view.focus_nodes || []).length || view.chain || (view.variables || []).length || view.parallel_focus));
+      assert.equal(await page.locator('[data-failure-id]').count(), views.length);
+      assert.equal(await page.locator('[data-failure-static]').count(), system.failureModes.length - views.length);
+      report.failureViews.push({ system:sid, interactive:views.length, static:system.failureModes.length-views.length });
+      for (const [id, view] of views) {
         const button = page.locator(`[data-failure-id="${id}"]`); if (!await button.count()) continue;
         await button.click();
         assert.equal(await button.getAttribute('aria-pressed'), 'true');
@@ -172,8 +177,21 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
         if (index === 0) {
           await snap(`recall-reveal-${sid}`);
           await fontProbe('[data-kp-recall-card]:not([hidden]) [data-kp-answer] p', 20, `${sid} revealed Core prose`);
+          const beforeModifiedRating = (await read(key)).ratings;
+          await page.evaluate(() => { document.activeElement?.blur(); document.dispatchEvent(new KeyboardEvent('keydown', {key:'1',code:'Digit1',ctrlKey:true,bubbles:true})); });
+          assert.deepEqual((await read(key)).ratings, beforeModifiedRating, `${sid} modifier key must not grade after Reveal`);
+          // Notes remain optional, editable and tied to the same local KP.
+          await page.keyboard.press('c');
+          assert.equal(await page.locator('[data-xizong-study-dock]').getAttribute('open'), '');
+          await page.fill('[data-kp-comment]', 'isolated QA note');
+          const note = await read(`kianos-xizong-personal-v1:xizong:${block.blockId}`);
+          assert.equal(note.kp[id].comment, 'isolated QA note');
+          await page.keyboard.press('Escape');
+          await page.locator('[data-xizong-study-dock]>summary').click();
+
         }
-        await active.locator(`[data-rating=${index===0?'fuzzy':'mastered'}]`).click();
+        if (index === 0) { await page.evaluate(() => document.activeElement?.blur()); await page.keyboard.press('2'); }
+        else await active.locator('[data-rating=mastered]').click();
         await page.waitForTimeout(180);
       }
       assert.equal(await stateStage(), 'group_close');
@@ -250,7 +268,7 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
     throw error;
   } finally {
     report.currentSourceHashes=sourceHashes;
-    const files=['src/styles/xizong-readable.css','src/layouts/Base.astro','src/components/XizongSystemV6.astro','src/components/XizongFrameValue.astro','src/components/XizongRuntimeStageGuard.astro','src/components/XizongStudyEnhancer.astro','scripts/test-xizong-subject-ui.mjs','scripts/test-xizong-a2-functional-journey.mjs'];
+    const files=['src/styles/xizong-readable.css','src/layouts/Base.astro','src/components/XizongSystemV6.astro','src/components/XizongFrameValue.astro','src/components/XizongBlockV6.astro','src/components/XizongRuntimeStageGuard.astro','src/components/XizongStudyEnhancer.astro','scripts/test-xizong-subject-ui.mjs','scripts/test-xizong-a2-functional-journey.mjs'];
     report.sourceSha256=Object.fromEntries(files.map(file=>[file,createHash('sha256').update(fs.readFileSync(file)).digest('hex')]));
     report.githubSha=process.env.GITHUB_SHA||null;
     fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');

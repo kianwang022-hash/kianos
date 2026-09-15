@@ -425,7 +425,8 @@ const hasTimedVisuals = (block?.learningCues?.visuals || []).length > 0;
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.isComposing || event.keyCode === 229) return;
+      if (event.defaultPrevented || event.isComposing || event.keyCode === 229
+        || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,a,[contenteditable="true"]')) return;
       if (state.stage !== 'kp_recall') return;
