@@ -27,7 +27,7 @@ jobs:
           if [ -n "$DRIFT" ]; then echo "LEXICAL_SEMANTIC_DRIFT_SINCE_EXECUTION_BASE"; echo "$DRIFT"; exit 1; fi
           git fetch origin 4c85edc2911928e20e264bb13d232949bb953984:refs/remotes/origin/forward-helper
           git show origin/forward-helper:tools/lexical_apply_retro_o0025_o0224.py > tools/lexical_apply_retro_o0025_o0224.py
-      - name: Patch executor syntax only
+      - name: Patch executor mechanics only
         shell: bash
         run: |
           python - <<'PY'
@@ -37,7 +37,11 @@ jobs:
           old="fwd.add_construction(s,3769,\"prey on one's mind\",'萦绕心头；使人持续担忧','to worry, trouble, or occupy someone’s mind persistently',level='L1','idiomatic psychological use, not literal predation')"
           new="fwd.add_construction(s,3769,\"prey on one's mind\",'萦绕心头；使人持续担忧','to worry, trouble, or occupy someone’s mind persistently',source_sid=None,level='L1',boundary='idiomatic psychological use, not literal predation')"
           if old not in t: raise SystemExit('PREY_PATCH_ANCHOR_MISSING')
-          p.write_text(t.replace(old,new,1))
+          t=t.replace(old,new,1)
+          old2="NO_CHANGE=[o for o in range(3725,3775) if o not in DELTA]"
+          new2="NO_CHANGE=[o for o in range(3725,3775) if o not in DELTA and o not in DEPENDENCIES]"
+          if old2 not in t: raise SystemExit('NO_CHANGE_PATCH_ANCHOR_MISSING')
+          p.write_text(t.replace(old2,new2,1))
           PY
       - name: Execute shard
         run: python tools/lexical_apply_forward_o3725_o3774.py
