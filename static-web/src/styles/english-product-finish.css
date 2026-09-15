@@ -1,0 +1,498 @@
+/*
+ * English presentation finish, guided by Kian's selected 4173 EnglishOS reference.
+ * Presentation only: Objective / Translation / Writing runtime, evidence, Resume,
+ * answer gates, learner state and Lexical ownership remain Current-owned.
+ */
+
+body.surfaceBody-english {
+  --english-product-ink: #1f2a27;
+  --english-product-muted: #60716b;
+  --english-product-line: #d7e0dc;
+  --english-product-line-strong: #c6d3ce;
+  --english-product-accent: #315f78;
+  --english-product-green: #286d58;
+  --english-product-soft: #edf3f0;
+  --english-product-blue-soft: #f2f6f9;
+}
+
+:root body.surfaceBody-english #main-content.englishCanvas:has(.englishHomeShell) {
+  width: min(1580px, calc(100% - 40px));
+  margin: 18px auto;
+  padding: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell {
+  min-height: calc(100dvh - 36px);
+  overflow: hidden;
+  border: 1px solid var(--english-product-line);
+  border-radius: 14px;
+  background: var(--english-product-soft);
+  box-shadow: 0 12px 32px rgba(22, 40, 34, .06);
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  align-items: end;
+  gap: 28px;
+  padding: 24px 26px 21px;
+  border-bottom: 1px solid var(--english-product-line);
+  background:
+    radial-gradient(circle at 92% 10%, rgba(63, 109, 133, .08), transparent 28%),
+    #fff;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHeroCopy {
+  min-width: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeEyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: #466f88;
+  font-size: 12px;
+  font-weight: 820;
+  letter-spacing: .055em;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHero h1 {
+  margin: 0;
+  color: var(--english-product-ink);
+  font-size: clamp(34px, 3.3vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHero p {
+  margin: 8px 0 0;
+  color: var(--english-product-muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHeroMeta {
+  display: grid;
+  gap: 3px;
+  align-content: center;
+  min-height: 72px;
+  padding-left: 22px;
+  border-left: 1px solid var(--english-product-line);
+  text-align: right;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHeroMeta span {
+  color: #788883;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHeroMeta strong {
+  color: #2d5f78;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeHeroMeta small {
+  color: var(--english-product-muted);
+  font-size: 13px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  min-height: 50px;
+  border-bottom: 1px solid var(--english-product-line);
+  background: #fff;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs a {
+  position: relative;
+  display: grid;
+  min-height: 50px;
+  place-items: center;
+  border-right: 1px solid #e5ebe8;
+  color: #667872;
+  font-size: 15px;
+  font-weight: 720;
+  text-decoration: none;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs a:last-child {
+  border-right: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs a:hover {
+  background: #f7faf8;
+  color: #285f76;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs a.active {
+  background: #f2f7f5;
+  color: #285f76;
+  font-weight: 800;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeTabs a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: #4b7d94;
+  content: '';
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.78fr) minmax(310px, .72fr);
+  align-items: start;
+  gap: 14px;
+  padding: 14px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeMain,
+:root body.surfaceBody-english #main-content .englishHomeSide {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomePanel,
+:root body.surfaceBody-english #main-content .englishHomeSidePanel {
+  overflow: hidden;
+  border: 1px solid var(--english-product-line);
+  border-radius: 11px;
+  background: #fff;
+}
+
+:root body.surfaceBody-english #main-content .englishHomePanel > header,
+:root body.surfaceBody-english #main-content .englishHomeSidePanel > header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 17px 12px;
+  border-bottom: 1px solid #e7ecea;
+}
+
+:root body.surfaceBody-english #main-content .englishHomePanel > header span,
+:root body.surfaceBody-english #main-content .englishHomeSidePanel > header span {
+  display: block;
+  margin-bottom: 2px;
+  color: #4d7690;
+  font-size: 12px;
+  font-weight: 820;
+}
+
+:root body.surfaceBody-english #main-content .englishHomePanel > header h2,
+:root body.surfaceBody-english #main-content .englishHomeSidePanel > header h2 {
+  margin: 0;
+  color: #20302b;
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+}
+
+:root body.surfaceBody-english #main-content .englishHomePanel > header small {
+  color: #7e8c87;
+  font-size: 13px;
+  text-align: right;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume > h2 {
+  display: none;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume > div {
+  display: grid;
+  gap: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume a {
+  max-width: none;
+  min-height: 66px;
+  grid-template-columns: 92px minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 12px 17px;
+  border-bottom: 1px solid #edf1ef;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume a span {
+  color: #557269;
+  font-size: 14px;
+  font-weight: 760;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume a strong {
+  color: #24342f;
+  font-size: 18px;
+  font-weight: 720;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue .siteResume a b {
+  color: #376c85;
+  font-size: 14px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeResumeEmpty {
+  margin: 0;
+  padding: 14px 17px 15px;
+  color: #74837d;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeContinue:has(.siteResume:not([hidden])) .englishHomeResumeEmpty {
+  display: none;
+}
+
+/* Current task families become ruled launch rows rather than three sparse columns. */
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--english-product-line);
+  border-radius: 11px;
+  background: #fff;
+  overflow: hidden;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies > section {
+  display: grid;
+  grid-template-columns: minmax(190px, .72fr) minmax(0, 1.3fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 112px;
+  padding: 17px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies > section + section {
+  border-top: 1px solid var(--english-product-line);
+}
+
+:root body.surfaceBody-english #main-content .englishEntryCopy {
+  min-width: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishEntryCopy > span {
+  display: block;
+  margin-bottom: 3px;
+  color: #4d7690;
+  font-size: 12px;
+  font-weight: 820;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies h2 {
+  margin: 0 0 5px;
+  color: #24342f;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies p {
+  margin: 0;
+  color: var(--english-product-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies nav {
+  display: flex;
+  min-height: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies nav a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  padding: 7px 11px;
+  border: 1px solid #cbd9d4;
+  border-radius: 7px;
+  background: #fbfdfc;
+  color: #286952;
+  font-size: 15px;
+  font-weight: 720;
+  text-decoration: none;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies nav a:hover {
+  border-color: #9ebeb2;
+  background: #f1f7f4;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies .guideLink {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 7px 10px;
+  border-left: 1px solid #e3e9e6;
+  color: #5b7068;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeSidePanel > div,
+:root body.surfaceBody-english #main-content .englishHomeSidePanel > p {
+  margin: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList {
+  display: grid;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 64px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #edf1ef;
+  color: inherit;
+  text-decoration: none;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList a:last-child {
+  border-bottom: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList a > span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 7px;
+  background: #eef4f7;
+  color: #3d6e87;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList a > div {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList b {
+  color: #2a3b35;
+  font-size: 15px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList small {
+  color: #74837d;
+  font-size: 12px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeGuideList a > em {
+  color: #4f7568;
+  font-size: 14px;
+  font-style: normal;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeLexicalBody {
+  display: grid;
+  gap: 11px;
+  padding: 15px 16px 17px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeLexicalBody p {
+  margin: 0;
+  color: var(--english-product-muted);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishLexicalEntry {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 15px;
+}
+
+:root body.surfaceBody-english #main-content .englishHomeShell .englishLexicalEntry a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  width: max-content;
+  padding: 7px 11px;
+  border: 1px solid #a9c7ba;
+  border-radius: 7px;
+  background: #f3f8f6;
+  color: #276a52;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+@media (max-width: 1040px) {
+  :root body.surfaceBody-english #main-content .englishHomeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeSide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  :root body.surfaceBody-english #main-content.englishCanvas:has(.englishHomeShell) {
+    width: min(100% - 16px, 1000px);
+    margin: 8px auto;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeShell {
+    min-height: auto;
+    border-radius: 11px;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeHero {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 18px;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeHeroMeta {
+    min-height: 0;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--english-product-line);
+    border-left: 0;
+    text-align: left;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeTabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeGrid {
+    padding: 9px;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies > section {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies .guideLink {
+    justify-content: flex-start;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  :root body.surfaceBody-english #main-content .englishHomeSide {
+    grid-template-columns: 1fr;
+  }
+}
