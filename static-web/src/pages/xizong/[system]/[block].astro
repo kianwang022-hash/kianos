@@ -2,6 +2,7 @@
 import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import XizongBlockV6 from '../../../components/XizongBlockV6.astro';
+import XizongQuestionCrosswalkReverse from '../../../components/XizongQuestionCrosswalkReverse.astro';
 import XizongConnectionCues from '../../../components/XizongConnectionCues.astro';
 import XizongPrecisionVisualCues from '../../../components/XizongPrecisionVisualCues.astro';
 import XizongStudyEnhancer from '../../../components/XizongStudyEnhancer.astro';
@@ -11,6 +12,7 @@ import XizongRepairInboxBridge from '../../../components/XizongRepairInboxBridge
 import XizongLastLocation from '../../../components/XizongLastLocation.astro';
 import XizongRuntimeStageGuard from '../../../components/XizongRuntimeStageGuard.astro';
 import { listProjectableXizongSystems, loadXizongBlock, loadXizongSystem } from '../../../lib/xizong.mjs';
+import { loadXizongQuestionCrosswalkForBlock } from '../../../lib/xizongQuestionCrosswalk.mjs';
 import { loadXizongPathways, pathwaysForBlock } from '../../../lib/xizongPathways.mjs';
 import { loadXizongLearningCues, learningCuesForBlock } from '../../../lib/xizongLearningCues.mjs';
 import { projectBlockLearn, projectKpCore, projectVisualGate } from '../../../lib/xizongProjection.mjs';
@@ -25,6 +27,7 @@ export function getStaticPaths() {
 const { systemId, blockSlug } = Astro.props;
 const block = loadXizongBlock(systemId, blockSlug);
 const system = loadXizongSystem(systemId);
+const crosswalk = loadXizongQuestionCrosswalkForBlock(block);
 const pathways = loadXizongPathways(system);
 const blockPathways = pathwaysForBlock(pathways, block.blockId);
 const learningCues = loadXizongLearningCues(system);
@@ -41,6 +44,7 @@ const projection = {
 <Base title={`${block.label} · ${block.title}`} kicker={`西医综合 · ${block.systemCanonicalId} · ${block.label}`} description={block.centerQuestion} sourcePath={block.sourcePath} sourceHash={block.sourceHash} objectId={block.objectId} active="xizong">
   <XizongLastLocation system={system} block={block} />
   <XizongBlockV6 block={projection} />
+  <XizongQuestionCrosswalkReverse crosswalk={crosswalk} />
   <XizongRuntimeStageGuard system={system} block={block} />
   <XizongConnectionCues block={projection} />
   <XizongPrecisionVisualCues block={projection} />

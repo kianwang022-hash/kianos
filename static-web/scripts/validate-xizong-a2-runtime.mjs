@@ -120,6 +120,7 @@ const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 const lastLocation = read('static-web/src/components/XizongLastLocation.astro');
 const homeTools = read('static-web/src/components/XizongHomeTools.astro');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
+const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 
 has(blockUi, "let state = { stage: 'block_learn', groupIndex: 0, kpIndex: 0, learned: {}, ratings: {}, blockRecallDone: false, completed: false }", 'block-initial-state');
 has(blockUi, "JSON.parse(localStorage.getItem(storageKey) || 'null')", 'block-state-read');
@@ -149,7 +150,8 @@ has(exitUi, "let holdoutYears = readJson(holdoutKey, []);", 'holdout-not-empty-b
 matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'question-sweep-prerequisite-gate');
 has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-handoff');
 has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guessed-repair-route');
-has(questionLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-question-relation-accepted');
+has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
+has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-question-relation-accepted');
 
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse');
 has(memoryUi, '.filter((row) => byId.has(row.kpId))', 'chat-return-not-scoped-to-current-block');

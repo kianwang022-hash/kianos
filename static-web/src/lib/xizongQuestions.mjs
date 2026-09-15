@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadReviewedXizongQuestionRelation } from './xizongQuestionCrosswalk.mjs';
 
 const repoRoot = process.env.KIANOS_REPO_ROOT
   ? path.resolve(process.env.KIANOS_REPO_ROOT)
@@ -9,7 +10,6 @@ const repoRoot = process.env.KIANOS_REPO_ROOT
 const LEARNER_ROOT = 'content/xizong/knowledge/learner';
 const QUESTION_ROOT = 'content/xizong/questions';
 const EXPLANATION_ROOT = 'content/xizong/explanations';
-const RELATION_ROOT = 'content/xizong/question-relations';
 
 function absolute(relativePath) {
   return path.join(repoRoot, relativePath);
@@ -101,16 +101,6 @@ function normalizeExplanation(row) {
   };
 }
 
-function normalizeRelation(row) {
-  if (!row || row.review_status !== 'REVIEWED') return null;
-  return {
-    systemId: String(row.system_id || ''),
-    blockId: String(row.block_id || ''),
-    primaryKpId: String(row.primary_kp_id || ''),
-    supportingKpIds: Array.isArray(row.supporting_kp_ids) ? row.supporting_kp_ids.map(String) : []
-  };
-}
-
 export function loadXizongSystemQuestionSweep(system) {
   const relativeScopePath = scopePath(system);
   if (!fs.existsSync(absolute(relativeScopePath))) return null;
@@ -145,7 +135,6 @@ export function loadXizongSystemQuestionSweep(system) {
 
   const questionCache = new Map();
   const explanationCache = new Map();
-  const relationCache = new Map();
 
   const loadShard = (root, shard, cache, fallback) => {
     const key = `${root}/${shard}`;
@@ -170,11 +159,6 @@ export function loadXizongSystemQuestionSweep(system) {
       ? explanationShard.find((row) => row?.question_id === questionId)
       : null;
 
-    const relationShard = loadShard(RELATION_ROOT, route.shard, relationCache, []);
-    const relationRow = Array.isArray(relationShard)
-      ? relationShard.find((row) => row?.question_id === questionId && row?.review_status === 'REVIEWED')
-      : null;
-
     const optionObject = truth?.content?.option_set?.options || {};
     const options = Object.entries(optionObject).map(([label, text]) => ({ label: String(label), text: String(text) }));
     if (!options.length) throw new Error(`CURRENT_XIZONG_QUESTION_OPTIONS_MISSING:${questionId}`);
@@ -188,7 +172,7 @@ export function loadXizongSystemQuestionSweep(system) {
       options,
       correctAnswer: String(truth?.content?.correct_answer || ''),
       explanation: normalizeExplanation(explanationRow),
-      relation: normalizeRelation(relationRow)
+      relation: loadReviewedXizongQuestionRelation(questionId)
     };
   });
 

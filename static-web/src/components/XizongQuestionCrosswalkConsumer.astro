@@ -1,0 +1,91 @@
+---
+const { system } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<aside class="xqc" data-xizong-question-crosswalk-consumer={system.systemId} hidden>
+  <div>
+    <span>Reviewed Crosswalk</span>
+    <strong data-crosswalk-title>题目回到知识</strong>
+  </div>
+  <a data-crosswalk-link hidden></a>
+  <p data-crosswalk-fallback hidden></p>
+</aside>
+
+<script define:vars={{ systemId: system.systemId, base }}>
+  const consumer = document.querySelector(`[data-xizong-question-crosswalk-consumer="${systemId}"]`);
+  const runtime = document.querySelector(`[data-xizong-system-exit="${systemId}"]`);
+  if (consumer && runtime) {
+    let payload = null;
+    try { payload = JSON.parse(runtime.querySelector('[data-sweep-payload]')?.textContent || 'null'); } catch {}
+    const link = consumer.querySelector('[data-crosswalk-link]');
+    const fallback = consumer.querySelector('[data-crosswalk-fallback]');
+    const title = consumer.querySelector('[data-crosswalk-title]');
+    const sweepKey = `kianos:xizong:system-question-sweep:${systemId}:v1`;
+    const prefix = String(base || '/').endsWith('/') ? String(base || '/') : `${String(base || '/')}/`;
+
+    const currentPhase = () => {
+      try { return JSON.parse(localStorage.getItem(sweepKey) || 'null')?.round?.studyPhase || 'FIRST_PASS'; }
+      catch { return 'FIRST_PASS'; }
+    };
+    const currentQuestion = () => {
+      const meta = runtime.querySelector('[data-question-meta]')?.textContent || '';
+      const match = meta.match(/(\d{4}).*?第\s*(\d+)\s*题/);
+      if (!match) return null;
+      const year = Number(match[1]);
+      const number = Number(match[2]);
+      return (payload?.questions || []).find((question) => Number(question.year) === year && Number(question.number) === number) || null;
+    };
+    const clear = () => {
+      consumer.hidden = true;
+      if (link) { link.hidden = true; link.removeAttribute('href'); link.textContent = ''; }
+      if (fallback) { fallback.hidden = true; fallback.textContent = ''; }
+    };
+    const sync = () => {
+      const answerPanel = runtime.querySelector('[data-answer-panel]');
+      const question = currentQuestion();
+      if (currentPhase() !== 'SECOND_PASS' || !question || !answerPanel || answerPanel.hidden) {
+        clear();
+        return;
+      }
+
+      consumer.hidden = false;
+      const relation = question.relation || null;
+      if (relation?.knowledgePath && ['RESOLVED_KP', 'RESOLVED_BLOCK', 'BLOCK_ONLY'].includes(relation.targetStatus)) {
+        if (link) {
+          link.hidden = false;
+          link.href = `${prefix}${String(relation.knowledgePath).replace(/^\/+/, '')}`;
+          if (relation.targetStatus === 'RESOLVED_KP') {
+            const kp = relation.primaryKpDisplayId || relation.primaryKpId;
+            const label = [relation.blockLabel || relation.blockId, kp, relation.primaryKpTitle].filter(Boolean).join(' · ');
+            link.textContent = `回到 ${label}`;
+            if (title) title.textContent = '这题已经有精确 Block / KP 回链';
+          } else {
+            const label = [relation.blockLabel || relation.blockId, relation.blockTitle].filter(Boolean).join(' · ');
+            link.textContent = `回到 ${label}`;
+            if (title) title.textContent = '这题已有审核过的 Block 回链';
+          }
+        }
+        if (fallback) { fallback.hidden = true; fallback.textContent = ''; }
+        return;
+      }
+
+      if (link) { link.hidden = true; link.removeAttribute('href'); link.textContent = ''; }
+      if (fallback) {
+        fallback.hidden = false;
+        fallback.textContent = relation
+          ? '这条 REVIEWED relation 当前无法安全投影到 Current Knowledge；保留题号，不补猜映射。'
+          : '暂无 REVIEWED Crosswalk；本次作答 / Repair 正常保留，不补猜映射。';
+      }
+      if (title) title.textContent = '当前没有可安全消费的知识回链';
+    };
+
+    const observer = new MutationObserver(sync);
+    observer.observe(runtime, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['hidden'] });
+    window.addEventListener('storage', sync);
+    sync();
+  }
+</script>
+
+<style>
+  .xqc{margin:0 12px 12px;padding:10px 12px;border:1px solid var(--study-line,#d9dde5);border-radius:12px;background:#fbfcfb;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;align-items:center}.xqc[hidden]{display:none}.xqc>div{display:grid;gap:2px}.xqc span{font-size:9px;font-weight:850;letter-spacing:.07em;color:var(--study-green,#286c57);text-transform:uppercase}.xqc strong{font-size:12px}.xqc a{font-size:11px;font-weight:800;color:var(--study-green,#286c57);text-decoration:none;padding:7px 9px;border:1px solid currentColor;border-radius:9px}.xqc a:hover{text-decoration:underline}.xqc p{grid-column:1 / -1;margin:0;font-size:11px;line-height:1.55;color:var(--study-muted,#6d7873)}@media(max-width:760px){.xqc{grid-template-columns:1fr}.xqc a{justify-self:start}}
+</style>

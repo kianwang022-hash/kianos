@@ -175,6 +175,7 @@ for (const question of sweep.questions) {
 // ---------- Actual runtime-source contracts ----------
 const xizongLib = read('static-web/src/lib/xizong.mjs');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
+const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 const blockUi = read('static-web/src/components/XizongBlockV6.astro');
 const enhancerUi = read('static-web/src/components/XizongStudyEnhancer.astro');
 const memoryUi = read('static-web/src/components/XizongMemoryReviewV6.astro');
@@ -236,7 +237,8 @@ has(exitUi, "if (!persistResult(currentQuestion, 'uncertain', currentSelection))
 has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-packet');
 has(exitUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
 has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guess-guard');
-has(questionLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-precise-relation-accepted');
+has(questionLib, 'loadReviewedXizongQuestionRelation(questionId)', 'question-runtime-bypasses-crosswalk-owner');
+has(crosswalkLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-precise-relation-accepted');
 
 console.log([
   'Xizong learner-contract acceptance PASS',
