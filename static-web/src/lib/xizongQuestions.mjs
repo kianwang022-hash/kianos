@@ -85,12 +85,19 @@ function scopePath(system) {
 
 function normalizeExplanation(row) {
   if (!row) return null;
+  const valuableDistractors = Array.isArray(row.valuable_distractors)
+    ? row.valuable_distractors.map((item) => ({
+        option: String(item?.option || ''),
+        reason: String(item?.reason || '')
+      })).filter((item) => item.option && item.reason)
+    : [];
   return {
     examTarget: String(row.exam_target || ''),
     decisionAxis: String(row.decision_axis || ''),
     correctOptionReason: String(row.correct_option_reason || ''),
     commonFailureNode: String(row.common_failure_node || ''),
-    transferRule: String(row.transfer_rule || '')
+    transferRule: String(row.transfer_rule || ''),
+    valuableDistractors
   };
 }
 
