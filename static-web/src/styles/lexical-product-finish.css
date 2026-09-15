@@ -18,43 +18,26 @@ body.surfaceBody-lexical {
   line-height: 1.72;
 }
 
-/* Vocabulary Home is one workbench. Modes and rows are internal regions, not cards. */
+/* Vocabulary Home is one workbench. Base owns page identity; this header owns modes. */
 :root body.surfaceBody-lexical #main-content .lexicalHome {
   max-width: none;
   gap: 0;
 }
 
 :root body.surfaceBody-lexical #main-content .lexicalHomeHeader {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px;
-  padding: 2px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
+  padding: 0 0 20px;
   border: 0;
   border-bottom: 1px solid var(--lexical-line);
   border-radius: 0;
   background: transparent;
 }
 
-:root body.surfaceBody-lexical #main-content .lexicalHomeHeader > div > span {
-  color: var(--lexical-muted);
-  font-size: 13px;
-  font-weight: 700;
-  opacity: 1;
-}
-
-:root body.surfaceBody-lexical #main-content .lexicalHomeHeader h2 {
-  margin: 3px 0 6px;
-  font-size: 30px;
-  line-height: 1.3;
-}
-
-:root body.surfaceBody-lexical #main-content .lexicalHomeHeader p {
-  max-width: 72ch;
-  color: var(--lexical-muted);
-  font-size: 17px;
-  line-height: 1.72;
-  opacity: 1;
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader > div {
+  display: none;
 }
 
 :root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav {
@@ -260,8 +243,40 @@ body.surfaceBody-lexical {
   box-shadow: none;
 }
 
+/* The page nav already owns back/next. This bar owns word state + pronunciation. */
 :root body.surfaceBody-lexical #main-content .portedVocabPreviewBar {
-  border-bottom-color: var(--lexical-line);
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 8px 12px;
+  border-color: var(--lexical-line);
+  border-radius: 0;
+  background: #fff;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar > a {
+  display: none;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar > div:not(.portedVocabPreviewActions) {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 9px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar > div:not(.portedVocabPreviewActions) span {
+  color: var(--lexical-muted);
+  font-size: 13px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar > div:not(.portedVocabPreviewActions) b {
+  color: var(--lexical-ink);
+  font-size: 18px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar > div:not(.portedVocabPreviewActions) small {
+  color: var(--lexical-muted);
+  font-size: 12px;
 }
 
 :root body.surfaceBody-lexical #main-content .portedVocabWordFront {
@@ -280,14 +295,117 @@ body.surfaceBody-lexical {
   line-height: 1.72;
 }
 
+:root body.surfaceBody-lexical #main-content .portedVocabWordHeader aside {
+  display: grid;
+  gap: 4px;
+  text-align: right;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabWordHeader aside b {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabWordHeader aside small {
+  color: var(--lexical-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Restore explicit header grammar inside dense Reveal objects. */
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense {
+  grid-template-columns: 124px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 14px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense > header {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense > header span {
+  color: var(--lexical-accent);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense > header small {
+  color: var(--lexical-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense > div p,
+:root body.surfaceBody-lexical #main-content .portedVocabCoreSense > div strong {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn > section > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 11px 12px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn > section > header span {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn > section > header small {
+  color: var(--lexical-muted);
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceList article {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceList article p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabEvidenceList article button,
+:root body.surfaceBody-lexical #main-content .portedVocabLocalNote button {
+  width: max-content;
+  min-height: 34px;
+  padding: 5px 9px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--lexical-accent);
+  font-size: 14px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabLocalNote > p {
+  margin: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabLocalNote > button {
+  margin: 0 12px 12px;
+}
+
 :root body.surfaceBody-lexical #main-content .portedVocabFoot details {
   display: none;
 }
 
 @media (max-width: 900px) {
   :root body.surfaceBody-lexical #main-content .lexicalHomeHeader {
-    grid-template-columns: 1fr;
-    align-items: start;
+    align-items: flex-start;
   }
 
   :root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav {
@@ -312,5 +430,13 @@ body.surfaceBody-lexical {
 
   :root body.surfaceBody-lexical #main-content .lexicalHandoff {
     display: grid;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabCoreSense {
+    grid-template-columns: 1fr;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabWordHeader aside {
+    text-align: left;
   }
 }
