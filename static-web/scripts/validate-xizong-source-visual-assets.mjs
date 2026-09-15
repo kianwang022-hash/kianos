@@ -53,7 +53,9 @@ for (const file of files) {
       if (!asset?.usage_label || !asset?.alt) fail(`${cueId}:ACCESSIBILITY_LABEL:${rel}`);
       if (!isSha(asset?.derived_asset_sha256)) fail(`${cueId}:DERIVED_SHA_DECLARATION:${rel}`);
       const actual = sha256(fs.readFileSync(abs));
-      if (actual !== asset.derived_asset_sha256) fail(`${cueId}:DERIVED_SHA_DRIFT:${rel}`);
+      if (actual !== asset.derived_asset_sha256) {
+        fail(`${cueId}:DERIVED_SHA_DRIFT:${rel}:expected=${asset.derived_asset_sha256}:actual=${actual}`);
+      }
       if (asset?.source_crop_sha256 && !isSha(asset.source_crop_sha256)) fail(`${cueId}:SOURCE_CROP_SHA:${rel}`);
       assetCount += 1;
     }
