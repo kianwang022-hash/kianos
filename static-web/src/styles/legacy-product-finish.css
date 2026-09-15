@@ -4,20 +4,20 @@
  * restore Legacy learning semantics, runtime ownership, progress models, or state.
  */
 :root {
-  --legacy-page: #edf1ef;
+  --legacy-page: #f5f5f7;
   --legacy-surface: #ffffff;
-  --legacy-soft: #f7faf8;
+  --legacy-soft: #fafafa;
   --legacy-tint: #eef4f1;
-  --legacy-line: #dce4e0;
-  --legacy-line-strong: #cbd7d1;
-  --legacy-ink: #16201f;
-  --legacy-muted: #64716c;
+  --legacy-line: #d8ddd9;
+  --legacy-line-strong: #c4cdc7;
+  --legacy-ink: #1d2421;
+  --legacy-muted: #53605a;
   --legacy-rail: #14201f;
   --legacy-rail-active: #263431;
-  --legacy-accent: #2b765d;
-  --legacy-accent-soft: #e8f2ed;
-  --legacy-shadow: 0 8px 22px rgba(29, 52, 48, .065);
-  --legacy-shadow-lift: 0 14px 34px rgba(29, 52, 48, .09);
+  --legacy-accent: #176b4f;
+  --legacy-accent-soft: #eaf3ef;
+  --legacy-shadow: 0 10px 30px rgba(22, 31, 27, .055);
+  --legacy-shadow-lift: 0 14px 34px rgba(22, 31, 27, .085);
 }
 
 html,
@@ -272,7 +272,7 @@ body {
   margin-top: 18px;
   padding: 28px 30px 46px;
   border: 1px solid var(--legacy-line);
-  border-radius: 10px;
+  border-radius: 14px;
   background: var(--legacy-surface);
   box-shadow: var(--legacy-shadow);
 }
@@ -360,6 +360,53 @@ body {
 .legacyProductWorkspace,
 .legacyOsRail {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+}
+
+/* 4173 round two: on the Mac-wide desktop the OS canvas owns the margins and
+   each landing surface becomes one viewport-level workbench. Subject launchers
+   are internal ruled sections, not a second layer of floating cards. */
+@media (min-width: 1101px) {
+  :root body .legacyProductWorkspace #main-content.productCanvas.hasPageLead {
+    width: min(1580px, calc(100% - 40px));
+    min-height: calc(100dvh - 36px);
+    box-sizing: border-box;
+    margin: 18px auto;
+  }
+
+  :root body .legacyProductWorkspace #main-content.productCanvas.hasPageLead .pageLead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 6px;
+  }
+
+  :root body.surfaceBody-politics .legacyProductWorkspace #main-content.productCanvas.hasPageLead .politicsSubjects {
+    margin-top: 4px;
+    border-inline: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  :root body.surfaceBody-english .legacyProductWorkspace #main-content.productCanvas.hasPageLead .englishEntryFamilies {
+    border-inline: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  :root body.surfaceBody-home .legacyProductWorkspace #main-content.productCanvas.hasPageLead .globalEntries {
+    gap: 0;
+    border-block: 1px solid var(--legacy-line);
+  }
+
+  :root body.surfaceBody-home .legacyProductWorkspace #main-content.productCanvas.hasPageLead .globalEntries > section {
+    padding: 24px 28px;
+    border-top: 0;
+  }
+
+  :root body.surfaceBody-home .legacyProductWorkspace #main-content.productCanvas.hasPageLead .globalEntries > section + section {
+    border-left: 1px solid var(--legacy-line);
+  }
 }
 
 @media (min-width: 1440px) {
