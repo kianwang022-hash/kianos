@@ -154,8 +154,14 @@ async function systemQuestionRepairJourney(page) {
   for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
   await exit.locator('[data-submit-answer]').click();
   await exit.locator('[data-mark-uncertain]').click();
-  const saved = await page.evaluate((qid) => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}').results?.[qid], target.questionId);
-  check(saved?.status === 'uncertain', 'uncertain_result_persists_as_question_evidence');
+  const firstPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
+  const saved = firstPassState.results?.[target.questionId];
+  const firstAttempt = (firstPassState.attemptHistory || []).find((event) => event.question_id === target.questionId && event.evidence_origin === 'USER_QUESTION_ATTEMPT');
+  check(saved?.status === 'uncertain', 'uncertain_result_persists_as_current_round_state');
+  check(firstPassState.round?.studyPhase === 'FIRST_PASS' && firstPassState.round?.ordinal === 1, 'first_pass_round_is_explicit');
+  check(firstAttempt?.type === 'QUESTION_ATTEMPT' && firstAttempt?.status === 'uncertain', 'first_pass_attempt_appended');
+  check(firstAttempt?.study_phase === 'FIRST_PASS' && firstAttempt?.attempt_index === 1, 'first_pass_attempt_order_and_phase_preserved');
+  const firstAttemptSnapshot = JSON.stringify(firstAttempt);
 
   const repair = page.locator('[data-xizong-repair-return="respiratory"]');
   await repair.locator(':scope > summary').click();
@@ -183,8 +189,74 @@ async function systemQuestionRepairJourney(page) {
   await repairPage.close();
 
   check(!page.isClosed(), 'original_sweep_tab_preserved_for_return');
-  const savedAfterRepair = await page.evaluate((qid) => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}').results?.[qid], target.questionId);
-  check(savedAfterRepair?.status === 'uncertain', 'repair_does_not_rewrite_original_question_evidence');
+  const stateAfterRepair = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
+  const savedAfterRepair = stateAfterRepair.results?.[target.questionId];
+  const firstAttemptAfterRepair = (stateAfterRepair.attemptHistory || []).find((event) => event.attempt_id === firstAttempt.attempt_id);
+  check(savedAfterRepair?.status === 'uncertain', 'repair_does_not_rewrite_current_round_result');
+  check(JSON.stringify(firstAttemptAfterRepair) === firstAttemptSnapshot, 'repair_does_not_rewrite_original_question_attempt');
+
+  // Complete the remaining current-round session state without manufacturing
+  // attempt evidence, then prove the real runtime can explicitly open round 2.
+  await page.evaluate(({ heldYear, questions }) => {
+    const key = 'kianos:xizong:system-question-sweep:respiratory:v1';
+    const state = JSON.parse(localStorage.getItem(key) || '{"results":{}}');
+    const active = questions.filter((q) => Number(q.year) !== Number(heldYear));
+    state.results ||= {};
+    for (const q of active) {
+      if (state.results[q.questionId]) continue;
+      state.results[q.questionId] = {
+        status: 'stable', selected: [], correctAnswer: q.correctAnswer, updatedAt: new Date().toISOString(),
+        roundId: state.round?.id, studyPhase: state.round?.studyPhase
+      };
+    }
+    localStorage.setItem(key, JSON.stringify(state));
+  }, { heldYear: holdoutYear, questions: payload.questions });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await later.locator(':scope > summary').click();
+  await exit.locator('[data-start-sweep]').click();
+  await exit.locator('[data-sweep-done]').waitFor({ state: 'visible' });
+  check((await exit.locator('[data-study-phase]').textContent() || '').includes('一轮'), 'done_surface_reports_first_pass');
+  check((await exit.locator('[data-start-next-round]').textContent() || '').includes('第二轮'), 'done_surface_offers_second_pass_without_new_runtime');
+  await exit.locator('[data-start-next-round]').click();
+
+  const secondRoundStart = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
+  const preservedAfterRoundStart = (secondRoundStart.attemptHistory || []).filter((event) => event.question_id === target.questionId);
+  check(secondRoundStart.round?.studyPhase === 'SECOND_PASS' && secondRoundStart.round?.ordinal === 2, 'second_pass_round_started_in_same_runtime');
+  check(Object.keys(secondRoundStart.results || {}).length === 0, 'next_round_resets_only_session_results');
+  check(preservedAfterRoundStart.length === 1 && JSON.stringify(preservedAfterRoundStart[0]) === firstAttemptSnapshot, 'next_round_preserves_first_attempt');
+
+  // Navigate the deterministic browser journey back to the same reviewed target
+  // while keeping the target itself unanswered in round 2.
+  await page.evaluate(({ targetId, heldYear, questions }) => {
+    const key = 'kianos:xizong:system-question-sweep:respiratory:v1';
+    const state = JSON.parse(localStorage.getItem(key) || '{"results":{}}');
+    const active = questions.filter((q) => Number(q.year) !== Number(heldYear));
+    for (const q of active) {
+      if (q.questionId === targetId) break;
+      state.results[q.questionId] = {
+        status: 'stable', selected: [], correctAnswer: q.correctAnswer, updatedAt: new Date().toISOString(),
+        roundId: state.round?.id, studyPhase: state.round?.studyPhase
+      };
+    }
+    localStorage.setItem(key, JSON.stringify(state));
+  }, { targetId: target.questionId, heldYear: holdoutYear, questions: payload.questions });
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await later.locator(':scope > summary').click();
+  await exit.locator('[data-start-sweep]').click();
+  check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'same_question_reenters_in_second_pass');
+  check((await exit.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reports_second_pass');
+
+  for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
+  await exit.locator('[data-submit-answer]').click();
+  await exit.locator('[data-mark-stable]').click();
+
+  const secondPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
+  const targetAttempts = (secondPassState.attemptHistory || []).filter((event) => event.question_id === target.questionId);
+  check(targetAttempts.length === 2, 'same_question_has_two_append_preserved_attempts');
+  check(JSON.stringify(targetAttempts[0]) === firstAttemptSnapshot, 'second_pass_does_not_mutate_first_attempt');
+  check(targetAttempts[1]?.study_phase === 'SECOND_PASS' && targetAttempts[1]?.attempt_index === 2, 'second_attempt_has_distinct_phase_and_order');
+  check(targetAttempts[1]?.status === 'stable' && targetAttempts[1]?.evidence_origin === 'USER_QUESTION_ATTEMPT', 'second_attempt_records_fresh_observation');
+  check(secondPassState.results?.[target.questionId]?.studyPhase === 'SECOND_PASS', 'mutable_results_only_describe_current_round');
 }
 
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], {
