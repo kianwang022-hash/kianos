@@ -135,7 +135,7 @@ body.surfaceBody-xizong {
 :root body.surfaceBody-xizong #main-content .xse :is(p,li,label,.xseCardBody p,.xseHoldoutCurrent) {font-size:19px;line-height:1.8;}
 :root body.surfaceBody-xizong #main-content .xse :is(h2,h3) {font-size:25px;line-height:1.5;}
 :root body.surfaceBody-xizong #main-content .xse :is(small,.xseEyebrow,.xseWorkspaceHead span) {font-size:16px;line-height:1.7;}
-:root body.surfaceBody-xizong #main-content .xse .xseStem {font-size:22px;font-weight:600;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xse p.xseStem {font-size:22px;font-weight:600;line-height:1.85;}
 :root body.surfaceBody-xizong #main-content .xse .xseOption {font-size:20px;line-height:1.8;padding:14px 18px!important;}
 :root body.surfaceBody-xizong #main-content .xse .xseOption :is(b,span) {font-size:20px;}
 :root body.surfaceBody-xizong #main-content .xse .xseQuestionMap button {font-size:15px;min-height:40px;}
@@ -180,3 +180,14 @@ body.surfaceBody-xizong {
   :root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell {grid-template-columns:1fr;}
   :root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell>aside {max-height:180px;overflow:auto;}
 }
+
+/* Same-slice screenshot correction: readable type must not bury the Core below chrome. */
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyIdentity {padding:12px 20px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyIdentity>div>span {font-size:14px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyTabs button {min-height:40px;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedKpWorkspace,.portedKpRecallCard) {padding:0;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedKpWorkspaceHeader {padding:10px 0;margin-bottom:10px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedKpRecallCard>header {padding:12px 0;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedRecallPrompt {padding:12px 0;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedRecallPrompt:has([data-kp-reveal][hidden]) {display:none;}
+:root body.surfaceBody-xizong #main-content .xv6Block .xv6BlockOrientation .portedStudyArticle {padding-top:0;margin-top:8px;}
