@@ -1,3 +1,4 @@
+// Acceptance probe for one-runtime, append-preserved multi-pass question evidence.
 import assert from 'node:assert/strict';
 import {
   ensureXizongQuestionSweepState,
