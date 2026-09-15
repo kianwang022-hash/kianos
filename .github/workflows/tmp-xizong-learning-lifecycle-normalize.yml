@@ -1,0 +1,53 @@
+name: Temporary Xizong learning lifecycle normalization
+
+on:
+  push:
+    branches:
+      - chat/xizong-learning-owner-lifecycle-consolidation
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chat/xizong-learning-owner-lifecycle-consolidation
+          fetch-depth: 0
+      - name: Normalize accepted Learning-owner lifecycle metadata only
+        shell: python
+        run: |
+          from pathlib import Path
+
+          replacements = {
+              Path('content/xizong/knowledge/learner/a3-urinary-learning.json'): [
+                  ('"status": "SYSTEM_BELOW_K_CLOSED"', '"status": "CURRENT"'),
+                  ('"authority": "CHAT_APPROVED_UPGRADE_WORK"', '"authority": "CHAT_APPROVED_LEARNING_ACCEPTANCE"'),
+              ],
+              Path('content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json'): [
+                  ('"status": "L_CANDIDATE"', '"status": "CURRENT"'),
+                  ('"construction_status": "PHASE5_CROSS_SURFACE_CLOSED_PENDING_INDEPENDENT_L_ACCEPTANCE"', '"construction_status": "PHASE6_INDEPENDENT_L_ACCEPTED"'),
+                  ('"authority": "CURRENT_PHASE0_5_COMPILED_LEARNING_CONSTRUCTION"', '"authority": "CHAT_APPROVED_LEARNING_ACCEPTANCE"'),
+              ],
+          }
+
+          for path, pairs in replacements.items():
+              text = path.read_text(encoding='utf-8')
+              for old, new in pairs:
+                  count = text.count(old)
+                  if count != 1:
+                      raise SystemExit(f'{path}: expected exactly one {old!r}, found {count}')
+                  text = text.replace(old, new, 1)
+              path.write_text(text, encoding='utf-8')
+      - name: Self-remove temporary workflow and commit bounded changes
+        run: |
+          git rm .github/workflows/tmp-xizong-learning-lifecycle-normalize.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/xizong/knowledge/learner/a3-urinary-learning.json content/xizong/knowledge/learner/b-digestive-metabolic-endocrine-tumor-learning.json
+          git diff --cached --check
+          git commit -m "xizong: align accepted learning owner lifecycle metadata"
+          git push origin HEAD:chat/xizong-learning-owner-lifecycle-consolidation
