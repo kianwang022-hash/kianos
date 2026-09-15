@@ -7,19 +7,30 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "51242e6d3cf3a95a701833a924dcedef51a65923bdefd7d12ae8ce5bf9944210",
+    "content_hash": "33222c207e529f0e23d437707936b2ef073183112c1bad009caac61dbd355a29",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "与实践或实用性相关",
-      "core_meaning_en": "related to practice or usefulness",
-      "mental_model_cn": "与实践或实用性相关",
+      "core_clusters": [
+        {
+          "label_cn": "实际可行的；现实明智的",
+          "label_en": "sensible and realistic in the circumstances",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:practical:a6633babfeb0dc27"
+          ]
+        }
+      ],
+      "core_meaning_cn": "实际的；实用的；现实可行/明智的",
+      "core_meaning_en": "real-world; useful; sensible and realistic",
+      "mental_model_cn": "实际的；实用的；现实可行/明智的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -88,6 +99,30 @@
         "sense_label_en": "useful and suitable for a purpose",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d67029878e77d65f6ff3",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:practical:a6633babfeb0dc27:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "实际可行的解决方案/明智决定",
+            "phrase": "a practical solution/decision"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "实际可行的；现实而明智的",
+        "definition_en": "sensible, realistic, and workable in the circumstances",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:practical:a6633babfeb0dc27",
+        "sense_label_en": "sensible, realistic, and workable in the circumstances",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -133,13 +168,21 @@
         "merged_into_sense_id": null,
         "source_row": 10366,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      },
+      {
+        "sense_id": "sense:practical:a6633babfeb0dc27",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10424,
+        "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
       }
     ],
     "active_collocations": [
       "collocation:16708a3694c836c82070",
       "collocation:330d2a6676c20b30a605",
       "collocation:77491a6e7a932a46ff1d",
-      "collocation:bc35335e0648b03e1af4"
+      "collocation:bc35335e0648b03e1af4",
+      "collocation:d67029878e77d65f6ff3"
     ],
     "facts": [],
     "collocations": [
@@ -161,6 +204,11 @@
       {
         "id": "collocation:bc35335e0648b03e1af4",
         "source_row": 15942,
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:d67029878e77d65f6ff3",
+        "source_row": 21419,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
       }
     ],

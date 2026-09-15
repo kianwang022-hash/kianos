@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7d9b7dd2ad26d34084dc870e16ce06061e4c45426209335fa2d4bccce9c1db5d",
+    "content_hash": "92526623ad41f4b53060a075f4ea0615ee302302363d0001b82d8f9731c92461",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,18 +27,28 @@
             "sense:positive:4278cb03277d5ff8",
             "sense:positive:a7adfb5cd0ac5347"
           ]
+        },
+        {
+          "label_cn": "正的；正电的",
+          "label_en": "greater than zero or positively charged",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:positive:026abe4fd94039ce"
+          ]
         }
       ],
-      "core_meaning_cn": "积极的，肯定的",
-      "core_meaning_en": "affirmative, constructive, or indicating presence",
-      "mental_model_cn": "积极的，肯定的",
+      "core_meaning_cn": "肯定/积极/有利的；阳性的；正数/正电的",
+      "core_meaning_en": "affirmative or beneficial; positive test; greater than zero or positively charged",
+      "mental_model_cn": "肯定/积极/有利的；阳性的；正数/正电的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -61,17 +71,26 @@
             ],
             "meaning_cn": "肯定的回答",
             "phrase": "positive response"
+          },
+          {
+            "collocation_id": "collocation:fbba526279da3832d7da",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:positive:b14428dae66d5e05:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "积极/有利的影响或结果",
+            "phrase": "positive effect/outcome"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "肯定的，积极的",
-        "definition_en": "characterized by or displaying affirmation or acceptance or certainty",
+        "definition_cn": "肯定的；积极的；有利的；建设性的",
+        "definition_en": "affirmative, optimistic, beneficial, favorable, or constructive",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:positive:b14428dae66d5e05",
-        "sense_label_en": "characterized by or displaying affirmation or acceptance or certainty",
+        "sense_label_en": "affirmative, optimistic, beneficial, favorable, or constructive",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -136,6 +155,30 @@
         "sense_label_en": "a film showing a photographic image whose tones correspond to those of t",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b2f90a6b10e86ee15525",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:positive:026abe4fd94039ce:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "正数/正电荷",
+            "phrase": "positive number/charge"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "正的；大于零的；带正电的",
+        "definition_en": "greater than zero in mathematics or having positive electric charge",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:positive:026abe4fd94039ce",
+        "sense_label_en": "greater than zero in mathematics or having positive electric charge",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -161,6 +204,13 @@
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:positive:026abe4fd94039ce",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10352,
+        "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
       {
         "sense_id": "sense:positive:4278cb03277d5ff8",
         "status": "active",
@@ -194,7 +244,9 @@
       "collocation:5e5bc6dd19fb6cc687da",
       "collocation:7d5556d5c55cc92477cd",
       "collocation:9932e7723c71de63224c",
-      "collocation:d20a942c679f00c03e4b"
+      "collocation:b2f90a6b10e86ee15525",
+      "collocation:d20a942c679f00c03e4b",
+      "collocation:fbba526279da3832d7da"
     ],
     "facts": [],
     "collocations": [
@@ -214,8 +266,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
       },
       {
+        "id": "collocation:b2f90a6b10e86ee15525",
+        "source_row": 21598,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
         "id": "collocation:d20a942c679f00c03e4b",
         "source_row": 17744,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:fbba526279da3832d7da",
+        "source_row": 21597,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
       }
     ],

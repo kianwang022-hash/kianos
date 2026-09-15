@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ccb0e1c5ba19733562e4a72c5375b07d69783af7cbd8a110453b6cf53b4880e5",
+    "content_hash": "7540bb2a5281933c166d99d7ae09f2f0df308ce9cf566017da63302c894acc02",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,18 +29,28 @@
             "sense:port:d7c49d551f0e5a46",
             "sense:port:edcbc5bdc76b5817"
           ]
+        },
+        {
+          "label_cn": "波特酒",
+          "label_en": "fortified wine called port",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:port:24cfdde8ddc86cbe"
+          ]
         }
       ],
-      "core_meaning_cn": "港口；舱门；左舷；端口",
-      "core_meaning_en": "a place for loading/unloading ships; an opening; left side of a ship; computer port",
-      "mental_model_cn": "港口；舱门；左舷；端口",
+      "core_meaning_cn": "港口；左舷；端口；波特酒；移植软件",
+      "core_meaning_en": "a seaport; port side; computer port; port wine; to port software",
+      "mental_model_cn": "港口；左舷；端口；波特酒；移植软件",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -66,16 +76,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "港口，机场",
-        "definition_en": "a place (seaport or airport) where people and merchandise can enter or leave a country",
+        "definition_cn": "港口；海港",
+        "definition_en": "a harbor or seaport where ships load, unload, arrive, or depart; broader entry-point uses occur in compounds such as port of entry",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:port:18c3f1faf4bb5600",
-        "sense_label_en": "a place (seaport or airport) where people and merchandise can enter or l",
+        "sense_label_en": "a harbor or seaport where ships load, unload, arrive, or depart; broader entry-point uses occur in compounds such as port of entry",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Plain port ordinarily means a harbor/seaport; airport belongs only in bounded expressions such as port of entry, not as the default meaning of port."
       },
       {
         "collocations": [
@@ -196,6 +207,30 @@
         "sense_label_en": "transfer software from one system to another",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:24b5b0959d0c753a2e0e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:port:24cfdde8ddc86cbe:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "一杯波特酒",
+            "phrase": "a glass of port"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "波特酒；葡萄牙加强葡萄酒",
+        "definition_en": "a sweet fortified wine, traditionally from Portugal",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:port:24cfdde8ddc86cbe",
+        "sense_label_en": "a sweet fortified wine, traditionally from Portugal",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -226,6 +261,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10261,
+        "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
+      {
+        "sense_id": "sense:port:24cfdde8ddc86cbe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10351,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
       },
       {
@@ -267,6 +309,7 @@
     "active_collocations": [
       "collocation:1bcdb32d8b39af19e7f4",
       "collocation:1f0c8077fac35bc02fbe",
+      "collocation:24b5b0959d0c753a2e0e",
       "collocation:a69a6c91811e69097bac",
       "collocation:bda65b5d7e2e8eb5c822",
       "collocation:ce59f8bfde04c21d210f",
@@ -283,6 +326,11 @@
       {
         "id": "collocation:1f0c8077fac35bc02fbe",
         "source_row": 2574,
+        "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:24b5b0959d0c753a2e0e",
+        "source_row": 21596,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
       },
       {

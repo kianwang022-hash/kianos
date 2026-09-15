@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c455b40db38ef3564f784e7b6f2e8deabf8edda508c5ee44425b57474db875e1",
+    "content_hash": "db48ebe59a360456973d69073eb3f6e385b14e506a872735d59a342da2ebd14f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "受欢迎的，流行的",
-      "core_meaning_en": "liked or admired by many people",
-      "mental_model_cn": "受欢迎的，流行的",
+      "core_clusters": [
+        {
+          "label_cn": "受欢迎的；广受喜爱的",
+          "label_en": "liked or admired by many people",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:popular:8483fdba56405bcb"
+          ]
+        },
+        {
+          "label_cn": "大众的；面向公众的；广泛流行的",
+          "label_en": "of or relating to the general public; widely current",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:popular:56bc6ae178a25629"
+          ]
+        }
+      ],
+      "core_meaning_cn": "受欢迎的；大众的/广泛流行的",
+      "core_meaning_en": "liked by many; of or widespread among the general public",
+      "mental_model_cn": "受欢迎的；大众的/广泛流行的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,6 +73,30 @@
         "sense_id": "sense:popular:8483fdba56405bcb",
         "sense_label_en": "liked or admired by many people or by a particular group",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:80876254768ecff57a8b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:popular:56bc6ae178a25629:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "大众文化/普遍信念/大众报刊",
+            "phrase": "popular culture/belief/press"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "大众的；民众的；面向普通公众的",
+        "definition_en": "of, relating to, or intended for the general public; widely current among ordinary people",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:popular:56bc6ae178a25629",
+        "sense_label_en": "of, relating to, or intended for the general public; widely current among ordinary people",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -102,31 +145,6 @@
       "source_row": 10251,
       "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:popular:56bc6ae178a25629",
-      "status": "merged",
-      "merged_into_sense_id": "sense:popular:8483fdba56405bcb",
-      "pos": "adjective",
-      "definition_cn": "大众的，民众的",
-      "definition_en": "of or relating to the general public",
-      "semantic_key": "891bdeaea5ac29d5a3b5bb2cdf59a3e95e5ba5f30cca93dee0326c6f6c1a016d",
-      "semantic_key_history": [
-        "2853c3814c5b6a1f033139d0b5d44082614ce6784a3801711ded0c886037b2d7"
-      ],
-      "legacy_aliases": [
-        "popular:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "popular:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10252,
-      "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -140,8 +158,8 @@
       },
       {
         "sense_id": "sense:popular:56bc6ae178a25629",
-        "status": "merged",
-        "merged_into_sense_id": "sense:popular:8483fdba56405bcb",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10252,
         "source_path": "content/lexical/canonical/senses/shards/o3649-3680.json"
       },
@@ -155,6 +173,7 @@
     ],
     "active_collocations": [
       "collocation:21fa34ad153b6d727046",
+      "collocation:80876254768ecff57a8b",
       "collocation:ed10fd758291b251cd17"
     ],
     "facts": [],
@@ -177,6 +196,11 @@
       {
         "id": "collocation:4dbdfe7b3459ae156ab2",
         "source_row": 6556,
+        "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
+      },
+      {
+        "id": "collocation:80876254768ecff57a8b",
+        "source_row": 20908,
         "source_path": "content/lexical/canonical/collocations/shards/o3649-3680.json"
       },
       {
