@@ -16,9 +16,16 @@
         "form": "nuclear family",
         "level": "L2",
         "pos": "noun"
+      },
+      {
+        "construction_id": "construction:785a4adcad9f601f8826",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "核心家庭；由父母与子女构成的家庭单位",
+        "pattern": "nuclear family"
       }
     ],
-    "content_hash": "30c00210347e146007f7acfe2bd385d7e5ee423052dc5eccef151ba44d8f65de",
+    "content_hash": "7e71a436c5b99e7c1c3cfa3387d0c326b852afc711a3e97d7f3716967592326b",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "核的",
@@ -92,30 +99,6 @@
         "sense_label_en": "relating to the nucleus of a cell",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8aebfb75675ff0c34701",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:nuclear:06a504e9ad315315:collocation:0"
-            ],
-            "meaning_cn": "核心家庭",
-            "phrase": "nuclear family"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "核心的，中心的",
-        "definition_en": "forming the central part of something",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:nuclear:06a504e9ad315315",
-        "sense_label_en": "forming the central part of something",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -138,12 +121,36 @@
     "word_id": "word:nuclear"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:nuclear:06a504e9ad315315",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "核心的，中心的",
+      "definition_en": "forming the central part of something",
+      "semantic_key": "e50022c249f20677df8e1573098e30f2a78e56967addf81d0480d1e729092ab2",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "nuclear:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "nuclear:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T00:00:00Z",
+      "source_row": 9087,
+      "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:nuclear:06a504e9ad315315",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9087,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
@@ -166,8 +173,7 @@
     "active_collocations": [
       "collocation:1d3cb11a382d2156c962",
       "collocation:3f273840077f9d7ccd7d",
-      "collocation:432768204890ff549843",
-      "collocation:8aebfb75675ff0c34701"
+      "collocation:432768204890ff549843"
     ],
     "facts": [],
     "collocations": [
@@ -233,7 +239,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3273-3280.json",
-    "source_content_hash": "30c00210347e146007f7acfe2bd385d7e5ee423052dc5eccef151ba44d8f65de",
+    "source_content_hash": "7e71a436c5b99e7c1c3cfa3387d0c326b852afc711a3e97d7f3716967592326b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

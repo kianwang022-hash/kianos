@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5c88984dde2e2a496575c4ff18f38282d271b68dc2167e931e5ca712c4a29650",
+    "content_hash": "03752f656d0e0b58edd463d337608d1325d187c1b1ef33b136449e4b807f341b",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,14 @@
           "pos": "noun",
           "sense_ids": [
             "sense:neutral:e73bd8241944525d"
+          ]
+        },
+        {
+          "label_cn": "科学上的中性状态",
+          "label_en": "scientific neutral state",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:neutral:6cca8482c8c51b61"
           ]
         }
       ],
@@ -121,6 +129,30 @@
         "sense_label_en": "a person or country that does not take sides in a dispute",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e3f67d6db52b93a921e9",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:neutral:6cca8482c8c51b61:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "电中性的",
+            "phrase": "electrically neutral"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（科学）中性的：既非酸也非碱；或无净电荷",
+        "definition_en": "in scientific use, neither acidic nor basic and/or having no net electrical charge",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:neutral:6cca8482c8c51b61",
+        "sense_label_en": "in scientific use, neither acidic nor basic and/or having no net electrical charge",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -166,13 +198,21 @@
         "merged_into_sense_id": null,
         "source_row": 8952,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:neutral:6cca8482c8c51b61",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8994,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
     "active_collocations": [
       "collocation:8aac4a0b63ce78b648bd",
       "collocation:a990da7751e864bf9c95",
       "collocation:b4bf277a792d52d2e7e2",
-      "collocation:cb2ee6f103e56dd4650a"
+      "collocation:cb2ee6f103e56dd4650a",
+      "collocation:e3f67d6db52b93a921e9"
     ],
     "facts": [],
     "collocations": [
@@ -194,6 +234,11 @@
       {
         "id": "collocation:cb2ee6f103e56dd4650a",
         "source_row": 17167,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:e3f67d6db52b93a921e9",
+        "source_row": 21413,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -233,7 +278,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3209-3216.json",
-    "source_content_hash": "5c88984dde2e2a496575c4ff18f38282d271b68dc2167e931e5ca712c4a29650",
+    "source_content_hash": "03752f656d0e0b58edd463d337608d1325d187c1b1ef33b136449e4b807f341b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

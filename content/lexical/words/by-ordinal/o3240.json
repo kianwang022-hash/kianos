@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1e0322d6e8aec9cda9ff0c97ad8d0d592e46d344a5f5883338125183622e5d88",
+    "content_hash": "5c8ccc215824df23d61787b622149f07c8e544876ef0d8dc50568905b7818e74",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "没有；一点也不",
@@ -64,7 +64,17 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:60b1329efe19b179d6b7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:none:0639a1ce24b855c3:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "……中一个也没有；……中没有任何人/物",
+            "phrase": "none of ..."
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "没有任何一个；没有任何东西",
         "definition_en": "not any of a group",
@@ -80,20 +90,6 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "没有任何的",
-        "definition_en": "not any",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:none:2bc83847a022501f",
-        "sense_label_en": "not any",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
         "definition_cn": "一点也不；丝毫不",
         "definition_en": "not at all or in no way",
         "governing_pattern": "",
@@ -102,7 +98,7 @@
         "pos": "adverb",
         "sense_id": "sense:none:8a4db307eca65cab",
         "sense_label_en": "not at all or in no way",
-        "sort_order": 2,
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -126,7 +122,33 @@
     "word_id": "word:none"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:none:2bc83847a022501f",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "没有任何的",
+      "definition_en": "not any",
+      "semantic_key": "a8c393eaa3f8d1cfe1c56a5b0669877fcaed0d9c4f9dfe8aa60d0bc264dfb6c4",
+      "semantic_key_history": [
+        "06ba850858ea6d6fafff444495e0845a3758c883e735165b3309f671984c5bfa"
+      ],
+      "legacy_aliases": [
+        "none:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "none:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T00:00:00Z",
+      "source_row": 9014,
+      "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -138,7 +160,7 @@
       },
       {
         "sense_id": "sense:none:2bc83847a022501f",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9014,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
@@ -151,7 +173,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:60b1329efe19b179d6b7"
+    ],
     "facts": [
       {
         "id": "deep:secondary_senses:none:8dcc723ba2782049",
@@ -184,6 +208,11 @@
         "id": "collocation:d6f60639df7576ad3895",
         "source_row": 18184,
         "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:60b1329efe19b179d6b7",
+        "source_row": 21537,
+        "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
       }
     ],
     "exam-mappings": [],
@@ -212,7 +241,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3233-3240.json",
-    "source_content_hash": "1e0322d6e8aec9cda9ff0c97ad8d0d592e46d344a5f5883338125183622e5d88",
+    "source_content_hash": "5c8ccc215824df23d61787b622149f07c8e544876ef0d8dc50568905b7818e74",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

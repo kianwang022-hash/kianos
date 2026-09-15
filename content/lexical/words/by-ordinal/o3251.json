@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "22ed463f71e42067589a1edca4c701cef56b999067629858cc8d2bcf182ecc79",
+    "content_hash": "3d4aac0dfbc1cd143f1ed8afc67a69e52eb317b070ce12c17959a3a17e35d251",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,14 +16,6 @@
           "pos": "adjective",
           "sense_ids": [
             "sense:northern:eb17abcb6af65b3f"
-          ]
-        },
-        {
-          "label_cn": "北方人",
-          "label_en": "a person from the north",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:northern:f83299accb595237"
           ]
         }
       ],
@@ -72,20 +64,6 @@
         "sense_label_en": "situated in or coming from the north",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "北方人",
-        "definition_en": "a person from the north",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:northern:f83299accb595237",
-        "sense_label_en": "a person from the north",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -108,7 +86,31 @@
     "word_id": "word:northern"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:northern:f83299accb595237",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "北方人",
+      "definition_en": "a person from the north",
+      "semantic_key": "7b3c2b3e481b1d7937d23ec70dbd5138cd5d78afa71e3fa3b91cfdafcca8d6f7",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "northern:l3:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "northern:l3:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T00:00:00Z",
+      "source_row": 9035,
+      "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -120,7 +122,7 @@
       },
       {
         "sense_id": "sense:northern:f83299accb595237",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9035,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
@@ -179,7 +181,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3249-3256.json",
-    "source_content_hash": "22ed463f71e42067589a1edca4c701cef56b999067629858cc8d2bcf182ecc79",
+    "source_content_hash": "3d4aac0dfbc1cd143f1ed8afc67a69e52eb317b070ce12c17959a3a17e35d251",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

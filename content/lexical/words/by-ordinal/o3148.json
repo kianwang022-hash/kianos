@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4aa65db809993f62509778d27901b519c563eb32a4d076f9a0f304bb7d62777d",
+    "content_hash": "f8ee646238834b9744fdfdc338f70d7b2522232f32c0c165181b40c1c8fa1ce5",
     "core_concept": {
       "core_clusters": [
         {
@@ -124,18 +124,38 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:24a7b24fb4921e582e9f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mug:fb9cda48640e577a:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "突击学习某事",
+            "phrase": "mug sth up"
+          },
+          {
+            "collocation_id": "collocation:14b0500c2aa31ccb608e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mug:fb9cda48640e577a:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "突击复习某事",
+            "phrase": "mug up on sth"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "苦读，用功",
-        "definition_en": "to study hard (British informal)",
-        "governing_pattern": "",
+        "definition_cn": "（英式非正式）突击学习；用功复习",
+        "definition_en": "BrE informal: to study or revise intensively, especially in the phrasal uses mug sth up or mug up on sth",
+        "governing_pattern": "mug sth up; mug up on sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mug:fb9cda48640e577a",
-        "sense_label_en": "to study hard (British informal)",
+        "sense_label_en": "BrE informal: to study or revise intensively, especially in the phrasal uses mug sth up or mug up on sth",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "Teach this study meaning through BrE informal phrasal usage, not bare neutral mug."
       }
     ],
     "verification_summary": {
@@ -192,6 +212,8 @@
     ],
     "active_collocations": [
       "collocation:1086d7347d29d837b362",
+      "collocation:14b0500c2aa31ccb608e",
+      "collocation:24a7b24fb4921e582e9f",
       "collocation:4d896eff9318a3d45cc6",
       "collocation:cf00b3a15a80df197e03",
       "collocation:d4dd8d2bedb4d262c3b8"
@@ -216,6 +238,16 @@
       {
         "id": "collocation:d4dd8d2bedb4d262c3b8",
         "source_row": 17988,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:14b0500c2aa31ccb608e",
+        "source_row": 21549,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:24a7b24fb4921e582e9f",
+        "source_row": 21550,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
       }
     ],
@@ -250,7 +282,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3145-3152.json",
-    "source_content_hash": "4aa65db809993f62509778d27901b519c563eb32a4d076f9a0f304bb7d62777d",
+    "source_content_hash": "f8ee646238834b9744fdfdc338f70d7b2522232f32c0c165181b40c1c8fa1ce5",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

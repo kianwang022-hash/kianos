@@ -7,9 +7,18 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "012bd278efac53b94f0cdb4da77a338a67cc45eec5ea22fc213db05811ff381c",
+    "content_hash": "43331d15bc8cf596e1f44a2b4932dd1d9a6880ff3ffab1a149eeebffd8ffae75",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "连接计算机/设备成网",
+          "label_en": "connect devices into a network",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:network:e7cf4fac46bf4e02"
+          ]
+        }
+      ],
       "core_meaning_cn": "相互连接的体系",
       "core_meaning_en": "an interconnected system",
       "mental_model_cn": "相互连接的体系",
@@ -47,14 +56,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "由事物或人组成的互联系统",
-        "definition_en": "an interconnected system of things or people",
+        "definition_cn": "网络；相互连接的系统（包括计算机/设备网络）",
+        "definition_en": "an interconnected system of people, things, computers, or devices",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:network:93e5534eae2f5dde",
-        "sense_label_en": "an interconnected system of things or people",
+        "sense_label_en": "an interconnected system of people, things, computers, or devices",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -136,6 +145,20 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把计算机/设备连接成网络",
+        "definition_en": "to connect computers or devices into a network",
+        "governing_pattern": "network computers/devices",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:network:e7cf4fac46bf4e02",
+        "sense_label_en": "to connect computers or devices into a network",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -187,6 +210,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8949,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:network:e7cf4fac46bf4e02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8993,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
@@ -260,7 +290,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3209-3216.json",
-    "source_content_hash": "012bd278efac53b94f0cdb4da77a338a67cc45eec5ea22fc213db05811ff381c",
+    "source_content_hash": "43331d15bc8cf596e1f44a2b4932dd1d9a6880ff3ffab1a149eeebffd8ffae75",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
