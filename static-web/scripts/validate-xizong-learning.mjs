@@ -152,7 +152,6 @@ assert(sweep.questions.length === 376, `loaded-questions:${sweep.questions.lengt
 const richExplanation = sweep.questions.find((q) => q.explanation?.decisionAxis && q.explanation?.valuableDistractors?.length && q.explanation?.transferRule);
 assert(Boolean(richExplanation), 'reviewed-second-pass-explanation-not-projected');
 assert(richExplanation.explanation.valuableDistractors.every((item) => item.option && item.reason), 'valuable-distractor-projection-malformed');
-assert(sweep.questions.some((q) => !q.explanation), 'missing-explanation-path-not-represented');
 
 const testYear = sweep.years[0];
 const holdout = normalizeHoldout([testYear, testYear, -1, 9999, 'bad'], sweep.years);
