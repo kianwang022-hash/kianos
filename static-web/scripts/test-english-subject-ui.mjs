@@ -75,10 +75,15 @@ try {
   const context=await browser.newContext({viewport:{width:1440,height:900}});
   const page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',error=>report.errors.push(error.message));
   const go=async(route,host=base)=>{const res=await page.goto(host+route);assert.equal(res.status(),200,route);await page.evaluate(async()=>{await document.fonts.ready;});};
-  const shot=async name=>{await noOverflow(page,name);await page.screenshot({path:path.join(out,`${name}.png`)});};
+  const shot=async name=>{await page.screenshot({path:path.join(out,`${name}.png`)});await noOverflow(page,name);};
   const tasks=listWritingSyntheticTasks();assert.equal(tasks.length,2);
   const views=[
     ['home','/english/','.englishEntryFamilies p',18,production],
+    ['catalog-reading','/reading/','.readingHomeHero p',18,production],
+    ['catalog-cloze','/cloze/','.objectiveHomeHero p',18,production],
+    ['catalog-part-b','/reading-b/','.objectiveHomeHero p',18,production],
+    ['catalog-translation','/translation/','.translationHero p',18,production],
+    ['catalog-writing','/writing/','.writingHomeHero p',18,production],
     ['reading','/reading/fixture-reading/','.portedReadingPassage p',20],
     ['cloze','/cloze/fixture-cloze/','.clozePassage p',20],
     ...['gap_match','heading_match','ordering','comment_match'].map(form=>[`part-b-${form}`,`/reading-b/fixture-${form}/`,'.readingBCandidates p span',19]),
@@ -96,11 +101,20 @@ try {
       report.views.push({name,width,route});
     }
   }
-  pass('13 English task/Guide/entry views: actual sans glyphs and 1440/1728/1024/390 overflow checks');
+  pass('18 English catalog/task/Guide/entry views: actual sans glyphs and 1440/1728/1024/390 overflow checks');
   await page.setViewportSize({width:1440,height:900});
   await go('/english/',production);assert.equal(await page.locator('[data-site-resume-subject=english]').isVisible(),false);
   assert.equal(await page.locator('.englishEntryFamilies>section').count(),3);
   pass('Empty English Home has three direct families and optional Guides, no fabricated Resume');
+  for (const [route, prefix] of [['reading','reading'],['cloze','objective'],['reading-b','objective'],['translation','translation']]) {
+    await go(`/${route}/`,production);
+    const before=await page.evaluate(()=>JSON.stringify(Object.entries(localStorage)));
+    assert.match(await page.locator('[data-catalog-entry-label]').innerText(),/打开/);
+    await page.locator(`[data-${prefix}-search]`).fill('QA_NO_MATCH_7deaa92b');
+    assert.equal(await page.locator(`[data-${prefix}-results] a`).count(),0);
+    assert.equal(await page.evaluate(()=>JSON.stringify(Object.entries(localStorage))),before);
+  }
+  pass('All four exam catalogs: truthful start labels, working search and non-mutating browsing without opening protected tasks');
 
   await go('/reading/fixture-reading/');
   assert.equal(await page.locator('[data-question]:visible').count(),5);
@@ -234,7 +248,7 @@ try {
 finally {
   await browser?.close();
   for(const server of servers){server.closeAllConnections?.();await new Promise(resolve=>server.close(resolve));}
-  const paths=['src/styles/english-readable.css','src/layouts/Base.astro','src/components/EnglishLexicalBridge.astro','src/lib/siteResume.mjs','scripts/test-english-subject-ui.mjs','scripts/test-english-resume-contract.mjs','scripts/run-objective-journey.mjs'];
+  const paths=['src/styles/english-readable.css','src/layouts/Base.astro','src/components/EnglishLexicalBridge.astro','src/lib/siteResume.mjs','scripts/test-english-subject-ui.mjs','scripts/test-english-resume-contract.mjs','scripts/run-objective-journey.mjs','src/components/ReadingHome.astro','src/components/ObjectiveHome.astro','src/pages/translation.astro'];
   report.fingerprints={github_sha:process.env.GITHUB_SHA||null,files:Object.fromEntries(paths.map(p=>[p,createHash('sha256').update(fs.readFileSync(p)).digest('hex')]))};
   fs.writeFileSync(path.join(out,'report.json'),JSON.stringify(report,null,2)+'\n');
 }

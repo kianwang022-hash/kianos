@@ -28,6 +28,8 @@ export function testEnglishResumeContract() {
   map.clear();
   set('kianos-objective-last-action-v1', {id:'sample',title:'Pointer only',href:'/cloze/sample/'});
   assert.equal(read().english, undefined);
+  set('kianos-cloze-attempt-v1:sample', {submitted:false,answers:{},uncertain:['q1']});
+  assert.equal(read().english?.title, 'Pointer only');
   set('kianos-cloze-attempt-v1:sample', {submitted:true,answers:{q1:'A'},results:{q1:'correct'},uncertain:[]});
   assert.equal(read().english, undefined);
   set('kianos-cloze-attempt-v1:sample', {submitted:true,answers:{q1:'A'},results:{q1:'wrong'},uncertain:[]});

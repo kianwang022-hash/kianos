@@ -8,8 +8,8 @@ const first = sets[0];
   <section class="readingHomeHero">
     <div>
       <span>Reading A · Current</span>
-      <h2>Clean Attempt → Review → Transfer</h2>
-      <p>入口只负责继续、选篇和回到真实训练。题目判断、复盘、跨篇 transfer 与 Chat handoff 仍留在 passage runtime。</p>
+      <h2>完整做一篇，按需复盘</h2>
+      <p>选择阅读材料，完整作答后再核对；已经理解的题不必反复复盘。</p>
     </div>
     <aside><strong>{sets.length} passages</strong><span>Current source only</span><span>held-out evidence stays clean</span></aside>
   </section>
@@ -17,14 +17,14 @@ const first = sets[0];
   {learningHref && (
     <a class="readingLearnEntry" href={learningHref}>
       <div><span>First Learning</span><strong>先建立 Reading A 的做题框架</strong></div>
-      <p>第一次系统学习时先掌握 Question Demand → Decisive Evidence → Option Proposition → Adjudication；平时训练直接 Continue。</p>
+      <p>需要时查阅题意、证据与选项如何核对；会的部分直接跳过。</p>
       <b>学习框架 →</b>
     </a>
   )}
 
   <section class="readingHomeGrid">
     <a class="readingContinue" data-reading-continue href={first ? `${base}reading/${encodeURIComponent(first.id)}/` : `${base}reading/`}>
-      <span>Continue</span>
+      <span data-catalog-entry-label>打开一篇</span>
       <strong data-reading-continue-title>{first?.title || '开始 Reading A'}</strong>
       <p data-reading-continue-meta>{first ? `第 1 / ${sets.length} 篇` : 'Current Reading 暂不可用'}</p>
     </a>
@@ -50,7 +50,14 @@ const first = sets[0];
     try { last = JSON.parse(localStorage.getItem('kianos-reading-last-location-v1') || 'null'); } catch {}
     const continueLink = root.querySelector('[data-reading-continue]');
     if (last?.id && continueLink instanceof HTMLAnchorElement && sets.some((item) => item.id === last.id)) {
-      continueLink.href = last.href || hrefFor(last.id);
+      const fallback = hrefFor(last.id);
+      try {
+        const target = new URL(last.href || fallback, location.origin);
+        continueLink.href = target.origin === location.origin && !target.username && !target.password
+          && [fallback, fallback.slice(0,-1)].includes(target.pathname)
+          ? target.pathname + target.search + target.hash : fallback;
+      } catch { continueLink.href = fallback; }
+      root.querySelector('[data-catalog-entry-label]').textContent = '最近查看';
       const title = root.querySelector('[data-reading-continue-title]');
       const meta = root.querySelector('[data-reading-continue-meta]');
       if (title) title.textContent = last.title || last.id;

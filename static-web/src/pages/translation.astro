@@ -45,7 +45,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
     ) : (
       <section class="translationHomeGrid">
         <a class="translationContinue" data-translation-continue href={first ? `${base}translation/${encodeURIComponent(first.id)}/` : `${base}translation/`}>
-          <span>Continue</span>
+          <span data-catalog-entry-label>打开一套</span>
           <strong data-translation-continue-title>{first?.title || '开始 Translation'}</strong>
           <p data-translation-continue-meta>{first ? `第 1 / ${sets.length} 套 · reference ${first.referenceCoverage?.available || 0}/${first.referenceCoverage?.total || 0}` : 'Current Translation 暂不可用'}</p>
         </a>
@@ -108,6 +108,7 @@ const payload = JSON.stringify(sets).replace(/</g, '\u003c');
         taskState = JSON.parse(localStorage.getItem(`kianos-translation-attempt-v2:${last.id}`) || 'null');
       } catch {}
       continueLink.href = hrefFor(last.id);
+      root.querySelector('[data-catalog-entry-label]').textContent = '最近查看';
       const title = root.querySelector('[data-translation-continue-title]');
       const meta = root.querySelector('[data-translation-continue-meta]');
       if (title) title.textContent = last.title || last.id;

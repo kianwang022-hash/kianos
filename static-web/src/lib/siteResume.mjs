@@ -36,7 +36,7 @@ export function readSiteResumes(storage, origin, base = '/') {
   };
   const objectivePriority = record => {
     if (!validRecord(record)) return 0;
-    if (!record.submitted) return hasValues(record.answers) ? 100 : 0;
+    if (!record.submitted) return hasValues(record.answers) || (Array.isArray(record.uncertain) && record.uncertain.length > 0) ? 100 : 0;
     if (record.reviewUnlocked === false) return 0;
     const uncertain = new Set(Array.isArray(record.uncertain) ? record.uncertain : []);
     const problems = Object.entries(record.results || {}).some(([id,outcome]) =>

@@ -3,7 +3,7 @@ const {
   sets = [],
   route = '',
   label = 'Objective',
-  headline = 'Clean Attempt → Review → Transfer',
+  headline = '完整做一组，按需复盘',
   description = '',
   unitLabel = 'sets',
   lastLocationKey = '',
@@ -38,7 +38,7 @@ const first = sets[0];
 
   <section class="objectiveHomeGrid">
     <a class="objectiveContinue" data-objective-continue href={first ? `${base}${route}/${encodeURIComponent(first.id)}/` : `${base}${route}/`}>
-      <span>Continue</span>
+      <span data-catalog-entry-label>打开一组</span>
       <strong data-objective-continue-title>{first?.title || `开始 ${label}`}</strong>
       <p data-objective-continue-meta>{first ? `第 1 / ${sets.length} 组` : 'Current task 暂不可用'}</p>
     </a>
@@ -69,7 +69,14 @@ const first = sets[0];
     try { last = lastKey ? JSON.parse(localStorage.getItem(lastKey) || 'null') : null; } catch {}
     const continueLink = node.querySelector('[data-objective-continue]');
     if (last?.id && continueLink instanceof HTMLAnchorElement && sets.some((item) => item.id === last.id)) {
-      continueLink.href = last.href || hrefFor(last.id);
+      const fallback = hrefFor(last.id);
+      try {
+        const target = new URL(last.href || fallback, location.origin);
+        continueLink.href = target.origin === location.origin && !target.username && !target.password
+          && [fallback, fallback.slice(0,-1)].includes(target.pathname)
+          ? target.pathname + target.search + target.hash : fallback;
+      } catch { continueLink.href = fallback; }
+      node.querySelector('[data-catalog-entry-label]').textContent = '最近查看';
       const title = node.querySelector('[data-objective-continue-title]');
       const meta = node.querySelector('[data-objective-continue-meta]');
       if (title) title.textContent = last.title || last.id;
