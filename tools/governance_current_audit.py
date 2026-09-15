@@ -50,12 +50,19 @@ ACCEPTANCE_PATHS = [
     "content/politics/learning/history/ACCEPTANCE.md",
 ]
 
+# Retired paths that intentionally remain as explicit NONE-authority tombstones.
 RETIRED_JSON_PATHS = [
     "content/english/continuation.json",
-    "content/xizong/knowledge/learner/continuation.json",
-    "content/xizong/knowledge/learner/acceptance-status.json",
     "content/lexical/continuation.json",
     "content/politics/continuation.json",
+]
+
+# Retired Xizong state files were fully removed rather than retained as stubs.
+# Their absence is now the protected boundary: recreating either file would
+# reintroduce a parallel status/continuation owner and must fail closed.
+ABSENT_RETIRED_PATHS = [
+    "content/xizong/knowledge/learner/continuation.json",
+    "content/xizong/knowledge/learner/acceptance-status.json",
 ]
 
 MANIFEST_PATHS = [
@@ -185,6 +192,13 @@ def audit_retired_json(relative: str) -> None:
         fail("RETIRED_PATH_NORMAL_READ", relative)
 
 
+def audit_absent_retired_path(relative: str) -> None:
+    global checks
+    checks += 1
+    if (REPO / relative).exists():
+        fail("RETIRED_PATH_REINTRODUCED", relative)
+
+
 def walk_values(value):
     if isinstance(value, dict):
         for key, child in value.items():
@@ -226,6 +240,9 @@ def main() -> int:
     for path in RETIRED_JSON_PATHS:
         audit_retired_json(path)
 
+    for path in ABSENT_RETIRED_PATHS:
+        audit_absent_retired_path(path)
+
     for path in MANIFEST_PATHS:
         audit_manifest(path)
 
@@ -236,6 +253,7 @@ def main() -> int:
         "current_files": len(CURRENT_PATHS),
         "acceptance_files": len(ACCEPTANCE_PATHS),
         "retired_paths": len(RETIRED_JSON_PATHS),
+        "absent_retired_paths": len(ABSENT_RETIRED_PATHS),
         "manifests": len(MANIFEST_PATHS),
         "errors": errors,
     }
