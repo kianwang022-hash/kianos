@@ -106,11 +106,12 @@ for (const fileName of manifests) {
       if (!String(asset?.usage_label || '').trim()) failures.push(`${cueId}: ${relativeAsset} missing usage_label`);
       if (!String(asset?.alt || '').trim()) failures.push(`${cueId}: ${relativeAsset} missing alt text`);
 
-      const expectedDerivedSha = String(asset?.derived_asset_sha256 || '');
+      const expectedDerivedSha = String(asset?.derived_asset_sha256 || '').toLowerCase();
+      const actualDerivedSha = sha256File(absoluteAsset);
       if (!isSha256(expectedDerivedSha)) {
         failures.push(`${cueId}: ${relativeAsset} missing/invalid derived asset SHA`);
-      } else if (sha256File(absoluteAsset) !== expectedDerivedSha.toLowerCase()) {
-        failures.push(`${cueId}: derived asset SHA drift ${relativeAsset}`);
+      } else if (actualDerivedSha !== expectedDerivedSha) {
+        failures.push(`${cueId}: derived asset SHA drift ${relativeAsset} expected=${expectedDerivedSha} actual=${actualDerivedSha}`);
       }
 
       if (asset?.source_crop_sha256 && !isSha256(asset.source_crop_sha256)) failures.push(`${cueId}: ${relativeAsset} invalid source_crop_sha256`);
