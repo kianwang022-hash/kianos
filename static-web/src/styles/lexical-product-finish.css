@@ -1,0 +1,316 @@
+/*
+ * Lexical presentation finish for the shared 4173-derived learner OS.
+ * Presentation only: no lexical content, evidence, repair, challenge, or runtime semantics change.
+ */
+
+body.surfaceBody-lexical {
+  --lexical-ink: #202322;
+  --lexical-muted: #53605a;
+  --lexical-line: #d8ddd9;
+  --lexical-accent: #176b4f;
+  --lexical-accent-soft: #eaf3ef;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Noto Sans CJK SC", "Segoe UI", sans-serif;
+  color: var(--lexical-ink);
+}
+
+:root body.surfaceBody-lexical #main-content {
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+/* Vocabulary Home is one workbench. Modes and rows are internal regions, not cards. */
+:root body.surfaceBody-lexical #main-content .lexicalHome {
+  max-width: none;
+  gap: 0;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 28px;
+  padding: 2px 0 24px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader > div > span {
+  color: var(--lexical-muted);
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 1;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader h2 {
+  margin: 3px 0 6px;
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader p {
+  max-width: 72ch;
+  color: var(--lexical-muted);
+  font-size: 17px;
+  line-height: 1.72;
+  opacity: 1;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 9px;
+  background: #f4f5f4;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav button {
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--lexical-muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav button.active {
+  border: 0;
+  background: #fff;
+  color: var(--lexical-accent);
+  box-shadow: 0 1px 5px rgba(22, 31, 27, .08);
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHomePanel {
+  gap: 0;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalContinueCard {
+  gap: 6px;
+  padding: 30px 0 32px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalContinueCard > span {
+  color: var(--lexical-muted);
+  font-size: 12px;
+  font-weight: 760;
+  opacity: 1;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalContinueCard strong {
+  color: var(--lexical-ink);
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalContinueCard p {
+  max-width: 70ch;
+  color: var(--lexical-muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalContinueCard small {
+  color: var(--lexical-muted);
+  font-size: 14px;
+  opacity: 1;
+}
+
+:root body.surfaceBody-lexical #main-content :is(.lexicalRecent, .lexicalHandoff, .lexicalSearchBox) {
+  padding: 24px 0;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalRecent > header {
+  margin-bottom: 12px;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalRecent > header strong {
+  font-size: 18px;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalRecent > header span,
+:root body.surfaceBody-lexical #main-content .lexicalEmpty {
+  color: var(--lexical-muted);
+  font-size: 15px;
+  opacity: 1;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHandoff {
+  align-items: center;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalHandoff button {
+  min-height: 40px;
+  border-color: var(--lexical-line);
+  border-radius: 7px;
+  color: var(--lexical-accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalSearchBox input {
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--lexical-ink);
+  font-size: 18px;
+}
+
+/* Script-created rows use the same calm table/list grammar. */
+:root body.surfaceBody-lexical #main-content .lexicalWordRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalWordRow:hover {
+  background: #fafafa;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalWordRow > div {
+  display: grid;
+  gap: 3px;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalWordRow strong {
+  font-size: 18px;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalWordRow span,
+:root body.surfaceBody-lexical #main-content .lexicalWordRow small {
+  color: var(--lexical-muted);
+  font-size: 14px;
+}
+
+/* A word is a task surface, not another landing page. */
+:root body.surfaceBody-lexical #main-content.productCanvas.noPageLead {
+  width: min(1320px, calc(100% - 40px));
+  padding-top: 18px;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalStudyNav {
+  max-width: 78rem;
+  margin: 0 auto 12px;
+  padding: 8px 2px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalStudyNavBottom {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--lexical-line);
+  border-bottom: 0;
+}
+
+:root body.surfaceBody-lexical #main-content .lexicalStudyNav a {
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabRuntime {
+  max-width: 78rem;
+  margin-inline: auto;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabStudySheet {
+  overflow: hidden;
+  border: 1px solid var(--lexical-line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(22, 31, 27, .055);
+}
+
+:root body.surfaceBody-lexical #main-content :is(
+  .portedVocabPreviewBar,
+  .portedVocabWordFront,
+  .portedVocabWordHeader,
+  .portedVocabCoreSense,
+  .portedVocabSenseList > section,
+  .portedVocabEvidenceColumn > section,
+  .portedVocabLocalNote,
+  .portedVocabFoot
+) {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabPreviewBar {
+  border-bottom-color: var(--lexical-line);
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabWordFront {
+  min-height: min(560px, calc(100dvh - 170px));
+  align-content: center;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabWordFront h2 {
+  font-size: clamp(42px, 6vw, 68px);
+  letter-spacing: -.035em;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabWordFront p,
+:root body.surfaceBody-lexical #main-content .portedVocabWordHeader p {
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+:root body.surfaceBody-lexical #main-content .portedVocabFoot details {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  :root body.surfaceBody-lexical #main-content .lexicalHomeHeader {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav {
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  :root body.surfaceBody-lexical #main-content.productCanvas.noPageLead {
+    width: min(100% - 16px, 1000px);
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav {
+    width: 100%;
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalHomeHeader nav button {
+    flex: 1 1 auto;
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalHandoff {
+    display: grid;
+  }
+}
