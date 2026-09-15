@@ -1,47 +1,53 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 3,
-  "last_refreshed_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
+  "generation": 4,
+  "last_refreshed_main": "7e0af1c35f2652b6e2eb7ff7e5d5c8c93c772475",
   "contiguous_implemented_frontier": "o3374",
   "active_package": null,
-  "package_status": "READY_FOR_BOUNDED_CORRECTIVE_IMPLEMENTATION",
-  "package_baseline": "eb842dc6a41cb61c88208b2cfdd0e4b0f29076fe",
-  "package_commit": "33dd04da239cabb7e235d98699096965f0730eee",
-  "merged_main_commit": "36cca65fb0910c00401c4b92a86417ec4ac5dffb",
-  "NO_CHANGE_verified": 207,
-  "UPGRADE_applied": 43,
+  "package_status": "PAUSED_AUDIT_COMPLETE_CORRECTIVE_INTEGRATION_PENDING",
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": null,
-  "reconciliation_scope": {
-    "start": 3125,
-    "end": 3374,
-    "production_handoff": "content/lexical/semantic-review/o3125-o3374.md",
-    "audit_packs": [
-      "content/lexical/semantic-audit/o3025-o3224.audit.md",
-      "content/lexical/semantic-audit/o3225-o3424.audit.md"
-    ],
-    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
-    "baseline_main": "a87cba5b7ba90bff0300d5116b0c8a9ed495a993",
-    "delta_count": 39,
-    "new_semantic_branches": 7,
-    "identity_escalations": 0,
-    "new_relation_ids": 0,
-    "remote_dependency_ordinals": [941, 4764],
-    "status": "RECONCILED"
+  "production_review": {
+    "scope": [1, 7946],
+    "status": "COMPLETE",
+    "normal_handoff_start": 25,
+    "frontier": "o7946",
+    "note": "o0001-o0024 is the historical pre-handoff prefix"
   },
-  "corrective_package": {
-    "scope": {
-      "start": 3125,
-      "end": 3374
-    },
-    "delta_count": 39,
+  "independent_audit": {
+    "scope": [1, 7946],
+    "status": "COMPLETE",
+    "frontier": "o7946",
+    "covered_owner_count": 7946,
+    "missing_owner_count": 0,
+    "coverage_owner": "content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md",
+    "broad_audit_generation": "CLOSED_CURRENT_CATALOG"
+  },
+  "prefix_correction": {
+    "scope": [1, 24],
+    "audit_pack": "content/lexical/semantic-audit/o0001-o0024.audit.md",
+    "delta_count": 7,
+    "status": "SOL_CORRECTION_PENDING"
+  },
+  "retro_corrective_integration": {
+    "scope": [25, 3124],
+    "branch": "lexical/retro-audit-debt-20260915",
+    "status": "VERIFIED_BRANCH_PENDING_MAIN_INTEGRATION",
+    "integration_rule": "LAND_UNIQUE_ACCEPTED_CORRECTIONS_ONLY_EXCLUDE_OVERLAP_AND_STALE_PROCESS_ARTIFACTS"
+  },
+  "canonical_corrective": {
+    "scope": [3125, 3374],
     "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
-    "status": "AUTHORIZED_NOT_STARTED"
+    "merge_pr": 161,
+    "merge_commit": "c1e7de5946c337f76fa6b15ed107a70de1178008",
+    "delta_count": 39,
+    "status": "INTEGRATED_COMPLETE"
   },
   "future_package": {
     "start": 3375,
-    "end": 3624,
-    "status": "NOT_ACTIVATED"
+    "end": 7946,
+    "status": "NOT_ACTIVATED",
+    "activation_rule": "EXPLICIT_CURRENT_ACTIVATION_AFTER_BOUNDED_PRODUCTION_PLUS_AUDIT_SOL_RECONCILIATION"
   }
 }
