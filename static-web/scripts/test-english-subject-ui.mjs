@@ -14,7 +14,7 @@ import { testEnglishResumeContract } from './test-english-resume-contract.mjs';
 const root = path.resolve('..');
 const out = path.resolve('../objective-audit/english-subject-ui');
 fs.mkdirSync(out, { recursive: true });
-const report = {scope:'English whole-subject UI / synthetic execution / SELF',learnerU:'NOT_TESTED',checks:[],views:[],fonts:[],errors:[]};
+const report = {scope:'English whole-subject UI / synthetic execution / SELF',learnerU:'NOT_TESTED',checks:[],views:[],fonts:[],catalogRows:[],errors:[]};
 const pass = name => {report.checks.push(name);console.log('PASS English:',name);};
 const sleep = ms => new Promise(resolve=>setTimeout(resolve,ms));
 const servers = [];
@@ -98,9 +98,28 @@ try {
       await page.setViewportSize({width,height:width===1728?1117:900});await go(route,host);
       if(width===1440)await fontProbe(page,selector,name,size);
       await shot(`${name}-${width}`);
+      if (name.startsWith('catalog-') && name !== 'catalog-writing') {
+        const row = page.locator('[data-reading-results]>a,[data-objective-results]>a,[data-translation-results]>a').first();
+        await row.waitFor();
+        const layout = await row.evaluate(el => {
+          const title = el.querySelector('strong'), source = el.querySelector('span'), count = el.querySelector('small');
+          const a = title.getBoundingClientRect(), b = source.getBoundingClientRect(), c = count.getBoundingClientRect();
+          return { display:getComputedStyle(el).display, decoration:getComputedStyle(el).textDecorationLine,
+            title: title.textContent, source: source.textContent, titleSize:parseFloat(getComputedStyle(title).fontSize),
+            titleWeight:Number(getComputedStyle(title).fontWeight), separate: b.top >= a.bottom-1,
+            countSeparate: c.left >= b.right-1, rowWidth:el.clientWidth, contentWidth:el.scrollWidth };
+        });
+        assert.equal(layout.display,'grid',`${name} dynamic result row missed its layout`);
+        assert.equal(layout.decoration,'none',`${name} browser-default link decoration`);
+        assert.ok(layout.titleSize>=18 && layout.titleWeight>=700 && layout.separate && layout.countSeparate,
+          `${name}/${width}: missing title/source/count hierarchy ${JSON.stringify(layout)}`);
+        assert.ok(layout.contentWidth <= layout.rowWidth+1,`${name}/${width} row content overflow`);
+        report.catalogRows.push({name,width,...layout});
+      }
       report.views.push({name,width,route});
     }
   }
+  pass('Dynamic catalog rows: title/source/count hierarchy and non-clipping at all four widths');
   pass('18 English catalog/task/Guide/entry views: actual sans glyphs and 1440/1728/1024/390 overflow checks');
   await page.setViewportSize({width:1440,height:900});
   await go('/english/',production);assert.equal(await page.locator('[data-site-resume-subject=english]').isVisible(),false);
