@@ -7,20 +7,28 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8b88e7a9ad525dfe576e98444bc4a5aa233d6f15bc211ef4aca5987d6ad373b0",
+    "content_hash": "05cf9c5002cfa775b92eabda0e5105e9dc445e640764f6c23327cf345b63ffd0",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "紫色；紫色颜料",
-          "label_en": "a purple color or pigment",
+          "label_en": "the color or pigment purple",
           "pos": "noun",
           "sense_ids": [
             "sense:purple:4c80605da9015b0f"
           ]
         },
         {
-          "label_cn": "帝王的；皇室的；华而不实的；辞藻华丽的",
-          "label_en": "of imperial status; elaborate or ornate, often excessively so",
+          "label_cn": "紫色的",
+          "label_en": "having the color purple",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:purple:8fe1aa3e7ec4f4f1"
+          ]
+        },
+        {
+          "label_cn": "帝王的；皇室的",
+          "label_en": "imperial or royal",
           "pos": "adjective",
           "sense_ids": [
             "sense:purple:e2f629dff93c5d64"
@@ -35,16 +43,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "紫色；帝王的",
-      "core_meaning_en": "color between red and blue; imperial",
-      "mental_model_cn": "紫色；帝王的",
+      "core_meaning_cn": "紫色；紫色的；也可指帝王/皇室",
+      "core_meaning_en": "purple as a color or adjective; also imperial/royal",
+      "mental_model_cn": "紫色；紫色的；也可指帝王/皇室",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -119,6 +129,30 @@
         "sense_label_en": "make or become purple",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:64a623bbf46d6f683feb",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:purple:8fe1aa3e7ec4f4f1:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "紫色的衣服/光线",
+            "phrase": "purple dress/light"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "紫色的",
+        "definition_en": "having the color between red and blue",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:purple:8fe1aa3e7ec4f4f1",
+        "sense_label_en": "having the color between red and blue",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -192,6 +226,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
       },
       {
+        "sense_id": "sense:purple:8fe1aa3e7ec4f4f1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10861,
+        "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
         "sense_id": "sense:purple:e2f629dff93c5d64",
         "status": "active",
         "merged_into_sense_id": null,
@@ -200,12 +241,18 @@
       }
     ],
     "active_collocations": [
+      "collocation:64a623bbf46d6f683feb",
       "collocation:b57d15539a63a344be0a",
       "collocation:bfeba15faf3f6fca7d5b",
       "collocation:d4454ff5fdadb5927b38"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:64a623bbf46d6f683feb",
+        "source_row": 21551,
+        "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
       {
         "id": "collocation:7982303e146ab59a9bcf",
         "source_row": 10282,

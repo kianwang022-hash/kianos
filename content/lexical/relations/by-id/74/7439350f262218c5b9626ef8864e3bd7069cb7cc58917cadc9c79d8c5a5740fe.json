@@ -140,10 +140,63 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:dispute",
+      "source_ordinal": 1436,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "dispute is often a more formal disagreement or contested claim; quarrel more often suggests a personal argument.",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "have a quarrel",
+          "core_meaning": "争吵与争论",
+          "exam_trap": "词性转换",
+          "register": "中性",
+          "semantic_prosody": "负面",
+          "strength": "中",
+          "syntax": "动词/名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00777201-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00777201-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:quarrel:308daf36a517cd80",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "have a disagreement over something",
+        "source_sense_id": "sense:dispute:2f8cfa8a59865bc3",
+        "target_sense_id": "sense:quarrel:2f4cff4bf5815a4b",
+        "target_word": "quarrel",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3875-o4124.md"
   }
 }
