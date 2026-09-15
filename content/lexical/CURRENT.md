@@ -7,20 +7,22 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 ```text
 Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
-mechanically implemented frontier:     o3374
-post-audit corrective closure:         o0001–o3374 COMPLETE ON MAIN
-future mechanical catalog:             o3375+ NOT_ACTIVATED
+mechanically implemented frontier:     o3624
+post-audit closed implemented region:  o0001–o3624 COMPLETE ON MAIN
+latest forward package:                o3375–o3624 COMPLETE (PR #188)
+active forward package:                o3625–o3874 — SOL RECONCILIATION
+remaining catalog after active package:o3875–o7946 NOT_ACTIVATED
 ```
 
-Catalog execution: **PAUSED**.
+Catalog execution: **FORWARD ACTIVE**.
 
-Production review, Independent Audit, mechanical implementation, and post-audit corrective closure are separate concepts even when some frontiers now coincide.
+Production review, Independent Audit, mechanical implementation, and post-audit closure remain separate concepts. Complete review/audit evidence does not itself mutate Current; only bounded reconciled packages advance the mechanical frontier.
 
 ## 1｜Production review is closed
 
 The current 7,946-owner Production Fresh Semantic Review is complete through `o7946`.
 
-Production handoffs live under `content/lexical/semantic-review/`. They define reviewed semantic targets and operation labels; they do not by themselves mutate canonical truth or authorize executor work.
+Production handoffs live under `content/lexical/semantic-review/`. They define reviewed semantic targets and operation labels; they do not by themselves mutate canonical truth.
 
 The historical prefix `o0001–o0024` predates the normal Production handoff series. Do not fabricate a retrospective Production comparator for it.
 
@@ -41,86 +43,74 @@ Detailed reconciliation maps:
 
 Broad Independent Audit generation is **closed for this catalog generation**. A new audit requires a concrete Current defect, a materially changed audit/content contract, or a genuinely new catalog generation.
 
-## 3｜Mechanical implementation remains bounded at o3374
+## 3｜Mechanical implementation frontier is o3624
 
-The contiguous mechanical implementation frontier remains exactly `o3374`.
+The contiguous canonical mechanical implementation frontier is now exactly `o3624`.
 
-`o3375+` is **NOT_ACTIVATED**. Complete Production and Audit evidence does not silently activate forward implementation. Any future forward package must consume the already-complete Production + Audit evidence through bounded Sol reconciliation, then explicitly activate mechanical execution.
+The first forward package after the historical corrective closure is canonical main truth:
 
-Do not run another broad audit and do not mechanically apply Production targets alone.
+### o3375–o3624
 
-## 4｜Post-audit corrective closure is complete through o3374
-
-The entire implemented region `o0001–o3374` is now post-audit corrective-closed on main.
-
-### o0001–o0024 historical prefix
-
-Independent Audit found seven bounded corrections. They were Sol-reconciled in:
-
-`content/lexical/semantic-reconciliation/o0001-o0024.md`
-
-and integrated by PR **#182** / merge `962a92ffacff75c786f743c68bcd5fdcae38828e`.
-
-Result:
-
-- 7/7 findings corrected;
-- 17/17 PASS owners byte-identical;
-- 0 new Word IDs;
-- 0 new Sense IDs;
-- one stable-sense merge for `abnormal`;
-- structured same-Word POS-conditioned pronunciation truth for `absent`, `abstract`, and `abuse`;
-- identity registry closure, transport guards, shard tests, all Lexical JSON parse, and full Astro build PASS.
+- Production authority: `content/lexical/semantic-review/o3375-o3624.md`
+- Independent Audit inputs: `content/lexical/semantic-audit/o3225-o3424.audit.md` + `content/lexical/semantic-audit/o3425-o3624.audit.md`
+- Sol authority: `content/lexical/semantic-reconciliation/o3375-o3624.md`
+- semantic source union: **92** owners
+- exact Word write union including required dependencies: **97** owners
+- out-of-range dependency ordinals: `o0212,o0222,o2278,o2325,o3842,o5576,o6023`
+- new semantic branches: **19**
+- reactivated stable senses: **55**
+- owner-level Current gate, five bounded shards, final owner truth, Natural Owner audit, transport guards, shard tests, all Lexical JSON, and full Astro build: **PASS**
+- integrated by PR **#188** / merge `b18a22fd4309620251d2be175370a5b7489d6170`
 
 Durable receipt:
 
-`content/lexical/execution/receipts/o0001-o0024.prefix-corrective.json`
+`content/lexical/execution/receipts/o3375-o3624.forward-package.json`
 
-### o0025–o3124
+Do not reopen this package because the earlier Chat lane/accounting was wrong. The final canonical package was re-run from Current main in the correct forward implementation lane and independently revalidated before PR #188.
 
-Integrated by PR **#179** / merge `0663a2a7248703ab0e0b34dc99d3caa5701506c6` after replaying the 16 already-accepted corrective packages on Current main.
+## 4｜Post-audit closed implemented region
 
-Durable receipt:
+The entire implemented region `o0001–o3624` is now post-audit closed on main.
 
-`content/lexical/execution/receipts/o0025-o3124.retro-integration.json`
+Historical closure map:
 
-### o3125–o3374
+- `o0001–o0024` → PR #182, seven bounded prefix findings closed.
+- `o0025–o3124` → PR #179, 16 accepted retro corrective windows integrated onto Current main.
+- `o3125–o3374` → PR #161, Sol corrective closure.
+- `o3375–o3624` → PR #188, first bounded forward package from accepted Production + Audit evidence.
 
-Corrective closure integrated by PR **#161** from Sol authority:
+No part of `o0001–o3624` should be reopened merely because historical branches, receipts, old Issues, abandoned workflows, or audit artifacts still exist. Reopen only for a concrete Current defect.
 
-`content/lexical/semantic-reconciliation/o3125-o3374.md`
+## 5｜Active forward package — o3625–o3874
 
-No part of `o0001–o3374` should be reopened merely because historical branches, receipts, old Issues, or audit artifacts still exist. Reopen only for a concrete Current defect.
+The next natural Production handoff is:
 
-## 5｜Remaining Content execution surface
+`content/lexical/semantic-review/o3625-o3874.md`
 
-### o3375–o7946
-
-Production review: **COMPLETE**.
-
-Independent Audit: **COMPLETE**.
-
-Mechanical implementation: **NOT_ACTIVATED**.
-
-When explicitly activated, proceed package-by-package:
+Its Independent Audit evidence is already present in the completed whole-catalog Audit. Current work is **bounded Sol reconciliation only**:
 
 ```text
-existing Production handoff
-+ existing Independent Audit Pack
-→ bounded Sol reconciliation of only that package's real implementation/audit delta
-→ mechanical executor
+Production UPGRADE targets in o3625–o3874
++ Audit non-PASS findings in o3625–o3874
+→ deduplicate overlap
+→ resolve only real identity / Relation / Form ownership cases
+→ freeze exact implementation source union + dependencies
+→ mechanical execution
 → exact readback / registry closure / tests
-→ advance frontier
+→ advance frontier to o3874
 ```
 
-Do not re-review 4,572 words and do not create another Audit lane.
+Do not re-audit the 250 owners and do not mechanically apply Production targets without the Audit reconciliation.
+
+`o3875+` remains **NOT_ACTIVATED** while this package is active.
 
 ## Exact next action
 
-There is no remaining retro/audit corrective debt below `o3375`.
+1. Read the existing Production handoff `o3625–o3874` and only the overlapping existing Audit Packs.
+2. Freeze `content/lexical/semantic-reconciliation/o3625-o3874.md` with the exact source union, overlap accounting, identity decisions, and minimal dependencies.
+3. Execute that package mechanically and advance the frontier to `o3874` if verification passes.
 
-The next Lexical Content decision is therefore whether to **explicitly activate the first forward package beginning at `o3375`**. If activated, it must consume existing Production + Audit evidence and reconcile only the bounded package before execution.
-
-Until that explicit activation, execution remains paused.
+No broad re-review, no new audit generation, and no return to audit → debt → later repair loops.
 
 ## Frozen identity rule
 
@@ -141,7 +131,7 @@ Rules remain:
 - duplicate spelling Main Words are preserved by default; genuine cross-Word spelling/lexeme relationships remain Relation-owned;
 - genuine cross-word Relations have one Relation owner and reciprocal learner visibility must close from both endpoints;
 - construction-first phenomena remain constructions unless a genuine semantic split is required;
-- unexpected split/merge, competing stable ownership, or unclear Relation/Form boundaries return to Sol rather than being guessed by an executor.
+- unexpected split/merge, competing stable ownership, or unclear Relation/Form boundaries return narrowly to Sol rather than being guessed by an executor.
 
 ## Responsibility split
 
@@ -154,7 +144,7 @@ Rules remain:
 - whole-catalog audit coverage → `content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md`;
 - current catalog Work Cursor → **this file only**.
 
-Historical Issues, retired branches, old Audit samples, stale execution queues and transport manifests are provenance/sentinel evidence only. They do not activate work.
+Historical Issues, retired branches, old Audit samples, stale queues and transport manifests are provenance/sentinel evidence only. They do not activate work.
 
 ## Learner-state boundary
 
@@ -166,10 +156,11 @@ Production review, Audit, reconciliation, implementation, validators, CI and mer
 main@HEAD
 → Production review = 7946/7946 COMPLETE
 → Independent Audit = 7946/7946 COMPLETE
-→ mechanical frontier = o3374
-→ post-audit corrective closure = o0001–o3374 COMPLETE ON MAIN
-→ retro/audit corrective debt below o3375 = NONE
-→ o3375+ = NOT_ACTIVATED
+→ mechanical frontier = o3624
+→ post-audit closed implemented region = o0001–o3624 COMPLETE ON MAIN
+→ latest forward = o3375–o3624 COMPLETE / PR #188
+→ active forward = o3625–o3874 / SOL RECONCILIATION
+→ o3875+ = NOT_ACTIVATED
 ```
 
 Never infer a new task from an old Issue title, branch name, audit count, receipt, or chat history.
