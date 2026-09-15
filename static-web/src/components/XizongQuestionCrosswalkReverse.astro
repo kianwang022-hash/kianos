@@ -1,0 +1,58 @@
+---
+const { crosswalk } = Astro.props;
+const groups = crosswalk?.logicGroups || [];
+const blockOnly = crosswalk?.blockOnlyQuestions || [];
+const count = Number(crosswalk?.reviewedQuestionCount || 0);
+---
+{count > 0 && (
+  <details class="xqr" id="xizong-crosswalk-block" data-xizong-crosswalk-reverse>
+    <summary>
+      <div><span>Reviewed Crosswalk</span><strong>这块已经审核过的真题回链</strong></div>
+      <b>{count} 题</b>
+    </summary>
+    <div class="xqrBody">
+      <p class="xqrRule">这里是从 canonical REVIEWED Question→Knowledge relation 现场反推出来的只读索引；没有 relation 的题不会被网页猜进来。</p>
+      {groups.map((group) => (
+        <section class="xqrGroup" data-crosswalk-group={group.groupId}>
+          <header><span>{group.groupId}</span><strong>{group.label}</strong></header>
+          <div class="xqrKps">
+            {group.kpRows.map((kp) => (
+              <article class="xqrKp" data-crosswalk-kp={kp.runtimeKpId}>
+                {kp.canonicalKpIds.map((canonicalId) => <span class="xqrAnchor" id={`crosswalk-${encodeURIComponent(canonicalId)}`} aria-hidden="true"></span>)}
+                <header><b>{kp.displayId}</b><strong>{kp.title}</strong><small>{kp.questions.length} 题</small></header>
+                <div class="xqrQuestions">
+                  {kp.questions.map((question) => (
+                    <section data-crosswalk-question-id={question.questionId}>
+                      <div>
+                        <b>{question.year} · {question.number}</b>
+                        {question.roles.map((role) => <span>{role === 'PRIMARY' ? 'Primary' : 'Supporting'}</span>)}
+                      </div>
+                      <p>{question.stem}</p>
+                    </section>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      {blockOnly.length > 0 && (
+        <section class="xqrGroup xqrBlockOnly" data-crosswalk-block-only>
+          <header><span>Block only</span><strong>已审核到本 Block，但没有可安全投影的 Current KP</strong></header>
+          <div class="xqrQuestions">
+            {blockOnly.map((question) => (
+              <section data-crosswalk-question-id={question.questionId}>
+                <div><b>{question.year} · {question.number}</b><span>Reviewed</span></div>
+                <p>{question.stem}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </details>
+)}
+
+<style>
+  .xqr{margin-top:14px;border:1px solid var(--study-line,#d9dde5);border-radius:14px;background:#fff;scroll-margin-top:18px}.xqr>summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 15px;cursor:pointer;list-style:none}.xqr>summary::-webkit-details-marker{display:none}.xqr>summary>div{display:grid;gap:2px}.xqr>summary span,.xqrGroup>header span{font-size:9px;font-weight:850;letter-spacing:.07em;color:var(--study-green,#286c57);text-transform:uppercase}.xqr>summary strong{font-size:13px}.xqr>summary>b{font-size:11px;color:var(--study-muted,#6d7873)}.xqr[open]>summary{border-bottom:1px solid var(--study-line,#d9dde5);background:#f7faf8}.xqrBody{display:grid;gap:14px;padding:14px}.xqrRule{margin:0;font-size:11px;line-height:1.6;color:var(--study-muted,#6d7873)}.xqrGroup{display:grid;gap:8px}.xqrGroup>header{display:flex;gap:10px;align-items:baseline}.xqrGroup>header strong{font-size:12px}.xqrKps{display:grid;gap:8px}.xqrKp{position:relative;border:1px solid var(--study-line,#d9dde5);border-radius:11px;overflow:visible;scroll-margin-top:18px}.xqrAnchor{position:absolute;top:-18px;left:0;width:1px;height:1px;pointer-events:none}.xqrKp>header{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:9px 11px;background:#fbfcfb;border-bottom:1px solid var(--study-line,#d9dde5)}.xqrKp>header b{font-size:10px;color:var(--study-green,#286c57)}.xqrKp>header strong{font-size:12px}.xqrKp>header small{font-size:9px;color:var(--study-muted,#6d7873)}.xqrQuestions{display:grid}.xqrQuestions>section{padding:9px 11px;border-top:1px solid #eef0f2}.xqrQuestions>section:first-child{border-top:0}.xqrQuestions>section>div{display:flex;gap:6px;align-items:center}.xqrQuestions>section b{font-size:10px}.xqrQuestions>section span{font-size:8px;font-weight:800;padding:2px 5px;border-radius:999px;background:#eef5f2;color:var(--study-green,#286c57)}.xqrQuestions p{margin:5px 0 0;font-size:11px;line-height:1.55;color:#3f4945}.xqrBlockOnly{padding-top:4px;border-top:1px dashed var(--study-line,#d9dde5)}@media(max-width:760px){.xqrKp>header{grid-template-columns:auto minmax(0,1fr)}.xqrKp>header small{grid-column:2}.xqr>summary{align-items:flex-start}}
+</style>
