@@ -64,7 +64,9 @@
     },
     "block_medical_core": {
       "owner": "systems/** canonical Block Markdown",
-      "rule": "Block Markdown owns Block/KP medical Core. System-level files may organize, route, compress, or reference that Core but must not silently override or fork it."
+      "rule": "Block Markdown owns Block/KP medical Core. Each stable Block identity must resolve to exactly one live canonical Markdown owner. Filename suffixes such as v1, v7, or 最终执行版 are legacy packaging/history labels only; they do not create version authority and do not justify a second live owner. Multiple live files resolving to the same stable Block identity are invalid and Current validation must fail closed. Do not rename accepted Block files merely to normalize legacy suffixes, because source-path churn has no semantic value. System-level files may organize, route, compress, or reference Block Core but must not silently override or fork it.",
+      "parallel_owner_forbidden": true,
+      "legacy_filename_version_is_authority": false
     },
     "logic_group": {
       "role": "STRUCTURAL_LEARNING_INDEX_ONLY",

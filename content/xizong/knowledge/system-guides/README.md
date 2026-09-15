@@ -23,6 +23,8 @@ Files in this directory are older System Guide substrates created before the Cur
 
 They are never allowed to silently outrank or supplement Current owners merely because they contain more prose or appear more complete.
 
+`TRANSITIONAL` does **not** mean “second Current”. It means the Guide temporarily owns only the System-level layer for a System that does not yet have an accepted replacement `system.json` / learner owner set. Once those replacement owners are accepted, the Guide must leave the live semantic path.
+
 ## Migration rule
 
 Once a System has accepted replacement owners for the relevant layers (for example Current `system.json` plus accepted learner support), its old full Guide must leave the live semantic path:
@@ -37,7 +39,13 @@ Full historical prose belongs in Git history, not beside Current learner assets.
 - A1 Circulation legacy full Guide → **RETIRED tombstone**; use `systems/a1-circulation/system.json` + `learner/a1-circulation-learning.json`.
 - A2 Respiratory legacy full Guide → **RETIRED tombstone**; use `systems/a2-respiratory/system.json` + `learner/a2-respiratory-learning.json` (+ selective cues where relevant).
 - A3 Urinary legacy full Guide → **RETIRED tombstone**; use `systems/a3-urinary/system.json` + `learner/a3-urinary-learning.json`.
-- Other files in this directory remain transitional only until their own Current migration state explicitly permits retirement. Their presence is not permission for normal readers to use them as Current truth.
+- B Digestive / Metabolic / Endocrine / Tumor legacy full Guide → **RETIRED tombstone**; use `systems/b-digestive-metabolic-endocrine-tumor/system.json` + `learner/b-digestive-metabolic-endocrine-tumor-learning.json`.
+- C Hematology / Immunity / Infection Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
+- D Neuro / Sensory / Motor / Orthopedics Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
+- E Reproductive / Breast Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
+- F Remaining Clinical Guide → **TRANSITIONAL System-level substrate only**; no accepted `system.json` replacement exists yet, so do not retire it prematurely.
+
+The target end-state is not “eight files with the same shape”. It is **one live owner per responsibility**. A1/A2/A3/B have completed the System-owner cutover; C/D/E/F have not, so their transitional Guides remain bounded Current substrate for that layer only.
 
 ## Hard rule for agents / Chats
 
