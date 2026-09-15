@@ -70,6 +70,7 @@ const payload = JSON.stringify({
         <h3><span data-sweep-count>{sweep.questionCount}</span> 道系统真题范围已恢复</h3>
         <p data-sweep-summary>锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。</p>
         <div class="xseSweepStats" data-sweep-stats>
+          <span>轮次 <b data-study-phase>一轮</b></span>
           <span>稳 <b data-stat-stable>0</b></span>
           <span>不确定 <b data-stat-uncertain>0</b></span>
           <span>错 <b data-stat-wrong>0</b></span>
@@ -135,6 +136,7 @@ const payload = JSON.stringify({
       <div class="xseSweepActions">
         <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>
         <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>
+        <button type="button" data-start-next-round>开始第二轮（保留本轮记录）</button>
       </div>
     </section>
   </section>
@@ -175,6 +177,13 @@ const payload = JSON.stringify({
 </section>
 
 <script>
+  import {
+    ensureXizongQuestionSweepState,
+    recordXizongQuestionAttempt,
+    startNextXizongQuestionRound,
+    xizongStudyPhaseLabel
+  } from '../lib/xizongQuestionAttempts.mjs';
+
   const roots = [...document.querySelectorAll('[data-xizong-system-exit]')];
   roots.forEach((root) => {
     const systemId = root.getAttribute('data-xizong-system-exit') || 'system';
@@ -190,7 +199,7 @@ const payload = JSON.stringify({
       try { return JSON.parse(localStorage.getItem(key) || '') || fallback; } catch { return fallback; }
     };
     const writeJson = (key, value) => {
-      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
+      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }
     };
 
     let recallState = readJson(recallKey, { completedAt: null });
@@ -198,6 +207,15 @@ const payload = JSON.stringify({
     let sweepState = readJson(sweepKey, { results: {} });
     if (!sweepState || typeof sweepState !== 'object') sweepState = { results: {} };
     if (!sweepState.results || typeof sweepState.results !== 'object') sweepState.results = {};
+    const attemptContext = {
+      systemId: data.systemId,
+      canonicalId: data.canonicalId,
+      scopeHash: data.scopeHash,
+      questionInventoryHash: data.questionInventoryHash,
+      questions: data.questions
+    };
+    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
+    writeJson(sweepKey, sweepState);
 
     const recallStatus = root.querySelector('[data-recall-status]');
     const startRecall = root.querySelector('[data-start-recall]');
@@ -236,6 +254,7 @@ const payload = JSON.stringify({
     const uncertainJudge = root.querySelector('[data-uncertain-judge]');
     const wrongJudge = root.querySelector('[data-wrong-judge]');
     const done = root.querySelector('[data-sweep-done]');
+    const nextRoundButton = root.querySelector('[data-start-next-round]');
 
     let activeQuestions = [];
     let currentQuestion = null;
@@ -266,6 +285,9 @@ const payload = JSON.stringify({
     const renderStats = () => {
       activeQuestions = computeActive();
       const stat = counts();
+      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';
+      const phaseLabel = xizongStudyPhaseLabel(phase);
+      root.querySelector('[data-study-phase]').textContent = phaseLabel;
       root.querySelector('[data-stat-stable]').textContent = String(stat.stable);
       root.querySelector('[data-stat-uncertain]').textContent = String(stat.uncertain);
       root.querySelector('[data-stat-wrong]').textContent = String(stat.wrong);
@@ -273,8 +295,15 @@ const payload = JSON.stringify({
       root.querySelector('[data-sweep-count]').textContent = holdoutYears.length ? String(activeQuestions.length) : String(data.questionCount);
       const summary = root.querySelector('[data-sweep-summary]');
       if (summary) summary.textContent = holdoutYears.length
-        ? `已保留整卷：${holdoutYears.join('、')}。本轮实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
-        : '锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。';
+        ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
+        : `锁定整卷后，系统会自动排除这些年份；剩余题按${phaseLabel}任务做 sweep。`;
+      if (nextRoundButton) {
+        nextRoundButton.textContent = phase === 'FIRST_PASS'
+          ? '开始第二轮（保留本轮记录）'
+          : phase === 'SECOND_PASS'
+            ? '开始后期复习轮（保留此前记录）'
+            : '再开一轮后期复习（保留此前记录）';
+      }
       if (startSweep) startSweep.disabled = !(recallState.completedAt && holdoutYears.length);
     };
 
@@ -307,14 +336,26 @@ const payload = JSON.stringify({
     const parseHoldoutInput = () => normalizeHoldout(String(holdoutInput?.value || '').split(/[,，\s]+/).filter(Boolean));
 
     const persistResult = (question, status, selected) => {
-      sweepState.results[question.questionId] = {
-        status,
-        selected: [...selected].sort(),
-        correctAnswer: question.correctAnswer,
-        updatedAt: new Date().toISOString()
-      };
-      writeJson(sweepKey, sweepState);
+      let nextState;
+      try {
+        nextState = recordXizongQuestionAttempt(sweepState, {
+          question,
+          status,
+          selected,
+          context: attemptContext,
+          holdoutYears
+        });
+      } catch (error) {
+        console.error(error);
+        return false;
+      }
+      if (!writeJson(sweepKey, nextState)) {
+        window.alert('本机保存失败：这次作答没有写入证据，请先不要继续下一题。');
+        return false;
+      }
+      sweepState = nextState;
       renderStats();
+      return true;
     };
 
     const showRepair = (question) => {
@@ -356,7 +397,7 @@ const payload = JSON.stringify({
       root.querySelector('.xseQuestion').hidden = false;
       const answeredCount = activeQuestions.filter((question) => resultFor(question.questionId)).length;
       questionMeta.textContent = `${currentQuestion.year} · 第 ${currentQuestion.number} 题 · ${currentQuestion.questionType || '题'}`;
-      questionProgress.textContent = `本轮 ${answeredCount + 1} / ${activeQuestions.length}`;
+      questionProgress.textContent = `${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 ${answeredCount + 1} / ${activeQuestions.length}`;
       stem.textContent = currentQuestion.stem;
       selectionHint.textContent = currentQuestion.questionType === 'X' ? '多选题：可选多个选项' : '选择一个答案';
       submit.disabled = true;
@@ -408,7 +449,7 @@ const payload = JSON.stringify({
         correctJudge.hidden = false;
         wrongJudge.hidden = true;
       } else {
-        persistResult(currentQuestion, 'wrong', currentSelection);
+        if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;
         showRepair(currentQuestion);
         correctJudge.hidden = true;
         wrongJudge.hidden = false;
@@ -418,7 +459,7 @@ const payload = JSON.stringify({
 
     const nextAfter = (status) => {
       if (!currentQuestion) return;
-      persistResult(currentQuestion, status, currentSelection);
+      if (!persistResult(currentQuestion, status, currentSelection)) return;
       renderQuestion();
       workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
@@ -444,6 +485,9 @@ const payload = JSON.stringify({
         learner_task: 'Review Wrong/Uncertain evidence. Distinguish memory lapse, mechanism gap, precision gap, distractor/condition error, or product/content issue. Use only reviewed precise Question-to-Knowledge relations when present; otherwise do not invent a KP mapping. Return a concise repair plan that Astro can execute if useful.',
         system: { canonical_id: data.canonicalId, system_id: data.systemId, title: data.title },
         question_scope: { path: data.scopePath, sha256: data.scopeHash, inventory_sha256: data.questionInventoryHash, full_count: data.questionCount },
+        study_phase: sweepState.round?.studyPhase || 'FIRST_PASS',
+        round_id: sweepState.round?.id || '',
+        round_ordinal: sweepState.round?.ordinal || 1,
         holdout_years: holdoutYears,
         active_question_count: activeQuestions.length,
         stats: counts(),
@@ -511,7 +555,7 @@ const payload = JSON.stringify({
     root.querySelector('[data-mark-stable]')?.addEventListener('click', () => nextAfter('stable'));
     root.querySelector('[data-mark-uncertain]')?.addEventListener('click', () => {
       if (!currentQuestion) return;
-      persistResult(currentQuestion, 'uncertain', currentSelection);
+      if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;
       showRepair(currentQuestion);
       correctJudge.hidden = true;
       uncertainJudge.hidden = false;
@@ -526,6 +570,27 @@ const payload = JSON.stringify({
     });
     copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
     root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
+    nextRoundButton?.addEventListener('click', () => {
+      activeQuestions = computeActive();
+      let nextState;
+      try {
+        nextState = startNextXizongQuestionRound(
+          sweepState,
+          activeQuestions.map((question) => question.questionId)
+        );
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+      if (!writeJson(sweepKey, nextState)) {
+        window.alert('本机保存失败：没有开启下一轮，上一轮记录保持不变。');
+        return;
+      }
+      sweepState = nextState;
+      renderStats();
+      renderQuestion();
+      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     renderRecall();
     renderHoldout();
