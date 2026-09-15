@@ -209,6 +209,39 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
       pass(`${sid}: source -> guarded Front -> complete Reveal -> real group ratings -> closure/refresh/exact Home return`);
     }
 
+    // Finish the already-started A1 block to inspect the changed After-Learn surface.
+    // All contact/Recall actions below are disposable browser actions, not real learner U.
+    {
+      const block = loadXizongBlock('circulation','b02'); const key = studyKey(block.blockId);
+      await go('/xizong/circulation/b02/');
+      for (let gi = (await read(key)).groupIndex; gi < block.logicGroups.length; gi++) {
+        await page.locator('[data-enter-group]').click();
+        await page.locator('[data-group-lecture-done]').click();
+        for (const id of block.logicGroups[gi].kpIds) {
+          const card = page.locator('[data-kp-recall-card]:visible');
+          assert.equal(await card.getAttribute('data-kp-id'), id);
+          await card.locator('[data-kp-reveal]').click();
+          await card.locator('[data-rating=mastered]').click();
+          await page.waitForTimeout(180);
+        }
+        await page.locator('[data-group-close-next]').click();
+      }
+      assert.equal(await stateStage(), 'block_recall');
+      await snap('block-recall-front', [1440,390]);
+      await page.locator('[data-block-frame-reveal]').click();
+      await snap('block-recall-reveal', [1440]);
+      await page.locator('[data-block-recall-complete]').click();
+      await page.locator('[data-block-complete]').click(); await page.reload(); await ready();
+      assert.equal((await read(key)).completed, true);
+      assert.equal(await page.locator('[data-study-extension]').isVisible(), true);
+      await page.locator('[data-memory-reveal]').click();
+      await page.locator('[data-study-extension]').scrollIntoViewIfNeeded();
+      await snap('after-learn-memory', [1440,390]);
+      await page.locator('[data-memory-response=STABLE]').click();
+      assert.equal(await page.locator('[data-extension-tab=memory]').isVisible(), false);
+      pass('actual remaining LG closure -> neutral/full Block Recall -> completed refresh -> meaningful weak Memory / stable exit');
+    }
+
     for (const sid of ['circulation','respiratory','urinary']) {
       const system = loadXizongSystem(sid);
       await go(`/xizong/${sid}/`);
@@ -222,6 +255,8 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
       await page.locator('[data-complete-recall]').click();
       const payload = await page.locator('[data-sweep-payload]').evaluate(e => JSON.parse(e.textContent));
       const holdout = Math.max(...payload.years.map(Number));
+      // Holdout is shared across Systems; use the actual edit affordance on revisit.
+      if (!await page.locator('[data-holdout-input]').isVisible()) await page.locator('[data-edit-holdout]').click();
       await page.fill('[data-holdout-input]', String(holdout)); await page.click('[data-save-holdout]'); await page.click('[data-start-sweep]');
       const key = `kianos:xizong:system-question-sweep:${sid}:v1`;
       const qmap = new Map(payload.questions.map(q => [q.questionId,q]));
