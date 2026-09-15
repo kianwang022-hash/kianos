@@ -7,22 +7,58 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "14c86e566944faf8a83f35eb4138c06dde3b7fe08ffa7f94bd9e60da3bdd7ced",
+    "content_hash": "a0aff7d78c20fd60932ca0cf67fc2f8626df5598ea2c3a5431052729b564ab4d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "组织；安排",
-      "core_meaning_en": "to arrange or structure systematically",
-      "mental_model_cn": "组织；安排",
+      "core_clusters": [
+        {
+          "label_cn": "组织；安排；筹划",
+          "label_en": "arrange, plan, or structure systematically",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:organise:e9ef3e3d19c85ccc"
+          ]
+        }
+      ],
+      "core_meaning_cn": "组织；安排；筹划",
+      "core_meaning_en": "to arrange, plan, or structure systematically",
+      "mental_model_cn": "组织；安排；筹划",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d847583becda41137001",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:organise:e9ef3e3d19c85ccc:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "组织活动/团队/体系",
+            "phrase": "organise an event/team/system"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "组织；安排；筹划",
+        "definition_en": "to arrange, plan, or structure something systematically",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:organise:e9ef3e3d19c85ccc",
+        "sense_label_en": "to arrange, plan, or structure something systematically",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -42,7 +78,14 @@
     "word_family": [],
     "word_id": "word:organise"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:5c25faff3fa9c9c2944d",
+      "owner_path": "content/lexical/relations/by-id/8a/8ace47612158287aec36ccaaadbec8007a35b5cf3ac693ecb7cc422df58dbba3.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:organise:01b999a7c66f5229",
@@ -93,31 +136,6 @@
       "source_row": 9369,
       "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:organise:e9ef3e3d19c85ccc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "组织；安排",
-      "definition_en": "to arrange or plan systematically",
-      "semantic_key": "244179e24bbcc8d291045c0f1098d5864d4b7eed2ba16139cfe5a209972e5983",
-      "semantic_key_history": [
-        "6dbb3583ccafae22717ae9c16f759e5dc09561b6591d3e3d474cb39254348b8b"
-      ],
-      "legacy_aliases": [
-        "organise:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "organise:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9370,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -138,13 +156,15 @@
       },
       {
         "sense_id": "sense:organise:e9ef3e3d19c85ccc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9370,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:d847583becda41137001"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -165,6 +185,11 @@
       {
         "id": "collocation:c2b9a7453eb4db07f38e",
         "source_row": 16468,
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:d847583becda41137001",
+        "source_row": 21283,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
       }
     ],

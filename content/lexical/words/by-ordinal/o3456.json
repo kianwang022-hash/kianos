@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3b7130998a0fa2c33e3a4aa536b6c25da0e21c4050d672f5edaa1b17d75ec04d",
+    "content_hash": "d4514504bedbdd9be1bd2c063a8080038b5b8bdfb51cfb6fe9e4303714d25fcd",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,6 +28,14 @@
             "sense:pan:c01df66a224354db",
             "sense:pan:43d515d46645557a"
           ]
+        },
+        {
+          "label_cn": "严厉批评（非正式）",
+          "label_en": "criticize/review very harshly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pan:f07dfb129294efa8"
+          ]
         }
       ],
       "core_meaning_cn": "平锅；摇镜头；淘洗",
@@ -39,7 +47,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -94,30 +104,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:d2d29f9adb14239bcdf0",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pan:c01df66a224354db:collocation:0"
-            ],
-            "meaning_cn": "摇镜头拍摄整个场景",
-            "phrase": "pan the camera across the scene"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "摇镜头",
-        "definition_en": "to move a camera horizontally to follow a subject or show a wide view",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pan:c01df66a224354db",
-        "sense_label_en": "to move a camera horizontally to follow a subject or show a wide view",
-        "sort_order": 3,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:382ace422ae76e3f36d6",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -138,6 +124,30 @@
         "sense_label_en": "a basin or depression in the ground",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d2d29f9adb14239bcdf0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pan:c01df66a224354db:collocation:0"
+            ],
+            "meaning_cn": "摇镜头拍摄整个场景",
+            "phrase": "pan the camera across the scene"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "摇镜头",
+        "definition_en": "to move a camera horizontally to follow a subject or show a wide view",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pan:c01df66a224354db",
+        "sense_label_en": "to move a camera horizontally to follow a subject or show a wide view",
+        "sort_order": 3,
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -171,6 +181,30 @@
         "sense_label_en": "to wash gravel or sand in a pan to separate gold",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5722755a2e0f23a218c5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pan:f07dfb129294efa8:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "评论家严厉批评了这部电影",
+            "phrase": "critics panned the film"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "严厉批评；狠批（非正式）",
+        "definition_en": "to criticize or review something very harshly, especially informally or in reviews",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pan:f07dfb129294efa8",
+        "sense_label_en": "to criticize or review something very harshly, especially informally or in reviews",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -230,11 +264,19 @@
         "merged_into_sense_id": null,
         "source_row": 9591,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:pan:f07dfb129294efa8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9594,
+        "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
     "active_collocations": [
       "collocation:0c8e3d1c6c12ff9e6c3f",
       "collocation:382ace422ae76e3f36d6",
+      "collocation:5722755a2e0f23a218c5",
       "collocation:72cf4b2ffb91f7defbab",
       "collocation:d2d29f9adb14239bcdf0",
       "collocation:ed339dad69cf727aeb64",
@@ -250,6 +292,11 @@
       {
         "id": "collocation:382ace422ae76e3f36d6",
         "source_row": 4760,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:5722755a2e0f23a218c5",
+        "source_row": 21612,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {

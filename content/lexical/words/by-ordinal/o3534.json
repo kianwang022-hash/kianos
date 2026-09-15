@@ -7,19 +7,54 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0c3e3a6d463de57b584830c79663f3cab7c0fc7cfa001f248f2ee6c970f0d754",
+    "content_hash": "8c8470491ca59eb8e73aaf8273c21f3d431b67bd97de26e65157c7f910dc50e2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "处罚；罚款",
-      "core_meaning_en": "a punishment or disadvantage imposed for breaking a rule or contract",
-      "mental_model_cn": "处罚；罚款",
+      "core_clusters": [
+        {
+          "label_cn": "处罚；惩罚；罚则",
+          "label_en": "punishment for breaking law/rule/agreement",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:penalty:e0658bf2baf1c0d1"
+          ]
+        },
+        {
+          "label_cn": "违约金；罚款",
+          "label_en": "payment required for contract breach",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:penalty:6af5b3c6e4625a4a"
+          ]
+        },
+        {
+          "label_cn": "不利后果",
+          "label_en": "disadvantage/painful consequence",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:penalty:006af9f822ca5303"
+          ]
+        },
+        {
+          "label_cn": "体育处罚/罚球",
+          "label_en": "sports penalty",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:penalty:026ac0cc0e9850c9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "处罚/惩罚；违约/体育等专门处罚",
+      "core_meaning_en": "a general punishment, with specialized financial/sports penalties",
+      "mental_model_cn": "处罚/惩罚；违约/体育等专门处罚",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -112,6 +147,39 @@
         "sense_label_en": "(games) a handicap or disadvantage imposed on a competitor for an infrac",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d5f92515f4c3098bfa1b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:penalty:e0658bf2baf1c0d1:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "施加/面临处罚",
+            "phrase": "impose/face a penalty"
+          },
+          {
+            "collocation_id": "collocation:c19da79525d2e50556a9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:penalty:e0658bf2baf1c0d1:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "法律处罚",
+            "phrase": "legal penalty"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "处罚；惩罚；罚则",
+        "definition_en": "a punishment imposed for breaking a law, rule, or agreement",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:penalty:e0658bf2baf1c0d1",
+        "sense_label_en": "a punishment imposed for breaking a law, rule, or agreement",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -157,6 +225,13 @@
         "merged_into_sense_id": null,
         "source_row": 9815,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
+      },
+      {
+        "sense_id": "sense:penalty:e0658bf2baf1c0d1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9867,
+        "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
       }
     ],
     "active_collocations": [
@@ -164,7 +239,9 @@
       "collocation:1bf524dcac8f39c1e3a8",
       "collocation:222d4d8bf13c7fa6a8ca",
       "collocation:632f0395cfdbe901c2c6",
-      "collocation:c6d06f3e798f54b7743f"
+      "collocation:c19da79525d2e50556a9",
+      "collocation:c6d06f3e798f54b7743f",
+      "collocation:d5f92515f4c3098bfa1b"
     ],
     "facts": [],
     "collocations": [
@@ -189,8 +266,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       },
       {
+        "id": "collocation:c19da79525d2e50556a9",
+        "source_row": 21489,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
         "id": "collocation:c6d06f3e798f54b7743f",
         "source_row": 16815,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:d5f92515f4c3098bfa1b",
+        "source_row": 21488,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       }
     ],

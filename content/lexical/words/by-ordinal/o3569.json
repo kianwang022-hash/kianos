@@ -95,12 +95,29 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "8d4ed41acbda5ad385928c869c9014f0b19ad9b76b6b9b639bb00ef51b6c00fd",
+    "content_hash": "838110e393017e5ce05def228642d5679a97bef468a248558dc287777eaa20a8",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "说服",
-      "core_meaning_en": "cause someone to do or believe something",
-      "mental_model_cn": "说服",
+      "core_clusters": [
+        {
+          "label_cn": "说服某人做某事",
+          "label_en": "persuade someone to do something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:persuade:a795489412425214"
+          ]
+        },
+        {
+          "label_cn": "使相信/信服",
+          "label_en": "make someone believe or accept something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:persuade:d1cd02a4fa2e587d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "说服去做；使相信/信服",
+      "core_meaning_en": "persuade someone to act or to believe/accept something",
+      "mental_model_cn": "说服去做；使相信/信服",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -111,7 +128,8 @@
       "construction:deep:constructions:persuade:c4be3c21992a471a",
       "construction:deep:constructions:persuade:f3962bded0d55e17",
       "deep:deep:constructions:persuade:c4be3c21992a471a",
-      "deep:deep:constructions:persuade:f3962bded0d55e17"
+      "deep:deep:constructions:persuade:f3962bded0d55e17",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -147,6 +165,39 @@
         "sense_id": "sense:persuade:a795489412425214",
         "sense_label_en": "make someone do something by giving good reasons",
         "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:40867838e163f59563cb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:persuade:d1cd02a4fa2e587d:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "使某人相信……",
+            "phrase": "persuade sb that ..."
+          },
+          {
+            "collocation_id": "collocation:b0c1349658db902a0b32",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:persuade:d1cd02a4fa2e587d:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "使某人信服某事",
+            "phrase": "persuade sb of sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使相信；使信服某个说法/事实",
+        "definition_en": "to make someone believe or accept that something is true",
+        "governing_pattern": "vt. + sb + that-clause / of sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:persuade:d1cd02a4fa2e587d",
+        "sense_label_en": "to make someone believe or accept that something is true",
+        "sort_order": 1,
         "transitivity": "vt"
       }
     ],
@@ -195,31 +246,6 @@
       "source_row": 9903,
       "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:persuade:d1cd02a4fa2e587d",
-      "status": "merged",
-      "merged_into_sense_id": "sense:persuade:a795489412425214",
-      "pos": "verb",
-      "definition_cn": "使相信",
-      "definition_en": "make someone believe something",
-      "semantic_key": "f2b1cd939c53ad0ef2cf74ed542745314bf85bf10fd2d41609f3d9808aa3dc92",
-      "semantic_key_history": [
-        "dbb584c267f76cd3cb508a0311e1b230f2480540cd03089070c2af4ccf1b9161"
-      ],
-      "legacy_aliases": [
-        "persuade:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "persuade:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9905,
-      "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -240,14 +266,16 @@
       },
       {
         "sense_id": "sense:persuade:d1cd02a4fa2e587d",
-        "status": "merged",
-        "merged_into_sense_id": "sense:persuade:a795489412425214",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9905,
         "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
       }
     ],
     "active_collocations": [
+      "collocation:40867838e163f59563cb",
       "collocation:51f9c6a3114217d0119b",
+      "collocation:b0c1349658db902a0b32",
       "collocation:f0707e3340333260742a"
     ],
     "facts": [
@@ -264,6 +292,11 @@
     ],
     "collocations": [
       {
+        "id": "collocation:40867838e163f59563cb",
+        "source_row": 21586,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
         "id": "collocation:4849f647c1918c9f6613",
         "source_row": 6089,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
@@ -276,6 +309,11 @@
       {
         "id": "collocation:69e02bd9a09c9fc0bc80",
         "source_row": 8921,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:b0c1349658db902a0b32",
+        "source_row": 21587,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
       },
       {

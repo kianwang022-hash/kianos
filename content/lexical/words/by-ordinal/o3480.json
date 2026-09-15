@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "play a part in 在…中起作用",
+        "boundary": "role/effect/contribution, not a literal piece of a whole",
         "codex_reviewed": false,
         "definition_cn": "部分；局部",
-        "definition_en": "a piece or portion of a whole",
+        "definition_en": "to have a role or effect in, contribute to, or be involved in something",
         "dimensions": {},
         "direction": "R",
         "evidence": [
@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "在…中起作用",
+        "meaning_cn": "在…中发挥作用；促成；参与",
         "module": "constructions",
-        "pattern": "play a part in + sth",
+        "pattern": "play a part in sth",
         "pos": "noun",
         "presentation_merge": {
           "merge_id": "presentation-merge:e160c09de77348e149f4",
@@ -46,7 +46,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:part:c3359f68be2857b3",
+        "source_sense_id": "sense:part:277a2bf3d8dd50f9",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -79,7 +79,7 @@
         "level": null,
         "meaning_cn": "扮演…的角色",
         "module": "constructions",
-        "pattern": "play the part of + sb",
+        "pattern": "play the part of sb",
         "pos": "noun",
         "presentation_merge": {
           "merge_id": "presentation-merge:fa3b8f93feb6220ab738",
@@ -106,21 +106,28 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "be05312f6eae401ef60c8a967745268f5868508758ea6ce789798f7cdd7137df",
+    "content_hash": "c6e649c52f118e2fed034938cf3976f1cc5aa18b5e11322b0c5894055cff7abf",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "部分；局部；角色",
-          "label_en": "a piece or portion of a whole; a role or character in a play or film",
+          "label_cn": "部分；局部",
+          "label_en": "piece or portion of a whole",
           "pos": "noun",
           "sense_ids": [
-            "sense:part:c3359f68be2857b3",
+            "sense:part:c3359f68be2857b3"
+          ]
+        },
+        {
+          "label_cn": "角色；作用；职责",
+          "label_en": "role, function, or contribution",
+          "pos": "noun",
+          "sense_ids": [
             "sense:part:277a2bf3d8dd50f9"
           ]
         },
         {
-          "label_cn": "分开；分离；分手；离别",
-          "label_en": "to separate or divide; to go away from someone or something",
+          "label_cn": "分开；离别",
+          "label_en": "separate/divide or part from",
           "pos": "verb",
           "sense_ids": [
             "sense:part:68820942739f5b26",
@@ -128,13 +135,13 @@
           ]
         }
       ],
-      "core_meaning_cn": "整体的一部分",
-      "core_meaning_en": "a piece or portion of a whole",
-      "mental_model_cn": "整体的一部分",
+      "core_meaning_cn": "部分；角色/作用；分开",
+      "core_meaning_en": "a part/piece, a role or contribution, or to separate",
+      "mental_model_cn": "部分；角色/作用；分开",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
@@ -142,7 +149,8 @@
       "construction:deep:constructions:part:c542121b47186a2f",
       "deep:deep:confusables:part:c9f0c21e9eba565b",
       "deep:deep:constructions:part:0080276ad50b413a",
-      "deep:deep:constructions:part:c542121b47186a2f"
+      "deep:deep:constructions:part:c542121b47186a2f",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -157,15 +165,6 @@
             ],
             "meaning_cn": "…的一部分",
             "phrase": "part of + sth"
-          },
-          {
-            "collocation_id": "collocation:ec730575c3c8ca752a61",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:part:c3359f68be2857b3:collocation:1"
-            ],
-            "meaning_cn": "在…中起作用",
-            "phrase": "play a part in + sth"
           }
         ],
         "confidence": "medium",
@@ -190,17 +189,26 @@
             ],
             "meaning_cn": "扮演…的角色",
             "phrase": "play the part of + sb"
+          },
+          {
+            "collocation_id": "collocation:ec730575c3c8ca752a61",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:part:c3359f68be2857b3:collocation:1"
+            ],
+            "meaning_cn": "在…中发挥作用；促成；参与",
+            "phrase": "play a part in sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "角色",
-        "definition_en": "a role or character in a play or film",
+        "definition_cn": "角色；作用；职责；（戏剧/电影中的）角色",
+        "definition_en": "a role, function, or contribution in a situation, activity, play, or film",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:part:277a2bf3d8dd50f9",
-        "sense_label_en": "a role or character in a play or film",
+        "sense_label_en": "a role, function, or contribution in a situation, activity, play, or film",
         "sort_order": 1,
         "transitivity": "nonverb"
       },

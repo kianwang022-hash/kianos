@@ -7,38 +7,47 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4e863f3ae22b7b6d5716a82bb5e5eefda4526ee9229bfe0b13cd9aa92a814c6b",
+    "content_hash": "f730676c486fddb8069525a365e25aae7bde5d193113864197be1ff919baacd5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "公园；停车挡",
-          "label_en": "a public area of land for recreation; a gear position that acts as a parking brake",
+          "label_cn": "公园；园区；特定用途区域",
+          "label_en": "area set aside for recreation or a particular purpose",
           "pos": "noun",
           "sense_ids": [
-            "sense:park:878b276ff5c65c3f",
-            "sense:park:ff0bd7966d67522e"
+            "sense:park:878b276ff5c65c3f"
           ]
         },
         {
-          "label_cn": "停放（车辆）；停车",
-          "label_en": "to leave a vehicle in a place; to leave a vehicle temporarily",
+          "label_cn": "停车",
+          "label_en": "leave a vehicle temporarily",
           "pos": "verb",
           "sense_ids": [
             "sense:park:91c9fdd72cc05ba0",
             "sense:park:2564c09eb7ba51cd"
           ]
+        },
+        {
+          "label_cn": "停车挡",
+          "label_en": "vehicle park gear position",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:park:ff0bd7966d67522e"
+          ]
         }
       ],
-      "core_meaning_cn": "公园；停车",
-      "core_meaning_en": "a public green space; to leave a vehicle temporarily",
-      "mental_model_cn": "公园；停车",
+      "core_meaning_cn": "公园/园区；停车；停车挡",
+      "core_meaning_en": "a park/park area; to park a vehicle; vehicle park gear",
+      "mental_model_cn": "公园/园区；停车；停车挡",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -52,17 +61,26 @@
             ],
             "meaning_cn": "中央公园",
             "phrase": "central park"
+          },
+          {
+            "collocation_id": "collocation:a11d5bd7b57027cd2a21",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:park:878b276ff5c65c3f:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "工业园区/商务园区/主题公园",
+            "phrase": "industrial/business/theme park"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "公园",
-        "definition_en": "a public area of land for recreation",
+        "definition_cn": "公园；园区；为特定用途划定的区域",
+        "definition_en": "an area of land set aside for recreation or a particular purpose, such as a public, industrial, business, or theme park",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:park:878b276ff5c65c3f",
-        "sense_label_en": "a public area of land for recreation",
+        "sense_label_en": "an area of land set aside for recreation or a particular purpose, such as a public, industrial, business, or theme park",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -205,6 +223,7 @@
       "collocation:571b3700831071104b68",
       "collocation:6a1ceece86838f6f1a25",
       "collocation:9b77ea1fbdcc8e979ee3",
+      "collocation:a11d5bd7b57027cd2a21",
       "collocation:d986116839c7e00acd6c"
     ],
     "facts": [],
@@ -227,6 +246,11 @@
       {
         "id": "collocation:9b77ea1fbdcc8e979ee3",
         "source_row": 13241,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:a11d5bd7b57027cd2a21",
+        "source_row": 21417,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {

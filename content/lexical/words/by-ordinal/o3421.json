@@ -7,16 +7,31 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "706aeb59f25ac7da0f7927e3152f30f2f2e0c72c44f8cf8a85d79d943a928645",
+    "content_hash": "eea1071acfdbcb370842420e24bf17fa8b1e81ded40279ede5828853f1834689",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "在夜间；整夜；突然；一下子",
-          "label_en": "during or for the length of one night; happening in a short time or with great speed",
+          "label_cn": "在夜间；整夜",
+          "label_en": "during or for one night",
           "pos": "adverb",
           "sense_ids": [
-            "sense:overnight:6b4ef851ba9d5872",
+            "sense:overnight:6b4ef851ba9d5872"
+          ]
+        },
+        {
+          "label_cn": "突然；短时间内",
+          "label_en": "very quickly or suddenly",
+          "pos": "adverb",
+          "sense_ids": [
             "sense:overnight:0705e40af4a85334"
+          ]
+        },
+        {
+          "label_cn": "突然的；短时间内发生的",
+          "label_en": "happening or achieved very quickly",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:overnight:dc1d6f3108fafd41"
           ]
         },
         {
@@ -26,26 +41,20 @@
           "sense_ids": [
             "sense:overnight:5f57179e73c25264"
           ]
-        },
-        {
-          "label_cn": "前一天晚上；一夜的逗留",
-          "label_en": "the previous evening; a stay for one night",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:overnight:74b9de46184c5d33"
-          ]
         }
       ],
-      "core_meaning_cn": "在夜间；突然",
-      "core_meaning_en": "during or for the night; suddenly",
-      "mental_model_cn": "在夜间；突然",
+      "core_meaning_cn": "在夜间；突然；短时间内的",
+      "core_meaning_en": "during the night; suddenly/very quickly; rapid as an adjective",
+      "mental_model_cn": "在夜间；突然；短时间内的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -59,15 +68,6 @@
             ],
             "meaning_cn": "过夜",
             "phrase": "stay overnight"
-          },
-          {
-            "collocation_id": "collocation:904f29d98e1aa31c4613",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:overnight:6b4ef851ba9d5872:collocation:1"
-            ],
-            "meaning_cn": "一夜成名",
-            "phrase": "overnight success"
           }
         ],
         "confidence": "medium",
@@ -143,6 +143,39 @@
         "sense_label_en": "the previous evening; a stay for one night",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:904f29d98e1aa31c4613",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:overnight:6b4ef851ba9d5872:collocation:1"
+            ],
+            "meaning_cn": "一夜成名",
+            "phrase": "overnight success"
+          },
+          {
+            "collocation_id": "collocation:f1d28deeadcb02e3649a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overnight:dc1d6f3108fafd41:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "一夜成名/短时间内的突然变化",
+            "phrase": "an overnight success/change"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "突然的；短时间内发生的",
+        "definition_en": "happening or achieved very quickly or suddenly",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:overnight:dc1d6f3108fafd41",
+        "sense_label_en": "happening or achieved very quickly or suddenly",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -195,13 +228,21 @@
         "merged_into_sense_id": null,
         "source_row": 9491,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:overnight:dc1d6f3108fafd41",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9498,
+        "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       }
     ],
     "active_collocations": [
       "collocation:64bb10ce9d46c9b07417",
       "collocation:6e2a2cf41a0ebc3163ce",
       "collocation:86cf988c1647e77db5b5",
-      "collocation:904f29d98e1aa31c4613"
+      "collocation:904f29d98e1aa31c4613",
+      "collocation:f1d28deeadcb02e3649a"
     ],
     "facts": [],
     "collocations": [
@@ -223,6 +264,11 @@
       {
         "id": "collocation:904f29d98e1aa31c4613",
         "source_row": 12247,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:f1d28deeadcb02e3649a",
+        "source_row": 21391,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
       }
     ],

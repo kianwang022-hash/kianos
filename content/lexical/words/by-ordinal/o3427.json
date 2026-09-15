@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0b636a8a8845f8ae66020832c482ab649d26f5bacd60d2622d773ecc9e0b5a1c",
+    "content_hash": "345c860766db4c7b048f4562fb1b1cf3124af7fdd943dc7097d991c6f9703860",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "翻转，推翻",
-      "core_meaning_en": "to turn over or reverse",
-      "mental_model_cn": "翻转，推翻",
+      "core_clusters": [
+        {
+          "label_cn": "推翻/撤销决定或判决",
+          "label_en": "reverse or invalidate a decision/judgment",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:overturn:346bd117d6005bfc"
+          ]
+        },
+        {
+          "label_cn": "翻倒；倾覆",
+          "label_en": "turn over/upside down",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:overturn:519059f723205c65"
+          ]
+        }
+      ],
+      "core_meaning_cn": "推翻/撤销；翻倒/倾覆",
+      "core_meaning_en": "reverse a decision or turn/overturn physically",
+      "mental_model_cn": "推翻/撤销；翻倒/倾覆",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e826dfa20c43d233ce8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overturn:346bd117d6005bfc:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "推翻决定/判决",
+            "phrase": "overturn a decision/verdict"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "推翻；撤销（决定、判决等）",
+        "definition_en": "to reverse, cancel, or invalidate a decision, judgment, or result",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overturn:346bd117d6005bfc",
+        "sense_label_en": "to reverse, cancel, or invalidate a decision, judgment, or result",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:544ab6dd51599bca7b5c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overturn:519059f723205c65:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "车辆翻倒",
+            "phrase": "the vehicle overturned"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "翻倒；倾覆；使翻转",
+        "definition_en": "to turn over or cause something to turn upside down",
+        "governing_pattern": "vt. / vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overturn:519059f723205c65",
+        "sense_label_en": "to turn over or cause something to turn upside down",
+        "sort_order": 1,
+        "transitivity": "vt/vi"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,56 +112,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:overturn:346bd117d6005bfc",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "推翻，颠倒",
-      "definition_en": "to turn something upside down or reverse a decision",
-      "semantic_key": "5b5f3d2eac07512252e0c8dc78f81bca2d38cee912c75f20f8a812247b7980ca",
-      "semantic_key_history": [
-        "cc2e875ea934c0c4beb4a2878574298129b3458c641d296682d5e54e611b82e2"
-      ],
-      "legacy_aliases": [
-        "overturn:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "overturn:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9504,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:overturn:519059f723205c65",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "翻倒",
-      "definition_en": "to turn over",
-      "semantic_key": "2ff99c351b3913fe9bcc9f8dff5cc35a4afe258931d7d7010f1b540872d301cd",
-      "semantic_key_history": [
-        "d17c10e5535ddff2f63202170be8808fed6afb92a480767c3ff1937ab3a1bf08"
-      ],
-      "legacy_aliases": [
-        "overturn:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "overturn:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9505,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:overturn:a67d8f2f1c075836",
       "status": "deprecated",
@@ -124,14 +142,14 @@
     "senses": [
       {
         "sense_id": "sense:overturn:346bd117d6005bfc",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9504,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
         "sense_id": "sense:overturn:519059f723205c65",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9505,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -144,9 +162,22 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:1e826dfa20c43d233ce8",
+      "collocation:544ab6dd51599bca7b5c"
+    ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:1e826dfa20c43d233ce8",
+        "source_row": 21595,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:544ab6dd51599bca7b5c",
+        "source_row": 21596,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
       {
         "id": "collocation:8830cb31d39050ee0e95",
         "source_row": 11562,

@@ -6,8 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "d30f985938f70330b834bf3e45a1e83d2c414941acd2152c4f11e6b46cb12da8",
+    "constructions": [
+      {
+        "construction_id": "construction:28e08da485641209fd5f",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "一点声音/一句话也没有",
+        "definition_en": "no sound, word, or utterance at all",
+        "pattern": "not a peep",
+        "source_sense_id": "sense:peep:a98fb3635d54bf6d",
+        "boundary": "fixed negative idiom; not the look/peep noun"
+      }
+    ],
+    "content_hash": "474100fdf4372eef2520c30ae4c3058855e85048b19875f4da80b8906df84f3d",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +49,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -109,6 +122,20 @@
         "transitivity": "vi"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "吱吱叫；嘀咕",
+        "definition_en": "make high-pitched sounds; speak in a hesitant and high-pitched tone",
+        "governing_pattern": "vi.",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:peep:cdffc434af9058a0",
+        "sense_label_en": "make high-pitched sounds; speak in a hesitant and high-pitched tone",
+        "sort_order": 2,
+        "transitivity": "vi"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:34745a14eabf996778c1",
@@ -133,18 +160,28 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:be1784a62135a501b50f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:peep:a98fb3635d54bf6d:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "一点声音/一句话也没有",
+            "phrase": "not a peep"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "吱吱叫；嘀咕",
-        "definition_en": "make high-pitched sounds; speak in a hesitant and high-pitched tone",
-        "governing_pattern": "vi.",
+        "definition_cn": "一点声音；只言片语",
+        "definition_en": "a slight sound, word, or utterance",
+        "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:peep:cdffc434af9058a0",
-        "sense_label_en": "make high-pitched sounds; speak in a hesitant and high-pitched tone",
-        "sort_order": 2,
-        "transitivity": "vi"
+        "pos": "noun",
+        "sense_id": "sense:peep:a98fb3635d54bf6d",
+        "sense_label_en": "a slight sound, word, or utterance",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -192,6 +229,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
       },
       {
+        "sense_id": "sense:peep:a98fb3635d54bf6d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9865,
+        "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
+      },
+      {
         "sense_id": "sense:peep:cdffc434af9058a0",
         "status": "active",
         "merged_into_sense_id": null,
@@ -204,7 +248,8 @@
       "collocation:2480fb171afea46c881d",
       "collocation:34745a14eabf996778c1",
       "collocation:4c677032f381ad1bd317",
-      "collocation:518874a84f34e56ac2e3"
+      "collocation:518874a84f34e56ac2e3",
+      "collocation:be1784a62135a501b50f"
     ],
     "facts": [],
     "collocations": [
@@ -231,6 +276,11 @@
       {
         "id": "collocation:518874a84f34e56ac2e3",
         "source_row": 6881,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:be1784a62135a501b50f",
+        "source_row": 21483,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       }
     ],

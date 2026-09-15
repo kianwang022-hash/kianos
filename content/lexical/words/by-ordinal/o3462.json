@@ -7,39 +7,38 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "b50a5fdc1739e7694495b49180bf5bd25631a575f75296b50e80bd3bed0da57d",
+    "content_hash": "a1506b848e3d45d96d54ab3ee23b1e17b3fb4a9c3a79b5cf4cc1dc3bfefb4cf4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "裤子；长裤",
-          "label_en": "a garment covering the body from the waist to the ankles, with a separate part for each leg",
+          "label_cn": "裤子；长裤（AmE）",
+          "label_en": "trousers, especially AmE",
           "pos": "noun",
           "sense_ids": [
             "sense:pants:7027977552c35fd0"
           ]
         },
         {
-          "label_cn": "pant 的第三人称单数：喘气；喘气；喘息；pant 的第三人称单数：渴望；气喘吁吁地说",
-          "label_en": "third-person singular of pant: breathes quickly; breathe noisily, as when one is exhausted; third-person singular of pant: longs strongly; utter while panting, as if out of breath",
-          "pos": "verb",
+          "label_cn": "内裤（BrE）",
+          "label_en": "underpants/underwear, especially BrE",
+          "pos": "noun",
           "sense_ids": [
-            "sense:pants:7003741fa5ed58c2",
-            "sense:pants:cb442fd0b30c5075",
-            "sense:pants:13683359efb55ce6",
-            "sense:pants:7b859ade0dac5c71"
+            "sense:pants:e7dad0f97ae5d9a0"
           ]
         }
       ],
-      "core_meaning_cn": "裤子；喘气",
-      "core_meaning_en": "garment covering legs; to breathe heavily",
-      "mental_model_cn": "裤子；喘气",
+      "core_meaning_cn": "裤子（AmE）；内裤（BrE）",
+      "core_meaning_en": "regional clothing contrast: AmE trousers vs BrE underpants",
+      "mental_model_cn": "裤子（AmE）；内裤（BrE）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -65,92 +64,49 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "裤子；长裤",
-        "definition_en": "a garment covering the body from the waist to the ankles, with a separate part for each leg",
+        "definition_cn": "裤子；长裤（美式常用）",
+        "definition_en": "trousers; a garment covering the body from the waist to the ankles, especially the usual American-English sense",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:pants:7027977552c35fd0",
-        "sense_label_en": "a garment covering the body from the waist to the ankles, with a separat",
+        "sense_label_en": "trousers; a garment covering the body from the waist to the ankles, especially the usual American-English sense",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "In American English, pants normally means trousers. In British English, pants commonly means underpants/underwear.",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "homograph_inflection_boundary",
+          "surface_lemma": "pants",
+          "paired_form": "pant (verb lemma)",
+          "note": "The surface form pants can also occur as third-person singular of the verb pant in running text; that verb belongs to the pant lexeme, not to the clothing lexeme pants."
+        }
       },
       {
         "collocations": [
           {
-            "collocation_id": "collocation:3dcb22f62103e405a2e0",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:2206156010d07b6aa104",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:pants:7003741fa5ed58c2:collocation:0"
+              "sense:pants:e7dad0f97ae5d9a0:collocation:forward-o3375-o3624"
             ],
-            "meaning_cn": "他气喘吁吁",
-            "phrase": "he pants for breath"
+            "meaning_cn": "一条内裤（英式）",
+            "phrase": "a pair of pants (BrE)"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "pant 的第三人称单数：喘气",
-        "definition_en": "third-person singular of pant: breathes quickly",
+        "definition_cn": "内裤；衬裤（英式常用）",
+        "definition_en": "underpants or underwear, especially the common British-English sense",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pants:7003741fa5ed58c2",
-        "sense_label_en": "underpants worn by women",
+        "pos": "noun",
+        "sense_id": "sense:pants:e7dad0f97ae5d9a0",
+        "sense_label_en": "underpants or underwear, especially the common British-English sense",
         "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:81fcc7b45b65791760f7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pants:13683359efb55ce6:collocation:0"
-            ],
-            "meaning_cn": "她渴望自由",
-            "phrase": "she pants for freedom"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "pant 的第三人称单数：渴望",
-        "definition_en": "third-person singular of pant: longs strongly",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pants:13683359efb55ce6",
-        "sense_label_en": "the noise made by a short puff of steam (as from an engine)",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "喘气；喘息",
-        "definition_en": "breathe noisily, as when one is exhausted",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pants:cb442fd0b30c5075",
-        "sense_label_en": "breathe noisily, as when one is exhausted",
-        "sort_order": 3,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "气喘吁吁地说",
-        "definition_en": "utter while panting, as if out of breath",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pants:7b859ade0dac5c71",
-        "sense_label_en": "utter while panting, as if out of breath",
-        "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "nonverb",
+        "usage_note": "Common British-English clothing sense; compare AmE pants = trousers."
       }
     ],
     "verification_summary": {
@@ -173,19 +129,116 @@
     "word_id": "word:pants"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:pants:13683359efb55ce6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "pant 的第三人称单数：渴望",
+      "definition_en": "third-person singular of pant: longs strongly",
+      "semantic_key": "adffbc38cc3bf91be899438af4c7309a8f1c4feca51fcaf34751c4437ecb3365",
+      "semantic_key_history": [
+        "daeb501ffa60ea21bd58923d20a075b81a2dcd8fa83aa79ea2d5e6fd891d241a"
+      ],
+      "legacy_aliases": [
+        "pants:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "pants:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9608,
+      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:pants:7003741fa5ed58c2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "pant 的第三人称单数：喘气",
+      "definition_en": "third-person singular of pant: breathes quickly",
+      "semantic_key": "6afec07126c00a41cc03bf4564eece33facfd68cc1e7278e39a402c0afd74823",
+      "semantic_key_history": [
+        "359fe1ecc0c870f6e2632a2c827745f5b4a7bab202b20e35cfd8e007f952837b"
+      ],
+      "legacy_aliases": [
+        "pants:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "pants:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9609,
+      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:pants:7b859ade0dac5c71",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "气喘吁吁地说",
+      "definition_en": "utter while panting, as if out of breath",
+      "semantic_key": "4d848fd48f94dd22ac3100c17ae4032a26b434cba359f6be23b5a5a2b913d175",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "pants:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "pants:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9611,
+      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:pants:cb442fd0b30c5075",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "喘气；喘息",
+      "definition_en": "breathe noisily, as when one is exhausted",
+      "semantic_key": "d98a414424eafcbcefb75a0c67fa2dff1b9b1a0961f08230fd900ff29e321148",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "pants:l2:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "pants:l2:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:50:00Z",
+      "source_row": 9612,
+      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:pants:13683359efb55ce6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9608,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       },
       {
         "sense_id": "sense:pants:7003741fa5ed58c2",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9609,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
@@ -199,30 +252,41 @@
       },
       {
         "sense_id": "sense:pants:7b859ade0dac5c71",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9611,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       },
       {
         "sense_id": "sense:pants:cb442fd0b30c5075",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9612,
+        "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
+      },
+      {
+        "sense_id": "sense:pants:e7dad0f97ae5d9a0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9687,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       }
     ],
     "active_collocations": [
       "collocation:1c6063557db05cb4e20b",
-      "collocation:3dcb22f62103e405a2e0",
-      "collocation:5d4d91b11b8837f5e14d",
-      "collocation:81fcc7b45b65791760f7"
+      "collocation:2206156010d07b6aa104",
+      "collocation:5d4d91b11b8837f5e14d"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:1c6063557db05cb4e20b",
         "source_row": 2342,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:2206156010d07b6aa104",
+        "source_row": 21413,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {

@@ -7,36 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4f065d3f68aad28129ebdd225cf495f17ddc08c6c17db9b4bccf5abca318a7ff",
+    "content_hash": "cfbfc7639c0d2734b05eff39516103128903edd8c47a23a863746c4e686c09a8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "钢笔；笔；围栏；畜栏；雌天鹅",
-          "label_en": "a writing implement with a point from which ink flows; an enclosure for confining livestock; female swan",
+          "label_cn": "钢笔；笔",
+          "label_en": "ink writing instrument",
           "pos": "noun",
           "sense_ids": [
-            "sense:pen:e9258f46da0d597f"
+            "sense:pen:0eef843c26105b3b"
           ]
         },
         {
-          "label_cn": "写；撰写；关入栏中；囚禁；动笔；写作",
-          "label_en": "to write or compose; to confine in a pen",
-          "pos": "verb",
+          "label_cn": "围栏；畜栏",
+          "label_en": "animal enclosure",
+          "pos": "noun",
           "sense_ids": [
-            "sense:pen:22b88eaf3d4c54d3"
+            "sense:pen:ee09298904ba5e34"
           ]
         }
       ],
-      "core_meaning_cn": "书写工具或围栏",
-      "core_meaning_en": "a writing instrument or an enclosure",
-      "mental_model_cn": "书写工具或围栏",
+      "core_meaning_cn": "笔；围栏/畜栏",
+      "core_meaning_en": "a pen for writing or an animal enclosure",
+      "mental_model_cn": "笔；围栏/畜栏",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -52,7 +54,8 @@
         "sense_id": "sense:pen:e9258f46da0d597f",
         "sense_label_en": "female swan",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "specialized zoological noun: female swan"
       },
       {
         "collocations": [
@@ -76,6 +79,79 @@
         "sense_id": "sense:pen:22b88eaf3d4c54d3",
         "sense_label_en": "to confine in a pen",
         "sort_order": 1,
+        "transitivity": "vt",
+        "usage_note": "secondary verb: confine in a pen"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:97134fd58f5a1b4258a8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pen:0eef843c26105b3b:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "用笔书写/圆珠笔",
+            "phrase": "write with a pen / ballpoint pen"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "钢笔；笔；有墨水的书写工具",
+        "definition_en": "a writing instrument with a point or nib from which ink flows",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pen:0eef843c26105b3b",
+        "sense_label_en": "a writing instrument with a point or nib from which ink flows",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:33894fed2aad2f33a305",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pen:ee09298904ba5e34:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "羊圈/牛栏",
+            "phrase": "a sheep/cattle pen"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "围栏；畜栏",
+        "definition_en": "an enclosure for confining livestock or animals",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pen:ee09298904ba5e34",
+        "sense_label_en": "an enclosure for confining livestock or animals",
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e0984019b3a8a8ae6552",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pen:c2ad72450c135afe:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "撰写信件/文章",
+            "phrase": "pen a letter/article"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "写；撰写",
+        "definition_en": "to write or compose, especially in a literary or formal style",
+        "governing_pattern": "vt. + object",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pen:c2ad72450c135afe",
+        "sense_label_en": "to write or compose, especially in a literary or formal style",
+        "sort_order": 4,
         "transitivity": "vt"
       }
     ],
@@ -122,81 +198,6 @@
       "source_row": 9807,
       "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pen:0eef843c26105b3b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "钢笔；笔",
-      "definition_en": "a writing implement with a point from which ink flows",
-      "semantic_key": "4a21e61dcf37d18631651481a037a2969cf43bf1a70c20101941738e8c516336",
-      "semantic_key_history": [
-        "218a416c55976bd9f4f679461dde228cc827d9012a67e333e7a2815cb61550ea"
-      ],
-      "legacy_aliases": [
-        "pen:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pen:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9808,
-      "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pen:c2ad72450c135afe",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "写；撰写",
-      "definition_en": "to write or compose",
-      "semantic_key": "29bdb1ee7fc3eb42fa30161a29d76695b98779f625f8d863fb057c398775936d",
-      "semantic_key_history": [
-        "b4c117dd8f9a064aee5af547cc2997fb5903e9c55a1dc3a02bc4b07d70775664"
-      ],
-      "legacy_aliases": [
-        "pen:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pen:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9810,
-      "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pen:ee09298904ba5e34",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "围栏；畜栏",
-      "definition_en": "an enclosure for confining livestock",
-      "semantic_key": "1105990ca8d6c5a838cdb6a3364be8cb606b5a2bf2c7c55d97c88b4a3a9ca9fb",
-      "semantic_key_history": [
-        "9b508af4c30f5d7e696566b6da72ab4be3e0534bbb894b67daa18dfa669f62e6"
-      ],
-      "legacy_aliases": [
-        "pen:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pen:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9812,
-      "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -210,7 +211,7 @@
       },
       {
         "sense_id": "sense:pen:0eef843c26105b3b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9808,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
@@ -224,7 +225,7 @@
       },
       {
         "sense_id": "sense:pen:c2ad72450c135afe",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9810,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
@@ -238,13 +239,16 @@
       },
       {
         "sense_id": "sense:pen:ee09298904ba5e34",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9812,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
       }
     ],
     "active_collocations": [
+      "collocation:33894fed2aad2f33a305",
+      "collocation:97134fd58f5a1b4258a8",
+      "collocation:e0984019b3a8a8ae6552",
       "collocation:fbe05cc9185c784b1fd9"
     ],
     "facts": [],
@@ -255,6 +259,16 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       },
       {
+        "id": "collocation:33894fed2aad2f33a305",
+        "source_row": 21486,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:97134fd58f5a1b4258a8",
+        "source_row": 21485,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
         "id": "collocation:cd69c3aa5407b2da30cd",
         "source_row": 17375,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
@@ -262,6 +276,11 @@
       {
         "id": "collocation:d75be39eee2659de2dd8",
         "source_row": 18222,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:e0984019b3a8a8ae6552",
+        "source_row": 21487,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       },
       {

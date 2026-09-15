@@ -7,21 +7,31 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "17fff07d27042123806ebf48d4af8331aef6aad9afa121da9b6929f9e689b421",
+    "content_hash": "ec83eacdc35e6394163380d181ae6bb63df9b36b38c92f63d9b92a439e329e91",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "平静的，和平的",
-      "core_meaning_en": "not disturbed by strife or turmoil or war",
-      "mental_model_cn": "平静的，和平的",
+      "core_clusters": [
+        {
+          "label_cn": "平静的；和平的；非暴力的",
+          "label_en": "calm/quiet, free from conflict, or nonviolent",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:peaceful:770bd21dd0045c7f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "平静/安宁；和平/非暴力",
+      "core_meaning_en": "calm or peaceful; nonviolent",
+      "mental_model_cn": "平静/安宁；和平/非暴力",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:peaceful:b4bdb619b985a7e1",
-      "relation:deep:word_family:peaceful:b4bdb619b985a7e1"
+      "relation:deep:word_family:peaceful:b4bdb619b985a7e1",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -45,17 +55,35 @@
             ],
             "meaning_cn": "和平共处",
             "phrase": "peaceful coexistence"
+          },
+          {
+            "collocation_id": "collocation:3c32c84fa8fd27c3aaed",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:peaceful:770bd21dd0045c7f:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "宁静的村庄/夜晚",
+            "phrase": "a peaceful village/evening"
+          },
+          {
+            "collocation_id": "collocation:37d908f9f34a19cbb1c2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:peaceful:770bd21dd0045c7f:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "和平/非暴力抗议",
+            "phrase": "peaceful protest"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "平静的，和平的（不受冲突或战争干扰）",
-        "definition_en": "not disturbed by strife or turmoil or war",
+        "definition_cn": "平静的；安宁的；和平的；非暴力的",
+        "definition_en": "calm and quiet; free from disturbance or conflict; involving no violence",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:peaceful:770bd21dd0045c7f",
-        "sense_label_en": "not disturbed by strife or turmoil or war",
+        "sense_label_en": "calm and quiet; free from disturbance or conflict; involving no violence",
         "sort_order": 0,
         "transitivity": "nonverb"
       }
@@ -133,6 +161,8 @@
     ],
     "active_collocations": [
       "collocation:1f79be92e5ef36f8c8a8",
+      "collocation:37d908f9f34a19cbb1c2",
+      "collocation:3c32c84fa8fd27c3aaed",
       "collocation:5d48a2cc46dbed205ee1"
     ],
     "facts": [
@@ -146,6 +176,16 @@
       {
         "id": "collocation:1f79be92e5ef36f8c8a8",
         "source_row": 2601,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:37d908f9f34a19cbb1c2",
+        "source_row": 21437,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:3c32c84fa8fd27c3aaed",
+        "source_row": 21436,
         "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
       },
       {
