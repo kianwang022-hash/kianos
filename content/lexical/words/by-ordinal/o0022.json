@@ -43,7 +43,7 @@
         "pattern": "verbal abuse; hurl/shout abuse at + sb"
       }
     ],
-    "content_hash": "4113482147fc4f82eed47f585e965351ce483dc3db0bee15897862f573b54ef6",
+    "content_hash": "223b06eb6e92f1b036b2b7f275d097959310d79e9496a756ef323a7c716e3741",
     "core_concept": {
       "core_clusters": [
         {
@@ -83,7 +83,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0001-o0024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -252,7 +254,34 @@
     },
     "word": "abuse",
     "word_family": [],
-    "word_id": "word:abuse"
+    "word_id": "word:abuse",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "abuse",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Noun and verb are one Word identity; POS selects the final /s/ versus /z/ pronunciation.",
+      "variants": [
+        {
+          "variant_id": "form:abuse:noun",
+          "pos": [
+            "noun"
+          ],
+          "ipa": "/əˈbjuːs/",
+          "stress": "second_syllable",
+          "learner_key": "noun: /s/"
+        },
+        {
+          "variant_id": "form:abuse:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/əˈbjuːz/",
+          "stress": "second_syllable",
+          "learner_key": "verb: /z/"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -387,6 +416,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch03",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }

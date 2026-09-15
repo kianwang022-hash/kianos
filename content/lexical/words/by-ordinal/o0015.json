@@ -29,7 +29,7 @@
         "pattern": "in the absence of + person/thing/evidence/condition"
       }
     ],
-    "content_hash": "3afcad88870e038a4bcf8139ed0173ede4f91412e351c3941effd50ef1fc7b01",
+    "content_hash": "dc450797d57f126369bbf3a9df8b2a04041150e7a267094fba50c3f2feb2c383",
     "core_concept": {
       "core_clusters": [
         {
@@ -58,7 +58,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0001-o0024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -72,15 +74,6 @@
             ],
             "meaning_cn": "缺席某地",
             "phrase": "absence from + place"
-          },
-          {
-            "collocation_id": "collocation:76bb173bc3539e2c8fd7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:absence:3e4a58fe8eed57ba:collocation:1"
-            ],
-            "meaning_cn": "在缺乏……的情况下",
-            "phrase": "in the absence of + sth"
           }
         ],
         "confidence": "high",
@@ -106,6 +99,15 @@
             ],
             "meaning_cn": "缺乏证据",
             "phrase": "absence of evidence"
+          },
+          {
+            "collocation_id": "collocation:76bb173bc3539e2c8fd7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:absence:3e4a58fe8eed57ba:collocation:1"
+            ],
+            "meaning_cn": "在缺乏……的情况下",
+            "phrase": "in the absence of + sth"
           }
         ],
         "confidence": "high",
@@ -223,6 +225,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch03",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }

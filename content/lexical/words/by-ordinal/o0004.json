@@ -22,7 +22,7 @@
         "pattern": "can't/cannot abide + sb/sth/doing"
       }
     ],
-    "content_hash": "142ebb7f270064327d472b60a2034a349dfce27d84599f322358970687a9ef02",
+    "content_hash": "1876adfee44172b77ceb5520860b7ff2cb065d3651f7e8392b41ad071569e14e",
     "core_concept": {
       "core_clusters": [
         {
@@ -51,7 +51,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0001-o0024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -101,8 +103,8 @@
             "legacy_source_object_ids": [
               "sense:abide:a76278b84da9503c:collocation:1"
             ],
-            "meaning_cn": "忍受延误",
-            "phrase": "abide the delay"
+            "meaning_cn": "无法忍受这次延误",
+            "phrase": "can't abide the delay"
           }
         ],
         "confidence": "high",
@@ -257,6 +259,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch02",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }
