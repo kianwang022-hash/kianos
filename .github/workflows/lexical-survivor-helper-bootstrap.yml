@@ -1,0 +1,32 @@
+name: Lexical survivor helper bootstrap
+
+on:
+  push:
+    branches:
+      - lexical/execute-o3875-o4124-20260916
+    paths:
+      - content/lexical/execution/o4025-o4124.HELPER_BOOTSTRAP
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap-helper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore exact mechanical helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin 4c85edc2911928e20e264bb13d232949bb953984:refs/remotes/origin/lexical-helper-source
+          git show origin/lexical-helper-source:tools/lexical_apply_retro_o0025_o0224.py > tools/lexical_apply_retro_o0025_o0224.py
+          python -m py_compile tools/lexical_apply_retro_o0025_o0224.py
+          git config user.name "Kian"
+          git config user.email "kianwang022@gmail.com"
+          git add tools/lexical_apply_retro_o0025_o0224.py
+          git diff --cached --quiet && { echo HELPER_ALREADY_PRESENT; exit 0; }
+          git commit -m "lexical: restore package executor helper"
+          git push origin HEAD:lexical/execute-o3875-o4124-20260916
