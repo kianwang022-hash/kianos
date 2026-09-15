@@ -33,6 +33,7 @@ const repairReturn = read('static-web/src/components/XizongSystemRepairReturn.as
 const repairBridge = read('static-web/src/components/XizongRepairInboxBridge.astro');
 const exitUi = read('static-web/src/components/XizongSystemExitRuntime.astro');
 const questionLib = read('static-web/src/lib/xizongQuestions.mjs');
+const crosswalkLib = read('static-web/src/lib/xizongQuestionCrosswalk.mjs');
 const blockPage = read('static-web/src/pages/xizong/[system]/[block].astro');
 const systemPage = read('static-web/src/pages/xizong/[system]/index.astro');
 
@@ -75,7 +76,8 @@ assert(exitUi.includes("results.filter((row) => row.status === 'stable')"), 'sta
 assert(exitUi.includes("let holdoutYears = readJson(holdoutKey, []);"), 'holdout-not-private-empty-default');
 assert(exitUi.includes('!holdoutYears.includes(Number(question.year))'), 'holdout-not-excluded-from-sweep');
 assert(exitUi.includes('暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。'), 'missing-relation-guessed');
-assert(questionLib.includes("if (!row || row.review_status !== 'REVIEWED') return null;"), 'unreviewed-question-relation-accepted');
+assert(questionLib.includes('loadReviewedXizongQuestionRelation(questionId)'), 'question-runtime-bypasses-crosswalk-owner');
+assert(crosswalkLib.includes("if (!row || row.review_status !== 'REVIEWED') return null;"), 'unreviewed-question-relation-accepted');
 assert(repairReturn.includes('allowed.has(row.questionId)'), 'repair-plan-not-limited-to-current-wu');
 assert(repairReturn.includes('!relation?.blockId || !relation?.primaryKpId'), 'repair-return-not-reviewed-only');
 
