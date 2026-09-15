@@ -93,6 +93,19 @@ try {
   pass('Vocabulary Home screenshots captured without horizontal overflow');
 
   await page.setViewportSize({ width: 1440, height: 900 });
+  await go('/vocabulary/');
+  await page.locator('[data-lexical-tab="search"]').click();
+  const search = page.locator('[data-lexical-search]');
+  await search.fill('say');
+  await page.locator('[data-lexical-search-results] .lexicalWordRow').first().waitFor();
+  await shot('home-search-say-1440');
+  await page.locator('[data-lexical-tab="review"]').click();
+  await shot('home-repair-empty-1440');
+  await page.locator('[data-lexical-tab="challenge"]').click();
+  await page.locator('[data-challenge-import-panel]').waitFor();
+  await shot('home-challenge-import-1440');
+  pass('Search / Repair / Challenge Current modes captured without fabricated state');
+
   await go(`/vocabulary/${answer.ordinal}/`);
   await page.locator('[data-vocab-front]').waitFor();
   await shot('answer-front-1440');
@@ -105,9 +118,14 @@ try {
   await fontProbe(page, '.portedVocabSenseCn', 'say sense Chinese');
   const sense = await page.locator('.portedVocabSenseRow').first().evaluate(el => {
     const s = getComputedStyle(el);
+    const heading = el.querySelector('.portedVocabSenseHeading');
+    const meaning = el.querySelector('.portedVocabSenseMeaning');
     const cn = el.querySelector('.portedVocabSenseCn');
     const en = el.querySelector('.portedVocabSenseEn');
     const facts = el.querySelector('.portedVocabSenseFacts');
+    const hr = heading?.getBoundingClientRect();
+    const mr = meaning?.getBoundingClientRect();
+    const fr = facts?.getBoundingClientRect();
     return {
       display: s.display,
       columns: s.gridTemplateColumns,
@@ -115,16 +133,21 @@ try {
       cnSize: cn ? parseFloat(getComputedStyle(cn).fontSize) : 0,
       enSize: en ? parseFloat(getComputedStyle(en).fontSize) : 0,
       hasFacts: Boolean(facts),
-      factsWidth: facts ? facts.getBoundingClientRect().width : 0
+      heading: hr ? { left:hr.left, top:hr.top, right:hr.right, bottom:hr.bottom } : null,
+      meaning: mr ? { left:mr.left, top:mr.top, right:mr.right, bottom:mr.bottom } : null,
+      facts: fr ? { left:fr.left, top:fr.top, right:fr.right, bottom:fr.bottom, width:fr.width } : null
     };
   });
   assert.equal(sense.display, 'grid', `say sense row not grid: ${JSON.stringify(sense)}`);
   assert.ok(sense.cnSize >= 17 && sense.enSize >= 18, `say sense row text too small: ${JSON.stringify(sense)}`);
-  assert.ok(sense.hasFacts, `say sense row missing facts region: ${JSON.stringify(sense)}`);
+  assert.ok(sense.hasFacts && sense.heading && sense.meaning && sense.facts, `say sense row owner missing: ${JSON.stringify(sense)}`);
+  assert.ok(Math.abs(sense.heading.left - sense.meaning.left) <= 2, `sense heading/meaning do not share left owner: ${JSON.stringify(sense)}`);
+  assert.ok(sense.facts.left >= sense.meaning.right - 2, `sense facts are not the right owner: ${JSON.stringify(sense)}`);
+  assert.ok(sense.facts.top <= sense.heading.top + 2 && sense.facts.bottom >= sense.meaning.bottom - 2, `sense facts do not span the semantic row: ${JSON.stringify(sense)}`);
   report.senseRow = sense;
   await shot('say-reveal-1440');
   await shot('say-sense-row-1440', page.locator('.portedVocabSenseRow').first());
-  pass('say Reveal and first sense-row geometry captured from Current content');
+  pass('say Reveal and first sense-row preserve left meaning / right facts ownership');
 
   fs.writeFileSync(path.resolve('../lexical-audit/visual-report.json'), JSON.stringify({ ...report, pass: true }, null, 2));
 } catch (error) {
