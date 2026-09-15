@@ -1,0 +1,54 @@
+name: TEMP Xizong Persisted Sweep Sync Fix
+
+on:
+  push:
+    branches:
+      - chat/xizong-multipass-question-attempts
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chat/xizong-multipass-question-attempts
+      - name: Apply minimal runtime sync fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('static-web/src/components/XizongSystemExitRuntime.astro')
+          text = path.read_text()
+
+          anchor = """    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });\n    writeJson(sweepKey, sweepState);\n"""
+          replacement = anchor + """\n    const syncSweepState = () => {\n      const persisted = readJson(sweepKey, sweepState);\n      sweepState = ensureXizongQuestionSweepState(\n        persisted && typeof persisted === 'object' ? persisted : { results: {} },\n        { ...attemptContext, holdoutYears }\n      );\n      writeJson(sweepKey, sweepState);\n      return sweepState;\n    };\n"""
+          if anchor not in text:
+              raise SystemExit('SYNC_ANCHOR_NOT_FOUND')
+          text = text.replace(anchor, replacement, 1)
+
+          start_anchor = """    startSweep?.addEventListener('click', () => {\n      if (!recallState.completedAt || !holdoutYears.length) return;\n      workspace.hidden = false;\n      renderQuestion();\n"""
+          start_replacement = """    startSweep?.addEventListener('click', () => {\n      if (!recallState.completedAt || !holdoutYears.length) return;\n      syncSweepState();\n      workspace.hidden = false;\n      renderQuestion();\n"""
+          if start_anchor not in text:
+              raise SystemExit('START_SWEEP_ANCHOR_NOT_FOUND')
+          text = text.replace(start_anchor, start_replacement, 1)
+
+          next_anchor = """    nextRoundButton?.addEventListener('click', () => {\n      activeQuestions = computeActive();\n"""
+          next_replacement = """    nextRoundButton?.addEventListener('click', () => {\n      syncSweepState();\n      activeQuestions = computeActive();\n"""
+          if next_anchor not in text:
+              raise SystemExit('NEXT_ROUND_ANCHOR_NOT_FOUND')
+          text = text.replace(next_anchor, next_replacement, 1)
+
+          path.write_text(text)
+          PY
+          git diff --check
+          git diff -- static-web/src/components/XizongSystemExitRuntime.astro
+      - name: Commit fix
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static-web/src/components/XizongSystemExitRuntime.astro
+          git commit -m "fix(xizong): sync persisted sweep before round rendering"
+          git push origin HEAD:chat/xizong-multipass-question-attempts
