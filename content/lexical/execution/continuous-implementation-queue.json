@@ -1,30 +1,24 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 8,
-  "last_refreshed_main": "0758ccaeac7db524f022fdf5592781b59e379a02",
-  "contiguous_implemented_frontier": "o3624",
+  "generation": 9,
+  "last_refreshed_main": "1806a603e12c33b085dc491de8b4a80134948293",
+  "contiguous_implemented_frontier": "o3874",
   "active_package": {
-    "scope": [3625, 3874],
-    "phase": "MECHANICAL_EXECUTION_READY",
-    "production_review": "content/lexical/semantic-review/o3625-o3874.md",
+    "scope": [3875, 4124],
+    "phase": "SOL_RECONCILIATION",
+    "production_review": "content/lexical/semantic-review/o3875-o4124.md",
     "audit_inputs": [
-      "content/lexical/semantic-audit/o3625-o3824.audit.md",
-      "content/lexical/semantic-audit/o3825-o4024.audit.md"
-    ],
-    "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md",
-    "authority_pr": 189,
-    "authority_merge_commit": "0758ccaeac7db524f022fdf5592781b59e379a02",
-    "semantic_source_union_count": 91,
-    "authorized_out_of_range_word_dependencies": [3880, 7278, 7289]
+      "content/lexical/semantic-audit/o3825-o4024.audit.md",
+      "content/lexical/semantic-audit/o4025-o4224.audit.md"
+    ]
   },
-  "package_status": "FORWARD_ACTIVE_EXECUTION_READY_o3625_o3874",
+  "package_status": "FORWARD_ACTIVE_RECONCILING_o3875_o4124",
   "visible_holes": [],
   "semantic_escalations": [],
-  "next_package": [3625, 3874],
+  "next_package": [3875, 4124],
   "production_review": {
     "scope": [1, 7946],
     "status": "COMPLETE",
-    "normal_handoff_start": 25,
     "frontier": "o7946"
   },
   "independent_audit": {
@@ -62,15 +56,27 @@
       "receipt": "content/lexical/execution/receipts/o3375-o3624.forward-package.json",
       "semantic_source_union_count": 92,
       "status": "INTEGRATED_COMPLETE"
+    },
+    {
+      "scope": [3625, 3874],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md",
+      "authority_pr": 189,
+      "merge_pr": 194,
+      "merge_commit": "1806a603e12c33b085dc491de8b4a80134948293",
+      "receipt": "content/lexical/execution/receipts/o3625-o3874.forward-package.json",
+      "semantic_source_union_count": 91,
+      "exact_word_write_union_count": 99,
+      "out_of_range_word_dependencies": [3880, 7278, 7289],
+      "status": "INTEGRATED_COMPLETE"
     }
   ],
   "continuous_post_audit_closure": {
-    "scope": [1, 3624],
+    "scope": [1, 3874],
     "status": "COMPLETE_ON_MAIN",
     "remaining_holes": []
   },
   "remaining_catalog": {
-    "start": 3875,
+    "start": 4125,
     "end": 7946,
     "status": "NOT_ACTIVATED_BEYOND_ACTIVE_PACKAGE",
     "activation_rule": "ADVANCE_ONLY_AFTER_CURRENT_ACTIVE_PACKAGE_INTEGRATES"
