@@ -71,6 +71,43 @@ stable question identity
 
 已有 System Recall 的 `PRE_QUESTION / MID_SWEEP / POST_QUESTION` 表示**一次题目流程内部的位置**；跨学习轮次使用正交的 `FIRST_PASS / SECOND_PASS / LATE_REVIEW` study-phase 语义，两种 phase 不共用一个字段。结果可见性、Mark、提示/援助、题目/内容版本等已知条件仍应随 attempt 保留；未来整卷接入继续沿用这一模型，而不是新建平行 authority。
 
+### Visual / Precision capability｜Current 兼容状态
+
+Visual / Precision 现在是同一生产 Runtime 的**可选 enrichment capability**，不是 A2 特例，也不是第二套内容权威。正式边界见 `XIZONG_VISUAL_PRECISION_CAPABILITY.md`。
+
+稳定结构是：
+
+```text
+shared renderer / runtime capability
+        ↑
+stable cue / anchor / Source Object binding
+        ↑
+independently upgradable content packs
+```
+
+A2 已接受的 R3 source-visual slice 继续保留，但元数据由 Current content pack 提供；共享 bridge 按 `*-source-visuals.json` 泛化发现，不再为每个疾病 / Block / KP 手写 import。没有 content pack、只有部分 content pack、或以后补更多图片，都必须继续使用同一 renderer。
+
+Visual 是稀疏高价值增强，不做“全讲义截图搬家”；Precision 是精确数字、阈值、分型边界、药物/时间配对等选择性 exactness 支撑。两者都不能进入 clean Recall front 造成答案泄漏。Source visual 仍只是在合适学习时机提供 micro-task / precise source support，不替代 iPad / MarginNote 原讲义连续学习。
+
+A2 browser acceptance 已执行真实 R3 source-visual 路径与 KP Precision post-Reveal 路径；缺失 enrichment 合法，不造 placeholder，不构造假 completeness。
+
+### Progressive availability｜工程未完成不能伪装成 learner 未完成
+
+内容/工程 availability 与 learner progress、Evidence、Repair、先修依赖正交。
+
+当前共享规则：
+
+```text
+capability/content 不存在或尚未开放
+≠ learner prerequisite 未完成
+≠ learner failure
+≠ learner debt
+```
+
+未来 System、Question、Visual、Precision、Repair/Challenge 等能力可以逐步填充稳定 slot。已开放的 Learn / Recall / Question / Repair 路径不能因为旁支能力 `COMING` / partial 而被阻塞；completion denominator 只计算当前真实 admitted learner obligations。
+
+产品层冻结的是 **learner journey + capability slots**，不是未来所有内容。后续全科内容工程可以持续把新 System、题目、Visual / Precision 接进现有接口，而不重建 Runtime 或重新设计页面骨架。
+
 ## 展示与 Guide 最新明确要求
 
 `content/xizong/projection/PROJECTION_CONTRACT.md` + manifest + `V1_FREEZE_RECONCILIATION_RECEIPT.md` 管资产。一个 Block 可有多个认知对象；KP Reveal 仍须完整 canonical Core。7 rich calibration Blocks 以外的 baseline 引用不是“所有内容已图形化”的证明。
