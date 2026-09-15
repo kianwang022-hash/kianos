@@ -1,0 +1,234 @@
+name: Lexical Prefix Corrective o0001-o0024
+
+on:
+  push:
+    branches:
+      - lexical/prefix-corrective-o0001-o0024-20260916
+    paths:
+      - .github/workflows/lexical-prefix-corrective-o0001-o0024.yml
+
+permissions:
+  contents: write
+
+jobs:
+  corrective:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout bounded corrective branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch Current main and fail on target drift
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=2300bd51397abfdfd0e87d43ed908f0b17e9af97
+          git fetch origin main:refs/remotes/origin/main
+          test "$(git merge-base "$BASE" origin/main)" = "$BASE"
+          drift="$(git diff --name-only "$BASE"..origin/main -- \
+            content/lexical/words/by-ordinal/o0001.json \
+            content/lexical/words/by-ordinal/o0002.json \
+            content/lexical/words/by-ordinal/o0003.json \
+            content/lexical/words/by-ordinal/o0004.json \
+            content/lexical/words/by-ordinal/o0005.json \
+            content/lexical/words/by-ordinal/o0006.json \
+            content/lexical/words/by-ordinal/o0007.json \
+            content/lexical/words/by-ordinal/o0008.json \
+            content/lexical/words/by-ordinal/o0009.json \
+            content/lexical/words/by-ordinal/o0010.json \
+            content/lexical/words/by-ordinal/o0011.json \
+            content/lexical/words/by-ordinal/o0012.json \
+            content/lexical/words/by-ordinal/o0013.json \
+            content/lexical/words/by-ordinal/o0014.json \
+            content/lexical/words/by-ordinal/o0015.json \
+            content/lexical/words/by-ordinal/o0016.json \
+            content/lexical/words/by-ordinal/o0017.json \
+            content/lexical/words/by-ordinal/o0018.json \
+            content/lexical/words/by-ordinal/o0019.json \
+            content/lexical/words/by-ordinal/o0020.json \
+            content/lexical/words/by-ordinal/o0021.json \
+            content/lexical/words/by-ordinal/o0022.json \
+            content/lexical/words/by-ordinal/o0023.json \
+            content/lexical/words/by-ordinal/o0024.json \
+            content/lexical/canonical/senses/shards/o0001-0032.json \
+            content/lexical/canonical/collocations/shards/o0001-0032.json \
+            content/lexical/schema.json)"
+          if [ -n "$drift" ]; then
+            echo "Current main changed prefix/shared-registry targets after branch base:"
+            echo "$drift"
+            exit 1
+          fi
+          echo "Current-drift gate PASS"
+
+      - name: Apply exact seven-owner corrective package
+        run: python tools/lexical_apply_prefix_o0001_o0024.py --apply
+
+      - name: Verify exact write set and seven findings
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+
+          R=Path.cwd()
+          expected={
+            'content/lexical/words/by-ordinal/o0004.json',
+            'content/lexical/words/by-ordinal/o0005.json',
+            'content/lexical/words/by-ordinal/o0007.json',
+            'content/lexical/words/by-ordinal/o0015.json',
+            'content/lexical/words/by-ordinal/o0016.json',
+            'content/lexical/words/by-ordinal/o0019.json',
+            'content/lexical/words/by-ordinal/o0022.json',
+            'content/lexical/canonical/senses/shards/o0001-0032.json',
+            'content/lexical/canonical/collocations/shards/o0001-0032.json',
+            'content/lexical/schema.json',
+          }
+          actual=set(filter(None, subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines()))
+          if actual != expected:
+            raise SystemExit(f'EXACT_WRITE_SET_MISMATCH missing={sorted(expected-actual)} extra={sorted(actual-expected)}')
+
+          def load(p): return json.loads((R/p).read_text())
+          words={o:load(f'content/lexical/words/by-ordinal/o{o:04d}.json') for o in (4,5,7,15,16,19,22)}
+
+          # abide
+          s=next(x for x in words[4]['record']['senses'] if x['sense_id']=='sense:abide:a76278b84da9503c')
+          c=next(x for x in s['collocations'] if x['collocation_id']=='collocation:f8dc1f70801b1a152ec0')
+          assert c['phrase']=="can't abide the delay"
+
+          # ability
+          phrases={c['collocation_id']:c['phrase'] for s in words[5]['record']['senses'] for c in s.get('collocations',[])}
+          assert phrases['collocation:aa43b28901fdc72137a9']=='the ability to do sth'
+          assert phrases['collocation:eaea95b553bc6946fa16']=='have the ability to do sth'
+
+          # abnormal
+          active={s['sense_id'] for s in words[7]['record']['senses']}
+          assert 'sense:abnormal:3271d9f4317951c3' not in active
+          assert 'sense:abnormal:98807d28524a5607' in active
+          survivor=next(x for x in words[7]['record']['senses'] if x['sense_id']=='sense:abnormal:98807d28524a5607')
+          assert any(c['collocation_id']=='collocation:89e5dccb37047c0f1aff' for c in survivor.get('collocations',[]))
+
+          # absence
+          src=next(x for x in words[15]['record']['senses'] if x['sense_id']=='sense:absence:3e4a58fe8eed57ba')
+          dst=next(x for x in words[15]['record']['senses'] if x['sense_id']=='sense:absence:0da5aabdb1705dae')
+          assert not any(c['collocation_id']=='collocation:76bb173bc3539e2c8fd7' for c in src.get('collocations',[]))
+          assert any(c['collocation_id']=='collocation:76bb173bc3539e2c8fd7' for c in dst.get('collocations',[]))
+
+          # structured same-Word form identity
+          for o in (16,19,22):
+              form=words[o]['record'].get('form_identity',{})
+              assert form.get('form_type')=='same_spelling_pos_conditioned_pronunciation'
+              assert form.get('identity_rule')=='same_word_owner_no_semantic_split'
+              assert len(form.get('variants',[]))==2
+              assert all(v.get('pos') and v.get('ipa') for v in form['variants'])
+
+          # identity/provenance registries
+          senses=load('content/lexical/canonical/senses/shards/o0001-0032.json')
+          colls=load('content/lexical/canonical/collocations/shards/o0001-0032.json')
+          sr={r['record']['stable_sense_id']:r['record'] for r in senses if r.get('record',{}).get('stable_sense_id')}
+          cr={r['record']['collocation_id']:r['record'] for r in colls if r.get('record',{}).get('collocation_id')}
+          assert sr['sense:abnormal:3271d9f4317951c3']['status']=='merged'
+          assert sr['sense:abnormal:3271d9f4317951c3']['merged_into_sense_id']=='sense:abnormal:98807d28524a5607'
+          assert cr['collocation:89e5dccb37047c0f1aff']['sense_id']=='sense:abnormal:98807d28524a5607'
+          assert cr['collocation:76bb173bc3539e2c8fd7']['sense_id']=='sense:absence:0da5aabdb1705dae'
+
+          schema=load('content/lexical/schema.json')
+          assert 'same_word_form_identity' in schema['owners']['word']['owns']
+          assert schema['form_identity_policy']['pronunciation_only_creates_new_word_or_sense_identity'] is False
+          print('seven findings readback PASS')
+          PY
+
+      - name: Verify 17 PASS owners are unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          for o in 0001 0002 0003 0006 0008 0009 0010 0011 0012 0013 0014 0017 0018 0020 0021 0023 0024; do
+            git diff --quiet HEAD -- "content/lexical/words/by-ordinal/o${o}.json" || {
+              echo "Unexpected PASS-owner mutation: o${o}"
+              exit 1
+            }
+          done
+          echo "17/17 PASS owners byte-unchanged"
+
+      - name: Lexical transport guards
+        run: python tools/test_lexical_transport_guards.py
+
+      - name: Lexical shard tests
+        run: python tools/test_lexical_shard.py
+
+      - name: Parse all Lexical JSON
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          n=0
+          for p in Path('content/lexical').rglob('*.json'):
+              json.loads(p.read_text(encoding='utf-8')); n+=1
+          print('parsed',n,'json files')
+          PY
+
+      - name: Install static-web dependencies
+        run: npm --prefix static-web install --no-audit --no-fund
+
+      - name: Full Astro build
+        run: npm --prefix static-web run build
+
+      - name: Remove Python bytecode noise
+        shell: bash
+        run: find tools -type d -name __pycache__ -prune -exec rm -rf {} +
+
+      - name: Write durable corrective receipt
+        shell: bash
+        run: |
+          mkdir -p content/lexical/execution/receipts
+          cat > content/lexical/execution/receipts/o0001-o0024.prefix-corrective.json <<JSON
+          {
+            "schema": "kianos.lexical.prefix_corrective_receipt.v1",
+            "status": "VERIFIED_READY_FOR_MAIN",
+            "scope": [1, 24],
+            "audit_findings": 7,
+            "corrected_word_ordinals": [4, 5, 7, 15, 16, 19, 22],
+            "pass_owner_count": 17,
+            "new_word_ids": 0,
+            "new_sense_ids": 0,
+            "sense_merges": [{"from": "sense:abnormal:3271d9f4317951c3", "into": "sense:abnormal:98807d28524a5607"}],
+            "form_identity_words": [16, 19, 22],
+            "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md",
+            "checks": {
+              "exact_write_set": "PASS",
+              "seven_findings_readback": "PASS",
+              "seventeen_pass_owners_unchanged": "PASS",
+              "identity_registry_closure": "PASS",
+              "transport_guards": "PASS",
+              "shard_tests": "PASS",
+              "all_lexical_json": "PASS",
+              "astro_build": "PASS"
+            },
+            "workflow": {"run_id": ${GITHUB_RUN_ID}, "job_id": "${GITHUB_JOB}"},
+            "forward_o3375_plus": "NOT_ACTIVATED"
+          }
+          JSON
+
+      - name: Commit verified corrective result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Kian"
+          git config user.email "kianwang022@gmail.com"
+          git add \
+            content/lexical/words/by-ordinal/o0004.json \
+            content/lexical/words/by-ordinal/o0005.json \
+            content/lexical/words/by-ordinal/o0007.json \
+            content/lexical/words/by-ordinal/o0015.json \
+            content/lexical/words/by-ordinal/o0016.json \
+            content/lexical/words/by-ordinal/o0019.json \
+            content/lexical/words/by-ordinal/o0022.json \
+            content/lexical/canonical/senses/shards/o0001-0032.json \
+            content/lexical/canonical/collocations/shards/o0001-0032.json \
+            content/lexical/schema.json \
+            content/lexical/execution/receipts/o0001-o0024.prefix-corrective.json
+          git diff --cached --quiet && { echo 'No corrective changes'; exit 1; }
+          git commit -m "lexical: close seven historical-prefix audit findings"
+          git push origin HEAD
