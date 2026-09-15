@@ -2,9 +2,11 @@
 
 Owner path: `content/xizong/explanations/`
 
-This store is the Chat-reviewed additive explanation layer keyed by stable `question_id`. It does not redefine Question Truth, stems, options, official answers, or canonical Question identity.
+This store is the single Current Chat-reviewed additive explanation layer keyed by stable `question_id`. It does not redefine Question Truth, stems, options, official answers, or canonical Question identity.
 
 Current Question Truth owner: `content/xizong/questions/`.
+Current reviewed Question→Knowledge relation owner: `content/xizong/question-relations/`.
+Retired alias/tombstone only: `content/xizong/question_explanations/`.
 
 ## Current cycle
 
