@@ -83,4 +83,33 @@ const base = import.meta.env.BASE_URL;
       </aside>
     </div>
   </section>
+
+  <style is:global>
+    :root body.surfaceBody-english #main-content .englishHomeShell {
+      --english-reading-font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+
+    :root body.surfaceBody-english #main-content .englishHomeEyebrow,
+    :root body.surfaceBody-english #main-content .englishHomeHeroMeta span,
+    :root body.surfaceBody-english #main-content .englishHomePanel > header span,
+    :root body.surfaceBody-english #main-content .englishHomeSidePanel > header span,
+    :root body.surfaceBody-english #main-content .englishEntryCopy > span,
+    :root body.surfaceBody-english #main-content .englishHomeGuideList a > span {
+      font-weight: 700;
+    }
+
+    :root body.surfaceBody-english #main-content .englishHomeTabs a,
+    :root body.surfaceBody-english #main-content .englishHomeContinue .siteResume a span,
+    :root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies nav a,
+    :root body.surfaceBody-english #main-content .englishHomeShell .englishEntryFamilies .guideLink,
+    :root body.surfaceBody-english #main-content .englishHomeGuideList b,
+    :root body.surfaceBody-english #main-content .englishHomeShell .englishLexicalEntry a {
+      font-weight: 600;
+    }
+
+    :root body.surfaceBody-english #main-content .englishHomeTabs a.active,
+    :root body.surfaceBody-english #main-content .englishHomeHeroMeta strong {
+      font-weight: 700;
+    }
+  </style>
 </Base>
