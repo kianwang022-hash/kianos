@@ -1,40 +1,20 @@
 ---
-import { marked } from 'marked';
-import Base from '../layouts/Base.astro';
-import XizongBlockRuntime from '../components/XizongBlockRuntime.astro';
-import XizongMemoryReview from '../components/XizongMemoryReview.astro';
-import { loadB1 } from '../lib/current.mjs';
-
-const b1 = loadB1();
-const html = marked.parse(b1.markdown, { gfm: true });
-const orientationHtml = marked.parse(b1.orientationMarkdown, { gfm: true });
-const kpRecords = b1.kpRecords.map((record) => ({ ...record, detailHtml: marked.parse(record.detailMarkdown, { gfm: true }) }));
-const sections = b1.sections.map((section) => ({ ...section, html: marked.parse(section.markdown, { gfm: true }) }));
-const projection = { ...b1, orientationHtml, kpRecords, sections };
+const base = import.meta.env.BASE_URL || '/';
+const target = `${base.endsWith('/') ? base : `${base}/`}xizong/circulation/b01/`;
 ---
-<Base title={b1.title} kicker="Xizong · Current" sourcePath={b1.sourcePath} sourceHash={b1.sourceHash} objectId={b1.objectId} active="xizong">
-  <XizongBlockRuntime b1={projection} html={html} />
-  <XizongMemoryReview b1={projection} />
-  <script>
-    const extension = document.querySelector('[data-study-extension]');
-    const runtime = document.querySelector('[data-local-port="study-runtime"]');
-    if (extension && runtime) {
-      [...runtime.querySelectorAll('.portedStudyTabs span')].forEach((tab) => {
-        const name = String(tab.textContent || '').trim().toLowerCase();
-        if (!['memory', 'review'].includes(name)) return;
-        tab.setAttribute('aria-disabled', 'false');
-        tab.setAttribute('role', 'button');
-        tab.setAttribute('tabindex', '0');
-        tab.classList.add('portedExternalTab');
-        const open = () => {
-          extension.querySelector(`[data-extension-tab="${name}"]`)?.click();
-          extension.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
-        tab.addEventListener('click', open);
-        tab.addEventListener('keydown', (event) => {
-          if (event.key === 'Enter' || event.code === 'Space') { event.preventDefault(); open(); }
-        });
-      });
-    }
-  </script>
-</Base>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <link rel="canonical" href={target} />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to Current Xizong B1</title>
+  </head>
+  <body>
+    <p>此旧入口已收敛到当前西综 Runtime。<a href={target}>继续到 B1 · 正常机械循环</a></p>
+    <script define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </body>
+</html>
