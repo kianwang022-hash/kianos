@@ -1,0 +1,13 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import { catalog } from '../../../../catalog.mjs';
+---
+<Base title="合成来源单元" active="politics" showLead={false}>
+  <nav data-practice-return hidden><a data-practice-exact-return>← 返回工作台原题</a><span data-practice-return-error role="alert"></span></nav>
+  {catalog.units.map((u, i) => <section id={`unit-${i + 1}`}><h1>{u.title}</h1><section id={`source-${u.id}`}><h2>原讲义定位</h2><p>合成来源定位页面，只验证路径和返回，不记录学习完成。</p></section></section>)}
+  <script type="application/json" data-practice-bridge-config set:html={JSON.stringify({ configs: catalog.units.map((u) => u.returnConfig), base: '/' })} />
+</Base>
+<script>
+  import { installPoliticsPracticeBridge } from '@runtime/lib/politicsPracticeBridge.mjs';
+  installPoliticsPracticeBridge();
+</script>

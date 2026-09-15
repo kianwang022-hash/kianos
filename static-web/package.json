@@ -16,13 +16,15 @@
     "validate:writing-exam-entry": "node scripts/validate-writing-exam-entry.mjs",
     "validate:writing-evidence": "node scripts/validate-writing-evidence.mjs",
     "validate:writing": "npm run validate:writing-source && npm run validate:writing-learning && npm run validate:writing-runtime && npm run validate:writing-exam-entry && npm run validate:writing-evidence",
-    "validate:politics": "node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs",
+    "validate:politics": "node scripts/validate-politics-runtime.mjs && node scripts/validate-politics-repair-memory.mjs && node scripts/validate-politics-practice-parity.mjs",
     "validate:xizong": "node scripts/validate-xizong-learning.mjs && node scripts/validate-xizong-functional-first.mjs && node scripts/validate-xizong-a3-source.mjs && node scripts/validate-xizong-a2-runtime.mjs && node scripts/validate-xizong-a2-repair-return.mjs && node scripts/validate-xizong-a2-evidence.mjs",
     "qa:objective": "npm run validate:objective && npm run build",
     "qa:translation": "npm run validate:translation && npm run build",
     "qa:writing": "npm run validate:writing && npm run build",
     "qa:politics": "npm run validate:politics && npm run build",
-    "qa:xizong": "npm run validate:xizong && npm run build"
+    "qa:xizong": "npm run validate:xizong && npm run build",
+    "test:politics-practice": "node scripts/test-politics-practice-journey.mjs",
+    "test:politics-practice-formal": "node scripts/test-politics-practice-formal.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
