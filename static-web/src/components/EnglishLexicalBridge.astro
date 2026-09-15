@@ -1,26 +1,105 @@
 ---
 const base = import.meta.env.BASE_URL;
 ---
-<aside data-english-lexical-bridge data-base={base} hidden><a data-lexical-lookup-link></a><span data-lexical-lookup-status role="status"></span></aside>
+<aside data-english-lexical-bridge data-base={base} hidden aria-label="Lexical 只读查词">
+  <a data-lexical-lookup-link hidden></a>
+  <span data-lexical-lookup-status role="status"></span>
+  <button type="button" data-lexical-lookup-dismiss aria-label="关闭查词提示">×</button>
+</aside>
 <script>
-const lookup=document.querySelector('[data-english-lexical-bridge]');
-if(lookup){
- let rows=null;
- document.addEventListener('mouseup',async()=>{
-  const selection=getSelection();const text=selection?.toString().trim();
-  if(!text || text.length>80 || !/^[A-Za-z][A-Za-z '-]*$/.test(text) || !selection?.anchorNode?.parentElement?.closest('.portedReadingPassage,.clozePassage,.readingBPassage,.readingBCandidates,.translationSource,.writingPrompt'))return;
-  const base=lookup.getAttribute('data-base')||'/';
-  const matches=()=>rows.filter(row=>row.word.toLowerCase()===text.toLowerCase());
-  try{
-    rows ||= await fetch(`${base}lexical-index.json`).then(response=>{if(!response.ok)throw new Error();return response.json()});
-    const found=matches();lookup.hidden=false;
-    const link=lookup.querySelector('a');const status=lookup.querySelector('span');
-    if(found.length!==1){link.hidden=true;status.textContent=`${text}：没有唯一的 Current 精确词条。`;return;}
-    const url=new URL(`${base}lexical-reference/`,location.origin);url.searchParams.set('ordinal',String(found[0].ordinal));url.searchParams.set('object',found[0].objectId);url.searchParams.set('return',location.pathname+location.search+location.hash);
-    link.href=url.href;link.hidden=false;link.textContent=`${text} · 查阅 Lexical →`;status.textContent='只读参考';
-    link.onclick=()=>{try{sessionStorage.setItem('kianos:guide-return:v1',JSON.stringify({href:location.pathname+location.search+location.hash,y:scrollY,panes:['.portedReadingPassage','.portedReadingQuestions','.clozePassage','.clozeDecision','.translationSource','.translationWork','.writingPrompt','.writingWork'].map(selector=>({selector,y:document.querySelector(selector)?.scrollTop||0}))}));}catch{}};
-  }catch{lookup.hidden=false;lookup.querySelector('span').textContent='Lexical 暂时无法读取；当前任务保留。';}
- });
-}
+  const lookup = document.querySelector('[data-english-lexical-bridge]');
+  if (lookup instanceof HTMLElement) {
+    const link = lookup.querySelector('[data-lexical-lookup-link]');
+    const status = lookup.querySelector('[data-lexical-lookup-status]');
+    const base = lookup.dataset.base || '/';
+    const sourceSelector = '.portedReadingPassage,.clozePassage,.readingBMaterial,.readingBPassage,.readingBCandidates,.translationSource,.writingPrompt';
+    const panes = ['.portedReadingPassage','.portedReadingQuestions','.clozePassage','.clozeDecision','.readingBMaterial','.readingBCandidates>div','.translationSource','.translationWork','.writingPrompt','.writingWork'];
+    let rows = null;
+    let inFlight = null;
+    let revision = 0;
+    const selected = () => {
+      const selection = getSelection();
+      const text = selection?.toString().trim() || '';
+      const start = selection?.anchorNode?.parentElement?.closest(sourceSelector);
+      const end = selection?.focusNode?.parentElement?.closest(sourceSelector);
+      return start && start === end && text.length <= 80 && /^[A-Za-z][A-Za-z '-]*$/.test(text) ? text : '';
+    };
+    const clear = () => {
+      revision += 1;
+      lookup.hidden = true;
+      link.hidden = true;
+      link.removeAttribute('href');
+      link.textContent = '';
+      status.textContent = '';
+    };
+    const index = async () => {
+      if (rows) return rows;
+      if (!inFlight) inFlight = (async () => {
+        const response = await fetch(`${base}lexical-index.json`);
+        if (!response.ok) throw new Error('LEXICAL_INDEX_UNAVAILABLE');
+        const data = await response.json();
+        if (!Array.isArray(data)) throw new Error('LEXICAL_INDEX_INVALID');
+        return data;
+      })();
+      try { rows = await inFlight; return rows; }
+      finally { inFlight = null; }
+    };
+    const refresh = async () => {
+      const text = selected();
+      clear();
+      if (!text) return;
+      const request = revision;
+      try {
+        const data = await index();
+        // A delayed response cannot resurrect a cleared or changed selection.
+        if (request !== revision || selected() !== text) return;
+        const found = data.filter(row => typeof row?.word === 'string' && row.word.toLowerCase() === text.toLowerCase());
+        lookup.hidden = false;
+        if (found.length !== 1) {
+          status.textContent = `${text}：没有唯一的 Current 精确词条。`;
+          return;
+        }
+        const row = found[0];
+        if (!Number.isSafeInteger(Number(row.ordinal)) || Number(row.ordinal) < 1 || typeof row.objectId !== 'string' || !row.objectId) throw new Error('LEXICAL_IDENTITY_INVALID');
+        const url = new URL(`${base}lexical-reference/`, location.origin);
+        url.searchParams.set('ordinal', String(row.ordinal));
+        url.searchParams.set('object', row.objectId);
+        url.searchParams.set('return', location.pathname + location.search + location.hash);
+        link.href = url.href;
+        link.textContent = `${text} · 查阅 Lexical →`;
+        link.hidden = false;
+        status.textContent = '只读参考';
+      } catch {
+        if (request !== revision || selected() !== text) return;
+        lookup.hidden = false;
+        link.hidden = true;
+        link.removeAttribute('href');
+        status.textContent = 'Lexical 暂时无法读取；当前任务保留。';
+      }
+    };
+    document.addEventListener('mouseup', event => {
+      if (!lookup.contains(event.target)) void refresh();
+    });
+    document.addEventListener('keyup', event => {
+      if (event.key === 'Escape') clear();
+      else if (event.key === 'Shift' || (event.shiftKey && event.key.startsWith('Arrow'))) void refresh();
+    });
+    lookup.querySelector('[data-lexical-lookup-dismiss]')?.addEventListener('click', clear);
+    link.addEventListener('click', () => {
+      try {
+        sessionStorage.setItem('kianos:guide-return:v1', JSON.stringify({
+          href: location.pathname + location.search + location.hash, y: scrollY,
+          panes: panes.map(selector => ({ selector, y: document.querySelector(selector)?.scrollTop || 0 }))
+        }));
+      } catch { /* Native browser Back remains available if session storage fails. */ }
+    });
+  }
 </script>
-<style>[data-english-lexical-bridge]{position:fixed;bottom:24px;right:28px;z-index:20;display:flex;gap:18px;padding:14px 20px;background:#fff;border:1px solid var(--study-line);border-radius:6px;box-shadow:0 4px 24px #172d2214;font-size:16px;max-width:85vw;box-sizing:border-box}[data-english-lexical-bridge] a{color:var(--study-green)}[data-english-lexical-bridge] span{font-size:14px;color:var(--study-muted)}</style>
+<style>
+  [data-english-lexical-bridge]{position:fixed;bottom:24px;right:28px;z-index:40;display:flex;align-items:center;gap:16px;padding:14px 18px;background:#fff;border:1px solid var(--study-line);border-radius:9px;box-shadow:0 4px 24px #172d2214;font:17px/1.6 var(--study-font);max-width:calc(100vw - 32px);box-sizing:border-box;flex-wrap:wrap}
+  [data-english-lexical-bridge] a{color:var(--study-green);overflow-wrap:anywhere}
+  [data-english-lexical-bridge] span{font-size:15px;color:var(--study-muted)}
+  [data-lexical-lookup-dismiss]{width:32px;min-height:32px;border:0;border-radius:5px;background:#f2f4f3;font:inherit;font-size:22px;line-height:1;cursor:pointer}
+  [data-english-lexical-bridge] :focus-visible{outline:3px solid #30785d;outline-offset:3px}
+  @media(max-width:600px){[data-english-lexical-bridge]{bottom:16px;right:16px;gap:10px}}
+</style>

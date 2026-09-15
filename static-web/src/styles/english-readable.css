@@ -1,0 +1,121 @@
+/* English-wide readability. Native task geometry and all answer/state gates stay
+   with their existing owners. No exam content or learner state is changed here. */
+body:has(.englishCanvas) {
+  --english-reading-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei", sans-serif;
+  --study-font: var(--english-reading-font);
+  --study-ink: #202322;
+  --study-muted: #505956;
+  --study-faint: #626b67;
+  font-family: var(--english-reading-font);
+  font-synthesis: weight;
+  font-size: 18px;
+  line-height: 1.75;
+}
+:root body #main-content.englishCanvas {
+  width: min(1800px, 100%);
+  padding-inline: clamp(22px, 3.2vw, 56px);
+}
+:root body #main-content.englishCanvas :is(h1,h2,h3,h4,p,li,span,small,strong,b,summary,label,button,select,input,textarea,a,dt,dd,output) {
+  font-family: var(--english-reading-font);
+  letter-spacing: normal;
+}
+:root body #main-content.englishCanvas :is(h1,h2,h3,h4,strong,b) {font-weight:700;}
+:root body #main-content.englishCanvas :is(button,select,input,textarea) {font-size:17px;line-height:1.6;}
+:root body #main-content.englishCanvas :is(button,a,summary,textarea,select):focus-visible {outline:3px solid #30785d;outline-offset:3px;}
+:root body #main-content.englishCanvas .pageLead {grid-template-columns:1fr;gap:6px;}
+:root body #main-content.englishCanvas .pageKicker {font-size:14px;}
+:root body #main-content.englishCanvas .pageLead h1 {font-size:32px;line-height:1.35;}
+:root body #main-content.englishCanvas .pageDescription {font-size:18px;line-height:1.75;}
+:root body #main-content.englishCanvas .taskGuideBridge {font-size:17px;flex-wrap:wrap;}
+
+/* One entry surface, three native capability families; no invented progress. */
+:root body #main-content.englishCanvas .englishEntryFamilies {gap:0;padding:0;background:var(--study-surface);border:1px solid var(--study-line);border-radius:12px;overflow:hidden;}
+:root body #main-content.englishCanvas .englishEntryFamilies>section {min-width:0;padding:26px 28px;border-left:1px solid var(--study-line);}
+:root body #main-content.englishCanvas .englishEntryFamilies>section:first-child {border-left:0;}
+:root body #main-content.englishCanvas .englishEntryFamilies h2 {font-size:27px;line-height:1.4;}
+:root body #main-content.englishCanvas .englishEntryFamilies p {font-size:18px;line-height:1.75;color:var(--study-muted);}
+:root body #main-content.englishCanvas .englishEntryFamilies nav {gap:14px;min-height:130px;}
+:root body #main-content.englishCanvas .englishEntryFamilies a {font-size:20px;line-height:1.6;}
+:root body #main-content.englishCanvas .englishEntryFamilies .guideLink {font-size:17px;line-height:1.6;}
+:root body #main-content.englishCanvas .englishLexicalEntry {font-size:17px;line-height:1.7;}
+:root body #main-content.englishCanvas .siteResume {font-size:18px;}
+
+/* Reading / Cloze retain two independently scrollable full sheets on Mac. */
+:root body #main-content.englishCanvas .portedReadingColumns {height:auto;min-height:0;}
+:root body #main-content.englishCanvas .portedReadingColumns>:is(.portedReadingPassage,.portedReadingQuestions) {height:clamp(420px,calc(100dvh - 290px),1000px);padding:22px 24px;border:1px solid var(--study-line);border-radius:10px;background:var(--study-surface);}
+:root body #main-content.englishCanvas .portedReadingPassage p {font-size:20px;line-height:1.8;max-width:72ch;}
+:root body #main-content.englishCanvas .portedReadingPassage>header h2 {font-size:28px;line-height:1.4;}
+:root body #main-content.englishCanvas .portedReadingQuestion>p {font-size:20px;line-height:1.65;font-weight:700;}
+:root body #main-content.englishCanvas .portedReadingOptions button span {font-size:19px;line-height:1.65;font-weight:400;}
+:root body #main-content.englishCanvas .portedReadingOptions button {min-height:46px;padding:10px 12px;}
+:root body #main-content.englishCanvas :is(.portedReadingQuestion header span,.portedReadingQuestion header button,.portedReadingAnnotate,.portedReadingAnnotate button,.portedReadingAnnotate small,.portedReadingAnswerStrip,.portedReadingRepair button,.portedReadingRepair small,.portedReadingQuestionFooter span,.portedReadingQuestionFooter strong) {font-size:15px;line-height:1.6;}
+:root body #main-content.englishCanvas .portedReadingSessionHeader {border-radius:10px;gap:12px;}
+:root body #main-content.englishCanvas .portedReadingSessionHeader :is(a,button,small) {font-size:15px;}
+:root body #main-content.englishCanvas .portedReadingSessionHeader>div b {font-size:17px;}
+:root body #main-content.englishCanvas .portedReadingSessionHeader>div span {font-size:14px;}
+:root body #main-content.englishCanvas .portedReadingHeaderActions {flex-wrap:wrap;}
+:root body #main-content.englishCanvas .portedReadingResultBar {grid-template-columns:minmax(0,1fr);}
+:root body #main-content.englishCanvas .portedReadingResultBar>div {flex-wrap:wrap;}
+:root body #main-content.englishCanvas .portedReadingResultBar :is(span,b,small,button) {font-size:15px;line-height:1.6;}
+:root body #main-content.englishCanvas .portedReadingResultBar strong {font-size:23px;}
+:root body #main-content.englishCanvas .clozeLayout>:is(.clozePassage,.clozeDecision) {height:clamp(420px,calc(100dvh - 220px),1000px);padding:22px;border:1px solid var(--study-line);border-radius:10px;background:var(--study-surface);}
+:root body #main-content.englishCanvas .clozePassage p {font-size:20px;line-height:1.85;}
+:root body #main-content.englishCanvas .clozeOptions button span {font-size:18px;line-height:1.6;}
+:root body #main-content.englishCanvas .clozeOptions button b {font-size:16px;}
+:root body #main-content.englishCanvas .clozeOptions button {min-height:44px;padding:9px 5px;}
+:root body #main-content.englishCanvas :is(.clozeRowHead p,.clozeFormal,.clozeRuntimeHeader span,.clozeDecisionTop,.clozeSubmitRow small,.clozeResult span) {font-size:16px;line-height:1.6;}
+:root body #main-content.englishCanvas .clozeSubmitRow {bottom:-22px;background:var(--study-surface);}
+
+/* Part B keeps full material/pool/map and its native ordering/fixed-given form. */
+:root body #main-content.englishCanvas :is(.readingBMaterial,.readingBMap,.readingBOrderingCandidates) {min-width:0;padding:22px;border:1px solid var(--study-line);border-radius:10px;background:var(--study-surface);}
+:root body #main-content.englishCanvas :is(.readingBMaterial p,.readingBCandidates p span,.readingBDirections p) {font-size:19px;line-height:1.8;}
+:root body #main-content.englishCanvas .readingBCandidates p {grid-template-columns:28px minmax(0,1fr);}
+:root body #main-content.englishCanvas .readingBCandidates small {grid-column:2;font-size:14px;white-space:normal;}
+:root body #main-content.englishCanvas :is(.readingBCandidates b,.readingBPositionHead strong,.readingBFixedSlot small,.readingBConstraint,.readingBFormal,.readingBSubmitRow span,.readingBPositionHead button) {font-size:16px;line-height:1.6;}
+:root body #main-content.englishCanvas .readingBPosition select {min-width:0;font-size:17px;}
+:root body #main-content.englishCanvas .readingBHeader h2 {font-size:28px;line-height:1.4;}
+:root body #main-content.englishCanvas :is(.readingBHeader span,.readingBHeader small,.readingBMap header,.readingBMaterial header,.readingBDirections>span) {font-size:15px;line-height:1.6;}
+
+/* Translation and Writing: source stays alongside the larger authoring region. */
+:root body #main-content.englishCanvas :is(.translationSource,.translationWork,.writingPrompt,.writingWork) {height:clamp(440px,calc(100dvh - 240px),1100px);padding:22px 24px;border:1px solid var(--study-line);border-radius:10px;background:var(--study-surface);}
+:root body #main-content.englishCanvas :is(.translationSourceBody p,.translationSegment p,.translationInstruction,.writingPromptBody p,.writingPromptBody blockquote,.writingPromptBody dd,.writingFacts li) {font-size:19px;line-height:1.8;}
+:root body #main-content.englishCanvas :is(.translationAnswerCard textarea,.translationStage textarea,.writingField textarea,.writingFrozenGrid pre,.translationFrozen p) {font-family:var(--english-reading-font);font-size:20px;line-height:1.8;}
+:root body #main-content.englishCanvas .writingField textarea[data-essay-draft] {min-height:44vh;}
+:root body #main-content.englishCanvas :is(.translationHeader h1,.writingRuntimeHeader h1) {font-size:28px;line-height:1.45;}
+:root body #main-content.englishCanvas :is(.translationStage h2,.writingStage h2) {font-size:24px;line-height:1.5;}
+:root body #main-content.englishCanvas :is(.translationStage header p,.writingStage header p,.translationActions small,.writingActions small,.writingField>small,.writingPlanMode small,.writingPromptBody dt,.writingFacts strong,.translationAnswerCard span,.writingField>span,.writingPromptMeta span,.translationSegment span) {font-size:16px;line-height:1.7;}
+:root body #main-content.englishCanvas :is(.translationActions,.writingActions,.translationHeader,.writingRuntimeHeader) {flex-wrap:wrap;}
+:root body #main-content.englishCanvas :is(.translationReference,.translationReference p,.writingReviewProtocol summary) {font-size:18px;line-height:1.8;}
+
+/* Guides are full reading assets, never replaced by a smaller summary. */
+:root body #main-content.englishCanvas :is(.objectiveLearnShell,.translationLearnShell,.writingLearnShell) {max-width:1640px;gap:28px 36px;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnContent,.translationLearnIntro,.writingPanel) {padding:22px 26px;background:var(--study-surface);border:1px solid var(--study-line);border-radius:10px;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnMain .markdownBody,.writingStage .markdownBody) :is(p,li) {font-size:19px;line-height:1.85;max-width:82ch;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnMain .markdownBody,.writingStage .markdownBody) h2 {font-size:26px;line-height:1.5;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnMain .markdownBody,.writingStage .markdownBody) h3 {font-size:22px;line-height:1.5;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnMain,.writingPanel) :is(th,td) {font-size:17px;line-height:1.7;}
+:root body #main-content.englishCanvas :is(.objectiveLearnContent,.translationLearnMain,.writingPanel) pre {font-size:16px;line-height:1.75;overflow:auto;}
+:root body #main-content.englishCanvas :is(.objectiveLearnNav,.translationLearnNav,.writingRoute) :is(a,summary,span,strong) {font-size:16px;line-height:1.6;}
+:root body #main-content.englishCanvas :is(.objectiveFastTrack p,.translationLearnNav p,.writingHero p) {font-size:18px;line-height:1.75;}
+:root body #main-content.englishCanvas :is(.readingHome,.translationHome,.writingHome,.objectiveIndex) {max-width:none;}
+:root body #main-content.englishCanvas :is(.readingHome,.translationHome,.writingHome) :is(p,li) {font-size:18px;line-height:1.75;}
+
+@media(max-width:1100px) {
+  :root body #main-content.englishCanvas .portedReadingSessionHeader {grid-template-columns:auto minmax(0,1fr);}
+  :root body #main-content.englishCanvas .portedReadingHeaderActions {grid-column:1/-1;}
+}
+@media(max-width:1000px) {
+  :root body #main-content.englishCanvas :is(.portedReadingColumns,.clozeLayout,.translationColumns,.writingRuntimeColumns) {grid-template-columns:minmax(0,1fr);}
+  :root body #main-content.englishCanvas :is(.portedReadingColumns>.portedReadingPassage,.portedReadingColumns>.portedReadingQuestions,.clozeLayout>.clozePassage,.clozeLayout>.clozeDecision,.translationSource,.translationWork,.writingPrompt,.writingWork) {height:auto;max-height:none;overflow:visible;}
+  :root body #main-content.englishCanvas :is(.objectiveLearnShell,.translationLearnShell,.writingLearnShell) {grid-template-columns:minmax(0,1fr);}
+  :root body #main-content.englishCanvas .writingLearnShell>:is(.writingRoute,.writingStage) {grid-column:1;}
+}
+@media(max-width:700px) {
+  :root body #main-content.englishCanvas {padding-inline:16px;}
+  :root body #main-content.englishCanvas .englishEntryFamilies>section {border-left:0;border-top:1px solid var(--study-line);padding:22px;}
+  :root body #main-content.englishCanvas .englishEntryFamilies>section:first-child {border-top:0;}
+  :root body #main-content.englishCanvas :is(.portedReadingColumns>.portedReadingPassage,.portedReadingColumns>.portedReadingQuestions,.clozeLayout>.clozePassage,.clozeLayout>.clozeDecision,.readingBMaterial,.readingBMap,.readingBOrderingCandidates,.translationSource,.translationWork,.writingPrompt,.writingWork,.objectiveLearnContent,.translationLearnContent,.translationLearnIntro,.writingPanel) {padding:18px 16px;}
+  :root body #main-content.englishCanvas .portedReadingSessionHeader>div {flex-wrap:wrap;}
+  :root body #main-content.englishCanvas .portedReadingQuestionFooter {flex-wrap:wrap;}
+  :root body #main-content.englishCanvas .readingBPosition select {width:100%;}
+}

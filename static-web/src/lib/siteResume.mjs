@@ -14,25 +14,56 @@ export function readSiteResumes(storage, origin, base = '/') {
     const href = safe(xizong.href, ['xizong/circulation/','xizong/respiratory/','xizong/urinary/']);
     if (href) result.xizong = {title:xizong.blockTitle || xizong.systemTitle || '西综学习', href, time:time(xizong)};
   }
+  // English Current priorities are owned by LEARNING_CONTRACT §15 and the
+  // current English hub: task state first, recency only within the same priority.
   const english = [];
+  const hasText = value => typeof value === 'string' && Boolean(value.trim());
+  const hasValues = value => value && typeof value === 'object' && Object.values(value).some(hasText);
+  const validRecord = value => value && typeof value === 'object' && !Array.isArray(value);
+  const englishHref = (row, family) => {
+    if (!hasText(row?.id)) return null;
+    const expected = `${base}${family}/${encodeURIComponent(row.id)}/`;
+    try {
+      const target = new URL(row.href || expected, origin);
+      if (target.origin !== origin || target.username || target.password
+        || ![expected, expected.slice(0,-1)].includes(target.pathname)) return null;
+      return target.pathname + target.search + target.hash;
+    } catch { return null; }
+  };
+  const add = (row, family, priority) => {
+    const href = englishHref(row, family);
+    if (priority && href) english.push({...row,href,priority});
+  };
+  const objectivePriority = record => {
+    if (!validRecord(record)) return 0;
+    if (!record.submitted) return hasValues(record.answers) ? 100 : 0;
+    if (record.reviewUnlocked === false) return 0;
+    const uncertain = new Set(Array.isArray(record.uncertain) ? record.uncertain : []);
+    const problems = Object.entries(record.results || {}).some(([id,outcome]) =>
+      ['wrong','unanswered'].includes(outcome) || uncertain.has(id));
+    return problems ? 82 : 0;
+  };
   const objective = read('kianos-objective-last-action-v1');
-  if (objective) english.push(objective);
+  if (objective?.id) {
+    for (const family of ['cloze','reading-b']) {
+      if (englishHref(objective,family)) add(objective,family,objectivePriority(read(`kianos-${family}-attempt-v1:${objective.id}`)));
+    }
+  }
   const writing = read('kianos-writing-last-location-v1');
   if (writing?.id) {
     const record = read(`kianos-writing-runtime-v1:${writing.id}`);
-    if (record && ['ATTEMPT','REVIEW_PENDING','REPAIR_NEEDED','REPAIR_CHECK_PENDING'].includes(record.state) && (record.draftEssay || record.draftPlan || record.firstDraft)) english.push(writing);
+    const priorities = {ATTEMPT:100,REVIEW_PENDING:90,REPAIR_NEEDED:96,REPAIR_CHECK_PENDING:86};
+    if (validRecord(record) && [record.draftEssay,record.draftPlan,record.firstDraft].some(hasText)) add(writing,'writing',priorities[record.state] || 0);
   }
   const translation = read('kianos-translation-last-location-v1');
   if (translation?.id) {
     const record = read(`kianos-translation-attempt-v2:${translation.id}`);
-    if (record && !['passed','repair-complete','transfer-pending'].includes(record.stage) && (Object.values(record.drafts || {}).some(Boolean) || Object.values(record.firstAttempts || {}).some(Boolean))) english.push(translation);
+    const priorities = {attempt:100,decision:86,diagnosis:92,reconstruct:96};
+    if (validRecord(record) && (hasValues(record.drafts) || hasValues(record.firstAttempts))) add(translation,'translation',priorities[record.stage] || 0);
   }
   const reading = read('kianos-reading-last-location-v1');
-  if (reading?.id) {
-    const record = read(`kianos-reading-attempt-v1:${reading.id}`);
-    if (record && (Object.values(record.answers || {}).some(Boolean) || record.submitted)) english.push({...reading,href:`${base}reading/${encodeURIComponent(reading.id)}/`});
-  }
-  const best = english.map(row => ({...row, href:safe(row.href,['reading/','cloze/','reading-b/','translation/','writing/'])})).filter(row=>row.href).sort((a,b)=>time(b)-time(a))[0];
+  if (reading?.id) add(reading,'reading',objectivePriority(read(`kianos-reading-attempt-v1:${reading.id}`)));
+  const best = english.sort((a,b)=>b.priority-a.priority || time(b)-time(a))[0];
   if (best) result.english = {title:best.title || 'English task',href:best.href,time:time(best)};
   return result;
 }

@@ -140,7 +140,7 @@ child.on('error', (error) => {
   process.exitCode = 1;
 });
 
-child.on('exit', (code, signal) => {
+child.on('exit', async (code, signal) => {
   finished = true;
   clearTimeout(timeout);
   cleanup();
@@ -150,4 +150,13 @@ child.on('exit', (code, signal) => {
     return;
   }
   process.exitCode = Number(code || 0);
+  // Preserve every original Objective group; run the composed English UI suite
+  // once after successful task integration, using separate disposable fixtures.
+  if (!process.exitCode && ['all','task-smoke'].includes(batch)) {
+    const ui = spawn(process.execPath, ['scripts/test-english-subject-ui.mjs'], { cwd: process.cwd(), stdio: 'inherit' });
+    process.exitCode = await new Promise(resolve => {
+      ui.once('error', error => { console.error(error); resolve(1); });
+      ui.once('exit', code => resolve(code === 0 ? 0 : 1));
+    });
+  }
 });
