@@ -61,6 +61,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Validate one Current owner per Block identity
         run: node scripts/validate-xizong-current-owners.mjs
+      - name: Validate live Learning-owner lifecycle
+        run: node scripts/validate-xizong-learning-owner-lifecycle.mjs
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
       - name: Validate A1 fresh Projection contracts
