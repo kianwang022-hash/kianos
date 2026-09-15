@@ -149,6 +149,9 @@ const sweep = loadXizongSystemQuestionSweep(system);
 assert(sweep?.questionCount === 376, `questions:${sweep?.questionCount}`);
 assert(sweep.questionInventoryHash === 'ded191082a6226353d92c05756dfebe4237335e361f7a945e1a2f3b204c457be', `question-hash:${sweep.questionInventoryHash}`);
 assert(sweep.questions.length === 376, `loaded-questions:${sweep.questions.length}`);
+const richExplanation = sweep.questions.find((q) => q.explanation?.decisionAxis && q.explanation?.valuableDistractors?.length && q.explanation?.transferRule);
+assert(Boolean(richExplanation), 'reviewed-second-pass-explanation-not-projected');
+assert(richExplanation.explanation.valuableDistractors.every((item) => item.option && item.reason), 'valuable-distractor-projection-malformed');
 
 const testYear = sweep.years[0];
 const holdout = normalizeHoldout([testYear, testYear, -1, 9999, 'bad'], sweep.years);
@@ -192,6 +195,13 @@ has(exitUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-
 has(exitUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
 has(exitUi, 'const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));', 'holdout-filter-runtime-missing');
 has(exitUi, 'deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])', 'phase-aware-question-queue-derivation-missing');
+has(questionLib, 'valuable_distractors', 'valuable-distractor-source-projection-missing');
+has(questionLib, 'valuableDistractors', 'valuable-distractor-runtime-field-missing');
+has(exitUi, 'data-second-pass-review hidden', 'second-pass-review-not-hidden-by-default');
+has(exitUi, "sweepState.round?.studyPhase === 'SECOND_PASS'", 'second-pass-review-not-phase-gated');
+has(exitUi, 'showSecondPassReview(currentQuestion);', 'second-pass-review-not-bound-to-submit');
+has(exitUi, 'secondPassReview.hidden = true;', 'second-pass-review-not-reset-before-question');
+has(exitUi, '当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。', 'missing-explanation-does-not-fail-closed');
 matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'sweep-gate-missing-recall-or-explicit-holdout');
 
 matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');

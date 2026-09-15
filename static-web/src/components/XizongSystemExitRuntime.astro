@@ -107,6 +107,16 @@ const payload = JSON.stringify({
         <strong data-answer-result></strong>
         <span>官方答案：<b data-correct-answer></b></span>
       </div>
+      <section class="xseSecondPassReview" data-second-pass-review hidden>
+        <span>二轮核对</span>
+        <strong data-second-pass-axis></strong>
+        <details data-second-pass-distractor-details hidden>
+          <summary>高价值干扰项</summary>
+          <ul data-second-pass-distractors></ul>
+        </details>
+        <p data-second-pass-transfer></p>
+        <p data-second-pass-empty hidden>当前没有审核过的二轮解析；保留这次作答证据，必要时交给 Chat，不补猜内容。</p>
+      </section>
       <div class="xseRepair" data-repair-panel hidden>
         <p data-repair-axis></p>
         <p data-repair-reason></p>
@@ -248,6 +258,12 @@ const payload = JSON.stringify({
     const answerPanel = root.querySelector('[data-answer-panel]');
     const answerResult = root.querySelector('[data-answer-result]');
     const correctAnswerNode = root.querySelector('[data-correct-answer]');
+    const secondPassReview = root.querySelector('[data-second-pass-review]');
+    const secondPassAxis = root.querySelector('[data-second-pass-axis]');
+    const secondPassDistractorDetails = root.querySelector('[data-second-pass-distractor-details]');
+    const secondPassDistractors = root.querySelector('[data-second-pass-distractors]');
+    const secondPassTransfer = root.querySelector('[data-second-pass-transfer]');
+    const secondPassEmpty = root.querySelector('[data-second-pass-empty]');
     const repairPanel = root.querySelector('[data-repair-panel]');
     const repairAxis = root.querySelector('[data-repair-axis]');
     const repairReason = root.querySelector('[data-repair-reason]');
@@ -385,13 +401,36 @@ const payload = JSON.stringify({
       return true;
     };
 
+    const showSecondPassReview = (question) => {
+      const isSecondPass = sweepState.round?.studyPhase === 'SECOND_PASS';
+      secondPassReview.hidden = !isSecondPass;
+      if (!isSecondPass) return;
+
+      const explanation = question?.explanation || null;
+      const distractors = Array.isArray(explanation?.valuableDistractors) ? explanation.valuableDistractors : [];
+      const hasReviewedReview = Boolean(explanation && (explanation.decisionAxis || distractors.length || explanation.transferRule));
+      secondPassAxis.textContent = explanation?.decisionAxis ? `决定点：${explanation.decisionAxis}` : '';
+      secondPassTransfer.textContent = explanation?.transferRule ? `迁移 / 条件变化：${explanation.transferRule}` : '';
+      secondPassDistractors.replaceChildren();
+      distractors.forEach((item) => {
+        const row = document.createElement('li');
+        row.textContent = `${item.option}：${item.reason}`;
+        secondPassDistractors.appendChild(row);
+      });
+      secondPassDistractorDetails.hidden = distractors.length === 0;
+      secondPassEmpty.hidden = hasReviewedReview;
+    };
+
     const showRepair = (question) => {
       const explanation = question.explanation || {};
+      const isSecondPass = sweepState.round?.studyPhase === 'SECOND_PASS';
       repairPanel.hidden = false;
-      repairAxis.textContent = explanation.decisionAxis ? `判断轴：${explanation.decisionAxis}` : '这题先保留为 W/U，详细原因交给 Chat 继续判断。';
+      repairAxis.textContent = isSecondPass
+        ? (explanation.commonFailureNode ? `修补点：${explanation.commonFailureNode}` : '这题继续保留为 W/U，交给 Chat 做最小修补。')
+        : (explanation.decisionAxis ? `判断轴：${explanation.decisionAxis}` : '这题先保留为 W/U，详细原因交给 Chat 继续判断。');
       repairReason.textContent = explanation.correctOptionReason ? `为什么：${explanation.correctOptionReason}` : '';
-      repairFailure.textContent = explanation.commonFailureNode ? `常见断点：${explanation.commonFailureNode}` : '';
-      repairTransfer.textContent = explanation.transferRule ? `迁移：${explanation.transferRule}` : '';
+      repairFailure.textContent = !isSecondPass && explanation.commonFailureNode ? `常见断点：${explanation.commonFailureNode}` : '';
+      repairTransfer.textContent = !isSecondPass && explanation.transferRule ? `迁移：${explanation.transferRule}` : '';
       const relation = question.relation;
       if (relation?.primaryKpId) {
         const blockLabel = data.blockLabels?.[relation.blockId] || relation.blockId;
@@ -407,6 +446,10 @@ const payload = JSON.stringify({
       currentSelection = new Set();
       currentCorrect = false;
       answerPanel.hidden = true;
+      secondPassReview.hidden = true;
+      secondPassDistractorDetails.hidden = true;
+      secondPassDistractors.replaceChildren();
+      secondPassEmpty.hidden = true;
       repairPanel.hidden = true;
       correctJudge.hidden = true;
       uncertainJudge.hidden = true;
@@ -472,6 +515,7 @@ const payload = JSON.stringify({
         node.classList.toggle('wrong', currentSelection.has(label) && !correct.includes(label));
       });
       submit.disabled = true;
+      showSecondPassReview(currentQuestion);
       if (currentCorrect) {
         correctJudge.hidden = false;
         wrongJudge.hidden = true;
@@ -629,6 +673,6 @@ const payload = JSON.stringify({
 </script>
 
 <style>
-  .xse{display:grid;gap:12px;margin-top:16px}.xseHero,.xseCard,.xseWorkspace{border:1px solid var(--study-line,#d9dde5);border-radius:16px;background:#fff}.xseHero{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:20px;align-items:center;padding:16px 18px}.xseHero span,.xseEyebrow,.xseRecallDialog span,.xseDone>span{color:var(--study-green,#286c57);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xseHero h2{margin:3px 0 0;font-size:23px}.xseHero p,.xseCard p{margin:0;color:var(--study-muted,#6d7873);font-size:12px;line-height:1.6}.xseSteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.xseCard{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;padding:14px}.xseStepNo{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#edf6f2;color:var(--study-green,#286c57);font-weight:900}.xseCardBody{display:grid;gap:8px;align-content:start}.xseCard h3{margin:0;font-size:16px}.xseStatusRow,.xseSweepActions,.xseSubmitRow,.xseJudge{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.xseStatusRow strong{font-size:11px;flex:1 1 140px}.xse button{border:1px solid #246b55;border-radius:9px;background:#286c57;color:#fff;padding:8px 11px;font:750 11px/1.2 system-ui;cursor:pointer}.xse button:hover{filter:brightness(.97)}.xse button:disabled{opacity:.42;cursor:not-allowed}.xse button.secondary,.xseTextButton{background:#fff;color:#286c57}.xseTextButton{border-color:#d7e4df!important;padding:6px 8px!important}.xseHoldoutCurrent{padding:8px 10px;border-radius:9px;background:#f5f7f6;font-size:11px;font-weight:750}.xseHoldoutEditor{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:7px;align-items:center}.xseHoldoutEditor label{font-size:10px;font-weight:800}.xseHoldoutEditor input{min-width:0;border:1px solid #d4dbd7;border-radius:8px;padding:8px 9px;font:500 11px system-ui}.xseCard small{color:#7a8580;font-size:9px}.xseSweepStats{display:flex;gap:6px;flex-wrap:wrap}.xseSweepStats span{padding:5px 7px;border-radius:999px;background:#f3f5f4;font-size:10px}.xseWorkspace{padding:16px 18px}.xseWorkspaceHead{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e3e7e5;padding-bottom:11px}.xseWorkspaceHead span{color:#74807a;font-size:10px}.xseWorkspaceHead h3{margin:3px 0 0;font-size:17px}.xseQuestion{padding:16px 0 4px}.xseStem{margin:0 0 14px;font-size:17px;line-height:1.65;font-weight:680}.xseOptions{display:grid;gap:7px}.xseOption{display:grid!important;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:start;width:100%;text-align:left;background:#fff!important;color:#23302b!important;border-color:#d8dfdc!important;padding:10px 12px!important}.xseOption b{color:#286c57}.xseOption.selected{background:#edf6f2!important;border-color:#5d9682!important}.xseOption.correct{background:#eef7f1!important;border-color:#7aa48f!important}.xseOption.wrong{background:#fff2f0!important;border-color:#d79a92!important}.xseSubmitRow{justify-content:space-between;margin-top:12px}.xseSubmitRow small{color:#75807b}.xseAnswer{margin-top:12px;padding-top:12px;border-top:1px solid #e3e7e5}.xseAnswerTop{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.xseAnswerTop strong{color:#286c57}.xseAnswerTop strong.isWrong{color:#a4473d}.xseRepair{margin-top:10px;padding:11px 12px;border-radius:10px;background:#faf8f3}.xseRepair p{margin:4px 0;font-size:11px;line-height:1.55}.xseRepair summary{cursor:pointer;color:#5c665f;font-size:10px;font-weight:750}.xseJudge{margin-top:11px}.xseDone{padding:18px 0 6px}.xseDone h3{margin:4px 0 6px}.xseDone p{max-width:760px;color:#6d7873;font-size:12px;line-height:1.6}.xseRecallDialog{width:min(780px,calc(100vw - 28px));max-height:calc(100vh - 36px);border:0;border-radius:16px;padding:0;box-shadow:0 20px 80px rgba(20,35,29,.28)}.xseRecallDialog::backdrop{background:rgba(20,29,25,.72);backdrop-filter:blur(3px)}.xseDialogShell{padding:18px}.xseDialogShell>header{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e0e5e2;padding-bottom:10px}.xseDialogShell>header h2{margin:2px 0 0}.xseDialogShell>header button{width:30px;height:30px;padding:0;font-size:18px}.xseRecallFront{display:grid;gap:16px;padding:22px 0 4px}.xseRecallFront>p{font-size:20px;line-height:1.7;font-weight:700}.xseRecallInstruction{display:grid;gap:4px;padding:12px;border-radius:10px;background:#f3f5f4;font-size:12px}.xseRecallReveal{display:grid;gap:12px;padding:16px 0 4px}.xseRecallReveal>div{padding:10px 12px;border-radius:10px;background:#f6f7f6}.xseRecallReveal ol,.xseRecallReveal ul{margin:7px 0 0;padding-left:22px;font-size:12px;line-height:1.55}
+  .xse{display:grid;gap:12px;margin-top:16px}.xseHero,.xseCard,.xseWorkspace{border:1px solid var(--study-line,#d9dde5);border-radius:16px;background:#fff}.xseHero{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:20px;align-items:center;padding:16px 18px}.xseHero span,.xseEyebrow,.xseRecallDialog span,.xseDone>span{color:var(--study-green,#286c57);font-size:10px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.xseHero h2{margin:3px 0 0;font-size:23px}.xseHero p,.xseCard p{margin:0;color:var(--study-muted,#6d7873);font-size:12px;line-height:1.6}.xseSteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.xseCard{display:grid;grid-template-columns:38px minmax(0,1fr);gap:10px;padding:14px}.xseStepNo{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#edf6f2;color:var(--study-green,#286c57);font-weight:900}.xseCardBody{display:grid;gap:8px;align-content:start}.xseCard h3{margin:0;font-size:16px}.xseStatusRow,.xseSweepActions,.xseSubmitRow,.xseJudge{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.xseStatusRow strong{font-size:11px;flex:1 1 140px}.xse button{border:1px solid #246b55;border-radius:9px;background:#286c57;color:#fff;padding:8px 11px;font:750 11px/1.2 system-ui;cursor:pointer}.xse button:hover{filter:brightness(.97)}.xse button:disabled{opacity:.42;cursor:not-allowed}.xse button.secondary,.xseTextButton{background:#fff;color:#286c57}.xseTextButton{border-color:#d7e4df!important;padding:6px 8px!important}.xseHoldoutCurrent{padding:8px 10px;border-radius:9px;background:#f5f7f6;font-size:11px;font-weight:750}.xseHoldoutEditor{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:7px;align-items:center}.xseHoldoutEditor label{font-size:10px;font-weight:800}.xseHoldoutEditor input{min-width:0;border:1px solid #d4dbd7;border-radius:8px;padding:8px 9px;font:500 11px system-ui}.xseCard small{color:#7a8580;font-size:9px}.xseSweepStats{display:flex;gap:6px;flex-wrap:wrap}.xseSweepStats span{padding:5px 7px;border-radius:999px;background:#f3f5f4;font-size:10px}.xseWorkspace{padding:16px 18px}.xseWorkspaceHead{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e3e7e5;padding-bottom:11px}.xseWorkspaceHead span{color:#74807a;font-size:10px}.xseWorkspaceHead h3{margin:3px 0 0;font-size:17px}.xseQuestion{padding:16px 0 4px}.xseStem{margin:0 0 14px;font-size:17px;line-height:1.65;font-weight:680}.xseOptions{display:grid;gap:7px}.xseOption{display:grid!important;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:start;width:100%;text-align:left;background:#fff!important;color:#23302b!important;border-color:#d8dfdc!important;padding:10px 12px!important}.xseOption b{color:#286c57}.xseOption.selected{background:#edf6f2!important;border-color:#5d9682!important}.xseOption.correct{background:#eef7f1!important;border-color:#7aa48f!important}.xseOption.wrong{background:#fff2f0!important;border-color:#d79a92!important}.xseSubmitRow{justify-content:space-between;margin-top:12px}.xseSubmitRow small{color:#75807b}.xseAnswer{margin-top:12px;padding-top:12px;border-top:1px solid #e3e7e5}.xseAnswerTop{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.xseAnswerTop strong{color:#286c57}.xseAnswerTop strong.isWrong{color:#a4473d}.xseSecondPassReview{display:grid;gap:7px;margin-top:10px;padding:11px 12px;border:1px solid #d7e4df;border-radius:10px;background:#f5f9f7}.xseSecondPassReview>span{color:#286c57;font-size:9px;font-weight:850;letter-spacing:.06em}.xseSecondPassReview>strong{font-size:12px;line-height:1.55}.xseSecondPassReview p{margin:0;color:#5f6d66;font-size:11px;line-height:1.55}.xseSecondPassReview details{font-size:11px}.xseSecondPassReview summary{cursor:pointer;color:#286c57;font-weight:800}.xseSecondPassReview ul{margin:6px 0 0;padding-left:20px;display:grid;gap:4px;line-height:1.5}.xseRepair{margin-top:10px;padding:11px 12px;border-radius:10px;background:#faf8f3}.xseRepair p{margin:4px 0;font-size:11px;line-height:1.55}.xseRepair summary{cursor:pointer;color:#5c665f;font-size:10px;font-weight:750}.xseJudge{margin-top:11px}.xseDone{padding:18px 0 6px}.xseDone h3{margin:4px 0 6px}.xseDone p{max-width:760px;color:#6d7873;font-size:12px;line-height:1.6}.xseRecallDialog{width:min(780px,calc(100vw - 28px));max-height:calc(100vh - 36px);border:0;border-radius:16px;padding:0;box-shadow:0 20px 80px rgba(20,35,29,.28)}.xseRecallDialog::backdrop{background:rgba(20,29,25,.72);backdrop-filter:blur(3px)}.xseDialogShell{padding:18px}.xseDialogShell>header{display:flex;justify-content:space-between;gap:12px;align-items:start;border-bottom:1px solid #e0e5e2;padding-bottom:10px}.xseDialogShell>header h2{margin:2px 0 0}.xseDialogShell>header button{width:30px;height:30px;padding:0;font-size:18px}.xseRecallFront{display:grid;gap:16px;padding:22px 0 4px}.xseRecallFront>p{font-size:20px;line-height:1.7;font-weight:700}.xseRecallInstruction{display:grid;gap:4px;padding:12px;border-radius:10px;background:#f3f5f4;font-size:12px}.xseRecallReveal{display:grid;gap:12px;padding:16px 0 4px}.xseRecallReveal>div{padding:10px 12px;border-radius:10px;background:#f6f7f6}.xseRecallReveal ol,.xseRecallReveal ul{margin:7px 0 0;padding-left:22px;font-size:12px;line-height:1.55}
   @media(max-width:1050px){.xseSteps{grid-template-columns:1fr}.xseHero{grid-template-columns:1fr}.xseHoldoutEditor{grid-template-columns:1fr}.xseHoldoutEditor button{justify-self:start}}
 </style>

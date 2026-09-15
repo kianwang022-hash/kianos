@@ -128,8 +128,8 @@ async function systemQuestionRepairJourney(page) {
   check((await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-recall:respiratory:v1') || 'null')))?.completedAt, 'system_recall_persists_after_all_blocks');
 
   const payload = await exit.locator('[data-sweep-payload]').evaluate((node) => JSON.parse(node.textContent || 'null'));
-  const target = payload.questions.find((q) => q?.relation?.primaryKpId && q?.relation?.blockId);
-  check(Boolean(target), 'reviewed_relation_question_exists');
+  const target = payload.questions.find((q) => q?.relation?.primaryKpId && q?.relation?.blockId && q?.explanation?.decisionAxis && q?.explanation?.valuableDistractors?.length && q?.explanation?.transferRule);
+  check(Boolean(target), 'reviewed_relation_second_pass_explanation_question_exists');
   const holdoutYear = payload.years.find((year) => Number(year) !== Number(target.year));
   check(Boolean(holdoutYear), 'non_target_holdout_year_exists');
   await exit.locator('[data-holdout-input]').fill(String(holdoutYear));
@@ -153,6 +153,7 @@ async function systemQuestionRepairJourney(page) {
   const correctLetters = String(target.correctAnswer || '').toUpperCase().match(/[A-Z]/g) || [];
   for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
   await exit.locator('[data-submit-answer]').click();
+  check(!(await exit.locator('[data-second-pass-review]').isVisible()), 'first_pass_does_not_show_second_pass_review');
   await exit.locator('[data-mark-uncertain]').click();
   const firstPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
   const saved = firstPassState.results?.[target.questionId];
@@ -230,9 +231,15 @@ async function systemQuestionRepairJourney(page) {
   check((await exit.locator('[data-study-phase]').textContent() || '').includes('二轮'), 'runtime_reports_second_pass');
   check((await exit.locator('[data-question-meta]').textContent() || '').includes(String(target.number)), 'targeted_second_pass_opens_prior_uncertain_immediately');
   check((await exit.locator('[data-sweep-count]').textContent() || '').trim() === '1', 'stable_first_pass_questions_excluded_from_default_second_pass');
+  const secondPassReview = exit.locator('[data-second-pass-review]');
+  check(!(await secondPassReview.isVisible()), 'second_pass_review_hidden_before_submit');
 
   for (const letter of correctLetters) await exit.locator(`[data-question-options] [data-option="${letter}"]`).click();
   await exit.locator('[data-submit-answer]').click();
+  check(await secondPassReview.isVisible(), 'second_pass_review_visible_only_after_submit');
+  check((await exit.locator('[data-second-pass-axis]').textContent() || '').includes(target.explanation.decisionAxis), 'second_pass_decision_axis_is_reviewed_source');
+  check(await exit.locator('[data-second-pass-distractors] li').count() === target.explanation.valuableDistractors.length, 'second_pass_valuable_distractors_projected');
+  check((await exit.locator('[data-second-pass-transfer]').textContent() || '').includes(target.explanation.transferRule), 'second_pass_transfer_rule_projected');
   await exit.locator('[data-mark-stable]').click();
 
   const secondPassState = await page.evaluate(() => JSON.parse(localStorage.getItem('kianos:xizong:system-question-sweep:respiratory:v1') || '{"results":{}}'));
