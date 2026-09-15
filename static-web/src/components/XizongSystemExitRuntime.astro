@@ -136,7 +136,8 @@ const payload = JSON.stringify({
       <div class="xseSweepActions">
         <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>
         <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>
-        <button type="button" data-start-next-round>开始第二轮（保留本轮记录）</button>
+        <button type="button" data-start-next-round>开始第二轮重点队列</button>
+        <button type="button" class="secondary" data-start-next-round-full>完整重刷本 System</button>
       </div>
     </section>
   </section>
@@ -181,6 +182,8 @@ const payload = JSON.stringify({
     ensureXizongQuestionSweepState,
     recordXizongQuestionAttempt,
     startNextXizongQuestionRound,
+    deriveXizongSecondPassQuestionIds,
+    deriveXizongQuestionIdsForCurrentRound,
     xizongStudyPhaseLabel
   } from '../lib/xizongQuestionAttempts.mjs';
 
@@ -256,6 +259,7 @@ const payload = JSON.stringify({
     const wrongJudge = root.querySelector('[data-wrong-judge]');
     const done = root.querySelector('[data-sweep-done]');
     const nextRoundButton = root.querySelector('[data-start-next-round]');
+    const nextRoundFullButton = root.querySelector('[data-start-next-round-full]');
 
     let activeQuestions = [];
     let currentQuestion = null;
@@ -269,7 +273,12 @@ const payload = JSON.stringify({
     const normalizeHoldout = (value) => [...new Set((Array.isArray(value) ? value : []).map(Number).filter((year) => eligibleYears.has(year)))].sort((a, b) => a - b);
     holdoutYears = normalizeHoldout(holdoutYears);
 
-    const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));
+    const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));
+    const computeActive = () => {
+      const eligible = eligibleQuestions();
+      const activeIds = new Set(deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, []));
+      return eligible.filter((question) => activeIds.has(String(question.questionId)));
+    };
     const resultFor = (questionId) => sweepState.results?.[questionId] || null;
     const firstUnanswered = () => activeQuestions.find((question) => !resultFor(question.questionId)) || null;
 
@@ -295,15 +304,32 @@ const payload = JSON.stringify({
       root.querySelector('[data-stat-remaining]').textContent = holdoutYears.length ? String(stat.remaining) : '—';
       root.querySelector('[data-sweep-count]').textContent = holdoutYears.length ? String(activeQuestions.length) : String(data.questionCount);
       const summary = root.querySelector('[data-sweep-summary]');
-      if (summary) summary.textContent = holdoutYears.length
-        ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
-        : `锁定整卷后，系统会自动排除这些年份；剩余题按${phaseLabel}任务做 sweep。`;
+      if (summary) {
+        if (phase === 'SECOND_PASS' && sweepState.round?.queueMode !== 'FULL_RESWEEP') {
+          summary.textContent = `二轮默认只回收一轮 Wrong / Uncertain；当前重点队列 ${activeQuestions.length} 道。没有 reviewed Mapping 也不会阻塞作答。`;
+        } else {
+          summary.textContent = holdoutYears.length
+            ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`
+            : `锁定整卷后，系统会自动排除这些年份；剩余题按${phaseLabel}任务做 sweep。`;
+        }
+      }
       if (nextRoundButton) {
-        nextRoundButton.textContent = phase === 'FIRST_PASS'
-          ? '开始第二轮（保留本轮记录）'
-          : phase === 'SECOND_PASS'
+        if (phase === 'FIRST_PASS') {
+          const targetCount = deriveXizongSecondPassQuestionIds(sweepState, data.questions, holdoutYears).length;
+          nextRoundButton.textContent = targetCount
+            ? `开始第二轮重点队列（${targetCount} 题）`
+            : '二轮重点队列为空';
+          nextRoundButton.disabled = targetCount === 0;
+        } else {
+          nextRoundButton.disabled = false;
+          nextRoundButton.textContent = phase === 'SECOND_PASS'
             ? '开始后期复习轮（保留此前记录）'
             : '再开一轮后期复习（保留此前记录）';
+        }
+      }
+      if (nextRoundFullButton) {
+        nextRoundFullButton.hidden = phase !== 'FIRST_PASS';
+        nextRoundFullButton.textContent = '二轮完整重刷（显式选择）';
       }
       if (startSweep) startSweep.disabled = !(recallState.completedAt && holdoutYears.length);
     };
@@ -571,13 +597,15 @@ const payload = JSON.stringify({
     });
     copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
     root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
-    nextRoundButton?.addEventListener('click', () => {
+    const startNextRound = (queueMode = 'TARGETED') => {
       activeQuestions = computeActive();
       let nextState;
       try {
         nextState = startNextXizongQuestionRound(
           sweepState,
-          activeQuestions.map((question) => question.questionId)
+          activeQuestions.map((question) => question.questionId),
+          {},
+          { queueMode }
         );
       } catch (error) {
         console.error(error);
@@ -591,7 +619,9 @@ const payload = JSON.stringify({
       renderStats();
       renderQuestion();
       workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    };
+    nextRoundButton?.addEventListener('click', () => startNextRound('TARGETED'));
+    nextRoundFullButton?.addEventListener('click', () => startNextRound('FULL_RESWEEP'));
 
     renderRecall();
     renderHoldout();
