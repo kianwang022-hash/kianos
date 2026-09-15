@@ -6,7 +6,6 @@ const PATHOLOGY_SOURCE_SHA = '7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77a
 
 const bundles = Object.freeze({
   'a2-r03-lg01-visual': Object.freeze({
-    sourceLocator: '病理 Lecture PDF P54–64',
     sourceSha256: PATHOLOGY_SOURCE_SHA,
     completenessPolicy: 'FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING',
     assets: Object.freeze([
