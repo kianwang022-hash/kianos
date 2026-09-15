@@ -8,15 +8,14 @@ Role: human Work Cursor / fresh-Chat restart. Artifact Truth, Acceptance Truth a
 Production Fresh Semantic Review:      COMPLETE — 7946 / 7946
 Independent Semantic Audit coverage:   COMPLETE — 7946 / 7946
 mechanically implemented frontier:     o3374
-canonical main corrective closure:     o3125–o3374 COMPLETE (PR #161)
-verified retro corrective branch:      o0025–o3124 COMPLETE / MAIN INTEGRATION PENDING
+post-audit corrective closure:         o0025–o3374 COMPLETE on main (PR #179 + PR #161)
 historical prefix audit correction:    o0001–o0024 has 7 bounded findings / SOL CORRECTION PENDING
 future mechanical catalog:             o3375+ NOT_ACTIVATED
 ```
 
-Catalog execution: PAUSED
+Catalog execution: **PAUSED**.
 
-The four lines above are deliberately separate. Production review, Independent Audit, mechanical implementation, and post-audit corrective closure are not interchangeable frontiers.
+These lines are deliberately separate. Production review, Independent Audit, mechanical implementation, and post-audit corrective closure are not interchangeable frontiers.
 
 ## 1｜Production review is closed
 
@@ -45,7 +44,7 @@ Detailed reconciliation maps:
 - `content/lexical/semantic-audit/reconciliation/R3-o4000-o5999.md`
 - `content/lexical/semantic-audit/reconciliation/R4-o6000-o7946.md`
 
-Broad Independent Audit generation is **closed for this catalog generation**. Do not reopen ranges because old `audit-work/*` branches, Issue #106 comments, sample packs, abandoned Pass-A state, transport artifacts, or blind-first exceptions still exist historically.
+Broad Independent Audit generation is **closed for this catalog generation**. Do not reopen ranges because historical branches, Issue #106 comments, sample packs, abandoned Pass-A state, transport artifacts, or blind-first exceptions still exist as provenance.
 
 A new audit requires a concrete Current defect, materially changed audit/content contract, or genuinely new catalog generation.
 
@@ -53,17 +52,20 @@ A new audit requires a concrete Current defect, materially changed audit/content
 
 The contiguous canonical mechanical implementation frontier remains exactly `o3374`.
 
-The already-landed `o3125–o3374` package was subsequently corrected on main by PR **#161** using the Sol reconciliation authority:
+The complete post-audit corrective history inside the normal handoff range is now canonical main truth:
 
-`content/lexical/semantic-reconciliation/o3125-o3374.md`
+- `o0025–o3124` → integrated by PR **#179**; 16 already-accepted corrective windows replayed mechanically on Current main, with 413 Word owner writes, 88 Relation owner writes, stable identity registry closure, transport/shard validation, all Lexical JSON parse, and full Astro build passing.
+- `o3125–o3374` → corrective PR **#161**, 39/39 Sol-reconciled deltas integrated complete.
 
-That canonical corrective landing is complete and must not be re-executed.
+Durable integration receipt for the first range:
 
-`o3375+` is **NOT_ACTIVATED**. The existence of complete Production and Audit evidence does not silently activate forward implementation.
+`content/lexical/execution/receipts/o0025-o3124.retro-integration.json`
 
-Any future forward package must consume the already-complete Production + Audit evidence through a bounded Sol reconciliation first, then activate mechanical execution explicitly. Do not run another broad audit and do not mechanically apply Production targets alone.
+Neither range should be re-executed absent a new concrete Current defect.
 
-## 4｜Remaining corrective/integration surfaces
+`o3375+` is **NOT_ACTIVATED**. Complete Production and Audit evidence does not silently activate forward implementation. Any future forward package must consume the already-complete Production + Audit evidence through a bounded Sol reconciliation first, then activate mechanical execution explicitly. Do not run another broad audit and do not mechanically apply Production targets alone.
+
+## 4｜Remaining corrective surface
 
 ### A. Historical prefix o0001–o0024
 
@@ -73,25 +75,16 @@ These seven findings are not a Production comparison result. They still require 
 
 Status: **SOL_CORRECTION_PENDING**.
 
-### B. Retro corrective work o0025–o3124
+### B. o0025–o3374
 
-The branch:
+Post-audit corrective closure: **COMPLETE ON MAIN**.
 
-`lexical/retro-audit-debt-20260915`
+- `o0025–o3124`: PR #179
+- `o3125–o3374`: PR #161
 
-contains verified post-audit corrective closure through `o3124`, with per-window Sol authorities, exact corrective receipts, bounded canonical mutations, readback, Natural Owner checks, diff hygiene and build evidence.
+The historical source branch `lexical/retro-audit-debt-20260915` and clean replay branch `lexical/retro-replay-integration-o0025-o3124-20260916` are no longer work cursors. Their accepted truth is now durable on main and they may be retired according to branch lifecycle policy.
 
-This work is **branch-verified but not yet canonical main truth**.
-
-Status: **MAIN_INTEGRATION_PENDING**.
-
-Integration must be bounded against latest `main@HEAD` and must land only the unique accepted `o0025–o3124` corrective work plus its durable authorities/receipts. Do **not** merge that historical work branch wholesale: its later `o3125–o3374` execution overlaps canonical PR #161 and its old process/workflow/cursor artifacts are not Current authority.
-
-### C. o3125–o3374
-
-Canonical main corrective closure: **COMPLETE** via PR #161. No action absent a new concrete Current defect.
-
-### D. o3375–o7946
+### C. o3375–o7946
 
 Production + Independent Audit evidence: **COMPLETE**.
 
@@ -101,13 +94,14 @@ When explicitly activated later, work package-by-package from Current truth usin
 
 ## Exact next action
 
-The next Lexical maintenance action is **not another audit pass and not a forward o3375+ implementation package**.
+The next Lexical Content action is narrow:
 
-1. Keep the newly consolidated 7,946/7,946 Audit Packs + coverage reconciliation on main as the single durable audit record.
-2. Reconcile `lexical/retro-audit-debt-20260915` against latest main and prepare a clean integration of its **unique o0025–o3124** corrective truth only.
-3. Preserve PR #161 as the canonical `o3125–o3374` correction; exclude overlapping branch copies from any future integration.
-4. Reconcile the seven `o0001–o0024` Current-only audit findings through one bounded Sol corrective authority.
-5. Keep `o3375+` mechanically paused until a separate explicit activation decision.
+1. Reconcile the **7 `o0001–o0024` audit findings** through one bounded Sol corrective authority.
+2. Mechanically land only those adjudicated prefix corrections plus required exact dependencies.
+3. Verify the resulting `o0001–o3374` implemented region is fully post-audit corrective-closed.
+4. Keep `o3375+` paused until a separate explicit forward-activation decision.
+
+Do **not** start another Production review, another whole-catalog Audit, or a broad historical repair/debt cycle.
 
 ## Frozen identity rule
 
@@ -154,9 +148,8 @@ main@HEAD
 → Production review = 7946/7946 COMPLETE
 → Independent Audit = 7946/7946 COMPLETE
 → mechanical frontier = o3374
-→ prefix 7 findings = SOL_CORRECTION_PENDING
-→ retro o0025–o3124 = MAIN_INTEGRATION_PENDING
-→ o3125–o3374 corrective = COMPLETE on main
+→ o0025–o3374 post-audit corrective closure = COMPLETE on main
+→ prefix o0001–o0024 = 7 findings / SOL_CORRECTION_PENDING
 → o3375+ = NOT_ACTIVATED
 ```
 
