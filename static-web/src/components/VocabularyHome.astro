@@ -6,9 +6,9 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 <section class="lexicalHome" data-lexical-home data-base={base}>
   <header class="lexicalHomeHeader">
     <div>
-      <span>LexicalOS · independent lane</span>
+      <span>LexicalOS · Vocabulary</span>
       <h2>Vocabulary</h2>
-      <p>Depth Scan 是高价值遍历，不是 7,946 个完成债。会的快速过；真实慢、模糊、漏掉或影响 English 表现的分支才进入 Repair / Challenge。</p>
+      <p>会的快速扫过；真正慢、模糊、漏掉，或在 English 任务里暴露的问题，再进入精准 Repair / Challenge。</p>
     </div>
     <nav aria-label="Vocabulary modes">
       <button type="button" class="active" data-lexical-tab="study">Study</button>
@@ -20,21 +20,21 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
   <section class="lexicalHomePanel" data-lexical-panel="study">
     <a class="lexicalContinueCard" data-lexical-continue href={`${base}vocabulary/1/`}>
-      <span>Continue Depth Scan</span>
+      <span>Continue</span>
       <strong data-lexical-continue-word>开始 Vocabulary</strong>
-      <p data-lexical-continue-core>顺序只是遍历入口；当前 English performance 或 Repair 更值钱时，可以随时停。</p>
+      <p data-lexical-continue-core>从上次位置继续。稳定的词快速通过；需要时再打开完整 Depth。</p>
       <small data-lexical-continue-meta>{rows.length} Current Words</small>
     </a>
 
     <section class="lexicalRecent">
-      <header><strong>最近学习</strong><span>只显示实际打开过的词</span></header>
+      <header><strong>最近学习</strong><span>最近真正打开过的词</span></header>
       <div data-lexical-recent-list><p class="lexicalEmpty">还没有本地学习记录。</p></div>
     </section>
 
     <section class="lexicalHandoff" data-lexical-handoff hidden>
       <div>
-        <span>Meaningful evidence</span>
-        <strong>Return to Chat</strong>
+        <span>Today</span>
+        <strong>带回 Chat</strong>
         <p data-lexical-return-summary></p>
       </div>
       <button type="button" data-lexical-copy-return>Copy Return Packet</button>
@@ -43,17 +43,17 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
 
   <section class="lexicalHomePanel" data-lexical-panel="search" hidden>
     <label class="lexicalSearchBox">
-      <span>Search all Current Words</span>
+      <span>查找 Current 词汇</span>
       <input type="search" autocomplete="off" spellcheck="false" data-lexical-search placeholder="输入单词，例如 default / account / observe" />
     </label>
     <div class="lexicalSearchResults" data-lexical-search-results>
-      <p class="lexicalEmpty">输入词形后直接打开对应 Depth Card。</p>
+      <p class="lexicalEmpty">输入词形，直接打开对应学习页。</p>
     </div>
   </section>
 
   <section class="lexicalHomePanel" data-lexical-panel="review" hidden>
     <section class="lexicalRecent">
-      <header><strong>Repair</strong><span>只保留有真实 evidence 的具体对象</span></header>
+      <header><strong>Repair</strong><span>当前真正需要回来的具体对象</span></header>
       <div data-lexical-review-list><p class="lexicalEmpty">当前没有 Repair 对象。</p></div>
     </section>
   </section>
@@ -172,7 +172,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       if (!summary || !packet.events.length) return;
       const depthCount = packet.events.filter((event) => event.source === 'depth_plus').length;
       const challengeCount = packet.events.length - depthCount;
-      summary.textContent = `今天 ${packet.events.length} 条真正会改变下一次动作的 evidence · ${depthCount} Depth + · ${challengeCount} Challenge/重建。`;
+      summary.textContent = `今天 ${packet.events.length} 条有效词汇证据 · ${depthCount} 个 Depth + · ${challengeCount} 个 Challenge / 重建。`;
     };
 
     const lastOrdinalRaw = Number(localStorage.getItem('kianos-vocabulary-last-ordinal') || 1);
@@ -186,7 +186,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       const meta = root.querySelector('[data-lexical-continue-meta]');
       if (word) word.textContent = continueRow.word;
       if (core) core.textContent = continueRow.coreCn || continueRow.coreEn || '继续上次的 Depth Scan';
-      if (meta) meta.textContent = `#${continueRow.ordinal} / ${rows.length} · traversal, not debt`;
+      if (meta) meta.textContent = `#${continueRow.ordinal} / ${rows.length}`;
     }
 
     const recentHost = root.querySelector('[data-lexical-recent-list]');
@@ -207,7 +207,7 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
       searchHost.replaceChildren();
       const q = String(query || '').trim().toLowerCase();
       if (!q) {
-        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '输入词形后直接打开对应 Depth Card。'; searchHost.appendChild(empty); return;
+        const empty = document.createElement('p'); empty.className = 'lexicalEmpty'; empty.textContent = '输入词形，直接打开对应学习页。'; searchHost.appendChild(empty); return;
       }
       const matches = rows.filter((row) => String(row.word || '').toLowerCase().includes(q)).sort((a, b) => {
         const aw = String(a.word || '').toLowerCase();
@@ -248,7 +248,3 @@ const payload = JSON.stringify(rows).replace(/</g, '\\u003c');
     renderReturnSummary();
   }
 </script>
-
-<style is:global>
-  .lexicalHome{max-width:72rem;margin:0 auto;display:grid;gap:1rem}.lexicalHomeHeader{display:flex;justify-content:space-between;gap:1.2rem;align-items:end;padding:1.2rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalHomeHeader span{font-size:.78rem;opacity:.62}.lexicalHomeHeader h2{margin:.2rem 0 .45rem;font-size:clamp(1.7rem,3vw,2.45rem)}.lexicalHomeHeader p{margin:0;max-width:46rem;line-height:1.6;opacity:.76}.lexicalHomeHeader nav{display:flex;gap:.45rem;flex-wrap:wrap}.lexicalHomeHeader button{border:1px solid var(--line,#d7d7d7);background:transparent;padding:.55rem .82rem;border-radius:999px;cursor:pointer;color:inherit}.lexicalHomeHeader button.active{border-color:currentColor;font-weight:700}.lexicalHomePanel{display:grid;gap:1rem}.lexicalContinueCard{display:grid;gap:.38rem;padding:1.35rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;text-decoration:none;color:inherit;background:var(--panel,#fff)}.lexicalContinueCard>span{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;opacity:.58}.lexicalContinueCard strong{font-size:clamp(1.8rem,4vw,3rem)}.lexicalContinueCard p{margin:0;line-height:1.55}.lexicalContinueCard small{opacity:.58}.lexicalRecent,.lexicalHandoff{padding:1.1rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalRecent>header{display:flex;justify-content:space-between;gap:1rem;margin-bottom:.75rem}.lexicalRecent>header span{opacity:.58;font-size:.84rem}.lexicalHandoff{display:flex;justify-content:space-between;gap:1rem;align-items:center}.lexicalHandoff>div{display:grid;gap:.18rem}.lexicalHandoff span{font-size:.76rem;text-transform:uppercase;letter-spacing:.07em;opacity:.58}.lexicalHandoff p{margin:0;opacity:.72}.lexicalHandoff button{padding:.68rem .9rem;border:1px solid currentColor;border-radius:.72rem;background:transparent;color:inherit;cursor:pointer}.lexicalSearchBox{display:grid;gap:.5rem;padding:1rem;border:1px solid var(--line,#d7d7d7);border-radius:1rem;background:var(--panel,#fff)}.lexicalSearchBox input{font:inherit;font-size:1.08rem;padding:.72rem .8rem;border:1px solid var(--line,#d7d7d7);border-radius:.7rem}.lexicalSearchResults,.lexicalRecent>div{display:grid;gap:.5rem}.lexicalWordRow{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem .85rem;border:1px solid var(--line,#d7d7d7);border-radius:.72rem;text-decoration:none;color:inherit}.lexicalWordRow>div{display:grid}.lexicalWordRow span,.lexicalWordRow small{opacity:.64}.lexicalEmpty{margin:0;opacity:.58}@media(max-width:760px){.lexicalHomeHeader,.lexicalHandoff{display:grid;align-items:start}}
-</style>
