@@ -1,9 +1,9 @@
 # Politics Legacy Useful-function Parity｜Current-facing capability contract
 
-Status: **CURRENT CONTRACT · IMPLEMENTATION / PARITY ACCEPTANCE NOT CLAIMED**  
-Scope: #116；当前工作台 slice #117（续接时查 actual state）  
-Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.0+ §6、§9–11  
-Semantic authority: Politics Learning/Interaction/Content/Question Truth/Evidence owners
+Status: **CURRENT CONTRACT · XIAO1000 WORKBENCH IMPLEMENTED ON MAIN · REMAINING PRODUCT PARITY OPEN**  
+Scope: **#116**；Workbench Current landing: **#183 / `890415ee273ec7baa1f010fbfc180fc18b7005d2`**  
+Program router: `static-web/CURRENT.md` / #113  
+Semantic authority: Politics Learning / Interaction / Content / Question Truth / Evidence owners
 
 ## 0｜已经完成的边界裁决
 
@@ -11,13 +11,15 @@ Kian 要求：保留 Legacy 刷题体验；**原肖1000解析不展示**。后�
 
 #124 已完成 #115 learner-explanation promotion；只消费 `content/politics/derived/xiao1000-learner-explanations/` 的 Current stable question_id 绑定。缺失/stale不 OCR fallback、不模糊匹配、不重生成。
 
-Legacy 下列路径是此前行为提取的证据，不是 Codex 待重新考古的任务清单：`runtime/frontend/src/learning/PoliticsWorkbench.jsx`、`.css`、`PoliticsCurrentRules.js`、`runtime/backend/app/learning_politics/service.py`（kianos-legacy）。实际实现输入为本 Current contract/master 与 Current data/runtime；发现未解决历史细节交给 Chat/owner 有界处理，不把旧代码/localhost接进新站。
+Historical PR #117 的 still-unique Workbench 功能已 fresh-reconcile 到最新 Current，并由 #183 落 main。#117 现在只保留旧实现/截图/浏览器证据，不再是 Runtime 或产品 owner。
+
+Legacy 下列路径是此前行为提取的证据，不是后续待重新考古的任务清单：`runtime/frontend/src/learning/PoliticsWorkbench.jsx`、`.css`、`PoliticsCurrentRules.js`、`runtime/backend/app/learning_politics/service.py`（kianos-legacy）。实际实现输入为本 Current contract + Current data/runtime；发现未解决历史细节交给 Chat/owner 有界处理，不把旧代码/localhost接进新站。
 
 ## 1｜Disposition 规则
 
-每个能力在 PR 的紧凑账本中归为 `REQUIRED_CURRENT / CURRENT_EQUIVALENT / PHASE_OWNED / CONDITIONAL_ASSET / SUPERSEDED / BLOCKED`。这些是工程账本，不是 learner 可见标签。
+每个能力归为 `REQUIRED_CURRENT / CURRENT_EQUIVALENT / PHASE_OWNED / CONDITIONAL_ASSET / SUPERSEDED / BLOCKED`。这些是工程账本，不是 learner 可见标签。
 
-下表合并重复条目，但不删 capability。每行记录实际实现/owner、测试或现存等价证据；缺口有具体原因。共用测试可支持多行，不为每个题目逐项写收据。
+下表合并重复条目，但不删 capability。每行记录 Current 必须保留的能力或明确淘汰边界；共用测试可支持多行，不为每个题目逐项写收据。
 
 | ID | 能力 | Current disposition / 不可丢边界 |
 | --- | --- | --- |
@@ -59,7 +61,16 @@ Legacy 下列路径是此前行为提取的证据，不是 Codex 待重新考古
 | X1 | 旧target-score/stage/engineering dashboard主导Home | SUPERSEDED；真实可用practice信息可次级，不冒充掌握/进度 |
 | X2 | 原backend/private API/旧source路径、旧mastery意义、连续Chengfeng网页reader | SUPERSEDED；不是需要恢复的learner capability |
 
-## 2｜工作台空间底线
+## 2｜Workbench Current 状态
+
+#183 已把以下能力落到 main，并在 fresh Current 上重新执行 parity / synthetic / formal browser acceptance：
+
+- W1/W2/W4/W6/W8/W9/W10/W11；
+- R1/R2/R5/R6/R7；
+- E1/E3；
+- first-attempt、save-failure、stale-return、protected-unowned 等负控制。
+
+Current 数据口径仍为：1148 exact learner-explanation bindings；1127 当前可练；21 canonical-NU-unowned fail closed。两种覆盖口径不得混成“1148全可练”。
 
 Clean：全宽题干，合适时2×2选项，compact scope/Normal-Fast/signals/timer；不加新的题目地图或固定知识复盘分栏。
 
@@ -67,12 +78,18 @@ Submitted：左结果/一句话/答案delta/可选cause-note，右AI解析/Curre
 
 不新增 mandatory 结构/易混/diagnosis，也不把五科认知图放到每道题。完整能力不意味着所有控件常驻。
 
-## 3｜实现与验收
+## 3｜#116 剩余产品 closure
 
-#117复用Current first-attempt/persistence/repair/return，按master P-J1–8真实浏览器验收，增加保存失败、stale/missing解释、refresh/back、multi-select与source-image权限负控制。
+Workbench 不再是迁移 blocker。#116 继续收口：
 
-完整#116 closure要求所有适用能力有明确disposition，required/current-equivalent确有实现证据，conditional/phase-owned边界诚实，superseeded不回归，未关闭关键blocked不报full parity。一次workbench PR不自动证明Home、五科认知和后续能力都完成。
+- H1/H2/H3：Politics Home / meaningful Continue / useful attention；
+- N1/N2/N4：五科 cognition、NU、Chengfeng source handoff、phase-owned recall/precision；
+- E2 / V1–V4 等跨 surface repair/return consistency；
+- conditional assets 在真实 owner / 权限存在时才显示；
+- Mac-wide visual convergence 与真实截图验收。
 
-Relevant QA/build + representative Mac clean/submitted-correct/submitted-wrong/长内容 + independent review + Kian必要选择 → 授权merge/main验证/退役；不自行merge，不制造U。
+完整 #116 closure 要求所有适用能力有明确 disposition，required/current-equivalent 有 Current 实现/等价证据，conditional/phase-owned 边界诚实，superseded 不回归。未关闭关键 blocker 不报 full parity。
 
-原完整历史contract保留在 `design-archive/2026-09-14/POLITICS_PARITY_BEFORE_V3.md`。正常执行只读本Current contract，不再走旧M0考古/旧#115迁移流程。
+Relevant QA/build + representative Mac journeys/screenshots + independent review + Kian 必要视觉接受 → 才关闭 #116。工程测试不制造 learner U。
+
+原完整历史 contract 保留在 `design-archive/2026-09-14/POLITICS_PARITY_BEFORE_V3.md`。正常执行只读本 Current contract，不再走旧 M0 考古 / #115 / #117 迁移流程。
