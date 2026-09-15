@@ -1,0 +1,331 @@
+name: Lexical Forward o3375-o3624
+
+on:
+  push:
+    branches:
+      - lexical/forward-o3375-o3624-20260916
+    paths:
+      - .github/workflows/lexical-forward-o3375-o3624.yml
+
+permissions:
+  contents: write
+
+jobs:
+  forward:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Current forward branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch historical verified candidate and Current main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main:refs/remotes/origin/main
+          git fetch origin 4c85edc2911928e20e264bb13d232949bb953984:refs/remotes/origin/verified-forward-candidate
+          git fetch origin d27c00375a2e8b1e25c9e406627c0c8b0dc1eb61:refs/remotes/origin/forward-precheckpoint
+          echo "current=$(git rev-parse HEAD)"
+          echo "main=$(git rev-parse origin/main)"
+          echo "candidate=$(git rev-parse origin/verified-forward-candidate)"
+          echo "precheckpoint=$(git rev-parse origin/forward-precheckpoint)"
+
+      - name: Revalidate exact forward dependency state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+
+          CAND='origin/verified-forward-candidate'
+          PRE='origin/forward-precheckpoint'
+          WINDOWS=['o3375-o3424','o3425-o3474','o3475-o3524','o3525-o3574','o3575-o3624']
+          def git(*a, check=True):
+              p=subprocess.run(['git',*a],text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+              if check and p.returncode: raise SystemExit(p.stderr or 'git failed')
+              return p.stdout.strip()
+          def show(ref,path): return git('show',f'{ref}:{path}')
+          def exists(ref,path): return subprocess.run(['git','cat-file','-e',f'{ref}:{path}'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0
+
+          words=set(range(3375,3625)); changed=set(); rels=set()
+          for w in WINDOWS:
+              r=json.loads(show(CAND,f'content/lexical/execution/receipts/{w}.json'))
+              changed |= {int(x) for x in r.get('changed_word_ordinals',[])}
+              rels |= {str(x) for x in r.get('changed_relation_owner_paths',[])}
+          words |= changed
+
+          mismatches=[]
+          for o in sorted(words):
+              p=f'content/lexical/words/by-ordinal/o{o:04d}.json'
+              if not exists(PRE,p) or not Path(p).exists():
+                  mismatches.append([p,'missing'])
+                  continue
+              if json.loads(show(PRE,p)) != json.loads(Path(p).read_text()):
+                  mismatches.append([p,'word-drift'])
+          # Existing Relation inputs/targets must also match the lawful pre-forward checkpoint.
+          for p in sorted(rels):
+              pre=exists(PRE,p); cur=Path(p).exists()
+              if pre != cur:
+                  mismatches.append([p,'relation-presence-drift'])
+              elif pre and json.loads(show(PRE,p)) != json.loads(Path(p).read_text()):
+                  mismatches.append([p,'relation-drift'])
+
+          pre_manifest=json.loads(show(PRE,'content/lexical/relations/manifest.json'))
+          cur_manifest=json.loads(Path('content/lexical/relations/manifest.json').read_text())
+          if pre_manifest != cur_manifest:
+              mismatches.append(['content/lexical/relations/manifest.json','manifest-drift'])
+
+          if mismatches:
+              raise SystemExit('FORWARD_CURRENT_DRIFT_REQUIRES_SOL:'+json.dumps(mismatches,ensure_ascii=False))
+
+          print(json.dumps({
+              'package_owners_checked':250,
+              'receipted_word_write_union':len(changed),
+              'receipted_relation_paths':len(rels),
+              'current_equals_lawful_precheckpoint':True,
+          },indent=2))
+          PY
+
+      - name: Restore Current-revalidated authority and verified executors
+        shell: bash
+        run: |
+          set -euo pipefail
+          CAND=origin/verified-forward-candidate
+          mkdir -p content/lexical/semantic-reconciliation content/lexical/execution/receipts
+          git show "$CAND:content/lexical/semantic-reconciliation/o3375-o3624.md" > /tmp/o3375-o3624.old.md
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('/tmp/o3375-o3624.old.md')
+          text=p.read_text()
+          text=text.replace('Status: **RECONCILED / READY_FOR_BOUNDED_FORWARD_IMPLEMENTATION**', 'Status: **CURRENT-REVALIDATED / READY_FOR_BOUNDED_FORWARD_IMPLEMENTATION**', 1)
+          text=text.replace('- Current branch execution baseline: `lexical/retro-audit-debt-20260915`', '- Current execution baseline: `main@301d4af2ee8640c8a0aeaf93811d00a283f5ee72`; the historical branch name below is provenance only.', 1)
+          note='''\n## 2026-09-16 Current revalidation\n\nThis authority was originally adjudicated during an incorrectly routed Chat lane, but its semantic inputs were the correct Production + Independent Audit evidence for the forward package. It is reused here only after a fresh Current gate proved every package Word owner, receipted remote dependency, touched Relation owner and the Relation manifest equal the lawful pre-forward checkpoint `d27c00375a2e8b1e25c9e406627c0c8b0dc1eb61`. The earlier lane/accounting mistake is not authority; the Production/Audit judgments and the Sol resolutions in this file are.\n\nThis package is now explicitly activated by the user's instruction to continue landing the already-reviewed catalog. `o3625+` remains not activated.\n\n'''
+          anchor='## Frozen inputs\n'
+          text=text.replace(anchor,note+anchor,1)
+          Path('content/lexical/semantic-reconciliation/o3375-o3624.md').write_text(text)
+          PY
+          for s in \
+            lexical_apply_retro_o0025_o0224.py \
+            lexical_apply_forward_o3375_o3424.py \
+            lexical_apply_forward_o3425_o3474.py \
+            lexical_apply_forward_o3475_o3524.py \
+            lexical_apply_forward_o3525_o3574.py \
+            lexical_apply_forward_o3575_o3624.py; do
+            git show "$CAND:tools/$s" > "tools/$s"
+          done
+
+      - name: Replay five Current-revalidated forward shards
+        shell: bash
+        run: |
+          set -euo pipefail
+          for s in \
+            lexical_apply_forward_o3375_o3424.py \
+            lexical_apply_forward_o3425_o3474.py \
+            lexical_apply_forward_o3475_o3524.py \
+            lexical_apply_forward_o3525_o3574.py \
+            lexical_apply_forward_o3575_o3624.py; do
+            echo "==> $s"
+            python "tools/$s"
+          done
+
+      - name: Verify exact accepted final owner state
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          CAND='origin/verified-forward-candidate'
+          PRE='origin/forward-precheckpoint'
+          WINDOWS=['o3375-o3424','o3425-o3474','o3475-o3524','o3525-o3574','o3575-o3624']
+          def git(*a): return subprocess.check_output(['git',*a],text=True).strip()
+          def show(ref,path): return git('show',f'{ref}:{path}')
+          def exists(ref,path): return subprocess.run(['git','cat-file','-e',f'{ref}:{path}'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0
+
+          changed=set(); rels=set(); no_change=set()
+          for w in WINDOWS:
+              r=json.loads(Path(f'content/lexical/execution/receipts/{w}.json').read_text())
+              changed |= {int(x) for x in r.get('changed_word_ordinals',[])}
+              no_change |= {int(x) for x in r.get('no_change_word_ordinals',[])}
+              rels |= {str(x) for x in r.get('changed_relation_owner_paths',[])}
+
+          for o in sorted(changed):
+              p=f'content/lexical/words/by-ordinal/o{o:04d}.json'
+              if json.loads(Path(p).read_text()) != json.loads(show(CAND,p)):
+                  raise SystemExit(f'FINAL_WORD_MISMATCH:{p}')
+          for o in sorted(no_change):
+              p=f'content/lexical/words/by-ordinal/o{o:04d}.json'
+              if json.loads(Path(p).read_text()) != json.loads(show(PRE,p)):
+                  raise SystemExit(f'NO_CHANGE_OWNER_DRIFT:{p}')
+
+          # Use the full historical final Relation delta, including deletions/new owners.
+          raw=git('diff','--name-only',f'{PRE}..{CAND}','--','content/lexical/relations/by-id')
+          final_rel_paths={x for x in raw.splitlines() if x.strip()}
+          for p in sorted(final_rel_paths):
+              cand=exists(CAND,p); cur=Path(p).exists()
+              if cand != cur:
+                  raise SystemExit(f'FINAL_RELATION_PRESENCE_MISMATCH:{p}')
+              if cand and json.loads(Path(p).read_text()) != json.loads(show(CAND,p)):
+                  raise SystemExit(f'FINAL_RELATION_MISMATCH:{p}')
+
+          cand_manifest=json.loads(show(CAND,'content/lexical/relations/manifest.json'))
+          cur_manifest=json.loads(Path('content/lexical/relations/manifest.json').read_text())
+          if cur_manifest != cand_manifest:
+              raise SystemExit('FINAL_RELATION_MANIFEST_MISMATCH')
+
+          print(json.dumps({
+              'changed_word_owners_verified':len(changed),
+              'no_change_owners_verified':len(no_change),
+              'final_relation_delta_paths_verified':len(final_rel_paths),
+              'final_relation_manifest_count':cur_manifest.get('relation_count'),
+          },indent=2))
+          PY
+
+      - name: Natural Owner registry reconstruction audit
+        run: python tools/lexical_natural_owner.py audit
+
+      - name: Lexical transport guards
+        run: python tools/test_lexical_transport_guards.py
+
+      - name: Lexical shard tests
+        run: python tools/test_lexical_shard.py
+
+      - name: Parse all Lexical JSON
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          n=0
+          for p in Path('content/lexical').rglob('*.json'):
+              json.loads(p.read_text(encoding='utf-8')); n+=1
+          print('parsed',n,'json files')
+          PY
+
+      - name: Diff hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+          find tools -type d -name __pycache__ -prune -exec rm -rf {} +
+          python - <<'PY'
+          import json, subprocess, re
+          from pathlib import Path
+          CAND='origin/verified-forward-candidate'
+          WINDOWS=['o3375-o3424','o3425-o3474','o3475-o3524','o3525-o3574','o3575-o3624']
+          def show(path): return subprocess.check_output(['git','show',f'{CAND}:{path}'],text=True)
+          allowed_words=set(); allowed_rel=set()
+          for w in WINDOWS:
+              r=json.loads(Path(f'content/lexical/execution/receipts/{w}.json').read_text())
+              allowed_words |= {f'content/lexical/words/by-ordinal/o{int(x):04d}.json' for x in r.get('changed_word_ordinals',[])}
+          pre='origin/forward-precheckpoint'
+          raw_rel=subprocess.check_output(['git','diff','--name-only',f'{pre}..{CAND}','--','content/lexical/relations/by-id'],text=True)
+          allowed_rel={x for x in raw_rel.splitlines() if x}
+
+          raw=subprocess.check_output(['git','status','--porcelain=v1','-z','--untracked-files=all'])
+          paths=[]
+          for e in raw.split(b'\0'):
+              if not e: continue
+              t=e.decode('utf-8','surrogateescape'); p=t[3:]
+              if ' -> ' in p: p=p.split(' -> ',1)[1]
+              paths.append(p)
+          bad=[]
+          for p in paths:
+              ok=(p in allowed_words or p in allowed_rel
+                  or p=='content/lexical/relations/manifest.json'
+                  or p.startswith('content/lexical/canonical/senses/shards/')
+                  or p.startswith('content/lexical/canonical/collocations/shards/')
+                  or p.startswith('content/lexical/canonical/lookup/spelling/')
+                  or p=='content/lexical/semantic-reconciliation/o3375-o3624.md'
+                  or re.fullmatch(r'content/lexical/execution/receipts/o(3375-3424|3425-3474|3475-3524|3525-3574|3575-3624)\.json',p))
+              if not ok: bad.append(p)
+          if bad: raise SystemExit('UNAUTHORIZED_FORWARD_DIFF:'+json.dumps(bad,ensure_ascii=False))
+          forbidden=[p for p in paths if p.startswith('content/lexical/canonical/words/') or p.startswith('content/lexical/canonical/relations/')]
+          if forbidden: raise SystemExit('PRE_CUTOVER_CANONICAL_MUTATION:'+json.dumps(forbidden))
+          print('diff hygiene PASS; paths=',len(paths))
+          PY
+
+      - name: Install static-web dependencies
+        run: npm --prefix static-web install --no-audit --no-fund
+
+      - name: Full Astro build
+        run: npm --prefix static-web run build
+
+      - name: Write Current forward package receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          CAND='origin/verified-forward-candidate'; PRE='origin/forward-precheckpoint'
+          WINDOWS=['o3375-o3424','o3425-o3474','o3475-o3524','o3525-o3574','o3575-o3624']
+          changed=set(); remote=set(); rel=set(); new=[]; react=[]
+          for w in WINDOWS:
+              r=json.loads(Path(f'content/lexical/execution/receipts/{w}.json').read_text())
+              changed |= {int(x) for x in r.get('changed_word_ordinals',[])}
+              remote |= {int(x) for x in r.get('out_of_range_dependency_ordinals',[])}
+              rel |= {str(x) for x in r.get('changed_relation_owner_paths',[])}
+              new += r.get('new_semantic_branch_ids',[])
+              react += r.get('reactivated_stable_ids',[])
+          relation_delta=subprocess.check_output(['git','diff','--name-only',f'{PRE}..{CAND}','--','content/lexical/relations/by-id'],text=True).splitlines()
+          receipt={
+            'schema':'kianos.lexical.forward_package_receipt.v2',
+            'status':'CURRENT_REVALIDATED_VERIFIED_READY_FOR_MAIN',
+            'scope':[3375,3624],
+            'production_review':'content/lexical/semantic-review/o3375-o3624.md',
+            'audit_inputs':['content/lexical/semantic-audit/o3225-o3424.audit.md','content/lexical/semantic-audit/o3425-o3624.audit.md'],
+            'authority':'content/lexical/semantic-reconciliation/o3375-o3624.md',
+            'lawful_precheckpoint':'d27c00375a2e8b1e25c9e406627c0c8b0dc1eb61',
+            'historical_verified_candidate':'4c85edc2911928e20e264bb13d232949bb953984',
+            'source_union_count':92,
+            'exact_word_write_union':len(changed),
+            'out_of_range_dependency_ordinals':sorted(remote),
+            'relation_delta_path_count':len([x for x in relation_delta if x]),
+            'new_semantic_branch_count':len(set(new)),
+            'reactivated_stable_count':len(set(react)),
+            'current_prestate_equals_lawful_checkpoint':True,
+            'checks':{
+              'five_executor_replay':'PASS',
+              'accepted_final_word_state':'PASS',
+              'no_change_owner_guard':'PASS',
+              'accepted_final_relation_state':'PASS',
+              'natural_owner_registry_audit':'PASS',
+              'transport_guards':'PASS',
+              'shard_tests':'PASS',
+              'all_lexical_json':'PASS',
+              'diff_hygiene':'PASS',
+              'astro_build':'PASS'
+            },
+            'workflow':{'run_id':int(__import__('os').environ['GITHUB_RUN_ID']),'job':'forward'},
+            'next_catalog':'o3625+ NOT_ACTIVATED'
+          }
+          Path('content/lexical/execution/receipts/o3375-o3624.forward-package.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
+          PY
+
+      - name: Remove temporary executor transport
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in \
+            tools/lexical_apply_retro_o0025_o0224.py \
+            tools/lexical_apply_forward_o3375_o3424.py \
+            tools/lexical_apply_forward_o3425_o3474.py \
+            tools/lexical_apply_forward_o3475_o3524.py \
+            tools/lexical_apply_forward_o3525_o3574.py \
+            tools/lexical_apply_forward_o3575_o3624.py; do
+            if git cat-file -e "HEAD:$f" 2>/dev/null; then git show "HEAD:$f" > "$f"; else rm -f "$f"; fi
+          done
+          find tools -type d -name __pycache__ -prune -exec rm -rf {} +
+
+      - name: Commit verified forward package
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Kian"
+          git config user.email "kianwang022@gmail.com"
+          git add content/lexical
+          git diff --cached --quiet && { echo 'No forward changes'; exit 1; }
+          git commit -m "lexical: integrate Current-revalidated forward package o3375-o3624"
+          git push origin HEAD
