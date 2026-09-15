@@ -12,6 +12,7 @@ on:
       - 'static-web/scripts/test-xizong-a2-functional-journey.mjs'
       - 'static-web/scripts/test-xizong-a2-r3-source-visual.mjs'
       - 'static-web/scripts/test-xizong-a2-kp-precision.mjs'
+      - 'static-web/scripts/test-xizong-crosswalk-browser.mjs'
       - '.github/workflows/static-web-xizong-a2-functional-journey.yml'
   workflow_dispatch:
 
@@ -46,6 +47,9 @@ jobs:
       - name: Execute A2 Functional First journeys
         working-directory: static-web
         run: node scripts/test-xizong-a2-functional-journey.mjs
+      - name: Execute reviewed Crosswalk acceptance
+        working-directory: static-web
+        run: node scripts/test-xizong-crosswalk-browser.mjs
       - name: Execute A2 R3 source visual acceptance
         working-directory: static-web
         run: node scripts/test-xizong-a2-r3-source-visual.mjs
@@ -57,5 +61,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: xizong-a2-functional-journey-${{ github.sha }}
-          path: xizong-a2-functional-audit/
+          path: |
+            xizong-a2-functional-audit/
+            xizong-crosswalk-audit/
           retention-days: 7
