@@ -1,38 +1,93 @@
 {
   "schema": "kianos.lexical.historical_route_disposition.v1",
   "role": "BOUNDED_DISPOSITION_RECORD_NOT_LIVE_BRANCH_STATUS_OR_WORK_CURSOR",
-  "reviewed_on": "2026-09-13",
-  "main_baseline": "49d288ccfe533f251868f6b0738793e5b4b85eac",
+  "reviewed_on": "2026-09-15",
+  "main_baseline": "75bfa493fbeebf40b04e9f0e3cb90f311b0ad9f9",
   "authority": "content/lexical/CURRENT.md",
   "semantic_acceptance_delta": 0,
-  "rule": "No listed historical branch or Issue is normal continuation authority. Unique candidate work is preserved for an explicitly bounded salvage request. Its old CURRENT/ACCEPTANCE/receipt claims must not be imported. This record classifies routes; observed deletion/integration results belong in VALIDATION.md.",
-  "issues": [
-    {"number": 6, "disposition": "SUPERSEDED_NOT_COMPLETED", "reason": "Historical authority-restoration and audit-then-repair queue contradict Current-first local closure. Preserve the historical discussion as evidence, not a task."},
-    {"number": 50, "disposition": "NAVIGATION_PARENT_ONLY", "reason": "Current owns next action; system closure active, catalog paused."},
-    {"number": 54, "disposition": "PAUSED_CATALOG", "reason": "S001/o0025 is not active while Current pauses content. Future execution follows CONTENT_EXECUTION.md."},
-    {"number": 56, "disposition": "DEFERRED_FULL_CATALOG_ACCEPTANCE", "reason": "Full-catalog exit depends on full K; it does not block a correctly bounded accepted-content Functional First slice."}
-  ],
-  "retire_exact_duplicate_aliases": {
-    "verified_head": "c856c288a32f82bf02ddd87ec3497a88cc21781e",
-    "preserved_primary_ref": "lexical/fresh-rebuild-batch04",
-    "reason": "Each alias has exactly the preserved primary head, hence no alias-only commits. Re-check before deletion if the ref may have moved. This is not acceptance of Batch04 semantics.",
-    "branches": ["lexical/fresh-rebuild-batch05-o0037-o0236", "lexical/fresh-rebuild-batch08", "lexical-fresh-batch06-o0237-o0436", "lexical-fresh-batch08-o0637-o0836"]
+  "rule": "No historical branch or Issue is normal continuation authority. Current-first Production Review, Independent Audit, mechanical implementation and corrective integration are separate responsibilities. Old candidate semantics never outrank Current owners or the current-generation handoffs/audit packs.",
+  "current_generation_closure": {
+    "production_fresh_semantic_review": "COMPLETE_7946_OF_7946",
+    "independent_semantic_audit": "COMPLETE_7946_OF_7946",
+    "audit_coverage_owner": "content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md",
+    "mechanical_frontier": "o3374",
+    "canonical_corrective_o3125_o3374": "COMPLETE_PR_161",
+    "retro_corrective_o0025_o3124": "VERIFIED_BRANCH_PENDING_MAIN_INTEGRATION",
+    "future_o3375_plus": "NOT_ACTIVATED"
   },
-  "preserved_for_bounded_reconciliation": [
-    {"branch":"lexical/asset-integrity-audit","head":"ca879529078611518e79d0b47b94f7301ddd83b5"},
-    {"branch":"lexical/closure-a-current-reconciliation","head":"0b6e6fcde5c7764bef799382e1dd6ef6d591d70c"},
-    {"branch":"lexical/fresh-rebuild-batch02","head":"c8cfc685457f12a8b9313c289425d8593bf4e3af"},
-    {"branch":"lexical/fresh-rebuild-batch03","head":"771041bc1bd323d0974490de9a5b4e45a8562573"},
-    {"branch":"lexical/fresh-rebuild-batch04","head":"c856c288a32f82bf02ddd87ec3497a88cc21781e"},
-    {"branch":"lexical/fresh-rebuild-batch06","head":"3cac484fd0707c2f7ea554bcd4cace6c3418592f"},
-    {"branch":"lexical/fresh-rebuild-gold01","head":"f1b2692e31bf9829c4fa550b7fdf966475139876"},
-    {"branch":"lexical/full-content-asset-upgrade","head":"73802c9037355f1f9e5c02a9429dda4f50bd00a8"},
-    {"branch":"lexical/knowledge-audit-v2","head":"c782ad1bb38a848e48644a205cb907f20c718280"},
-    {"branch":"lexical/p0-calibration-0001","head":"05b8134f19a8fd102ce72cfb91fbe1a5c295fb98"},
-    {"branch":"lexical/p0-calibration-0002","head":"19d4764373eace519f4fc1652059519c6a7a2427"},
-    {"branch":"lexical/vnext-wave03-o0025-o0124","head":"e229388d82e6a561c2a4593ef457508831873b17","detail":"Candidate Word/Relation mutations and receipts coexist with stale CURRENT/ACCEPTANCE. No blanket merge; preserve candidate work. Ahead/behind counts are not acceptance."},
-    {"branch":"lexical-batch05-work","head":"465bf16b3d66e9285de564b0b07d292753eb758b"}
+  "issues": [
+    {"number": 6, "disposition": "SUPERSEDED_NOT_COMPLETED", "reason": "Historical authority-restoration and audit-then-repair queue contradict Current-first closure. Preserve discussion as provenance only."},
+    {"number": 50, "disposition": "NAVIGATION_PARENT_ONLY", "reason": "Updated 2026-09-15 to point only to Current and current child responsibilities."},
+    {"number": 54, "disposition": "PAUSED_FUTURE_CANONICAL_IMPLEMENTATION", "reason": "Production review and Independent Audit are complete; remaining full-catalog Content work is bounded canonical implementation/correction when Current activates it."},
+    {"number": 56, "disposition": "DEFERRED_FULL_CATALOG_INTEGRATED_K_ACCEPTANCE", "reason": "Still downstream of complete canonical integration; Audit completion alone does not satisfy full K."},
+    {"number": 106, "disposition": "COMPLETED_CLOSED", "reason": "Whole-catalog Independent Audit is terminally represented on main at 7946/7946 via PR #169."}
   ],
-  "preservation_reason": "Unique content or review artifacts have not been proved safely subsumed by Current. Retain only for bounded reconciliation, with no automatic workload or scheduling authority. Do not delete merely to make a cleanup count look complete.",
-  "salvage_stop_rule": "Read Current plus one named bounded candidate. Retain useful semantics only through a fresh current patch and integrated readback. If no needed current requirement depends on the candidate, do not keep reading history."
+  "retired_after_full_current_review_and_audit": {
+    "reason": "These branches were previously preserved only because their unique candidate/review work had not yet been proved safely superseded. Current-first Production Fresh Semantic Review now covers 7946/7946, Independent Audit covers 7946/7946, and canonical mechanical/corrective work must consume those Current authorities rather than historical candidate branches. Their old CURRENT/ACCEPTANCE/process claims are explicitly non-authoritative.",
+    "previously_preserved_candidates": [
+      {"branch":"lexical/asset-integrity-audit","historical_head":"ca879529078611518e79d0b47b94f7301ddd83b5"},
+      {"branch":"lexical/closure-a-current-reconciliation","historical_head":"0b6e6fcde5c7764bef799382e1dd6ef6d591d70c"},
+      {"branch":"lexical/fresh-rebuild-batch02","historical_head":"c8cfc685457f12a8b9313c289425d8593bf4e3af"},
+      {"branch":"lexical/fresh-rebuild-batch03","historical_head":"771041bc1bd323d0974490de9a5b4e45a8562573"},
+      {"branch":"lexical/fresh-rebuild-batch04","historical_head":"c856c288a32f82bf02ddd87ec3497a88cc21781e"},
+      {"branch":"lexical/fresh-rebuild-batch06","historical_head":"3cac484fd0707c2f7ea554bcd4cace6c3418592f"},
+      {"branch":"lexical/fresh-rebuild-gold01","historical_head":"f1b2692e31bf9829c4fa550b7fdf966475139876"},
+      {"branch":"lexical/full-content-asset-upgrade","historical_head":"73802c9037355f1f9e5c02a9429dda4f50bd00a8"},
+      {"branch":"lexical/knowledge-audit-v2","historical_head":"c782ad1bb38a848e48644a205cb907f20c718280"},
+      {"branch":"lexical/p0-calibration-0001","historical_head":"05b8134f19a8fd102ce72cfb91fbe1a5c295fb98"},
+      {"branch":"lexical/p0-calibration-0002","historical_head":"19d4764373eace519f4fc1652059519c6a7a2427"},
+      {"branch":"lexical/vnext-wave03-o0025-o0124","historical_head":"e229388d82e6a561c2a4593ef457508831873b17"},
+      {"branch":"lexical-batch05-work","historical_head":"465bf16b3d66e9285de564b0b07d292753eb758b"}
+    ],
+    "production_handoff_execution_branches": [
+      "lexical/continuity-throughput-o5375-o5624-identity",
+      "lexical/continuity-throughput-o5625-o5874",
+      "lexical/continuity-throughput-o5875-o6124",
+      "lexical/continuity-throughput-o6125-o6374",
+      "lexical/continuity-throughput-o6375-o6624",
+      "lexical/continuity-throughput-o6625-o6874",
+      "lexical/continuity-throughput-o6875-o7124",
+      "lexical/continuity-throughput-o7125-o7374",
+      "lexical/continuity-throughput-o7375-o7624",
+      "lexical/continuity-throughput-o7625-o7874",
+      "lexical/continuity-throughput-o7875-o7946"
+    ],
+    "merged_or_superseded_corrective_branches": [
+      "lexical-current-close-reconciled-corrective",
+      "lexical-reconciled-corrective-o3125-o3374"
+    ]
+  },
+  "retired_exact_duplicate_aliases": {
+    "verified_head": "c856c288a32f82bf02ddd87ec3497a88cc21781e",
+    "reason": "Already retired as exact duplicate aliases; their former primary fresh-rebuild branch is now also superseded by complete Current-generation review/audit.",
+    "branches": [
+      "lexical/fresh-rebuild-batch05-o0037-o0236",
+      "lexical/fresh-rebuild-batch08",
+      "lexical-fresh-batch06-o0237-o0436",
+      "lexical-fresh-batch08-o0637-o0836"
+    ]
+  },
+  "preserved_current_or_capability_branches": [
+    {
+      "branch": "lexical/retro-audit-debt-20260915",
+      "disposition": "ACTIVE_INTEGRATION_SOURCE_NOT_WORK_CURSOR",
+      "reason": "Still owns unique verified o0025-o3124 corrective truth pending bounded main integration. Retire only after main readback proves preservation."
+    },
+    {
+      "branch": "lexical/evidence-runtime-ffv-20260913",
+      "disposition": "INDEPENDENT_RUNTIME_SCOPE",
+      "reason": "Evidence/Memory Runtime is a separate live capability lane, not superseded by Content/Audit closure."
+    },
+    {
+      "branch": "codex/lexical-audit-risk-router",
+      "disposition": "CLOSED_PR_UNMERGED_CAPABILITY_SALVAGE_ONLY",
+      "reason": "PR #107 is closed/superseded for the completed current Audit lane, but the Python router/test implementation is unique unmerged code; do not delete without a bounded salvage/discard decision."
+    },
+    {
+      "branch": "audit-semantic-router-v1",
+      "disposition": "UNMERGED_EXPERIMENTAL_CAPABILITY_SALVAGE_ONLY",
+      "reason": "Old JS/router/transport experiment is not Current authority and not needed for the completed catalog Audit; preserve only until an explicit salvage/discard decision."
+    }
+  ],
+  "salvage_stop_rule": "Read Current plus one explicitly named preserved capability/integration branch. If no Current requirement depends on its unique work, either retire it through an explicit supersession decision or stop reading history. Never reactivate broad historical queues from branch existence alone."
 }
