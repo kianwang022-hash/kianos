@@ -73,9 +73,8 @@ chat/xizong-evidence-contract-align
 # 2026-09-15: Lexical Independent Audit catalog closure.
 # Final authoritative Audit Packs for all current 7,946 owners and the whole-catalog
 # coverage reconciliation have been serialized to main. These branches are now
-# historical execution surfaces only. The retro corrective branch is intentionally
-# NOT retired because it still owns unique verified o0025-o3124 correction work
-# pending bounded integration to main.
+# historical execution surfaces only. At this closure point the retro corrective
+# source was intentionally preserved; it is retired separately below after PR #179.
 audit-reconciliation/catalog-coverage
 audit-work/o0001-o0024
 audit-work/o0625-o0824
@@ -157,3 +156,10 @@ lexical/continuity-throughput-o7875-o7946
 # Canonical truth is main PR #161; do not replay these branches.
 lexical-current-close-reconciled-corrective
 lexical-reconciled-corrective-o3125-o3374
+
+# 2026-09-15: o0025-o3124 retro corrective integration closed by PR #179.
+# Canonical truth, all 16 authorities/receipts, and the durable integration receipt
+# are on main. Neither source nor integration branch remains a work cursor.
+lexical/retro-audit-debt-20260915
+lexical/retro-corrective-integration-o0025-o3124-20260916
+lexical/retro-replay-integration-o0025-o3124-20260916
