@@ -11,6 +11,7 @@ on:
       - 'static-web/src/pages/xizong/**'
       - 'static-web/scripts/test-xizong-a2-functional-journey.mjs'
       - 'static-web/scripts/test-xizong-a2-r3-source-visual.mjs'
+      - 'static-web/scripts/test-xizong-a2-kp-precision.mjs'
       - '.github/workflows/static-web-xizong-a2-functional-journey.yml'
   workflow_dispatch:
 
@@ -48,6 +49,9 @@ jobs:
       - name: Execute A2 R3 source visual acceptance
         working-directory: static-web
         run: node scripts/test-xizong-a2-r3-source-visual.mjs
+      - name: Execute A2 KP Precision post-Reveal acceptance
+        working-directory: static-web
+        run: node scripts/test-xizong-a2-kp-precision.mjs
       - name: Save journey evidence
         if: always()
         uses: actions/upload-artifact@v4
