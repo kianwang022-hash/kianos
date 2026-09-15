@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "af4274f28b8db03d614351692aba7aeb394b56faa636ab3593e243aa1ed4cb83",
+    "content_hash": "b5357f41e1025633ecde795182d6998f3e4cef94a7512afad681b13b6f456554",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,6 +29,14 @@
             "sense:land:51b22a8bf6c9583f",
             "sense:land:8cbdab90c0e453d1"
           ]
+        },
+        {
+          "label_cn": "获得；赢得（工作、合同等）",
+          "label_en": "obtain or secure something desirable",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:land:9ae70cd6aec5b97e"
+          ]
         }
       ],
       "core_meaning_cn": "陆地或着陆",
@@ -40,7 +48,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2625-o2824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -113,39 +123,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:3924136f4bc96508c15d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:land:51b22a8bf6c9583f:collocation:0"
-            ],
-            "meaning_cn": "降落在……上",
-            "phrase": "land on + sth"
-          },
-          {
-            "collocation_id": "collocation:11b6ee101d1f24341db3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:land:51b22a8bf6c9583f:collocation:1"
-            ],
-            "meaning_cn": "在……着陆",
-            "phrase": "land at + place"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "着陆；降落",
-        "definition_en": "to come to the ground or surface after a flight or jump",
-        "governing_pattern": "vi. + on/at",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:land:51b22a8bf6c9583f",
-        "sense_label_en": "to come to the ground or surface after a flight or jump",
-        "sort_order": 4,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:af7a1234775f33055b1f",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -212,6 +189,39 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:3924136f4bc96508c15d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:land:51b22a8bf6c9583f:collocation:0"
+            ],
+            "meaning_cn": "降落在……上",
+            "phrase": "land on + sth"
+          },
+          {
+            "collocation_id": "collocation:11b6ee101d1f24341db3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:land:51b22a8bf6c9583f:collocation:1"
+            ],
+            "meaning_cn": "在……着陆",
+            "phrase": "land at + place"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "着陆；降落",
+        "definition_en": "to come to the ground or surface after a flight or jump",
+        "governing_pattern": "vi. + on/at",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:land:51b22a8bf6c9583f",
+        "sense_label_en": "to come to the ground or surface after a flight or jump",
+        "sort_order": 4,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:4a62c15773a1c6f5593c",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -231,6 +241,30 @@
         "sense_id": "sense:land:8cbdab90c0e453d1",
         "sense_label_en": "to cause to come to the ground or surface",
         "sort_order": 5,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:eef544767d03357eeeb9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:land:9ae70cd6aec5b97e:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "获得工作/合同/角色",
+            "phrase": "land a job/deal/role"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "获得；赢得；成功拿到（工作、合同、角色等）",
+        "definition_en": "to obtain, secure, or succeed in getting something desirable such as a job, deal, or role",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:land:9ae70cd6aec5b97e",
+        "sense_label_en": "to obtain, secure, or succeed in getting something desirable such as a job, deal, or role",
+        "sort_order": 6,
         "transitivity": "vt"
       }
     ],
@@ -286,6 +320,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
       },
       {
+        "sense_id": "sense:land:9ae70cd6aec5b97e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7615,
+        "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
         "sense_id": "sense:land:d2dd6573e032578a",
         "status": "active",
         "merged_into_sense_id": null,
@@ -311,6 +352,7 @@
       "collocation:8cdcdee2507b226428ee",
       "collocation:af7a1234775f33055b1f",
       "collocation:c3231c9a87567d42d21d",
+      "collocation:eef544767d03357eeeb9",
       "collocation:fb36d71bb2f0777a4841"
     ],
     "facts": [],
@@ -363,6 +405,11 @@
       {
         "id": "collocation:c3231c9a87567d42d21d",
         "source_row": 16505,
+        "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:eef544767d03357eeeb9",
+        "source_row": 21510,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
       },
       {

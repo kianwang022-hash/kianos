@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "f6381f37cb6371aba71421962eab924816f48756080bc20646cfbede9e7548b3",
+    "content_hash": "c9031608cfe0d38676da12dc09debd213addb403698cdf9a190b1fd5985807dc",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "有生命的；充满活力的",
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0144"
+      "semantic-review:0144",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -133,30 +134,6 @@
         "sense_label_en": "aware of",
         "sort_order": 2,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9d64bd6821242d561691",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:alive:2564ae653338566f:collocation:0"
-            ],
-            "meaning_cn": "活火山",
-            "phrase": "an alive volcano"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（火山等）可能爆发的",
-        "definition_en": "capable of erupting",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:alive:2564ae653338566f",
-        "sense_label_en": "capable of erupting",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -179,7 +156,31 @@
     "word_id": "word:alive"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:alive:2564ae653338566f",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "（火山等）可能爆发的",
+      "definition_en": "capable of erupting",
+      "semantic_key": "6e01433259b0272fac1886be5d1fd54f10f36d1e0190a2ebe7de0b4f165e07c0",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "alive:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "alive:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 386,
+      "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -191,7 +192,7 @@
       },
       {
         "sense_id": "sense:alive:2564ae653338566f",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 386,
         "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
@@ -216,7 +217,6 @@
       "collocation:0ff71be7dd578ebdd5c1",
       "collocation:3bdfc71e3259a4ce24d6",
       "collocation:41ccfa6d33a913c9bea3",
-      "collocation:9d64bd6821242d561691",
       "collocation:c517dd2cc402b22c94ec",
       "collocation:de652ab07e07a59a3fc5"
     ],

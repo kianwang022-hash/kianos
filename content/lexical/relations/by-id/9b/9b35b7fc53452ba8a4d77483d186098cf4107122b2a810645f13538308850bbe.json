@@ -130,10 +130,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:loose",
+      "source_ordinal": 2884,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "lose 是动词“失去”；loose 多为形容词“松的”",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "lose game",
+          "core_meaning": "丢失/输掉",
+          "exam_trap": "拼写易混",
+          "register": "通用",
+          "semantic_prosody": "负面",
+          "strength": "强",
+          "syntax": "动词",
+          "writing_safety": "需注意"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:lose:loose",
+            "evidence_status": "source_checked",
+            "source_locator": "lose|loose",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:lose:d8e402e436b8f111",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:loose:c3e69918089a548b",
+        "target_sense_id": "sense:lose:104b3cfde5ae5c1d",
+        "target_word": "lose",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

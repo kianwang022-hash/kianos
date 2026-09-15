@@ -7,19 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4d45ef431a1f8f63fcf6d0c83fe2c7e633a2fc90dc1b468eabac16374cd1a525",
+    "content_hash": "8bb77ad328afe535c84b715035e21c8b99b01233d30a57f1a79b4eea5a94317a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "领域；范围",
-      "core_meaning_en": "an area of control or a field of activity",
-      "mental_model_cn": "领域；范围",
+      "core_clusters": [
+        {
+          "label_cn": "互联网域；域名",
+          "label_en": "an internet/computing domain or domain name",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:domain:148fff1170e0a882"
+          ]
+        }
+      ],
+      "core_meaning_cn": "领域/范围；互联网域；数学定义域",
+      "core_meaning_en": "a field/domain; an internet domain; or a mathematical domain",
+      "mental_model_cn": "领域/范围；互联网域；数学定义域",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -79,6 +90,39 @@
         "sense_label_en": "in mathematics, the set of values for which a function is defined",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d70cfb41601e16a3328b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:domain:148fff1170e0a882:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "域名",
+            "phrase": "domain name"
+          },
+          {
+            "collocation_id": "collocation:c0f2b3943ea8591b3563",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:domain:148fff1170e0a882:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "互联网/网站域",
+            "phrase": "internet/web domain"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "互联网域；域名；网络命名空间",
+        "definition_en": "an internet/computing domain or domain name identifying a site, network, or namespace",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:domain:148fff1170e0a882",
+        "sense_label_en": "an internet/computing domain or domain name identifying a site, network, or namespace",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -105,6 +149,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:domain:148fff1170e0a882",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4183,
+        "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json"
+      },
+      {
         "sense_id": "sense:domain:a2842907db8650e2",
         "status": "active",
         "merged_into_sense_id": null,
@@ -121,6 +172,8 @@
     ],
     "active_collocations": [
       "collocation:3dc2521d9743c9c2e5ed",
+      "collocation:c0f2b3943ea8591b3563",
+      "collocation:d70cfb41601e16a3328b",
       "collocation:f9610289e367f1700b73",
       "collocation:fff0fb5b7afb47db8148"
     ],
@@ -129,6 +182,16 @@
       {
         "id": "collocation:3dc2521d9743c9c2e5ed",
         "source_row": 5221,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:c0f2b3943ea8591b3563",
+        "source_row": 21627,
+        "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:d70cfb41601e16a3328b",
+        "source_row": 21626,
         "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
       },
       {

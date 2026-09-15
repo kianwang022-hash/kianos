@@ -8,104 +8,27 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "hope that-clause 希望",
-        "codex_reviewed": false,
-        "definition_cn": "希望，期望",
-        "definition_en": "to want something to happen or be true",
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:hope:74188f72581e",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "hope:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:hope:2e84e9938091a6e2",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "",
-        "module": "constructions",
-        "pattern": "vt. + that-clause / to do",
-        "pos": "verb",
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
+        "construction_id": "construction:c391ba9912b038cd9abe",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "希望……",
+        "definition_en": "to want something in a clause to happen or be true",
+        "pattern": "hope that + clause",
         "source_sense_id": "sense:hope:685d139ac992559b",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
+        "boundary": "that-clause complement"
       },
       {
-        "boundary": "hope that + 从句",
-        "codex_reviewed": false,
-        "definition_cn": "希望，期望",
-        "definition_en": "to want something to happen or be true",
-        "dimensions": {
-          "certainty": "高",
-          "collocation": "hope that 从句",
-          "core_meaning": "希望某事发生",
-          "exam_trap": "that 可省略",
-          "register": "通用",
-          "semantic_prosody": "中性偏积极",
-          "strength": "强",
-          "syntax": "及物动词接从句",
-          "writing_safety": "安全"
-        },
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:core-card:hope:74188f72581e",
-            "evidence_status": "source_checked",
-            "source_labels": [],
-            "source_locator": "hope:l1:2",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/kianos-english-vocabulary-5500.generated.json",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:constructions:hope:f3c9a9362a41f680",
-        "family_sources": [],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": "希望…",
-        "module": "constructions",
-        "pattern": "hope that + clause",
-        "pos": "verb",
-        "presentation_merge": {
-          "merge_id": "presentation-merge:4e7ad14be1d4d9889f20",
-          "metadata_tags": [
-            "cloze",
-            "collocation",
-            "construction",
-            "writing"
-          ],
-          "mode": "MERGE_PRESENTATION",
-          "surviving_object_id": "collocation:4241bc424106434c460e"
-        },
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
+        "construction_id": "construction:abc036514849f66e9db7",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "希望做某事",
+        "definition_en": "to want or expect to do something",
+        "pattern": "hope to do sth",
         "source_sense_id": "sense:hope:685d139ac992559b",
-        "target_sense_id": null,
-        "target_word": null,
-        "task_tags": [
-          "cloze",
-          "writing"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
+        "boundary": "to-infinitive complement"
       }
     ],
-    "content_hash": "bf0f342183b96a2a7083a2c253530d1708c1e828fdd26f2a99f2ab94bcb85eac",
+    "content_hash": "4c05276ddb17c73c7fbaa593e9aeedd3df5338282efca7ec64d0eb4e53036735",
     "core_concept": {
       "core_clusters": [
         {
@@ -138,7 +61,8 @@
       "construction:deep:constructions:hope:2e84e9938091a6e2",
       "construction:deep:constructions:hope:f3c9a9362a41f680",
       "deep:deep:constructions:hope:2e84e9938091a6e2",
-      "deep:deep:constructions:hope:f3c9a9362a41f680"
+      "deep:deep:constructions:hope:f3c9a9362a41f680",
+      "semantic-reconciliation:o2225-o2424"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -203,7 +127,7 @@
               "sense:hope:685d139ac992559b:collocation:1"
             ],
             "meaning_cn": "希望做某事",
-            "phrase": "hope to do + sth"
+            "phrase": "hope to do sth"
           },
           {
             "collocation_id": "collocation:4241bc424106434c460e",
@@ -218,14 +142,14 @@
         "confidence": "medium",
         "definition_cn": "希望，期望",
         "definition_en": "to want something to happen or be true",
-        "governing_pattern": "vt. + that-clause / to do",
+        "governing_pattern": "hope that... / hope to do sth / hope for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hope:685d139ac992559b",
         "sense_label_en": "to want something to happen or be true",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       }
     ],
     "verification_summary": {

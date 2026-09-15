@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "95ac1b705a5a962e1ccf82ccfbcbef05182da9958f2ec93d4e1ea6aaa8189ec1",
+    "content_hash": "2db2a9de139db546285145f8ee1fd2a9842c741525487f6740fdecaf0eba46f7",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,8 +25,7 @@
           "label_en": "someone who pursues a study or sport as a pastime; an athlete who does not play for pay",
           "pos": "noun",
           "sense_ids": [
-            "sense:amateur:e3f60e668e655c3b",
-            "sense:amateur:8c63058adda25e8b"
+            "sense:amateur:e3f60e668e655c3b"
           ]
         },
         {
@@ -48,7 +47,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0171"
+      "semantic-review:0171",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -75,39 +75,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "业余爱好者",
-        "definition_en": "someone who pursues a study or sport as a pastime",
+        "definition_cn": "业余爱好者；非职业参与者",
+        "definition_en": "a person who pursues an activity as a pastime or on a non-professional basis",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:amateur:e3f60e668e655c3b",
-        "sense_label_en": "someone who pursues a study or sport as a pastime",
+        "sense_label_en": "a person who pursues an activity as a pastime or on a non-professional basis",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a0198dd2672fe1310b67",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:amateur:8c63058adda25e8b:collocation:0"
-            ],
-            "meaning_cn": "业余身份",
-            "phrase": "amateur status"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "业余选手",
-        "definition_en": "an athlete who does not play for pay",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:amateur:8c63058adda25e8b",
-        "sense_label_en": "an athlete who does not play for pay",
-        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -140,7 +116,7 @@
         "pos": "adjective",
         "sense_id": "sense:amateur:b3348f8cb9485b3d",
         "sense_label_en": "engaged in as a pastime, not professionally",
-        "sort_order": 2,
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -164,13 +140,37 @@
     "word_id": "word:amateur"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:amateur:8c63058adda25e8b",
+      "status": "merged",
+      "merged_into_sense_id": "sense:amateur:e3f60e668e655c3b",
+      "pos": "noun",
+      "definition_cn": "业余选手",
+      "definition_en": "an athlete who does not play for pay",
+      "semantic_key": "01f5fe6f0010e6eac4bb3e8fb00848915ddbaeb7b49c41009c98cf21996cf5a8",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "amateur:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "amateur:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 445,
+      "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:amateur:8c63058adda25e8b",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:amateur:e3f60e668e655c3b",
         "source_row": 445,
         "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
       },
@@ -193,7 +193,6 @@
       "collocation:3d21c907bb16027878ff",
       "collocation:3f7a289f59378f4fc9a4",
       "collocation:74eda8d4f8884311ea47",
-      "collocation:a0198dd2672fe1310b67",
       "collocation:a402763aed7d45ac2179"
     ],
     "facts": [],

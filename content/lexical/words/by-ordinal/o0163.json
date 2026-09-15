@@ -17,12 +17,12 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "3dfd3986176b652fcae78d25142d00531e2c4f19379dffe8995fa9aba8669f25",
+    "content_hash": "f1471c685d82e6b646b644573fb896628e6296e6b1ba4344c6a19f31fd37d7e8",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "改变",
-      "core_meaning_en": "to make a change to something",
-      "mental_model_cn": "改变",
+      "core_meaning_cn": "改变；更改",
+      "core_meaning_en": "to change or modify",
+      "mental_model_cn": "改变；更改",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,7 +35,8 @@
       "deep:deep:word_family:alter:f7dfc03bd69889d8",
       "relation:deep:word_family:alter:a91602a633e67b1d",
       "relation:deep:word_family:alter:f7dfc03bd69889d8",
-      "semantic-review:0163"
+      "semantic-review:0163",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -43,16 +44,16 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "切除卵巢，阉割",
-        "definition_en": "remove the ovaries of (an animal)",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
+        "definition_cn": "改变；更改；修改",
+        "definition_en": "to change or modify something",
+        "governing_pattern": "",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:alter:1f3fbe7d1f4a5bb7",
-        "sense_label_en": "remove the ovaries of (an animal)",
+        "sense_id": "sense:alter:ef5ea5d2408352df",
+        "sense_label_en": "to change or modify something",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -161,27 +162,25 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:alter:ef5ea5d2408352df",
+      "stable_sense_id": "sense:alter:1f3fbe7d1f4a5bb7",
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "verb",
-      "definition_cn": "改变，更改",
-      "definition_en": "make an alteration to",
-      "semantic_key": "761961283ac646fbe713c74ab4346b540100d7d1ae68ddee9b7f87b0fdd51f21",
-      "semantic_key_history": [
-        "11d8e2bcda3addc5ed972d36cce79d26594d90b7db9d37560642de5682d232cf"
-      ],
+      "definition_cn": "切除卵巢，阉割",
+      "definition_en": "remove the ovaries of (an animal)",
+      "semantic_key": "e14b191e063d531f7980fcecc54bbca582b3fa802bf59642bb73364172d22fa1",
+      "semantic_key_history": [],
       "legacy_aliases": [
-        "alter:l1:1"
+        "alter:l3:2"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "alter:l1:1",
+          "legacy_sense_id": "alter:l3:2",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 428,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 427,
       "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json",
       "reference_only": true
     }
@@ -190,14 +189,14 @@
     "senses": [
       {
         "sense_id": "sense:alter:1f3fbe7d1f4a5bb7",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 427,
         "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
       },
       {
         "sense_id": "sense:alter:ef5ea5d2408352df",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 428,
         "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"

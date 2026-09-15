@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1912b538cadbfa5ad18b21efa86ddcbfacc6df98903fac2964d8e87b70959e38",
+    "content_hash": "218cf867d9df0daec95b01979872c5d5d7de1ee9f1f35dec9975f15534fcd5fa",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "道歉",
@@ -19,7 +19,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,7 +56,14 @@
         "sense_id": "sense:apologise:c043b63d402e51d6",
         "sense_label_en": "express regret for something one has done wrong",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "apologise",
+          "paired_form": "apologise / apologize",
+          "note": "BrE apologise; AmE apologize. Same lexical meaning and semantic owner."
+        }
       }
     ],
     "verification_summary": {
@@ -117,6 +126,14 @@
   "lookup_refs": [
     {
       "spelling": "apologise",
+      "source": "content/lexical/canonical/lookup/spelling/ap.json",
+      "word_id": "word:apologise",
+      "ordinal": 225,
+      "word_shard": "content/lexical/canonical/words/shards/o0225-0232.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/85.json"
+    },
+    {
+      "spelling": "apologize",
       "source": "content/lexical/canonical/lookup/spelling/ap.json",
       "word_id": "word:apologise",
       "ordinal": 225,

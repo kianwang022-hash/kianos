@@ -7,38 +7,62 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fdc993d7f4a70a880828d3e116714441be4427be3b151cb2d9b314f4e3902457",
+    "content_hash": "edd1d1fe2660e2e698033ae842778af8fa99a32381e9fabe3a2850175cd3e639",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "监视；监控；监测",
-          "label_en": "to watch and check something over a period of time",
+          "label_en": "watch and check over time",
           "pos": "verb",
           "sense_ids": [
             "sense:monitor:3f419439ab785536"
           ]
         },
         {
-          "label_cn": "显示器；监视器；班长；监督员；纠察员；监护仪；监测器；浅水重炮舰；铁甲舰",
-          "label_en": "a screen that displays information from a computer or television; a person who checks or supervises something, especially in a school; a device that checks or records something, such as a heart monitor; a type of warship with heavy guns and low freeboard",
+          "label_cn": "显示器；监视器",
+          "label_en": "screen displaying computer/television information",
           "pos": "noun",
           "sense_ids": [
-            "sense:monitor:a0456093d6c15063",
-            "sense:monitor:49efe8ce9e4e580a",
+            "sense:monitor:a0456093d6c15063"
+          ]
+        },
+        {
+          "label_cn": "监护仪；监测器",
+          "label_en": "device that checks/measures/records",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monitor:1c54f600f94e5a71"
+          ]
+        },
+        {
+          "label_cn": "监督员/班长",
+          "label_en": "person who checks or supervises",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monitor:49efe8ce9e4e580a"
+          ]
+        },
+        {
+          "label_cn": "浅水重炮舰/铁甲舰",
+          "label_en": "monitor warship",
+          "pos": "noun",
+          "sense_ids": [
             "sense:monitor:7060095d4d2f5e67"
           ]
         }
       ],
-      "core_meaning_cn": "监视、监控；监视器、监控设备",
-      "core_meaning_en": "to watch, check, or supervise something; a device or person that does this",
-      "mental_model_cn": "监视、监控；监视器、监控设备",
+      "core_meaning_cn": "监控/监测；显示器；监护仪；监督员",
+      "core_meaning_en": "to monitor; a screen, monitoring device, supervisor, or historical warship",
+      "mental_model_cn": "监控/监测；显示器；监护仪；监督员",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3025-o3124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -154,6 +178,30 @@
         "sense_label_en": "a type of warship with heavy guns and low freeboard",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9424494c9d6fc269eaea",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:monitor:1c54f600f94e5a71:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "心脏/生命体征监护仪",
+            "phrase": "heart/vital-sign monitor"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "监护仪；监测器；监控设备",
+        "definition_en": "a device that checks, measures, or records something, such as a heart monitor",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:monitor:1c54f600f94e5a71",
+        "sense_label_en": "a device that checks, measures, or records something, such as a heart monitor",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -176,38 +224,12 @@
     "word_id": "word:monitor"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:monitor:1c54f600f94e5a71",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "监护仪；监测器",
-      "definition_en": "a device that checks or records something, such as a heart monitor",
-      "semantic_key": "408256e109aa79384059e9b1d638f562d9d663528d638371e85b0fd013293739",
-      "semantic_key_history": [
-        "d6c318291008488d64ffb66fe0b27474bbca68833c32ca650930be1a2c8f5a78"
-      ],
-      "legacy_aliases": [
-        "monitor:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "monitor:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8662,
-      "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:monitor:1c54f600f94e5a71",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8662,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
@@ -245,6 +267,7 @@
       "collocation:311381d47c91c2a7871d",
       "collocation:43c9537ebc28c6d364dc",
       "collocation:4513343ac0f24f492fee",
+      "collocation:9424494c9d6fc269eaea",
       "collocation:ba22e5adcad55ab4aed9",
       "collocation:c6c6428768e76d4b0e78",
       "collocation:eb5c3664816787ef8da4"
@@ -269,6 +292,11 @@
       {
         "id": "collocation:4513343ac0f24f492fee",
         "source_row": 5835,
+        "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:9424494c9d6fc269eaea",
+        "source_row": 20755,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
       },
       {

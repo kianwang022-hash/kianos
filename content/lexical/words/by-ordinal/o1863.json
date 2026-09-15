@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "32a923745d460a6dba63a550370e3d4d824c4b77f9694af740e155869f194897",
+    "content_hash": "c2fa73f4f87031617b1731844f6703098b2822d29ecc6588378ceb67cbfdfe95",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1825-o2024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -111,39 +113,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:7da165fa01e1af2f64e0",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:fare:b079f83be77658ca:collocation:0"
-            ],
-            "meaning_cn": "进展顺利",
-            "phrase": "fare well"
-          },
-          {
-            "collocation_id": "collocation:fce1bf71f49c12ba8928",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:fare:b079f83be77658ca:collocation:1"
-            ],
-            "meaning_cn": "进展不佳",
-            "phrase": "fare badly"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "进展；过活",
-        "definition_en": "get along; progress",
-        "governing_pattern": "vi. + adverb/preposition",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:fare:b079f83be77658ca",
-        "sense_label_en": "get along; progress",
-        "sort_order": 3,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:67a0ec7f4af26b307e06",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -173,6 +142,39 @@
         "sense_label_en": "the food and drink that are regularly served or consumed",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7da165fa01e1af2f64e0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:fare:b079f83be77658ca:collocation:0"
+            ],
+            "meaning_cn": "进展顺利",
+            "phrase": "fare well"
+          },
+          {
+            "collocation_id": "collocation:fce1bf71f49c12ba8928",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:fare:b079f83be77658ca:collocation:1"
+            ],
+            "meaning_cn": "进展不佳",
+            "phrase": "fare badly"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "进展；过活",
+        "definition_en": "get along; progress",
+        "governing_pattern": "vi. + adverb/preposition",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:fare:b079f83be77658ca",
+        "sense_label_en": "get along; progress",
+        "sort_order": 3,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -194,7 +196,14 @@
     "word_family": [],
     "word_id": "word:fare"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:ff35d42ca5511ac26ae2",
+      "owner_path": "content/lexical/relations/by-id/a0/a0cdbb81eba815a31c3e94d1456eb0f430a91a5f616c436903f614e51b2d69d1.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

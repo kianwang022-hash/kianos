@@ -66,7 +66,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "751c36fded41abac078f90949dcf07d3767dc66b53895c134132ebf03aac943a",
+    "content_hash": "f5e9a4f0d5389d252ea386c1989a8f3caf575b150479d8dab1ff224762dbb0e4",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "预期，预料",
@@ -81,7 +81,8 @@
     "review_signature": [
       "construction:deep:constructions:anticipate:5a27214542deb332",
       "deep:deep:constructions:anticipate:5a27214542deb332",
-      "semantic-review:0212"
+      "semantic-review:0212",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -104,7 +105,7 @@
               "sense:anticipate:fb7230d566b45ca1:collocation:1"
             ],
             "meaning_cn": "预期做某事",
-            "phrase": "anticipate doing + sth"
+            "phrase": "anticipate doing sth"
           },
           {
             "collocation_id": "collocation:ddd334b8179794b5cf46",
@@ -151,20 +152,6 @@
         "sense_label_en": "to act in advance of someone or something",
         "sort_order": 1,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "期待，盼望",
-        "definition_en": "to be excited or anxious about something that will happen",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:anticipate:35176654841b57e5",
-        "sense_label_en": "to be excited or anxious about something that will happen",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -187,12 +174,36 @@
     "word_id": "word:anticipate"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:anticipate:35176654841b57e5",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "期待，盼望",
+      "definition_en": "to be excited or anxious about something that will happen",
+      "semantic_key": "ae5aff90d1bcd070b4ec7991d8e63ae3bf8c91d2649d6a6a67322e43a9c13d36",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "anticipate:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "anticipate:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 536,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:anticipate:35176654841b57e5",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 536,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"

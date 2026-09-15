@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "129e55890962c858aa2b7e3ed81fbf67993ebe7fcf252ade301780f6047438f6",
+    "content_hash": "8b8778ba75a2873bdd65b0d5f6bd2ff9dac8387eede6a41f0ae2ef3ccd8b0ddd",
     "core_concept": {
       "core_clusters": [
         {
@@ -39,7 +39,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -53,15 +55,6 @@
             ],
             "meaning_cn": "为了……的利益",
             "phrase": "for the benefit of + sb/sth"
-          },
-          {
-            "collocation_id": "collocation:b15e8b83ae12afb89b74",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:benefit:8b9ba6e01acd52aa:collocation:1"
-            ],
-            "meaning_cn": "从……中受益",
-            "phrase": "benefit from + sth"
           }
         ],
         "confidence": "medium",
@@ -74,6 +67,54 @@
         "sense_id": "sense:benefit:8b9ba6e01acd52aa",
         "sense_label_en": "a good or helpful effect",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a827c9ca0d06e439433b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:benefit:9915c313dbb45001:collocation:0"
+            ],
+            "meaning_cn": "失业救济金",
+            "phrase": "unemployment benefit"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "救济金，补助",
+        "definition_en": "money or help given by the government or an organization",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:benefit:9915c313dbb45001",
+        "sense_label_en": "money or help given by the government or an organization",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:27fc1ce0bf680e831cb5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:benefit:29b704e3e3765198:collocation:0"
+            ],
+            "meaning_cn": "慈善音乐会",
+            "phrase": "a benefit concert"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "义演，慈善活动",
+        "definition_en": "a public event to raise money for a charity",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:benefit:29b704e3e3765198",
+        "sense_label_en": "a public event to raise money for a charity",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -123,54 +164,6 @@
         "sense_label_en": "to get an advantage from something",
         "sort_order": 4,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a827c9ca0d06e439433b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:benefit:9915c313dbb45001:collocation:0"
-            ],
-            "meaning_cn": "失业救济金",
-            "phrase": "unemployment benefit"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "救济金，补助",
-        "definition_en": "money or help given by the government or an organization",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:benefit:9915c313dbb45001",
-        "sense_label_en": "money or help given by the government or an organization",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:27fc1ce0bf680e831cb5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:benefit:29b704e3e3765198:collocation:0"
-            ],
-            "meaning_cn": "慈善音乐会",
-            "phrase": "a benefit concert"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "义演，慈善活动",
-        "definition_en": "a public event to raise money for a charity",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:benefit:29b704e3e3765198",
-        "sense_label_en": "a public event to raise money for a charity",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -237,7 +230,6 @@
       "collocation:27fc1ce0bf680e831cb5",
       "collocation:96704268c8ca61ff8d7e",
       "collocation:a827c9ca0d06e439433b",
-      "collocation:b15e8b83ae12afb89b74",
       "collocation:e0d374f5f48cb96ac613"
     ],
     "facts": [],

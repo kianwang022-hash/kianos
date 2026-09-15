@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "131342d103cb9f64e3246d44d4247cb9cd282329004b4a81a62ee9fca7f3eca0",
+    "content_hash": "bb5a960e8534b7284ab8daed896b4fe14777c749478abfd43a9368341ceaebfe",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,7 +37,9 @@
     "needs_delta_review": true,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1025-o1224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -140,6 +142,40 @@
         "sense_label_en": "made specially for a particular person or purpose",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e51f9369711851a3744e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:custom:bbac0b840ac4e4f2:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "把生意/惠顾转到别处",
+            "phrase": "take your custom elsewhere"
+          },
+          {
+            "collocation_id": "collocation:8307d8a2e48ab9c021de",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:custom:bbac0b840ac4e4f2:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "我们的大部分生意/客源来自……",
+            "phrase": "most of our custom comes from ..."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "顾客给予商家的惠顾；生意",
+        "definition_en": "business or patronage given to a shop or company by its customers",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:custom:bbac0b840ac4e4f2",
+        "sense_label_en": "business or patronage given to a shop or company by its customers",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "mainly British; commerce/patronage sense; Expansion rather than default Core"
       }
     ],
     "verification_summary": {
@@ -180,6 +216,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
       },
       {
+        "sense_id": "sense:custom:bbac0b840ac4e4f2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3432,
+        "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
+      },
+      {
         "sense_id": "sense:custom:bea8c0bf51cf53da",
         "status": "active",
         "merged_into_sense_id": null,
@@ -190,10 +233,12 @@
     "active_collocations": [
       "collocation:0d6d9b177897a8ca6b83",
       "collocation:2109a2dced974d6edbf5",
+      "collocation:8307d8a2e48ab9c021de",
       "collocation:8f90d990c79222efddad",
       "collocation:90e7746f4ffc703efc3d",
       "collocation:9ac4ef43cca77b168e66",
-      "collocation:a201bc8e20c6ce315642"
+      "collocation:a201bc8e20c6ce315642",
+      "collocation:e51f9369711851a3744e"
     ],
     "facts": [],
     "collocations": [
@@ -205,6 +250,11 @@
       {
         "id": "collocation:2109a2dced974d6edbf5",
         "source_row": 2734,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:8307d8a2e48ab9c021de",
+        "source_row": 21548,
         "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
       },
       {
@@ -225,6 +275,11 @@
       {
         "id": "collocation:a201bc8e20c6ce315642",
         "source_row": 13754,
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+      },
+      {
+        "id": "collocation:e51f9369711851a3744e",
+        "source_row": 21547,
         "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
       }
     ],

@@ -12,31 +12,59 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "拿某事开玩笑",
-        "pattern": "joke about sth"
+        "pattern": "joke about sth",
+        "source_sense_id": "sense:joke:e9d029ee1c09553a",
+        "boundary": "joke about sth = speak humorously/not seriously about something"
       }
     ],
-    "content_hash": "a7deea56ea2be1494a0e27c11626232958bf5ff941308398c4e81697028dce4d",
+    "content_hash": "9a5c425ae2a0c90a48e0355e51602a64a7db484b16bdfb604af3c290b4059158",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "笑话；玩笑；玩笑；儿戏",
-          "label_en": "a humorous anecdote or remark intended to provoke laughter; a triviality not to be taken seriously",
+          "label_cn": "笑话；幽默话语",
+          "label_en": "a humorous anecdote or remark",
           "pos": "noun",
           "sense_ids": [
             "sense:joke:4bdfdc94e3b15fd8"
           ]
+        },
+        {
+          "label_cn": "开玩笑；说笑话",
+          "label_en": "say something humorous or speak jokingly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:joke:e9d029ee1c09553a"
+          ]
+        },
+        {
+          "label_cn": "取笑；戏弄",
+          "label_en": "tease someone playfully",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:joke:34a7d158758851b7"
+          ]
+        },
+        {
+          "label_cn": "儿戏；不能当真的事",
+          "label_en": "something not serious or ridiculous",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:joke:df30c816faaf5715"
+          ]
         }
       ],
-      "core_meaning_cn": "笑话；玩笑",
-      "core_meaning_en": "something said or done to cause laughter",
-      "mental_model_cn": "笑话；玩笑",
+      "core_meaning_cn": "笑话；开玩笑；取笑；儿戏",
+      "core_meaning_en": "a joke, to joke, to tease playfully, or something not serious",
+      "mental_model_cn": "笑话；开玩笑；取笑；儿戏",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2625-o2824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -77,15 +105,43 @@
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "开玩笑；说笑话",
-        "definition_en": "to say or do something humorous, or not be serious",
-        "governing_pattern": "",
+        "definition_en": "to say something humorous or speak jokingly, without being serious",
+        "governing_pattern": "vi. / joke about sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:joke:e9d029ee1c09553a",
-        "sense_label_en": "to say or do something humorous, or not be serious",
+        "sense_label_en": "to say something humorous or speak jokingly, without being serious",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "取笑；戏弄；逗弄",
+        "definition_en": "to tease someone or behave toward them in a playful joking way",
+        "governing_pattern": "joke with/tease sb",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:joke:34a7d158758851b7",
+        "sense_label_en": "to tease someone or behave toward them in a playful joking way",
+        "sort_order": 2,
+        "transitivity": "I/T"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "儿戏；不能当真的事；荒唐可笑的事",
+        "definition_en": "something trivial, ridiculous, or not to be taken seriously",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:joke:df30c816faaf5715",
+        "sense_label_en": "something trivial, ridiculous, or not to be taken seriously",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -108,64 +164,13 @@
     "word_id": "word:joke"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:joke:34a7d158758851b7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
-      "pos": "verb",
-      "definition_cn": "取笑；戏弄",
-      "definition_en": "act in a funny or teasing way",
-      "semantic_key": "3f4774057f9b1b38b2215870035ffd1f7e77c55e7b5f0fbc1e84a0b195c05e0d",
-      "semantic_key_history": [
-        "b79ff6c547b4f88e36748774f0b5724fad2cd456623818dc18ed3bd1b9b26eaf"
-      ],
-      "legacy_aliases": [
-        "joke:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "joke:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7374,
-      "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:joke:df30c816faaf5715",
-      "status": "merged",
-      "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
-      "pos": "noun",
-      "definition_cn": "玩笑；儿戏",
-      "definition_en": "a triviality not to be taken seriously",
-      "semantic_key": "4197cb0bbce51a7899a0a06e8eeab92bc751772ff987a4f3649d7290df3b8cdf",
-      "semantic_key_history": [
-        "42c7271664d3dccfab3a1d88917e747f1c5b3f5e0ec77f78dd009b18c415f9f8"
-      ],
-      "legacy_aliases": [
-        "joke:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "joke:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7376,
-      "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:joke:34a7d158758851b7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7374,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       },
@@ -178,8 +183,8 @@
       },
       {
         "sense_id": "sense:joke:df30c816faaf5715",
-        "status": "merged",
-        "merged_into_sense_id": "sense:joke:4bdfdc94e3b15fd8",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 7376,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
       },

@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:meantime",
+      "source_ordinal": 2994,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "均可表与此同时；meanwhile更常用，in the meantime常作介词短语",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "in the meanwhile",
+          "core_meaning": "在此期间",
+          "exam_trap": "同义替换",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "副词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00065346-r",
+            "evidence_status": "source_checked",
+            "source_locator": "00065346-r",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:meanwhile:8fd666b862080226",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "during the intervening time",
+        "source_sense_id": "sense:meantime:3cdcd5afcdfa5e3e",
+        "target_sense_id": "sense:meanwhile:3466e19f83af53d2",
+        "target_word": "meanwhile",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

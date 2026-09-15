@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "12d633f02b5cc59281e8f0539d7ca70e8398a2a4c9aaf65f3eacce4782107cd0",
+    "content_hash": "f2c512daa70c9bc9d2619afa6906d813c4984f008cdf11ab49b2a83ef0f5ec6b",
     "core_concept": {
       "core_clusters": [
         {
@@ -57,7 +57,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0118"
+      "semantic-review:0118",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -84,7 +85,46 @@
         "sense_id": "sense:aggregate:0958c5a38ed45554",
         "sense_label_en": "a sum total of many heterogeneous things taken together",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "aggregate",
+          "paired_form": "aggregate noun/adjective vs verb",
+          "note": "aggregate noun/adjective and verb have different stress/pronunciation"
+        }
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c83927ff4bea90556256",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:aggregate:306999a15b635c76:collocation:0"
+            ],
+            "meaning_cn": "粗骨料",
+            "phrase": "coarse aggregate"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "骨料（混凝土中的砂石等）",
+        "definition_en": "material such as sand or gravel used in concrete",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:aggregate:306999a15b635c76",
+        "sense_label_en": "material such as sand or gravel used in concrete",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "aggregate",
+          "paired_form": "aggregate noun/adjective vs verb",
+          "note": "aggregate noun/adjective and verb have different stress/pronunciation"
+        },
+        "usage_note": "specialist construction-material sense; lower than academic/general total/combined uses"
       },
       {
         "collocations": [
@@ -108,31 +148,14 @@
         "sense_id": "sense:aggregate:40dca598414351d0",
         "sense_label_en": "to gather into a mass or whole",
         "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c83927ff4bea90556256",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:aggregate:306999a15b635c76:collocation:0"
-            ],
-            "meaning_cn": "粗骨料",
-            "phrase": "coarse aggregate"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "骨料（混凝土中的砂石等）",
-        "definition_en": "material such as sand or gravel used in concrete",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:aggregate:306999a15b635c76",
-        "sense_label_en": "material such as sand or gravel used in concrete",
-        "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "aggregate",
+          "paired_form": "aggregate noun/adjective vs verb",
+          "note": "aggregate verb has different stress/pronunciation from noun/adjective"
+        }
       },
       {
         "collocations": [
@@ -156,7 +179,14 @@
         "sense_id": "sense:aggregate:a52dadda6bc459fc",
         "sense_label_en": "to amount to a total",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "aggregate",
+          "paired_form": "aggregate noun/adjective vs verb",
+          "note": "aggregate verb has different stress/pronunciation from noun/adjective"
+        }
       },
       {
         "collocations": [
@@ -180,7 +210,14 @@
         "sense_id": "sense:aggregate:6d9bb96edcb450c1",
         "sense_label_en": "formed by collecting units into a whole",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "aggregate",
+          "paired_form": "aggregate noun/adjective vs verb",
+          "note": "aggregate noun/adjective and verb have different stress/pronunciation"
+        }
       }
     ],
     "verification_summary": {

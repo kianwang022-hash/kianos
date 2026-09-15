@@ -7,12 +7,12 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "73dd2cc5aa4159d31b2a81adc8f5985244466c4db992146eea2471c7fbc2600e",
+    "content_hash": "6bfbe04ac5b89b0f98426778d71fddd1a7fe883b47d5f35fa0e1cfa5ae17b8c9",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "特别受喜爱的",
-          "label_en": "appealing to the general public",
+          "label_cn": "最喜欢的；最受偏爱的",
+          "label_en": "preferred or liked most",
           "pos": "adjective",
           "sense_ids": [
             "sense:favorite:2c8e257bd7065487"
@@ -20,23 +20,25 @@
         },
         {
           "label_cn": "特别喜爱的人或事物",
-          "label_en": "something regarded with special favor or liking",
+          "label_en": "a person or thing regarded with special favor or liking",
           "pos": "noun",
           "sense_ids": [
             "sense:favorite:ad512f8c823a5877"
           ]
         }
       ],
-      "core_meaning_cn": "最喜爱的",
-      "core_meaning_en": "preferred or liked most",
-      "mental_model_cn": "最喜爱的",
+      "core_meaning_cn": "最喜欢的；特别喜爱的人或事物",
+      "core_meaning_en": "preferred or liked most; a specially liked person or thing",
+      "mental_model_cn": "最喜欢的；特别喜爱的人或事物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1825-o2024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -62,7 +64,14 @@
         "sense_id": "sense:favorite:2c8e257bd7065487",
         "sense_label_en": "preferred or liked most",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "favorite",
+          "paired_form": "favorite / favourite",
+          "note": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
+        }
       },
       {
         "collocations": [
@@ -86,7 +95,14 @@
         "sense_id": "sense:favorite:ad512f8c823a5877",
         "sense_label_en": "something regarded with special favor or liking",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "favorite",
+          "paired_form": "favorite / favourite",
+          "note": "favorite is the usual American spelling; favourite is the usual British spelling. Same lexeme and sense inventory."
+        }
       }
     ],
     "verification_summary": {
@@ -106,7 +122,10 @@
     },
     "word": "favorite",
     "word_family": [],
-    "word_id": "word:favorite"
+    "word_id": "word:favorite",
+    "search_aliases": [
+      "favourite"
+    ]
   },
   "relation_refs": [],
   "reference_senses": [],

@@ -26,7 +26,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "b135fc4a7ca79aee8d9298ef42adc853dd19c6ff57ff7e43bb9416f971a1eb87",
+    "content_hash": "dd048df97874192b47db8446fecfd387de9fbcda42843b247286fb225c196d48",
     "core_concept": {
       "core_clusters": [
         {
@@ -42,15 +42,20 @@
           "label_cn": "积极分子；主动语态",
           "label_en": "a person who is a participating member of an organization; the active voice (in grammar)",
           "pos": "noun",
+          "sense_ids": []
+        },
+        {
+          "label_cn": "活动中的；运行中的",
+          "label_en": "operating or in use",
+          "pos": "adjective",
           "sense_ids": [
-            "sense:active:91aecc90f63f5c5b",
-            "sense:active:00403d6658535d96"
+            "sense:active:9d0e66d21aa53163"
           ]
         }
       ],
-      "core_meaning_cn": "活跃的，积极的",
-      "core_meaning_en": "being in action or causing action",
-      "mental_model_cn": "活跃的，积极的",
+      "core_meaning_cn": "积极主动的；活动中/运行中的；活动性的",
+      "core_meaning_en": "proactive; operating or in use; active in progress",
+      "mental_model_cn": "积极主动的；活动中/运行中的；活动性的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,7 +63,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0060"
+      "semantic-review:0060",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -121,41 +127,27 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "积极分子",
-        "definition_en": "a person who is a participating member of an organization",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:active:91aecc90f63f5c5b",
-        "sense_label_en": "a person who is a participating member of an organization",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
         "collocations": [
           {
-            "collocation_id": "collocation:57f1e6b50cbcdc86aee0",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:62f4821ad57fe2c17d47",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:active:00403d6658535d96:collocation:0"
+              "sense:active:9d0e66d21aa53163:collocation:retro-o0025-o0224"
             ],
-            "meaning_cn": "用主动语态",
-            "phrase": "in the active"
+            "meaning_cn": "正在使用或运行的账户/服务/系统",
+            "phrase": "active account/service/system"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "主动语态",
-        "definition_en": "the active voice (in grammar)",
+        "definition_cn": "活动中的；运行中的；正在使用的",
+        "definition_en": "currently operating, in use, or actively engaged",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:active:00403d6658535d96",
-        "sense_label_en": "the active voice (in grammar)",
-        "sort_order": 3,
+        "pos": "adjective",
+        "sense_id": "sense:active:9d0e66d21aa53163",
+        "sense_label_en": "currently operating, in use, or actively engaged",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -181,6 +173,29 @@
   "relation_refs": [],
   "reference_senses": [
     {
+      "stable_sense_id": "sense:active:00403d6658535d96",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "主动语态",
+      "definition_en": "the active voice (in grammar)",
+      "semantic_key": "52dfde9ec6a396a341f0f8e6ff0a7027c05d0273a8aa0d635bba5ac070407189",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "active:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "active:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 164,
+      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+      "reference_only": true
+    },
+    {
       "stable_sense_id": "sense:active:254388fddf265243",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -204,13 +219,36 @@
       "source_row": 165,
       "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
       "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:active:91aecc90f63f5c5b",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "积极分子",
+      "definition_en": "a person who is a participating member of an organization",
+      "semantic_key": "1f23652e9761a14305baf33509f0189ff2c8fd2505857a381fcd480e38e5ee65",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "active:l2:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "active:l2:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 168,
+      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:active:00403d6658535d96",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 164,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
@@ -238,15 +276,22 @@
       },
       {
         "sense_id": "sense:active:91aecc90f63f5c5b",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 168,
+        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
+        "sense_id": "sense:active:9d0e66d21aa53163",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19507,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
     ],
     "active_collocations": [
       "collocation:217da434576261de3a90",
-      "collocation:57f1e6b50cbcdc86aee0",
+      "collocation:62f4821ad57fe2c17d47",
       "collocation:ae8ed5388b4d856ceeed",
       "collocation:df2a8a102a67f25b6781"
     ],
@@ -260,6 +305,11 @@
       {
         "id": "collocation:57f1e6b50cbcdc86aee0",
         "source_row": 7422,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
+        "id": "collocation:62f4821ad57fe2c17d47",
+        "source_row": 21514,
         "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
       },
       {

@@ -84,10 +84,93 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:superior",
+      "source_ordinal": 4815,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "inferior and superior are antonyms in quality/value and rank/status senses. Keep noun and anatomical/technical uses out unless separately matched."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:127",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:127",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "inferior and superior are antonyms in quality/value and rank/status senses. Keep noun and anatomical/technical uses out unless separately matched.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "inferior",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:inferior:7c6da2ef96315949",
+              "sense:inferior:f6821cc3489856c4"
+            ],
+            "word_id": "word:inferior"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:f60a99f2872f8fde9f92",
+        "relation_note": "inferior and superior are antonyms in quality/value and rank/status senses. Keep noun and anatomical/technical uses out unless separately matched.",
+        "relation_scope": "lexeme",
+        "relation_type": "sense_bound_antonym",
+        "sense_ids": [
+          "sense:inferior:7c6da2ef96315949",
+          "sense:inferior:f6821cc3489856c4"
+        ],
+        "shared_meaning": "inferior and superior are antonyms in quality/value and rank/status senses. Keep noun and anatomical/technical uses out unless separately matched.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "inferior",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:inferior:7c6da2ef96315949",
+                  "sense:inferior:f6821cc3489856c4"
+                ],
+                "word_id": "word:inferior"
+              }
+            ],
+            "learner_note": "inferior and superior are antonyms in quality/value and rank/status senses. Keep noun and anatomical/technical uses out unless separately matched.",
+            "relation_targets": [
+              "superior"
+            ],
+            "relation_type": "sense_bound_antonym"
+          }
+        ],
+        "source_expression": "superior",
+        "source_sense_id": null,
+        "target_expression": "inferior",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "inferior",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

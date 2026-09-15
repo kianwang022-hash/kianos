@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "818f812ec41c548c980ac2a387247052141e4657ed2c94760bfa488b191e5bce",
+    "content_hash": "8a650212157c4f24ed187b920a14818f3e4f266905a46ead0fa5afbabe97a511",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,11 +36,19 @@
             "sense:alien:a1f54444b4a053b1",
             "sense:alien:32c153036ade5a57"
           ]
+        },
+        {
+          "label_cn": "外星人",
+          "label_en": "extraterrestrial being",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:alien:3b0b69720f558a68"
+          ]
         }
       ],
-      "core_meaning_cn": "外国的；外星人",
-      "core_meaning_en": "foreign or different; a foreigner or extraterrestrial",
-      "mental_model_cn": "外国的；外星人",
+      "core_meaning_cn": "外星人；异国/陌生的；法律语境中的非公民",
+      "core_meaning_en": "an extraterrestrial; foreign/unfamiliar; a formal/legal non-citizen term",
+      "mental_model_cn": "外星人；异国/陌生的；法律语境中的非公民",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -48,7 +56,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0140"
+      "semantic-review:0140",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -69,13 +78,14 @@
         "definition_cn": "外国人；外侨",
         "definition_en": "a person who is not a citizen of the country they are living in",
         "governing_pattern": "",
-        "level": "L1",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:alien:dbc01fac540c548a",
         "sense_label_en": "a person who is not a citizen of the country they are living in",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "formal/legal and context-sensitive non-citizen term; not the neutral default for a person from another country"
       },
       {
         "collocations": [
@@ -124,6 +134,30 @@
         "sense_label_en": "not familiar or not suitable",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cfb5a014959e8b81cdeb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:alien:3b0b69720f558a68:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "来自外星球的外星生物",
+            "phrase": "an alien from another planet"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "外星人；外星生物",
+        "definition_en": "a being from another planet or world",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:alien:3b0b69720f558a68",
+        "sense_label_en": "a being from another planet or world",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -157,6 +191,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
       },
       {
+        "sense_id": "sense:alien:3b0b69720f558a68",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 426,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      },
+      {
         "sense_id": "sense:alien:a1f54444b4a053b1",
         "status": "active",
         "merged_into_sense_id": null,
@@ -174,6 +215,7 @@
     "active_collocations": [
       "collocation:4e01d80fedc72de02244",
       "collocation:c865660826ed42842c2b",
+      "collocation:cfb5a014959e8b81cdeb",
       "collocation:d3814a0b02a74a685f64"
     ],
     "facts": [],
@@ -186,6 +228,11 @@
       {
         "id": "collocation:c865660826ed42842c2b",
         "source_row": 16933,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:cfb5a014959e8b81cdeb",
+        "source_row": 21615,
         "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
       },
       {

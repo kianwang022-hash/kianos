@@ -53,7 +53,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "dc71d5f0c2e7e84cdddda6ad929f30f972070ba512babf3830d6fbea85dadefc",
+    "content_hash": "22e170bdb612da5082c048f52d1803847a3850d61de1a26a926b8ba150c7b3c5",
     "core_concept": {
       "core_clusters": [
         {
@@ -73,9 +73,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "向前移动或进展",
-      "core_meaning_en": "move forward or progress",
-      "mental_model_cn": "向前移动或进展",
+      "core_meaning_cn": "前进/进展；推进/提出；预先的或预付款",
+      "core_meaning_en": "forward progress; to advance/propose; beforehand or an advance payment",
+      "mental_model_cn": "前进/进展；推进/提出；预先的或预付款",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -83,7 +83,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0085"
+      "semantic-review:0085",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [
       {
@@ -191,6 +192,48 @@
         "sense_label_en": "done or given beforehand",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "前进；进展；进步",
+        "definition_en": "forward movement or progress",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advance:2baadc1a47175fde",
+        "sense_label_en": "forward movement or progress",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "提出；推举（观点、理论、建议）",
+        "definition_en": "to put forward or propose an idea, theory, argument, or proposal",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:advance:cc7302211c275f0c",
+        "sense_label_en": "to put forward or propose an idea, theory, argument, or proposal",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "预付款；预支",
+        "definition_en": "a payment made before it is due or earned",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:advance:4ee687e7f9cf5023",
+        "sense_label_en": "a payment made before it is due or earned",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -215,31 +258,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:advance:2baadc1a47175fde",
-      "status": "merged",
-      "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
-      "pos": "noun",
-      "definition_cn": "前进，进展",
-      "definition_en": "a forward movement or progress",
-      "semantic_key": "c281d92f21a4e031d3e2c606b3e5f5b2e1ec7f1ff9a318ad0997a4da7a29c588",
-      "semantic_key_history": [
-        "c8ac48f1cc2260d5c161e96254fd7cda1ef0bc09197d7fa6745952298a3ab56e"
-      ],
-      "legacy_aliases": [
-        "advance:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advance:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 232,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:advance:412776a1691953f8",
       "status": "merged",
       "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
@@ -261,31 +279,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 233,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:advance:4ee687e7f9cf5023",
-      "status": "merged",
-      "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
-      "pos": "noun",
-      "definition_cn": "预付，预支",
-      "definition_en": "a payment before it is earned",
-      "semantic_key": "674518957050b48d0b975eaa629fdc458553eed3d14a874b111c8606b5c09664",
-      "semantic_key_history": [
-        "56aa319b1c651d2db9e9d63de993b96529caacd614355c538e19e854429a045c"
-      ],
-      "legacy_aliases": [
-        "advance:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advance:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 235,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
     },
@@ -342,39 +335,14 @@
       "source_row": 238,
       "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:advance:cc7302211c275f0c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
-      "pos": "verb",
-      "definition_cn": "提出（建议、理论等）",
-      "definition_en": "to suggest or propose something",
-      "semantic_key": "ef471cfe1e0e5061f6ef4c03676d62ebbd3f4da86525ea1f98c6bd4ff429427c",
-      "semantic_key_history": [
-        "98be9af0b214393761020347ea32b0557318360da4c4bc412129f08d24f28f6f"
-      ],
-      "legacy_aliases": [
-        "advance:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "advance:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 239,
-      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:advance:2baadc1a47175fde",
-        "status": "merged",
-        "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 232,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       },
@@ -394,8 +362,8 @@
       },
       {
         "sense_id": "sense:advance:4ee687e7f9cf5023",
-        "status": "merged",
-        "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 235,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       },
@@ -422,8 +390,8 @@
       },
       {
         "sense_id": "sense:advance:cc7302211c275f0c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:advance:cc83e0f6e6b950cf",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 239,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
       },

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c56257ec496424e0bef04c603a9414f654b552b5b1973a94ee6399b838c30e28",
+    "content_hash": "ba4498ed7ab625fd945a27736c447d82a54ab767f3de9fe4d46ce65a4e98112c",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "肥料",
@@ -20,7 +20,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "sense:sense:fertilizer:0713a7ee215a5f25"
+      "sense:sense:fertilizer:0713a7ee215a5f25",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -43,7 +44,14 @@
           "source-fact:wiktionary-wiktextract:6fb2d7705750adbaa802",
           "source-fact:wiktionary-wiktextract:a9f2cc800f35757c4b0e"
         ],
-        "transitivity": null
+        "transitivity": null,
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "fertilizer",
+          "paired_form": "fertilizer / fertiliser",
+          "note": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme; both frozen Main Word identities are preserved."
+        }
       }
     ],
     "verification_summary": {
@@ -57,9 +65,19 @@
     },
     "word": "fertilizer",
     "word_family": [],
-    "word_id": "word:fertilizer"
+    "word_id": "word:fertilizer",
+    "search_aliases": [
+      "fertiliser"
+    ]
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:955d35897cf4f82105ba",
+      "owner_path": "content/lexical/relations/by-id/53/5391bdd7f8a6b82a121c9e5c1de8118a657a6159c70d89e4c16ca17062fd9534.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

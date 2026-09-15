@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "457a83b6e48a8de5d7404727090021785cab1b74dbe817163cd1430e93b7e8d4",
+    "content_hash": "cd47ec8b6b17061a743d4400816373f7dfd2f82f6069892cae787346953cf71b",
     "core_concept": {
       "core_clusters": [
         {
@@ -28,11 +28,19 @@
           "sense_ids": [
             "sense:spirit:de95b2fa059a509f"
           ]
+        },
+        {
+          "label_cn": "精神实质；真正意图",
+          "label_en": "underlying intention or principle",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:spirit:74882d33575c0265"
+          ]
         }
       ],
-      "core_meaning_cn": "精神；心灵",
-      "core_meaning_en": "the non-physical part of a person or a strong feeling",
-      "mental_model_cn": "精神；心灵",
+      "core_meaning_cn": "精神；心灵；氛围；精神实质/意图",
+      "core_meaning_en": "spirit, atmosphere, or the underlying intention/principle",
+      "mental_model_cn": "精神；心灵；氛围；精神实质/意图",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -41,7 +49,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:spirit:3e0d3cc6bb169558",
-      "relation:deep:word_family:spirit:3e0d3cc6bb169558"
+      "relation:deep:word_family:spirit:3e0d3cc6bb169558",
+      "semantic-reconciliation:o2625-o2824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -174,6 +183,30 @@
         "sense_label_en": "to carry away secretly or mysteriously",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a1ca4df45df75b10fc02",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:spirit:74882d33575c0265:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "法律/规则的精神实质",
+            "phrase": "the spirit of the law/rule"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "精神实质；真正意图；背后的原则",
+        "definition_en": "the underlying intention, principle, or essential meaning behind words, rules, or actions",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:spirit:74882d33575c0265",
+        "sense_label_en": "the underlying intention, principle, or essential meaning behind words, rules, or actions",
+        "sort_order": 5,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -234,7 +267,14 @@
     ],
     "word_id": "word:spirit"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:d762dfeab0d109f77dc8",
+      "owner_path": "content/lexical/relations/by-id/17/1715af496f67f5ec843a5ffb4d99bf01c6853f19e821ddd08e145b82eaeff092.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -250,6 +290,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13074,
+        "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      },
+      {
+        "sense_id": "sense:spirit:74882d33575c0265",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13149,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
       },
       {
@@ -280,7 +327,8 @@
       "collocation:35a7782c63a5f50260cb",
       "collocation:4de962866caf59aac43a",
       "collocation:5f5495a2eb00203992ca",
-      "collocation:85d6c5ad9382799ffb86"
+      "collocation:85d6c5ad9382799ffb86",
+      "collocation:a1ca4df45df75b10fc02"
     ],
     "facts": [
       {
@@ -318,6 +366,11 @@
       {
         "id": "collocation:85d6c5ad9382799ffb86",
         "source_row": 11357,
+        "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
+      },
+      {
+        "id": "collocation:a1ca4df45df75b10fc02",
+        "source_row": 21442,
         "source_path": "content/lexical/canonical/collocations/shards/o4609-4640.json"
       }
     ],

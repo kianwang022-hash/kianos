@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:reasonable",
+      "source_ordinal": 3970,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "在合理公正义接近；fair强调公平，reasonable强调合乎情理",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "fair price; reasonable price",
+          "core_meaning": "公平的；合理的",
+          "exam_trap": "近义词辨析",
+          "register": "通用",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "形容词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:01536380-s",
+            "evidence_status": "source_checked",
+            "source_locator": "01536380-s",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:fair:4ea7a561c6410f23",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "not excessive or extreme",
+        "source_sense_id": "sense:reasonable:4185de7388095a64",
+        "target_sense_id": "sense:fair:adba4e0a1b98505f",
+        "target_word": "fair",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1825-o2024.md"
   }
 }

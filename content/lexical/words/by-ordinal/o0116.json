@@ -26,12 +26,12 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "961de33a0a5e5b12215484b3b0123bdc9f45a4848efc3175bb5b71387707d249",
+    "content_hash": "4c9a843ac33784fa9bd923aaf69402e1cf445824901491d5e9f0305a1f278db0",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "代理人；动因",
-      "core_meaning_en": "one who acts or causes something",
-      "mental_model_cn": "代理人；动因",
+      "core_meaning_cn": "代理人/中介；特工；作用物或动因",
+      "core_meaning_en": "a representative/intermediary, secret agent, or thing that produces an effect",
+      "mental_model_cn": "代理人/中介；特工；作用物或动因",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -39,7 +39,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0116"
+      "semantic-review:0116",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -137,24 +138,24 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:e7430f251b2f9e883f07",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:6799746e724a713e53ce",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:agent:fbabe64f671f53ad:collocation:0"
+              "sense:agent:04c78d613828497b:collocation:retro-o0025-o0224"
             ],
-            "meaning_cn": "旅行代理人",
-            "phrase": "a travel agent"
+            "meaning_cn": "秘密特工；情报人员",
+            "phrase": "secret/intelligence agent"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "经纪人",
-        "definition_en": "a businessman who buys or sells for another in exchange for a commission",
+        "definition_cn": "特工；情报人员",
+        "definition_en": "a person who secretly obtains or carries out intelligence work",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:agent:fbabe64f671f53ad",
-        "sense_label_en": "a businessman who buys or sells for another in exchange for a commission",
+        "sense_id": "sense:agent:04c78d613828497b",
+        "sense_label_en": "a person who secretly obtains or carries out intelligence work",
         "sort_order": 3,
         "transitivity": "nonverb"
       }
@@ -179,9 +180,40 @@
     "word_id": "word:agent"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:agent:fbabe64f671f53ad",
+      "status": "merged",
+      "merged_into_sense_id": "sense:agent:95313ca2eb995594",
+      "pos": "noun",
+      "definition_cn": "经纪人",
+      "definition_en": "a businessman who buys or sells for another in exchange for a commission",
+      "semantic_key": "83f8a6a000d8a08f3f7878be857a9a88ec1d8afa4756b3cbe295a73eed722582",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "agent:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "agent:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 315,
+      "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:agent:04c78d613828497b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 349,
+        "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
+      },
       {
         "sense_id": "sense:agent:95313ca2eb995594",
         "status": "active",
@@ -205,8 +237,8 @@
       },
       {
         "sense_id": "sense:agent:fbabe64f671f53ad",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:agent:95313ca2eb995594",
         "source_row": 315,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
       }
@@ -215,9 +247,9 @@
       "collocation:0eca28177b53ff86e360",
       "collocation:1c1a58becd94f58f764e",
       "collocation:67832794a1304267e8f6",
+      "collocation:6799746e724a713e53ce",
       "collocation:8e74b940334ef5f4cb22",
-      "collocation:a6068dbad2453d512a58",
-      "collocation:e7430f251b2f9e883f07"
+      "collocation:a6068dbad2453d512a58"
     ],
     "facts": [],
     "collocations": [
@@ -234,6 +266,11 @@
       {
         "id": "collocation:67832794a1304267e8f6",
         "source_row": 8732,
+        "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
+      },
+      {
+        "id": "collocation:6799746e724a713e53ce",
+        "source_row": 21620,
         "source_path": "content/lexical/canonical/collocations/shards/o0097-0128.json"
       },
       {

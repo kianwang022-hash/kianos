@@ -7,19 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5d6afac6a1036fab197c987791dc5556531242e06462c26b961cda39791ef45d",
+    "content_hash": "0cc73cc85742e9a94c373c4cca3dda73935d25a2006d5c066003c4a9daeed775",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "玩偶，洋娃娃",
-      "core_meaning_en": "a toy figure of a person",
-      "mental_model_cn": "玩偶，洋娃娃",
+      "core_meaning_cn": "玩偶；洋娃娃",
+      "core_meaning_en": "a doll or toy figure of a person",
+      "mental_model_cn": "玩偶；洋娃娃",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,20 +57,6 @@
         "sense_label_en": "a small replica of a person; used as a toy",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "漂亮但无头脑的女人",
-        "definition_en": "an attractive but unintelligent woman",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:doll:6c70ca4a55c95159",
-        "sense_label_en": "an attractive but unintelligent woman",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -91,7 +79,31 @@
     "word_id": "word:doll"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:doll:6c70ca4a55c95159",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "漂亮但无头脑的女人",
+      "definition_en": "an attractive but unintelligent woman",
+      "semantic_key": "ddafe99b4979192b56b91eb3d722745d4640413f17a7df5a58b707a54710f57c",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "doll:l3:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "doll:l3:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4079,
+      "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -103,7 +115,7 @@
       },
       {
         "sense_id": "sense:doll:6c70ca4a55c95159",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4079,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"

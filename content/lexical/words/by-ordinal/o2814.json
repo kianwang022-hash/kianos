@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "liable for + sth",
+        "boundary": "legal responsibility/obligation",
         "codex_reviewed": false,
         "definition_cn": "有责任的，有义务的",
         "definition_en": "legally responsible for something",
@@ -57,7 +57,7 @@
         "writing_safe": false
       },
       {
-        "boundary": "liable to + 名词，表示易遭受",
+        "boundary": "likely/susceptible to be affected by something",
         "codex_reviewed": false,
         "definition_cn": "易于...的，有...倾向的",
         "definition_en": "likely to be affected by something",
@@ -114,9 +114,19 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
+      },
+      {
+        "construction_id": "construction:68be248e3aed9b3d6dbf",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "很可能做某事；有……倾向",
+        "pattern": "liable to do sth",
+        "boundary": "liable to do sth",
+        "definition_en": "to be likely to do something",
+        "source_sense_id": "sense:liable:541efa842fe955d4"
       }
     ],
-    "content_hash": "ee7e2db077d8c4e451c23b4942ecf9f237e86da1c0157f1847fcbf25ae96d503",
+    "content_hash": "137a426f24c755a01e420b019fb7e1e55debed6abad095a5d4b85915bf16dd3c",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "有责任的，有...倾向的",
@@ -132,7 +142,8 @@
       "construction:deep:constructions:liable:7fb651e12de48225",
       "construction:deep:constructions:liable:bf5303f130a88180",
       "deep:deep:constructions:liable:7fb651e12de48225",
-      "deep:deep:constructions:liable:bf5303f130a88180"
+      "deep:deep:constructions:liable:bf5303f130a88180",
+      "semantic-reconciliation:o2625-o2824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -147,26 +158,17 @@
             ],
             "meaning_cn": "对某事负有责任",
             "phrase": "liable for + sth"
-          },
-          {
-            "collocation_id": "collocation:bdeffe5462a9c2caed14",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:liable:3ffb0f1c77ca5d76:collocation:1"
-            ],
-            "meaning_cn": "有做某事的倾向",
-            "phrase": "liable to + do"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "有责任的，有义务的",
-        "definition_en": "legally responsible for something",
-        "governing_pattern": "a. + for / a. + to",
+        "definition_cn": "有法律责任的；应承担……的",
+        "definition_en": "legally responsible for something or legally subject to an obligation",
+        "governing_pattern": "liable for sth / liable to sth (legal obligation only)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:liable:3ffb0f1c77ca5d76",
-        "sense_label_en": "legally responsible for something",
+        "sense_label_en": "legally responsible for something or legally subject to an obligation",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -189,17 +191,26 @@
             ],
             "meaning_cn": "易患心脏病",
             "phrase": "liable to heart disease"
+          },
+          {
+            "collocation_id": "collocation:bdeffe5462a9c2caed14",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:liable:3ffb0f1c77ca5d76:collocation:1"
+            ],
+            "meaning_cn": "很可能做某事；有……倾向",
+            "phrase": "liable to do sth"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "易于...的，有...倾向的",
-        "definition_en": "likely to be affected by something",
-        "governing_pattern": "a. + to",
-        "level": "L2",
+        "definition_cn": "可能……的；易于……的；易受……影响的",
+        "definition_en": "likely to do something or likely to be affected by something",
+        "governing_pattern": "liable to do sth / liable to sth",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:liable:541efa842fe955d4",
-        "sense_label_en": "likely to be affected by something",
+        "sense_label_en": "likely to do something or likely to be affected by something",
         "sort_order": 1,
         "transitivity": "nonverb"
       }

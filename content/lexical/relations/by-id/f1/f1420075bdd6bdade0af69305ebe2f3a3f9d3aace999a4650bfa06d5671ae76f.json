@@ -3,14 +3,14 @@
   "relation_id": "deep:semantic_contrast:drop:f0f788743aab7a20",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "drop 作“下降”时与 fall 同义，但 fall 更常用",
+    "boundary": "When prices/levels/temperature drop, drop overlaps with fall; fall is the broader/common intransitive decrease verb.",
     "codex_disposition": "strict_automatic_publish",
     "codex_disposition_status": "resolved",
     "content": {
       "shared_definition": "a sudden sharp decrease in some quantity",
       "shared_synset": "05119135-n",
-      "source_definition": "a sudden decrease",
-      "source_sense_id": "sense:drop:77afb0e5cae25875",
+      "source_definition": "to fall or decrease in price, level, or temperature",
+      "source_sense_id": "sense:drop:55368f684b715a6c",
       "target_definition": "to decrease in amount, level, or value",
       "target_sense_id": "sense:fall:b52fd655548154b7",
       "target_word": "fall"
@@ -60,7 +60,7 @@
     "semantic_stage_a": {
       "relation_class": "partial_overlap",
       "source_definition": "a sudden decrease",
-      "source_sense_id": "sense:drop:77afb0e5cae25875",
+      "source_sense_id": "sense:drop:55368f684b715a6c",
       "target_definition": "to decrease in amount, level, or value",
       "target_sense_id": "sense:fall:b52fd655548154b7"
     },
@@ -72,7 +72,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:drop:77afb0e5cae25875",
+    "source_sense_id": "sense:drop:55368f684b715a6c",
     "target_sense_id": "sense:fall:b52fd655548154b7",
     "target_word": "fall",
     "task_tags": [
@@ -95,7 +95,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "drop 作“下降”时与 fall 同义，但 fall 更常用",
+        "boundary": "When prices/levels/temperature drop, drop overlaps with fall; fall is the broader/common intransitive decrease verb.",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -131,7 +131,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": "a sudden sharp decrease in some quantity",
-        "source_sense_id": "sense:drop:77afb0e5cae25875",
+        "source_sense_id": "sense:drop:55368f684b715a6c",
         "target_sense_id": "sense:fall:b52fd655548154b7",
         "target_word": "fall",
         "task_tags": [
@@ -144,6 +144,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1425-o1624.md"
   }
 }

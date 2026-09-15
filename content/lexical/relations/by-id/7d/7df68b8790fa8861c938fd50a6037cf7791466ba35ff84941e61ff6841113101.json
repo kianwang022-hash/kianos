@@ -3,16 +3,16 @@
   "relation_id": "deep:semantic_contrast:diverse:fae7a62b2f50ad28",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "diverse强调不同，various强调多样",
+    "boundary": "diverse emphasizes variety/difference within a set; various means several or many different kinds. They overlap but are not mechanically interchangeable.",
     "codex_disposition": "strict_automatic_publish",
     "codex_disposition_status": "resolved",
     "content": {
       "shared_definition": "distinctly dissimilar or unlike",
       "shared_synset": "02074895-s",
-      "source_definition": "distinctly dissimilar or unlike",
-      "source_sense_id": "sense:diverse:e900a3ebec3b56f3",
-      "target_definition": "distinctly dissimilar or unlike",
-      "target_sense_id": "sense:various:7a589e3ca8655062",
+      "source_definition": "showing a great deal of variety",
+      "source_sense_id": "sense:diverse:100f184475435b4f",
+      "target_definition": "of many different kinds",
+      "target_sense_id": "sense:various:645a974e7ca25fef",
       "target_word": "various"
     },
     "dimensions": {
@@ -60,9 +60,9 @@
     "semantic_stage_a": {
       "relation_class": "near_synonym",
       "source_definition": "distinctly dissimilar or unlike",
-      "source_sense_id": "sense:diverse:e900a3ebec3b56f3",
+      "source_sense_id": "sense:diverse:100f184475435b4f",
       "target_definition": "distinctly dissimilar or unlike",
-      "target_sense_id": "sense:various:7a589e3ca8655062"
+      "target_sense_id": "sense:various:645a974e7ca25fef"
     },
     "semantic_stage_b": {
       "dimensions_complete": true,
@@ -72,7 +72,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:diverse:e900a3ebec3b56f3",
+    "source_sense_id": "sense:diverse:100f184475435b4f",
     "target_sense_id": "sense:various:645a974e7ca25fef",
     "target_word": "various",
     "task_tags": [
@@ -95,7 +95,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "diverse强调不同，various强调多样",
+        "boundary": "diverse emphasizes variety/difference within a set; various means several or many different kinds. They overlap but are not mechanically interchangeable.",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -131,9 +131,61 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": "distinctly dissimilar or unlike",
-        "source_sense_id": "sense:diverse:e900a3ebec3b56f3",
-        "target_sense_id": "sense:various:7a589e3ca8655062",
+        "source_sense_id": "sense:diverse:100f184475435b4f",
+        "target_sense_id": "sense:various:645a974e7ca25fef",
         "target_word": "various",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:various",
+      "source_ordinal": 5257,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "various = several/many different kinds; diverse = characterized by a wide variety or marked differences.",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "diverse cultures/various reasons",
+          "core_meaning": "相异vs多样",
+          "exam_trap": "近义形容词辨析",
+          "register": "通用",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "形容词对比",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02074895-s",
+            "evidence_status": "source_checked",
+            "source_locator": "02074895-s",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:diverse:fae7a62b2f50ad28",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "distinctly dissimilar or unlike",
+        "source_sense_id": "sense:various:645a974e7ca25fef",
+        "target_sense_id": "sense:diverse:100f184475435b4f",
+        "target_word": "diverse",
         "task_tags": [
           "reading"
         ],
@@ -144,6 +196,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1425-o1624.md"
   }
 }

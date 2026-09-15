@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "da59939738c319b9825da4430e88439a4fee0afb97dd2ead4e029a7ae9cc8427",
+    "content_hash": "b8807b44136763fe5a321727a39d3a8e2c94d83cb0a2b5a58eac07d4f89cc643",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,11 +25,19 @@
           "sense_ids": [
             "sense:acid:4c1db00a02ff5246"
           ]
+        },
+        {
+          "label_cn": "尖刻的",
+          "label_en": "sharp or biting in tone",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:acid:3a6aa37c99506dbf"
+          ]
         }
       ],
-      "core_meaning_cn": "酸性物质；酸性的；尖刻的",
-      "core_meaning_en": "an acid or acidic quality; sharp or biting in tone",
-      "mental_model_cn": "酸性物质；酸性的；尖刻的",
+      "core_meaning_cn": "酸；酸性的；（语气/评论）尖刻的",
+      "core_meaning_en": "acid/acidic; figuratively sharp or biting",
+      "mental_model_cn": "酸；酸性的；（语气/评论）尖刻的",
       "mental_model_en": "an acid or acidic quality; sharp or biting in tone"
     },
     "exam_paraphrases": [],
@@ -37,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0049"
+      "semantic-review:0049",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -69,6 +78,39 @@
         "sort_order": 1,
         "transitivity": "nonverb",
         "collocations": []
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:65b00268c31635d1c1c3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acid:3a6aa37c99506dbf:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "尖刻的评论/语气",
+            "phrase": "acid remark/tone"
+          },
+          {
+            "collocation_id": "collocation:d3e3f967594364fb0558",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acid:3a6aa37c99506dbf:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "尖刻的批评",
+            "phrase": "acid criticism"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "尖刻的；讥讽的",
+        "definition_en": "sharp, biting, or cutting in tone or manner",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:acid:3a6aa37c99506dbf",
+        "sense_label_en": "sharp, biting, or cutting in tone or manner",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -160,6 +202,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
+        "sense_id": "sense:acid:3a6aa37c99506dbf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19505,
+        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
         "sense_id": "sense:acid:4618914e2071585b",
         "status": "deprecated",
         "merged_into_sense_id": null,
@@ -188,7 +237,10 @@
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:65b00268c31635d1c1c3",
+      "collocation:d3e3f967594364fb0558"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -212,8 +264,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
       },
       {
+        "id": "collocation:65b00268c31635d1c1c3",
+        "source_row": 21508,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
         "id": "collocation:b1d29317e080e93e9c53",
         "source_row": 15072,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
+        "id": "collocation:d3e3f967594364fb0558",
+        "source_row": 21515,
         "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
       }
     ],

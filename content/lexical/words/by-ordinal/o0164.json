@@ -26,7 +26,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "040fc630f07cd7e311f637be630f31286e3b07d77daea672af673341c9894dbb",
+    "content_hash": "0712d37a9a8cefd08de0e4f222ef682a166b2ced8b5d1996cc321b4a5185ab6d",
     "core_concept": {
       "core_clusters": [
         {
@@ -57,7 +57,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0164"
+      "semantic-review:0164",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -93,31 +94,14 @@
         "sense_id": "sense:alternate:fd5c1dcecfba5969",
         "sense_label_en": "go back and forth; swing back and forth between two states or conditions",
         "sort_order": 0,
-        "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a299ef8776bf9784f76b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:alternate:faf2eae5accf541f:collocation:0"
-            ],
-            "meaning_cn": "隔天",
-            "phrase": "on alternate days"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "间隔的，每隔一个的",
-        "definition_en": "every second one of a series",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:alternate:faf2eae5accf541f",
-        "sense_label_en": "every second one of a series",
-        "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "vi",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "alternate",
+          "paired_form": "alternate verb vs adjective/noun",
+          "note": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
+        }
       },
       {
         "collocations": [
@@ -141,7 +125,76 @@
         "sense_id": "sense:alternate:ba24afe407cc56b8",
         "sense_label_en": "do something in turns",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "alternate",
+          "paired_form": "alternate verb vs adjective/noun",
+          "note": "alternate verb has verb stress/pronunciation; adjective/noun uses differ"
+        }
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a299ef8776bf9784f76b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:alternate:faf2eae5accf541f:collocation:0"
+            ],
+            "meaning_cn": "隔天",
+            "phrase": "on alternate days"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "间隔的，每隔一个的",
+        "definition_en": "every second one of a series",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:alternate:faf2eae5accf541f",
+        "sense_label_en": "every second one of a series",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "alternate",
+          "paired_form": "alternate verb vs adjective/noun",
+          "note": "alternate adjective differs in stress/pronunciation from the verb"
+        }
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ec9f322c17a29fd0e1bd",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:alternate:21a6960e68f905c2:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "替代者；候补者",
+            "phrase": "an alternate"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "替代者；候补者",
+        "definition_en": "a substitute or stand-in person or thing",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:alternate:21a6960e68f905c2",
+        "sense_label_en": "a substitute or stand-in person or thing",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "alternate",
+          "paired_form": "alternate verb vs adjective/noun",
+          "note": "alternate noun follows the adjective/noun stress pattern, distinct from the verb"
+        }
       }
     ],
     "verification_summary": {
@@ -176,6 +229,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:alternate:21a6960e68f905c2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 491,
+        "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
+      },
+      {
         "sense_id": "sense:alternate:ba24afe407cc56b8",
         "status": "active",
         "merged_into_sense_id": null,
@@ -201,7 +261,8 @@
       "collocation:0f04a8821d6d9b543daf",
       "collocation:90b4d919ba0df9b07cfc",
       "collocation:a299ef8776bf9784f76b",
-      "collocation:c105db54320e6dbfeb26"
+      "collocation:c105db54320e6dbfeb26",
+      "collocation:ec9f322c17a29fd0e1bd"
     ],
     "facts": [],
     "collocations": [
@@ -223,6 +284,11 @@
       {
         "id": "collocation:c105db54320e6dbfeb26",
         "source_row": 16314,
+        "source_path": "content/lexical/canonical/collocations/shards/o0161-0192.json"
+      },
+      {
+        "id": "collocation:ec9f322c17a29fd0e1bd",
+        "source_row": 21347,
         "source_path": "content/lexical/canonical/collocations/shards/o0161-0192.json"
       }
     ],

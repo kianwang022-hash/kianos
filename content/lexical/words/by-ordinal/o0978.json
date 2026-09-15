@@ -15,12 +15,12 @@
         "pattern": "as far as X is concerned"
       }
     ],
-    "content_hash": "d11e857d88bc1f182b5cbdf83fd491b41a247db44ecc1ffb9b22088d7aa3d8dd",
+    "content_hash": "2d96fe389d91686e73c69b23df1f067ce0239df990dda50a76eef3763f7958cb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "涉及；关于；使担忧；担心",
-          "label_en": "to be about or directly connected with something; to cause worry, or to feel worried about something",
+          "label_cn": "涉及；关于；使担忧/担心",
+          "label_en": "to concern/be about something; to cause or feel worry",
           "pos": "verb",
           "sense_ids": [
             "sense:concern:163ff4302a0e546a",
@@ -28,18 +28,18 @@
           ]
         },
         {
-          "label_cn": "关切事项；担忧；公司；企业",
-          "label_en": "an issue that matters or may cause harm; a company or business enterprise",
+          "label_cn": "关切事项；重要事务；担忧/忧虑",
+          "label_en": "a matter needing attention; worry or anxiety",
           "pos": "noun",
           "sense_ids": [
             "sense:concern:56c8bb50fbcf5795",
-            "sense:concern:13ed4345126650ac"
+            "sense:concern:6416d68100055935"
           ]
         }
       ],
-      "core_meaning_cn": "联系紧密到需要关注的事情",
-      "core_meaning_en": "something connected closely enough to demand attention",
-      "mental_model_cn": "concern 是“牵涉并占据注意”：涉及某主题，或成为担忧点。",
+      "core_meaning_cn": "涉及/关于；关切事项；担忧",
+      "core_meaning_en": "relevance or a matter needing attention; worry/anxiety",
+      "mental_model_cn": "涉及/关于；关切事项；担忧",
       "mental_model_en": "Concern draws attention through relevance or worry: a text concerns a topic; a risk becomes a concern."
     },
     "exam_paraphrases": [],
@@ -49,7 +49,8 @@
     "review_signature": [
       "construction:construction:7ccab96eaf2a53822cbe",
       "deep:deep:secondary_senses:concern:11c40239fe66c637",
-      "sense:sense:concern:6416d68100055935"
+      "sense:sense:concern:6416d68100055935",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [
       {
@@ -188,6 +189,60 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:5d76d025b70f17eff487",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:concern:56c8bb50fbcf5795:collocation:1"
+            ],
+            "meaning_cn": "关切事项；担忧",
+            "meaning_en": "an issue that matters or may cause harm",
+            "phrase": "public concern"
+          },
+          {
+            "collocation_id": "collocation:b486a12de3a3ec1378da",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:concern:56c8bb50fbcf5795:collocation:2"
+            ],
+            "meaning_cn": "关切事项；担忧",
+            "meaning_en": "an issue that matters or may cause harm",
+            "phrase": "raise concerns"
+          }
+        ],
+        "confidence": "high",
+        "definition_cn": "担忧；忧虑；令人担心的事",
+        "definition_en": "a feeling or cause of worry or anxiety",
+        "depth": "full_card",
+        "domain_tag": "general",
+        "frequency_tag": "exam_core",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:concern:6416d68100055935",
+        "sense_label_en": "matter needing attention",
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "role": "local_evidence",
+            "source": "kaoyan"
+          },
+          {
+            "role": "local_evidence",
+            "source": "local_ecdict"
+          },
+          {
+            "role": "local_evidence",
+            "source": "local_oewn"
+          },
+          {
+            "role": "local_evidence",
+            "source": "ai_curated_mvp_v1"
+          }
+        ]
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:6770b9bcc93863f5fe20",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -209,7 +264,7 @@
         "pos": "verb",
         "sense_id": "sense:concern:c8b6adff895f5a80",
         "sense_label_en": "make worried",
-        "sort_order": 2,
+        "sort_order": 3,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -253,61 +308,7 @@
         "pos": "noun",
         "sense_id": "sense:concern:13ed4345126650ac",
         "sense_label_en": "business organization",
-        "sort_order": 3,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5d76d025b70f17eff487",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:concern:56c8bb50fbcf5795:collocation:1"
-            ],
-            "meaning_cn": "关切事项；担忧",
-            "meaning_en": "an issue that matters or may cause harm",
-            "phrase": "public concern"
-          },
-          {
-            "collocation_id": "collocation:b486a12de3a3ec1378da",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:concern:56c8bb50fbcf5795:collocation:2"
-            ],
-            "meaning_cn": "关切事项；担忧",
-            "meaning_en": "an issue that matters or may cause harm",
-            "phrase": "raise concerns"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "担忧；忧虑；令人担心的事",
-        "definition_en": "a feeling or cause of worry or anxiety",
-        "depth": "full_card",
-        "domain_tag": "general",
-        "frequency_tag": "exam_core",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:concern:6416d68100055935",
-        "sense_label_en": "matter needing attention",
-        "sort_order": 1,
+        "sort_order": 4,
         "source_evidence": [
           {
             "role": "local_evidence",

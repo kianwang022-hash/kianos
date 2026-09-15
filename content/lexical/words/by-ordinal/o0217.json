@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "b099b08bf7b6f566a675200d978fe6cf5dce00529a8bee9f0ee97908576a836b",
+    "content_hash": "8797f4ac978ac298906234dd04a8da55d190b80b40c96537c84349c5f4f50df2",
     "core_concept": {
       "core_clusters": [
         {
@@ -32,9 +32,7 @@
           "label_cn": "重要人物",
           "label_en": "a person of consideration or standing",
           "pos": "noun",
-          "sense_ids": [
-            "sense:anybody:4e9527a5fec959e0"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "任何人；重要人物",
@@ -47,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0217"
+      "semantic-review:0217",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -84,30 +83,6 @@
         "sense_label_en": "any person; anyone",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b1fccd2737726a4cd7c3",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:anybody:4e9527a5fec959e0:collocation:0"
-            ],
-            "meaning_cn": "成为重要人物",
-            "phrase": "be anybody"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "重要人物",
-        "definition_en": "a person of consideration or standing",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:anybody:4e9527a5fec959e0",
-        "sense_label_en": "a person of consideration or standing",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -130,12 +105,36 @@
     "word_id": "word:anybody"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:anybody:4e9527a5fec959e0",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "重要人物",
+      "definition_en": "a person of consideration or standing",
+      "semantic_key": "922c207f60610a16b74b8d8f99116d09b96d4b9d783ddb5f09073196e4dd8861",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "anybody:l3:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "anybody:l3:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 550,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:anybody:4e9527a5fec959e0",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 550,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
@@ -150,7 +149,6 @@
     ],
     "active_collocations": [
       "collocation:61dc69ff2dc2b7b6a8d8",
-      "collocation:b1fccd2737726a4cd7c3",
       "collocation:b7ac315391bbbc26efb0"
     ],
     "facts": [],

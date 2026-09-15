@@ -7,22 +7,84 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "0c62e871eaafc9e9ce45f8221132cc632a1c37d6c7341cedc7f25e26b69e2f39",
+    "content_hash": "e82092e9f89de549ef8f43f17c6360f718c6e39c5c3382e4a66b385449681822",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "就职；装设；分期付款",
-      "core_meaning_en": "a payment of part of a debt; usually paid at regular intervals",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "分期付款；分期部分",
+          "label_en": "one of a series of payments",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:installment:3b9b952ed4ca5dec"
+          ]
+        },
+        {
+          "label_cn": "连续故事或节目的一集/一部分",
+          "label_en": "one part of a serial story or broadcast",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:installment:98056734eefb5616"
+          ]
+        }
+      ],
+      "core_meaning_cn": "分期付款；系列的一部分",
+      "core_meaning_en": "a payment installment or one part of a serial",
+      "mental_model_cn": "分期付款；系列的一部分",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2425-o2624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "分期付款；分期部分",
+        "definition_en": "one of the parts into which a debt is divided for payment at intervals",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:installment:3b9b952ed4ca5dec",
+        "sense_label_en": "one of the parts into which a debt is divided for payment at intervals",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "installment",
+          "paired_form": "installment / instalment",
+          "note": "installment is the usual American spelling; instalment is the usual British spelling for payment/serial-part senses. Both frozen Main Word identities are preserved."
+        }
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "连续故事、节目等的一集/一部分",
+        "definition_en": "one part of a published serial, story, program, or broadcast",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:installment:98056734eefb5616",
+        "sense_label_en": "one part of a published serial, story, program, or broadcast",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "installment",
+          "paired_form": "installment / instalment",
+          "note": "installment is the usual American spelling; instalment is the usual British spelling for payment/serial-part senses. Both frozen Main Word identities are preserved."
+        }
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -34,59 +96,32 @@
     },
     "word": "installment",
     "word_family": [],
-    "word_id": "word:installment"
+    "word_id": "word:installment",
+    "search_aliases": [
+      "instalment"
+    ]
   },
-  "relation_refs": [],
-  "reference_senses": [
+  "relation_refs": [
     {
-      "stable_sense_id": "sense:installment:3b9b952ed4ca5dec",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "就职；装设；分期付款",
-      "definition_en": "a payment of part of a debt; usually paid at regular intervals",
-      "semantic_key": "9a060aa9576c2d937d8c738698b122f40bf405aeb8b38ce59cb96c69a3460ca5",
-      "semantic_key_history": [
-        "99901dfb315c3667ab27e2d5087bd7aad571c9315cc340b59a6d020e13f28d8f"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16266,
-      "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:installment:98056734eefb5616",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "就职；装设；分期付款",
-      "definition_en": "a part of a published serial",
-      "semantic_key": "106b748703e1605fa5f9cdc2d884c923622aa69648cf59a9a748d2a12730d04d",
-      "semantic_key_history": [
-        "5e70a4a4ad7978b3e2d9e93794eaa9307f9ef3d52598c80c247c885ca4cecd8c"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16267,
-      "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json",
-      "reference_only": true
+      "relation_id": "relation:horizontal:58a59fe582c31e1d19ef",
+      "owner_path": "content/lexical/relations/by-id/f4/f432f685f081717f9af020d14929a52e6308672d44780f4665a3e4f6fbdeef43.json",
+      "field": "semantic_neighbors",
+      "index": 0
     }
   ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:installment:3b9b952ed4ca5dec",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16266,
         "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json"
       },
       {
         "sense_id": "sense:installment:98056734eefb5616",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16267,
         "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json"

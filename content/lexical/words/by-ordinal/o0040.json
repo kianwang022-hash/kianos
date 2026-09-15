@@ -41,7 +41,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "d2ce96c01742fe1ec8099ad19ff4b8c8e9b873656ea5df93f75aafc78d864e9f",
+    "content_hash": "c3b6968f6dffe8cdeb45434b1d2a0f21d2a53ab92f840e571ad65ac710f71db9",
     "core_concept": {
       "core_clusters": [
         {
@@ -50,8 +50,7 @@
           "pos": "verb",
           "sense_ids": [
             "sense:account:10680a36d5da581d",
-            "sense:account:1908a5e546065600",
-            "sense:account:a05af64a37a356ee"
+            "sense:account:1908a5e546065600"
           ]
         },
         {
@@ -80,7 +79,8 @@
       "deep:deep:word_family:account:7d432bff68f56082",
       "relation:deep:semantic_contrast:account:7e6042c5223cc39f",
       "relation:deep:word_family:account:7d432bff68f56082",
-      "semantic-review:0040"
+      "semantic-review:0040",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [
       {
@@ -217,50 +217,6 @@
         "sense_id": "sense:account:1908a5e546065600",
         "sense_label_en": "form a share",
         "sort_order": 1,
-        "source_evidence": [
-          {
-            "role": "local_evidence",
-            "source": "kaoyan"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_ecdict"
-          },
-          {
-            "role": "local_evidence",
-            "source": "local_oewn"
-          },
-          {
-            "role": "local_evidence",
-            "source": "ai_curated_mvp_v1"
-          }
-        ]
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e9c5bf4172ee3e529146",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:account:a05af64a37a356ee:collocation:1"
-            ],
-            "meaning_cn": "把成本考虑进去",
-            "meaning_en": "to include a fact or possibility when thinking or deciding",
-            "phrase": "take the cost into account"
-          }
-        ],
-        "confidence": "high",
-        "definition_cn": "把某因素考虑进去",
-        "definition_en": "to include a fact or possibility when thinking or deciding",
-        "depth": "full_card",
-        "domain_tag": "general",
-        "frequency_tag": "exam_core",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:account:a05af64a37a356ee",
-        "sense_label_en": "include in judgment",
-        "sort_order": 2,
         "source_evidence": [
           {
             "role": "local_evidence",
@@ -456,7 +412,33 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:account:a05af64a37a356ee",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "把某因素考虑进去",
+      "definition_en": "to include a fact or possibility when thinking or deciding",
+      "semantic_key": "9461426ce40c084e42e4dace5e9923db35d58ad9ae8620069e2a88d529ce234d",
+      "semantic_key_history": [
+        "44a6bb578f6a61151f39a9a2be8231eeafa685df473685eb60c65dedf4759895"
+      ],
+      "legacy_aliases": [
+        "account:l1:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "account:l1:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 115,
+      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -482,7 +464,7 @@
       },
       {
         "sense_id": "sense:account:a05af64a37a356ee",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 115,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
@@ -502,7 +484,6 @@
       "collocation:9f33fcaa5e4e4ea251d4",
       "collocation:c6e6db872184abe43bd2",
       "collocation:dbcd1fd5181d896baf08",
-      "collocation:e9c5bf4172ee3e529146",
       "collocation:f4e4c95d21bbe57c8463",
       "collocation:f628ea2071e03b849d1a"
     ],

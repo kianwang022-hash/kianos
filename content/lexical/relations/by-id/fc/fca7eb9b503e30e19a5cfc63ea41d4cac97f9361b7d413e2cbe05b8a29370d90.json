@@ -150,10 +150,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:soft",
+      "source_ordinal": 4540,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "均可形容语气态度温和；mild更侧重程度不强",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均为描述",
+          "collocation": "mild criticism/soft tone",
+          "core_meaning": "温和/柔和",
+          "exam_trap": "对象搭配不同",
+          "register": "均通用",
+          "semantic_prosody": "多为中性偏正",
+          "strength": "mild重程度低",
+          "syntax": "均作形容词",
+          "writing_safety": "按名词搭配选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00440072-s",
+            "evidence_status": "source_checked",
+            "source_locator": "00440072-s",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:mild:204e3b2c6bf8686c",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "mild and pleasant",
+        "source_sense_id": "sense:soft:6b176af4020b52ad",
+        "target_sense_id": "sense:mild:f5154373014959ad",
+        "target_word": "mild",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3025-o3124.md"
   }
 }

@@ -1,0 +1,69 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:c402fedc4f85d0461c17",
+  "canonical_record": null,
+  "fact_record": {
+    "fact_id": "relation:horizontal:c402fedc4f85d0461c17",
+    "module": "semantic_contrast",
+    "boundary": "alone = without other people / by oneself and is not inherently negative; lonely = unhappy because of lack of companionship and can be felt even among other people",
+    "source_sense_id": "sense:alone:4eac829deec85810",
+    "target_sense_id": "sense:lonely:41027ac30a435997",
+    "target_word": "lonely",
+    "publication_status": "codex_reviewed"
+  },
+  "word_views": [
+    {
+      "source_word_id": "word:alone",
+      "source_ordinal": 156,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:horizontal:c402fedc4f85d0461c17",
+        "fact_id": "relation:horizontal:c402fedc4f85d0461c17",
+        "module": "semantic_contrast",
+        "boundary": "alone = without other people / by oneself and is not inherently negative; lonely = unhappy because of lack of companionship and can be felt even among other people",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_sense_id": "sense:alone:4eac829deec85810",
+        "target_sense_id": "sense:lonely:41027ac30a435997",
+        "target_word": "lonely",
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:lonely",
+      "source_ordinal": 2878,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "relation_id": "relation:horizontal:c402fedc4f85d0461c17",
+        "fact_id": "relation:horizontal:c402fedc4f85d0461c17",
+        "module": "semantic_contrast",
+        "boundary": "lonely describes unhappy isolation/lack of companionship; alone only says someone is by themselves and need not feel lonely",
+        "direction": "C",
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_sense_id": "sense:lonely:41027ac30a435997",
+        "target_sense_id": "sense:alone:4eac829deec85810",
+        "target_word": "alone",
+        "task_tags": [
+          "reading",
+          "writing"
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "post-cutover semantic reconciliation",
+    "semantic_delta": 1,
+    "authority": "content/lexical/semantic-reconciliation/o0025-o0224.md"
+  }
+}

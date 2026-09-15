@@ -57,12 +57,37 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "d329572ad70faaffec1465c53cde0561b3594c45ee5a8667d45865301dc70754",
+    "content_hash": "2fac67075b0f3726a7286765423224af7653f5bba73c3c8417c3f51f7231df7e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "激发、鼓舞或赋予灵感",
-      "core_meaning_en": "to fill someone with the urge or ability to do or feel something, especially something creative",
-      "mental_model_cn": "激发、鼓舞或赋予灵感",
+      "core_clusters": [
+        {
+          "label_cn": "鼓舞；激励",
+          "label_en": "give enthusiasm or confidence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:inspire:e1f43bc4f8f05774"
+          ]
+        },
+        {
+          "label_cn": "赋予灵感；启发创作",
+          "label_en": "give the idea or inspiration for creative work",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:inspire:82b0b62d8e555bc5"
+          ]
+        },
+        {
+          "label_cn": "激起某种情感或反应",
+          "label_en": "cause a particular feeling or reaction",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:inspire:e2c4c451551f5029"
+          ]
+        }
+      ],
+      "core_meaning_cn": "鼓舞、激励；赋予灵感；激起情感",
+      "core_meaning_en": "motivate, inspire creative ideas, or evoke a feeling",
+      "mental_model_cn": "鼓舞、激励；赋予灵感；激起情感",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,7 +96,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:inspire:374fb276831ef207",
-      "deep:deep:constructions:inspire:374fb276831ef207"
+      "deep:deep:constructions:inspire:374fb276831ef207",
+      "semantic-reconciliation:o2425-o2624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -155,6 +181,30 @@
         "sense_label_en": "to breathe in (rare, technical)",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:099f2f8bd3e21348335c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:inspire:82b0b62d8e555bc5:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "为诗歌/小说/设计提供灵感",
+            "phrase": "inspire a poem/novel/design"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "赋予灵感；启发创作",
+        "definition_en": "to give someone the idea or inspiration for something, especially a creative work",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:inspire:82b0b62d8e555bc5",
+        "sense_label_en": "to give someone the idea or inspiration for something, especially a creative work",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -177,38 +227,12 @@
     "word_id": "word:inspire"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:inspire:82b0b62d8e555bc5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "赋予灵感，启发",
-      "definition_en": "to give someone the idea for something, especially a work of art or a creative work",
-      "semantic_key": "ec2a1ea3029e9d818c74813cba720591b812b5043f943c66708d9840c544d08d",
-      "semantic_key_history": [
-        "65042dcd1dfdc26e531be6e9aef6391da0184573ee48d3976904c36bebaf6142"
-      ],
-      "legacy_aliases": [
-        "inspire:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "inspire:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 7087,
-      "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:inspire:82b0b62d8e555bc5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 7087,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
@@ -236,6 +260,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:099f2f8bd3e21348335c",
       "collocation:2a7abdc05501c8bc0703",
       "collocation:4b30cffd25a10c74621e",
       "collocation:6810fe1e99076539a222",
@@ -249,6 +274,11 @@
       }
     ],
     "collocations": [
+      {
+        "id": "collocation:099f2f8bd3e21348335c",
+        "source_row": 21593,
+        "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
       {
         "id": "collocation:2a7abdc05501c8bc0703",
         "source_row": 3613,

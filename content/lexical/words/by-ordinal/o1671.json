@@ -15,7 +15,7 @@
         "pattern": "entail sth/doing sth"
       }
     ],
-    "content_hash": "31ba43792e94a0212b70e8c13b06ced213707cf808afa7450a7fed68345b64e0",
+    "content_hash": "538366983c046aabbfaa572fd6cee78e0699fba0d40dd820366d191663f62662",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,7 +37,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:e3d39b47e9acd5445c10"
+      "construction:construction:e3d39b47e9acd5445c10",
+      "semantic-reconciliation:o2425-o2624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -90,7 +91,14 @@
     "word_family": [],
     "word_id": "word:entail"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:imply:d5117046f9bd72a8",
+      "owner_path": "content/lexical/relations/by-id/b1/b17be3475c8bed0aad8e61cdeb0a80252cf1e13db9bf517302ffd204c0a519dc.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [
     {
       "stable_sense_id": "sense:entail:15074ae624f75f34",
@@ -153,6 +161,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
       },
       {
+        "sense_id": "sense:entail:1a7bd968f5b1bdca",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4680,
+        "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
+      },
+      {
         "sense_id": "sense:entail:a1ccbf8bfbf15d71",
         "status": "merged",
         "merged_into_sense_id": "sense:entail:15074ae624f75f34",
@@ -164,13 +179,6 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4627,
-        "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
-      },
-      {
-        "sense_id": "sense:entail:1a7bd968f5b1bdca",
-        "status": "active",
-        "merged_into_sense_id": null,
-        "source_row": 4680,
         "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
       }
     ],

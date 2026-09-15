@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:hazard",
+      "source_ordinal": 2281,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "gamble侧重赌钱冒险，hazard侧重使遭危险",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "gamble on; hazard a guess",
+          "core_meaning": "冒险赌注",
+          "exam_trap": "hazard猜测义",
+          "register": "通用",
+          "semantic_prosody": "中性偏险",
+          "strength": "中",
+          "syntax": "及物/不及物",
+          "writing_safety": "慎用"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02550045-v",
+            "evidence_status": "source_checked",
+            "source_locator": "02550045-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:gamble:eeea5abbfe027784",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "take a risk in the hope of a favorable outcome",
+        "source_sense_id": "sense:hazard:7edeff450521505c",
+        "target_sense_id": "sense:gamble:58ce569a582d52e0",
+        "target_word": "gamble",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2025-o2224.md"
   }
 }

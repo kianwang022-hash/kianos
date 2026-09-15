@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8512a231f4b9b1cc92cafbc53d13d81d338ef518970e486781418183b2163080",
+    "content_hash": "025ffda9b748aab176f73b8d594c11f13cc0b366eb6aaf8decf5a737e7e9de80",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,7 +36,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1625-o1824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -62,7 +64,14 @@
         "sense_id": "sense:excerpt:c08891932c8c5982",
         "sense_label_en": "a short passage selected from a larger work",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "excerpt",
+          "paired_form": "excerpt noun / verb",
+          "note": "excerpt noun has initial stress; excerpt verb has final stress."
+        }
       },
       {
         "collocations": [
@@ -86,7 +95,14 @@
         "sense_id": "sense:excerpt:783cf927d7eb585d",
         "sense_label_en": "to take out a passage from a literary work",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "excerpt",
+          "paired_form": "excerpt noun / verb",
+          "note": "excerpt noun has initial stress; excerpt verb has final stress."
+        }
       }
     ],
     "verification_summary": {
@@ -108,7 +124,14 @@
     "word_family": [],
     "word_id": "word:excerpt"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:expert:02ee237401aadbf5",
+      "owner_path": "content/lexical/relations/by-id/8c/8c6b4c29b60a2a59e384d5639a788184672d4f6287a241ea680178f63fe2d6e5.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

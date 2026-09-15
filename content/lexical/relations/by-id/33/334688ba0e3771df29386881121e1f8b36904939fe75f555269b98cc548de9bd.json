@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:mistake",
+      "source_ordinal": 3084,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "fault侧重责任归属，mistake侧重行为错误",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "it's my fault",
+          "core_meaning": "责任与错误之别",
+          "exam_trap": "常见辨析",
+          "register": "通用",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "名词对比",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00071785-n",
+            "evidence_status": "source_checked",
+            "source_locator": "00071785-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:fault:1839e89a429d6335",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "a wrong action attributable to bad judgment or ignorance or inattention",
+        "source_sense_id": "sense:mistake:ef1f9ee909d751f4",
+        "target_sense_id": "sense:fault:629a4c7886d75858",
+        "target_word": "fault",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1825-o2024.md"
   }
 }

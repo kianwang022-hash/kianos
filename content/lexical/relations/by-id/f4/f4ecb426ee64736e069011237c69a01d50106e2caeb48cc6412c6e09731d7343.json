@@ -9,8 +9,8 @@
     "content": {
       "shared_definition": "the domain ruled by a king or queen",
       "shared_synset": "08575692-n",
-      "source_definition": "a monarchy with a king or queen as head of state",
-      "source_sense_id": "sense:kingdom:01fd8f2976bc59ff",
+      "source_definition": "a country with a king or queen as head of state",
+      "source_sense_id": "sense:kingdom:58b7190c1b0b5781",
       "target_definition": "the domain ruled by a king or queen",
       "target_sense_id": "sense:realm:5c3191ca1b4f5bc4",
       "target_word": "realm"
@@ -59,8 +59,8 @@
     "selection_rank": 3,
     "semantic_stage_a": {
       "relation_class": "partial_overlap",
-      "source_definition": "a monarchy with a king or queen as head of state",
-      "source_sense_id": "sense:kingdom:01fd8f2976bc59ff",
+      "source_definition": "a country with a king or queen as head of state",
+      "source_sense_id": "sense:kingdom:58b7190c1b0b5781",
       "target_definition": "the domain ruled by a king or queen",
       "target_sense_id": "sense:realm:5c3191ca1b4f5bc4"
     },
@@ -131,7 +131,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": "the domain ruled by a king or queen",
-        "source_sense_id": "sense:kingdom:01fd8f2976bc59ff",
+        "source_sense_id": "sense:kingdom:58b7190c1b0b5781",
         "target_sense_id": "sense:realm:5c3191ca1b4f5bc4",
         "target_word": "realm",
         "task_tags": [
@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:realm",
+      "source_ordinal": 3966,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "kingdom与realm均指王国，但realm更抽象",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "the kingdom/realm of",
+          "core_meaning": "王国",
+          "exam_trap": "同义辨析",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:08575692-n",
+            "evidence_status": "source_checked",
+            "source_locator": "08575692-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:kingdom:9f62fff0e506407f",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "the domain ruled by a king or queen",
+        "source_sense_id": "sense:realm:5c3191ca1b4f5bc4",
+        "target_sense_id": "sense:kingdom:58b7190c1b0b5781",
+        "target_word": "kingdom",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2625-o2824.md"
   }
 }

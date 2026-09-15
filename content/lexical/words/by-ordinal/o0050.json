@@ -26,12 +26,21 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "9d4882e121bfe41b775288fa25fde0297f88a3278c5e0e4d2e8b0470ab57e5cc",
+    "content_hash": "3ec00a1edab4c19a70303334b9168b4bfbb9d4855af45c4f3c19f7189c48d5e2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "承认或确认某事物的存在、真实性或收到",
-      "core_meaning_en": "to accept or admit the existence, truth, or receipt of something",
-      "mental_model_cn": "承认或确认某事物的存在、真实性或收到",
+      "core_clusters": [
+        {
+          "label_cn": "表示注意到；认可",
+          "label_en": "show that one has noticed or recognized",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:acknowledge:87a2cf20dda5c882"
+          ]
+        }
+      ],
+      "core_meaning_cn": "承认/认可；确认收到；表示注意到或致谢",
+      "core_meaning_en": "to admit/recognize, confirm receipt, notice/acknowledge, or express thanks",
+      "mental_model_cn": "承认/认可；确认收到；表示注意到或致谢",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -40,7 +49,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:secondary_senses:acknowledge:0e654ba1b40ac05e",
-      "semantic-review:0050"
+      "semantic-review:0050",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [
       {
@@ -214,6 +224,39 @@
         "sense_label_en": "to accept someone as having a particular status or authority",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:79e4ef47de7c2c7a4e76",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acknowledge:87a2cf20dda5c882:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "表示注意到/认可某人的存在",
+            "phrase": "acknowledge sb's presence"
+          },
+          {
+            "collocation_id": "collocation:26c56714f82caef5b1ec",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:acknowledge:87a2cf20dda5c882:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "回应招呼；表示注意到某人的存在",
+            "phrase": "acknowledge a greeting/presence"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "表示注意到；认可；致意",
+        "definition_en": "to show or indicate that you have noticed or recognized someone or something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:acknowledge:87a2cf20dda5c882",
+        "sense_label_en": "to show or indicate that you have noticed or recognized someone or something",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -261,6 +304,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
       {
+        "sense_id": "sense:acknowledge:87a2cf20dda5c882",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19506,
+        "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
+      },
+      {
         "sense_id": "sense:acknowledge:d5f0efa1a6a8571b",
         "status": "active",
         "merged_into_sense_id": null,
@@ -269,9 +319,11 @@
       }
     ],
     "active_collocations": [
+      "collocation:26c56714f82caef5b1ec",
       "collocation:2e6930f134766bf634ef",
       "collocation:4e711157476bfe65674e",
       "collocation:55ebeeec99af3c414651",
+      "collocation:79e4ef47de7c2c7a4e76",
       "collocation:89c7fc9b72b699630151",
       "collocation:a1c5ca9574fe84f470e7",
       "collocation:b8057e92ccb9382aab24",
@@ -287,6 +339,11 @@
     ],
     "collocations": [
       {
+        "id": "collocation:26c56714f82caef5b1ec",
+        "source_row": 21516,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
         "id": "collocation:2e6930f134766bf634ef",
         "source_row": 3923,
         "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
@@ -299,6 +356,11 @@
       {
         "id": "collocation:55ebeeec99af3c414651",
         "source_row": 7245,
+        "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
+      },
+      {
+        "id": "collocation:79e4ef47de7c2c7a4e76",
+        "source_row": 21509,
         "source_path": "content/lexical/canonical/collocations/shards/o0033-0064.json"
       },
       {

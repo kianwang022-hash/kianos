@@ -7,19 +7,30 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "290b1d23dd6275f3c5464ab9b8e481a5e94c7488c0e5882f53e2e776300d671d",
+    "content_hash": "7511492fd86636882cd1ffbdecf2bb6126610df06a9da6b7be3d4eda8139f50c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "巡回演出团体或表演；混乱的场面",
-      "core_meaning_en": "a traveling company of entertainers or a performance; a chaotic disturbance",
-      "mental_model_cn": "巡回演出团体或表演；混乱的场面",
+      "core_clusters": [
+        {
+          "label_cn": "马戏表演",
+          "label_en": "a circus performance or show",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:circus:7dc1ec0426505e8c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "马戏团；马戏表演；混乱闹剧",
+      "core_meaning_en": "a circus company, circus performance, or figuratively a chaotic public scene",
+      "mental_model_cn": "马戏团；马戏表演；混乱闹剧",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -103,6 +114,30 @@
         "sense_label_en": "(antiquity) an open-air stadium for chariot races and gladiatorial games",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:475cde2f1a38795dc21b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:circus:7dc1ec0426505e8c:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "一场马戏表演",
+            "phrase": "a circus performance/show"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "马戏表演；马戏节目",
+        "definition_en": "a performance or show given by a circus company of acrobats, clowns, and other circus performers",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:circus:7dc1ec0426505e8c",
+        "sense_label_en": "a performance or show given by a circus company of acrobats, clowns, and other circus performers",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -125,33 +160,7 @@
     "word_id": "word:circus"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:circus:7dc1ec0426505e8c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "由巡回演出的杂技演员、小丑和受过训练的动物进行的表演",
-      "definition_en": "a performance given by a traveling company of acrobats, clowns, and trained animals",
-      "semantic_key": "500b46ece3d5c282c38a7397f3728a02113a586cff3598be04e25cc71fae1d33",
-      "semantic_key_history": [
-        "bed6142f59e307ec998c6ae964b10b787396f7c1e3dc35e578207376b668790a"
-      ],
-      "legacy_aliases": [
-        "circus:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "circus:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2313,
-      "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -163,7 +172,7 @@
       },
       {
         "sense_id": "sense:circus:7dc1ec0426505e8c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2313,
         "source_path": "content/lexical/canonical/senses/shards/o0801-0832.json"
@@ -185,6 +194,7 @@
     ],
     "active_collocations": [
       "collocation:0be3b2e153d0148a1889",
+      "collocation:475cde2f1a38795dc21b",
       "collocation:ce7054c3f44c31187ede",
       "collocation:d6a3098acc0b35654c60",
       "collocation:f2428ce2aa1dfbfef89f"
@@ -194,6 +204,11 @@
       {
         "id": "collocation:0be3b2e153d0148a1889",
         "source_row": 979,
+        "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
+      },
+      {
+        "id": "collocation:475cde2f1a38795dc21b",
+        "source_row": 21564,
         "source_path": "content/lexical/canonical/collocations/shards/o0801-0832.json"
       },
       {

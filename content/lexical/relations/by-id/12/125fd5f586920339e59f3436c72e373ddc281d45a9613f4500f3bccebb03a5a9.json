@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:burden",
+      "source_ordinal": 624,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "load泛指装载物，burden强调沉重负担",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "heavy load",
+          "core_meaning": "装载物",
+          "exam_trap": "burden抽象负担",
+          "register": "通用",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:03685312-n",
+            "evidence_status": "source_checked",
+            "source_locator": "03685312-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:load:76a9f4bf45d2a387",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "weight to be borne or conveyed",
+        "source_sense_id": "sense:burden:60cbbbb639615c87",
+        "target_sense_id": "sense:load:a83db54256015982",
+        "target_word": "load",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

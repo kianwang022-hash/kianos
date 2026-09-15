@@ -17,11 +17,11 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "f73204b369cc74c815944dba94274fa0d8cb601427c81c234b634790031145ce",
+    "content_hash": "43c97eff6a6ee6f7c69e17960761cd732476615c11af46286233c1466fe52cae",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "大气层；环境或氛围",
-      "core_meaning_en": "the gaseous envelope of a body or the mood/environment of a place",
+      "core_meaning_en": "the gaseous envelope of a celestial body, or the mood/environment of a place",
       "mental_model_cn": "大气层；环境或氛围",
       "mental_model_en": "the gaseous envelope of a body or the mood/environment of a place"
     },
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0320"
+      "semantic-review:0320",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -45,17 +46,26 @@
             ],
             "meaning_cn": "地球的大气层",
             "phrase": "the Earth's atmosphere"
+          },
+          {
+            "collocation_id": "collocation:d0afa2b0ad6b6e4e7d5a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:atmosphere:b9b5a2dabb1056df:collocation:0"
+            ],
+            "meaning_cn": "火星的大气层",
+            "phrase": "the atmosphere of Mars"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "大气，大气层",
-        "definition_en": "the mass of air surrounding the Earth",
+        "definition_cn": "大气；天体周围的气体层",
+        "definition_en": "the envelope of gases surrounding the Earth or another celestial body",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:atmosphere:a205b0256dc5591b",
-        "sense_label_en": "the mass of air surrounding the Earth",
+        "sense_label_en": "the envelope of gases surrounding the Earth or another celestial body",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -91,54 +101,6 @@
         "sense_label_en": "a particular environment or surrounding influence",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c00ff0ac74cccb0271bd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:atmosphere:28a2919be0dc5516:collocation:0"
-            ],
-            "meaning_cn": "一个地区的气候",
-            "phrase": "the atmosphere of a region"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "气候，天气",
-        "definition_en": "the weather or climate at some place",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:atmosphere:28a2919be0dc5516",
-        "sense_label_en": "the weather or climate at some place",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d0afa2b0ad6b6e4e7d5a",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:atmosphere:b9b5a2dabb1056df:collocation:0"
-            ],
-            "meaning_cn": "火星的大气层",
-            "phrase": "the atmosphere of Mars"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "天体周围的气体层",
-        "definition_en": "the envelope of gases surrounding any celestial body",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:atmosphere:b9b5a2dabb1056df",
-        "sense_label_en": "the envelope of gases surrounding any celestial body",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -161,7 +123,54 @@
     "word_id": "word:atmosphere"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:atmosphere:28a2919be0dc5516",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "气候，天气",
+      "definition_en": "the weather or climate at some place",
+      "semantic_key": "44e68d6f2e827653fb015368408df274fecd015347a388a7839c5ef967b1c66c",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "atmosphere:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "atmosphere:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 814,
+      "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:atmosphere:b9b5a2dabb1056df",
+      "status": "merged",
+      "merged_into_sense_id": "sense:atmosphere:a205b0256dc5591b",
+      "pos": "noun",
+      "definition_cn": "天体周围的气体层",
+      "definition_en": "the envelope of gases surrounding any celestial body",
+      "semantic_key": "8709f8c9388969a570b24c41286f48659ca55eb458d23c13a96abedca27ddb59",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "atmosphere:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "atmosphere:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 816,
+      "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -173,7 +182,7 @@
       },
       {
         "sense_id": "sense:atmosphere:28a2919be0dc5516",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 814,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
@@ -187,15 +196,14 @@
       },
       {
         "sense_id": "sense:atmosphere:b9b5a2dabb1056df",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:atmosphere:a205b0256dc5591b",
         "source_row": 816,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"
       }
     ],
     "active_collocations": [
       "collocation:9dc5e6014918044606d6",
-      "collocation:c00ff0ac74cccb0271bd",
       "collocation:d0afa2b0ad6b6e4e7d5a",
       "collocation:ed2e10bf0972266f86dd",
       "collocation:f1ee8ac81fdc3e73a217"

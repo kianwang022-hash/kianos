@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "c0e5cccf92872a2f44e4bb6896633c2e40e54f0ab2e4b7dc4061bb048b98fc1d",
+    "content_hash": "571f8c5796efe3d4cfd32afdc737a68892cd704c2be69887ec3c838a5feebbcf",
     "core_concept": {
       "core_clusters": [
         {
@@ -32,9 +32,7 @@
           "label_cn": "冒险；大胆尝试",
           "label_en": "to take a risk; to dare to do something",
           "pos": "verb",
-          "sense_ids": [
-            "sense:adventure:4c2107c79c4857d5"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "冒险；冒险经历",
@@ -47,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0089"
+      "semantic-review:0089",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -84,30 +83,6 @@
         "sense_label_en": "a wild and exciting undertaking (not necessarily lawful)",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:94ea64d7f9f21cdd97b9",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:adventure:4c2107c79c4857d5:collocation:0"
-            ],
-            "meaning_cn": "冒险进入",
-            "phrase": "adventure into + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "冒险；大胆尝试",
-        "definition_en": "to take a risk; to dare to do something",
-        "governing_pattern": "vi. + into",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:adventure:4c2107c79c4857d5",
-        "sense_label_en": "to take a risk; to dare to do something",
-        "sort_order": 1,
-        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -130,12 +105,36 @@
     "word_id": "word:adventure"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:adventure:4c2107c79c4857d5",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "冒险；大胆尝试",
+      "definition_en": "to take a risk; to dare to do something",
+      "semantic_key": "3571d8a1a992f8a386424dd653e87e605407950839cd999220490d7dd338d97a",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "adventure:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "adventure:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 250,
+      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:adventure:4c2107c79c4857d5",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 250,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -150,7 +149,6 @@
     ],
     "active_collocations": [
       "collocation:7af0dba4c6255e728741",
-      "collocation:94ea64d7f9f21cdd97b9",
       "collocation:ed2ed1ae77ba56577673"
     ],
     "facts": [],

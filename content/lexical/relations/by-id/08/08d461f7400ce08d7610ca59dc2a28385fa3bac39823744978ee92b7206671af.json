@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:movie",
+      "source_ordinal": 3145,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "在电影义接近；film较正式并另有胶片薄膜义，movie更口语",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "film industry",
+          "core_meaning": "电影",
+          "exam_trap": "film与movie混淆",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "film作名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:06626039-n",
+            "evidence_status": "source_checked",
+            "source_locator": "06626039-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:film:7d8bf5d908d29a88",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "a form of entertainment that enacts a story by sound and a sequence of images giving the illusion of continuous movement",
+        "source_sense_id": "sense:movie:369e3213ecc458f3",
+        "target_sense_id": "sense:film:5d3259f7e6d753ce",
+        "target_word": "film",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1825-o2024.md"
   }
 }

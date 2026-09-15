@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e859608e5aa767b1df8bdfd33ed642fd1f761fa46905707a7aa92caf7d451907",
+    "constructions": [
+      {
+        "construction_id": "construction:c3def8c5fc06c2af8893",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "间接套取信息、赞美或回应",
+        "pattern": "fish for information/compliments",
+        "source_sense_id": "sense:fish:794f3c9fea1151e6",
+        "boundary": "figurative fish for sth = try indirectly to obtain it"
+      }
+    ],
+    "content_hash": "ba68000e8efa979561b7e476e54b5e9046a5fdcc9a9f4e6b358df6473230690a",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,7 +47,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1825-o2024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -130,6 +142,30 @@
         "sense_label_en": "to try to catch fish",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bb78242d50fc8f8c6b1b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:fish:794f3c9fea1151e6:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "套取信息/赞美",
+            "phrase": "fish for information/compliments"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "间接探求；套取",
+        "definition_en": "to try indirectly to obtain or discover information, praise, or another response",
+        "governing_pattern": "fish for sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:fish:794f3c9fea1151e6",
+        "sense_label_en": "to try indirectly to obtain or discover information, praise, or another response",
+        "sort_order": 3,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -153,31 +189,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:fish:794f3c9fea1151e6",
-      "status": "merged",
-      "merged_into_sense_id": "sense:fish:e03ca2ad92835a3c",
-      "pos": "verb",
-      "definition_cn": "间接探求；摸索寻找",
-      "definition_en": "to search for something indirectly",
-      "semantic_key": "967ac78e8b82c2792b0b49be5a9e1a219f558803eb2bdfb17c4c6e798db7bb67",
-      "semantic_key_history": [
-        "e4a4e7bd32f30b3ff059d6a240a9f89a9fdc3431f2fe388d81f09d4bc3ca8f66"
-      ],
-      "legacy_aliases": [
-        "fish:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "fish:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5358,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:fish:c6a81dbe1fad50f6",
       "status": "merged",
@@ -208,8 +219,8 @@
     "senses": [
       {
         "sense_id": "sense:fish:794f3c9fea1151e6",
-        "status": "merged",
-        "merged_into_sense_id": "sense:fish:e03ca2ad92835a3c",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 5358,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       },
@@ -247,6 +258,7 @@
       "collocation:3aa5cfe668b2551eef12",
       "collocation:861514dd5117d485dcf0",
       "collocation:aeb06fa8517a85a5826b",
+      "collocation:bb78242d50fc8f8c6b1b",
       "collocation:e541df81147fddf43c6d"
     ],
     "facts": [],
@@ -279,6 +291,11 @@
       {
         "id": "collocation:b7a1c14b7f7d7aba8c1d",
         "source_row": 15575,
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:bb78242d50fc8f8c6b1b",
+        "source_row": 21571,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
       },
       {

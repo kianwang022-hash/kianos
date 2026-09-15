@@ -7,15 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3a813c1f704c9ced5e20e2528506e866f3d1bed56cb574f96e6ed131994f403b",
+    "content_hash": "7e85a02a687de79cd53ed2dd80e71c5157c154f28224bbfcfd303666a3f1cb5e",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "货运；运费",
-          "label_en": "transporting goods commercially at rates cheaper than express rates; the charge for transporting something by common carrier",
+          "label_cn": "货物；货运货物",
+          "label_en": "goods or cargo transported commercially",
           "pos": "noun",
           "sense_ids": [
-            "sense:freight:080201027ae35017",
+            "sense:freight:71597de37a76932b"
+          ]
+        },
+        {
+          "label_cn": "货运；运输活动",
+          "label_en": "the commercial transport of goods",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:freight:080201027ae35017"
+          ]
+        },
+        {
+          "label_cn": "运费",
+          "label_en": "the charge for transporting goods",
+          "pos": "noun",
+          "sense_ids": [
             "sense:freight:240a36820e4e5461"
           ]
         },
@@ -28,16 +43,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "货运，运费",
-      "core_meaning_en": "goods transported commercially or the charge for transport",
-      "mental_model_cn": "货运，运费",
+      "core_meaning_cn": "货物；货运；运费",
+      "core_meaning_en": "cargo/goods transported, freight transport, or the charge for transport",
+      "mental_model_cn": "货物；货运；运费",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2025-o2224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -112,6 +129,30 @@
         "sense_label_en": "transport commercially as cargo",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ff7455500213fd83c7f6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:freight:71597de37a76932b:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "运输货物",
+            "phrase": "carry freight"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "货物；货运货物",
+        "definition_en": "goods or cargo transported commercially from one place to another",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:freight:71597de37a76932b",
+        "sense_label_en": "goods or cargo transported commercially from one place to another",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -152,6 +193,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
       },
       {
+        "sense_id": "sense:freight:71597de37a76932b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5704,
+        "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
         "sense_id": "sense:freight:93ac8805dd395833",
         "status": "active",
         "merged_into_sense_id": null,
@@ -162,7 +210,8 @@
     "active_collocations": [
       "collocation:80f27708bffa46d53e3f",
       "collocation:c91ca9e78e5dd69feb01",
-      "collocation:e35da67c82a91748b22e"
+      "collocation:e35da67c82a91748b22e",
+      "collocation:ff7455500213fd83c7f6"
     ],
     "facts": [],
     "collocations": [
@@ -179,6 +228,11 @@
       {
         "id": "collocation:e35da67c82a91748b22e",
         "source_row": 19241,
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:ff7455500213fd83c7f6",
+        "source_row": 21545,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
       }
     ],

@@ -15,19 +15,46 @@
         "pattern": "emerge as sth"
       }
     ],
-    "content_hash": "53084f3d7d02d8dec5f5afb5c97d5c6dd3e9793e2bdba892ea204b2a5a4dd480",
+    "content_hash": "e0243bf8f0b3693ada570f8d70203a9379e93e597ebe756510ad140998846e27",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "出现",
-      "core_meaning_en": "to come out or become visible",
-      "mental_model_cn": "出现",
+      "core_clusters": [
+        {
+          "label_cn": "出现；从隐蔽处显现",
+          "label_en": "to come out into view from concealment",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:emerge:82fe243b33f957de"
+          ]
+        },
+        {
+          "label_cn": "变得已知/明显；作为……出现",
+          "label_en": "to become known/apparent or emerge as something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:emerge:d357172d2c965981"
+          ]
+        },
+        {
+          "label_cn": "浮出水面；升起",
+          "label_en": "to rise or come up to the surface",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:emerge:dd77f3968b4b5316"
+          ]
+        }
+      ],
+      "core_meaning_cn": "出现、显现；变得已知；浮出或升起",
+      "core_meaning_en": "to emerge into view, become known/apparent, or rise to the surface",
+      "mental_model_cn": "出现、显现；变得已知；浮出或升起",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -68,15 +95,39 @@
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "变得已知或明显；作为……出现",
-        "definition_en": "to become known or apparent, or emerge as something",
-        "governing_pattern": "emerge as",
+        "definition_en": "to become known or apparent, or appear/develop as something",
+        "governing_pattern": "vi. + as",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:emerge:d357172d2c965981",
-        "sense_label_en": "to become known or apparent, or emerge as something",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "sense_label_en": "to become known or apparent, or appear/develop as something",
+        "sort_order": 1,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cfd3e29ff05050454fad",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:emerge:dd77f3968b4b5316:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "从水中浮出/升到表面",
+            "phrase": "emerge from the water/to the surface"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "浮出水面；升起",
+        "definition_en": "to rise or come up to the surface",
+        "governing_pattern": "vi.",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:emerge:dd77f3968b4b5316",
+        "sense_label_en": "to rise or come up to the surface",
+        "sort_order": 2,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -99,33 +150,7 @@
     "word_id": "word:emerge"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:emerge:dd77f3968b4b5316",
-      "status": "merged",
-      "merged_into_sense_id": "sense:emerge:82fe243b33f957de",
-      "pos": "verb",
-      "definition_cn": "浮出水面；上升",
-      "definition_en": "to come up to the surface of or rise",
-      "semantic_key": "1a0e0be3279f17fc7ca43b40c9d3b8157117650dc64b4138e2f56574c216129f",
-      "semantic_key_history": [
-        "acabe2b2c8cd535084508c4619646bc85773d95220c452a6cf01cf9c00b79810"
-      ],
-      "legacy_aliases": [
-        "emerge:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "emerge:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4516,
-      "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -144,14 +169,15 @@
       },
       {
         "sense_id": "sense:emerge:dd77f3968b4b5316",
-        "status": "merged",
-        "merged_into_sense_id": "sense:emerge:82fe243b33f957de",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4516,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
       }
     ],
     "active_collocations": [
       "collocation:216c21f942f03cf3d215",
+      "collocation:cfd3e29ff05050454fad",
       "collocation:e799a9ee6c0a5b1fb521"
     ],
     "facts": [],
@@ -179,6 +205,11 @@
       {
         "id": "collocation:768b87d847d0a3594721",
         "source_row": 10009,
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:cfd3e29ff05050454fad",
+        "source_row": 21492,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
       },
       {

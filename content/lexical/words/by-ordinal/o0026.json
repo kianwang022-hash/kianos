@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "5ac083ac23fd2b8e56e947cdcc8490244cda1edde8da1682651a8e42acd3db7b",
+    "content_hash": "a8e63ad3020f712fc602005200db9be83556622bfe866fa7d636fbb5a9d03a15",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,6 +36,14 @@
           "sense_ids": [
             "sense:accent:9eece5d7e6595bee"
           ]
+        },
+        {
+          "label_cn": "重音；强调点",
+          "label_en": "stress or emphasis",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:accent:01f93f5864f4cdfc"
+          ]
         }
       ],
       "core_meaning_cn": "口音或重音",
@@ -50,7 +58,8 @@
     "review_signature": [
       "deep:deep:semantic_contrast:accent:f0d231ab5f56fe21",
       "relation:deep:semantic_contrast:accent:f0d231ab5f56fe21",
-      "semantic-review:0026"
+      "semantic-review:0026",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -126,6 +135,30 @@
         "sense_label_en": "to emphasize or stress",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5d3bd1c9f92527438f8d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:accent:01f93f5864f4cdfc:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "把重点放在某事上",
+            "phrase": "place the accent on sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "重音；强调的突出点",
+        "definition_en": "prominence or emphasis placed on a syllable, word, or idea",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:accent:01f93f5864f4cdfc",
+        "sense_label_en": "prominence or emphasis placed on a syllable, word, or idea",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -159,6 +192,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:accent:01f93f5864f4cdfc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19503,
+        "source_path": "content/lexical/canonical/senses/shards/o0001-0032.json"
+      },
+      {
         "sense_id": "sense:accent:7fe3c4bee4745ad0",
         "status": "active",
         "merged_into_sense_id": null,
@@ -183,6 +223,7 @@
     "active_collocations": [
       "collocation:0a2e1e5c87531d91fa7c",
       "collocation:412dbb49e3b6140bb456",
+      "collocation:5d3bd1c9f92527438f8d",
       "collocation:720f43df8e652f56c928"
     ],
     "facts": [
@@ -201,6 +242,11 @@
       {
         "id": "collocation:412dbb49e3b6140bb456",
         "source_row": 5518,
+        "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
+      },
+      {
+        "id": "collocation:5d3bd1c9f92527438f8d",
+        "source_row": 21354,
         "source_path": "content/lexical/canonical/collocations/shards/o0001-0032.json"
       },
       {

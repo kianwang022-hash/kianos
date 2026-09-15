@@ -46,7 +46,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:estimate:b7cafb7c04495797",
+        "source_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -57,12 +57,29 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "9a7d69937b90fe19b98cb2c2ae9e33849be39cbaf2b1b1bce93fad0e4646b6fd",
+    "content_hash": "0daa2d721afdffb208b6a847e7abf8d3d0d3db656a7d91246b69d6aecaa24938",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "估计",
-      "core_meaning_en": "to judge approximately the value or amount",
-      "mental_model_cn": "估计",
+      "core_clusters": [
+        {
+          "label_cn": "估计；估计值",
+          "label_en": "an approximate calculation or judgment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:estimate:f0af306e52cd5e15"
+          ]
+        },
+        {
+          "label_cn": "估计；估算",
+          "label_en": "to calculate or judge approximately",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:estimate:cf1a14f74d6a5ed0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "估计；估算；估计值",
+      "core_meaning_en": "an approximate calculation/judgment; to estimate approximately",
+      "mental_model_cn": "估计；估算；估计值",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,7 +88,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:estimate:4e811dfa9022a2c2",
-      "deep:deep:constructions:estimate:4e811dfa9022a2c2"
+      "deep:deep:constructions:estimate:4e811dfa9022a2c2",
+      "semantic-reconciliation:o1625-o1824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -79,44 +97,44 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "估计、估算",
-        "definition_en": "a calculation or judgement of an amount or value",
+        "definition_cn": "估计；估算；估计值",
+        "definition_en": "an approximate calculation or judgment of an amount, value, number, or cost",
         "governing_pattern": "",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation boundary",
-          "paired_form": "estimate",
-          "surface_lemma": "estimate"
-        },
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:estimate:ccbb6e9dca608e6b",
-        "sense_label_en": "a calculation or judgement of an amount or value",
+        "sense_id": "sense:estimate:f0af306e52cd5e15",
+        "sense_label_en": "an approximate calculation or judgment of an amount, value, number, or cost",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "estimate",
+          "paired_form": "estimate noun / verb",
+          "note": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift."
+        }
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "估计、估算",
-        "definition_en": "to calculate or judge an amount or value approximately",
-        "governing_pattern": "",
+        "definition_cn": "估计；估算",
+        "definition_en": "to calculate or judge an amount, value, number, or cost approximately",
+        "governing_pattern": "vt. + object / that-clause",
         "level": "L1",
-        "lexical_identity_overlay": {
-          "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "noun/verb pronunciation boundary",
-          "paired_form": "estimate",
-          "surface_lemma": "estimate"
-        },
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:estimate:b7cafb7c04495797",
-        "sense_label_en": "to calculate or judge an amount or value approximately",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+        "sense_label_en": "to calculate or judge an amount, value, number, or cost approximately",
+        "sort_order": 1,
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "estimate",
+          "paired_form": "estimate noun / verb",
+          "note": "estimate noun ends with the reduced noun ending /-mət/; estimate verb ends /-meɪt/. The main contrast is the final syllable pronunciation, not a stress shift."
+        }
       }
     ],
     "verification_summary": {
@@ -216,52 +234,43 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+      "stable_sense_id": "sense:estimate:b7cafb7c04495797",
       "status": "merged",
-      "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
+      "merged_into_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
       "pos": "verb",
-      "definition_cn": "估计",
-      "definition_en": "to make an approximate calculation",
-      "semantic_key": "052992d96e88c933864acdd067f1fb5736a8ebb7cf53e81622554f1d68882ea9",
+      "definition_cn": "估计、估算",
+      "definition_en": "to calculate or judge an amount or value approximately",
+      "semantic_key": "b056b5890fdfb2e68c154d425dc80b25b24eee8ef7a5c1a021a79a958615e2cd",
       "semantic_key_history": [
-        "152501e5ad2878ba26976d270e82c922ca0017ea976d67b2312a590b0cf99d79"
+        "a8e1ef753bc5969ff7950c5adbfef01291a8f020d43a9941a8bb06d2623b184e"
       ],
       "legacy_aliases": [
-        "estimate:l2:6"
+        "estimate:l1:5"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "estimate:l2:6",
+          "legacy_sense_id": "estimate:l1:5",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4739,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4738,
       "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json",
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:estimate:f0af306e52cd5e15",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
+      "stable_sense_id": "sense:estimate:ccbb6e9dca608e6b",
+      "status": "merged",
+      "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
       "pos": "noun",
-      "definition_cn": "估计，估算",
-      "definition_en": "an approximate calculation of quantity or degree or worth",
-      "semantic_key": "33587106354031230d4ba94ea92011519f8ebb235523ec8db93c98209bf795a6",
-      "semantic_key_history": [
-        "57004d9eafd0ad8b883e13d5bbd99a7e6c06b6a02ced567974e55f4b41b3458f"
-      ],
-      "legacy_aliases": [
-        "estimate:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "estimate:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4740,
+      "definition_cn": "估计、估算",
+      "definition_en": "a calculation or judgement of an amount or value",
+      "semantic_key": "fd1af631823bf3d728782dfe15837c5b4606f955883c5f93c376e1d29989982d",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4758,
       "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json",
       "reference_only": true
     }
@@ -291,30 +300,30 @@
       },
       {
         "sense_id": "sense:estimate:b7cafb7c04495797",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:estimate:cf1a14f74d6a5ed0",
         "source_row": 4738,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
       },
       {
-        "sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+        "sense_id": "sense:estimate:ccbb6e9dca608e6b",
         "status": "merged",
         "merged_into_sense_id": "sense:estimate:f0af306e52cd5e15",
+        "source_row": 4758,
+        "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
+      },
+      {
+        "sense_id": "sense:estimate:cf1a14f74d6a5ed0",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4739,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
       },
       {
         "sense_id": "sense:estimate:f0af306e52cd5e15",
-        "status": "deprecated",
-        "merged_into_sense_id": null,
-        "source_row": 4740,
-        "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
-      },
-      {
-        "sense_id": "sense:estimate:ccbb6e9dca608e6b",
         "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 4758,
+        "source_row": 4740,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
       }
     ],

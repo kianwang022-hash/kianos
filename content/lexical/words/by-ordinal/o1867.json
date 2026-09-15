@@ -7,12 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4f9b8963592cef753777ff433e81dbeddcb5f148dd0a15431db418320c037777",
+    "content_hash": "aa76b5a850ab402ba6180450fde62f96b5a33ceaf9bb8665e734fc0689beb544",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "更远；进一步",
-      "core_meaning_en": "at or to a greater distance or extent",
-      "mental_model_cn": "更远；进一步",
+      "core_clusters": [
+        {
+          "label_cn": "更远地",
+          "label_en": "to or at a greater physical distance",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:farther:397ec2ced94d5c62"
+          ]
+        },
+        {
+          "label_cn": "更远的",
+          "label_en": "more distant in space",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:farther:df29e3f3ba6958b3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "更远地；更远的",
+      "core_meaning_en": "farther in physical distance; further is also widely used for distance and has broader extension uses",
+      "mental_model_cn": "更远地；更远的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -21,7 +38,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:confusables:farther:2fa252a1c833d878",
-      "relation:horizontal:e7953b25a58d998b6853"
+      "relation:horizontal:e7953b25a58d998b6853",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -29,15 +47,29 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "更远地；更远的",
-        "definition_en": "at or to a greater distance",
+        "definition_cn": "更远地；在更远处",
+        "definition_en": "to or at a greater physical distance",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
-        "sense_id": "sense:farther:11a1d63c673ecbf3",
-        "sense_label_en": "at or to a greater distance",
+        "sense_id": "sense:farther:397ec2ced94d5c62",
+        "sense_label_en": "to or at a greater physical distance",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "更远的；距离更大的",
+        "definition_en": "more distant in space, and sometimes time",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:farther:df29e3f3ba6958b3",
+        "sense_label_en": "more distant in space, and sometimes time",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -76,27 +108,18 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:farther:397ec2ced94d5c62",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
+      "stable_sense_id": "sense:farther:11a1d63c673ecbf3",
+      "status": "merged",
+      "merged_into_sense_id": "sense:farther:397ec2ced94d5c62",
       "pos": "adverb",
-      "definition_cn": "更远地；在更远的地方",
-      "definition_en": "to or at a greater distance in time or space",
-      "semantic_key": "9969a47fb95c94db3fea2073608c1df7aa8152f1996a0a4e5502fe1b79410ed5",
-      "semantic_key_history": [
-        "fd3ba4cfa01abaf2ed5e7e2440c52e707a83c3f955f385191ef8af0372c8cadb"
-      ],
-      "legacy_aliases": [
-        "farther:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "farther:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5121,
+      "definition_cn": "更远地；更远的",
+      "definition_en": "at or to a greater distance",
+      "semantic_key": "ef33b7b578a104e59e69440734debd215cdc14e403211d14e0b9f0be207ca737",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-15T07:10:00Z",
+      "source_row": 5186,
       "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
       "reference_only": true
     },
@@ -124,38 +147,20 @@
       "source_row": 5122,
       "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:farther:df29e3f3ba6958b3",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "更远的；更久远的",
-      "definition_en": "more distant in especially space or time",
-      "semantic_key": "94e43ddac803a015ac79cd3fb9eaab06f0757b158b69becbb619f3fcfb687640",
-      "semantic_key_history": [
-        "341dacc242af3100a498697baaaca5511277a65503c9a506b37bd1571b1f02f7"
-      ],
-      "legacy_aliases": [
-        "farther:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "farther:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5123,
-      "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:farther:11a1d63c673ecbf3",
+        "status": "merged",
+        "merged_into_sense_id": "sense:farther:397ec2ced94d5c62",
+        "source_row": 5186,
+        "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
+      },
+      {
         "sense_id": "sense:farther:397ec2ced94d5c62",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5121,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
@@ -169,16 +174,9 @@
       },
       {
         "sense_id": "sense:farther:df29e3f3ba6958b3",
-        "status": "deprecated",
-        "merged_into_sense_id": null,
-        "source_row": 5123,
-        "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
-      },
-      {
-        "sense_id": "sense:farther:11a1d63c673ecbf3",
         "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 5186,
+        "source_row": 5123,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
       }
     ],

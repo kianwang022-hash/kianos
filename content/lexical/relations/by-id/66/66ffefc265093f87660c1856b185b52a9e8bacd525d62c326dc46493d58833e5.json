@@ -148,10 +148,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:copy",
+      "source_ordinal": 1089,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "imitate 常模仿行为风格；copy 还可复制文本物品",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均表有意重复",
+          "collocation": "imitate behavior/copy text",
+          "core_meaning": "模仿/复制",
+          "exam_trap": "对象范围扩大",
+          "register": "均通用",
+          "semantic_prosody": "copy可含贬义",
+          "strength": "copy范围更广",
+          "syntax": "均接名词宾语",
+          "writing_safety": "按宾语选择"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:01746767-v",
+            "evidence_status": "source_checked",
+            "source_locator": "01746767-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:imitate:1fa4c4de223768e9",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "reproduce someone's behavior or looks",
+        "source_sense_id": "sense:copy:3b04372c85c45f5e",
+        "target_sense_id": "sense:imitate:1fccd1e305775d04",
+        "target_word": "imitate",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

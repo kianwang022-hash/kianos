@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d1724a3280fcd512a44bb9a6ef54c0284d8ec782784dcf9cce1f2c6cb630f325",
+    "content_hash": "43eceae094fe5671bb768cdb8795d523e852b619e9bf6e3a8c0486fe11abd7a9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "图画或绘图行为",
-      "core_meaning_en": "a picture or the act of producing a picture with lines",
-      "mental_model_cn": "图画或绘图行为",
+      "core_clusters": [
+        {
+          "label_cn": "图画；素描",
+          "label_en": "a picture or sketch made by drawing lines",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:drawing:cea117e5515b5d5e"
+          ]
+        },
+        {
+          "label_cn": "绘画；制图活动",
+          "label_en": "the activity/process of making drawings or diagrams",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:drawing:00e8850af95a51f2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "图画/素描；绘画或制图活动",
+      "core_meaning_en": "a drawing/sketch; the activity of drawing",
+      "mental_model_cn": "图画/素描；绘画或制图活动",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -36,15 +55,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "绘画、素描；绘画活动或作品",
-        "definition_en": "a picture or activity produced by drawing",
+        "definition_cn": "图画；素描；线条画",
+        "definition_en": "a picture, sketch, or representation made by drawing lines",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:drawing:7fc264b6c8535e32",
-        "sense_label_en": "a picture or activity produced by drawing",
+        "sense_id": "sense:drawing:cea117e5515b5d5e",
+        "sense_label_en": "a picture, sketch, or representation made by drawing lines",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:13ad8db69d73386a0b37",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:drawing:00e8850af95a51f2:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "绘画作为艺术或活动",
+            "phrase": "drawing as an art/activity"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "绘画；制图活动",
+        "definition_en": "the activity or process of making drawings, artistic pictures, or diagrams",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:drawing:00e8850af95a51f2",
+        "sense_label_en": "the activity or process of making drawings, artistic pictures, or diagrams",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -70,34 +113,32 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:drawing:00e8850af95a51f2",
-      "status": "merged",
-      "merged_into_sense_id": "sense:drawing:cea117e5515b5d5e",
+      "stable_sense_id": "sense:drawing:7fc264b6c8535e32",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
-      "definition_cn": "绘图，制图",
-      "definition_en": "the creation of artistic pictures or diagrams",
-      "semantic_key": "458ba36d0218e25f887ed48fd905ad5ccc8b5237837d0a0f18001d37d256a557",
-      "semantic_key_history": [
-        "fe9f051735922f2727c6a5d8e9c67057eadd96158f79c493ee047141de0c1490"
-      ],
+      "definition_cn": "绘画、素描；绘画活动或作品",
+      "definition_en": "a picture or activity produced by drawing",
+      "semantic_key": "b2170b3a158006e459e2f735c678e36354bad7afb3e7fb94def3fed4cd6127e7",
+      "semantic_key_history": [],
       "legacy_aliases": [
-        "drawing:l2:3"
+        "drawing:l1:1"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "drawing:l2:3",
+          "legacy_sense_id": "drawing:l1:1",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4180,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4181,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
     },
     {
       "stable_sense_id": "sense:drawing:96476a09f7fb5480",
-      "status": "merged",
-      "merged_into_sense_id": "sense:drawing:cea117e5515b5d5e",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "抽取，汲取",
       "definition_en": "act of getting or draining something such as electricity or a liquid from a source",
@@ -114,33 +155,8 @@
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
+      "updated_at": "2026-09-15T05:20:00Z",
       "source_row": 4182,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:drawing:cea117e5515b5d5e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "线条画，素描",
-      "definition_en": "a representation of forms or objects on a surface by means of lines",
-      "semantic_key": "4cf70f9f2a2c72bb65254a270f136bf17fb5fd07f28aac01e15161daeadbe20c",
-      "semantic_key_history": [
-        "551c7be8154d81065f8385c7532f9cbee7c08772d76621741c4efef71836f165"
-      ],
-      "legacy_aliases": [
-        "drawing:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "drawing:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4183,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
     }
@@ -149,38 +165,44 @@
     "senses": [
       {
         "sense_id": "sense:drawing:00e8850af95a51f2",
-        "status": "merged",
-        "merged_into_sense_id": "sense:drawing:cea117e5515b5d5e",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4180,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:drawing:7fc264b6c8535e32",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4181,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:drawing:96476a09f7fb5480",
-        "status": "merged",
-        "merged_into_sense_id": "sense:drawing:cea117e5515b5d5e",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 4182,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:drawing:cea117e5515b5d5e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4183,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       }
     ],
     "active_collocations": [
+      "collocation:13ad8db69d73386a0b37",
       "collocation:d49950f704c438f33b3c"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:13ad8db69d73386a0b37",
+        "source_row": 21619,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
       {
         "id": "collocation:604d9da1d0be3e6dc581",
         "source_row": 8092,

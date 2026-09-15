@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "da49372a7815b618182425999a1f88bf833991ca5722c99a6eb53ef429245f86",
+    "content_hash": "7a5800c1830c883871eaec5e2805cbeabfe1478ca3fa4379109952f425c94982",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,10 +35,26 @@
           "sense_ids": [
             "sense:attack:17cb676a64c557df"
           ]
+        },
+        {
+          "label_cn": "猛烈批评；抨击",
+          "label_en": "strong criticism",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:attack:6bad7fafc8d77979"
+          ]
+        },
+        {
+          "label_cn": "疾病突然发作",
+          "label_en": "a sudden illness episode",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:attack:4b7411b63d9e38e3"
+          ]
         }
       ],
       "core_meaning_cn": "攻击；猛烈批评；疾病发作",
-      "core_meaning_en": "physical attack, hostile criticism, or a sudden illness episode",
+      "core_meaning_en": "physical attack; strong criticism; a sudden illness episode",
       "mental_model_cn": "攻击；猛烈批评；疾病发作",
       "mental_model_en": "physical attack, hostile criticism, or a sudden illness episode"
     },
@@ -49,7 +65,8 @@
     "review_signature": [
       "deep:deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
       "relation:deep:semantic_contrast:attack:5fcb8f2cb2e55dd1",
-      "semantic-review:0323"
+      "semantic-review:0323",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -101,6 +118,63 @@
         "sense_label_en": "an act of attacking",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:62adec0520eb9a74055f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "猛烈批评政策/论点",
+            "phrase": "attack a policy/argument"
+          },
+          {
+            "collocation_id": "collocation:bc298c867d85820a9970",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attack:6bad7fafc8d77979:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "对政策/论点的猛烈抨击",
+            "phrase": "an attack on a policy/argument"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "猛烈批评；抨击",
+        "definition_en": "to criticize strongly, or a strong verbal/written criticism",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:attack:6bad7fafc8d77979",
+        "sense_label_en": "to criticize strongly, or a strong verbal/written criticism",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e691aee1f9df6fcf7c41",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:attack:4b7411b63d9e38e3:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "哮喘/疾病突然发作",
+            "phrase": "an attack of asthma/illness"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（疾病的）突然发作",
+        "definition_en": "a sudden episode or bout of an illness",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:attack:4b7411b63d9e38e3",
+        "sense_label_en": "a sudden episode or bout of an illness",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -141,6 +215,20 @@
         "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
       },
       {
+        "sense_id": "sense:attack:4b7411b63d9e38e3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 896,
+        "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
+        "sense_id": "sense:attack:6bad7fafc8d77979",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 895,
+        "source_path": "content/lexical/canonical/senses/shards/o0321-0352.json"
+      },
+      {
         "sense_id": "sense:attack:b2f86d36ea7556c5",
         "status": "active",
         "merged_into_sense_id": null,
@@ -150,7 +238,10 @@
     ],
     "active_collocations": [
       "collocation:1cf4fe93933224737058",
-      "collocation:8407ce4a60b672318b09"
+      "collocation:62adec0520eb9a74055f",
+      "collocation:8407ce4a60b672318b09",
+      "collocation:bc298c867d85820a9970",
+      "collocation:e691aee1f9df6fcf7c41"
     ],
     "facts": [
       {
@@ -166,8 +257,23 @@
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       },
       {
+        "id": "collocation:62adec0520eb9a74055f",
+        "source_row": 21219,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
         "id": "collocation:8407ce4a60b672318b09",
         "source_row": 11193,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:bc298c867d85820a9970",
+        "source_row": 21220,
+        "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
+      },
+      {
+        "id": "collocation:e691aee1f9df6fcf7c41",
+        "source_row": 21221,
         "source_path": "content/lexical/canonical/collocations/shards/o0321-0352.json"
       }
     ],

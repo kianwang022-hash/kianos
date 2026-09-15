@@ -22,10 +22,12 @@
             "meaning_cn": "详细阐述某事",
             "phrase": "expand on + sth"
           }
-        ]
+        ],
+        "source_sense_id": "sense:expand:3378eae3f6a95ab4",
+        "definition_en": "to speak or write about something in more detail"
       }
     ],
-    "content_hash": "2187a3fb60fb60c8302ab6cf01c9b1d8a5a5b4407478a6ce0d05dfab772e49fd",
+    "content_hash": "121036ddd5b07385d0255988408b3eb7cd160fbffa590138a7388fcbf4e5c0b6",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "扩大",
@@ -38,7 +40,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:fcd411e8b42622a80356"
+      "construction:construction:fcd411e8b42622a80356",
+      "semantic-reconciliation:o1625-o1824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -85,7 +88,7 @@
         "confidence": "medium",
         "definition_cn": "扩大；膨胀",
         "definition_en": "to become larger in size, volume, or quantity",
-        "governing_pattern": "vi.",
+        "governing_pattern": "vi. / vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -93,6 +96,20 @@
         "sense_label_en": "to become larger in size, volume, or quantity",
         "sort_order": 0,
         "transitivity": "I/T"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "详述；进一步阐述",
+        "definition_en": "to speak or write about something in more detail",
+        "governing_pattern": "vi. + on/upon",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:expand:3378eae3f6a95ab4",
+        "sense_label_en": "to speak or write about something in more detail",
+        "sort_order": 1,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -116,29 +133,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:expand:3378eae3f6a95ab4",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "详述",
-      "definition_en": "to speak or write about something in detail",
-      "semantic_key": "41f4c0638d1c6748e30f147d1e79ff5163dc9eb10888cb61a2f6320df04d141c",
-      "semantic_key_history": [],
-      "legacy_aliases": [
-        "expand:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "expand:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-08-22T05:00:00+00:00",
-      "source_row": 4884,
-      "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:expand:387c7c8c8c215fb9",
       "status": "merged",
@@ -167,7 +161,7 @@
     "senses": [
       {
         "sense_id": "sense:expand:3378eae3f6a95ab4",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4884,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"

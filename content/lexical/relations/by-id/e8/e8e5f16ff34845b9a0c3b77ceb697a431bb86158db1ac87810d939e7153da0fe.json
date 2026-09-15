@@ -110,10 +110,54 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:here",
+      "source_ordinal": 2318,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "hear 是动词听见；here 是地点副词，二者同音",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:hear:here",
+            "evidence_status": "source_checked",
+            "source_locator": "hear|here",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:hear:ca091d00e2fa7961",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:here:2a333acc423b58a5",
+        "target_sense_id": "sense:hear:68702ecad8e85f11",
+        "target_word": "hear",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2225-o2424.md"
   }
 }

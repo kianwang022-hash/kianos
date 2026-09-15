@@ -7,9 +7,18 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c3a9e652af7a3bc8299c1e7c4412cf581761e1476b9a5b32a7aed00012c018f1",
+    "content_hash": "f15f0a42d5086bcf983ec51827b1932b3bd18a7edd273c5b0b915110532dc1aa",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "有强烈吸引力的；有魅力的",
+          "label_en": "powerfully attractive or charismatic",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:magnetic:c7dc4021073ac915"
+          ]
+        }
+      ],
       "core_meaning_cn": "有磁性的",
       "core_meaning_en": "having the properties of a magnet",
       "mental_model_cn": "有磁性的",
@@ -21,7 +30,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:magnetic:75fa79f9c4285186",
-      "relation:deep:word_family:magnetic:75fa79f9c4285186"
+      "relation:deep:word_family:magnetic:75fa79f9c4285186",
+      "semantic-reconciliation:o2825-o3024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -57,6 +67,30 @@
         "sense_id": "sense:magnetic:8223284c86d05905",
         "sense_label_en": "of or relating to magnetism or magnets",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:93ab1d66369f2990f7c9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:magnetic:c7dc4021073ac915:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "极有魅力的个性/吸引力",
+            "phrase": "magnetic personality/appeal"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "有强烈吸引力的；有魅力的",
+        "definition_en": "powerfully attractive, compelling, or charismatic",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:magnetic:c7dc4021073ac915",
+        "sense_label_en": "powerfully attractive, compelling, or charismatic",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -221,6 +255,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
       },
       {
+        "sense_id": "sense:magnetic:c7dc4021073ac915",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8197,
+        "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
         "sense_id": "sense:magnetic:deb8e73787075253",
         "status": "merged",
         "merged_into_sense_id": "sense:magnetic:8223284c86d05905",
@@ -230,7 +271,8 @@
     ],
     "active_collocations": [
       "collocation:0a7b828456cd61e3af35",
-      "collocation:0b1e24feb31dc97de38b"
+      "collocation:0b1e24feb31dc97de38b",
+      "collocation:93ab1d66369f2990f7c9"
     ],
     "facts": [
       {
@@ -258,6 +300,11 @@
       {
         "id": "collocation:8e0a2b0669eb63921992",
         "source_row": 12044,
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:93ab1d66369f2990f7c9",
+        "source_row": 21515,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
       }
     ],

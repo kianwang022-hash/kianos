@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:eventually",
+      "source_ordinal": 1732,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "finally可标最后一步；eventually强调经过一段时间后的结果",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "finally succeeded",
+          "core_meaning": "终于，最终",
+          "exam_trap": "finally与eventually混淆",
+          "register": "中性",
+          "semantic_prosody": "结果达成",
+          "strength": "中",
+          "syntax": "副词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00048676-r",
+            "evidence_status": "source_checked",
+            "source_locator": "00048676-r",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:finally:199f659436abab6f",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "after an unspecified period of time or an especially long delay",
+        "source_sense_id": "sense:eventually:731c00f693dd596f",
+        "target_sense_id": "sense:finally:6ae12265113c5c4c",
+        "target_word": "finally",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1825-o2024.md"
   }
 }

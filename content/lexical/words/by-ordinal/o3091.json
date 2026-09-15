@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ed084b5269ab17ec602cc7f8d4fcda036d6f4175a353be1b27a0da66160ed21a",
+    "content_hash": "1f866a831133cb22f905b73d4c5c8ad2440425714ec71dc4c741aee06ea8f984",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
           "sense_ids": [
             "sense:mobile:2a77b7dcdf02578c"
           ]
+        },
+        {
+          "label_cn": "手机；移动电话（主要英式）",
+          "label_en": "mobile phone/cellphone, chiefly BrE standalone noun",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mobile:f3c133c5128eace6"
+          ]
         }
       ],
       "core_meaning_cn": "可移动的",
@@ -37,7 +45,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3025-o3124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -121,6 +131,31 @@
         "sense_label_en": "a hanging sculpture that moves in air currents",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cf034e95465cdce76e4a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mobile:f3c133c5128eace6:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "打我手机",
+            "phrase": "call me on my mobile"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "手机；移动电话（主要英式）",
+        "definition_en": "a mobile phone; a cellphone, especially in British English",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:mobile:f3c133c5128eace6",
+        "sense_label_en": "a mobile phone; a cellphone, especially in British English",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "mainly British English as a standalone noun; AmE usually cell phone/cellphone"
       }
     ],
     "verification_summary": {
@@ -166,13 +201,21 @@
         "merged_into_sense_id": null,
         "source_row": 8610,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mobile:f3c133c5128eace6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8649,
+        "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       }
     ],
     "active_collocations": [
       "collocation:2e25da203fb3c53b74da",
       "collocation:5f565fe8a000fe9808d0",
       "collocation:65e47b9842da94dff467",
-      "collocation:7175ebeb521226b5cdbb"
+      "collocation:7175ebeb521226b5cdbb",
+      "collocation:cf034e95465cdce76e4a"
     ],
     "facts": [],
     "collocations": [
@@ -194,6 +237,11 @@
       {
         "id": "collocation:7175ebeb521226b5cdbb",
         "source_row": 9583,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:cf034e95465cdce76e4a",
+        "source_row": 21140,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
       }
     ],
