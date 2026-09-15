@@ -9,6 +9,7 @@
   "coverage_policy": "SPARSE_HIGH_VALUE_SUBSET",
   "rules": {
     "function_content_separation": "UI and rendering capability must not depend on completeness of visual content; content may be added, replaced or removed without changing the learning flow.",
+    "content_completion_not_required_for_ui": true,
     "no_new_medical_owner": "This registry binds already-reviewed visual cues to physical source objects only; it does not create or replace canonical medical content.",
     "fail_closed": "A declared required asset that is missing or hash-drifted must fail validation/build rather than render an unverified substitute.",
     "recall_guard": "Visual placement and Reveal timing remain owned by the existing learner projection; this registry grants no new render timing."
