@@ -11,6 +11,8 @@ Safety: `XIZONG_UI_REVIEW_PROTOCOL.md`
 
 已闭合的 Learning/Runtime 是 UI 优化 baseline。读取 `content/xizong/LEARNING_CONTRACT.md`、`knowledge/learner/study-policy.json` 和精确 owner，不能因“反仪式”取消真实正式接触/主动 Recall/completion 条件。
 
+共享平台 baseline 已按一条生产 Runtime 收口；后续全科内容工程属于对稳定 capability slots 的持续填充，不得以“内容还会继续增长”为理由重开并行 Runtime、并行 Evidence 或并行 Visual authority。
+
 ## 完整产品 family，不仅 Guide
 
 System Guide → Block orientation → LG orientation → 原讲义整 LG 连续学习 → 一次真实返回 → KP Recall Front/Reveal → LG closure → Block Recall → Block Complete → selective After Learn；System 实际学完后还有 System Recall/题目sweep/修复/题后重建。
@@ -71,6 +73,16 @@ stable question identity
 
 已有 System Recall 的 `PRE_QUESTION / MID_SWEEP / POST_QUESTION` 表示**一次题目流程内部的位置**；跨学习轮次使用正交的 `FIRST_PASS / SECOND_PASS / LATE_REVIEW` study-phase 语义，两种 phase 不共用一个字段。结果可见性、Mark、提示/援助、题目/内容版本等已知条件仍应随 attempt 保留；未来整卷接入继续沿用这一模型，而不是新建平行 authority。
 
+### Reviewed Question ↔ Knowledge Crosswalk｜Current capability
+
+题目到知识、知识到题目的接口已经进入同一生产 Runtime，但**关系内容本身仍允许增量增长**。
+
+唯一允许进入 learner projection 的关系是 canonical owner 中显式 `REVIEWED` 的 Question→Knowledge relation；Runtime 不根据题干、疾病名或相邻 KP 自动猜 mapping。Question→Knowledge consumer 与 Block/KP→Questions reverse lookup 都从**同一份 canonical relation**现场解析/派生，reverse lookup 不持有第二份 mapping 状态。
+
+缺 mapping 是合法状态：题目仍可完成正常 Question Attempt / Evidence 流程，只是不展示知识回链；relation 指向未通过当前 Projection gate 的对象时 fail closed，不为了“看起来完整”放宽安全边界。未来新增 reviewed relation 后，现有 System sweep / SECOND_PASS / Block reverse lookup 自动获得能力，不需要重做 Runtime 或页面骨架。
+
+Crosswalk 只负责 reviewed relation 的消费与返回入口，不改变 Question Attempt、Repair、mastery、Block completion 或 Evidence authority。
+
 ### Visual / Precision capability｜Current 兼容状态
 
 Visual / Precision 现在是同一生产 Runtime 的**可选 enrichment capability**，不是 A2 特例，也不是第二套内容权威。正式边界见 `XIZONG_VISUAL_PRECISION_CAPABILITY.md`。
@@ -91,6 +103,8 @@ Visual 是稀疏高价值增强，不做“全讲义截图搬家”；Precision 
 
 A2 browser acceptance 已执行真实 R3 source-visual 路径与 KP Precision post-Reveal 路径；缺失 enrichment 合法，不造 placeholder，不构造假 completeness。
 
+Source Visual content pack 另有独立 CI integrity guard：检查 manifest ↔ Current learning-cues identity、真实 reviewed Visual cue、唯一 cue ownership、安全 asset path、Source Object/page/accessibility metadata 与 derived asset SHA。该 validator 只保护 provenance / binding integrity，**不成为 renderer 的第二份 Visual authority，也不把内容覆盖率升级成 learner completion gate**。
+
 ### Progressive availability｜工程未完成不能伪装成 learner 未完成
 
 内容/工程 availability 与 learner progress、Evidence、Repair、先修依赖正交。
@@ -104,9 +118,9 @@ capability/content 不存在或尚未开放
 ≠ learner debt
 ```
 
-未来 System、Question、Visual、Precision、Repair/Challenge 等能力可以逐步填充稳定 slot。已开放的 Learn / Recall / Question / Repair 路径不能因为旁支能力 `COMING` / partial 而被阻塞；completion denominator 只计算当前真实 admitted learner obligations。
+未来 System、Question、Crosswalk relation、Visual、Precision、Repair/Challenge 等能力可以逐步填充稳定 slot。已开放的 Learn / Recall / Question / Repair 路径不能因为旁支能力 `COMING` / partial 而被阻塞；completion denominator 只计算当前真实 admitted learner obligations。
 
-产品层冻结的是 **learner journey + capability slots**，不是未来所有内容。后续全科内容工程可以持续把新 System、题目、Visual / Precision 接进现有接口，而不重建 Runtime 或重新设计页面骨架。
+产品层冻结的是 **learner journey + capability slots**，不是未来所有内容。后续全科内容工程可以持续把新 System、题目、reviewed relation、Visual / Precision 接进现有接口，而不重建 Runtime 或重新设计页面骨架。
 
 ## 展示与 Guide 最新明确要求
 
