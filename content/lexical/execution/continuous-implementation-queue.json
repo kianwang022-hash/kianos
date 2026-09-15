@@ -1,10 +1,10 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 4,
-  "last_refreshed_main": "7e0af1c35f2652b6e2eb7ff7e5d5c8c93c772475",
+  "generation": 5,
+  "last_refreshed_main": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
   "contiguous_implemented_frontier": "o3374",
   "active_package": null,
-  "package_status": "PAUSED_AUDIT_COMPLETE_CORRECTIVE_INTEGRATION_PENDING",
+  "package_status": "PAUSED_AUDIT_COMPLETE_PREFIX_CORRECTION_PENDING",
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": null,
@@ -32,9 +32,12 @@
   },
   "retro_corrective_integration": {
     "scope": [25, 3124],
-    "branch": "lexical/retro-audit-debt-20260915",
-    "status": "VERIFIED_BRANCH_PENDING_MAIN_INTEGRATION",
-    "integration_rule": "LAND_UNIQUE_ACCEPTED_CORRECTIONS_ONLY_EXCLUDE_OVERLAP_AND_STALE_PROCESS_ARTIFACTS"
+    "source_branch": "lexical/retro-audit-debt-20260915",
+    "integration_branch": "lexical/retro-replay-integration-o0025-o3124-20260916",
+    "integration_pr": 179,
+    "merge_commit": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
+    "receipt": "content/lexical/execution/receipts/o0025-o3124.retro-integration.json",
+    "status": "INTEGRATED_COMPLETE"
   },
   "canonical_corrective": {
     "scope": [3125, 3374],
@@ -43,6 +46,11 @@
     "merge_commit": "c1e7de5946c337f76fa6b15ed107a70de1178008",
     "delta_count": 39,
     "status": "INTEGRATED_COMPLETE"
+  },
+  "continuous_corrective_closure": {
+    "scope": [25, 3374],
+    "status": "COMPLETE_ON_MAIN",
+    "remaining_pre_handoff_prefix": [1, 24]
   },
   "future_package": {
     "start": 3375,
