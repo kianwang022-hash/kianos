@@ -43,3 +43,17 @@ const reading = loadReadingById(readingId);
   <ObjectiveTransferClaims task="reading_a" />
   <ReadingSessionHandoff />
 </Base>
+
+<style is:global>
+  /* Restore the accepted legacy Reading A balance: passage is the dominant
+     reading surface while the full question sheet remains comfortably usable. */
+  :root body.surfaceBody-reading #main-content.englishCanvas .portedReadingColumns {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  }
+
+  @media (max-width: 1000px) {
+    :root body.surfaceBody-reading #main-content.englishCanvas .portedReadingColumns {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
