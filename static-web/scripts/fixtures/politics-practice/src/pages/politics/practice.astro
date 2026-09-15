@@ -1,0 +1,6 @@
+---
+import Base from '@runtime/layouts/Base.astro';
+import Workbench from '@runtime/components/PoliticsPracticeWorkbench.astro';
+import { catalog } from '../../../catalog.mjs';
+---
+<Base title="隔离合成工作台" active="politics" showLead={false}><Workbench catalog={catalog} base="/" /></Base>

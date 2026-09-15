@@ -1,0 +1,17 @@
+---
+import { buildPoliticsUnitReturnConfigs } from '../lib/politicsUnitReturn.mjs';
+const { chapter, base = '/' } = Astro.props;
+const configs = buildPoliticsUnitReturnConfigs(chapter);
+---
+<nav class="practiceReturn" data-practice-return hidden aria-label="工作台返回">
+  <a data-practice-exact-return>← 返回工作台原题</a><span data-practice-return-error role="alert"></span>
+</nav>
+<script type="application/json" data-practice-bridge-config set:html={JSON.stringify({ configs, base }).replace(/</g, '\u003c')} />
+<script>
+  import { installPoliticsPracticeBridge } from '../lib/politicsPracticeBridge.mjs';
+  installPoliticsPracticeBridge();
+</script>
+<style>
+  .practiceReturn{padding:12px 16px;margin-bottom:12px;border:1px solid #dce7e1;background:#f3f7f4;border-radius:9px;font-size:15px}
+  .practiceReturn a{color:#246a55;font-weight:650;text-decoration:none}.practiceReturn a:focus-visible{outline:3px solid #476b97;outline-offset:3px}
+</style>
