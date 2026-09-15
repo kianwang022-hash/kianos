@@ -6,7 +6,8 @@ const frame = loadXizongFrame(system.systemId);
 const renderedPointers = new Set(['/mission','/mental_model/spine','/mental_model/parallel_controls','/core_variables','/core_relations','/failure_modes','/judgment_axes','/block_route']);
 const additionalModel = xizongFrameView(frame,'SYSTEM_GUIDE').filter(object => !renderedPointers.has(object.binding.selector?.value));
 const base = import.meta.env.BASE_URL;
-const variableLabel = (item) => typeof item === 'string' ? item : String(item?.label || item?.id || '');
+// Preserve Current variable identity AND role; a label alone is a lossy projection.
+const axisParts = (item) => typeof item === 'string' && item.split('↔').length === 2 ? item.split('↔').map(part => part.trim()) : null;
 const recall = system?.systemRecall;
 const recallPrompt = typeof recall === 'string'
   ? recall
@@ -86,12 +87,15 @@ const failureViews = pathways?.systemFailureViews || {};
     <section class="xv6DensePair">
       <article class="xv6Panel">
         <header><span>Core Variables</span><h3>最小变量语言</h3></header>
-        <div class="xv6Chips">{system.coreVariables.map((item) => <span>{variableLabel(item)}</span>)}</div>
+        <div class="xv6VariableLanguage" data-system-variables><XizongFrameValue value={system.coreVariables} geometry="AXES" /></div>
         {system.coreRelations.length > 0 && <div class="xv6Relations">{system.coreRelations.map((item) => <code>{item}</code>)}</div>}
       </article>
       <article class="xv6Panel">
         <header><span>Judgment Axes</span><h3>病例固定坐标</h3></header>
-        <div class="xv6Chips">{system.judgmentAxes.map((item) => <span>{item}</span>)}</div>
+        <div class="xv6JudgmentAxes" data-system-axes>{system.judgmentAxes.map((item) => {
+          const parts = axisParts(item);
+          return <div class="xv6AxisRow">{parts ? <><span>{parts[0]}</span><b aria-hidden="true">↔</b><span>{parts[1]}</span></> : <span>{item}</span>}</div>;
+        })}</div>
       </article>
     </section>
 
@@ -99,7 +103,7 @@ const failureViews = pathways?.systemFailureViews || {};
     <section class="xv6Panel" data-system-section="failure">
       <header><span>Failure Modes</span><h3>点一个故障，看整条链哪里先坏</h3></header>
       <div class="xv6FailureGrid">
-        {system.failureModes.map((mode, index) => <button type="button" data-failure-id={mode.id}>
+        {system.failureModes.map((mode, index) => <button type="button" data-failure-id={mode.id} aria-pressed="false">
           <b>FM{index + 1}</b>
           <div><h4>{mode.label}</h4>{mode.chain && <p>{mode.chain}</p>}</div>
         </button>)}
@@ -154,7 +158,7 @@ const failureViews = pathways?.systemFailureViews || {};
     try { failures = JSON.parse(root.querySelector('[data-failure-payload]')?.textContent || '{}'); } catch {}
     let selected = 0;
     try { selected = Number(sessionStorage.getItem(`kianos-xizong-system-selection:${systemId}`) || 0); } catch {}
-    selected = Math.max(0, Math.min(links.length - 1, selected));
+    selected = Number.isInteger(selected) ? Math.max(0, Math.min(links.length - 1, selected)) : 0;
 
     const label = root.querySelector('[data-selected-label]');
     const title = root.querySelector('[data-selected-title]');
@@ -187,7 +191,11 @@ const failureViews = pathways?.systemFailureViews || {};
         node.classList.toggle('mechanism-active', active);
         node.classList.toggle('mechanism-dim', focus.size > 0 && !active);
       });
-      failureButtons.forEach((button) => button.classList.toggle('active', button.getAttribute('data-failure-id') === id));
+      failureButtons.forEach((button) => {
+        const active = button.getAttribute('data-failure-id') === id;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
       if (failureTitle) failureTitle.textContent = view.label || id;
       if (failureChain) failureChain.textContent = view.chain || '';
       if (failureVars) {
@@ -213,6 +221,11 @@ const failureViews = pathways?.systemFailureViews || {};
     open?.addEventListener('click', () => links[selected]?.click());
 
     document.addEventListener('keydown', (event) => {
+      // System navigation must not hijack Recall, question work, IME or shortcuts.
+      if (event.defaultPrevented || event.isComposing || event.keyCode === 229
+        || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
+      if (document.querySelector('[data-recall-dialog]')?.open
+        || document.querySelector('[data-question-workspace]')?.hidden === false) return;
       const target = event.target;
       if (target instanceof HTMLElement && target.closest('input,textarea,select,button,[contenteditable="true"]')) return;
       if (event.key === 'ArrowUp') { event.preventDefault(); selected = Math.max(0, selected - 1); renderSelection(); return; }

@@ -119,13 +119,15 @@ const kps = block?.kpRecords || [];
     }).observe(root, { subtree: true, attributes: true, attributeFilter: ['hidden', 'disabled', 'class'] });
 
     document.addEventListener('keydown', (event) => {
-      if (event.isComposing || event.keyCode === 229) return;
+      if (event.defaultPrevented || event.isComposing || event.keyCode === 229
+        || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
       const target = event.target;
       const editing = target instanceof HTMLElement && target.closest('input,textarea,select,[contenteditable="true"]');
       if (editing) {
         if (event.key === 'Escape') { event.preventDefault(); target.blur(); }
         return;
       }
+      if (target instanceof HTMLElement && target.closest('button,a,summary,[role="button"]')) return;
       const stage = currentStage();
       if (['ArrowUp', 'ArrowDown'].includes(event.key) && stage === 'kp_recall') {
         const surface = currentScrollSurface();

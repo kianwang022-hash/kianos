@@ -3,8 +3,14 @@ import { marked } from 'marked';
 const { value, geometry = 'TEXT_STRUCTURE' } = Astro.props;
 const labels = {label:'',title:'',chain:'机制链',meaning:'意义',description:'说明',variables:'变量',formula:'公式',role:'职责',logic:'关系',from:'从',to:'到',reason:'原因',step:'步骤',name:'',axis:'坐标',value:'',kp:'KP',goal:'学习目标',closure:'闭合目标'};
 const metadata = new Set(['id','block_id','kp_ids','source_refs']);
+// A typed coordinate's ID is learner meaning, unlike a repository owner ID.
+const variable = geometry === 'AXES' && value && !Array.isArray(value)
+  && typeof value.id === 'string' && typeof value.label === 'string' && typeof value.role === 'string';
 ---
 {typeof value === 'string' ? <div class="markdown xizongFrameText" set:html={marked.parse(value)} /> :
- Array.isArray(value) ? <div class:list={['xizongFrameItems', `geometry-${geometry.toLowerCase()}`]}>{value.map(item => <section><Astro.self value={item} /></section>)}</div> :
- value && typeof value === 'object' ? <dl class="xizongFrameFields">{Object.entries(value).filter(([key]) => !metadata.has(key)).map(([key,item]) => <div>{labels[key] !== '' && <dt>{labels[key] || key}</dt>}<dd><Astro.self value={item} /></dd></div>)}</dl> : typeof value === 'number' || typeof value === 'boolean' ? <span>{String(value)}</span> : null}
+ Array.isArray(value) ? <div class:list={['xizongFrameItems', `geometry-${geometry.toLowerCase()}`]}>{value.map(item => <section><Astro.self value={item} geometry={geometry} /></section>)}</div> :
+ variable ? <section class="xizongVariable">
+   <header><b>{value.id}</b><strong>{value.label}</strong></header><p>{value.role}</p>
+   {Object.entries(value).filter(([key]) => !metadata.has(key) && !['label','role'].includes(key)).map(([key,item]) => <div><strong>{labels[key] || key}</strong><Astro.self value={item} /></div>)}
+ </section> : value && typeof value === 'object' ? <dl class="xizongFrameFields">{Object.entries(value).filter(([key]) => !metadata.has(key)).map(([key,item]) => <div>{labels[key] !== '' && <dt>{labels[key] || key}</dt>}<dd><Astro.self value={item} /></dd></div>)}</dl> : typeof value === 'number' || typeof value === 'boolean' ? <span>{String(value)}</span> : null}
 <style>.xizongFrameItems{display:grid;gap:14px}.geometry-sequence,.geometry-loop,.geometry-axes,.geometry-network,.geometry-formula_strip{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));align-items:start}.xizongFrameItems>section{min-width:0;padding:10px 12px;border-left:2px solid #b1c4b9}.xizongFrameFields{margin:0}.xizongFrameFields>div{margin:8px 0}.xizongFrameFields dt{font-size:14px;color:var(--study-muted)}.xizongFrameFields dd{margin:0}.xizongFrameText{font-size:17px;line-height:1.75}.xizongFrameText :global(p){margin:6px 0}.xizongFrameText :global(pre){white-space:pre-wrap;overflow-wrap:anywhere}.xizongFrameText :global(table){display:block;overflow-x:auto;width:100%}.xizongFrameText :global(th),.xizongFrameText :global(td){font-size:16px;padding:10px}</style>

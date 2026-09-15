@@ -85,7 +85,18 @@ const blockIds = (system?.blocks || []).map((row) => row.blockId).filter(Boolean
 
       const rating = target.closest('[data-rating]');
       if (rating) {
-        const kpId = rating.closest('[data-kp-id]')?.getAttribute('data-kp-id') || '';
+        const card = rating.closest('[data-kp-id]');
+        const kpId = card?.getAttribute('data-kp-id') || '';
+        const stage = card?.closest('[data-study-stage]');
+        // A hidden button remains programmatically clickable (including 1–4).
+        // Guard before both the study writer and the bubbling evidence writer.
+        if (!card || card.hidden || stage?.hidden || stage?.getAttribute('data-study-stage') !== 'kp_recall'
+          || card.querySelector('[data-kp-answer]')?.hidden !== false
+          || card.querySelector('[data-kp-rating]')?.hidden !== false) {
+          stop(event);
+          setBlockStatus(root, '先主动回忆并 Reveal 核对，再记录这次回忆质量');
+          return;
+        }
         if (kpId && !state?.learned?.[kpId]) {
           stop(event);
           setBlockStatus(root, '先完成这个 KP 的正式学习，再记录 Recall');

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { chromium } from 'playwright';
+import { testXizongSubjectUi } from './test-xizong-subject-ui.mjs';
 
 const PORT = 4326;
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -148,6 +149,7 @@ try {
   await blockResumeAndEvidenceJourney(page);
   await systemQuestionRepairJourney(page);
   await context.close();
+  await testXizongSubjectUi({ browser, base: BASE, auditDir });
   report.finished_at = new Date().toISOString();
   report.status = 'PASS';
   report.evidence_class = 'EXECUTED_BROWSER_ENGINEERING_EVIDENCE_NOT_REAL_LEARNER_U';

@@ -1,0 +1,182 @@
+/* Xizong-only readability. Current medical/learning objects and evidence gates
+   remain with their owners. No semantic text is authored by this stylesheet. */
+body.surfaceBody-xizong {
+  --xizong-reading-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Zen Hei", sans-serif;
+  --study-font: var(--xizong-reading-font);
+  --study-ink: #202322;
+  --study-muted: #505956;
+  --study-faint: #626b67;
+  font-family: var(--xizong-reading-font);
+  font-synthesis: weight;
+  font-size: 19px;
+  line-height: 1.75;
+}
+:root body.surfaceBody-xizong #main-content {width:min(1800px,100%);padding:24px clamp(20px,3vw,54px) 56px;}
+:root body.surfaceBody-xizong #main-content :is(h1,h2,h3,h4,p,li,span,small,strong,b,summary,label,button,select,input,textarea,a,dt,dd) {font-family:var(--xizong-reading-font);letter-spacing:normal;}
+:root body.surfaceBody-xizong #main-content :is(h1,h2,h3,h4,strong,b) {font-weight:700;}
+:root body.surfaceBody-xizong #main-content :is(button,input,select,textarea) {font-size:17px;line-height:1.6;}
+:root body.surfaceBody-xizong #main-content :is(a,button,summary):focus-visible {outline:3px solid #30785d;outline-offset:4px;}
+:root body.surfaceBody-xizong #main-content :is(p,li,dd) {overflow-wrap:anywhere;}
+:root body.surfaceBody-xizong #main-content :is(pre,code) {font-family:var(--study-mono);}
+:root body.surfaceBody-xizong #main-content :is(.subjectEntries h2,.xv6SystemHeroDense h2,.portedStudyIdentity h2) {font-size:29px;line-height:1.4;}
+:root body.surfaceBody-xizong #main-content .subjectEntries {gap:30px 40px;}
+:root body.surfaceBody-xizong #main-content .subjectEntries p {font-size:19px;}
+:root body.surfaceBody-xizong #main-content .subjectEntries nav {gap:14px;}
+:root body.surfaceBody-xizong #main-content .subjectEntries nav a {font-size:19px;}
+:root body.surfaceBody-xizong #main-content .subjectEntries nav b {font-size:16px;}
+:root body.surfaceBody-xizong #main-content .siteResume h2 {font-size:19px;}
+:root body.surfaceBody-xizong #main-content .siteResume a strong {font-size:22px;}
+:root body.surfaceBody-xizong #main-content .siteResume a :is(span,b) {font-size:16px;}
+
+/* System: one readable model and route, with explicit Current coordinates. */
+:root body.surfaceBody-xizong #main-content .xv6SystemShell {grid-template-columns:230px minmax(0,1fr);gap:34px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail {padding-right:18px;border-right:1px solid var(--study-line);}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail header {padding:8px 4px 14px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail header strong {font-size:22px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail header :is(span,small) {font-size:14px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail nav a {grid-template-columns:30px minmax(0,1fr);padding:12px 6px;border-left:3px solid transparent;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail nav a.selected {border-left-color:var(--study-green);}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail nav a span {font-size:17px;line-height:1.65;white-space:normal;overflow:visible;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail nav a b {font-size:15px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail nav a small {display:none;}
+:root body.surfaceBody-xizong #main-content .xv6SystemRail :is(footer,kbd) {font-size:13px;line-height:1.6;}
+:root body.surfaceBody-xizong #main-content .xv6SystemContext {display:none;}
+:root body.surfaceBody-xizong #main-content .xv6SystemMain {gap:22px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemHeroDense {grid-template-columns:minmax(170px,.5fr) minmax(0,1.5fr);gap:18px 26px;}
+:root body.surfaceBody-xizong #main-content .xv6SystemHeroDense p {font-size:20px;line-height:1.85;color:var(--study-ink);}
+:root body.surfaceBody-xizong #main-content .xv6SystemHeroDense :is(span,button) {font-size:16px;}
+:root body.surfaceBody-xizong #main-content .xv6Panel {padding:20px 0;}
+:root body.surfaceBody-xizong #main-content .xv6Panel h3 {font-size:24px;line-height:1.5;margin-bottom:16px;}
+:root body.surfaceBody-xizong #main-content .xv6Panel header span {font-size:14px;}
+:root body.surfaceBody-xizong #main-content .xv6Mother {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xv6Spine {grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-block:20px;}
+:root body.surfaceBody-xizong #main-content .xv6Spine li {display:grid;align-content:start;gap:7px;padding:14px 12px;border-top:2px solid #719383;border-radius:0;min-width:0;}
+:root body.surfaceBody-xizong #main-content .xv6Spine li span {font-size:19px;line-height:1.7;}
+:root body.surfaceBody-xizong #main-content .xv6Spine li b {font-size:14px;opacity:1;color:var(--study-muted);}
+:root body.surfaceBody-xizong #main-content .xv6Parallel {gap:14px 24px;}
+:root body.surfaceBody-xizong #main-content .xv6Parallel span {font-size:17px;line-height:1.75;padding:0;border-radius:0;background:none;}
+:root body.surfaceBody-xizong #main-content .xv6DensePair {grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;}
+:root body.surfaceBody-xizong #main-content .xv6VariableLanguage .xizongFrameItems {grid-template-columns:1fr;gap:16px;}
+:root body.surfaceBody-xizong #main-content .xv6VariableLanguage .xizongFrameItems>section {padding:0 0 14px;border:0;border-bottom:1px solid var(--study-line);}
+:root body.surfaceBody-xizong #main-content .xizongVariable header {display:flex;gap:14px;align-items:baseline;}
+:root body.surfaceBody-xizong #main-content .xizongVariable header b {font-size:22px;color:var(--study-green);}
+:root body.surfaceBody-xizong #main-content .xizongVariable header strong {font-size:20px;}
+:root body.surfaceBody-xizong #main-content .xizongVariable p {font-size:18px;line-height:1.85;margin:8px 0 0;}
+:root body.surfaceBody-xizong #main-content .xv6JudgmentAxes {display:grid;gap:0;}
+:root body.surfaceBody-xizong #main-content .xv6AxisRow {display:grid;grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr);gap:10px;align-items:center;padding:16px 0;border-bottom:1px solid var(--study-line);font-size:18px;line-height:1.7;}
+:root body.surfaceBody-xizong #main-content .xv6AxisRow>span:only-child {grid-column:1/-1;}
+:root body.surfaceBody-xizong #main-content .xv6AxisRow b {color:var(--study-muted);text-align:center;}
+:root body.surfaceBody-xizong #main-content .xv6Relations {gap:12px 20px;}
+:root body.surfaceBody-xizong #main-content .xv6Relations code {font-size:18px;line-height:1.8;white-space:normal;overflow-wrap:anywhere;padding:5px 0;border-radius:0;}
+:root body.surfaceBody-xizong #main-content .xv6FailureGrid {gap:14px 24px;}
+:root body.surfaceBody-xizong #main-content .xv6FailureGrid button {padding:16px 12px;grid-template-columns:42px minmax(0,1fr);gap:10px;min-width:0;}
+:root body.surfaceBody-xizong #main-content .xv6FailureGrid button b {font-size:15px;}
+:root body.surfaceBody-xizong #main-content .xv6FailureGrid h4 {font-size:20px;line-height:1.6;}
+:root body.surfaceBody-xizong #main-content .xv6FailureGrid p {font-size:18px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6FailureRun :is(strong,p) {font-size:19px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6FailureRun :is(span,div span) {font-size:16px;}
+:root body.surfaceBody-xizong #main-content .xv6Dependency summary {font-size:17px;}
+
+/* Block: navigation stays local; the old full-height state rail becomes a strip. */
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout {display:grid;grid-template-columns:230px minmax(0,1fr);grid-template-rows:auto 1fr;gap:24px 32px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain {grid-row:1;grid-column:1/-1;padding:10px 0;border-block:1px solid var(--study-line);}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain :is(header,footer) {display:none;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain ol {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding:0;gap:8px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain li button {padding:8px;grid-template-columns:15px minmax(0,1fr);}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain li b {font-size:16px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain li small {font-size:14px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyOutline {grid-row:2;grid-column:1;padding:0 14px 0 0;min-width:0;border-right:1px solid var(--study-line);}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyMain {grid-row:2;grid-column:2;padding:4px 8px;min-width:0;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.chain-collapsed {grid-template-rows:1fr;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.chain-collapsed :is(.portedStudyMain,.portedStudyOutline) {grid-row:1;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.outline-collapsed {grid-template-columns:minmax(0,1fr);}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.outline-collapsed .portedStudyMain {grid-column:1;}
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.chain-collapsed>.portedStudyChain,
+:root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.outline-collapsed>.portedStudyOutline {display:none;}
+:root body.surfaceBody-xizong #main-content .portedStudyOutline nav button {padding:12px 4px;min-width:0;}
+:root body.surfaceBody-xizong #main-content .portedStudyOutline nav button span {font-size:17px;line-height:1.7;white-space:normal;overflow:visible;}
+:root body.surfaceBody-xizong #main-content .portedStudyOutline nav button b {font-size:15px;}
+:root body.surfaceBody-xizong #main-content :is(.portedStudyContextRow,.portedStudyIdentityMeta strong,.portedStudyTabs button,.portedStudyShellActions button) {font-size:16px;line-height:1.6;}
+:root body.surfaceBody-xizong #main-content :is(.portedStudyIdentityMeta small,.portedStudyOutline footer,.portedStudyOutline header span) {font-size:14px;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyArticle,.portedRecallAnswer) {padding:16px 0;max-width:none;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyArticle,.portedRecallAnswer) :is(p,li) {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyArticle,.portedRecallAnswer) :is(th,td) {font-size:18px;line-height:1.8;padding:12px;}
+:root body.surfaceBody-xizong #main-content :is(.portedStudyArticle,.portedRecallAnswer,.xizongFrameText,.portedPrecisionAnswer) table {max-width:100%;display:block;overflow-x:auto;}
+:root body.surfaceBody-xizong #main-content :is(.portedStudyArticle,.portedRecallAnswer,.xizongFrameText,.portedPrecisionAnswer) pre {font-size:17px;line-height:1.8;max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyArticle,.portedRecallAnswer) :is(h2,h3,h4) {font-size:24px;line-height:1.55;}
+:root body.surfaceBody-xizong #main-content .xv6Block .xv6BlockFocus {display:grid;gap:8px;}
+:root body.surfaceBody-xizong #main-content .xv6Block .xv6BlockFocus strong {font-size:22px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6Block .xv6BlockSpine strong {font-size:20px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.xv6LogicGoal,.xv6LogicTarget p,.xv6GroupClosure,.xv6LectureHandoff p,.xv6GroupKpMap p,.portedKpRecallCard header p,.portedBlockRecall header p) {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.xv6LogicStage h3,.portedKpRecallCard h3) {font-size:28px;line-height:1.5;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.xv6LaterCue,.portedStudyStageAction span,.xv6GroupLecture footer span,.xv6LogicStage small,.xv6LectureHandoff span) {font-size:17px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyStageAction,.xv6GroupLecture footer,.portedRecallPrompt,.portedBlockRecall footer) {display:flex;flex-wrap:wrap;align-items:center;gap:18px;}
+:root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyStageAction,.xv6GroupLecture footer)>span {flex:1 1 320px;}
+:root body.surfaceBody-xizong #main-content .xv6Block button {font-size:17px;min-height:42px;white-space:normal;}
+:root body.surfaceBody-xizong #main-content .portedKpWorkspaceHeader {flex-wrap:wrap;gap:12px;}
+:root body.surfaceBody-xizong #main-content .portedKpWorkspaceHeader :is(strong,em) {font-size:17px;}
+:root body.surfaceBody-xizong #main-content .portedKpWorkspaceHeader span {font-size:15px;}
+:root body.surfaceBody-xizong #main-content .portedKpCards {padding:0;}
+:root body.surfaceBody-xizong #main-content .portedRecallRating {flex-wrap:wrap;gap:16px;}
+:root body.surfaceBody-xizong #main-content .portedRecallRating>div {display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));gap:10px;max-width:100%;}
+:root body.surfaceBody-xizong #main-content .portedRecallRating button {font-size:17px;padding:10px 14px;}
+:root body.surfaceBody-xizong #main-content [data-xizong-front-heading] {font-size:23px;padding:16px 0;}
+:root body.surfaceBody-xizong #main-content [data-xizong-front-heading]>span {font-size:17px;}
+:root body.surfaceBody-xizong #main-content .xizongNeutralRail {flex-wrap:wrap;font-size:15px;gap:12px 20px;}
+:root body.surfaceBody-xizong #main-content .xizongFrameText {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xizongFrameFields dt {font-size:17px;}
+:root body.surfaceBody-xizong #main-content .xv6LearningCue p {font-size:19px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xv6LearningCue span {font-size:16px;}
+
+/* Later-stage work remains gated; actual client-generated options inherit this. */
+:root body.surfaceBody-xizong #main-content .xizongLaterStage>summary :is(span,small) {font-size:15px;line-height:1.6;}
+:root body.surfaceBody-xizong #main-content .xizongLaterStage>summary strong {font-size:19px;}
+:root body.surfaceBody-xizong #main-content .xse {font-size:19px;}
+:root body.surfaceBody-xizong #main-content .xse :is(p,li,label,.xseCardBody p,.xseHoldoutCurrent) {font-size:19px;line-height:1.8;}
+:root body.surfaceBody-xizong #main-content .xse :is(h2,h3) {font-size:25px;line-height:1.5;}
+:root body.surfaceBody-xizong #main-content .xse :is(small,.xseEyebrow,.xseWorkspaceHead span) {font-size:16px;line-height:1.7;}
+:root body.surfaceBody-xizong #main-content .xse .xseStem {font-size:22px;font-weight:600;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xse .xseOption {font-size:20px;line-height:1.8;padding:14px 18px!important;}
+:root body.surfaceBody-xizong #main-content .xse .xseOption :is(b,span) {font-size:20px;}
+:root body.surfaceBody-xizong #main-content .xse .xseQuestionMap button {font-size:15px;min-height:40px;}
+:root body.surfaceBody-xizong #main-content .xseWorkspaceHead {flex-wrap:wrap;gap:18px;}
+:root body.surfaceBody-xizong #main-content .xseRecallDialog {padding:24px clamp(20px,4vw,60px);}
+:root body.surfaceBody-xizong #main-content .xseRecallFront {grid-template-columns:200px minmax(0,1fr);gap:20px 32px;}
+:root body.surfaceBody-xizong #main-content .xseRecallFront :is(p,label,textarea) {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xseRecallScratch textarea {width:100%;min-width:0;resize:vertical;}
+:root body.surfaceBody-xizong #main-content .xseRecallReveal {font-size:20px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xse :is(.xseHoldoutEditor,.xseJudge,.xseSubmitRow,.xseStatusRow) {flex-wrap:wrap;gap:14px;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview :is(p,li,.portedPrecisionAnswer,.portedReviewAnswer) {font-size:19px;line-height:1.85;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview :is(h3,h4) {font-size:24px;line-height:1.5;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview :is(span,small,.portedMemorySummary,.portedPrecisionShell>aside button) {font-size:16px;line-height:1.7;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview :is(.portedExtensionHeader,.portedMemorySummary,.portedReviewToolbar) {flex-wrap:wrap;gap:16px;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell {grid-template-columns:230px minmax(0,1fr);}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell>main {min-width:0;}
+:root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionCard {margin:12px;padding:16px;min-width:0;}
+@media(max-width:1100px) {
+  :root body.surfaceBody-xizong #main-content .xv6SystemShell {grid-template-columns:195px minmax(0,1fr);gap:22px;}
+  :root body.surfaceBody-xizong #main-content .xv6DensePair {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout {grid-template-columns:190px minmax(0,1fr);gap:20px;}
+}
+@media(max-width:800px) {
+  :root body.surfaceBody-xizong #main-content {padding:18px 18px 40px;}
+  :root body.surfaceBody-xizong #main-content .xv6SystemShell {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xv6SystemRail {position:static;max-height:none;border:0;padding:0;}
+  :root body.surfaceBody-xizong #main-content .xv6SystemRail nav {max-height:280px;overflow:auto;grid-template-columns:repeat(2,minmax(0,1fr));}
+  :root body.surfaceBody-xizong #main-content .xv6SystemHeroDense {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout {grid-template-columns:minmax(0,1fr);}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyOutline {grid-column:1;grid-row:2;max-height:240px;overflow:auto;border:0;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyMain {grid-column:1;grid-row:3;padding:4px 0;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.chain-collapsed .portedStudyMain {grid-row:2;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.outline-collapsed .portedStudyMain {grid-row:2;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyLayout.outline-collapsed.chain-collapsed .portedStudyMain {grid-row:1;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedStudyChain ol {grid-template-columns:repeat(3,minmax(0,1fr));}
+  :root body.surfaceBody-xizong #main-content .xv6Block :is(.portedStudyIdentity,.portedStudyContextRow,.portedStudyIdentityMeta) {flex-wrap:wrap;text-align:left;gap:12px;}
+  :root body.surfaceBody-xizong #main-content .xv6Block .portedRecallRating>div {grid-template-columns:repeat(2,minmax(0,1fr));width:100%;}
+  :root body.surfaceBody-xizong #main-content .xv6FailureGrid {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xseRecallFront {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xseRecallFront>* {grid-column:1;grid-row:auto;}
+  :root body.surfaceBody-xizong #main-content .xseReconstructionDimensions {display:none;}
+  :root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell {grid-template-columns:1fr;}
+  :root body.surfaceBody-xizong #main-content .xv6MemoryReview .portedPrecisionShell>aside {max-height:180px;overflow:auto;}
+}
