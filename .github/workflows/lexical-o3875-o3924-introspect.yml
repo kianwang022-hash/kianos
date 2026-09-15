@@ -1,0 +1,49 @@
+name: Lexical o3875-o3924 Introspect
+
+on:
+  push:
+    branches:
+      - lexical/execute-o3875-o4124-20260916
+    paths:
+      - .github/workflows/lexical-o3875-o3924-introspect.yml
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Summarize shard-1 Current owners and relation objects
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          ords=[3879,3881,3882,3883,3885,3886,3887,3888,3891,3895,3896,3898,3899,3900,3901,3903,3905,3907,3908,3909,3910,3915,3916,3918,3921,3923,1436,1981,2772]
+          root=Path('content/lexical/words/by-ordinal')
+          rel_paths=set()
+          for o in ords:
+              d=json.loads((root/f'o{o:04d}.json').read_text()); r=d['record']
+              print('\n###',o,d['word'])
+              print('CORE',json.dumps(r.get('core_concept',{}),ensure_ascii=False,sort_keys=True))
+              print('SENSES')
+              for s in r.get('senses',[]):
+                  print(json.dumps({k:s.get(k) for k in ['sense_id','pos','definition_cn','definition_en','level','governing_pattern','transitivity','usage_note','lexical_identity_overlay']},ensure_ascii=False,sort_keys=True))
+                  for c in s.get('collocations',[]): print('  COLL',json.dumps(c,ensure_ascii=False,sort_keys=True))
+              print('REFS')
+              for s in d.get('reference_senses',[]): print(json.dumps({k:s.get(k) for k in ['stable_sense_id','status','merged_into_sense_id','pos','definition_cn','definition_en','lexical_identity_overlay']},ensure_ascii=False,sort_keys=True))
+              print('CONSTRUCTIONS',json.dumps(r.get('constructions',[]),ensure_ascii=False,sort_keys=True))
+              print('WORDFAMILY',json.dumps(r.get('word_family',[]),ensure_ascii=False,sort_keys=True))
+              print('SEMNEIGH',json.dumps(r.get('semantic_neighbors',[]),ensure_ascii=False,sort_keys=True))
+              print('CONFUSABLES',json.dumps(r.get('confusables',[]),ensure_ascii=False,sort_keys=True))
+              print('RELREFS',json.dumps(d.get('relation_refs',[]),ensure_ascii=False,sort_keys=True))
+              print('FORM',json.dumps(r.get('form_identity'),ensure_ascii=False,sort_keys=True))
+              for rr in d.get('relation_refs',[]):
+                  p=rr.get('owner_path')
+                  if p: rel_paths.add(p)
+          print('\n## RELATION_OBJECTS')
+          for p in sorted(rel_paths):
+              q=Path(p)
+              if q.exists(): print('REL',p,json.dumps(json.loads(q.read_text()),ensure_ascii=False,sort_keys=True))
+          print('RELATION_MANIFEST',Path('content/lexical/relations/manifest.json').read_text())
+          PY
