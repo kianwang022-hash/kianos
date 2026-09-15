@@ -54,10 +54,6 @@ const navItems = [
   { key: 'english', label: 'English', href: `${base}english/` },
   { key: 'lexical', label: 'Lexical', href: `${base}vocabulary/` }
 ];
-const railItems = [
-  { key: 'home', label: 'Home', href: base },
-  ...navItems
-];
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -86,12 +82,22 @@ const railItems = [
           <span class="legacyOsGroupLabel">学习区域</span>
           {navItems.map((item) => <a class={`legacyOsNavItem ${navActive === item.key ? 'active' : ''}`} href={item.href}><span>{item.label}</span></a>)}
         </nav>
-        <div class="legacyOsRailFooter" aria-label="Current runtime">
-          <i aria-hidden="true"></i><strong>Current</strong><small>learner runtime</small>
-        </div>
+        <details class="sourceDock legacyOsSourceDock">
+          <summary><span class="sourcePulse"></span><span>Source</span></summary>
+          <div class="sourcePopover">
+            <span>Canonical projection</span>
+            {objectId && <strong>{objectId}</strong>}
+            {sourcePath && <code>{sourcePath}</code>}
+            {sourceHash && <code title={sourceHash}>sha256:{String(sourceHash).slice(0, 16)}</code>}
+            <small>canonical read-only · learner state browser-local</small>
+            <a href={`${base}current/`} style="margin-top:.35rem;color:inherit;font-weight:800;text-decoration:none;">System Current →</a>
+          </div>
+        </details>
       </aside>
 
       <section class="legacyProductWorkspace">
+        <!-- Desktop navigation is owned by the OS rail. This compact header is
+             retained only as the narrow-screen fallback when that rail collapses. -->
         <header class="productBar">
           <a class="productBrand" href={base} aria-label="KianOS Home">
             <span class="productBrandMark">K</span>
@@ -101,7 +107,7 @@ const railItems = [
             {navItems.map((item) => <a class={`productNavItem ${navActive === item.key ? 'active' : ''}`} href={item.href}>{item.label}</a>)}
           </nav>
           <details class="sourceDock">
-            <summary><span class="sourcePulse"></span>Current</summary>
+            <summary><span class="sourcePulse"></span>Source</summary>
             <div class="sourcePopover">
               <span>Canonical projection</span>
               {objectId && <strong>{objectId}</strong>}
