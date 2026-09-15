@@ -163,6 +163,15 @@ try {
   console.error(error);
   process.exitCode = 1;
 } finally {
+  // Production replay bytes support actual local screenshot inspection without
+  // installing a second dependency tree or copying any learner state.
+  const replay = path.join(auditDir, 'replay');
+  fs.mkdirSync(replay, { recursive: true });
+  for (const dir of ['_astro', 'xizong']) {
+    const source = path.resolve('dist', dir);
+    if (fs.existsSync(source)) fs.cpSync(source, path.join(replay, dir), { recursive: true });
+  }
+  fs.writeFileSync(path.join(replay, 'README.txt'), 'Isolated Xizong production snapshot for UI inspection. No private learner data. Other subject routes intentionally omitted.\nPR test ref: ' + (process.env.GITHUB_SHA || 'local') + '\n');
   await browser?.close().catch(() => {});
   if (process.platform !== 'win32' && server.pid) { try { process.kill(-server.pid, 'SIGTERM'); } catch {} }
   else { try { server.kill('SIGTERM'); } catch {} }

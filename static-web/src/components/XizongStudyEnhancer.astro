@@ -2,7 +2,9 @@
 const { block } = Astro.props;
 const kps = block?.kpRecords || [];
 ---
-<section class="xv6PersonalDock" data-xizong-study-dock data-study-object={block.objectId}>
+<details class="xv6PersonalDock" data-xizong-study-dock data-study-object={block.objectId}>
+  <summary>随手记与讲义定位 · C</summary>
+  <div class="xv6DockBody">
   <header>
     <div><span>当前学习</span><strong data-dock-position>{kps[0]?.displayId || 'KP'}</strong></div>
     <small data-dock-group>{kps[0]?.groupLabel || '学习节'}</small>
@@ -27,7 +29,8 @@ const kps = block?.kpRecords || [];
     groupLabel: kp.groupLabel,
     sourceLocator: kp.sourceLocator || ''
   })))}></script>
-</section>
+  </div>
+</details>
 
 <script>
   const dock = document.querySelector('[data-xizong-study-dock]');
@@ -41,9 +44,8 @@ const kps = block?.kpRecords || [];
     let personal = { kp: {} };
     try { personal = { ...personal, ...(JSON.parse(localStorage.getItem(personalKey) || 'null') || {}) }; } catch {}
 
-    const chain = root.querySelector('.portedStudyChain');
-    const chainList = chain?.querySelector('ol');
-    if (chain && dock.parentElement !== chain) chain.insertBefore(dock, chainList || chain.firstChild);
+    const outline = root.querySelector('.portedStudyOutline');
+    if (outline && dock.parentElement !== outline) outline.append(dock);
 
     const recallCards = [...root.querySelectorAll('[data-kp-recall-card]')];
     const locator = dock.querySelector('[data-source-locator]');
@@ -146,7 +148,7 @@ const kps = block?.kpRecords || [];
         return;
       }
       const key = event.key.toLowerCase();
-      if (key === 'c') { event.preventDefault(); comment?.focus(); comment?.select(); return; }
+      if (key === 'c' && dock.getClientRects().length) { event.preventDefault(); dock.open = true; comment?.focus(); comment?.select(); return; }
     });
 
     renderDock();
@@ -156,4 +158,16 @@ const kps = block?.kpRecords || [];
 <style>
   .xv6PersonalDock{display:grid;gap:8px;padding:10px 11px;border-bottom:1px solid var(--study-line);background:#fff}.xv6PersonalDock>header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:0 0 6px!important;border:0!important}.xv6PersonalDock>header div{min-width:0}.xv6PersonalDock>header span,.xv6DockLocator>span,.xv6DockComment>span{display:block;color:var(--study-green);font-size:8px;font-weight:850;letter-spacing:.06em}.xv6PersonalDock>header strong{display:block;overflow:hidden;margin-top:2px;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.xv6PersonalDock>header small{align-self:end;color:var(--study-muted);font-size:8px}.xv6DockLocator{display:grid;gap:3px;padding:7px;border-radius:8px;background:var(--study-surface-muted)}.xv6DockLocator code{overflow:hidden;color:var(--study-muted);font-size:8px;line-height:1.45;white-space:normal}.xv6DockComment{display:grid;gap:4px}.xv6DockComment textarea{width:100%;resize:vertical;min-height:42px;padding:7px;border:1px solid var(--study-line);border-radius:8px;background:#fff;font:inherit;font-size:9px;line-height:1.45}
   @media(min-width:1100px){.xv6Block .portedStudyLayout{grid-template-columns:220px minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.outline-collapsed{grid-template-columns:0 minmax(0,1fr) 250px}.xv6Block .portedStudyLayout.chain-collapsed{grid-template-columns:220px minmax(0,1fr) 0}.xv6Block .portedKpWorkspace{min-height:0}.xv6Block .portedKpCards{height:calc(100vh - 225px);min-height:520px;max-height:760px;padding:8px 10px}.xv6Block .portedKpRecallCard{display:flex;height:100%;max-width:none;flex-direction:column}.xv6Block .portedKpRecallCard>header{padding:11px 15px 9px}.xv6Block .portedKpRecallCard>footer{margin-top:auto}.xv6Block .portedRecallAnswer{overflow:auto}.xv6Block .portedStudyChain{min-width:0}}
+</style>
+<style is:global>
+/* Optional notes belong to local context, never above the cognitive stage. */
+:root body.surfaceBody-xizong #main-content .xv6PersonalDock {display:block;padding:16px 4px;border:0;border-top:1px solid var(--study-line);background:transparent;}
+:root body.surfaceBody-xizong #main-content .xv6PersonalDock>summary {font-size:16px;font-weight:700;line-height:1.65;cursor:pointer;}
+:root body.surfaceBody-xizong #main-content .xv6DockBody {display:grid;gap:12px;padding-top:14px;}
+:root body.surfaceBody-xizong #main-content .xv6PersonalDock header {display:grid;gap:5px;padding:0;border:0;}
+:root body.surfaceBody-xizong #main-content .xv6PersonalDock :is(header span,header small,.xv6DockLocator>span,.xv6DockComment>span) {font-size:14px;line-height:1.7;}
+:root body.surfaceBody-xizong #main-content .xv6PersonalDock header strong {font-size:17px;line-height:1.65;white-space:normal;}
+:root body.surfaceBody-xizong #main-content .xv6DockLocator code {font-size:14px;line-height:1.7;overflow-wrap:anywhere;}
+:root body.surfaceBody-xizong #main-content .xv6DockComment textarea {font-size:17px;line-height:1.7;min-height:110px;}
+
 </style>
