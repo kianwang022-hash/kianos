@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "da9c1a91b29bb3a13faaec9dbc687af85c0c11a0046ff1aa7f982083973a892b",
+    "content_hash": "e602c1f8e0eb2db920fe5f8952492f5b4eb9c533119825ad3aceadadc0a9c8cc",
     "core_concept": {
       "core_clusters": [
         {
@@ -16,14 +16,6 @@
           "pos": "adverb",
           "sense_ids": [
             "sense:nonetheless:ac445cc55a8454b6"
-          ]
-        },
-        {
-          "label_cn": "然而，不过",
-          "label_en": "used to introduce a statement that contrasts with what has been said",
-          "pos": "conjunction",
-          "sense_ids": [
-            "sense:nonetheless:fd960634ae175dff"
           ]
         }
       ],
@@ -53,39 +45,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "尽管如此，然而",
-        "definition_en": "in spite of that; however",
+        "definition_cn": "尽管如此；不过；仍然",
+        "definition_en": "despite that; nevertheless",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:nonetheless:ac445cc55a8454b6",
-        "sense_label_en": "in spite of that; however",
+        "sense_label_en": "despite that; nevertheless",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7112391542a76105fca0",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:nonetheless:fd960634ae175dff:collocation:0"
-            ],
-            "meaning_cn": "这很难，尽管如此，我们必须尝试。",
-            "phrase": "It is difficult; nonetheless, we must try."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "然而，不过",
-        "definition_en": "used to introduce a statement that contrasts with what has been said",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "conjunction",
-        "sense_id": "sense:nonetheless:fd960634ae175dff",
-        "sense_label_en": "used to introduce a statement that contrasts with what has been said",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -109,7 +77,31 @@
     "word_id": "word:nonetheless"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:nonetheless:fd960634ae175dff",
+      "status": "merged",
+      "merged_into_sense_id": "sense:nonetheless:ac445cc55a8454b6",
+      "pos": "conjunction",
+      "definition_cn": "然而，不过",
+      "definition_en": "used to introduce a statement that contrasts with what has been said",
+      "semantic_key": "a8a4c47db9d6301310de68061eb20f9363b5763cf8a2ed326389a8638655539c",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "nonetheless:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "nonetheless:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T00:00:00Z",
+      "source_row": 9017,
+      "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -121,14 +113,13 @@
       },
       {
         "sense_id": "sense:nonetheless:fd960634ae175dff",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:nonetheless:ac445cc55a8454b6",
         "source_row": 9017,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
       }
     ],
     "active_collocations": [
-      "collocation:7112391542a76105fca0",
       "collocation:f92dfe0a34cb2cb8857e"
     ],
     "facts": [],
@@ -175,7 +166,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3241-3248.json",
-    "source_content_hash": "da9c1a91b29bb3a13faaec9dbc687af85c0c11a0046ff1aa7f982083973a892b",
+    "source_content_hash": "e602c1f8e0eb2db920fe5f8952492f5b4eb9c533119825ad3aceadadc0a9c8cc",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

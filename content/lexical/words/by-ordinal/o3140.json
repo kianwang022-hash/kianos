@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6f30d7022b3552888160acdc7059cd63ebf2b9a64aa85ec6e338aa2532a59e7e",
+    "content_hash": "7da2c05884927092e95c48f33b105088145fe906eb9c20366f8997f961067e3b",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "哀悼",
@@ -35,15 +35,6 @@
             "phrase": "mourn the loss of + sb/sth"
           },
           {
-            "collocation_id": "collocation:7f965d3a850d6aca3ef1",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mourn:89bf5a33710858b6:collocation:1"
-            ],
-            "meaning_cn": "哀悼某人的去世",
-            "phrase": "mourn one's death"
-          },
-          {
             "collocation_id": "collocation:e2ff73c7dcb7b76b89e7",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -60,18 +51,36 @@
             ],
             "meaning_cn": "为某事悲伤",
             "phrase": "mourn over + sth"
+          },
+          {
+            "collocation_id": "collocation:85082e2186be2aceaa89",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mourn:89bf5a33710858b6:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "哀悼某人的去世",
+            "phrase": "mourn sb's death"
+          },
+          {
+            "collocation_id": "collocation:6a83cd8749a0ef7b5372",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mourn:89bf5a33710858b6:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "哀悼某人的去世",
+            "phrase": "mourn the death of sb"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "哀悼（某人）",
-        "definition_en": "to feel or express sadness for someone who has died",
+        "definition_cn": "哀悼；悼念",
+        "definition_en": "to feel or show sorrow because someone has died or because something has been lost",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "normalized_core": "feel or express grief, especially after a death",
         "pos": "verb",
         "sense_id": "sense:mourn:89bf5a33710858b6",
-        "sense_label_en": "to feel or express sadness for someone who has died",
+        "sense_label_en": "to feel or show sorrow because someone has died or because something has been lost",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -171,7 +180,8 @@
     ],
     "active_collocations": [
       "collocation:351079c11e607734870a",
-      "collocation:7f965d3a850d6aca3ef1",
+      "collocation:6a83cd8749a0ef7b5372",
+      "collocation:85082e2186be2aceaa89",
       "collocation:c3a59027349379d67972",
       "collocation:db1473a81044f4ef70a6",
       "collocation:e2ff73c7dcb7b76b89e7"
@@ -201,6 +211,16 @@
       {
         "id": "collocation:e2ff73c7dcb7b76b89e7",
         "source_row": 19209,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:6a83cd8749a0ef7b5372",
+        "source_row": 21551,
+        "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:85082e2186be2aceaa89",
+        "source_row": 21552,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
       }
     ],
@@ -235,7 +255,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3137-3144.json",
-    "source_content_hash": "6f30d7022b3552888160acdc7059cd63ebf2b9a64aa85ec6e338aa2532a59e7e",
+    "source_content_hash": "7da2c05884927092e95c48f33b105088145fe906eb9c20366f8997f961067e3b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

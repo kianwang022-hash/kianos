@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "990d0d106aef70ca5b53899c120c48b4969ceb4ae63d94b9bf7a25faf0653768",
+    "content_hash": "c980f737f2481f27d9fab7c759caee9632953c35fe4ce76b23e764e6bc7466ec",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,6 +27,22 @@
             "sense:negative:dbd67c6ae4a05f6c",
             "sense:negative:f3a7a9b93e0a5f7f",
             "sense:negative:78be6b7a3ff657fb"
+          ]
+        },
+        {
+          "label_cn": "技术上的负值/负电",
+          "label_en": "technical negative value or polarity",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:negative:5cc6dbd81d0fd7bc"
+          ]
+        },
+        {
+          "label_cn": "检测结果阴性",
+          "label_en": "negative diagnostic or test result",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:negative:cc441018154e0fe2"
           ]
         }
       ],
@@ -171,6 +187,54 @@
         "sense_label_en": "a number less than zero",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f29fb5ece6d9087134ae",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:negative:5cc6dbd81d0fd7bc:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "负电荷",
+            "phrase": "negative charge"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "负的；低于零的；带负电/负极性的",
+        "definition_en": "below zero, or having negative electrical polarity or charge",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:negative:5cc6dbd81d0fd7bc",
+        "sense_label_en": "below zero, or having negative electrical polarity or charge",
+        "sort_order": 5,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:db88535c414fbf1b3d34",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:negative:cc441018154e0fe2:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "检测结果为阴性",
+            "phrase": "test negative"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（检测/检查结果）阴性的；未检出所测条件或病原",
+        "definition_en": "of a test or result: showing that the tested condition or agent was not detected or shown to be present",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:negative:cc441018154e0fe2",
+        "sense_label_en": "of a test or result: showing that the tested condition or agent was not detected or shown to be present",
+        "sort_order": 6,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -230,6 +294,20 @@
         "merged_into_sense_id": null,
         "source_row": 8912,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:negative:5cc6dbd81d0fd7bc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8991,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:negative:cc441018154e0fe2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8992,
+        "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
       }
     ],
     "active_collocations": [
@@ -238,7 +316,9 @@
       "collocation:5c9f6cb6dfb16a836d03",
       "collocation:9035d4595a57bb8955fb",
       "collocation:af7ab8649281373b4bc1",
-      "collocation:e3a3bcae13fd98527aa6"
+      "collocation:db88535c414fbf1b3d34",
+      "collocation:e3a3bcae13fd98527aa6",
+      "collocation:f29fb5ece6d9087134ae"
     ],
     "facts": [],
     "collocations": [
@@ -270,6 +350,16 @@
       {
         "id": "collocation:e3a3bcae13fd98527aa6",
         "source_row": 19267,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:db88535c414fbf1b3d34",
+        "source_row": 21412,
+        "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:f29fb5ece6d9087134ae",
+        "source_row": 21414,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
       }
     ],
@@ -314,7 +404,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o3201-3208.json",
-    "source_content_hash": "990d0d106aef70ca5b53899c120c48b4969ceb4ae63d94b9bf7a25faf0653768",
+    "source_content_hash": "c980f737f2481f27d9fab7c759caee9632953c35fe4ce76b23e764e6bc7466ec",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
