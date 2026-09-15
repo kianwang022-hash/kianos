@@ -146,34 +146,57 @@ body {
   box-shadow: 0 0 0 3px rgba(137, 183, 165, .12);
 }
 
-.legacyOsRailFooter {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 3px 8px;
+/* Desktop source/provenance is a deep reference, not a second status bar. */
+.legacyOsSourceDock {
+  position: relative;
   margin-top: auto;
-  padding: 14px 10px 5px;
+  padding: 14px 4px 3px;
   border-top: 1px solid rgba(255, 255, 255, .11);
 }
 
-.legacyOsRailFooter i {
-  width: 8px;
-  height: 8px;
-  grid-row: 1 / 3;
+.legacyOsSourceDock > summary {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 6px 7px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #9cafaa;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 720;
+  list-style: none;
+}
+
+.legacyOsSourceDock > summary::-webkit-details-marker {
+  display: none;
+}
+
+.legacyOsSourceDock > summary:hover,
+.legacyOsSourceDock[open] > summary {
+  background: rgba(255, 255, 255, .065);
+  color: #e7f0ec;
+}
+
+.legacyOsSourceDock .sourcePulse {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
   border-radius: 50%;
   background: #70af96;
   box-shadow: 0 0 0 3px rgba(112, 175, 150, .12);
 }
 
-.legacyOsRailFooter strong {
-  color: #dfeae5;
-  font-size: 12px;
-  font-weight: 760;
-}
-
-.legacyOsRailFooter small {
-  color: #82958e;
-  font-size: 9px;
+.legacyOsSourceDock .sourcePopover {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: calc(100% + 12px);
+  z-index: 100;
+  color: var(--legacy-ink);
 }
 
 .legacyProductWorkspace {
@@ -182,18 +205,10 @@ body {
   background: var(--legacy-page);
 }
 
-/* Keep the Current cross-subject switcher, but demote it from "whole product" chrome
-   to a quiet workspace utility. The rail now carries product identity. */
+/* On Mac-wide the rail is the single global-navigation owner. The old top
+   switcher stays in the DOM only as the narrow-screen fallback. */
 .legacyProductWorkspace .productBar {
-  position: sticky;
-  top: 0;
-  z-index: 60;
-  min-height: 56px;
-  padding: 0 20px;
-  border-bottom: 1px solid var(--legacy-line);
-  background: rgba(247, 250, 248, .95);
-  box-shadow: none;
-  backdrop-filter: blur(14px);
+  display: none;
 }
 
 .legacyProductWorkspace .productBrand {
@@ -335,6 +350,7 @@ body {
 .legacyProductWorkspace :where(button, .button, [role='button']):focus-visible,
 .legacyOsNavItem:focus-visible,
 .legacyOsBrand:focus-visible,
+.legacyOsSourceDock > summary:focus-visible,
 .legacyProductWorkspace a:focus-visible {
   outline: 3px solid rgba(87, 157, 139, .24);
   outline-offset: 2px;
@@ -370,8 +386,7 @@ body {
   .legacyOsBrandCopy,
   .legacyOsGroupLabel,
   .legacyOsNavItem span,
-  .legacyOsRailFooter strong,
-  .legacyOsRailFooter small {
+  .legacyOsSourceDock > summary span:last-child {
     display: none;
   }
 
@@ -386,8 +401,11 @@ body {
     height: 10px;
   }
 
-  .legacyOsRailFooter {
-    display: flex;
+  .legacyOsSourceDock {
+    padding-inline: 0;
+  }
+
+  .legacyOsSourceDock > summary {
     justify-content: center;
     padding-inline: 0;
   }
@@ -403,9 +421,18 @@ body {
   }
 
   .legacyProductWorkspace .productBar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: grid;
     min-height: 58px;
     grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
     padding: 0 10px;
+    border-bottom: 1px solid var(--legacy-line);
+    background: rgba(247, 250, 248, .95);
+    box-shadow: none;
+    backdrop-filter: blur(14px);
   }
 
   .legacyProductWorkspace .productBrand {
