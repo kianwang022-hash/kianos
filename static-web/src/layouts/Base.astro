@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/runtime.css';
 import '../styles/xizong-dense-calm.css';
 import '../styles/english.css';
+import VocabularyEnglishEvidenceBridge from '../components/VocabularyEnglishEvidenceBridge.astro';
 
 const {
   title,
@@ -91,6 +92,7 @@ const navItems = [
         </section>
       )}
       <slot />
+      {isEnglishRoute && <VocabularyEnglishEvidenceBridge />}
     </main>
   </body>
 </html>
