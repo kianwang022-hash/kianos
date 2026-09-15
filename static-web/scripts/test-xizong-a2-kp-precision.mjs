@@ -49,18 +49,20 @@ async function reachTargetKp(root, targetId) {
   const targetCard = root.locator(`[data-kp-recall-card][data-kp-id="${targetId}"]`);
   check(await targetCard.count() === 1, `target_card_exists_${targetId}`);
   const targetIndex = Number(await targetCard.getAttribute('data-kp-recall-card'));
-  const groupButtons = root.locator('[data-group-target]');
-  for (let index = 0; index < await groupButtons.count(); index += 1) {
-    await groupButtons.nth(index).click();
-    await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
-    await root.locator('[data-enter-group]').click();
-    await root.locator('[data-study-stage="kp_learn"]').waitFor({ state: 'visible' });
-    await root.locator('[data-group-lecture-done]').click();
-    await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
-    await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
-    if (await targetCard.isVisible()) return targetCard;
-  }
-  throw new Error(`A2_KP_PRECISION_TARGET_GROUP_NOT_FOUND:${targetId}`);
+  const targetGroupLabel = ((await targetCard.locator('header > span').first().textContent()) || '').trim();
+  check(Boolean(targetGroupLabel), `target_group_label_present_${targetId}`);
+  const targetGroupButton = root.locator('[data-group-target]').filter({ hasText: targetGroupLabel });
+  check(await targetGroupButton.count() === 1, `target_group_button_unique_${targetId}`, targetGroupLabel);
+
+  await targetGroupButton.click();
+  await root.locator('[data-study-stage="logic_group"]').waitFor({ state: 'visible' });
+  await root.locator('[data-enter-group]').click();
+  await root.locator('[data-study-stage="kp_learn"]').waitFor({ state: 'visible' });
+  await root.locator('[data-group-lecture-done]').click();
+  await root.locator('[data-study-stage="kp_recall"]').waitFor({ state: 'visible' });
+  await root.locator(`[data-kp-target="${targetIndex}"]`).evaluate((el) => el.click());
+  check(await targetCard.isVisible(), `target_card_visible_${targetId}`);
+  return targetCard;
 }
 
 const representatives = [
