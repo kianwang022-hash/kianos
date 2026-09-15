@@ -1,18 +1,23 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 7,
-  "last_refreshed_main": "b18a22fd4309620251d2be175370a5b7489d6170",
+  "generation": 8,
+  "last_refreshed_main": "0758ccaeac7db524f022fdf5592781b59e379a02",
   "contiguous_implemented_frontier": "o3624",
   "active_package": {
     "scope": [3625, 3874],
-    "phase": "SOL_RECONCILIATION",
+    "phase": "MECHANICAL_EXECUTION_READY",
     "production_review": "content/lexical/semantic-review/o3625-o3874.md",
     "audit_inputs": [
       "content/lexical/semantic-audit/o3625-o3824.audit.md",
       "content/lexical/semantic-audit/o3825-o4024.audit.md"
-    ]
+    ],
+    "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md",
+    "authority_pr": 189,
+    "authority_merge_commit": "0758ccaeac7db524f022fdf5592781b59e379a02",
+    "semantic_source_union_count": 91,
+    "authorized_out_of_range_word_dependencies": [3880, 7278, 7289]
   },
-  "package_status": "FORWARD_ACTIVE_RECONCILING_o3625_o3874",
+  "package_status": "FORWARD_ACTIVE_EXECUTION_READY_o3625_o3874",
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": [3625, 3874],
@@ -20,8 +25,7 @@
     "scope": [1, 7946],
     "status": "COMPLETE",
     "normal_handoff_start": 25,
-    "frontier": "o7946",
-    "note": "o0001-o0024 is the historical pre-handoff prefix"
+    "frontier": "o7946"
   },
   "independent_audit": {
     "scope": [1, 7946],
@@ -32,36 +36,27 @@
     "coverage_owner": "content/lexical/semantic-audit/reconciliation/CATALOG_COVERAGE_RECONCILIATION.md",
     "broad_audit_generation": "CLOSED_CURRENT_CATALOG"
   },
-  "prefix_correction": {
-    "scope": [1, 24],
-    "audit_pack": "content/lexical/semantic-audit/o0001-o0024.audit.md",
-    "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md",
-    "delta_count": 7,
-    "merge_pr": 182,
-    "merge_commit": "962a92ffacff75c786f743c68bcd5fdcae38828e",
-    "receipt": "content/lexical/execution/receipts/o0001-o0024.prefix-corrective.json",
-    "status": "INTEGRATED_COMPLETE"
-  },
-  "retro_corrective_integration": {
-    "scope": [25, 3124],
-    "integration_pr": 179,
-    "merge_commit": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
-    "receipt": "content/lexical/execution/receipts/o0025-o3124.retro-integration.json",
-    "status": "INTEGRATED_COMPLETE"
-  },
-  "canonical_corrective": {
-    "scope": [3125, 3374],
-    "authority": "content/lexical/semantic-reconciliation/o3125-o3374.md",
-    "merge_pr": 161,
-    "merge_commit": "c1e7de5946c337f76fa6b15ed107a70de1178008",
-    "delta_count": 39,
-    "status": "INTEGRATED_COMPLETE"
-  },
-  "forward_packages": [
+  "closed_history": [
+    {
+      "scope": [1, 24],
+      "merge_pr": 182,
+      "merge_commit": "962a92ffacff75c786f743c68bcd5fdcae38828e",
+      "status": "INTEGRATED_COMPLETE"
+    },
+    {
+      "scope": [25, 3124],
+      "merge_pr": 179,
+      "merge_commit": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
+      "status": "INTEGRATED_COMPLETE"
+    },
+    {
+      "scope": [3125, 3374],
+      "merge_pr": 161,
+      "merge_commit": "c1e7de5946c337f76fa6b15ed107a70de1178008",
+      "status": "INTEGRATED_COMPLETE"
+    },
     {
       "scope": [3375, 3624],
-      "production_review": "content/lexical/semantic-review/o3375-o3624.md",
-      "authority": "content/lexical/semantic-reconciliation/o3375-o3624.md",
       "merge_pr": 188,
       "merge_commit": "b18a22fd4309620251d2be175370a5b7489d6170",
       "receipt": "content/lexical/execution/receipts/o3375-o3624.forward-package.json",
