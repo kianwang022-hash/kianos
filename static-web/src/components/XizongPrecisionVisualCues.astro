@@ -6,6 +6,10 @@ const groups = block?.logicGroups || [];
 const kps = block?.kpRecords || [];
 const precision = block?.learningCues?.precision || [];
 const visuals = attachSourceVisualBundles(block?.learningCues?.visuals || []);
+const unsupportedKpVisuals = visuals.filter((row) => row?.anchor?.kp_id);
+if (unsupportedKpVisuals.length) {
+  throw new Error(`CURRENT_XIZONG_KP_VISUAL_UNSUPPORTED:${unsupportedKpVisuals.map((row) => row.id).join(',')}`);
+}
 
 const byAnchor = (rows, key) => Object.fromEntries(rows.reduce((acc, row) => {
   const id = row?.anchor?.[key];
@@ -18,11 +22,9 @@ const byAnchor = (rows, key) => Object.fromEntries(rows.reduce((acc, row) => {
 
 const payload = {
   groups: groups.map((group) => group.groupId),
-  kps: kps.map((kp) => kp.kpId),
   groupPrecision: byAnchor(precision, 'logic_group_id'),
   kpPrecision: byAnchor(precision, 'kp_id'),
-  groupVisuals: byAnchor(visuals, 'logic_group_id'),
-  kpVisuals: byAnchor(visuals, 'kp_id')
+  groupVisuals: byAnchor(visuals, 'logic_group_id')
 };
 ---
 <div data-xizong-group-visuals hidden></div>
@@ -35,12 +37,13 @@ const payload = {
   const precisionRoot = document.querySelector('[data-xizong-group-precision]');
   const payloadNode = document.querySelector('[data-learning-cue-payload]');
   if (studyRoot && visualRoot && precisionRoot && payloadNode) {
-    let payload = { groups: [], kps: [], groupPrecision: {}, kpPrecision: {}, groupVisuals: {}, kpVisuals: {} };
+    let payload = { groups: [], groupPrecision: {}, kpPrecision: {}, groupVisuals: {} };
     try { payload = JSON.parse(payloadNode.textContent || '{}'); } catch {}
 
     const makePrecision = (row) => {
       const el = document.createElement('div');
       el.className = 'xv6LearningCue precision';
+      el.dataset.precisionCueId = row?.id || '';
       const label = document.createElement('span');
       label.textContent = '以后要精确';
       const text = document.createElement('p');
@@ -57,7 +60,7 @@ const payload = {
       if (assets.length) el.classList.add('hasSourceVisuals');
 
       const label = document.createElement('span');
-      label.textContent = `看原图 · ${bundle?.sourceLocator || row?.source_locator || 'Lecture'}`;
+      label.textContent = `看原图 · ${row?.source_locator || 'Lecture'}`;
       const text = document.createElement('p');
       text.textContent = row?.task || '';
       el.append(label, text);
@@ -104,20 +107,23 @@ const payload = {
       return el;
     };
 
-    // KP-level cues stay beside the current KP because they directly help this learning action.
-    const learnCards = [...studyRoot.querySelectorAll('[data-kp-learn-card]')];
-    learnCards.forEach((card, index) => {
-      const kpId = payload.kps?.[index] || '';
+    // KP Precision belongs to the exact KP answer context. The answer container is hidden
+    // until Reveal, so the clean Recall front cannot leak the precision cue.
+    const recallCards = [...studyRoot.querySelectorAll('[data-kp-recall-card][data-kp-id]')];
+    recallCards.forEach((card) => {
+      const kpId = card.dataset.kpId || '';
       const precisionRows = payload.kpPrecision?.[kpId] || [];
-      const visualRows = payload.kpVisuals?.[kpId] || [];
-      if (!precisionRows.length && !visualRows.length) return;
+      if (!precisionRows.length) return;
+      const answer = card.querySelector('[data-kp-answer]');
+      if (!answer) {
+        console.error(`CURRENT_XIZONG_KP_PRECISION_ANSWER_SLOT_MISSING:${kpId}`);
+        return;
+      }
       const stack = document.createElement('div');
-      stack.className = 'xv6LearningCueStack kp';
-      visualRows.forEach((row) => stack.appendChild(makeVisual(row)));
+      stack.className = 'xv6LearningCueStack kp postReveal';
+      stack.dataset.kpPrecision = kpId;
       precisionRows.forEach((row) => stack.appendChild(makePrecision(row)));
-      const lecture = card.querySelector('.xv6LectureFirst');
-      if (lecture) lecture.insertAdjacentElement('afterend', stack);
-      else card.querySelector(':scope > header')?.insertAdjacentElement('afterend', stack);
+      answer.appendChild(stack);
     });
 
     // Group visual keeps its accepted learning moment: the Logic Group entrance.
@@ -135,14 +141,14 @@ const payload = {
     };
     const render = () => {
       const groupId = payload.groups?.[currentIndex()] || '';
-      const visuals = payload.groupVisuals?.[groupId] || [];
-      const precisions = payload.groupPrecision?.[groupId] || [];
+      const groupVisualRows = payload.groupVisuals?.[groupId] || [];
+      const groupPrecisionRows = payload.groupPrecision?.[groupId] || [];
       visualRoot.replaceChildren();
       precisionRoot.replaceChildren();
-      visualRoot.hidden = !visuals.length;
-      precisionRoot.hidden = !precisions.length;
-      visuals.forEach((row) => visualRoot.appendChild(makeVisual(row)));
-      precisions.forEach((row) => precisionRoot.appendChild(makePrecision(row)));
+      visualRoot.hidden = !groupVisualRows.length;
+      precisionRoot.hidden = !groupPrecisionRows.length;
+      groupVisualRows.forEach((row) => visualRoot.appendChild(makeVisual(row)));
+      groupPrecisionRows.forEach((row) => precisionRoot.appendChild(makePrecision(row)));
     };
 
     const counter = studyRoot.querySelector('[data-logic-counter]');
@@ -155,6 +161,7 @@ const payload = {
   [data-xizong-group-visuals],[data-xizong-group-precision]{margin:.65rem 0}
   .xv6LearningCueStack{display:grid;gap:6px}
   .xv6LearningCueStack.kp{margin:.1rem 0 .8rem}
+  .xv6LearningCueStack.kp.postReveal{margin:.75rem 0 0;padding-top:.15rem}
   .xv6LearningCue{display:grid;grid-template-columns:118px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem}
   .xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}
   .xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}
