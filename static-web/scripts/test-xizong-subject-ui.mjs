@@ -23,10 +23,33 @@ export async function testXizongSubjectUi({ browser, base, auditDir }) {
   const snap = async (name, widths = [1440, 1728, 1024, 390]) => {
     for (const width of widths) {
       await page.setViewportSize({ width, height: 1000 }); await ready();
+      // A resize changes the height of the preceding System Guide. Checking
+      // document overflow alone does not prove the screenshot contains the task.
+      const captureSelector = /^(question-|hidden-fast-)/.test(name) ? '[data-question-stem]'
+        : name.startsWith('wrong-') ? '[data-answer-panel]'
+        : name === 'after-learn-memory' ? '[data-study-extension]' : null;
+      let capture = null;
+      if (captureSelector) {
+        const target = page.locator(captureSelector);
+        await target.waitFor({ state: 'visible' });
+        await target.evaluate(element => {
+          element.scrollIntoView({ block: 'start', behavior: 'instant' });
+          const bar = document.querySelector('.productBar')?.getBoundingClientRect();
+          window.scrollBy({ top: -(Math.max(0, bar?.bottom || 0) + 20), behavior: 'instant' });
+        });
+        await ready();
+        capture = await target.evaluate(element => {
+          const box = element.getBoundingClientRect();
+          const bar = document.querySelector('.productBar')?.getBoundingClientRect();
+          return { top: box.top, bottom: box.bottom, headerBottom: Math.max(0, bar?.bottom || 0), viewportHeight: innerHeight, text: element.textContent.trim().slice(0, 120) };
+        });
+        assert.ok(capture.text && capture.top >= capture.headerBottom - 1 && capture.top < capture.viewportHeight * .7,
+          `${name}/${width} capture does not contain the intended task: ${JSON.stringify(capture)}`);
+      }
       const bounds = await page.evaluate(() => ({ width: innerWidth, scroll: document.documentElement.scrollWidth }));
       assert.ok(bounds.scroll <= bounds.width + 1, `${name} horizontal page overflow ${width}: ${bounds.scroll}`);
       await page.screenshot({ path: path.join(out, `${name}-${width}.png`), fullPage: false });
-      report.views.push({ name, width, scrollWidth: bounds.scroll });
+      report.views.push({ name, width, scrollWidth: bounds.scroll, ...(capture ? { captureSelector, capture } : {}) });
     }
     await page.setViewportSize({ width: 1440, height: 1000 }); await ready();
   };
