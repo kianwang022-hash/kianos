@@ -1,10 +1,10 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 5,
-  "last_refreshed_main": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
+  "generation": 6,
+  "last_refreshed_main": "962a92ffacff75c786f743c68bcd5fdcae38828e",
   "contiguous_implemented_frontier": "o3374",
   "active_package": null,
-  "package_status": "PAUSED_AUDIT_COMPLETE_PREFIX_CORRECTION_PENDING",
+  "package_status": "PAUSED_AUDIT_COMPLETE_CORRECTIVE_CLOSED_THROUGH_o3374",
   "visible_holes": [],
   "semantic_escalations": [],
   "next_package": null,
@@ -27,8 +27,12 @@
   "prefix_correction": {
     "scope": [1, 24],
     "audit_pack": "content/lexical/semantic-audit/o0001-o0024.audit.md",
+    "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md",
     "delta_count": 7,
-    "status": "SOL_CORRECTION_PENDING"
+    "merge_pr": 182,
+    "merge_commit": "962a92ffacff75c786f743c68bcd5fdcae38828e",
+    "receipt": "content/lexical/execution/receipts/o0001-o0024.prefix-corrective.json",
+    "status": "INTEGRATED_COMPLETE"
   },
   "retro_corrective_integration": {
     "scope": [25, 3124],
@@ -48,9 +52,9 @@
     "status": "INTEGRATED_COMPLETE"
   },
   "continuous_corrective_closure": {
-    "scope": [25, 3374],
+    "scope": [1, 3374],
     "status": "COMPLETE_ON_MAIN",
-    "remaining_pre_handoff_prefix": [1, 24]
+    "remaining_holes": []
   },
   "future_package": {
     "start": 3375,
