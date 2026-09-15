@@ -12,7 +12,7 @@ const base = import.meta.env.BASE_URL;
   active="english"
   showLead={false}
 >
-  <section class="englishHub englishHomeShell" id="english-home" data-english-hub data-base={base}>
+  <section class="englishHub englishHomeShell" id="english-home" data-english-hub data-base={base} style="min-height:auto">
     <header class="englishHomeHero">
       <div class="englishHomeHeroCopy">
         <span class="englishHomeEyebrow">EnglishOS · Current</span>
@@ -47,17 +47,17 @@ const base = import.meta.env.BASE_URL;
         <div class="englishEntryFamilies">
           <section id="objective" data-capability="objective">
             <div class="englishEntryCopy"><span>01 · 客观题</span><h2>Objective</h2><p style="font-size:18px">全文与完整题组</p></div>
-            <nav aria-label="Objective 入口"><a href={`${base}reading/`}>Reading A →</a><a href={`${base}cloze/`}>Cloze →</a><a href={`${base}reading-b/`}>Part B →</a></nav>
+            <nav aria-label="Objective 入口" style="justify-content:flex-end"><a href={`${base}reading/`}>Reading A →</a><a href={`${base}cloze/`}>Cloze →</a><a href={`${base}reading-b/`}>Part B →</a></nav>
             <a class="guideLink" href={`${base}objective-learn/`}>Objective Guide</a>
           </section>
           <section id="translation" data-capability="translation">
             <div class="englishEntryCopy"><span>02 · 翻译</span><h2>Translation</h2><p style="font-size:18px">原文与完整译文工作区</p></div>
-            <nav aria-label="Translation 入口"><a href={`${base}translation/`}>开始翻译 →</a></nav>
+            <nav aria-label="Translation 入口" style="justify-content:flex-end"><a href={`${base}translation/`}>开始翻译 →</a></nav>
             <a class="guideLink" href={`${base}translation-learn/`}>Translation Guide</a>
           </section>
           <section id="writing" data-capability="writing">
             <div class="englishEntryCopy"><span>03 · 写作</span><h2>Writing</h2><p style="font-size:18px">Small / Big · Direct / optional Plan</p></div>
-            <nav aria-label="Writing 入口"><a href={`${base}writing/`}>开始写作 →</a></nav>
+            <nav aria-label="Writing 入口" style="justify-content:flex-end"><a href={`${base}writing/`}>开始写作 →</a></nav>
             <a class="guideLink" href={`${base}writing-learn/`}>Writing Guide</a>
           </section>
         </div>
