@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1d3c9d1e8a9cc2169fe9fd87e71d58adc97ff08f2ccb4e5baa8ea234da50f290",
+    "content_hash": "1c534435500edf250849065b908a6d3dcd8d8acd42b5a15cf0a40e0ab11c3c2e",
     "core_concept": {
       "core_clusters": [
         {
@@ -37,7 +37,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -156,7 +158,14 @@
     "word_family": [],
     "word_id": "word:dive"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:ec0946a4307eb48063a6",
+      "owner_path": "content/lexical/relations/by-id/41/419deb2c9c61bdb28fc6802697a729465ad2727d63e68d2718394565c2f12ccc.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -198,6 +207,11 @@
     "facts": [],
     "collocations": [
       {
+        "id": "collocation:38e6c1c53a81c4b10aad",
+        "source_row": 21364,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
         "id": "collocation:670879d6825b45750181",
         "source_row": 8690,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
@@ -210,11 +224,6 @@
       {
         "id": "collocation:d2e044b73bdebc756157",
         "source_row": 17820,
-        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
-      },
-      {
-        "id": "collocation:38e6c1c53a81c4b10aad",
-        "source_row": 21364,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
       }
     ],

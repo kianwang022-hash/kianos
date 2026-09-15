@@ -7,41 +7,111 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "edae78db1484255c90b7d3e1b2cb0b771c580e95c78c8d21cc4a29b32c4d9c1d",
+    "content_hash": "ef49310bea998718c622e056a4460f640bde99b082e1461d6c8bc583b9230e10",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "一...就...",
-          "label_en": "as soon as",
-          "pos": "conjunction",
-          "sense_ids": []
+          "label_cn": "直接地；径直地",
+          "label_en": "in a direct or straight manner",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:directly:53012ca40f5055ad"
+          ]
+        },
+        {
+          "label_cn": "直接地（无中介）",
+          "label_en": "without an intermediary or intervention",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:directly:5e7bc196cbe55971"
+          ]
+        },
+        {
+          "label_cn": "直率地",
+          "label_en": "candidly or forthrightly",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:directly:9fddaeae00b354a1"
+          ]
+        },
+        {
+          "label_cn": "立即；马上",
+          "label_en": "immediately or very soon",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:directly:f3021c44e8615a31"
+          ]
         }
       ],
-      "core_meaning_cn": "直接地；立即",
-      "core_meaning_en": "in a direct manner or immediately",
-      "mental_model_cn": "直接地；立即",
+      "core_meaning_cn": "直接地；无中介地；直率地；立即",
+      "core_meaning_en": "directly/straight; without intermediary; candidly; immediately",
+      "mental_model_cn": "直接地；无中介地；直率地；立即",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1225-o1424"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "直接地；立即地；坦率地",
-        "definition_en": "in a direct, immediate, or candid manner",
+        "definition_cn": "直接地；径直地",
+        "definition_en": "in a direct or straight manner, without deviation or interruption",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
-        "sense_id": "sense:directly:2a91a53595e044ff",
-        "sense_label_en": "in a direct, immediate, or candid manner",
+        "sense_id": "sense:directly:53012ca40f5055ad",
+        "sense_label_en": "in a direct or straight manner, without deviation or interruption",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "直接地（无中介）",
+        "definition_en": "without anyone or anything intervening; without an intermediary",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:directly:5e7bc196cbe55971",
+        "sense_label_en": "without anyone or anything intervening; without an intermediary",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "直率地；直截了当地",
+        "definition_en": "in a forthright or candid manner",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:directly:9fddaeae00b354a1",
+        "sense_label_en": "in a forthright or candid manner",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "立即；马上",
+        "definition_en": "immediately or very soon",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:directly:f3021c44e8615a31",
+        "sense_label_en": "immediately or very soon",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -67,77 +137,18 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:directly:53012ca40f5055ad",
+      "stable_sense_id": "sense:directly:2a91a53595e044ff",
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "adverb",
-      "definition_cn": "直接地，径直地",
-      "definition_en": "without deviation or interruption",
-      "semantic_key": "9db6385250d504efc5838790f547ef1ae33d6c77effecc0ac80770861264a966",
-      "semantic_key_history": [
-        "3e0f52180f01485f3758f88bc2fdabc389207031ba8727c2043d065ad11f85df"
-      ],
-      "legacy_aliases": [
-        "directly:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "directly:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3875,
-      "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:directly:5e7bc196cbe55971",
-      "status": "merged",
-      "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
-      "pos": "adverb",
-      "definition_cn": "直接地（无中介）",
-      "definition_en": "without anyone or anything intervening",
-      "semantic_key": "600a340f75089c6fc6b4d23dcfe73b022f1da747147d1cb1c811a91f55b6ab27",
-      "semantic_key_history": [
-        "ce080685807896859ac044b85e70850489d77f10897c191df353a7433c84f5af"
-      ],
-      "legacy_aliases": [
-        "directly:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "directly:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3876,
-      "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:directly:9fddaeae00b354a1",
-      "status": "merged",
-      "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
-      "pos": "adverb",
-      "definition_cn": "直率地，直截了当地",
-      "definition_en": "in a forthright manner; candidly",
-      "semantic_key": "cfe6ba6b854a836305a9a25929621a0aa5c32f9656c9e35e51ec32f0830e6adb",
-      "semantic_key_history": [
-        "e740420982529b582f983127c93a768ba3091694ed5cfcd077fb90be1a46173f"
-      ],
-      "legacy_aliases": [
-        "directly:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "directly:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3877,
+      "definition_cn": "直接地；立即地；坦率地",
+      "definition_en": "in a direct, immediate, or candid manner",
+      "semantic_key": "cce2a578d1dfc06f9ef2c65e35dfc9b6d6f8f3f19a3f6bfda46af5d69ef48b05",
+      "semantic_key_history": [],
+      "legacy_aliases": [],
+      "legacy_alias_history": [],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 3914,
       "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
       "reference_only": true
     },
@@ -163,53 +174,35 @@
       "source_row": 3878,
       "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:directly:f3021c44e8615a31",
-      "status": "merged",
-      "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
-      "pos": "adverb",
-      "definition_cn": "立即，马上",
-      "definition_en": "very soon; immediately",
-      "semantic_key": "0b10ed5bec16458b81eb28177291a1b2d3122f4b4bb3d0de85bbd0108e69f8bc",
-      "semantic_key_history": [
-        "76989d9c3acd3c929b646f89b11d71f1e7578dda8920df20d42c966a21a151a5"
-      ],
-      "legacy_aliases": [
-        "directly:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "directly:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 3879,
-      "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
-        "sense_id": "sense:directly:53012ca40f5055ad",
+        "sense_id": "sense:directly:2a91a53595e044ff",
         "status": "deprecated",
+        "merged_into_sense_id": null,
+        "source_row": 3914,
+        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
+      },
+      {
+        "sense_id": "sense:directly:53012ca40f5055ad",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 3875,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       },
       {
         "sense_id": "sense:directly:5e7bc196cbe55971",
-        "status": "merged",
-        "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 3876,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       },
       {
         "sense_id": "sense:directly:9fddaeae00b354a1",
-        "status": "merged",
-        "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 3877,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       },
@@ -222,16 +215,9 @@
       },
       {
         "sense_id": "sense:directly:f3021c44e8615a31",
-        "status": "merged",
-        "merged_into_sense_id": "sense:directly:53012ca40f5055ad",
-        "source_row": 3879,
-        "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
-      },
-      {
-        "sense_id": "sense:directly:2a91a53595e044ff",
         "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 3914,
+        "source_row": 3879,
         "source_path": "content/lexical/canonical/senses/shards/o1377-1408.json"
       }
     ],

@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "1a2e2ba13dc5b5172fbb5ead0e70dc9729a97da1feeeb2f016f6b3c0e8771395",
+    "content_hash": "a3d81a2e56bedcb1407587b5d0c92352914060be61b8cd57fa797ae4834d43f9",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "愤怒的",
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0199"
+      "semantic-review:0199",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -67,54 +68,6 @@
         "sense_label_en": "feeling or showing anger",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f00feeda1812d3895755",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:angry:54f680e0c7aa573e:collocation:0"
-            ],
-            "meaning_cn": "怒涛",
-            "phrase": "angry waves"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "狂暴的（指天气等）",
-        "definition_en": "(of the elements) as if showing violent anger",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:angry:54f680e0c7aa573e",
-        "sense_label_en": "(of the elements) as if showing violent anger",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c65eb3455f25de37ed28",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:angry:0e06dc3b8671549d:collocation:0"
-            ],
-            "meaning_cn": "发炎的伤口",
-            "phrase": "an angry wound"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "红肿发炎的",
-        "definition_en": "severely inflamed and painful",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:angry:0e06dc3b8671549d",
-        "sense_label_en": "severely inflamed and painful",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -137,12 +90,59 @@
     "word_id": "word:angry"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:angry:0e06dc3b8671549d",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "红肿发炎的",
+      "definition_en": "severely inflamed and painful",
+      "semantic_key": "e167241c53a087cf62be350aa903fc48450fa70eccc1d46bbdfbd310f314f9f1",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "angry:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "angry:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 508,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:angry:54f680e0c7aa573e",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "狂暴的（指天气等）",
+      "definition_en": "(of the elements) as if showing violent anger",
+      "semantic_key": "bdc297d83cebf717f7aa228c29164a3a2a5835c9417f2d095e3ece63f5aa285b",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "angry:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "angry:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 510,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:angry:0e06dc3b8671549d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 508,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
@@ -156,7 +156,7 @@
       },
       {
         "sense_id": "sense:angry:54f680e0c7aa573e",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 510,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
@@ -164,9 +164,7 @@
     ],
     "active_collocations": [
       "collocation:37214c9af5235a8c57c9",
-      "collocation:5e34a8a70f16bc873051",
-      "collocation:c65eb3455f25de37ed28",
-      "collocation:f00feeda1812d3895755"
+      "collocation:5e34a8a70f16bc873051"
     ],
     "facts": [],
     "collocations": [

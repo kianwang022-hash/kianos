@@ -7,28 +7,54 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "438986c76608379ae67d09bcbe705490cfa5e19a9b76a39b9ca4dde8f54cadca",
+    "content_hash": "1012139095d77d6b560d9deb133c7ac13bc80ccfe62a8c06be52c3a59c1d50d5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "垃圾场；转储，转出",
-          "label_en": "a place where waste is dumped; a copy of computer data",
+          "label_cn": "垃圾场",
+          "label_en": "a place where waste is dumped",
           "pos": "noun",
           "sense_ids": [
             "sense:dump:809b79cf86e6565f"
           ]
+        },
+        {
+          "label_cn": "倾倒；丢弃",
+          "label_en": "to throw away, discard, or get rid of something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:dump:71bffd06340452e2"
+          ]
+        },
+        {
+          "label_cn": "数据转储",
+          "label_en": "a copy/transfer of computer data or memory",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:dump:1e840e8c455a5156"
+          ]
+        },
+        {
+          "label_cn": "低价倾销；大量抛售",
+          "label_en": "to sell goods/assets cheaply or in large quantities",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:dump:4beec072f4da5c19"
+          ]
         }
       ],
-      "core_meaning_cn": "丢弃或低价销售",
-      "core_meaning_en": "to dispose of waste or sell cheaply",
-      "mental_model_cn": "丢弃或低价销售",
+      "core_meaning_cn": "垃圾场；倾倒/丢弃；数据转储；低价倾销",
+      "core_meaning_en": "a waste dump; to discard; a computer dump; or sell cheaply/in bulk",
+      "mental_model_cn": "垃圾场；倾倒/丢弃；数据转储；低价倾销",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -68,25 +94,73 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:5a91d896917ed7ed251c",
+            "collocation_id": "collocation:193701b5441effd36c75",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:dump:d14e5d3ca7785d20:collocation:handoff-o1375-o1624"
+              "sense:dump:1e840e8c455a5156:collocation:retro-o0025-o0224"
             ],
-            "meaning_cn": "倾倒废物、转储数据或抛售股票",
-            "phrase": "dump waste/data/shares"
+            "meaning_cn": "数据/内存转储",
+            "phrase": "data/memory dump"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "倾倒、丢弃或抛售",
-        "definition_en": "to get rid of, discard, or dump something",
-        "governing_pattern": "dump sth",
+        "definition_cn": "数据转储；内存转储",
+        "definition_en": "a copy or transfer of computer data or memory for storage or analysis",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dump:1e840e8c455a5156",
+        "sense_label_en": "a copy or transfer of computer data or memory for storage or analysis",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b561299e1870db021f8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dump:71bffd06340452e2:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "倾倒/丢弃废物或垃圾",
+            "phrase": "dump waste/rubbish"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "倾倒；丢弃；扔掉",
+        "definition_en": "to throw away, discard, or get rid of something",
+        "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:dump:d14e5d3ca7785d20",
-        "sense_label_en": "to get rid of, discard, or dump something",
-        "sort_order": 999,
+        "sense_id": "sense:dump:71bffd06340452e2",
+        "sense_label_en": "to throw away, discard, or get rid of something",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e7481d04853c93e03918",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dump:4beec072f4da5c19:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "低价倾销商品/抛售股票",
+            "phrase": "dump goods/shares on the market"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "低价倾销；大量抛售",
+        "definition_en": "to sell goods or assets cheaply or in large quantities, often rapidly",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dump:4beec072f4da5c19",
+        "sense_label_en": "to sell goods or assets cheaply or in large quantities, often rapidly",
+        "sort_order": 3,
         "transitivity": "vt"
       }
     ],
@@ -112,77 +186,27 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:dump:1e840e8c455a5156",
+      "stable_sense_id": "sense:dump:d14e5d3ca7785d20",
       "status": "merged",
-      "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
-      "pos": "noun",
-      "definition_cn": "转储，转出",
-      "definition_en": "a copy of computer data",
-      "semantic_key": "91d329be1f095e29b104e4253c96d94cfb75653a5b977e44355001e810557f95",
-      "semantic_key_history": [
-        "d6018eb821e7c37bcca813330e68adaee81526c07a40db1172e08f6d3e124f64"
-      ],
-      "legacy_aliases": [
-        "dump:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dump:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4279,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:dump:4beec072f4da5c19",
-      "status": "merged",
-      "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
+      "merged_into_sense_id": "sense:dump:71bffd06340452e2",
       "pos": "verb",
-      "definition_cn": "倾销",
-      "definition_en": "to sell goods cheaply in large quantities",
-      "semantic_key": "1c23b366c1a71e01a6cbe717b328673b13b0098f98fc89c1d5a45dabb249d9dd",
+      "definition_cn": "倾倒、丢弃或抛售",
+      "definition_en": "to get rid of, discard, or dump something",
+      "semantic_key": "78b46f1b94aad7a603b9d262c455187a7580cdfe3697fa799b4096b6e0a84720",
       "semantic_key_history": [
-        "63c34c34c647d8c4a7c46ba3fb814410a6295377572e8840855f529f2f333a48"
+        "24a6acfb61428760a40cec801bad95393d87d18fc6e3270712c37530546e6121"
       ],
       "legacy_aliases": [
-        "dump:l2:4"
+        "dump:l3:5"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "dump:l2:4",
+          "legacy_sense_id": "dump:l3:5",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4280,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:dump:71bffd06340452e2",
-      "status": "merged",
-      "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
-      "pos": "verb",
-      "definition_cn": "倾倒，丢弃",
-      "definition_en": "to throw away or get rid of",
-      "semantic_key": "b8dd5247997c10769cf501052e8418fc5be190295b4e40744a0a4a78718268f8",
-      "semantic_key_history": [
-        "d4f1579f336a32b2ede19ebf9984b445834dc288867156dbd06c44604e882cc8"
-      ],
-      "legacy_aliases": [
-        "dump:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "dump:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4281,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4283,
       "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
       "reference_only": true
     }
@@ -191,22 +215,22 @@
     "senses": [
       {
         "sense_id": "sense:dump:1e840e8c455a5156",
-        "status": "merged",
-        "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4279,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:dump:4beec072f4da5c19",
-        "status": "merged",
-        "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4280,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
       {
         "sense_id": "sense:dump:71bffd06340452e2",
-        "status": "merged",
-        "merged_into_sense_id": "sense:dump:809b79cf86e6565f",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4281,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       },
@@ -219,15 +243,17 @@
       },
       {
         "sense_id": "sense:dump:d14e5d3ca7785d20",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:dump:71bffd06340452e2",
         "source_row": 4283,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
       }
     ],
     "active_collocations": [
-      "collocation:5a91d896917ed7ed251c",
+      "collocation:193701b5441effd36c75",
+      "collocation:1b561299e1870db021f8",
       "collocation:637bdf8fe9b65f802547",
+      "collocation:e7481d04853c93e03918",
       "collocation:f63f76a7ce1307d7b97e"
     ],
     "facts": [],
@@ -235,6 +261,21 @@
       {
         "id": "collocation:0b1a936f1cce1790af23",
         "source_row": 916,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:193701b5441effd36c75",
+        "source_row": 21621,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:1b561299e1870db021f8",
+        "source_row": 21620,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:5a91d896917ed7ed251c",
+        "source_row": 21614,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       },
       {
@@ -253,6 +294,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       },
       {
+        "id": "collocation:e7481d04853c93e03918",
+        "source_row": 21622,
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
         "id": "collocation:f63f76a7ce1307d7b97e",
         "source_row": 20866,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
@@ -260,11 +306,6 @@
       {
         "id": "collocation:f66481457852315d0afb",
         "source_row": 20882,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
-      },
-      {
-        "id": "collocation:5a91d896917ed7ed251c",
-        "source_row": 21614,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
       }
     ],

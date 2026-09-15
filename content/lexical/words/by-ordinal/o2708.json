@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7904841fb8f2fbf61368106aa5cc64d720645369d4abf723340161fff3c10b3e",
+    "content_hash": "41c6c0769d9642dc65ffe22c5aa3c7043887e00767ff1442dbb6ea83432d0ebd",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "千米，公里",
@@ -19,7 +19,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2625-o2824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -51,10 +53,10 @@
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "kilometre is the BrE spelling; kilometer is the AmE spelling for the same metric unit",
+          "identity_type": "spelling_variant",
+          "surface_lemma": "kilometre",
           "paired_form": "kilometer",
-          "surface_lemma": "kilometre"
+          "note": "kilometre is the usual British spelling; kilometer is the usual American spelling for the same metric unit. Both frozen Main Word identities are preserved."
         },
         "needs_human_review": 0,
         "pos": "noun",
@@ -81,9 +83,19 @@
     },
     "word": "kilometre",
     "word_family": [],
-    "word_id": "word:kilometre"
+    "word_id": "word:kilometre",
+    "search_aliases": [
+      "kilometer"
+    ]
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:aa04f8fb2aae88280282",
+      "owner_path": "content/lexical/relations/by-id/df/df2caed28ea1e5316b881202258d87e3aa94c63d2ed3a3984603293b07e92eb9.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

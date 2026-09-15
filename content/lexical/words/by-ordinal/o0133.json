@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "a8f35f3c4edff82865a0af576f685247e248c095ad5af7833dac493e6d207b46",
+    "content_hash": "94fec1283f0d18ff9b8da45a4176792f4bc13b76b0e016af4f9aa76c9072181a",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "过道",
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0133"
+      "semantic-review:0133",
+      "semantic-reconciliation:o2625-o2824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -76,20 +77,6 @@
         "sense_label_en": "a passage between rows of seats in a theater, aircraft, etc.",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "教堂侧廊",
-        "definition_en": "a part of a church separated by pillars from the nave",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:aisle:21e471cba8b954e6",
-        "sense_label_en": "a part of a church separated by pillars from the nave",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -111,8 +98,38 @@
     "word_family": [],
     "word_id": "word:aisle"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:4fa3b9a78d2f77025e7a",
+      "owner_path": "content/lexical/relations/by-id/60/6012562e5b77040580ac4765e01d3dfe129d67cbf610b07d05ab0026288dec80.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [
+    {
+      "stable_sense_id": "sense:aisle:21e471cba8b954e6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "教堂侧廊",
+      "definition_en": "a part of a church separated by pillars from the nave",
+      "semantic_key": "18bb15eeba737515062516875f7d3ce76581a09f40b558cb330536b45ead2741",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "aisle:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "aisle:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 360,
+      "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json",
+      "reference_only": true
+    },
     {
       "stable_sense_id": "sense:aisle:7962ac62b6f55498",
       "status": "merged",
@@ -148,7 +165,7 @@
       },
       {
         "sense_id": "sense:aisle:21e471cba8b954e6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 360,
         "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"

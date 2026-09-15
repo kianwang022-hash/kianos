@@ -6,37 +6,50 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e1db9855856ee9dfc6be674b1818f5ba53a8a848bd151cb7f69325ccbb11da98",
+    "constructions": [
+      {
+        "construction_id": "construction:5b5f8ea63a47e4b0581c",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "某一人口群体的人口特征/人口统计数据",
+        "pattern": "demographics (plural)",
+        "definition_en": "the demographic characteristics or data of a population or region",
+        "boundary": "Singular a demographic = a group/segment of people; plural demographics = population characteristics/data.",
+        "construction_type": "form_usage_boundary"
+      }
+    ],
+    "content_hash": "4093bfb59c9a87f7191f524db96d79b84595811e5ea330496d4413eec9b8f50f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "人口统计的",
-          "label_en": "relating to the statistical study of human populations",
+          "label_cn": "人口统计的；人口特征的",
+          "label_en": "relating to the characteristics or statistical study of populations",
           "pos": "adjective",
           "sense_ids": [
             "sense:demographic:49ba0038db9654c6"
           ]
         },
         {
-          "label_cn": "人口统计数据",
-          "label_en": "a statistic characterizing a human population segment",
+          "label_cn": "具有共同人口特征的人群；受众群体",
+          "label_en": "a group or audience segment sharing demographic characteristics",
           "pos": "noun",
           "sense_ids": [
-            "sense:demographic:bf75987673505578"
+            "sense:demographic:2a798365b120bd45"
           ]
         }
       ],
-      "core_meaning_cn": "人口统计的；人口统计数据",
-      "core_meaning_en": "relating to or a statistic of human populations",
-      "mental_model_cn": "人口统计的；人口统计数据",
+      "core_meaning_cn": "人口统计的；具有共同人口特征的人群",
+      "core_meaning_en": "relating to population characteristics; or a group/audience segment sharing them",
+      "mental_model_cn": "人口统计的；具有共同人口特征的人群",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1225-o1424"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -76,24 +89,33 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:ed3b73dbaa4dd26f9eee",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:09e9a1098955438e2fc4",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:demographic:bf75987673505578:collocation:0"
+              "sense:demographic:2a798365b120bd45:collocation:retro-o0025-o0224"
             ],
-            "meaning_cn": "某地区的人口统计数据",
-            "phrase": "demographics of a region"
+            "meaning_cn": "关键/目标人群",
+            "phrase": "a key/target demographic"
+          },
+          {
+            "collocation_id": "collocation:4b2ef27c5fc1db6ac648",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:demographic:2a798365b120bd45:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "较年轻的人群",
+            "phrase": "a younger demographic"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "人口统计数据",
-        "definition_en": "a statistic characterizing a human population segment",
+        "definition_cn": "具有共同人口特征的人群；受众/市场群体",
+        "definition_en": "a group or segment of people sharing demographic characteristics, especially an audience or market segment",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:demographic:bf75987673505578",
-        "sense_label_en": "a statistic characterizing a human population segment",
+        "sense_id": "sense:demographic:2a798365b120bd45",
+        "sense_label_en": "a group or segment of people sharing demographic characteristics, especially an audience or market segment",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -118,9 +140,40 @@
     "word_id": "word:demographic"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:demographic:bf75987673505578",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "人口统计数据",
+      "definition_en": "a statistic characterizing a human population segment",
+      "semantic_key": "4c8392b080d34faf5f4b05fee0bbad853823e58b28e9b46355d4958fb2a920a7",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "demographic:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "demographic:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 3620,
+      "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:demographic:2a798365b120bd45",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3671,
+        "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
+      },
       {
         "sense_id": "sense:demographic:49ba0038db9654c6",
         "status": "active",
@@ -130,22 +183,33 @@
       },
       {
         "sense_id": "sense:demographic:bf75987673505578",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 3620,
         "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
       }
     ],
     "active_collocations": [
+      "collocation:09e9a1098955438e2fc4",
       "collocation:1157cf1c0db188b3af59",
-      "collocation:bea41c81202e7d2e6851",
-      "collocation:ed3b73dbaa4dd26f9eee"
+      "collocation:4b2ef27c5fc1db6ac648",
+      "collocation:bea41c81202e7d2e6851"
     ],
     "facts": [],
     "collocations": [
       {
+        "id": "collocation:09e9a1098955438e2fc4",
+        "source_row": 21499,
+        "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
+      },
+      {
         "id": "collocation:1157cf1c0db188b3af59",
         "source_row": 1430,
+        "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
+      },
+      {
+        "id": "collocation:4b2ef27c5fc1db6ac648",
+        "source_row": 21500,
         "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
       },
       {

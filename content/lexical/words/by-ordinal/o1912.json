@@ -6,8 +6,27 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "463fc76902043ba1ed1e92584a22de1cbf137fe753494c5e5b7d7a37c7df591f",
+    "constructions": [
+      {
+        "construction_id": "construction:fd40b89c66578759f774",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "很少；往往暗示不够",
+        "pattern": "few + plural noun",
+        "source_sense_id": "sense:few:04a6b358d6fa5aa9",
+        "boundary": "few = not many, often insufficient"
+      },
+      {
+        "construction_id": "construction:d54c1be45313f087cc27",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "一些；有几个",
+        "pattern": "a few + plural noun",
+        "source_sense_id": "sense:few:04a6b358d6fa5aa9",
+        "boundary": "a few = some, a small positive number"
+      }
+    ],
+    "content_hash": "ad7bd677ee30886e471849f099d72d830a797aae5d2b75b0b0b4706eed2108ed",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,16 +46,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "少数，不多",
-      "core_meaning_en": "a small number of",
-      "mental_model_cn": "少数，不多",
+      "core_meaning_cn": "few = 很少、常暗示不足；a few = 一些、几个",
+      "core_meaning_en": "few = not many/often insufficient; a few = some/a small number",
+      "mental_model_cn": "few = 很少、常暗示不足；a few = 一些、几个",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1825-o2024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -48,7 +69,7 @@
             "legacy_source_object_ids": [
               "sense:few:04a6b358d6fa5aa9:collocation:0"
             ],
-            "meaning_cn": "很少的...，几乎没有...",
+            "meaning_cn": "很少的……；几乎没有……（常暗示不足）",
             "phrase": "few + plural noun"
           },
           {
@@ -57,21 +78,22 @@
             "legacy_source_object_ids": [
               "sense:few:04a6b358d6fa5aa9:collocation:1"
             ],
-            "meaning_cn": "几个，一些",
+            "meaning_cn": "一些；几个（有一些）",
             "phrase": "a few + plural noun"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "很少的，不多的",
-        "definition_en": "a small number of (used with countable nouns)",
+        "definition_cn": "很少的；几乎没有（常暗示不足）",
+        "definition_en": "not many; a small number, often implying fewer than desired or insufficient",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:few:04a6b358d6fa5aa9",
-        "sense_label_en": "a small number of (used with countable nouns)",
+        "sense_label_en": "not many; a small number, often implying fewer than desired or insufficient",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "few often has negative polarity (not many / not enough); a few means some, a small positive number."
       },
       {
         "collocations": [

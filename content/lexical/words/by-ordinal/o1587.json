@@ -7,21 +7,37 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "de92bf5abf19b63b2b66df04343c3f8773f66987f94ca4970a141df09cc6bfdd",
+    "content_hash": "b00b3f714da103cad1c35fde6894ee415085ed97a0924c49c171210fcdf0317a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "精细的，详尽的",
-          "label_en": "marked by complexity and richness of detail",
+          "label_cn": "精细的；详尽的",
+          "label_en": "complex and rich in detail",
           "pos": "adjective",
           "sense_ids": [
             "sense:elaborate:65d3498de3ad5fd8"
           ]
+        },
+        {
+          "label_cn": "详细说明；进一步阐述",
+          "label_en": "to explain something more fully",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:elaborate:ec4fb825407c57d0"
+          ]
+        },
+        {
+          "label_cn": "增添细节；详细制定",
+          "label_en": "to add/develop details or work something out in detail",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:elaborate:fad0d80211845311"
+          ]
         }
       ],
-      "core_meaning_cn": "详尽的；详细说明",
-      "core_meaning_en": "detailed and complex; to explain in detail",
-      "mental_model_cn": "详尽的；详细说明",
+      "core_meaning_cn": "精细详尽的；详细说明或展开细节",
+      "core_meaning_en": "detailed/complex; to explain or develop in detail",
+      "mental_model_cn": "精细详尽的；详细说明或展开细节",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -29,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "confusable:horizontal:26b0f6b340197db13162"
+      "confusable:horizontal:26b0f6b340197db13162",
+      "semantic-reconciliation:o1425-o1624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -62,10 +79,10 @@
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "adjective/verb pronunciation boundary",
-          "paired_form": "elaborate",
-          "surface_lemma": "elaborate"
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "elaborate",
+          "paired_form": "elaborate adjective / verb",
+          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
         },
         "needs_human_review": 0,
         "pos": "adjective",
@@ -75,25 +92,66 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:8a215a31a4948ff8f2c4",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:elaborate:ec4fb825407c57d0:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "详细说明；进一步阐述某事",
+            "phrase": "elaborate on/upon sth"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "详细说明或阐述",
-        "definition_en": "to explain or develop something in detail",
-        "governing_pattern": "elaborate on sth",
+        "definition_cn": "详细说明；进一步阐述",
+        "definition_en": "to explain something more fully or in greater detail",
+        "governing_pattern": "vi. + on/upon",
         "level": "L2",
         "lexical_identity_overlay": {
           "case_sensitive": false,
-          "identity_type": "form_boundary",
-          "note": "adjective/verb pronunciation boundary",
-          "paired_form": "elaborate",
-          "surface_lemma": "elaborate"
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "elaborate",
+          "paired_form": "elaborate adjective / verb",
+          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
         },
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:elaborate:ec4fb825407c57d0",
-        "sense_label_en": "to explain or develop something in detail",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "sense_label_en": "to explain something more fully or in greater detail",
+        "sort_order": 1,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:07312ab7c9d715fcba75",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:elaborate:fad0d80211845311:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "详细制定计划/精心扩展设计",
+            "phrase": "elaborate a plan/design"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "精心扩展；增添细节；详细制定",
+        "definition_en": "to add details to or develop/work out something in detail",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:elaborate:fad0d80211845311",
+        "sense_label_en": "to add details to or develop/work out something in detail",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "elaborate",
+          "paired_form": "elaborate adjective / verb",
+          "note": "elaborate adjective ends /-rət/; elaborate verb ends /-reɪt/."
+        }
       }
     ],
     "verification_summary": {
@@ -123,33 +181,7 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:elaborate:fad0d80211845311",
-      "status": "merged",
-      "merged_into_sense_id": "sense:elaborate:65d3498de3ad5fd8",
-      "pos": "verb",
-      "definition_cn": "详细说明，精心制作",
-      "definition_en": "add details, as to an account or idea; work out in detail",
-      "semantic_key": "536a94c80986036f38a9dfb31d626ed622de47ac95d864ac710ee7208e890912",
-      "semantic_key_history": [
-        "7ca327c8694956ff03ef8e0fdef3b6abdf1ebf3f488e578eda295124a9a94644"
-      ],
-      "legacy_aliases": [
-        "elaborate:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "elaborate:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4440,
-      "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -168,18 +200,25 @@
       },
       {
         "sense_id": "sense:elaborate:fad0d80211845311",
-        "status": "merged",
-        "merged_into_sense_id": "sense:elaborate:65d3498de3ad5fd8",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 4440,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
       }
     ],
     "active_collocations": [
+      "collocation:07312ab7c9d715fcba75",
       "collocation:3dbead791909a6a8f7a3",
-      "collocation:8135325bc89f82e7c6bd"
+      "collocation:8135325bc89f82e7c6bd",
+      "collocation:8a215a31a4948ff8f2c4"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:07312ab7c9d715fcba75",
+        "source_row": 21284,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
       {
         "id": "collocation:3dbead791909a6a8f7a3",
         "source_row": 5218,
@@ -193,6 +232,11 @@
       {
         "id": "collocation:8135325bc89f82e7c6bd",
         "source_row": 10943,
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:8a215a31a4948ff8f2c4",
+        "source_row": 21283,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
       },
       {

@@ -15,7 +15,7 @@
         "pattern": "blunder into sth"
       }
     ],
-    "content_hash": "d7a2687cacd575b07a2e43a23829d6736661a6a54134f46459b9d3d6ac4d2610",
+    "content_hash": "ab73786f219d67a357ac6d92b270351310cd53f21d928327718aa8225f44fb9a",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,16 +35,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "大错；犯大错",
-      "core_meaning_en": "a stupid mistake or to make such a mistake",
-      "mental_model_cn": "大错；犯大错",
+      "core_meaning_cn": "大错；犯严重或愚蠢的错误；笨拙地闯入",
+      "core_meaning_en": "a stupid mistake; to make such a mistake; to move or enter clumsily",
+      "mental_model_cn": "大错；犯严重或愚蠢的错误；笨拙地闯入",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -97,18 +99,28 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:27e230110248c42e35d5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:blunder:0818b026548850a8:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "犯严重或愚蠢的错误",
+            "phrase": "blunder badly / make a blunder"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "犯严重或愚蠢的错误",
-        "definition_en": "to make a serious or stupid mistake",
+        "definition_cn": "犯严重、愚蠢或令人尴尬的错误",
+        "definition_en": "to make a serious, stupid, or embarrassing mistake",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:blunder:ea94906166df56c1",
-        "sense_label_en": "to make a serious or stupid mistake",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "sense_id": "sense:blunder:0818b026548850a8",
+        "sense_label_en": "to make a serious, stupid, or embarrassing mistake",
+        "sort_order": 2,
+        "transitivity": "vi/vt"
       }
     ],
     "verification_summary": {
@@ -133,27 +145,27 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:blunder:0818b026548850a8",
+      "stable_sense_id": "sense:blunder:ea94906166df56c1",
       "status": "merged",
-      "merged_into_sense_id": "sense:blunder:0efe92c987615121",
+      "merged_into_sense_id": "sense:blunder:0818b026548850a8",
       "pos": "verb",
-      "definition_cn": "做错",
-      "definition_en": "to do something wrongly",
-      "semantic_key": "07fed439a7207768ccffd7708d74bb92beeb4bf0dbfb44cdf6a827c06527cbaa",
+      "definition_cn": "犯严重或愚蠢的错误",
+      "definition_en": "to make a serious or stupid mistake",
+      "semantic_key": "3eecf5017b740110ef00f3147b7c2da03cdb8513acd2b6e82b0f1922fc44bf55",
       "semantic_key_history": [
-        "e324fb39a6a91fd95fdd97766e852075ce0bcdc79c85cef36c853e29b3950811"
+        "07aa43d2db70c1f24b4b8fe5eb3caeec0578c67a7c55f238451b8cab055ebbbb"
       ],
       "legacy_aliases": [
-        "blunder:l3:4"
+        "blunder:l2:3"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "blunder:l3:4",
+          "legacy_sense_id": "blunder:l2:3",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1400,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 1403,
       "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json",
       "reference_only": true
     }
@@ -162,8 +174,8 @@
     "senses": [
       {
         "sense_id": "sense:blunder:0818b026548850a8",
-        "status": "merged",
-        "merged_into_sense_id": "sense:blunder:0efe92c987615121",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1400,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       },
@@ -183,13 +195,14 @@
       },
       {
         "sense_id": "sense:blunder:ea94906166df56c1",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:blunder:0818b026548850a8",
         "source_row": 1403,
         "source_path": "content/lexical/canonical/senses/shards/o0513-0544.json"
       }
     ],
     "active_collocations": [
+      "collocation:27e230110248c42e35d5",
       "collocation:2dcd16682240d8c84ec0",
       "collocation:8c981fa49e78a7c96975"
     ],
@@ -198,6 +211,11 @@
       {
         "id": "collocation:190ce4ecaba298fb397e",
         "source_row": 2068,
+        "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
+      },
+      {
+        "id": "collocation:27e230110248c42e35d5",
+        "source_row": 21503,
         "source_path": "content/lexical/canonical/collocations/shards/o0513-0544.json"
       },
       {

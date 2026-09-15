@@ -26,7 +26,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "6641861ed674d24c039b566575bd26f1c304a5cc0ba0ca68504fdde9547822da",
+    "content_hash": "a514862646d9f3e98e8b5c16c948213fce43641f755082d19458e43284367564",
     "core_concept": {
       "core_clusters": [
         {
@@ -56,7 +56,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0096"
+      "semantic-review:0096",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -73,7 +74,14 @@
         "sense_label_en": "advocate (verb)",
         "sort_order": 0,
         "transitivity": "vi",
-        "collocations": []
+        "collocations": [],
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "surface_lemma": "advocate",
+          "paired_form": "advocate noun/verb",
+          "note": "verb advocate has different stress/pronunciation from the noun"
+        }
       },
       {
         "confidence": "high",
@@ -87,7 +95,14 @@
         "sense_label_en": "advocate (noun)",
         "sort_order": 1,
         "transitivity": "nonverb",
-        "collocations": []
+        "collocations": [],
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "form_boundary",
+          "surface_lemma": "advocate",
+          "paired_form": "advocate noun/verb",
+          "note": "noun advocate has initial stress; verb advocate shifts stress/pronunciation"
+        }
       }
     ],
     "verification_summary": {

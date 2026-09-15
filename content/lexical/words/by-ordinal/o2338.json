@@ -11,16 +11,28 @@
         "construction_id": "construction:94fb3c5fd655174337d9",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "妨碍/阻止某人或某物做…",
-        "pattern": "hinder sb/sth from doing sth"
+        "meaning_cn": "妨碍/阻止某人或某物做某事",
+        "definition_en": "to make it difficult or impossible for someone or something to do something",
+        "pattern": "hinder sb/sth from doing sth",
+        "source_sense_id": "sense:hinder:163ee25650fc5e13",
+        "boundary": "hinder sb/sth from doing sth"
       }
     ],
-    "content_hash": "6d577ad62b6f303614fdbb189707578a6e736b09d004fd537c117e0b2c2837ff",
+    "content_hash": "7e7804d62338b7ecae93d35b2d71db83841dc4fd7208734c7f23ad81527d8b4d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "阻碍或延迟",
-      "core_meaning_en": "to obstruct or delay",
-      "mental_model_cn": "阻碍或延迟",
+      "core_clusters": [
+        {
+          "label_cn": "阻碍；妨碍",
+          "label_en": "obstruct, impede, or make progress more difficult",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:hinder:163ee25650fc5e13"
+          ]
+        }
+      ],
+      "core_meaning_cn": "阻碍；妨碍",
+      "core_meaning_en": "to obstruct or impede",
+      "mental_model_cn": "阻碍；妨碍",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -28,11 +40,27 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:94fb3c5fd655174337d9"
+      "construction:construction:94fb3c5fd655174337d9",
+      "semantic-reconciliation:o2225-o2424"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "阻碍；妨碍",
+        "definition_en": "to obstruct, impede, or make it difficult for someone or something to act or progress",
+        "governing_pattern": "hinder sb/sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hinder:163ee25650fc5e13",
+        "sense_label_en": "to obstruct, impede, or make it difficult for someone or something to act or progress",
+        "sort_order": 0,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -54,31 +82,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:hinder:163ee25650fc5e13",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "阻碍；妨碍",
-      "definition_en": "to be a hindrance or obstacle to; to impede",
-      "semantic_key": "df68cea78da99b26e227408caa1099bce58e05d3c7444d54a303d5589a67967d",
-      "semantic_key_history": [
-        "6718e504d1e12ff2595b99d768080b0f690a7f4ce1f15231fdf956e22f24843f"
-      ],
-      "legacy_aliases": [
-        "hinder:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "hinder:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 6521,
-      "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:hinder:776eaaf0991054c0",
       "status": "deprecated",
@@ -109,7 +112,7 @@
     "senses": [
       {
         "sense_id": "sense:hinder:163ee25650fc5e13",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6521,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"

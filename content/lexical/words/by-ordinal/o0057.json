@@ -35,7 +35,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "9f0e5c3a11b9278c5690f5feef0b3767e3e5991f1a8706ba67be0d688de52c35",
+    "content_hash": "41f1f826f7ae52be1d0b9df87ec0da8072ca8e75f54edb9ab414a06839173ead",
     "core_concept": {
       "core_clusters": [
         {
@@ -45,11 +45,27 @@
           "sense_ids": [
             "sense:act:601bb18249c95285"
           ]
+        },
+        {
+          "label_cn": "行动；表现；起作用",
+          "label_en": "act, behave, or function",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:act:27ae16abd7e25f5f"
+          ]
+        },
+        {
+          "label_cn": "法案；法令",
+          "label_en": "an Act or statute",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:act:91201571c8f9538c"
+          ]
         }
       ],
-      "core_meaning_cn": "行动，行为",
-      "core_meaning_en": "to do something; a thing done",
-      "mental_model_cn": "行动，行为",
+      "core_meaning_cn": "行动、表现；行为；法案",
+      "core_meaning_en": "to act or behave; an act/action; a statute",
+      "mental_model_cn": "行动、表现；行为；法案",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,7 +73,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0057"
+      "semantic-review:0057",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -85,6 +102,34 @@
         "sense_label_en": "something that people do or cause to happen",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "行动；表现；起作用",
+        "definition_en": "to take action, behave in a particular way, or function as something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:act:27ae16abd7e25f5f",
+        "sense_label_en": "to take action, behave in a particular way, or function as something",
+        "sort_order": 1,
+        "transitivity": "vi/vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "法案；法令；成文法",
+        "definition_en": "a law or statute enacted by a legislature",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:act:91201571c8f9538c",
+        "sense_label_en": "a law or statute enacted by a legislature",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -109,31 +154,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:act:27ae16abd7e25f5f",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "verb",
-      "definition_cn": "行动，表现",
-      "definition_en": "to take action; to behave in a particular way",
-      "semantic_key": "da6fd384a9f39172cd8edd0bf3a998188846aacd0f274d10a48d67bc57740229",
-      "semantic_key_history": [
-        "cd18eea2ecfb1884950fcebbd88cc5f5f327bc776497f22d0f5ac5e2ec63de90"
-      ],
-      "legacy_aliases": [
-        "act:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 151,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:act:73a74867a0775de3",
       "status": "merged",
       "merged_into_sense_id": "sense:act:601bb18249c95285",
@@ -155,31 +175,6 @@
       ],
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 153,
-      "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:act:91201571c8f9538c",
-      "status": "merged",
-      "merged_into_sense_id": "sense:act:601bb18249c95285",
-      "pos": "noun",
-      "definition_cn": "法案，法令",
-      "definition_en": "a law made by a government",
-      "semantic_key": "c8f54fa938c57ce40c3904869f1bf116da445acbb52c2378f127e95bdd59dd3c",
-      "semantic_key_history": [
-        "fb90b186511da9ed7f3c87381ba280fd2678e1b335c4dd88cd24367ec5e5d533"
-      ],
-      "legacy_aliases": [
-        "act:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "act:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 154,
       "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json",
       "reference_only": true
     },
@@ -238,8 +233,8 @@
     "senses": [
       {
         "sense_id": "sense:act:27ae16abd7e25f5f",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 151,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },
@@ -259,8 +254,8 @@
       },
       {
         "sense_id": "sense:act:91201571c8f9538c",
-        "status": "merged",
-        "merged_into_sense_id": "sense:act:601bb18249c95285",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 154,
         "source_path": "content/lexical/canonical/senses/shards/o0033-0064.json"
       },

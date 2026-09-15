@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "73823ff2c99d680d9e018bdec9c66d94713d180f76e6d3278e5044c5a88f54f8",
+    "content_hash": "90188e8814de13eaae8e82c9b9fa82078e7c1e2a1a203516e57aff3367bc553d",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "高度，海拔",
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0167"
+      "semantic-review:0167",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -67,30 +68,6 @@
         "sense_label_en": "the height of something above sea level or above the earth's surface",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e29df98f97592276a7df",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:altitude:900eb03901be50a6:collocation:0"
-            ],
-            "meaning_cn": "三角形的高",
-            "phrase": "the altitude of a triangle"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（几何）高，高度",
-        "definition_en": "the perpendicular distance from the base of a geometric figure to the opposite vertex or side",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:altitude:900eb03901be50a6",
-        "sense_label_en": "the perpendicular distance from the base of a geometric figure to the op",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -113,12 +90,36 @@
     "word_id": "word:altitude"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:altitude:900eb03901be50a6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "（几何）高，高度",
+      "definition_en": "the perpendicular distance from the base of a geometric figure to the opposite vertex or side",
+      "semantic_key": "31ac2e84b9b2bab5dfd340ae5cbb58c62d02f3435859d4f97b1ac21ddcd57b1e",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "altitude:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "altitude:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 436,
+      "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:altitude:900eb03901be50a6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 436,
         "source_path": "content/lexical/canonical/senses/shards/o0161-0192.json"
@@ -133,8 +134,7 @@
     ],
     "active_collocations": [
       "collocation:71f0b0902da9ae037db1",
-      "collocation:7f3a2d63bb6275f0e425",
-      "collocation:e29df98f97592276a7df"
+      "collocation:7f3a2d63bb6275f0e425"
     ],
     "facts": [],
     "collocations": [

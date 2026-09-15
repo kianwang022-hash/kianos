@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:mankind",
+      "source_ordinal": 2947,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "只在人类整体义接近；humanity另有人性或人道义",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "crimes against humanity",
+          "core_meaning": "人类全体",
+          "exam_trap": "humanity多义",
+          "register": "正式",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02475618-n",
+            "evidence_status": "source_checked",
+            "source_locator": "02475618-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:humanity:7a332d44d115bcb9",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "all of the living human inhabitants of the earth",
+        "source_sense_id": "sense:mankind:8912256f09d15941",
+        "target_sense_id": "sense:humanity:d8a6cb60bbf45ddc",
+        "target_word": "humanity",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2225-o2424.md"
   }
 }

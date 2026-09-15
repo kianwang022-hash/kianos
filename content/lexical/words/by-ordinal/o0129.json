@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "20e5bfe9ecea89149de942874146a25cf776b18d6a93db4eefd5768537e69500",
+    "content_hash": "f4b94b89e61a88144d72e656a0b0f3bf3b7aac6d804229c106f7a7be14f8451e",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,8 +27,7 @@
           "sense_ids": [
             "sense:air:8f65fa6fdc0258a9",
             "sense:air:d2a4fd29b5295bfb",
-            "sense:air:785555b7851d5ab1",
-            "sense:air:9f3a796b8fb556dc"
+            "sense:air:785555b7851d5ab1"
           ]
         },
         {
@@ -39,11 +38,19 @@
             "sense:air:77ba0458c995518f",
             "sense:air:7833f4c5d5ae5b56"
           ]
+        },
+        {
+          "label_cn": "播出；广播",
+          "label_en": "broadcast on radio/television/media",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:air:122212a40e38a5fa"
+          ]
         }
       ],
-      "core_meaning_cn": "空气；使通风",
-      "core_meaning_en": "the invisible gaseous substance surrounding the earth; to expose to air",
-      "mental_model_cn": "空气；使通风",
+      "core_meaning_cn": "空气；气氛；通风；播出或公开表达",
+      "core_meaning_en": "air/atmosphere; to ventilate, broadcast, or express publicly",
+      "mental_model_cn": "空气；气氛；通风；播出或公开表达",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -51,7 +58,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0129"
+      "semantic-review:0129",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -167,22 +175,8 @@
         "pos": "verb",
         "sense_id": "sense:air:77ba0458c995518f",
         "sense_label_en": "to expose to air for drying or ventilation",
-        "sort_order": 4,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "（古代哲学中的）气，风",
-        "definition_en": "one of the four elements in ancient philosophy",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:air:9f3a796b8fb556dc",
-        "sense_label_en": "one of the four elements in ancient philosophy",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "vt"
       },
       {
         "collocations": [
@@ -205,6 +199,30 @@
         "pos": "verb",
         "sense_id": "sense:air:7833f4c5d5ae5b56",
         "sense_label_en": "to express opinions publicly",
+        "sort_order": 4,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ead3fdd354474dc8f741",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:air:122212a40e38a5fa:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "播出节目/访谈",
+            "phrase": "air a program/interview"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "播出；广播",
+        "definition_en": "to broadcast a program, interview, or other material on radio, television, or media",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:air:122212a40e38a5fa",
+        "sense_label_en": "to broadcast a program, interview, or other material on radio, television, or media",
         "sort_order": 5,
         "transitivity": "vt"
       }
@@ -229,9 +247,40 @@
     "word_id": "word:air"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:air:9f3a796b8fb556dc",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "（古代哲学中的）气，风",
+      "definition_en": "one of the four elements in ancient philosophy",
+      "semantic_key": "b3ba4dc81c1cf5b55c8012302b2fd5cb2aca7b3902797f1d527349a0e94af4b9",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "air:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "air:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 353,
+      "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:air:122212a40e38a5fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 425,
+        "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
+      },
       {
         "sense_id": "sense:air:77ba0458c995518f",
         "status": "active",
@@ -262,7 +311,7 @@
       },
       {
         "sense_id": "sense:air:9f3a796b8fb556dc",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 353,
         "source_path": "content/lexical/canonical/senses/shards/o0129-0160.json"
@@ -281,6 +330,7 @@
       "collocation:2755607532fdca38948f",
       "collocation:6d8cd75bfe75c678976e",
       "collocation:77bcac5d2c1cc4438249",
+      "collocation:ead3fdd354474dc8f741",
       "collocation:f113b80921996b6e10f1",
       "collocation:fe192c7f5df5c8d298ca"
     ],
@@ -309,6 +359,11 @@
       {
         "id": "collocation:77bcac5d2c1cc4438249",
         "source_row": 10117,
+        "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
+      },
+      {
+        "id": "collocation:ead3fdd354474dc8f741",
+        "source_row": 21614,
         "source_path": "content/lexical/canonical/collocations/shards/o0129-0160.json"
       },
       {

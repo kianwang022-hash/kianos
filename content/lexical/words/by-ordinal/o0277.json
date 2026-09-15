@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fed430d612bf00e8b6f0b45c058e301ea203af70cc9abd041429b6a06a87a5e1",
+    "content_hash": "86c84550a6adb33a8d51eb7692667e2b3fc51448bc1d6e76fc8be27e427d9126",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "人工制品",
@@ -19,7 +19,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,7 +56,14 @@
         "sense_id": "sense:artefact:9145a7d746ae564c",
         "sense_label_en": "a man-made object taken as a whole",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "artefact",
+          "paired_form": "artefact / artifact",
+          "note": "BrE artefact; artifact is the common AmE/international spelling. Same semantic owner."
+        }
       },
       {
         "collocations": [
@@ -78,7 +87,14 @@
         "sense_id": "sense:artefact:e2db7d49a1795264",
         "sense_label_en": "an artificial product or phenomenon, especially in scientific contexts",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "artefact",
+          "paired_form": "artefact / artifact",
+          "note": "BrE artefact; artifact is the common AmE/international spelling. Same semantic owner."
+        }
       }
     ],
     "verification_summary": {
@@ -154,6 +170,14 @@
   "lookup_refs": [
     {
       "spelling": "artefact",
+      "source": "content/lexical/canonical/lookup/spelling/ar.json",
+      "word_id": "word:artefact",
+      "ordinal": 277,
+      "word_shard": "content/lexical/canonical/words/shards/o0273-0280.json",
+      "auxiliary_locator": "content/lexical/canonical/lookup/word-id/28.json"
+    },
+    {
+      "spelling": "artifact",
       "source": "content/lexical/canonical/lookup/spelling/ar.json",
       "word_id": "word:artefact",
       "ordinal": 277,

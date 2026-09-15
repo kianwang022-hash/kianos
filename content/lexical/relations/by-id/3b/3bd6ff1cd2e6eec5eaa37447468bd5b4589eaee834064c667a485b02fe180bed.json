@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:interior",
+      "source_ordinal": 2604,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "inner侧重内部位置，interior侧重内部空间或室内",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "inner room",
+          "core_meaning": "内部的",
+          "exam_trap": "inner与interior辨析",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "形容词/名词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00955021-s",
+            "evidence_status": "source_checked",
+            "source_locator": "00955021-s",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:inner:6b6133fff826d301",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "located inward",
+        "source_sense_id": "sense:interior:15aa0acd73965bb9",
+        "target_sense_id": "sense:inner:271dc7a9c5625403",
+        "target_word": "inner",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

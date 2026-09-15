@@ -10,14 +10,14 @@
       {
         "construction_id": "construction:anyway:handoff-14786b51aa3dc136",
         "pattern": "anyway / any way",
-        "meaning_cn": "副词 anyway 与 any way 的词组边界",
-        "definition_en": "discourse adverb versus determiner plus noun",
+        "meaning_cn": "anyway = 无论如何/反正；any way = 任何方式（通常分写）",
+        "definition_en": "anyway means in any case; any way is the ordinary two-word manner expression",
         "level": "L1",
         "pos": "phrase",
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "43f25fd4a274de5bdd9ba522221699cc8f48f6d4fa4694b1e070fbb7005de935",
+    "content_hash": "82c87dc6b36730d4053abbce0e52e36fa818c9da00ef11dadb1b2bf42a9151df",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "无论如何",
@@ -30,7 +30,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0220"
+      "semantic-review:0220",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -67,30 +68,6 @@
         "sense_label_en": "used to indicate that a statement explains or supports a previous statem",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d2b2be880a3d91e9f777",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:anyway:de70d37672d45afa:collocation:0"
-            ],
-            "meaning_cn": "以你喜欢的任何方式",
-            "phrase": "anyway you like"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "以任何方式",
-        "definition_en": "in any way whatsoever",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adverb",
-        "sense_id": "sense:anyway:de70d37672d45afa",
-        "sense_label_en": "in any way whatsoever",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -113,7 +90,31 @@
     "word_id": "word:anyway"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:anyway:de70d37672d45afa",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adverb",
+      "definition_cn": "以任何方式",
+      "definition_en": "in any way whatsoever",
+      "semantic_key": "100692e780f0b483e3dcf72b0e880a0fec4ba32f297f81299153aeaa7913eacb",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "anyway:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "anyway:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 556,
+      "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -125,14 +126,13 @@
       },
       {
         "sense_id": "sense:anyway:de70d37672d45afa",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 556,
         "source_path": "content/lexical/canonical/senses/shards/o0193-0224.json"
       }
     ],
     "active_collocations": [
-      "collocation:d2b2be880a3d91e9f777",
       "collocation:e16413b80e5c2d7b94ce",
       "collocation:f8e17a7201c8e0caf717"
     ],

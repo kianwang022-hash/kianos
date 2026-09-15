@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "feed on sth 以...为食",
+        "boundary": "feed on sth = eat/live on sth, not give food to sth",
         "codex_reviewed": false,
-        "definition_cn": "喂；喂养",
-        "definition_en": "give food to (a person or animal)",
+        "definition_cn": "以……为食",
+        "definition_en": "to eat or live on a particular kind of food",
         "dimensions": {},
         "direction": "R",
         "evidence": [
@@ -46,7 +46,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:feed:318b1c14ba0b534c",
+        "source_sense_id": "sense:feed:b193293ab8f15495",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -116,15 +116,39 @@
         "writing_safe": false
       }
     ],
-    "content_hash": "8959c5c4f2fba04f943038525f948245ed4ba7f33a8d63a86f249fd27cc3c106",
+    "content_hash": "ee6813bcb8ba20ca76d1b529e46f47f2f00ee521e87de2350876d211bb22ac04",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "喂；喂养；供给；输入；（动物）吃食；流入",
-          "label_en": "give food to (a person or animal); supply (something) continuously; eat (used of animals); flow into",
+          "label_cn": "喂；喂养",
+          "label_en": "give food to a person or animal",
           "pos": "verb",
           "sense_ids": [
             "sense:feed:318b1c14ba0b534c"
+          ]
+        },
+        {
+          "label_cn": "（动物）以……为食",
+          "label_en": "eat or live on a particular kind of food",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:feed:b193293ab8f15495"
+          ]
+        },
+        {
+          "label_cn": "供应；输入",
+          "label_en": "supply something continuously",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:feed:666d1ed334275fdc"
+          ]
+        },
+        {
+          "label_cn": "流入；汇入",
+          "label_en": "flow into",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:feed:2d342ec3a3c9589c"
           ]
         },
         {
@@ -136,9 +160,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "喂食；饲料",
-      "core_meaning_en": "to give food to; food for animals",
-      "mental_model_cn": "喂食；饲料",
+      "core_meaning_cn": "喂养；以……为食；供应/流入；饲料",
+      "core_meaning_en": "feed/give food; feed on/eat; supply or flow into; animal food",
+      "mental_model_cn": "喂养；以……为食；供应/流入；饲料",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -149,7 +173,8 @@
       "construction:deep:constructions:feed:02cc16f8c590e91b",
       "construction:deep:constructions:feed:9d34fd4d57c21755",
       "deep:deep:constructions:feed:02cc16f8c590e91b",
-      "deep:deep:constructions:feed:9d34fd4d57c21755"
+      "deep:deep:constructions:feed:9d34fd4d57c21755",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -164,15 +189,6 @@
             ],
             "meaning_cn": "喂婴儿",
             "phrase": "feed the baby"
-          },
-          {
-            "collocation_id": "collocation:567c9b37da49cb897b23",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:feed:318b1c14ba0b534c:collocation:1"
-            ],
-            "meaning_cn": "以...为食",
-            "phrase": "feed on + sth"
           }
         ],
         "confidence": "medium",
@@ -214,20 +230,6 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "不断供应；输入",
-        "definition_en": "supply something continuously",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:feed:666d1ed334275fdc",
-        "sense_label_en": "supply something continuously",
-        "sort_order": 999,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
         "definition_cn": "流入；汇入",
         "definition_en": "flow into",
         "governing_pattern": "",
@@ -236,8 +238,46 @@
         "pos": "verb",
         "sense_id": "sense:feed:2d342ec3a3c9589c",
         "sense_label_en": "flow into",
-        "sort_order": 999,
+        "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "不断供应；输入",
+        "definition_en": "supply something continuously",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:feed:666d1ed334275fdc",
+        "sense_label_en": "supply something continuously",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:567c9b37da49cb897b23",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:feed:318b1c14ba0b534c:collocation:1"
+            ],
+            "meaning_cn": "以……为食",
+            "phrase": "feed on + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（动物）以……为食；吃食",
+        "definition_en": "to eat or live on a particular kind of food, especially of animals",
+        "governing_pattern": "feed on sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:feed:b193293ab8f15495",
+        "sense_label_en": "to eat or live on a particular kind of food, especially of animals",
+        "sort_order": 4,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -260,33 +300,7 @@
     "word_id": "word:feed"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:feed:b193293ab8f15495",
-      "status": "merged",
-      "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
-      "pos": "verb",
-      "definition_cn": "（动物）吃食",
-      "definition_en": "eat (used of animals)",
-      "semantic_key": "741be56b08e4029aebcbe1d7afc3c650e0a07726fda6686f02182aa25adfb756",
-      "semantic_key_history": [
-        "c5635fa63ca3101a18af7d52e12259a68fe07466278705c55764aa968e5a1ae7"
-      ],
-      "legacy_aliases": [
-        "feed:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "feed:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5208,
-      "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -312,8 +326,8 @@
       },
       {
         "sense_id": "sense:feed:b193293ab8f15495",
-        "status": "merged",
-        "merged_into_sense_id": "sense:feed:318b1c14ba0b534c",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 5208,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
       },

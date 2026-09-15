@@ -22,7 +22,7 @@
         "pattern": "cast light on sth"
       }
     ],
-    "content_hash": "ee8580f5c1f41b0a8c687fda3ed070a1c7691e2678ad2136176f11e9313d2ce8",
+    "content_hash": "e063280f8f1aab4ed1b209268c779f30b4e6cfeab85353d1c7c1ee55ff30ffb4",
     "core_concept": {
       "core_clusters": [
         {
@@ -43,11 +43,19 @@
             "sense:cast:c72f5d11f8bd57f4",
             "sense:cast:c2fb93c7bfe3548c"
           ]
+        },
+        {
+          "label_cn": "选派演员；安排角色",
+          "label_en": "select actors or assign roles",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:cast:b071975e0c8dda4f"
+          ]
         }
       ],
-      "core_meaning_cn": "投掷或铸造",
-      "core_meaning_en": "to throw or to shape by pouring into a mold",
-      "mental_model_cn": "投掷或铸造",
+      "core_meaning_cn": "投掷；选角；铸造；演员阵容/石膏/铸件",
+      "core_meaning_en": "to throw, cast actors, or mold; a cast of actors, plaster cast, or molded object",
+      "mental_model_cn": "投掷；选角；铸造；演员阵容/石膏/铸件",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,7 +65,8 @@
     "review_signature": [
       "construction:construction:8bc8a2139e97d7920cbe",
       "construction:construction:a26511f80af24e1f917d",
-      "deep:collocation:2518717f9b0538fff79d"
+      "deep:collocation:2518717f9b0538fff79d",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -226,6 +235,39 @@
         "sense_label_en": "an object formed by a mold",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e59d84d7f842f981402e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cast:b071975e0c8dda4f:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "选某人饰演某角色",
+            "phrase": "cast sb as X"
+          },
+          {
+            "collocation_id": "collocation:0b3b918046f21a8181ba",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cast:b071975e0c8dda4f:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "被选中饰演某角色",
+            "phrase": "be cast as X"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "选派演员；安排角色",
+        "definition_en": "to select actors for a production or assign someone to a role",
+        "governing_pattern": "vt. + sb + as + role",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cast:b071975e0c8dda4f",
+        "sense_label_en": "to select actors for a production or assign someone to a role",
+        "sort_order": 5,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -266,6 +308,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json"
       },
       {
+        "sense_id": "sense:cast:b071975e0c8dda4f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 2081,
+        "source_path": "content/lexical/canonical/senses/shards/o0705-0736.json"
+      },
+      {
         "sense_id": "sense:cast:c2fb93c7bfe3548c",
         "status": "active",
         "merged_into_sense_id": null,
@@ -288,6 +337,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:0b3b918046f21a8181ba",
       "collocation:0cbe5fbf4ca8086638da",
       "collocation:2518717f9b0538fff79d",
       "collocation:2ec1be9aaf177287b142",
@@ -297,10 +347,16 @@
       "collocation:963255dea7afc94ff0d0",
       "collocation:9ee32c5d0fed5bffb297",
       "collocation:b5f101a4d42c4562285d",
-      "collocation:c532a400e716aea7f8b3"
+      "collocation:c532a400e716aea7f8b3",
+      "collocation:e59d84d7f842f981402e"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:0b3b918046f21a8181ba",
+        "source_row": 21577,
+        "source_path": "content/lexical/canonical/collocations/shards/o0705-0736.json"
+      },
       {
         "id": "collocation:0cbe5fbf4ca8086638da",
         "source_row": 1055,
@@ -349,6 +405,11 @@
       {
         "id": "collocation:c532a400e716aea7f8b3",
         "source_row": 16698,
+        "source_path": "content/lexical/canonical/collocations/shards/o0705-0736.json"
+      },
+      {
+        "id": "collocation:e59d84d7f842f981402e",
+        "source_row": 21576,
         "source_path": "content/lexical/canonical/collocations/shards/o0705-0736.json"
       }
     ],

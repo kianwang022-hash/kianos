@@ -62,7 +62,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "780958eb04d7dc511944f3239149e9eae7bb82cccadea7c3d867d557d16f5d64",
+    "content_hash": "66616a810a590742f497ca6f3b2284300fd562239a87c862320a0419880c3a5b",
     "core_concept": {
       "core_clusters": [
         {
@@ -95,7 +95,8 @@
       "construction:construction:35e9c8240fd7ca7130d9",
       "construction:deep:constructions:associate:531dde10df4b367a",
       "deep:deep:constructions:associate:531dde10df4b367a",
-      "semantic-review:0309"
+      "semantic-review:0309",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -112,7 +113,14 @@
         "sense_label_en": "associate A with B",
         "sort_order": 0,
         "transitivity": "vi",
-        "collocations": []
+        "collocations": [],
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "associate",
+          "paired_form": "associate noun / verb",
+          "note": "associate as a verb ends /-eɪt/."
+        }
       },
       {
         "confidence": "high",
@@ -126,21 +134,35 @@
         "sense_label_en": "associate",
         "sort_order": 1,
         "transitivity": "nonverb",
-        "collocations": []
+        "collocations": [],
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "associate",
+          "paired_form": "associate noun / verb",
+          "note": "associate as a noun ends /-ət/."
+        }
       },
       {
         "confidence": "high",
-        "definition_cn": "交往",
-        "definition_en": "to join as a friend or companion",
+        "definition_cn": "交往；结交",
+        "definition_en": "to keep company or associate with someone",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:associate:ec7fa5a747735c15",
-        "sense_label_en": "to join as a friend or companion",
+        "sense_label_en": "to keep company or associate with someone",
         "sort_order": 2,
         "transitivity": "vi",
-        "collocations": []
+        "collocations": [],
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "pronunciation_boundary",
+          "surface_lemma": "associate",
+          "paired_form": "associate noun / verb",
+          "note": "associate as a verb ends /-eɪt/."
+        }
       }
     ],
     "verification_summary": {
@@ -254,7 +276,7 @@
       },
       {
         "sense_id": "sense:associate:ec7fa5a747735c15",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 790,
         "source_path": "content/lexical/canonical/senses/shards/o0289-0320.json"

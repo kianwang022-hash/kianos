@@ -147,10 +147,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:fashion",
+      "source_ordinal": 1869,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "fashion 仅在 in this fashion 中表方式",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均确定",
+          "collocation": "in a manner/fashion",
+          "core_meaning": "方式",
+          "exam_trap": "fashion时尚义",
+          "register": "fashion较书面",
+          "semantic_prosody": "中性",
+          "strength": "近似",
+          "syntax": "介词短语常见",
+          "writing_safety": "限方式构式"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:04936080-n",
+            "evidence_status": "source_checked",
+            "source_locator": "04936080-n",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:manner:a0b34eb02ab3b6cb",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "how something is done or how it happens",
+        "source_sense_id": "sense:fashion:b2f0ceda136a52a3",
+        "target_sense_id": "sense:manner:94bafd7477ab5b6c",
+        "target_word": "manner",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

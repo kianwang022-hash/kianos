@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e0da9da58caa0d57ecf7f844a6cfb3a6d4c4fd660d012cbdc21cf182a2e8e565",
+    "content_hash": "89143e89885d50483df3067c74adf6765a4f048ae08d9346a6ebaf3aaaf80d34",
     "core_concept": {
       "core_clusters": [
         {
@@ -43,7 +43,8 @@
       "deep:deep:word_family:power:eeaa57c04741f8e5",
       "relation:deep:word_family:power:eeaa57c04741f8e5",
       "sense:sense:power:946fb7d4598f5058",
-      "sense:sense:power:d169aee6945d52b4"
+      "sense:sense:power:d169aee6945d52b4",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -115,6 +116,20 @@
         "transitivity": "nonverb"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "电力；能源供应",
+        "definition_en": "electricity or other energy supplied for use",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:power:946fb7d4598f5058",
+        "sense_label_en": "(physics) the rate of doing work; measured in watts",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:c971b0d523213afb5376",
@@ -135,7 +150,31 @@
         "pos": "noun",
         "sense_id": "sense:power:2026a45ef72159d9",
         "sense_label_en": "one possessing or exercising power or influence or authority",
-        "sort_order": 2,
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:945c870f724c6d94a9d5",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:power:90467e78ca73556a:collocation:0"
+            ],
+            "meaning_cn": "2的幂",
+            "phrase": "the power of two"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "幂；乘方",
+        "definition_en": "the product of multiplying a number by itself a specified number of times",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:power:90467e78ca73556a",
+        "sense_label_en": "the product of multiplying a number by itself a specified number of time",
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -159,46 +198,8 @@
         "pos": "verb",
         "sense_id": "sense:power:15f6969e33335550",
         "sense_label_en": "supply the force or power for the functioning of",
-        "sort_order": 4,
+        "sort_order": 5,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:945c870f724c6d94a9d5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:power:90467e78ca73556a:collocation:0"
-            ],
-            "meaning_cn": "2的幂",
-            "phrase": "the power of two"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "幂；乘方",
-        "definition_en": "the product of multiplying a number by itself a specified number of times",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:power:90467e78ca73556a",
-        "sense_label_en": "the product of multiplying a number by itself a specified number of time",
-        "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "电力；能源供应",
-        "definition_en": "electricity or other energy supplied for use",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:power:946fb7d4598f5058",
-        "sense_label_en": "(physics) the rate of doing work; measured in watts",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [],
@@ -210,7 +211,7 @@
         "pos": "noun",
         "sense_id": "sense:power:d169aee6945d52b4",
         "sense_label_en": "the ability or capacity to do something or produce an effect",
-        "sort_order": 5,
+        "sort_order": 6,
         "source_evidence": [
           {
             "external_evidence": [],
@@ -288,6 +289,12 @@
       "owner_path": "content/lexical/relations/by-id/d3/d344193ad701afcec0d9131faaf9a40f3f6c0f222cb3026fc5a15c868e301b0b.json",
       "field": "semantic_neighbors",
       "index": 0
+    },
+    {
+      "relation_id": "relation:horizontal:bf0ee84c36816d92fc6e",
+      "owner_path": "content/lexical/relations/by-id/35/35fbde2595a8d8e54fe1d96036c6939174c01f08a01d6f74bf188c8197a091e6.json",
+      "field": "semantic_neighbors",
+      "index": 1
     }
   ],
   "reference_senses": [],

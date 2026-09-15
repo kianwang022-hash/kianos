@@ -26,7 +26,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "dc024cf53df19830e0c2d04e34161eb5b2333e4eef2ba34e63e4695f4c2905dc",
+    "content_hash": "d6d901607ed2ff287e44154b030707c08cfff46e28295f5dcaef152dc33f856b",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "允许进入或承认某事的行为",
@@ -39,7 +39,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0079"
+      "semantic-review:0079",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -63,6 +64,15 @@
             ],
             "meaning_cn": "入场费",
             "phrase": "admission fee"
+          },
+          {
+            "collocation_id": "collocation:79265c26c774fbfb1eea",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:admission:3510bd6bcdc45c41:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "入场费",
+            "phrase": "admission charge"
           }
         ],
         "confidence": "medium",
@@ -113,30 +123,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:3518d578eda08e1706b8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:admission:d57f24639ae453e6:collocation:0"
-            ],
-            "meaning_cn": "入场费",
-            "phrase": "admission charge"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "入场费",
-        "definition_en": "the fee charged for admission",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:admission:d57f24639ae453e6",
-        "sense_label_en": "the fee charged for admission",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:fc55be0ffd4000c7d069",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -164,7 +150,7 @@
         "pos": "noun",
         "sense_id": "sense:admission:23864dacb922591a",
         "sense_label_en": "the act of accepting someone into an institution",
-        "sort_order": 3,
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -188,7 +174,31 @@
     "word_id": "word:admission"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:admission:d57f24639ae453e6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "入场费",
+      "definition_en": "the fee charged for admission",
+      "semantic_key": "e6ce44b3e0ad9b269f971449787498781d411a554742b39cbea6742c1cf29c29",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "admission:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "admission:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 218,
+      "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -214,7 +224,7 @@
       },
       {
         "sense_id": "sense:admission:d57f24639ae453e6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 218,
         "source_path": "content/lexical/canonical/senses/shards/o0065-0096.json"
@@ -223,8 +233,8 @@
     "active_collocations": [
       "collocation:1e199817cb9e7ca41752",
       "collocation:28a1d6fcc218084ddfff",
-      "collocation:3518d578eda08e1706b8",
       "collocation:6790ad74779e4d9dd6af",
+      "collocation:79265c26c774fbfb1eea",
       "collocation:f663f342921f1fce60ed",
       "collocation:f8e50ad18423e93195fc",
       "collocation:fc55be0ffd4000c7d069"
@@ -249,6 +259,11 @@
       {
         "id": "collocation:6790ad74779e4d9dd6af",
         "source_row": 8737,
+        "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
+      },
+      {
+        "id": "collocation:79265c26c774fbfb1eea",
+        "source_row": 21613,
         "source_path": "content/lexical/canonical/collocations/shards/o0065-0096.json"
       },
       {

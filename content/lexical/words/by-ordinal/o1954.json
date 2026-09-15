@@ -7,19 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3ed1a06e037c3c8acbfd36a6841d43c8e5e87dd12d60195bafe563250e072147",
+    "content_hash": "1d74b3323f45359c784972e217dd295beedbcb133c2f20e8e5fcfbed8743ff36",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "奉承",
-      "core_meaning_en": "to praise insincerely",
-      "mental_model_cn": "奉承",
+      "core_meaning_cn": "奉承；使显得更好看",
+      "core_meaning_en": "to praise, often insincerely; or make someone look more attractive",
+      "mental_model_cn": "奉承；使显得更好看",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1825-o2024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -45,6 +47,30 @@
         "sense_id": "sense:flatter:2683d20aacde59a6",
         "sense_label_en": "to praise someone in order to please them, often insincerely",
         "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:38a767f2fd992f2991ac",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:flatter:f76e6548db2e8036:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "衣服/风格/光线使某人显得更好看",
+            "phrase": "clothes/style/lighting flatter sb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使显得更好看；衬托",
+        "definition_en": "to make someone's appearance look more attractive",
+        "governing_pattern": "flatter sb",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:flatter:f76e6548db2e8036",
+        "sense_label_en": "to make someone's appearance look more attractive",
+        "sort_order": 1,
         "transitivity": "vt"
       }
     ],
@@ -77,16 +103,29 @@
         "merged_into_sense_id": null,
         "source_row": 5409,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:flatter:f76e6548db2e8036",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 5522,
+        "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
       }
     ],
     "active_collocations": [
-      "collocation:2404f2e71ddba17b9638"
+      "collocation:2404f2e71ddba17b9638",
+      "collocation:38a767f2fd992f2991ac"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:2404f2e71ddba17b9638",
         "source_row": 3015,
+        "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+      },
+      {
+        "id": "collocation:38a767f2fd992f2991ac",
+        "source_row": 21573,
         "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
       }
     ],

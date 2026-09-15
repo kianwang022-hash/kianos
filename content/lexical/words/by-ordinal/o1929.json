@@ -61,15 +61,49 @@
         "direction": "R",
         "level": "L2",
         "meaning_cn": "发现自己处于/正在…",
-        "pattern": "find oneself doing/in..."
+        "pattern": "find oneself doing/in...",
+        "source_sense_id": "sense:find:d5ed676f664b530e"
       }
     ],
-    "content_hash": "fb82f1c433e77fb2d2bf1c3965e9f134491346cef02b5761ae1acb1a56741aeb",
+    "content_hash": "903bd424c9368d54e6561b9954cbdd55a25a1865d6699fae7b4272ec4492baea",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "发现或找到",
-      "core_meaning_en": "to discover or encounter something",
-      "mental_model_cn": "发现或找到",
+      "core_clusters": [
+        {
+          "label_cn": "找到；寻得",
+          "label_en": "discover or locate after searching",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:find:26a179925d315328"
+          ]
+        },
+        {
+          "label_cn": "偶然发现；碰见",
+          "label_en": "come upon or discover by chance",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:find:d5ed676f664b530e"
+          ]
+        },
+        {
+          "label_cn": "认为；觉得；发现……为真",
+          "label_en": "have an opinion/feeling or discover that something is the case",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:find:3023f49b7b3f59d7"
+          ]
+        },
+        {
+          "label_cn": "设法得到",
+          "label_en": "obtain or make available through effort",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:find:aab3f76ef8d55463"
+          ]
+        }
+      ],
+      "core_meaning_cn": "找到、发现；认为/觉得；设法得到",
+      "core_meaning_en": "find or discover; judge/realize; obtain through effort",
+      "mental_model_cn": "找到、发现；认为/觉得；设法得到",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,11 +113,99 @@
     "review_signature": [
       "construction:construction:8342b1cf22d7f86f9764",
       "construction:deep:constructions:find:5385885f02e042cd",
-      "deep:deep:constructions:find:5385885f02e042cd"
+      "deep:deep:constructions:find:5385885f02e042cd",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:de813b29857575cd04fb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:find:26a179925d315328:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "找到钥匙",
+            "phrase": "find the key"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "找到；寻得",
+        "definition_en": "to discover or locate something after searching",
+        "governing_pattern": "find sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:find:26a179925d315328",
+        "sense_label_en": "to discover or locate something after searching",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe8185adbfe022864fbf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:find:d5ed676f664b530e:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "偶然发现一枚硬币",
+            "phrase": "find a coin in the street"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "偶然发现；碰见",
+        "definition_en": "to come upon or discover something by chance",
+        "governing_pattern": "find sth/sb",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:find:d5ed676f664b530e",
+        "sense_label_en": "to come upon or discover something by chance",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "认为；觉得；发现……处于某状态",
+        "definition_en": "to have a particular opinion or feeling about something; to discover that something is the case",
+        "governing_pattern": "find that... / find sth adj.",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:find:3023f49b7b3f59d7",
+        "sense_label_en": "to have a particular opinion or feeling about something; to discover that something is the case",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f8713f8e323058ed991b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:find:aab3f76ef8d55463:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "设法腾出时间/筹到钱",
+            "phrase": "find the time/money"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "设法得到；找到可用的……",
+        "definition_en": "to obtain or make available something through effort",
+        "governing_pattern": "find sth",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:find:aab3f76ef8d55463",
+        "sense_label_en": "to obtain or make available something through effort",
+        "sort_order": 3,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -104,140 +226,43 @@
     "word_id": "word:find"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:find:26a179925d315328",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "找到，寻得",
-      "definition_en": "to discover something after searching",
-      "semantic_key": "49814c20ac730357261b4b131ea169b687ff169f66685ddff20e6df09d252f54",
-      "semantic_key_history": [
-        "996629d65168fccc9770d35daf886285ffec5251b8ced1855772d2f0139e618e"
-      ],
-      "legacy_aliases": [
-        "find:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "find:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5310,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:find:3023f49b7b3f59d7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "认为，感到",
-      "definition_en": "to have a particular opinion or feeling",
-      "semantic_key": "f5381213b175ba3e5dc2c5caa5246c5745634986c2ddf3f0e9cf1395a46b2b99",
-      "semantic_key_history": [
-        "1a985fb10073946faae0f035878751f50c1c654454f81dd5fdfc58a6fc38c6c3"
-      ],
-      "legacy_aliases": [
-        "find:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "find:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5311,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:find:aab3f76ef8d55463",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "设法得到",
-      "definition_en": "to obtain something through effort",
-      "semantic_key": "fd632e9a65d252c2cee292a2fb9756236a058fd80cee23ca93f8f1c50eb1cf22",
-      "semantic_key_history": [
-        "b29fe48eac47284b96434680d6519dc665c20817e89faf64b898a79f200d1706"
-      ],
-      "legacy_aliases": [
-        "find:l3:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "find:l3:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5312,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:find:d5ed676f664b530e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "偶然发现",
-      "definition_en": "to come upon something by chance",
-      "semantic_key": "2daba979561edfc5503b7c0f83d68da414cbea524b76b1054bd2bec02f644e3f",
-      "semantic_key_history": [
-        "9c003e4a15aab6113d76dd8bef657e49d70f5e008f1ba462292cb2f3da77e5ed"
-      ],
-      "legacy_aliases": [
-        "find:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "find:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5313,
-      "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:find:26a179925d315328",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5310,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       },
       {
         "sense_id": "sense:find:3023f49b7b3f59d7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5311,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       },
       {
         "sense_id": "sense:find:aab3f76ef8d55463",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5312,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       },
       {
         "sense_id": "sense:find:d5ed676f664b530e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5313,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:de813b29857575cd04fb",
+      "collocation:f8713f8e323058ed991b",
+      "collocation:fe8185adbfe022864fbf"
+    ],
     "facts": [
       {
         "id": "deep:constructions:find:5385885f02e042cd",
@@ -284,6 +309,21 @@
       {
         "id": "collocation:be035566c31ebfbd3194",
         "source_row": 16087,
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:de813b29857575cd04fb",
+        "source_row": 21568,
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:f8713f8e323058ed991b",
+        "source_row": 21570,
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:fe8185adbfe022864fbf",
+        "source_row": 21569,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
       }
     ],

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "12148140a2504c10b37637675b20c2d71d98174280d633058ab280193ecfb4df",
+    "content_hash": "fc89d582aba04b3a9af69e407faaaf77836c23f8a985624b964065481102f533",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "香烟；纸烟",
@@ -20,7 +20,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "sense:sense:cigarette:7943e816c10f545f"
+      "sense:sense:cigarette:7943e816c10f545f",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -42,7 +43,14 @@
           "source-fact:wiktionary-wiktextract:5047690a6ee6f8c7b23c",
           "source-fact:wiktionary-wiktextract:5407d2e0262bad5d6ef6"
         ],
-        "transitivity": null
+        "transitivity": null,
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "spelling_variant",
+          "surface_lemma": "cigarette",
+          "paired_form": "cigarette / cigaret",
+          "note": "Standard modern spelling cigarette; cigaret is a less-common variant."
+        }
       }
     ],
     "verification_summary": {
@@ -58,7 +66,14 @@
     "word_family": [],
     "word_id": "word:cigarette"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:3efbf19864d9d6a28a62",
+      "owner_path": "content/lexical/relations/by-id/7a/7aeafe83247522aef1a08ff4d6dc8b9869355882700f72e03c1ec3fcba9aacb0.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

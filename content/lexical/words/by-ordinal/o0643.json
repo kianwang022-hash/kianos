@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c4eb05810426285c39aa3352c502e762816cbea388e7c80764a62fe4022cc0f6",
+    "content_hash": "5b9c8394e82edd12f5484623b20d8cd484a5ba5e385b44db5fd47ebb1ee3b24a",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,18 +25,28 @@
           "sense_ids": [
             "sense:bypass:dcddaeef290b5535"
           ]
+        },
+        {
+          "label_cn": "绕城道路；旁路",
+          "label_en": "a road or route going around a place",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:bypass:2adc95aae520e485"
+          ]
         }
       ],
-      "core_meaning_cn": "绕过或避开",
-      "core_meaning_en": "to go around or avoid something",
-      "mental_model_cn": "绕过或避开",
+      "core_meaning_cn": "绕过；绕行道路；医学分流术",
+      "core_meaning_en": "to bypass/avoid; a road bypass; a surgical bypass",
+      "mental_model_cn": "绕过；绕行道路；医学分流术",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -96,6 +106,30 @@
         "sense_label_en": "a surgically created shunt (usually around a damaged part)",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bf6209e7eb17f1575eca",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bypass:2adc95aae520e485:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "修建/走绕行道路",
+            "phrase": "build/take a bypass"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "绕城道路；旁路",
+        "definition_en": "a road or route built to go around a town, congested area, or obstacle",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:bypass:2adc95aae520e485",
+        "sense_label_en": "a road or route built to go around a town, congested area, or obstacle",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -122,6 +156,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:bypass:2adc95aae520e485",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 1899,
+        "source_path": "content/lexical/canonical/senses/shards/o0641-0672.json"
+      },
+      {
         "sense_id": "sense:bypass:a438cfcbdefa5d01",
         "status": "active",
         "merged_into_sense_id": null,
@@ -139,6 +180,7 @@
     "active_collocations": [
       "collocation:52e78c7645039bff644d",
       "collocation:af2e54bd2f2e937f55d2",
+      "collocation:bf6209e7eb17f1575eca",
       "collocation:c99878513efe8d874a14"
     ],
     "facts": [],
@@ -151,6 +193,11 @@
       {
         "id": "collocation:af2e54bd2f2e937f55d2",
         "source_row": 14842,
+        "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
+      },
+      {
+        "id": "collocation:bf6209e7eb17f1575eca",
+        "source_row": 21256,
         "source_path": "content/lexical/canonical/collocations/shards/o0641-0672.json"
       },
       {

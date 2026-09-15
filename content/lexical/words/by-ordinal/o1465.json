@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "696598cf6bc309ccfa125085e5fa60c7c5542275edea758ac66565437d9c895e",
+    "content_hash": "d065a5c5e30173add1ff1f8b8814151e927d658c4e75cdb4a2af9de206993899",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,6 +27,14 @@
             "sense:dock:1d6aed815cbf50b5",
             "sense:dock:71783ba6f68951b4"
           ]
+        },
+        {
+          "label_cn": "扣减；扣发工资",
+          "label_en": "deduct or withhold part of someone’s pay",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:dock:b90d284f9ab670c8"
+          ]
         }
       ],
       "core_meaning_cn": "码头；使靠码头",
@@ -38,7 +46,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1425-o1624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -146,6 +156,39 @@
         "sense_label_en": "to cut short (an animal's tail)",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:989844bcf7491b6e2047",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dock:b90d284f9ab670c8:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "扣减某人的工资/薪酬",
+            "phrase": "dock sb's pay/wages"
+          },
+          {
+            "collocation_id": "collocation:c2b34153bf5a805051c8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dock:b90d284f9ab670c8:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "扣减一定数额的工资",
+            "phrase": "dock pay by an amount"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "扣减；扣发（工资/薪酬）",
+        "definition_en": "to deduct or withhold part of someone’s pay or wages",
+        "governing_pattern": "dock sb's pay/wages",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:dock:b90d284f9ab670c8",
+        "sense_label_en": "to deduct or withhold part of someone’s pay or wages",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -198,13 +241,22 @@
         "merged_into_sense_id": null,
         "source_row": 4065,
         "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
+      },
+      {
+        "sense_id": "sense:dock:b90d284f9ab670c8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 4088,
+        "source_path": "content/lexical/canonical/senses/shards/o1441-1472.json"
       }
     ],
     "active_collocations": [
       "collocation:2407b9033d286b210d75",
       "collocation:7d54389537d3541b22d5",
+      "collocation:989844bcf7491b6e2047",
       "collocation:a4a52b9a2f5ebdf49358",
       "collocation:ba991fe3ba834e4a3cdd",
+      "collocation:c2b34153bf5a805051c8",
       "collocation:fbd0e718af4b5b11756d"
     ],
     "facts": [],
@@ -220,6 +272,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
       },
       {
+        "id": "collocation:989844bcf7491b6e2047",
+        "source_row": 21369,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
         "id": "collocation:a4a52b9a2f5ebdf49358",
         "source_row": 13981,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
@@ -227,6 +284,11 @@
       {
         "id": "collocation:ba991fe3ba834e4a3cdd",
         "source_row": 15805,
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+      },
+      {
+        "id": "collocation:c2b34153bf5a805051c8",
+        "source_row": 21370,
         "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
       },
       {

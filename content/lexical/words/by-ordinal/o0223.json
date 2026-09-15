@@ -17,7 +17,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "9d771996393d546347b657ae6d2569d5b8953349339bdc1e8b465a51f87bcc3b",
+    "content_hash": "1bc83b9e3b1de089c5ab2d7d75c127d4eccee5346991690cf42389ade2f7c9ff",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "公寓；套房",
@@ -32,7 +32,8 @@
     "review_signature": [
       "deep:deep:word_family:apartment:982b06af9ef12a8a",
       "relation:deep:word_family:apartment:982b06af9ef12a8a",
-      "semantic-review:0223"
+      "semantic-review:0223",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -87,54 +88,7 @@
       "runtime_model_calls": false
     },
     "word": "apartment",
-    "word_family": [
-      {
-        "boundary": "apartment = apart + ment",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:family:apartment:apart",
-            "evidence_status": "source_checked",
-            "source_locator": "apartment|apart",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:word_family:apartment:982b06af9ef12a8a",
-        "family_sources": [
-          "curated core-card derivative",
-          "local morphology candidate"
-        ],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "word_family",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:apartment:500384b0c23c5958",
-        "target_sense_id": "sense:apart:e66fdf075b37560e",
-        "target_word": "apart",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
-        "form_boundary": true,
-        "pattern": "apartment / flat",
-        "meaning_cn": "美式 apartment；英式 flat",
-        "definition_en": "regional lexical equivalents",
-        "source": "semantic-review-handoff-v1"
-      }
-    ],
+    "word_family": [],
     "word_id": "word:apartment"
   },
   "relation_refs": [],

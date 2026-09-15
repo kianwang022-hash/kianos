@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e4e07537ee3093511314dcf61189ccbb5eeef1441edbffbd032a717ab7dfe610",
+    "content_hash": "580e409a0bd5f78a3a44f62bc98406404b707ca0ee03536007ceff97fe3e310a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "忍受痛苦或持续存在",
-      "core_meaning_en": "to suffer something painful patiently, or to continue to exist or last",
-      "mental_model_cn": "忍受痛苦或持续存在",
+      "core_clusters": [
+        {
+          "label_cn": "忍受；承受",
+          "label_en": "to suffer or tolerate something difficult or painful",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:endure:11c996ab9b9651d9"
+          ]
+        },
+        {
+          "label_cn": "持续存在；持久",
+          "label_en": "to continue to exist or last over time",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:endure:99ce12b9126c5015"
+          ]
+        }
+      ],
+      "core_meaning_cn": "忍受、承受；持续存在、持久",
+      "core_meaning_en": "to tolerate/suffer; or to continue to exist and last",
+      "mental_model_cn": "忍受、承受；持续存在、持久",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1625-o1824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -57,18 +76,28 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:98433b2b9307ce74b24a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:endure:99ce12b9126c5015:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "传统/影响持续存在",
+            "phrase": "traditions/effects endure"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "持续存在、经久不衰",
-        "definition_en": "to continue to exist or last",
-        "governing_pattern": "traditions/effects endure",
-        "level": "L2",
+        "definition_cn": "持续存在；持久；延续",
+        "definition_en": "to continue to exist or last over time",
+        "governing_pattern": "vi.",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:endure:99ce12b9126c5015",
-        "sense_label_en": "to continue to exist or last",
-        "sort_order": 999,
-        "transitivity": "vt"
+        "sense_label_en": "to continue to exist or last over time",
+        "sort_order": 1,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -144,6 +173,7 @@
     ],
     "active_collocations": [
       "collocation:839305084bd296d58e2b",
+      "collocation:98433b2b9307ce74b24a",
       "collocation:d43190d3f7b4602539d4"
     ],
     "facts": [],
@@ -156,6 +186,11 @@
       {
         "id": "collocation:839305084bd296d58e2b",
         "source_row": 11152,
+        "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:98433b2b9307ce74b24a",
+        "source_row": 21567,
         "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
       },
       {

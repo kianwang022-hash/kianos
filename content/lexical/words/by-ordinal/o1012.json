@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2e1bce1fc85ee69fda452b26f155d2e09aa8103d3bbed25ddd1a82bda3cf0333",
+    "content_hash": "2f2bf69736c69a3e70d928eba9b943b51a01d083a85617eadde91f82a5568ee9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "征服",
-      "core_meaning_en": "the act of conquering or something conquered",
-      "mental_model_cn": "征服",
+      "core_clusters": [
+        {
+          "label_cn": "征服；战胜",
+          "label_en": "the act of conquering, especially by force",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:conquest:871fdbf3ea6c5d26"
+          ]
+        },
+        {
+          "label_cn": "征服所得；赢得的事物",
+          "label_en": "something gained or won by conquest",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:conquest:9b388a75283d587e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "征服；征服所得",
+      "core_meaning_en": "the act of conquering or something gained by conquest",
+      "mental_model_cn": "征服；征服所得",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,6 +74,30 @@
         "sense_label_en": "the act of conquering, especially by force of arms",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9af9228d2388190def4f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:conquest:9b388a75283d587e:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "征服所得的领土",
+            "phrase": "a territorial conquest"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "征服所得；战利品；赢得的人或事物",
+        "definition_en": "something gained or won by conquest, such as territory or figuratively a person’s affection",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:conquest:9b388a75283d587e",
+        "sense_label_en": "something gained or won by conquest, such as territory or figuratively a person’s affection",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -77,33 +120,7 @@
     "word_id": "word:conquest"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:conquest:9b388a75283d587e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "战利品；赢得的人心",
-      "definition_en": "something gained by conquering, such as territory or a person's affection",
-      "semantic_key": "d19fabb5adb6957a614e400641358acb55b2410f649c298c25f943f2775ff168",
-      "semantic_key_history": [
-        "411352cfb4e7e18169af7d2ba6766fcea86b043af303a08d078324c3a68938a9"
-      ],
-      "legacy_aliases": [
-        "conquest:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "conquest:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 2860,
-      "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -115,7 +132,7 @@
       },
       {
         "sense_id": "sense:conquest:9b388a75283d587e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 2860,
         "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json"
@@ -123,6 +140,7 @@
     ],
     "active_collocations": [
       "collocation:74d3caef29d3eec789f8",
+      "collocation:9af9228d2388190def4f",
       "collocation:bf77dca2c182f7bc17d0"
     ],
     "facts": [],
@@ -130,6 +148,11 @@
       {
         "id": "collocation:74d3caef29d3eec789f8",
         "source_row": 9849,
+        "source_path": "content/lexical/canonical/collocations/shards/o0993-1024.json"
+      },
+      {
+        "id": "collocation:9af9228d2388190def4f",
+        "source_row": 21566,
         "source_path": "content/lexical/canonical/collocations/shards/o0993-1024.json"
       },
       {

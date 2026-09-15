@@ -7,19 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f4dbed4f884a113a92fa268e4f2681fc8d0335451a3e29ab141aa0f2d2554f2b",
+    "content_hash": "f4cf829fc1edc327ac373de57a2f3baff70fe254febdf0083a6deeced5d2ecc0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "女主人或情妇",
-      "core_meaning_en": "a woman in authority or a woman having an affair",
-      "mental_model_cn": "女主人或情妇",
+      "core_clusters": [
+        {
+          "label_cn": "情妇；婚外长期性关系中的女性伴侣",
+          "label_en": "a woman in an ongoing extramarital sexual relationship",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mistress:7f5ad983ce8c5897"
+          ]
+        }
+      ],
+      "core_meaning_cn": "情妇；旧式“女主人/女主管”仅作参考",
+      "core_meaning_en": "a woman in an extramarital sexual relationship; old authority/household uses are historical/reference",
+      "mental_model_cn": "情妇；旧式“女主人/女主管”仅作参考",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3025-o3124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -46,30 +57,6 @@
         "sense_label_en": "a woman having an ongoing extramarital sexual relationship with a man",
         "sort_order": 0,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9a7b91fd3e4da8381d49",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mistress:76a659a2871e55b6:collocation:0"
-            ],
-            "meaning_cn": "女主人",
-            "phrase": "mistress of the house"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "女主人；女主管",
-        "definition_en": "a woman who is in a position of authority or control; a female head of a household",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:mistress:76a659a2871e55b6",
-        "sense_label_en": "a woman who is in a position of authority or control; a female head of a",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -92,12 +79,36 @@
     "word_id": "word:mistress"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:mistress:76a659a2871e55b6",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "女主人；女主管（旧式/历史用法）",
+      "definition_en": "a woman in authority or a female head of a household (old-fashioned/historical use)",
+      "semantic_key": "d4db7852bcb11c7778b6d9e65c3f763a5dc52de4af87e1d17db745d40dc78ed9",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "mistress:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "mistress:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:05:00Z",
+      "source_row": 8594,
+      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:mistress:76a659a2871e55b6",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 8594,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
@@ -111,8 +122,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:88c09087ec029b7de93d",
-      "collocation:9a7b91fd3e4da8381d49"
+      "collocation:88c09087ec029b7de93d"
     ],
     "facts": [],
     "collocations": [

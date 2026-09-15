@@ -57,29 +57,44 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "b6bb3343a2edceb9188510f7b5229c0f034b7a5b15f49d027fdbd7b96dc6cab0",
+    "content_hash": "0c1d1f04a2076ec47ee81c690a53dcb66a8133f40b030d14408dd861f60d089c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "意思是，意味着；表示……的意思；有意义，重要",
-          "label_en": "mean or intend to express or convey; denote or connote; have a specified degree of importance",
+          "label_cn": "意思是；意味着；表示",
+          "label_en": "intend, signify, or denote",
           "pos": "verb",
           "sense_ids": [
             "sense:mean:63d9f8463f1b5a1c",
-            "sense:mean:d65dc91078395439",
+            "sense:mean:d65dc91078395439"
+          ]
+        },
+        {
+          "label_cn": "有意义；重要",
+          "label_en": "have a specified degree of importance",
+          "pos": "verb",
+          "sense_ids": [
             "sense:mean:19da749e06c2567b"
           ]
         },
         {
-          "label_cn": "低劣的，吝啬的；平均的，中间的",
-          "label_en": "having a low or unkind character; stingy; being the average or middle value",
+          "label_cn": "刻薄的；吝啬的",
+          "label_en": "unkind, low, or stingy",
           "pos": "adjective",
           "sense_ids": [
             "sense:mean:1c02859d9e385818"
           ]
         },
         {
-          "label_cn": "平均数，中间",
+          "label_cn": "平均的；中间值的",
+          "label_en": "being the average or middle value",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mean:950e964b21775a76"
+          ]
+        },
+        {
+          "label_cn": "平均数；中值",
           "label_en": "an average of numbers",
           "pos": "noun",
           "sense_ids": [
@@ -87,9 +102,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "意思是，意味着；平均的",
-      "core_meaning_en": "to intend or signify; average",
-      "mental_model_cn": "意思是，意味着；平均的",
+      "core_meaning_cn": "意思是/意味着；刻薄的；平均的；平均数",
+      "core_meaning_en": "to mean/signify; unkind; average/intermediate; an arithmetic mean",
+      "mental_model_cn": "意思是/意味着；刻薄的；平均的；平均数",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -99,7 +114,8 @@
     "review_signature": [
       "construction:deep:constructions:mean:b17a7ea22ab54a6d",
       "deep:deep:constructions:mean:b17a7ea22ab54a6d",
-      "deep:deep:secondary_senses:mean:53856d10958645b6"
+      "deep:deep:secondary_senses:mean:53856d10958645b6",
+      "semantic-reconciliation:o2825-o3024"
     ],
     "secondary_senses": [
       {
@@ -176,6 +192,20 @@
         "transitivity": "vt"
       },
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "平均的；中间的",
+        "definition_en": "being the average or middle value",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:mean:950e964b21775a76",
+        "sense_label_en": "being the average or middle value",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:6d16af33bbd9f38b19b9",
@@ -196,22 +226,8 @@
         "pos": "verb",
         "sense_id": "sense:mean:d65dc91078395439",
         "sense_label_en": "denote or connote",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "平均的；中间的",
-        "definition_en": "being the average or middle value",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:mean:950e964b21775a76",
-        "sense_label_en": "being the average or middle value",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [],
@@ -224,7 +240,7 @@
         "pos": "verb",
         "sense_id": "sense:mean:19da749e06c2567b",
         "sense_label_en": "have a specified degree of importance",
-        "sort_order": 2,
+        "sort_order": 3,
         "transitivity": "vi"
       },
       {
@@ -248,7 +264,7 @@
         "pos": "adjective",
         "sense_id": "sense:mean:1c02859d9e385818",
         "sense_label_en": "having a low or unkind character; stingy",
-        "sort_order": 3,
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -272,7 +288,7 @@
         "pos": "noun",
         "sense_id": "sense:mean:8888f3859fa35f05",
         "sense_label_en": "an average of numbers",
-        "sort_order": 4,
+        "sort_order": 5,
         "transitivity": "nonverb"
       }
     ],

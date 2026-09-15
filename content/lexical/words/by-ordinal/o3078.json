@@ -8,10 +8,10 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "miss the point",
+        "boundary": "understanding/perception branch, not physical hit/reach",
         "codex_reviewed": false,
         "definition_cn": "未听到；未觉察；未理解",
-        "definition_en": "to fail to perceive, hear, or understand something",
+        "definition_en": "to fail to understand the important point",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -57,21 +57,54 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "25c21681c8407264aa05277c3bb7bccf2e55cb21d77cfb704f7466f4bfd436ba",
+    "content_hash": "89d98a42ca0ab23c64e40b5fb01d06c0915ced82862aa34a4001e168f396f368",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "未击中；未达到；未听到；未觉察；未理解；思念；怀念",
-          "label_en": "to fail to hit, catch, or reach something; to fail to perceive, hear, or understand something; to feel the absence of someone or something; to fail to hit or reach (used intransitively)",
+          "label_cn": "未击中；错过；未达到",
+          "label_en": "fail to hit, catch, or reach",
           "pos": "verb",
           "sense_ids": [
-            "sense:miss:e0730b74719a5d18"
+            "sense:miss:e0730b74719a5d18",
+            "sense:miss:25df27a16dff5d14"
+          ]
+        },
+        {
+          "label_cn": "没听到/注意到/理解",
+          "label_en": "fail to perceive, hear, notice, or understand",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:miss:0061310092e65c88"
+          ]
+        },
+        {
+          "label_cn": "想念；怀念",
+          "label_en": "feel the absence of someone/something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:miss:6aed560eab89514d"
+          ]
+        },
+        {
+          "label_cn": "未击中；失误",
+          "label_en": "a failure to hit/catch/reach",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:miss:221a419c77565198"
+          ]
+        },
+        {
+          "label_cn": "Miss（未婚女性称谓）",
+          "label_en": "capitalized title Miss",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:miss:73ef1ba898ec589b"
           ]
         }
       ],
-      "core_meaning_cn": "未达到或未经历；感到缺失",
-      "core_meaning_en": "fail to hit, catch, or experience; feel the absence of",
-      "mental_model_cn": "未达到或未经历；感到缺失",
+      "core_meaning_cn": "未击中/错过；未理解；想念；失误；Miss 称谓",
+      "core_meaning_en": "to miss physically, fail to understand, feel absence, a miss, or the title Miss",
+      "mental_model_cn": "未击中/错过；未理解；想念；失误；Miss 称谓",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -80,7 +113,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:miss:f0ffb796361558e2",
-      "deep:deep:constructions:miss:f0ffb796361558e2"
+      "deep:deep:constructions:miss:f0ffb796361558e2",
+      "semantic-reconciliation:o3025-o3124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -117,6 +151,123 @@
         "sense_label_en": "to fail to hit, catch, or reach something",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:960103b7038d66cf0633",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:miss:0061310092e65c88:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "没理解要点",
+            "phrase": "miss the point"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "没听到；没注意到；没理解",
+        "definition_en": "to fail to perceive, hear, notice, or understand something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:miss:0061310092e65c88",
+        "sense_label_en": "to fail to perceive, hear, notice, or understand something",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ac477553d005b1fd445b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:miss:25df27a16dff5d14:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "他开枪但没打中。",
+            "phrase": "He fired and missed."
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "未击中；未达到（不及物）",
+        "definition_en": "to fail to hit or reach a target when used intransitively",
+        "governing_pattern": "vi.",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:miss:25df27a16dff5d14",
+        "sense_label_en": "to fail to hit or reach a target when used intransitively",
+        "sort_order": 2,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:be15892b1730ce84192d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:miss:6aed560eab89514d:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "想念家人/某人",
+            "phrase": "miss my family/sb"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "想念；怀念；因缺少而觉得遗憾",
+        "definition_en": "to feel the absence of someone or something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:miss:6aed560eab89514d",
+        "sense_label_en": "to feel the absence of someone or something",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f892b3bde5a8c8718eb1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:miss:221a419c77565198:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "差一点击中/险些发生",
+            "phrase": "a near miss"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "未击中；失误；差一点",
+        "definition_en": "a failure to hit, catch, or reach something",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:miss:221a419c77565198",
+        "sense_label_en": "a failure to hit, catch, or reach something",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "小姐（用于未婚女性姓名前的称谓）",
+        "definition_en": "a title used before the name of an unmarried woman",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:miss:73ef1ba898ec589b",
+        "sense_label_en": "a title used before the name of an unmarried woman",
+        "sort_order": 5,
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "case_sensitive_lexeme",
+          "surface_lemma": "Miss",
+          "paired_form": "miss",
+          "note": "This title is written with an initial capital as Miss; lowercase miss is the ordinary verb/noun lexeme."
+        }
       }
     ],
     "verification_summary": {
@@ -139,167 +290,41 @@
     "word_id": "word:miss"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:miss:0061310092e65c88",
-      "status": "merged",
-      "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
-      "pos": "verb",
-      "definition_cn": "未听到；未觉察；未理解",
-      "definition_en": "to fail to perceive, hear, or understand something",
-      "semantic_key": "b0b6616461ec2b7dbd028c28a43d964e423e668becad00602ab9add144c997d4",
-      "semantic_key_history": [
-        "05ab32e1bbf07f1979c516a15d0e345962a8347a644051f950942c9fe69b8cd0"
-      ],
-      "legacy_aliases": [
-        "miss:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "miss:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8573,
-      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:miss:221a419c77565198",
-      "status": "merged",
-      "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
-      "pos": "noun",
-      "definition_cn": "失误；未中",
-      "definition_en": "a failure to hit, catch, or reach something",
-      "semantic_key": "47a5cb4b23112206dcef043c6ca46a58c88e6210916774b2d9a25a994239c1ca",
-      "semantic_key_history": [
-        "ee30dc596115a60d7123b950d6c8172ea068c5cce40802d675057cd9c74a2591"
-      ],
-      "legacy_aliases": [
-        "miss:l2:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "miss:l2:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8574,
-      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:miss:25df27a16dff5d14",
-      "status": "merged",
-      "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
-      "pos": "verb",
-      "definition_cn": "未击中；未达到",
-      "definition_en": "to fail to hit or reach (used intransitively)",
-      "semantic_key": "907b8d3045439fd3c8a6d1251dd9437ce757d8a694b546f18f7d888113893403",
-      "semantic_key_history": [
-        "b09465e6910084b96d8c41f6a1fdb9e0f247105fd184c1e879f0fb8c4f4ddb4b"
-      ],
-      "legacy_aliases": [
-        "miss:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "miss:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8575,
-      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:miss:6aed560eab89514d",
-      "status": "merged",
-      "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
-      "pos": "verb",
-      "definition_cn": "思念；怀念",
-      "definition_en": "to feel the absence of someone or something",
-      "semantic_key": "b5ddc63a973a7d17299581fec13785113afb0e19ae746db541a391c6ac2fb5df",
-      "semantic_key_history": [
-        "6c2c89c0ba6f35416256668ccdf0c731abb45de69ce93ec172bd14e9e684c221"
-      ],
-      "legacy_aliases": [
-        "miss:l1:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "miss:l1:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8576,
-      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:miss:73ef1ba898ec589b",
-      "status": "merged",
-      "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
-      "pos": "noun",
-      "definition_cn": "小姐（对未婚女子的称呼）",
-      "definition_en": "a title for an unmarried woman",
-      "semantic_key": "9bd865cd184f5058d955d09a3e1df81992e0e21c5e0c6198e3f1bd775a2ab0d8",
-      "semantic_key_history": [
-        "f9d49f4acb243c8213f5649484106dd9228fb9c5068f055c5cb039a4872bf7c6"
-      ],
-      "legacy_aliases": [
-        "miss:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "miss:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8577,
-      "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:miss:0061310092e65c88",
-        "status": "merged",
-        "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8573,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       },
       {
         "sense_id": "sense:miss:221a419c77565198",
-        "status": "merged",
-        "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8574,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       },
       {
         "sense_id": "sense:miss:25df27a16dff5d14",
-        "status": "merged",
-        "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8575,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       },
       {
         "sense_id": "sense:miss:6aed560eab89514d",
-        "status": "merged",
-        "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8576,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       },
       {
         "sense_id": "sense:miss:73ef1ba898ec589b",
-        "status": "merged",
-        "merged_into_sense_id": "sense:miss:e0730b74719a5d18",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 8577,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
       },
@@ -313,7 +338,11 @@
     ],
     "active_collocations": [
       "collocation:7120f7606524fbeebd2a",
-      "collocation:c91783a129c1428c3741"
+      "collocation:960103b7038d66cf0633",
+      "collocation:ac477553d005b1fd445b",
+      "collocation:be15892b1730ce84192d",
+      "collocation:c91783a129c1428c3741",
+      "collocation:f892b3bde5a8c8718eb1"
     ],
     "facts": [
       {
@@ -349,6 +378,21 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
       },
       {
+        "id": "collocation:960103b7038d66cf0633",
+        "source_row": 21135,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:ac477553d005b1fd445b",
+        "source_row": 21138,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:be15892b1730ce84192d",
+        "source_row": 21136,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
         "id": "collocation:c1c120dbeef63c279722",
         "source_row": 16384,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
@@ -361,6 +405,11 @@
       {
         "id": "collocation:f3686bee1817b1443025",
         "source_row": 20615,
+        "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:f892b3bde5a8c8718eb1",
+        "source_row": 21137,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
       }
     ],

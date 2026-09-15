@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e0b4caf282feca6d945007690ed2de14427ae9a906b588022656c5f959630b49",
+    "content_hash": "f463f8d47eed77ee08930f89c33760ad82805f366a03b62aedc5e43bd156942c",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,14 @@
           "sense_ids": [
             "sense:minor:cfc3ad3a35285ecb"
           ]
+        },
+        {
+          "label_cn": "副修科目；副修专业（主要美式）",
+          "label_en": "a secondary college/university field of study",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:minor:5e0c66a6880bdb74"
+          ]
         }
       ],
       "core_meaning_cn": "较小的，次要的",
@@ -44,7 +52,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3025-o3124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -128,6 +138,31 @@
         "sense_label_en": "to study a subject as a secondary area of specialization",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ed6f9695473b37855a9f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:minor:5e0c66a6880bdb74:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "经济学/历史学副修专业",
+            "phrase": "a minor in economics/history"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "副修科目；副修专业",
+        "definition_en": "a secondary subject or field of study at a college or university",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:minor:5e0c66a6880bdb74",
+        "sense_label_en": "a secondary subject or field of study at a college or university",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "usage_note": "mainly North American/AmE academic use; compare major"
       }
     ],
     "verification_summary": {
@@ -161,6 +196,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
       },
       {
+        "sense_id": "sense:minor:5e0c66a6880bdb74",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 8565,
+        "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
         "sense_id": "sense:minor:7df463d579f955fe",
         "status": "active",
         "merged_into_sense_id": null,
@@ -179,7 +221,8 @@
       "collocation:16edf10fb9ef1f5dc3f4",
       "collocation:2987139faf33fe5b7fc1",
       "collocation:2a1f7de4dd3ae034eeb3",
-      "collocation:2f9f4c189ce896b27f62"
+      "collocation:2f9f4c189ce896b27f62",
+      "collocation:ed6f9695473b37855a9f"
     ],
     "facts": [],
     "collocations": [
@@ -201,6 +244,11 @@
       {
         "id": "collocation:2f9f4c189ce896b27f62",
         "source_row": 4030,
+        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:ed6f9695473b37855a9f",
+        "source_row": 21361,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
       }
     ],

@@ -13,15 +13,27 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "以为；误以为；认为",
-        "pattern": "be under the impression (that...)"
+        "pattern": "be under the impression (that...)",
+        "source_sense_id": "sense:impression:647c1ffa37be5de8",
+        "boundary": "be under the impression (that...) = believe/think something, sometimes mistakenly"
       }
     ],
-    "content_hash": "ddea8f49bd00147ba8f9f44e9dba4f3e7ad9d3752d974a9bafc733af46c02d1a",
+    "content_hash": "b04c891df12694f3355fc4f986be42e55071166ba9238c3a584c1243e7c0c1ac",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "印象；印记",
-      "core_meaning_en": "an idea, feeling, or opinion about something or someone; a mark made by pressing",
-      "mental_model_cn": "印象；印记",
+      "core_clusters": [
+        {
+          "label_cn": "印象；看法；感觉",
+          "label_en": "an idea, opinion, or feeling, or the effect someone/something has on you",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:impression:647c1ffa37be5de8",
+            "sense:impression:fd8081be960952a6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "印象、看法或感觉",
+      "core_meaning_en": "an idea, opinion, feeling, appearance or effect; specialized printing/dentistry senses are lower",
+      "mental_model_cn": "印象、看法或感觉",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -29,11 +41,40 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:cf36344ee36dd6b69925"
+      "construction:construction:cf36344ee36dd6b69925",
+      "semantic-reconciliation:o2425-o2624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "印象，想法；某人留下的感觉",
+        "definition_en": "an idea, opinion, or feeling about something, or the effect that someone or something has on you",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:impression:647c1ffa37be5de8",
+        "sense_label_en": "an idea, opinion, or feeling about something, or the effect that someone or something has on you",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "外观；印象",
+        "definition_en": "the appearance or effect that someone or something has on you",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:impression:fd8081be960952a6",
+        "sense_label_en": "the appearance or effect that someone or something has on you",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
       {
         "collocations": [
           {
@@ -55,7 +96,7 @@
         "pos": "noun",
         "sense_id": "sense:impression:461564eed12e5231",
         "sense_label_en": "all the copies of a work printed at one time",
-        "sort_order": 0,
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -79,35 +120,7 @@
         "pos": "noun",
         "sense_id": "sense:impression:f92b03a35e245a23",
         "sense_label_en": "(dentistry) an imprint of the teeth and gums in wax or plaster",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "印象，想法；某人留下的感觉",
-        "definition_en": "an idea, opinion, or feeling about something, or the effect that someone or something has on you",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:impression:647c1ffa37be5de8",
-        "sense_label_en": "an idea, opinion, or feeling about something, or the effect that someone or something has on you",
-        "sort_order": 999,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "外观；印象",
-        "definition_en": "the appearance or effect that someone or something has on you",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:impression:fd8081be960952a6",
-        "sense_label_en": "the appearance or effect that someone or something has on you",
-        "sort_order": 999,
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],

@@ -155,7 +155,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "b85848a453ca59d57e0cc3e23755f69b2faf99297cd6c72850a9c1b46b748d13",
+    "content_hash": "fff15ebb21498aca55c607e8cb0d3c6a93ff0e66056b633e660b6afc4bd59970",
     "core_concept": {
       "core_clusters": [
         {
@@ -192,7 +192,8 @@
       "construction:deep:constructions:supply:af19b94e3a976595",
       "deep:deep:constructions:supply:91c93be019f9e7fa",
       "deep:deep:constructions:supply:95a5bd7659b5fa1a",
-      "deep:deep:constructions:supply:af19b94e3a976595"
+      "deep:deep:constructions:supply:af19b94e3a976595",
+      "semantic-reconciliation:o2025-o2224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -233,6 +234,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:0be5d9faf62afb540c85",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:supply:282be216c7f25cbd:collocation:0"
+            ],
+            "meaning_cn": "供求",
+            "phrase": "supply and demand"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "供给，供应",
+        "definition_en": "the act of providing goods and services for sale",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:supply:282be216c7f25cbd",
+        "sense_label_en": "the act of providing goods and services for sale",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:e9a2a579025eb2a5468c",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -262,30 +287,6 @@
         "sense_label_en": "to give something that is needed or useful to someone",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:0be5d9faf62afb540c85",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:supply:282be216c7f25cbd:collocation:0"
-            ],
-            "meaning_cn": "供求",
-            "phrase": "supply and demand"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "供给，供应",
-        "definition_en": "the act of providing goods and services for sale",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:supply:282be216c7f25cbd",
-        "sense_label_en": "the act of providing goods and services for sale",
-        "sort_order": 1,
-        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -331,7 +332,14 @@
     "word_family": [],
     "word_id": "word:supply"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:semantic_contrast:furnish:988503f36ad1004f",
+      "owner_path": "content/lexical/relations/by-id/30/30050774f9859ba2b61cdc532323f0b99adc01954a53247bb50ef12fc2f32b94.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

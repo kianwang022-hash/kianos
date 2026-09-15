@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f38b82fce9cd21689f89a5cb7bcb8b1c8de10974440e4842940f9916e5b0ef14",
+    "content_hash": "112d33c2e5167b21cab93e0d12e25f30dc4a5eb59208958a977f61cae24b4f0c",
     "core_concept": {
       "core_clusters": [
         {
@@ -15,8 +15,7 @@
           "label_en": "to meet someone or experience something unexpectedly; to meet by chance",
           "pos": "verb",
           "sense_ids": [
-            "sense:encounter:279ed50ea2a85dc1",
-            "sense:encounter:744cd97c221c5aac"
+            "sense:encounter:279ed50ea2a85dc1"
           ]
         },
         {
@@ -38,7 +37,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:encounter:9d4be7177b0cf5aa"
+      "deep:deep:secondary_senses:encounter:9d4be7177b0cf5aa",
+      "semantic-reconciliation:o1625-o1824"
     ],
     "secondary_senses": [
       {
@@ -100,6 +100,15 @@
             ],
             "meaning_cn": "遇到阻力",
             "phrase": "encounter resistance"
+          },
+          {
+            "collocation_id": "collocation:925fb5cac1c274db71f6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:encounter:744cd97c221c5aac:collocation:0"
+            ],
+            "meaning_cn": "遇到问题",
+            "phrase": "encounter a problem"
           }
         ],
         "confidence": "medium",
@@ -146,30 +155,6 @@
         "sense_label_en": "a casual or unexpected meeting",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:925fb5cac1c274db71f6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:encounter:744cd97c221c5aac:collocation:0"
-            ],
-            "meaning_cn": "遇到问题",
-            "phrase": "encounter a problem"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "偶然相遇",
-        "definition_en": "to meet by chance",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:encounter:744cd97c221c5aac",
-        "sense_label_en": "to meet by chance",
-        "sort_order": 2,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -192,7 +177,31 @@
     "word_id": "word:encounter"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:encounter:744cd97c221c5aac",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "verb",
+      "definition_cn": "偶然相遇",
+      "definition_en": "to meet by chance",
+      "semantic_key": "26ec1994fb36701a7074f010940b7d3f74a9cf424f42161b267f002c8a3f237a",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "encounter:l3:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "encounter:l3:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 4551,
+      "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -211,7 +220,7 @@
       },
       {
         "sense_id": "sense:encounter:744cd97c221c5aac",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 4551,
         "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"

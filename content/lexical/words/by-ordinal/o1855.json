@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4e302046f174faf56245d0eb87c516925b2fe6f67a312e280cae34fa57096813",
+    "content_hash": "a69c44d61c4f1741c4ec1b448581b02ab818629d87b360e3762dce704e504d20",
     "core_concept": {
       "core_clusters": [
         {
@@ -40,7 +40,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "sense:sense:family:be1ba9ae83ea5bc4"
+      "sense:sense:family:be1ba9ae83ea5bc4",
+      "semantic-reconciliation:o1825-o2024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -129,30 +130,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:74d4d171a939751938b6",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:family:839491193e665bd4:collocation:0"
-            ],
-            "meaning_cn": "家庭生活",
-            "phrase": "family life"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "家庭的",
-        "definition_en": "of or relating to a family",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:family:839491193e665bd4",
-        "sense_label_en": "of or relating to a family",
-        "sort_order": 4,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:08e6cbe487aa7bd6fdea",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -172,6 +149,30 @@
         "sense_id": "sense:family:56b4106cc7375c56",
         "sense_label_en": "(biology) a taxonomic group containing one or more genera",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:74d4d171a939751938b6",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:family:839491193e665bd4:collocation:0"
+            ],
+            "meaning_cn": "家庭生活",
+            "phrase": "family life"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "家庭的",
+        "definition_en": "of or relating to a family",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:family:839491193e665bd4",
+        "sense_label_en": "of or relating to a family",
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -216,7 +217,14 @@
     "word_family": [],
     "word_id": "word:family"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:famine:be349ec347bbb0c8",
+      "owner_path": "content/lexical/relations/by-id/2f/2f76056bea00998a129a0381cae195ee9b0cba7c8439769c945ae670f525f0c9.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

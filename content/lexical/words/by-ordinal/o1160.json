@@ -7,19 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3828f77ea8e27545215254d45a402df9f9f9cee47c4cca63c7964113d9178eae",
+    "content_hash": "4db9503d64a03ef4fd2e072539b0321b0e43faad4dac3a0448cb3699fac73c08",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "批评的；关键的",
-      "core_meaning_en": "expressing disapproval or being of crucial importance",
-      "mental_model_cn": "批评的；关键的",
+      "core_clusters": [
+        {
+          "label_cn": "批判性分析的；审慎评估的",
+          "label_en": "involving careful, reasoned evaluation or judgment",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:critical:b097d1a990131c7a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "批评/挑剔；批判性评估；关键；危急",
+      "core_meaning_en": "fault-finding; careful evaluative judgment; crucial; or dangerously serious",
+      "mental_model_cn": "批评/挑剔；批判性评估；关键；危急",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1025-o1224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -136,6 +147,39 @@
         "sense_label_en": "relating to a point at which a sudden change occurs, especially in physi",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e5fa7378e401937a819c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:critical:b097d1a990131c7a:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "批判性思维；审慎分析与判断",
+            "phrase": "critical thinking"
+          },
+          {
+            "collocation_id": "collocation:06be4a3b7ad6afb0f9cf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:critical:b097d1a990131c7a:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "批判性分析；审慎评估",
+            "phrase": "critical analysis"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "批判性分析的；审慎评估的",
+        "definition_en": "involving careful, reasoned evaluation, analysis, or judgment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:critical:b097d1a990131c7a",
+        "sense_label_en": "involving careful, reasoned evaluation, analysis, or judgment",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -169,6 +213,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json"
       },
       {
+        "sense_id": "sense:critical:b097d1a990131c7a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3334,
+        "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json"
+      },
+      {
         "sense_id": "sense:critical:dc24225d801f538a",
         "status": "active",
         "merged_into_sense_id": null,
@@ -191,15 +242,22 @@
       }
     ],
     "active_collocations": [
+      "collocation:06be4a3b7ad6afb0f9cf",
       "collocation:1bf403f7816675ba0ac9",
       "collocation:2531fcf134c2317a8c1b",
       "collocation:deb08026313f952286c3",
       "collocation:e4dd30e6bb81afe80e04",
+      "collocation:e5fa7378e401937a819c",
       "collocation:e7ab20901b04aefb2346",
       "collocation:ffebb3cec3e75cf68820"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:06be4a3b7ad6afb0f9cf",
+        "source_row": 21626,
+        "source_path": "content/lexical/canonical/collocations/shards/o1153-1184.json"
+      },
       {
         "id": "collocation:1bf403f7816675ba0ac9",
         "source_row": 2310,
@@ -218,6 +276,11 @@
       {
         "id": "collocation:e4dd30e6bb81afe80e04",
         "source_row": 19379,
+        "source_path": "content/lexical/canonical/collocations/shards/o1153-1184.json"
+      },
+      {
+        "id": "collocation:e5fa7378e401937a819c",
+        "source_row": 21625,
         "source_path": "content/lexical/canonical/collocations/shards/o1153-1184.json"
       },
       {

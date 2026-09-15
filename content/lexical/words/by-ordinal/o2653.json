@@ -12,15 +12,45 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "形式主语/预指 it：真正内容由后置不定式或从句给出",
-        "pattern": "It + be/seem + adjective/noun + to do / that-clause"
+        "pattern": "It + be/seem + adjective/noun + to do / that-clause",
+        "source_sense_id": "sense:it:b464673e8f1fe500",
+        "boundary": "extraposition/dummy it: the semantic content is supplied by the following infinitive or clause",
+        "definition_en": "dummy/extraposed it with the real semantic subject supplied later"
+      },
+      {
+        "construction_id": "construction:e229f019fd359a755766",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "天气、时间、距离等无人称 it",
+        "pattern": "It + weather/time/distance expression",
+        "boundary": "It + weather/time/distance expression",
+        "definition_en": "dummy it in expressions such as It is raining / It is five o’clock / It is far from here",
+        "source_sense_id": "sense:it:b464673e8f1fe500"
       }
     ],
-    "content_hash": "6bd7b9fabe11c9dd856fd4c98f71defcf1be7e32c99902120b5f9adb7dba18e2",
+    "content_hash": "68ddb94af4a879bca619532297df06158a52c10c404d427eab1ce2f4e30bb9e3",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "它",
-      "core_meaning_en": "third-person singular neuter pronoun",
-      "mental_model_cn": "它",
+      "core_clusters": [
+        {
+          "label_cn": "指代事物或动物的 it",
+          "label_en": "referential third-person singular neuter pronoun",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:it:fb55b5f7c79459a2"
+          ]
+        },
+        {
+          "label_cn": "形式/无人称 it",
+          "label_en": "dummy or impersonal it",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:it:b464673e8f1fe500"
+          ]
+        }
+      ],
+      "core_meaning_cn": "它；形式/无人称 it",
+      "core_meaning_en": "referential it or dummy/impersonal it",
+      "mental_model_cn": "它；形式/无人称 it",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -28,7 +58,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:e40e1411cfaa784a602a"
+      "construction:construction:e40e1411cfaa784a602a",
+      "semantic-reconciliation:o2625-o2824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -65,6 +96,20 @@
         "sense_label_en": "used to refer to a thing or animal",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "形式/无人称 it（天气、时间、距离或后置真正主语）",
+        "definition_en": "dummy or impersonal it used without a concrete referent for weather, time, distance, or extraposition",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:it:b464673e8f1fe500",
+        "sense_label_en": "dummy or impersonal it used without a concrete referent for weather, time, distance, or extraposition",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -90,6 +135,13 @@
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:it:b464673e8f1fe500",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 7319,
+        "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
       {
         "sense_id": "sense:it:fb55b5f7c79459a2",
         "status": "active",

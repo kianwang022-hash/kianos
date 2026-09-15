@@ -11,10 +11,12 @@
         "construction_id": "construction:68edaf9831dbfc4b9ce8",
         "level": "L2",
         "meaning_cn": "因…而不悦/反感；对…表示异议",
-        "pattern": "take exception to sth/sb"
+        "pattern": "take exception to sth/sb",
+        "source_sense_id": "sense:exception:19c33e3aa3fc5c96",
+        "definition_en": "to object to or be offended by something or someone"
       }
     ],
-    "content_hash": "3a6803dadb5b7f091fe7a0161b2af75f1cdd981851c64afed82180738285c6e8",
+    "content_hash": "45361401e108e4b3d694ede5fe78a64266875e86694df42e09a32be0868b0a35",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "例外",
@@ -27,7 +29,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:68edaf9831dbfc4b9ce8"
+      "construction:construction:68edaf9831dbfc4b9ce8",
+      "semantic-reconciliation:o1625-o1824"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -75,20 +78,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5d180c894c93dbb5a448",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:exception:a3ac6297f8fe5684:collocation:0"
-            ],
-            "meaning_cn": "对……表示异议",
-            "phrase": "take exception to + sth",
-            "presentation_merge": {
-              "surviving_object_id": "collocation:6df2d383bcece3cf0860"
-            }
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "排除，除外（故意遗漏）",
         "definition_en": "a deliberate act of omission",
@@ -99,6 +89,33 @@
         "sense_id": "sense:exception:a3ac6297f8fe5684",
         "sense_label_en": "a deliberate act of omission",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5d180c894c93dbb5a448",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:exception:a3ac6297f8fe5684:collocation:0"
+            ],
+            "meaning_cn": "反对/对某事或某人感到不满",
+            "phrase": "take exception to sth/sb",
+            "presentation_merge": {
+              "surviving_object_id": "collocation:6df2d383bcece3cf0860"
+            }
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "反对；异议；不满",
+        "definition_en": "an objection or expression of offense or displeasure",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:exception:19c33e3aa3fc5c96",
+        "sense_label_en": "an objection or expression of offense or displeasure",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -122,38 +139,12 @@
     "word_id": "word:exception"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:exception:19c33e3aa3fc5c96",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "异议，反对的理由",
-      "definition_en": "grounds for adverse criticism",
-      "semantic_key": "731e824be3813523967f829d4593dfe6783518768b7f068e3c7f9fdd27481774",
-      "semantic_key_history": [
-        "bad229d4fdf4c777ca8f46c63b19dbb5db5ce37eb5f6ea9afc91947bac49793e"
-      ],
-      "legacy_aliases": [
-        "exception:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "exception:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4813,
-      "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:exception:19c33e3aa3fc5c96",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 4813,
         "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json"

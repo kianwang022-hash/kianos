@@ -150,10 +150,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:distinguish",
+      "source_ordinal": 1445,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "identify确认是什么；distinguish辨别彼此差异，不可机械互换",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "均可确定",
+          "collocation": "identify cause/distinguish A from B",
+          "core_meaning": "识别/辨别",
+          "exam_trap": "确认与区分",
+          "register": "均通用",
+          "semantic_prosody": "中性",
+          "strength": "distinguish重差异",
+          "syntax": "identify as/distinguish from",
+          "writing_safety": "按宾语结构选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00654017-v",
+            "evidence_status": "source_checked",
+            "source_locator": "00654017-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:identify:27b7ca3c3e2ae373",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "identify as in botany or biology, for example",
+        "source_sense_id": "sense:distinguish:bd419021a2fb5997",
+        "target_sense_id": "sense:identify:5777c64cbad0500b",
+        "target_word": "identify",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

@@ -6,8 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "580dd439b4bbb8d09aa5fba8a038bd4a75bac519e571e8789b98e04920e0da3f",
+    "constructions": [
+      {
+        "construction_id": "construction:e67de6b191da08d9c828",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "从清单中划掉/删除某项",
+        "pattern": "cross sth off (a list)",
+        "definition_en": "to remove an item from a list by drawing a line through it",
+        "boundary": "Phrasal delete/remove use; not physical traversal."
+      }
+    ],
+    "content_hash": "111183d204acb7d900443886ef47d41cc9c30ddb94b83c379ec54130b4c16b80",
     "core_concept": {
       "core_clusters": [
         {
@@ -36,6 +46,14 @@
           "sense_ids": [
             "sense:cross:5a7a56dac6895793"
           ]
+        },
+        {
+          "label_cn": "使杂交；将不同类型混合培育",
+          "label_en": "breed or cross two different types to produce a hybrid",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:cross:1ce225ff851634e2"
+          ]
         }
       ],
       "core_meaning_cn": "横过；交叉",
@@ -47,7 +65,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1025-o1224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -61,15 +81,6 @@
             ],
             "meaning_cn": "过马路",
             "phrase": "cross the road"
-          },
-          {
-            "collocation_id": "collocation:117521941d06e3726b03",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cross:761831ef41a65b7f:collocation:1"
-            ],
-            "meaning_cn": "划掉某物",
-            "phrase": "cross + sth + off"
           }
         ],
         "confidence": "medium",
@@ -86,15 +97,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:4f861ea44f39984ad2de",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:cross:6f3975cf8d2c5a0f:collocation:0"
-            ],
-            "meaning_cn": "使某物与某物交叉",
-            "phrase": "cross + sth + with + sth"
-          },
           {
             "collocation_id": "collocation:a5d6e5d187757bd6d56b",
             "exam_value": "fixed_pattern",
@@ -212,6 +214,30 @@
         "sense_label_en": "a hybrid or mixture of two different things",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4f861ea44f39984ad2de",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:cross:6f3975cf8d2c5a0f:collocation:0"
+            ],
+            "meaning_cn": "使A与B杂交；将不同类型混合培育",
+            "phrase": "cross A with B"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使杂交；将不同类型混合培育",
+        "definition_en": "to breed or cross two different types to produce a hybrid",
+        "governing_pattern": "cross A with B",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cross:1ce225ff851634e2",
+        "sense_label_en": "to breed or cross two different types to produce a hybrid",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -237,6 +263,13 @@
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:cross:1ce225ff851634e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 3335,
+        "source_path": "content/lexical/canonical/senses/shards/o1153-1184.json"
+      },
       {
         "sense_id": "sense:cross:3e66403e052950ee",
         "status": "active",
@@ -282,7 +315,6 @@
     ],
     "active_collocations": [
       "collocation:095b4ab3f271bcb61a2a",
-      "collocation:117521941d06e3726b03",
       "collocation:1413cbb4767a45f6691f",
       "collocation:2d19704ced8560e0ced6",
       "collocation:4d9f4537645e406bf4e9",

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5dcaa53fdb42be00e3310973052ed523bf24541312fe904c02df90ee700540c4",
+    "content_hash": "abd969bd109f1125e8bdd30b36c63153fdf5aa1b7938db7f4c8bdfb080c8491e",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,6 +26,14 @@
             "sense:hike:ba9e2f0c4eb45361",
             "sense:hike:6b349d818e635707"
           ]
+        },
+        {
+          "label_cn": "上涨；增加",
+          "label_en": "an increase, especially in price or rate",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hike:6aec8914f2e24034"
+          ]
         }
       ],
       "core_meaning_cn": "远足或增加",
@@ -37,7 +45,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o2225-o2424"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -102,6 +112,30 @@
         "sense_label_en": "to increase or raise something, especially prices or amounts",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4d475a71869e9815c346",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:hike:6aec8914f2e24034:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "价格/费率/税率上涨",
+            "phrase": "a price/rate/tax hike"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "上涨；增加",
+        "definition_en": "an increase, especially in a price, rate, tax, salary, or other amount",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:hike:6aec8914f2e24034",
+        "sense_label_en": "an increase, especially in a price, rate, tax, salary, or other amount",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -128,6 +162,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:hike:6aec8914f2e24034",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6519,
+        "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
         "sense_id": "sense:hike:6b349d818e635707",
         "status": "active",
         "merged_into_sense_id": null,
@@ -151,6 +192,7 @@
     ],
     "active_collocations": [
       "collocation:0e12adcb523dbe96c9db",
+      "collocation:4d475a71869e9815c346",
       "collocation:ea036854271064f0894b"
     ],
     "facts": [],
@@ -158,6 +200,11 @@
       {
         "id": "collocation:0e12adcb523dbe96c9db",
         "source_row": 1168,
+        "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:4d475a71869e9815c346",
+        "source_row": 21577,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
       },
       {

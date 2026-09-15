@@ -13,8 +13,8 @@
       "shared_synset": "02641270-v",
       "source_definition": "suggest as a logically necessary consequence",
       "source_sense_id": "sense:imply:0942d08c61c75358",
-      "target_definition": "have as a logical consequence",
-      "target_sense_id": "sense:entail:15074ae624f75f34",
+      "target_definition": "to involve or require as a necessary consequence",
+      "target_sense_id": "sense:entail:1a7bd968f5b1bdca",
       "target_word": "entail"
     },
     "dimensions": {
@@ -69,7 +69,7 @@
       "source_definition": "suggest as a logically necessary consequence",
       "source_sense_id": "sense:imply:0942d08c61c75358",
       "target_definition": "have as a logical consequence",
-      "target_sense_id": "sense:entail:15074ae624f75f34"
+      "target_sense_id": "sense:entail:1a7bd968f5b1bdca"
     },
     "semantic_stage_b": {
       "dimensions_complete": true,
@@ -80,7 +80,7 @@
     },
     "source_grounded": true,
     "source_sense_id": "sense:imply:0942d08c61c75358",
-    "target_sense_id": "sense:entail:15074ae624f75f34",
+    "target_sense_id": "sense:entail:1a7bd968f5b1bdca",
     "target_word": "entail",
     "task_tags": [
       "reading"
@@ -139,7 +139,7 @@
         "publication_status": "codex_reviewed",
         "shared_definition": "have as a logical consequence",
         "source_sense_id": "sense:imply:0942d08c61c75358",
-        "target_sense_id": "sense:entail:15074ae624f75f34",
+        "target_sense_id": "sense:entail:1a7bd968f5b1bdca",
         "target_word": "entail",
         "task_tags": [
           "reading"
@@ -147,10 +147,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:entail",
+      "source_ordinal": 1671,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "entail 表逻辑必然包含；imply 还可表示含蓄暗示",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "entail更高",
+          "collocation": "imply meaning/entail cost",
+          "core_meaning": "意味着/包含",
+          "exam_trap": "暗示不等于必然",
+          "register": "entail偏正式",
+          "semantic_prosody": "中性",
+          "strength": "entail更必然",
+          "syntax": "均可接名词",
+          "writing_safety": "按逻辑强度选"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02641270-v",
+            "evidence_status": "source_checked",
+            "source_locator": "02641270-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:imply:d5117046f9bd72a8",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "have as a logical consequence",
+        "source_sense_id": "sense:entail:1a7bd968f5b1bdca",
+        "target_sense_id": "sense:imply:0942d08c61c75358",
+        "target_word": "imply",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

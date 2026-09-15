@@ -3,7 +3,7 @@
   "relation_id": "deep:semantic_contrast:accuse:0b0520c2bf256dec",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "charge 常指正式或法律指控；accuse 更通用",
+    "boundary": "accuse sb of sth is the general accusation frame; charge sb with sth is the more formal/legal accusation frame.",
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
     "codex_review_rationale": "OEWN supports the shared accusation sense; the corrected target anchor selects charge as a verb, not the price noun.",
@@ -11,10 +11,10 @@
     "content": {
       "shared_definition": "blame for, make a claim of wrongdoing or misbehavior against",
       "shared_synset": "00845147-v",
-      "source_definition": "to make an accusation",
-      "source_sense_id": "sense:accuse:db6807e6402b54bd",
-      "target_definition": "the price asked for a service or goods",
-      "target_sense_id": "sense:charge:8b066b3730b95108",
+      "source_definition": "to say that someone has done something wrong or illegal",
+      "source_sense_id": "sense:accuse:b58783ce580f5cca",
+      "target_definition": "to accuse someone formally, especially of a crime",
+      "target_sense_id": "sense:charge:c6e08a27aa9b51d5",
       "target_word": "charge"
     },
     "dimensions": {
@@ -81,7 +81,7 @@
     },
     "source_grounded": true,
     "source_sense_id": "sense:accuse:b58783ce580f5cca",
-    "target_sense_id": "sense:charge:8b066b3730b95108",
+    "target_sense_id": "sense:charge:c6e08a27aa9b51d5",
     "target_word": "charge",
     "task_tags": [
       "reading"
@@ -103,7 +103,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "charge 常指正式或法律指控；accuse 更通用",
+        "boundary": "accuse sb of sth is the general accusation frame; charge sb with sth is the more formal/legal accusation frame.",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -139,8 +139,8 @@
         "priority": "A",
         "publication_status": "codex_reviewed",
         "shared_definition": "blame for, make a claim of wrongdoing or misbehavior against",
-        "source_sense_id": "sense:accuse:db6807e6402b54bd",
-        "target_sense_id": "sense:charge:8b066b3730b95108",
+        "source_sense_id": "sense:accuse:b58783ce580f5cca",
+        "target_sense_id": "sense:charge:c6e08a27aa9b51d5",
         "target_word": "charge",
         "task_tags": [
           "reading"
@@ -152,6 +152,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o0025-o0224.md"
   }
 }

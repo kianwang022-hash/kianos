@@ -75,10 +75,84 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:fertilizer",
+      "source_ordinal": 5532,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:141",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:141",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "fertiliser",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [],
+            "word_id": "word:fertiliser"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:955d35897cf4f82105ba",
+        "relation_note": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
+        "relation_scope": "lexeme",
+        "relation_type": "regional_spelling_variant",
+        "sense_ids": [],
+        "shared_meaning": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "fertiliser",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [],
+                "word_id": "word:fertiliser"
+              }
+            ],
+            "learner_note": "fertiliser is the usual British spelling; fertilizer is the usual American spelling. Same lexeme.",
+            "relation_targets": [
+              "fertilizer"
+            ],
+            "relation_type": "regional_spelling_variant"
+          }
+        ],
+        "source_expression": "fertilizer",
+        "source_sense_id": null,
+        "target_expression": "fertiliser",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "fertiliser",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o1825-o2024.md"
   }
 }

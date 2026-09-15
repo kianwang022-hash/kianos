@@ -140,10 +140,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:provide",
+      "source_ordinal": 3853,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "furnish正式，provide通用",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "furnish evidence/provide service",
+          "core_meaning": "提供",
+          "exam_trap": "近义辨析",
+          "register": "正式",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "动词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02332196-v",
+            "evidence_status": "source_checked",
+            "source_locator": "02332196-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:furnish:6221c54b882a863c",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "give something useful or necessary to",
+        "source_sense_id": "sense:provide:aac49a0b7e6c5693",
+        "target_sense_id": "sense:furnish:473c43274e29569a",
+        "target_word": "furnish",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2025-o2224.md"
   }
 }

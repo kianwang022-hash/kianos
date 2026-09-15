@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "17d3b71442f3fe64fef6ceba2232cb1b37625ebd4dd1db32c10167e382d00dde",
+    "content_hash": "c27cec30ee7f3c118d62df81443641146ba12c260ce568111fe242c37eaa745e",
     "core_concept": {
       "core_clusters": [
         {
@@ -17,18 +17,28 @@
           "sense_ids": [
             "sense:bunch:08f14d0741d857ae"
           ]
+        },
+        {
+          "label_cn": "聚拢；使成束",
+          "label_en": "gather or cause to gather into a cluster",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:bunch:cea17cc10e3c538f"
+          ]
         }
       ],
-      "core_meaning_cn": "束；群",
-      "core_meaning_en": "a group or cluster",
-      "mental_model_cn": "束；群",
+      "core_meaning_cn": "束；群；聚拢成束/成团",
+      "core_meaning_en": "a bunch or cluster; to gather or cause to gather into a cluster",
+      "mental_model_cn": "束；群；聚拢成束/成团",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0025-o0224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -64,6 +74,30 @@
         "sense_label_en": "a grouping of a number of similar things",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:25b44a9fc49a123bc6d2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:bunch:cea17cc10e3c538f:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "聚拢；挤成一团",
+            "phrase": "bunch up / bunch together"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "使聚拢成束；聚拢成团",
+        "definition_en": "to gather or cause to gather into a cluster",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:bunch:cea17cc10e3c538f",
+        "sense_label_en": "to gather or cause to gather into a cluster",
+        "sort_order": 1,
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -88,34 +122,9 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:bunch:cea17cc10e3c538f",
-      "status": "merged",
-      "merged_into_sense_id": "sense:bunch:08f14d0741d857ae",
-      "pos": "verb",
-      "definition_cn": "使成束；使聚拢",
-      "definition_en": "gather or cause to gather into a cluster",
-      "semantic_key": "365b1bbbbd0be71b2e3b48c449214e44fd56eb0bb1d983e65d42d2148e54288b",
-      "semantic_key_history": [
-        "d4187e9eef54043932ae352199970da14be6a3f6a10c84a6f8bd5f46dabb7faf"
-      ],
-      "legacy_aliases": [
-        "bunch:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "bunch:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 1746,
-      "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:bunch:e79b3183abee5e35",
       "status": "merged",
-      "merged_into_sense_id": "sense:bunch:08f14d0741d857ae",
+      "merged_into_sense_id": "sense:bunch:cea17cc10e3c538f",
       "pos": "verb",
       "definition_cn": "聚拢；成束",
       "definition_en": "gather into a cluster",
@@ -132,7 +141,7 @@
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
+      "updated_at": "2026-09-15T05:20:00Z",
       "source_row": 1747,
       "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json",
       "reference_only": true
@@ -149,20 +158,21 @@
       },
       {
         "sense_id": "sense:bunch:cea17cc10e3c538f",
-        "status": "merged",
-        "merged_into_sense_id": "sense:bunch:08f14d0741d857ae",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 1746,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       },
       {
         "sense_id": "sense:bunch:e79b3183abee5e35",
         "status": "merged",
-        "merged_into_sense_id": "sense:bunch:08f14d0741d857ae",
+        "merged_into_sense_id": "sense:bunch:cea17cc10e3c538f",
         "source_row": 1747,
         "source_path": "content/lexical/canonical/senses/shards/o0609-0640.json"
       }
     ],
     "active_collocations": [
+      "collocation:25b44a9fc49a123bc6d2",
       "collocation:9338c0aeb9f62f44a2f4",
       "collocation:fd7f0137b80b3d4b3f7f"
     ],
@@ -171,6 +181,11 @@
       {
         "id": "collocation:1a75ab615b1b752c6459",
         "source_row": 2179,
+        "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
+      },
+      {
+        "id": "collocation:25b44a9fc49a123bc6d2",
+        "source_row": 21607,
         "source_path": "content/lexical/canonical/collocations/shards/o0609-0640.json"
       },
       {

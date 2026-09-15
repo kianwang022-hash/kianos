@@ -17,17 +17,14 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "973a2646099a98680b4482010831154689415857c2875abdb6a825cc3b5e9d0b",
+    "content_hash": "32bb7d2ea0408036339f457ec17abd29d26d8bfe2a1d4f35568e2ddfcb555f7a",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "富人；支流",
           "label_en": "an affluent person; a person who is financially well off; a stream that flows into a larger body of water",
           "pos": "noun",
-          "sense_ids": [
-            "sense:affluent:911c08bed91c5211",
-            "sense:affluent:3a89ecaa5e4a572d"
-          ]
+          "sense_ids": []
         }
       ],
       "core_meaning_cn": "富裕的；繁荣的",
@@ -40,7 +37,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "semantic-review:0104"
+      "semantic-review:0104",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -48,29 +46,15 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "富人",
-        "definition_en": "an affluent person; a person who is financially well off",
+        "definition_cn": "富裕的；富有的；繁荣的",
+        "definition_en": "wealthy, prosperous, or having abundant resources",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:affluent:911c08bed91c5211",
-        "sense_label_en": "an affluent person; a person who is financially well off",
+        "pos": "adjective",
+        "sense_id": "sense:affluent:2c108df63e585417",
+        "sense_label_en": "wealthy, prosperous, or having abundant resources",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "支流",
-        "definition_en": "a stream that flows into a larger body of water",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:affluent:3a89ecaa5e4a572d",
-        "sense_label_en": "a stream that flows into a larger body of water",
-        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -96,27 +80,48 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:affluent:2c108df63e585417",
+      "stable_sense_id": "sense:affluent:3a89ecaa5e4a572d",
       "status": "deprecated",
       "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "富裕的；富有的",
-      "definition_en": "having an abundant supply of money or possessions of value",
-      "semantic_key": "7524b4ae4487d1a5bb115197b1fb08fc96dc44c308fb08bf754174e7af8ccccc",
-      "semantic_key_history": [
-        "3d9745f243a05339d64ff897cb698d4040613892926b6915ac1f1ec2eedcf638"
-      ],
+      "pos": "noun",
+      "definition_cn": "支流",
+      "definition_en": "a stream that flows into a larger body of water",
+      "semantic_key": "148f588362fb965dd91d91ca3618f1ae0a833fbc1f1a70175bf57977328fa4b9",
+      "semantic_key_history": [],
       "legacy_aliases": [
-        "affluent:l1:1"
+        "affluent:l3:3"
       ],
       "legacy_alias_history": [
         {
-          "legacy_sense_id": "affluent:l1:1",
+          "legacy_sense_id": "affluent:l3:3",
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 283,
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 284,
+      "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+      "reference_only": true
+    },
+    {
+      "stable_sense_id": "sense:affluent:911c08bed91c5211",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "富人",
+      "definition_en": "an affluent person; a person who is financially well off",
+      "semantic_key": "e7bdef7eafa89926ab41cbae974a3a4f3634a7dce1140d9c1c4f35c58ec53f03",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "affluent:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "affluent:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 285,
       "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
       "reference_only": true
     }
@@ -125,21 +130,21 @@
     "senses": [
       {
         "sense_id": "sense:affluent:2c108df63e585417",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 283,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
       },
       {
         "sense_id": "sense:affluent:3a89ecaa5e4a572d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 284,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
       },
       {
         "sense_id": "sense:affluent:911c08bed91c5211",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 285,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"

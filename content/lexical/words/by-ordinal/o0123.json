@@ -106,7 +106,7 @@
         "writing_safe": true
       },
       {
-        "boundary": "agree to do 表同意做",
+        "boundary": "agree to do sth 表同意做某事",
         "codex_reviewed": false,
         "definition_cn": "同意；应允",
         "definition_en": "to consent or assent to a condition, or agree to do something",
@@ -128,7 +128,7 @@
         "level": null,
         "meaning_cn": "同意做某事",
         "module": "constructions",
-        "pattern": "agree to do + sth",
+        "pattern": "agree to do sth",
         "pos": "verb",
         "presentation_merge": {
           "merge_id": "presentation-merge:4bbbf93726705feb2253",
@@ -155,7 +155,7 @@
         "writing_safe": true
       },
       {
-        "boundary": "被动句式be agreed that",
+        "boundary": "formal impersonal agreement construction",
         "codex_reviewed": false,
         "definition_cn": "承认；认定",
         "definition_en": "to admit or acknowledge (used in passive or formal contexts)",
@@ -187,7 +187,7 @@
         "level": null,
         "meaning_cn": "一致认为……",
         "module": "constructions",
-        "pattern": "be agreed that + clause",
+        "pattern": "it is agreed that + clause",
         "pos": "verb",
         "presentation_merge": {
           "merge_id": "presentation-merge:6ffa6a5b3685b6d5781a",
@@ -203,7 +203,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:agree:f9599b9e7c115b8b",
+        "source_sense_id": "sense:agree:520c7ad09b16501a",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -232,7 +232,7 @@
         "source": "semantic-review-handoff-v1"
       }
     ],
-    "content_hash": "9b901700b91542bd59813936217b5b9fbb4933dc87f85f4b2fbfc5f17bc3b20c",
+    "content_hash": "9962ccd7cdd6623b0b412928ce6087f911859767798c49556041b3e429b46603",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "同意或一致",
@@ -255,7 +255,8 @@
       "deep:deep:constructions:agree:f5839f9fb2b0c134",
       "deep:deep:word_family:agree:e77d233019c9cc78",
       "relation:deep:word_family:agree:e77d233019c9cc78",
-      "semantic-review:0123"
+      "semantic-review:0123",
+      "semantic-reconciliation:o0025-o0224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -311,7 +312,7 @@
               "sense:agree:b2482b0c5301512a:collocation:1"
             ],
             "meaning_cn": "同意做某事",
-            "phrase": "agree to do + sth"
+            "phrase": "agree to do sth"
           }
         ],
         "confidence": "medium",
@@ -373,30 +374,6 @@
         "sense_label_en": "to be agreeable or suitable",
         "sort_order": 3,
         "transitivity": "vi"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:d685bafb2e0f40adab95",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:agree:f9599b9e7c115b8b:collocation:0"
-            ],
-            "meaning_cn": "一致认为……",
-            "phrase": "be agreed that + clause"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "承认；认定",
-        "definition_en": "to admit or acknowledge (used in passive or formal contexts)",
-        "governing_pattern": "vt. + object",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:agree:f9599b9e7c115b8b",
-        "sense_label_en": "to admit or acknowledge (used in passive or formal contexts)",
-        "sort_order": 4,
-        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -417,7 +394,7 @@
     "word": "agree",
     "word_family": [
       {
-        "boundary": "agree 动词变 agreeable 形",
+        "boundary": "agree → agreeable：愿意同意/赞同（此处不是 pleasant 义）",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -447,7 +424,7 @@
         "publication_status": "publishable",
         "shared_definition": null,
         "source_sense_id": "sense:agree:520c7ad09b16501a",
-        "target_sense_id": "sense:agreeable:dbc678a1ae615a3f",
+        "target_sense_id": "sense:agreeable:7a7c1d50823453af",
         "target_word": "agreeable",
         "task_tags": [
           "reading"
@@ -459,7 +436,31 @@
     "word_id": "word:agree"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:agree:f9599b9e7c115b8b",
+      "status": "merged",
+      "merged_into_sense_id": "sense:agree:520c7ad09b16501a",
+      "pos": "verb",
+      "definition_cn": "承认；认定",
+      "definition_en": "to admit or acknowledge (used in passive or formal contexts)",
+      "semantic_key": "261caaf674c20d6a12e2a2c167810650e87219ad991f6155a1093ae57d227874",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "agree:l3:5"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "agree:l3:5",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T05:20:00Z",
+      "source_row": 335,
+      "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -492,8 +493,8 @@
       },
       {
         "sense_id": "sense:agree:f9599b9e7c115b8b",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:agree:520c7ad09b16501a",
         "source_row": 335,
         "source_path": "content/lexical/canonical/senses/shards/o0097-0128.json"
       }
@@ -504,8 +505,7 @@
       "collocation:87c51fc8be2a5f8597a2",
       "collocation:88e61f4b0152254c5a4f",
       "collocation:a2fae2e4eeeac9d8a2a2",
-      "collocation:b2687902949c8149bb3d",
-      "collocation:d685bafb2e0f40adab95"
+      "collocation:b2687902949c8149bb3d"
     ],
     "facts": [
       {

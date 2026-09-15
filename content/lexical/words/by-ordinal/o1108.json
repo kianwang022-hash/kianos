@@ -62,9 +62,22 @@
         "level": "L1",
         "meaning_cn": "以牺牲…为代价",
         "pattern": "at the cost of sth"
+      },
+      {
+        "construction_id": "construction:dfd0eaceaa380afa4581",
+        "direction": "R+P",
+        "level": "L1",
+        "meaning_cn": "某物花费某人某金额；某事使某人失去/付出某物",
+        "pattern": "cost sb sth",
+        "definition_en": "to have a price for someone, or to cause someone to lose or suffer something",
+        "boundary": "Two-object frame shared by price and loss/consequence senses; preserve the two semantic branches.",
+        "source_sense_ids": [
+          "sense:cost:9209151211cb5e31",
+          "sense:cost:4a4f87be411053ca"
+        ]
       }
     ],
-    "content_hash": "7adf150b63af1f4eebffca4f8286e5b86f27405c3e42be53380c6aefa635b7da",
+    "content_hash": "edb8179e46cd992284543704f6bc595903c6472c7fa4bffbd780152d1c4eacb3",
     "core_concept": {
       "core_clusters": [
         {
@@ -98,7 +111,8 @@
     "review_signature": [
       "construction:construction:4a82e545018df01910ef",
       "construction:deep:constructions:cost:4e8cc67c56f5f9cc",
-      "deep:deep:constructions:cost:4e8cc67c56f5f9cc"
+      "deep:deep:constructions:cost:4e8cc67c56f5f9cc",
+      "semantic-reconciliation:o1025-o1224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -139,30 +153,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a9b7efc7f7f8ba6908dd",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:cost:9209151211cb5e31:collocation:0"
-            ],
-            "meaning_cn": "花费10美元",
-            "phrase": "cost $10"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "花费（金钱）",
-        "definition_en": "to have a price of",
-        "governing_pattern": "vt. + object",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:cost:9209151211cb5e31",
-        "sense_label_en": "to have a price of",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:c354ece842fd4be8c96d",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -183,6 +173,30 @@
         "sense_label_en": "the loss or sacrifice required to achieve something",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a9b7efc7f7f8ba6908dd",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:cost:9209151211cb5e31:collocation:0"
+            ],
+            "meaning_cn": "花费10美元",
+            "phrase": "cost $10"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "花费（金钱）",
+        "definition_en": "to have a price of",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:cost:9209151211cb5e31",
+        "sense_label_en": "to have a price of",
+        "sort_order": 2,
+        "transitivity": "vt"
       },
       {
         "collocations": [

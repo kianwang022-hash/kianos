@@ -81,10 +81,92 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:explicit",
+      "source_ordinal": 1801,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:119",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:119",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "implicit",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:implicit:0c71eb743b6a5efa"
+            ],
+            "word_id": "word:implicit"
+          }
+        ],
+        "priority": "A",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:c1d12795a410397663c8",
+        "relation_note": "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate.",
+        "relation_scope": "lexeme",
+        "relation_type": "antonym",
+        "sense_ids": [
+          "sense:implicit:0c71eb743b6a5efa"
+        ],
+        "shared_meaning": "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "implicit",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:implicit:0c71eb743b6a5efa"
+                ],
+                "word_id": "word:implicit"
+              }
+            ],
+            "learner_note": "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate.",
+            "relation_targets": [
+              "explicit"
+            ],
+            "relation_type": "antonym"
+          }
+        ],
+        "source_expression": "explicit",
+        "source_sense_id": "sense:implicit:0c71eb743b6a5efa",
+        "target_expression": "implicit",
+        "target_sense_id": "sense:implicit:0c71eb743b6a5efa",
+        "target_sense_ids": [
+          "sense:implicit:0c71eb743b6a5efa"
+        ],
+        "target_word": "implicit",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }

@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:besides",
+      "source_ordinal": 470,
+      "field": "semantic_neighbors",
+      "index": 2,
+      "payload": {
+        "boundary": "仅在补充信息时接近；likewise常表同样地，besides表此外",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "句首或句尾",
+          "core_meaning": "也；此外",
+          "exam_trap": "近义辨析",
+          "register": "正式",
+          "semantic_prosody": "中性",
+          "strength": "中",
+          "syntax": "副词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00048072-r",
+            "evidence_status": "source_checked",
+            "source_locator": "00048072-r",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:likewise:522761c4983f4004",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "in addition",
+        "source_sense_id": "sense:besides:bfa2c4b18e555daf",
+        "target_sense_id": "sense:likewise:b0e8d48e874e5652",
+        "target_word": "likewise",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

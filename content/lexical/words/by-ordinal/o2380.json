@@ -9,14 +9,16 @@
     "constructions": [
       {
         "construction_id": "construction:d835b8aa9d2a9896989a",
-        "definition_en": "a large number of people or things",
-        "direction": "R",
+        "direction": "R+P",
         "level": "L2",
         "meaning_cn": "大量的；许多",
-        "pattern": "a host of sth"
+        "definition_en": "a large number of people or things",
+        "pattern": "a host of sth",
+        "source_sense_id": "sense:host:ccc77fbea4afffcf",
+        "boundary": "a host of sth"
       }
     ],
-    "content_hash": "e5dc42468add99258d1fd7b7a7047f825fdf68d3f3905cef190d6305ab24ccbd",
+    "content_hash": "2cbe8be4109d737b0fd8ea8828f0b4a73a0452e494f6e0647c72a29ce1fa9901",
     "core_concept": {
       "core_clusters": [
         {
@@ -48,7 +50,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:d835b8aa9d2a9896989a"
+      "construction:construction:d835b8aa9d2a9896989a",
+      "semantic-reconciliation:o2225-o2424"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -104,6 +107,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:26617f67dad66149b41d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:host:0d1088f0a1c45113:collocation:0"
+            ],
+            "meaning_cn": "主机",
+            "phrase": "host computer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主机",
+        "definition_en": "a computer that provides services to other computers on a network",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:host:0d1088f0a1c45113",
+        "sense_label_en": "a computer that provides services to other computers on a network",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:f329ca710195c4222142",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -135,30 +162,6 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:26617f67dad66149b41d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:host:0d1088f0a1c45113:collocation:0"
-            ],
-            "meaning_cn": "主机",
-            "phrase": "host computer"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "主机",
-        "definition_en": "a computer that provides services to other computers on a network",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:host:0d1088f0a1c45113",
-        "sense_label_en": "a computer that provides services to other computers on a network",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "宿主（承载寄生虫、病原体或其他生物的有机体或细胞）",
@@ -170,6 +173,20 @@
         "sense_id": "sense:host:d76493abc8bba88d",
         "sense_label_en": "an organism or cell that harbors a parasite, pathogen, or other organism",
         "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "大量；许多",
+        "definition_en": "a large number of people or things",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:host:ccc77fbea4afffcf",
+        "sense_label_en": "a large number of people or things",
+        "sort_order": 5,
         "transitivity": "nonverb"
       }
     ],
@@ -222,6 +239,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 6642,
+        "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:host:ccc77fbea4afffcf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 6698,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
       },
       {

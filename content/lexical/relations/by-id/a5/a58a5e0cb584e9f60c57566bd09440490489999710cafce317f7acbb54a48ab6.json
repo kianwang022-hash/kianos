@@ -111,10 +111,56 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:historical",
+      "source_ordinal": 2346,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "historic 表有历史意义；historical 表与历史有关",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:cambridge-confusable:historic:historical",
+            "evidence_status": "source_checked",
+            "source_locator": "historic|historical",
+            "source_path": "https://dictionary.cambridge.org/grammar/british-grammar/easily-confused-words",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:historic:c8c0a9dd9a5f5d6d",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:historical:cda9474977d458a3",
+        "target_sense_id": "sense:historic:a1946af4beeb5fe7",
+        "target_word": "historic",
+        "task_tags": [
+          "reading",
+          "cloze",
+          "writing"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2225-o2424.md"
   }
 }

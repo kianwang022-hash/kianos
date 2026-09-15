@@ -3,7 +3,7 @@
   "relation_id": "deep:semantic_contrast:coach:2e2faf9359797f17",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "均可表训练指导；coach多针对个人技能，train范围更广",
+    "boundary": "Both can mean train/teach someone; coach often emphasizes targeted guidance or performance, while train is broader skill/behavior development.",
     "codex_boundary_corrected": true,
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
@@ -76,7 +76,7 @@
     },
     "source_grounded": true,
     "source_sense_id": "sense:coach:624256fd61275b94",
-    "target_sense_id": "sense:train:ea2e5f129cbc5703",
+    "target_sense_id": "sense:train:5457a182d3a955d7",
     "target_word": "train",
     "task_tags": [
       "reading"
@@ -98,7 +98,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "均可表训练指导；coach多针对个人技能，train范围更广",
+        "boundary": "Both can mean train/teach someone; coach often emphasizes targeted guidance or performance, while train is broader skill/behavior development.",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -147,6 +147,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o0825-o1024.md"
   }
 }

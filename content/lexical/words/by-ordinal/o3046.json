@@ -12,15 +12,27 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "在…之中；在…进行过程中",
-        "pattern": "in the midst of sth"
+        "pattern": "in the midst of sth",
+        "source_sense_id": "sense:midst:a0314705008756ab",
+        "definition_en": "in the middle of something or during an ongoing situation",
+        "boundary": "fixed phrase built on midst = middle part/position"
       }
     ],
-    "content_hash": "35a55d2ceb7ce07d992efbbab2b7b453989d8cfadd5a549f9e6d9101ad5b328d",
+    "content_hash": "1e87786b622132f8c434f6670b9c2611446a3151ffbca38eaf2fefe0e756b6ff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "中间",
-      "core_meaning_en": "the middle part or position",
-      "mental_model_cn": "中间",
+      "core_clusters": [
+        {
+          "label_cn": "中间；中央；……之中",
+          "label_en": "the middle part or position",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:midst:a0314705008756ab"
+          ]
+        }
+      ],
+      "core_meaning_cn": "中间；中央；……之中",
+      "core_meaning_en": "the middle part or position; chiefly in in the midst of",
+      "mental_model_cn": "中间；中央；……之中",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -28,11 +40,37 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "construction:construction:25866571a1c9e49cc336"
+      "construction:construction:25866571a1c9e49cc336",
+      "semantic-reconciliation:o3025-o3124"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d67eb875ef503adcd39f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:midst:a0314705008756ab:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "在……之中；在……进行过程中",
+            "phrase": "in the midst of sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "中间；中央；……之中",
+        "definition_en": "the middle part or position of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:midst:a0314705008756ab",
+        "sense_label_en": "the middle part or position of something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -78,31 +116,6 @@
       "source_row": 8488,
       "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:midst:a0314705008756ab",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "中间，中部",
-      "definition_en": "the middle part or position of something",
-      "semantic_key": "3c52d2af09cca7d9462afe174785b213c623aead2621a0ea88ced7856c596abc",
-      "semantic_key_history": [
-        "c4f2cad6f23d7a771a1e9725a5de2767bdd14878dab29b9f5513d6155cf59b4e"
-      ],
-      "legacy_aliases": [
-        "midst:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "midst:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 8489,
-      "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -116,13 +129,15 @@
       },
       {
         "sense_id": "sense:midst:a0314705008756ab",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 8489,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:d67eb875ef503adcd39f"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -138,6 +153,11 @@
       {
         "id": "collocation:8dea5a42932da62251a8",
         "source_row": 12036,
+        "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:d67eb875ef503adcd39f",
+        "source_row": 21360,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
       }
     ],

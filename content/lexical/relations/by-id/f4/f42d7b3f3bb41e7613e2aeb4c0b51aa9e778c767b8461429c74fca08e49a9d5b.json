@@ -143,10 +143,64 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:therefore",
+      "source_ordinal": 4975,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundary": "均可引出结论；hence更正式且另有从此、由此义",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "hence, therefore",
+          "core_meaning": "因此；所以",
+          "exam_trap": "同义替换",
+          "register": "正式",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "句首或句中",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:00043413-r",
+            "evidence_status": "source_checked",
+            "source_locator": "00043413-r",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:hence:18693fcea5ff28ae",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "(used to introduce a logical conclusion) from that fact or reason or as a result",
+        "source_sense_id": "sense:therefore:7ac6708a217d589c",
+        "target_sense_id": "sense:hence:8acc0f9c09215e96",
+        "target_word": "hence",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2225-o2424.md"
   }
 }

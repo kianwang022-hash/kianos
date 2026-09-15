@@ -3,15 +3,15 @@
   "relation_id": "deep:semantic_contrast:address:83139cce53b73825",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "address正式演讲，speak泛指说话",
+    "boundary": "address a person/audience is a direct, often more formal targeted speech use; speak is the broader speech verb.",
     "codex_disposition": "strict_automatic_publish",
     "codex_disposition_status": "resolved",
     "content": {
       "shared_definition": "give a speech to",
       "shared_synset": "00991233-v",
-      "source_definition": "a formal speech delivered to a group",
-      "source_sense_id": "sense:address:ce2bb2569b855cd9",
-      "target_definition": "to make a formal speech to an audience",
+      "source_definition": "to direct spoken or written words to a person or group",
+      "source_sense_id": "sense:address:24bdfba1f4f35e11",
+      "target_definition": "to speak or make a speech",
       "target_sense_id": "sense:speak:31101376e2785e29",
       "target_word": "speak"
     },
@@ -72,7 +72,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:address:ce2bb2569b855cd9",
+    "source_sense_id": "sense:address:24bdfba1f4f35e11",
     "target_sense_id": "sense:speak:31101376e2785e29",
     "target_word": "speak",
     "task_tags": [
@@ -95,7 +95,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "Address can mean speak directly/formally to a person or audience; speak is the broad default speech verb. This is a typical-use/register tendency, not a categorical formal-vs-informal rule.",
+        "boundary": "address a person/audience is a direct, often more formal targeted speech use; speak is the broader speech verb.",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -131,7 +131,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": "give a speech to",
-        "source_sense_id": "sense:address:ce2bb2569b855cd9",
+        "source_sense_id": "sense:address:24bdfba1f4f35e11",
         "target_sense_id": "sense:speak:31101376e2785e29",
         "target_word": "speak",
         "task_tags": [
@@ -144,6 +144,7 @@
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o0025-o0224.md"
   }
 }

@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d59071bd1e51029468675ebd9b3d391d7c76ad3f2cbe277471bf3c016cba00bb",
+    "content_hash": "095dd079b124a760b6bce3743ed041d04fb7c9373028388d5437f32c1479375c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "比赛；火柴；对手，匹敌者",
-          "label_en": "a sports competition between two people or teams; a small stick that produces a flame when rubbed against a rough surface; a person or thing that is equal to another in some way",
+          "label_cn": "比赛；火柴；匹敌者",
+          "label_en": "a sports contest, a matchstick, or an equal opponent",
           "pos": "noun",
           "sense_ids": [
             "sense:match:f78fecebf1f25422",
@@ -21,17 +21,17 @@
           ]
         },
         {
-          "label_cn": "与…相配，与…相当；相配，相称",
-          "label_en": "to be equal to something in quality, amount, etc.; to be suitable or the same as something else",
+          "label_cn": "相配；相符；相当；合适",
+          "label_en": "equal, correspond, or be suitable/the same in relevant features",
           "pos": "verb",
           "sense_ids": [
             "sense:match:e76465e1b9f75e54"
           ]
         }
       ],
-      "core_meaning_cn": "相等或相似的事物；相等或适合",
-      "core_meaning_en": "something that is equal or similar; to be equal or suitable",
-      "mental_model_cn": "相等或相似的事物；相等或适合",
+      "core_meaning_cn": "比赛/火柴/匹敌者；相配、相符或相当",
+      "core_meaning_en": "a contest/matchstick/equal; to equal, correspond, or suit",
+      "mental_model_cn": "比赛/火柴/匹敌者；相配、相符或相当",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -39,7 +39,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:match:c1e297cd41c81e1d"
+      "deep:deep:secondary_senses:match:c1e297cd41c81e1d",
+      "semantic-reconciliation:o2825-o3024"
     ],
     "secondary_senses": [
       {
@@ -125,19 +126,28 @@
             ],
             "meaning_cn": "与描述相符",
             "phrase": "match the description"
+          },
+          {
+            "collocation_id": "collocation:0da74a247423cf26be81",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:match:e76465e1b9f75e54:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "颜色/图案相配",
+            "phrase": "colors/patterns match"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "与…相配，与…相当",
-        "definition_en": "to be equal to something in quality, amount, etc.",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "与……相配、相符、相当；在颜色/样式/类型等方面一致或合适",
+        "definition_en": "to equal, correspond to, be the same as, or be suitable with something in quality, amount, colour, pattern, type, etc.",
+        "governing_pattern": "vt./vi. + object / match with",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:match:e76465e1b9f75e54",
-        "sense_label_en": "to be equal to something in quality, amount, etc.",
+        "sense_label_en": "to equal, correspond to, be the same as, or be suitable with something in quality, amount, colour, pattern, type, etc.",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -274,6 +284,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:0da74a247423cf26be81",
       "collocation:4cbf7e318fd8eaecf02c",
       "collocation:816f825f2e054b2de39f",
       "collocation:a669ae0618400566e4ba",
@@ -288,6 +299,11 @@
       }
     ],
     "collocations": [
+      {
+        "id": "collocation:0da74a247423cf26be81",
+        "source_row": 21290,
+        "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
       {
         "id": "collocation:4cbf7e318fd8eaecf02c",
         "source_row": 6464,

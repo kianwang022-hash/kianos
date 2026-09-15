@@ -10,8 +10,8 @@
       {
         "boundary": "gather that + 从句 推断出",
         "codex_reviewed": false,
-        "definition_cn": "推断；得出结论",
-        "definition_en": "to understand or conclude from evidence",
+        "definition_cn": "推断；了解到；得知",
+        "definition_en": "to understand, infer, or conclude something from evidence or what one is told",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -28,7 +28,7 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "推断出；了解到……",
         "module": "constructions",
         "pattern": "vt. + that-clause",
         "pos": "verb",
@@ -48,8 +48,8 @@
       {
         "boundary": "gather that + 从句",
         "codex_reviewed": false,
-        "definition_cn": "推断；得出结论",
-        "definition_en": "to understand or conclude from evidence",
+        "definition_cn": "推断；了解到；得知",
+        "definition_en": "to understand, infer, or conclude something from evidence or what one is told",
         "dimensions": {
           "certainty": "高",
           "collocation": "gather that",
@@ -76,7 +76,7 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "推断出……",
+        "meaning_cn": "推断出；了解到……",
         "module": "constructions",
         "pattern": "gather that + clause",
         "pos": "verb",
@@ -105,7 +105,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "a20cd37094c1f6b04ec865ac1d1098540002dd7c6ecab60984b02d7e1e71c0ef",
+    "content_hash": "033755c76f23a3b1c0754b542ea9b4b32c5c521bb27416aec70145e0b18ba614",
     "core_concept": {
       "core_clusters": [
         {
@@ -124,6 +124,14 @@
           "sense_ids": [
             "sense:gather:8552f3b03be958cc"
           ]
+        },
+        {
+          "label_cn": "推断；了解到",
+          "label_en": "understand or infer from evidence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:gather:3dc534077b1c5fb0"
+          ]
         }
       ],
       "core_meaning_cn": "聚集；收集",
@@ -139,7 +147,8 @@
       "construction:deep:constructions:gather:4a7326ed0b2bbe0f",
       "construction:deep:constructions:gather:64ba14fa023207c0",
       "deep:deep:constructions:gather:4a7326ed0b2bbe0f",
-      "deep:deep:constructions:gather:64ba14fa023207c0"
+      "deep:deep:constructions:gather:64ba14fa023207c0",
+      "semantic-reconciliation:o2025-o2224"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -214,6 +223,30 @@
         "sense_label_en": "a fold or pucker in cloth, or the act of gathering",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:299f064383d6de106403",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:gather:3dc534077b1c5fb0:collocation:0"
+            ],
+            "meaning_cn": "推断出；了解到……",
+            "phrase": "gather that + clause"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "推断；了解到；得知",
+        "definition_en": "to understand, infer, or conclude something from evidence or what one is told",
+        "governing_pattern": "gather that + clause",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:gather:3dc534077b1c5fb0",
+        "sense_label_en": "to understand, infer, or conclude something from evidence or what one is told",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -236,38 +269,12 @@
     "word_id": "word:gather"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:gather:3dc534077b1c5fb0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "推断；得出结论",
-      "definition_en": "to understand or conclude from evidence",
-      "semantic_key": "5f4ca4cb6415b0e4c98556a0435bed4c50eb7e3c2bf8f8f397aa02d7cca10537",
-      "semantic_key_history": [
-        "41f4848653c9e39d68ca2b278839aedffb8bbb43993509fee29fe6cb88b77671"
-      ],
-      "legacy_aliases": [
-        "gather:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "gather:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 5868,
-      "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:gather:3dc534077b1c5fb0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 5868,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
@@ -297,6 +304,7 @@
     "active_collocations": [
       "collocation:21e8de339c60b36829db",
       "collocation:278d5af150de1c1a21a7",
+      "collocation:299f064383d6de106403",
       "collocation:2f84305c3a8685baa4f6"
     ],
     "facts": [

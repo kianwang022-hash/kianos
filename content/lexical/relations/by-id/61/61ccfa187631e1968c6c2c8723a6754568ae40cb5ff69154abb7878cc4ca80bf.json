@@ -71,10 +71,80 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:minority",
+      "source_ordinal": 3068,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundaries": [
+          "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:138",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:138",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "members": [
+          {
+            "word_id": "word:majority"
+          }
+        ],
+        "priority": "B",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:1d9906d8c06f40c2e9bc",
+        "relation_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "relation_scope": "lexeme",
+        "relation_type": "antonym",
+        "sense_ids": [],
+        "shared_meaning": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "word_id": "word:majority"
+              }
+            ],
+            "direction": "C",
+            "learner_note": "Sense-bound quantitative contrast only; do not treat all majority/minority senses as exact antonyms.",
+            "relation_type": "antonym",
+            "source": {
+              "sense_id": "sense:majority:9f0f5f73c0a95879",
+              "word_id": "word:majority"
+            },
+            "target": {
+              "sense_id": "sense:minority:dcb6b234bad3534b",
+              "word_id": "word:minority"
+            }
+          }
+        ],
+        "source_expression": "majority ↔ minority",
+        "source_sense_id": null,
+        "target_expression": "majority",
+        "target_sense_id": null,
+        "target_sense_ids": [],
+        "target_word": "majority",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2825-o3024.md"
   }
 }

@@ -7,37 +7,38 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "16f5917b7a1fe1c858e0d3f5bae94be58b2045d7cdf464a53c7fe22c59651816",
+    "content_hash": "fac24adb5d4d6af8f33483c390c61d503b9361d0d48f03ec5597b9502395f01a",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "出口；通道",
-          "label_en": "an opening that permits escape or release",
+          "label_en": "an opening or way out",
           "pos": "noun",
           "sense_ids": [
             "sense:exit:6caae62377ec5c78"
           ]
         },
         {
-          "label_cn": "退出；离开；（比赛中）失去领先地位",
-          "label_en": "move out of or depart from; lose the lead (in a game or competition)",
+          "label_cn": "退出；离开",
+          "label_en": "to move out of or depart from",
           "pos": "verb",
           "sense_ids": [
-            "sense:exit:5aaa3328072f5d6f",
-            "sense:exit:cc6f6b9694e55a2e"
+            "sense:exit:5aaa3328072f5d6f"
           ]
         }
       ],
-      "core_meaning_cn": "离开或出口",
-      "core_meaning_en": "to leave or a way out",
-      "mental_model_cn": "离开或出口",
+      "core_meaning_cn": "离开；出口",
+      "core_meaning_en": "to leave; a way out",
+      "mental_model_cn": "离开；出口",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1625-o1824"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -91,16 +92,16 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "（比赛中）失去领先地位",
-        "definition_en": "lose the lead (in a game or competition)",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "（桥牌中）失去领先/出牌权优势",
+        "definition_en": "in bridge, to lose the lead or the advantageous lead position",
+        "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:exit:cc6f6b9694e55a2e",
-        "sense_label_en": "lose the lead (in a game or competition)",
+        "sense_label_en": "in bridge, to lose the lead or the advantageous lead position",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -122,7 +123,14 @@
     "word_family": [],
     "word_id": "word:exit"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "deep:confusables:exist:a36d94c73be6ec43",
+      "owner_path": "content/lexical/relations/by-id/dd/dd539fffe71b1bbb386a76553af371ac4a825b103b216ab1ad2e7e65d44a0373.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

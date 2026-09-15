@@ -7,19 +7,38 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "272d29fd69af28f1a553ddedda9ebdb95dd40662af11cef18c3c746ba7aede18",
+    "content_hash": "bad4ee6ee1295940b4ed7145a9f89496cf5b5e893c1ae772f8ef20652307db3c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "消费或消耗",
-      "core_meaning_en": "the act of using up resources or eating",
-      "mental_model_cn": "消费或消耗",
+      "core_clusters": [
+        {
+          "label_cn": "消费；消耗；食用或饮用",
+          "label_en": "the act of consuming or using something, including eating or drinking",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:consumption:5ceeb60a670d59f6"
+          ]
+        },
+        {
+          "label_cn": "消耗量；使用量",
+          "label_en": "the amount of something used or consumed",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:consumption:e74d84779df45993"
+          ]
+        }
+      ],
+      "core_meaning_cn": "消费或消耗；食用/饮用；消耗量",
+      "core_meaning_en": "the act of consuming/using/eating/drinking, or the amount consumed",
+      "mental_model_cn": "消费或消耗；食用/饮用；消耗量",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o1025-o1224"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -33,17 +52,26 @@
             ],
             "meaning_cn": "能源消耗",
             "phrase": "energy consumption"
+          },
+          {
+            "collocation_id": "collocation:3579bb0a7d5b40d669d0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:consumption:5ceeb60a670d59f6:collocation:retro-o0025-o0224"
+            ],
+            "meaning_cn": "食物摄入；饮酒量/饮酒行为",
+            "phrase": "food/alcohol consumption"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "消费",
-        "definition_en": "the act of buying and using goods and services",
+        "definition_cn": "消费；消耗；食用；饮用",
+        "definition_en": "the act of consuming or using something, including using resources or eating and drinking",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:consumption:5ceeb60a670d59f6",
-        "sense_label_en": "the act of buying and using goods and services",
+        "sense_label_en": "the act of consuming or using something, including using resources or eating and drinking",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -111,11 +139,17 @@
       }
     ],
     "active_collocations": [
+      "collocation:3579bb0a7d5b40d669d0",
       "collocation:b4768dd35fb6b8f7e310",
       "collocation:c485f62eea192c4c790c"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:3579bb0a7d5b40d669d0",
+        "source_row": 21591,
+        "source_path": "content/lexical/canonical/collocations/shards/o1025-1056.json"
+      },
       {
         "id": "collocation:b4768dd35fb6b8f7e310",
         "source_row": 15293,

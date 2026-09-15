@@ -81,10 +81,92 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:imply",
+      "source_ordinal": 2472,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundaries": [
+          "imply is what a speaker/text/evidence suggests without stating directly; infer is what a reader/observer concludes from evidence. Directionality is the key distinction."
+        ],
+        "codex_reviewed": false,
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "horizontal:horizontal:126",
+            "evidence_status": "source_checked",
+            "source_locator": "horizontal:126",
+            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
+            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
+            "source_type": "external_horizontal_audit"
+          }
+        ],
+        "learning_note": "imply is what a speaker/text/evidence suggests without stating directly; infer is what a reader/observer concludes from evidence. Directionality is the key distinction.",
+        "members": [
+          {
+            "branch_id": null,
+            "branch_label": null,
+            "headword": "infer",
+            "participant_role": "CANONICAL_MEMBER",
+            "relevant_sense_ids": [
+              "sense:infer:6a34684707705726"
+            ],
+            "word_id": "word:infer"
+          }
+        ],
+        "priority": "S",
+        "publication_status": "publishable",
+        "relation_id": "relation:horizontal:fd7f26cd33bb05389c8d",
+        "relation_note": "imply is what a speaker/text/evidence suggests without stating directly; infer is what a reader/observer concludes from evidence. Directionality is the key distinction.",
+        "relation_scope": "lexeme",
+        "relation_type": "directionality_contrast",
+        "sense_ids": [
+          "sense:infer:6a34684707705726"
+        ],
+        "shared_meaning": "imply is what a speaker/text/evidence suggests without stating directly; infer is what a reader/observer concludes from evidence. Directionality is the key distinction.",
+        "source_evidence_objects": [
+          {
+            "canonical_members": [
+              {
+                "branch_id": null,
+                "branch_label": null,
+                "headword": "infer",
+                "participant_role": "CANONICAL_MEMBER",
+                "relevant_sense_ids": [
+                  "sense:infer:6a34684707705726"
+                ],
+                "word_id": "word:infer"
+              }
+            ],
+            "learner_note": "imply is what a speaker/text/evidence suggests without stating directly; infer is what a reader/observer concludes from evidence. Directionality is the key distinction.",
+            "relation_targets": [
+              "imply"
+            ],
+            "relation_type": "directionality_contrast"
+          }
+        ],
+        "source_expression": "imply",
+        "source_sense_id": "sense:infer:6a34684707705726",
+        "target_expression": "infer",
+        "target_sense_id": "sense:infer:6a34684707705726",
+        "target_sense_ids": [
+          "sense:infer:6a34684707705726"
+        ],
+        "target_word": "infer",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o2425-o2624.md"
   }
 }
