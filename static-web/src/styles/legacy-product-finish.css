@@ -401,13 +401,23 @@ body {
     height: 10px;
   }
 
-  .legacyOsSourceDock {
-    padding-inline: 0;
+  /* Once the rail collapses to icon-only navigation, restore the labeled
+     subject switcher. This is a fallback, not duplicate desktop chrome. */
+  .legacyProductWorkspace .productBar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    display: grid;
+    min-height: 54px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--legacy-line);
+    background: rgba(247, 250, 248, .95);
+    box-shadow: none;
+    backdrop-filter: blur(14px);
   }
 
-  .legacyOsSourceDock > summary {
-    justify-content: center;
-    padding-inline: 0;
+  .legacyOsSourceDock {
+    display: none;
   }
 }
 
