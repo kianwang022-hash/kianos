@@ -118,3 +118,24 @@ jobs:
       - name: Build Astro
         working-directory: static-web
         run: npm run build
+
+      - name: Install browser visual acceptance tools
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          fc-cache -f
+
+      - name: Capture Current Lexical visual evidence
+        working-directory: static-web
+        run: node scripts/test-lexical-subject-ui.mjs
+
+      - name: Preserve Lexical visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lexical-visual-${{ github.sha }}
+          path: lexical-audit/
+          retention-days: 7
