@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 
+// Keep this runner in the visual-gate path so presentation-only English changes can request exact-head evidence without altering learner semantics.
 const sourcePath = path.resolve(process.cwd(), 'scripts/test-objective-journey.mjs');
 const instrumentedPath = path.resolve(process.cwd(), 'scripts/.test-objective-journey.instrumented.mjs');
 const source = fs.readFileSync(sourcePath, 'utf8');
