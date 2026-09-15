@@ -1,0 +1,49 @@
+name: TEMP Xizong P1 Policy Patch
+
+on:
+  push:
+    branches:
+      - work/xizong-second-pass-p1-policy
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/xizong-second-pass-p1-policy
+          fetch-depth: 0
+      - name: Patch minimal second-pass execution policy
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('content/xizong/knowledge/learner/study-policy.json')
+          text = p.read_text()
+          needle = '    "second_pass": "重复使用真题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",\n    "late": "用于整卷、速度、切换和自动化。",'
+          replacement = '''    "second_pass": "重复使用真题做解题突破：决定性条件、干扰项、条件变化、鉴别、病例与跨系统调用。",
+    "second_pass_execution": {
+      "default_queue": ["PREVIOUS_WRONG", "PREVIOUS_UNCERTAIN", "REPAIRED_NOT_FRESH_VERIFIED"],
+      "queue_rule": "默认二轮队列只收一轮 Wrong、Uncertain，以及已经 Repair 但尚无后续 fresh attempt 验证的题；队列应从既有 Evidence 派生，不另造第二套 learner truth。",
+      "stable_rule": "一轮 Stable 且理由清楚的题默认不自动进入二轮；如 learner 明确选择 full re-sweep，可在同一 Runtime 中完整重刷。",
+      "mapping_rule": "缺少 reviewed Question→Knowledge relation 不得阻塞重新作答；它只限制精准回链、reverse lookup 和迁移选题，禁止用标题、页码、Block membership 或模型猜测补映射。",
+      "repair_verification_rule": "Repair 只表示完成局部修补，不等于问题已经被重新验证；只有之后独立的 fresh question attempt / application evidence 才能加强该结论。",
+      "surface_rule": "二轮默认保持低摩擦；不要求 learner 每题填写错误原因、诊断表或额外工程字段。Stable work 快速通过，深挖优先留给 Wrong / Uncertain。",
+      "full_resweep": "EXPLICIT_OPT_IN_ONLY"
+    },
+    "late": "用于整卷、速度、切换和自动化。",'''
+          if text.count(needle) != 1:
+              raise SystemExit('P1_POLICY_PATCH_NEEDLE_MISMATCH')
+          p.write_text(text.replace(needle, replacement, 1))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/xizong/knowledge/learner/study-policy.json
+          git diff --cached --quiet && exit 0
+          git commit -m "xizong: freeze minimal second-pass execution policy"
+          git push origin HEAD:work/xizong-second-pass-p1-policy
