@@ -13,7 +13,8 @@
         "phraseology",
         "word_family",
         "exam_paraphrases",
-        "reference_senses"
+        "reference_senses",
+        "same_word_form_identity"
       ],
       "cross_word_relationships": "relation_refs_only"
     },
@@ -44,5 +45,10 @@
     "every materialized Word must reconstruct its pre-cutover Current word bundle exactly when referenced relation views are hydrated",
     "Astro may hydrate and render Current owners but must not become a second semantic owner",
     "private interaction state is outside shared Current content"
-  ]
+  ],
+  "form_identity_policy": {
+    "same_word_pos_conditioned_pronunciation": "word_owner.record.form_identity",
+    "cross_word_spelling_or_lexeme_variant": "relation_owner",
+    "pronunciation_only_creates_new_word_or_sense_identity": false
+  }
 }

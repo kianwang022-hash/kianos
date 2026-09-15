@@ -23,7 +23,7 @@
         "pattern": "have/develop/show the ability to do sth"
       }
     ],
-    "content_hash": "67b7112f8b537b1d81e79b44fc0c30f60704324e07da45d8074aefdcf4eff097",
+    "content_hash": "dab261b9912a071f6f36f34e71c09b305d6777711480bc05cd288a4722f29e17",
     "core_concept": {
       "core_clusters": [
         {
@@ -44,7 +44,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0001-o0024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -57,7 +59,7 @@
               "sense:ability:cdd1c93c1b68540e:collocation:0"
             ],
             "meaning_cn": "做某事的能力",
-            "phrase": "the ability to do + sth"
+            "phrase": "the ability to do sth"
           },
           {
             "collocation_id": "collocation:eaea95b553bc6946fa16",
@@ -65,8 +67,8 @@
             "legacy_source_object_ids": [
               "sense:ability:cdd1c93c1b68540e:collocation:1"
             ],
-            "meaning_cn": "有能力做",
-            "phrase": "have the ability to + do"
+            "meaning_cn": "有能力做某事",
+            "phrase": "have the ability to do sth"
           }
         ],
         "confidence": "high",
@@ -166,6 +168,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch02",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch02.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }
