@@ -6,6 +6,7 @@ on:
       - lexical/forward-o3375-o3624-v3-20260916
     paths:
       - .github/workflows/lexical-forward-o3375-o3624-v3.yml
+      - content/lexical/execution/forward-o3375-o3624.ACTIVE
 
 permissions:
   contents: write
@@ -74,18 +75,17 @@ jobs:
           for o in sorted(owners):
               p=f'content/lexical/words/by-ordinal/o{o:04d}.json'
               if not exists(PRE,p) or not Path(p).exists() or json.loads(show(PRE,p))!=json.loads(Path(p).read_text()): bad.append(p)
-          # Existing relation owners touched by package must match prestate; new relation paths may be absent.
           for p in sorted(relpaths):
               pre=exists(PRE,p); cur=Path(p).exists()
               if pre!=cur:
                   bad.append(p); continue
               if pre and json.loads(show(PRE,p))!=json.loads(Path(p).read_text()): bad.append(p)
-          # Shared identity registries: compare only rows anchored to exact package/dependency owners.
           target_ords=owners
           for p in sh('diff','--name-only',f'{PRE}..{CAND}','--','content/lexical/canonical/senses/shards','content/lexical/canonical/collocations/shards').splitlines():
               if not p: continue
               pre_rows=json.loads(show(PRE,p)); cur_rows=json.loads(Path(p).read_text())
-              def keyed(rows,kind):
+              kind='sense' if '/senses/' in p else 'collocation'
+              def keyed(rows):
                   out={}
                   for row in rows:
                       o=row.get('anchor_ordinal')
@@ -94,9 +94,7 @@ jobs:
                       key=rec.get('stable_sense_id') if kind=='sense' else rec.get('collocation_id')
                       if key: out[key]=row
                   return out
-              kind='sense' if '/senses/' in p else 'collocation'
-              if keyed(pre_rows,kind)!=keyed(cur_rows,kind): bad.append(p+':target_rows')
-          # Relation manifest must retain lawful pre-forward count.
+              if keyed(pre_rows)!=keyed(cur_rows): bad.append(p+':target_rows')
           pm=json.loads(show(PRE,'content/lexical/relations/manifest.json'))
           cm=json.loads(Path('content/lexical/relations/manifest.json').read_text())
           if pm.get('relation_count')!=cm.get('relation_count'): bad.append('content/lexical/relations/manifest.json:relation_count')
@@ -132,7 +130,6 @@ jobs:
           for o in sorted(owners):
               p=f'content/lexical/words/by-ordinal/o{o:04d}.json'
               if json.loads(Path(p).read_text())!=json.loads(show(CAND,p)): raise SystemExit(f'FINAL_WORD_MISMATCH:{p}')
-          # For shared registries, candidate-changed target rows must match candidate; disjoint newer rows are preserved.
           for p in sh('diff','--name-only',f'{PRE}..{CAND}','--','content/lexical/canonical/senses/shards','content/lexical/canonical/collocations/shards').splitlines():
               if not p: continue
               cand=json.loads(show(CAND,p)); cur=json.loads(Path(p).read_text())
@@ -199,6 +196,7 @@ jobs:
           for f in tools/lexical_apply_retro_o0025_o0224.py tools/lexical_apply_retro_o2425_o2624.py tools/lexical_apply_forward_o3375_o3424.py tools/lexical_apply_forward_o3425_o3474.py tools/lexical_apply_forward_o3475_o3524.py tools/lexical_apply_forward_o3525_o3574.py tools/lexical_apply_forward_o3575_o3624.py; do
             if git cat-file -e "HEAD:$f" 2>/dev/null; then git show "HEAD:$f" > "$f"; else rm -f "$f"; fi
           done
+          rm -f content/lexical/execution/forward-o3375-o3624.ACTIVE
           git config user.name "Kian"
           git config user.email "kianwang022@gmail.com"
           git add content/lexical
