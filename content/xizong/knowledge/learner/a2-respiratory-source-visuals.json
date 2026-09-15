@@ -1,0 +1,60 @@
+{
+  "schema": "kianos.xizong.source_visual_registry.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_REVIEWED_SOURCE_VISUAL_CONTENT",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "learning_cues": "content/xizong/knowledge/learner/a2-respiratory-learning-cues.json",
+  "role": "SPARSE_HIGH_VALUE_SOURCE_VISUAL_CONTENT_ONLY",
+  "coverage_policy": "SPARSE_HIGH_VALUE_SUBSET",
+  "rules": {
+    "function_content_separation": "UI and rendering capability must not depend on completeness of visual content; content may be added, replaced or removed without changing the learning flow.",
+    "no_new_medical_owner": "This registry binds already-reviewed visual cues to physical source objects only; it does not create or replace canonical medical content.",
+    "fail_closed": "A declared required asset that is missing or hash-drifted must fail validation/build rather than render an unverified substitute.",
+    "recall_guard": "Visual placement and Reveal timing remain owned by the existing learner projection; this registry grants no new render timing."
+  },
+  "bundles": [
+    {
+      "cue_id": "a2-r03-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "asset_path": "a2-r03-lg01/p55.webp",
+          "source_object_id": "pathology:7b41f26673fbb562:pi54:r067191-059388-604717-938331",
+          "source_page": 55,
+          "usage_label": "P55 · 正常气道 → 肺腺泡定位",
+          "alt": "病理讲义 P55：传导部、呼吸部与肺腺泡的连续定位原图",
+          "width": 420,
+          "height": 555,
+          "derived_asset_sha256": "d755619e3b711effbaff75c818cf25d56585655bbd338ab92362a1e84bb80a83"
+        },
+        {
+          "asset_path": "a2-r03-lg01/p60.webp",
+          "source_object_id": "pathology:7b41f26673fbb562:pi59:r067191-593881-547125-873005",
+          "source_page": 60,
+          "usage_label": "P60 · 慢支气道壁病理",
+          "alt": "病理讲义 P60：慢性支气管炎气道壁病理变化原图",
+          "width": 420,
+          "height": 197,
+          "derived_asset_sha256": "026d4a76477fedcded32732765ac20951048a8ef21a135b1228fee919b3a8b37"
+        },
+        {
+          "asset_path": "a2-r03-lg01/p63.webp",
+          "source_object_id": "pathology:7b41f26673fbb562:pi62:r076789-053449-623914-451349",
+          "source_page": 63,
+          "usage_label": "P63 · 肺气肿腺泡分型",
+          "alt": "病理讲义 P63：肺气肿在肺腺泡内的分型位置原图",
+          "width": 420,
+          "height": 247,
+          "derived_asset_sha256": "d767568499deb8db5d55b95beb0bde0f5db753e44b1dabbff263526820171b58"
+        }
+      ]
+    }
+  ],
+  "content_status": {
+    "reviewed_a2_visual_cues_total": 17,
+    "production_bound_in_this_increment": 1,
+    "note": "Function/content separation landed first. Reviewed A2 content remains independently promotable without UI changes."
+  }
+}
