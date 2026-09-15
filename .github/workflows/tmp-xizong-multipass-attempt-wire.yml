@@ -1,0 +1,134 @@
+name: Temporary Xizong multipass attempt wiring
+
+on:
+  push:
+    branches:
+      - chat/xizong-multipass-question-attempts
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chat/xizong-multipass-question-attempts
+          fetch-depth: 0
+      - name: Wire append-preserved attempts into Current System sweep
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path('static-web/src/components/XizongSystemExitRuntime.astro')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global text
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one match, found {count}')
+              text = text.replace(old, new, 1)
+
+          replace_once(
+              '''        <div class="xseSweepStats" data-sweep-stats>\n          <span>稳 <b data-stat-stable>0</b></span>''',
+              '''        <div class="xseSweepStats" data-sweep-stats>\n          <span>轮次 <b data-study-phase>一轮</b></span>\n          <span>稳 <b data-stat-stable>0</b></span>''',
+              'phase-stat'
+          )
+
+          replace_once(
+              '''      <div class="xseSweepActions">\n        <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>\n        <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>\n      </div>''',
+              '''      <div class="xseSweepActions">\n        <button type="button" data-copy-wu-done>复制详细 W/U 学习包</button>\n        <button type="button" class="secondary" data-repeat-recall>题后再做一次短 System Recall</button>\n        <button type="button" data-start-next-round>开始第二轮（保留本轮记录）</button>\n      </div>''',
+              'next-round-button'
+          )
+
+          replace_once(
+              '''<script>\n  const roots = [...document.querySelectorAll('[data-xizong-system-exit]')];''',
+              '''<script>\n  import {\n    ensureXizongQuestionSweepState,\n    recordXizongQuestionAttempt,\n    startNextXizongQuestionRound,\n    xizongStudyPhaseLabel\n  } from '../lib/xizongQuestionAttempts.mjs';\n\n  const roots = [...document.querySelectorAll('[data-xizong-system-exit]')];''',
+              'client-import'
+          )
+
+          replace_once(
+              '''    const writeJson = (key, value) => {\n      try { localStorage.setItem(key, JSON.stringify(value)); } catch {}\n    };''',
+              '''    const writeJson = (key, value) => {\n      try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; }\n    };''',
+              'write-json-result'
+          )
+
+          replace_once(
+              '''    let sweepState = readJson(sweepKey, { results: {} });\n    if (!sweepState || typeof sweepState !== 'object') sweepState = { results: {} };\n    if (!sweepState.results || typeof sweepState.results !== 'object') sweepState.results = {};''',
+              '''    let sweepState = readJson(sweepKey, { results: {} });\n    if (!sweepState || typeof sweepState !== 'object') sweepState = { results: {} };\n    if (!sweepState.results || typeof sweepState.results !== 'object') sweepState.results = {};\n    const attemptContext = {\n      systemId: data.systemId,\n      canonicalId: data.canonicalId,\n      scopeHash: data.scopeHash,\n      questionInventoryHash: data.questionInventoryHash,\n      questions: data.questions\n    };\n    sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });\n    writeJson(sweepKey, sweepState);''',
+              'normalize-sweep-state'
+          )
+
+          replace_once(
+              '''    const wrongJudge = root.querySelector('[data-wrong-judge]');\n    const done = root.querySelector('[data-sweep-done]');''',
+              '''    const wrongJudge = root.querySelector('[data-wrong-judge]');\n    const done = root.querySelector('[data-sweep-done]');\n    const nextRoundButton = root.querySelector('[data-start-next-round]');''',
+              'next-round-node'
+          )
+
+          replace_once(
+              '''      const stat = counts();\n      root.querySelector('[data-stat-stable]').textContent = String(stat.stable);''',
+              '''      const stat = counts();\n      const phase = sweepState.round?.studyPhase || 'FIRST_PASS';\n      const phaseLabel = xizongStudyPhaseLabel(phase);\n      root.querySelector('[data-study-phase]').textContent = phaseLabel;\n      root.querySelector('[data-stat-stable]').textContent = String(stat.stable);''',
+              'render-phase'
+          )
+
+          replace_once(
+              '''      if (summary) summary.textContent = holdoutYears.length\n        ? `已保留整卷：${holdoutYears.join('、')}。本轮实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`\n        : '锁定整卷后，系统会自动排除这些年份；剩余题按一轮规则做覆盖性 sweep。';\n      if (startSweep) startSweep.disabled = !(recallState.completedAt && holdoutYears.length);''',
+              '''      if (summary) summary.textContent = holdoutYears.length\n        ? `已保留整卷：${holdoutYears.join('、')}。${phaseLabel}实际可用 ${activeQuestions.length} / ${data.questionCount} 道。`\n        : `锁定整卷后，系统会自动排除这些年份；剩余题按${phaseLabel}任务做 sweep。`;\n      if (nextRoundButton) {\n        nextRoundButton.textContent = phase === 'FIRST_PASS'\n          ? '开始第二轮（保留本轮记录）'\n          : phase === 'SECOND_PASS'\n            ? '开始后期复习轮（保留此前记录）'\n            : '再开一轮后期复习（保留此前记录）';\n      }\n      if (startSweep) startSweep.disabled = !(recallState.completedAt && holdoutYears.length);''',
+              'phase-summary'
+          )
+
+          replace_once(
+              '''    const persistResult = (question, status, selected) => {\n      sweepState.results[question.questionId] = {\n        status,\n        selected: [...selected].sort(),\n        correctAnswer: question.correctAnswer,\n        updatedAt: new Date().toISOString()\n      };\n      writeJson(sweepKey, sweepState);\n      renderStats();\n    };''',
+              '''    const persistResult = (question, status, selected) => {\n      let nextState;\n      try {\n        nextState = recordXizongQuestionAttempt(sweepState, {\n          question,\n          status,\n          selected,\n          context: attemptContext,\n          holdoutYears\n        });\n      } catch (error) {\n        console.error(error);\n        return false;\n      }\n      if (!writeJson(sweepKey, nextState)) {\n        window.alert('本机保存失败：这次作答没有写入证据，请先不要继续下一题。');\n        return false;\n      }\n      sweepState = nextState;\n      renderStats();\n      return true;\n    };''',
+              'persist-attempt'
+          )
+
+          replace_once(
+              '''      questionProgress.textContent = `本轮 ${answeredCount + 1} / ${activeQuestions.length}`;''',
+              '''      questionProgress.textContent = `${xizongStudyPhaseLabel(sweepState.round?.studyPhase)} · 本轮 ${answeredCount + 1} / ${activeQuestions.length}`;''',
+              'question-phase'
+          )
+
+          replace_once(
+              '''      } else {\n        persistResult(currentQuestion, 'wrong', currentSelection);\n        showRepair(currentQuestion);''',
+              '''      } else {\n        if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;\n        showRepair(currentQuestion);''',
+              'wrong-persist-gate'
+          )
+
+          replace_once(
+              '''    const nextAfter = (status) => {\n      if (!currentQuestion) return;\n      persistResult(currentQuestion, status, currentSelection);\n      renderQuestion();''',
+              '''    const nextAfter = (status) => {\n      if (!currentQuestion) return;\n      if (!persistResult(currentQuestion, status, currentSelection)) return;\n      renderQuestion();''',
+              'stable-persist-gate'
+          )
+
+          replace_once(
+              '''        question_scope: { path: data.scopePath, sha256: data.scopeHash, inventory_sha256: data.questionInventoryHash, full_count: data.questionCount },\n        holdout_years: holdoutYears,''',
+              '''        question_scope: { path: data.scopePath, sha256: data.scopeHash, inventory_sha256: data.questionInventoryHash, full_count: data.questionCount },\n        study_phase: sweepState.round?.studyPhase || 'FIRST_PASS',\n        round_id: sweepState.round?.id || '',\n        round_ordinal: sweepState.round?.ordinal || 1,\n        holdout_years: holdoutYears,''',
+              'wu-round-context'
+          )
+
+          replace_once(
+              '''    root.querySelector('[data-mark-uncertain]')?.addEventListener('click', () => {\n      if (!currentQuestion) return;\n      persistResult(currentQuestion, 'uncertain', currentSelection);\n      showRepair(currentQuestion);''',
+              '''    root.querySelector('[data-mark-uncertain]')?.addEventListener('click', () => {\n      if (!currentQuestion) return;\n      if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;\n      showRepair(currentQuestion);''',
+              'uncertain-persist-gate'
+          )
+
+          replace_once(
+              '''    copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));\n    root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());\n\n    renderRecall();''',
+              '''    copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));\n    root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());\n    nextRoundButton?.addEventListener('click', () => {\n      activeQuestions = computeActive();\n      let nextState;\n      try {\n        nextState = startNextXizongQuestionRound(\n          sweepState,\n          activeQuestions.map((question) => question.questionId)\n        );\n      } catch (error) {\n        console.error(error);\n        return;\n      }\n      if (!writeJson(sweepKey, nextState)) {\n        window.alert('本机保存失败：没有开启下一轮，上一轮记录保持不变。');\n        return;\n      }\n      sweepState = nextState;\n      renderStats();\n      renderQuestion();\n      workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });\n    });\n\n    renderRecall();''',
+              'next-round-handler'
+          )
+
+          path.write_text(text, encoding='utf-8')
+      - name: Self-remove temporary workflow and commit bounded wiring
+        run: |
+          git rm .github/workflows/tmp-xizong-multipass-attempt-wire.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static-web/src/components/XizongSystemExitRuntime.astro static-web/src/lib/xizongQuestionAttempts.mjs
+          git diff --cached --check
+          git commit -m "xizong: wire multi-pass question attempts into Current sweep"
+          git push origin HEAD:chat/xizong-multipass-question-attempts
