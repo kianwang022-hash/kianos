@@ -1,0 +1,75 @@
+name: Lexical Execute o3775-o3824
+
+on:
+  push:
+    branches:
+      - lexical/execute-o3625-o3874-20260916
+    paths:
+      - .github/workflows/lexical-execute-o3775-o3824.yml
+
+permissions:
+  contents: write
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Current gate and restore helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=78aecd90163ad735e389708b2562a5b8671dede8
+          git fetch origin main:refs/remotes/origin/main
+          DRIFT=$(git diff --name-only "$BASE..origin/main" -- content/lexical/words/by-ordinal content/lexical/canonical/senses/shards content/lexical/canonical/collocations/shards content/lexical/relations/by-id content/lexical/relations/manifest.json || true)
+          if [ -n "$DRIFT" ]; then echo "$DRIFT"; exit 1; fi
+          git fetch origin 4c85edc2911928e20e264bb13d232949bb953984:refs/remotes/origin/forward-helper
+          git show origin/forward-helper:tools/lexical_apply_retro_o0025_o0224.py > tools/lexical_apply_retro_o0025_o0224.py
+      - name: Execute shard
+        run: python tools/lexical_apply_forward_o3775_o3824.py
+      - name: Natural Owner audit
+        run: python tools/lexical_natural_owner.py audit
+      - name: Transport guards
+        run: python tools/test_lexical_transport_guards.py
+      - name: Shard tests
+        run: python tools/test_lexical_shard.py
+      - name: Parse all Lexical JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for p in Path('content/lexical').rglob('*.json'): json.loads(p.read_text(encoding='utf-8'))
+          print('all lexical json PASS')
+          PY
+      - name: Exact shard diff gate
+        shell: bash
+        run: |
+          python - <<'PY'
+          import subprocess
+          expected={3775,3778,3779,3791,3794,3799,3803,3804,3805,3806,3808,3809,3811,3812,3813,3816,3820}
+          raw=subprocess.check_output(['git','status','--porcelain=v1','-z','--untracked-files=all']); changed=set(); bad=[]
+          for e in raw.split(b'\0'):
+              if not e: continue
+              p=e.decode('utf-8','surrogateescape')[3:]
+              if ' -> ' in p: p=p.split(' -> ',1)[1]
+              if p.startswith('content/lexical/words/by-ordinal/o') and p.endswith('.json'): changed.add(int(p.rsplit('/o',1)[1][:-5])); continue
+              if p.startswith('content/lexical/canonical/senses/shards/') or p.startswith('content/lexical/canonical/collocations/shards/'): continue
+              if p.startswith('content/lexical/relations/by-id/'): continue
+              if p=='content/lexical/execution/receipts/o3775-o3824.json': continue
+              if p.startswith('tools/'): continue
+              if p.startswith('content/lexical/'): bad.append(p)
+          if changed!=expected: raise SystemExit(f'WORD_WRITE_SET_MISMATCH:{sorted(changed)}')
+          if bad: raise SystemExit(f'UNAUTHORIZED_LEXICAL_PATHS:{sorted(set(bad))}')
+          print('exact shard diff gate PASS')
+          PY
+      - name: Commit shard result
+        shell: bash
+        run: |
+          set -euo pipefail
+          find tools -type d -name __pycache__ -prune -exec rm -rf {} +
+          git config user.name "Kian"; git config user.email "kianwang022@gmail.com"
+          git add content/lexical/words/by-ordinal content/lexical/canonical/senses/shards content/lexical/canonical/collocations/shards content/lexical/relations/by-id content/lexical/execution/receipts/o3775-o3824.json
+          git diff --cached --quiet && exit 1
+          git commit -m "lexical: execute forward shard o3775-o3824"
+          git push origin HEAD
