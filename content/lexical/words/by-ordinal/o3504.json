@@ -7,19 +7,38 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fb035e3a6000c44833554f3485633620093d5d20b2c718c0d1308538ad8d0657",
+    "content_hash": "fa6e0a55f39c8e6065afe7fe587c31e491cc0b48dc23213f329b6334d13b3df1",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "引起怜悯或轻蔑的",
-      "core_meaning_en": "arousing pity, sadness, or contempt",
-      "mental_model_cn": "引起怜悯或轻蔑的",
+      "core_clusters": [
+        {
+          "label_cn": "可怜的；令人怜悯的",
+          "label_en": "arousing pity or sadness",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:pathetic:dcb7d96892aa5f1d"
+          ]
+        },
+        {
+          "label_cn": "差劲的；软弱无力的（贬义）",
+          "label_en": "very bad, weak, or inadequate",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:pathetic:605d537c606cb2b7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "可怜的；差劲/软弱的（贬义）",
+      "core_meaning_en": "pitiful or, evaluatively, very bad/weak/inadequate",
+      "mental_model_cn": "可怜的；差劲/软弱的（贬义）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -33,27 +52,42 @@
             ],
             "meaning_cn": "一个可怜的景象",
             "phrase": "a pathetic sight"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "可怜的；令人怜悯或悲伤的",
+        "definition_en": "arousing pity or sadness",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:pathetic:dcb7d96892aa5f1d",
+        "sense_label_en": "arousing pity or sadness",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:cde6fdac22c459669489",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:pathetic:dcb7d96892aa5f1d:collocation:1"
             ],
-            "meaning_cn": "差劲的尝试",
+            "meaning_cn": "差劲/无力的尝试",
             "phrase": "pathetic attempt"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "可怜的，可悲的；令人怜悯的",
-        "definition_en": "arousing pity, sadness, or contempt",
+        "definition_cn": "差劲的；软弱无力的；不足的（贬义）",
+        "definition_en": "very bad, weak, inadequate, or contemptibly ineffective",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:pathetic:dcb7d96892aa5f1d",
-        "sense_label_en": "arousing pity, sadness, or contempt",
-        "sort_order": 0,
+        "sense_id": "sense:pathetic:605d537c606cb2b7",
+        "sense_label_en": "very bad, weak, inadequate, or contemptibly ineffective",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -80,6 +114,13 @@
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:pathetic:605d537c606cb2b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9776,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      },
       {
         "sense_id": "sense:pathetic:dcb7d96892aa5f1d",
         "status": "active",

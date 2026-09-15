@@ -7,9 +7,18 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d96e6a40b2e0a69d12bdb7b2b60ad75bd5312b59b0e6bfc920a5e401494a6f99",
+    "content_hash": "56435c37ebcbc5cedc2600cb5b061c4691580f5f16c940daf572369266a5cc97",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "公开他人私人身份信息（敏感/语境受限）",
+          "label_en": "public disclosure of private identity/information",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:outing:6b6c2c551c1ebcbd"
+          ]
+        }
+      ],
       "core_meaning_cn": "短途旅行；郊游",
       "core_meaning_en": "a short trip for pleasure",
       "mental_model_cn": "短途旅行；郊游",
@@ -19,7 +28,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -55,6 +66,31 @@
         "sense_label_en": "a short trip taken for pleasure, especially by a group",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:50307c98a7ebed191696",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:outing:6b6c2c551c1ebcbd:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "公开某公众人物的私人身份信息",
+            "phrase": "the outing of a public figure"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "公开他人的私人身份信息（尤指未经同意公开性取向等）",
+        "definition_en": "the public disclosure of a person's private identity or personal information, especially without consent",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:outing:6b6c2c551c1ebcbd",
+        "sense_label_en": "the public disclosure of a person's private identity or personal information, especially without consent",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "Sensitive modern use, especially disclosure of sexual orientation or other private identity without consent; context/register marked."
       }
     ],
     "verification_summary": {
@@ -86,14 +122,27 @@
         "merged_into_sense_id": null,
         "source_row": 9424,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:outing:6b6c2c551c1ebcbd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9497,
+        "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       }
     ],
     "active_collocations": [
+      "collocation:50307c98a7ebed191696",
       "collocation:5f28c3d3a7eb4f10424c",
       "collocation:e177fd7eed39befbe070"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:50307c98a7ebed191696",
+        "source_row": 21384,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
       {
         "id": "collocation:5f28c3d3a7eb4f10424c",
         "source_row": 8001,

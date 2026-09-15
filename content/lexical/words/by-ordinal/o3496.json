@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "fb988d2bc08f5eb73fff80f3fe619ccd6fec849420bb8f8f651fc0efd7228781",
+    "content_hash": "442d4b39e66113faff542f678dfcb6283d349b6e785a715e1c3556e666fe4f25",
     "core_concept": {
       "core_clusters": [
         {
@@ -33,6 +33,14 @@
           "sense_ids": [
             "sense:past:bb5c2a30f3335d00"
           ]
+        },
+        {
+          "label_cn": "经过；越过（副词）",
+          "label_en": "move/go past or beyond",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:past:fc69b3a01a576918"
+          ]
         }
       ],
       "core_meaning_cn": "过去的；越过",
@@ -44,7 +52,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -119,6 +129,30 @@
         "sense_label_en": "beyond in position; further than",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e0c2e95235f9bfcf17d9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:past:fc69b3a01a576918:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "车开过去了/她走了过去",
+            "phrase": "the car drove past / she walked past"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "经过；越过；从旁边过去",
+        "definition_en": "past or beyond a person, place, or point, without taking an object in the adverb use",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adverb",
+        "sense_id": "sense:past:fc69b3a01a576918",
+        "sense_label_en": "past or beyond a person, place, or point, without taking an object in the adverb use",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -164,12 +198,20 @@
         "merged_into_sense_id": null,
         "source_row": 9709,
         "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      },
+      {
+        "sense_id": "sense:past:fc69b3a01a576918",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9775,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
       }
     ],
     "active_collocations": [
       "collocation:36182422e738ea7af290",
       "collocation:7c1fb4fbf62a17ca8bfd",
-      "collocation:c615eb01068fc84614d1"
+      "collocation:c615eb01068fc84614d1",
+      "collocation:e0c2e95235f9bfcf17d9"
     ],
     "facts": [],
     "collocations": [
@@ -186,6 +228,11 @@
       {
         "id": "collocation:c615eb01068fc84614d1",
         "source_row": 16759,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:e0c2e95235f9bfcf17d9",
+        "source_row": 21428,
         "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
       }
     ],

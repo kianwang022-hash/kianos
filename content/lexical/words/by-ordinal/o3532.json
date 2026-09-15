@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c83cde64cd34f293d9795c1792aaba2f2357e7855a4d2b3d0a47c7448121577d",
+    "content_hash": "24d0abe4da0089c9310661e81c2936cef046f937ceeca243c0b0bed659fadfb0",
     "core_concept": {
       "core_clusters": [
         {
@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:peer:1b4326ec9f015ee9"
           ]
+        },
+        {
+          "label_cn": "贵族；上议院成员（BrE）",
+          "label_en": "British noble/member of the House of Lords",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:peer:5014ed6c2a599bbf"
+          ]
         }
       ],
       "core_meaning_cn": "同等的人；凝视",
@@ -36,7 +44,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -87,6 +97,31 @@
         "sense_label_en": "look searchingly or with difficulty",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b0fc240b2eed4a452a6c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:peer:5014ed6c2a599bbf:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "终身/世袭贵族",
+            "phrase": "a life/hereditary peer"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "贵族；上议院贵族成员（英式/政治语境）",
+        "definition_en": "a member of the British nobility, especially a member or former hereditary/life member of the House of Lords",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:peer:5014ed6c2a599bbf",
+        "sense_label_en": "a member of the British nobility, especially a member or former hereditary/life member of the House of Lords",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "British political/aristocratic sense; distinct from peer = equal/contemporary."
       }
     ],
     "verification_summary": {
@@ -125,11 +160,19 @@
         "merged_into_sense_id": null,
         "source_row": 9806,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
+      },
+      {
+        "sense_id": "sense:peer:5014ed6c2a599bbf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9866,
+        "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
       }
     ],
     "active_collocations": [
       "collocation:6aa7868472708268ae02",
-      "collocation:94ea651be3f25e13e48b"
+      "collocation:94ea651be3f25e13e48b",
+      "collocation:b0fc240b2eed4a452a6c"
     ],
     "facts": [],
     "collocations": [
@@ -141,6 +184,11 @@
       {
         "id": "collocation:94ea651be3f25e13e48b",
         "source_row": 12661,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:b0fc240b2eed4a452a6c",
+        "source_row": 21484,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       }
     ],

@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f76fb8e7692b3256dc3a9ab4f045aa226af939a5e8bd07b9c96561a747d790b2",
+    "content_hash": "81a2e443a4c7ac4ea80a2d26920e3285c888aea0b51a9321e07e72a351d67a0f",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,14 @@
           "sense_ids": [
             "sense:paper:54ce07237ba25416"
           ]
+        },
+        {
+          "label_cn": "试卷；考试科目（BrE）",
+          "label_en": "exam paper/set of questions",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:paper:82f20f089dd6c11e"
+          ]
         }
       ],
       "core_meaning_cn": "纸；文件；文章",
@@ -45,7 +53,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -162,6 +172,40 @@
         "sense_label_en": "made of paper; existing only in theory or on paper",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b4d9224c388aa8de42ae",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:paper:82f20f089dd6c11e:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "参加一门笔试",
+            "phrase": "sit/take an exam paper"
+          },
+          {
+            "collocation_id": "collocation:03b9376945c4d774ff7c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:paper:82f20f089dd6c11e:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "试卷",
+            "phrase": "question paper"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "试卷；考试科目（英式教育用语）",
+        "definition_en": "an examination paper or set of examination questions, especially in British English",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:paper:82f20f089dd6c11e",
+        "sense_label_en": "an examination paper or set of examination questions, especially in British English",
+        "sort_order": 4,
+        "transitivity": "nonverb",
+        "usage_note": "British/Commonwealth education use; context distinguishes it from academic paper."
       }
     ],
     "verification_summary": {
@@ -209,6 +253,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       },
       {
+        "sense_id": "sense:paper:82f20f089dd6c11e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9688,
+        "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
+      },
+      {
         "sense_id": "sense:paper:c13acb9bb99d58c5",
         "status": "active",
         "merged_into_sense_id": null,
@@ -217,15 +268,22 @@
       }
     ],
     "active_collocations": [
+      "collocation:03b9376945c4d774ff7c",
       "collocation:2ef12398ee154c42b527",
       "collocation:4b6503019328c661b1c8",
       "collocation:5276a05ea213174aa443",
       "collocation:6f22ef767d06e1174790",
+      "collocation:b4d9224c388aa8de42ae",
       "collocation:d1e7a3c786c43d5271c1",
       "collocation:e1633434a2e1e6e30af1"
     ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:03b9376945c4d774ff7c",
+        "source_row": 21415,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
       {
         "id": "collocation:2ef12398ee154c42b527",
         "source_row": 3972,
@@ -244,6 +302,11 @@
       {
         "id": "collocation:6f22ef767d06e1174790",
         "source_row": 9384,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:b4d9224c388aa8de42ae",
+        "source_row": 21414,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {

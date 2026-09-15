@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "cc1146233cf2ea729d060e0e7f5335dc0fae17e45c605acdfe80afa9b785dfcd",
+    "content_hash": "02ea48daaa3ff2fa9a3e067b7dae901156f5a5553fffa474f362928a6321f03f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "手掌或棕榈树",
-      "core_meaning_en": "inner part of hand or a tropical tree",
-      "mental_model_cn": "手掌或棕榈树",
+      "core_clusters": [
+        {
+          "label_cn": "手掌；掌心",
+          "label_en": "inner surface of the hand",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:palm:8402ba922f7e54e0"
+          ]
+        },
+        {
+          "label_cn": "棕榈树",
+          "label_en": "tropical palm tree",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:palm:f812886fd16a5862"
+          ]
+        }
+      ],
+      "core_meaning_cn": "手掌；棕榈树",
+      "core_meaning_en": "the palm of the hand or a palm tree",
+      "mental_model_cn": "手掌；棕榈树",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:495aceba0c748d1c32d7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:palm:8402ba922f7e54e0:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "在手掌中",
+            "phrase": "in the palm of your hand"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "手掌；掌心",
+        "definition_en": "the inner surface of the hand between the wrist and fingers",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:palm:8402ba922f7e54e0",
+        "sense_label_en": "the inner surface of the hand between the wrist and fingers",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c9bdf789b2f367eb5e55",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:palm:f812886fd16a5862:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "棕榈树/棕榈油",
+            "phrase": "palm tree/oil"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "棕榈树；棕榈",
+        "definition_en": "a tropical tree with a tall trunk and large leaves at the top",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:palm:f812886fd16a5862",
+        "sense_label_en": "a tropical tree with a tall trunk and large leaves at the top",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -68,56 +136,6 @@
       "source_row": 9583,
       "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:palm:8402ba922f7e54e0",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "手掌",
-      "definition_en": "the inner surface of the hand between wrist and fingers",
-      "semantic_key": "16487f09aa482d9322391a1b249ba1e694a1b646a54de9b34a68ed1bb3490833",
-      "semantic_key_history": [
-        "817820b1522c838e4a5814ded220e1c2f92c9a1cf616a926f00de2009f239672"
-      ],
-      "legacy_aliases": [
-        "palm:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "palm:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9584,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:palm:f812886fd16a5862",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "棕榈树；胜利",
-      "definition_en": "a tropical tree with large leaves, or a branch of it as a symbol of victory",
-      "semantic_key": "0997f4621d55a66f950164f5fc2fa3cfec082cdf33e072b79f37694f7fb00f76",
-      "semantic_key_history": [
-        "33c46d7180ba3ea0320451d85be5f8513bda154b967d6b9733c7fac51a7c5a60"
-      ],
-      "legacy_aliases": [
-        "palm:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "palm:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9585,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -131,20 +149,23 @@
       },
       {
         "sense_id": "sense:palm:8402ba922f7e54e0",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9584,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
         "sense_id": "sense:palm:f812886fd16a5862",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9585,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:495aceba0c748d1c32d7",
+      "collocation:c9bdf789b2f367eb5e55"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -155,6 +176,16 @@
       {
         "id": "collocation:3dd247b7f064d14ea558",
         "source_row": 5229,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:495aceba0c748d1c32d7",
+        "source_row": 21610,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:c9bdf789b2f367eb5e55",
+        "source_row": 21611,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {

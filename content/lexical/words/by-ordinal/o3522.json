@@ -7,11 +7,20 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d92c9329258465086c6da8c28ab1ba9fe2e536a997dfce63fb0d10df66f873d6",
+    "content_hash": "4397fc0506023b8723fe8f0ab118123c032b23b59112d4943eeb053220ae11d1",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "花生",
+          "label_en": "edible peanut seed/pod",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:peanut:3738a9547d1d55ed"
+          ]
+        }
+      ],
       "core_meaning_cn": "花生",
-      "core_meaning_en": "a small edible nut that grows underground",
+      "core_meaning_en": "the edible peanut",
       "mental_model_cn": "花生",
       "mental_model_en": ""
     },
@@ -19,7 +28,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -39,12 +50,37 @@
         "definition_cn": "小不点（指身材矮小的孩子）",
         "definition_en": "a young child who is small for his age",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:peanut:b005f1db447a53c2",
         "sense_label_en": "a young child who is small for his age",
         "sort_order": 0,
+        "transitivity": "nonverb",
+        "usage_note": "informal affectionate/person-reference use; not the core meaning"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6b55ec06734eb2aa8ae7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:peanut:3738a9547d1d55ed:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "烤花生/花生酱",
+            "phrase": "roasted peanuts / peanut butter"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "花生；花生果实/种子",
+        "definition_en": "the edible seed/pod of the peanut plant, commonly eaten as food or a snack",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:peanut:3738a9547d1d55ed",
+        "sense_label_en": "the edible seed/pod of the peanut plant, commonly eaten as food or a snack",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -69,31 +105,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:peanut:3738a9547d1d55ed",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "花生（植物地下荚果，常作零食）",
-      "definition_en": "an underground pod of the peanut vine, commonly eaten as a snack",
-      "semantic_key": "7cddfb8bedcc0e0b953347dd6b1ec70252b3c8661deae335ebcdc0e5d41ba24d",
-      "semantic_key_history": [
-        "cfadf2c09537952008643a22d6794287756b1d4583a5235cf6b15788a88fe09f"
-      ],
-      "legacy_aliases": [
-        "peanut:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "peanut:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9777,
-      "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:peanut:b76a4ae2c7d05e70",
       "status": "deprecated",
@@ -124,7 +135,7 @@
     "senses": [
       {
         "sense_id": "sense:peanut:3738a9547d1d55ed",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9777,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
@@ -145,6 +156,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:6b55ec06734eb2aa8ae7",
       "collocation:d266fc8527d9faadb715"
     ],
     "facts": [],
@@ -152,6 +164,11 @@
       {
         "id": "collocation:6aa54726d1e0cc68260d",
         "source_row": 8974,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:6b55ec06734eb2aa8ae7",
+        "source_row": 21481,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       },
       {

@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d9bde1ee88766ffff3bce9977829d012d330530dcf7d89220745d894d3ff9da5",
+    "content_hash": "d3c4c38532c106345302904963f9342b3e587d40833c1745ee7d948ff417df9d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "喘息或气喘吁吁地说",
-      "core_meaning_en": "to breathe heavily or speak breathlessly",
-      "mental_model_cn": "喘息或气喘吁吁地说",
+      "core_clusters": [
+        {
+          "label_cn": "气喘；喘息",
+          "label_en": "breathe quickly/loudly through the mouth",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pant:27fa44102d865bca"
+          ]
+        },
+        {
+          "label_cn": "一口喘息；气喘声",
+          "label_en": "a short quick breath",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pant:0c3ccc5fff555ba7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "气喘；喘息声",
+      "core_meaning_en": "to pant; a pant/breath",
+      "mental_model_cn": "气喘；喘息声",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:e22742a20d5bb7b94b08",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pant:27fa44102d865bca:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "喘着气",
+            "phrase": "pant for breath"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "气喘；喘息",
+        "definition_en": "to breathe quickly and loudly through the mouth because of exertion, heat, or excitement",
+        "governing_pattern": "vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pant:27fa44102d865bca",
+        "sense_label_en": "to breathe quickly and loudly through the mouth because of exertion, heat, or excitement",
+        "sort_order": 0,
+        "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2de9d16e16e0572c63f1",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pant:0c3ccc5fff555ba7:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "喘着一口气",
+            "phrase": "with a pant"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "一口急促的喘息；气喘声",
+        "definition_en": "a short, quick breath or sound of panting",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pant:0c3ccc5fff555ba7",
+        "sense_label_en": "a short, quick breath or sound of panting",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,56 +112,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:pant:0c3ccc5fff555ba7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "喘息；气喘",
-      "definition_en": "a short, quick breath",
-      "semantic_key": "10646384d01d3636412e0219cff022cd1afbe553bea300460b71d5fb4bff8228",
-      "semantic_key_history": [
-        "c795f88d57965c04a1db3cd488309850a401e6234c81686a957bad795d045d46"
-      ],
-      "legacy_aliases": [
-        "pant:l3:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pant:l3:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9604,
-      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pant:27fa44102d865bca",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "喘息；气喘",
-      "definition_en": "to breathe quickly and loudly through the mouth because of exertion or heat",
-      "semantic_key": "bc22e8142734d600caab390b77fead780ffd3065c780448abecd13c49bd42f62",
-      "semantic_key_history": [
-        "91bbd875ff2034e985ea646645d6ae85baaf757b85549edda463521cc10b1495"
-      ],
-      "legacy_aliases": [
-        "pant:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pant:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9605,
-      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:pant:71e096cc650c58b4",
       "status": "deprecated",
@@ -149,14 +167,14 @@
     "senses": [
       {
         "sense_id": "sense:pant:0c3ccc5fff555ba7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9604,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       },
       {
         "sense_id": "sense:pant:27fa44102d865bca",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9605,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
@@ -176,12 +194,20 @@
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:2de9d16e16e0572c63f1",
+      "collocation:e22742a20d5bb7b94b08"
+    ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:269504d3e0c989aadfea",
         "source_row": 3246,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:2de9d16e16e0572c63f1",
+        "source_row": 21412,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {
@@ -192,6 +218,11 @@
       {
         "id": "collocation:adfebfdc5331b7ae92d0",
         "source_row": 14730,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:e22742a20d5bb7b94b08",
+        "source_row": 21411,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {

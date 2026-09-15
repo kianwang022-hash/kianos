@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "fa207df95bc6b769cfb6a97680e8ddd438cca354fc47a7d152fd2656ba2cfc9e",
+    "content_hash": "f0a98f052293fe3a474e6f9127abebbbbfe94ff5df02479ca9dba8cdb700b1f7",
     "core_concept": {
       "core_clusters": [
         {
@@ -84,13 +84,14 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:permit:70fd0ec05222ce97",
       "deep:deep:constructions:permit:70fd0ec05222ce97",
-      "deep:deep:secondary_senses:permit:e6ba838eb592fa9d"
+      "deep:deep:secondary_senses:permit:e6ba838eb592fa9d",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [
       {
@@ -173,7 +174,45 @@
         "sense_id": "sense:permit:bc22c65ee0735f48",
         "sense_label_en": "to allow someone to do something or allow something to happen",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "surface_lemma": "permit",
+          "paired_form": "verb / noun",
+          "note": "Noun permit normally has first-syllable stress; verb permit normally has second-syllable stress."
+        }
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2a9e4d2da1057a997d7a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:permit:099ed080813b5241:collocation:0"
+            ],
+            "meaning_cn": "容许有（正式）",
+            "phrase": "permit of + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "容许，提供可能",
+        "definition_en": "to make something possible",
+        "governing_pattern": "vi. + of",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:permit:099ed080813b5241",
+        "sense_label_en": "to make something possible",
+        "sort_order": 1,
+        "transitivity": "vi",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "surface_lemma": "permit",
+          "paired_form": "verb / noun",
+          "note": "Noun permit normally has first-syllable stress; verb permit normally has second-syllable stress."
+        }
       },
       {
         "collocations": [
@@ -206,31 +245,14 @@
         "sense_id": "sense:permit:3f211da7c5ae5d14",
         "sense_label_en": "an official document that allows you to do something",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:2a9e4d2da1057a997d7a",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:permit:099ed080813b5241:collocation:0"
-            ],
-            "meaning_cn": "容许有（正式）",
-            "phrase": "permit of + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "容许，提供可能",
-        "definition_en": "to make something possible",
-        "governing_pattern": "vi. + of",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:permit:099ed080813b5241",
-        "sense_label_en": "to make something possible",
-        "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": false,
+          "identity_type": "stress_pos_boundary",
+          "surface_lemma": "permit",
+          "paired_form": "verb / noun",
+          "note": "Noun permit normally has first-syllable stress; verb permit normally has second-syllable stress."
+        }
       }
     ],
     "verification_summary": {

@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "026b148c040088df866d3bc9a269b2bf5cf6d33de59d33afdfc6568f18f16a06",
+    "content_hash": "0b9a14562b9bbbda7a7e515ccf7f260a95ff3d5ce643f729d5d28736a2058db4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "忽视或俯瞰",
-      "core_meaning_en": "to fail to notice or to have a view from above",
-      "mental_model_cn": "忽视或俯瞰",
+      "core_clusters": [
+        {
+          "label_cn": "忽视；没注意到",
+          "label_en": "fail to notice or consider",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:overlook:d5bd9d0f628554ba"
+          ]
+        },
+        {
+          "label_cn": "俯瞰；从高处可看到",
+          "label_en": "have a view of from above",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:overlook:2582536ebd975f90"
+          ]
+        }
+      ],
+      "core_meaning_cn": "忽视；俯瞰",
+      "core_meaning_en": "to fail to notice/consider, or to have a view from above",
+      "mental_model_cn": "忽视；俯瞰",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:116ed125826d5e255e81",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overlook:d5bd9d0f628554ba:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "忽略细节/问题",
+            "phrase": "overlook a detail/problem"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "忽视；没注意到；未考虑到",
+        "definition_en": "to fail to notice, see, or consider something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overlook:d5bd9d0f628554ba",
+        "sense_label_en": "to fail to notice, see, or consider something",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ab116ba7e1fc3c3d4f6a",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:overlook:2582536ebd975f90:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "俯瞰大海的房间",
+            "phrase": "a room overlooking the sea"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "俯瞰；从高处可看到",
+        "definition_en": "to have a view of something from above",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:overlook:2582536ebd975f90",
+        "sense_label_en": "to have a view of something from above",
+        "sort_order": 1,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -44,56 +112,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:overlook:2582536ebd975f90",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "俯瞰，远眺",
-      "definition_en": "to have a view of from above",
-      "semantic_key": "67d223d3a65cec1565c0ef01afac6ccae800dfa3b7f3e12e76f09834810eb8ee",
-      "semantic_key_history": [
-        "e85dbcc8fba2d917d1f76b811483b025a8d8b8b2995f597826b0c334f0a6387e"
-      ],
-      "legacy_aliases": [
-        "overlook:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "overlook:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9485,
-      "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:overlook:d5bd9d0f628554ba",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "忽视，没注意到",
-      "definition_en": "to fail to notice or consider",
-      "semantic_key": "5bc05a7bff03fbcdc300efaf3458f8186bf33ac74db9b012dcc90cc5d9aef8a5",
-      "semantic_key_history": [
-        "6fca4b87340adb63a4919fd4f47c5bbed7e5771f5121a189a6e050c5256cd05c"
-      ],
-      "legacy_aliases": [
-        "overlook:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "overlook:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9486,
-      "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:overlook:dbfedc5042bb572c",
       "status": "deprecated",
@@ -124,14 +142,14 @@
     "senses": [
       {
         "sense_id": "sense:overlook:2582536ebd975f90",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9485,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       },
       {
         "sense_id": "sense:overlook:d5bd9d0f628554ba",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9486,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
@@ -144,9 +162,17 @@
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:116ed125826d5e255e81",
+      "collocation:ab116ba7e1fc3c3d4f6a"
+    ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:116ed125826d5e255e81",
+        "source_row": 21389,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
       {
         "id": "collocation:45112f0d8c81b4268771",
         "source_row": 5833,
@@ -155,6 +181,11 @@
       {
         "id": "collocation:61adb915072add31f2b1",
         "source_row": 8231,
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:ab116ba7e1fc3c3d4f6a",
+        "source_row": 21390,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
       },
       {

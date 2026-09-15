@@ -7,22 +7,58 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "140d9fdd05fb1d125d64e87db176cb96ab10cfa1c08f94953c0ba50cad1ab73a",
+    "content_hash": "668ae5530da63abf35a60a793529207199f3dce338d3fd3a92ce2bffb0c97e7c",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "永久的",
+      "core_clusters": [
+        {
+          "label_cn": "永久的；持久的",
+          "label_en": "lasting or intended to last indefinitely",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:permanent:bad4f6eaf90f561e"
+          ]
+        }
+      ],
+      "core_meaning_cn": "永久的；持久的",
       "core_meaning_en": "lasting or intended to last indefinitely",
-      "mental_model_cn": "永久的",
+      "mental_model_cn": "永久的；持久的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:589f5dad4e287c42c31c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:permanent:bad4f6eaf90f561e:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "永久性变化/长期职位/永久居留",
+            "phrase": "permanent change/job/residence"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "永久的；持久的；长期固定的",
+        "definition_en": "lasting, continuing indefinitely, or intended to last for a very long time",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:permanent:bad4f6eaf90f561e",
+        "sense_label_en": "lasting, continuing indefinitely, or intended to last for a very long time",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -68,31 +104,6 @@
       "source_row": 9869,
       "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:permanent:bad4f6eaf90f561e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "永久的；持久的",
-      "definition_en": "continuing or enduring without marked change",
-      "semantic_key": "5a1adc5028d1bbf9e962122201e7745fffd5a537ba1fbb02522cc09f104f3b9b",
-      "semantic_key_history": [
-        "23417fd2e430b7814d784e14c49ebde69ca42203820a53f55a075cd5a54a5f20"
-      ],
-      "legacy_aliases": [
-        "permanent:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "permanent:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9870,
-      "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -106,18 +117,25 @@
       },
       {
         "sense_id": "sense:permanent:bad4f6eaf90f561e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9870,
         "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:589f5dad4e287c42c31c"
+    ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:0e71df486282978deb6a",
         "source_row": 1202,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:589f5dad4e287c42c31c",
+        "source_row": 21582,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
       },
       {

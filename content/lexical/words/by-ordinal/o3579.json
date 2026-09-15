@@ -9,22 +9,26 @@
     "constructions": [
       {
         "construction_id": "construction:8bc138eb2a6fb75c8220",
-        "definition_en": "to introduce or remove something gradually in stages",
+        "definition_en": "to introduce or bring something into use gradually in stages",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "逐步引入；分阶段实施",
-        "pattern": "phase in sth"
+        "meaning_cn": "逐步引入；分阶段投入使用",
+        "pattern": "phase in sth",
+        "source_sense_id": "sense:phase:2de76e1ff9fd5ba5",
+        "boundary": "introduce gradually, not remove"
       },
       {
         "construction_id": "construction:be8bc29fc9e427137313",
-        "definition_en": "to introduce or remove something gradually in stages",
+        "definition_en": "to discontinue, remove, or stop using something gradually in stages",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "逐步淘汰；逐步停止使用",
-        "pattern": "phase out sth"
+        "meaning_cn": "逐步淘汰；分阶段停止使用",
+        "pattern": "phase out sth",
+        "source_sense_id": "sense:phase:2de76e1ff9fd5ba5",
+        "boundary": "remove/discontinue gradually, not introduce"
       }
     ],
-    "content_hash": "b25a57448d91725ffc69142a1bd42e1363c0814cd6cabe174def93b02e84edf8",
+    "content_hash": "0ab14eab233b5cb96129d71dae95bb3ff89d3c268d488ddcf899cb11360827af",
     "core_concept": {
       "core_clusters": [
         {
@@ -51,12 +55,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:construction:8bc138eb2a6fb75c8220",
-      "construction:construction:be8bc29fc9e427137313"
+      "construction:construction:be8bc29fc9e427137313",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -126,8 +131,8 @@
             "legacy_source_object_ids": [
               "sense:phase:2de76e1ff9fd5ba5:collocation:0"
             ],
-            "meaning_cn": "逐步引入某物",
-            "phrase": "phase in + sth"
+            "meaning_cn": "逐步引入/投入使用某物",
+            "phrase": "phase in sth"
           },
           {
             "collocation_id": "collocation:17abb979caf3daa091fd",
@@ -135,8 +140,8 @@
             "legacy_source_object_ids": [
               "sense:phase:2de76e1ff9fd5ba5:collocation:1"
             ],
-            "meaning_cn": "逐步淘汰某物",
-            "phrase": "phase out + sth"
+            "meaning_cn": "逐步淘汰/停止使用某物",
+            "phrase": "phase out sth"
           }
         ],
         "confidence": "medium",

@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "be4dfa5a1c335cfd19042b4a3f6ed076423ab072c2132174c5686f90d6d8f905",
+    "content_hash": "b643c89cd84cec3d37309c3bfd7ecb892b66176261422c0c3237817efd764371",
     "core_concept": {
       "core_clusters": [
         {
@@ -18,6 +18,14 @@
             "sense:pencil:f072819e492c5b86",
             "sense:pencil:aee0232a94fb5978",
             "sense:pencil:996adbaba9a65124"
+          ]
+        },
+        {
+          "label_cn": "用铅笔写/画",
+          "label_en": "write or draw with a pencil",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pencil:aa6f2914f85559b5"
           ]
         }
       ],
@@ -30,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -95,6 +105,30 @@
         "sense_label_en": "a figure formed by a set of straight lines or light rays meeting at a po",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bbeb5d0746bd22c8fbe5",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pencil:aa6f2914f85559b5:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "用铅笔写下笔记/画草图",
+            "phrase": "pencil in a note/sketch"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "用铅笔写；用铅笔画",
+        "definition_en": "to write, draw, or mark with a pencil",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pencil:aa6f2914f85559b5",
+        "sense_label_en": "to write, draw, or mark with a pencil",
+        "sort_order": 3,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -117,33 +151,7 @@
     "word_id": "word:pencil"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:pencil:aa6f2914f85559b5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "用铅笔写或涂",
-      "definition_en": "write or draw with a pencil",
-      "semantic_key": "327405a34b4925efced64c72735214def3f01985b6bef9dd49ca7e31d37cd057",
-      "semantic_key_history": [
-        "0104bb9c5cd0c38d62a31c5e736d808a66641e8f9539066eb52140e0902d29e9"
-      ],
-      "legacy_aliases": [
-        "pencil:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pencil:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9817,
-      "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -155,7 +163,7 @@
       },
       {
         "sense_id": "sense:pencil:aa6f2914f85559b5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9817,
         "source_path": "content/lexical/canonical/senses/shards/o3521-3552.json"
@@ -177,7 +185,8 @@
     ],
     "active_collocations": [
       "collocation:2f439de894f9f16287f6",
-      "collocation:a83ca639db3de6fcdb0f"
+      "collocation:a83ca639db3de6fcdb0f",
+      "collocation:bbeb5d0746bd22c8fbe5"
     ],
     "facts": [],
     "collocations": [
@@ -189,6 +198,11 @@
       {
         "id": "collocation:a83ca639db3de6fcdb0f",
         "source_row": 14274,
+        "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
+      },
+      {
+        "id": "collocation:bbeb5d0746bd22c8fbe5",
+        "source_row": 21490,
         "source_path": "content/lexical/canonical/collocations/shards/o3521-3552.json"
       },
       {

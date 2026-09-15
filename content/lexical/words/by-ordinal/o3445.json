@@ -7,22 +7,58 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "531baacaeabb85a5a621bdf7c4eda95462abaf626751f2469fd3175622f73a8e",
+    "content_hash": "edea70f7cadf4659bbc812090b36b66bb2a3713861bee52ed7152e5263005038",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "页；标页码；呼叫",
-      "core_meaning_en": "a leaf of a book; to number pages; to summon",
-      "mental_model_cn": "页；标页码；呼叫",
+      "core_clusters": [
+        {
+          "label_cn": "页；书页；页面",
+          "label_en": "one side of a leaf in a book/document",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:page:050bd6ee5c405d15"
+          ]
+        }
+      ],
+      "core_meaning_cn": "页；页面",
+      "core_meaning_en": "a page in a book or document",
+      "mental_model_cn": "页；页面",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ad0b814e375808f8b5e9",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:page:050bd6ee5c405d15:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "在第10页/翻页",
+            "phrase": "on page 10 / turn the page"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "页；书页；页面",
+        "definition_en": "one side of a leaf in a book, document, or similar work",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:page:050bd6ee5c405d15",
+        "sense_label_en": "one side of a leaf in a book, document, or similar work",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -44,31 +80,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:page:050bd6ee5c405d15",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "页，页码",
-      "definition_en": "one side of a leaf in a book or similar",
-      "semantic_key": "ff9a68ad64b75595a3cc2c22086326a719d71f430f2418eec64bbe73b3b07ded",
-      "semantic_key_history": [
-        "4cba1e5aecd836c055ef6474b398209bd3a950eefd4b505691a0825016eaf6b9"
-      ],
-      "legacy_aliases": [
-        "page:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "page:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9553,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:page:5fc13a1ec4165cd0",
       "status": "deprecated",
@@ -149,7 +160,7 @@
     "senses": [
       {
         "sense_id": "sense:page:050bd6ee5c405d15",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9553,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -176,7 +187,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:ad0b814e375808f8b5e9"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -192,6 +205,11 @@
       {
         "id": "collocation:a73eae0befbf1e7d9ec1",
         "source_row": 14192,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:ad0b814e375808f8b5e9",
+        "source_row": 21605,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       }
     ],

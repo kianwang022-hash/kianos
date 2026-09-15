@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3e385083950fd3be52cf4c5eed817ecb356110f95ca4b2cac7a9148f777d3681",
+    "content_hash": "fbfe146f36fe0362188d429cc1735b9659eba1fe8c5de8b8b50aff7be97ee33c",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,6 +29,14 @@
             "sense:pitch:79891fd0adba5473",
             "sense:pitch:8492fd1e74785be4"
           ]
+        },
+        {
+          "label_cn": "球场；运动场（BrE）",
+          "label_en": "sports playing field, especially BrE",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pitch:a87451ea364304f4"
+          ]
         }
       ],
       "core_meaning_cn": "投掷；音高；坡度；摊位",
@@ -37,12 +45,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "sense:sense:pitch:22d3c39fa7d45c4b",
-      "sense:sense:pitch:dd5092cd2d235d9c"
+      "sense:sense:pitch:dd5092cd2d235d9c",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -170,30 +179,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:a0c96a8fdc3f0873f42e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pitch:8492fd1e74785be4:collocation:0"
-            ],
-            "meaning_cn": "搭帐篷",
-            "phrase": "pitch a tent"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "搭（帐篷）；扎营",
-        "definition_en": "to set up a tent or camp",
-        "governing_pattern": "vt. + object",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:pitch:8492fd1e74785be4",
-        "sense_label_en": "to set up (a tent) or to promote (a product)",
-        "sort_order": 5,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:a11f887ce80de92c9e03",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -216,6 +201,30 @@
         "transitivity": "vt"
       },
       {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0c96a8fdc3f0873f42e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pitch:8492fd1e74785be4:collocation:0"
+            ],
+            "meaning_cn": "搭帐篷",
+            "phrase": "pitch a tent"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "搭（帐篷）；扎营",
+        "definition_en": "to set up a tent or camp",
+        "governing_pattern": "vt. + object",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pitch:8492fd1e74785be4",
+        "sense_label_en": "to set up (a tent) or to promote (a product)",
+        "sort_order": 6,
+        "transitivity": "vt"
+      },
+      {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "推销陈述；提案陈述；宣传说辞",
@@ -225,7 +234,7 @@
         "pos": "noun",
         "sense_id": "sense:pitch:dd5092cd2d235d9c",
         "sense_label_en": "a persuasive sales, business, or proposal presentation",
-        "sort_order": 6,
+        "sort_order": 7,
         "source_evidence": [
           {
             "external_evidence": [
@@ -243,6 +252,31 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:a1c279ee4bb5baafe3ee",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pitch:a87451ea364304f4:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "足球场/橄榄球场",
+            "phrase": "football/rugby pitch"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "运动场；球场（英式，尤指足球/橄榄球）",
+        "definition_en": "a playing field or ground for a sport, especially football or rugby in British English",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pitch:a87451ea364304f4",
+        "sense_label_en": "a playing field or ground for a sport, especially football or rugby in British English",
+        "sort_order": 8,
+        "transitivity": "nonverb",
+        "usage_note": "Common British-English sports noun; compare AmE field."
       }
     ],
     "verification_summary": {
@@ -311,6 +345,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
       },
       {
+        "sense_id": "sense:pitch:a87451ea364304f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10054,
+        "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
+      {
         "sense_id": "sense:pitch:ab4b380c06b75e55",
         "status": "active",
         "merged_into_sense_id": null,
@@ -331,6 +372,7 @@
       "collocation:914624f30d8dc2fcc33f",
       "collocation:a0c96a8fdc3f0873f42e",
       "collocation:a11f887ce80de92c9e03",
+      "collocation:a1c279ee4bb5baafe3ee",
       "collocation:ddd4905d26b6124acc70",
       "collocation:f26dcd252ceeaab712e0"
     ],
@@ -359,6 +401,11 @@
       {
         "id": "collocation:a11f887ce80de92c9e03",
         "source_row": 13693,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:a1c279ee4bb5baafe3ee",
+        "source_row": 21409,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
       },
       {

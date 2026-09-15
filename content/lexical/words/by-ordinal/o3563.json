@@ -57,10 +57,10 @@
         "writing_safe": true
       },
       {
-        "boundary": "persist with + 名词",
+        "boundary": "continue-doing/trying branch, not continue-to-exist branch",
         "codex_reviewed": false,
-        "definition_cn": "持续；存留",
-        "definition_en": "continue to exist or happen, especially for a long time",
+        "definition_cn": "坚持继续做/尝试某事",
+        "definition_en": "continue with an activity or course of action despite difficulty",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -79,7 +79,7 @@
         "level": null,
         "meaning_cn": "坚持某事",
         "module": "constructions",
-        "pattern": "persist with + sth",
+        "pattern": "persist with sth",
         "pos": "verb",
         "presentation_merge": {
           "merge_id": "presentation-merge:456f12732415eb9eceb6",
@@ -95,7 +95,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:persist:b98e6d0d464354e9",
+        "source_sense_id": "sense:persist:ff3376391aad55bf",
         "target_sense_id": null,
         "target_word": null,
         "task_tags": [
@@ -106,7 +106,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "12a2bcbb4fd791bd28d3e86b693b11e4aa1ddf63695e09efdb2c08a2468c2995",
+    "content_hash": "cb6df19a3ff8a38b04f3f5fcfc40e8ad8e07a43418f8c65cb701aa74762f47fe",
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "坚持；持续",
@@ -115,14 +115,15 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:persist:4ae24c75d3624771",
       "construction:deep:constructions:persist:bcb8857b94f7a04a",
       "deep:deep:constructions:persist:4ae24c75d3624771",
-      "deep:deep:constructions:persist:bcb8857b94f7a04a"
+      "deep:deep:constructions:persist:bcb8857b94f7a04a",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -146,6 +147,15 @@
             ],
             "meaning_cn": "坚持努力",
             "phrase": "persist in one's efforts"
+          },
+          {
+            "collocation_id": "collocation:4373de3204fff851b3e8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:persist:b98e6d0d464354e9:collocation:0"
+            ],
+            "meaning_cn": "坚持继续做/尝试某事",
+            "phrase": "persist with sth"
           }
         ],
         "confidence": "medium",
@@ -163,15 +173,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4373de3204fff851b3e8",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:persist:b98e6d0d464354e9:collocation:0"
-            ],
-            "meaning_cn": "坚持某事",
-            "phrase": "persist with + sth"
-          },
-          {
             "collocation_id": "collocation:0e6cb4b48de477f468b3",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -184,7 +185,7 @@
         "confidence": "medium",
         "definition_cn": "持续；存留",
         "definition_en": "continue to exist or happen, especially for a long time",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",

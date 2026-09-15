@@ -57,7 +57,7 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "8d7e60f266c03aedb6deb93348655f038d48043bad4ef2f561a226d18ac14966",
+    "content_hash": "c203111871f69651a4b77cd12023ee9de1b69e67465b937f299d849e127af81b",
     "core_concept": {
       "core_clusters": [
         {
@@ -77,6 +77,14 @@
             "sense:pace:8f04a9e33ee15626",
             "sense:pace:c96b67f7d4175bf9"
           ]
+        },
+        {
+          "label_cn": "控制速度/节奏/体力",
+          "label_en": "regulate speed, rate, or effort",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pace:397b6f0a4ad2ebad"
+          ]
         }
       ],
       "core_meaning_cn": "速度，步伐",
@@ -85,12 +93,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "construction:deep:constructions:pace:7e129d0c5e99f2b9",
-      "deep:deep:constructions:pace:7e129d0c5e99f2b9"
+      "deep:deep:constructions:pace:7e129d0c5e99f2b9",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -131,6 +140,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:3c4e89319d3f0d83a9e2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pace:c6013b45b4be543f:collocation:0"
+            ],
+            "meaning_cn": "向前迈一步",
+            "phrase": "take a pace forward"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "一步，步幅",
+        "definition_en": "a single step or the distance covered in one step",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pace:c6013b45b4be543f",
+        "sense_label_en": "a single step or the distance covered in one step",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:9da9393c844772143504",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -164,30 +197,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:3c4e89319d3f0d83a9e2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:pace:c6013b45b4be543f:collocation:0"
-            ],
-            "meaning_cn": "向前迈一步",
-            "phrase": "take a pace forward"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "一步，步幅",
-        "definition_en": "a single step or the distance covered in one step",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:pace:c6013b45b4be543f",
-        "sense_label_en": "a single step or the distance covered in one step",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:d68b92209557c6b11a6d",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -207,6 +216,39 @@
         "sense_id": "sense:pace:c96b67f7d4175bf9",
         "sense_label_en": "to measure a distance by walking it with regular steps",
         "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:c89d8b95de175beeeeb2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pace:397b6f0a4ad2ebad:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "控制自己的节奏/体力",
+            "phrase": "pace yourself"
+          },
+          {
+            "collocation_id": "collocation:788695c0e8cea96a3fa6",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pace:397b6f0a4ad2ebad:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "控制工作/比赛节奏",
+            "phrase": "pace the work/race"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "调整/控制速度或用力程度",
+        "definition_en": "to regulate the speed, rate, or effort of oneself or an activity",
+        "governing_pattern": "vt. + self/object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pace:397b6f0a4ad2ebad",
+        "sense_label_en": "to regulate the speed, rate, or effort of oneself or an activity",
+        "sort_order": 4,
         "transitivity": "vt"
       }
     ],
@@ -241,6 +283,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
+        "sense_id": "sense:pace:397b6f0a4ad2ebad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9592,
+        "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
         "sense_id": "sense:pace:8f04a9e33ee15626",
         "status": "active",
         "merged_into_sense_id": null,
@@ -266,8 +315,10 @@
       "collocation:2603bbff64adb3895552",
       "collocation:3c4e89319d3f0d83a9e2",
       "collocation:6ddce2f62b5d9e57f9f8",
+      "collocation:788695c0e8cea96a3fa6",
       "collocation:93a09dc1b23103a55a2a",
       "collocation:9da9393c844772143504",
+      "collocation:c89d8b95de175beeeeb2",
       "collocation:d68b92209557c6b11a6d"
     ],
     "facts": [
@@ -294,6 +345,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
+        "id": "collocation:788695c0e8cea96a3fa6",
+        "source_row": 21600,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
         "id": "collocation:93a09dc1b23103a55a2a",
         "source_row": 12547,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
@@ -301,6 +357,11 @@
       {
         "id": "collocation:9da9393c844772143504",
         "source_row": 13428,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:c89d8b95de175beeeeb2",
+        "source_row": 21599,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {

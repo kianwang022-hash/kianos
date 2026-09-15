@@ -7,47 +7,47 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a3c16ec76c8232bf592396e744e3976dc87e4827329b76f0f812967fc9e94eb7",
+    "content_hash": "638d92d6e0a99b10174cbccaf2f446913a0ea03956e0355633ef8168d0d6ffb1",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "确定方向；使朝向；使适应；使熟悉",
-          "label_en": "to determine one's position relative to something; to align; to familiarize someone with new surroundings or circumstances",
+          "label_cn": "确定方向；使朝向",
+          "label_en": "determine position or align",
           "pos": "verb",
           "sense_ids": [
-            "sense:orient:7d8b99ce29755c4f",
+            "sense:orient:7d8b99ce29755c4f"
+          ]
+        },
+        {
+          "label_cn": "使适应；使熟悉",
+          "label_en": "familiarize with new surroundings/circumstances",
+          "pos": "verb",
+          "sense_ids": [
             "sense:orient:d6b00b097a7a5591"
           ]
         },
         {
-          "label_cn": "东方；东方国家",
-          "label_en": "the East; the countries of the East",
+          "label_cn": "the Orient（旧式）",
+          "label_en": "the Orient, old-fashioned geographic term",
           "pos": "noun",
           "sense_ids": [
             "sense:orient:fcdec103feb95bb3"
           ]
-        },
-        {
-          "label_cn": "东方的",
-          "label_en": "eastern; of the East",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:orient:840f611188ba50fd"
-          ]
         }
       ],
-      "core_meaning_cn": "定向；适应",
-      "core_meaning_en": "to align or adjust to a direction or situation",
-      "mental_model_cn": "定向；适应",
+      "core_meaning_cn": "定向；使适应；the Orient（旧式）",
+      "core_meaning_en": "to orient/align or familiarize; the Orient is an old-fashioned capitalized noun",
+      "mental_model_cn": "定向；使适应；the Orient（旧式）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:orient:d24fde7ec28dc9b7",
-      "relation:deep:word_family:orient:d24fde7ec28dc9b7"
+      "relation:deep:word_family:orient:d24fde7ec28dc9b7",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -122,30 +122,24 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "东方；东方国家",
-        "definition_en": "the East; the countries of the East",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:orient:fcdec103feb95bb3",
-        "sense_label_en": "the East; the countries of the East",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "东方的",
-        "definition_en": "eastern; of the East",
+        "definition_cn": "东方；东方国家（the Orient，旧式称呼）",
+        "definition_en": "the Orient: the East or countries of the East (old-fashioned term)",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:orient:840f611188ba50fd",
-        "sense_label_en": "eastern; of the East",
-        "sort_order": 3,
-        "transitivity": "nonverb"
+        "pos": "noun",
+        "sense_id": "sense:orient:fcdec103feb95bb3",
+        "sense_label_en": "the Orient: the East or countries of the East (old-fashioned term)",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "Use as the capitalized expression the Orient; old-fashioned in current neutral prose.",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "case_register_boundary",
+          "surface_lemma": "Orient",
+          "paired_form": "the Orient",
+          "note": "Use capitalized the Orient; this noun is old-fashioned and should not replace current geographic terms."
+        }
       }
     ],
     "verification_summary": {
@@ -208,7 +202,31 @@
     "word_id": "word:orient"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:orient:840f611188ba50fd",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "东方的",
+      "definition_en": "eastern; of the East",
+      "semantic_key": "c8283708f32ab9b97305584812a36e1b5f51f3a227cb80f3947173cbde7c5c79",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "orient:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "orient:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:35:00Z",
+      "source_row": 9374,
+      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -220,7 +238,7 @@
       },
       {
         "sense_id": "sense:orient:840f611188ba50fd",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9374,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"

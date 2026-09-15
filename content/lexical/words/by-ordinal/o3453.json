@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "ae38b8847f609aa0570ddde63998150410349fcbc70cb374da8a04c70e912023",
+    "content_hash": "afeb6ec6442079b5196971dd7893545b0e7d982102913e64594b689b4bb4df57",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,6 +34,14 @@
           "sense_ids": [
             "sense:pale:e7071b7d1a1c51ad"
           ]
+        },
+        {
+          "label_cn": "相形见绌；相比逊色",
+          "label_en": "seem less impressive by comparison",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pale:def8cc603c9d3ae3"
+          ]
         }
       ],
       "core_meaning_cn": "苍白的；变苍白",
@@ -45,7 +53,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -162,6 +172,39 @@
         "sense_label_en": "a wooden stake used in fences; a boundary or limit",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b3008a1df13ded92c130",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pale:def8cc603c9d3ae3:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "与某事相比相形见绌",
+            "phrase": "pale in comparison with/to sth"
+          },
+          {
+            "collocation_id": "collocation:46d8df670e669be76f62",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pale:def8cc603c9d3ae3:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "在某事面前显得逊色",
+            "phrase": "pale beside sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "相形见绌；相比之下显得逊色",
+        "definition_en": "to seem less impressive, important, or serious when compared with something else",
+        "governing_pattern": "vi. + in comparison/beside",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pale:def8cc603c9d3ae3",
+        "sense_label_en": "to seem less impressive, important, or serious when compared with something else",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -202,6 +245,13 @@
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
+        "sense_id": "sense:pale:def8cc603c9d3ae3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9593,
+        "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
         "sense_id": "sense:pale:e7071b7d1a1c51ad",
         "status": "active",
         "merged_into_sense_id": null,
@@ -220,9 +270,11 @@
       "collocation:0e32e90f8687d6aae56e",
       "collocation:0effb5fa78f9f72203ca",
       "collocation:3477bbeeb1d9e34473d3",
+      "collocation:46d8df670e669be76f62",
       "collocation:84015cfb18155b3538b5",
       "collocation:8994b0455b48f906b151",
-      "collocation:8a3c584be870c493d04e"
+      "collocation:8a3c584be870c493d04e",
+      "collocation:b3008a1df13ded92c130"
     ],
     "facts": [],
     "collocations": [
@@ -242,6 +294,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
+        "id": "collocation:46d8df670e669be76f62",
+        "source_row": 21609,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
         "id": "collocation:84015cfb18155b3538b5",
         "source_row": 11191,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
@@ -254,6 +311,11 @@
       {
         "id": "collocation:8a3c584be870c493d04e",
         "source_row": 11724,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:b3008a1df13ded92c130",
+        "source_row": 21608,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       }
     ],
