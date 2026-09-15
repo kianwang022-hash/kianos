@@ -26,12 +26,14 @@ on:
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/reading*.css'
+      - 'static-web/src/styles/english*.css'
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/englishObjective.mjs'
       - 'static-web/src/lib/englishReading.mjs'
       - 'static-web/src/components/Objective*.astro'
       - 'static-web/src/components/Cloze*.astro'
       - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/objective-learn.astro'
       - 'static-web/src/pages/cloze.astro'
       - 'static-web/src/pages/cloze/**'
@@ -45,6 +47,7 @@ on:
       - 'static-web/src/pages/reading-b-answer/**'
       - 'static-web/scripts/*objective*.mjs'
       - 'static-web/scripts/*reading-b*.mjs'
+      - 'static-web/scripts/test-english-*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   pull_request:
     paths:
@@ -70,12 +73,14 @@ on:
       - 'static-web/astro.config.mjs'
       - 'static-web/src/layouts/**'
       - 'static-web/src/styles/reading*.css'
+      - 'static-web/src/styles/english*.css'
       - 'static-web/src/lib/current.mjs'
       - 'static-web/src/lib/englishObjective.mjs'
       - 'static-web/src/lib/englishReading.mjs'
       - 'static-web/src/components/Objective*.astro'
       - 'static-web/src/components/Cloze*.astro'
       - 'static-web/src/components/Reading*.astro'
+      - 'static-web/src/pages/english.astro'
       - 'static-web/src/pages/objective-learn.astro'
       - 'static-web/src/pages/cloze.astro'
       - 'static-web/src/pages/cloze/**'
@@ -89,6 +94,7 @@ on:
       - 'static-web/src/pages/reading-b-answer/**'
       - 'static-web/scripts/*objective*.mjs'
       - 'static-web/scripts/*reading-b*.mjs'
+      - 'static-web/scripts/test-english-*.mjs'
       - '.github/workflows/static-web-objective-journey.yml'
   workflow_dispatch:
 
@@ -130,6 +136,15 @@ jobs:
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
           npx playwright install --with-deps chromium webkit
+      - name: Install modern CJK font for visual acceptance
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+          fc-cache -f
+          fc-match "Noto Sans CJK SC" | tee objective-audit/typography-fonts.txt
+      - name: Verify English typography renderer
+        working-directory: static-web
+        run: node scripts/test-english-typography.mjs
       - name: Simulate shared Objective learning closure
         working-directory: static-web
         env:
