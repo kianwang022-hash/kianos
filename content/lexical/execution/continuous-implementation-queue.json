@@ -1,13 +1,21 @@
 {
   "schema": "kianos.lexical.continuous_implementation_queue.v1",
-  "generation": 6,
-  "last_refreshed_main": "962a92ffacff75c786f743c68bcd5fdcae38828e",
-  "contiguous_implemented_frontier": "o3374",
-  "active_package": null,
-  "package_status": "PAUSED_AUDIT_COMPLETE_CORRECTIVE_CLOSED_THROUGH_o3374",
+  "generation": 7,
+  "last_refreshed_main": "b18a22fd4309620251d2be175370a5b7489d6170",
+  "contiguous_implemented_frontier": "o3624",
+  "active_package": {
+    "scope": [3625, 3874],
+    "phase": "SOL_RECONCILIATION",
+    "production_review": "content/lexical/semantic-review/o3625-o3874.md",
+    "audit_inputs": [
+      "content/lexical/semantic-audit/o3625-o3824.audit.md",
+      "content/lexical/semantic-audit/o3825-o4024.audit.md"
+    ]
+  },
+  "package_status": "FORWARD_ACTIVE_RECONCILING_o3625_o3874",
   "visible_holes": [],
   "semantic_escalations": [],
-  "next_package": null,
+  "next_package": [3625, 3874],
   "production_review": {
     "scope": [1, 7946],
     "status": "COMPLETE",
@@ -36,8 +44,6 @@
   },
   "retro_corrective_integration": {
     "scope": [25, 3124],
-    "source_branch": "lexical/retro-audit-debt-20260915",
-    "integration_branch": "lexical/retro-replay-integration-o0025-o3124-20260916",
     "integration_pr": 179,
     "merge_commit": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
     "receipt": "content/lexical/execution/receipts/o0025-o3124.retro-integration.json",
@@ -51,15 +57,27 @@
     "delta_count": 39,
     "status": "INTEGRATED_COMPLETE"
   },
-  "continuous_corrective_closure": {
-    "scope": [1, 3374],
+  "forward_packages": [
+    {
+      "scope": [3375, 3624],
+      "production_review": "content/lexical/semantic-review/o3375-o3624.md",
+      "authority": "content/lexical/semantic-reconciliation/o3375-o3624.md",
+      "merge_pr": 188,
+      "merge_commit": "b18a22fd4309620251d2be175370a5b7489d6170",
+      "receipt": "content/lexical/execution/receipts/o3375-o3624.forward-package.json",
+      "semantic_source_union_count": 92,
+      "status": "INTEGRATED_COMPLETE"
+    }
+  ],
+  "continuous_post_audit_closure": {
+    "scope": [1, 3624],
     "status": "COMPLETE_ON_MAIN",
     "remaining_holes": []
   },
-  "future_package": {
-    "start": 3375,
+  "remaining_catalog": {
+    "start": 3875,
     "end": 7946,
-    "status": "NOT_ACTIVATED",
-    "activation_rule": "EXPLICIT_CURRENT_ACTIVATION_AFTER_BOUNDED_PRODUCTION_PLUS_AUDIT_SOL_RECONCILIATION"
+    "status": "NOT_ACTIVATED_BEYOND_ACTIVE_PACKAGE",
+    "activation_rule": "ADVANCE_ONLY_AFTER_CURRENT_ACTIVE_PACKAGE_INTEGRATES"
   }
 }
