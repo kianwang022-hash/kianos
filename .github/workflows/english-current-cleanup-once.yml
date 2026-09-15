@@ -3,13 +3,18 @@ name: English Current Cleanup Once
 on:
   push:
     branches: ['chat/english-current-cleanup']
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/english/**'
+      - '.github/workflows/english-current-cleanup-once.yml'
 
 permissions:
   contents: write
 
 jobs:
   apply-cleanup:
-    if: ${{ !contains(github.event.head_commit.message, '[english-cleanup-applied]') }}
+    if: ${{ github.event_name != 'push' || !contains(github.event.head_commit.message, '[english-cleanup-applied]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
