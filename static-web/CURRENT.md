@@ -11,18 +11,19 @@ This file routes product/UI work. It does not own subject Content, Learning, Que
 
 There is **no active #148-style all-site implementation branch**.
 
-Current product work is in a **semantic/runtime stabilization + historical cleanup phase before final visual convergence**:
+Current product work is transitioning from semantic/runtime stabilization into **bounded subject visual convergence where the interface contract is already stable**:
 
 ```text
 subject Current / Acceptance
 → close real Runtime / Evidence / availability blockers
 → retire stale integration owners
 → freeze stable learner journeys + capability slots
-→ one fresh latest-main Pro visual-convergence lane
+→ subject-level latest-main visual convergence when ready
+→ one final cross-site convergence pass
 → screenshot / real-journey Human Gate
 ```
 
-Do not restart from #148, #154, #167, #117, or another stale integration branch.
+Do not restart from #148, #154, #167, #117, #86 or another stale integration branch.
 
 The archived three-subject text frames and old browser screenshots remain useful **visual reference / provenance only**. Latest domain Current, Learning, Question Truth, Evidence and Runtime always outrank them. Never restore retired Xiao original-explanation display, OCR fallback, due scheduling, stale ownership/progress/Gate semantics, duplicate lecture readers, or other superseded logic merely to imitate an old frame.
 
@@ -34,14 +35,26 @@ The archived three-subject text frames and old browser screenshots remain useful
 | --- | --- | --- |
 | **English** | Objective / Translation / Writing S–E frozen; post-optimization T1/T2/W1 reconciled on main | No active engineering expansion. Only concrete contradictory evidence, real learner U, or final visual convergence. |
 | **Politics** | Five-subject learning closed through E; Xiao1000 Workbench Current on main via #183 | **#116** owns remaining Politics Home/Continue, five-subject cognition, NU/Chengfeng handoff, source/repair/exact Return consistency and final Mac visual convergence. |
-| **Xizong** | Growing Current product; same Runtime/Evidence model continues to absorb new Systems/capabilities | Route through `content/xizong/CURRENT.md`, System Current/Acceptance, `XIZONG_PRODUCT_STATUS.md`. Stabilize representative Source Visual / Precision / Projection slots and progressive availability before final visual convergence. |
+| **Xizong** | Growing Current product; same Runtime/Evidence model continues to absorb new Systems/capabilities | Route through `content/xizong/CURRENT.md`, System Current/Acceptance, `XIZONG_PRODUCT_STATUS.md`. Stabilize representative Source Visual / Precision / Projection slots and progressive availability before final cross-site convergence. |
 | **Global Home** | Final integration intentionally deferred until subject interfaces are stable enough | Program #113. Desktop target is a **single-viewport command center** for core subject status / Continue / Today / Attention; no invented cross-subject mastery/scheduler/debt dashboard. |
 
-### Lexical supporting lane
+### Lexical supporting lane — Runtime stable enough for UI
 
 Lexical is a first-class supporting system for English, not a fourth exam subject in this product router.
 
-Its current product blocker is **Repair / Challenge / Evidence Runtime Closure** (Current rebase phase in #174, followed by target-type coverage + English↔Lexical real handoff + fresh P/R/E acceptance). Lexical content may continue expanding independently; final site UI must not assume the Repair product is already closed.
+Repair / Challenge / Evidence no longer blocks learner-facing UI work:
+
+- #174 merged the bounded Current Runtime closure to main as `66805f5e405526236cb2ba788d6f2763b2626a19`;
+- #191 recorded bounded P/R/E engineering acceptance on main as `ba8fefb921cd66e5b8a83e368370b7f458144586`;
+- #86 is superseded historical provenance;
+- unrestricted P/R/E remain blocked and real learner U remains untested, but that does not require postponing UI;
+- Content/catalog execution continues independently under `content/lexical/CURRENT.md`.
+
+Current Lexical product rule:
+
+> **UI/Runtime must remain usable while content continues to grow. Missing optional Expansion or future Visual assets must degrade gracefully rather than block the Study path.**
+
+Active UI lane: `lexical/ui-convergence-current-20260916`, fresh from latest accepted main. Scope is presentation-only unless a concrete learner-facing defect is found. It must preserve the current Repair/Evidence behavior and exact target identities.
 
 ---
 
@@ -55,7 +68,7 @@ Current facts:
 - #137 and #141 are historical/superseded evidence ledgers;
 - #154 / #167 are historical integration/visual evidence only.
 
-Do not reopen English architecture for aesthetic work. Preserve task-native geometry, complete task context, first-artifact preservation, exact Return/Resume and protected unseen boundaries. Final styling waits for the fresh visual-convergence lane.
+Do not reopen English architecture for aesthetic work. Preserve task-native geometry, complete task context, first-artifact preservation, exact Return/Resume and protected unseen boundaries. Final styling should consume the stable runtime rather than redefine it.
 
 ---
 
@@ -114,27 +127,33 @@ An unopened question/visual/challenge/system capability must not manufacture lea
 
 ---
 
-## Final visual convergence boundary
+## Visual convergence boundary
 
-Do not perform a new large-scale final UI rewrite until the product-surface-changing Runtime/Evidence/availability contracts are stable enough.
+Do not require every future content asset, image, System or Expansion to exist before styling an already-stable learner surface.
 
-When that point is reached, start **one clean visual-convergence branch from latest main** and consume:
+A subject may enter bounded visual convergence when the product-surface-changing Runtime/Evidence/availability contract is stable enough. Lexical now meets that condition at bounded engineering scope; its Content can continue to grow behind the stable interface.
 
-- Current Truth;
-- persistent UI Reference Set;
-- Kian's real screenshots and latest preferences;
-- still-valid presentation decisions recovered from historical evidence only when they remain compatible with Current.
+For every visual-convergence lane:
+
+- start from **latest main**;
+- consume Current Truth, not stale integration branches;
+- use persistent/user-provided UI references when available;
+- preserve Kian's explicit UI preferences;
+- recover historical presentation decisions only when still compatible with Current;
+- do not mutate domain semantics merely to improve composition.
 
 Visual defaults:
 
 - Mac-wide origin;
-- larger comfortable text / modern system sans;
+- larger comfortable text / modern system sans, with task-appropriate serif where useful;
 - medium-high useful density with low disorder;
 - low gratuitous whitespace / no generic card pile;
+- typography, alignment and rhythm before decorative boxes;
 - subject/task-native geometry;
+- optional content/Visual absence must not create broken placeholders;
 - real browser screenshots as aesthetic authority.
 
-Final product acceptance remains distinct from learner U.
+A green build proves functional regression safety, not visual acceptance. Final product acceptance remains distinct from learner U.
 
 ---
 
