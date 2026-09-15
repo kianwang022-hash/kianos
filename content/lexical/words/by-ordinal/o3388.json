@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5a0a05c4547b651fe150dd2163e75af81a2f0abf347a1eed64be54b888db1029",
+    "content_hash": "1a86362a37ee49088ff2c0b50d3a8fc395dd5e9643462e3c0e04836bb724c5ba",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "重量单位或少量",
-      "core_meaning_en": "a unit of weight, or a small amount",
-      "mental_model_cn": "重量单位或少量",
+      "core_clusters": [
+        {
+          "label_cn": "盎司（oz）",
+          "label_en": "one sixteenth of a pound",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:ounce:8fda3288884b54ba"
+          ]
+        },
+        {
+          "label_cn": "少量；一点点",
+          "label_en": "a very small amount",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:ounce:fc31be8a00df5d70"
+          ]
+        }
+      ],
+      "core_meaning_cn": "盎司（oz）；少量",
+      "core_meaning_en": "an ounce unit or a very small amount",
+      "mental_model_cn": "盎司（oz）；少量",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f61e9ebac83ca9c2037f",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ounce:8fda3288884b54ba:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "一盎司（oz）",
+            "phrase": "an ounce (oz)"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "盎司（重量单位，1/16磅；缩写 oz）",
+        "definition_en": "a unit of weight equal to one sixteenth of a pound, abbreviated oz",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ounce:8fda3288884b54ba",
+        "sense_label_en": "a unit of weight equal to one sixteenth of a pound, abbreviated oz",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:018d41e0497fbee84cae",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:ounce:fc31be8a00df5d70:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "一点常识/勇气",
+            "phrase": "an ounce of common sense/courage"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "少量；一点点",
+        "definition_en": "a very small amount",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ounce:fc31be8a00df5d70",
+        "sense_label_en": "a very small amount",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -68,56 +136,6 @@
       "source_row": 9403,
       "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:ounce:8fda3288884b54ba",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "盎司（重量单位，1/16磅）",
-      "definition_en": "a unit of weight equal to one sixteenth of a pound",
-      "semantic_key": "d5170d97b0ed8fed331812321ee308fc13819d9fce4807f7fb48fa6846fc40f3",
-      "semantic_key_history": [
-        "77e247bb2e996f8f1636982259c971a0f592737655be2d17f3e466a69ab9fda6"
-      ],
-      "legacy_aliases": [
-        "ounce:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "ounce:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9404,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:ounce:fc31be8a00df5d70",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "少量，一点点",
-      "definition_en": "a very small amount",
-      "semantic_key": "2fb1dcdfb572b0aab583a479d8d1317fbf1c4bc3db21ff905f336b45a48d74e7",
-      "semantic_key_history": [
-        "ea20c756d82d4afce856e9599a5060512c4dbedea4f142864ad00ebbb49d5449"
-      ],
-      "legacy_aliases": [
-        "ounce:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "ounce:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9405,
-      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -131,22 +149,30 @@
       },
       {
         "sense_id": "sense:ounce:8fda3288884b54ba",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9404,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       },
       {
         "sense_id": "sense:ounce:fc31be8a00df5d70",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9405,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:018d41e0497fbee84cae",
+      "collocation:f61e9ebac83ca9c2037f"
+    ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:018d41e0497fbee84cae",
+        "source_row": 21285,
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
       {
         "id": "collocation:29dd6f4b7248880e3175",
         "source_row": 3552,
@@ -165,6 +191,11 @@
       {
         "id": "collocation:d171d35676d8a2c5b2d8",
         "source_row": 17697,
+        "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
+      },
+      {
+        "id": "collocation:f61e9ebac83ca9c2037f",
+        "source_row": 21284,
         "source_path": "content/lexical/canonical/collocations/shards/o3361-3392.json"
       }
     ],

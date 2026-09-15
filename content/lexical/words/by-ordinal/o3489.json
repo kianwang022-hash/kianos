@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "323b7b214bc69518b59747ad40b4a229cb05d1badafe74e752a9f34494f59794",
+    "content_hash": "2e605992014ea8b0ea1cf23bbcffce00b647a8be1bbbed8c099ec47602a258b9",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,6 +29,22 @@
             "sense:pass:58484bfe8e605655",
             "sense:pass:cdc9ea5737df5732"
           ]
+        },
+        {
+          "label_cn": "（时间）流逝",
+          "label_en": "time elapses/goes by",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pass:af04f61b4695c8a3"
+          ]
+        },
+        {
+          "label_cn": "通过/批准法律法案",
+          "label_en": "approve/enact a law or bill",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:pass:1c282e1796743623"
+          ]
         }
       ],
       "core_meaning_cn": "通过；传递；通行证",
@@ -40,7 +56,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -241,6 +259,54 @@
         "sense_label_en": "a successful result in an exam",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:46db2c778634721e9f97",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pass:af04f61b4695c8a3:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "时间流逝/随着岁月过去",
+            "phrase": "time passes / as the years passed"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（时间）流逝；过去",
+        "definition_en": "for time to elapse or go by",
+        "governing_pattern": "vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pass:af04f61b4695c8a3",
+        "sense_label_en": "for time to elapse or go by",
+        "sort_order": 6,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:4219a51d7c6426a1269e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pass:1c282e1796743623:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "通过法律/法案",
+            "phrase": "pass a law/bill"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "通过；批准（法律、法案、议案等）",
+        "definition_en": "to approve or enact a law, bill, motion, or similar measure",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:pass:1c282e1796743623",
+        "sense_label_en": "to approve or enact a law, bill, motion, or similar measure",
+        "sort_order": 7,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -274,10 +340,24 @@
         "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
       },
       {
+        "sense_id": "sense:pass:1c282e1796743623",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9774,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      },
+      {
         "sense_id": "sense:pass:58484bfe8e605655",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9687,
+        "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
+      },
+      {
+        "sense_id": "sense:pass:af04f61b4695c8a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 9773,
         "source_path": "content/lexical/canonical/senses/shards/o3489-3520.json"
       },
       {
@@ -316,6 +396,8 @@
       "collocation:316f9533ed5c674a0ca1",
       "collocation:36dfb224a230ddac4e95",
       "collocation:3a4f2773d69bf0fe3a63",
+      "collocation:4219a51d7c6426a1269e",
+      "collocation:46db2c778634721e9f97",
       "collocation:63f2e7c2766ec36b630b",
       "collocation:6db584655a64ed05c532",
       "collocation:a49434f126d9bcc73ef7",
@@ -353,6 +435,16 @@
       {
         "id": "collocation:3a4f2773d69bf0fe3a63",
         "source_row": 4948,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:4219a51d7c6426a1269e",
+        "source_row": 21427,
+        "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
+      },
+      {
+        "id": "collocation:46db2c778634721e9f97",
+        "source_row": 21426,
         "source_path": "content/lexical/canonical/collocations/shards/o3489-3520.json"
       },
       {

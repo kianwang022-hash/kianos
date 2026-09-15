@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1269ead71aa9aa9cd088dac52975e5f7f10f7462888c19ba244ed6cd0cdcc2e5",
+    "content_hash": "eeb3bdfe63b325a61dd0c86fb0e026031d00c749da652cb0a6431cfa5cb070e2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "绘画艺术或行为，或画作",
-      "core_meaning_en": "the art or act of applying paint, or a painted picture",
-      "mental_model_cn": "绘画艺术或行为，或画作",
+      "core_clusters": [
+        {
+          "label_cn": "绘画作品",
+          "label_en": "painted artwork/picture",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:painting:d0cc8488d82b5bdb"
+          ]
+        },
+        {
+          "label_cn": "绘画艺术/行为",
+          "label_en": "art or act of painting",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:painting:72a3d8419d625c37"
+          ]
+        }
+      ],
+      "core_meaning_cn": "绘画作品；绘画艺术/行为",
+      "core_meaning_en": "a painting artwork or the art/act of painting",
+      "mental_model_cn": "绘画作品；绘画艺术/行为",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ba6851351225f7592a1c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:painting:d0cc8488d82b5bdb:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "一幅油画",
+            "phrase": "an oil painting"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "画；绘画作品",
+        "definition_en": "a picture or work of art created by applying paint to a surface",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:painting:d0cc8488d82b5bdb",
+        "sense_label_en": "a picture or work of art created by applying paint to a surface",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8442f05ae04bede4b681",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:painting:72a3d8419d625c37:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "绘画艺术",
+            "phrase": "the art of painting"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "绘画；作画艺术/行为",
+        "definition_en": "the art or act of creating pictures with paint",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:painting:72a3d8419d625c37",
+        "sense_label_en": "the art or act of creating pictures with paint",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -70,31 +138,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:painting:72a3d8419d625c37",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "用颜料作画的行为",
-      "definition_en": "creating a picture with paints",
-      "semantic_key": "bfb70915b139f333ceb6ccf45d023e543fd16db0c63ec833bc0f8b5e4827c101",
-      "semantic_key_history": [
-        "56e5f4e4657f10eb2fceb82c6e0abf948cd839fbb94f8f33a686a9772588b54f"
-      ],
-      "legacy_aliases": [
-        "painting:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "painting:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9570,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:painting:ad543dde8afa56cb",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -118,31 +161,6 @@
       "source_row": 9571,
       "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:painting:d0cc8488d82b5bdb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "通过将颜料涂在表面而创作的艺术作品",
-      "definition_en": "graphic art consisting of an artistic composition made by applying paints to a surface",
-      "semantic_key": "0711674d9be3e94847f2e811cb888f3c2c6be1249ffd9c62266480f22af803c8",
-      "semantic_key_history": [
-        "1b8c76729cc11ec2914ce2b6f4ce6c32c4238bd14dc056f892483c6c5868584e"
-      ],
-      "legacy_aliases": [
-        "painting:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "painting:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9572,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -156,7 +174,7 @@
       },
       {
         "sense_id": "sense:painting:72a3d8419d625c37",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9570,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -170,13 +188,16 @@
       },
       {
         "sense_id": "sense:painting:d0cc8488d82b5bdb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9572,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:8442f05ae04bede4b681",
+      "collocation:ba6851351225f7592a1c"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -200,8 +221,18 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {
+        "id": "collocation:8442f05ae04bede4b681",
+        "source_row": 21607,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
         "id": "collocation:9b7885c03270eaa51b4e",
         "source_row": 13242,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:ba6851351225f7592a1c",
+        "source_row": 21606,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       }
     ],

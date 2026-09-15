@@ -7,28 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "14247257b168ec2aaa5787e482a338f89eb5b93b2ec3d5761ae54063b6faa791",
+    "content_hash": "a504eff8498b62868e0e9e0b4907e0e7c478040d6dac34c0a98f9df0c37dae61",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "药丸；药片；屈辱；不得不接受的事",
-          "label_en": "a small pellet of medicine to be swallowed; something unpleasant that must be accepted",
+          "label_cn": "药丸；药片；胶囊状口服药",
+          "label_en": "small solid dose of medicine to swallow",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pill:a4b4cabb904759a8"
+          ]
+        },
+        {
+          "label_cn": "不得不接受的苦果（比喻）",
+          "label_en": "unpleasant fact/situation that must be accepted",
           "pos": "noun",
           "sense_ids": [
             "sense:pill:e45cd67fdf14580a"
           ]
         }
       ],
-      "core_meaning_cn": "药丸；做成药丸",
-      "core_meaning_en": "a small round medicine; to make into pills",
-      "mental_model_cn": "药丸；做成药丸",
+      "core_meaning_cn": "药丸/药片；比喻“苦果”",
+      "core_meaning_en": "a medicine pill; figuratively an unpleasant thing to accept",
+      "mental_model_cn": "药丸/药片；比喻“苦果”",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,6 +64,31 @@
         "sense_id": "sense:pill:e45cd67fdf14580a",
         "sense_label_en": "something unpleasant that must be accepted",
         "sort_order": 0,
+        "transitivity": "nonverb",
+        "usage_note": "figurative fixed use, especially a bitter pill to swallow"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:40750f84e8147f38b8d2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pill:a4b4cabb904759a8:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "吃药片/安眠药",
+            "phrase": "take a pill / sleeping pill"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "药丸；药片；胶囊状口服药",
+        "definition_en": "a small solid dose of medicine, such as a tablet or capsule, intended to be swallowed",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pill:a4b4cabb904759a8",
+        "sense_label_en": "a small solid dose of medicine, such as a tablet or capsule, intended to be swallowed",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -102,31 +137,6 @@
       "source_row": 9992,
       "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:pill:a4b4cabb904759a8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "药丸；药片",
-      "definition_en": "a small pellet of medicine to be swallowed",
-      "semantic_key": "de614233503a0957ca0b512198e6feef9a1b9f3bfdc53d4e5d2c4206b11ba4aa",
-      "semantic_key_history": [
-        "2d0bdaf0111d3d3afbb5d4579104e0d390a67a4ff0d6582fa0ec2eec51b1be81"
-      ],
-      "legacy_aliases": [
-        "pill:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "pill:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9993,
-      "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -140,7 +150,7 @@
       },
       {
         "sense_id": "sense:pill:a4b4cabb904759a8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9993,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
@@ -154,6 +164,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:40750f84e8147f38b8d2",
       "collocation:a56b511823fd03e2998d"
     ],
     "facts": [],
@@ -161,6 +172,11 @@
       {
         "id": "collocation:2bf48363c65101104b29",
         "source_row": 3724,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:40750f84e8147f38b8d2",
+        "source_row": 21406,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
       },
       {

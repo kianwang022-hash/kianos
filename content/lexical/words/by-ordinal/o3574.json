@@ -7,28 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4e198ddfdf4d88811a5cc66dba039a7a89fb273b50db0d83fca99534d16967d6",
+    "content_hash": "1f75a6af134628a1c1c388e0a6f109f51b4d6ee06772afb628d047ac7150c82c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "请愿书，诉状",
-          "label_en": "a formal written request, especially one signed by many people",
+          "label_cn": "请愿书；正式书面请求",
+          "label_en": "formal written request/petition",
           "pos": "noun",
           "sense_ids": [
             "sense:petition:a2073c3fbba45980"
           ]
+        },
+        {
+          "label_cn": "请愿；正式请求",
+          "label_en": "make a formal request to an authority",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:petition:f667f8ac9b8c5ab9"
+          ]
         }
       ],
-      "core_meaning_cn": "正式请求",
-      "core_meaning_en": "formal request",
-      "mental_model_cn": "正式请求",
+      "core_meaning_cn": "请愿书；请愿/正式请求",
+      "core_meaning_en": "a formal petition/request; to petition an authority",
+      "mental_model_cn": "请愿书；请愿/正式请求",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -64,6 +74,39 @@
         "sense_label_en": "a formal written request, especially one signed by many people",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:9686bcf14c777cba4ca2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:petition:f667f8ac9b8c5ab9:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "向法院/政府正式请求某事",
+            "phrase": "petition the court/government for sth"
+          },
+          {
+            "collocation_id": "collocation:dfc1a643715e424bde36",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:petition:f667f8ac9b8c5ab9:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "请愿要求改变",
+            "phrase": "petition for change"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "请愿；向法院/政府/机构正式请求",
+        "definition_en": "to make a formal request to a court, government, authority, or other body",
+        "governing_pattern": "vt./vi. + for/to",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:petition:f667f8ac9b8c5ab9",
+        "sense_label_en": "to make a formal request to a court, government, authority, or other body",
+        "sort_order": 1,
+        "transitivity": "vt/vi"
       }
     ],
     "verification_summary": {
@@ -90,7 +133,7 @@
     {
       "stable_sense_id": "sense:petition:34354ef0008955da",
       "status": "merged",
-      "merged_into_sense_id": "sense:petition:a2073c3fbba45980",
+      "merged_into_sense_id": "sense:petition:f667f8ac9b8c5ab9",
       "pos": "verb",
       "definition_cn": "请愿，恳求",
       "definition_en": "request formally and in writing",
@@ -107,33 +150,8 @@
           "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
         }
       ],
-      "updated_at": "2026-09-09T00:00:00Z",
+      "updated_at": "2026-09-15T11:20:00Z",
       "source_row": 9916,
-      "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:petition:f667f8ac9b8c5ab9",
-      "status": "merged",
-      "merged_into_sense_id": "sense:petition:a2073c3fbba45980",
-      "pos": "verb",
-      "definition_cn": "向…请愿，正式请求",
-      "definition_en": "make a formal request to someone",
-      "semantic_key": "1fe7414526cad5c891252fdce30dd6b77f7e9758dd3d5d8198abf7a292329e7e",
-      "semantic_key_history": [
-        "12c501aabdd0f4306d933b65c6e5975be62409c5aadc9e0ec0bf3c8caa45e49a"
-      ],
-      "legacy_aliases": [
-        "petition:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "petition:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9918,
       "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
       "reference_only": true
     }
@@ -143,7 +161,7 @@
       {
         "sense_id": "sense:petition:34354ef0008955da",
         "status": "merged",
-        "merged_into_sense_id": "sense:petition:a2073c3fbba45980",
+        "merged_into_sense_id": "sense:petition:f667f8ac9b8c5ab9",
         "source_row": 9916,
         "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
       },
@@ -156,15 +174,17 @@
       },
       {
         "sense_id": "sense:petition:f667f8ac9b8c5ab9",
-        "status": "merged",
-        "merged_into_sense_id": "sense:petition:a2073c3fbba45980",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9918,
         "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
       }
     ],
     "active_collocations": [
       "collocation:91c4687044086bbece6f",
-      "collocation:9556df8bcde58748ce4e"
+      "collocation:9556df8bcde58748ce4e",
+      "collocation:9686bcf14c777cba4ca2",
+      "collocation:dfc1a643715e424bde36"
     ],
     "facts": [],
     "collocations": [
@@ -186,6 +206,16 @@
       {
         "id": "collocation:9556df8bcde58748ce4e",
         "source_row": 12698,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:9686bcf14c777cba4ca2",
+        "source_row": 21588,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:dfc1a643715e424bde36",
+        "source_row": 21589,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
       },
       {

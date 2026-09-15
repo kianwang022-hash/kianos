@@ -113,10 +113,54 @@
         "verification_status": "verified",
         "writing_safe": false
       }
+    },
+    {
+      "source_word_id": "word:patent",
+      "source_ordinal": 3502,
+      "field": "confusables",
+      "index": 0,
+      "payload": {
+        "boundary": "patient 指病人或耐心；patent 指专利或明显",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {},
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:ecdict-spelling:patient:patent",
+            "evidence_status": "source_checked",
+            "source_locator": "patient|patent",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/output/vocab_5500/source_manifest.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:confusables:patient:94eb94b0eb5db9bf",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "confusables",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": null,
+        "source_sense_id": "sense:patent:5d9cf739051550bd",
+        "target_sense_id": "sense:patient:8ee3fe9ad4ee5d4a",
+        "target_word": "patient",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3375-o3624.md"
   }
 }

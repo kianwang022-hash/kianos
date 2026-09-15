@@ -7,30 +7,37 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "cbd8252774928106d41b224312cd4f331d2d97450304f90fcac81c47ee7c44d8",
+    "content_hash": "165ec4b4a15a53c0bce9f608d8660a096f5f826a93229b5bc430ee0d9b58f525",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "视角，观点；透视感，透视法；远景，景观",
-          "label_en": "a way of regarding situations or topics; the appearance of things relative to one another as determined by their distance from the viewer; a distant view",
+          "label_cn": "视角；观点",
+          "label_en": "way of regarding/understanding a situation or topic",
           "pos": "noun",
           "sense_ids": [
-            "sense:perspective:1ee8f2957a8e560b",
-            "sense:perspective:98f34806b06f591c"
+            "sense:perspective:4040a0899a135ad7"
           ]
         },
         {
-          "label_cn": "透视的，透视法的",
-          "label_en": "of or relating to the art of perspective",
-          "pos": "adjective",
+          "label_cn": "透视法/透视感",
+          "label_en": "visual/art perspective",
+          "pos": "noun",
           "sense_ids": [
-            "sense:perspective:2515e7432b595c13"
+            "sense:perspective:1ee8f2957a8e560b"
+          ]
+        },
+        {
+          "label_cn": "远景",
+          "label_en": "distant view",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:perspective:98f34806b06f591c"
           ]
         }
       ],
-      "core_meaning_cn": "看待事物的特定方式",
-      "core_meaning_en": "a particular way of viewing things",
-      "mental_model_cn": "看待事物的特定方式",
+      "core_meaning_cn": "视角/观点；透视；远景",
+      "core_meaning_en": "a viewpoint or way of understanding; visual perspective; distant view",
+      "mental_model_cn": "视角/观点；透视；远景",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -38,7 +45,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:confusables:perspective:a1ac18e11c92c928"
+      "deep:deep:confusables:perspective:a1ac18e11c92c928",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -114,6 +122,39 @@
         "sense_label_en": "of or relating to the art of perspective",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0add1e797bd31ecb0dfb",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:perspective:4040a0899a135ad7:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "从不同视角看",
+            "phrase": "from a different perspective"
+          },
+          {
+            "collocation_id": "collocation:e05e859c6417c8e36fa8",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:perspective:4040a0899a135ad7:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "正确看待/把…放在适当背景中",
+            "phrase": "put sth in perspective"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "视角；观点；看待/理解问题的方式",
+        "definition_en": "a way of regarding, understanding, or interpreting a situation, subject, or issue",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:perspective:4040a0899a135ad7",
+        "sense_label_en": "a way of regarding, understanding, or interpreting a situation, subject, or issue",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -143,33 +184,7 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:perspective:4040a0899a135ad7",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "视角，观点",
-      "definition_en": "a way of regarding situations or topics",
-      "semantic_key": "baee0bf32c0902f4510ad569cbc2204cc846ea49a3733fcd6a2652499472a016",
-      "semantic_key_history": [
-        "f54389aee7f682b042051d22bd30a82a9586abbb12e350cc33db00ce6ea6fa06"
-      ],
-      "legacy_aliases": [
-        "perspective:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "perspective:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9901,
-      "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -188,7 +203,7 @@
       },
       {
         "sense_id": "sense:perspective:4040a0899a135ad7",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9901,
         "source_path": "content/lexical/canonical/senses/shards/o3553-3584.json"
@@ -203,7 +218,9 @@
     ],
     "active_collocations": [
       "collocation:0828113b914f17de84d5",
+      "collocation:0add1e797bd31ecb0dfb",
       "collocation:22921b3383badfa1941b",
+      "collocation:e05e859c6417c8e36fa8",
       "collocation:e33e7f729d5abe7334cc"
     ],
     "facts": [
@@ -220,6 +237,11 @@
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
       },
       {
+        "id": "collocation:0add1e797bd31ecb0dfb",
+        "source_row": 21584,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
         "id": "collocation:22921b3383badfa1941b",
         "source_row": 2886,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
@@ -232,6 +254,11 @@
       {
         "id": "collocation:7087021a8d20c42888df",
         "source_row": 9505,
+        "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
+      },
+      {
+        "id": "collocation:e05e859c6417c8e36fa8",
+        "source_row": 21585,
         "source_path": "content/lexical/canonical/collocations/shards/o3553-3584.json"
       },
       {

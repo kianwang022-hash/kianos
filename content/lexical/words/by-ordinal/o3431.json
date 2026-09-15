@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "own + that-clause 承认",
+        "boundary": "admission branch, not possession",
         "codex_reviewed": false,
         "definition_cn": "承认",
         "definition_en": "to admit or acknowledge",
@@ -50,15 +50,43 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "坦白；承认",
-        "pattern": "own up to sth/doing sth"
+        "pattern": "own up to sth/doing sth",
+        "source_sense_id": "sense:own:28f18ea0e4b65749",
+        "definition_en": "to admit or confess something, especially something wrong",
+        "boundary": "informal admission construction"
       }
     ],
-    "content_hash": "33ac7af6a89a5eadaf9c4243e34cd7207cc5983eb09647dc669145ae89e8b5af",
+    "content_hash": "6812b11e9de21ba09b36827857649031f312d410b8c982ebc634833042709a20",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "自己的；拥有",
-      "core_meaning_en": "belonging to oneself; possess",
-      "mental_model_cn": "自己的；拥有",
+      "core_clusters": [
+        {
+          "label_cn": "自己的",
+          "label_en": "belonging to oneself/specified possessor",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:own:e34fcdba29115330"
+          ]
+        },
+        {
+          "label_cn": "拥有；具有所有权",
+          "label_en": "have ownership or possession",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:own:c07b737b77965295"
+          ]
+        },
+        {
+          "label_cn": "承认；供认（次要）",
+          "label_en": "admit or acknowledge, secondary use",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:own:28f18ea0e4b65749"
+          ]
+        }
+      ],
+      "core_meaning_cn": "自己的；拥有；承认（次要）",
+      "core_meaning_en": "one’s own; to possess; secondarily to admit",
+      "mental_model_cn": "自己的；拥有；承认（次要）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -71,7 +99,8 @@
       "deep:deep:constructions:own:aed021089ae94f50",
       "deep:deep:secondary_senses:own:ec334af33fc4c20d",
       "deep:deep:semantic_contrast:own:65f0bc2efd9295ef",
-      "relation:deep:semantic_contrast:own:65f0bc2efd9295ef"
+      "relation:deep:semantic_contrast:own:65f0bc2efd9295ef",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [
       {
@@ -113,7 +142,70 @@
       }
     ],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:79591dbb8462da814b94",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:own:e34fcdba29115330:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "我/你自己的……",
+            "phrase": "my/your own + noun"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "自己的；属于某个特定所有者的",
+        "definition_en": "belonging to oneself or to the specified possessor, usually after a possessive determiner",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:own:e34fcdba29115330",
+        "sense_label_en": "belonging to oneself or to the specified possessor, usually after a possessive determiner",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2f5f6978fb6eed68e557",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:own:c07b737b77965295:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "拥有房屋/企业",
+            "phrase": "own a house/business"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "拥有；具有所有权",
+        "definition_en": "to have ownership or possession of something",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:own:c07b737b77965295",
+        "sense_label_en": "to have ownership or possession of something",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "承认；供认",
+        "definition_en": "to admit or acknowledge something",
+        "governing_pattern": "vt. + that-clause / own up to",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:own:28f18ea0e4b65749",
+        "sense_label_en": "to admit or acknowledge something",
+        "sort_order": 2,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -143,31 +235,6 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:own:28f18ea0e4b65749",
-      "status": "merged",
-      "merged_into_sense_id": "sense:own:e34fcdba29115330",
-      "pos": "verb",
-      "definition_cn": "承认",
-      "definition_en": "to admit or acknowledge",
-      "semantic_key": "361da07da80ab50c3aeedd89eb447a5eaad963bdff7ab3db230ca0716d9ebc54",
-      "semantic_key_history": [
-        "00421ebbfebca95e50b1d89386d57a6bfd1f29df4ec9cf9e84a0adcba1db3c5d"
-      ],
-      "legacy_aliases": [
-        "own:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "own:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9513,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:own:588a2a10547f5589",
       "status": "merged",
       "merged_into_sense_id": "sense:own:28f18ea0e4b65749",
@@ -189,64 +256,14 @@
       "source_row": 9514,
       "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:own:c07b737b77965295",
-      "status": "merged",
-      "merged_into_sense_id": "sense:own:e34fcdba29115330",
-      "pos": "verb",
-      "definition_cn": "拥有",
-      "definition_en": "have ownership or possession of",
-      "semantic_key": "e560a5c9bfe22cba3067c8a59de016709ee383803fce0d033b814382cc69d921",
-      "semantic_key_history": [
-        "7f7413273d73df751c9da1a876fef5b1cb704e135a38d3815077095c1e877bfd"
-      ],
-      "legacy_aliases": [
-        "own:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "own:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9515,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:own:e34fcdba29115330",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "自己的",
-      "definition_en": "belonging to or on behalf of a specified person (especially yourself); preceded by a possessive",
-      "semantic_key": "4ad1576466151d3a34dc59ad6b904d24a3642b61d28eff96ede771632f409039",
-      "semantic_key_history": [
-        "6787aea1c6ef7c0f48bdc782bf4a59fed02dab7fae36fbdf758bde8a3b78452e"
-      ],
-      "legacy_aliases": [
-        "own:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "own:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9516,
-      "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:own:28f18ea0e4b65749",
-        "status": "merged",
-        "merged_into_sense_id": "sense:own:e34fcdba29115330",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9513,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
@@ -259,20 +276,23 @@
       },
       {
         "sense_id": "sense:own:c07b737b77965295",
-        "status": "merged",
-        "merged_into_sense_id": "sense:own:e34fcdba29115330",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9515,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       },
       {
         "sense_id": "sense:own:e34fcdba29115330",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 9516,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:2f5f6978fb6eed68e557",
+      "collocation:79591dbb8462da814b94"
+    ],
     "facts": [
       {
         "id": "deep:secondary_senses:own:ec334af33fc4c20d",
@@ -292,8 +312,18 @@
     ],
     "collocations": [
       {
+        "id": "collocation:2f5f6978fb6eed68e557",
+        "source_row": 21598,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
         "id": "collocation:34dfd9ed013d4f38ab34",
         "source_row": 4476,
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+      },
+      {
+        "id": "collocation:79591dbb8462da814b94",
+        "source_row": 21597,
         "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
       },
       {

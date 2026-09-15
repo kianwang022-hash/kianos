@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "312e08e4bd03cd47330264034b9ce1fde3c318aa74cc1113dacd739e9f3b92f7",
+    "content_hash": "321600c2325cac1c28ab4c4fd452bd101b1cd78058a70f88c41d924e1d03f29c",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,6 +29,14 @@
             "sense:pit:502da4e5b4395045",
             "sense:pit:45814a1d48fa5521"
           ]
+        },
+        {
+          "label_cn": "果核（AmE）",
+          "label_en": "fruit stone/seed, especially AmE",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pit:39d839d64569535a"
+          ]
         }
       ],
       "core_meaning_cn": "坑；使凹陷；使相斗",
@@ -37,11 +45,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:pit:5c4c65ccc4266846"
+      "deep:deep:secondary_senses:pit:5c4c65ccc4266846",
+      "semantic-reconciliation:o3375-o3624"
     ],
     "secondary_senses": [
       {
@@ -169,6 +178,30 @@
       {
         "collocations": [
           {
+            "collocation_id": "collocation:4caece0e31b3f3123e8a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:pit:73ba8304e0aa5214:collocation:0"
+            ],
+            "meaning_cn": "交易池",
+            "phrase": "trading pit"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "交易池",
+        "definition_en": "the part of the floor of a commodity exchange where trading in a particular commodity is carried on",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:pit:73ba8304e0aa5214",
+        "sense_label_en": "the part of the floor of a commodity exchange where trading in a particu",
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:c9cecc0af7a2f93713ea",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -217,26 +250,27 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4caece0e31b3f3123e8a",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:21eb8f2e1d0fb5f2de01",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:pit:73ba8304e0aa5214:collocation:0"
+              "sense:pit:39d839d64569535a:collocation:forward-o3375-o3624"
             ],
-            "meaning_cn": "交易池",
-            "phrase": "trading pit"
+            "meaning_cn": "桃核/樱桃核",
+            "phrase": "peach/cherry pit"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "交易池",
-        "definition_en": "the part of the floor of a commodity exchange where trading in a particular commodity is carried on",
+        "definition_cn": "果核；核（美式，尤指桃、樱桃等）",
+        "definition_en": "the hard stone or seed inside certain fruits, especially in American English",
         "governing_pattern": "",
-        "level": "L3",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:pit:73ba8304e0aa5214",
-        "sense_label_en": "the part of the floor of a commodity exchange where trading in a particu",
-        "sort_order": 3,
-        "transitivity": "nonverb"
+        "sense_id": "sense:pit:39d839d64569535a",
+        "sense_label_en": "the hard stone or seed inside certain fruits, especially in American English",
+        "sort_order": 6,
+        "transitivity": "nonverb",
+        "usage_note": "Common American-English fruit sense; British English often uses stone."
       }
     ],
     "verification_summary": {
@@ -262,6 +296,13 @@
   "reference_senses": [],
   "identity_refs": {
     "senses": [
+      {
+        "sense_id": "sense:pit:39d839d64569535a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10053,
+        "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
       {
         "sense_id": "sense:pit:45814a1d48fa5521",
         "status": "active",
@@ -306,6 +347,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:21eb8f2e1d0fb5f2de01",
       "collocation:39918a86384b6545743e",
       "collocation:4caece0e31b3f3123e8a",
       "collocation:8e6f93a34d8fce6a27a4",
@@ -321,6 +363,11 @@
       }
     ],
     "collocations": [
+      {
+        "id": "collocation:21eb8f2e1d0fb5f2de01",
+        "source_row": 21408,
+        "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
       {
         "id": "collocation:39918a86384b6545743e",
         "source_row": 4880,

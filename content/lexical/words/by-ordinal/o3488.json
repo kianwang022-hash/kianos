@@ -7,28 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "81438321f1f2168e0f734362206df2054512d18c6166537930960e1a0aa10eaa",
+    "content_hash": "8ac230cf23edb316b45792cba2293b9906e16e18dcbc6ed68e0bcf6719d5eeb7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "政党；聚会；宴会；团体；一行人；社交聚会；晚会；当事人；一方",
-          "label_en": "an organization to gain political power; a group of people gathered together for pleasure; a band of people associated temporarily in some activity; an occasion on which people can assemble for social interaction and entertainment; a person or group involved in a legal matter",
+          "label_cn": "政党",
+          "label_en": "political organization",
           "pos": "noun",
           "sense_ids": [
             "sense:party:60fcdfb200fb5d07"
           ]
+        },
+        {
+          "label_cn": "聚会；宴会",
+          "label_en": "social gathering/occasion",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:party:eeb74c1e22ef5993"
+          ]
         }
       ],
-      "core_meaning_cn": "聚会或政党",
-      "core_meaning_en": "a social gathering or a political organization",
-      "mental_model_cn": "聚会或政党",
+      "core_meaning_cn": "政党；聚会",
+      "core_meaning_en": "a political party or social gathering",
+      "mental_model_cn": "政党；聚会",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -63,6 +73,30 @@
         "sense_id": "sense:party:60fcdfb200fb5d07",
         "sense_label_en": "an organization to gain political power",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:7692e224bd35e1c442fa",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:party:eeb74c1e22ef5993:collocation:forward-o3375-o3624"
+            ],
+            "meaning_cn": "举办/参加聚会",
+            "phrase": "have/go to a party"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "聚会；宴会；社交活动",
+        "definition_en": "a social gathering or occasion for interaction and entertainment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:party:eeb74c1e22ef5993",
+        "sense_label_en": "a social gathering or occasion for interaction and entertainment",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -186,31 +220,6 @@
       "source_row": 9683,
       "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:party:eeb74c1e22ef5993",
-      "status": "merged",
-      "merged_into_sense_id": "sense:party:60fcdfb200fb5d07",
-      "pos": "noun",
-      "definition_cn": "社交聚会；晚会",
-      "definition_en": "an occasion on which people can assemble for social interaction and entertainment",
-      "semantic_key": "7caedaac335cf5e4821a82a66fae057ee15810e14d8463ee7e7c8f07ffd8719b",
-      "semantic_key_history": [
-        "0c8a04e8dc6366807f49a66d79f10ece7cb900eab7e411dac65c4ef0f8d4e95f"
-      ],
-      "legacy_aliases": [
-        "party:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "party:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 9685,
-      "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -252,14 +261,15 @@
       },
       {
         "sense_id": "sense:party:eeb74c1e22ef5993",
-        "status": "merged",
-        "merged_into_sense_id": "sense:party:60fcdfb200fb5d07",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 9685,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
       }
     ],
     "active_collocations": [
       "collocation:0303d31e264f9744830d",
+      "collocation:7692e224bd35e1c442fa",
       "collocation:dc27d50c4deb71362aac"
     ],
     "facts": [],
@@ -282,6 +292,11 @@
       {
         "id": "collocation:6f7e8cb2f099c41d7bad",
         "source_row": 9416,
+        "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
+      },
+      {
+        "id": "collocation:7692e224bd35e1c442fa",
+        "source_row": 21418,
         "source_path": "content/lexical/canonical/collocations/shards/o3457-3488.json"
       },
       {

@@ -12,7 +12,7 @@
     "content": {
       "shared_definition": "have ownership or possession of",
       "shared_synset": "02209474-v",
-      "source_definition": "have ownership or possession of",
+      "source_definition": "to have ownership or possession of something",
       "source_sense_id": "sense:own:c07b737b77965295",
       "target_definition": "to possess or own",
       "target_sense_id": "sense:have:f5675038e8f4587f",
@@ -75,7 +75,7 @@
       "translation_or_exam_competition": true
     },
     "source_grounded": true,
-    "source_sense_id": "sense:own:e34fcdba29115330",
+    "source_sense_id": "sense:own:c07b737b77965295",
     "target_sense_id": "sense:have:f5675038e8f4587f",
     "target_word": "have",
     "task_tags": [
@@ -143,10 +143,66 @@
         "verification_status": "verified",
         "writing_safe": true
       }
+    },
+    {
+      "source_word_id": "word:have",
+      "source_ordinal": 2278,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "boundary": "own强调所有权；have只表持有或拥有，范围更泛",
+        "codex_reviewed": true,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "own property",
+          "core_meaning": "拥有",
+          "exam_trap": "own强调所有权",
+          "register": "中性",
+          "semantic_prosody": "中性",
+          "strength": "强",
+          "syntax": "及物动词",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "evidence": [
+          {
+            "evidence_id": "evidence:oewn:02209474-v",
+            "evidence_status": "source_checked",
+            "source_locator": "02209474-v",
+            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/raw/oewn_wordnet.json",
+            "source_type": "learner_dictionary"
+          }
+        ],
+        "fact_id": "deep:semantic_contrast:own:65f0bc2efd9295ef",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": null,
+        "priority": "A",
+        "publication_status": "codex_reviewed",
+        "shared_definition": "have ownership or possession of",
+        "source_sense_id": "sense:have:f5675038e8f4587f",
+        "target_sense_id": "sense:own:c07b737b77965295",
+        "target_word": "own",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": true,
+        "source_expression": "have",
+        "target_expression": "own",
+        "reciprocal_entrypoint": true
+      }
     }
   ],
   "provenance": {
     "materialized_from": "embedded_current_word_view",
-    "semantic_delta": 0
+    "semantic_delta": 0,
+    "last_semantic_authority": "content/lexical/semantic-reconciliation/o3375-o3624.md"
   }
 }

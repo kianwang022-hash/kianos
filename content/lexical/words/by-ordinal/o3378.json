@@ -7,36 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7d020b44ede0e177f4ae36d4a7b2812b8a067b680df21f8c473ea6f5f4fc38f4",
+    "content_hash": "fe0eb1ea46bc3a94318b1c3a012b26dfd31ffe9badd627289f77bdff241e4b2d",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "东方的，亚洲的",
-          "label_en": "denoting or characteristic of countries of Asia",
+          "label_cn": "东方文化/物件相关的（语境受限）",
+          "label_en": "East/East-and-Southeast-Asian cultural or object contexts, usage-sensitive",
           "pos": "adjective",
           "sense_ids": [
             "sense:oriental:e213f51e41fb57aa"
           ]
-        },
-        {
-          "label_cn": "东方人，亚洲人（可能含冒犯意味）",
-          "label_en": "a member of an Oriental race (often considered offensive)",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:oriental:96823774f9eb5f3b"
-          ]
         }
       ],
-      "core_meaning_cn": "东方的，亚洲的",
-      "core_meaning_en": "relating to the East or Asia",
-      "mental_model_cn": "东方的，亚洲的",
+      "core_meaning_cn": "东方文化/物件相关的（使用需谨慎）",
+      "core_meaning_en": "usage-sensitive adjective for certain East/East-and-Southeast-Asian cultural/object contexts",
+      "mental_model_cn": "东方文化/物件相关的（使用需谨慎）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3375-o3624"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -53,40 +47,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "东方的，亚洲的",
-        "definition_en": "denoting or characteristic of countries of Asia",
+        "definition_cn": "东方文化/物件相关的（尤其东亚、东南亚语境；使用需谨慎）",
+        "definition_en": "relating to East or Southeast Asian cultures, styles, or objects in contexts where the term is conventional",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:oriental:e213f51e41fb57aa",
-        "sense_label_en": "denoting or characteristic of countries of Asia",
+        "sense_label_en": "relating to East or Southeast Asian cultures, styles, or objects in contexts where the term is conventional",
         "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:92cdb326851b0a98a7ce",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:oriental:96823774f9eb5f3b:collocation:0"
-            ],
-            "meaning_cn": "东方人",
-            "phrase": "the Oriental"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "东方人，亚洲人（可能含冒犯意味）",
-        "definition_en": "a member of an Oriental race (often considered offensive)",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:oriental:96823774f9eb5f3b",
-        "sense_label_en": "a member of an Oriental race (often considered offensive)",
-        "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Avoid using Oriental as a blanket neutral adjective for all Asian peoples/places; prefer a specific regional or national adjective when possible."
       }
     ],
     "verification_summary": {
@@ -109,12 +80,36 @@
     "word_id": "word:oriental"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:oriental:96823774f9eb5f3b",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "“东方人/亚洲人”的旧式称呼（现多被视为冒犯或不礼貌）",
+      "definition_en": "a dated person-label for an Asian person, now widely considered offensive or impolite",
+      "semantic_key": "3213ae3983bd23d6bf45db3a8863b414400dd2f2029e8295ae59da01195f1ab5",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "oriental:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "oriental:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-15T10:35:00Z",
+      "source_row": 9377,
+      "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:oriental:96823774f9eb5f3b",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 9377,
         "source_path": "content/lexical/canonical/senses/shards/o3361-3392.json"
@@ -128,7 +123,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:92cdb326851b0a98a7ce",
       "collocation:dd63a798c0c8a290dc76"
     ],
     "facts": [],
