@@ -1,4 +1,4 @@
-name: LexicalOS Knowledge Re-acceptance Audit
+name: Lexical Current Integrity Signals (non-acceptance)
 
 on:
   pull_request:
@@ -13,36 +13,42 @@ permissions:
   contents: read
 
 jobs:
-  knowledge-reacceptance:
+  current-integrity-signals:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Scan Current lexical Knowledge
+      - name: Scan Current lexical owner integrity and diagnostic signals
         shell: bash
         run: |
           python tools/lexical_knowledge_reacceptance_audit.py \
-            --output /tmp/lexical-knowledge-reacceptance.json \
-            --summary /tmp/lexical-knowledge-reacceptance.md
+            --output /tmp/lexical-current-integrity-signals.json \
+            --summary /tmp/lexical-current-integrity-signals.md
 
-      - name: Publish summary
+      - name: Publish non-acceptance diagnostic summary
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/lexical-knowledge-reacceptance.md ]; then
-            cat /tmp/lexical-knowledge-reacceptance.md >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo '## Lexical Current Integrity Signals'
+            echo ''
+            echo '> Diagnostic only. This workflow does not grant Knowledge Acceptance, semantic PASS, audit closure, learner mastery, or executor authorization.'
+            echo ''
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ -f /tmp/lexical-current-integrity-signals.md ]; then
+            cat /tmp/lexical-current-integrity-signals.md >> "$GITHUB_STEP_SUMMARY"
           else
-            echo '## Lexical Knowledge re-acceptance summary unavailable' >> "$GITHUB_STEP_SUMMARY"
+            echo 'Current integrity signal summary unavailable' >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upload evidence
+      - name: Upload diagnostic evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lexical-knowledge-reacceptance
+          name: lexical-current-integrity-signals
           path: |
-            /tmp/lexical-knowledge-reacceptance.json
-            /tmp/lexical-knowledge-reacceptance.md
+            /tmp/lexical-current-integrity-signals.json
+            /tmp/lexical-current-integrity-signals.md
           if-no-files-found: warn
           retention-days: 14
