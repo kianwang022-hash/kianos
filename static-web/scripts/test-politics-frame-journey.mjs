@@ -4,6 +4,15 @@ import { testPoliticsSubjectReadability } from './test-politics-subject-readabil
 const base=process.env.SITE_FRAME_URL||'http://127.0.0.1:4368',out=path.resolve('../output/playwright/issue148/politics-frame');fs.mkdirSync(out,{recursive:true});
 const server=process.env.SITE_FRAME_URL?null:spawn(process.execPath,['node_modules/astro/astro.js','preview','--host','127.0.0.1','--port','4368'],{stdio:'ignore'});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));const report={scope:'Politics whole-subject readability + five native frames -> Workbench; isolated state; SELF',checks:[],typography:[],errors:[]};let browser;
+async function captureSharedHumanGateSurfaces(){
+ const context=await browser.newContext({viewport:{width:1440,height:900}}),p=await context.newPage();p.on('pageerror',e=>report.errors.push(e.message));
+ const noOverflow=()=>p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1);
+ await p.goto(base+'/');await p.locator('.legacyProductShell').waitFor();assert.equal(await p.locator('.legacyOsRail').isVisible(),true);assert.equal(await noOverflow(),true,'Global Home horizontal overflow');await p.screenshot({path:path.join(out,'global-home-1440.png')});
+ await p.goto(base+'/vocabulary/');await p.locator('[data-lexical-home]').waitFor();assert.equal(await p.locator('.legacyOsNavItem.active').innerText(),'Lexical');assert.equal(await noOverflow(),true,'Lexical Home horizontal overflow');await p.screenshot({path:path.join(out,'lexical-home-1440.png')});
+ await p.goto(base+'/vocabulary/1931/');await p.locator('[data-local-port="vocabulary"]').waitFor();assert.equal(await p.locator('[data-vocab-front]').isVisible(),true);assert.equal(await noOverflow(),true,'Lexical Word Front horizontal overflow');await p.screenshot({path:path.join(out,'lexical-word-front-1440.png')});
+ await p.locator('[data-vocab-reveal]').click();await p.locator('[data-vocab-details]').waitFor({state:'visible'});assert.equal(await noOverflow(),true,'Lexical Word Reveal horizontal overflow');await p.screenshot({path:path.join(out,'lexical-word-reveal-1440.png')});
+ report.checks.push('Global Home + Lexical Home / Word Front / Word Reveal Human Gate captures');console.log('PASS',report.checks.at(-1));await context.close();
+}
 try{
  for(let i=0;i<60;i++){try{if((await fetch(base+'/politics/')).ok)break}catch{}await sleep(250)}
  const catalog=buildPoliticsPracticeCatalogCurrent('/');browser=await chromium.launch();
@@ -11,6 +20,7 @@ try{
   const sample=catalog.questions.find(q=>q.subject==='marxism'&&practiceReady(q));assert.ok(sample);
   await testPoliticsHome({browser,base,out,report,sample});
   await testPoliticsSubjectReadability({browser,base,out,report});
+  await captureSharedHumanGateSurfaces();
  }
  for(const subject of ['marxism','mao','history','xi','ethics_law']){
   if(process.env.POLITICS_FRAME_SUBJECT&&process.env.POLITICS_FRAME_SUBJECT!==subject)continue;
