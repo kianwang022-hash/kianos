@@ -34,54 +34,67 @@ async function blockResumeAndEvidenceJourney(page) {
   await page.goto(`${BASE}/xizong/respiratory/r01/`, { waitUntil: 'domcontentloaded' });
   const root = page.locator('[data-xizong-v6-block]');
   await root.waitFor({ state: 'visible' });
-  check(await root.locator('[data-kp-learn-card]').count() === 15, 'r01_kp_count_15');
+  const recallCards = root.locator('[data-kp-recall-card]');
+  const kpCount = await recallCards.count();
+  check(kpCount > 0, 'r01_recall_inventory_present', String(kpCount));
+  check(await root.locator('[data-kp-learn-card]').count() === 0, 'legacy_per_kp_web_learn_surface_absent');
 
   await root.locator('[data-stage-next="logic_group"]').click();
   await root.locator('[data-enter-group]').click();
-  const firstLearn = root.locator('[data-kp-learn-card]:not([hidden])');
-  const firstKp = await firstLearn.locator('[data-kp-learned]').getAttribute('data-kp-learned');
-  check(Boolean(firstKp), 'first_kp_identity_present');
-  await firstLearn.locator('[data-kp-learned]').click();
-  await page.waitForTimeout(180);
   const studyKey = 'kianos-xizong-astro-v2:xizong:respiratory-r01';
   let state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.learned?.[firstKp] === true, 'first_kp_learning_persisted');
-  check(state?.stage === 'kp_learn', 'progresses_within_learn_stage');
+  check(state?.stage === 'kp_learn', 'enters_group_lecture_stage');
+  const savedGroup = state.groupIndex;
   const savedIndex = state.kpIndex;
 
   await page.reload({ waitUntil: 'domcontentloaded' });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.stage === 'kp_learn' && state?.kpIndex === savedIndex, 'refresh_restores_stage_and_kp');
+  check(state?.stage === 'kp_learn' && state?.groupIndex === savedGroup && state?.kpIndex === savedIndex, 'refresh_restores_group_lecture_stage');
 
   await root.locator('[data-stage-target="kp_recall"]').click();
-  const recall = root.locator('[data-kp-recall-card]:not([hidden])');
-  await recall.locator('[data-kp-reveal]').click();
-  const attemptedKp = await recall.getAttribute('data-kp-id');
-  await recall.locator('[data-rating="mastered"]').click();
   await page.waitForTimeout(80);
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(!state?.ratings?.[attemptedKp], 'premature_recall_cannot_manufacture_evidence');
+  check(state?.stage === 'kp_learn', 'premature_recall_stage_blocked');
+  check(Object.keys(state?.ratings || {}).length === 0, 'premature_recall_cannot_manufacture_evidence');
 
-  const allKpIds = await root.locator('[data-kp-recall-card]').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
+  await root.locator('[data-group-lecture-done]').click();
+  await page.waitForTimeout(80);
+  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
+  const learnedIds = Object.entries(state?.learned || {}).filter(([, learned]) => Boolean(learned)).map(([id]) => id);
+  check(state?.stage === 'kp_recall', 'group_lecture_enters_recall');
+  check(learnedIds.length > 0, 'group_learning_contact_persisted', String(learnedIds.length));
+
+  const recall = root.locator('[data-kp-recall-card]:not([hidden])');
+  const attemptedKp = await recall.getAttribute('data-kp-id');
+  check(Boolean(attemptedKp) && state?.learned?.[attemptedKp] === true, 'visible_recall_belongs_to_learned_group');
+  await recall.locator('[data-kp-reveal]').click();
+  await recall.locator('[data-rating="mastered"]').click();
+  await page.waitForTimeout(160);
+  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
+  check(state?.ratings?.[attemptedKp] === 'mastered', 'learned_kp_recall_persists');
+
+  const allKpIds = await recallCards.evaluateAll((cards) => cards.map((c) => c.getAttribute('data-kp-id')).filter(Boolean));
   await page.evaluate(({ key, kpIds }) => {
     const learned = Object.fromEntries(kpIds.map((id) => [id, true]));
     const ratings = Object.fromEntries(kpIds.map((id) => [id, 'mastered']));
-    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, learned, ratings, blockRecallDone: true, completed: false }));
-    localStorage.setItem('kianos-xizong-personal-v1:xizong:respiratory-r01', JSON.stringify({ lectureRead: false, kp: {} }));
+    localStorage.setItem(key, JSON.stringify({ stage: 'block_complete', groupIndex: 0, kpIndex: 0, learned, ratings, blockRecallDone: false, completed: false }));
   }, { key: studyKey, kpIds: allKpIds });
   await page.reload({ waitUntil: 'domcontentloaded' });
   const complete = root.locator('[data-block-complete]');
-  check(await complete.isDisabled(), 'lecture_evidence_keeps_completion_disabled');
+  check(await complete.isDisabled(), 'block_recall_required_for_completion');
   await complete.evaluate((button) => {
     button.disabled = false;
     button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
   });
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
-  check(state?.completed !== true, 'capture_guard_rejects_completion_without_lecture');
+  check(state?.completed !== true, 'capture_guard_rejects_completion_without_block_recall');
 
-  await root.locator('[data-lecture-read]').click();
+  await root.locator('[data-stage-target="block_recall"]').click();
+  await root.locator('[data-block-recall-complete]').click();
   await page.waitForTimeout(60);
-  check(!(await complete.isDisabled()), 'lecture_confirmation_unlocks_completion');
+  state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
+  check(state?.blockRecallDone === true && state?.stage === 'block_complete', 'block_recall_persists_and_returns_to_completion');
+  check(!(await complete.isDisabled()), 'block_recall_unlocks_completion');
   await complete.click();
   state = await page.evaluate((key) => JSON.parse(localStorage.getItem(key) || 'null'), studyKey);
   check(state?.completed === true, 'block_completion_persists_after_all_evidence');
