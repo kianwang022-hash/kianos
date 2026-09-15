@@ -153,7 +153,8 @@ jobs:
       - name: Shard tests
         run: python tools/test_lexical_shard.py
       - name: Parse all Lexical JSON
-        run: python - <<'PY'
+        run: |
+          python - <<'PY'
           import json
           from pathlib import Path
           n=0
