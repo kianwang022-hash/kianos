@@ -190,7 +190,8 @@ has(exitUi, 'let holdoutYears = readJson(holdoutKey, []);', 'holdout-not-empty-b
 has(exitUi, 'const normalizeHoldout = (value) =>', 'holdout-normalization-missing');
 has(exitUi, 'eligibleYears.has(year)', 'holdout-normalization-does-not-restrict-to-eligible-years');
 has(exitUi, 'holdoutYears = normalizeHoldout(holdoutYears);', 'persisted-holdout-not-normalized-before-use');
-has(exitUi, 'const computeActive = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));', 'holdout-filter-runtime-missing');
+has(exitUi, 'const eligibleQuestions = () => data.questions.filter((question) => !holdoutYears.includes(Number(question.year)));', 'holdout-filter-runtime-missing');
+has(exitUi, 'deriveXizongQuestionIdsForCurrentRound(sweepState, eligible, [])', 'phase-aware-question-queue-derivation-missing');
 matches(exitUi, /startSweep\.disabled\s*=\s*!\(recallState\.completedAt\s*&&\s*holdoutYears\.length\)/, 'sweep-gate-missing-recall-or-explicit-holdout');
 
 matches(systemUi, /outlineCount\s*>\s*0\s*\?/, 'outline-absence-not-conditionally-projected');
