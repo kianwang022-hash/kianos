@@ -1,0 +1,76 @@
+name: TEMP Xizong Multipass Completion Diagnose
+
+on:
+  push:
+    branches:
+      - chat/xizong-multipass-question-attempts
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install runtime
+        working-directory: static-web
+        run: npm install --no-audit --no-fund
+      - name: Build Current site
+        working-directory: static-web
+        run: npm run build
+      - name: Install Chromium
+        working-directory: static-web
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Inject read-only completion probe
+        working-directory: static-web
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('scripts/test-xizong-a2-functional-journey.mjs')
+          text = path.read_text()
+          needle = "  await exit.locator('[data-sweep-done]').waitFor({ state: 'visible' });"
+          probe = r'''  const completionProbe = await page.evaluate((questions) => {
+            const holdoutKey = 'kianos:xizong:full-paper-holdout-years:v1';
+            const sweepKey = 'kianos:xizong:system-question-sweep:respiratory:v1';
+            const held = JSON.parse(localStorage.getItem(holdoutKey) || '[]');
+            const state = JSON.parse(localStorage.getItem(sweepKey) || '{"results":{}}');
+            const heldSet = new Set((Array.isArray(held) ? held : []).map(Number));
+            const active = questions.filter((q) => !heldSet.has(Number(q.year)));
+            const missing = active.filter((q) => !state.results?.[q.questionId]).map((q) => ({
+              questionId: q.questionId, year: q.year, number: q.number
+            }));
+            return {
+              held,
+              activeCount: active.length,
+              resultCount: Object.keys(state.results || {}).length,
+              round: state.round || null,
+              missing: missing.slice(0, 20),
+              missingCount: missing.length
+            };
+          }, payload.questions);
+          console.log('A2_COMPLETION_PROBE:' + JSON.stringify(completionProbe));
+          check(completionProbe.missingCount === 0, 'synthetic_completion_matches_persisted_active_set', JSON.stringify(completionProbe));
+          await exit.locator('[data-sweep-done]').waitFor({ state: 'visible' });'''
+          if needle not in text:
+              raise SystemExit('DIAGNOSTIC_NEEDLE_NOT_FOUND')
+          path.write_text(text.replace(needle, probe, 1))
+          PY
+      - name: Execute diagnostic journey
+        working-directory: static-web
+        run: node scripts/test-xizong-a2-functional-journey.mjs
+      - name: Save diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xizong-multipass-completion-diagnostic-${{ github.sha }}
+          path: xizong-a2-functional-audit/
+          retention-days: 3
