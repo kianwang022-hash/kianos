@@ -1,0 +1,787 @@
+/* LexicalOS visual convergence layer.
+   Presentation only: semantic truth and Repair/Evidence behavior remain in Current owners/runtime. */
+
+body.surfaceBody-lexical {
+  --lexical-ink: #17221e;
+  --lexical-muted: #5c6b65;
+  --lexical-faint: #7b8883;
+  --lexical-line: #dce3df;
+  --lexical-line-soft: #e9eeeb;
+  --lexical-accent: #246b55;
+  --lexical-accent-soft: #edf5f1;
+  --lexical-paper: #fffefa;
+}
+
+body.surfaceBody-lexical .surface-lexical {
+  width: min(1480px, calc(100% - 28px));
+  padding-top: 14px;
+}
+
+/* Home — one desktop workbench, not a stack of dashboard cards. */
+body.surfaceBody-lexical .lexicalHome {
+  max-width: none;
+  gap: 14px;
+}
+body.surfaceBody-lexical .lexicalHomeHeader {
+  align-items: end;
+  padding: 14px 4px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .lexicalHomeHeader > div {
+  min-width: 0;
+}
+body.surfaceBody-lexical .lexicalHomeHeader span {
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 820;
+  letter-spacing: .07em;
+  opacity: 1;
+  text-transform: uppercase;
+}
+body.surfaceBody-lexical .lexicalHomeHeader h2 {
+  margin: 2px 0 5px;
+  color: var(--lexical-ink);
+  font-size: clamp(30px, 3.1vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+body.surfaceBody-lexical .lexicalHomeHeader p {
+  max-width: 70ch;
+  color: var(--lexical-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalHomeHeader nav {
+  flex-wrap: nowrap;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 10px;
+  background: #f4f6f5;
+}
+body.surfaceBody-lexical .lexicalHomeHeader button {
+  min-height: 36px;
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--lexical-muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+body.surfaceBody-lexical .lexicalHomeHeader button.active {
+  border: 0;
+  background: #fff;
+  color: var(--lexical-accent);
+  box-shadow: 0 1px 5px rgba(20, 39, 32, .08);
+}
+body.surfaceBody-lexical .lexicalHomePanel[data-lexical-panel="study"] {
+  grid-template-columns: minmax(0, 1.45fr) minmax(330px, .55fr);
+  grid-template-rows: auto auto;
+  gap: 12px 18px;
+  align-items: start;
+}
+body.surfaceBody-lexical .lexicalContinueCard {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-content: center;
+  min-height: 250px;
+  padding: 28px 30px;
+  border: 1px solid var(--lexical-line);
+  border-left: 4px solid var(--lexical-accent);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: none;
+}
+body.surfaceBody-lexical .lexicalContinueCard > span {
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 820;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalContinueCard strong {
+  color: var(--lexical-ink);
+  font-size: clamp(34px, 4.6vw, 58px);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+body.surfaceBody-lexical .lexicalContinueCard p {
+  max-width: 64ch;
+  color: var(--lexical-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+body.surfaceBody-lexical .lexicalContinueCard small {
+  color: var(--lexical-faint);
+  font-size: 11px;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalRecent,
+body.surfaceBody-lexical .lexicalHandoff,
+body.surfaceBody-lexical .lexicalSearchBox {
+  padding: 14px 0 0;
+  border: 0;
+  border-top: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .lexicalRecent > header {
+  margin-bottom: 7px;
+}
+body.surfaceBody-lexical .lexicalRecent > header strong {
+  color: var(--lexical-ink);
+  font-size: 14px;
+}
+body.surfaceBody-lexical .lexicalRecent > header span {
+  color: var(--lexical-faint);
+  font-size: 11px;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalHandoff {
+  align-items: start;
+}
+body.surfaceBody-lexical .lexicalHandoff span {
+  color: var(--lexical-accent);
+  font-size: 10px;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalHandoff strong {
+  font-size: 14px;
+}
+body.surfaceBody-lexical .lexicalHandoff p {
+  color: var(--lexical-muted);
+  font-size: 12px;
+  line-height: 1.45;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalHandoff button {
+  min-height: 34px;
+  padding: 6px 10px;
+  border-color: var(--lexical-line);
+  border-radius: 8px;
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 780;
+}
+body.surfaceBody-lexical .lexicalSearchBox {
+  max-width: 900px;
+  margin: 16px auto 0;
+}
+body.surfaceBody-lexical .lexicalSearchBox span {
+  color: var(--lexical-muted);
+  font-size: 12px;
+  font-weight: 760;
+}
+body.surfaceBody-lexical .lexicalSearchBox input {
+  min-height: 48px;
+  padding: 10px 13px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--lexical-ink);
+  font-size: 16px;
+}
+body.surfaceBody-lexical .lexicalSearchResults,
+body.surfaceBody-lexical [data-lexical-review-list],
+body.surfaceBody-lexical [data-lexical-recent-list] {
+  display: grid;
+  gap: 0;
+}
+body.surfaceBody-lexical .lexicalWordRow {
+  min-height: 50px;
+  padding: 9px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line-soft);
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .lexicalWordRow:hover {
+  background: #f8faf9;
+}
+body.surfaceBody-lexical .lexicalWordRow strong {
+  font-size: 15px;
+}
+body.surfaceBody-lexical .lexicalWordRow span {
+  color: var(--lexical-muted);
+  font-size: 12px;
+}
+body.surfaceBody-lexical .lexicalWordRow small,
+body.surfaceBody-lexical .lexicalEmpty {
+  color: var(--lexical-faint);
+  font-size: 11px;
+}
+
+/* Study navigation — quiet context strip instead of another card. */
+body.surfaceBody-lexical .lexicalStudyNav {
+  max-width: none;
+  margin: 0 0 8px;
+  padding: 5px 4px 8px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .lexicalStudyNav a {
+  color: var(--lexical-muted);
+  font-size: 12px;
+  font-weight: 720;
+}
+body.surfaceBody-lexical .lexicalStudyNav a.next {
+  color: var(--lexical-accent);
+}
+body.surfaceBody-lexical .lexicalStudyNav > span {
+  color: var(--lexical-faint);
+  font-size: 11px;
+  opacity: 1;
+}
+body.surfaceBody-lexical .lexicalStudyNavBottom {
+  margin-top: 8px;
+  padding-top: 8px;
+}
+
+/* Study / Depth — keep the accepted two-column geometry, reduce card-pile chrome. */
+body.surfaceBody-lexical .portedVocabRuntime {
+  gap: 7px;
+}
+body.surfaceBody-lexical .portedVocabPreviewBar {
+  min-height: 42px;
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .portedVocabPreviewBar > div > span,
+body.surfaceBody-lexical .portedVocabPreviewBar > div > small {
+  color: var(--lexical-faint);
+  font-size: 10px;
+}
+body.surfaceBody-lexical .portedVocabPreviewBar > div > b {
+  color: var(--lexical-ink);
+  font-size: 13px;
+}
+body.surfaceBody-lexical .portedVocabPreviewActions button {
+  min-height: 32px;
+  padding: 5px 9px;
+  border-color: var(--lexical-line);
+  background: transparent;
+  color: var(--lexical-muted);
+  font-size: 11px;
+}
+body.surfaceBody-lexical .portedVocabStudySheet {
+  border: 1px solid var(--lexical-line);
+  border-radius: 12px;
+  background: var(--lexical-paper);
+  box-shadow: 0 10px 30px rgba(24, 45, 37, .055);
+}
+body.surfaceBody-lexical .portedVocabWordFront {
+  min-height: min(58vh, 560px);
+  gap: 14px;
+  padding: 48px;
+}
+body.surfaceBody-lexical .portedVocabWordFront > span {
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 820;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body.surfaceBody-lexical .portedVocabWordFront h2 {
+  color: var(--lexical-ink);
+  font: 650 clamp(68px, 8vw, 112px)/.92 var(--study-serif);
+  letter-spacing: -.055em;
+}
+body.surfaceBody-lexical .portedVocabRecallMap {
+  display: flex;
+  max-width: 900px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px 10px;
+}
+body.surfaceBody-lexical .portedVocabRecallMap strong {
+  width: 100%;
+  color: #29463c;
+  font-size: 17px;
+  letter-spacing: .02em;
+}
+body.surfaceBody-lexical .portedVocabRecallMap code {
+  padding: 5px 8px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 6px;
+  background: #fff;
+  color: #3e5b51;
+  font-size: 12px;
+}
+body.surfaceBody-lexical .portedVocabWordFront > p {
+  max-width: 54ch;
+  margin: 0;
+  color: var(--lexical-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+body.surfaceBody-lexical .portedPrimaryAction {
+  min-height: 42px;
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+body.surfaceBody-lexical .portedVocabWordHeader {
+  align-items: end;
+  padding: 20px 24px 17px;
+  border-bottom-color: var(--lexical-line);
+  background: #fff;
+}
+body.surfaceBody-lexical .portedVocabWordHeader > div > span {
+  color: var(--lexical-accent);
+  font-size: 10px;
+  font-weight: 840;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body.surfaceBody-lexical .portedVocabWordHeader h2 {
+  color: var(--lexical-ink);
+  font: 650 clamp(48px, 5vw, 70px)/.98 var(--study-serif);
+  letter-spacing: -.045em;
+}
+body.surfaceBody-lexical .portedVocabWordHeader p {
+  max-width: 70ch;
+  margin: 0;
+  color: var(--lexical-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+body.surfaceBody-lexical .portedVocabWordHeader aside {
+  min-width: 190px;
+  padding-left: 18px;
+  border-left: 1px solid var(--lexical-line);
+  text-align: right;
+}
+body.surfaceBody-lexical .portedVocabWordHeader aside b {
+  color: var(--lexical-accent);
+  font-size: 12px;
+}
+body.surfaceBody-lexical .portedVocabWordHeader aside small {
+  display: block;
+  margin-top: 3px;
+  color: var(--lexical-faint);
+  font-size: 11px;
+  line-height: 1.4;
+}
+body.surfaceBody-lexical .portedVocabBody {
+  grid-template-columns: minmax(0, 1.82fr) minmax(330px, .62fr);
+  background: #fff;
+}
+body.surfaceBody-lexical .portedVocabMeaningColumn {
+  min-width: 0;
+  padding: 18px 24px 30px;
+  background: #fff;
+}
+body.surfaceBody-lexical .portedVocabCoreSense,
+body.surfaceBody-lexical .portedVocabSenseList > section {
+  position: relative;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 16px;
+  padding: 15px 4px 16px 12px;
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line-soft);
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+}
+body.surfaceBody-lexical .portedVocabCoreSense {
+  border-left-color: var(--lexical-accent);
+}
+body.surfaceBody-lexical .portedVocabSenseList > section:hover {
+  border-left-color: #a9c5ba;
+  background: #fbfcfb;
+}
+body.surfaceBody-lexical [data-vocab-target-row].repair-selected {
+  border-left-color: var(--lexical-accent) !important;
+  background: var(--lexical-accent-soft) !important;
+}
+body.surfaceBody-lexical [data-vocab-target-row].keyboard-target {
+  outline: 2px solid rgba(36, 107, 85, .22);
+  outline-offset: -2px;
+}
+body.surfaceBody-lexical .portedVocabCoreSense header,
+body.surfaceBody-lexical .portedVocabSenseList > section > header {
+  display: grid;
+  align-content: start;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 6px;
+}
+body.surfaceBody-lexical .portedVocabCoreSense header span,
+body.surfaceBody-lexical .portedVocabSenseList > section > header span {
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 860;
+  letter-spacing: .04em;
+}
+body.surfaceBody-lexical .portedVocabCoreSense header small {
+  grid-column: 1 / -1;
+  color: var(--lexical-faint);
+  font-size: 10px;
+}
+body.surfaceBody-lexical [data-vocab-repair] {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #cbd8d2;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--lexical-accent);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+body.surfaceBody-lexical [data-vocab-repair]:hover,
+body.surfaceBody-lexical [data-vocab-repair].selected {
+  border-color: var(--lexical-accent);
+  background: var(--lexical-accent-soft);
+}
+body.surfaceBody-lexical .portedVocabCoreSense > div > p,
+body.surfaceBody-lexical .portedVocabSenseList > section > div > p {
+  margin: 0 0 3px;
+  color: var(--lexical-ink);
+  font-size: 17px;
+  line-height: 1.55;
+}
+body.surfaceBody-lexical .portedVocabCoreSense > div > strong,
+body.surfaceBody-lexical .portedVocabSenseList > section > div > strong {
+  color: var(--lexical-muted);
+  font: 600 15px/1.5 var(--study-serif);
+}
+body.surfaceBody-lexical .portedVocabSenseList ul {
+  display: grid;
+  gap: 0;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+body.surfaceBody-lexical .portedVocabSenseList li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 42px;
+  padding: 7px 0;
+  border-top: 1px solid var(--lexical-line-soft);
+}
+body.surfaceBody-lexical .portedVocabSenseList li b {
+  color: #27473d;
+  font-size: 13px;
+}
+body.surfaceBody-lexical .portedVocabSenseList li span {
+  color: var(--lexical-muted);
+  font-size: 12px;
+}
+body.surfaceBody-lexical .portedVocabIdentityOverlay {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 9px;
+  align-items: center;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-left: 2px solid #a9c5ba;
+  background: #f7faf8;
+}
+body.surfaceBody-lexical .portedVocabIdentityOverlay small {
+  color: var(--lexical-accent);
+  font-size: 9px;
+  font-weight: 820;
+}
+body.surfaceBody-lexical .portedVocabIdentityOverlay b {
+  color: #3d554d;
+  font-size: 12px;
+  line-height: 1.45;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn {
+  position: sticky;
+  top: 70px;
+  align-self: start;
+  max-height: calc(100dvh - 84px);
+  overflow: auto;
+  gap: 0;
+  padding: 17px 18px 24px;
+  border-left: 1px solid var(--lexical-line);
+  background: #f8f9f8;
+  scrollbar-gutter: stable;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn > section {
+  border: 0;
+  border-bottom: 1px solid var(--lexical-line);
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn > section:last-child {
+  border-bottom: 0;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn > section > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 0 8px;
+  border-bottom: 0;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn > section > header span {
+  color: var(--lexical-ink);
+  font-size: 13px;
+  font-weight: 820;
+}
+body.surfaceBody-lexical .portedVocabEvidenceColumn > section > header small {
+  color: var(--lexical-faint);
+  font-size: 9px;
+}
+body.surfaceBody-lexical .portedVocabEvidenceList article {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--lexical-line-soft);
+}
+body.surfaceBody-lexical .portedVocabEvidenceList article:last-child {
+  border-bottom: 0;
+}
+body.surfaceBody-lexical .portedVocabEvidenceList article b {
+  display: block;
+  padding-right: 36px;
+  color: #29463c;
+  font-size: 13px;
+  line-height: 1.4;
+}
+body.surfaceBody-lexical .portedVocabEvidenceList article p {
+  margin: 4px 0 0;
+  color: var(--lexical-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+body.surfaceBody-lexical .portedVocabEvidenceList article [data-vocab-repair] {
+  position: absolute;
+  top: 8px;
+  right: 0;
+}
+body.surfaceBody-lexical .portedVocabLocalNote {
+  padding-bottom: 8px;
+}
+body.surfaceBody-lexical .portedVocabLocalNote header small {
+  display: none;
+}
+body.surfaceBody-lexical .portedVocabLocalNote p {
+  margin: 2px 0 10px;
+  color: var(--lexical-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+body.surfaceBody-lexical .portedVocabLocalNote button {
+  min-height: 34px;
+  padding: 6px 9px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--lexical-accent);
+  font-size: 11px;
+  font-weight: 780;
+}
+body.surfaceBody-lexical .portedVocabFoot {
+  align-items: center;
+  padding: 9px 14px;
+  border-top-color: var(--lexical-line);
+  color: var(--lexical-faint);
+  font-size: 10px;
+}
+body.surfaceBody-lexical .portedVocabFoot details {
+  max-width: 42%;
+  text-align: right;
+}
+body.surfaceBody-lexical .portedVocabFoot summary {
+  cursor: pointer;
+}
+body.surfaceBody-lexical .portedVocabFoot code {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 9px;
+}
+
+/* Challenge — keep transport available, but let the learner question dominate. */
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-import-panel],
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-complete-panel] {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 30px 34px;
+}
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-import-panel] h3,
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-complete-panel] h3 {
+  margin: 0 0 6px;
+  color: var(--lexical-ink);
+  font-size: 23px;
+}
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-import-panel] p,
+body.surfaceBody-lexical .portedVocabChallengeRuntime [data-challenge-complete-panel] p {
+  color: var(--lexical-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+body.surfaceBody-lexical [data-challenge-packet-input] {
+  min-height: 96px;
+  max-height: 150px;
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--lexical-line);
+  border-radius: 8px;
+  background: #f8faf9;
+  color: #40554d;
+  font-size: 11px;
+  line-height: 1.45;
+  resize: vertical;
+}
+body.surfaceBody-lexical .lexicalChallengeStage {
+  padding: 28px 30px 36px;
+}
+body.surfaceBody-lexical .lexicalChallengeStem {
+  max-width: 64rem;
+  margin: 34px auto 28px;
+  color: var(--lexical-ink);
+  font: 600 clamp(20px, 2vw, 27px)/1.55 var(--study-serif);
+  text-align: left;
+}
+body.surfaceBody-lexical .lexicalChallengeOptions {
+  max-width: 64rem;
+  gap: 9px;
+  margin: 0 auto 24px;
+}
+body.surfaceBody-lexical .lexicalChallengeOptions button {
+  min-height: 58px;
+  padding: 12px 14px;
+  border-color: var(--lexical-line);
+  border-radius: 9px;
+  background: #fff;
+  color: #243b33;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+}
+body.surfaceBody-lexical .lexicalChallengeOptions button:hover {
+  border-color: #9db9ae;
+  background: #f8fbf9;
+}
+body.surfaceBody-lexical .lexicalChallengeFeedback {
+  max-width: 64rem;
+  margin: 16px auto;
+  padding: 13px 16px;
+  border: 0;
+  border-left: 3px solid var(--lexical-accent);
+  border-radius: 0;
+  background: var(--lexical-accent-soft);
+  color: #29463c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body.surfaceBody-lexical button:focus-visible,
+body.surfaceBody-lexical a:focus-visible,
+body.surfaceBody-lexical input:focus-visible,
+body.surfaceBody-lexical textarea:focus-visible {
+  outline: 2px solid rgba(36, 107, 85, .42);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1050px) {
+  body.surfaceBody-lexical .lexicalHomePanel[data-lexical-panel="study"] {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  body.surfaceBody-lexical .portedVocabBody {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+@media (max-width: 860px) {
+  body.surfaceBody-lexical .lexicalHomeHeader {
+    align-items: start;
+    flex-direction: column;
+  }
+  body.surfaceBody-lexical .lexicalHomeHeader nav {
+    width: 100%;
+    overflow-x: auto;
+  }
+  body.surfaceBody-lexical .lexicalHomeHeader button {
+    flex: 1 0 auto;
+  }
+  body.surfaceBody-lexical .lexicalHomePanel[data-lexical-panel="study"] {
+    grid-template-columns: 1fr;
+  }
+  body.surfaceBody-lexical .lexicalContinueCard {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 210px;
+  }
+  body.surfaceBody-lexical .portedVocabWordHeader {
+    align-items: start;
+    flex-direction: column;
+  }
+  body.surfaceBody-lexical .portedVocabWordHeader aside {
+    width: 100%;
+    padding: 10px 0 0;
+    border-top: 1px solid var(--lexical-line);
+    border-left: 0;
+    text-align: left;
+  }
+  body.surfaceBody-lexical .portedVocabBody {
+    grid-template-columns: 1fr;
+  }
+  body.surfaceBody-lexical .portedVocabEvidenceColumn {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    border-top: 1px solid var(--lexical-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  body.surfaceBody-lexical .surface-lexical {
+    width: min(100% - 14px, 760px);
+  }
+  body.surfaceBody-lexical .lexicalHomeHeader h2 {
+    font-size: 30px;
+  }
+  body.surfaceBody-lexical .lexicalContinueCard {
+    padding: 22px 18px;
+  }
+  body.surfaceBody-lexical .portedVocabWordFront {
+    min-height: 430px;
+    padding: 34px 18px;
+  }
+  body.surfaceBody-lexical .portedVocabWordHeader {
+    padding: 17px 16px 14px;
+  }
+  body.surfaceBody-lexical .portedVocabMeaningColumn {
+    padding: 12px 14px 24px;
+  }
+  body.surfaceBody-lexical .portedVocabCoreSense,
+  body.surfaceBody-lexical .portedVocabSenseList > section {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding-left: 9px;
+  }
+  body.surfaceBody-lexical .portedVocabSenseList li {
+    grid-template-columns: 1fr auto;
+  }
+  body.surfaceBody-lexical .portedVocabSenseList li span {
+    grid-column: 1;
+  }
+  body.surfaceBody-lexical .lexicalChallengeStage {
+    padding: 18px 14px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.surfaceBody-lexical * {
+    scroll-behavior: auto !important;
+  }
+}
