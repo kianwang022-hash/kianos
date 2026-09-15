@@ -1,0 +1,502 @@
+---
+const { answer } = Astro.props;
+const card = answer?.record || {};
+const senses = Array.isArray(card.senses) ? card.senses : [];
+const presentation = senses.map((sense) => ({
+  governingPattern: String(sense?.governing_pattern || '').trim(),
+  commonCollocations: (Array.isArray(sense?.collocations) ? sense.collocations : [])
+    .filter((item) => item?.exam_value !== 'fixed_pattern')
+    .map((item) => ({
+      phrase: String(item?.phrase || '').trim(),
+      meaningCn: String(item?.meaning_cn || '').trim()
+    }))
+    .filter((item) => item.phrase || item.meaningCn)
+}));
+const presentationJson = JSON.stringify(presentation);
+---
+
+<div class="vocabLegacyPresentationPayload" data-vocab-sense-presentation={presentationJson} hidden></div>
+
+<script>
+  const hydrateLegacySensePresentation = () => {
+    document.querySelectorAll('[data-vocab-sense-presentation]').forEach((payloadNode) => {
+      if (!(payloadNode instanceof HTMLElement) || payloadNode.dataset.visualHydrated === 'true') return;
+      const parent = payloadNode.parentElement;
+      const root = parent?.querySelector('[data-local-port="vocabulary"]');
+      if (!(root instanceof HTMLElement)) return;
+      const list = root.querySelector('[data-vocab-repair-list]');
+      if (!(list instanceof HTMLElement)) return;
+
+      let presentation = [];
+      try { presentation = JSON.parse(payloadNode.dataset.vocabSensePresentation || '[]'); } catch { presentation = []; }
+      if (!Array.isArray(presentation)) presentation = [];
+
+      const rows = [...list.children].filter((candidate) => candidate instanceof HTMLElement);
+      presentation.forEach((senseView, index) => {
+        const row = rows[index];
+        if (!(row instanceof HTMLElement) || row.dataset.legacySenseGeometry === 'true') return;
+        const heading = row.querySelector(':scope > header');
+        const content = row.querySelector(':scope > div');
+        if (!(heading instanceof HTMLElement) || !(content instanceof HTMLElement)) return;
+
+        row.dataset.legacySenseGeometry = 'true';
+        row.classList.add('portedVocabSenseRow');
+        heading.classList.add('portedVocabSenseHeading');
+        content.classList.add('portedVocabSenseMeaning');
+
+        const pos = heading.querySelector(':scope > span');
+        if (pos instanceof HTMLElement) {
+          pos.classList.add('portedVocabSensePos');
+          pos.textContent = String(pos.textContent || '').trim().toLowerCase();
+        }
+
+        const governingPattern = String(senseView?.governingPattern || '').trim();
+        if (governingPattern) {
+          const pattern = document.createElement('code');
+          pattern.className = 'portedVocabSensePattern';
+          pattern.textContent = governingPattern;
+          const repair = heading.querySelector('[data-vocab-repair]');
+          heading.insertBefore(pattern, repair || null);
+        }
+
+        const cn = content.querySelector(':scope > p');
+        const en = content.querySelector(':scope > strong');
+        if (cn instanceof HTMLElement || en instanceof HTMLElement) {
+          const definition = document.createElement('div');
+          definition.className = 'portedVocabSenseDefinition';
+          if (cn instanceof HTMLElement) {
+            cn.classList.add('portedVocabSenseCn');
+            definition.appendChild(cn);
+          }
+          if (en instanceof HTMLElement) {
+            en.classList.add('portedVocabSenseEn');
+            definition.appendChild(en);
+          }
+          content.appendChild(definition);
+        }
+
+        const fixedList = content.querySelector(':scope > ul');
+        const commonRows = Array.isArray(senseView?.commonCollocations) ? senseView.commonCollocations : [];
+        if (fixedList instanceof HTMLElement || commonRows.length > 0) {
+          const facts = document.createElement('aside');
+          facts.className = 'portedVocabSenseFacts';
+
+          if (fixedList instanceof HTMLElement) {
+            const fixedRow = document.createElement('div');
+            fixedRow.className = 'portedVocabSenseFactRow fixed';
+            const label = document.createElement('em');
+            label.textContent = '固定结构';
+            fixedList.classList.add('portedVocabSenseFactItems');
+            fixedRow.append(label, fixedList);
+            facts.appendChild(fixedRow);
+          }
+
+          if (commonRows.length > 0) {
+            const commonRow = document.createElement('div');
+            commonRow.className = 'portedVocabSenseFactRow common';
+            const label = document.createElement('em');
+            label.textContent = '常见搭配';
+            const items = document.createElement('div');
+            items.className = 'portedVocabSenseFactItems portedVocabSenseCommonItems';
+            commonRows.forEach((item) => {
+              const fact = document.createElement('span');
+              fact.className = 'portedVocabSenseFact';
+              const phrase = document.createElement('b');
+              phrase.textContent = String(item?.phrase || '');
+              const meaning = document.createElement('small');
+              meaning.textContent = String(item?.meaningCn || '');
+              fact.append(phrase, meaning);
+              items.appendChild(fact);
+            });
+            commonRow.append(label, items);
+            facts.appendChild(commonRow);
+          }
+
+          row.appendChild(facts);
+        }
+      });
+
+      rows.slice(presentation.length).forEach((row) => {
+        if (row instanceof HTMLElement) row.classList.add('portedVocabSenseRowSecondary');
+      });
+      payloadNode.dataset.visualHydrated = 'true';
+    });
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hydrateLegacySensePresentation, { once: true });
+  else hydrateLegacySensePresentation();
+</script>
+
+<style is:global>
+  /*
+   * Screenshot-guided legacy vocabulary presentation.
+   * Geometry only: Current word owners, Reveal/Repair state, keyboard behavior,
+   * persistence and Return Packet remain owned by VocabularyWordRuntime.
+   */
+  :root body.surfaceBody-lexical #main-content.productCanvas.noPageLead {
+    width: min(1540px, calc(100% - 28px));
+    padding-top: 12px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalStudyNav,
+  :root body.surfaceBody-lexical #main-content .portedVocabRuntime {
+    width: 100%;
+    max-width: 96rem;
+  }
+
+  :root body.surfaceBody-lexical #main-content .lexicalStudyNav {
+    min-height: 46px;
+    margin-bottom: 8px;
+    padding: 7px 10px;
+    border: 1px solid #d8e3de;
+    border-radius: 11px;
+    background: #fffdfa;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabRuntime {
+    gap: 8px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabPreviewBar {
+    min-height: 48px;
+    padding: 6px 11px;
+    border: 1px solid #d8e3de;
+    border-radius: 11px;
+    background: #fffdfa;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabStudySheet {
+    border-color: #d3dfda;
+    border-radius: 16px;
+    background: #fffdfa;
+    box-shadow: 0 18px 48px rgba(25, 62, 50, .07);
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabWordFront {
+    min-height: min(650px, calc(100dvh - 178px));
+    gap: 12px;
+    padding: 42px;
+    background:
+      radial-gradient(circle at 50% 22%, rgba(70, 128, 108, .08), transparent 23%),
+      #fffdfa;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabWordFront h2 {
+    color: #102c24;
+    font: 650 clamp(62px, 8vw, 96px) / .96 Georgia, "Times New Roman", serif;
+    letter-spacing: -.045em;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabWordHeader {
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid #dce4e0;
+    background:
+      radial-gradient(circle at 92% 4%, rgba(80, 142, 120, .10), transparent 31%),
+      linear-gradient(135deg, #fffdfa, #f4f8f5);
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabWordHeader h2 {
+    font-size: clamp(44px, 4.7vw, 66px);
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabBody {
+    grid-template-columns: minmax(0, 1fr) minmax(370px, .38fr);
+    background: #f2f1ed;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabMeaningColumn {
+    min-width: 0;
+    padding: 9px 10px 11px;
+    background: #fff;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabCoreSense {
+    margin-bottom: 5px;
+    padding: 11px 12px;
+    border: 1px solid #dedfd9;
+    border-left: 4px solid #236c56;
+    border-radius: 7px;
+    background: #fff;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseList {
+    gap: 5px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseList > section.portedVocabSenseRow {
+    display: grid;
+    grid-template-columns: minmax(0, .86fr) minmax(430px, 1.14fr);
+    align-items: stretch;
+    gap: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #dedfd9;
+    border-left: 4px solid #236c56;
+    border-radius: 7px;
+    background: #fff;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseMeaning {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    min-width: 0;
+    padding: 10px 12px 11px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseHeading {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 7px;
+    margin: 0;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSensePos {
+    flex: 0 0 auto;
+    color: #52635d;
+    font: 800 17px/1.25 Georgia, "Times New Roman", serif;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSensePattern {
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 3px 8px;
+    overflow: hidden;
+    border: 1px solid #8db3a7;
+    border-radius: 6px;
+    background: #fffdfa;
+    color: #18241f;
+    font: 800 17px/1.25 Georgia, "Times New Roman", serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseHeading > [data-vocab-repair] {
+    flex: 0 0 auto;
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #548578;
+    font-size: 20px;
+    line-height: 1;
+    opacity: .62;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseHeading > [data-vocab-repair]:hover,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseHeading > [data-vocab-repair].selected {
+    background: #edf6f2;
+    color: #2f6b59;
+    opacity: 1;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseDefinition {
+    display: grid;
+    grid-template-columns: minmax(86px, .34fr) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 5px 14px;
+    min-width: 0;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseCn {
+    margin: 0;
+    color: #455f56;
+    font-size: 17px;
+    font-weight: 780;
+    line-height: 1.42;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseEn {
+    min-width: 0;
+    color: #101614;
+    font: 750 18px/1.34 Georgia, "Times New Roman", serif;
+    overflow-wrap: anywhere;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFacts {
+    display: grid;
+    align-content: center;
+    gap: 5px;
+    min-width: 0;
+    padding: 8px 11px;
+    border-left: 1px solid #e1e2dc;
+    background: #fbfcfa;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactRow {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 4px 10px;
+    min-width: 0;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactRow + .portedVocabSenseFactRow {
+    padding-top: 4px;
+    border-top: 1px solid #ecece7;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactRow > em {
+    color: #52655e;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.38;
+    white-space: nowrap;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px 18px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems > li,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFact {
+    display: inline-flex;
+    min-width: 0;
+    align-items: baseline;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    color: #24342e;
+    white-space: normal;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems b,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFact b {
+    color: #263e36;
+    font: 750 18px/1.35 Georgia, "Times New Roman", serif;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactRow.fixed b {
+    color: #142f28;
+    text-decoration: underline;
+    text-decoration-color: #397565;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems span,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems small,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFact small {
+    color: #68766f;
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems [data-vocab-repair] {
+    display: inline-grid;
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 1px;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #548578;
+    font-size: 18px;
+    line-height: 1;
+    opacity: .58;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems [data-vocab-repair]:hover,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems [data-vocab-repair].selected {
+    background: #edf6f2;
+    color: #2f6b59;
+    opacity: 1;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseRow.keyboard-target,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems > li.keyboard-target {
+    box-shadow: inset 0 0 0 1px #79a898;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseRow.repair-selected,
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseFactItems > li.repair-selected {
+    background: #f5faf7;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn {
+    min-width: 0;
+    gap: 8px;
+    padding: 9px;
+    border-left: 1px solid #d9d8d3;
+    background: #f2f1ed;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn > section {
+    border: 1px solid #d9ddd9;
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn > section > header {
+    padding: 9px 10px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabEvidenceList article {
+    gap: 5px;
+    padding: 9px 10px;
+  }
+
+  :root body.surfaceBody-lexical #main-content .portedVocabSenseRowSecondary {
+    grid-template-columns: 92px minmax(0, 1fr);
+    padding: 9px 11px;
+  }
+
+  @media (max-width: 1240px) {
+    :root body.surfaceBody-lexical #main-content .portedVocabBody {
+      grid-template-columns: minmax(0, 1fr) minmax(330px, .42fr);
+    }
+
+    :root body.surfaceBody-lexical #main-content .portedVocabSenseList > section.portedVocabSenseRow {
+      grid-template-columns: minmax(0, .95fr) minmax(360px, 1.05fr);
+    }
+
+    :root body.surfaceBody-lexical #main-content .portedVocabSenseDefinition {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    :root body.surfaceBody-lexical #main-content .portedVocabBody {
+      grid-template-columns: 1fr;
+    }
+
+    :root body.surfaceBody-lexical #main-content .portedVocabEvidenceColumn {
+      border-top: 1px solid #d9d8d3;
+      border-left: 0;
+    }
+  }
+
+  @media (max-width: 820px) {
+    :root body.surfaceBody-lexical #main-content .portedVocabSenseList > section.portedVocabSenseRow {
+      grid-template-columns: 1fr;
+    }
+
+    :root body.surfaceBody-lexical #main-content .portedVocabSenseFacts {
+      border-top: 1px solid #e1e2dc;
+      border-left: 0;
+    }
+
+    :root body.surfaceBody-lexical #main-content .portedVocabSenseFactRow {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
