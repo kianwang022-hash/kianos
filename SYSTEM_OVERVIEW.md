@@ -35,12 +35,12 @@ Chat / 人工判断
 
 ## 2｜现在四个大模块做到哪
 
-| 模块 | 功能状态 | 内容状态 | 现在还要做什么 |
-| --- | --- | --- | --- |
-| **English** | **已收口** | 主体内容已完成 | **只做最终 UI**；真实学习发现 bug 才重开功能 |
-| **Politics** | **已收口** | 五科内容 / Projection / 肖1000主链已完成 | **只做最终 UI**；不再重开学习架构 |
-| **LexicalOS** | Repair / Evidence 接近收口 | 7946 全量语义 review + audit 已完成；canonical 实现到 **o3374** | 收完 Repair / Challenge / English handoff；之后继续实现 **o3375+** 内容 |
-| **Xizong** | 通用学习 Runtime 已经能跑完整系统 | A1/A2/A3 已闭合；B 正在继续；后续系统持续扩张 | B Projection/后续 Runtime；继续补后续 Systems、Visual、Precision、题目关系 |
+| 模块 | 功能状态 | 内容状态 | UI | 现在还要做什么 |
+| --- | --- | --- | --- | --- |
+| **English** | ✅ 已收口 | ✅ 主体内容完成 | 🟡 | **只做最终 UI**；真实学习发现 bug 才重开功能 |
+| **Politics** | ✅ 已收口 | ✅ 五科 / Projection / 肖1000主链完成 | 🟡 | **只做最终 UI**；不再重开学习架构 |
+| **LexicalOS** | 🟡 Repair / Evidence 接近收口 | 🟡 7946 review + audit 完成；canonical 到 **o3374** | 🟡 | 收完 Repair / Challenge；之后持续实现 **o3375+** |
+| **Xizong** | 🟢 **System-level 共享 Runtime 已成型**；全卷 Runtime 仍未做 | 🟡 A1/A2/A3 已开放；B 接入中；后续 System 持续扩张 | 🟡 | B Projection / Runtime / Questions；后续 Systems；Visual / Precision 按需持续补 |
 
 ---
 
@@ -170,15 +170,29 @@ o3375+                             NOT YET ACTIVATED
 
 ---
 
-# 6｜Xizong
+# 6｜Xizong｜重点总览
 
-## 通用学习流程
+## 一句话状态
+
+> **西综的 System-level 学习机器已经成型；现在主要是在把更多 System 按同一套机器接进来，并持续补 Visual / Precision / 题目关系。**
+
+不要把下面三件事混在一起：
+
+```text
+共享功能有没有做完
+≠ 某个 System 有没有接完
+≠ 后续 Visual / Precision 有没有补全
+```
+
+---
+
+## 6.1｜西综平时怎么学
 
 ```text
 System
 → Block
 → Logic Group
-→ KianOS orientation / attention cue
+→ KianOS 给定位 / 注意点
 → iPad / MarginNote 连续读原讲义
 → 回 KianOS
 → KP Recall
@@ -205,67 +219,261 @@ Connection
 
 它们是**有则展示**，不是每个 KP 都必须有。
 
-## 当前系统进度
+---
+
+## 6.2｜共享功能进度
+
+| 功能 | 状态 | 人话解释 |
+| --- | --- | --- |
+| System / Block / Logic Group / KP 学习链 | ✅ DONE | 已经有一套通用学习模型，不给每个系统另造一套 |
+| MarginNote / 原讲义 handoff | ✅ DONE | 原讲义负责连续学习，网页不做第二本讲义 |
+| KP Recall / LG closure / Block Recall / Complete | ✅ DONE | 当前已开放 System 可以正常完整学完一个 Block |
+| System Recall | ✅ DONE | System 真学完后再进入 |
+| System official-question sweep | ✅ DONE for 已有合法题库的 System | 没有 exact membership 的 System 不猜题目范围 |
+| Wrong / Uncertain → Repair → exact Return | ✅ DONE | Repair 不覆盖原始 Recall / Question Attempt |
+| Multi-pass attempts | ✅ DONE at System-question level | FIRST_PASS / SECOND_PASS / LATE_REVIEW 共用一套 Runtime |
+| 全卷 Runtime | ⏸ NOT YET | 以后做整卷时复用现有 attempt 语义，不新建第二套 Evidence |
+| Progressive availability | 🟡 规则已明确 | 未开放内容不能伪装成 learner prerequisite；后续 UI/Runtime 按能力状态呈现 |
+| Final UI | 🟡 | 单独 UI lane 收口，不改变上面学习语义 |
+
+### 功能真正还缺什么
+
+目前西综**不是**缺一套新的学习 Runtime。
+
+真正的共享功能缺口主要是：
+
+```text
+1. 未来整卷 Runtime
+2. 后续 System 接入时证明不需要 system-specific 页面逻辑
+3. Progressive availability 在最终网页里的统一呈现
+```
+
+其他大部分工作属于**内容接入**，不是再造功能。
+
+---
+
+## 6.3｜各 System 内容 / 接入进度
 
 ### A1 循环
 
 ```text
-功能 / 内容 / Runtime / Evidence：DONE
-下一步：真实学习 + UI
+功能：✅ DONE
+Knowledge / Learning：✅ DONE
+Runtime / Evidence：✅ DONE
+UI：🟡 待最终收口
+真实学习 U：尚未
 ```
+
+人话：
+
+> **A1 已经能学，工程上不用继续折腾。**
+
+---
 
 ### A2 呼吸
 
 ```text
 12 Blocks / 236 KPs / 62 Logic Groups
-功能 / 内容 / Runtime / Evidence：DONE
-Source Visual 已开始跑真实案例
-下一步：真实学习 + Visual 按需继续补 + UI
+
+功能：✅ DONE
+Knowledge / Learning：✅ DONE
+Runtime / Evidence：✅ DONE
+Source Visual：🟡 按价值持续补
+UI：🟡 待最终收口
+真实学习 U：尚未
 ```
+
+人话：
+
+> **A2 已经能完整学习；Visual 是增量内容，不是开放 A2 的前置条件。**
+
+---
 
 ### A3 泌尿
 
 ```text
 14 Blocks / 257 KPs / 75 Logic Groups
 243 official questions
-功能 / 内容 / Runtime / Evidence：DONE
-下一步：真实学习 + UI
+
+功能：✅ DONE
+Knowledge / Learning：✅ DONE
+Runtime / Evidence：✅ DONE
+Questions：✅ exact System sweep 可用
+UI：🟡 待最终收口
+真实学习 U：尚未
 ```
+
+人话：
+
+> **A3 已经能学，官方题目链也闭合。**
+
+---
 
 ### B 消化 / 代谢 / 内分泌 / 肿瘤
 
 ```text
 38 Blocks / 600 KPs / 170 Logic Groups
-Knowledge：DONE
-Learning：DONE
-Projection：IN PROGRESS / NEXT
-Runtime / Evidence：等待 Projection
-Official-question exact membership：仍需闭合
+
+Knowledge：✅ DONE
+Learning：✅ DONE
+Projection：🟡 NEXT / IN PROGRESS
+Runtime / Evidence：⏸ 等 B Projection 接入后完成
+Official-question exact membership：⏸ 未闭合
+Visual / Precision：后续按需
+UI：等可用内容接入共享页面
 ```
+
+人话：
+
+> **B 的医学内容和学习顺序已经定了；现在是在把它接进现有网页学习机器。**
+
+B 当前最重要的顺序：
+
+```text
+Projection
+→ Runtime / Evidence 接入
+→ exact official-question membership
+→ System question sweep
+→ 可开放为完整 learner System
+```
+
+不要因为 B 还没完全开放，就重做 A1/A2/A3 或重新设计共享 Runtime。
+
+---
 
 ### 后续 Systems
 
 ```text
-持续建设
+状态：COMING / 持续建设
 ```
 
 原则：
 
-> 新 System 接入已有通用 Runtime，不重新发明一套学习系统。
+> **新 System 是“接入已有机器”，不是“新建一个网站功能”。**
 
-## Visual / Precision 内容线
+---
+
+## 6.4｜以后每个新 System 固定怎么做
+
+以后看任何一个新 System，只按这条线看进度：
+
+```text
+① Knowledge
+   Blocks / KPs / Logic Groups / System model
+
+↓
+
+② Learning
+   学习顺序、Lecture handoff、Recall / closure 逻辑
+
+↓
+
+③ Projection
+   哪些内容怎么进入 learner-facing 页面
+
+↓
+
+④ Runtime / Evidence 接入
+   复用共享 Runtime，证明状态 / Resume / Repair / Return 正常
+
+↓
+
+⑤ Questions
+   exact official-question membership
+   + reviewed Question → Knowledge relation
+
+↓
+
+⑥ Optional enrichment
+   Visual / Precision / Reserve / Connection
+
+↓
+
+⑦ UI
+   用共享 task-native 页面呈现，不给每个 System 手工画新网站
+```
+
+### System 开放标准
+
+不是要求所有 enrichment 都完成。
+
+一个 System 可以开放，当它的**当前主学习链已经完整可信**：
+
+```text
+Knowledge
++ Learning
++ Projection
++ Runtime / Evidence
++ 当前阶段真正需要的 Questions
+= OPEN
+```
+
+而：
+
+```text
+更多 Visual
+更多 Precision
+更多后期题目关系
+更多二轮增强
+```
+
+可以继续在 OPEN 之后增长。
+
+---
+
+## 6.5｜Visual / Precision 内容线
 
 PDF 重新读取的目标不是“把所有图搬进网页”，而是：
 
 ```text
 Source PDF
 → 判断这个东西属于：
-   SOURCE VISUAL / PROJECTION / PRECISION / SKIP
+   SOURCE VISUAL
+   / PROJECTION
+   / PRECISION
+   / SKIP
 → 绑定 owning Logic Group / KP
 → 在正确学习时刻出现
 ```
 
-Visual / Precision 可以持续补，不阻塞已经开放的学习主线。
+### Visual 的完成标准
+
+不是：
+
+> 所有 PDF 图片都裁完。
+
+而是：
+
+> **真正依赖视觉理解的对象被正确识别和接入；其余内容不为了“完整率”强行做成图片。**
+
+所以 Visual / Precision 是**持续内容线**，不阻塞已经开放的 A1/A2/A3。
+
+---
+
+## 6.6｜西综最值得一直看的未完成项
+
+```text
+共享功能
+→ 全卷 Runtime
+→ Progressive availability 最终网页呈现
+
+B System
+→ Projection
+→ Runtime / Evidence
+→ exact official-question membership
+→ official question sweep
+
+后续 Systems
+→ 按 Knowledge → Learning → Projection → Runtime → Questions 接入
+
+持续增量
+→ Source Visual
+→ Precision
+→ reviewed Question → Knowledge relations
+
+UI
+→ latest Current 上做最终 Mac-wide 收口
+```
 
 ---
 
@@ -327,6 +535,7 @@ Xizong
 → B official-question exact membership
 → 后续 Systems 持续建设
 → Source Visual / Precision 按认知价值持续补
+→ 未来全卷 Runtime
 
 Global / Website
 → 最新 Current 稳定后做统一 UI convergence
