@@ -5,6 +5,7 @@ import PoliticsCognitiveWorkspace from '../../../components/PoliticsCognitiveWor
 import PoliticsCognitiveWorkspaceBridge from '../../../components/PoliticsCognitiveWorkspaceBridge.astro';
 import PoliticsRepairEnhancer from '../../../components/PoliticsRepairEnhancer.astro';
 import PoliticsUnitReturnEnhancer from '../../../components/PoliticsUnitReturnEnhancer.astro';
+import PoliticsPracticeBridge from '../../../components/PoliticsPracticeBridge.astro';
 import PoliticsEvidenceEnhancer from '../../../components/PoliticsEvidenceEnhancer.astro';
 import { listPoliticsChapterPathsCurrent, loadPoliticsChapterCurrent } from '../../../lib/politicsCurrent.mjs';
 import { enrichPoliticsChapterCurrent } from '../../../lib/politicsRepairMemory.mjs';
@@ -31,6 +32,8 @@ const useCognitiveWorkspace = subject === 'marxism'
   active="politics"
   showLead={!useCognitiveWorkspace}
 >
+  <PoliticsPracticeBridge chapter={data} base={base} />
+
   <script is:inline>
     (() => {
       try {

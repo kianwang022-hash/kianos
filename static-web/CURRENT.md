@@ -1,36 +1,153 @@
 # KianOS Static-Web Current
 
 Role: **learner-facing productization Work Cursor / router only**  
-Program: #113 · Integrated execution: **#148**  
-Single master: **`static-web/CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` v3.2+**
+Program owner: **#113 — KianOS 三科 Current 对齐 / 清债 / 最终收口**
 
-## Current task / Next
+This file routes product/UI work. It does not own subject Content, Learning, Question Truth, Evidence, Acceptance Truth, or learner progress.
 
-继续一个完整的三科网站集成任务：**忠实文字框落地 → Astra整站polish → 程序/浏览器验证 → 一次FULL-SITE HUMAN GATE**。不是逐页自由重设计，也不是每个内部Stage请求用户复制下一条指令。
+---
 
-Composition baseline：`design-archive/2026-09-14/THREE_SUBJECT_TEXT_FRAMES_V2_1.md`。原不可变指针和档案保持不变；按同一页面状态对账。P10为clean attempt、P11为submitted，不能用P10替代pre-session Setup。
+## Current execution mode
 
-Latest domain Current / Learning / Question Truth / Evidence / Runtime仍管语义。旧原肖解析、OCR fallback、due、失效ownership/状态规则不随构图恢复。
+There is **no active #148-style all-site implementation branch**.
 
-## 当前范围
+Current product work is in a **semantic/runtime stabilization + historical cleanup phase before final visual convergence**:
 
-| Family | 本轮产品化任务 | 精确责任 |
+```text
+subject Current / Acceptance
+→ close real Runtime / Evidence / availability blockers
+→ retire stale integration owners
+→ freeze stable learner journeys + capability slots
+→ one fresh latest-main Pro visual-convergence lane
+→ screenshot / real-journey Human Gate
+```
+
+Do not restart from #148, #154, #167, #117, or another stale integration branch.
+
+The archived three-subject text frames and old browser screenshots remain useful **visual reference / provenance only**. Latest domain Current, Learning, Question Truth, Evidence and Runtime always outrank them. Never restore retired Xiao original-explanation display, OCR fallback, due scheduling, stale ownership/progress/Gate semantics, duplicate lecture readers, or other superseded logic merely to imitate an old frame.
+
+---
+
+## Current product map
+
+| Family | Current state | Active product owner / next boundary |
 | --- | --- | --- |
-| Politics | #117工作台有效实现与构图；Home、五科认知/NU、Chengfeng/source/repair/Return | `POLITICS_PRODUCT_STATUS.md`、`POLITICS_LEGACY_FUNCTION_PARITY.md`；#116/#139/#140 |
-| English | Home/Resume、全部Current任务族、三份Guide、Lexical只读handoff | `ENGLISH_PRODUCT_STATUS.md`；#141 |
-| Xizong | 本轮A1/A2/A3的Guide/System/Block/LG/KP/Recall/question/repair/Return | `XIZONG_PRODUCT_STATUS.md`与系统Current/Acceptance；#142 |
-| Global | 三科接口/合法surfaces机器可集成后完成Home/shared shell/跨科回归 | #143；不要求先虚报各科人工接受或先自merge |
+| **English** | Objective / Translation / Writing S–E frozen; post-optimization T1/T2/W1 reconciled on main | No active engineering expansion. Only concrete contradictory evidence, real learner U, or final visual convergence. |
+| **Politics** | Five-subject learning closed through E; Xiao1000 Workbench Current on main via #183 | **#116** owns remaining Politics Home/Continue, five-subject cognition, NU/Chengfeng handoff, source/repair/exact Return consistency and final Mac visual convergence. |
+| **Xizong** | Growing Current product; same Runtime/Evidence model continues to absorb new Systems/capabilities | Route through `content/xizong/CURRENT.md`, System Current/Acceptance, `XIZONG_PRODUCT_STATUS.md`. Stabilize representative Source Visual / Precision / Projection slots and progressive availability before final visual convergence. |
+| **Global Home** | Final integration intentionally deferred until subject interfaces are stable enough | Program #113. Desktop target is a **single-viewport command center** for core subject status / Continue / Today / Attention; no invented cross-subject mastery/scheduler/debt dashboard. |
 
-## 续接已有工作
+### Lexical supporting lane
 
-读取actual #117 head/receipt与#148，而不是回到旧的“patch未推送、#144未合并”叙事。#144包装修复已落main。#117已有正式资料与P10/P11构图工作；其证据只对对应SHA/样本成立。保留实现与历史证据，修改相关层后正常回归，不从零重写，也不禁止重跑测试。
+Lexical is a first-class supporting system for English, not a fourth exam subject in this product router.
 
-#117回执中的1148 explanation binding与1127可练/21缺NU owner保护是两种不同覆盖口径。按Current程序重新计算，不硬编码、不中性化缺口，不把eligible workbench误报成全题/全政治已完成。
+Its current product blocker is **Repair / Challenge / Evidence Runtime Closure** (Current rebase phase in #174, followed by target-type coverage + English↔Lexical real handoff + fresh P/R/E acceptance). Lexical content may continue expanding independently; final site UI must not assume the Repair product is already closed.
 
-## 执行/验收责任
+---
 
-#139–#143是内部能力与验收账本，不再是人工串行STOP。独立内容线（Lexical升级、西综B–F）继续；本轮不进入B–F内容/预设计，不冻结未来内容演化。
+## English
 
-同一UI写集一个writer；不接管正在运行的writer。可用依赖型integration branch保留#117有界差异并连续施工，不必先自行merge。未合并依赖明确pin，不当main Truth。普通实现/测试/布局适配由Astra完成；真实权限/语义冲突/破坏性迁移/需人选择的结构才升级。
+Current facts:
 
-阶段检查、机器integration readiness、独立review、Kian视觉接受和learner truth分别记录。只有证据和最终授权真实到位才声明接受/落库；**不自行merge、不制造learner U**。人工Gate检查真实学习手感，不让Kian核hash/CI。详细执行与退出规则只由master及`STAGED_PRODUCT_ACCEPTANCE_PROTOCOL.md`承担。
+- scoped Objective / Translation / Writing Current + Acceptance own semantics;
+- S/K/L/P/R/E PASS; learner U remains real use only;
+- #180 merged the bounded post-optimization Translation/Writing reconciliation;
+- #137 and #141 are historical/superseded evidence ledgers;
+- #154 / #167 are historical integration/visual evidence only.
+
+Do not reopen English architecture for aesthetic work. Preserve task-native geometry, complete task context, first-artifact preservation, exact Return/Resume and protected unseen boundaries. Final styling waits for the fresh visual-convergence lane.
+
+---
+
+## Politics
+
+Current facts:
+
+- five subject lanes are closed through E; learner U remains real use only;
+- the Xiao1000 Workbench from historical #117 was fresh-reconciled through #183 and is now on main;
+- #117 / #139 / #140 are historical or superseded, not Current owners;
+- `POLITICS_PRODUCT_STATUS.md` and **#116** own remaining product closure.
+
+Workbench Current preserves Current Question Truth / exact explanation binding / first attempt / Evidence / fail-closed save behavior / exact source Return. Historical visual polish is reference only; final composition still requires later screenshot-driven acceptance.
+
+---
+
+## Xizong
+
+Xizong is intentionally progressive rather than waiting for every future System to be complete.
+
+Use:
+
+```text
+System
+→ Block
+→ Logic Group
+→ original Lecture handoff
+→ Recall / closure
+→ System Recall / Questions
+→ W/U Repair / Return
+```
+
+The same stable Runtime/Evidence model owns repeated study phases; #168 already closed phase-aware multi-pass System Question Attempts without creating a second Runtime.
+
+Source Visual / PDF reread follows **Visual Truth Admission**, not bulk image harvesting. Future content should enter stable capability slots rather than force page redesign.
+
+---
+
+## Progressive availability
+
+Future-growing subject content / questions / visual / challenge capability uses:
+
+```text
+OPEN       current capability is usable
+PARTIAL    main path usable; bounded capability still growing
+COMING     canonical scope exists but learner surface is not open
+PROTECTED  intentionally withheld (e.g. holdout / unseen)
+N/A        capability does not apply
+```
+
+Hard rule:
+
+> **engineering incompleteness ≠ learner incompleteness ≠ prerequisite**
+
+An unopened question/visual/challenge/system capability must not manufacture learner debt, block an otherwise accepted path, or appear as a broken empty surface.
+
+---
+
+## Final visual convergence boundary
+
+Do not perform a new large-scale final UI rewrite until the product-surface-changing Runtime/Evidence/availability contracts are stable enough.
+
+When that point is reached, start **one clean visual-convergence branch from latest main** and consume:
+
+- Current Truth;
+- persistent UI Reference Set;
+- Kian's real screenshots and latest preferences;
+- still-valid presentation decisions recovered from historical evidence only when they remain compatible with Current.
+
+Visual defaults:
+
+- Mac-wide origin;
+- larger comfortable text / modern system sans;
+- medium-high useful density with low disorder;
+- low gratuitous whitespace / no generic card pile;
+- subject/task-native geometry;
+- real browser screenshots as aesthetic authority.
+
+Final product acceptance remains distinct from learner U.
+
+---
+
+## Historical routing
+
+Old #148-era Stage/Acceptance ledgers and integration PRs are provenance only unless #113 explicitly reactivates a bounded requirement. They must not be used as fresh Work Cursors.
+
+Normal re-entry:
+
+```text
+static-web/CURRENT.md
+→ #113 Program map
+→ exact domain Current / Product Status
+→ narrow active owner
+→ work
+```

@@ -1,35 +1,94 @@
 # English Product / UI Status
 
-Status: **FUNCTIONAL FIRST CLOSED THROUGH E · PRODUCT DESIGN ACCEPTED · PRODUCTION PRODUCTIZATION / MAC ACCEPTANCE OPEN**  
+Status: **FUNCTIONAL / SEMANTIC CLOSURE THROUGH E · FINAL VISUAL CONVERGENCE DEFERRED**  
 Role: English productization status/router, not Learning/Evidence owner  
-Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.0+ §4–5、§8–11**  
+Program: `static-web/CURRENT.md` / #113  
 Domain: `content/english/CURRENT.md` / `LEARNING_CONTRACT.md` / `PROJECTION_CONTRACT.md`  
-Detailed design: `ENGLISH_PRODUCT_BRIEF.md`
+Detailed product reference: `ENGLISH_PRODUCT_BRIEF.md`
 
-## 当前事实
+## Current facts
 
-Objective/Translation/Writing 已有 S/K/L/P/R/E PASS；U 仍 real-use-only/UNTESTED。这里没有新增浏览器或视觉接受声明。现有 Runtime 是 baseline，不因 UI 粗糙而重开学习架构。
+Objective / Translation / Writing are accepted through **S/K/L/P/R/E**; learner U remains real-use-only / UNTESTED. Existing Runtime / Evidence semantics are frozen by default.
 
-产品 family：English Home/meaningful Resume；Reading A；Cloze；Part B 四 forms；Translation；Small/Big Writing；三份 First Learning Guide；Lexical read-only handoff/exact return。剩余是这些实际 surfaces 的产品化、浏览器/长文本验收和真实独立审查。
+The fresh post-optimization audit identified three bounded K/L debts and they are now reconciled on main via #180 (`59a1d8a9d6f53879309bf8fd701b4f8612e0d207`):
 
-## 不变的 Logic / geometry
+- Translation Integrated Walkthrough now preserves agent neutrality and the source `when` relation;
+- Translation deep reference is explicitly a repair/reference reservoir, not a four-block Current first-learning route;
+- Writing deep reference is explicitly a repair/reference reservoir, not a mandatory B1–B8 Current first-learning route.
 
-Digital Workbook + Adaptive Coach；perform → fast triage → EXIT 或最小有用 repair → 必要时 learner 再执行 → performance。整篇/整套/整文是 attempt/review context，repair 可局部或联合；dormant pending state 不召唤任务。
+Historical #137 / #141 / #154 / #167 are not Current work owners.
 
-Reading A：完整 passage + 全题组，独立滚动；Cloze：全文 + 全20行；Part B：全材料/候选池/完整 matching/order map；Translation：源文 + 整套译文；Writing：prompt/requirements + dominant authoring，Direct 同等合法。first plan（存在时）/first draft/first translation、protected material、提交权限和 Resume 优先级不变。
+## Product family
 
-## Guide 的最新补充
+Current English family remains:
 
-First Learning 既支持**首次自主建立体系**，也支持**真实问题的 targeted intervention**。完整但可跳，不是 prerequisite course；不能只在做错以后才可进入，也不能只藏在 Home 默认折叠的 details 中。
+- English Home / meaningful Resume;
+- Reading A;
+- Cloze;
+- Part B four forms;
+- Translation;
+- Small / Big Writing;
+- Objective / Translation / Writing Guides;
+- Lexical read-only lookup / exact return where supported.
 
-科目/题型入口保留安静且明确的 Guide 次级动作，训练是日常主动作。Objective 用 `/objective-learn/` 的 Reading/Cloze/Part B anchors，Translation `/translation-learn/`，Writing `/writing-learn/`。源 owner 与对应 loader 见 master §4。
+These surfaces are functionally mature enough that English no longer needs an independent expansion project. Remaining work is final screenshot-driven product convergence, plus real learner U or concrete contradictory evidence.
 
-Guide 位置独立保存，不覆盖 productive Resume 或 learner truth。任务→Guide→精确原任务往返、首学建模与完整长内容均须测试；不加读完 checkbox、复习债或虚构阅读分钟数。
+## Stable learner geometry / semantics
 
-## 执行和收口
+Digital Workbook + Adaptive Coach:
 
-实际活动 UI PR 跟随 `static-web/CURRENT.md`/#113；不与 #117 的 shared 写集竞争。使用 reusable task/Guide renderers，全量程序检查，代表压力样本浏览器验收；不逐段人工重写/验收。
+```text
+perform
+→ fast triage
+→ EXIT or smallest useful repair
+→ learner re-executes when useful
+→ performance
+```
 
-只有完整此 family 范围的实现、保护态/返回/保存、代表 Mac 视觉与独立审查均有证据，且经授权落 main 后，才可记录 `SUBJECT_CLOSED_FOR_HOME`。不自行 merge、不制造 U。
+Task context stays whole:
 
-旧 Product Brief 的 `ACTIVE DISCUSSION` 与“Home 尚未讨论”阶段文字已失效；其中具体任务行为仍有效，Guide entry 按上述后来明确决定补充。定稿前状态原文保留于 `design-archive/2026-09-14/ENGLISH_STATUS_BEFORE_V3.md`。
+- Reading A = complete passage + full question set with independent passage/question scrolling;
+- Cloze = full passage + all 20 items;
+- Part B = full materials / candidate pool / matching-or-order map;
+- Translation = source text + complete authored translation;
+- Writing = prompt / requirements + dominant authoring workspace; Direct remains legitimate.
+
+First plan / first draft / first translation, protected material, submit authority and productive Resume must not be overwritten by later revision or UI polish.
+
+### Guide
+
+Guides support both first independent modeling and targeted intervention. They are persistent optional orientation references, not prerequisite courses, completion checklists or review debt generators.
+
+Current entries:
+- Objective → `/objective-learn/` Reading / Cloze / Part B anchors;
+- Translation → `/translation-learn/`;
+- Writing → `/writing-learn/`.
+
+Guide position must not overwrite productive task Resume or learner truth.
+
+## Visual boundary
+
+There is no active English implementation PR after Current cleanup.
+
+Do not reopen English architecture merely to improve appearance. Final visual work must start later from a fresh latest-main visual-convergence branch and preserve task-native geometry.
+
+Accepted presentation directions to carry forward include:
+
+- Mac-wide composition;
+- larger comfortable system-sans typography;
+- medium/high useful density with low disorder;
+- Reading A passage pane clearly wider than the question pane (accepted legacy proportion ≈ `1.12fr / .88fr` on desktop, responsive stacking on narrow screens);
+- no giant-whitespace Home / generic card pile;
+- real browser screenshots as the aesthetic authority.
+
+Historical frame/screenshot work remains reference only and cannot restore old scheduler / Gate / progress / learner-state semantics.
+
+## Exit
+
+English does **not** need another `SUBJECT_CLOSED_FOR_HOME` engineering ceremony. Global Home may consume stable English interfaces when appropriate; that does not manufacture learner U.
+
+Future English work is allowed only for:
+
+1. concrete contradictory Source / semantic / Runtime / Evidence findings;
+2. real learner U feedback;
+3. final cross-site visual convergence / accessibility / responsive polish that preserves Current semantics.

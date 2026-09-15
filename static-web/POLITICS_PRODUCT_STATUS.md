@@ -1,6 +1,6 @@
 # Politics Product / UI Status
 
-Status: **LEARNING CLOSED THROUGH E · PRODUCT/PROJECTION ACCEPTED · POST-CLOSURE IMPLEMENTATION / PARITY / MAC ACCEPTANCE OPEN**  
+Status: **LEARNING CLOSED THROUGH E · XIAO1000 WORKBENCH CURRENT ON MAIN · BROADER PRODUCT / MAC ACCEPTANCE OPEN**  
 Execution: `CODEX_ASTRA_THREE_SUBJECT_SITE_EXECUTION.md` **v3.0+ §6、§8–11**  
 Work router: `content/politics/CURRENT.md` / `static-web/CURRENT.md`  
 Safety: `POLITICS_UI_REVIEW_PROTOCOL.md`  
@@ -10,7 +10,7 @@ Parity capability owner: `POLITICS_LEGACY_FUNCTION_PARITY.md` / #116
 
 五科 S/K/L/P/R/E PASS，U UNTESTED。Projection manifest 已有53 chapter、160NU（151 PASS、9 REFERENCE_ONLY、0 BLOCKED）；这是资产层事实，不是每页视觉验收。
 
-#117 / `politics-legacy-parity-migration` 是当前活动 Draft，范围只有肖1000工作台。它不重开 Learning/Projection，也不代表整个五科 UI 已完成。其余 Home/五科认知workspace/source handoff/repair-return 仍需按实际实现对账。
+肖1000 Workbench 已由 #183 fresh-reconcile 到最新 Current 并落入 main（`890415ee273ec7baa1f010fbfc180fc18b7005d2`）。旧 #117 / `politics-legacy-parity-migration` 只保留为历史实现/浏览器证据，不再是 Current implementation owner。Workbench 已有 Current-data parity、synthetic journey、formal Current-data browser journey 与 merge-ref cross-subject CI；这仍不代表整个五科 UI 已完成。其余 Home / 五科认知 workspace / source handoff / repair-return 继续由 #116 统一收口。
 
 #115 的内容promotion 已经由 #124 完成。`content/politics/derived/xiao1000-learner-explanations/` 的1148 records 是 Current-derived 数据，后续任务是 exact-ID consumer/浏览器，不重做1148条语义迁移。
 
@@ -42,6 +42,6 @@ Optional close 不取消内容学习前置。Suyi 被吸收不另开课；不要
 
 运行 Current Projection/Politics QA、相关行为负控制和 master P-J1–8；五科认知与工作台是不同验收family。保护态、保存失败、刷新、跨源返回、长文本和Mac主视口都需真实证据。无新runtime/browser测试的文档更新不能标UI PASS。
 
-能力账本全部有 disposition、required/current-equivalent 有实际证据、独立review及必要Kian接受、授权落main后，才可声明本范围闭合。#117完成不自动关闭#116；学习U不能由测试制造。
+Workbench 已落 main 不自动关闭 #116。能力账本全部有 disposition、remaining product families 有实际证据、独立review及必要Kian视觉接受后，才可声明 Politics product/UI 范围闭合；学习U不能由测试制造。
 
 定稿前的完整状态/旧规则在 `design-archive/2026-09-14/POLITICS_STATUS_BEFORE_V3.md`；正常施工不读旧阶段指令。
