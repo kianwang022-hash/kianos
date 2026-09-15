@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4fcefedff45b5f8745e92568da79363422a0433b8ba0ae022c8e850effa4805b",
+    "content_hash": "4f84e5c5a3cc8dfb9aa6fa02544c584c8b6e0505c099c8ce249e614da5d4da02",
     "core_concept": {
       "core_clusters": [
         {
@@ -39,7 +39,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -199,7 +201,43 @@
     },
     "word": "program",
     "word_family": [],
-    "word_id": "word:program"
+    "word_id": "word:program",
+    "form_identity": {
+      "form_type": "regional_spelling_by_sense",
+      "spelling": "program",
+      "identity_rule": "same_word_owner_regional_spelling_by_sense",
+      "boundary": "AmE generally uses program; BrE commonly uses programme for planned activities/broadcasts, but program is standard for computing",
+      "variants": [
+        {
+          "variant_id": "form:program:ame",
+          "surface": "program",
+          "region": "AmE",
+          "roles": [
+            "computing",
+            "plan",
+            "broadcast"
+          ]
+        },
+        {
+          "variant_id": "form:programme:bre-general",
+          "surface": "programme",
+          "region": "BrE",
+          "roles": [
+            "plan_of_activities",
+            "broadcast"
+          ]
+        },
+        {
+          "variant_id": "form:program:bre-computing",
+          "surface": "program",
+          "region": "BrE",
+          "roles": [
+            "computing"
+          ]
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

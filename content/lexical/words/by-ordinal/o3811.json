@@ -7,19 +7,38 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6910fed52e479d46fcebae250666c8f76d1909b06e59e629392cda24598ebf3d",
+    "content_hash": "abf24c5dd11cefa45358c4bb4a41033b5d7b35f3a52a789231973aa4c5d6fdbf",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "深刻的；深远的",
-      "core_meaning_en": "very great, deep, or intense",
-      "mental_model_cn": "深刻的；深远的",
+      "core_clusters": [
+        {
+          "label_cn": "深刻的；影响深远/程度极大的",
+          "label_en": "very great, deep, or intense",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:profound:829036b94b1356aa"
+          ]
+        },
+        {
+          "label_cn": "思想深邃的；有深刻洞见的",
+          "label_en": "showing deep insight or understanding",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:profound:ffebbbd863995474"
+          ]
+        }
+      ],
+      "core_meaning_cn": "深刻的；深远的；思想深邃的",
+      "core_meaning_en": "very deep/intense or showing deep insight",
+      "mental_model_cn": "深刻的；深远的；思想深邃的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -54,6 +73,30 @@
         "sense_id": "sense:profound:829036b94b1356aa",
         "sense_label_en": "very great or intense",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:896a7cf668783654dfea",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:profound:ffebbbd863995474:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "深刻的洞见/理解",
+            "phrase": "profound insight/understanding"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "深刻的；思想深邃的；显示深刻洞见的",
+        "definition_en": "showing or causing deep knowledge, insight, understanding, or significance",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:profound:ffebbbd863995474",
+        "sense_label_en": "showing or causing deep knowledge, insight, understanding, or significance",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -102,31 +145,6 @@
       "source_row": 10605,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:profound:ffebbbd863995474",
-      "status": "merged",
-      "merged_into_sense_id": "sense:profound:829036b94b1356aa",
-      "pos": "adjective",
-      "definition_cn": "渊博的；深刻的",
-      "definition_en": "showing great knowledge or insight",
-      "semantic_key": "a9a28b0eef1f26bd3a3494b60f04b98260fc0b5f948d81c9c5eb5a168a8b3872",
-      "semantic_key_history": [
-        "9c1506a173ac61d9b42ee76f80d7bf7600370eab70dfd93aaf81ff2f285489ba"
-      ],
-      "legacy_aliases": [
-        "profound:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "profound:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10607,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -147,14 +165,15 @@
       },
       {
         "sense_id": "sense:profound:ffebbbd863995474",
-        "status": "merged",
-        "merged_into_sense_id": "sense:profound:829036b94b1356aa",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10607,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
     "active_collocations": [
       "collocation:653480b63d1462311371",
+      "collocation:896a7cf668783654dfea",
       "collocation:fca845652f95652f6d34"
     ],
     "facts": [],
@@ -167,6 +186,11 @@
       {
         "id": "collocation:653480b63d1462311371",
         "source_row": 8530,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:896a7cf668783654dfea",
+        "source_row": 21619,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {

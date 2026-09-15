@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "c2e2ada07a2d9e68b358864bcbe27defdc7f04b75927c1a80431ca9727f7c38c",
+    "content_hash": "358ddffdab77000f6a083fe5918c97ad1c08403c5ffb0c9e5fb1c29e08c52786",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,11 +34,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "confusable:horizontal:16d9328de352525d6df5"
+      "confusable:horizontal:16d9328de352525d6df5",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -115,7 +116,7 @@
         "pos": "verb",
         "sense_id": "sense:progress:2132360f46425bd2",
         "sense_label_en": "develop in a positive way",
-        "sort_order": 2,
+        "sort_order": 1,
         "transitivity": "vi"
       }
     ],
@@ -136,7 +137,38 @@
     },
     "word": "progress",
     "word_family": [],
-    "word_id": "word:progress"
+    "word_id": "word:progress",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "progress",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "boundary": "noun progress has initial stress; verb progress has final stress",
+      "variants": [
+        {
+          "variant_id": "form:progress:noun",
+          "surface": "progress",
+          "pos": [
+            "noun"
+          ],
+          "ipa_bre": "/ˈprəʊ.ɡres/",
+          "ipa_ame": "/ˈprɑː.ɡres/",
+          "learner_key": "initial stress",
+          "role": "noun"
+        },
+        {
+          "variant_id": "form:progress:verb",
+          "surface": "progress",
+          "pos": [
+            "verb"
+          ],
+          "ipa_bre": "/prəˈɡres/",
+          "ipa_ame": "/prəˈɡres/",
+          "learner_key": "final stress",
+          "role": "verb"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [
     {
