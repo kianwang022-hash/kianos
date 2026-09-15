@@ -217,15 +217,6 @@ const payload = JSON.stringify({
     sweepState = ensureXizongQuestionSweepState(sweepState, { ...attemptContext, holdoutYears });
     writeJson(sweepKey, sweepState);
 
-    const syncSweepState = () => {
-      const persisted = readJson(sweepKey, sweepState);
-      sweepState = ensureXizongQuestionSweepState(
-        persisted && typeof persisted === 'object' ? persisted : { results: {} },
-        { ...attemptContext, holdoutYears }
-      );
-      writeJson(sweepKey, sweepState);
-      return sweepState;
-    };
 
     const recallStatus = root.querySelector('[data-recall-status]');
     const startRecall = root.querySelector('[data-start-recall]');
@@ -553,7 +544,6 @@ const payload = JSON.stringify({
 
     startSweep?.addEventListener('click', () => {
       if (!recallState.completedAt || !holdoutYears.length) return;
-      syncSweepState();
       workspace.hidden = false;
       renderQuestion();
       workspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -582,7 +572,6 @@ const payload = JSON.stringify({
     copyWuButtons.forEach((button) => button.addEventListener('click', () => copyWu(button)));
     root.querySelector('[data-repeat-recall]')?.addEventListener('click', () => startRecall?.click());
     nextRoundButton?.addEventListener('click', () => {
-      syncSweepState();
       activeQuestions = computeActive();
       let nextState;
       try {
