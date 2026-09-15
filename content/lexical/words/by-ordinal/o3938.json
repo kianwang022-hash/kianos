@@ -7,7 +7,7 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6a660213ba342f6172e5b448f6e664fcdd71d6724ac5a01c867f6f0a4420e622",
+    "content_hash": "761f88ce2d414a9508997f149f3147d4c33e46145b2e932d16d4b35cc469293f",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -127,6 +129,44 @@
         "sense_label_en": "to arrange or put in a row or order",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "范围；幅度",
+        "definition_en": "the limits within which something operates or varies",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:range:3d74721533585b12",
+        "sense_label_en": "the limits within which something operates or varies",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8eff54d049b38e5a490c",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:range:fd1493a076caf392:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "从A到B不等；范围从A到B",
+            "phrase": "range from A to B"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（在一定范围内）变化；延伸",
+        "definition_en": "to vary or extend between specified limits",
+        "governing_pattern": "vi. + from ... to ...",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:range:fd1493a076caf392",
+        "sense_label_en": "to vary or extend between specified limits",
+        "sort_order": 5,
+        "transitivity": "vi"
       }
     ],
     "verification_summary": {
@@ -150,31 +190,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:range:3d74721533585b12",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "范围；幅度",
-      "definition_en": "the limits within which something operates or varies",
-      "semantic_key": "2cdc917283d898b6ddd05a8fe889ea88fa8206f732a0f5276c905f5eaaf90011",
-      "semantic_key_history": [
-        "eb861056930164347c7b97c57302abd33fac58e1ba0df239800a3da98b77d828"
-      ],
-      "legacy_aliases": [
-        "range:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "range:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10980,
-      "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:range:d6c443c20af4515b",
       "status": "deprecated",
@@ -205,7 +220,7 @@
     "senses": [
       {
         "sense_id": "sense:range:3d74721533585b12",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10980,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
@@ -244,10 +259,18 @@
         "merged_into_sense_id": null,
         "source_row": 10985,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:range:fd1493a076caf392",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11081,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       }
     ],
     "active_collocations": [
       "collocation:0975cf9fd21b9f89fa81",
+      "collocation:8eff54d049b38e5a490c",
       "collocation:d659f645706292f16c8b",
       "collocation:e38af8dabeb6e2995818"
     ],
@@ -271,6 +294,11 @@
       {
         "id": "collocation:35b0116bf5196b1d38e4",
         "source_row": 4551,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:8eff54d049b38e5a490c",
+        "source_row": 21597,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       },
       {

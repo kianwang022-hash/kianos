@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5be9f8d5c6015ae9ab7cc3b1272c290282be888bca1ab79a5680836c2ee4b658",
+    "content_hash": "f09ca5f1ff7e541fed9f3062e2383bf150c24c1b6bcdc848076e26c152254f40",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,7 +38,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3875-o4124"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -173,6 +175,30 @@
         "sense_label_en": "the extent or range of something, especially the distance one can reach",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb25cb672b49084c1050",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:reach:8c646a1baf27bd46:collocation:forward-o3875-o4124"
+            ],
+            "meaning_cn": "通过电话/邮件联系到某人",
+            "phrase": "reach sb by phone/email"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "联系到；与……取得联系",
+        "definition_en": "to contact or successfully communicate with someone",
+        "governing_pattern": "vt. + person",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:reach:8c646a1baf27bd46",
+        "sense_label_en": "to contact or successfully communicate with someone",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -225,6 +251,13 @@
         "merged_into_sense_id": null,
         "source_row": 11033,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:reach:8c646a1baf27bd46",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11082,
+        "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
       }
     ],
     "active_collocations": [
@@ -233,6 +266,7 @@
       "collocation:55b47f1ff377082b4171",
       "collocation:83a8141048810a9d1237",
       "collocation:bded5271cad3ca228aef",
+      "collocation:cb25cb672b49084c1050",
       "collocation:eccb76522c10117f8394",
       "collocation:f163a44c7a6238915812",
       "collocation:f4a8674cb0edd7d0dfe1"
@@ -262,6 +296,11 @@
       {
         "id": "collocation:bded5271cad3ca228aef",
         "source_row": 16078,
+        "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:cb25cb672b49084c1050",
+        "source_row": 21599,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
       },
       {
