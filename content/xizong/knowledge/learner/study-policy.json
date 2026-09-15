@@ -74,6 +74,17 @@
     "admit": ["已经正式学过且需要重复检索才能稳定的 Core", "当前 owner 下需要精确掌握的 Precision", "Recall 不稳项", "Wrong / Uncertain 暴露项", "learner 主动要求后续复习的内容"],
     "reject": ["仅作为路牌的 Connection Hook", "尚未正式理解的后续大知识", "低价值补充", "已自然稳定且没有继续复习收益的事实"]
   },
+  "evidence_interpretation": {
+    "separation": "Observed performance / self-rating is evidence, not root-cause diagnosis, learner-state certainty or an automatic next action.",
+    "weak_signal_rule": "Wrong / Uncertain / unknown / fuzzy means the current evidence is insufficient or unstable under that task; do not automatically infer that the medical knowledge model is missing.",
+    "positive_signal_rule": "Correct / known / mastered self-rating supports only the observed task and conditions; do not silently promote it to delayed recall, application, transfer or stable mastery.",
+    "diagnosis_rule": "Only diagnose when plausible causes would lead to materially different next actions. If the same low-cost reversible action fits the plausible causes, skip explicit diagnosis and take that action.",
+    "discrimination_rule": "When competing causes would change the repair, use the smallest discriminating check that can separate them before reopening larger content.",
+    "next_action_rule": "Choose the smallest useful action: CONTINUE, MINIMAL_REPAIR, DISCRIMINATION_CHECK, PRECISION_RECALL, FRESH_APPLICATION or RETURN. A real weak signal may enter Memory under the existing admission rule, but it must not automatically reopen a whole KP/Block or create additional durable debt.",
+    "evidence_preservation": "Preserve the original observation and its meaning. Memory / Chat repair may resolve the local task but does not rewrite the original Recall or prove mastery; later fresh evidence may strengthen or overturn the estimate.",
+    "runtime_capture": "Runtime should preserve object/task identity, evidence origin, attempt ordering and already-known reveal/assistance/provenance/version conditions when available, without adding mandatory learner-facing forms.",
+    "chat_role": "Chat may form bounded diagnosis hypotheses and return the smallest useful repair plan. A diagnosis remains a hypothesis until discriminating or later evidence supports it."
+  },
   "lecture_runtime_contract": {
     "lecture": "首次学习必须完整接触的原始教学材料：解释顺序、原图、表格、例子、题旁拓展与讲义配套题。",
     "kianos": "负责框架、注意力边界、机制定位、串联调度、主动 Recall、压缩与后续复习；不得变成第二本需要与 Lecture 重复通读的长讲义。",
