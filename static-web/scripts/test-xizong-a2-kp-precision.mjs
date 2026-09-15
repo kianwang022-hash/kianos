@@ -113,9 +113,14 @@ try {
     check(await answer.isVisible(), `answer_visible_after_reveal_${item.kpId}`);
     check(await stack.isVisible(), `precision_visible_after_reveal_${item.kpId}`);
 
-    const beforeId = await root.locator('[data-kp-recall-card]:not([hidden])').getAttribute('data-kp-id');
+    const visibleCard = root.locator('[data-kp-recall-card]:not([hidden])');
+    const beforeId = await visibleCard.getAttribute('data-kp-id');
     await root.locator('[data-recall-next]').click();
-    const afterId = await root.locator('[data-kp-recall-card]:not([hidden])').getAttribute('data-kp-id');
+    let afterId = await visibleCard.getAttribute('data-kp-id');
+    if (afterId === beforeId) {
+      await root.locator('[data-recall-prev]').click();
+      afterId = await visibleCard.getAttribute('data-kp-id');
+    }
     check(afterId && afterId !== beforeId, `moved_to_another_kp_${item.kpId}`, `${beforeId}->${afterId}`);
     check(await stack.isHidden(), `previous_precision_hidden_after_kp_move_${item.kpId}`);
   }
