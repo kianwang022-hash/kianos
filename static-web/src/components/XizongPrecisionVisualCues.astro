@@ -1,9 +1,11 @@
 ---
+import { attachSourceVisualBundles } from '../lib/xizongSourceVisualAssets.mjs';
+
 const { block } = Astro.props;
 const groups = block?.logicGroups || [];
 const kps = block?.kpRecords || [];
 const precision = block?.learningCues?.precision || [];
-const visuals = block?.learningCues?.visuals || [];
+const visuals = attachSourceVisualBundles(block?.learningCues?.visuals || []);
 
 const byAnchor = (rows, key) => Object.fromEntries(rows.reduce((acc, row) => {
   const id = row?.anchor?.[key];
@@ -46,14 +48,59 @@ const payload = {
       el.append(label, text);
       return el;
     };
+
     const makeVisual = (row) => {
       const el = document.createElement('div');
       el.className = 'xv6LearningCue visual';
+      const bundle = row?.source_visual_bundle || null;
+      const assets = Array.isArray(bundle?.assets) ? bundle.assets : [];
+      if (assets.length) el.classList.add('hasSourceVisuals');
+
       const label = document.createElement('span');
-      label.textContent = `看原图 · ${row?.source_locator || 'Lecture'}`;
+      label.textContent = `看原图 · ${bundle?.sourceLocator || row?.source_locator || 'Lecture'}`;
       const text = document.createElement('p');
       text.textContent = row?.task || '';
       el.append(label, text);
+
+      if (assets.length) {
+        const gallery = document.createElement('div');
+        gallery.className = 'xv6SourceVisualGallery';
+
+        assets.forEach((asset, index) => {
+          const figure = document.createElement('figure');
+          figure.className = 'xv6SourceVisualFigure';
+          if (index === 0 && assets.length > 1) figure.classList.add('primary');
+          if (asset?.sourceObjectId) figure.dataset.sourceObject = asset.sourceObjectId;
+          if (asset?.sourcePage) figure.dataset.sourcePage = String(asset.sourcePage);
+
+          const link = document.createElement('a');
+          link.className = 'xv6SourceVisualLink';
+          link.href = asset?.src || '#';
+          link.target = '_blank';
+          link.rel = 'noreferrer';
+          link.title = '打开原讲义裁图';
+
+          const img = document.createElement('img');
+          img.src = asset?.src || '';
+          img.alt = asset?.alt || asset?.usageLabel || '原讲义裁图';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          if (asset?.width) img.width = Number(asset.width);
+          if (asset?.height) img.height = Number(asset.height);
+          link.appendChild(img);
+
+          const caption = document.createElement('figcaption');
+          caption.textContent = asset?.usageLabel || (asset?.sourcePage ? `P${asset.sourcePage}` : '原讲义裁图');
+          figure.append(link, caption);
+          gallery.appendChild(figure);
+        });
+
+        const note = document.createElement('small');
+        note.className = 'xv6SourceVisualNote';
+        note.textContent = '原讲义精确裁图 · 点击图片可放大；这里不替代 MarginNote 连续学习。';
+        el.append(gallery, note);
+      }
+
       return el;
     };
 
@@ -73,11 +120,11 @@ const payload = {
       else card.querySelector(':scope > header')?.insertAdjacentElement('afterend', stack);
     });
 
-    // Group visual helps understanding now, so it appears at the section entrance.
+    // Group visual keeps its accepted learning moment: the Logic Group entrance.
     const logicStage = studyRoot.querySelector('[data-study-stage="logic_group"]');
     logicStage?.querySelector('.xv6LogicTarget')?.insertAdjacentElement('afterend', visualRoot);
 
-    // Group precision is a later exactness reminder, so it appears only after the section is learned.
+    // Group precision remains a later exactness reminder after the section is learned.
     const closeStage = studyRoot.querySelector('[data-study-stage="group_close"]');
     closeStage?.querySelector('.xv6GroupClosure')?.insertAdjacentElement('afterend', precisionRoot);
 
@@ -105,5 +152,30 @@ const payload = {
 </script>
 
 <style>
-  [data-xizong-group-visuals],[data-xizong-group-precision]{margin:.65rem 0}.xv6LearningCueStack{display:grid;gap:6px}.xv6LearningCueStack.kp{margin:.1rem 0 .8rem}.xv6LearningCue{display:grid;grid-template-columns:118px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem}.xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}.xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}.xv6LearningCue.precision{border-top:1px solid var(--line,#d9dde5)}.xv6LearningCue.precision span{color:var(--study-green,#286c57)}.xv6LearningCue.visual{padding:.5rem .6rem;border-radius:9px;background:var(--soft,#f5f6f8)}.xv6LearningCue.visual span{white-space:nowrap}@media(max-width:720px){.xv6LearningCue{grid-template-columns:1fr;gap:.15rem}}
+  [data-xizong-group-visuals],[data-xizong-group-precision]{margin:.65rem 0}
+  .xv6LearningCueStack{display:grid;gap:6px}
+  .xv6LearningCueStack.kp{margin:.1rem 0 .8rem}
+  .xv6LearningCue{display:grid;grid-template-columns:118px minmax(0,1fr);gap:.55rem;align-items:start;padding:.45rem .1rem}
+  .xv6LearningCue span{font-size:.72rem;font-weight:800;opacity:.68}
+  .xv6LearningCue p{margin:0;font-size:.84rem;line-height:1.55}
+  .xv6LearningCue.precision{border-top:1px solid var(--line,#d9dde5)}
+  .xv6LearningCue.precision span{color:var(--study-green,#286c57)}
+  .xv6LearningCue.visual{padding:.5rem .6rem;border-radius:9px;background:var(--soft,#f5f6f8)}
+  .xv6LearningCue.visual span{white-space:nowrap}
+  .xv6LearningCue.visual.hasSourceVisuals{grid-template-columns:1fr;padding:.7rem;gap:.3rem;border:1px solid var(--line,#d9dde5);background:var(--paper,#fff)}
+  .xv6LearningCue.visual.hasSourceVisuals>span{white-space:normal}
+  .xv6SourceVisualGallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:.4rem}
+  .xv6SourceVisualFigure{margin:0;min-width:0;border:1px solid var(--line,#d9dde5);border-radius:10px;overflow:hidden;background:#fff}
+  .xv6SourceVisualFigure.primary{grid-column:1/-1}
+  .xv6SourceVisualLink{display:block;padding:.35rem;background:#fff}
+  .xv6SourceVisualLink img{display:block;width:100%;height:auto;max-height:320px;object-fit:contain;margin:0 auto;background:#fff;cursor:zoom-in}
+  .xv6SourceVisualFigure.primary .xv6SourceVisualLink img{max-height:520px}
+  .xv6SourceVisualFigure figcaption{padding:.42rem .55rem .5rem;border-top:1px solid var(--line,#d9dde5);font-size:.74rem;line-height:1.35;font-weight:700;opacity:.72}
+  .xv6SourceVisualNote{display:block;margin-top:.15rem;font-size:.7rem;line-height:1.45;opacity:.58}
+  @media(max-width:720px){
+    .xv6LearningCue{grid-template-columns:1fr;gap:.15rem}
+    .xv6SourceVisualGallery{grid-template-columns:1fr}
+    .xv6SourceVisualFigure.primary{grid-column:auto}
+    .xv6SourceVisualLink img,.xv6SourceVisualFigure.primary .xv6SourceVisualLink img{max-height:none}
+  }
 </style>
