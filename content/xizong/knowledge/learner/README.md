@@ -15,6 +15,12 @@ Lane-level learning constitution is owned by `content/xizong/LEARNING_CONTRACT.m
 - System-specific `*-learning.json` files may add compact learning guidance such as Logic Group goals, closure cues and Recall skeletons;
 - System-specific `*-learning-cues.json` files may add **selective, non-authoritative indexes** for Precision awareness and Visual timing. They reference stable Block / Logic Group / KP identities, do not copy canonical answers, and absence from the index never means canonical content is unimportant or omitted.
 
+## Evidence / receipt boundary
+
+Files whose role is calibration, audit, re-acceptance or phase receipt (for example `*_PHASE*.md`, independent-acceptance receipts and similar builder/auditor records) are **evidence about how a Current owner was reached**, not an alternative Current learning model and not a Runtime input.
+
+Normal learning / Runtime consumers must resolve the Current owners above rather than reading receipt history as competing semantic authority. A receipt may justify or challenge an acceptance claim; it may not silently override `LEARNING_CONTRACT.md`, `study-policy.json`, canonical medical owners or the relevant accepted System learning asset.
+
 ## Hard boundary
 
 Shared learner support may answer **how and when to learn** a Current knowledge object. It may not silently change **what the medical knowledge is**.
