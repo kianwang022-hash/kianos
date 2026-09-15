@@ -861,7 +861,7 @@ relation / scope / role 没有明显失真？
 
 ```text
 MAIN
-越来越依赖某些 systems
+对某些 systems 的依赖日益加深
 → may create new problems
 
 SYSTEMS
@@ -893,14 +893,14 @@ the growing reliance on systems...
 
 可以组织成：
 
-> 人们越来越依赖那些旨在简化决策的系统；如果使用者想当然地认为这些系统始终可靠，这种依赖反而可能带来新的问题。
+> 对那些旨在简化决策的系统的依赖日益加深；当使用者想当然地认为这些系统始终可靠时，这种依赖可能带来新的问题。
 
-这里做了几件合法的 form change：
+这里做了几件合法的 form change，同时守住 Fidelity：
 
 ```text
-名词化 reliance → “人们越来越依赖”
+the growing reliance → 保留为“依赖日益加深”，不新增原文未明示的通用施事
 长 modifier → 放回 systems 后理解，再在中文里自然承载
-when-clause → 条件 / 情境前置
+when-clause → 时间 / 情境关系前置，不强化成“如果”条件
 reference → “这种依赖 / 这些系统”适度显化
 ```
 

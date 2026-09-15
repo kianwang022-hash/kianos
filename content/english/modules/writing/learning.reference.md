@@ -1,8 +1,8 @@
 # Writing｜能力地图与高密度学习资产
 
-> **定位**：Writing 的 Current learner-facing 能力资产。  
-> **适用状态**：学习者此前没有系统做过考研英语作文，需要先把“从题目生成一篇合格作文”的能力建立起来，再进入宝贵真题。  
-> **第一次学习**：先建立整张 Global Map，再连续学习 Core Learning Blocks；不要把第一次学习切成几十个孤立技巧、模板或句型。  
+> **定位**：Writing 的**保留型高密度 repair / reference reservoir**；它不是 Current learner-facing 首学路线。Current learner-facing authority 是同目录 `learning.md`。  
+> **当前入口**：Current Writing 以六个真实 primitives 为主干，First Learning targeted / skippable；真实 productive Runtime evidence 而不是 Guide 完成度决定后续动作。  
+> **历史结构边界**：下文旧版 B1–B8 连续学习与“先完整框架再进入真题”的措辞仅作为深层参考结构保留，不得重新解释为 Current 必修入口或 true-exam gate。  
 > **后续训练**：用 Skill Map 给失败建立稳定地址；正式 Writing Attempt 仍以“一篇完整作文”为 learner-facing 学习单位，内部 diagnosis 才细到 task / content / paragraph / sentence / lexical span。  
 > **Chat 展开原则**：静态资产负责把高频、稳定、真正影响写作能力的主干讲清楚；具体题目的内容选择、真实语域边界、多个问题同时出现、个性化表达与 micro-drill，再交给 Chat 按真实 evidence 展开。`可以问 Chat` 不是把正文做薄的理由。  
 > **真题保护**：Framework Learn、片段训练、第一次合成完整写作默认使用 synthetic material；fresh true exam 优先保留给 clean first attempt、exam-fit calibration 和 later transfer。  

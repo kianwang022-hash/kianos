@@ -1,7 +1,8 @@
 # Translation｜能力地图与高密度学习资产
 
-> **定位**：Translation 的 Current learner-facing 能力资产。  
-> **第一次学习**：先建立整张能力地图，再连续学习 4 个 Core Learning Blocks；不要把第一次学习切成几十个孤立 Skill。  
+> **定位**：Translation 的**保留型高密度 repair / reference reservoir**；它不是 Current learner-facing 首学路线。Current learner-facing authority 是同目录 `learning.md`。  
+> **当前入口**：Current 首学采用 `Representation → Reconstruction under Fidelity → Delivery` 三块主干，并且 targeted / skippable。下文旧版四块结构保留用于需要时下钻，不构成必修顺序。  
+> **历史结构边界**：下文任何“第一次学习连续建立 4 个 Core Learning Blocks”之类措辞都只描述旧版组织，不得重新解释为 Current Runtime / Projection 指令。  
 > **后续训练**：用 Skill Map 给失败建立稳定地址，按需展开局部 Skill Content；真实题目可以同时提供多个 Skill 的 evidence，但一次 repair 只追最早一个足以解释结果的 failure。  
 > **Chat 展开原则**：静态资产负责把高频、稳定、真正影响能力的主干讲清楚；复杂边界、多个机制同时作用、罕见结构、真实句子的歧义与个性化 micro-drill，优先在真实遇到时交给 Chat 展开。`可以问 Chat` 不是把正文做薄的借口，也不是预先把所有长尾写进教材的理由。  
 > **Runtime**：放在学习资产之后。它规定怎样 Attempt / Review / Repair / Transfer，不与 Translation skill 本身混为一类。  
