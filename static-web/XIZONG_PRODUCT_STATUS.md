@@ -23,7 +23,7 @@ System Guide → Block orientation → LG orientation → 原讲义整 LG 连续
 - `XIZONG_BLOCK_WORKSPACE_DESIGN.md`
 - `XIZONG_SYSTEM_COMPLETION_DESIGN.md`
 
-旧阶段标题不能把已接受设计重开；具体尚未实现的全卷 runtime/phase-aware attempt 兼容边界仍是真实待核对项，不能用文档冻结冒充完成。
+旧阶段标题不能把已接受设计重开；System sweep 的 phase-aware multi-pass Question Attempt 已在现有 Runtime 内落地。尚未实现的全卷 runtime，以及未来把同一 attempt 语义接入整卷场景，仍是真实待核对项，不能用文档冻结冒充完成。
 
 ## Canonical Current Runtime｜禁止并行第二套版本
 
@@ -52,22 +52,24 @@ System Guide → Block orientation → LG orientation → 原讲义整 LG 连续
 
 一轮、二轮、后期复习属于**同一学习模型和同一 Runtime 的 study phase / task condition**，不是三个产品。正式 Learning 语义仍由 `LEARNING_CONTRACT.md` + `study-policy.json` 一次拥有；页面只执行这些语义。
 
-### Multi-pass Question Attempt 最终兼容目标
+### Multi-pass Question Attempt｜Current 兼容状态
 
-同一个稳定 `question_id` 可以在一轮、二轮、后期或未来整卷中产生多次独立尝试。最终 Evidence 约束固定为：
+同一个稳定 `question_id` 可以在一轮、二轮、后期或未来整卷中产生多次独立尝试。当前 System sweep 的 Evidence 约束为：
 
 ```text
 stable question identity
-→ attempt 1 append-preserved
-→ attempt 2 append-preserved
-→ attempt 3 append-preserved
+├─ results        = mutable current-round progress only
+└─ attemptHistory = append-preserved Question Attempt evidence
+     ├─ FIRST_PASS
+     ├─ SECOND_PASS
+     └─ LATE_REVIEW
 ```
 
-首次尝试不得被后续答题、Repair 或状态更新覆盖；当前 session 的 `results` / progress 可以是可变工作态，但不能充当历史 Evidence 的唯一真相。二轮复用必须扩展现有 `XizongSystemExitRuntime` / System Evidence 链，而不是创建第二个二轮题目 Runtime。
+首次尝试不得被后续答题、Repair 或状态更新覆盖；当前 session 的 `results` / progress 是可变工作态，不再充当历史 Evidence 的唯一真相。下一轮只重置当前 `results`，历史 `attemptHistory` 保持 append-preserved；legacy `results` 迁移使用显式 `BOOTSTRAP_EXISTING_RESULT` provenance，不冒充新的 learner attempt。同一 question 在同一 round 的重复写入 fail closed。
 
-已有 System Recall 的 `PRE_QUESTION / MID_SWEEP / POST_QUESTION` 表示**一次题目流程内部的位置**；未来跨学习轮次应使用正交的 study-phase 语义，不能把两种“phase”混成一个字段。结果可见性、Mark、提示/援助、题目/内容版本等已知条件应随 attempt 保留；Repair / signal update 与原始 attempt 分开解释，继续遵守 `repair ≠ mastery`。
+二轮复用继续由现有 `XizongSystemExitRuntime` / System Evidence 链承担，没有创建第二个二轮题目 Runtime。A2 浏览器验收已执行真实路径：一轮同题 Uncertain → W/U Repair → 完成当前轮 → 同一 Runtime 开启 SECOND_PASS → 同题重新作答 Stable；第一条 attempt 保持不变，第二条 attempt 独立追加。Repair 继续作为 `REPAIR_ONLY` 证据解释，不改写原始 Question Attempt，也不自动推断 mastery。
 
-当前 `main` 尚未完成跨轮 multi-pass question re-entry。活动产品分支已经在尝试 append `attemptHistory`，但在其正式落 Current 且完成跨轮兼容前，这仍是**真实 gap，不是第二套 authority**。
+已有 System Recall 的 `PRE_QUESTION / MID_SWEEP / POST_QUESTION` 表示**一次题目流程内部的位置**；跨学习轮次使用正交的 `FIRST_PASS / SECOND_PASS / LATE_REVIEW` study-phase 语义，两种 phase 不共用一个字段。结果可见性、Mark、提示/援助、题目/内容版本等已知条件仍应随 attempt 保留；未来整卷接入继续沿用这一模型，而不是新建平行 authority。
 
 ## 展示与 Guide 最新明确要求
 

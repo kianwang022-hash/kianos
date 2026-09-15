@@ -219,11 +219,11 @@ has(memoryUi, "mastery: 'requires later meaningful fresh Recall/transfer evidenc
 has(memoryUi, 'const parsed = JSON.parse(text);', 'chat-return-json-parse-path');
 has(memoryUi, "window.alert('Chat 计划 JSON 无法解析。');", 'chat-return-json-error-path');
 
-has(exitUi, "persistResult(currentQuestion, 'wrong', currentSelection);", 'wrong-path');
+has(exitUi, "if (!persistResult(currentQuestion, 'wrong', currentSelection)) return;", 'wrong-path');
 has(exitUi, "nextAfter('stable')", 'stable-fast-pass');
-has(exitUi, "persistResult(currentQuestion, 'uncertain', currentSelection);", 'uncertain-path');
+has(exitUi, "if (!persistResult(currentQuestion, 'uncertain', currentSelection)) return;", 'uncertain-path');
 has(exitUi, ".filter(({ result }) => result && ['wrong', 'uncertain'].includes(result.status))", 'wu-only-packet');
-has(exitUi, 'results[question.questionId] = {', 'question-result-not-keyed-by-truth-id');
+has(exitUi, 'recordXizongQuestionAttempt(sweepState, {', 'question-result-not-routed-through-stable-attempt-owner');
 has(exitUi, '暂无审核过的精确 KP 回链：保留题号给 Chat，不让网页自己猜。', 'no-guess-guard');
 has(questionLib, "if (!row || row.review_status !== 'REVIEWED') return null;", 'unreviewed-precise-relation-accepted');
 
