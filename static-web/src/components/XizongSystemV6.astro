@@ -221,7 +221,6 @@ const failureViews = Object.fromEntries(Object.entries(pathways?.systemFailureVi
 
     links.forEach((link, index) => {
       link.addEventListener('focus', () => { selected = index; renderSelection(false); });
-      link.addEventListener('mouseenter', () => { selected = index; renderSelection(false); });
     });
     failureButtons.forEach((button) => button.addEventListener('click', () => runFailure(button.getAttribute('data-failure-id') || '')));
     open?.addEventListener('click', () => links[selected]?.click());
