@@ -1,47 +1,75 @@
-import p55Url from '../assets/xizong/source-visuals/a2-r03-lg01/p55.webp?url';
-import p60Url from '../assets/xizong/source-visuals/a2-r03-lg01/p60.webp?url';
-import p63Url from '../assets/xizong/source-visuals/a2-r03-lg01/p63.webp?url';
+import fs from 'node:fs';
+import path from 'node:path';
 
-const PATHOLOGY_SOURCE_SHA = '7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f';
-
-const bundles = Object.freeze({
-  'a2-r03-lg01-visual': Object.freeze({
-    sourceSha256: PATHOLOGY_SOURCE_SHA,
-    completenessPolicy: 'FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING',
-    assets: Object.freeze([
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi54:r067191-059388-604717-938331',
-        sourcePage: 55,
-        usageLabel: 'P55 · 正常气道 → 肺腺泡定位',
-        alt: '病理讲义 P55：传导部、呼吸部与肺腺泡的连续定位原图',
-        src: p55Url,
-        width: 420,
-        height: 555,
-        derivedAssetSha256: 'd755619e3b711effbaff75c818cf25d56585655bbd338ab92362a1e84bb80a83'
-      }),
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi59:r067191-593881-547125-873005',
-        sourcePage: 60,
-        usageLabel: 'P60 · 慢支气道壁病理',
-        alt: '病理讲义 P60：慢性支气管炎气道壁病理变化原图',
-        src: p60Url,
-        width: 420,
-        height: 197,
-        derivedAssetSha256: '026d4a76477fedcded32732765ac20951048a8ef21a135b1228fee919b3a8b37'
-      }),
-      Object.freeze({
-        sourceObjectId: 'pathology:7b41f26673fbb562:pi62:r076789-053449-623914-451349',
-        sourcePage: 63,
-        usageLabel: 'P63 · 肺气肿腺泡分型',
-        alt: '病理讲义 P63：肺气肿在肺腺泡内的分型位置原图',
-        src: p63Url,
-        width: 420,
-        height: 247,
-        derivedAssetSha256: 'd767568499deb8db5d55b95beb0bde0f5db753e44b1dabbff263526820171b58'
-      })
-    ])
-  })
+const repoRoot = process.env.KIANOS_REPO_ROOT
+  ? path.resolve(process.env.KIANOS_REPO_ROOT)
+  : path.resolve(process.cwd(), '..');
+const REGISTRY_ROOT = path.join(repoRoot, 'content/xizong/knowledge/learner');
+const ASSET_GLOB_PREFIX = '../assets/xizong/source-visuals/';
+const assetUrls = import.meta.glob('../assets/xizong/source-visuals/**/*.{webp,png}', {
+  eager: true,
+  query: '?url',
+  import: 'default'
 });
+
+function loadCurrentRegistries() {
+  if (!fs.existsSync(REGISTRY_ROOT)) return [];
+  return fs.readdirSync(REGISTRY_ROOT)
+    .filter((name) => name.endsWith('-source-visuals.json'))
+    .sort()
+    .map((name) => {
+      const sourcePath = path.join(REGISTRY_ROOT, name);
+      const raw = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+      if (raw?.status !== 'CURRENT' || !String(raw?.authority || '').startsWith('CHAT_REVIEWED')) {
+        throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_REGISTRY_INVALID:${name}`);
+      }
+      return { name, raw };
+    });
+}
+
+function resolveAsset(asset, cueId) {
+  const assetPath = String(asset?.asset_path || '').replace(/^\/+/, '');
+  if (!assetPath || assetPath.includes('..')) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_PATH_INVALID:${cueId}`);
+  }
+  const key = `${ASSET_GLOB_PREFIX}${assetPath}`;
+  const src = assetUrls[key];
+  if (!src) {
+    throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_ASSET_MISSING:${cueId}:${assetPath}`);
+  }
+  return Object.freeze({
+    sourceObjectId: asset?.source_object_id || '',
+    sourcePage: Number(asset?.source_page || 0),
+    usageLabel: asset?.usage_label || '',
+    alt: asset?.alt || asset?.usage_label || '原讲义裁图',
+    src,
+    width: Number(asset?.width || 0) || undefined,
+    height: Number(asset?.height || 0) || undefined,
+    sourceCropSha256: asset?.source_crop_sha256 || '',
+    derivedAssetSha256: asset?.derived_asset_sha256 || ''
+  });
+}
+
+function compileBundles() {
+  const compiled = {};
+  for (const { name, raw } of loadCurrentRegistries()) {
+    for (const row of raw?.bundles || []) {
+      const cueId = String(row?.cue_id || '');
+      if (!cueId) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_CUE_ID_MISSING:${name}`);
+      if (compiled[cueId]) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_CUE_DUPLICATE:${cueId}`);
+      const assets = (Array.isArray(row?.assets) ? row.assets : []).map((asset) => resolveAsset(asset, cueId));
+      if (!assets.length) throw new Error(`CURRENT_XIZONG_SOURCE_VISUAL_BUNDLE_EMPTY:${cueId}`);
+      compiled[cueId] = Object.freeze({
+        sourceSha256: row?.source_sha256 || '',
+        completenessPolicy: row?.completeness_policy || 'FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING',
+        assets: Object.freeze(assets)
+      });
+    }
+  }
+  return Object.freeze(compiled);
+}
+
+const bundles = compileBundles();
 
 export function sourceVisualBundleForCue(cueId) {
   return bundles[String(cueId || '')] || null;
