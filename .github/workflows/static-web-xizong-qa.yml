@@ -105,6 +105,8 @@ jobs:
         run: node scripts/validate-xizong-a3-runtime.mjs
       - name: Validate A3 evidence contracts
         run: node scripts/validate-xizong-a3-evidence.mjs
+      - name: Validate Source Visual content packs
+        run: node scripts/validate-xizong-source-visuals.mjs
       - name: Build Astro
         run: npm run build
       - name: Execute A1 browser Runtime journey
