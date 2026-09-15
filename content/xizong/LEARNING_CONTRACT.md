@@ -191,6 +191,17 @@ During first learning, they primarily expose coverage gaps after the relevant Sy
 
 Stable correct work should pass quickly.
 
+### Evidence interpretation discipline
+
+A Recall rating, Wrong / Uncertain result, or correct answer is an **observation under the current task and conditions**, not an automatic diagnosis of the cause and not a blanket mastery claim.
+
+- Wrong / Uncertain / fuzzy evidence may justify Memory or repair attention, but does not by itself mean the underlying medical model is missing or authorize reopening a whole KP / Block.
+- Diagnose only when plausible causes would lead to materially different next actions; when diagnosis matters, use the smallest discriminating check that can change the repair.
+- Repair should target the smallest sufficient failed object and then return to the interrupted mainline.
+- Repair evidence does not erase the original observation and does not by itself prove later Recall, application, transfer or stable mastery.
+
+Detailed executable evidence fields and next-action policy remain in `study-policy.json`; this contract owns only the stable interpretation rule above.
+
 For Wrong / Uncertain evidence:
 
 ```text
