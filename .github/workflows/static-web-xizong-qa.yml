@@ -67,6 +67,8 @@ jobs:
         run: node scripts/validate-xizong-question-attempts.mjs
       - name: Validate reviewed Question Crosswalk
         run: node scripts/validate-xizong-question-crosswalk.mjs
+      - name: Validate Crosswalk review queue pipeline
+        run: node scripts/validate-xizong-crosswalk-review-pipeline.mjs
       - name: Validate A1 learner contract
         run: node scripts/validate-xizong-learning.mjs
       - name: Validate A1 fresh Projection contracts
