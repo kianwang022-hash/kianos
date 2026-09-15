@@ -7,23 +7,15 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bbf8b3d7c335cc5e76587b956de03911167b60887f9fe5a2f544d5b47e951d16",
+    "content_hash": "6839f2d5edbf877125862bc833467a13c1a4ae716ec4e5ae3331be6ef5de21f5",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "比例，比率；均衡，匀称",
-          "label_en": "a part of a whole, or the relationship between two amounts; the correct or most appropriate relationship between the size or amount of different parts",
+          "label_cn": "比例；比率",
+          "label_en": "ratio or quantitative relationship",
           "pos": "noun",
           "sense_ids": [
-            "sense:proportion:a24763cd1e655205"
-          ]
-        },
-        {
-          "label_cn": "使成比例；使均衡",
-          "label_en": "to make something proportional or balanced",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:proportion:0a5c371781b75a54"
+            "sense:proportion:e26cd9308ffe5921"
           ]
         },
         {
@@ -33,18 +25,28 @@
           "sense_ids": [
             "sense:proportion:5e6b1c9b2fb8ef9d"
           ]
+        },
+        {
+          "label_cn": "均衡；匀称",
+          "label_en": "balanced or appropriate relative dimensions",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:proportion:a24763cd1e655205"
+          ]
         }
       ],
-      "core_meaning_cn": "比例；部分",
-      "core_meaning_en": "a part of a whole or the relationship between parts",
-      "mental_model_cn": "比例；部分",
+      "core_meaning_cn": "比例；占比；均衡",
+      "core_meaning_en": "ratio/proportion, share of a whole, or balanced dimensions",
+      "mental_model_cn": "比例；占比；均衡",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -117,6 +119,30 @@
         "sense_label_en": "a part or share of a whole",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:d601c0251467c6b56a32",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:proportion:e26cd9308ffe5921:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "A 与 B 的比例",
+            "phrase": "the proportion of A to B"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "比例；比率；两数量之间的比例关系",
+        "definition_en": "a ratio or relationship between two amounts, or a part of a whole expressed relative to the whole",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:proportion:e26cd9308ffe5921",
+        "sense_label_en": "a ratio or relationship between two amounts, or a part of a whole expressed relative to the whole",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -139,33 +165,7 @@
     "word_id": "word:proportion"
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:proportion:e26cd9308ffe5921",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "比例，比率",
-      "definition_en": "a part of a whole, or the relationship between two amounts",
-      "semantic_key": "ed91b20a560c1750c30fe6b800940bc40eb27884f89e6064dc319908269eeae0",
-      "semantic_key_history": [
-        "0745cb357be270b34155f2e09b96c5f9460b473efeb6736fc7d1914f95b4e0a7"
-      ],
-      "legacy_aliases": [
-        "proportion:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "proportion:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10677,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
@@ -173,6 +173,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10675,
+        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19499,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
@@ -184,22 +191,16 @@
       },
       {
         "sense_id": "sense:proportion:e26cd9308ffe5921",
-        "status": "deprecated",
-        "merged_into_sense_id": null,
-        "source_row": 10677,
-        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
-      },
-      {
-        "sense_id": "sense:proportion:5e6b1c9b2fb8ef9d",
         "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 19499,
+        "source_row": 10677,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
     "active_collocations": [
       "collocation:30e5a9b443eaf5bd5933",
       "collocation:572c20b346a3b88894cb",
+      "collocation:d601c0251467c6b56a32",
       "collocation:f3795590fe155cf57929"
     ],
     "facts": [],
@@ -222,6 +223,11 @@
       {
         "id": "collocation:aba463a336a5be10d62e",
         "source_row": 14549,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:d601c0251467c6b56a32",
+        "source_row": 21627,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {

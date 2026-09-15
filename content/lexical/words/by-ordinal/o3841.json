@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7230b6eb136dad611d86fefa3a04cb1c013dbf2230805c2404a623781fa31ca7",
+    "content_hash": "e85104fcb18df4a5090ca1d0efbc516b35ef28f0e8968b96a888217fa5f09c9a",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,20 +27,29 @@
             "sense:prospect:fadbb4f3274353f8",
             "sense:prospect:fadbb4f3274353f8"
           ]
+        },
+        {
+          "label_cn": "潜在客户/人选",
+          "label_en": "a likely customer or candidate",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:prospect:0b649452f4191cf5"
+          ]
         }
       ],
-      "core_meaning_cn": "前景；勘探",
-      "core_meaning_en": "the possibility of future success; to search for valuable resources",
-      "mental_model_cn": "前景；勘探",
+      "core_meaning_cn": "前景/可能性；潜在客户或人选；景色；勘探",
+      "core_meaning_en": "prospects for success; a potential customer/candidate; a view; to prospect",
+      "mental_model_cn": "前景/可能性；潜在客户或人选；景色；勘探",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:prospect:3ed8a838aeec48cf",
-      "relation:deep:word_family:prospect:3ed8a838aeec48cf"
+      "relation:deep:word_family:prospect:3ed8a838aeec48cf",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -143,6 +152,30 @@
         "sense_label_en": "search for something desirable",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:6f1e21bc0607bf982b3f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:prospect:0b649452f4191cf5:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "潜在客户/有希望的人选",
+            "phrase": "a sales/job prospect"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "潜在客户；可能的人选；有希望的人",
+        "definition_en": "a person who may become a customer, client, candidate, recruit, or other desired participant",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:prospect:0b649452f4191cf5",
+        "sense_label_en": "a person who may become a customer, client, candidate, recruit, or other desired participant",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -233,6 +266,13 @@
   "identity_refs": {
     "senses": [
       {
+        "sense_id": "sense:prospect:0b649452f4191cf5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10772,
+        "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      },
+      {
         "sense_id": "sense:prospect:682e2734401a5e7c",
         "status": "active",
         "merged_into_sense_id": null,
@@ -267,6 +307,7 @@
       "collocation:3601e4826c5760b6d1e5",
       "collocation:45e455ad5b08cad8dd10",
       "collocation:639c8712a99c620da476",
+      "collocation:6f1e21bc0607bf982b3f",
       "collocation:c908f33f7b5d5723ccaa"
     ],
     "facts": [
@@ -300,6 +341,11 @@
       {
         "id": "collocation:639c8712a99c620da476",
         "source_row": 8394,
+        "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:6f1e21bc0607bf982b3f",
+        "source_row": 21607,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
       },
       {

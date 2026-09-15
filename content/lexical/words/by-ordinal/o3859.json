@@ -7,19 +7,30 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f10e8386f3847d18d8031dca1056a283520a2318df064df666eec988dc75b3d9",
+    "content_hash": "3d991e0816b43bff00b722f11324c1e81f56bf8230fa5e34ebf62b9374b9e0bd",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "审慎的",
-      "core_meaning_en": "careful and sensible",
-      "mental_model_cn": "审慎的",
+      "core_clusters": [
+        {
+          "label_cn": "审慎的；谨慎明智的",
+          "label_en": "careful, sensible, and showing sound judgment",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:prudent:05cdac8135b55a76"
+          ]
+        }
+      ],
+      "core_meaning_cn": "审慎的；谨慎明智的",
+      "core_meaning_en": "careful and sensible; marked by sound judgment",
+      "mental_model_cn": "审慎的；谨慎明智的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -42,22 +53,7 @@
             ],
             "meaning_cn": "在...方面审慎",
             "phrase": "prudent in + sth"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "审慎的；三思而后行的",
-        "definition_en": "careful and sensible; marked by sound judgment",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:prudent:05cdac8135b55a76",
-        "sense_label_en": "careful and sensible; marked by sound judgment",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:a8c5eaa38bb6d38ccb20",
             "exam_value": "usage_example",
@@ -69,15 +65,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "精明的；节俭的",
-        "definition_en": "shrewd in practical matters; frugal",
+        "definition_cn": "审慎的；谨慎而明智的",
+        "definition_en": "careful, sensible, and showing sound judgment about possible consequences",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:prudent:9e4626ecb85b531f",
-        "sense_label_en": "shrewd in practical matters; frugal",
-        "sort_order": 1,
+        "sense_id": "sense:prudent:05cdac8135b55a76",
+        "sense_label_en": "careful, sensible, and showing sound judgment about possible consequences",
+        "sort_order": 0,
         "transitivity": "nonverb"
       }
     ],
@@ -101,7 +97,31 @@
     "word_id": "word:prudent"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:prudent:9e4626ecb85b531f",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "精明的；节俭的",
+      "definition_en": "shrewd in practical matters; frugal",
+      "semantic_key": "a61a822c023c33966a884d15ca331a2461890c95e8d0243a01f8ca1ff3ddf28d",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "prudent:l2:2"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "prudent:l2:2",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-16T01:40:00Z",
+      "source_row": 10732,
+      "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -113,7 +133,7 @@
       },
       {
         "sense_id": "sense:prudent:9e4626ecb85b531f",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 10732,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
