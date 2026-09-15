@@ -1,0 +1,41 @@
+{
+  "schema": "kianos.lexical.retro_corrective_integration_receipt.v1",
+  "status": "INTEGRATED_VERIFIED",
+  "scope": [25, 3124],
+  "source_branch": "lexical/retro-audit-debt-20260915",
+  "source_head": "94ca6808cd832b7664a1ef6a87164bec08935f5c",
+  "retro_baseline_main": "88eedd381aa7c719467c0e925b4147ac31d68537",
+  "integration_branch": "lexical/retro-replay-integration-o0025-o3124-20260916",
+  "validated_semantic_commit": "e43561eea75a43111827bf21419361d699ccb9a8",
+  "merge_pr": 179,
+  "merge_commit": "0663a2a7248703ab0e0b34dc99d3caa5701506c6",
+  "window_count": 16,
+  "word_owner_write_union": 413,
+  "relation_owner_write_union": 88,
+  "scope_derived_remote_word_write_union": 53,
+  "authorities_preserved": 16,
+  "corrective_receipts_preserved": 16,
+  "main_natural_owner_overlap_since_retro_baseline": 0,
+  "checks": {
+    "original_corrective_executor_replay": "PASS_16_OF_16",
+    "final_word_owner_state": "PASS_413",
+    "final_relation_owner_state": "PASS_88",
+    "identity_registry_closure": "PASS",
+    "lexical_transport_guards": "PASS_24",
+    "lexical_shard_tests": "PASS_22",
+    "lexical_json_parse": "PASS_10917",
+    "astro_build": "PASS",
+    "diff_hygiene": "PASS"
+  },
+  "validation_workflow": {
+    "run_id": 35024615139,
+    "job_id": 104568513595
+  },
+  "boundaries": {
+    "historical_prefix_o0001_o0024": "NOT_MUTATED_7_FINDINGS_STILL_PENDING_SOL_CORRECTION",
+    "canonical_o3125_o3374": "PRESERVED_PR_161",
+    "future_o3375_plus": "NOT_ACTIVATED",
+    "new_semantic_review": false,
+    "new_broad_audit": false
+  }
+}
