@@ -104,7 +104,7 @@ async function runJourney(page) {
       sawMapped = true;
       check(await link.isVisible(), 'reviewed_mapping_shows_link', question.questionId);
       check(!(await fallback.isVisible()), 'reviewed_mapping_hides_fallback', question.questionId);
-      const href = await link.getAttribute('href');
+      const href = await link.evaluate((node) => node.href);
       check(Boolean(href) && href.endsWith(question.relation.knowledgePath), 'question_link_uses_projected_knowledge_path', href || 'missing');
 
       const blockPage = await page.context().newPage();
