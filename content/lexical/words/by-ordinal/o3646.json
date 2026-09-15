@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "35415f9b5693362cc2ce94895c706771a8cb10d42732846321ddf8746103fb65",
+    "content_hash": "1b73ddf4a6dd641ef0d79cfbe98d97a3023f99478174f0876c148fdb07f54ab6",
     "core_concept": {
       "core_clusters": [
         {
@@ -38,22 +38,14 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:207d1b8352b747c456d1",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:plough:f2c87b0e00ea5db9:collocation:0"
-            ],
-            "meaning_cn": "犁地",
-            "phrase": "plough the field"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "犁，一种农具，用于翻土和开沟",
         "definition_en": "a farm tool with one or more heavy blades to break the soil and cut a furrow prior to sowing",
@@ -76,6 +68,15 @@
             ],
             "meaning_cn": "犁土",
             "phrase": "plough the soil"
+          },
+          {
+            "collocation_id": "collocation:207d1b8352b747c456d1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:plough:f2c87b0e00ea5db9:collocation:0"
+            ],
+            "meaning_cn": "犁地",
+            "phrase": "plough the field"
           }
         ],
         "confidence": "medium",
@@ -126,7 +127,14 @@
         "sense_id": "sense:plough:0785c9a5719e589f",
         "sense_label_en": "a group of seven bright stars in the constellation Ursa Major",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalized_proper_name",
+          "surface_lemma": "Plough",
+          "paired_form": "the Plough",
+          "note": "Capitalized the Plough is the BrE proper name for the Big Dipper/part of Ursa Major; keep it separate from ordinary farm-tool spelling truth."
+        }
       }
     ],
     "verification_summary": {
@@ -148,7 +156,14 @@
     "word_family": [],
     "word_id": "word:plough"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:f4af27caec887ba4bbe1",
+      "owner_path": "content/lexical/relations/by-id/3d/3dcf4f12cf9c17752da8e5da7b7c74b6aee83d6f7f70498f53c0828d76550e6a.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [

@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3afdadf789100f9a693516b98da2355eaf6353434515fc674e944ae20cc36d69",
+    "content_hash": "6d133aaf2d0fc49e941e66b89321d7fbc2e577f05db55255bca312847246be4f",
     "core_concept": {
       "core_clusters": [
         {
@@ -35,11 +35,12 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:produce:36b3f1c1ecaf12dd"
+      "deep:deep:secondary_senses:produce:36b3f1c1ecaf12dd",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [
       {
@@ -232,7 +233,38 @@
     },
     "word": "produce",
     "word_family": [],
-    "word_id": "word:produce"
+    "word_id": "word:produce",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "produce",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "boundary": "noun produce has initial stress; verb produce has final stress",
+      "variants": [
+        {
+          "variant_id": "form:produce:noun",
+          "surface": "produce",
+          "pos": [
+            "noun"
+          ],
+          "ipa_bre": "/ˈprɒd.juːs/",
+          "ipa_ame": "/ˈproʊ.duːs/",
+          "learner_key": "initial stress",
+          "role": "noun"
+        },
+        {
+          "variant_id": "form:produce:verb",
+          "surface": "produce",
+          "pos": [
+            "verb"
+          ],
+          "ipa_bre": "/prəˈdjuːs/",
+          "ipa_ame": "/prəˈduːs/",
+          "learner_key": "final stress",
+          "role": "verb"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

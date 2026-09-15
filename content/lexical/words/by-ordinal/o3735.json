@@ -7,11 +7,28 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a747912ef1a5abd57dcc24b50d187ccd7c6920adeb1286f5a14127589d4c989d",
+    "content_hash": "3e21f55f6777f09c461fcf51dc4ad4e5799b885cec64c817670cea6c84e898b8",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "最常见的；占多数的",
+          "label_en": "most common or frequent",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:predominant:f5d03bef5c305a25"
+          ]
+        },
+        {
+          "label_cn": "占主导的；最重要/最有影响力的",
+          "label_en": "dominant, main, or most influential",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:predominant:09a78806d81c5797"
+          ]
+        }
+      ],
       "core_meaning_cn": "占主导地位的；主要的",
-      "core_meaning_en": "most common or having superior power and influence",
+      "core_meaning_en": "most common or dominant/most important",
       "mental_model_cn": "占主导地位的；主要的",
       "mental_model_en": ""
     },
@@ -19,7 +36,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -45,6 +64,30 @@
         "sense_id": "sense:predominant:f5d03bef5c305a25",
         "sense_label_en": "most frequent or common",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8da4a67e83732a11e96f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:predominant:09a78806d81c5797:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "主导影响/主要作用",
+            "phrase": "predominant influence/role"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "占主导地位的；最重要的；最有影响力的",
+        "definition_en": "main, most important, dominant, or having superior power and influence",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:predominant:09a78806d81c5797",
+        "sense_label_en": "main, most important, dominant, or having superior power and influence",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -75,39 +118,13 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:predominant:09a78806d81c5797",
-      "status": "merged",
-      "merged_into_sense_id": "sense:predominant:f5d03bef5c305a25",
-      "pos": "adjective",
-      "definition_cn": "有优势的；有支配力的",
-      "definition_en": "having superior power and influence",
-      "semantic_key": "56848cea8b97f962f10b4cb0e616f711dd35c3dcbe4c981da2f0f5b1d6a0f913",
-      "semantic_key_history": [
-        "10019611c648b5bbe08a15c18cb82058c2db24378dba6d9589d167ac7db9d511"
-      ],
-      "legacy_aliases": [
-        "predominant:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "predominant:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10401,
-      "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:predominant:09a78806d81c5797",
-        "status": "merged",
-        "merged_into_sense_id": "sense:predominant:f5d03bef5c305a25",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 10401,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
       },
@@ -120,6 +137,7 @@
       }
     ],
     "active_collocations": [
+      "collocation:8da4a67e83732a11e96f",
       "collocation:ee921584684190862490"
     ],
     "facts": [],
@@ -127,6 +145,11 @@
       {
         "id": "collocation:216864de4ea51546803a",
         "source_row": 2772,
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:8da4a67e83732a11e96f",
+        "source_row": 21422,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
       },
       {

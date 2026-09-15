@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2dbd7448ebe54f4084762bd28f7cf5aadcbf5f02a0986d5c76398aa8d7781460",
+    "content_hash": "2c8c125dd27a8b05b01cafb98552f0e755a782857baff4196309fcce7e060fb4",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,19 +27,28 @@
             "sense:project:8a8b8b2a74825dfe",
             "sense:project:138c321ae7d85d3d"
           ]
+        },
+        {
+          "label_cn": "展现/传达形象或印象",
+          "label_en": "convey an image, impression, or confidence",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:project:50718917b1bde767"
+          ]
         }
       ],
-      "core_meaning_cn": "计划的事业或向前投射",
-      "core_meaning_en": "a planned undertaking or to throw forward",
-      "mental_model_cn": "计划的事业或向前投射",
+      "core_meaning_cn": "项目；投射/放映；预测；展现某种形象/印象",
+      "core_meaning_en": "a planned project; to project light/data; to forecast; to project an image/impression",
+      "mental_model_cn": "项目；投射/放映；预测；展现某种形象/印象",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:project:9505899b67c0cfea"
+      "deep:deep:secondary_senses:project:9505899b67c0cfea",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [
       {
@@ -213,6 +222,30 @@
         "sense_label_en": "to stick out or protrude",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:845e44b184bcf1d192ef",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:project:50718917b1bde767:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "展现自信/专业形象",
+            "phrase": "project confidence/an image of competence"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "展示；传达（某种形象、印象、信心等）",
+        "definition_en": "to convey, communicate, or present a particular image, impression, confidence, authority, or quality",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:project:50718917b1bde767",
+        "sense_label_en": "to convey, communicate, or present a particular image, impression, confidence, authority, or quality",
+        "sort_order": 4,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -232,7 +265,38 @@
     },
     "word": "project",
     "word_family": [],
-    "word_id": "word:project"
+    "word_id": "word:project",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "project",
+      "identity_rule": "same_word_owner_pos_conditioned_pronunciation",
+      "boundary": "noun project has initial stress; verb project has final stress",
+      "variants": [
+        {
+          "variant_id": "form:project:noun",
+          "surface": "project",
+          "pos": [
+            "noun"
+          ],
+          "ipa_bre": "/ˈprɒdʒ.ekt/",
+          "ipa_ame": "/ˈprɑː.dʒekt/",
+          "learner_key": "initial stress",
+          "role": "noun"
+        },
+        {
+          "variant_id": "form:project:verb",
+          "surface": "project",
+          "pos": [
+            "verb"
+          ],
+          "ipa_bre": "/prəˈdʒekt/",
+          "ipa_ame": "/prəˈdʒekt/",
+          "learner_key": "final stress",
+          "role": "verb"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -250,6 +314,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10623,
+        "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:project:50718917b1bde767",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 19500,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
@@ -273,6 +344,7 @@
       "collocation:19f321d1d3cd2253fe33",
       "collocation:211abf89262142daca8e",
       "collocation:4fe1312c262a84206c50",
+      "collocation:845e44b184bcf1d192ef",
       "collocation:9ac4673133cc9fc2173b",
       "collocation:d0263de3a19a041f869d",
       "collocation:dd1808ffc048b3f1057c"
@@ -308,6 +380,11 @@
       {
         "id": "collocation:4fe1312c262a84206c50",
         "source_row": 6741,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:845e44b184bcf1d192ef",
+        "source_row": 21620,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
       },
       {

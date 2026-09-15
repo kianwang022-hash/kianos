@@ -7,38 +7,46 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bd178a53eea48d5e3e580f73eb658ad2f43a1eca3c8a7d2f7e26fc751ee6d07e",
+    "content_hash": "81f3c25cac8236b59538e518e376cb80e459e93173117f9c8515e9f1242269e0",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "前提；假定；房屋及地基；经营场所",
-          "label_en": "a statement or idea that is accepted as true and used as a basis for an argument; a house or building and the land it stands on",
+          "label_cn": "前提；假定",
+          "label_en": "a statement/idea used as a basis for reasoning",
           "pos": "noun",
           "sense_ids": [
-            "sense:premise:605a4d9ea28953b6",
+            "sense:premise:605a4d9ea28953b6"
+          ]
+        },
+        {
+          "label_cn": "premises：场所；房屋及土地",
+          "label_en": "premises: buildings and land, normally plural",
+          "pos": "noun",
+          "sense_ids": [
             "sense:premise:7fdb1a182d0b5799"
           ]
         },
         {
-          "label_cn": "以…为前提；假定",
-          "label_en": "to base an argument or theory on an idea or assumption",
+          "label_cn": "以……为前提",
+          "label_en": "base on a premise or assumption",
           "pos": "verb",
           "sense_ids": [
             "sense:premise:a8897b2397bd5650"
           ]
         }
       ],
-      "core_meaning_cn": "前提或房屋",
-      "core_meaning_en": "a basis for reasoning or a property with buildings",
-      "mental_model_cn": "前提或房屋",
+      "core_meaning_cn": "前提；premises=场所",
+      "core_meaning_en": "premise = assumption; premises = buildings/property",
+      "mental_model_cn": "前提；premises=场所",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:confusables:premise:0c57e6e1e9574bd2"
+      "deep:deep:confusables:premise:0c57e6e1e9574bd2",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -98,16 +106,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "房屋及地基；经营场所",
-        "definition_en": "a house or building and the land it stands on",
+        "definition_cn": "场所；房屋及所属土地（通常用复数 premises）",
+        "definition_en": "premises (normally plural): buildings and the land belonging to them, especially business or institutional property",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:premise:7fdb1a182d0b5799",
-        "sense_label_en": "a house or building and the land it stands on",
+        "sense_label_en": "premises (normally plural): buildings and the land belonging to them, especially business or institutional property",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "The property/buildings sense is lexicalized mainly in the plural premises: on the premises, business premises. Do not teach singular premise as the ordinary property noun."
       },
       {
         "collocations": [
@@ -160,7 +169,34 @@
     },
     "word": "premise",
     "word_family": [],
-    "word_id": "word:premise"
+    "word_id": "word:premise",
+    "form_identity": {
+      "form_type": "lexicalized_plural_boundary",
+      "spelling": "premise",
+      "identity_rule": "same_word_owner_plural_lexicalization",
+      "boundary": "the reasoning noun is singular premise; the buildings/property meaning is normally the lexicalized plural premises",
+      "variants": [
+        {
+          "variant_id": "form:premise:reasoning",
+          "surface": "premise",
+          "pos": [
+            "noun"
+          ],
+          "number": "singular/countable",
+          "role": "assumption/basis for reasoning"
+        },
+        {
+          "variant_id": "form:premises:property",
+          "surface": "premises",
+          "pos": [
+            "noun"
+          ],
+          "number": "plural_lexicalized",
+          "role": "buildings and land/property"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [
     {

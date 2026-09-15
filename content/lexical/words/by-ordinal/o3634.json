@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "3c10c7addb02121b243017ca77aac16718fa0b0f1b62df479a547beecdaf9986",
+    "content_hash": "a9d1005d3546a177068abf0e2c6c5f51fffde037249fa2e9ca6429c3fad7a9bb",
     "core_concept": {
       "core_clusters": [
         {
@@ -29,18 +29,36 @@
             "sense:play:1c258958dc1b581c",
             "sense:play:2197b82de4585984"
           ]
+        },
+        {
+          "label_cn": "发挥作用",
+          "label_en": "have a role in something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:play:30bb4db0d3d167c9"
+          ]
+        },
+        {
+          "label_cn": "播放",
+          "label_en": "reproduce recorded media",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:play:ddeaa3b5e58f42ca"
+          ]
         }
       ],
-      "core_meaning_cn": "玩；表演",
-      "core_meaning_en": "to engage in activity for enjoyment or perform",
-      "mental_model_cn": "玩；表演",
+      "core_meaning_cn": "玩；比赛；演奏；扮演/发挥作用；播放",
+      "core_meaning_en": "to play for enjoyment/sport/music, act or play a role, and reproduce media",
+      "mental_model_cn": "玩；比赛；演奏；扮演/发挥作用；播放",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -250,6 +268,54 @@
         "sense_label_en": "the activity of playing a game",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3c7936432a5888fb1e01",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:play:30bb4db0d3d167c9:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "在某事中发挥作用",
+            "phrase": "play a role/part in sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "发挥作用；在……中起作用",
+        "definition_en": "to have or perform a role or part in an event, process, or outcome",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:play:30bb4db0d3d167c9",
+        "sense_label_en": "to have or perform a role or part in an event, process, or outcome",
+        "sort_order": 6,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:fdde5656d76d96d6ca52",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:play:ddeaa3b5e58f42ca:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "播放视频/录音",
+            "phrase": "play a video/recording"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "播放（音频、视频、录音等）",
+        "definition_en": "to start or reproduce recorded audio, video, or other media",
+        "governing_pattern": "vt. + object / vi.",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:play:ddeaa3b5e58f42ca",
+        "sense_label_en": "to start or reproduce recorded audio, video, or other media",
+        "sort_order": 7,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -304,10 +370,24 @@
         "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
       },
       {
+        "sense_id": "sense:play:30bb4db0d3d167c9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10166,
+        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
+      },
+      {
         "sense_id": "sense:play:94d7edcae82e56b2",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10120,
+        "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
+      },
+      {
+        "sense_id": "sense:play:ddeaa3b5e58f42ca",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 10167,
         "source_path": "content/lexical/canonical/senses/shards/o3617-3648.json"
       },
       {
@@ -324,6 +404,7 @@
       "collocation:12d454b909bee4791fd2",
       "collocation:1c2c258166b5d759e35a",
       "collocation:262f1ef498abd5e9035e",
+      "collocation:3c7936432a5888fb1e01",
       "collocation:5470a8f1abf7203c7207",
       "collocation:70745bb3934d59e57839",
       "collocation:94a72fe21b81a2169b34",
@@ -331,7 +412,8 @@
       "collocation:a2d5992dcc4ee38380cd",
       "collocation:a701f817322d120c5636",
       "collocation:ce2a7a3d12138f32b330",
-      "collocation:d9948c1c7780bdd648a6"
+      "collocation:d9948c1c7780bdd648a6",
+      "collocation:fdde5656d76d96d6ca52"
     ],
     "facts": [],
     "collocations": [
@@ -358,6 +440,11 @@
       {
         "id": "collocation:262f1ef498abd5e9035e",
         "source_row": 3207,
+        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
+      },
+      {
+        "id": "collocation:3c7936432a5888fb1e01",
+        "source_row": 21591,
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
       },
       {
@@ -398,6 +485,11 @@
       {
         "id": "collocation:d9948c1c7780bdd648a6",
         "source_row": 18403,
+        "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
+      },
+      {
+        "id": "collocation:fdde5656d76d96d6ca52",
+        "source_row": 21592,
         "source_path": "content/lexical/canonical/collocations/shards/o3617-3648.json"
       }
     ],

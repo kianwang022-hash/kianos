@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d80c95a8bd9bf645d9a0ff76b0836e898efe3dae678213ff15e3c5a214d78f98",
+    "content_hash": "ff41a4f017498952c98e4ede737eb7c263c923b4341f782d39328693cc3ce474",
     "core_concept": {
       "core_clusters": [
         {
@@ -27,17 +27,18 @@
           ]
         }
       ],
-      "core_meaning_cn": "警察，警方",
-      "core_meaning_en": "the force of policemen and officers",
-      "mental_model_cn": "警察，警方",
+      "core_meaning_cn": "警方（集合名词，通常用复数一致）；维持治安",
+      "core_meaning_en": "the police as a plural-agreement collective; to police or keep order",
+      "mental_model_cn": "警方（集合名词，通常用复数一致）；维持治安",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "deep:deep:secondary_senses:police:f3ec54edd2fdfa3c"
+      "deep:deep:secondary_senses:police:f3ec54edd2fdfa3c",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [
       {
@@ -111,7 +112,8 @@
         "sense_id": "sense:police:0db7bfa45af75700",
         "sense_label_en": "the official organization whose job is to catch criminals and keep publi",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Collective noun: the police normally takes plural agreement (the police are...). One individual is a police officer, not *a police."
       },
       {
         "collocations": [
@@ -155,7 +157,34 @@
     },
     "word": "police",
     "word_family": [],
-    "word_id": "word:police"
+    "word_id": "word:police",
+    "form_identity": {
+      "form_type": "collective_noun_grammar",
+      "spelling": "police",
+      "identity_rule": "same_word_owner_collective_grammar",
+      "boundary": "the police is a collective noun with plural agreement; an individual member is a police officer, not *a police",
+      "variants": [
+        {
+          "variant_id": "form:police:collective",
+          "surface": "the police",
+          "pos": [
+            "noun"
+          ],
+          "agreement": "plural",
+          "learner_key": "the police are ..."
+        },
+        {
+          "variant_id": "form:police:individual-expression",
+          "surface": "a police officer",
+          "pos": [
+            "noun_phrase"
+          ],
+          "agreement": "singular",
+          "learner_key": "a police officer; not *a police"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o3625-o3874.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],

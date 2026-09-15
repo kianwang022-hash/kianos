@@ -7,22 +7,90 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6276b5fc410de170c8d6aca7f08e3be8cb4cd3c3aca32a861db35e65240d8860",
+    "content_hash": "b5612af0f980c18ae16994e25f5aa8705e392bca284266d9abc6277eaac60c4d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "证明；证据；检验；防...的",
-      "core_meaning_en": "evidence establishing truth; a test or trial; resistant to something",
-      "mental_model_cn": "证明；证据；检验；防...的",
+      "core_clusters": [
+        {
+          "label_cn": "证据；证明",
+          "label_en": "evidence establishing truth",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:proof:8ab8175ab48c58e6"
+          ]
+        },
+        {
+          "label_cn": "数学/逻辑证明",
+          "label_en": "a formal mathematical or logical proof",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:proof:71547ac788cd561c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "证据；证明；数学/逻辑证明",
+      "core_meaning_en": "evidence or a formal proof",
+      "mental_model_cn": "证据；证明；数学/逻辑证明",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5de18b68d9477b164852",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:proof:8ab8175ab48c58e6:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "某事的证据/证明",
+            "phrase": "proof of sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "证据；证明",
+        "definition_en": "factual evidence that helps establish the truth of something",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:proof:8ab8175ab48c58e6",
+        "sense_label_en": "factual evidence that helps establish the truth of something",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:2a2e7b608d19be1f6c8a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:proof:71547ac788cd561c:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "数学证明",
+            "phrase": "mathematical proof"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "证明；论证（尤指数学或逻辑证明）",
+        "definition_en": "a formal argument or series of statements demonstrating that a proposition follows or is true",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:proof:71547ac788cd561c",
+        "sense_label_en": "a formal argument or series of statements demonstrating that a proposition follows or is true",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 1,
       "deep_modules": {
@@ -118,56 +186,6 @@
       "source_row": 10656,
       "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:proof:71547ac788cd561c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "证明；论证（逻辑或数学上的）",
-      "definition_en": "a formal series of statements showing that if one thing is true something else necessarily follows from it",
-      "semantic_key": "6a94925cd472e03d65199eff36c72ab92353f62f8da7e8d3199dc715cd724d46",
-      "semantic_key_history": [
-        "fb82bbbf83b0f854912574fd3e3cf22eb9ffedec45b7eff6c253dadd51dfabd6"
-      ],
-      "legacy_aliases": [
-        "proof:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "proof:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10657,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:proof:8ab8175ab48c58e6",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "证据；证明",
-      "definition_en": "any factual evidence that helps to establish the truth of something",
-      "semantic_key": "9685a1940c67de0acce09555ca5b58484e5df528aad675bbc6d46f3fc39694f3",
-      "semantic_key_history": [
-        "0b933a3d57e280028d1a968acb9844213737470a257745559f25c199826ef0ba"
-      ],
-      "legacy_aliases": [
-        "proof:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "proof:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10658,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -195,22 +213,35 @@
       },
       {
         "sense_id": "sense:proof:71547ac788cd561c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10657,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       },
       {
         "sense_id": "sense:proof:8ab8175ab48c58e6",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10658,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:2a2e7b608d19be1f6c8a",
+      "collocation:5de18b68d9477b164852"
+    ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:2a2e7b608d19be1f6c8a",
+        "source_row": 21624,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:5de18b68d9477b164852",
+        "source_row": 21623,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
       {
         "id": "collocation:77a9fff80bf9ff15d4a5",
         "source_row": 10107,

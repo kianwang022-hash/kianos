@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "2507a10ecdd0cde2650538e1b00b35cdc717c0017ce4d22fb18fe634be34b3ff",
+    "content_hash": "0e5aee85b8a17cdb643cc87eb8ffbd7d0e2999a79360c910534ff1b720453741",
     "core_concept": {
       "core_clusters": [
         {
@@ -34,12 +34,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:portable:4d79ba5ac8696eff",
-      "relation:deep:word_family:portable:4d79ba5ac8696eff"
+      "relation:deep:word_family:portable:4d79ba5ac8696eff",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -75,7 +76,8 @@
         "sense_id": "sense:portable:de179d4ff4cc5bbe",
         "sense_label_en": "easily or conveniently transported",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "portable means easily carried or moved; do not learn it as a productive derivative of modern port “harbor/endpoint”."
       },
       {
         "collocations": [
@@ -142,47 +144,7 @@
       "runtime_model_calls": false
     },
     "word": "portable",
-    "word_family": [
-      {
-        "boundary": "port 港口；端口",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
-        "direction": "R+P",
-        "evidence": [
-          {
-            "evidence_id": "evidence:family:portable:port",
-            "evidence_status": "source_checked",
-            "source_locator": "portable|port",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:word_family:portable:4d79ba5ac8696eff",
-        "family_sources": [
-          "curated core-card derivative",
-          "local morphology candidate"
-        ],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "word_family",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:portable:de179d4ff4cc5bbe",
-        "target_sense_id": "sense:port:18c3f1faf4bb5600",
-        "target_word": "port",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": true
-      }
-    ],
+    "word_family": [],
     "word_id": "word:portable"
   },
   "relation_refs": [],

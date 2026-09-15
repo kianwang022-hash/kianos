@@ -7,22 +7,58 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e1e2c55453ca7e158783a35aec205e77054145908296b9489e61e3755a34fa16",
+    "content_hash": "7cd7704f3b5da3958b53f8e076bd8a723400e09f4c758d210bf14b990901c4cb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "适当的",
-      "core_meaning_en": "appropriate or correct",
-      "mental_model_cn": "适当的",
+      "core_clusters": [
+        {
+          "label_cn": "适当的；合适的；正确的",
+          "label_en": "suitable, appropriate, or correct",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:proper:5aacda5f144453cf"
+          ]
+        }
+      ],
+      "core_meaning_cn": "适当的；正确的",
+      "core_meaning_en": "suitable, appropriate, or correct",
+      "mental_model_cn": "适当的；正确的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:0c882f73f175cdbca93a",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:proper:5aacda5f144453cf:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "适当的程序/正确方式",
+            "phrase": "proper procedure/way"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "适当的；合适的；正确的",
+        "definition_en": "suitable, appropriate, or correct for the circumstances",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:proper:5aacda5f144453cf",
+        "sense_label_en": "suitable, appropriate, or correct for the circumstances",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -95,31 +131,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:proper:5aacda5f144453cf",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "适当的",
-      "definition_en": "suitable or appropriate for the circumstances",
-      "semantic_key": "5e3d1c889b68a3e5dc6cadac9eb18ba91fb23b8fadfdc577aaa17f2894b9185c",
-      "semantic_key_history": [
-        "8be7fe260dd9257911abffabfacff4787d63623285ea392edf6c9c6b64009955"
-      ],
-      "legacy_aliases": [
-        "proper:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "proper:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10667,
-      "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:proper:7e071451a7a452a5",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -188,7 +199,7 @@
       },
       {
         "sense_id": "sense:proper:5aacda5f144453cf",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10667,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
@@ -208,9 +219,16 @@
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:0c882f73f175cdbca93a"
+    ],
     "facts": [],
     "collocations": [
+      {
+        "id": "collocation:0c882f73f175cdbca93a",
+        "source_row": 21625,
+        "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
       {
         "id": "collocation:27e745c9172c421bd0d5",
         "source_row": 3375,
