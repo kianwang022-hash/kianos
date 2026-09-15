@@ -42,6 +42,6 @@ for (const forbidden of ['suggested_system_id', 'suggested_block_id', 'suggested
 const calibration = fs.readFileSync(path.join(repoRoot, 'content/xizong/question-relations/CALIBRATION.md'), 'utf8');
 check(calibration.includes('Stage: C0 PASS'), 'c0_calibration_is_closed');
 check(calibration.includes('schema v1 stays frozen'), 'c0_does_not_expand_schema');
-check(calibration.includes('no suggested System/Block/KP target'), 'c1_discovery_semantics_are_explicit');
+check(calibration.includes('may **not** emit suggested System/Block/KP targets'), 'c1_discovery_semantics_are_explicit');
 
 console.log(`XIZONG_CROSSWALK_REVIEW_PIPELINE_OK default=${defaultQueue.candidate_count} reviewed=${defaultQueue.reviewed_relation_count}`);
