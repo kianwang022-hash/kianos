@@ -7,37 +7,31 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "865561968fe03ea52a8492f5daaf1abb43dcdcf78bf151492be0de7109e74931",
+    "content_hash": "395612c5addcaeb52f2794fae6b7ff9cd1f9ffc813a7e193838688f4e662014c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "精确（性），准确；精度（测量或性能的精确程度）",
-          "label_en": "the quality of being exact, accurate, and careful; the degree of refinement in measurement or performance",
+          "label_cn": "精确；精度；精密性",
+          "label_en": "exactness, accuracy, or degree of measurement refinement",
           "pos": "noun",
           "sense_ids": [
             "sense:precision:5fc1aa34a3de50e6",
             "sense:precision:49a466b61b9253e9"
           ]
-        },
-        {
-          "label_cn": "精密的，精确的",
-          "label_en": "marked by or adapted for accuracy and exactness",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:precision:b3ff04d32aff5941"
-          ]
         }
       ],
-      "core_meaning_cn": "精确，精度",
-      "core_meaning_en": "the quality of being exact and accurate",
-      "mental_model_cn": "精确，精度",
+      "core_meaning_cn": "精确；精度",
+      "core_meaning_en": "exactness/accuracy and degree of precision",
+      "mental_model_cn": "精确；精度",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o3625-o3874"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -60,6 +54,24 @@
             ],
             "meaning_cn": "这台机器切割金属非常精确。",
             "phrase": "The machine cuts metal with great precision."
+          },
+          {
+            "collocation_id": "collocation:8d8f4ab19a200af343de",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:precision:b3ff04d32aff5941:collocation:0"
+            ],
+            "meaning_cn": "精密仪器",
+            "phrase": "precision instrument"
+          },
+          {
+            "collocation_id": "collocation:0837eb688024f03f89da",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:precision:b3ff04d32aff5941:collocation:1"
+            ],
+            "meaning_cn": "精密工程对航空航天至关重要。",
+            "phrase": "Precision engineering is essential for aerospace."
           }
         ],
         "confidence": "medium",
@@ -72,7 +84,8 @@
         "sense_id": "sense:precision:5fc1aa34a3de50e6",
         "sense_label_en": "the quality of being exact, accurate, and careful",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "precision is also commonly used attributively before another noun, as in precision instrument/engineering; this is noun modification, not a separate ordinary adjective lexeme"
       },
       {
         "collocations": [
@@ -106,39 +119,6 @@
         "sense_label_en": "the degree of refinement in measurement or performance",
         "sort_order": 1,
         "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:8d8f4ab19a200af343de",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:precision:b3ff04d32aff5941:collocation:0"
-            ],
-            "meaning_cn": "精密仪器",
-            "phrase": "precision instrument"
-          },
-          {
-            "collocation_id": "collocation:0837eb688024f03f89da",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:precision:b3ff04d32aff5941:collocation:1"
-            ],
-            "meaning_cn": "精密工程对航空航天至关重要。",
-            "phrase": "Precision engineering is essential for aerospace."
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "精密的，精确的",
-        "definition_en": "marked by or adapted for accuracy and exactness",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:precision:b3ff04d32aff5941",
-        "sense_label_en": "marked by or adapted for accuracy and exactness",
-        "sort_order": 2,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -161,7 +141,31 @@
     "word_id": "word:precision"
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:precision:b3ff04d32aff5941",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "adjective",
+      "definition_cn": "精密的，精确的",
+      "definition_en": "marked by or adapted for accuracy and exactness",
+      "semantic_key": "3dd1f7cf4454c786336d91949b2d344d188a35e93763f7651fc4a2061e34e706",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "precision:l2:3"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "precision:l2:3",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-16T01:00:00Z",
+      "source_row": 10394,
+      "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -180,7 +184,7 @@
       },
       {
         "sense_id": "sense:precision:b3ff04d32aff5941",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 10394,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"

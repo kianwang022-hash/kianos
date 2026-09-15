@@ -7,12 +7,30 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "332fc9726a805463eba52ceb76381de2ab83875d6df8e2a0a2a1bff65ce6e8f2",
+    "content_hash": "2c6ac777dc181370a422e02946955c42acd1601c4e793a0ac77f30c0b009a07e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "先于",
-      "core_meaning_en": "to come before in time or order",
-      "mental_model_cn": "先于",
+      "core_clusters": [
+        {
+          "label_cn": "在时间/顺序上先于",
+          "label_en": "come before in time or order",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:precede:54c0db3b8aee53c5"
+          ]
+        },
+        {
+          "label_cn": "优先于；在前面",
+          "label_en": "have priority over; go before",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:precede:56262efce5715517",
+            "sense:precede:85eb0546ebec5138"
+          ]
+        }
+      ],
+      "core_meaning_cn": "先于；在……之前",
+      "core_meaning_en": "to come before in time or order; sometimes have priority over",
+      "mental_model_cn": "先于；在……之前",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -20,7 +38,8 @@
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
-      "confusable:horizontal:7961b15ef3616f68e078"
+      "confusable:horizontal:7961b15ef3616f68e078",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -81,6 +100,30 @@
         "sense_label_en": "to go or come before in position or time",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:ded8996dc387184454e2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:precede:54c0db3b8aee53c5:collocation:forward-o3625-o3874"
+            ],
+            "meaning_cn": "A 在时间/顺序上先于 B",
+            "phrase": "A precedes B"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "在……之前；先于",
+        "definition_en": "to come before something in time or order",
+        "governing_pattern": "vt. + object",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:precede:54c0db3b8aee53c5",
+        "sense_label_en": "to come before something in time or order",
+        "sort_order": 2,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -110,38 +153,12 @@
       "index": 0
     }
   ],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:precede:54c0db3b8aee53c5",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "在…之前；先于",
-      "definition_en": "to come before something in time or order",
-      "semantic_key": "8b2d7fc168929338997f87ff11f1f68a9c6604f8e3288c3edd30e31773d432c9",
-      "semantic_key_history": [
-        "88ca11fcbd832b20c2199c7f3ad5a232284747591f9b91716cdb549f15da2f2d"
-      ],
-      "legacy_aliases": [
-        "precede:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "precede:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 10381,
-      "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:precede:54c0db3b8aee53c5",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 10381,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
@@ -164,7 +181,8 @@
     "active_collocations": [
       "collocation:1e15a633047c26b72306",
       "collocation:71fa59f444d427dee315",
-      "collocation:9b5d35925311bebb0416"
+      "collocation:9b5d35925311bebb0416",
+      "collocation:ded8996dc387184454e2"
     ],
     "facts": [],
     "collocations": [
@@ -191,6 +209,11 @@
       {
         "id": "collocation:c084a25f40d3ec0decae",
         "source_row": 16270,
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:ded8996dc387184454e2",
+        "source_row": 21421,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
       }
     ],

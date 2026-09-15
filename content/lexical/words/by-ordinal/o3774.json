@@ -7,7 +7,7 @@
     "card_version": "v3",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4ae71f6fb6137e147bbfb29b70ff407ddeaecac5069285724b265c299d2f9739",
+    "content_hash": "cc3ccb567706eab70b3074ef5f456af510be25037a4b5460e859dc55b13d3d7f",
     "core_concept": {
       "core_clusters": [
         {
@@ -43,12 +43,13 @@
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
-    "needs_delta_review": true,
+    "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:prime:006710ee91b2da5b",
-      "relation:deep:word_family:prime:006710ee91b2da5b"
+      "relation:deep:word_family:prime:006710ee91b2da5b",
+      "semantic-reconciliation:o3625-o3874"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -208,116 +209,17 @@
       "runtime_model_calls": false
     },
     "word": "prime",
-    "word_family": [
-      {
-        "boundary": "prime与primary同源，均指首要",
-        "codex_reviewed": false,
-        "definition_cn": null,
-        "definition_en": null,
-        "dimensions": {},
-        "direction": "R",
-        "evidence": [
-          {
-            "evidence_id": "evidence:family:prime:primary",
-            "evidence_status": "source_checked",
-            "source_locator": "prime|primary",
-            "source_path": "/Users/ben/Documents/Study/academic_vocab_builder/data/processed/word_families.csv",
-            "source_type": "learner_dictionary"
-          }
-        ],
-        "fact_id": "deep:word_family:prime:006710ee91b2da5b",
-        "family_sources": [
-          "curated core-card derivative",
-          "local morphology candidate"
-        ],
-        "label_en": null,
-        "level": null,
-        "meaning_cn": null,
-        "module": "word_family",
-        "pattern": null,
-        "pos": null,
-        "priority": "A",
-        "publication_status": "publishable",
-        "shared_definition": null,
-        "source_sense_id": "sense:prime:e4bd7c2b5af85968",
-        "target_sense_id": "sense:primary:fd2cda67363b5b40",
-        "target_word": "primary",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      },
-      {
-        "boundaries": [
-          "primary and prime share the 'first/main' historical root, but primary is not a simple productive derivation learners should mechanically generate from prime."
-        ],
-        "codex_reviewed": false,
-        "direction": "C",
-        "evidence": [
-          {
-            "evidence_id": "horizontal:horizontal:049",
-            "evidence_status": "source_checked",
-            "source_locator": "horizontal:049",
-            "source_path": "LexicalOS_Horizontal_All_134_Audit_Results_v1.zip",
-            "source_sha256": "2d1cd5261bd7c242225f6ea0cd26ebd9c72d2a3a39fcf92beff7070c7e461170",
-            "source_type": "external_horizontal_audit"
-          }
-        ],
-        "learning_note": "primary and prime share the 'first/main' historical root, but primary is not a simple productive derivation learners should mechanically generate from prime.",
-        "members": [
-          {
-            "branch_id": null,
-            "branch_label": null,
-            "headword": "prime",
-            "participant_role": "CANONICAL_MEMBER",
-            "relevant_sense_ids": [],
-            "word_id": "word:prime"
-          }
-        ],
-        "priority": "B",
-        "publication_status": "publishable",
-        "relation_id": "relation:horizontal:7ea7fd4d687d0efe38ce",
-        "relation_note": "primary and prime share the 'first/main' historical root, but primary is not a simple productive derivation learners should mechanically generate from prime.",
-        "relation_scope": "lexeme",
-        "relation_type": "historical_relative",
-        "sense_ids": [],
-        "shared_meaning": "primary and prime share the 'first/main' historical root, but primary is not a simple productive derivation learners should mechanically generate from prime.",
-        "source_evidence_objects": [
-          {
-            "canonical_members": [
-              {
-                "branch_id": null,
-                "branch_label": null,
-                "headword": "prime",
-                "participant_role": "CANONICAL_MEMBER",
-                "relevant_sense_ids": [],
-                "word_id": "word:prime"
-              }
-            ],
-            "learner_note": "primary and prime share the 'first/main' historical root, but primary is not a simple productive derivation learners should mechanically generate from prime.",
-            "relation_targets": [
-              "primary"
-            ],
-            "relation_type": "historical_relative"
-          }
-        ],
-        "source_expression": "prime",
-        "source_sense_id": null,
-        "target_expression": "primary",
-        "target_sense_id": null,
-        "target_sense_ids": [],
-        "target_word": "primary",
-        "task_tags": [
-          "reading"
-        ],
-        "verification_status": "verified",
-        "writing_safe": false
-      }
-    ],
+    "word_family": [],
     "word_id": "word:prime"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "relation:horizontal:7ea7fd4d687d0efe38ce",
+      "owner_path": "content/lexical/relations/by-id/2b/2b8b3931c68599103ac698f19c0c85a88b9f9c6145dc0f9527c7bf8fabc9292a.json",
+      "field": "semantic_neighbors",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
