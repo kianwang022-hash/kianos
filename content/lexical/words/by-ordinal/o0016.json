@@ -23,7 +23,7 @@
         "learning_note": "Formal reflexive verb pattern."
       }
     ],
-    "content_hash": "4e2996b84a93dd843bad696779c91dd996c96e18e698ece219e88229cf3853ea",
+    "content_hash": "22b2c110c402672d67afa1c5b2152635f98f3d77df1871f67d2dc54bb21bc483",
     "core_concept": {
       "core_clusters": [
         {
@@ -60,7 +60,9 @@
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
-    "review_signature": [],
+    "review_signature": [
+      "semantic-reconciliation:o0001-o0024"
+    ],
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
@@ -174,7 +176,35 @@
     },
     "word": "absent",
     "word_family": [],
-    "word_id": "word:absent"
+    "word_id": "word:absent",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "absent",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "The ordinary adjective and formal verb are the same Word identity but differ materially in stress/pronunciation.",
+      "variants": [
+        {
+          "variant_id": "form:absent:adjective",
+          "pos": [
+            "adjective"
+          ],
+          "ipa": "/ˈæb.sənt/",
+          "stress": "initial",
+          "learner_key": "ABS-ent"
+        },
+        {
+          "variant_id": "form:absent:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/əbˈsent/",
+          "stress": "final",
+          "learner_key": "ab-SENT",
+          "register": "formal"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -272,6 +302,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch03",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }

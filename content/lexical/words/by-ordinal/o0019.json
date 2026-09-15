@@ -36,7 +36,7 @@
         "pattern": "abstract + A + from + B"
       }
     ],
-    "content_hash": "6210c69d4a31be04785f3f9edcac0f6bc76777f62766ba7c4c398af87500a7f3",
+    "content_hash": "eaf0900a38a2cc8b905c0fd771cfb1be3b04afb3be95f40bf5432339ae517ee8",
     "core_concept": {
       "core_clusters": [
         {
@@ -76,7 +76,8 @@
     "record_type": "word_card_bundle",
     "review_signature": [
       "deep:deep:word_family:abstract:98ca9a55a449911d",
-      "relation:deep:word_family:abstract:98ca9a55a449911d"
+      "relation:deep:word_family:abstract:98ca9a55a449911d",
+      "semantic-reconciliation:o0001-o0024"
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
@@ -256,7 +257,35 @@
         "writing_safe": true
       }
     ],
-    "word_id": "word:abstract"
+    "word_id": "word:abstract",
+    "form_identity": {
+      "form_type": "same_spelling_pos_conditioned_pronunciation",
+      "spelling": "abstract",
+      "identity_rule": "same_word_owner_no_semantic_split",
+      "boundary": "Adjective/noun and verb remain one Word identity; POS selects the stress pattern.",
+      "variants": [
+        {
+          "variant_id": "form:abstract:adjective-noun",
+          "pos": [
+            "adjective",
+            "noun"
+          ],
+          "ipa": "/ˈæb.strækt/",
+          "stress": "initial",
+          "learner_key": "AB-stract"
+        },
+        {
+          "variant_id": "form:abstract:verb",
+          "pos": [
+            "verb"
+          ],
+          "ipa": "/əbˈstrækt/",
+          "stress": "final",
+          "learner_key": "ab-STRACT"
+        }
+      ],
+      "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
+    }
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -388,6 +417,7 @@
     "semantic_delta": 1,
     "materializer": "tools/lexical_natural_owner.py",
     "fresh_rebuild_batch": "batch03",
-    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json"
+    "fresh_rebuild_authority": "content/lexical/audit/fresh-rebuild/batches/batch03.json",
+    "corrective_authority": "content/lexical/semantic-reconciliation/o0001-o0024.md"
   }
 }

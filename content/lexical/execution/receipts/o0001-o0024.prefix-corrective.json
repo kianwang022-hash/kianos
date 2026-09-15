@@ -1,0 +1,25 @@
+{
+  "schema": "kianos.lexical.prefix_corrective_receipt.v1",
+  "status": "VERIFIED_READY_FOR_MAIN",
+  "scope": [1, 24],
+  "audit_findings": 7,
+  "corrected_word_ordinals": [4, 5, 7, 15, 16, 19, 22],
+  "pass_owner_count": 17,
+  "new_word_ids": 0,
+  "new_sense_ids": 0,
+  "sense_merges": [{"from": "sense:abnormal:3271d9f4317951c3", "into": "sense:abnormal:98807d28524a5607"}],
+  "form_identity_words": [16, 19, 22],
+  "authority": "content/lexical/semantic-reconciliation/o0001-o0024.md",
+  "checks": {
+    "exact_write_set": "PASS",
+    "seven_findings_readback": "PASS",
+    "seventeen_pass_owners_unchanged": "PASS",
+    "identity_registry_closure": "PASS",
+    "transport_guards": "PASS",
+    "shard_tests": "PASS",
+    "all_lexical_json": "PASS",
+    "astro_build": "PASS"
+  },
+  "workflow": {"run_id": 35026118016, "job_id": "corrective"},
+  "forward_o3375_plus": "NOT_ACTIVATED"
+}
