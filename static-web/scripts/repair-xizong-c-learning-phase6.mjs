@@ -19,21 +19,17 @@ const receiptNames = [
 function fail(message) {
   throw new Error(`C_PHASE6_REPAIR_FAIL:${message}`);
 }
-
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
-
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
-
 function extractField(body, field) {
   const escaped = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const match = body.match(new RegExp(`^- \\*\\*${escaped}:\\*\\*\\s*(.+)$`, 'm'));
   return match?.[1]?.trim() || '';
 }
-
 function extractContracts(markdown, sourceName, map) {
   const source = `${markdown}\n# H99 EOF\n`;
   const re = /^##\s+(C-H\d{2}-LG\d{2})[｜|].*\n([\s\S]*?)(?=^##\s+C-H\d{2}-LG\d{2}[｜|]|^#\s+H\d+\b)/gm;
@@ -58,6 +54,11 @@ const root = readJson(rootPath);
 if (root.status !== 'FREEZE_CANDIDATE') fail(`unexpected-root-status:${root.status}`);
 if (root.acceptance?.independence !== 'SELF' || root.acceptance?.L_pass_claimed !== false) {
   fail('premature-acceptance-state');
+}
+const freshAuditRepairActive = root.construction_status === 'FRESH_AUDIT_REPAIRED_AWAIT_REAUDIT';
+if (freshAuditRepairActive) {
+  if (root.surface_handoff_contract?.source_contact_unit !== 'BLOCK_OR_CANONICAL_SOURCE_UNIT') fail('fresh-source-contact-unit-lost');
+  if (root.surface_handoff_contract?.lg_source_reentry_default !== false) fail('fresh-lg-bounce-guard-lost');
 }
 
 const contracts = new Map();
@@ -88,23 +89,19 @@ for (const relativePath of root.storage?.shards || []) {
     readiness.requires = [...new Set([...(readiness.requires || []), 'hematology-h09'])];
     readiness.benefits_from = (readiness.benefits_from || []).filter((item) => item !== 'hematology-h09');
   }
-
   if (shard.blocks?.['hematology-h23']) {
     const readiness = shard.blocks['hematology-h23'].readiness;
     readiness.requires = [...new Set([...(readiness.requires || []), 'external:digestive-d12'])];
   }
-
   if (shard.blocks?.['hematology-h24']) {
     const readiness = shard.blocks['hematology-h24'].readiness;
     readiness.requires = [...new Set([...(readiness.requires || []), 'hematology-h21'])];
     readiness.benefits_from = (readiness.benefits_from || []).filter((item) => item !== 'hematology-h21');
   }
-
   if (write) writeJson(shardPath, shard);
 }
 if (groupCount !== 133) fail(`candidate-group-count:${groupCount}`);
 
-root.construction_status = 'PHASE6A_SELF_ADVERSARIAL_REPAIRED_AWAIT_FRESH_AUDITOR';
 root.machine_semantics.group_contract_required_fields = [
   'kp_members',
   'label',
@@ -115,18 +112,22 @@ root.machine_semantics.group_contract_required_fields = [
   'receipt_anchor'
 ];
 root.machine_semantics.jobs_compose = 'Group-specific goal/closure/continuity_rationale are authoritative. Generic job contracts describe reusable cognitive operators only and may not substitute for a local Logic-Group closure.';
-root.acceptance.self_adversarial_phase6a = {
-  status: 'REPAIRED_RED_POINTS_AWAIT_FRESH_AUDITOR',
-  premodel: 'content/xizong/knowledge/learner/C_PHASE6A_FRESH_STYLE_PREMODEL.md',
-  repairs: [
-    'RESTORE_EXPLICIT_GROUP_SPECIFIC_GOAL_CLOSURE_CONTINUITY',
-    'H10_REQUIRE_H9_TO_KEEP_ACUTE_LEUKEMIA_AS_RECALL',
-    'H23_REQUIRE_DIGESTIVE_D12_TO_KEEP_TB_UC_CD_COMPARISON_AS_RECALL',
-    'H24_REQUIRE_H21_TO_KEEP_TB_GRANULOMA_COMPARISON_AS_RECALL',
-    'CORRECT_PHASE3E_34_GROUP_AND_CUMULATIVE_133_ACCOUNTING'
-  ],
-  resolved_challenge: 'H6 keeps ITP-first LG source order because Block Orientation supplies the bleeding-localization coordinate before the source contact and P197→P199 continuity would otherwise be broken.'
-};
+
+if (!freshAuditRepairActive) {
+  root.construction_status = 'PHASE6A_SELF_ADVERSARIAL_REPAIRED_AWAIT_FRESH_AUDITOR';
+  root.acceptance.self_adversarial_phase6a = {
+    status: 'REPAIRED_RED_POINTS_AWAIT_FRESH_AUDITOR',
+    premodel: 'content/xizong/knowledge/learner/C_PHASE6A_FRESH_STYLE_PREMODEL.md',
+    repairs: [
+      'RESTORE_EXPLICIT_GROUP_SPECIFIC_GOAL_CLOSURE_CONTINUITY',
+      'H10_REQUIRE_H9_TO_KEEP_ACUTE_LEUKEMIA_AS_RECALL',
+      'H23_REQUIRE_DIGESTIVE_D12_TO_KEEP_TB_UC_CD_COMPARISON_AS_RECALL',
+      'H24_REQUIRE_H21_TO_KEEP_TB_GRANULOMA_COMPARISON_AS_RECALL',
+      'CORRECT_PHASE3E_34_GROUP_AND_CUMULATIVE_133_ACCOUNTING'
+    ],
+    resolved_challenge: 'H6 keeps ITP-first LG retrieval order because Block Orientation supplies the bleeding-localization coordinate before continuous Source contact and reordering the original Lecture would break Source continuity.'
+  };
+}
 if (write) writeJson(rootPath, root);
 
 const phase3ePath = path.join(learnerRoot, 'C_PHASE3E_LOGIC_GROUPS_H20_H27.md');
@@ -139,6 +140,7 @@ if (write) fs.writeFileSync(phase3ePath, phase3e);
 const output = {
   pass: true,
   mode: write ? 'write' : 'check-source-availability',
+  fresh_audit_repair_preserved: freshAuditRepairActive,
   group_contracts: contracts.size,
   candidate_groups: groupCount,
   readiness_repairs: ['H10<-H9', 'H23<-digestive-d12', 'H24<-H21'],
