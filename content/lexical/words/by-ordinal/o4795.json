@@ -7,12 +7,21 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "e1209e76038bdf7628dd3b0dd38e6d8c0ac9c9c1e4c42093ae17e8cc8c0b90b2",
+    "content_hash": "e713ac4002becd14edf82894c9957f34e5ddc3a01d2ae591e47fda303c1c3ea6",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "自杀",
-      "core_meaning_en": "the act of killing oneself",
-      "mental_model_cn": "自杀",
+      "core_clusters": [
+        {
+          "label_cn": "自杀行为",
+          "label_en": "the act of killing yourself intentionally",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:suicide:5723fbc7abaf500c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "自杀行为",
+      "core_meaning_en": "the act of killing yourself intentionally",
+      "mental_model_cn": "自杀行为",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,13 +71,16 @@
         "definition_cn": "自杀者",
         "definition_en": "a person who kills himself intentionally",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
+        "register": "dated/stigmatizing",
         "sense_id": "sense:suicide:bde17b5c2353579b",
         "sense_label_en": "a person who kills himself intentionally",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "person-label use is dated/stigmatizing; prefer person-first wording such as 'a person who died by suicide' when relevant",
+        "writing_safe": false
       }
     ],
     "verification_summary": {
@@ -152,7 +164,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
-    "source_content_hash": "e1209e76038bdf7628dd3b0dd38e6d8c0ac9c9c1e4c42093ae17e8cc8c0b90b2",
+    "source_content_hash": "e713ac4002becd14edf82894c9957f34e5ddc3a01d2ae591e47fda303c1c3ea6",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

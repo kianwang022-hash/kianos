@@ -1,0 +1,41 @@
+name: Lexical o4375-o4874 compact identity index
+
+on:
+  push:
+    branches:
+      - lexical/execute-o4375-o4874-20260916
+    paths:
+      - 'tools/lexical_identity_index_o4375_o4874.py'
+      - '.github/workflows/lexical-o4375-o4874-identity-index.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/execute-o4375-o4874-20260916
+          fetch-depth: 0
+      - name: Compile compact index from 166-owner snapshot
+        run: |
+          python tools/lexical_identity_index_o4375_o4874.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('content/lexical/execution/preflight/o4375-o4874.identity-index.json')
+          o=json.loads(p.read_text(encoding='utf-8'))
+          assert o['owner_count']==166
+          assert len(o['owners'])==166
+          print('IDENTITY_INDEX_CONTRACT_PASS 166/166')
+          PY
+      - name: Commit compact index
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o4375-o4874.identity-index.json
+          git commit -m 'lexical: compile compact o4375-o4874 identity index [skip ci]'
+          git push origin HEAD:lexical/execute-o4375-o4874-20260916

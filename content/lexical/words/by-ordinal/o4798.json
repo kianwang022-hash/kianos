@@ -7,12 +7,24 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "7e7164bc4fdf431cdc8f4b945090789989707a6bd4ff345096dd6bb0d1ea5d88",
+    "content_hash": "6c42c30fa9a39249af9e6204285d80131798caa46423ae9a5b24bcf517f5e490",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "一套（房间、家具或乐曲）",
-      "core_meaning_en": "a set of connected rooms, furniture, or musical pieces",
-      "mental_model_cn": "一套（房间、家具或乐曲）",
+      "core_clusters": [
+        {
+          "label_cn": "套房；一套家具；组曲；软件套件；一组相关的应用程序或软件工具",
+          "label_en": "a set of connected rooms used as a living unit, as in a hotel; a matching set of furniture; a musical composition of several movements only loosely connected; a collection of related software applications or tools",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:suite:09271c57260d58fc",
+            "sense:suite:b19c09ff0b7f5d94",
+            "sense:suite:82104df122e55373",
+            "sense:suite:68c79b584b8342cc"
+          ]
+        }
+      ],
+      "core_meaning_cn": "套房；一套家具；组曲；软件套件；一组相关的应用程序或软件工具",
+      "core_meaning_en": "a set of connected rooms used as a living unit, as in a hotel; a matching set of furniture; a musical composition of several movements only loosely connected; a collection of related software applications or tools",
+      "mental_model_cn": "套房；一套家具；组曲；软件套件；一组相关的应用程序或软件工具",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -108,6 +120,20 @@
         "sense_label_en": "a group of attendants or followers",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "软件套件；一组相关的应用程序或软件工具",
+        "definition_en": "a collection of related software applications or tools",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:suite:68c79b584b8342cc",
+        "sense_label_en": "a collection of related software applications or tools",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -129,7 +155,14 @@
     "word_family": [],
     "word_id": "word:suite"
   },
-  "relation_refs": [],
+  "relation_refs": [
+    {
+      "relation_id": "confusable:horizontal:6cc9d949ccb0659ce342",
+      "owner_path": "content/lexical/relations/by-id/46/46a70d200a8ca392ec07ee4a60eaa2544e05175e657ae880d1b8464a7439782f.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
   "reference_senses": [],
   "identity_refs": {
     "senses": [
@@ -159,6 +192,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13646,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      },
+      {
+        "sense_id": "sense:suite:68c79b584b8342cc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13653,
         "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
       }
     ],
@@ -206,7 +246,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4793-4800.json",
-    "source_content_hash": "7e7164bc4fdf431cdc8f4b945090789989707a6bd4ff345096dd6bb0d1ea5d88",
+    "source_content_hash": "6c42c30fa9a39249af9e6204285d80131798caa46423ae9a5b24bcf517f5e490",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

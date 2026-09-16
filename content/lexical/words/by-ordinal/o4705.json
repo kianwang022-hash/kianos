@@ -46,11 +46,20 @@
         "writing_safe": true
       }
     ],
-    "content_hash": "e9c8658a45a311cb1b69e82808381b9deec0c784b6e0d956f5e4eab36352e642",
+    "content_hash": "3ec0e59d905e63c7153eda03523585d6f2d65240c66181cfd7b49d0ce2240e6c",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "规定，明确要求",
+          "label_en": "specify as a condition or requirement in a contract or agreement",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:stipulate:582cdb40a04b5078"
+          ]
+        }
+      ],
       "core_meaning_cn": "规定，明确要求",
-      "core_meaning_en": "specify as a condition or requirement",
+      "core_meaning_en": "specify as a condition or requirement in a contract or agreement",
       "mental_model_cn": "规定，明确要求",
       "mental_model_en": ""
     },
@@ -64,7 +73,22 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "规定，明确要求",
+        "definition_en": "specify as a condition or requirement in a contract or agreement",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:stipulate:582cdb40a04b5078",
+        "sense_label_en": "specify as a condition or requirement in a contract or agreement",
+        "sort_order": 999,
+        "transitivity": "vt"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 3,
       "deep_modules": {
@@ -86,31 +110,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:stipulate:582cdb40a04b5078",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "规定，明确要求",
-      "definition_en": "specify as a condition or requirement in a contract or agreement",
-      "semantic_key": "f80c70bf7f872d2b758394cee8c4d25b0a6a77923c68f9ef82bcd99fa98b7666",
-      "semantic_key_history": [
-        "785583da3dc231e3b89c6bf0ca422dfb12b0ce31649c1b4a159220c31892cd3e"
-      ],
-      "legacy_aliases": [
-        "stipulate:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "stipulate:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13374,
-      "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:stipulate:98e31d981fbb53e7",
       "status": "deprecated",
@@ -141,7 +140,7 @@
     "senses": [
       {
         "sense_id": "sense:stipulate:582cdb40a04b5078",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13374,
         "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
@@ -205,7 +204,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4705-4712.json",
-    "source_content_hash": "e9c8658a45a311cb1b69e82808381b9deec0c784b6e0d956f5e4eab36352e642",
+    "source_content_hash": "3ec0e59d905e63c7153eda03523585d6f2d65240c66181cfd7b49d0ce2240e6c",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

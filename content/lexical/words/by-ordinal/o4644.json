@@ -6,8 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
-    "content_hash": "e96d48cd638c8cc0112c314eef34ddeaa0a3126fc5f8c86798a2414c9f9cd9d4",
+    "constructions": [
+      {
+        "construction_id": "construction:c7ce5fa7d0c02838553f",
+        "direction": "R+P",
+        "level": "L2",
+        "meaning_cn": "与事实、证据或另一说法一致/相符",
+        "pattern": "square with sth"
+      }
+    ],
+    "content_hash": "fa3277fbd1fd2db1524832b301b4c6bc5829fb5b18711a628205b93d15e85574",
     "core_concept": {
       "core_clusters": [
         {
@@ -30,17 +38,17 @@
           ]
         },
         {
-          "label_cn": "使成方形；使平方；使一致",
-          "label_en": "to make something square or multiply a number by itself",
+          "label_cn": "与……一致、相符或相容",
+          "label_en": "to be consistent, compatible, or in agreement with something",
           "pos": "verb",
           "sense_ids": [
-            "sense:square:063dc4756b4a5c38"
+            "sense:square:6807d0f396f01eaa"
           ]
         }
       ],
-      "core_meaning_cn": "正方形；平方；使成方形；使一致",
-      "core_meaning_en": "a shape with four equal sides and right angles; also related to being fair or settled",
-      "mental_model_cn": "正方形；平方；使成方形；使一致",
+      "core_meaning_cn": "正方形；方形；平方；二次幂；广场；街区；正方形的；方形的；正直的；公正的；与……一致、相符或相容",
+      "core_meaning_en": "a plane rectangle with four equal sides and four right angles; the product of a number multiplied by itself; an open area in a town, often surrounded by buildings; having four equal sides and right angles; honest and fair; to be consistent, compatible, or in agreement with something",
+      "mental_model_cn": "正方形；方形；平方；二次幂；广场；街区；正方形的；方形的；正直的；公正的；与……一致、相符或相容",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -203,6 +211,20 @@
         "sense_label_en": "to make something square or multiply a number by itself",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "与……一致、相符或相容",
+        "definition_en": "to be consistent, compatible, or in agreement with something",
+        "governing_pattern": "vi. + with",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:square:6807d0f396f01eaa",
+        "sense_label_en": "to be consistent, compatible, or in agreement with something",
+        "sort_order": 6,
+        "transitivity": "vt"
       }
     ],
     "verification_summary": {
@@ -268,6 +290,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13164,
+        "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
+      },
+      {
+        "sense_id": "sense:square:6807d0f396f01eaa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13266,
         "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
       }
     ],
@@ -354,7 +383,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4641-4648.json",
-    "source_content_hash": "e96d48cd638c8cc0112c314eef34ddeaa0a3126fc5f8c86798a2414c9f9cd9d4",
+    "source_content_hash": "fa3277fbd1fd2db1524832b301b4c6bc5829fb5b18711a628205b93d15e85574",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

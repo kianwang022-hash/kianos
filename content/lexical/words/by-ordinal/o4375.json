@@ -7,12 +7,22 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "92b2d5e45fe15a2103666a60d3dc8872e50bf344a8c63163b6cbb05902cab2ae",
+    "content_hash": "c6739e9491da033d54f908ff543e7c1005ddbd1e309bf17ae96c6c6f7d365510",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "不深",
-      "core_meaning_en": "not deep",
-      "mental_model_cn": "不深",
+      "core_clusters": [
+        {
+          "label_cn": "浅的，不深的；肤浅的，浅薄的",
+          "label_en": "having little depth; not showing serious thought",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:shallow:9b01021a4eb8509e",
+            "sense:shallow:28677d28e372546d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "浅的，不深的；肤浅的，浅薄的",
+      "core_meaning_en": "having little depth; not showing serious thought",
+      "mental_model_cn": "浅的，不深的；肤浅的，浅薄的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +32,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "浅的，不深的",
+        "definition_en": "having little depth",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:shallow:9b01021a4eb8509e",
+        "sense_label_en": "having little depth",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "肤浅的，浅薄的",
+        "definition_en": "not showing serious thought",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:shallow:28677d28e372546d",
+        "sense_label_en": "not showing serious thought",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -42,33 +81,15 @@
     "word_family": [],
     "word_id": "word:shallow"
   },
-  "relation_refs": [],
-  "reference_senses": [
+  "relation_refs": [
     {
-      "stable_sense_id": "sense:shallow:28677d28e372546d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "肤浅的，浅薄的",
-      "definition_en": "not showing serious thought",
-      "semantic_key": "76c6cbfffe427d714047fcfffae73cf33c2dbbd5899b93dbfa95b3af83b0784a",
-      "semantic_key_history": [
-        "77974aec56143803b93591db8e585ae1c5329ba73ab4b39353a9fc810f1a50ab"
-      ],
-      "legacy_aliases": [
-        "shallow:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shallow:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12310,
-      "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json",
-      "reference_only": true
-    },
+      "relation_id": "deep:confusables:swallow:52c2a12d133da7d9",
+      "owner_path": "content/lexical/relations/by-id/a3/a365abfe8103d586c100d619d2d2d68badf0041790136150f1b7cd06b302fcc4.json",
+      "field": "confusables",
+      "index": 0
+    }
+  ],
+  "reference_senses": [
     {
       "stable_sense_id": "sense:shallow:2e450afdab3650ce",
       "status": "deprecated",
@@ -120,31 +141,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:shallow:9b01021a4eb8509e",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "浅的，不深的",
-      "definition_en": "having little depth",
-      "semantic_key": "3e182d57e94cfa13628ccb9f96802719be1e4dc161017c8f71234fc90ec02541",
-      "semantic_key_history": [
-        "ca3dee8f6cd6aad39461f9a75f59a84f39d89d0120c31d52393ddf7a5baaa23d"
-      ],
-      "legacy_aliases": [
-        "shallow:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shallow:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12313,
-      "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:shallow:eb680e643ae358f2",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -174,7 +170,7 @@
     "senses": [
       {
         "sense_id": "sense:shallow:28677d28e372546d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12310,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
@@ -195,7 +191,7 @@
       },
       {
         "sense_id": "sense:shallow:9b01021a4eb8509e",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12313,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
@@ -283,7 +279,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4369-4376.json",
-    "source_content_hash": "92b2d5e45fe15a2103666a60d3dc8872e50bf344a8c63163b6cbb05902cab2ae",
+    "source_content_hash": "c6739e9491da033d54f908ff543e7c1005ddbd1e309bf17ae96c6c6f7d365510",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

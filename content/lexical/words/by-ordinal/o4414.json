@@ -7,21 +7,29 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "1be973c8f6df5fdc5e7102f88b05ed3832902660736a6676fcb46ac0ea117e31",
+    "content_hash": "a718ab420804f4841b579f0b4dfe2bf5ef6fe5e089829bd21e1485c8d9b2bebf",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "推挤；猛推；推挤",
-          "label_en": "to push someone or something roughly; to push roughly, often in a crowd",
+          "label_cn": "推挤；猛推",
+          "label_en": "to push someone or something roughly",
           "pos": "verb",
           "sense_ids": [
             "sense:shove:7bdb99d0b2485021"
           ]
+        },
+        {
+          "label_cn": "推；挤",
+          "label_en": "a rough push",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:shove:d07a38ec43995dc6"
+          ]
         }
       ],
-      "core_meaning_cn": "猛推；推挤",
-      "core_meaning_en": "to push someone or something roughly",
-      "mental_model_cn": "猛推；推挤",
+      "core_meaning_cn": "推挤；猛推；推；挤",
+      "core_meaning_en": "to push someone or something roughly; a rough push",
+      "mental_model_cn": "推挤；猛推；推；挤",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,6 +72,20 @@
         "sense_label_en": "to push someone or something roughly",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "推；挤",
+        "definition_en": "a rough push",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:shove:d07a38ec43995dc6",
+        "sense_label_en": "a rough push",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -111,31 +133,6 @@
       "source_row": 12453,
       "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:shove:d07a38ec43995dc6",
-      "status": "merged",
-      "merged_into_sense_id": "sense:shove:7bdb99d0b2485021",
-      "pos": "noun",
-      "definition_cn": "推；挤",
-      "definition_en": "a rough push",
-      "semantic_key": "c1a7996df5443e0c85ef565e49d59bb5a4c61ab0754130452bc77ef6b66e4788",
-      "semantic_key_history": [
-        "8c2452357222038958044318d80d648f2835308304e0a1fe6f7a27eca3337476"
-      ],
-      "legacy_aliases": [
-        "shove:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "shove:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12455,
-      "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -156,8 +153,8 @@
       },
       {
         "sense_id": "sense:shove:d07a38ec43995dc6",
-        "status": "merged",
-        "merged_into_sense_id": "sense:shove:7bdb99d0b2485021",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 12455,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
       }
@@ -230,7 +227,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4409-4416.json",
-    "source_content_hash": "1be973c8f6df5fdc5e7102f88b05ed3832902660736a6676fcb46ac0ea117e31",
+    "source_content_hash": "a718ab420804f4841b579f0b4dfe2bf5ef6fe5e089829bd21e1485c8d9b2bebf",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
