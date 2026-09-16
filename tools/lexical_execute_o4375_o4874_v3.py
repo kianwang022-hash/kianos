@@ -24,6 +24,7 @@ ID_CORRECTIONS = {
     "sense:sunday:688e3f77747d56a1": "sense:sunday:688ffa49f6575e8e",  # rare verb
     "sense:super:8c535b9a8b8f59e9": "sense:super:8c5304445a475618",  # informal adjective
     "sense:super:4c81d3644494556c": "sense:super:4c8184c9c2f85c40",  # informal intensifying adverb
+    "sense:swan:22e46dc6c8db56cc": "sense:swan:22e7e5585ba45ebe",  # informal movement verb
 }
 
 
