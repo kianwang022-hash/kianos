@@ -6,6 +6,7 @@ on:
       - lexical/pkg245-exec
     paths:
       - 'tools/lexical_prepare_execution_package.py'
+      - 'tools/lexical_scan_package_remote_refs.py'
       - '.github/workflows/lexical-pkg245-preparation.yml'
   workflow_dispatch:
 
@@ -60,6 +61,24 @@ jobs:
           print('PKG245_PREPARATION_CONTRACT_PASS', cand['stats'])
           PY
 
+      - name: Scan all inline remote owner references
+        run: |
+          python tools/lexical_scan_package_remote_refs.py \
+            --sheet content/lexical/execution/preflight/o4875-o5374.execution-sheet.md \
+            --start 4875 \
+            --end 5374 \
+            --out content/lexical/execution/preflight/o4875-o5374.remote-reference-scan.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('content/lexical/execution/preflight/o4875-o5374.remote-reference-scan.json')
+          x=json.loads(p.read_text(encoding='utf-8'))
+          assert x['status']=='READ_ONLY_REMOTE_CANDIDATES'
+          assert 1020 in x['remote_ordinals']
+          assert 4825 in x['remote_ordinals']
+          print('REMOTE_REFERENCE_SCAN_CONTRACT_PASS', x['remote_ordinals'])
+          PY
+
       - name: Verify read-only lexical owner preparation
         run: |
           status=$(git status --short)
@@ -79,7 +98,8 @@ jobs:
             content/lexical/execution/preflight/o4875-o5374.execution-sheet.md \
             content/lexical/execution/preflight/o4875-o5374.manifest-candidates.json \
             content/lexical/execution/preflight/o4875-o5374.manifest-summary.md \
-            content/lexical/execution/preflight/o4875-o5374.unresolved-resolution.md
+            content/lexical/execution/preflight/o4875-o5374.unresolved-resolution.md \
+            content/lexical/execution/preflight/o4875-o5374.remote-reference-scan.json
           if git diff --cached --quiet; then
             echo 'No preparation asset changes'
             exit 0
