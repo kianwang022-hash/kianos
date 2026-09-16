@@ -7,12 +7,29 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "4f07ee44c3e1eb210411fb92035e4f3bb22f0e7652e094d163f641f066fe7b82",
+    "content_hash": "a0ef7f19f6d1fa9ba42c353a0e2def0feb5279ad93c38ab468d21f1cf935c882",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "海滨",
-      "core_meaning_en": "the shore of a sea or ocean regarded as a resort",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "海滨、海边地区；尤指度假休闲的海滨地带",
+          "label_en": "the area or a place by the sea, especially one used for holidays or recreation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:seaside:864c6e3343915f07"
+          ]
+        },
+        {
+          "label_cn": "海滨的、海边的",
+          "label_en": "situated at, connected with, or characteristic of the seaside",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:seaside:a60f88dc7ed491e3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "海滨、海边地区；尤指度假休闲的海滨地带；海滨的、海边的",
+      "core_meaning_en": "the area or a place by the sea, especially one used for holidays or recreation; situated at, connected with, or characteristic of the seaside",
+      "mental_model_cn": "海滨、海边地区；尤指度假休闲的海滨地带；海滨的、海边的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,8 +43,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "海滨",
-        "definition_en": "the shore of a sea or ocean regarded as a resort",
+        "definition_cn": "海滨、海边地区；尤指度假休闲的海滨地带",
+        "definition_en": "the area or a place by the sea, especially one used for holidays or recreation",
         "depth": "full_card",
         "domain_tag": "cet6",
         "frequency_tag": "cet6",
@@ -35,7 +52,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:seaside:864c6e3343915f07",
-        "sense_label_en": "the shore of a sea or ocean regarded as a resort",
+        "sense_label_en": "the area or a place by the sea, especially one used for holidays or recreation",
         "sort_order": 1,
         "source_evidence": [
           {
@@ -88,6 +105,20 @@
             "source_type": "learner_dictionary"
           }
         ]
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "海滨的、海边的",
+        "definition_en": "situated at, connected with, or characteristic of the seaside",
+        "governing_pattern": "seaside town/resort/holiday",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:seaside:a60f88dc7ed491e3",
+        "sense_label_en": "situated at, connected with, or characteristic of the seaside",
+        "sort_order": 2,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -112,6 +143,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16632,
+        "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json"
+      },
+      {
+        "sense_id": "sense:seaside:a60f88dc7ed491e3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 16668,
         "source_path": "content/lexical/canonical/senses/shards/o6113-6144.json"
       }
     ],
@@ -139,7 +177,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o6121-6128.json",
-    "source_content_hash": "4f07ee44c3e1eb210411fb92035e4f3bb22f0e7652e094d163f641f066fe7b82",
+    "source_content_hash": "a0ef7f19f6d1fa9ba42c353a0e2def0feb5279ad93c38ab468d21f1cf935c882",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
