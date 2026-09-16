@@ -7,12 +7,21 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5a0f1807d2a058943f4c2305418095d265cc9c2e27e2696d95ee75a3ff726be1",
+    "content_hash": "eb09a424a7aff7edc47309093f31462739ea6c36dd7649a8f9ec0439f7025d6b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "智力；出众的才华；知识分子",
-      "core_meaning_en": "knowledge and intellectual ability",
-      "mental_model_cn": "",
+      "core_clusters": [
+        {
+          "label_cn": "智力；思考、推理和辨别的能力",
+          "label_en": "the capacity for thought, reasoning, understanding, and intellectual judgment",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:intellect:9d1677b0ca2855d8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "智力；思考、推理和辨别的能力",
+      "core_meaning_en": "the capacity for thought, reasoning, understanding, and intellectual judgment",
+      "mental_model_cn": "智力；思考、推理和辨别的能力",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +31,22 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "智力；思考、推理和辨别的能力",
+        "definition_en": "the capacity for thought, reasoning, understanding, and intellectual judgment",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:intellect:9d1677b0ca2855d8",
+        "sense_label_en": "the capacity for thought, reasoning, understanding, and intellectual judgment",
+        "sort_order": 999,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {},
@@ -55,24 +79,6 @@
       "source_row": 16271,
       "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:intellect:9d1677b0ca2855d8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "智力；出众的才华；知识分子",
-      "definition_en": "the capacity for rational thought or inference or discrimination",
-      "semantic_key": "f851cff9196122207586b4dd19299496fedaa31ab74c84f28e3bb0ab6b0a3af2",
-      "semantic_key_history": [
-        "6d7df48167c4e205b01507026b9ec5c89766a66e3fede52ef8d30b5ea82d202c"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 16272,
-      "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -86,7 +92,7 @@
       },
       {
         "sense_id": "sense:intellect:9d1677b0ca2855d8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 16272,
         "source_path": "content/lexical/canonical/senses/shards/o5889-5920.json"
@@ -116,7 +122,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o5897-5904.json",
-    "source_content_hash": "5a0f1807d2a058943f4c2305418095d265cc9c2e27e2696d95ee75a3ff726be1",
+    "source_content_hash": "eb09a424a7aff7edc47309093f31462739ea6c36dd7649a8f9ec0439f7025d6b",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
