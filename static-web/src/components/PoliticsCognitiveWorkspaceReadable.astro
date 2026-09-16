@@ -1,0 +1,104 @@
+<style is:global>
+  /* Golden calibration: readability wins over diagram density. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageScene>h2{font-size:clamp(30px,2.35vw,38px);line-height:1.22}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .stageBridge{font-size:16px;line-height:1.6}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation{font-size:14px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceLocation b{font-size:15px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnitTabs button>span{font-size:12px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .workspaceUnitTabs button>b{font-size:14px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>span{font-size:13px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContext>div:first-child>strong{font-size:15px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .chapterContextToggle{font-size:14px}
+
+  .politicsCognitiveWorkspace.directReasoningWorkspace .semanticMap>header strong{font-size:18px;line-height:1.45}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode b{font-size:18px;line-height:1.36}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNode small{font-size:15px;line-height:1.5}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes>summary{font-size:14px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes b{font-size:15px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .goldenNodeNotes .semanticMapNodes p{font-size:14px;line-height:1.55}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip>section>span{font-size:15px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip b{font-size:15px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .relationStrip i{font-size:16px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .contextualInspector [data-inspector-state]>header>strong{font-size:18px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p strong{font-size:16px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .inspectorBlock p span{font-size:15px;line-height:1.6}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>span{font-size:13px}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .firstRoundExact>p{font-size:16px;line-height:1.65}
+
+  /* S02 proves the default rule: parallel concepts are clearer as text than as a graph. */
+  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap{border:0;border-top:1px solid #e2e9e6;border-radius:0;padding:14px 0 8px;background:transparent}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenGraph,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenCrossEdges,
+  .politicsCognitiveWorkspace.directReasoningWorkspace .textFirstMap .goldenNodeNotes{display:none!important}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcepts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px;row-gap:0}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept{display:grid;grid-template-columns:minmax(86px,auto) minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid #edf1ef}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept b{color:#173f32;font-size:18px;line-height:1.45}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcept span{color:#596d66;font-size:15px;line-height:1.6}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations{display:grid;gap:7px;margin-top:13px;padding-top:12px;border-top:1px solid #dfe7e3}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations>span{color:#48675c;font-size:14px;font-weight:800}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations p{margin:0;color:#314d44;font-size:16px;line-height:1.55}
+  .politicsCognitiveWorkspace.directReasoningWorkspace .readableRelations p strong{color:#173f32}
+
+  @media(max-width:980px){
+    .politicsCognitiveWorkspace.directReasoningWorkspace .readableConcepts{grid-template-columns:1fr}
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const workspace = document.querySelector('[data-politics-cognitive-workspace]');
+    if (!workspace) return;
+
+    const unit = workspace.querySelector('[data-workspace-unit][data-unit-id="POL27-CF-MARX-C00-S02"]');
+    if (!unit) return;
+
+    const panels = [...unit.querySelectorAll('[data-map-panel]')];
+    panels.forEach((panel, index) => {
+      const notes = panel.querySelector('.goldenNodeNotes .semanticMapNodes') || panel.querySelector('.semanticMapNodes');
+      if (!notes) return;
+
+      const rows = [...notes.querySelectorAll(':scope > article')].map((article) => ({
+        label: article.querySelector('b')?.textContent?.trim() || '',
+        meaning: article.querySelector('p')?.textContent?.trim() || ''
+      })).filter((row) => row.label);
+      if (!rows.length) return;
+
+      const concepts = document.createElement('div');
+      concepts.className = 'readableConcepts';
+      rows.forEach((row) => {
+        const line = document.createElement('div');
+        line.className = 'readableConcept';
+        const label = document.createElement('b');
+        label.textContent = row.label;
+        const meaning = document.createElement('span');
+        meaning.textContent = row.meaning;
+        line.append(label, meaning);
+        concepts.appendChild(line);
+      });
+
+      const header = panel.querySelector('header');
+      header?.after(concepts);
+      panel.classList.add('textFirstMap');
+
+      if (index === 0) {
+        const relations = document.createElement('div');
+        relations.className = 'readableRelations';
+        const title = document.createElement('span');
+        title.textContent = '这几个特征怎么联系';
+        relations.appendChild(title);
+        [
+          ['人民性、实践性、发展性', '集中体现马克思主义的革命性。'],
+          ['科学性', '为革命性提供科学基础。'],
+          ['马克思主义', '是科学性与革命性的统一。']
+        ].forEach(([lead, copy]) => {
+          const line = document.createElement('p');
+          const strong = document.createElement('strong');
+          strong.textContent = lead;
+          line.append(strong, document.createTextNode(`：${copy}`));
+          relations.appendChild(line);
+        });
+        concepts.after(relations);
+      }
+    });
+  })();
+</script>
