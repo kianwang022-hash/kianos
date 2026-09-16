@@ -6,7 +6,7 @@
   "canonical_id": "A2",
   "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
   "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
-  "notes": "Preserves the reviewed A2 R3 source-visual slice and begins progressive high-value A2 expansion. Coverage remains intentionally partial and independently extensible.",
+  "notes": "Preserves reviewed R3/R8 bundles and adds reviewed pathology-backed R6/R7 source visuals. Coverage remains intentionally sparse and independently extensible.",
   "bundles": [
     {
       "cue_id": "a2-r03-lg01-visual",
@@ -45,6 +45,56 @@
           "width": 420,
           "height": 247,
           "derived_asset_sha256": "d4263beea13b36155da3d130c253e881a209e3786fbe91fd1f976bfcfe808c88"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r06-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi65:crop:80558db047fe94c2",
+          "source_page": 66,
+          "usage_role": "BRONCHIECTASIS_STRUCTURE_AND_GROSS_VISUAL",
+          "usage_label": "P66 · 支扩结构破坏与永久扩张",
+          "alt": "病理讲义 P66：支气管扩张的结构破坏、肉眼图与永久扩张机制",
+          "asset_path": "a2-r06-lg01/r06-p66-bronchiectasis-structure.webp",
+          "width": 680,
+          "height": 469,
+          "source_crop_sha256": "80558db047fe94c2df017b108c9720a651f2a2fe903e71a08be94efb067970cf",
+          "derived_asset_sha256": "bd00f7b27bf9a2aa99d13b955e9ae6341aaa750e58e5eefb872c2bf3f9836e96"
+        },
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi66:crop:393c7eb60e5c21f2",
+          "source_page": 67,
+          "usage_role": "BRONCHIECTASIS_VS_EMPHYSEMA_COMPARISON",
+          "usage_label": "P67 · 支扩 vs 肺气肿结构对照",
+          "alt": "病理讲义 P67：支气管扩张与肺气肿在受累部位、壁结构和扩张机制上的对照",
+          "asset_path": "a2-r06-lg01/r06-p67-bronchiectasis-vs-emphysema.webp",
+          "width": 680,
+          "height": 597,
+          "source_crop_sha256": "393c7eb60e5c21f221fd99a5398d69c9989ce2392542b96b88c0d7ff693994a7",
+          "derived_asset_sha256": "e76235b30d4585e25c448d13801d87f5bc996d36f42c679da68de02fcee50a22"
+        }
+      ]
+    },
+    {
+      "cue_id": "a2-r07-lg01-visual",
+      "source_sha256": "7b41f26673fbb562519ac57bb419c2ec82a88c63b5d538a77aaff2e46428dc3f",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "pathology:7b41f26673fbb562:pi109:crop:071d7e7651c879fd",
+          "source_page": 110,
+          "usage_role": "TUBERCULOUS_GRANULOMA_CELLULAR_ARCHITECTURE",
+          "usage_label": "P110 · 结核结节细胞层次",
+          "alt": "病理讲义 P110：结核结节中上皮样细胞、Langhans 巨细胞与干酪样坏死的层次关系",
+          "asset_path": "a2-r07-lg01/r07-p110-tb-granuloma.webp",
+          "width": 680,
+          "height": 308,
+          "source_crop_sha256": "071d7e7651c879fde609fa99f6c38c64a80bf58c27dec03b389009d741fcbd64",
+          "derived_asset_sha256": "2a1fb270e639a06a5cd2cfdbb58de00e650db29e495363f69923cbc5f1ff8141"
         }
       ]
     },
