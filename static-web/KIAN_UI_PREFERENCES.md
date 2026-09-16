@@ -91,6 +91,17 @@ These are taste constraints, not instructions to clone Apple, Raycast, Arc, or a
 - Rich backend content may exist, but the default surface should expose the structure needed for the current cognitive action without visually flattening the full useful content of that object.
 - Do not flatten distinct cognitive objects into one generic card template.
 
+### Representation serves the learning purpose
+
+- Start from the learner goal, not from the fact that a backend asset is called `Map`, `Projection`, `Chain`, or another structural name.
+- **Text is the default representation when clear structured text communicates the idea safely and quickly.** A diagram is justified only when it materially reduces reconstruction cost, comparison cost, or ambiguity.
+- Do not draw a diagram merely because the data contains edges or topology. Visual layout itself can accidentally invent hierarchy, causality, grouping, or direction that the knowledge does not claim.
+- Parallel concepts should normally remain parallel in typography/list/columns unless Current explicitly owns a stronger relation.
+- Use arrows only for relations whose direction is both explicit and educationally useful. Never let an automatic layout imply that several peer concepts are causes, prerequisites, children, or inputs of another concept when that is not the intended meaning.
+- Prefer a small number of safe representation primitives: structured text, simple explicit chain, timeline, compare/boundary, or true hierarchy. When uncertain, fall back to readable text rather than a clever diagram.
+- Projection exists to decide **what the learner should understand and which relations matter**; it does not obligate the UI to visualize every semantic object as a graphic.
+- Readability outranks diagram density. Do not reduce font size to preserve a decorative framework. On Mac learning surfaces, comfortably readable type is a hard acceptance condition.
+
 ### Failure may increase interface weight
 
 - Stable work should remain visually quiet.
@@ -218,16 +229,3 @@ Never defend an inferred preference against explicit user correction.
 - `static-web/UI_STYLE_BRIEF.md` turns those preferences plus product constraints into a shared visual language.
 - lane `*_PRODUCT_BRIEF.md` files own task-specific product choices.
 - domain Learning / Interaction contracts remain semantic authority and outrank taste when a real conflict exists.
-
-Codex must not reinterpret this file as permission to change learning semantics.
-
----
-
-## 10｜Update rule
-
-Update this file when Kian explicitly states a durable UI / interaction preference or explicitly rejects one.
-
-- Preserve the distinction between explicit preference and inference.
-- Do not silently promote one successful mockup into a universal rule.
-- Do not infer a global preference from one task-specific decision unless Kian explicitly generalizes it.
-- When a later explicit preference conflicts with an older one, update the Current preference rather than carrying both as equal truth.
