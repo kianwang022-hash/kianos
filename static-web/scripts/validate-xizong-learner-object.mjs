@@ -31,7 +31,29 @@ for (const systemSummary of listProjectableXizongSystems()) {
 
     assert(report.kpCount === (productionBlock.kpRecords || []).length, `${productionBlock.blockId}:kp-count`);
     assert(report.logicGroupCount === (productionBlock.logicGroups || []).length, `${productionBlock.blockId}:group-count`);
-    assert(learnerObject.kps.every((kp) => kp.core.markdown === (productionBlock.kpRecords.find((row) => row.kpId === kp.identity.kpId)?.detailMarkdown || '')), `${productionBlock.blockId}:core-drift`);
+
+    for (const kp of learnerObject.kps) {
+      const kpId = kp.identity.kpId;
+      const canonicalKp = (productionBlock.kpRecords || []).find((row) => row.kpId === kpId);
+      assert(Boolean(canonicalKp), `${kpId}:canonical-kp-missing`);
+      assert(kp.prompt?.canonical === (canonicalKp?.prompt || ''), `${kpId}:prompt-drift`);
+      assert(kp.core?.markdown === (canonicalKp?.detailMarkdown || ''), `${kpId}:core-drift`);
+      assert(kp.source?.locator === (canonicalKp?.sourceLocator || ''), `${kpId}:source-drift`);
+      assert(kp.outline?.locator === (canonicalKp?.outlineLocator || ''), `${kpId}:outline-drift`);
+
+      const learnSlot = learnerObject.slots?.kpLearnAux?.[kpId] || {};
+      const recallSlot = learnerObject.slots?.kpRecallPostReveal?.[kpId] || {};
+      const connections = [...(kp.connection?.incoming || []), ...(kp.connection?.outgoing || [])];
+      assert(sameIds(learnSlot.visual, kp.visual), `${kpId}:learn-visual-drift`);
+      assert(sameIds(learnSlot.precision, kp.precision), `${kpId}:learn-precision-drift`);
+      assert(sameIds(learnSlot.extension, kp.extension), `${kpId}:learn-extension-drift`);
+      assert(sameIds(learnSlot.connection, connections), `${kpId}:learn-connection-drift`);
+      assert(sameIds(recallSlot.visual, kp.visual), `${kpId}:recall-visual-drift`);
+      assert(sameIds(recallSlot.precision, kp.precision), `${kpId}:recall-precision-drift`);
+      assert(sameIds(recallSlot.extension, kp.extension), `${kpId}:recall-extension-drift`);
+      assert(sameIds(recallSlot.connection, connections), `${kpId}:recall-connection-drift`);
+      assert(recallSlot.core?.markdown === kp.core.markdown, `${kpId}:recall-core-drift`);
+    }
 
     const expectedKpVisualIds = (resolved.learningCues.visuals || [])
       .filter((row) => row?.anchor?.kp_id)
@@ -40,25 +62,14 @@ for (const systemSummary of listProjectableXizongSystems()) {
     const actualKpVisualIds = learnerObject.kps.flatMap((kp) => kp.visual.map((row) => row.id)).sort();
     assert(JSON.stringify(expectedKpVisualIds) === JSON.stringify(actualKpVisualIds), `${productionBlock.blockId}:kp-visual-loss`);
 
-    for (const kp of learnerObject.kps) {
-      const kpId = kp.identity.kpId;
-      const learnSlot = learnerObject.slots?.kpLearnAux?.[kpId] || {};
-      const recallSlot = learnerObject.slots?.kpRecallPostReveal?.[kpId] || {};
-      assert(sameIds(learnSlot.visual, kp.visual), `${kpId}:learn-visual-drift`);
-      assert(sameIds(learnSlot.precision, kp.precision), `${kpId}:learn-precision-drift`);
-      assert(sameIds(learnSlot.extension, kp.extension), `${kpId}:learn-extension-drift`);
-      assert(sameIds(recallSlot.visual, kp.visual), `${kpId}:recall-visual-drift`);
-      assert(sameIds(recallSlot.precision, kp.precision), `${kpId}:recall-precision-drift`);
-      assert(sameIds(recallSlot.extension, kp.extension), `${kpId}:recall-extension-drift`);
-      assert(recallSlot.core?.markdown === kp.core.markdown, `${kpId}:recall-core-drift`);
-    }
-
     for (const group of learnerObject.logicGroups) {
       const groupId = group.identity.logicGroupId;
       const pre = learnerObject.slots?.logicGroupPrelearn?.[groupId] || {};
       const post = learnerObject.slots?.logicGroupPostlearn?.[groupId] || {};
       assert(sameIds(pre.visual, group.visual), `${groupId}:prelearn-visual-drift`);
+      assert(sameIds(pre.connection, group.connection?.incoming), `${groupId}:prelearn-connection-drift`);
       assert(sameIds(post.precision, group.precision), `${groupId}:postlearn-precision-drift`);
+      assert(sameIds(post.connection, group.connection?.outgoing), `${groupId}:postlearn-connection-drift`);
     }
 
     reports.push(report);
