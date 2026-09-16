@@ -1,0 +1,61 @@
+name: Lexical pkg303 final-tail preparation
+
+on:
+  push:
+    branches: [lexical/pkg303-final-tail]
+    paths:
+      - '.github/workflows/lexical-pkg303-prepare.yml'
+      - 'tools/lexical_compile_final_tail_o7875_o7946.py'
+      - 'content/lexical/semantic-reconciliation/o7875-o7946.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/pkg303-final-tail
+          fetch-depth: 0
+      - name: Compile exact final-tail accounting
+        run: |
+          python -m py_compile tools/lexical_compile_final_tail_o7875_o7946.py tools/lexical_prepare_execution_package_v2.py
+          python tools/lexical_compile_final_tail_o7875_o7946.py
+      - name: Enforce frozen accounting
+        run: |
+          python - <<'PY'
+          import json
+          p='content/lexical/execution/preflight/o7875-o7946.reconciliation-compile.json'
+          d=json.load(open(p))
+          assert d['package']=={'start':7875,'end':7946,'owner_count':72}, d['package']
+          assert d['production_upgrade_count']==30, d['production_upgrade_count']
+          assert d['audit_verdict_counts'].get('FLIP_TO_UPGRADE')==5, d['audit_verdict_counts']
+          assert d['audit_verdict_counts'].get('REFINE_UPGRADE',0)==0, d['audit_verdict_counts']
+          assert d['audit_verdict_counts'].get('FLIP_TO_NO_CHANGE',0)==0, d['audit_verdict_counts']
+          assert d['audit_verdict_counts'].get('IDENTITY_RISK',0)==0, d['audit_verdict_counts']
+          assert d['semantic_source_owner_count']==35, d['semantic_source_owner_count']
+          assert [x['source_count'] for x in d['receipt_counts']]==[26,9], d['receipt_counts']
+          print('PKG303_ACCOUNTING_PASS')
+          PY
+      - name: Prepare identity evidence and execution sheet
+        run: |
+          python tools/lexical_prepare_execution_package_v2.py \
+            --accounting content/lexical/execution/preflight/o7875-o7946.reconciliation-compile.json \
+            --reconciliation content/lexical/semantic-reconciliation/o7875-o7946.md \
+            --issue 303 \
+            --remote 5235 \
+            --out-prefix content/lexical/execution/preflight/o7875-o7946
+      - name: Persist preparation artifacts
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical/execution/preflight/o7875-o7946.*
+          if git diff --cached --quiet; then
+            echo 'No preparation delta'
+            exit 0
+          fi
+          git commit -m 'lexical: compile final-tail preparation artifacts [skip ci]'
+          git push origin HEAD:lexical/pkg303-final-tail
