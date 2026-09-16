@@ -2,7 +2,7 @@
 """Issue #245 executor v5.
 
 Extends v4 with an explicit mechanical fallback for accepted reciprocal
-relations whose Current state contains no reusable relation identity.  The
+relations whose Current state contains no reusable relation identity. The
 fallback mints one deterministic horizontal relation via package runtime; it is
 only enabled for relation pairs already frozen by the #245 manifest authority.
 """
@@ -20,7 +20,7 @@ import lexical_execute_o4875_o5374 as v1
 
 # (source ordinal, target word) -> (relation_type, field, boundary)
 # These are implementation classes of already-accepted semantic relations, not
-# new review judgments.  Existing relations are always preferred by v4.
+# new review judgments. Existing relations are always preferred by v4.
 NEW_ACCEPTED_RELATIONS = {
     (5035, 'tired'): (
         'word_family', 'word_family',
