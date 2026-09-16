@@ -17,6 +17,7 @@ const bridge = read('src/components/PoliticsCognitiveWorkspaceBridge.astro');
 const readable = read('src/components/PoliticsCognitiveWorkspaceReadable.astro');
 const page = read('src/pages/politics/[subject]/[chapter].astro');
 const presentation = read('PRESENTATION_CONTRACT.md');
+const preferences = read('KIAN_UI_PREFERENCES.md');
 const learning = read('../content/politics/LEARNING_CONTRACT.md');
 
 for (const marker of [
@@ -65,32 +66,41 @@ for (const fastPath of [
   "setWorkspaceState(unit, 'VERIFY')"
 ]) requireText(bridge, fastPath, 'score-first workspace bridge');
 
-// Golden calibration keeps diagrams only where they reduce cognitive cost.
-// S01 may keep a simple converging chain; S02 proves the text-default path.
-for (const visualRule of [
+// Shell behavior remains stable; representation choice is now purpose-first.
+for (const shellRule of [
   'directReasoningWorkspace',
-  'goldenGraph',
-  'goldenizeMap(panel)',
   '章地图 +',
   '.relationStrip',
   "inspectorTitle.textContent = '容易混'",
   '.workspaceState{display:none}',
   '.suyiNote{display:none!important}'
-]) requireText(bridge, visualRule, 'golden workspace shell');
+]) requireText(bridge, shellRule, 'golden workspace shell');
 
+// Learner-visible acceptance: text is the default. A visual is kept only when it
+// clearly reduces reconstruction cost without inventing hierarchy or causality.
 for (const readableRule of [
-  'readability wins over diagram density',
-  'TEXT_DEFAULT',
-  'textFirstMap',
-  'readableConcepts',
-  'readableConcept',
+  'PURPOSE_FIRST / TEXT_DEFAULT',
+  'SIMPLE_CHAIN_WHEN_CLEARER',
+  "s02.dataset.politicsRepresentation = 'TEXT_DEFAULT'",
+  "panel.dataset.representation = 'TEXT'",
+  'purposeChain',
+  'featureNames',
   'readableRelations',
-  '这几个特征怎么联系',
-  '人民性、实践性、发展性',
+  "['科学性', '人民性', '实践性', '发展性']",
   '集中体现马克思主义的革命性',
+  '为革命性提供科学基础',
+  '科学性与革命性',
+  '概念解释（需要时）',
+  'font-size:clamp(31px',
   'font-size:19px',
   'font-size:16px'
 ]) requireText(readable, readableRule, 'purpose-first readable layer');
+
+for (const preferenceRule of [
+  'larger, comfortably readable type',
+  'tiny text that makes sustained reading tiring',
+  'Kian\'s direct feedback > real-use evidence > these hypotheses.'
+]) requireText(preferences, preferenceRule, 'learner UI preference owner');
 
 for (const forbiddenProjection of [
   'buildDirectReasoningFlow',
@@ -156,8 +166,8 @@ console.log(JSON.stringify({
   states: ['ORIENT', 'EXTERNAL_LEARN', 'RECALL', 'VERIFY', 'REPAIR', 'CLOSE'],
   scoreFirstFastPath: 'EXTERNAL_LEARN -> VERIFY; RECALL optional',
   representationRule: 'PURPOSE_FIRST_TEXT_DEFAULT_VISUAL_ONLY_WHEN_CLEARER',
-  s01: 'SIMPLE_SPATIAL_CHAIN_WHEN_IT_REDUCES_RECONSTRUCTION_COST',
-  s02: 'LARGE_TYPE_STRUCTURED_TEXT_PLUS_EXPLICIT_RELATION_SENTENCES',
+  s01: 'SIMPLE_CHAIN_WHEN_CLEARER',
+  s02: 'STRUCTURED_TEXT_RELATIONS',
   secondaryDepth: 'REQUIRED_RELATION_CHAIN_VISIBLE_LOWER_WEIGHT',
   chapterContext: 'COMPACT_OPTIONAL_ENTRY',
   surface: 'MAC_LANDSCAPE_COGNITIVE_WORKSPACE'
