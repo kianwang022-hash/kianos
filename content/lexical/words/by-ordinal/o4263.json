@@ -7,7 +7,7 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "d1d1fa03c258b761562c57bfe82b8a52a2f8e83b9c392d8182e644ec97cb019b",
+    "content_hash": "fea2e2b2dd506ec64502e30d9aeda8d5e971463ccea05f2d0e549257d9344921",
     "core_concept": {
       "core_clusters": [
         {
@@ -26,19 +26,11 @@
             "sense:savage:82d53d8bcd4b573e",
             "sense:savage:993bfde9af0958f7"
           ]
-        },
-        {
-          "label_cn": "野蛮人；未开化的人",
-          "label_en": "a person who is considered primitive or uncivilized",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:savage:910033c1b7ea5c9d"
-          ]
         }
       ],
-      "core_meaning_cn": "凶猛的，野蛮的；猛烈攻击",
-      "core_meaning_en": "fierce, brutal, or uncivilized; to attack fiercely",
-      "mental_model_cn": "凶猛的，野蛮的；猛烈攻击",
+      "core_meaning_cn": "凶猛、残酷、野性的；猛烈攻击或严厉抨击",
+      "core_meaning_en": "extremely violent/cruel/wild; to attack violently or criticize very severely",
+      "mental_model_cn": "凶猛、残酷、野性的；猛烈攻击或严厉抨击",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -123,30 +115,6 @@
         "sense_label_en": "to criticize someone or something very severely",
         "sort_order": 2,
         "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3be1c4c8a309ce5d2122",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:savage:910033c1b7ea5c9d:collocation:0"
-            ],
-            "meaning_cn": "野蛮人部落",
-            "phrase": "a tribe of savages"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "野蛮人；未开化的人",
-        "definition_en": "a person who is considered primitive or uncivilized",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:savage:910033c1b7ea5c9d",
-        "sense_label_en": "a person who is considered primitive or uncivilized",
-        "sort_order": 3,
-        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -176,7 +144,31 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "stable_sense_id": "sense:savage:910033c1b7ea5c9d",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "pos": "noun",
+      "definition_cn": "（过时且冒犯）被称作“野蛮/未开化”的人",
+      "definition_en": "dated and offensive: a person described as primitive or uncivilized",
+      "semantic_key": "f540817609f7d8627cca16da0697a14ecbb09273a644369a87ef061e198f83df",
+      "semantic_key_history": [],
+      "legacy_aliases": [
+        "savage:l3:4"
+      ],
+      "legacy_alias_history": [
+        {
+          "legacy_sense_id": "savage:l3:4",
+          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
+        }
+      ],
+      "updated_at": "2026-09-14T00:00:00Z",
+      "source_row": 11949,
+      "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -188,7 +180,7 @@
       },
       {
         "sense_id": "sense:savage:910033c1b7ea5c9d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 11949,
         "source_path": "content/lexical/canonical/senses/shards/o4257-4288.json"
@@ -209,7 +201,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:3be1c4c8a309ce5d2122",
       "collocation:53c07f7fcf2e20833207",
       "collocation:740095ac04e383e27dd0",
       "collocation:e756a982166cc526b43c"
@@ -269,7 +260,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4257-4264.json",
-    "source_content_hash": "d1d1fa03c258b761562c57bfe82b8a52a2f8e83b9c392d8182e644ec97cb019b",
+    "source_content_hash": "fea2e2b2dd506ec64502e30d9aeda8d5e971463ccea05f2d0e549257d9344921",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -1,0 +1,68 @@
+name: Lexical o4225-o4274 mechanical boundary
+
+on:
+  push:
+    branches:
+      - lexical/execute-o4125-o4374-20260916
+    paths:
+      - '.github/workflows/lexical-o4225-o4274-shard3.yml'
+      - 'tools/lexical_execute_o4225_o4274.py'
+      - 'tools/lexical_execute_o4225_o4274_run.py'
+
+permissions:
+  contents: write
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    env:
+      KIANOS_BASELINE_MAIN: 9474f13e6d82935b78998eddf27b157a966e0e75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: lexical/execute-o4125-o4374-20260916
+          fetch-depth: 0
+      - name: Execute frozen shard 3
+        shell: bash
+        run: |
+          set +e
+          python tools/lexical_execute_o4225_o4274_run.py > /tmp/shard3.log 2>&1
+          code=$?
+          cat /tmp/shard3.log
+          if [ "$code" -ne 0 ]; then
+            mkdir -p content/lexical/execution/diagnostics
+            cp /tmp/shard3.log content/lexical/execution/diagnostics/o4225-o4274.failure.txt
+            git config user.name Kian
+            git config user.email kianwang022@gmail.com
+            git add content/lexical/execution/diagnostics/o4225-o4274.failure.txt
+            git commit -m 'lexical: capture o4225-o4274 executor failure' || true
+            git push origin HEAD:lexical/execute-o4125-o4374-20260916 || true
+            exit "$code"
+          fi
+      - name: Transport guards
+        run: python tools/test_lexical_transport_guards.py
+      - name: Shard tests
+        run: python tools/test_lexical_shard.py
+      - name: Parse changed Lexical JSON
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          root=Path('.')
+          changed=subprocess.check_output(['git','diff','--name-only','HEAD'],text=True).splitlines()
+          targets=[p for p in changed if p.startswith('content/lexical/') and p.endswith('.json')]
+          for p in targets:
+              json.loads((root/p).read_text(encoding='utf-8'))
+          print(f'JSON_PASS {len(targets)} changed json files')
+          PY
+      - name: Commit mechanical boundary
+        run: |
+          git config user.name Kian
+          git config user.email kianwang022@gmail.com
+          git add content/lexical
+          if git diff --cached --quiet; then
+            echo 'NO_CHANGES_TO_COMMIT'
+            exit 1
+          fi
+          git commit -m 'lexical: execute o4225-o4274 boundary'
+          git push origin HEAD:lexical/execute-o4125-o4374-20260916

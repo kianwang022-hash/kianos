@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "bff4e4d91a0f70da02c1979328eade19e51f37ca4239dc9fe622a44b9cfc7187",
+    "content_hash": "28c095ec8067756775bb441bfc24579b8e0f2b36af38840da19928e536071f30",
     "core_concept": {
       "core_clusters": [
         {
@@ -73,19 +73,11 @@
         "sense_id": "sense:scheme:da66974d112b52f0",
         "sense_label_en": "an elaborate and systematic plan of action",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "BrE scheme is often neutral for an organized program or plan, e.g. pension scheme."
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:cfafd367be133fc6ecca",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:scheme:3d7b31637763554f:collocation:0"
-            ],
-            "meaning_cn": "做某事的阴谋",
-            "phrase": "a scheme to do + sth"
-          },
           {
             "collocation_id": "collocation:20df241eae2aba45d243",
             "exam_value": "usage_example",
@@ -94,6 +86,15 @@
             ],
             "meaning_cn": "策划阴谋",
             "phrase": "hatch a scheme"
+          },
+          {
+            "collocation_id": "collocation:9594f4860b69c52a62e0",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:scheme:3d7b31637763554f:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "做某事的阴谋/计划",
+            "phrase": "a scheme to do sth"
           }
         ],
         "confidence": "medium",
@@ -106,7 +107,8 @@
         "sense_id": "sense:scheme:3d7b31637763554f",
         "sense_label_en": "a secret or underhanded plan",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "In AmE, scheme often suggests a suspicious or underhand plan; context matters."
       },
       {
         "collocations": [
@@ -214,7 +216,7 @@
       "collocation:767bb7320096358895b7",
       "collocation:85e1d8da6b575ae713db",
       "collocation:8829ecfa27ff94d101db",
-      "collocation:cfafd367be133fc6ecca"
+      "collocation:9594f4860b69c52a62e0"
     ],
     "facts": [],
     "collocations": [
@@ -246,6 +248,11 @@
       {
         "id": "collocation:cfafd367be133fc6ecca",
         "source_row": 17551,
+        "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
+      },
+      {
+        "id": "collocation:9594f4860b69c52a62e0",
+        "source_row": 21628,
         "source_path": "content/lexical/canonical/collocations/shards/o4257-4288.json"
       }
     ],
@@ -295,7 +302,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4281-4288.json",
-    "source_content_hash": "bff4e4d91a0f70da02c1979328eade19e51f37ca4239dc9fe622a44b9cfc7187",
+    "source_content_hash": "28c095ec8067756775bb441bfc24579b8e0f2b36af38840da19928e536071f30",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

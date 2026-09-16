@@ -7,30 +7,23 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "a14d46a40daf6ea56b99f87e74cdf923c1f9eddd2ae8c2ab09620ba9146dcc4f",
+    "content_hash": "dffb6b1358df5954f684c46af8a36115ce66c8fd59118fd522ea853dacb6fba2",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "浪漫的；爱情的；浪漫主义的",
-          "label_en": "relating to love or showing strong feelings of affection; characteristic of Romanticism in art or literature",
+          "label_cn": "浪漫的；爱情的；浪漫主义的；理想化的；不切实际的",
+          "label_en": "relating to love or showing strong feelings of affection; characteristic of Romanticism in art or literature; idealistic rather than practical or realistic",
           "pos": "adjective",
           "sense_ids": [
             "sense:romantic:acf245f9ba0d5772",
-            "sense:romantic:0a3bfc5d5ce75c3e"
-          ]
-        },
-        {
-          "label_cn": "浪漫的人；空想家",
-          "label_en": "a person who is idealistic or amorous",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:romantic:fffdce01ac81581a"
+            "sense:romantic:0a3bfc5d5ce75c3e",
+            "sense:romantic:00c96bca5a03cc5a"
           ]
         }
       ],
-      "core_meaning_cn": "浪漫的",
-      "core_meaning_en": "relating to love or idealistic feelings",
-      "mental_model_cn": "浪漫的",
+      "core_meaning_cn": "爱情/浪漫的；理想化而可能不切实际的；大写 Romantic 指浪漫主义",
+      "core_meaning_en": "romantic in love; idealistic/not fully realistic; capitalized Romantic for the movement",
+      "mental_model_cn": "爱情/浪漫的；理想化而可能不切实际的；大写 Romantic 指浪漫主义",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,6 +93,13 @@
         "definition_en": "characteristic of Romanticism in art or literature",
         "governing_pattern": "",
         "level": "L2",
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "capitalization_boundary",
+          "note": "capitalized Romantic refers to the cultural/artistic movement or period; lowercase romantic covers love and idealistic meanings",
+          "paired_form": "Romantic",
+          "surface_lemma": "romantic"
+        },
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:romantic:0a3bfc5d5ce75c3e",
@@ -129,6 +129,30 @@
         "sense_id": "sense:romantic:fffdce01ac81581a",
         "sense_label_en": "a person who is idealistic or amorous",
         "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:1eddadf645b6c34eebf1",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:romantic:00c96bca5a03cc5a:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "理想化而不切实际的看法",
+            "phrase": "a romantic view/idea"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "理想化的；不切实际的",
+        "definition_en": "idealistic rather than practical or realistic",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:romantic:00c96bca5a03cc5a",
+        "sense_label_en": "idealistic rather than practical or realistic",
+        "sort_order": 3,
         "transitivity": "nonverb"
       }
     ],
@@ -175,9 +199,17 @@
         "merged_into_sense_id": null,
         "source_row": 11749,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:romantic:00c96bca5a03cc5a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11859,
+        "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
       }
     ],
     "active_collocations": [
+      "collocation:1eddadf645b6c34eebf1",
       "collocation:48414421d7faf910a0c6",
       "collocation:8e88825bb4a1d8768491",
       "collocation:9e9e912de8304d4b39e2",
@@ -209,6 +241,11 @@
       {
         "id": "collocation:f630f7d4b308452ee4f3",
         "source_row": 20859,
+        "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
+      },
+      {
+        "id": "collocation:1eddadf645b6c34eebf1",
+        "source_row": 21598,
         "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
       }
     ],
@@ -248,7 +285,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4193-4200.json",
-    "source_content_hash": "a14d46a40daf6ea56b99f87e74cdf923c1f9eddd2ae8c2ab09620ba9146dcc4f",
+    "source_content_hash": "dffb6b1358df5954f684c46af8a36115ce66c8fd59118fd522ea853dacb6fba2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

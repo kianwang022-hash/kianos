@@ -7,12 +7,23 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "40b220872b45231e4a15db61f3d08fe5225072a61a5673aef220e133b77ad6a3",
+    "content_hash": "7a0297aca9a2f07560255bb2f155033735bf85f7ce8cf6dccd11b2e953e5ff75",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "感觉或轰动",
-      "core_meaning_en": "a physical feeling or a state of excited interest",
-      "mental_model_cn": "感觉或轰动",
+      "core_clusters": [
+        {
+          "label_cn": "感觉；知觉；轰动；引起轰动的人或事；引起轰动或广受关注的人/事物",
+          "label_en": "a physical feeling that comes from the senses; a state of great excitement or interest among many people; a person or thing that causes great excitement or becomes extremely popular",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:sensation:d2ab604e42f65f1c",
+            "sense:sensation:57233352acf55bd3",
+            "sense:sensation:2e33d57e988d007d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "感觉；公众轰动状态；引起轰动的人或事物",
+      "core_meaning_en": "a physical sensation; public excitement; a person or thing causing a sensation",
+      "mental_model_cn": "感觉；公众轰动状态；引起轰动的人或事物",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -66,15 +77,6 @@
             ],
             "meaning_cn": "引起轰动",
             "phrase": "create a sensation"
-          },
-          {
-            "collocation_id": "collocation:c5def787a6a85474d08d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:sensation:57233352acf55bd3:collocation:1"
-            ],
-            "meaning_cn": "媒体轰动",
-            "phrase": "media sensation"
           }
         ],
         "confidence": "medium",
@@ -87,6 +89,30 @@
         "sense_id": "sense:sensation:57233352acf55bd3",
         "sense_label_en": "a state of great excitement or interest among many people",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:581b8142d337f4c15626",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sensation:2e33d57e988d007d:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "媒体/网络轰动人物或事物",
+            "phrase": "a media/internet sensation"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "引起轰动或广受关注的人/事物",
+        "definition_en": "a person or thing that causes great excitement or becomes extremely popular",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:sensation:2e33d57e988d007d",
+        "sense_label_en": "a person or thing that causes great excitement or becomes extremely popular",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -126,11 +152,18 @@
         "merged_into_sense_id": null,
         "source_row": 12193,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:sensation:2e33d57e988d007d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12232,
+        "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
       }
     ],
     "active_collocations": [
+      "collocation:581b8142d337f4c15626",
       "collocation:6d52d4537aa42792bbdf",
-      "collocation:c5def787a6a85474d08d",
       "collocation:cea078d2ab85114c3ab1",
       "collocation:fe66e14576434a4c7dd6"
     ],
@@ -154,6 +187,11 @@
       {
         "id": "collocation:fe66e14576434a4c7dd6",
         "source_row": 21511,
+        "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:581b8142d337f4c15626",
+        "source_row": 21513,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
       }
     ],
@@ -188,7 +226,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4337-4344.json",
-    "source_content_hash": "40b220872b45231e4a15db61f3d08fe5225072a61a5673aef220e133b77ad6a3",
+    "source_content_hash": "7a0297aca9a2f07560255bb2f155033735bf85f7ce8cf6dccd11b2e953e5ff75",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

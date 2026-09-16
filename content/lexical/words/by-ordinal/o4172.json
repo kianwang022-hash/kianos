@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "f0bbd93ad480473b88a45097fadc677872ea70cc67a5da8e774b1ddf98b437df",
+    "content_hash": "a10dc0837aa3b22e750e5e429f45fd4e8ef48f9e293d4540663e4f82afc27e96",
     "core_concept": {
       "core_clusters": [
         {
@@ -80,15 +80,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:04a1af8165ee16be2274",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:ring:de42e7b52a08505a:collocation:0"
-            ],
-            "meaning_cn": "打电话",
-            "phrase": "give a ring"
-          },
-          {
             "collocation_id": "collocation:f3a2464a42511cff315c",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -108,6 +99,30 @@
         "sense_id": "sense:ring:de42e7b52a08505a",
         "sense_label_en": "the sound of a bell ringing",
         "sort_order": 1,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:f0f6c764ca90dff38ed8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:ring:a51f1aadbdf05844:collocation:0"
+            ],
+            "meaning_cn": "拳击场",
+            "phrase": "boxing ring"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "拳击场；摔跤场",
+        "definition_en": "a platform usually marked off by ropes in which contestants box or wrestle",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:ring:a51f1aadbdf05844",
+        "sense_label_en": "a platform usually marked off by ropes in which contestants box or wrest",
+        "sort_order": 2,
         "transitivity": "nonverb"
       },
       {
@@ -185,25 +200,25 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f0f6c764ca90dff38ed8",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:9a461392998a95dea376",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:ring:a51f1aadbdf05844:collocation:0"
+              "sense:ring:868bb3884282d4cd:collocation:handoff-o1625-o1874"
             ],
-            "meaning_cn": "拳击场",
-            "phrase": "boxing ring"
+            "meaning_cn": "打电话",
+            "phrase": "give a ring"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "拳击场；摔跤场",
-        "definition_en": "a platform usually marked off by ropes in which contestants box or wrestle",
+        "definition_cn": "电话；一次电话通话",
+        "definition_en": "a telephone call or the act of calling someone by telephone",
         "governing_pattern": "",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:ring:a51f1aadbdf05844",
-        "sense_label_en": "a platform usually marked off by ropes in which contestants box or wrest",
-        "sort_order": 2,
+        "sense_id": "sense:ring:868bb3884282d4cd",
+        "sense_label_en": "a telephone call or the act of calling someone by telephone",
+        "sort_order": 6,
         "transitivity": "nonverb"
       }
     ],
@@ -271,14 +286,21 @@
         "merged_into_sense_id": null,
         "source_row": 11679,
         "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
+      },
+      {
+        "sense_id": "sense:ring:868bb3884282d4cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11742,
+        "source_path": "content/lexical/canonical/senses/shards/o4161-4192.json"
       }
     ],
     "active_collocations": [
       "collocation:00bd449068ced9f008e2",
-      "collocation:04a1af8165ee16be2274",
       "collocation:0d6184a4a02d30a920c3",
       "collocation:30ab0c8d594ad766b42b",
       "collocation:6e7cc36baf3dfa2d21a1",
+      "collocation:9a461392998a95dea376",
       "collocation:aeb79391b5e09dfdefc1",
       "collocation:f0f6c764ca90dff38ed8",
       "collocation:f3a2464a42511cff315c"
@@ -324,6 +346,11 @@
         "id": "collocation:f3a2464a42511cff315c",
         "source_row": 20631,
         "source_path": "content/lexical/canonical/collocations/shards/o4161-4192.json"
+      },
+      {
+        "id": "collocation:9a461392998a95dea376",
+        "source_row": 21590,
+        "source_path": "content/lexical/canonical/collocations/shards/o4161-4192.json"
       }
     ],
     "exam-mappings": [],
@@ -352,7 +379,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4169-4176.json",
-    "source_content_hash": "f0bbd93ad480473b88a45097fadc677872ea70cc67a5da8e774b1ddf98b437df",
+    "source_content_hash": "a10dc0837aa3b22e750e5e429f45fd4e8ef48f9e293d4540663e4f82afc27e96",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

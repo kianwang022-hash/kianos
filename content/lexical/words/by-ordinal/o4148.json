@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "68ccecb25b797f53faf8b8cf8cd1a4397b16a84137eaf943d7eed7aa8bd0124f",
+    "content_hash": "872c6c300717fc7bd511b149f0829e23eb3fbc222ed423e3d633c377c1a4be0f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "回顾、检查或评论",
-      "core_meaning_en": "to examine or assess something again, or a report of such examination",
-      "mental_model_cn": "回顾、检查或评论",
+      "core_meaning_cn": "复习、审查；评论或评审",
+      "core_meaning_en": "to examine/study again; a critical evaluation or review",
+      "mental_model_cn": "复习、审查；评论或评审",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "复习；回顾",
+        "definition_en": "to look over, study, or examine again",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:review:365d75f0a0ba5060",
+        "sense_label_en": "to look over, study, or examine again",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "评论文章",
+        "definition_en": "a critical evaluation, as of a book or play",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:review:60f9ab7863fd5f18",
+        "sense_label_en": "a critical evaluation, as of a book or play",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -95,56 +124,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:review:365d75f0a0ba5060",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "复习；回顾",
-      "definition_en": "to look over, study, or examine again",
-      "semantic_key": "e583849418bafc92762390385b7bd658a0dee8433cb0c8c70e7d7a3222b49d9d",
-      "semantic_key_history": [
-        "b5ac508ba98e7410bf4afc0e2fb9236548293026b808e1d2cf0479f5d094a6ec"
-      ],
-      "legacy_aliases": [
-        "review:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "review:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11590,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:review:60f9ab7863fd5f18",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "评论文章",
-      "definition_en": "a critical evaluation, as of a book or play",
-      "semantic_key": "6b4455657a2e20a209ae9a786b6665935446cf6fc80d27ea9faaa9f691ac1d5b",
-      "semantic_key_history": [
-        "7eace4f431af09d33c23a0568fd351d2651ea4caef39476f006f399e50cba012"
-      ],
-      "legacy_aliases": [
-        "review:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "review:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11591,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:review:acde31a6e60c524e",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -213,14 +192,14 @@
       },
       {
         "sense_id": "sense:review:365d75f0a0ba5060",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11590,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
       },
       {
         "sense_id": "sense:review:60f9ab7863fd5f18",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11591,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
@@ -325,7 +304,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4145-4152.json",
-    "source_content_hash": "68ccecb25b797f53faf8b8cf8cd1a4397b16a84137eaf943d7eed7aa8bd0124f",
+    "source_content_hash": "872c6c300717fc7bd511b149f0829e23eb3fbc222ed423e3d633c377c1a4be0f",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

@@ -113,15 +113,27 @@
         "pattern": "see if/whether + clause"
       }
     ],
-    "content_hash": "9daa341973fbf8c73b4962ec4a0779f32195ee3507581b9d4a6c6cbafc2ba506",
+    "content_hash": "f8727939ad7401718712ef46464c9fe8cc357e90be0bfc80c9295711c8615e8d",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "看见；理解",
-      "core_meaning_en": "to perceive with the eyes or understand",
-      "mental_model_cn": "看见；理解",
+      "core_meaning_cn": "看见；理解；会见/看望；经历/见证",
+      "core_meaning_en": "to perceive with the eyes or understand; also meet/visit and experience/witness",
+      "mental_model_cn": "看见；理解；会见/看望；经历/见证",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
+    "form_identity": {
+      "authority": "content/lexical/semantic-reconciliation/o4125-o4374.md",
+      "boundaries": [
+        {
+          "condition": "simple past form",
+          "note": "saw is the simple past of see while word:saw also independently owns tool/cutting senses",
+          "surface": "saw",
+          "surface_owner_ordinal": 4266
+        }
+      ],
+      "type": "inflectional_form_boundary"
+    },
     "needs_delta_review": false,
     "processing_status": "completed",
     "record_type": "word_card_bundle",
@@ -137,7 +149,92 @@
     ],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "看见",
+        "definition_en": "to perceive with the eyes",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:b9a85402585450f8",
+        "sense_label_en": "to perceive with the eyes",
+        "sort_order": 0,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "理解；明白",
+        "definition_en": "to understand or realize",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:c494c6e327b15c9d",
+        "sense_label_en": "to understand or realize",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "会见；拜访；看望",
+        "definition_en": "to meet or visit someone",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:208ad17334f8508c",
+        "sense_label_en": "to meet or visit someone",
+        "sort_order": 2,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "经历；见证",
+        "definition_en": "to experience or witness an event, period, or change",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:81ff9d56d4345eef",
+        "sense_label_en": "to experience or witness an event, period, or change",
+        "sort_order": 3,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "确保；务必",
+        "definition_en": "to make sure or take care that something happens",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:see:cd9a66de34285ceb",
+        "sense_label_en": "to make sure or take care that something happens",
+        "sort_order": 4,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "主教职位；主教教座",
+        "definition_en": "the seat or office of a bishop",
+        "governing_pattern": "",
+        "level": "L3",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:see:39157e1e0fb3541b",
+        "sense_label_en": "the seat or office of a bishop",
+        "sort_order": 5,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 2,
       "deep_modules": {
@@ -167,24 +264,6 @@
   ],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:see:208ad17334f8508c",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "会见；拜访；看望",
-      "definition_en": "to meet or visit someone",
-      "semantic_key": "b7bfe23641c9b58497c36ce2a5261a1a72159abba2a967e5d7c575a0e1bc2e4a",
-      "semantic_key_history": [
-        "7cc9bbbe70e0a53cc7d33ce94f75830b681400446a219c2f783d20144e5e2ec1"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12135,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:see:301ce679766b508c",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -208,131 +287,13 @@
       "source_row": 12136,
       "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:see:39157e1e0fb3541b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "主教职位；主教教座",
-      "definition_en": "the seat or office of a bishop",
-      "semantic_key": "0b4df92756d8a85227dde8ad45dbe2a153a9796375ace552376678116d13064a",
-      "semantic_key_history": [
-        "5ec4d3ef1d3782941bfffc23ca1114882ac41e65e602da7d1d1d96000203e840"
-      ],
-      "legacy_aliases": [
-        "see:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "see:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12137,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:see:81ff9d56d4345eef",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "经历；见证",
-      "definition_en": "to experience or witness an event, period, or change",
-      "semantic_key": "bc7bc34dfc59937a1e011ee7999b51436f043c7ea14ccba5c496b2e118d05b12",
-      "semantic_key_history": [
-        "1907a33698131aec6669f74a1695f943e1d1c9bfa87184911c5c35cc4003ffa5"
-      ],
-      "legacy_aliases": [],
-      "legacy_alias_history": [],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12138,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:see:b9a85402585450f8",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "看见",
-      "definition_en": "to perceive with the eyes",
-      "semantic_key": "19ec7b7bc917a2593ec79b61e25e9cc7e7129a78101b0dd432bdfb646af6c95c",
-      "semantic_key_history": [
-        "0e1bd3e572c52d24e29ac3298f6af5d12d14faea08579907ef98ca82efb203a2"
-      ],
-      "legacy_aliases": [
-        "see:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "see:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12139,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:see:c494c6e327b15c9d",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "理解；明白",
-      "definition_en": "to understand or realize",
-      "semantic_key": "f2ac7d1e99a9e9976d97ba2770a8a086719960476a1c92edd8f090b23bbb432e",
-      "semantic_key_history": [
-        "ca418be71e04a85696e7e679510303b9dc21745ca776b7e320a7f850cec31352"
-      ],
-      "legacy_aliases": [
-        "see:l1:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "see:l1:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12140,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:see:cd9a66de34285ceb",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "确保；务必",
-      "definition_en": "to make sure or take care that something happens",
-      "semantic_key": "73dabea8a488cdbcd1c56290bbc7ca3425d3b441aae1da16d8c3b7cf8dd95004",
-      "semantic_key_history": [
-        "5862a4d048882b3ef47bc9ea962e7d12049c08c31c7757be7882f29bda5359fa"
-      ],
-      "legacy_aliases": [
-        "see:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "see:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12141,
-      "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:see:208ad17334f8508c",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12135,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
@@ -346,35 +307,35 @@
       },
       {
         "sense_id": "sense:see:39157e1e0fb3541b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12137,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:see:81ff9d56d4345eef",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12138,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:see:b9a85402585450f8",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12139,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:see:c494c6e327b15c9d",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12140,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
       },
       {
         "sense_id": "sense:see:cd9a66de34285ceb",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12141,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
@@ -471,7 +432,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4313-4320.json",
-    "source_content_hash": "9daa341973fbf8c73b4962ec4a0779f32195ee3507581b9d4a6c6cbafc2ba506",
+    "source_content_hash": "f8727939ad7401718712ef46464c9fe8cc357e90be0bfc80c9295711c8615e8d",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

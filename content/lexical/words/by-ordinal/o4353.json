@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "5cc9c685b3df7a57e6e2d86133a215f6c137d23aea4e5b05748613f6174a53b4",
+    "content_hash": "01eaae2a670f21bca7ff1aa30c58138bfc421ee5dff5d291cdea6fab7860f4e2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "仆人，服务者",
-      "core_meaning_en": "a person who serves another, especially in a household",
-      "mental_model_cn": "仆人，服务者",
+      "core_clusters": [
+        {
+          "label_cn": "仆人，佣人；为公众、政府或公共机构服务的人；公仆、公务人员",
+          "label_en": "a person employed to work in another person's house, doing domestic duties; a person who serves the public, government, or a public institution",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:servant:48cb3f67c9905b3e",
+            "sense:servant:8ff3b36ea113a7c9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "仆人、佣人；也可指为公众/政府服务的人",
+      "core_meaning_en": "a domestic servant; also a person serving the public or government",
+      "mental_model_cn": "仆人、佣人；也可指为公众/政府服务的人",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,15 +43,6 @@
             ],
             "meaning_cn": "家仆",
             "phrase": "domestic servant"
-          },
-          {
-            "collocation_id": "collocation:52bcc51b3ed598a16312",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:servant:48cb3f67c9905b3e:collocation:1"
-            ],
-            "meaning_cn": "公务员；公仆",
-            "phrase": "public servant"
           }
         ],
         "confidence": "medium",
@@ -54,6 +55,30 @@
         "sense_id": "sense:servant:48cb3f67c9905b3e",
         "sense_label_en": "a person employed to work in another person's house, doing domestic duti",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:3d46f437ce9269fbc636",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:servant:8ff3b36ea113a7c9:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "公务员；公仆",
+            "phrase": "public servant"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "为公众、政府或公共机构服务的人；公仆、公务人员",
+        "definition_en": "a person who serves the public, government, or a public institution",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:servant:8ff3b36ea113a7c9",
+        "sense_label_en": "a person who serves the public, government, or a public institution",
+        "sort_order": 1,
         "transitivity": "nonverb"
       }
     ],
@@ -86,10 +111,17 @@
         "merged_into_sense_id": null,
         "source_row": 12230,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:servant:8ff3b36ea113a7c9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12349,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
-      "collocation:52bcc51b3ed598a16312",
+      "collocation:3d46f437ce9269fbc636",
       "collocation:78153f2bf9a313d0d148"
     ],
     "facts": [],
@@ -102,6 +134,11 @@
       {
         "id": "collocation:78153f2bf9a313d0d148",
         "source_row": 10155,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:3d46f437ce9269fbc636",
+        "source_row": 21423,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
@@ -141,7 +178,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4353-4360.json",
-    "source_content_hash": "5cc9c685b3df7a57e6e2d86133a215f6c137d23aea4e5b05748613f6174a53b4",
+    "source_content_hash": "01eaae2a670f21bca7ff1aa30c58138bfc421ee5dff5d291cdea6fab7860f4e2",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

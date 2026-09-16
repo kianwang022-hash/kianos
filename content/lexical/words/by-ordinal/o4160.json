@@ -7,12 +7,12 @@
     "card_version": "v4",
     "confusables": [],
     "constructions": [],
-    "content_hash": "69304952b71aabfa59841c5b6b865de70b9ce8bcbe57b2d45c012a0f20dbe56e",
+    "content_hash": "44a974ef09da0c71edff95d48d39b06a20dfce1df4145f149db2a20d248cc692",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "稻米",
-      "core_meaning_en": "a grain used as food",
-      "mental_model_cn": "稻米",
+      "core_meaning_cn": "稻米、大米；植物义为次级",
+      "core_meaning_en": "rice as the food grain, with the rice plant as a secondary branch",
+      "mental_model_cn": "稻米、大米；植物义为次级",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -22,7 +22,36 @@
     "review_signature": [],
     "secondary_senses": [],
     "semantic_neighbors": [],
-    "senses": [],
+    "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "米，米饭",
+        "definition_en": "the seeds of a plant used as food",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:rice:881909e6d3785146",
+        "sense_label_en": "the seeds of a plant used as food",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "稻",
+        "definition_en": "the plant that produces rice",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:rice:137b4cc184f05577",
+        "sense_label_en": "the plant that produces rice",
+        "sort_order": 1,
+        "transitivity": "nonverb"
+      }
+    ],
     "verification_summary": {
       "candidate_fact_count": 0,
       "deep_modules": {
@@ -44,31 +73,6 @@
   },
   "relation_refs": [],
   "reference_senses": [
-    {
-      "stable_sense_id": "sense:rice:137b4cc184f05577",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "稻",
-      "definition_en": "the plant that produces rice",
-      "semantic_key": "7aec44e85f74179660e5f474d9cc684ce83ae4f30dd2b35e6ea48413f30d6074",
-      "semantic_key_history": [
-        "a92450edbb93c38e6954f952a966f589c575ce553431cc95676a74cef917f63b"
-      ],
-      "legacy_aliases": [
-        "rice:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "rice:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11630,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
-    },
     {
       "stable_sense_id": "sense:rice:7cddd334a95c5966",
       "status": "deprecated",
@@ -93,38 +97,13 @@
       "source_row": 11631,
       "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:rice:881909e6d3785146",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "米，米饭",
-      "definition_en": "the seeds of a plant used as food",
-      "semantic_key": "293f1264d175d709435c83874c6efdaf3028002f2775190df3159170e00e2ab9",
-      "semantic_key_history": [
-        "0e5c1a8c5a2a5222bdfb8fb4094ee2ad28e5c607308665f02cc03a78af36af65"
-      ],
-      "legacy_aliases": [
-        "rice:l1:1"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "rice:l1:1",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 11632,
-      "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:rice:137b4cc184f05577",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11630,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
@@ -138,7 +117,7 @@
       },
       {
         "sense_id": "sense:rice:881909e6d3785146",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 11632,
         "source_path": "content/lexical/canonical/senses/shards/o4129-4160.json"
@@ -184,7 +163,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4153-4160.json",
-    "source_content_hash": "69304952b71aabfa59841c5b6b865de70b9ce8bcbe57b2d45c012a0f20dbe56e",
+    "source_content_hash": "44a974ef09da0c71edff95d48d39b06a20dfce1df4145f149db2a20d248cc692",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

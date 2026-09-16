@@ -7,7 +7,7 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "8f013a60a63c9d9ad5ea863ffd97dafa3dc36f1e32eb06bf8e71eff8de89702a",
+    "content_hash": "f7bbd55abc6d7e2179a74d715f2996166f2b37b2bfbba00edf7ccb6cc9d36547",
     "core_concept": {
       "core_clusters": [
         {
@@ -53,6 +53,15 @@
             ],
             "meaning_cn": "敬礼",
             "phrase": "give a salute"
+          },
+          {
+            "collocation_id": "collocation:5aea8615acaf1ea5a271",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:salute:b706b44d1d3b5c87:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "对某人/某事物的致敬",
+            "phrase": "a salute to sb/sth"
           }
         ],
         "confidence": "medium",
@@ -118,26 +127,26 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:dde292aa9fefd8963eda",
+            "collocation_id": "collocation:ddc97a310ff4c10810bc",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:salute:c20960235d355543:collocation:0"
+              "sense:salute:c20960235d355543:collocation:handoff-o1625-o1874"
             ],
             "meaning_cn": "向某人/某物致敬",
-            "phrase": "salute to + sb/sth"
+            "phrase": "salute sb/sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "行礼；致敬",
         "definition_en": "make a gesture of respect",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:salute:c20960235d355543",
         "sense_label_en": "make a gesture of respect",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vt"
       },
       {
         "collocations": [],
@@ -216,8 +225,9 @@
     "active_collocations": [
       "collocation:32b178c9cb8adf8e8811",
       "collocation:41678aa35302c783226f",
+      "collocation:5aea8615acaf1ea5a271",
       "collocation:82e565fb404357760f17",
-      "collocation:dde292aa9fefd8963eda"
+      "collocation:ddc97a310ff4c10810bc"
     ],
     "facts": [],
     "collocations": [
@@ -239,6 +249,16 @@
       {
         "id": "collocation:dde292aa9fefd8963eda",
         "source_row": 18787,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:5aea8615acaf1ea5a271",
+        "source_row": 21611,
+        "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:ddc97a310ff4c10810bc",
+        "source_row": 21612,
         "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
       }
     ],
@@ -273,7 +293,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4241-4248.json",
-    "source_content_hash": "8f013a60a63c9d9ad5ea863ffd97dafa3dc36f1e32eb06bf8e71eff8de89702a",
+    "source_content_hash": "f7bbd55abc6d7e2179a74d715f2996166f2b37b2bfbba00edf7ccb6cc9d36547",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

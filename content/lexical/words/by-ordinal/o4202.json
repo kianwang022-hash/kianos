@@ -7,12 +7,22 @@
     "card_version": "v1",
     "confusables": [],
     "constructions": [],
-    "content_hash": "138814963f7990cd778196ffec3c12c54f0b056d8516117521b4b3d8c11c300f",
+    "content_hash": "9da84005e14032823bf366f1100490ac75bf331581b778e5b14d849ad7b1c0c4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "腐烂的；恶臭的",
-      "core_meaning_en": "having decayed or disintegrated; usually implies foulness",
-      "mental_model_cn": "腐烂的；恶臭的",
+      "core_clusters": [
+        {
+          "label_cn": "腐烂的；恶臭的；很糟的；恶劣的（非正式）",
+          "label_en": "having decayed or disintegrated; usually implies foulness; very bad, unpleasant, or of poor quality (informal)",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:rotten:03468bf736c65877",
+            "sense:rotten:99232ffd9ad03ccf"
+          ]
+        }
+      ],
+      "core_meaning_cn": "腐烂的；非正式也可表示很糟、恶劣",
+      "core_meaning_en": "decayed/rotten; informally very bad or awful",
+      "mental_model_cn": "腐烂的；非正式也可表示很糟、恶劣",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +65,30 @@
         "sense_label_en": "having decayed or disintegrated; usually implies foulness",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:b186580634aaf764b6c7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:rotten:99232ffd9ad03ccf:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "糟糕的一天/坏运气",
+            "phrase": "a rotten day/luck"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "很糟的；恶劣的（非正式）",
+        "definition_en": "very bad, unpleasant, or of poor quality (informal)",
+        "governing_pattern": "",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:rotten:99232ffd9ad03ccf",
+        "sense_label_en": "very bad, unpleasant, or of poor quality (informal)",
+        "sort_order": 1,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -86,10 +120,18 @@
         "merged_into_sense_id": null,
         "source_row": 11781,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:rotten:99232ffd9ad03ccf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 11860,
+        "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
       }
     ],
     "active_collocations": [
       "collocation:2432b6727a4d3b0c01e7",
+      "collocation:b186580634aaf764b6c7",
       "collocation:b4e6ef9787e35a24dbb2"
     ],
     "facts": [],
@@ -102,6 +144,11 @@
       {
         "id": "collocation:b4e6ef9787e35a24dbb2",
         "source_row": 15329,
+        "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
+      },
+      {
+        "id": "collocation:b186580634aaf764b6c7",
+        "source_row": 21600,
         "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
       }
     ],
@@ -141,7 +188,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4201-4208.json",
-    "source_content_hash": "138814963f7990cd778196ffec3c12c54f0b056d8516117521b4b3d8c11c300f",
+    "source_content_hash": "9da84005e14032823bf366f1100490ac75bf331581b778e5b14d849ad7b1c0c4",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }

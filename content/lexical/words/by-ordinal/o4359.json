@@ -7,12 +7,23 @@
     "card_version": "v2",
     "confusables": [],
     "constructions": [],
-    "content_hash": "6d57f2ece6fdd4799e98c1b531b5be76bf50077a0c457a32898a181c9cd40dac",
+    "content_hash": "39cbb4457d9a999d0e874a8de84d70a3d77f23f69279ee6b89997f49e9042ef7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "环境或背景",
-      "core_meaning_en": "the context or environment in which something is placed or occurs",
-      "mental_model_cn": "环境或背景",
+      "core_clusters": [
+        {
+          "label_cn": "环境；背景；（设备、应用或系统的）设置、配置项或选定值；位置；镶嵌",
+          "label_en": "the context and environment in which something is set; a selected configuration, value, or option on a device, app, or system; the physical position of something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:setting:c783edf4c54a53d8",
+            "sense:setting:6ac95b8e4cc6eda3",
+            "sense:setting:a93aed55229450b2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "环境/背景；设备或应用设置；物理位置",
+      "core_meaning_en": "context/environment; a device or app setting; physical position",
+      "mental_model_cn": "环境/背景；设备或应用设置；物理位置",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,6 +99,30 @@
         "sense_label_en": "the physical position of something",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:197932ced05b1cefde98",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:setting:6ac95b8e4cc6eda3:collocation:handoff-o1625-o1874"
+            ],
+            "meaning_cn": "更改/查看设置",
+            "phrase": "change/check the settings"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（设备、应用或系统的）设置、配置项或选定值",
+        "definition_en": "a selected configuration, value, or option on a device, app, or system",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:setting:6ac95b8e4cc6eda3",
+        "sense_label_en": "a selected configuration, value, or option on a device, app, or system",
+        "sort_order": 3,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -157,10 +192,18 @@
         "merged_into_sense_id": null,
         "source_row": 12262,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:setting:6ac95b8e4cc6eda3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 12352,
+        "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
       }
     ],
     "active_collocations": [
       "collocation:0e129cca63d5a043da41",
+      "collocation:197932ced05b1cefde98",
       "collocation:43ebad5e050b70a49c91",
       "collocation:9a799ba02b066637e1d5",
       "collocation:db79e8f4d1785c3dc7c0"
@@ -185,6 +228,11 @@
       {
         "id": "collocation:db79e8f4d1785c3dc7c0",
         "source_row": 18573,
+        "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
+      },
+      {
+        "id": "collocation:197932ced05b1cefde98",
+        "source_row": 21422,
         "source_path": "content/lexical/canonical/collocations/shards/o4353-4384.json"
       }
     ],
@@ -219,7 +267,7 @@
   ],
   "provenance": {
     "source_word_shard": "content/lexical/canonical/words/shards/o4353-4360.json",
-    "source_content_hash": "6d57f2ece6fdd4799e98c1b531b5be76bf50077a0c457a32898a181c9cd40dac",
+    "source_content_hash": "39cbb4457d9a999d0e874a8de84d70a3d77f23f69279ee6b89997f49e9042ef7",
     "semantic_delta": 0,
     "materializer": "tools/lexical_natural_owner.py"
   }
